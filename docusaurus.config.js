@@ -6,11 +6,10 @@ const config = {
   tagline: 'Algo Mastery for Every Learner',
   favicon: 'img/logo.png',
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://ajay-dhangar.github.io',
   baseUrl: '/algo/',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'cmhq', 
+  projectName: 'algo', 
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -28,13 +27,15 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          // https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/
+        
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+            'https://github.com/Ajay-Dhangar/algo/tree/main/', 
+          },
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/Ajay-Dhangar/algo/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -46,7 +47,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
+      
       image: 'logo/logo-1.png',
       navbar: {
         title: 'Algo',
@@ -63,7 +64,7 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/Ajay-Dhangar/algo',
             label: 'GitHub',
             position: 'right',
           },
