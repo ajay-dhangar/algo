@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Algo Blog</title>
-        <link>https://your-docusaurus-site.example.com/algo/blog</link>
+        <link>https://ajay-dhangar.github.io/algo/blog</link>
         <description>Algo Blog</description>
         <lastBuildDate>Thu, 26 Aug 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,8 +10,8 @@
         <language>en</language>
         <item>
             <title><![CDATA[Welcome]]></title>
-            <link>https://your-docusaurus-site.example.com/algo/blog/welcome</link>
-            <guid>https://your-docusaurus-site.example.com/algo/blog/welcome</guid>
+            <link>https://ajay-dhangar.github.io/algo/blog/welcome</link>
+            <guid>https://ajay-dhangar.github.io/algo/blog/welcome</guid>
             <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
             <category>cmhq</category>
             <category>hello</category>
@@ -19,23 +19,23 @@
         </item>
         <item>
             <title><![CDATA[MDX Blog Post]]></title>
-            <link>https://your-docusaurus-site.example.com/algo/blog/mdx-blog-post</link>
-            <guid>https://your-docusaurus-site.example.com/algo/blog/mdx-blog-post</guid>
+            <link>https://ajay-dhangar.github.io/algo/blog/mdx-blog-post</link>
+            <guid>https://ajay-dhangar.github.io/algo/blog/mdx-blog-post</guid>
             <pubDate>Sun, 01 Aug 2021 00:00:00 GMT</pubDate>
             <category>algo</category>
         </item>
         <item>
             <title><![CDATA[Long Blog Post]]></title>
-            <link>https://your-docusaurus-site.example.com/algo/blog/long-blog-post</link>
-            <guid>https://your-docusaurus-site.example.com/algo/blog/long-blog-post</guid>
+            <link>https://ajay-dhangar.github.io/algo/blog/long-blog-post</link>
+            <guid>https://ajay-dhangar.github.io/algo/blog/long-blog-post</guid>
             <pubDate>Wed, 29 May 2019 00:00:00 GMT</pubDate>
             <category>hello</category>
             <category>algo</category>
         </item>
         <item>
             <title><![CDATA[First Blog Post]]></title>
-            <link>https://your-docusaurus-site.example.com/algo/blog/first-blog-post</link>
-            <guid>https://your-docusaurus-site.example.com/algo/blog/first-blog-post</guid>
+            <link>https://ajay-dhangar.github.io/algo/blog/first-blog-post</link>
+            <guid>https://ajay-dhangar.github.io/algo/blog/first-blog-post</guid>
             <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></description>
             <content:encoded><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content:encoded>

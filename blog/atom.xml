@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://your-docusaurus-site.example.com/algo/blog</id>
+    <id>https://ajay-dhangar.github.io/algo/blog</id>
     <title>Algo Blog</title>
     <updated>2021-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://your-docusaurus-site.example.com/algo/blog"/>
+    <link rel="alternate" href="https://ajay-dhangar.github.io/algo/blog"/>
     <subtitle>Algo Blog</subtitle>
-    <icon>https://your-docusaurus-site.example.com/algo/img/favicon.ico</icon>
+    <icon>https://ajay-dhangar.github.io/algo/logo/algo-3.png</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
-        <id>https://your-docusaurus-site.example.com/algo/blog/welcome</id>
-        <link href="https://your-docusaurus-site.example.com/algo/blog/welcome"/>
+        <id>https://ajay-dhangar.github.io/algo/blog/welcome</id>
+        <link href="https://ajay-dhangar.github.io/algo/blog/welcome"/>
         <updated>2021-08-26T00:00:00.000Z</updated>
         <author>
             <name>Ajay Dhangar</name>
@@ -22,8 +22,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[MDX Blog Post]]></title>
-        <id>https://your-docusaurus-site.example.com/algo/blog/mdx-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/algo/blog/mdx-blog-post"/>
+        <id>https://ajay-dhangar.github.io/algo/blog/mdx-blog-post</id>
+        <link href="https://ajay-dhangar.github.io/algo/blog/mdx-blog-post"/>
         <updated>2021-08-01T00:00:00.000Z</updated>
         <author>
             <name>Ajay Dhangar</name>
@@ -33,8 +33,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Long Blog Post]]></title>
-        <id>https://your-docusaurus-site.example.com/algo/blog/long-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/algo/blog/long-blog-post"/>
+        <id>https://ajay-dhangar.github.io/algo/blog/long-blog-post</id>
+        <link href="https://ajay-dhangar.github.io/algo/blog/long-blog-post"/>
         <updated>2019-05-29T00:00:00.000Z</updated>
         <author>
             <name>Ajay Dhangar</name>
@@ -45,8 +45,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>https://your-docusaurus-site.example.com/algo/blog/first-blog-post</id>
-        <link href="https://your-docusaurus-site.example.com/algo/blog/first-blog-post"/>
+        <id>https://ajay-dhangar.github.io/algo/blog/first-blog-post</id>
+        <link href="https://ajay-dhangar.github.io/algo/blog/first-blog-post"/>
         <updated>2019-05-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet]]></summary>
         <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
