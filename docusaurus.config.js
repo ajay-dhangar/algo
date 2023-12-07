@@ -4,7 +4,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const config = {
   title: 'Algo',
   tagline: 'Algo Mastery for Every Learner',
-  favicon: 'img/logo.png',
+  favicon: 'logo/algo-3.png',
 
   url: 'https://ajay-dhangar.github.io',
   baseUrl: '/algo/',
@@ -48,12 +48,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       
-      image: 'logo/logo-1.png',
+      image: '/',
       navbar: {
         title: 'Algo',
         logo: {
           alt: 'Algo Logo',
-          src: 'img/logo.png',
+          src: 'logo/algo.png',
         },
         items: [
           {
