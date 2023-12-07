@@ -5,6 +5,14 @@ title: Gateway to DSA Mastery!
 sidebar_label: Welcome to Algo
 ---
 
+import Authors from '../src/components/Authors'
+
+---
+
+<Authors names="@ajay-dhangar"/>
+
+---
+
 ## The Power of Algorithms and Data Structures
 
 Are you ready to embark on a journey of logic, problem-solving, and algorithmic brilliance? Welcome to Algo, your ultimate destination for mastering Data Structures and Algorithms (DSA). Whether you're a coding enthusiast, a student, or a professional looking to enhance your programming skills, Algo is here to guide you through the intricate world of DSA.

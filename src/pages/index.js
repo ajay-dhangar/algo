@@ -21,7 +21,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs">
-            Algo Tutorial - 5min ⏱️
+            Get Started DSA journey
           </Link>
         </div>
       </div>
