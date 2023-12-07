@@ -7,7 +7,11 @@ sidebar_label: Basics of arrays
 
 import Authors from '../../../src/components/Authors'
 
+---
+
 <Authors names="@ajay-dhangar"/>
+
+---
 
 ### Definition:
 

@@ -5,6 +5,13 @@ title: Introduction to Data Structures
 sidebar_label: Introduction
 ---
 
+import Authors from '../../src/components/Authors'
+
+---
+
+<Authors names="@ajay-dhangar"/>
+
+---
 
 ## 1. What are Data Structures?
 
