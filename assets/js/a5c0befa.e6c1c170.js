@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkalgo=self.webpackChunkalgo||[]).push([[368],{3712:a=>{a.exports=JSON.parse('{"label":"cmhq","permalink":"/algo/blog/tags/cmhq","allTagsPath":"/algo/blog/tags","count":1,"unlisted":false}')}}]);

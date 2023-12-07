@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkalgo=self.webpackChunkalgo||[]).push([[4340],{9634:l=>{l.exports=JSON.parse('{"permalink":"/algo/blog/tags/algo","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
