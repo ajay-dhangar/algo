@@ -4,7 +4,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 const config = {
   title: 'Algo',
   tagline: 'Algo Mastery for Every Learner',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
