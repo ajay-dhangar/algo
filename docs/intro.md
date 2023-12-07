@@ -1,8 +1,7 @@
 ---
-id: welcome-to-algo
 slug: /
 sidebar_position: 1
-title: Your Gateway to DSA Mastery!
+title: Gateway to DSA Mastery!
 sidebar_label: Welcome to Algo
 ---
 
