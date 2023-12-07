@@ -1,0 +1,11 @@
+.tutorial-tag-wrapper .tag {
+    background-color: rgb(23, 14, 87);
+    border-radius: 8px;
+    color: #e6e6e6;
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  .tutorial-tag-wrapper.contributors {
+    margin-top: 20px;
+  }  
