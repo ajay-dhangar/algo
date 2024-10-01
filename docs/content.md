@@ -6,13 +6,6 @@ sidebar_label: Contents
 ---
 
 import Authors from '../src/components/Authors'
-
----
-
-<Authors names="@ajay-dhangar"/>
-
----
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -112,3 +105,10 @@ import TabItem from '@theme/TabItem';
       ```
   </TabItem>
 </Tabs>
+
+
+---
+
+<Authors names="@ajay-dhangar"/>
+
+---

@@ -8,7 +8,7 @@ sidebar_label: Operations on arrays
 import Authors from '../../../src/components/Authors'
 
 ---
-<Authors names={["@ajay-dhangar", "@oebelus"]}/>
+<Authors names="@ajay-dhangar, @oebelus" />
 ---
 Let's explore some common operations performed on arrays.
 
