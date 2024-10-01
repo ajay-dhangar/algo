@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build Docusaurus
+    name: Build Algo
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
