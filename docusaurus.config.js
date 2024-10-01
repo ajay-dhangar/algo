@@ -1,4 +1,5 @@
 import { themes as prismThemes } from "prism-react-renderer";
+const path = require("path");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -121,6 +122,17 @@ const config = {
   markdown: {
     mermaid: true,
   },
+
+  plugins: [
+    [
+      path.join(__dirname, "/plugins/my-plugin"),
+      {
+        settings: "Some20settings",
+        api: "Some-API",
+        keys: "Some-keys",
+      },
+    ],
+  ],
 };
 
 export default config;
