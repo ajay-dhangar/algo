@@ -1,11 +1,30 @@
-.tutorial-tag-wrapper .tag {
-    background-color: rgb(23, 14, 87);
-    border-radius: 8px;
-    color: #e6e6e6;
-    padding: 5px;
-    margin: 5px;
-  }
-  
-  .tutorial-tag-wrapper.contributors {
-    margin-top: 20px;
-  }  
+.tutorial-tag-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.author-label {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.authors-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.author-tag {
+  background-color: rgb(23, 14, 87);
+  border-radius: 8px;
+  color: #e6e6e6;
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.tutorial-tag-wrapper.contributors {
+  margin-top: 20px;
+}

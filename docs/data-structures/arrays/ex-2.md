@@ -8,8 +8,9 @@ sidebar_label: Operations on arrays
 import Authors from '../../../src/components/Authors'
 
 ---
+
 <Authors names="@ajay-dhangar, @oebelus" />
----
+
 Let's explore some common operations performed on arrays.
 
 ## 1. Insertion
@@ -68,7 +69,7 @@ Traversal involves visiting each element of the array.
 
 ```javascript
 let arr = [1, 2, 3, 4, 5];
-arr.forEach(element => console.log(element));
+arr.forEach((element) => console.log(element));
 ```
 
 ## 5. Sorting
@@ -98,7 +99,7 @@ Filtering creates a new array with all elements that pass a certain condition.
 
 ```javascript
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let evenNumbers = arr.filter(num => num % 2 === 0);
+let evenNumbers = arr.filter((num) => num % 2 === 0);
 console.log(evenNumbers); // Output: [2, 4, 6, 8, 10]
 ```
 
@@ -108,7 +109,7 @@ Mapping creates a new array with the results of calling a provided function on e
 
 ```javascript
 let arr = [1, 2, 3, 4, 5];
-let squaredNumbers = arr.map(num => num * num);
+let squaredNumbers = arr.map((num) => num * num);
 console.log(squaredNumbers); // Output: [1, 4, 9, 16, 25]
 ```
 
@@ -118,6 +119,9 @@ Reducing executes a reducer function on each element of the array, resulting in 
 
 ```javascript
 let arr = [1, 2, 3, 4, 5];
-let sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+let sum = arr.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
 console.log(sum); // Output: 15
 ```
