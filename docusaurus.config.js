@@ -35,7 +35,7 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/Ajay-Dhangar/algo/tree/main/',
+            'https://github.com/ajay-dhangar/algo/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -64,7 +64,7 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/Ajay-Dhangar/algo',
+            href: 'https://github.com/ajay-dhangar/algo',
             label: 'GitHub',
             position: 'right',
           },
@@ -78,7 +78,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs/intro/',
               },
             ],
           },
