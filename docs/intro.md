@@ -1,5 +1,5 @@
 ---
-slug: /
+id: intro
 sidebar_position: 1
 title: Gateway to DSA Mastery!
 sidebar_label: Welcome to Algo
