@@ -9,7 +9,7 @@ import Authors from '../../../src/components/Authors'
 
 ---
 
-<Authors names="@ajay-dhangar"/>
+<Authors names={["@ajay-dhangar", "@oebelus"]}/>
 
 ---
 
