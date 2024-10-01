@@ -1,4 +1,4 @@
-# Algo - Open Source Algorithm Repository
+# [Algo](https://ajay-dhangar.github.io/algo/) - Open Source Algorithm Repository
 
 Welcome to **Algo**, an open-source project that provides developers with algorithmic solutions and resources. Whether you're a beginner or an experienced coder, you can contribute, learn, and grow with us! 🚀
 
