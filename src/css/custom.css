@@ -59,6 +59,13 @@
   color: #60a5fa; /* Lighter blue hover color in dark mode */
 }
 
+[data-theme='dark'] #__docusaurus_skipToContent_fallback {
+  background: linear-gradient(rgba(15, 23, 42, 0.796), rgba(15, 23, 42, 0.23));
+}
+
+a:hover {
+  text-decoration: none;
+}
 
 .footer{
   background-color: #001;
