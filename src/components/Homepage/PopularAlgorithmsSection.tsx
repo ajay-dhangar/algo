@@ -1,14 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from '@docusaurus/Link'; // Importing Docusaurus Link
 
 const PopularAlgorithmsSection: React.FC = () => {
   const algorithms = [
-    { title: "Binary Search", description: "Efficient searching in a sorted array" },
-    { title: "Merge Sort", description: "Divide and conquer sorting algorithm" },
-    { title: "Dijkstra's Algorithm", description: "Shortest path in weighted graphs" },
-    { title: "Quick Sort", description: "Efficient in-place sorting algorithm" },
-    { title: "Depth First Search", description: "Explore graph/tree depth-wise" },
-    { title: "Breadth First Search", description: "Explore graph/tree level-wise" },
+    { title: "Binary Search", description: "Efficient searching in a sorted array", link: "" },
+    { title: "Merge Sort", description: "Divide and conquer sorting algorithm", link: "" },
+    { title: "Dijkstra's Algorithm", description: "Shortest path in weighted graphs", link: "/docs/graphs" },
+    { title: "Quick Sort", description: "Efficient in-place sorting algorithm", link: "" },
+    { title: "Depth First Search", description: "Explore graph/tree depth-wise", link: "/docs/graphs" },
+    { title: "Breadth First Search", description: "Explore graph/tree level-wise", link: "/docs/graphs" },
   ];
 
   return (
@@ -22,7 +23,7 @@ const PopularAlgorithmsSection: React.FC = () => {
           {algorithms.map((algorithm, index) => (
             <motion.div
               key={index}
-              className="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-2xl"
+              className="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-2xl cursor-pointer" // Added cursor-pointer
               initial={{ scale: 1 }}
               whileHover={{ scale: 1.05 }} // Scale on hover
               whileTap={{ scale: 0.95 }} // Scale down on tap
@@ -30,7 +31,7 @@ const PopularAlgorithmsSection: React.FC = () => {
               <motion.div
                 className="absolute inset-0 border-2 border-transparent rounded-lg"
                 initial={{ borderColor: "transparent" }}
-                whileHover={{ borderColor: "#3b82f6" }} // Blue color on hover
+                whileHover={{ borderColor: "#3b82f6", backgroundColor: "#3b82f6" }} // Add blue background on hover
                 transition={{ duration: 0.3 }}
               />
               <div className="relative z-10">
@@ -40,6 +41,12 @@ const PopularAlgorithmsSection: React.FC = () => {
                 <p className="text-gray-600 dark:text-gray-300">
                   {algorithm.description}
                 </p>
+                <Link
+                  to={algorithm.link}
+                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition-colors duration-300 hover:bg-blue-700 hover:text-black"
+                >
+                  Learn More
+                </Link>
               </div>
             </motion.div>
           ))}
