@@ -1,5 +1,5 @@
 // import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
-// import AdsComponent from "@site/src/components/AdsComponent";
+import AdsComponent from "@site/src/components/AdsComponent";
 // import BrowserWindow from "@site/src/components/BrowserWindow";
 import ArrayVisualizations from "@site/src/components/DSA/arrays/ArrayVisualizations";
 import BubbleSortVisualization from "@site/src/components/DSA/arrays/BubbleSortVisualization";
@@ -28,5 +28,5 @@ export default {
 //   Image,
 //   LiteYouTubeEmbed,
 //   LinearSearchVisualizer,
-//   AdsComponent,
+  AdsComponent,
 };
