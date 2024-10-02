@@ -1,4 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
+// import remarkPlugin from 'remark-plugin';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 const path = require("path");
 
 /** @type {import('@docusaurus/types').Config} */
@@ -25,6 +28,8 @@ const config = {
           // https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/
 
           editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: {
           showReadingTime: true,

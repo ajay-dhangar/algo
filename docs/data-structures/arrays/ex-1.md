@@ -5,14 +5,6 @@ title: Intro the basics of arrays
 sidebar_label: Basics of arrays
 ---
 
-import Authors from '../../../src/components/Authors'
-
----
-
-<Authors names="@ajay-dhangar"/>
-
----
-
 ### Definition:
 
 An array is a fundamental data structure that stores a collection of elements, each identified by an index or a key. The elements are stored in contiguous memory locations, making it efficient to access, insert, or delete elements based on their position.
