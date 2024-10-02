@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
         {/* Call to Action Buttons */}
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
           <a
-            href="#explore"
+            href="https://ajay-dhangar.github.io/algo/docs/"
             className="px-6 py-3 text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition duration-300 ease-in-out"
           >
             Explore Algorithms
