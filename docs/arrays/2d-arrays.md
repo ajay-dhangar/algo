@@ -81,18 +81,6 @@ Two-dimensional arrays shine in various algorithmic problems and real-world appl
 
 Matrices are a classic use case for 2D arrays. Operations like addition, subtraction, and multiplication of matrices are performed using nested loops to iterate over the elements.
 
-Matrix Addition Pseudo-Code:
-
-```
-DECLARE matrixA[rowCount][columnCount]
-DECLARE matrixB[rowCount][columnCount]
-DECLARE matrixSum[rowCount][columnCount]
-
-FOR row FROM 0 TO rowCount - 1
-    FOR column FROM 0 TO columnCount - 1
-        matrixSum[row][column] = matrixA[row][column] + matrixB[row][column]
-```
-
 Matrix Addition in C++:
 
 ```cpp
