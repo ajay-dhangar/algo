@@ -1,89 +1,47 @@
-import React, { useState } from "react";
-
-const algorithms = [
-  {
-    name: "Binary Search",
-    description: "Efficiently find an item from a sorted list of items.",
-    complexity: "O(log n)",
-    // imageUrl: "/images/binary-search.png",
-  },
-  {
-    name: "Quick Sort",
-    description: "Sorts an array by partitioning it into smaller sub-arrays.",
-    complexity: "O(n log n)",
-    // imageUrl: "/images/quick-sort.png",
-  },
-  {
-    name: "Dijkstra's Algorithm",
-    description: "Finds the shortest path in a graph.",
-    complexity: "O(V^2)",
-    // imageUrl: "/images/dijkstra.png",
-  },
-  {
-    name: "Merge Sort",
-    description: "Divides the array into halves, sorts them, and merges them.",
-    complexity: "O(n log n)",
-    // imageUrl: "/images/merge-sort.png",
-  },
-  {
-    name: "Depth-First Search (DFS)",
-    description: "Explores as far as possible along each branch before backtracking.",
-    complexity: "O(V + E)",
-    // imageUrl: "/images/dfs.png",
-  },
-  {
-    name: "Breadth-First Search (BFS)",
-    description: "Explores all neighbors at the present depth before moving on to nodes at the next depth.",
-    complexity: "O(V + E)",
-    // imageUrl: "/images/bfs.png",
-  },
-];
+import React from "react";
+import { motion } from "framer-motion";
 
 const PopularAlgorithmsSection: React.FC = () => {
-  const [activeAlgorithm, setActiveAlgorithm] = useState<number | null>(null);
-
-  const toggleAlgorithm = (index: number) => {
-    setActiveAlgorithm(activeAlgorithm === index ? null : index);
-  };
+  const algorithms = [
+    { title: "Binary Search", description: "Efficient searching in a sorted array" },
+    { title: "Merge Sort", description: "Divide and conquer sorting algorithm" },
+    { title: "Dijkstra's Algorithm", description: "Shortest path in weighted graphs" },
+    { title: "Quick Sort", description: "Efficient in-place sorting algorithm" },
+    { title: "Depth First Search", description: "Explore graph/tree depth-wise" },
+    { title: "Breadth First Search", description: "Explore graph/tree level-wise" },
+  ];
 
   return (
     <section className="py-16 bg-gray-100 dark:bg-gray-900">
-      <div className="container mx-auto px-6 text-center">
-        {/* Section Title */}
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12">
-          Popular Algorithms
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
+          Popular <span className="text-blue-600 dark:text-yellow-400">Algorithms</span>
         </h2>
 
-        {/* Algorithms Card Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {algorithms.map((algorithm, index) => (
-            <div
-              key={algorithm.name}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 duration-300"
-              onClick={() => toggleAlgorithm(index)}
+            <motion.div
+              key={index}
+              className="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-2xl"
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.05 }} // Scale on hover
+              whileTap={{ scale: 0.95 }} // Scale down on tap
             >
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {algorithm.name}
+              <motion.div
+                className="absolute inset-0 border-2 border-transparent rounded-lg"
+                initial={{ borderColor: "transparent" }}
+                whileHover={{ borderColor: "#3b82f6" }} // Blue color on hover
+                transition={{ duration: 0.3 }}
+              />
+              <div className="relative z-10">
+                <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
+                  {algorithm.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-gray-600 dark:text-gray-300">
                   {algorithm.description}
                 </p>
-                {/* Show Complexity on Click */}
-                {activeAlgorithm === index && (
-                  <div className="mt-4 p-4 border-t border-gray-200 dark:border-gray-600">
-                    <p className="text-gray-700 dark:text-gray-200">
-                      <strong>Time Complexity:</strong> {algorithm.complexity}
-                    </p>
-                    {/* <img
-                      src={algorithm.imageUrl}
-                      alt={algorithm.name}
-                      className="mt-4 w-full h-auto rounded-lg"
-                    /> */}
-                  </div>
-                )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

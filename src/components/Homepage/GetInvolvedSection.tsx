@@ -4,22 +4,18 @@ const GetInvolvedSection: React.FC = () => {
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6 text-center">
-        {/* Section Title */}
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12">
-          Get Involved
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
+          Get Involved <span className="text-blue-600 dark:text-yellow-400">Today</span>
         </h2>
 
-        {/* Events Description */}
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
           Join our vibrant community and participate in various events and
           programs to enhance your skills, contribute to open-source, and meet
           like-minded individuals. Here’s how you can get involved!
         </p>
 
-        {/* Events and Programs List */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {/* Event 1 */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Hackathons
             </h3>
@@ -29,14 +25,14 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             <a
               href="#"
-              className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition hover:bg-blue-600"
+              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
             </a>
+            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
-          {/* Event 2 */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Workshops
             </h3>
@@ -46,14 +42,15 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             <a
               href="#"
-              className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition hover:bg-blue-600"
+              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
             </a>
+            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
           {/* Event 3 */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Community Meetups
             </h3>
@@ -63,14 +60,15 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             <a
               href="#"
-              className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition hover:bg-blue-600"
+              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
             </a>
+            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
           {/* Event 4 */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Mentorship Programs
             </h3>
@@ -80,14 +78,15 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             <a
               href="#"
-              className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition hover:bg-blue-600"
+              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
             </a>
+            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
           {/* Event 5 */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Online Courses
             </h3>
@@ -97,14 +96,14 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             <a
               href="#"
-              className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition hover:bg-blue-600"
+              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
             </a>
+            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
-          {/* Event 6 */}
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Open Source Contributions
             </h3>
@@ -114,10 +113,11 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             <a
               href="#"
-              className="inline-block bg-blue-500 text-white px-4 py-2 rounded transition hover:bg-blue-600"
+              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
             </a>
+            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
         </div>
       </div>

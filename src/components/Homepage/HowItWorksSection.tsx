@@ -1,57 +1,81 @@
-import React from "react";
+import React from 'react';
 
-const steps = [
+interface Step {
+  title: string;
+  description: string;
+  icon: JSX.Element;
+}
+
+const steps: Step[] = [
   {
-    number: "1",
-    title: "Choose an Algorithm",
-    description:
-      "Browse through our extensive list of algorithms. Each algorithm has detailed information and examples.",
+    title: '1. Choose Your Algorithm',
+    description: 'Select the algorithm you want to learn or implement from our vast library of options.',
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-12 w-12 text-indigo-500 dark:text-yellow-400"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16h8M8 12h8M8 8h8M8 4h8M6 4h2M6 16h2M6 12h2M6 8h2" />
+      </svg>
+    ),
   },
   {
-    number: "2",
-    title: "Read the Explanation",
-    description:
-      "Read through the explanation and understand the logic behind the algorithm. Pseudocode is also available for your reference.",
+    title: '2. Study the Solution',
+    description: 'Explore detailed solutions with multiple languages, complexity analysis, and interactive visuals.',
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-12 w-12 text-indigo-500 dark:text-yellow-400"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7-5 7 5-7 5-7-5zm0 8l7-5 7 5-7 5-7-5z" />
+      </svg>
+    ),
   },
   {
-    number: "3",
-    title: "Implement in Your Preferred Language",
-    description:
-      "Choose your preferred programming language and view the implementation. You can also try coding the algorithm yourself.",
-  },
-  {
-    number: "4",
-    title: "Test Your Knowledge",
-    description:
-      "Take quizzes and solve challenges related to the algorithm to reinforce your understanding and improve your coding skills.",
+    title: '3. Implement & Contribute',
+    description: 'Write your own solutions, test them, and contribute back to the community through open-source.',
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-12 w-12 text-indigo-500 dark:text-yellow-400"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+      </svg>
+    ),
   },
 ];
 
 const HowItWorksSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gray-900">
-      <div className="container mx-auto px-6 text-center">
-        {/* Section Title */}
-        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12">
-          How It Works
-        </h2>
+    <section className="py-16 bg-white dark:bg-gray-900">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
+            How <span className="text-indigo-500 dark:text-yellow-400">It Works</span>
+          </h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-400">
+            Follow these three simple steps to start learning, implementing, and contributing.
+          </p>
+        </div>
 
-        {/* Steps List */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-3">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300"
+              className="flex flex-col items-center text-center bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl"
             >
-              <h3 className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">
-                {step.number}
-              </h3>
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                {step.title}
-              </h4>
-              <p className="text-gray-600 dark:text-gray-300">
-                {step.description}
-              </p>
+              <div className="mb-6">{step.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">{step.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400">{step.description}</p>
             </div>
           ))}
         </div>
