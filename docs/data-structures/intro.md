@@ -5,14 +5,6 @@ title: Introduction to Data Structures
 sidebar_label: Introduction
 ---
 
-import Authors from '../../src/components/Authors'
-
----
-
-<Authors names="@ajay-dhangar"/>
-
----
-
 ## 1. What are Data Structures?
 
 Data structures are a fundamental concept in computer science that provide a systematic way to organize and store data to perform operations efficiently. Think of data structures as containers that hold and organize data, allowing for easy manipulation and retrieval. There are various types of data structures, each designed for specific tasks and operations.
@@ -20,12 +12,21 @@ Data structures are a fundamental concept in computer science that provide a sys
 **Let's explore a few common data structures:**
 
 ### Arrays: 
-An array is a collection of elements, each identified by an index or a key. It allows for easy access to elements based on their position. For example, in Python:
+An array is a collection of elements, each identified by an index or a key. It allows for easy access to elements based on their position. 
 
 ```js title="index.js"
-let numbers = [1, 2, 3, 4, 5]
-console.log(numbers[2])  # Output: 3
+// Example of an array in JavaScript
+const numbers = [1, 2, 3, 4, 5];
+
+console.log(numbers[0]); // Output: 1
+console.log(numbers[2]); // Output: 3
 ```
+
+Arrays are widely used due to their simplicity and efficiency in accessing elements. However, they have a fixed size and can be inefficient for inserting or deleting elements in the middle.
+
+**1. Array Visualizations:** Now let's visualize how arrays work. In the following example, we have an array of integers and we need find lowest value in the array.
+
+<ArrayVisualizations />
 
 ### Linked Lists:
 A linked list is a linear collection of nodes, where each node points to the next one in the sequence. It's particularly useful when the size of the data is unknown beforehand.

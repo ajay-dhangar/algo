@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@docusaurus/core": "3.0.0",
+    "@docusaurus/plugin-content-blog": "^3.5.2",
+    "@docusaurus/plugin-content-docs": "^3.5.2",
     "@docusaurus/preset-classic": "3.0.0",
     "@docusaurus/theme-mermaid": "^3.0.0",
     "@heroicons/react": "^2.1.5",
@@ -25,7 +27,9 @@
     "prism-react-renderer": "^2.1.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-icons": "^5.3.0"
+    "react-icons": "^5.3.0",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.0.0",

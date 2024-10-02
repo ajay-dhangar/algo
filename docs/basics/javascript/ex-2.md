@@ -5,12 +5,6 @@ title: Data Type in JavaScript
 sidebar_label: Data Type in JS
 ---
 
-import Authors from '../../../src/components/Authors'
-
----
-<Authors names="@ajay-dhangar"/>
----
-
 ## 1. **Primitive Data Types:**
    These are the basic building blocks of data.
 

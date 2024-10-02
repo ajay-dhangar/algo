@@ -5,12 +5,6 @@ title: Variables in JavaScript
 sidebar_label: Variables in JS
 ---
 
-import Authors from '../../../src/components/Authors'
-
----
-<Authors names="@ajay-dhangar"/>
----
-
 Hey, everyone! I'm Ajay Dhangar, and today we're delving into a fundamental concept in JavaScript – Variables. Whether you're a beginner or seeking a refresher, this comprehensive guide will provide you with a solid understanding of JavaScript variables. Let's jump right in!
 
 ## 1. What are Variables?

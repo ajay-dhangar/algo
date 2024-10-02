@@ -5,7 +5,6 @@ title: Table Of Contents
 sidebar_label: Contents
 ---
 
-import Authors from '../src/components/Authors'
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -106,9 +105,3 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-
----
-
-<Authors names="@ajay-dhangar"/>
-
----
