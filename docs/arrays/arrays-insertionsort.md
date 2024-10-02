@@ -95,9 +95,7 @@ Consider an array `arr = [12, 11, 13, 5, 6]` that we want to sort in ascending o
 
 You can visualize the Insertion Sort algorithm using the following animation:
 
-<div style={{padding: "10px 50px"}}>
-    <InsertionSortVisualization />
-</div>
+  <InsertionSortVisualization />
 
 You can select the Insertion Sort algorithm from the drop-down menu and visualize how it works on different arrays.
 
