@@ -7,6 +7,8 @@ description: "Bubble Sort is a simple sorting algorithm that repeatedly steps th
 tags: [dsa, arrays, sorting, bubble-sort, algorithm of bubble-sort, pseudocode of bubble-sort, complexity of bubble-sort, example of bubble-sort, live example of bubble-sort, explanation of bubble-sort, quiz of bubble-sort, conclusion of bubble-sort]
 ---
 
+<AdsComponent />
+
 **Bubble Sort** is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller elements <mark>bubble</mark> to the top of the list. Although the algorithm is simple, it is too slow and impractical for most problems even when compared to <mark>insertion sort</mark>. It can be practical if the input is usually in sorted order but may occasionally have some out-of-order elements nearly in position.
 
 
@@ -39,6 +41,8 @@ procedure bubbleSort( A : list of sortable items )
     until not swapped
 end procedure
 ```
+
+<AdsComponent />
 
 ## Diagram
 
@@ -132,6 +136,8 @@ In the above example, we have an array of numbers `[64, 34, 25, 12, 22, 11, 90]`
 Change the array values and see how the bubble sort algorithm sorts the array.
 :::
 
+<AdsComponent />
+
 :::tip 📝 Note
 Bubble sort is not a practical sorting algorithm when the input is large. It is not suitable for large datasets due to its O(n<sup>2</sup>) time complexity.
 
@@ -156,6 +162,7 @@ Bubble sort is not an efficient algorithm for large datasets and is generally no
 
 Insertion Sort, Selection Sort, Merge Sort, Quick Sort, etc.
 
+<AdsComponent />
 
 ## Quiz
 

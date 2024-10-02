@@ -8,6 +8,8 @@ slug: /
 
 Algo is your gateway to mastering Data Structures and Algorithms (DSA). Whether you're a coding enthusiast, a student, or a professional looking to enhance your programming skills, Algo is here to guide you through the intricate world of DSA.
 
+<AdsComponent />
+
 ## What Sets Algo Apart?
 
 ### Comprehensive Learning Pathways
