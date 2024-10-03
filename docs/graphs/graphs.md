@@ -373,6 +373,8 @@ public void DFS(ArrayList<ArrayList<Integer>> adj, int s, boolean[] visited){
 Input :
 ```plaintext
 {{1,4},{2},{3},{},{5,6},{4,6},{4,5}}
+0
+{false,false,false,false,false,false,false,}
 ```
 Output:
 ```plaintext
