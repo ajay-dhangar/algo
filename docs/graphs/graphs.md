@@ -299,3 +299,46 @@ Additionally, there are various other operations that can be performed on graphs
 Graphs can also be implemented in other programming languages like Java and C++. The implementation follows similar approaches using either an adjacency matrix or an adjacency list.
 
 Overall, understanding graphs and their implementations is crucial for solving problems that involve relationships and connectivity between entities.
+
+## Breadth-First-Search (BFS)
+
+Breadth First Search (BFS) is a fundamental graph traversal algorithm. It begins with a node, then first traverses all its adjacent. Once all adjacent are visited, then their adjacent are traversed.
+
+Steps for BFS of a Graph : 
+The algorithm starts from a given source and explores all reachable vertices from the given source. Graphs may contain cycles, so we may come to the same node again. To avoid processing a node more than once, we use a boolean visited array.
+1) While the queue is not empty:
+     Remove a node from the queue and visit it.
+     For each unvisited neighbor of the removed node:
+          Add the neighbor into the queue.
+          Mark the neighbor as visited.
+2) When the queue is empty the algorithm terminates.
+
+Implementation:
+
+Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+                  2) s - source node
+
+public void bfsOfGraph(ArrayList<ArrayList<Integer>> adj, int s) {
+
+        Queue<Integer> q=new LinkedList<Integer>();
+        boolean[] visited=new boolean[V];
+        q.add(s);
+        visited[s]=true;
+        while(q.isEmpty()==false){
+            int val=q.poll();
+            System.out.print(val+" ");
+            for(int v:adj.get(u)){
+                 if(visited[v]==false){
+                      visited[v]=true;
+                      q.add(v);
+                 }
+            }     
+        }
+}
+
+Input: 
+{{1,2},{},{3,4},{},{}}
+0
+
+Output :
+0 1 2 3 4
