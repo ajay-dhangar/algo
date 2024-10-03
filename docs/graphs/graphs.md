@@ -313,11 +313,11 @@ The algorithm starts from a given source and explores all reachable vertices fro
           Mark the neighbor as visited.
 2) When the queue is empty the algorithm terminates.
 
-Implementation:
+Implementation in Java:
 
 Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
                   2) s - source node
-
+```java
 public void bfsOfGraph(ArrayList<ArrayList<Integer>> adj, int s) {
         Queue<Integer> q=new LinkedList<Integer>();
         boolean[] visited=new boolean[V];
@@ -334,10 +334,13 @@ public void bfsOfGraph(ArrayList<ArrayList<Integer>> adj, int s) {
             }     
         }
 }
-
-Input: 
+```
+Input:
+```plaintext
 {{1,2},{},{3,4},{},{}}
 0
-
+```
 Output :
+```plaintext
 0 1 2 3 4
+```
