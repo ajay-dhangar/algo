@@ -23,27 +23,27 @@ const PopularAlgorithmsSection: React.FC = () => {
           {algorithms.map((algorithm, index) => (
             <motion.div
               key={index}
-              className="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-2xl cursor-pointer" // Added cursor-pointer
+              className="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group" // Added cursor-pointer
               initial={{ scale: 1 }}
               whileHover={{ scale: 1.05 }} // Scale on hover
               whileTap={{ scale: 0.95 }} // Scale down on tap
             >
               <motion.div
-                className="absolute inset-0 border-2 border-transparent rounded-lg"
+                className="absolute inset-0 border-2 border-transparent rounded-lg "
                 initial={{ borderColor: "transparent" }}
-                whileHover={{ borderColor: "#3b82f6", backgroundColor: "#3b82f6" }} // Add blue background on hover
+                whileHover={{ borderColor: "#3b82f6"  }} // Add blue background on hover
                 transition={{ duration: 0.3 }}
               />
-              <div className="relative z-10">
-                <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
+              <div className="relative z-10 ">
+                <h3 className="text-2xl font-semibold text-gray-800 dark:text-white group-hover:text-white mb-4">
                   {algorithm.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 group-hover:text-slate-50 ">
                   {algorithm.description}
                 </p>
                 <Link
                   to={algorithm.link}
-                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition-colors duration-300 hover:bg-blue-700 hover:text-black"
+                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition-colors duration-300 group-hover:bg-white group-hover:text-blue-700"
                 >
                   Learn More
                 </Link>
