@@ -94,12 +94,12 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li className="list-none">
-              <Link to="#" className="hover:text-white transition duration-200">
+              <Link to="/about/" className="hover:text-white transition duration-200">
                 About Us
               </Link>
             </li>
             <li className="list-none">
-              <Link to="#" className="hover:text-white transition duration-200">
+              <Link to="/contact/" className="hover:text-white transition duration-200">
                 Contact
               </Link>
             </li>
