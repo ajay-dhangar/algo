@@ -344,3 +344,37 @@ Output :
 ```plaintext
 0 1 2 3 4
 ```
+
+## Depth First Search (DFS) 
+
+Depth First Traversal (DFS) for a graph, we traverse all adjacent one by one, when we traverse an adjacent, we finish traversal of all vertices reachable through the adjacent completely. After we finish one adjacent and its reachable, we go to the next adjacent and finish all reachable through next and continue this way.
+
+Steps for DFS of a Graph :
+1) Initaialize visited array.
+2) Mark the node s as visited.
+3) For each unvisited neighbor of the s:
+          call the dfs function for the neighbor
+
+Implementation in Java:
+
+Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+                  2) s - source node
+                  3) Boolean array named 'visited'
+```java
+public void DFS(ArrayList<ArrayList<Integer>> adj, int s, boolean[] visited){
+     visited[s]=true;
+     System.out.print(s+" ");
+     for(int u : adj.get(s)){
+          if(visited[u]==false)
+               DFS(adj,u,visited);
+     }
+}
+```
+Input :
+```plaintext
+{{1,4},{2},{3},{},{5,6},{4,6},{4,5}}
+```
+Output:
+```plaintext
+0 1 2 3 4 5 6
+```
