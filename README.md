@@ -6,6 +6,10 @@ Welcome to **Algo**, an open-source project that provides developers with algori
 
 Algo provides a collection of well-documented algorithmic solutions written in various programming languages, covering a range of topics like sorting, searching, dynamic programming, and more.
 
+### Pick up Topics
+
+- [DSA Roadmap](https://roadmap.sh/datastructures-and-algorithms)
+
 We aim to:
 - Create an extensive library of algorithms in different languages
 - Help developers learn algorithmic problem-solving
