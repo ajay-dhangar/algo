@@ -374,9 +374,12 @@ Input :
 ```plaintext
 {{1,4},{2},{3},{},{5,6},{4,6},{4,5}}
 0
-{false,false,false,false,false,false,false,}
+{false,false,false,false,false,false,false}
 ```
 Output:
 ```plaintext
 0 1 2 3 4 5 6
 ```
+
+## Topological Sorting (Kahn's Algorithm)
+
