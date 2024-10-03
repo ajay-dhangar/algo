@@ -319,7 +319,6 @@ Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list represen
                   2) s - source node
 
 public void bfsOfGraph(ArrayList<ArrayList<Integer>> adj, int s) {
-
         Queue<Integer> q=new LinkedList<Integer>();
         boolean[] visited=new boolean[V];
         q.add(s);
