@@ -12,6 +12,7 @@ import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import { FaReact } from "react-icons/fa";
 // import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import GiscusComponent from "../components/GiscusComponent";
 
 export default {
   // Re-use the default mapping
@@ -29,4 +30,5 @@ export default {
 //   LiteYouTubeEmbed,
 //   LinearSearchVisualizer,
   AdsComponent,
+  GiscusComponent,
 };
