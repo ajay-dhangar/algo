@@ -4,12 +4,12 @@ import Link from '@docusaurus/Link'; // Importing Docusaurus Link
 
 const PopularAlgorithmsSection: React.FC = () => {
   const algorithms = [
-    { title: "Binary Search", description: "Efficient searching in a sorted array", link: "" },
-    { title: "Merge Sort", description: "Divide and conquer sorting algorithm", link: "" },
-    { title: "Dijkstra's Algorithm", description: "Shortest path in weighted graphs", link: "/docs/graphs" },
-    { title: "Quick Sort", description: "Efficient in-place sorting algorithm", link: "" },
-    { title: "Depth First Search", description: "Explore graph/tree depth-wise", link: "/docs/graphs" },
-    { title: "Breadth First Search", description: "Explore graph/tree level-wise", link: "/docs/graphs" },
+    { title: "Binary Search", description: "Efficient searching in a sorted array", link: "#" },
+    { title: "Merge Sort", description: "Divide and conquer sorting algorithm", link: "#" },
+    { title: "Dijkstra's Algorithm", description: "Shortest path in weighted graphs", link: "#" },
+    { title: "Quick Sort", description: "Efficient in-place sorting algorithm", link: "#" },
+    { title: "Depth First Search", description: "Explore graph/tree depth-wise", link: "#" },
+    { title: "Breadth-First Search", description: "Explore graph/tree level-wise", link: "#" },
   ];
 
   return (
