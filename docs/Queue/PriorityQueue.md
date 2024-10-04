@@ -11,7 +11,7 @@ tags: [dsa, data-structures, PriorityQueue]
 
 A priority queue is an abstract data type that operates similarly to a regular queue or stack, but each element is assigned a priority. In a priority queue, elements are served based on their priority rather than the order in which they were added. This means that elements with higher priority are processed before those with lower priority.
 
-![alt text](image.png)
+![alt text](Priority-queue.png)
 
 ### Priority Queue Operations
 
