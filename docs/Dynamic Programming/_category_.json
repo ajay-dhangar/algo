@@ -1,8 +1,0 @@
-{
-  "label": "Dynamic Programming",
-  "position": 16,
-  "link": {
-    "type": "generated-index",
-    "description": "Dynamic Programming is a powerful technique used in algorithm design to solve complex problems by breaking them down into simpler subproblems. It is particularly effective for optimization problems where the solution can be constructed from solutions to subproblems. Dynamic Programming is commonly used in various fields, including computer science, operations research, and economics, and is characterized by overlapping subproblems and optimal substructure."
-  }
-}
