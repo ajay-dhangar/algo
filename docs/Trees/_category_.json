@@ -1,8 +1,0 @@
-{
-  "label": "Trees",
-  "position": 13,
-  "link": {
-    "type": "generated-index",
-    "description": "In data structures and algorithms (DSA), a tree is a hierarchical data structure consisting of nodes connected by edges. It is a nonlinear data structure that represents a set of elements in a hierarchical manner, with one node being designated as the root and the remaining nodes forming subtrees."
-  }
-}

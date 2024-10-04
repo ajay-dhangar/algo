@@ -1,8 +1,0 @@
-{
-  "label": "String",
-  "position": 8,
-  "link": {
-    "type": "generated-index",
-    "description": "In data structures, a string is a sequence of characters used to represent text. Strings are commonly used for storing and manipulating textual data in computer programs. They can be manipulated using various operations like concatenation, substring extraction, and comparison."
-  }
-}

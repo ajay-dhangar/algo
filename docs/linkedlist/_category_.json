@@ -1,8 +1,0 @@
-{
-  "label": "LinkedList",
-  "position": 9,
-  "link": {
-    "type": "generated-index",
-    "description": "In data structures, Linked List is basically chains of nodes where each node contains information such as data and a pointer to the next node in the chain. It is a popular data structure with a wide range of real-world applications. In this article, we will provide a complete introduction of Linked List, which will help you tackle any problem based on Linked List."
-  }
-}

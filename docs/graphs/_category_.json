@@ -1,8 +1,0 @@
-{
-  "label": "Graphs",
-  "position": 14,
-  "link": {
-    "type": "generated-index",
-    "description": "Graphs are a data structure that represents a collection of interconnected nodes or vertices. They are commonly used in Data Structures and Algorithms (DSA) to model relationships between objects or entities."
-  }
-}
