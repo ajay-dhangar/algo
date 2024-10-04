@@ -18,7 +18,7 @@ Stacks are widely used in various computing applications, including:
 - **Backtracking Algorithms**: Navigating through potential paths in maze-solving or puzzle games.
 - **Undo Mechanisms**: Implementing undo features in text editors and other applications.
 
-![alt text](Stack.png)
+![alt text](Introduction_to_Stack.png)
 
 ### Stack Operations
 
