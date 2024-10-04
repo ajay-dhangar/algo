@@ -9,7 +9,7 @@ tags: [time complexity, big o notation, algorithm, complexity analysis, data str
 
 Time Complexity is a measure of the amount of time an algorithm takes to solve a problem as a function of the size of the input to the problem. It is commonly estimated by counting the number of elementary operations performed by the algorithm, where an elementary operation takes a fixed amount of time to perform.
 
-<AdsComponent />
+<AdsComponent adSlot="3270832720" />
 
 ## Why is Time Complexity Important?
 
@@ -23,7 +23,7 @@ The most common notations used to represent the time complexity of an algorithm 
 - **Omega Notation (Ω):** It represents the lower bound of the time complexity of an algorithm. It gives the best-case time complexity of an algorithm.
 - **Theta Notation (Θ):** It represents the average-case time complexity of an algorithm. It gives the tight bound of the time complexity of an algorithm.
 
-<AdsComponent />
+<AdsComponent adSlot="5461416177" />
 
 ### Big O Notation (O)
 
@@ -47,7 +47,7 @@ Theta Notation is used to represent the average-case time complexity of an algor
 
 The Theta Notation is written as `Θ(f(n))`, where `f(n)` is a function that represents the time complexity of the algorithm. It is read as "Theta of f of n".
 
-<AdsComponent />
+<AdsComponent adSlot="3270832720" />
 
 ## Examples of Time Complexity
 
@@ -71,7 +71,7 @@ Here are some examples of time complexity for different algorithms:
 - **Exponential Factorial Exponential Time (O(2^n!^2^n)):** An algorithm that takes time proportional to an exponential function of the factorial of an exponential function of the size of the input.
 - **Exponential Exponential Factorial Time (O(2^2^n!)):** An algorithm that takes time proportional to an exponential function of an exponential function of the factorial of the size of the input.
 
-<AdsComponent />
+<AdsComponent adSlot="5461416177" />
 
 ## Analyzing Time Complexity
 
@@ -303,7 +303,7 @@ Each of the above code snippets has a time complexity of `O(n)` because the numb
 
 **Exlpanation:** The time complexity of the given code is `O(n)` because the loop iterates through the array elements one by one, and the number of iterations is directly proportional to the size of the input array. Therefore, the time complexity is linear, i.e., `O(n)`.
 
-<AdsComponent />
+<AdsComponent adSlot="3270832720" />
 
 :::info 
 **Note:** The time complexity of an algorithm can be different for different programming languages, but the underlying logic and analysis remain the same. 
