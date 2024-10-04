@@ -7,6 +7,8 @@ sidebar_label: Operator in JS
 
 Operators are symbols that perform operations on operands. JavaScript supports various types of operators, including arithmetic, assignment, comparison, logical, and more. Let's explore some common operators used in JavaScript:
 
+<AdsComponent adSlot="3270832720" />
+
 ## 1. **Arithmetic Operators:**
 
 Arithmetic operators are used to perform mathematical calculations.
@@ -51,6 +53,8 @@ The modulus operator returns the remainder of the division operation.
 let remainder = 15 % 4; // remainder = 3
 ```
 
+<AdsComponent adSlot="5461416177" />
+
 ## 2. **Assignment Operators:**
 
 Assignment operators are used to assign values to variables.
@@ -80,6 +84,8 @@ The subtraction assignment operator subtracts the value on the right from the va
 let z = 10;
 z -= 2; // z = 8
 ```
+
+<AdsComponent adSlot="3270832720" />
 
 ## 3. **Comparison Operators:**
 
@@ -125,6 +131,8 @@ The less than operator checks if the left operand is less than the right operand
 let isLessThan = 5 < 10; // isLessThan = true
 ```
 
+<AdsComponent adSlot="5461416177" />
+
 ## 4. **Logical Operators:**
 
 Logical operators are used to combine multiple conditions.
@@ -161,6 +169,8 @@ let condition = true;
 let result = !condition; // result = false
 ```
 
+<AdsComponent adSlot="3270832720" />
+
 ## 5. **Ternary Operator:**
 
 The ternary operator is a shorthand for an `if...else` statement.
@@ -193,6 +203,8 @@ let count = 5;
 count++; // count = 6
 count--; // count = 5
 ```
+
+<AdsComponent adSlot="5461416177" />
 
 ## 8. **Bitwise Operators:**
 
@@ -254,6 +266,8 @@ Shifts the bits of a number to the right, filling the leftmost bits with zeros.
 let result = 5 >>> 1; // result = 2
 ```
 
+<AdsComponent adSlot="3270832720" />
+
 ## 9. **Conditional Operator:**
 
 The conditional operator (`?:`) is a ternary operator that evaluates a condition and returns one of two values based on the result.
@@ -263,6 +277,8 @@ let age = 20;
 
 let message = age >= 18 ? 'You can vote' : 'You are too young to vote';
 ```
+
+<AdsComponent adSlot="3270832720" />
 
 ## 10. **Comma Operator:**
 
@@ -315,6 +331,8 @@ let date = new Date();
 
 let isDate = date instanceof Date; // isDate = true
 ```
+
+<AdsComponent adSlot="5461416177" />
 
 ## More Resources:
 

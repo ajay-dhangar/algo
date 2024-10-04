@@ -5,6 +5,10 @@ title: Data Type in JavaScript
 sidebar_label: Data Type in JS
 ---
 
+Data types are an essential concept in programming languages like JavaScript. They define the type of data that can be stored and manipulated in a program. Understanding data types is crucial for writing efficient and bug-free code. Let's explore the different data types in JavaScript:
+
+<AdsComponent adSlot="3270832720" />
+
 ## 1. **Primitive Data Types:**
    These are the basic building blocks of data.
 
@@ -65,6 +69,8 @@ sidebar_label: Data Type in JS
        isStudent: false
    };
    ```
+
+<AdsComponent adSlot="5461416177" />
 
 ## 3. **Special Data Types:**
    ### Function:
