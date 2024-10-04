@@ -1,9 +1,0 @@
-{
-    "label": "Matrix",
-    "position": 9,
-    "link": {
-      "type": "generated-index",
-      "description": "In data structures and algorithms (DSA), a matrix is a two-dimensional array consisting of rows and columns. It is often used to represent a grid-like structure or a table of values. Matrices are commonly used in various algorithms and mathematical operations, such as matrix multiplication, graph algorithms, image processing, and more. They provide a convenient way to organize and manipulate data in a structured manner."
-    }
-  }
-  

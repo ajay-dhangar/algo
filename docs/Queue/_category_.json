@@ -1,8 +1,0 @@
-{
-  "label": "Queue",
-  "position": 11,
-  "link": {
-    "type": "generated-index",
-    "description": "A queue is a data structure that follows the First-In-First-Out (FIFO) principle. It is similar to a real-life queue, where the first person to join the queue is the first one to be served. In programming, a queue allows you to add elements to the end and remove elements from the front. This makes it useful for implementing algorithms that require a FIFO ordering, such as breadth-first search. Queues are commonly used in operating systems, networking, and other areas of computer science."
-  }
-}

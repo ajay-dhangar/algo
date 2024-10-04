@@ -1,8 +1,0 @@
-{
-  "label": "Stack",
-  "position": 12,
-  "link": {
-    "type": "generated-index",
-    "description": "Stack is a linear data structure that follows LIFO principle"
-  }
-}
