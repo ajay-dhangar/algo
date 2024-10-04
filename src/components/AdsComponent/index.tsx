@@ -6,8 +6,6 @@ declare global {
   }
 }
 
-let isAdScriptLoaded = false;
-
 const AdUnit: React.FC<{ adSlot: string }> = ({ adSlot }) => (
   <ins
     className="adsbygoogle"
@@ -29,12 +27,6 @@ const AdsComponent: React.FC<{ adSlot: string }> = ({ adSlot }) => {
       }
     }
   }, [adSlot]);
-
-  useEffect(() => {
-    if (!isAdScriptLoaded) {
-      isAdScriptLoaded = true;
-    }
-  }, []);
 
   return (
     <>
