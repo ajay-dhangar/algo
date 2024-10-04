@@ -16,6 +16,7 @@ In this guide, we will cover the fundamentals of two-dimensional arrays, their a
 A two-dimensional array is an array that consists of a collection of elements arranged in rows and columns. Each element can be accessed using two indices – one representing the row and the other representing the column.
 
 ### Representation:
+
 - A two-dimensional array can be visualized as:
   ```plaintext
   [a11, a12, a13]
@@ -28,6 +29,7 @@ Here, each row is an individual array, and all rows combined form the 2D array.
 ## 2. Declaration and Initialization of 2D Arrays
 
 ### Declaration:
+
 In most programming languages, a 2D array is declared by specifying the number of rows and columns. For example, in C++:
 
 ```cpp title="C++"
@@ -41,6 +43,7 @@ arr = [[0] * 4 for _ in range(3)]  # Creates a 3x4 matrix filled with zeros
 ```
 
 ### Initialization:
+
 2D arrays can be initialized at the time of declaration:
 
 ```cpp title="C++"
@@ -84,6 +87,7 @@ for (int i = 0; i < rows; i++) {
 ```
 
 ### Example in Python:
+
 ```python
 for row in arr:
     for element in row:
@@ -96,7 +100,9 @@ for row in arr:
 ## 5. Common Operations on 2D Arrays
 
 ### a. Matrix Addition
+
 Two matrices of the same dimensions can be added element-wise.
+
 ```cpp
 for (int i = 0; i < rows; i++) {
     for (int j = 0; j < columns; j++) {
@@ -106,7 +112,9 @@ for (int i = 0; i < rows; i++) {
 ```
 
 ### b. Matrix Multiplication
+
 Matrix multiplication is performed by multiplying the rows of the first matrix by the columns of the second matrix.
+
 ```cpp
 for (int i = 0; i < rowsA; i++) {
     for (int j = 0; j < colsB; j++) {
@@ -119,7 +127,9 @@ for (int i = 0; i < rowsA; i++) {
 ```
 
 ### c. Transposing a Matrix
+
 Transposing a matrix involves flipping its rows and columns.
+
 ```cpp
 for (int i = 0; i < rows; i++) {
     for (int j = 0; j < columns; j++) {
@@ -143,15 +153,19 @@ for (int i = 0; i < rows; i++) {
 ## 7. Example Problems
 
 ### Problem 1: Rotating a Matrix by 90 Degrees
+
 Given a `n x n` matrix, rotate the matrix by 90 degrees clockwise.
 
 ### Problem 2: Spiral Matrix Traversal
+
 Given a matrix, print the elements in a spiral order starting from the top-left corner.
 
 ### Problem 3: Find the Largest Island
+
 Given a binary matrix where `1` represents land and `0` represents water, find the largest connected land mass (island).
 
 ### Problem 4: Matrix Multiplication
+
 Write a program to multiply two matrices of dimensions `m x n` and `n x p`.
 
 ---
