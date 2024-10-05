@@ -1,5 +1,6 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin,} from "react-icons/fa";
+import {FaXTwitter} from 'react-icons/fa6';
 import Link from "@docusaurus/Link";
 
 const Footer: React.FC = () => {
@@ -82,7 +83,7 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition duration-200"
             >
-              <FaTwitter className="w-6 h-6" />
+              <FaXTwitter className="w-6 h-6" />
             </Link>
           </div>
         </div>
