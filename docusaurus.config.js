@@ -24,9 +24,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: "./sidebars.js",
-          // https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/
-
+          sidebarPath: "./sidebars.js", 
           editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
@@ -34,6 +32,8 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         theme: {
           customCss: "./src/css/custom.css",
