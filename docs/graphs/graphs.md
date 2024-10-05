@@ -404,6 +404,11 @@ Steps for Topological Sorting :
 3) If the queue is empty and there are still nodes in the graph, the graph contains a cycle and cannot be topologically sorted.
 4) The nodes in the queue represent the topological ordering of the graph.
 
+Implementation in Java:
+
+Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+                  2) V - number of vertices.
+                  
 ```java
 public static int[] topologicalSort(List<List<Integer> > adj, int V)
     {
@@ -456,4 +461,129 @@ Input:
 Output :
 ```plaintext
 4 5 2 0 3 1
+```
+
+## Prim's Minimum Spanning Tree Algorithm
+
+Minimum Spanning Tree - Given a connected and undirected graph, a spanning tree of that graph is a subgraph that is a tree and connects all the vertices together. A single graph can have many different spanning trees.
+
+A minimum spanning tree has (V – 1) edges where V is the number of vertices in the given graph.
+
+Prim's algorithm - a spanning tree means all vertices must be connected. So the two disjoint subsets of vertices must be connected to make a Spanning  Tree. And they must be connected with the minimum weight edge to make it a Minimum Spanning Tree.
+
+Steps for Prim's Algorithm :
+1) Create a set mstSet that keeps track of vertices already included in Minimum Spanning Tree.
+2) Assign a key value to all vertices in the input graph. Initialize all key values as INFINITE. Assign key value as 0 for the first vertex so that it is picked first.
+3) While mstSet doesn't include all vertices:
+        i) Pick a vertex u which is not there in mstSet and has minimum key value.
+       ii) Include u to mstSet.
+      iii) Update key value of all adjacent vertices of u. To update the key values, iterate through all adjacent vertices. For every adjacent vertex v, if                  weight of edge u-v is less than the previous key value of v, update the key value as weight of u-v.
+
+Implementation in Java:
+
+Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+                  2) s - source node
+
+```java
+    // A utility function to find the vertex with minimum key
+    // value, from the set of vertices not yet included in MST
+
+    static int V=5;
+    int minKey(int key[], Boolean mstSet[])
+    {
+        // Initialize min value
+        int min = Integer.MAX_VALUE, min_index = -1;
+
+        for (int v = 0; v < V; v++)
+            if (mstSet[v] == false && key[v] < min) {
+                min = key[v];
+                min_index = v;
+            }
+
+        return min_index;
+    }
+
+    // A utility function to print the constructed MST stored in
+    // parent[]
+    void printMST(int parent[], int graph[][])
+    {
+        System.out.println("Edge \tWeight");
+        for (int i = 1; i < V; i++)
+            System.out.println(parent[i] + " - " + i + "\t" + graph[i][parent[i]]);
+    }
+
+    // Function to construct and print MST for a graph represented
+    // using adjacency matrix representation
+    void primMST(int graph[][])
+    {
+        // Array to store constructed MST
+        int parent[] = new int[V];
+
+        // Key values used to pick minimum weight edge in cut
+        int key[] = new int[V];
+
+        // To represent set of vertices not yet included in MST
+        Boolean mstSet[] = new Boolean[V];
+
+        // Initialize all keys as INFINITE
+        for (int i = 0; i < V; i++) {
+            key[i] = Integer.MAX_VALUE;
+            mstSet[i] = false;
+        }
+
+        // Always include first 1st vertex in MST.
+        key[0] = 0; // Make key 0 so that this vertex is
+        // picked as first vertex
+        parent[0] = -1; // First node is always root of MST
+
+        // The MST will have V vertices
+        for (int count = 0; count < V - 1; count++) {
+            // Pick thd minimum key vertex from the set of vertices
+            // not yet included in MST
+            int u = minKey(key, mstSet);
+
+            // Add the picked vertex to the MST Set
+            mstSet[u] = true;
+
+            // Update key value and parent index of the adjacent
+            // vertices of the picked vertex. Consider only those
+            // vertices which are not yet included in MST
+            for (int v = 0; v < V; v++)
+
+                // graph[u][v] is non zero only for adjacent vertices of m
+                // mstSet[v] is false for vertices not yet included in MST
+                // Update the key only if graph[u][v] is smaller than key[v]
+                if (graph[u][v] != 0 && mstSet[v] == false && graph[u][v] < key[v]) {
+                    parent[v] = u;
+                    key[v] = graph[u][v];
+                }
+        }
+
+        // print the constructed MST
+        printMST(parent, graph);
+    }
+```
+
+Input :
+
+```plaintext
+{ { 0, 2, 0, 6, 0 },
+  { 2, 0, 3, 8, 5 },
+  { 0, 3, 0, 0, 7 },
+  { 6, 8, 0, 0, 9 },
+  { 0, 5, 7, 9, 0 } }
+```
+
+Output :
+
+```plaintext
+Edge   Weight
+0 - 1    2
+1 - 2    3
+0 - 3    6
+1 - 4    5
+```
+```plaintext
+Time Complexity -  O(V^2)
+Space Complexity - O(V)
 ```
