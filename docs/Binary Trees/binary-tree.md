@@ -23,61 +23,70 @@ Key characteristics of binary trees include:
 - **Height:** The length of the longest path from the root to a leaf node. The height of an empty tree is -1, and the height of a tree with only one node is 0.
 - **Depth:** The distance from the root to a specific node. The root node has a depth of 0.
 - **Balance:** A tree is considered balanced if the heights of the left and right subtrees of any node differ by at most one.
-    <pre>         A
+  
+    ```
+           A
          /   \
         B     C
        /     / \
       D     F   G
-    </pre>
-    **Height of the tree**: 2
 
-    **Depth of D, E, F**: 2
+    Height of the tree: 2
 
-    **Balanced**: Yes, the tree is balanced.
+    Depth of D, E, F: 2
+
+    Balanced: Yes, the tree is balanced.
+    ```
 
 
 ## Types of Binary Trees
 1. **Full Binary Trees:** Every node has either 0 or 2 children.
-    <pre>      A
+    ```  
+         A
         / \
        B   C
       / \   
      D   E 
-    </pre>
+    ```
 
 2. **Complete Binary Trees:** All levels are completely filled except possibly for the last level, which is filled from left to right.
-    <pre>        A
+    ```       
+           A
          /   \
         B     C
        / \   / 
       D   E F   
-    </pre>
+    ```
 3. **Perfect Binary Trees:** All internal nodes have two children, and all leaf nodes are at the same level.
-    <pre>        A
+    ```
+           A
          /   \
         B     C
        / \   / \
       D   E F   G
-    </pre>
+    ```
 4. **Balanced Binary Trees:** The heights of the two child subtrees of any node differ by at most one (e.g., AVL Trees, Red-Black Trees).
-   <pre>         A (d=1)
+   ```
+            A (d=1)
            / \ 
     (d=0) B   C (d=0)
              / \ 
       (d=0) F   G (d=0)
 
-      **Depth of a node(d)=[height of left child - height of right child]**</pre>
+      Depth of a node(d)=[height of left child - height of right child]
+      ```
 
 
 5. **Degenerate Trees:** Each parent node has only one child, essentially behaving like a linked list.
-    <pre>
+    ```
         A
          \
           B
            \
             C
              \
-              D</pre>
+              D
+    ```
 ## Advantages and Disadvantages
 **Advantages:**
 - Efficient searching, insertion, and deletion operations.
