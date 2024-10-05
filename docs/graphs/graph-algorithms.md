@@ -1,21 +1,34 @@
-## Breadth-First-Search (BFS)
+---
+id: breadth-first-search
+title: Breadth First Search (BFS)
+sidebar_label: Breadth First Search
+sidebar_position: 1
+description: Breadth First Search (BFS) is a fundamental graph traversal algorithm. It begins with a node, then first traverses all its adjacent. Once all adjacent are visited, then their adjacent are traversed.
+tags: [Graph, Algorithms, Java, Medium]
+---
 
 Breadth First Search (BFS) is a fundamental graph traversal algorithm. It begins with a node, then first traverses all its adjacent. Once all adjacent are visited, then their adjacent are traversed.
 
-Steps for BFS of a Graph : 
+<AdsComponent adSlot="3270832720" />
+
+### Steps for BFS of a Graph :
+
 The algorithm starts from a given source and explores all reachable vertices from the given source. Graphs may contain cycles, so we may come to the same node again. To avoid processing a node more than once, we use a boolean visited array.
-1) While the queue is not empty:
+**1) While the queue is not empty:**
      Remove a node from the queue and visit it.
      For each unvisited neighbor of the removed node:
           Add the neighbor into the queue.
           Mark the neighbor as visited.
-2) When the queue is empty the algorithm terminates.
+**2) When the queue is empty the algorithm terminates.**
 
 Implementation in Java:
 
+```plaintext
 Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) s - source node
-```java
+```
+
+```java title="BFS.java"
 public void bfsOfGraph(ArrayList<ArrayList<Integer>> adj, int s) {
         Queue<Integer> q=new LinkedList<Integer>();
         boolean[] visited=new boolean[V];
@@ -33,36 +46,43 @@ public void bfsOfGraph(ArrayList<ArrayList<Integer>> adj, int s) {
         }
 }
 ```
-Input:
+
+**Input:**
+
 ```plaintext
 {{1,2},{},{3,4},{},{}}
 0
 ```
-Output :
+
+**Output :**
+
 ```plaintext
 0 1 2 3 4
 ```
-```plaintext
-Time Complexity - O(V+E)
-Space Complexity - O(V+E)
-```
+
+**Complexity Analysis:**
+
+- Time Complexity - $O(V+E)$
+- Space Complexity - $O(V+E)$
+
+<AdsComponent adSlot="5461416177" />
 
 ## Depth First Search (DFS) 
 
 Depth First Traversal (DFS) for a graph, we traverse all adjacent one by one, when we traverse an adjacent, we finish traversal of all vertices reachable through the adjacent completely. After we finish one adjacent and its reachable, we go to the next adjacent and finish all reachable through next and continue this way.
 
-Steps for DFS of a Graph :
+**Steps for DFS of a Graph :**
 1) Initaialize visited array.
 2) Mark the node s as visited.
 3) For each unvisited neighbor of the s:
           call the dfs function for the neighbor
 
-Implementation in Java:
+**Implementation in Java:**
 
 Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) s - source node
                   3) Boolean array named 'visited'
-```java
+```java title="DFS.java"
 public void DFS(ArrayList<ArrayList<Integer>> adj, int s, boolean[] visited){
      visited[s]=true;
      System.out.print(s+" ");
@@ -72,20 +92,25 @@ public void DFS(ArrayList<ArrayList<Integer>> adj, int s, boolean[] visited){
      }
 }
 ```
-Input :
+
+**Input:**
+
 ```plaintext
 {{1,4},{2},{3},{},{5,6},{4,6},{4,5}}
 0
 {false,false,false,false,false,false,false}
 ```
-Output:
+
+**Output:**
+
 ```plaintext
 0 1 2 3 4 5 6
 ```
-```plaintext
-Time Complexity - O(V+E)
-Space Complexity - O(V+E)
-```
+
+**Complexity Analysis:**
+
+- Time Complexity - $O(V+E)$
+- Space Complexity - $O(V+E)$
 
 ## Topological Sorting (Kahn's Algorithm)
 
@@ -93,7 +118,8 @@ Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of ver
 
 Kahn’s Algorithm for Topological Sorting is a method used to order the vertices of a directed graph in a linear order such that for every directed edge from vertex X to vertex Y, X comes before Y in the order. The algorithm works by repeatedly finding vertices with no incoming edges, removing them from the graph, and updating the incoming edges of the remaining vertices. This process continues until all vertices have been ordered.
 
-Steps for Topological Sorting :
+**Steps for Topological Sorting:**
+
 1) Add all nodes with in-degree 0 to a queue.
 2) While the queue is not empty:
      i) Remove a node from the queue.
@@ -102,12 +128,12 @@ Steps for Topological Sorting :
 3) If the queue is empty and there are still nodes in the graph, the graph contains a cycle and cannot be topologically sorted.
 4) The nodes in the queue represent the topological ordering of the graph.
 
-Implementation in Java:
+**Implementation in Java:**
 
 Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) V - number of vertices.
                   
-```java
+```java title="TopologicalSort.java"
 public static int[] topologicalSort(List<List<Integer> > adj, int V)
     {
         // Array to store indegree of each vertex
@@ -151,15 +177,20 @@ public static int[] topologicalSort(List<List<Integer> > adj, int V)
     }
 ```
 
-Input:
+**Input:**
+
 ```plaintext
 {{2,3}, {3,1}, {4,0}, {4,1}, {5,0}, {5,2}}
 6
 ```
-Output :
+
+**Output:**
+
 ```plaintext
 4 5 2 0 3 1
 ```
+
+<AdsComponent adSlot="3270832720" />
 
 ## Prim's Minimum Spanning Tree Algorithm
 
@@ -169,7 +200,8 @@ A minimum spanning tree has (V – 1) edges where V is the number of vertices in
 
 Prim's algorithm - a spanning tree means all vertices must be connected. So the two disjoint subsets of vertices must be connected to make a Spanning  Tree. And they must be connected with the minimum weight edge to make it a Minimum Spanning Tree.
 
-Steps for Prim's Algorithm :
+**Steps for Prim's Algorithm:**
+
 1) Create a set mstSet that keeps track of vertices already included in Minimum Spanning Tree.
 2) Assign a key value to all vertices in the input graph. Initialize all key values as INFINITE. Assign key value as 0 for the first vertex so that it is picked first.
 3) While mstSet doesn't include all vertices:
@@ -177,12 +209,12 @@ Steps for Prim's Algorithm :
        ii) Include u to mstSet.
       iii) Update key value of all adjacent vertices of u. To update the key values, iterate through all adjacent vertices. For every adjacent vertex v, if                  weight of edge u-v is less than the previous key value of v, update the key value as weight of u-v.
 
-Implementation in Java:
+**Implementation in Java:**
 
 Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) s - source node
 
-```java
+```java title="Prim.java"
     // A utility function to find the vertex with minimum key
     // value, from the set of vertices not yet included in MST
 
@@ -262,7 +294,7 @@ Input parameters- 1) adj - Adjacency list representation of the graph.
     }
 ```
 
-Input :
+**Input:**
 
 ```plaintext
 { { 0, 2, 0, 6, 0 },
@@ -272,7 +304,7 @@ Input :
   { 0, 5, 7, 9, 0 } }
 ```
 
-Output :
+**Output:**
 
 ```plaintext
 Edge   Weight
@@ -281,16 +313,17 @@ Edge   Weight
 0 - 3    6
 1 - 4    5
 ```
-```plaintext
-Time Complexity -  O(V^2)
-Space Complexity - O(V)
-```
+
+**Complexity Analysis:**
+
+- Time Complexity -  $O(V^2)$
+- Space Complexity - $O(V)$
 
 ## Dijkstra's Algorithm for Shortest Path in a Weighted Graph
 
 Dijkstra's algorithm is a variation of the BFS algorithm. In Dijkstra's Algorithm, a SPT(shortest path tree) is generated with given source as root. Each node at this SPT stores the value of the shortest path from the source vertex to the current vertex. We maintain two sets, one set contains vertices included in shortest path tree, other set includes vertices not yet included in shortest path tree. At every step of the algorithm, we find a vertex which is in the other set (set of not yet included) and has a minimum distance from the source.
 
-Steps for Dijkstra's Algorithm :
+**Steps for Dijkstra's Algorithm :**
 
 1) Create a set sptSet (shortest path tree set) that keeps track of vertices included in shortest path tree, i.e., whose minimum distance from source is calculated and finalized. Initially, this set is empty.
 2) Assign a distance value to all vertices in the input graph. Initialize all distance values as INFINITE. Assign distance value as 0 for the source vertex so that it is picked first.
@@ -300,12 +333,12 @@ Steps for Dijkstra's Algorithm :
    iii) Update distance value of all adjacent vertices of u. To update the distance values, iterate through all adjacent vertices. For every adjacent vertex v, if sum of distance value of u (from source) and weight of edge u-v, is less than the distance value of v, then update the distance value of v.
 
 
-Implementation in Java:
+**Implementation in Java:**
 
 Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) s - source node
 
-```java
+```java title="Dijkstra.java"
 static final int V = 9; 
     int minDistance(int dist[], Boolean sptSet[]) 
     { 
@@ -377,7 +410,8 @@ static final int V = 9;
     }
 ```
 
-Input :
+**Input:**
+
 ```plaintext
 { { 0, 4, 0, 0, 0, 0, 0, 8, 0 }, 
   { 4, 0, 8, 0, 0, 0, 0, 11, 0 }, 
@@ -390,7 +424,8 @@ Input :
   { 0, 0, 2, 0, 0, 0, 6, 7, 0 } }
 ```
 
-Output :
+**Output:**
+
 ```plaintext
 Vertex   Distance from Source
 0                0
@@ -404,21 +439,26 @@ Vertex   Distance from Source
 8                14
 ```
 
-```plaintext
-Time Complexity - O(E * logV)
-```
+**Complexity Analysis :**
+
+- Time Complexity - $O(E * logV)$
+- Space Complexity - $O(V)$
+
+<AdsComponent adSlot="5461416177" />
 
 ## Kosaraju's Algorithm for finding Strongly Connected Components
 
 A directed graph is strongly connected if there is a path between all pairs of vertices. A strongly connected component of a directed graph is a maximal strongly connected subgraph.
 
-Steps for Kosaraju's Algorithm :
+**Steps for Kosaraju's Algorithm:**
+
 1) Create an empty stack 'S' and do DFS traversal of a graph. In DFS traversal, after calling recursive DFS for adjacent vertices of a vertex, push the vertex to stack.
 2) Reverse directions of all arcs to obtain the transpose graph.
 3) One by one pop a vertex from S while S is not empty. Let the popped vertex be 'v'. Take v as source and do DFS (call DFSUtil(v)). The DFS starting from v prints strongly connected component of v. In the above example, we process vertices in order 0, 3, 4, 2, 1 (One by one popped from stack).
 
-Implementation in Java :
-``` java
+**Implementation in Java:**
+
+```java title="Kosaraju.java"
 private int V;   // No. of vertices
     private LinkedList<Integer> adj[]; //Adjacency List
 
@@ -526,7 +566,8 @@ private int V;   // No. of vertices
     }
 ```
 
-Input :
+**Input:**
+
 ```plaintext
 1 0
 0 2
@@ -535,17 +576,18 @@ Input :
 3 4
 ```
 
-Output :
+**Output:**
+
 ```plaintext
 0 1 2
 3
 4
 ```
 
-```plaintext
-Time Complexity - O(V+E)
-Space Complexity - O(V+E)
-```
+**Complexity Analysis :**
+
+- Time Complexity - $O(V+E)$
+- Space Complexity - $O(V+E)$
 
 ## Kruskal's Algorithm
 
@@ -554,8 +596,9 @@ Steps for finding Minimum Spanning Tree using Kruskal's algorithm :
 2) Pick the smallest edge. Check if it forms a cycle with the spanning tree formed so far. If cycle is not formed, include this edge. Else, discard it. 
 3) Repeat step#2 until there are (V-1) edges in the spanning tree.
 
-Implementation in Java : 
-```java
+**Implementation in Java:** 
+
+```java title="Kruskal.java"
 class Graph {
     // A class to represent a graph edge
     class Edge implements Comparable<Edge> 
@@ -745,7 +788,8 @@ class Graph {
 }
 ```
 
-Output :
+**Output:**
+
 ```plaintext
 Following are the edges in the constructed MST
 2 -- 3 == 4
@@ -754,9 +798,12 @@ Following are the edges in the constructed MST
 Minimum Cost Spanning Tree: 19
 ```
 
-```plaintext
-Time Complexity - O(ElogV)
-```
+**Complexity Analysis:**
+
+- Time Complexity - $O(ElogV)$
+- Space Complexity - $O(V+E)$
+
+<AdsComponent adSlot="3270832720" />
 
 ## Bellman-Ford Algorithm for Shortest Path
 
@@ -771,8 +818,9 @@ Output: Shortest distance to all vertices from src. If there is a negative weigh
       i) If dist[v] greater than dist[u] + weight of edge uv, then update dist[v] as: dist[v] = dist[u] + weight of edge uv.
 3) This step reports if there is a negative weight cycle in graph. Do following for each edge u-v. If dist[v] greater than dist[u] + weight of edge uv, then "Graph contains negative weight cycle".
 
-Implementation on Java  :
-```java
+**Implementation on Java :**
+
+```java title="BellmanFord.java"
 class Graph
 {
     // A class to represent a weighted edge in graph
@@ -903,7 +951,8 @@ class Graph
 }
 ```
 
-Output :
+**Output:**
+
 ```plaintext
 Vertex   Distance from Source
 0                0
@@ -917,15 +966,16 @@ Vertex   Distance from Source
 
 A directed graph is strongly connected if there is a path between all pairs of vertices. A strongly connected component (SCC) of a directed graph is a maximal strongly connected subgraph. For example, there are 3 SCCs in the following graph.
 
-Steps for Tarjan's Algorithm : 
+**Steps for Tarjan's Algorithm :** 
 
 1) DFS search produces a DFS tree/forest 
 2) Strongly Connected Components form subtrees of the DFS tree. 
 3) If we can find the head of such subtrees, we can print/store all the nodes in that subtree (including the head) and that will be one SCC. 
 There is no back edge from one SCC to another (There can be cross edges, but cross edges will not be used while processing the graph).
 
-Implementation in Java :
-```java
+**Implementation in Java:**
+
+```java title="Tarjan's Algorithm"
 class Graph{
 
 // No. of vertices    
@@ -1122,7 +1172,8 @@ public static void main(String args[])
 } 
 ```
 
-Output :
+**Output :**
+
 ```plaintext
 SCCs in first graph 
 4
@@ -1153,6 +1204,11 @@ SCCs in fifth graph
 4 3 2 1 0
 ```
 
-```plaintext
-Time Complexity - O(V+E)
-```
+**Complexity Analysis :**
+
+- Time Complexity - $O(V+E)$
+- Space Complexity - $O(V+E)$
+
+## Conclusion
+
+In this article, we have discussed various graph algorithms like Dijkstra's Algorithm, Prim's Algorithm, Kruskal's Algorithm, Bellman-Ford Algorithm, Tarjan's Algorithm. We have also discussed the implementation of these algorithms in Java. These algorithms are used to solve various graph problems like finding the shortest path, finding the minimum spanning tree, finding the strongly connected components, etc.
