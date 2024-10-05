@@ -62,8 +62,8 @@ public void bfsOfGraph(ArrayList<ArrayList<Integer>> adj, int s) {
 
 **Complexity Analysis:**
 
-Time Complexity - $O(V+E)$
-Space Complexity - $O(V+E)$
+- Time Complexity - $O(V+E)$
+- Space Complexity - $O(V+E)$
 
 <AdsComponent adSlot="5461416177" />
 
@@ -109,8 +109,8 @@ public void DFS(ArrayList<ArrayList<Integer>> adj, int s, boolean[] visited){
 
 **Complexity Analysis:**
 
-Time Complexity - $O(V+E)$
-Space Complexity - $O(V+E)$
+- Time Complexity - $O(V+E)$
+- Space Complexity - $O(V+E)$
 
 ## Topological Sorting (Kahn's Algorithm)
 
@@ -316,8 +316,8 @@ Edge   Weight
 
 **Complexity Analysis:**
 
-Time Complexity -  $O(V^2)$
-Space Complexity - $O(V)$
+- Time Complexity -  $O(V^2)$
+- Space Complexity - $O(V)$
 
 ## Dijkstra's Algorithm for Shortest Path in a Weighted Graph
 
@@ -441,8 +441,8 @@ Vertex   Distance from Source
 
 **Complexity Analysis :**
 
-Time Complexity - $O(E * logV)$
-Space Complexity - $O(V)$
+- Time Complexity - $O(E * logV)$
+- Space Complexity - $O(V)$
 
 <AdsComponent adSlot="5461416177" />
 
@@ -586,8 +586,8 @@ private int V;   // No. of vertices
 
 **Complexity Analysis :**
 
-Time Complexity - $O(V+E)$
-Space Complexity - $O(V+E)$
+- Time Complexity - $O(V+E)$
+- Space Complexity - $O(V+E)$
 
 ## Kruskal's Algorithm
 
@@ -798,10 +798,10 @@ Following are the edges in the constructed MST
 Minimum Cost Spanning Tree: 19
 ```
 
-**Complexity Analysis :**
+**Complexity Analysis:**
 
-Time Complexity - $O(ElogV)$
-Space Complexity - $O(V+E)$
+- Time Complexity - $O(ElogV)$
+- Space Complexity - $O(V+E)$
 
 <AdsComponent adSlot="3270832720" />
 
@@ -1206,8 +1206,8 @@ SCCs in fifth graph
 
 **Complexity Analysis :**
 
-Time Complexity - $O(V+E)$
-Space Complexity - $O(V+E)$
+- Time Complexity - $O(V+E)$
+- Space Complexity - $O(V+E)$
 
 ## Conclusion
 
