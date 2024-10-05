@@ -1,5 +1,6 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin,} from "react-icons/fa";
+import {FaXTwitter} from 'react-icons/fa6';
 import Link from "@docusaurus/Link";
 
 const Footer: React.FC = () => {
@@ -20,7 +21,7 @@ const Footer: React.FC = () => {
               <ul className="space-y-2">
                 <li className="list-none">
                   <Link
-                    to="/docs/"
+                    to="#"
                     className="text-gray-400 hover:text-white transition duration-200"
                   >
                     Docs
@@ -28,7 +29,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="list-none">
                   <Link
-                    to="/blog/"
+                    to="#"
                     className="text-gray-400 hover:text-white transition duration-200"
                   >
                     Blog
@@ -58,8 +59,8 @@ const Footer: React.FC = () => {
                 </li>
               </ul>
             </div>
-          </div> 
-          <div className="flex justify-center md:w-1/3 space-x-6">            
+          </div>
+          <div className="flex justify-center md:w-1/3 space-x-6">
             <Link
               to="https://github.com/ajay-dhangar"
               target="_blank"
@@ -82,7 +83,7 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition duration-200"
             >
-              <FaTwitter className="w-6 h-6" />
+              <FaXTwitter className="w-6 h-6" />
             </Link>
           </div>
         </div>
@@ -94,12 +95,18 @@ const Footer: React.FC = () => {
               </Link>
             </li>
             <li className="list-none">
-              <Link to="/about/" className="hover:text-white transition duration-200">
+              <Link
+                to="#"
+                className="hover:text-white transition duration-200"
+              >
                 About Us
               </Link>
             </li>
             <li className="list-none">
-              <Link to="/contact/" className="hover:text-white transition duration-200">
+              <Link
+                to="#"
+                className="hover:text-white transition duration-200"
+              >
                 Contact
               </Link>
             </li>

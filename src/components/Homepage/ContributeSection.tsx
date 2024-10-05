@@ -1,3 +1,4 @@
+import Link from '@docusaurus/Link';
 import React from 'react';
 import { FaGithub, FaCodeBranch, FaFileCode } from 'react-icons/fa';
 
@@ -42,12 +43,12 @@ const ContributeSection: React.FC = () => {
         </div>
 
         <div className="mt-12">
-          <a
-            href="https://github.com/ajay-dhangar/algo"
+          <Link
+            to="https://github.com/ajay-dhangar/algo"
             className="inline-block px-8 py-4 bg-indigo-500 dark:bg-yellow-400 hover:text-white text-white dark:text-gray-900 rounded-full font-semibold transition hover:bg-indigo-600 dark:hover:bg-yellow-500"
           >
             Contribute on GitHub
-          </a>
+          </Link>
         </div>
       </div>
     </section>

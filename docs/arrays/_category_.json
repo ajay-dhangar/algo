@@ -1,8 +1,0 @@
-{
-    "label": "Arrays",
-    "position": 6,
-    "link": {
-      "type": "generated-index",
-      "description": "In Data Structures, an array is a data structure consisting of a collection of elements, each identified by at least one array index or key. An array is stored such that the position of each element can be computed from its index tuple by a mathematical formula. The simplest type of data structure is a linear array, also called one-dimensional array."
-    }
-  }

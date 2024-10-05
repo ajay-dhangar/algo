@@ -12,7 +12,7 @@ const config = {
 
   url: "https://ajay-dhangar.github.io",
   baseUrl: "/algo/",
-  organizationName: "cmhq",
+  organizationName: "codeharborhub",
   projectName: "algo",
 
   onBrokenLinks: "throw",
@@ -24,9 +24,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: "./sidebars.js",
-          // https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/
-
+          sidebarPath: "./sidebars.js", 
           editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
@@ -34,6 +32,8 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -89,36 +89,6 @@ const config = {
               },
             ],
           },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "#",
-              },
-              {
-                label: "Discord",
-                href: "#",
-              },
-              {
-                label: "Twitter",
-                href: "#",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
-              },
-            ],
-          },
         ],
         logo: {
           alt: "Ajay Dhangar",
@@ -130,6 +100,11 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
       },
     }),
 

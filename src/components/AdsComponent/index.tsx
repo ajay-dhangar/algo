@@ -1,38 +1,36 @@
 import React, { useEffect } from "react";
-import Head from "@docusaurus/Head";
 
 declare global {
   interface Window {
-    adsbygoogle: any[];
+    adsbygoogle: any[] | undefined;
   }
 }
 
-const AdsComponent: React.FC = () => {
+const AdUnit: React.FC<{ adSlot: string }> = ({ adSlot }) => (
+  <ins
+    className="adsbygoogle"
+    style={{ display: "block", textAlign: "center" }}
+    data-ad-layout="in-article"
+    data-ad-format="fluid"
+    data-ad-client="ca-pub-5832817025080991"
+    data-ad-slot={adSlot}
+  />
+);
+
+const AdsComponent: React.FC<{ adSlot: string }> = ({ adSlot }) => {
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    if (window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (err) {
+        console.error("AdsbyGoogle push error: ", err);
+      }
     }
-    catch (err) {
-      console.error(err);
-    }
-  }, []);
+  }, [adSlot]);
+
   return (
     <>
-      <Head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5832817025080991"
-          crossOrigin="anonymous"
-        />
-      </Head>
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block", textAlign: "center" }}
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
-        data-ad-client="ca-pub-5832817025080991"
-        data-ad-slot="3270832720"
-       />
+      <AdUnit adSlot={adSlot} />
     </>
   );
 };
