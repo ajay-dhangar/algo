@@ -344,6 +344,10 @@ Output :
 ```plaintext
 0 1 2 3 4
 ```
+```plaintext
+Time Complexity - O(V+E)
+Space Complexity - O(V+E)
+```
 
 ## Depth First Search (DFS) 
 
@@ -380,6 +384,76 @@ Output:
 ```plaintext
 0 1 2 3 4 5 6
 ```
+```plaintext
+Time Complexity - O(V+E)
+Space Complexity - O(V+E)
+```
 
 ## Topological Sorting (Kahn's Algorithm)
 
+Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge u-v, vertex u comes before v in the ordering. If the topological sorting has to done then the graph has to a Directed acyclic graph.
+
+Kahn’s Algorithm for Topological Sorting is a method used to order the vertices of a directed graph in a linear order such that for every directed edge from vertex X to vertex Y, X comes before Y in the order. The algorithm works by repeatedly finding vertices with no incoming edges, removing them from the graph, and updating the incoming edges of the remaining vertices. This process continues until all vertices have been ordered.
+
+Steps for Topological Sorting :
+1) Add all nodes with in-degree 0 to a queue.
+2) While the queue is not empty:
+     i) Remove a node from the queue.
+     ii) For each outgoing edge from the removed node, decrement the in-degree of the destination node by 1.
+     iii) If the in-degree of a destination node becomes 0, add it to the queue.
+3) If the queue is empty and there are still nodes in the graph, the graph contains a cycle and cannot be topologically sorted.
+4) The nodes in the queue represent the topological ordering of the graph.
+
+```java
+public static int[] topologicalSort(List<List<Integer> > adj, int V)
+    {
+        // Array to store indegree of each vertex
+        int[] indegree = new int[V];
+        for (int i = 0; i < V; i++) {
+            for (int it : adj.get(i)) {
+                indegree[it]++;
+            }
+        }
+        // Queue to store vertices with indegree 0
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < V; i++) {
+            if (indegree[i] == 0) {
+                q.offer(i);
+            }
+        }
+        int[] result = new int[V];
+        int index = 0;
+        while (!q.isEmpty()) {
+            int node = q.poll();
+            result[index++] = node;
+            // Decrease indegree of adjacent vertices as the
+            // current node is in topological order
+            for (int it : adj.get(node)) {
+                indegree[it]--;
+
+                // If indegree becomes 0, push it to the
+                // queue
+                if (indegree[it] == 0) {
+                    q.offer(it);
+                }
+            }
+        }
+        // Check for cycle
+        if (index != V) {
+            System.out.println("Graph contains cycle!");
+            return new int[0];
+        }
+
+        return result;
+    }
+```
+
+Input:
+```plaintext
+{{2,3}, {3,1}, {4,0}, {4,1}, {5,0}, {5,2}}
+6
+```
+Output :
+```plaintext
+4 5 2 0 3 1
+```
