@@ -6,21 +6,16 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative bg-gray-100 dark:bg-gray-900 min-h-screen flex items-center justify-center py-16 px-8">
       <div className="max-w-4xl text-center">
-        {/* Title */}
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
           Data Structures & Algorithms
         </h1>
-
-        {/* Subtitle */}
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
           Learn, Implement, and Contribute to Open Source Algorithms. Build your
           understanding from the basics to advanced topics.
         </p>
-
-        {/* Call to Action Buttons */}
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
           <Link
-            to="/algo/docs/"
+            to="#"
             className="flex items-center px-6 py-3 text-lg font-medium hover:text-white text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition duration-300 ease-in-out shadow-lg transform hover:scale-105"
           >
             Explore Algorithms <FaArrowRight className="ml-2" />

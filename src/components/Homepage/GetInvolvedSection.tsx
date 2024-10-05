@@ -1,11 +1,13 @@
 import React from "react";
+import Link from "@docusaurus/Link";
 
 const GetInvolvedSection: React.FC = () => {
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-          Get Involved <span className="text-blue-600 dark:text-yellow-400">Today</span>
+          Get Involved{" "}
+          <span className="text-blue-600 dark:text-yellow-400">Today</span>
         </h2>
 
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
@@ -23,12 +25,12 @@ const GetInvolvedSection: React.FC = () => {
               Participate in our hackathons to showcase your skills and win
               exciting prizes!
             </p>
-            <a
-              href="#"
+            <Link
+              to="#"
               className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
-            </a>
+            </Link>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
@@ -37,15 +39,15 @@ const GetInvolvedSection: React.FC = () => {
               Workshops
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Join our workshops to learn about the latest technologies and
-              best practices in software development.
+              Join our workshops to learn about the latest technologies and best
+              practices in software development.
             </p>
-            <a
-              href="#"
+            <Link
+              to="#"
               className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
-            </a>
+            </Link>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
@@ -58,12 +60,12 @@ const GetInvolvedSection: React.FC = () => {
               Connect with fellow contributors and share ideas at our regular
               community meetups.
             </p>
-            <a
-              href="#"
+            <Link
+              to="#"
               className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
-            </a>
+            </Link>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
@@ -76,12 +78,12 @@ const GetInvolvedSection: React.FC = () => {
               Sign up for our mentorship programs to get guidance from
               experienced developers in the industry.
             </p>
-            <a
-              href="#"
+            <Link
+              to="#"
               className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
-            </a>
+            </Link>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
@@ -94,12 +96,12 @@ const GetInvolvedSection: React.FC = () => {
               Enroll in our online courses to gain valuable skills and
               certifications.
             </p>
-            <a
-              href="#"
+            <Link
+              to="#"
               className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
-            </a>
+            </Link>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
@@ -111,12 +113,12 @@ const GetInvolvedSection: React.FC = () => {
               Contribute to our project and enhance your coding skills while
               making a positive impact!
             </p>
-            <a
-              href="#"
+            <Link
+              to="#"
               className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
             >
               Learn More
-            </a>
+            </Link>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
         </div>
