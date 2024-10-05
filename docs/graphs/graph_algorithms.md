@@ -13,7 +13,7 @@ The algorithm starts from a given source and explores all reachable vertices fro
 
 Implementation in Java:
 
-Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) s - source node
 ```java
 public void bfsOfGraph(ArrayList<ArrayList<Integer>> adj, int s) {
@@ -59,7 +59,7 @@ Steps for DFS of a Graph :
 
 Implementation in Java:
 
-Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) s - source node
                   3) Boolean array named 'visited'
 ```java
@@ -104,7 +104,7 @@ Steps for Topological Sorting :
 
 Implementation in Java:
 
-Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) V - number of vertices.
                   
 ```java
@@ -179,7 +179,7 @@ Steps for Prim's Algorithm :
 
 Implementation in Java:
 
-Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) s - source node
 
 ```java
@@ -302,7 +302,7 @@ Steps for Dijkstra's Algorithm :
 
 Implementation in Java:
 
-Input parameters- 1) ArrayList<ArrayList<Integer>> adj - Adjacency list representation of the graph.
+Input parameters- 1) adj - Adjacency list representation of the graph.
                   2) s - source node
 
 ```java
@@ -768,8 +768,8 @@ Output: Shortest distance to all vertices from src. If there is a negative weigh
 
 1) This step initializes distances from source to all vertices as infinite and distance to source itself as 0. Create an array dist[] of size |V| with all values as infinite except dist[src] where src is source vertex.
 2) This step calculates shortest distances. Do following |V|-1 times where |V| is the number of vertices in given graph. Do following for each edge u-v:
-      i) If dist[v] > dist[u] + weight of edge uv, then update dist[v] as: dist[v] = dist[u] + weight of edge uv.
-3) This step reports if there is a negative weight cycle in graph. Do following for each edge u-v. If dist[v] > dist[u] + weight of edge uv, then "Graph contains negative weight cycle".
+      i) If dist[v] greater than dist[u] + weight of edge uv, then update dist[v] as: dist[v] = dist[u] + weight of edge uv.
+3) This step reports if there is a negative weight cycle in graph. Do following for each edge u-v. If dist[v] greater than dist[u] + weight of edge uv, then "Graph contains negative weight cycle".
 
 Implementation on Java  :
 ```java
