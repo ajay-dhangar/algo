@@ -86,17 +86,6 @@ Key characteristics of binary trees include:
             C
              \
               D
-    ```
-## Advantages and Disadvantages
-**Advantages:**
-- Efficient searching, insertion, and deletion operations.
-- Provides a hierarchical representation of data.
-- Allows for ease of traversal using various methods (in-order, pre-order, post-order).
-
-**Disadvantages:**
-- Can become unbalanced, leading to degraded performance (e.g., O(n) in the worst case).
-- Memory overhead for pointers, as each node must store references to its children.
-
 ## Implementation
 
 Let us see how to implement binary search in C++:
@@ -128,6 +117,38 @@ int main(){
 
 }
 ```
+## Advantages and Disadvantages
+**Advantages:**
+- Efficient searching, insertion, and deletion operations.
+- Provides a hierarchical representation of data.
+- Allows for ease of traversal using various methods (in-order, pre-order, post-order).
 
+**Disadvantages:**
+- Can become unbalanced, leading to degraded performance (e.g., O(n) in the worst case).
+- Memory overhead for pointers, as each node must store references to its children.
+
+
+## Applications of Binary Trees
+
+- **Search Algorithms**:  
+  Binary search algorithms use the structure of binary trees to efficiently search for a specific element.
+
+- **Sorting Algorithms**:  
+  Binary trees can be used to implement efficient sorting algorithms, such as tree sort and heap sort.
+
+- **Database Systems**:  
+  Binary trees can be used to store data in a database system, with each node representing a record. This allows for efficient search operations and enables the database system to handle large amounts of data.
+
+- **File Systems**:  
+  Binary trees can be used to implement file systems, where each node represents a directory or file.
+
+- **Compression Algorithms**:  
+  Binary trees can be used to implement Huffman coding, a compression algorithm that assigns variable-length codes to characters based on their frequency of occurrence in the input data.
+
+- **Decision Trees**:  
+  Binary trees can be used to implement decision trees.
+
+- **Game AI**:  
+  Binary trees can be used to implement game AI, where each node represents a possible move in the game. The AI algorithm can search the tree to find the best possible move.
 
 
