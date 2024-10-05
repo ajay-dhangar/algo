@@ -12,7 +12,7 @@ const config = {
 
   url: "https://ajay-dhangar.github.io",
   baseUrl: "/algo/",
-  organizationName: "cmhq",
+  organizationName: "codeharborhub",
   projectName: "algo",
 
   onBrokenLinks: "throw",
@@ -86,36 +86,6 @@ const config = {
               {
                 label: "Tutorial",
                 to: "/docs/",
-              },
-            ],
-          },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "#",
-              },
-              {
-                label: "Discord",
-                href: "#",
-              },
-              {
-                label: "Twitter",
-                href: "#",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
               },
             ],
           },
