@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="list-none">
                   <Link
-                    to="#"
+                    to="https://github.com/ajay-dhangar/algo/graphs/contributors"
                     className="text-gray-400 hover:text-white transition duration-200"
                   >
                     Contributors
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="list-none">
               <Link
-                to="#"
+                to="src/pages/About/index.tsx"
                 className="hover:text-white transition duration-200"
               >
                 About Us
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="list-none">
               <Link
-                to="#"
+                to="src/pages/Contact/index.tsx"
                 className="hover:text-white transition duration-200"
               >
                 Contact
