@@ -1,5 +1,3 @@
-Here’s the structure for **Shell Sort**:
-
 ---
 
 id: shell-sort-algo  
