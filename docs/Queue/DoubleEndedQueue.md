@@ -1,23 +1,36 @@
-## Double-Ended Queue (Deque) Data Structure
+Here’s a similar structure for a **Double-Ended Queue (Deque)**:
 
-### Introduction to Deque
+---
+id: deque-in-dsa
+title: Double-Ended Queue (Deque) Data Structure
+sidebar_label: Double-Ended Queue (Deque)
+sidebar_position: 4
+description: "A double-ended queue (Deque) is a linear data structure that allows insertion and deletion of elements from both ends—front and rear. This makes it a versatile data structure with efficient operations for many applications."
+tags: [dsa, data-structures, Deque]
+---
 
-A **Double-Ended Queue (Deque)** is a linear data structure that allows the insertion and deletion of elements from both ends, making it more flexible than a regular queue. While a standard queue follows the First In First Out (FIFO) principle, a deque allows for both FIFO and Last In First Out (LIFO) operations by allowing insertion/removal from both the front and the rear of the queue.
+### Introduction to Double-Ended Queue (Deque)
 
-### Key Operations in Deque
+A **double-ended queue (Deque)** is a linear data structure similar to a queue but allows insertions and deletions from both ends—front and rear. This flexibility makes deques useful in situations where both ends of the data need to be accessed, and they can efficiently handle tasks such as maintaining sequences of items or managing resources.
 
-1. **Insert Front**: Add an element to the front of the deque.
-2. **Insert Rear**: Add an element to the rear of the deque.
-3. **Delete Front**: Remove the element from the front of the deque.
-4. **Delete Rear**: Remove the element from the rear of the deque.
-5. **Peek Front**: Retrieve the element at the front without removing it.
-6. **Peek Rear**: Retrieve the element at the rear without removing it.
+![alt text](doubleendedqueue.png)
+
+### Double-Ended Queue Operations
+
+1. **InsertFront**: Add an element to the front of the deque.
+2. **InsertRear**: Add an element to the rear of the deque.
+3. **DeleteFront**: Remove the element from the front of the deque.
+4. **DeleteRear**: Remove the element from the rear of the deque.
+5. **PeekFront**: Retrieve the element at the front of the deque without removing it.
+6. **PeekRear**: Retrieve the element at the rear of the deque without removing it.
 7. **isEmpty**: Check if the deque is empty.
 8. **isFull**: Check if the deque is full.
 
 ### Pseudocode
 
-1. **Insert Front**:
+#### Basic Operations
+
+1. **InsertFront**:
 
     ```text
     function insertFront(deque, element):
@@ -27,7 +40,7 @@ A **Double-Ended Queue (Deque)** is a linear data structure that allows the inse
          deque.elements[deque.front] = element
     ```
 
-2. **Insert Rear**:
+2. **InsertRear**:
 
     ```text
     function insertRear(deque, element):
@@ -37,7 +50,7 @@ A **Double-Ended Queue (Deque)** is a linear data structure that allows the inse
          deque.elements[deque.rear] = element
     ```
 
-3. **Delete Front**:
+3. **DeleteFront**:
 
     ```text
     function deleteFront(deque):
@@ -48,7 +61,7 @@ A **Double-Ended Queue (Deque)** is a linear data structure that allows the inse
          return frontElement
     ```
 
-4. **Delete Rear**:
+4. **DeleteRear**:
 
     ```text
     function deleteRear(deque):
@@ -59,23 +72,41 @@ A **Double-Ended Queue (Deque)** is a linear data structure that allows the inse
          return rearElement
     ```
 
-5. **isEmpty**:
+5. **PeekFront**:
+
+    ```text
+    function peekFront(deque):
+         if isEmpty(deque):
+              return "Deque is empty"
+         return deque.elements[deque.front]
+    ```
+
+6. **PeekRear**:
+
+    ```text
+    function peekRear(deque):
+         if isEmpty(deque):
+              return "Deque is empty"
+         return deque.elements[deque.rear]
+    ```
+
+7. **isEmpty**:
 
     ```text
     function isEmpty(deque):
          return deque.front == deque.rear
     ```
 
-6. **isFull**:
+8. **isFull**:
 
     ```text
     function isFull(deque):
          return (deque.rear + 1) % deque.size == deque.front
     ```
 
-### Python Implementation of Deque
+### Implementation in Python, C++, and Java
 
-Here is a Python implementation of the double-ended queue (deque):
+#### Python Implementation
 
 ```python
 class Deque:
@@ -100,16 +131,16 @@ class Deque:
      def delete_front(self):
           if self.is_empty():
                return "Deque Underflow"
-          front_element = self.elements[self.front]
+          frontElement = self.elements[self.front]
           self.front = (self.front + 1) % self.size
-          return front_element
+          return frontElement
 
      def delete_rear(self):
           if self.is_empty():
                return "Deque Underflow"
-          rear_element = self.elements[self.rear]
+          rearElement = self.elements[self.rear]
           self.rear = (self.rear - 1 + self.size) % self.size
-          return rear_element
+          return rearElement
 
      def peek_front(self):
           if self.is_empty():
@@ -128,21 +159,209 @@ class Deque:
           return (self.rear + 1) % self.size == self.front
 
 # Example usage
-deque = Deque(5)
-deque.insert_rear(10)
-deque.insert_front(20)
-print(deque.delete_front())  # Output: 20
-print(deque.peek_rear())     # Output: 10
-print(deque.is_empty())      # Output: False
+dq = Deque(5)
+dq.insert_front(10)
+dq.insert_rear(20)
+print(dq.delete_front())  # Output: 10
+print(dq.peek_rear())     # Output: 20
+print(dq.is_empty())      # Output: False
+```
+
+#### C++ Implementation
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Deque {
+private:
+     int *elements;
+     int front, rear, size;
+
+public:
+     Deque(int size) {
+          this->size = size;
+          elements = new int[size];
+          front = rear = 0;
+     }
+
+     void insert_front(int element) {
+          if (is_full()) {
+               cout << "Deque Overflow" << endl;
+               return;
+          }
+          front = (front - 1 + size) % size;
+          elements[front] = element;
+     }
+
+     void insert_rear(int element) {
+          if (is_full()) {
+               cout << "Deque Overflow" << endl;
+               return;
+          }
+          rear = (rear + 1) % size;
+          elements[rear] = element;
+     }
+
+     int delete_front() {
+          if (is_empty()) {
+               cout << "Deque Underflow" << endl;
+               return -1; // Indicating underflow
+          }
+          int frontElement = elements[front];
+          front = (front + 1) % size;
+          return frontElement;
+     }
+
+     int delete_rear() {
+          if (is_empty()) {
+               cout << "Deque Underflow" << endl;
+               return -1; // Indicating underflow
+          }
+          int rearElement = elements[rear];
+          rear = (rear - 1 + size) % size;
+          return rearElement;
+     }
+
+     int peek_front() {
+          if (is_empty()) {
+               cout << "Deque is empty" << endl;
+               return -1; // Indicating empty
+          }
+          return elements[front];
+     }
+
+     int peek_rear() {
+          if (is_empty()) {
+               cout << "Deque is empty" << endl;
+               return -1; // Indicating empty
+          }
+          return elements[rear];
+     }
+
+     bool is_empty() {
+          return front == rear;
+     }
+
+     bool is_full() {
+          return (rear + 1) % size == front;
+     }
+
+     ~Deque() {
+          delete[] elements;
+     }
+};
+
+// Example usage
+int main() {
+     Deque dq(5);
+     dq.insert_front(10);
+     dq.insert_rear(20);
+     cout << dq.delete_front() << endl;  // Output: 10
+     cout << dq.peek_rear() << endl;     // Output: 20
+     cout << boolalpha << dq.is_empty() << endl;  // Output: false
+     return 0;
+}
+```
+
+#### Java Implementation
+
+```java
+public class Deque {
+     private int[] elements;
+     private int front, rear, size;
+
+     public Deque(int size) {
+          this.size = size;
+          elements = new int[size];
+          front = rear = 0;
+     }
+
+     public void insert_front(int element) {
+          if (is_full()) {
+               System.out.println("Deque Overflow");
+               return;
+          }
+          front = (front - 1 + size) % size;
+          elements[front] = element;
+     }
+
+     public void insert_rear(int element) {
+          if (is_full()) {
+               System.out.println("Deque Overflow");
+               return;
+          }
+          rear = (rear + 1) % size;
+          elements[rear] = element;
+     }
+
+     public int delete_front() {
+          if (is_empty()) {
+               System.out.println("Deque Underflow");
+               return -1; // Indicating underflow
+          }
+          int frontElement = elements[front];
+          front = (front + 1) % size;
+          return frontElement;
+     }
+
+     public int delete_rear() {
+          if (is_empty()) {
+               System.out.println("Deque Underflow");
+               return -1; // Indicating underflow
+          }
+          int rearElement = elements[rear];
+          rear = (rear - 1 + size) % size;
+          return rearElement;
+     }
+
+     public int peek_front() {
+          if (is_empty()) {
+               System.out.println("Deque is empty");
+               return -1; // Indicating empty
+          }
+         
+
+ return elements[front];
+     }
+
+     public int peek_rear() {
+          if (is_empty()) {
+               System.out.println("Deque is empty");
+               return -1; // Indicating empty
+          }
+          return elements[rear];
+     }
+
+     public boolean is_empty() {
+          return front == rear;
+     }
+
+     public boolean is_full() {
+          return (rear + 1) % size == front;
+     }
+
+     public static void main(String[] args) {
+          Deque dq = new Deque(5);
+          dq.insert_front(10);
+          dq.insert_rear(20);
+          System.out.println(dq.delete_front());  // Output: 10
+          System.out.println(dq.peek_rear());     // Output: 20
+          System.out.println(dq.is_empty());      // Output: false
+     }
+}
 ```
 
 ### Complexity
 
 - **Time Complexity**:
 
-  - Insertion (Front/Rear): $O(1)$
-  - Deletion (Front/Rear): $O(1)$
-  - Peek (Front/Rear): $O(1)$
+  - InsertFront: $O(1)$
+  - InsertRear: $O(1)$
+  - DeleteFront: $O(1)$
+  - DeleteRear: $O(1)$
+  - PeekFront: $O(1)$
+  - PeekRear: $O(1)$
   - isEmpty: $O(1)$
   - isFull: $O(1)$
 
@@ -152,20 +371,20 @@ print(deque.is_empty())      # Output: False
 
 Consider a deque with the following operations:
 
-1. Insert 10 at the rear.
-2. Insert 20 at the front.
-3. Delete from the front.
-4. Peek the rear element.
-5. Check if the deque is empty.
+1. InsertFront 10
+2. InsertRear 20
+3. DeleteFront
+4. PeekRear
+5. Check if empty
 
 **Operations**:
 
-- Insert 10 at rear: Deque becomes [_, 10, _, _, _]
-- Insert 20 at front: Deque becomes [_, 10, _, _, 20]
-- Delete from front: Removes 20, Deque becomes [_, 10, _, _, _]
-- Peek rear: Returns 10
+- InsertFront 10: Deque becomes [_, 10, _, _, _]
+- InsertRear 20: Deque becomes [_, 10, 20, _, _]
+- DeleteFront: Removes 10, Deque becomes [_, _, 20, _, _]
+- PeekRear: Returns 20, Deque remains [_, _, 20, _, _]
 - isEmpty: Returns false
 
 ### Conclusion
 
-A deque is a versatile and efficient data structure that allows operations from both ends of the queue, making it useful in applications requiring flexible data access patterns, such as browser history, task scheduling, and palindrome checking.
+The double-ended queue (Deque) is a versatile data structure that allows both insertions and deletions from both ends, providing more flexibility than a regular queue or stack. It is widely used in applications such as managing task queues, scheduling algorithms, and resource management. Understanding deques and their implementation can optimize many performance-critical systems.
