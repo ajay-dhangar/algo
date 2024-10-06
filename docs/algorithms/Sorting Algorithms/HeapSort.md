@@ -4,7 +4,8 @@ id: selection-sort-algo
 sidebar_position: 6  
 title: Heap Sort  
 sidebar_label: Heap Sort  
-
+description: A detailed guide on the Heap Sort algorithm with Python implementation examples.
+tags: [heap sort, algorithms, sorting algorithms]
 ---
 
 ### Definition:
@@ -30,13 +31,13 @@ Heap sort is a **comparison-based** sorting algorithm that uses a binary heap da
 ### Time Complexity:
 
 - **Best Case: O(n log n)**  
-  Heap sort involves building the heap (O(n)) and extracting elements from it (O(n log n)), so even in the best case, it requires O(n log n) time.
+  Heap sort involves building the heap $(O(n))$ and extracting elements from it $(O(n log n))$, so even in the best case, it requires $O(n log n)$ time.
 
 - **Average Case: O(n log n)**  
-  Heap sort's time complexity remains O(n log n) across average cases since the heap operations are logarithmic in nature.
+  Heap sort's time complexity remains $O(n log n)$ across average cases since the heap operations are logarithmic in nature.
 
 - **Worst Case: O(n log n)**  
-  The worst case also results in O(n log n), as heapifying and extracting the largest elements are bound by logarithmic comparisons.
+  The worst case also results in $O(n log n)$, as heapifying and extracting the largest elements are bound by logarithmic comparisons.
 
 ### Space Complexity:
 
