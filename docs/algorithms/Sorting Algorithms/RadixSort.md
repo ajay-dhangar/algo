@@ -1,12 +1,12 @@
-
 ---
 
-id: radix-sort-algo  
-sidebar_position: 2  
+id: radix-sort-algo 
+sidebar_position: 7  
 title: Radix Sort  
 sidebar_label: Radix Sort  
 
 ---
+
 
 ### Definition:
 
