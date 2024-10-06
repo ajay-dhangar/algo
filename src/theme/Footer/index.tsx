@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="list-none">
               <Link
-                to="/about/"
+                to="/algo/about/"
                 className="hover:text-white transition duration-200"
               >
                 About Us
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="list-none">
               <Link
-                to="/contact/"
+                to="/algo/contact/"
                 className="hover:text-white transition duration-200"
               >
                 Contact
