@@ -16,19 +16,19 @@ Kadane's algorithm is a **dynamic programming algorithm** used to find the maxim
   - Kadane's algorithm operates by maintaining a running sum of the maximum subarray ending at each position. It decides at every step whether to include the current element in the existing subarray or start a new subarray from the current element.
 
 - **Linear Time Algorithm**:
-  - The algorithm works in **O(n)** time complexity, where **n** is the number of elements in the array, as it only requires a single traversal of the array.
+  - The algorithm works in $O(n)$ time complexity, where $n$ is the number of elements in the array, as it only requires a single traversal of the array.
 
 - **Handles Negative Numbers**:
   - Kadane’s algorithm can handle arrays with both positive and negative numbers, and it efficiently skips over negative subarrays that reduce the overall sum.
 
 ### Time Complexity:
 
-- **Best, Average, and Worst Case: O(n)**  
+- **Best, Average, and Worst Case: $O(n)$**  
   Kadane's algorithm processes each element exactly once, making its time complexity linear.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   The algorithm only requires constant space, using variables to store the current maximum and the global maximum sums.
 
 ### C++ Implementation:
