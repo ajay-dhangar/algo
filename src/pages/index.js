@@ -2,6 +2,7 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Head from "@docusaurus/Head";
 import Homepage from "../components/Homepage";
+import BackToTopButton from "../components/BackToTopButton";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -24,6 +25,7 @@ export default function Home() {
       </Head>
       <main>
         <Homepage />
+        <BackToTopButton />
       </main>
     </Layout>
   );
