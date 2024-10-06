@@ -17,24 +17,29 @@ const GetInvolvedSection: React.FC = () => {
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-              Hackathons
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Participate in our hackathons to showcase your skills and win
-              exciting prizes!
-            </p>
-            <Link
-              to="#"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-            >
-              Learn More
-            </Link>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
-          </div>
+          
+          
+        <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+    Hackathons
+  </h3>
+  <p className="text-gray-600 dark:text-gray-300 mb-4">
+    Participate in our hackathons to showcase your skills and win exciting prizes!
+  </p>
+  {/* Center the button */}
+  <div className="flex justify-center">
+    <Link
+      to="#"
+      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
+    >
+      Learn More
+    </Link>
+  </div>
+  <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+</div>
 
-          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+
+          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Workshops
             </h3>
@@ -42,17 +47,19 @@ const GetInvolvedSection: React.FC = () => {
               Join our workshops to learn about the latest technologies and best
               practices in software development.
             </p>
-            <Link
-              to="#"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-            >
-              Learn More
-            </Link>
+            <div className="flex justify-center">
+    <Link
+      to="#"
+      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
+    >
+      Learn More
+    </Link>
+  </div>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
           {/* Event 3 */}
-          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Community Meetups
             </h3>
@@ -60,17 +67,19 @@ const GetInvolvedSection: React.FC = () => {
               Connect with fellow contributors and share ideas at our regular
               community meetups.
             </p>
-            <Link
-              to="#"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-            >
-              Learn More
-            </Link>
+            <div className="flex justify-center">
+    <Link
+      to="#"
+      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
+    >
+      Learn More
+    </Link>
+  </div>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
           {/* Event 4 */}
-          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Mentorship Programs
             </h3>
@@ -78,34 +87,40 @@ const GetInvolvedSection: React.FC = () => {
               Sign up for our mentorship programs to get guidance from
               experienced developers in the industry.
             </p>
-            <Link
-              to="#"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-            >
-              Learn More
-            </Link>
+            <div className="flex justify-center">
+    <Link
+      to="#"
+      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
+    >
+      Learn More
+    </Link>
+  </div>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
 
           {/* Event 5 */}
-          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-              Online Courses
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Enroll in our online courses to gain valuable skills and
-              certifications.
-            </p>
-            <Link
-              to="#"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-            >
-              Learn More
-            </Link>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
-          </div>
+          {/* Event 5 */}
+<div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+    Online Courses
+  </h3>
+  <p className="text-gray-600 dark:text-gray-300 mb-4">
+    Enroll in our online courses to gain valuable skills and certifications.
+  </p>
+  {/* Center the button */}
+  <div className="flex justify-center">
+    <Link
+      to="#"
+      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
+    >
+      Learn More
+    </Link>
+  </div>
+  <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+</div>
 
-          <div className="relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Open Source Contributions
             </h3>
@@ -113,12 +128,14 @@ const GetInvolvedSection: React.FC = () => {
               Contribute to our project and enhance your coding skills while
               making a positive impact!
             </p>
-            <Link
-              to="#"
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-            >
-              Learn More
-            </Link>
+            <div className="flex justify-center">
+    <Link
+      to="#"
+      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
+    >
+      Learn More
+    </Link>
+  </div>
             <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
           </div>
         </div>
