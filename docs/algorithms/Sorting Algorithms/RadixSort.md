@@ -1,4 +1,3 @@
-Here is a similar structure for **Radix Sort**:
 
 ---
 
