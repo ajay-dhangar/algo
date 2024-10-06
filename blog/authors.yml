@@ -14,3 +14,17 @@ ajay-dhangar:
     github: ajay-dhangar
     stackoverflow: 18530900
     newsletter: https://ajay-dhangar.github.io
+
+narendra-dhangar:
+  name: Narendra Dhangar
+  title: B.Tech (CSE) Student
+  url: https://www.instagram.com/narendra_dh._05/
+  image_url: https://github.com/narendra-dhangar.png
+  email: narendradhangar63@gmail.com
+  page: true # Turns the feature on
+  description: >
+    A dedicated Computer Science and Engineering student with a passion for problem-solving and algorithms. I am constantly exploring various fields of computer science, from data structures and algorithms to web development and machine learning. As an avid learner, I enjoy tackling challenging problems and sharing knowledge with the community. Eager to contribute to open-source projects and make an impact in the tech world.
+
+  socials:
+    linkedin: narendra-dhangar-880558297
+    github: narendra-dhangar
