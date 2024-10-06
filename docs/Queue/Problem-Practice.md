@@ -1,13 +1,11 @@
 ---
-id: Practice-Problems on Queue
-title: Queues
-sidebar_label: Queues
+id: Practice-Problems-on-queue
+title: Queue Practice Problems
+sidebar_label: Queue Practice Problems
 sidebar_position: 9
-description: Here are some Practice Problems for Queue Data Structure divided Topic-Wise.
-tags: [DSA,algorithms,Queue,dsa]
+Description: Here are some practice problems for queuing data structure divided into topic and width.
+tags: [DSA, algorithms, Queue, dsa]
 ---
-
-# Queue Practice Problems
 
 ### Basic Queue Problems:
 
