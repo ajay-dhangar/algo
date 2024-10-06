@@ -1,7 +1,7 @@
 ---
 
 id: selection-sort-algo  
-sidebar_position: 2  
+sidebar_position: 6  
 title: Heap Sort  
 sidebar_label: Heap Sort  
 
