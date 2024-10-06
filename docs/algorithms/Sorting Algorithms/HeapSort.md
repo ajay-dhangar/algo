@@ -1,9 +1,10 @@
-
 ---
-id: heap-sort-algo
-sidebar_position: 5
-title: Heap Sort
-sidebar_label: Heap Sort
+
+id: selection-sort-algo  
+sidebar_position: 2  
+title: Heap Sort  
+sidebar_label: Heap Sort  
+
 ---
 
 ### Definition:
