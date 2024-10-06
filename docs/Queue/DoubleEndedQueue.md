@@ -1,5 +1,6 @@
-
+---
 id: deque-in-dsa title: Double-Ended Queue (Deque) Data Structure sidebar_label: Double-Ended Queue (Deque) sidebar_position: 4 description: "A double-ended queue (Deque) is a linear data structure that allows insertion and deletion of elements from both ends—front and rear. This makes it a versatile data structure with efficient operations for many applications." tags: [dsa, data-structures, Deque]
+---
 
 ### Introduction to Double-Ended Queue (Deque)
 
