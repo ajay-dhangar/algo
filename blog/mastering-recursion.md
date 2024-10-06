@@ -1,7 +1,7 @@
 ---
 slug: mastering-recursion
 title: 'Mastering Recursion: Concepts, Problems, and Optimization'
-authors:[narendra-dhangar]
+authors: [narendra-dhangar]
 tags: [recursion, algorithms, dsa, optimization, narendra-dhangar]
 ---
 
