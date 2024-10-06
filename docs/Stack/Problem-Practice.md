@@ -60,5 +60,3 @@ tags: [DSA, algorithms, stack, dsa]
  - [Iterative Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/description/)
  - [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/description/)
  - [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
-
-
