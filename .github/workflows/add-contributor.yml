@@ -21,6 +21,6 @@ jobs:
         with:
           commit_message: "Updated contributors list"
           committer_username: "ajay-dhangar"
-          committer_email: "ajay-dhangar@noreply.github.com"
+          committer_email: "99037494+Ajay-Dhangar@users.noreply.github.com"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
