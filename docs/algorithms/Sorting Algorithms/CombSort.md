@@ -1,7 +1,7 @@
 ---
 
 id: comb-sort-algo  
-sidebar_position: 8  
+sidebar_position: 10  
 title: Comb Sort  
 sidebar_label: Comb Sort  
 
