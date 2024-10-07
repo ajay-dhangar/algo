@@ -2,7 +2,7 @@
 id: recusrion-in-dsa
 title: Recursion data structure
 sidebar_label: Recursion
-sidebar_position: 10
+sidebar_position: 11
 description: "Recursion is a programming technique where a function calls itself directly or indirectly in order to solve a larger problem by breaking it down into smaller, more manageable sub-problems. It is commonly used in algorithms involving divide and conquer strategies, tree traversal, and dynamic programming."
 tags: [recursion, algorithms, dsa]
 ---
