@@ -1,5 +1,5 @@
 ---
-id: greedy Algorithms
+id: greedy-algorithms-1
 title:  greedy Algorithms
 sidebar_label:  greedy Algorithms
 sidebar_position: 4
