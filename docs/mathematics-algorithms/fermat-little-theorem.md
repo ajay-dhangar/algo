@@ -19,8 +19,7 @@ Fermat's Little Theorem provides a direct way to calculate the modular multiplic
 $a^{(p-2)} ≡ a^{(-1)}$
 This means that raising `a` to the power of `p-2` modulo `p` gives you the modular multiplicative inverse of `a`.
 
-### Remember
-(A/B)%mod != ((A%mod)/(B%mod))%mod why ? do experiments :)
+
 
 ### Code
 **Code Implementation (Python):**
