@@ -1,3 +1,11 @@
+---
+id: Heap-data-Structure
+title: heap data structure
+sidebar_label: Heap Data Structure
+sidebar_position: 10
+description: Heaps are commonly used to implement priority queues and ensure efficient retrieval of the minimum or maximum element.
+tags: [Competitive Programming,top-K,priority queue]
+---
 # Heap Data Structure Operations Examples
 
 ## Example 1: Insert and Peek Operations
