@@ -129,5 +129,4 @@ By working through these problems and understanding the patterns, you'll gain:
 4. Reflect on the patterns and techniques used in each problem.
 5. Try to apply these patterns to new, unseen problems to reinforce your learning.
 
----
 
