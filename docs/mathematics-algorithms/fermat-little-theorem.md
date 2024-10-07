@@ -1,9 +1,9 @@
 ---
 id: fermat-little-theorem
 title: Fermat's Little Theorem
-sidebar_label: Fermat's Little Theorem MMI
+sidebar_label: "Fermat's Little Theorem MMI"
 sidebar_position: 5
-description: A comprehensive guide to calculating the modular multiplicative inverse using Fermat's Little Theorem.
+description: "A comprehensive guide to calculating the modular multiplicative inverse using Fermat's Little Theorem."
 tags: [number theory, modular arithmetic, cryptography,competitive progrmaing]
 ---
 
@@ -16,11 +16,11 @@ The modular multiplicative inverse of an integer `a` modulo `m` is an integer `b
 **Fermat's Little Theorem for Modular Inverses:**
 
 Fermat's Little Theorem provides a direct way to calculate the modular multiplicative inverse of `a` modulo `p` when `p` is a prime number. It states that:
-a^(p-2) ≡ a^(-1) (mod p)
+$a^{(p-2)} ≡ a^{(-1)}$
 This means that raising `a` to the power of `p-2` modulo `p` gives you the modular multiplicative inverse of `a`.
-<!-- 
+
 ### Remember
-(A/B)%mod != ((A%mod)/(B%mod))%mod why ? do experiments :) -->
+(A/B)%mod != ((A%mod)/(B%mod))%mod why ? do experiments :)
 
 ### Code
 **Code Implementation (Python):**
