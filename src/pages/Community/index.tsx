@@ -42,7 +42,7 @@ const Community: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Start discussions, ask questions, and collaborate with others.
             </p>
-            <button className="mt-4 border-1 border-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+            <button className="mt-4 border-none px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 text-white bg-blue-600">
               Join the Forum
             </button>
           </motion.div>

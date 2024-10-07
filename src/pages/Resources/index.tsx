@@ -24,7 +24,7 @@ const Resources: React.FC = () => {
         </motion.h1>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
@@ -32,7 +32,7 @@ const Resources: React.FC = () => {
           {resources.map((resource) => (
             <motion.div
               key={resource.id}
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center justify-center"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 200 }}
             >
@@ -42,7 +42,7 @@ const Resources: React.FC = () => {
               <p className="text-gray-600 dark:text-gray-300 mb-4">{resource.description}</p>
               <a
                 href={resource.link}
-                className="inline-block border-1 border-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                className="inline-block border-none text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 bg-blue-600 dark:bg-blue-500 hover:text-white"
               >
                 Access
               </a>

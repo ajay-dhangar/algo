@@ -43,7 +43,7 @@ const Challenges: React.FC = () => {
               <FaClock className="text-gray-500 dark:text-gray-400" />
               <span className="text-gray-700 dark:text-gray-300">Time Limit: 30 min</span>
             </div>
-            <button className="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 border-1 border-red-600">
+            <button className="mt-4 bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700 transition duration-300 border-none">
               Start Challenge
             </button>
           </motion.div>

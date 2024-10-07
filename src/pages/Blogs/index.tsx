@@ -85,7 +85,7 @@ const Blogs: React.FC = () => {
                 {post.title}
               </h2>
               <p className="text-gray-600 dark:text-gray-300">{post.summary}</p>
-              <button className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 border-1 border-blue-600">
+              <button className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 border-none">
                 Read More
               </button>
             </motion.div>
