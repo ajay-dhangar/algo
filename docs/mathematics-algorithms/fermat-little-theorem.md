@@ -1,6 +1,6 @@
 ---
 id: fermat-little-theorem
-title: Fermat's Little Theorem
+title: "Fermat's Little Theorem"
 sidebar_label: "Fermat's Little Theorem MMI"
 sidebar_position: 5
 description: "A comprehensive guide to calculating the modular multiplicative inverse using Fermat's Little Theorem."
@@ -146,7 +146,7 @@ Explanation of the Code:
 modular_exponentiation: This function efficiently calculates the modular exponentiation of base^exponent mod mod using the repeated squaring algorithm.
 modular_inverse: This function calculates the modular multiplicative inverse of a modulo p using Fermat's Little Theorem.
 It first checks if p is a prime number greater than 1.
-If so, it calculates a^(p-2) mod p using the modular_exponentiation function.
+If so, it calculates $a^{(p-2)}$ mod p using the modular_exponentiation function.
 The result is the modular multiplicative inverse of a modulo p.
 main: This is the main function where the program execution starts. It prompts the user to enter values for a and p, calculates the modular inverse using the modular_inverse function, and prints the result.
 Example Usage:
