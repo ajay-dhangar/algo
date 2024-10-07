@@ -2,6 +2,8 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import Head from "@docusaurus/Head";
 import Homepage from "../components/Homepage";
+import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop.tsx";
+import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom.tsx";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -24,6 +26,8 @@ export default function Home() {
       </Head>
       <main>
         <Homepage />
+        <BottomToTop />
+        <TopToBottom />
       </main>
     </Layout>
   );
