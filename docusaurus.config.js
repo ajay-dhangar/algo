@@ -23,6 +23,7 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        debug: true,
         docs: {
           sidebarPath: "./sidebars.js",
           editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
@@ -69,14 +70,54 @@ const config = {
             position: "left",
             label: "Tutorial",
           },
-          { to: "/algo/roadmap", label: "Roadmap", position: "left" },
-          { to: "/algo/challenges", label: "Challenges", position: "left" },
-          { to: "/algo/practice", label: "Practice", position: "left" },
-          { to: "/algo/leaderboard", label: "Leaderboard", position: "left" },
-          { to: "/algo/community", label: "Community", position: "left" },
-          { to: "/algo/resources", label: "Resources", position: "left" },
-          { to: "/algo/faq", label: "FAQ", position: "left" },
-          { to: "/algo/blogs", label: "Blogs", position: "left" },
+          {
+            to: "https://ajay-dhangar.github.io/algo/roadmap",
+            label: "Roadmap",
+            position: "left",
+            target: "_self",
+          },
+          {
+            to: "https://ajay-dhangar.github.io/algo/challenges",
+            label: "Challenges",
+            position: "left",
+            target: "_self",
+          },
+          {
+            to: "https://ajay-dhangar.github.io/algo/practice",
+            label: "Practice",
+            position: "left",
+            target: "_self",
+          },
+          {
+            to: "https://ajay-dhangar.github.io/algo/leaderboard",
+            label: "Leaderboard",
+            position: "left",
+            target: "_self",
+          },
+          {
+            to: "https://ajay-dhangar.github.io/algo/community",
+            label: "Community",
+            position: "left",
+            target: "_self",
+          },
+          {
+            to: "https://ajay-dhangar.github.io/algo/resources",
+            label: "Resources",
+            position: "left",
+            target: "_self",
+          },
+          {
+            to: "https://ajay-dhangar.github.io/algo/faq",
+            label: "FAQ",
+            position: "left",
+            target: "_self",
+          },
+          {
+            to: "https://ajay-dhangar.github.io/algo/blogs",
+            label: "Blogs",
+            position: "left",
+            target: "_self",
+          },
           {
             href: "https://github.com/ajay-dhangar/algo",
             label: "GitHub",
