@@ -1,6 +1,6 @@
 ---
 id: mathematical-algorithms
-sidebar_position: 3
+sidebar_position: 1
 title: What is Mathematical Algorithms?
 sidebar_label: What is Mathematical Algorithms?
 description: "Mathematical Algorithms play a crucial role in solving complex problems efficiently in both DSA and competitive programming."

@@ -20,6 +20,7 @@ We aim to:
 - **Multi-language Support**: Algorithms in multiple programming languages
 - **Beginner-Friendly**: Well-structured, easy-to-understand explanations
 - **Open Source Contributions**: Welcoming developers at all levels to contribute
+- **Community Forum**: A new interactive platform where developers can ask questions, share ideas, and collaborate in real-time. This forum will help bridge the gap between beginners and experts, allowing for deeper engagement and problem-solving.
 
 ## Website
 
@@ -178,6 +179,13 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/PRASHANTSWAROOP001">
+                    <img src="https://avatars.githubusercontent.com/u/56585080?v=4" width="100;" alt="PRASHANTSWAROOP001"/>
+                    <br />
+                    <sub><b>PRASHANT SWAROOP</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/nishakp3005">
                     <img src="https://avatars.githubusercontent.com/u/121110503?v=4" width="100;" alt="nishakp3005"/>
                     <br />
@@ -198,6 +206,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Bhumika Sharma</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Akki-58">
                     <img src="https://avatars.githubusercontent.com/u/154585091?v=4" width="100;" alt="Akki-58"/>
@@ -205,8 +215,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>AJ</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Kratik1093">
                     <img src="https://avatars.githubusercontent.com/u/153417068?v=4" width="100;" alt="Kratik1093"/>
@@ -242,6 +250,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>IRFANSARI2</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/ImgBotApp">
                     <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
@@ -249,8 +259,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Imgbot</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/shubhagarwal1">
                     <img src="https://avatars.githubusercontent.com/u/105449260?v=4" width="100;" alt="shubhagarwal1"/>
