@@ -39,12 +39,12 @@ where $$n!$$ (n factorial) is the product of all positive integers up to $n$.
 
 Combinations refer to the selection of items from a larger set where the order does not matter. The number of ways to choose \( r \) elements from \( n \) elements is given by the binomial coefficient:
 
-\[
+$$
 C(n, r) = \frac{n!}{r!(n-r)!}
-\]
+$$
 
 **Example:**
-- The combinations of choosing 2 elements from the set \(\{A, B, C\}\) are:
+- The combinations of choosing 2 elements from the set $(A, B, C)$ are:
   - AB
   - AC
   - BC
