@@ -1,7 +1,7 @@
 ---
 
 id: comparison-search-algo  
-sidebar_position: 14  
+sidebar_position: 3
 title: Comparison Search  
 sidebar_label: Comparison Search  
 
