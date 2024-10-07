@@ -1,4 +1,11 @@
-
+---
+id: 26
+title: Longest Common Subsequence
+sidebar_label: ___  
+sidebar_position: ___  
+description: Longest Common Subsequence (LCS) is a dynamic programming technique that finds the longest subsequence common to two strings. It’s widely used in text comparison, bioinformatics, and file differencing tools. 
+tags: [DP, Longest common subsequence ]  
+---
 # Longest Common Subsequence (LCS)
 
 ## Introduction
@@ -24,13 +31,13 @@ To solve the LCS problem, we can utilize dynamic programming by creating a 2D ta
 ### Recurrence Relation
 
 1. If the characters of X and Y match (i.e., `X[i-1] == Y[j-1]`), then:
-   \[
+   $$
    dp[i][j] = dp[i-1][j-1] + 1
-   \]
+   $$
 2. If the characters do not match, we take the maximum value from either ignoring the current character from X or Y:
-   \[
+   $$
    dp[i][j] = \max(dp[i-1][j], dp[i][j-1])
-   \]
+   $$
 
 ### Base Case
 
@@ -113,8 +120,8 @@ int main() {
 
 ## Time and Space Complexity
 
--   **Time Complexity:** The time complexity is O(m * n) because we fill up a table of size `(m + 1) x (n + 1)` in nested loops.
--   **Space Complexity:** The space complexity is also O(m * n) due to the 2D table used for storing intermediate results.
+-   **Time Complexity:** The time complexity is $O(m \times n)$ because we fill up a table of size `(m + 1) x (n + 1)` in nested loops.
+-   **Space Complexity:** The space complexity is also $O(m \times n)$ due to the 2D table used for storing intermediate results.
 
 ## Conclusion
 
