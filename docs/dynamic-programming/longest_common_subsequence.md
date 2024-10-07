@@ -1,8 +1,8 @@
 ---
-id: 26
+id: longest-common-subsequence
 title: Longest Common Subsequence
-sidebar_label: ___  
-sidebar_position: ___  
+sidebar_label: "Longest Common Subsequence"  
+sidebar_position: 4  
 description: Longest Common Subsequence (LCS) is a dynamic programming technique that finds the longest subsequence common to two strings. It’s widely used in text comparison, bioinformatics, and file differencing tools. 
 tags: [DP, Longest common subsequence ]  
 ---
