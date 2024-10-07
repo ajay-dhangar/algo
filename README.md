@@ -20,6 +20,7 @@ We aim to:
 - **Multi-language Support**: Algorithms in multiple programming languages
 - **Beginner-Friendly**: Well-structured, easy-to-understand explanations
 - **Open Source Contributions**: Welcoming developers at all levels to contribute
+- **Community Forum**: A new interactive platform where developers can ask questions, share ideas, and collaborate in real-time. This forum will help bridge the gap between beginners and experts, allowing for deeper engagement and problem-solving.
 
 ## Website
 
