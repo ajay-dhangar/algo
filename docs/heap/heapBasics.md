@@ -1,23 +1,15 @@
+---
+id: Heap-data-Structure
+title: heap data structure
+sidebar_label: Heap Data Structure
+sidebar_position: 10
+description: Heaps are commonly used to implement priority queues and ensure efficient retrieval of the minimum or maximum element.
+tags: [Competitive Programming,top-K,priority queue]
+---
 # Heap Data Structure
 
 A **Heap** is a specialized tree-based data structure that satisfies the **Heap Property**. Heaps are commonly used to implement priority queues and ensure efficient retrieval of the minimum or maximum element.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Types of Heaps](#types-of-heaps)
-  - [Max Heap](#max-heap)
-  - [Min Heap](#min-heap)
-- [Heap Operations](#heap-operations)
-  - [Insert](#insert)
-  - [Delete](#delete)
-  - [Peek](#peek)
-  - [Heapify](#heapify)
-- [Applications](#applications)
-- [Time Complexity](#time-complexity)
-- [Implementation](#implementation)
-  - [C++ Code Example](#c-code-example)
-- [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -30,25 +22,26 @@ Heaps can be represented as arrays, which helps in reducing the space complexity
 ### Max Heap
 
 In a **Max Heap**, for every node `i`, the value of `i` is greater than or equal to the values of its children. Therefore, the root of the tree contains the maximum element.
+```
 
        50
       /  \
     30    20
    /  \   / 
  15   10  8
-
+```
 
 
 ### Min Heap
 
 In a **Min Heap**, for every node `i`, the value of `i` is less than or equal to the values of its children. The root contains the minimum element.
-
+```
        10
       /  \
      15   30
     /  \   / 
    50   20  40
-
+```
 
 ## Heap Operations
 
@@ -87,10 +80,10 @@ Heapifying ensures that a subtree satisfies the heap property. Two types of heap
 
 ## Time Complexity
 
-- **Insertion**: `O(log n)`
-- **Deletion**: `O(log n)`
-- **Peek**: `O(1)`
-- **Heapify**: `O(log n)`
+- **Insertion**: $O(log n)$
+- **Deletion**: $O(log n)$
+- **Peek**: $O(1)$
+- **Heapify**: $O(log n)$
 
 ## Implementation
 
@@ -188,3 +181,4 @@ int main() {
 
     return 0;
 }
+```
