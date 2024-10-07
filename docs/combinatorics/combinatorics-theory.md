@@ -1,5 +1,5 @@
 ---
-id: combinatorics-in-DataStructures
+id: combinatorics-theory
 title: combinatorics in  data structure
 sidebar_label: combinatorics
 sidebar_position: 6
