@@ -120,5 +120,3 @@ O(m * n)
 To reconstruct the actual LCS, we can backtrack through the dp table, starting from the bottom right corner.
 
 There are other algorithms like the Hirschberg algorithm that can reduce the space complexity to O(min(m, n)).
-
-This Markdown code provides a detailed explanation of the LCS problem, including the dynamic programming algorithm, Python code implementation, and code explanation.
