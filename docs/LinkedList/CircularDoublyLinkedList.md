@@ -2,7 +2,7 @@
 id: introduction-to-CircularDoublyLinkedList
 title: Circular Doubly Linked List Data Structure
 sidebar_label: Introduction to Circular Doubly Linked List
-sidebar_position: 2
+sidebar_position: 3
 description: 'A Circular Doubly Linked List is a variation of a doubly linked list in which the last node points back to the first node, and the first node points to the last node.'
 tags: [dsa, data-structures, Circular Doubly Linked List]
 ---
