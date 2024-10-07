@@ -1,9 +1,9 @@
 
 ---
-id: bitonic-sort-algo
-sidebar_position: 7
-title: Bitonic Sort
-sidebar_label: Bitonic Sort
+id: bitonic-sort-algo  
+sidebar_position: 12  
+title: Bitonic Sort  
+sidebar_label: Bitonic Sort  
 description: A detailed guide on the Bitonic Sort algorithm with Python implementation examples.
 tags: [bitonic sort, algorithms, sorting algorithms]
 ---
