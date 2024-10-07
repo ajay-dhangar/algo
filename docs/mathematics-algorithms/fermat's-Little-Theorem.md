@@ -1,5 +1,5 @@
 ---
-id: fermat's-Little-theorem
+id: fermat-little-theorem
 title: Fermat's Little Theorem
 sidebar_label: Fermat's Little Theorem MMI
 sidebar_position: 5
