@@ -1,0 +1,20 @@
+.scrollToBottomButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s;
+  opacity: 0.8;
+  z-index: 1000;
+}
+
+.scrollToBottomButton:hover {
+  background-color: #218838;
+  opacity: 1;
+}
