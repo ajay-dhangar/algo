@@ -127,6 +127,13 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Shariq2003">
+                    <img src="https://avatars.githubusercontent.com/u/109452033?v=4" width="100;" alt="Shariq2003"/>
+                    <br />
+                    <sub><b>Shariq</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/yogeswari05">
                     <img src="https://avatars.githubusercontent.com/u/137740335?v=4" width="100;" alt="yogeswari05"/>
                     <br />
@@ -152,13 +159,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <img src="https://avatars.githubusercontent.com/u/121110503?v=4" width="100;" alt="nishakp3005"/>
                     <br />
                     <sub><b>Nishita Panchal</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Shariq2003">
-                    <img src="https://avatars.githubusercontent.com/u/109452033?v=4" width="100;" alt="Shariq2003"/>
-                    <br />
-                    <sub><b>Shariq</b></sub>
                 </a>
             </td>
 		</tr>
