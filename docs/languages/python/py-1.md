@@ -5,10 +5,13 @@ title: Datatypes in Python
 sidebar_label: Datatypes in Python
 ---
 
+Hey everyone ! I'm Soumyadeep Paul , today we are delving into a fundamental concept in python - Datatypes.
+Whether you are a beginner or seeking refresher this comprehensive guide will provide you with a solid understanding of Python Datatypes.Let's jump right in !
 
 # Python Data Types
 
-Python provides several built-in data types that allow you to work with different kinds of data. These data types can be categorized as primitive or non-primitive.
+* Python provides several built-in data types that allow you to work with different kinds of data. 
+* These data types can be categorized as primitive or non-primitive.
 
 ## 1. Primitive Data Types
 
