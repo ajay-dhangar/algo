@@ -1,5 +1,5 @@
 ---
-id: Heap-data-Structure
+id: Heap-data-Structure-2
 title: heap data structure
 sidebar_label: Heap Data Structure
 sidebar_position: 10
