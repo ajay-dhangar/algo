@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 5px;
     background: #2a2a2a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #444444;
-    border-radius: 6px;
+    background: var(--ifm-color-primary);
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #666;
+    background: var(--ifm-color-primary-dark);
 }
 
 ::-webkit-scrollbar-track {
-    background: #2a2a2a;
+    background:#48df84;
 }
 
 :root {
