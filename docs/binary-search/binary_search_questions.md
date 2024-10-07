@@ -11,23 +11,6 @@ tags: [dsa, algorithms, binary search]
 
 Welcome to this in-depth exploration of binary search patterns! This guide is designed to help you master the art of binary search through a curated collection of problems, explanations, and real-world applications.
 
-## Table of Contents
-
-- [Binary Search Patterns: A Comprehensive Guide](#binary-search-patterns-a-comprehensive-guide)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction to Binary Search](#introduction-to-binary-search)
-  - [Why Master Binary Search?](#why-master-binary-search)
-  - [Binary Search Patterns](#binary-search-patterns)
-    - [Pattern 1: Binary Search on 1D Arrays](#pattern-1-binary-search-on-1d-arrays)
-    - [Pattern 2: Binary Search on Answer Space](#pattern-2-binary-search-on-answer-space)
-    - [Pattern 3: Binary Search on 2D Arrays](#pattern-3-binary-search-on-2d-arrays)
-  - [Problem Collections](#problem-collections)
-    - [Pattern 1: Binary Search on 1D Arrays](#pattern-1-binary-search-on-1d-arrays-1)
-    - [Pattern 2: Binary Search on Answer Space](#pattern-2-binary-search-on-answer-space-1)
-    - [Pattern 3: Binary Search on 2D Arrays](#pattern-3-binary-search-on-2d-arrays-1)
-  - [Real-World Applications](#real-world-applications)
-  - [Benefits of Mastering Binary Search](#benefits-of-mastering-binary-search)
-  - [How to Use This Guide](#how-to-use-this-guide)
 
 ## Introduction to Binary Search
 
