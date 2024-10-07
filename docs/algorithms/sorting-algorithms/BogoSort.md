@@ -93,7 +93,7 @@ int main() {
 
 ### Summary:
 
-Bogo sort is a highly inefficient sorting algorithm based on generating random permutations until the array is sorted. With an average-case time complexity of O((n+1)!), it is impractical for anything but small arrays or as a teaching tool to illustrate inefficiency. Despite its impracticality, Bogo sort serves as a humorous example of how not to sort a list, given its extreme inefficiency.
+Bogo sort is a highly inefficient sorting algorithm based on generating random permutations until the array is sorted. With an average-case time complexity of $O((n+1)!)$, it is impractical for anything but small arrays or as a teaching tool to illustrate inefficiency. Despite its impracticality, Bogo sort serves as a humorous example of how not to sort a list, given its extreme inefficiency.
 
 The main takeaway is that Bogo sort, while theoretically interesting, should not be used in practice due to its poor performance and high computational cost.
 
