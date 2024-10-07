@@ -1,7 +1,8 @@
 ---
 id: two-pointers
 title: Two Pointers Algorithm
-sidebar_label: Two Pointers Algorithm
+sidebar_label: What is Two Pointers Algorithm?
+sidebar_position: 1
 description: "In this blog post, we'll explore the Two Pointers Algorithm, an efficient technique for solving problems related to arrays or strings."
 tags: [dsa, algorithms, two pointers]
 ---

@@ -2,7 +2,7 @@
 id: Practice-Problems-on-two-pointers
 title: Practice Problems
 sidebar_label: Practice Problems
-sidebar_position: 20
+sidebar_position: 3
 description: Here are some practice problems for the Two Pointers technique, divided into topic-wise and difficulty-wise categories.
 tags: [DSA, algorithms, two pointers]
 ---
