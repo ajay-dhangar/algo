@@ -18,7 +18,7 @@ Combinatorics is a branch of mathematics dealing with combinations, arrangements
 
 ### 1. **Permutations**
 
-Permutations refer to the different arrangements of a set of elements. The number of permutations of \( n \) distinct objects is given by:
+Permutations refer to the different arrangements of a set of elements. The number of permutations of $n$ distinct objects is given by:
 
 $$
 P(n) = n!
@@ -37,7 +37,7 @@ where $$n!$$ (n factorial) is the product of all positive integers up to $n$.
 
 ### 2. **Combinations**
 
-Combinations refer to the selection of items from a larger set where the order does not matter. The number of ways to choose \( r \) elements from \( n \) elements is given by the binomial coefficient:
+Combinations refer to the selection of items from a larger set where the order does not matter. The number of ways to choose  $r$ elements from $n$ elements is given by the binomial coefficient:
 
 $$
 C(n, r) = \frac{n!}{r!(n-r)!}
@@ -87,7 +87,7 @@ Combinatorial counting is crucial in backtracking algorithms, especially in prob
 
 Dynamic programming often employs combinatorial principles to solve optimization problems by breaking them down into simpler subproblems. Examples include:
 
-- **Fibonacci Sequence**: Counting the number of ways to reach the $ n^{th} $ step.
+- **Fibonacci Sequence**: Counting the number of ways to reach the $n^{th}$ step.
 - **Longest Common Subsequence (LCS)**: Finding the longest sequence that can be derived from two sequences through deletion.
 
 ## Key Combinatorial Problems
