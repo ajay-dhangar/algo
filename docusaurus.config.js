@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 // import remarkPlugin from 'remark-plugin';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 const path = require("path");
 
 /** @type {import('@docusaurus/types').Config} */
@@ -24,7 +24,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: "./sidebars.js", 
+          sidebarPath: "./sidebars.js",
           editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
@@ -44,11 +44,11 @@ const config = {
 
   stylesheets: [
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      type: 'text/css',
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
       integrity:
-        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
-      crossorigin: 'anonymous',
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
     },
   ],
 
@@ -69,14 +69,14 @@ const config = {
             position: "left",
             label: "Tutorial",
           },
-          { to: "/blogs", label: "Blogs", position: "left" },
-          { to: "/roadmap", label: "Roadmap", position: "left" },
-          { to: "/challenges", label: "Challenges", position: "left" },
-          { to: "/practice", label: "Practice", position: "left" },
-          { to: "/resources", label: "Resources", position: "left" },
-          { to: "/leaderboard", label: "Leaderboard", position: "left" },
-          { to: "/faq", label: "FAQ", position: "left" },
-          { to: "/community", label: "Community", position: "left" },
+          { to: "/algo/roadmap", label: "Roadmap", position: "left" },
+          { to: "/algo/challenges", label: "Challenges", position: "left" },
+          { to: "/algo/practice", label: "Practice", position: "left" },
+          { to: "/algo/leaderboard", label: "Leaderboard", position: "left" },
+          { to: "/algo/community", label: "Community", position: "left" },
+          { to: "/algo/resources", label: "Resources", position: "left" },
+          { to: "/algo/faq", label: "FAQ", position: "left" },
+          { to: "/algo/blogs", label: "Blogs", position: "left" },
           {
             href: "https://github.com/ajay-dhangar/algo",
             label: "GitHub",
