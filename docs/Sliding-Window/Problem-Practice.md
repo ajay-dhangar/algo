@@ -9,7 +9,7 @@ tags: [DSA, algorithms, sliding window]
 
 ### Fixed Size Window:
 
-- [Maximum Sum of a Subarray of Size K](https://leetcode.com/problems/maximum-sum-of-a-subarray-of-size-k/)
+- [Maximum Sum of a Subarray of Size K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/)
 - [Minimize the Maximum of Two Arrays](https://leetcode.com/problems/minimize-the-maximum-of-two-arrays/)
 - [Longest Substring with K Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
 - [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
