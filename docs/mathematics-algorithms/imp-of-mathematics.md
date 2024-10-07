@@ -1,6 +1,6 @@
 ---
 id: importance-of-mathematics
-sidebar_position: 4
+sidebar_position: 2
 title: Importance of Mathematical Algorithms
 sidebar_label: Importance of Mathematics
 description: "Mathematical algorithms are essential for solving various computational problems and are widely used in both theoretical computer science and practical applications. They underpin many algorithms used in competitive programming and other fields."
