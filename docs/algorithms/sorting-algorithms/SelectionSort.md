@@ -1,10 +1,10 @@
 ---
-
 id: selection-sort-algo  
 sidebar_position: 2  
-title: Selection Sort  
-sidebar_label: Selection Sort  
-
+title: Selection Sort 
+sidebar_label: Selection Sort
+description: Selection sort is a simple comparison-based sorting algorithm that repeatedly selects the smallest (or largest) element from the unsorted portion of the array and swaps it with the first unsorted element. It works by dividing the array into a sorted and an unsorted region and systematically reducing the size of the unsorted region.
+tags: [Sorting Algorithms, Selection Sort]
 ---
 
 ### Definition:
