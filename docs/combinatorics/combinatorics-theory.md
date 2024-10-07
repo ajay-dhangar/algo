@@ -20,14 +20,14 @@ Combinatorics is a branch of mathematics dealing with combinations, arrangements
 
 Permutations refer to the different arrangements of a set of elements. The number of permutations of \( n \) distinct objects is given by:
 
-\[
+$$
 P(n) = n!
-\]
+$$
 
-where \( n! \) (n factorial) is the product of all positive integers up to \( n \).
+where $$n!$$ (n factorial) is the product of all positive integers up to $n$.
 
 **Example:**
-- The permutations of the set \(\{A, B, C\}\) are:
+- The permutations of the set $(A, B, C)$ are:
   - ABC
   - ACB
   - BAC
@@ -51,11 +51,11 @@ C(n, r) = \frac{n!}{r!(n-r)!}
 
 ### 3. **Binomial Theorem**
 
-The Binomial Theorem provides a formula for expanding expressions of the form \((x + y)^n\):
+The Binomial Theorem provides a formula for expanding expressions of the form $(x + y)^n$
 
-\[
+$$
 (x + y)^n = \sum_{k=0}^{n} C(n, k) x^{n-k} y^k
-\]
+$$
 
 This theorem is useful in combinatorial problems, especially in counting paths or arrangements.
 
@@ -87,7 +87,7 @@ Combinatorial counting is crucial in backtracking algorithms, especially in prob
 
 Dynamic programming often employs combinatorial principles to solve optimization problems by breaking them down into simpler subproblems. Examples include:
 
-- **Fibonacci Sequence**: Counting the number of ways to reach the \( n^{th} \) step.
+- **Fibonacci Sequence**: Counting the number of ways to reach the $ n^{th} $ step.
 - **Longest Common Subsequence (LCS)**: Finding the longest sequence that can be derived from two sequences through deletion.
 
 ## Key Combinatorial Problems
