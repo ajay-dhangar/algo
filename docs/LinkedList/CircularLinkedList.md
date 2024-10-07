@@ -1,13 +1,13 @@
 ---
 id: introduction-to-CircularLinkedList
-title: Circular LinkedList Data Structure
-sidebar_label: Introduction to Circular LinkedList
+title: Circular Linked List Data Structure
+sidebar_label: Introduction to Circular Linked List
 sidebar_position: 2
 description: 'A Circular Linked List is a linked data structure where the last node points back to the first node, forming a circle. This structure allows for efficient traversal and can be either singly or doubly linked. '
 tags: [dsa, data-structures, Circular LinkedList]
 ---
 
-### Introduction to Circular LinkedList
+### Introduction to Circular Linked List
 
 A **Circular LinkedList** is a variation of a linked list where the last node points back to the first node instead of null (or None in Python). This structure allows for a circular traversal where one can start from any node and eventually return to the same node. Circular linked lists can be either singly or doubly linked. 
 
