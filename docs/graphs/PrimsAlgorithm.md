@@ -6,7 +6,6 @@ Prim's Algorithm is a greedy algorithm that finds the Minimum Spanning Tree (MST
 ## Table of Contents
 - [Introduction](#introduction)
 - [How Prim's Algorithm Works](#how-prims-algorithm-works)
-- [Pseudocode](#pseudocode)
 - [Step-by-Step Execution](#step-by-step-execution)
 - [Time Complexity](#time-complexity)
 - [Applications](#applications)
@@ -29,31 +28,7 @@ In graph theory, a Minimum Spanning Tree (MST) is a subset of edges that connect
 
 3. **Termination:**
    - The algorithm terminates when all vertices are included in the MST.
-## Pseudocode
-```plaintext
-function Prim(G, startVertex):
-    create a priority queue (min-heap) Q
-    create a set to keep track of visited vertices: visited
-    create a variable to store the total weight of the MST: totalWeight = 0
 
-    for each vertex v in G:
-        distance[v] = infinity
-    distance[startVertex] = 0
-    Q.add((0, startVertex))  // (weight, vertex)
-
-    while Q is not empty:
-        (weight, u) = Q.extractMin()
-        if u is in visited:
-            continue
-        visited.add(u)
-        totalWeight += weight
-
-        for each edge (u, v) in G.adjacentEdges(u):
-            if v is not in visited and distance[v] > edgeWeight:
-                distance[v] = edgeWeight
-                Q.add((edgeWeight, v))
-
-    return totalWeight
 ## Step-by-Step Execution
 Let’s illustrate Prim's Algorithm with a simple example:
 
@@ -95,5 +70,5 @@ The final MST includes edges **(A-D)**, **(A-B)**, **(B-E)**, and **(A-C)** with
 
 Both algorithms can effectively find the MST, but the choice between them depends on the graph's density and specific use cases.
 
-## Conclusion
+Conclusion
 Prim's Algorithm is a powerful method for finding the Minimum Spanning Tree in a graph. Its greedy approach, efficiency, and wide range of applications make it a fundamental algorithm in computer science and network design. Understanding how Prim's Algorithm works enables developers and researchers to tackle various problems in optimization and connectivity.
