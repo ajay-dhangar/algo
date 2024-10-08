@@ -1,3 +1,4 @@
+```java
 public class FactorialByRecursion {
     public static int calcfactorial(int n) {
         if (n == 1 || n == 0) {
