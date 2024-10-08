@@ -52,9 +52,9 @@ Permutations and combinations are fundamental concepts in combinatorics used to 
 
 The number of permutations of `n` distinct objects taken `r` at a time is given by the formula:
 
-\[
+$$
 P(n, r) = \frac{n!}{(n - r)!}
-\]
+$$
 
 ### Example
 
@@ -118,9 +118,9 @@ int main() {
 
 The number of combinations of `n` distinct objects taken `r` at a time is given by the formula:
 
-\[
+$$
 C(n, r) = \frac{n!}{r!(n - r)!}
-\]
+$$
 
 ## Example
 
