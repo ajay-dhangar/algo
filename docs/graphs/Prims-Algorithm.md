@@ -1,6 +1,6 @@
 ---
 id: prims-algorithm
-title:  prims algorithm
+title:  Prims Algorithm
 sidebar_label:  Prims Algorithm
 sidebar_position: 2
 description: "Prim's algorithm is a greedy algorithm that finds the Minimum Spanning Tree (MST)"
