@@ -33,13 +33,13 @@ You are given `N` items, each with a given weight `w_i` and value `v_i`, and a k
 
 ### Time Complexity:
 
-- **Best, Average, and Worst Case: O(N log N)**  
-The dominant operation is sorting the items based on their value-to-weight ratio, which takes O(N log N), where N is the number of items.
+- **Best, Average, and Worst Case: $O(N log N)$**  
+The dominant operation is sorting the items based on their value-to-weight ratio, which takes $O(N log N)$, where N is the number of items.
 
 ### Space Complexity:
 
-- **Space Complexity: O(N)**  
-Space is required for the list of items and auxiliary data structures for sorting, resulting in O(N) space complexity.
+- **Space Complexity: $O(N)$**  
+Space is required for the list of items and auxiliary data structures for sorting, resulting in $O(N)$ space complexity.
 
 ### Example:
 
@@ -126,4 +126,4 @@ int main() {
 
 ### Summary:
 
-The Fractional Knapsack Problem is a classic example of a greedy algorithm. It efficiently maximizes the value of the items that can be carried in the knapsack by selecting items based on their value-to-weight ratio. This algorithm is especially useful when fractional items can be taken and provides the optimal solution with a time complexity of O(N log N). The fractional knapsack finds applications in resource allocation, budget management, and similar optimization problems.
+The Fractional Knapsack Problem is a classic example of a greedy algorithm. It efficiently maximizes the value of the items that can be carried in the knapsack by selecting items based on their value-to-weight ratio. This algorithm is especially useful when fractional items can be taken and provides the optimal solution with a time complexity of $O(N log N)$. The fractional knapsack finds applications in resource allocation, budget management, and similar optimization problems.
