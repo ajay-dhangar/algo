@@ -16,10 +16,6 @@
     background: var(--ifm-color-primary-dark);
 }
 
-::-webkit-scrollbar-track {
-    background:#48df84;
-}
-
 :root {
   --ifm-color-primary: #3b82f6;
   --ifm-color-primary-dark: #29784c;
