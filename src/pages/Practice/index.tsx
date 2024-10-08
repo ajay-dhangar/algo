@@ -64,6 +64,143 @@ const Practice: React.FC = () => {
           </motion.div>
 
           {/* Add more problems as needed */}
+
+          <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Problem 2: Add Two Numbers
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400 mt-2">
+        You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order.
+      </p>
+      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+        <FaPlayCircle className="w-5 h-5" />
+        <span>Start Solving</span>
+      </button>
+    </motion.div>
+
+          <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Problem 4: Median of Two Sorted Arrays
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400 mt-2">
+        Given two sorted arrays, find the median of the two sorted arrays.
+      </p>
+      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+        <FaPlayCircle className="w-5 h-5" />
+        <span>Start Solving</span>
+      </button>
+    </motion.div>
+
+           <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Problem 5: Longest Palindromic Substring
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400 mt-2">
+        Given a string, find the longest palindromic substring in it.
+      </p>
+      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+        <FaPlayCircle className="w-5 h-5" />
+        <span>Start Solving</span>
+      </button>
+    </motion.div>
+
+          <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Problem 6: Zigzag Conversion
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400 mt-2">
+        Convert a string to a zigzag pattern on a given number of rows and read line by line.
+      </p>
+      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+        <FaPlayCircle className="w-5 h-5" />
+        <span>Start Solving</span>
+      </button>
+    </motion.div>
+
+          <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Problem 7: Reverse Integer
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400 mt-2">
+        Given a 32-bit signed integer, reverse its digits.
+      </p>
+      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+        <FaPlayCircle className="w-5 h-5" />
+        <span>Start Solving</span>
+      </button>
+    </motion.div>
+
+          <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Problem 8: String to Integer (atoi)
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400 mt-2">
+        Implement the `atoi` function, which converts a string to an integer.
+      </p>
+      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+        <FaPlayCircle className="w-5 h-5" />
+        <span>Start Solving</span>
+      </button>
+    </motion.div>
+
+           <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Problem 9: Palindrome Number
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400 mt-2">
+        Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+      </p>
+      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+        <FaPlayCircle className="w-5 h-5" />
+        <span>Start Solving</span>
+      </button>
+    </motion.div>
+
+          <motion.div
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 200 }}
+    >
+      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+        Problem 10: Regular Expression Matching
+      </h3>
+      <p className="text-gray-500 dark:text-gray-400 mt-2">
+        Implement regular expression matching with support for `.` and `*`.
+      </p>
+      <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+        <FaPlayCircle className="w-5 h-5" />
+        <span>Start Solving</span>
+      </button>
+    </motion.div>
+          
         </div>
       </div>
     </section>
