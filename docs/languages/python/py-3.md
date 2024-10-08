@@ -1,107 +1,80 @@
+---  
+id: loops-in-python  
+sidebar_position: 4  
+title: Loops in Python  
+sidebar_label: Loops in Python
+---
 
-Loops in Python
-===============
-
+Hey everyone! Today, we'll explore loops in Python, which help automate repetitive tasks. Whether you're new to Python or need a quick recap, this guide will help you understand how loops work in Python. Let's dive right in!
 # Python Loops
 
 
-Python provides several types of loops that allow you to execute a block of code repeatedly. These loops can be categorized as `for` loops and `while` loops.
-## 1. For Loops
+* Loops allow you to repeatedly execute a block of code while certain conditions are true.
 
-### a. Basic For Loop
+* Python provides two primary types of loops: `for` loops and `while` loops.
+## 1. For Loop
 
 
-Used to iterate over a sequence (like a list, tuple, or string).  
+The `for` loop in Python is used to iterate over a sequence (like a list, tuple, or string) and execute a block of code for each element.  
 ```python  
-fruits = ['apple', 'banana', 'cherry']  
-for fruit in fruits:  
-    print(fruit)  
+numbers = [1, 2, 3, 4, 5]             # List of numbers to iterate over  
+for num in numbers:                   # Begin a 'for' loop over the 'numbers' list  
+    print(num)                        # Print each number in the list  
 ```
-### b. For Loop with Range
+## 2. For Loop with Range
 
 
-Used to iterate over a sequence of numbers.  
+You can also use the `range()` function to iterate over a sequence of numbers, especially when you want to loop for a specific number of times.  
 ```python  
-for i in range(5):  
-    print(i)  
+for i in range(1, 6):                 # Loop through numbers from 1 to 5 (range excludes 6)  
+    print(i)                          # Print each number in the range  
 ```
-### c. Nested For Loop
+## 3. While Loop
 
 
-Used to iterate over nested sequences.  
+The `while` loop in Python allows you to execute a block of code as long as a condition is true.  
 ```python  
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  
-for row in matrix:  
-    for element in row:  
-        print(element, end=' ')  
-    print()  
+count = 1                             # Initialize a variable 'count' with value 1  
+while count <= 5:                     # Continue looping while 'count' is less than or equal to 5  
+    print(count)                      # Print the current value of 'count'  
+    count += 1                        # Increment 'count' by 1 in each iteration  
 ```
-## 2. While Loops
-
-### a. Basic While Loop
+## 4. Break Statement
 
 
-Repeats a block of code as long as a condition is true.  
+The `break` statement is used to exit a loop prematurely, even if the loop condition is still true.  
 ```python  
-count = 0  
-while count < 5:  
-    print(count)  
-    count += 1  
+for num in range(1, 11):              # Loop through numbers 1 to 10  
+    if num == 5:                      # Check if 'num' equals 5  
+        break                         # Exit the loop when 'num' is 5  
+    print(num)                        # Print numbers from 1 to 4  
 ```
-### b. While Loop with Break
+## 5. Continue Statement
 
 
-Used to exit the loop when a certain condition is met.  
+The `continue` statement skips the current iteration of the loop and moves to the next iteration.  
 ```python  
-count = 0  
-while True:  
-    print(count)  
-    count += 1  
-    if count == 5:  
-        break  
+for num in range(1, 6):               # Loop through numbers from 1 to 5  
+    if num == 3:                      # Check if 'num' equals 3  
+        continue                      # Skip the current iteration when 'num' is 3  
+    print(num)                        # Print numbers except 3  
 ```
-### c. While Loop with Continue
+## 6. Nested Loops
 
 
-Skips the current iteration and continues with the next iteration.  
+In Python, you can use loops inside other loops. These are called nested loops and are useful for iterating over multi-dimensional data structures.  
 ```python  
-count = 0  
-while count < 5:  
-    count += 1  
-    if count == 3:  
-        continue  
-    print(count)  
+for i in range(1, 4):                 # Outer loop from 1 to 3  
+    for j in range(1, 3):             # Inner loop from 1 to 2  
+        print(f'Outer: {i}, Inner: {j}')  # Print values of outer and inner loops  
 ```
-## 3. Loop Control Statements
-
-### a. Break Statement
+## 7. Loop Else Clause
 
 
-Terminates the loop prematurely.  
+Python also provides an `else` clause that can be used with loops. The block under `else` is executed if the loop completes without hitting a `break` statement.  
 ```python  
-for i in range(10):  
-    if i == 5:  
-        break  
-    print(i)  
-```
-### b. Continue Statement
-
-
-Skips the current iteration and continues with the next iteration.  
-```python  
-for i in range(10):  
-    if i % 2 == 0:  
-        continue  
-    print(i)  
-```
-### c. Pass Statement
-
-
-Does nothing and can be used as a placeholder.  
-```python  
-for i in range(5):  
-    if i == 3:  
-        pass  
-    else:  
-        print(i)  
+for num in range(1, 4):               # Loop through numbers from 1 to 3  
+    print(num)                        # Print the current value of 'num'  
+else:                                 # Execute after the loop ends  
+    print('Loop completed successfully.')  # Print a success message  
 ```
