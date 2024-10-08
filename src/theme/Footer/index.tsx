@@ -89,7 +89,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <ul className="flex space-x-8 text-gray-400 mb-6 md:mb-0">
             <li className="list-none">
-              <Link to="#" className="hover:text-white transition duration-200">
+              <Link to="src/pages/Features/features.html" className="hover:text-white transition duration-200">
                 Features
               </Link>
             </li>
