@@ -7,8 +7,6 @@ description: "In this blog post, we'll explore the backtracking algorithm, a pow
 tags: [dsa, algorithms, backtracking]
 ---
 
-# Backtracking Patterns: A Comprehensive Guide
-
 Welcome to this in-depth exploration of backtracking patterns! This guide is designed to help you master the art of backtracking through a curated collection of problems, explanations, and real-world applications.
 
 ## Introduction to Backtracking
@@ -27,7 +25,7 @@ Understanding backtracking is crucial for several reasons:
 
 ## Backtracking Patterns
 
-## Pattern 1: Permutations and Combinations
+### Pattern 1: Permutations and Combinations
 
 This pattern focuses on generating all possible arrangements or selections of a given set of elements. It covers:
 
@@ -40,15 +38,15 @@ This pattern focuses on generating all possible arrangements or selections of a 
 - Using a boolean array to track used elements
 - Managing the depth of recursion for combinations
 
-### Permutations and Combinations in detail
+#### Permutations and Combinations in detail
 
 Permutations and combinations are fundamental concepts in combinatorics used to count and arrange objects. These concepts are widely used in fields such as mathematics, computer science, and probability theory.
 
-### Permutations
+#### Permutations
 
 **Definition:** A permutation is an arrangement of objects in a specific order. The order of the arrangement matters in permutations.
 
-### Formula
+#### Formula
 
 The number of permutations of `n` distinct objects taken `r` at a time is given by the formula:
 
@@ -56,9 +54,9 @@ $$
 P(n, r) = \frac{n!}{(n - r)!}
 $$
 
-### Example
+#### Example
 
-- **Problem:** How many ways can we arrange 3 letters from the set {A, B, C}?
+- **Problem:** How many ways can we arrange 3 letters from the set `{A, B, C}`?
 - **Calculation:** The permutations are:
   - ABC
   - ACB
@@ -68,7 +66,7 @@ $$
   - CBA
 - **Result:** There are `6` permutations.
 
-### Backtracking Code for Permutations
+#### Backtracking Code for Permutations
 
 ```cpp
 #include <iostream>
@@ -114,7 +112,7 @@ int main() {
 
 **Definition:** A combination is a selection of objects without considering the order. The order of selection does not matter in combinations.
 
-## Formula
+#### Formula
 
 The number of combinations of `n` distinct objects taken `r` at a time is given by the formula:
 
@@ -122,16 +120,16 @@ $$
 C(n, r) = \frac{n!}{r!(n - r)!}
 $$
 
-## Example
+#### Example
 
-- **Problem:** How many ways can we choose 2 letters from the set {A, B, C}?
+- **Problem:** How many ways can we choose 2 letters from the set `{A, B, C}`?
 - **Calculation:** The combinations are:
   - AB
   - AC
   - BC
 - **Result:** There are `3` combinations.
 
-## Backtracking Code for Combinations
+#### Backtracking Code for Combinations
 
 ```cpp
 #include <iostream>
@@ -179,7 +177,7 @@ int main() {
 ```
 
 
-## Pattern 2: Constraint Satisfaction Problems
+### Pattern 2: Constraint Satisfaction Problems
 
 This pattern applies backtracking to problems with specific constraints that must be satisfied. It's useful for:
 
@@ -192,21 +190,21 @@ This pattern applies backtracking to problems with specific constraints that mus
 - Backtracking upon hitting a dead end
 - Using data structures to keep track of states
 
-### Constraint Satisfaction Problems in  detail
+#### Constraint Satisfaction Problems in  detail
 
 **Definition:** A Constraint Satisfaction Problem (CSP) is a mathematical problem defined as a set of objects whose state must satisfy several constraints and conditions. CSPs involve finding values for variables from a specified domain while satisfying constraints between those variables.
 
-### Components of CSP
+#### Components of CSP
 
 1. **Variables:** The entities we want to assign values to.
 2. **Domains:** The possible values that each variable can take.
 3. **Constraints:** Conditions that must be met for the variables to be valid.
 
-### Example: Sudoku
+#### Example: Sudoku
 
 **Problem Statement:** A standard Sudoku puzzle is a classic example of a CSP. The objective is to fill a 9x9 grid with digits so that each column, each row, and each of the nine 3x3 subgrids contains all of the digits from 1 to 9.
 
-### Components
+#### Components
 
 - **Variables:** Each empty cell in the Sudoku grid.
 - **Domains:** The numbers 1 to 9.
@@ -215,7 +213,7 @@ This pattern applies backtracking to problems with specific constraints that mus
   - Each number must appear only once in each column.
   - Each number must appear only once in each 3x3 subgrid.
 
-### Backtracking Algorithm for Sudoku
+#### Backtracking Algorithm for Sudoku
 
 ```java
 public class SudokuSolver {
@@ -314,7 +312,7 @@ public class SudokuSolver {
 }
 ```
 
-## Pathfinding and Maze Problems
+#### Pathfinding and Maze Problems
 
 This pattern applies backtracking to navigate through grids or mazes. It covers:
 
@@ -327,11 +325,11 @@ This pattern applies backtracking to navigate through grids or mazes. It covers:
 - Marking cells as visited
 - Backtracking to explore alternative paths
 
-## Pattern 3: Pathfinding and Maze Problems
+### Pattern 3: Pathfinding and Maze Problems
 
 **Definition:** Pathfinding problems involve finding a route from a starting point to a destination within a defined space, such as a grid or maze. These problems often require algorithms that can explore different paths while considering constraints like obstacles and boundaries.
 
-### Components of Pathfinding Problems
+#### Components of Pathfinding Problems
 
 1. **Grid or Maze Representation:** Typically represented as a 2D array where cells may be passable (free space) or impassable (obstacles).
 2. **Start and End Points:** The coordinates indicating the beginning and destination of the path.
