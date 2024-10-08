@@ -1,7 +1,7 @@
 ---
 
 id: digital-search-algo  
-sidebar_position: 15  
+sidebar_position: 4  
 title: Digital Search  
 sidebar_label: Digital Search  
 
