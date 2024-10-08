@@ -1,7 +1,7 @@
 ---
 id: Prims
-title: Prim's Algorithm
-sidebar_label: Prim's Algorithm
+title: "Prim's Algorithm"
+sidebar_label: "Prim's Algorithm"
 description: "In this blog post, we'll explore Prim's Algorithm, a greedy algorithm used to find the Minimum Spanning Tree in a graph."
 tags: [dsa, algorithms, minimum spanning tree]
 ---
@@ -20,7 +20,7 @@ Prim's algorithm is a **greedy algorithm** used to find the Minimum Spanning Tre
   - Prim's algorithm focuses on growing the MST vertex by vertex, unlike Kruskal's which focuses on edges. The algorithm adds the shortest edge connected to the growing MST that connects a new vertex.
 
 - **Priority Queue**:
-  - To efficiently find the smallest edge, Prim's algorithm often uses a priority queue (or a min-heap). This helps in selecting the minimum weight edge at each step.
+  - Prim's algorithm often uses a priority queue (or a min-heap) to efficiently find the smallest edge. This helps in selecting the minimum weight edge at each step.
 
 - **Applicable to Dense Graphs**:
   -Prim's algorithm is preferred for dense graphs where the number of edges is large relative to the number of vertices.
