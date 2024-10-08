@@ -1,3 +1,4 @@
+```java
 class ll {
     private Node head;
 
@@ -20,6 +21,8 @@ class ll {
         newNode.next = head;
         head = newNode;
     }
+
+    // Method to find the middle node of the linked list
     public Node findMiddle() {
         if (head == null) {
             return null; // Empty list
@@ -36,7 +39,7 @@ class ll {
         return slowPtr;
     }
 
-
+    // Method to print the linked list
     public void printList() {
         if (head == null) {
             System.out.println("empty list");
