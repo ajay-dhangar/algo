@@ -48,13 +48,6 @@ Permutations and combinations are fundamental concepts in combinatorics used to 
 
 **Definition:** A permutation is an arrangement of objects in a specific order. The order of the arrangement matters in permutations.
 
-### Formula
-
-The number of permutations of `n` distinct objects taken `r` at a time is given by the formula:
-
-\[
-P(n, r) = \frac{n!}{(n - r)!}
-\]
 
 ### Example
 
