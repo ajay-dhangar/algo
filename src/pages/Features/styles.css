@@ -1,1 +1,81 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light theme background */
+    color: #333; /* Text color */
+  }
+  
+  header {
+    background-color: #007bff; /* Blue header */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  h1 {
+    margin: 0;
+  }
 
+  h2{
+    text-align: center;
+  }
+  
+  #features {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    display: grid; /* Use grid layout for cards */
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+    gap: 20px; /* Space between cards */
+  }
+  
+  #features h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+  
+  .feature-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    height: 150px; /* Fixed height for uniformity */
+    transition: transform 0.5s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px); /* Elevation effect on hover */
+    color: purple;
+  }
+  
+  .feature-card i {
+    font-size: 2rem;
+    color: #007bff; /* Blue icon color */
+  }
+  
+  .feature-card h3 {
+    margin: 15px 0 10px;
+  }
+  
+  .feature-card p {
+    color: #555; /* Slightly darker text for descriptions */
+  }
+  
+  /* Responsive design */
+  @media (max-width: 900px) {
+    #features {
+      grid-template-columns: repeat(1, 1fr); /* Stack cards on smaller screens */
+    }
+  }
+  
+  footer {
+    background-color: #007bff; /* Blue footer */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+  }
+  
