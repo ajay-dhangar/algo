@@ -27,13 +27,13 @@ The Commentz-Walter algorithm is an efficient string matching algorithm that com
 
 ### Time Complexity:
 
-- **Best Case: $O(n / m)$**  
+- **Best Case: $O\left(\frac{n}{m}\right)$**  
   In the best case, the algorithm achieves sublinear performance due to the pattern skipping mechanism, where `n` is the text length and `m` is the minimum length of the patterns.
 
 - **Average Case: $O(n)$**  
   On average, the Commentz-Walter algorithm processes the text in linear time, making it highly efficient for most practical scenarios involving multiple patterns.
 
-- **Worst Case: $O(n * m)$**  
+- **Worst Case: $O(n \times m)$**  
   The worst-case complexity occurs when the text and patterns have poor alignment, leading to more comparisons and resulting in quadratic time complexity.
 
 ### Space Complexity:

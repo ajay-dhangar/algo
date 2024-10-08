@@ -27,13 +27,13 @@ The Bitap algorithm, also known as the **Shift-Or**, **Shift-And**, or **Bitap f
 
 ### Time Complexity:
 
-- **Best Case: $O(n / w)$**  
+- **Best Case: $O\left(\frac{n}{w}\right)$**  
   The best-case complexity is linear, as the algorithm processes `w` characters in parallel per word size `w` of the machine.
 
 - **Average Case: $O(n)$**  
   On average, the algorithm performs in linear time with respect to the text size `n`, especially for small patterns or when only a few errors are allowed.
 
-- **Worst Case: $O(n * m)$**  
+- **Worst Case: $O(n \times m)$**  
   In the worst case, if the pattern is large or if there are many errors allowed, the time complexity can degrade to quadratic, where `m` is the pattern length.
 
 ### Space Complexity:

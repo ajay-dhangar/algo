@@ -27,13 +27,13 @@ The Apostolico–Giancarlo algorithm is an advanced string matching algorithm de
 
 ### Time Complexity:
 
-- **Best Case: $O(n/m)$**  
+- **Best Case: $O\left(\frac{n}{w}\right)$**  
   In the best-case scenario, the algorithm performs optimally, making only a fraction of comparisons proportional to the length of the text divided by the length of the pattern.
 
 - **Average Case: $O(n)$**  
   On average, the Apostolico–Giancarlo algorithm makes approximately linear scans through the text, resulting in efficient performance for most practical use cases.
 
-- **Worst Case: $O(n * m)$**  
+- **Worst Case: $O(n \times m)$**  
   In the worst case, if the pattern has repeated sections that align poorly with the text, the algorithm could degrade to quadratic time complexity, where `n` is the text length and `m` is the pattern length.
 
 ### Space Complexity:

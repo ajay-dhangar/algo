@@ -27,7 +27,7 @@ The Shift-Or algorithm, also known as the **Bitap algorithm for exact matching**
 
 ### Time Complexity:
 
-- **Best Case: $O(n / w)$**  
+- **Best Case: $O\left(\frac{n}{w}\right)$**  
   In the best case, where `w` is the word size of the machine, the algorithm processes multiple characters in parallel, leading to a faster search in practice.
 
 - **Average Case: $O(n)$**  
