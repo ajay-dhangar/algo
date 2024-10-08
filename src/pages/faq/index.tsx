@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@theme/Layout";
 
@@ -37,6 +37,12 @@ const faqs: FAQItem[] = [
 ];
 
 const FAQ: React.FC = () => {
+  const [openIndex, setOpenIndex] = useState<number>(0); // Start with the first question open
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index === 0 ? index : index); // Collapse the first question when others are clicked
+  };
+
   return (
     <Layout
       title="FAQ"
@@ -66,7 +72,7 @@ const FAQ: React.FC = () => {
         {/* FAQ Items */}
         <section className="container mx-auto py-8 px-6 md:px-12">
           <motion.div
-            className="max-w-4xl mx-auto space-y-6"
+            className="max-w-4xl mx-auto space-y-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7 }}
@@ -74,14 +80,32 @@ const FAQ: React.FC = () => {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
               >
-                <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-2">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">{faq.answer}</p>
+                <div
+                  className="flex justify-between items-center p-4 cursor-pointer"
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">
+                    {faq.question}
+                  </h3>
+                  <span className="text-gray-600 dark:text-gray-300 text-3xl">
+                    {openIndex === index ? "-" : "+"}
+                  </span>
+                </div>
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{
+                    height: openIndex === index ? "auto" : 0,
+                    opacity: openIndex === index ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  style={{ overflow: "hidden" }}
+                >
+                  <p className="p-4 text-gray-600 dark:text-gray-300">
+                    {faq.answer}
+                  </p>
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
