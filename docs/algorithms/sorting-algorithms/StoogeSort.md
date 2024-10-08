@@ -1,7 +1,6 @@
-
 ---
 id: stooge-sort-algo
-sidebar_position: 8
+sidebar_position: 13
 title: Stooge Sort
 sidebar_label: Stooge Sort
 description: A detailed guide on the Stooge Sort algorithm with Python implementation examples.
