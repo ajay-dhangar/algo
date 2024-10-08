@@ -1,6 +1,6 @@
 ---
 id: datatypes-in-python
-sidebar_position: 1
+sidebar_position: 2
 title: Datatypes in Python
 sidebar_label: Datatypes in Python
 ---
