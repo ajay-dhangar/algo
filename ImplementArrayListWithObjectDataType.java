@@ -1,8 +1,31 @@
+# Implement ArrayList with Object Data Type
+
+This Java code implements a basic ArrayList-like structure using an object array. It demonstrates common operations such as adding, removing, and clearing elements. 
+
+**Key Features:**
+
+- **Object Array:**  The `arr` variable stores elements as an `Object` array, allowing for flexibility to store various data types.
+- **Dynamic Size:** The code utilizes the `increaseArraySize` and `decreaseArraySize` methods to dynamically resize the array as needed.
+- **Methods:**  The code provides methods to:
+    - Add an element at the first index (`addFirst`)
+    - Add an element at the last index (`addLast`)
+    - Add an element at a specific index (`addAtIndex`)
+    - Remove the element at the first index (`removeFirstIndex`)
+    - Remove the element at the last index (`removeLastIndex`)
+    - Remove the element at a specific index (`removeAtIndex`)
+    - Clear the array (`clear`)
+- **Size Tracking:** The `num` variable keeps track of the current size of the array.
+
+**Code Breakdown:**
+
+```java
 import java.util.Arrays;
+
 public class ImplementArrayListWithObjectDataType {
     // Static variables to hold the array and its size
     static Object[] arr = {'A', 'N', 'U', 'J'}; // Initial array
     static int num = 4; // Initial size
+
     // Increase the size of the array
     static void increaseArraySize() {
         int n = arr.length * 2;
@@ -10,6 +33,7 @@ public class ImplementArrayListWithObjectDataType {
         arr = b;
         num++;
     }
+
     // Decrease the size of the array
     static void decreaseArraySize() {
         int n = arr.length - 1;
@@ -17,6 +41,7 @@ public class ImplementArrayListWithObjectDataType {
         arr = b;
         num--;
     }
+
     // Add an element at the first index
     static void addFirst(Object x) {
         Object[] c = new Object[arr.length + 1];
@@ -33,6 +58,7 @@ public class ImplementArrayListWithObjectDataType {
         System.out.println();
         System.out.println(num);
     }
+
     // Add an element at the last index
     static void addLast(Object x) {
         Object[] c = new Object[arr.length + 1];
@@ -49,6 +75,7 @@ public class ImplementArrayListWithObjectDataType {
         System.out.println();
         System.out.println(num);
     }
+
     // Add an element at a specific index
     static void addAtIndex(Object x, int index) {
         Object[] c = new Object[arr.length + 1];
@@ -68,6 +95,7 @@ public class ImplementArrayListWithObjectDataType {
         System.out.println();
         System.out.println(num);
     }
+
     // Remove the element at the first index
     static void removeFirstIndex() {
         Object[] c = new Object[arr.length - 1];
@@ -83,6 +111,7 @@ public class ImplementArrayListWithObjectDataType {
         System.out.println();
         System.out.println(num);
     }
+
     // Remove the element at the last index
     static void removeLastIndex() {
         Object[] c = new Object[arr.length - 1];
@@ -98,6 +127,7 @@ public class ImplementArrayListWithObjectDataType {
         System.out.println();
         System.out.println(num);
     }
+
     // Remove the element at a specific index
     static void removeAtIndex(int index) {
         Object[] c = new Object[arr.length - 1];
@@ -116,6 +146,7 @@ public class ImplementArrayListWithObjectDataType {
         System.out.println();
         System.out.println(num);
     }
+
     // Clear the array
     static void clear() {
         Object[] c = new Object[0];
@@ -124,6 +155,7 @@ public class ImplementArrayListWithObjectDataType {
         System.out.println();
         System.out.println("Array cleared!");
     }
+
     // Main method to test the arraylist operations
     public static void main(String[] args) {
         // Adding elements to the arraylist
@@ -140,7 +172,3 @@ public class ImplementArrayListWithObjectDataType {
         clear();
     }
 }
-//The time complexity for adding an element at the first index (addFirst) and removing an element at the first index (removeFirstIndex) is O(n) because it requires shifting all existing elements to the right or left by one position.
-//The time complexity for adding an element at the last index (addLast) and removing an element at the last index (removeLastIndex) is O(1) because it directly operates on the last index.
-//The time complexity for adding an element at a specific index (addAtIndex) and removing an element at a specific index (removeAtIndex) is O(n) because it involves shifting elements to create space or fill the gap at the specified index.
-//The time complexity for clearing the arraylist (clear) is O(1) because it simply assigns a new empty array and updates the size variable.
