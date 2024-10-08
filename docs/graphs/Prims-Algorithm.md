@@ -94,8 +94,6 @@ The final MST includes edges **(A-D)**, **(A-B)**, **(B-E)**, and **(A-C)** with
 
 ## Prim's Algorithm vs. Kruskal's Algorithm
 
-## Prim's Algorithm vs. Kruskal's Algorithm
-
 | Feature                | Prim's Algorithm                                       | Kruskal's Algorithm                                                      |
 |------------------------|--------------------------------------------------------|--------------------------------------------------------------------------|
 | **Approach**           | Greedy: Start from a vertex and grow the MST           | Greedy: Sort edges and add the smallest edge without forming cycles      |
