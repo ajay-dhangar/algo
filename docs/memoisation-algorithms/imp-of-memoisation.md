@@ -2,7 +2,7 @@
 id: memoization
 sidebar_position: 2
 title: Importance of Memoization
-sidebar_label: Importance of Memoization Memoization
+sidebar_label: Importance of Memoization
 description: "Memoization is an essentail part for optimization technique used to improve the efficiency of recursive algorithms by storing previously computed results."
 tags: [algorithms, memoization, optimization]
 ---

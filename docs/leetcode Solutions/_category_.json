@@ -1,0 +1,8 @@
+{
+    "label": "LeetCode Solutions",
+    "position": 3,
+    "link": {
+        "type": "generated-index",
+        "description": "This section contains a collection of solutions to various LeetCode problems. The solutions are designed to help understand different approaches to solving algorithmic challenges, including techniques like memoization, dynamic programming, and more. Each solution aims to provide clear explanations and code implementations."
+    }
+}
