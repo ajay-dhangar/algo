@@ -1,3 +1,5 @@
+
+```java
 public class BinarySearch {
 
     // Function to perform binary search
@@ -42,3 +44,4 @@ public class BinarySearch {
         }
     }
 }
+```
