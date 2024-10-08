@@ -14,7 +14,7 @@ Hashing is a fundamental technique in data structures and algorithms (DSA) that 
 ### Importance of Hashing
 
 1. **Fast Data Retrieval**:
-   - Hashing allows for average-case constant time complexity \(O(1)\) for data retrieval, making it significantly faster than linear search methods.
+   - Hashing allows for average-case constant time complexity $(O(1))$ for data retrieval, making it significantly faster than linear search methods.
 
 2. **Efficient Memory Usage**:
    - By using hash tables, data can be stored in a way that optimizes memory usage, reducing the overhead associated with other data structures like arrays and linked lists.
