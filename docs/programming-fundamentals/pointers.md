@@ -1,3 +1,10 @@
+id: programming-fundamentals
+title:  References and Pointers
+sidebar_label: Introduction to Declaring References
+sidebar_position: 2
+description: 'Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming.'
+tags: [dsa, data-structures, References and Pointers]
+
 ## 1. What are References and Pointers in C++?
 
 In C++, both references and pointers are used to refer to memory locations, but they have different properties and uses. 
