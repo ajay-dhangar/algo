@@ -1,9 +1,11 @@
+---
 id: programming-fundamentals
-title:  References and Pointers
-sidebar_label: Introduction to Declaring References
+title: Operator Overloading
+sidebar_label: Introduction to Operator Overloading
 sidebar_position: 2
-description: 'Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming.'
-tags: [dsa, data-structures, References and Pointers]
+description: 'Operator overloading allows you to redefine the way operators work for user-defined types (classes and structs). It enables you to specify more intuitive ways to perform operations on objects of your classes.'
+tags: [dsa, data-structures, Operator Overloading]
+---
 
 ## 1. What are References and Pointers in C++?
 
