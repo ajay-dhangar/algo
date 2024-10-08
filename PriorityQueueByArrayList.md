@@ -1,3 +1,4 @@
+```java
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,7 +9,6 @@ public class PriorityQueueByArrayList {
     public PriorityQueueByArrayList() {
         queue = new ArrayList<>();
     }
-
 
     // Enqueue operation
     public void enqueue(int value) {
