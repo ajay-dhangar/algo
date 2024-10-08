@@ -92,31 +92,38 @@ const config = {
             position: "right",
             items: [
               {
-                to: "roadmap",
+                to: "https://ajay-dhangar.github.io/algo/roadmap",
+                target: "_self",
                 label: "Roadmap",
               },
               {
-                to: "challenges",
+                to: "https://ajay-dhangar.github.io/algo/challenges",
+                target: "_self",
                 label: "Challenges",
               },
               {
-                to: "practice",
+                to: "https://ajay-dhangar.github.io/algo/practice",
+                target: "_self",
                 label: "Practice",
               },
               {
-                to: "leaderboard",
+                to: "https://ajay-dhangar.github.io/algo/leaderboard",
+                target: "_self",
                 label: "Leaderboard",
               },
               {
-                to: "community",
+                to: "https://ajay-dhangar.github.io/algo/community",
+                target: "_self",
                 label: "Community",
               },
               {
-                to: "resources",
+                to: "https://ajay-dhangar.github.io/algo/resources",
+                target: "_self",
                 label: "Resources",
               },
               {
-                to: "blogs",
+                to: "https://ajay-dhangar.github.io/algo/blogs",
+                target: "_self",
                 label: "Blogs",
               },
             ],
