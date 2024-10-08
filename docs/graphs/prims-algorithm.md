@@ -1,16 +1,16 @@
 ---
 id: prims-algorithm
-title:  Prims Algorithm
-sidebar_label:  Prims Algorithm
+title:  "Prim's Algorithm"
+sidebar_label:  "Prim's Algorithm"
 sidebar_position: 2
 description: "Prim's algorithm is a greedy algorithm that finds the Minimum Spanning Tree (MST)"
 tags: [Graph Theory, prims-algorithm, Minimum Spanning Tree, Greedy Algorithms, Optimization]
 ---
-# Prim's Algorithm for Minimum Spanning Tree
 
-## Overview
 Prim's Algorithm is a greedy algorithm for finding the Minimum Spanning Tree (MST) of a connected, weighted graph. It connects all vertices with the minimum total edge weight, making it useful in network design, clustering, and various optimization tasks.
+
 ## Introduction
+
 In graph theory, a Minimum Spanning Tree (MST) is a subset of the edges that connects all vertices in a graph with the minimum possible total edge weight and without any cycles. Prim's Algorithm builds the MST by growing a single tree and repeatedly selecting the smallest edge that connects a vertex in the tree to a vertex outside of it.
 
 ## Characteristics of Prim's Algorithm
@@ -100,9 +100,10 @@ The final MST includes edges **(A-D)**, **(A-B)**, **(B-E)**, and **(A-C)** with
 | **Data Structure Used**| Adjacency list, priority queue (min-heap)              | Union-Find/Disjoint Set data structure                                   |
 | **Graph Type**         | Dense graphs (many edges)                              | Sparse graphs (few edges)                                                |
 | **Starting Point**     | Requires a starting vertex                             | No starting vertex, works directly with edges                            |
-| **Time Complexity**    | O(E log V) using binary heap and adjacency list        | O(E log E) due to sorting edges                                          |
-<br>
+| **Time Complexity**    | $O(E log V)$ using binary heap and adjacency list        | $O(E log E)$ due to sorting edges                                          |
+
 Both algorithms can effectively find the MST, but the choice between them depends on the graph's density and specific use cases.
 
 ## Conclusion
+
 Prim's Algorithm is a powerful method for finding the Minimum Spanning Tree in a graph. Its greedy approach, efficiency, and wide range of applications make it a fundamental algorithm in computer science and network design. Understanding how Prim's Algorithm works enables developers and researchers to tackle various problems in optimization and connectivity.
