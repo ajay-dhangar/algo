@@ -27,7 +27,7 @@ The Apostolico–Giancarlo algorithm is an advanced string matching algorithm de
 
 ### Time Complexity:
 
-- **Best Case: $O\left(\frac{n}{w}\right)$**  
+- **Best Case: $O\left(\frac{n}{m}\right)$**  
   In the best-case scenario, the algorithm performs optimally, making only a fraction of comparisons proportional to the length of the text divided by the length of the pattern.
 
 - **Average Case: $O(n)$**  
