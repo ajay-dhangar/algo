@@ -88,15 +88,3 @@ a:hover {
 .footer{
   background-color: #001;
 }
-
-.bg-white {
-  width: 100%; /* Ensure the background div is full width */
-}
-
-.table-auto {
-  width: 100%; /* Ensure the table is full width */
-}
-
-.container {
-  max-width: none; /* Ensure the container does not restrict width */
-}
