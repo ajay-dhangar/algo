@@ -77,6 +77,12 @@ const config = {
             target: "_self",
           },
           {
+            to: "dsa-roadmap",
+            label: "DSA Roadmap",
+            position: "left",
+            target: "_self", 
+          },
+          {
             to: "https://ajay-dhangar.github.io/algo/challenges",
             label: "Challenges",
             position: "left",
