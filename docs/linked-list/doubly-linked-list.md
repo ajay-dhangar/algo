@@ -1,13 +1,13 @@
 ---
 id: introduction-to-DoublyLinkedList
-title: Doubly LinkedList Data Structure
-sidebar_label: Introduction to Doubly LinkedList
-sidebar_position: 2
+title: Doubly Linked List Data Structure
+sidebar_label: Introduction to Doubly Linked List
+sidebar_position: 4
 description: 'A Doubly Linked List (DLL) is a type of linked data structure that consists of nodes. Each node contains three fields: data, a pointer to the next node, and a pointer to the previous node. This structure allows traversal in both directions—forward and backward.'
 tags: [dsa, data-structures, Doubly LinkedList]
 ---
 
-### Introduction to Doubly LinkedList
+### Introduction to Doubly Linked List
 
 A **Doubly LinkedList** is a variation of a linked list where the last node points back to the first node instead of null (or None in Python). This structure allows for a Doubly traversal where one can start from any node and eventually return to the same node. Doubly linked lists can be either singly or doubly linked. 
 
