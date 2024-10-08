@@ -347,6 +347,13 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Harsh</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/4F24L">
+                    <img src="https://avatars.githubusercontent.com/u/108697331?v=4" width="100;" alt="4F24L"/>
+                    <br />
+                    <sub><b>Md Afzal Mir</b></sub>
+                </a>
+            </td>
 		</tr>
 	<tbody>
 </table>
