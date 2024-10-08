@@ -71,58 +71,62 @@ const config = {
             label: "Tutorial",
           },
           {
-            to: "https://ajay-dhangar.github.io/algo/roadmap",
-            label: "Roadmap",
+            to: "blog",
+            label: "Blog",
             position: "left",
-            target: "_self",
+          },
+          {
+            to: "faq",
+            label: "FAQ",
+            position: "left",
           },
           {
             to: "dsa-roadmap",
-            label: "DSA Roadmap",
+            label: "Pick Topic For Contribution",
             position: "left",
-            target: "_self", 
           },
+
           {
-            to: "https://ajay-dhangar.github.io/algo/challenges",
-            label: "Challenges",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/practice",
-            label: "Practice",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/leaderboard",
-            label: "Leaderboard",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/community",
-            label: "Community",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/resources",
-            label: "Resources",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/faq",
-            label: "FAQ",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/blogs",
-            label: "Blogs",
-            position: "left",
-            target: "_self",
+            type: "dropdown",
+            label: "More",
+            position: "right",
+            items: [
+              {
+                to: "https://ajay-dhangar.github.io/algo/roadmap",
+                target: "_self",
+                label: "Roadmap",
+              },
+              {
+                to: "https://ajay-dhangar.github.io/algo/challenges",
+                target: "_self",
+                label: "Challenges",
+              },
+              {
+                to: "https://ajay-dhangar.github.io/algo/practice",
+                target: "_self",
+                label: "Practice",
+              },
+              {
+                to: "https://ajay-dhangar.github.io/algo/leaderboard",
+                target: "_self",
+                label: "Leaderboard",
+              },
+              {
+                to: "https://ajay-dhangar.github.io/algo/community",
+                target: "_self",
+                label: "Community",
+              },
+              {
+                to: "https://ajay-dhangar.github.io/algo/resources",
+                target: "_self",
+                label: "Resources",
+              },
+              {
+                to: "https://ajay-dhangar.github.io/algo/blogs",
+                target: "_self",
+                label: "Blogs",
+              },
+            ],
           },
           {
             href: "https://github.com/ajay-dhangar/algo",
