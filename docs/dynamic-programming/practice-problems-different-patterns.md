@@ -1,14 +1,21 @@
 ### Linear DP
 - [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+- [Climbing Stairs II](https://www.geeksforgeeks.org/problems/geek-jump/1)
 - [House robber](https://leetcode.com/problems/house-robber/)
 - [Word Break](https://leetcode.com/problems/word-break/)
 - [Coin Change](https://leetcode.com/problems/coin-change/)
 - [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+- [Frog Jump with K distance](https://www.geeksforgeeks.org/problems/minimal-cost/1)
 
 ### String DP
+- [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+- [Longest Common Substring](https://www.geeksforgeeks.org/problems/longest-common-substring1452/1)
+- [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)
+- [Minimum Insertion Steps to Make a String Palindrome](https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/)
 - [Palindromic Partitioning](https://leetcode.com/problems/palindrome-partitioning/)
 - [Palindromic Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii/)
 - [Word break](https://leetcode.com/problems/word-break/)
+- [Wildcard Matching](https://leetcode.com/problems/wildcard-matching/)
 
 ### Knapsack based DP 
 - [Target Sum](https://leetcode.com/problems/target-sum/)
@@ -24,10 +31,16 @@
 - [Number of Islands](https://leetcode.com/problems/number-of-islands/)
 - [Word Search](https://leetcode.com/problems/word-search/)
 - [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
+- [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
+- [2D DP - Frog Jump](https://leetcode.com/problems/frog-jump/)
 
 ### DP on intervals(Partition DP)
+- [Matrix Chain Multiplication](https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1)
+- [Minimum Cost to Cut Stick](https://leetcode.com/problems/minimum-cost-to-cut-a-stick/)
 - [Burst Balloons](https://leetcode.com/problems/burst-balloons/)
 - [Palindrome Partitioning II](https://leetcode.com/problems/palindrome-partitioning-ii/)
 - [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/)
+- [Parse a Boolean Expression Represented as String](https://leetcode.com/problems/parsing-a-boolean-expression/)
 - [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
+- [Partition array for maximum sum](https://leetcode.com/problems/partition-array-for-maximum-sum/)
 - [Range Sum Query - Mutable](https://leetcode.com/problems/range-sum-query-mutable/)
