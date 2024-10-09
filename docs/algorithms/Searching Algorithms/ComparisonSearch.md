@@ -205,7 +205,7 @@ int main() {
 
 #### Disadvantages:
 - **Requires Sorted Data**:
-  - Binary and ternary search only work efficiently on sorted data. Sorting an array can take additional time $((n log n))$ if the data is not already sorted.
+  - Binary and ternary search only work efficiently on sorted data. Sorting an array can take additional time $(O(n log n))$ if the data is not already sorted.
 
 - **Overhead in Ternary Search**:
   - Ternary search performs more comparisons than binary search and is rarely faster in practice. The overhead makes binary search more optimal in most scenarios.
