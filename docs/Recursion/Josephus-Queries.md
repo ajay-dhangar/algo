@@ -30,8 +30,8 @@ Output:
 ```
 
 ## Constraints
-- \(1 \leq q \leq 100,000\)
-- \(1 \leq k \leq n \leq 1,000,000,000\)
+- $1 \leq q \leq 100,000$  
+- $1 \leq k \leq n \leq 1,000,000,000$ 
 
 ## Solution
 This solution employs a recursive approach to solve the Josephus Queries problem.
@@ -40,30 +40,35 @@ This solution employs a recursive approach to solve the Josephus Queries problem
 The problem can be defined recursively as follows:
 
 1. If there is only one child, the only child present is the one that is removed.
-2. For more than one child, the \(k\)-th removal can be computed by reducing the problem size by 1 each time we remove a child.
+2. For more than one child, the $k^{th}$ removal can be computed by reducing the problem size by 1 each time we remove a child.
 
 ### Recursive Function Definition
-Let `josephus(n, k)` be the function that returns the position of the \(k\)-th child to be removed when there are \(n\) children.
+Let `josephus(n, k)` be the function that returns the position of the $k^{th}$ child to be removed when there are $n$ children.
 
 #### Base Case
-- If \(n = 1\), return \(1\) (the only child).
+- If $n = 1$, return $1$ (the only child).
 
 #### Recursive Case
-- If there are more than one child, the position of the \(k\)-th child can be found using:
-  \[
-  josephus(n, k) = (josephus(n-1, k) + k) \% n
-  \]
+- If there are more than one child, the position of the $k^{th}$ child can be found using:
+$$  
+josephus(n, k) =  
+\begin{cases} 
+0 & \text{if } n = 1, \\  
+(josephus(n-1, k) + k) \% n & \text{if } n > 1.  
+\end{cases}  
+$$  
   This gives the position in the new configuration after one child has been removed.
 
 ### Final Adjustment
-Since our function will return a 0-based index, we will need to add \(1\) to convert it back to a 1-based index.
+Since our function will return a 0-based index, we will need to add $1$ to convert it back to a $1$-based index.
 
 ## Time and Space Complexity
-- **Time Complexity:** \(O(n)\), where \(n\) is the number of children.
-- **Space Complexity:** \(O(n)\) due to the recursive stack space.
+- **Time Complexity:** $O(n)$, where $n$ is the number of children.
+- **Space Complexity:** $O(n)$ due to the recursive stack space.
 
 ## Code Implementation
-### C++
+
+C++
 ```cpp
 #include <iostream>
 using namespace std;
@@ -167,6 +172,6 @@ func main() {
 ```
 
 ## Conclusion
-The Josephus problem presents a fascinating exploration of recursive algorithms and their efficiency in solving complex queries. By employing a recursive approach, we can derive the position of the \(k\)-th child to be removed in a circle of \(n\) children efficiently. Despite the recursive nature of the solution leading to a time complexity of \(O(n)\) and a space complexity of \(O(n)\), it effectively highlights the power of recursion in algorithm design.
+The Josephus problem presents a fascinating exploration of recursive algorithms and their efficiency in solving complex queries. By employing a recursive approach, we can derive the position of the $k^{th}$ child to be removed in a circle of $n$ children efficiently. Despite the recursive nature of the solution leading to a time complexity of  $O(n)$ and a space complexity of $O(n)$, it effectively highlights the power of recursion in algorithm design.
 
 
