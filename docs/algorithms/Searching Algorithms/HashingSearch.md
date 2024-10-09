@@ -1,7 +1,7 @@
 ---
 
 id: hashing-search-algo  
-sidebar_position: 16  
+sidebar_position: 5  
 title: Hashing Search  
 sidebar_label: Hashing Search  
 
@@ -27,18 +27,18 @@ sidebar_label: Hashing Search
 
 ### Time Complexity:
 
-- **Best Case: O(1)**  
+- **Best Case: $O(1)$**  
   In the best-case scenario, where there are no collisions, searching for a key takes constant time.
 
-- **Average Case: O(1)**  
+- **Average Case: $O(1)$**  
   With a well-designed hash function and a reasonable load factor, the average time complexity for search operations remains constant.
 
-- **Worst Case: O(n)**  
+- **Worst Case: $O(n)$**  
   In the worst-case scenario, if all keys hash to the same index (e.g., poor hash function), the search may degrade to linear time complexity as it has to traverse through all entries in that bucket.
 
 ### Space Complexity:
 
-- **Space Complexity: O(n)**  
+- **Space Complexity: $O(n)$**  
   The space required is proportional to the number of keys stored, plus additional space for handling collisions, depending on the chosen collision resolution method.
 
 ### Hash Functions:
