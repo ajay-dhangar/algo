@@ -1,5 +1,5 @@
 ---
-id: Hash-tables-Dsa
+id: hash-tables-dsa
 sidebar_position: 1
 title: Hash tables
 sidebar_label: Hash tables
