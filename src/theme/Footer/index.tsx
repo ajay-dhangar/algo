@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
               <ul className="space-y-2">
                 <li className="list-none">
                   <Link
-                    to="#"
+                    to="/algo/docs/"
                     className="text-gray-400 hover:text-white transition duration-200"
                   >
                     Docs
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="list-none">
                   <Link
-                    to="#"
+                    to="/algo/blog/"
                     className="text-gray-400 hover:text-white transition duration-200"
                   >
                     Blog
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="list-none">
               <Link
-                to="#"
+                to="/algo/about/"
                 className="hover:text-white transition duration-200"
               >
                 About Us
@@ -104,7 +104,7 @@ const Footer: React.FC = () => {
             </li>
             <li className="list-none">
               <Link
-                to="#"
+                to="/algo/contact/"
                 className="hover:text-white transition duration-200"
               >
                 Contact
