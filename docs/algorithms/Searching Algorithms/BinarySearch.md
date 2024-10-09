@@ -27,21 +27,21 @@ Binary search is an efficient algorithm for finding an element in a **sorted arr
 
 ### Time Complexity:
 
-- **Best Case: O(1)**  
+- **Best Case: $O(1)$**  
   In the best case, the middle element of the array is the target value, found after just one comparison.
 
-- **Average Case: O(log n)**  
+- **Average Case: $O(log n)$**  
   On average, binary search reduces the search space by half at each step, leading to a logarithmic time complexity.
 
-- **Worst Case: O(log n)**  
+- **Worst Case: $O(log n)$**  
   In the worst case, the target element is not present in the array or is located at the extreme ends, requiring `log n` comparisons.
 
 ### Space Complexity:
 
-- **Iterative: O(1)**  
+- **Iterative: $O(1)$**  
   The iterative version of binary search requires a constant amount of memory for variables like the low and high indices.
 
-- **Recursive: O(log n)**  
+- **Recursive: $O(log n)$**  
   The recursive version of binary search uses additional space due to recursive function calls, leading to an O(log n) space complexity for storing stack frames.
 
 ### When to Use Binary Search:
