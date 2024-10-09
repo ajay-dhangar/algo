@@ -17,7 +17,7 @@ Stooge sort is a **recursive sorting algorithm** that operates by comparing the 
   - Stooge sort uses a recursive approach to sort elements. It first swaps elements if needed, then recursively sorts the first two-thirds and the last two-thirds of the array.
 
 - **Inefficient Time Complexity**:
-  - Despite its simplicity, Stooge sort is inefficient with a time complexity of **O(n^2.7095)**, making it one of the least efficient sorting algorithms.
+  - Despite its simplicity, Stooge sort is inefficient with a time complexity of $O(n^{2.7095})$, making it one of the least efficient sorting algorithms.
 
 - **Rarely Used in Practice**:
   - Due to its poor performance, Stooge sort is rarely used in real-world applications, but it remains a useful algorithm for theoretical study.
