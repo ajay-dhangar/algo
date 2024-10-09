@@ -30,18 +30,18 @@ Linear search, also known as sequential search, is the simplest searching algori
 
 ### Time Complexity:
 
-- **Best Case: O(1)**  
+- **Best Case: $O(1)$**  
   In the best case, the target element is found at the very beginning of the array, requiring only a single comparison.
 
-- **Average Case: O(n)**  
+- **Average Case: $O(n)$**  
   On average, the algorithm must search through half of the elements in the array before finding the target.
 
-- **Worst Case: O(n)**  
+- **Worst Case: $O(n)$**  
   In the worst case, the target element is located at the end of the array, or it may not be present at all, requiring a full traversal of the array.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   Linear search requires a constant amount of additional memory, regardless of the size of the array, making it a space-efficient algorithm.
 
 ### When to Use Linear Search:
