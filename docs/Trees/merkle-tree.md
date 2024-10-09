@@ -51,8 +51,6 @@ graph TB
   P1 --> R((MerkleRoot))
   P2 --> R
 ```
-# Merkle Tree Algorithm
-
 ## Execution Steps
 1. **Hash each block**: 
    - `H1 = Hash(Block1)`
@@ -88,7 +86,6 @@ graph TB
 4. **To verify a block**:
    - a. Obtain the hash path from the leaf to the root.
    - b. Recompute hashes using sibling nodes and check if the Merkle Root matches.
-# Merkle Tree Algorithm
 
 ## Advantages of Merkle Tree Algorithm
 - **Efficient Data Verification**: Minimal data is required for verification, making it scalable.
