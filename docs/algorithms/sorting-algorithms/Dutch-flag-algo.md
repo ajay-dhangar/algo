@@ -110,4 +110,4 @@ int main() {
 }
 ```
 ### Summary:
-The Dutch National Flag Algorithm efficiently sorts an array containing only 0's, 1's, and 2's in a single traversal of the array. It achieves optimal time complexity of O(N) and operates in-place, making it an ideal solution for this type of problem. The use of three pointers (low, mid, and high) ensures that the array is correctly partitioned, and the algorithm is both simple and effective. 
+The Dutch National Flag Algorithm efficiently sorts an array containing only 0's, 1's, and 2's in a single traversal of the array. It achieves optimal time complexity of $O(N)$ and operates in-place, making it an ideal solution for this type of problem. The use of three pointers (low, mid, and high) ensures that the array is correctly partitioned, and the algorithm is both simple and effective. 
