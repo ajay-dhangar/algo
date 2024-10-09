@@ -13,7 +13,7 @@ The Beautiful Subgrids problem involves finding subgrids within a larger 2D grid
 
 ### Constraints
 
-- The dimensions of the grid can be large, potentially reaching up to \(10^5\) rows and \(10^5\) columns.
+- The dimensions of the grid can be large, potentially reaching up to $10^5$ rows and $10^5$ columns.
 - The values within the grid can range between a specified set of integers.
 
 ## Approach
@@ -30,8 +30,8 @@ To solve the Beautiful Subgrids problem, we can use a straightforward approach t
 
 ## Complexity Analysis
 
-- **Time Complexity**: The worst-case time complexity is \(O(m^2 . n^2)\), where \(m\) is the number of rows and \(n\) is the number of columns in the grid.
-- **Space Complexity**: The space complexity is \(O(1)\) for auxiliary storage, but this could increase if storing subgrids is necessary.
+- **Time Complexity**: The worst-case time complexity is $O(m^2 . n^2)$, where $\rightarrow$ $m$ is the number of rows and $\rightarrow$ $n$ is the number of columns in the grid.
+- **Space Complexity**: The space complexity is $\rightarrow$ $O(1)$ for auxiliary storage, but this could increase if storing subgrids is necessary.
 
 ## Code Implementations
 
