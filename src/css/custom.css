@@ -84,3 +84,14 @@ a:hover {
 .footer{
   background-color: #001;
 }
+
+/* .theme-doc-sidebar-item-category .theme-doc-sidebar-item-link .menu__link--active::before {
+  content: '';
+  position: relative;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid #48df84;
+  border-radius: 50%;
+  left: -0.5rem;
+  transform: translateY(-5%);
+} */
