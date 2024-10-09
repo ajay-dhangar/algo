@@ -49,13 +49,12 @@ The **Hopcroft-Karp algorithm** is an efficient algorithm used to find the maxim
 
 Consider a bipartite graph with two sets of vertices:
 - Set U: {1, 2, 3}
-- Set V: {A, B, C}
+- Set V: {`A`, `B`, `C`}
 
 Edges:
-- (1, A)
-- (1, B)
-- (2, B)
-- (3, C)
+- (1, `A`)
+- (2, `B`)
+- (3, `C`)
 
 The maximum matching can be:
 - (1, A)
