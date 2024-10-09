@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 // import remarkPlugin from 'remark-plugin';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 const path = require("path");
 
 /** @type {import('@docusaurus/types').Config} */
@@ -12,7 +12,7 @@ const config = {
 
   url: "https://ajay-dhangar.github.io",
   baseUrl: "/algo/",
-  organizationName: "cmhq",
+  organizationName: "codeharborhub",
   projectName: "algo",
 
   onBrokenLinks: "throw",
@@ -23,10 +23,9 @@ const config = {
       "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        debug: true,
         docs: {
           sidebarPath: "./sidebars.js",
-          // https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/
-
           editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
@@ -34,6 +33,8 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -44,11 +45,11 @@ const config = {
 
   stylesheets: [
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      type: 'text/css',
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
       integrity:
-        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
-      crossorigin: 'anonymous',
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
     },
   ],
 
@@ -69,7 +70,56 @@ const config = {
             position: "left",
             label: "Tutorial",
           },
-          { to: "/blog", label: "Blog", position: "left" },
+          {
+            to: "blog",
+            label: "Blog",
+            position: "left",
+          },
+          {
+            to: "faq",
+            label: "FAQ",
+            position: "left",
+          },
+          {
+            to: "dsa-roadmap",
+            label: "Pick Topic For Contribution",
+            position: "left",
+          },
+          {
+            type: "dropdown",
+            label: "More",
+            position: "right",
+            items: [
+              {
+                to: "roadmap",
+                label: "Roadmap",
+              },
+              {
+                to: "challenges",
+                label: "Challenges",
+              },
+              {
+                to: "practice",
+                label: "Practice",
+              },
+              {
+                to: "leaderboard",
+                label: "Leaderboard",
+              },
+              {
+                to: "community",
+                label: "Community",
+              },
+              {
+                to: "resources",
+                label: "Resources",
+              },
+              {
+                to: "blogs",
+                label: "Blogs",
+              },
+            ],
+          },
           {
             href: "https://github.com/ajay-dhangar/algo",
             label: "GitHub",
@@ -89,36 +139,6 @@ const config = {
               },
             ],
           },
-          {
-            title: "Community",
-            items: [
-              {
-                label: "Stack Overflow",
-                href: "#",
-              },
-              {
-                label: "Discord",
-                href: "#",
-              },
-              {
-                label: "Twitter",
-                href: "#",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
-              },
-            ],
-          },
         ],
         logo: {
           alt: "Ajay Dhangar",
@@ -130,6 +150,11 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
       },
     }),
 

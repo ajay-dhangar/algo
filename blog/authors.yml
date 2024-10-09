@@ -1,23 +1,30 @@
-endi:
-  name: Endilie Yacop Sucipto
-  title: Maintainer of Docusaurus
-  url: https://github.com/endiliey
-  image_url: https://github.com/endiliey.png
-
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
-
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-
 ajay-dhangar:
   name: Ajay Dhangar
-  title: Algo maintainer
-  url: /
-  image_url: https://github.com/ajay-dhangar.png
+  title: Founder of CodeHarborHub
+  url: https://ajay-dhangar.github.io/
+  image_url: https://avatars.githubusercontent.com/u/99037494?v=4
+  email: ajaydhangar49@gmail.com
+  page: true # Turns the feature on
+  description: >
+    A passionate developer who loves to code and build new things. I am a Full Stack Developer and a Cyber Security, ML & AI  Enthusiast. I am also a Technical Content Writer and a Speaker. I love to share my knowledge with the community. I am the Founder of CodeHarborHub. I am also a Technical Content Writer at GeeksforGeeks. I am a Girl Script Summer of Code 2024 Project Manager (PA).    
+
+  socials:
+    x: CodesWithAjay
+    linkedin: ajay-dhangar
+    github: ajay-dhangar
+    stackoverflow: 18530900
+    newsletter: https://ajay-dhangar.github.io
+
+narendra-dhangar:
+  name: Narendra Dhangar
+  title: B.Tech (CSE) Student
+  url: https://www.instagram.com/narendra_dh._05/
+  image_url: https://github.com/narendra-dhangar.png
+  email: narendradhangar63@gmail.com
+  page: true # Turns the feature on
+  description: >
+    A dedicated Computer Science and Engineering student with a passion for problem-solving and algorithms. I am constantly exploring various fields of computer science, from data structures and algorithms to web development and machine learning. As an avid learner, I enjoy tackling challenging problems and sharing knowledge with the community. Eager to contribute to open-source projects and make an impact in the tech world.
+
+  socials:
+    linkedin: narendra-dhangar-880558297
+    github: narendra-dhangar

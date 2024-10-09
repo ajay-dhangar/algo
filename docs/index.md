@@ -35,3 +35,9 @@ Algo's adaptive learning platform tailors the content to your skill level and le
 ## Get Started with Algo
 
 Ready to dive into the world of Data Structures and Algorithms? Start your learning journey with Algo today! Explore our learning pathways, tackle coding challenges, and connect with a community of like-minded individuals who share your passion for coding.
+
+---
+
+<h2 className="text-center">Feedback and Support</h2>
+
+<GiscusComponent />
