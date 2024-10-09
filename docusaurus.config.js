@@ -85,7 +85,6 @@ const config = {
             label: "Pick Topic For Contribution",
             position: "left",
           },
-
           {
             type: "dropdown",
             label: "More",
