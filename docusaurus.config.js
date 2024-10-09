@@ -71,52 +71,54 @@ const config = {
             label: "Tutorial",
           },
           {
-            to: "https://ajay-dhangar.github.io/algo/roadmap",
-            label: "Roadmap",
+            to: "blog",
+            label: "Blog",
             position: "left",
-            target: "_self",
           },
           {
-            to: "https://ajay-dhangar.github.io/algo/challenges",
-            label: "Challenges",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/practice",
-            label: "Practice",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/leaderboard",
-            label: "Leaderboard",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/community",
-            label: "Community",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/resources",
-            label: "Resources",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/faq",
+            to: "faq",
             label: "FAQ",
             position: "left",
-            target: "_self",
           },
           {
-            to: "https://ajay-dhangar.github.io/algo/blogs",
-            label: "Blogs",
+            to: "dsa-roadmap",
+            label: "Pick Topic For Contribution",
             position: "left",
-            target: "_self",
+          },
+          {
+            type: "dropdown",
+            label: "More",
+            position: "right",
+            items: [
+              {
+                to: "roadmap",
+                label: "Roadmap",
+              },
+              {
+                to: "challenges",
+                label: "Challenges",
+              },
+              {
+                to: "practice",
+                label: "Practice",
+              },
+              {
+                to: "leaderboard",
+                label: "Leaderboard",
+              },
+              {
+                to: "community",
+                label: "Community",
+              },
+              {
+                to: "resources",
+                label: "Resources",
+              },
+              {
+                to: "blogs",
+                label: "Blogs",
+              },
+            ],
           },
           {
             href: "https://github.com/ajay-dhangar/algo",
