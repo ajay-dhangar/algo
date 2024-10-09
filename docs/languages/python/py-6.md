@@ -1,6 +1,6 @@
 ---  
 id: usage-of-operators-in-python  
-sidebar_position: 5  
+sidebar_position: 6  
 title: Operators in Python  
 sidebar_label: Operators in Python
 ---
