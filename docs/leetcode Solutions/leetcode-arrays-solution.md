@@ -1,13 +1,13 @@
 ---
-id:easy-array-leetcode-problems-10
+id: easy-array-leetcode-problems-10
 sidebar_position: 1
-title: easy-array-leetcode-problems-10
-sidebar_label:easy-array-leetcode-problems-10
+title: Easy array leetcode problems 10
+sidebar_label: Easy array leetcode problems 10
 description: "This document contains solutions to 10 easy array leetcode problems, showcasing various algorithms and data structures."
 tags: [leetcode, algorithms, problem-solving]
 ---
 
-# LeetCode Problems and Solutions
+## LeetCode Problems and Solutions
 
 1. [Two Sum](#1-two-sum)
 2. [Remove Duplicates from Sorted Array](#2-remove-duplicates-from-sorted-array)
