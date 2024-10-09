@@ -1,0 +1,8 @@
+{
+    "label": "Hashing in DSA",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "Hashing is a crucial technique in data structures and algorithms (DSA) that provides efficient ways to store, retrieve, and manage data. It is widely used in competitive programming to solve problems involving searching, duplicates, and efficient data access, thanks to constant-time complexity in ideal cases."
+    }
+}
