@@ -64,8 +64,8 @@ def two_sum(nums, target):
 
 ```
 
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(n)
 
 ---
 
@@ -135,8 +135,8 @@ def addTwoNumbers(l1, l2):
     return dummy.next
 ```
 
-**Time Complexity**: O(max(m, n)), where m and n are the lengths of the two linked lists.
-**Space Complexity**: O(max(m, n)) for the output list.
+- **Time Complexity**: O(max(m, n)), where m and n are the lengths of the two linked lists.
+- **Space Complexity**: O(max(m, n)) for the output list.
 
 ---
 
@@ -188,8 +188,8 @@ def length_of_longest_substring(s):
     return max_length
 ```
 
-**Time Complexity**: O(n)
-**Space Complexity**: O(min(n, m)), where n is the length of the input string and m is the size of the charset/alphabet.
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(min(n, m)), where n is the length of the input string and m is the size of the charset/alphabet.
 
 ---
 
@@ -275,8 +275,8 @@ def findMedianSortedArrays(nums1, nums2):
 
 ```
 
-**Time Complexity**: O(log(min(n, m)))
-**Space Complexity**: O(1)
+- **Time Complexity**: O(log(min(n, m)))
+- **Space Complexity**: O(1)
 
 ---
 
@@ -355,8 +355,8 @@ def longest_palindrome(s):
 
 ```
 
-**Time Complexity**: O(n²)
-**Space Complexity**: O(1)
+- **Time Complexity**: O(n²)
+- **Space Complexity**: O(1)
 
 ---
 
@@ -422,8 +422,8 @@ def convert(s, numRows):
 
 ```
 
-**Time Complexity**: O(n)
-**Space Complexity**: O(n)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(n)
 
 ---
 
@@ -478,8 +478,8 @@ def reverse(x):
 
 ```
 
-**Time Complexity**: O(log(x)) where x is the input number.
-**Space Complexity**: O(1)
+- **Time Complexity**: O(log(x)) where x is the input number.
+- **Space Complexity**: O(1)
 
 ---
 
@@ -549,8 +549,8 @@ def my_atoi(s):
 
 ```
 
-**Time Complexity**: O(n)
-**Space Complexity**: O(1)
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(1)
 
 ---
 
@@ -591,8 +591,8 @@ def is_palindrome(x):
     return x == reversed_x or x == reversed_x // 10
 ```
 
-**Time Complexity**: O(log(n)) where n is the input number.
-**Space Complexity**: O(1)
+- **Time Complexity**: O(log(n)) where n is the input number.
+- **Space Complexity**: O(1)
 
 ---
 
@@ -657,5 +657,5 @@ def is_match(s, p):
 
 ```
 
-**Time Complexity**: O(m * n), where m is the length of s and n is the length of p.
-**Space Complexity**: O(m * n)
+- **Time Complexity**: O(m * n), where m is the length of s and n is the length of p.
+- **Space Complexity**: O(m * n)
