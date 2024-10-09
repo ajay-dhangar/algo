@@ -85,45 +85,37 @@ const config = {
             label: "Pick Topic For Contribution",
             position: "left",
           },
-
           {
             type: "dropdown",
             label: "More",
             position: "right",
             items: [
               {
-                to: "https://ajay-dhangar.github.io/algo/roadmap",
-                target: "_self",
+                to: "roadmap",
                 label: "Roadmap",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/challenges",
-                target: "_self",
+                to: "challenges",
                 label: "Challenges",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/practice",
-                target: "_self",
+                to: "practice",
                 label: "Practice",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/leaderboard",
-                target: "_self",
+                to: "leaderboard",
                 label: "Leaderboard",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/community",
-                target: "_self",
+                to: "community",
                 label: "Community",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/resources",
-                target: "_self",
+                to: "resources",
                 label: "Resources",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/blogs",
-                target: "_self",
+                to: "blogs",
                 label: "Blogs",
               },
             ],
