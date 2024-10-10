@@ -12,8 +12,10 @@ tags: [generate-parentheses, backtracking, recursion, dsa]
 
 - The solution involves recursively constructing valid strings by adding opening and closing brackets while maintaining balance.
 
+```
 - Example:
-  `For n = 3, the output should be: ["((()))", "(()())", "(())()", "()(())", "()()()"]`
+For n = 3, the output should be: ["((()))", "(()())", "(())()", "()(())", "()()()"]
+```
 
 ### C++ implementation
 
