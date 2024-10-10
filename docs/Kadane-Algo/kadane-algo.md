@@ -1,9 +1,9 @@
-```
+---
 id: kadanes-algorithm
 sidebar_position: 16
 title: Kadane's Algorithm
 sidebar_label: Maximum Subarray Sum
-
+---
 
 ### Definition:
 
@@ -21,16 +21,16 @@ Kadane's Algorithm is an efficient algorithm to find the maximum sum of a contig
 
 ### Time Complexity:
 
-- **Best Case: O(N)**  
+- **Best Case: $O(N)$**  
   The algorithm processes each element once during the traversal.
-- **Average Case: O(N)**  
+- **Average Case: $O(N)$**  
   It consistently runs in linear time for any arrangement of elements.
-- **Worst Case: O(N)**  
+- **Worst Case: $O(N)$**  
   Regardless of the input distribution, the time complexity remains linear.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   The algorithm uses a constant amount of extra space.
 
 ### Approach:
