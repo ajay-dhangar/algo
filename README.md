@@ -244,14 +244,21 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/nishant4500">
+                    <img src="https://avatars.githubusercontent.com/u/135944619?v=4" width="100;" alt="nishant4500"/>
+                    <br />
+                    <sub><b>nishant4500</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
                 <a href="https://github.com/shalini-bhandari">
                     <img src="https://avatars.githubusercontent.com/u/76897566?v=4" width="100;" alt="shalini-bhandari"/>
                     <br />
                     <sub><b>Shalini Bhandari</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/CygnusST3RN">
                     <img src="https://avatars.githubusercontent.com/u/102274145?v=4" width="100;" alt="CygnusST3RN"/>
@@ -287,6 +294,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Himanshi Maheshwari</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Bhum-ika">
                     <img src="https://avatars.githubusercontent.com/u/91523494?v=4" width="100;" alt="Bhum-ika"/>
@@ -294,8 +303,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Bhumika Sharma</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Anandha-Vihari">
                     <img src="https://avatars.githubusercontent.com/u/177409005?v=4" width="100;" alt="Anandha-Vihari"/>
@@ -331,6 +338,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Kousthub J V</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Akki-58">
                     <img src="https://avatars.githubusercontent.com/u/154585091?v=4" width="100;" alt="Akki-58"/>
@@ -338,71 +347,11 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>AJ</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
-                <a href="https://github.com/LitZeus">
-                    <img src="https://avatars.githubusercontent.com/u/142726372?v=4" width="100;" alt="LitZeus"/>
+                <a href="https://github.com/iking07">
+                    <img src="https://avatars.githubusercontent.com/u/146435630?v=4" width="100;" alt="iking07"/>
                     <br />
-                    <sub><b>Tejas Athalye</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/nishant4500">
-                    <img src="https://avatars.githubusercontent.com/u/135944619?v=4" width="100;" alt="nishant4500"/>
-                    <br />
-                    <sub><b>nishant4500</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/haseebzaki-07">
-                    <img src="https://avatars.githubusercontent.com/u/147314463?v=4" width="100;" alt="haseebzaki-07"/>
-                    <br />
-                    <sub><b>Haseeb Zaki</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/rajatsinghal02">
-                    <img src="https://avatars.githubusercontent.com/u/112543741?v=4" width="100;" alt="rajatsinghal02"/>
-                    <br />
-                    <sub><b>Rajat singhal</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Rahul7raj">
-                    <img src="https://avatars.githubusercontent.com/u/69787135?v=4" width="100;" alt="Rahul7raj"/>
-                    <br />
-                    <sub><b>Rahul7raj</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/oebelus">
-                    <img src="https://avatars.githubusercontent.com/u/71945388?v=4" width="100;" alt="oebelus"/>
-                    <br />
-                    <sub><b>Oebelus</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
-                <a href="https://github.com/shubhagarwal1">
-                    <img src="https://avatars.githubusercontent.com/u/105449260?v=4" width="100;" alt="shubhagarwal1"/>
-                    <br />
-                    <sub><b>Shubh Agarwal</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/jayanththalla">
-                    <img src="https://avatars.githubusercontent.com/u/121346142?v=4" width="100;" alt="jayanththalla"/>
-                    <br />
-                    <sub><b>Thalla Jayanth</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/ImgBotApp">
-                    <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
-                    <br />
-                    <sub><b>Imgbot</b></sub>
+                    <sub><b>Harsh</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -413,10 +362,61 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/iking07">
-                    <img src="https://avatars.githubusercontent.com/u/146435630?v=4" width="100;" alt="iking07"/>
+                <a href="https://github.com/ImgBotApp">
+                    <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
                     <br />
-                    <sub><b>Harsh</b></sub>
+                    <sub><b>Imgbot</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/jayanththalla">
+                    <img src="https://avatars.githubusercontent.com/u/121346142?v=4" width="100;" alt="jayanththalla"/>
+                    <br />
+                    <sub><b>Thalla Jayanth</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/shubhagarwal1">
+                    <img src="https://avatars.githubusercontent.com/u/105449260?v=4" width="100;" alt="shubhagarwal1"/>
+                    <br />
+                    <sub><b>Shubh Agarwal</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/oebelus">
+                    <img src="https://avatars.githubusercontent.com/u/71945388?v=4" width="100;" alt="oebelus"/>
+                    <br />
+                    <sub><b>Oebelus</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Rahul7raj">
+                    <img src="https://avatars.githubusercontent.com/u/69787135?v=4" width="100;" alt="Rahul7raj"/>
+                    <br />
+                    <sub><b>Rahul7raj</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/rajatsinghal02">
+                    <img src="https://avatars.githubusercontent.com/u/112543741?v=4" width="100;" alt="rajatsinghal02"/>
+                    <br />
+                    <sub><b>Rajat singhal</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/haseebzaki-07">
+                    <img src="https://avatars.githubusercontent.com/u/147314463?v=4" width="100;" alt="haseebzaki-07"/>
+                    <br />
+                    <sub><b>Haseeb Zaki</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/LitZeus">
+                    <img src="https://avatars.githubusercontent.com/u/142726372?v=4" width="100;" alt="LitZeus"/>
+                    <br />
+                    <sub><b>Tejas Athalye</b></sub>
                 </a>
             </td>
 		</tr>
