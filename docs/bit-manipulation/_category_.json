@@ -1,0 +1,8 @@
+{
+    "label": "Bit Manipulation",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "Bit manipulation involves operating directly on binary digits or bits, which are the most basic units of data in computing. Bit manipulation is used in low-level programming tasks where performance and memory efficiency are crucial. This documentation covers key concepts, operations, and techniques in bit manipulation."
+    }
+}
