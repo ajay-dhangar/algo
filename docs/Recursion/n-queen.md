@@ -2,7 +2,7 @@
 id: N-Qyeen-problem-dsa
 title: N Queen Recursion
 sidebar_label: N Queen
-sidebar_position: 6
+sidebar_position: 2
 description: "The N-Queen problem is a classic combinatorial problem in which the goal is to place N queens on an N×N chessboard such that no two queens threaten each other. This means that no two queens can share the same row, column, or diagonal. The problem is often solved using backtracking, a form of recursion."
 tags: [n-queen, backtracking, recursion, dsa]
 ---
