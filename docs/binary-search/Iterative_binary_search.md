@@ -2,7 +2,7 @@
 id: iterative-binary-search-DSA
 title: Iterative Binary Search
 sidebar_label: Iterative Binary Search
-sidebar_position: 7
+sidebar_position: 2
 description: "In this blog post, we'll explore the iterative binary search algorithm, a fundamental technique in computer science for efficiently finding an element in a sorted array. You'll learn what iterative binary search is, how it works, and its time complexity. We'll also cover practical applications and common problems you can solve using this algorithm. By the end, you'll have a thorough understanding of iterative binary search and how to implement it in your programming projects."
 tags: [dsa, algorithms, binary search, iterative]
 ---
