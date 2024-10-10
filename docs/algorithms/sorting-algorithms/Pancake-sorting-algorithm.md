@@ -59,7 +59,6 @@ graph TD
 - **Robotic Manipulation:** Pancake sorting is an example of constrained sorting, which is related to problems in robotic manipulation and sorting, where only specific operations are allowed.
 
 - **Problem Solving:** It serves as an educational example, demonstrating how to approach problems with limited operations, making it useful in algorithmic teaching and learning.
-# Pancake Sorting Algorithm
 
 ## Algorithm Steps
 1. **For each unsorted portion of the array**, find the index of the largest element.
