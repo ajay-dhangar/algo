@@ -4,7 +4,7 @@ title: Pancake Sorting Algorithm
 sidebar_label: Pancake Sorting Algorithm
 sidebar_position: 12
 description: "Pancake sorting is a sorting algorithm in which the only allowed operation is to reverse the elements of a prefix of the array."
-tags: [Sorting Algorithms, Pancake Sorting, Algorithm]
+tags: [Sorting Algorithms, pancake-sorting-algorithm, Algorithm]
 ---
 
 # Pancake Sorting Algorithm
@@ -37,7 +37,7 @@ graph TD
   P5 --> P6(Flip first 6 elements)
   P6 --> P7(Pancake Stack: 1, 4, 3, 5, 2, 6)
   P7 --> P8(Continue process...)
-  ```
+```
 
 ## Algorithm Steps
 1. **Find the largest unsorted pancake** in the stack.
