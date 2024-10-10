@@ -165,6 +165,78 @@ int main() {
 }
 ```
 
+#### Inbuilt `priority_queue` in C++
+
+In C++, the Standard Template Library (STL) provides a built-in **`priority_queue`** class, which implements a max-heap by default. A `priority_queue` is a container adaptor, meaning it provides specific functionality on top of an existing container like `vector` or `deque`.
+
+In a **max-heap** implementation, the highest priority element is the largest element, which is always at the top. The priority queue automatically sorts its elements based on their priorities.
+
+##### Operations provided by the inbuilt `priority_queue`:
+
+1. **push()**:  
+   This function inserts an element into the priority queue. The element is automatically positioned according to its priority, which in the default case is its value (largest element has the highest priority). The time complexity for this operation is `O(log n)` as the insertion maintains the heap property.
+
+   ```cpp
+   pq.push(10);  // Inserts 10 into the priority queue
+   ```
+   
+2. **pop()**:  
+   This function removes the highest-priority element (i.e., the element at the top of the heap). After removal, the heap is adjusted to maintain the heap property. The time complexity for this operation is `O(log n)`.
+
+   ```cpp
+   pq.pop();  // Removes the highest priority element
+   ```
+   
+3. **top()**:  
+   This function returns the element with the highest priority in the queue (i.e., the largest element in a max-heap). It does not remove the element, allowing the user to peek at the maximum priority element. The time complexity for this operation is `O(1)`.
+
+   ```cpp
+   int highest = pq.top();  // Retrieves the highest priority element without removing it
+   ```
+   
+4. **empty()**:  
+   This function checks whether the priority queue is empty. It returns `true` if there are no elements, otherwise it returns `false`. The time complexity for this operation is `O(1)`.
+
+   ```cpp
+   bool isEmpty = pq.empty();  // Checks if the priority queue is empty
+   ```
+   
+5. **size()**:  
+   This function returns the number of elements in the priority queue. The time complexity for this operation is `O(1)`.
+
+   ```cpp
+   int count = pq.size();  // Returns the number of elements in the priority queue
+   ```
+
+   
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+ 
+int main()
+{
+    int arr[7] = { 15, 3, 5, 7, 6, 12, 1};
+ 
+    // defining priority queue
+    priority_queue<int> pq;
+ 
+    // pushing into priority queue
+    for (int i = 0; i < arr.size(); i++) {
+        pq.push(arr[i]);
+    }
+ 
+    // printing priority queue
+    cout << "Priority Queue: ";
+    while (!pq.empty()) {
+        cout << pq.top() << ' '; // It will return highest element 
+        pq.pop();  // poping into priority queue
+    }
+ 
+    return 0;
+}
+```
+
 #### Java Implementation
 
 ```java
