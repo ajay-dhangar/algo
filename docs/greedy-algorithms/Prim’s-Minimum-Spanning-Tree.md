@@ -1,3 +1,4 @@
+---
 id: prims-mst  
 title: Prim's Minimum Spanning Tree (MST) Algorithm  
 sidebar_label: Prim's MST  
