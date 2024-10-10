@@ -1,6 +1,6 @@
 ---
 id: binary-tree-operations
-sidebar_position: 11
+sidebar_position: 2
 title: Basic Operations on Binary Trees
 sidebar_label: Binary Tree Operations
 description: "In this blog post, we'll cover the basic operations on binary trees, including insertion, deletion, searching, and traversal techniques, with examples in C++."

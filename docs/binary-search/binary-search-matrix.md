@@ -1,6 +1,6 @@
 ---
 id: Matrix-binary-dsa
-sidebar_position: 10
+sidebar_position: 5
 title: Binary Search in Matrix
 sidebar_label: Binary Search in Matrix
 description: "In this blog post, we'll explore binary search in a matrix, an optimized method to find an element in a sorted 2D matrix efficiently."
