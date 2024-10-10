@@ -103,6 +103,10 @@ const config = {
                 label: "Practice",
               },
               {
+                to: "Quizes",
+                label: "Quizes",
+              },
+              {
                 to: "leaderboard",
                 label: "Leaderboard",
               },
