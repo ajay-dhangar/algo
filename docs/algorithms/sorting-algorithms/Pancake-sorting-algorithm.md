@@ -26,7 +26,7 @@ In **Pancake Sorting**, we are given a stack of pancakes of varying sizes and we
 3. **Flip the Largest Pancake to Its Correct Position**: Perform another flip to move the largest pancake to its correct position at the bottom of the unsorted section of the stack.
 4. **Repeat**: Repeat the process for the remaining unsorted pancakes.
 
-## Step-by-Step Execution
+## Step-by-Step Execution of Pancake Algorithm
 
 ```mermaid
 graph TD
