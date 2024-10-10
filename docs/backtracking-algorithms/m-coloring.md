@@ -18,7 +18,6 @@ Given an undirected graph with **N** vertices and **E** edges, the task is to fi
 ### Key Features of the M-Coloring Problem
 
 1. **Constraint Satisfaction**: Each vertex must be assigned one of the **M** colors, and no two adjacent vertices should have the same color.
-   
 2. **Backtracking Approach**: The algorithm tries to color one vertex at a time. If a valid coloring is found for the current vertex, it proceeds to color the next vertex. If not, it backtracks to try a different color for the previous vertex.
 
 3. **Feasibility Check**: At each step, we check if assigning a particular color to a vertex is valid by ensuring that none of its adjacent vertices have the same color.
@@ -105,3 +104,5 @@ int main() {
     graphColoring(graph, m);
     return 0;
 }
+
+```
