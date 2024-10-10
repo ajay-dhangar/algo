@@ -1,3 +1,4 @@
+```
 id: moores-voting-algorithm  
 sidebar_position: 15  
 title: Moore's Voting Algorithm  
