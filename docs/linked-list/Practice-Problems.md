@@ -1,5 +1,5 @@
 ---
-id: Practice-Problems-on Linked-List
+id: practice-problems-on-linked-list
 title: Practice Problems
 sidebar_label: Practice Problems
 sidebar_position: 16
@@ -36,7 +36,7 @@ tags: [DSA, algorithms,linked list, dsa]
   - [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)
   - [Split Circular List](https://www.geeksforgeeks.org/problems/split-a-circular-linked-list-into-two-halves/1/)   
   - [Find the Winner of the Circular Game](https://leetcode.com/problems/find-the-winner-of-the-circular-game/description/)  
-  - [Sorted insert for circular linked list](geeksforgeeks.org/problems/sorted-insert-for-circular-linked-list/1)  
+  - [Sorted insert for circular linked list](https://geeksforgeeks.org/problems/sorted-insert-for-circular-linked-list/1)  
 
 ### 5. Doubly Linked List
 
