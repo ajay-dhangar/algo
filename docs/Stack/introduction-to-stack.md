@@ -2,7 +2,7 @@
 id: introduction-to-stack
 title: Stack Data Structure
 sidebar_label: Introduction to Stack
-sidebar_position: 2
+sidebar_position: 1
 description: 'A stack is a linear data structure that follows the Last In First Out (LIFO) principle. It allows operations to be performed at one end, called the top of the stack, making it efficient for scenarios such as expression evaluation, backtracking algorithms, and function call management.'
 tags: [dsa, data-structures, Stack]
 ---
