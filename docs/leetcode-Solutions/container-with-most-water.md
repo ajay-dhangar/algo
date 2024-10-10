@@ -45,7 +45,7 @@ class Solution:
             else:
                 r -= 1
         
-        return max_area  # Return the maximum area found
+        return max_area  #maximum area is returned
 ```
 Time Complexity: O(n)  
 Space Complexity: O(1)      
