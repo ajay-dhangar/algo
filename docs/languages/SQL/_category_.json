@@ -1,0 +1,8 @@
+{
+    "label": "SQL",
+    "position": 4,
+    "link": {
+      "type": "generated-index",
+      "description": "SQL was developed in the early 1970s by Donald D. Chamberlin and Raymond F. Boyce at IBM as part of the System R project, aimed at creating a relational database management system. Initially called SEQUEL (Structured English Query Language), it was designed to manipulate and retrieve data stored in IBM's relational database."
+    }
+  }
