@@ -1,7 +1,7 @@
 ---
-id: trie-intro
+id: trie-intro-2
 sidebar_position: 11
-title: Tries (Prefix Trees)
+title: Tries (Prefix Trees theory)
 sidebar_label: Tries
 description: "In this blog post, we'll explore Tries, a powerful data structure for string-based operations like prefix searches and autocomplete."
 tags: [dsa, data structures, tries]
