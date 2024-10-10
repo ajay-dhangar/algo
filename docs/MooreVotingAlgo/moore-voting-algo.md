@@ -1,4 +1,4 @@
-```
+---
 id: moores-voting-algorithm  
 sidebar_position: 15  
 title: Moore's Voting Algorithm  
@@ -19,25 +19,25 @@ Moore's Voting Algorithm is an efficient algorithm to find the majority element 
   - In the second pass, it confirms whether the candidate is indeed the majority element.
 
 - **Linear Time Complexity**:  
-  The algorithm runs in O(N) time, where N is the number of elements in the array.
+  The algorithm runs in $O(N)$ time, where N is the number of elements in the array.
 
 - **Constant Space Complexity**:  
-  It only requires a few extra variables, resulting in O(1) space complexity.
+  It only requires a few extra variables, resulting in $O(1)$ space complexity.
 
 ### Time Complexity:
 
-- **Best Case: O(N)**  
+- **Best Case: $O(N)$**  
   The algorithm processes each element once during both passes.
 
-- **Average Case: O(N)**  
+- **Average Case: $O(N)$**  
   It consistently runs in linear time for any arrangement of elements.
 
-- **Worst Case: O(N)**  
+- **Worst Case: $O(N)$**  
   Regardless of the input distribution, the time complexity remains linear.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   The algorithm uses a constant amount of extra space.
 
 ### Approach:
