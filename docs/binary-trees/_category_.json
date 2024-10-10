@@ -1,0 +1,8 @@
+{
+    "label": "Binary Trees",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "Binary trees are a fundamental data structure used to represent hierarchical relationships between elements. Each node in a binary tree has at most two children, referred to as the left child and the right child. This structure allows for efficient searching, insertion, and deletion operations, making binary trees an essential concept in computer science."
+    }
+}

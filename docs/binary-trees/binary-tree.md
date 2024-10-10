@@ -1,6 +1,6 @@
 ---
 id: binary-tree-intro
-sidebar_position: 10
+sidebar_position: 1
 title: Binary Trees
 sidebar_label: Binary Trees
 description: "In this blog post, we'll explore binary trees, a fundamental data structure in computer science that enables efficient data organization and retrieval."
