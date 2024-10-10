@@ -2,7 +2,7 @@
 id: Practice-Problems-on-sliding-window
 title: Practice Problems
 sidebar_label: Practice Problems
-sidebar_position: 19
+sidebar_position: 2
 description: Here are some practice problems for the Sliding Window technique, divided into topic-wise and difficulty-wise categories.
 tags: [DSA, algorithms, sliding window]
 ---
