@@ -92,3 +92,4 @@ int main() {
     cout << "The " << n << "th term of the Look and Say sequence is: " << result << endl;
     return 0;
 }
+```
