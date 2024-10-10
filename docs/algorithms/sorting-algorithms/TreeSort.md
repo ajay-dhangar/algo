@@ -103,20 +103,4 @@ public class TreeSort {
 ```
 
 ### Summary:
-Tree Sort is an intuitive and simple sorting algorithm that leverages the properties of Binary Search Trees to sort an array. While its average-case time complexity is 
-𝑂
-(
-𝑛
-log
-⁡
-𝑛
-)
-O(nlogn), it can degrade to 
-𝑂
-(
-𝑛
-2
-)
-O(n 
-2
- ) in the worst case, making it less suitable for practical use in many scenarios compared to other algorithms like QuickSort or MergeSort.
+Tree Sort is an intuitive and simple sorting algorithm that leverages the properties of Binary Search Trees to sort an array. While its average-case time complexity is 𝑂(𝑛log𝑛) O(nlogn), it can degrade to 𝑂(𝑛2) O(n2) in the worst case, making it less suitable for practical use in many scenarios compared to other algorithms like QuickSort or MergeSort.
