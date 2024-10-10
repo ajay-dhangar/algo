@@ -81,7 +81,8 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Challenge your knowledge on queue implementations and their use cases.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+            
+             <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
               <FaPlayCircle className="w-5 h-5" />
               <span>Start Quiz</span>
             </button>
