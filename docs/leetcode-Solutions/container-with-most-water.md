@@ -21,9 +21,7 @@ To solve this problem, we can use the **two-pointer technique**:
 
 1. **Initialization**: Start with one pointer at the beginning (`l = 0`) and the other at the end (`r = len(height) - 1`) of the array.
 2. **Calculate Area**: Calculate the area formed by the lines at these pointers. The area can be calculated as:
-   \[
-   \text{Area} = (\text{right index} - \text{left index}) \times \min(\text{height[left index]}, \text{height[right index]})
-   \]
+   Area = (right index - left index) × min(height[left index], height[right index])
 3. **Update Maximum Area**: Keep track of the maximum area encountered.
 4. **Move Pointers**: Move the pointer pointing to the shorter line inward to potentially find a taller line that could increase the area.
 5. **Repeat**: Continue this process until the two pointers meet.
