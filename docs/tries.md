@@ -166,24 +166,7 @@ int main() {
 
 Let's say we insert "apple" and "app":
 
-```
-     (Root)
-      | 
-      a 
-      |
-     p
-     |
-     p 
-     |
-     l
-     |
-     e 
-     | 
-     (word end)
-    /
-   p 
-   |
-   (word end)
-```
+![Untitled diagram-2024-10-10-140005](https://github.com/user-attachments/assets/825f2e16-3048-41ba-b7f6-55a612678b58)
+
 
 Notice that "app" only needs to store the unique portion of the string after "app" is shared with "apple"
