@@ -39,10 +39,13 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your knowledge on array operations and algorithms.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
-              <FaPlayCircle className="w-5 h-5" />
-              <span>Start Quiz</span>
-            </button>
+            <button
+  className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+  onClick={() => window.location.href = "/algo/quizes/arrays"}
+>
+  <FaPlayCircle className="w-5 h-5" />
+  <span>Start Quiz</span>
+</button>
           </motion.div>
 
           {/* Stack Quiz Card */}
@@ -57,10 +60,13 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Evaluate your understanding of stack operations and applications.
             </p>
-            <button className="mt-4 border-none text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 bg-blue-600">
-              <FaPlayCircle className="w-5 h-5" />
-              <span>Start Quiz</span>
-            </button>
+            <button
+  className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+  onClick={() => window.location.href = "/algo/quizes/stack"}
+>
+  <FaPlayCircle className="w-5 h-5" />
+  <span>Start Quiz</span>
+</button>
           </motion.div>
 
           {/* Queue Quiz Card */}
@@ -75,7 +81,8 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Challenge your knowledge on queue implementations and their use cases.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+            
+             <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
               <FaPlayCircle className="w-5 h-5" />
               <span>Start Quiz</span>
             </button>
@@ -178,3 +185,4 @@ const Quizes: React.FC = () => {
 };
 
 export default Quizes;
+
