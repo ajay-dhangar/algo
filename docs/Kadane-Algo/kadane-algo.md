@@ -1,9 +1,9 @@
+```
 id: kadanes-algorithm
 sidebar_position: 16
 title: Kadane's Algorithm
 sidebar_label: Maximum Subarray Sum
 
----
 
 ### Definition:
 
