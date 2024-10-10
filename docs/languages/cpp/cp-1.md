@@ -5,9 +5,9 @@ title: Datatypes in C++
 sidebar_label: Datatypes in C++
 ---
 
-Hey everyone! I'm Ajay Dhangar, and today we're diving into a fundamental concept in C++ – Variables. Whether you're new to C++ or looking for a refresher, this comprehensive guide will give you a solid understanding of how variables work in C++. Let's get started!
-
 # C++ Variables
+
+Hey everyone! I'm Ajay Dhangar, and today we're diving into a fundamental concept in C++ – Variables. Whether you're new to C++ or looking for a refresher, this comprehensive guide will give you a solid understanding of how variables work in C++. Let's get started!
 
 * In C++, variables are containers that hold data and are defined by specifying a type followed by the variable name.
 * Variables must be declared before use and can hold various data types.

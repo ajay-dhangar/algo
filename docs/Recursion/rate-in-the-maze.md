@@ -2,7 +2,7 @@
 id: Rate-in-the-maze
 title: Rate in maze recusrion
 sidebar_label: Rate in the maze
-sidebar_position: 8
+sidebar_position: 3
 description: "The Rat in a Maze problem is a pathfinding problem where the goal is to find all possible paths a rat can take from the start to the end of a maze, typically represented as a grid with obstacles. It is commonly solved using backtracking, exploring each path recursively while ensuring the rat only moves in valid directions and avoids obstacles."
 tags: [rat-in-a-maze, backtracking, recursion, pathfinding, dsa]
 ---
