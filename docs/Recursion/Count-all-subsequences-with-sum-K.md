@@ -10,11 +10,12 @@ tags: [perfect-sum, recursion, dynamic-programming, dsa]
 
 - Problem Statement: Given an array arr of size n of non-negative integers and an integer sum, the task is to count all subsets of the given array with a sum equal to the target sum. Due to potentially large outputs, the answer must be computed modulo 10^9+7.
 
-- Example:
+```
 - Input:
   n = 6, arr = [5, 2, 3, 10, 6, 8], sum = 10
 - Output: 3
 - Explanation: The subsets that sum to 10 are {5, 2, 3}, {2, 8}, and {10}.
+```
 
 - Expected Time Complexity: 𝑂(𝑛×sum)
 

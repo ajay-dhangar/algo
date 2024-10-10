@@ -10,6 +10,7 @@ tags: [letter-combinations, backtracking, recursion, dsa]
 
 - Problem Statement: Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent, following the mapping of digits to letters as seen on telephone keypads. The number 1 does not map to any letters.
 
+```
 - Example 1:
   Input: digits = "23" and Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
 
@@ -18,6 +19,7 @@ tags: [letter-combinations, backtracking, recursion, dsa]
 
 - Example 3:
   Input: digits = "2" and Output: ["a", "b", "c"]
+```
 
 ### C++ Implementation
 
