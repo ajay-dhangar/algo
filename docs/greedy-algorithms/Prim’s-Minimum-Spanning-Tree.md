@@ -1,182 +1,148 @@
----
-id: prims-mst
-title: Prim's Minimum Spanning Tree (MST)
-sidebar_label: Prim's MST
-description: "This repository implements Prim's algorithm for finding the Minimum Spanning Tree (MST) of a graph, using a greedy approach to minimize the total edge weight."
-tags: [dsa, algorithms, greedy algorithms, graph algorithms, minimum spanning tree]
----
-
-### Definition:
-
-Prim’s algorithm is a **greedy algorithm** that finds the **Minimum Spanning Tree (MST)** for a connected, undirected graph. The MST is a subgraph that connects all vertices of the graph with the minimum total edge weight, without forming cycles.
-
-### Characteristics:
-
-- **Greedy Approach**:  
-  Prim's algorithm builds the MST by selecting the smallest edge that connects a vertex in the MST to a vertex not yet included in the MST. This process repeats until all vertices are included.
-
-1. **Start with Any Vertex**:  
-   The algorithm begins with an arbitrary vertex and adds it to the MST. It then finds the smallest edge that connects this vertex to an unvisited vertex.
-
-2. **Update Minimum Cost Edges**:  
-   After each step, the algorithm updates the edges that connect the vertices in the MST to the remaining unvisited vertices, ensuring the minimum cost edge is always selected.
-
-3. **Repeat Until All Vertices Are Included**:  
-   The process continues until all vertices of the graph are part of the MST.
-
-### Problem Statement:
-
-Given a connected, undirected graph with `V` vertices and `E` edges, the objective is to construct a Minimum Spanning Tree (MST). Prim's algorithm starts from a single vertex and progressively adds edges that have the least weight and connect unvisited vertices, ensuring that all vertices are eventually included in the MST.
-
-### Time Complexity:
-
-- **Time Complexity: $O(E \log V)$**  
-  With the use of a priority queue (min-heap), Prim’s algorithm runs in $O(E \log V)$ time, where `E` is the number of edges and `V` is the number of vertices.
-
-### Space Complexity:
-
-- **Space Complexity: $O(V + E)$**  
-  The space complexity is dominated by the graph representation and the additional data structures used for storing the MST and priority queue, resulting in a space complexity of $O(V + E)$.
-
-### Example:
-
-Consider the following graph:
-
----
-id: prims-mst
-title: Prim's Minimum Spanning Tree (MST)
-sidebar_label: Prim's MST
-description: "This repository implements Prim's algorithm for finding the Minimum Spanning Tree (MST) of a graph, using a greedy approach to minimize the total edge weight."
-tags: [dsa, algorithms, greedy algorithms, graph algorithms, minimum spanning tree]
+id: prims-mst  
+title: Prim's Minimum Spanning Tree (MST) Algorithm  
+sidebar_label: Prim's MST  
+description: "In this blog post, we'll explore Prim's Algorithm, a greedy algorithm used to find the Minimum Spanning Tree (MST) of a weighted undirected graph."  
+tags: [dsa, algorithms, greedy algorithms, graph algorithms]
 ---
 
 ### Definition:
-
-Prim’s algorithm is a **greedy algorithm** that finds the **Minimum Spanning Tree (MST)** for a connected, undirected graph. The MST is a subgraph that connects all vertices of the graph with the minimum total edge weight, without forming cycles.
+Prim's Minimum Spanning Tree (MST) is a greedy algorithm that finds the Minimum Spanning Tree for a weighted undirected graph. The MST is a subset of the graph that includes all the vertices and the minimum possible total edge weight without forming any cycles. Prim's algorithm starts with an arbitrary node and grows the MST by adding the shortest edge from the tree to a new vertex, ensuring all vertices are eventually included.
 
 ### Characteristics:
-
 - **Greedy Approach**:  
-  Prim's algorithm builds the MST by selecting the smallest edge that connects a vertex in the MST to a vertex not yet included in the MST. This process repeats until all vertices are included.
+  Prim's algorithm is a greedy algorithm that always selects the smallest edge connecting a vertex in the MST to a vertex outside the MST. This process continues until all vertices are included.
+  
+- **Graph Representation**:  
+  Prim's algorithm can be implemented using an adjacency matrix or an adjacency list, with priority queues (min-heaps) used to efficiently retrieve the next minimum edge.
+  
+- **Connectivity Requirement**:  
+  The graph must be connected; otherwise, an MST cannot be formed for the entire graph.
 
-1. **Start with Any Vertex**:  
-   The algorithm begins with an arbitrary vertex and adds it to the MST. It then finds the smallest edge that connects this vertex to an unvisited vertex.
-
-2. **Update Minimum Cost Edges**:  
-   After each step, the algorithm updates the edges that connect the vertices in the MST to the remaining unvisited vertices, ensuring the minimum cost edge is always selected.
-
-3. **Repeat Until All Vertices Are Included**:  
-   The process continues until all vertices of the graph are part of the MST.
+### Steps Involved:
+1. **Initialize**:  
+   Start with an arbitrary vertex, mark it as part of the MST, and initialize the cost of reaching each vertex with the weight of the edges.
+   
+2. **Pick the Minimum Edge**:  
+   Select the edge with the smallest weight that connects a vertex in the MST to a vertex outside the MST.
+   
+3. **Add to MST**:  
+   Add the selected vertex to the MST, update the weights of the adjacent vertices, and repeat until all vertices are included.
 
 ### Problem Statement:
-
-Given a connected, undirected graph with `V` vertices and `E` edges, the objective is to construct a Minimum Spanning Tree (MST). Prim's algorithm starts from a single vertex and progressively adds edges that have the least weight and connect unvisited vertices, ensuring that all vertices are eventually included in the MST.
+Given a connected weighted graph, find the Minimum Spanning Tree (MST) using Prim's algorithm. The objective is to minimize the sum of the edge weights in the spanning tree while ensuring that all vertices are included and no cycles are formed.
 
 ### Time Complexity:
-
-- **Time Complexity: $O(E \log V)$**  
-  With the use of a priority queue (min-heap), Prim’s algorithm runs in $O(E \log V)$ time, where `E` is the number of edges and `V` is the number of vertices.
+- **Best, Average, and Worst Case: $O(E \log V)$**  
+  The time complexity depends on the priority queue operations for retrieving and updating the minimum edge, where $E$ is the number of edges, and $V$ is the number of vertices. Using a binary heap, the complexity is $O(E \log V)$.
 
 ### Space Complexity:
-
-- **Space Complexity: $O(V + E)$**  
-  The space complexity is dominated by the graph representation and the additional data structures used for storing the MST and priority queue, resulting in a space complexity of $O(V + E)$.
+- **Space Complexity: $O(V)$**  
+  The space complexity is dominated by the storage of the graph's adjacency list and the auxiliary arrays for tracking the MST.
 
 ### Example:
-
 Consider the following graph:
-
-
-Graph Representation:
-
-- Vertices: `{A, B, C, D, E, F}`
-- Edges: `A-B(2), A-D(6), B-C(3), B-E(8), C-F(7), E-F(9), E-D(5)`
+```
+     2       3
+   A---B-------C
+   |  /        |
+  6| /1       5|
+   |/          |
+   D-----------E
+       4
+```
+Vertices: `{A, B, C, D, E}`  
+Edges: `{(A-B, 2), (A-D, 6), (B-C, 3), (B-D, 1), (C-E, 5), (D-E, 4)}`
 
 Step-by-Step Execution:
 
-1. **Start with Vertex A**:  
-   Add vertex `A` to the MST and add its edges to the priority queue: `{A-B(2), A-D(6)}`.
+1. **Start from vertex A**:
+   - Include vertex A in the MST.
+   - Select edge A-B (weight 2) as the minimum.
+   
+2. **Add vertex B to the MST**:
+   - Select edge B-D (weight 1) as the minimum.
 
-2. **Choose Edge with Minimum Weight**:  
-   The minimum edge is `A-B(2)`. Add vertex `B` to the MST and update the queue with its edges: `{B-C(3), B-E(8), A-D(6)}`.
-
-3. **Repeat the Process**:  
-   - Add edge `B-C(3)` and vertex `C` to the MST.
-   - Continue selecting the minimum weight edge until all vertices are included in the MST.
-
-The resulting MST:
-
-- Selected edges: `A-B(2), B-C(3), A-D(6), D-E(5), C-F(7)`
-- Total weight: `2 + 3 + 6 + 5 + 7 = 23`
+3. **Add vertex D to the MST**:
+   - Select edge D-E (weight 4) as the minimum.
+   
+4. **Add vertex E to the MST**:
+   - Select edge B-C (weight 3) as the minimum.
+   
+5. **Add vertex C to the MST**:  
+   Now all vertices are included, and the MST is formed with total weight = 2 + 1 + 4 + 3 = 10.
 
 ### C++ Implementation:
-
 ```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <utility>
 using namespace std;
 
-// Function to implement Prim's algorithm
-void primMST(vector<vector<pair<int, int>>> &graph, int V) {
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    vector<int> key(V, INT_MAX); // Tracks minimum edge weight to each vertex
-    vector<int> parent(V, -1);   // Stores MST
-    vector<bool> inMST(V, false); // Tracks vertices in MST
-    
-    int startVertex = 0; // Start from vertex 0
-    key[startVertex] = 0;
-    pq.push({0, startVertex});
-    
+// Pair structure: (weight, vertex)
+typedef pair<int, int> PII;
+
+void primMST(vector<vector<PII>>& adj, int V) {
+    priority_queue<PII, vector<PII>, greater<PII>> pq;
+    vector<int> key(V, INT_MAX);  // Used to store the minimum weight for each vertex
+    vector<bool> inMST(V, false); // To track vertices in MST
+    vector<int> parent(V, -1);    // To store MST edges
+    int src = 0;  // Start from vertex 0
+    pq.push({0, src});
+    key[src] = 0;
+
     while (!pq.empty()) {
         int u = pq.top().second;
         pq.pop();
-        
-        if (inMST[u]) continue;
         inMST[u] = true;
-        
-        for (auto &[v, weight] : graph[u]) {
-            if (!inMST[v] && weight < key[v]) {
+
+        // Traverse all adjacent vertices of u
+        for (auto &edge : adj[u]) {
+            int v = edge.second;
+            int weight = edge.first;
+            
+            // If v is not in MST and weight of (u, v) is smaller than key[v]
+            if (!inMST[v] && key[v] > weight) {
                 key[v] = weight;
                 pq.push({key[v], v});
-                parent[v] = u;
+                parent[v] = u; // Track the MST path
             }
         }
     }
-    
-    // Print the MST
-    cout << "Edge   Weight\n";
+
+    // Output the MST
+    cout << "Edges in MST:\n";
     for (int i = 1; i < V; i++) {
-        cout << parent[i] << " - " << i << "    " << key[i] << endl;
+        cout << parent[i] << " - " << i << " : " << key[i] << "\n";
     }
 }
 
 int main() {
-    int V = 6; // Number of vertices
-    vector<vector<pair<int, int>>> graph(V);
-    
-    // Add edges to the graph
-    graph[0].push_back({1, 2});
-    graph[0].push_back({3, 6});
-    graph[1].push_back({0, 2});
-    graph[1].push_back({2, 3});
-    graph[1].push_back({4, 8});
-    graph[2].push_back({1, 3});
-    graph[2].push_back({5, 7});
-    graph[3].push_back({0, 6});
-    graph[3].push_back({4, 5});
-    graph[4].push_back({1, 8});
-    graph[4].push_back({3, 5});
-    graph[4].push_back({5, 9});
-    graph[5].push_back({2, 7});
-    graph[5].push_back({4, 9});
-    
-    primMST(graph, V);
-    
+    int V = 5; // Number of vertices
+    vector<vector<PII>> adj(V);
+
+    // Graph with weighted edges
+    adj[0].push_back({2, 1}); // A-B
+    adj[1].push_back({2, 0}); // B-A
+
+    adj[0].push_back({6, 3}); // A-D
+    adj[3].push_back({6, 0}); // D-A
+
+    adj[1].push_back({3, 2}); // B-C
+    adj[2].push_back({3, 1}); // C-B
+
+    adj[1].push_back({1, 3}); // B-D
+    adj[3].push_back({1, 1}); // D-B
+
+    adj[2].push_back({5, 4}); // C-E
+    adj[4].push_back({5, 2}); // E-C
+
+    adj[3].push_back({4, 4}); // D-E
+    adj[4].push_back({4, 3}); // E-D
+
+    primMST(adj, V);
     return 0;
 }
+```
 
-
-Summary:
-Prim’s Minimum Spanning Tree algorithm efficiently constructs an MST by using a greedy strategy to select the smallest edges that connect the tree to unvisited vertices. With a time complexity of $O(E \log V)$, Prim's algorithm is highly efficient for finding the MST in graphs with many vertices and edges. The MST has applications in network design, circuit design, and more.
+### Summary:
+Prim's MST algorithm is an efficient greedy approach to finding the Minimum Spanning Tree in a weighted undirected graph. By selecting the smallest edge at each step, it ensures that the MST is built with the least total weight, avoiding cycles. The time complexity of the algorithm is $O(E \log V)$, making it suitable for large, dense graphs. Prim's algorithm is used in various network design applications, including telecommunications, electrical grids, and transportation networks.
