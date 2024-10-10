@@ -216,13 +216,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/govindumeesala">
-                    <img src="https://avatars.githubusercontent.com/u/129055361?v=4" width="100;" alt="govindumeesala"/>
-                    <br />
-                    <sub><b>Meesala Govindu</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/IRFANSARI">
                     <img src="https://avatars.githubusercontent.com/u/71096605?v=4" width="100;" alt="IRFANSARI"/>
                     <br />
@@ -250,8 +243,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Vishwas M D</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/yogeswari05">
                     <img src="https://avatars.githubusercontent.com/u/137740335?v=4" width="100;" alt="yogeswari05"/>
@@ -259,6 +250,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Chekka Yogeswari</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/KapuluruBhuvaneswariVspdbct">
                     <img src="https://avatars.githubusercontent.com/u/165504668?v=4" width="100;" alt="KapuluruBhuvaneswariVspdbct"/>
@@ -294,8 +287,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Nishita Panchal</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/jashwanthbavandlapalli">
                     <img src="https://avatars.githubusercontent.com/u/111058944?v=4" width="100;" alt="jashwanthbavandlapalli"/>
@@ -303,6 +294,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Jashwanth Bavandlapalli</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Himanshi-m">
                     <img src="https://avatars.githubusercontent.com/u/140889204?v=4" width="100;" alt="Himanshi-m"/>
@@ -315,13 +308,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <img src="https://avatars.githubusercontent.com/u/91523494?v=4" width="100;" alt="Bhum-ika"/>
                     <br />
                     <sub><b>Bhumika Sharma</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Lokesh11868">
-                    <img src="https://avatars.githubusercontent.com/u/146335332?v=4" width="100;" alt="Lokesh11868"/>
-                    <br />
-                    <sub><b>Lokesh11868</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -338,8 +324,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Mohith Singh</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/RchtDshr">
                     <img src="https://avatars.githubusercontent.com/u/58704284?v=4" width="100;" alt="RchtDshr"/>
@@ -354,18 +338,13 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Kratik Mandloi </b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/jvkousthub">
                     <img src="https://avatars.githubusercontent.com/u/162019723?v=4" width="100;" alt="jvkousthub"/>
                     <br />
                     <sub><b>Kousthub J V</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/17arindam">
-                    <img src="https://avatars.githubusercontent.com/u/65901047?v=4" width="100;" alt="17arindam"/>
-                    <br />
-                    <sub><b>Arindam</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -382,8 +361,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Tejas Athalye</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/haseebzaki-07">
                     <img src="https://avatars.githubusercontent.com/u/147314463?v=4" width="100;" alt="haseebzaki-07"/>
@@ -405,6 +382,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Rahul7raj</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/oebelus">
                     <img src="https://avatars.githubusercontent.com/u/71945388?v=4" width="100;" alt="oebelus"/>
@@ -426,8 +405,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Thalla Jayanth</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/ImgBotApp">
                     <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
@@ -449,6 +426,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Harsh</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Amankr200">
                     <img src="https://avatars.githubusercontent.com/u/160874720?v=4" width="100;" alt="Amankr200"/>
