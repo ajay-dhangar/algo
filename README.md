@@ -80,7 +80,7 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 <a href="https://github.com/ajay-dhangar">
                     <img src="https://avatars.githubusercontent.com/u/99037494?v=4" width="100;" alt="ajay-dhangar"/>
                     <br />
-                    <sub><b>Ajay Dhangar &lt;br /&gt; (Founder of Algo)</b></sub>
+                    <sub><b>Founder of Algo</b></sub>		    
                 </a>
             </td>
             <td align="center">
