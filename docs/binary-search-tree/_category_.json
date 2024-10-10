@@ -1,0 +1,8 @@
+{
+    "label": "Binary Search Tree",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "A **Binary Search Tree (BST)** is a type of binary tree where each node follows a specific ordering property: 1. All the values in the left subtree are less than the root node. 2. All the values in the right subtree are greater than the root node."
+    }
+}
