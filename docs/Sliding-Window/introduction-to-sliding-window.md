@@ -2,6 +2,7 @@
 id: sliding-window
 title: Sliding Window Algorithm
 sidebar_label: Sliding Window Algorithm
+sidebar_position: 1
 description: "In this blog post, we'll explore the Sliding Window Algorithm, an efficient technique for solving problems related to arrays or strings."
 tags: [dsa, algorithms, sliding window]
 ---

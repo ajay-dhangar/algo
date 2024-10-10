@@ -1,6 +1,6 @@
 ---
 id: bst-intro
-sidebar_position: 15
+sidebar_position: 1
 title: Binary Search Trees
 sidebar_label: Binary Search Trees
 description: "In this blog post, we'll explore binary search trees (BSTs), a special type of binary tree that allows for efficient searching, insertion, and deletion of elements."
