@@ -36,51 +36,68 @@ Odd-Even Sort is a simple comparison-based sorting algorithm, also known as Bric
 - **Space Complexity: O(1)**  
   Like Shell Sort, Odd-Even Sort is an in-place sorting algorithm, requiring constant additional memory.
 
-### C++ Implementation:
+### java Implementation:
 
 ```cpp
-#include <iostream>
-using namespace std;
+import java.util.Scanner;
 
-// Function to perform odd-even sort
-void oddEvenSort(int arr[], int size) {
-    bool sorted = false; // Initially array is unsorted
+public class OddEvenSort {
+    // Function to perform odd-even sort
+    public static void oddEvenSort(int[] arr) {
+        boolean sorted = false; // Initially, the array is unsorted
 
-    while (!sorted) {
-        sorted = true;
+        while (!sorted) {
+            sorted = true;
 
-        // Perform Odd phase
-        for (int i = 1; i <= size - 2; i += 2) {
-            if (arr[i] > arr[i + 1]) {
-                swap(arr[i], arr[i + 1]);
-                sorted = false;
+            // Perform Odd phase
+            for (int i = 1; i < arr.length - 1; i += 2) {
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
+                    sorted = false;
+                }
             }
-        }
 
-        // Perform Even phase
-        for (int i = 0; i <= size - 2; i += 2) {
-            if (arr[i] > arr[i + 1]) {
-                swap(arr[i], arr[i + 1]);
-                sorted = false;
+            // Perform Even phase
+            for (int i = 0; i < arr.length - 1; i += 2) {
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
+                    sorted = false;
+                }
             }
         }
     }
-}
 
-int main() {
-    int arr[] = {34, 2, 10, -9};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    oddEvenSort(arr, size);
-
-    cout << "Sorted array: \n";
-    for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
+    // Function to swap two elements in the array
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
-    cout << endl;
 
-    return 0;
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        
+        int[] arr = new int[n];
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        oddEvenSort(arr);
+
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        scanner.close();
+    }
 }
+
 ```
 
 ### Explanation:
