@@ -5,9 +5,9 @@ title: Loops in Python
 sidebar_label: Loops in Python
 ---
 
-Hey everyone! Today, we'll explore loops in Python, which help automate repetitive tasks. Whether you're new to Python or need a quick recap, this guide will help you understand how loops work in Python. Let's dive right in!
-# Python Loops
+Hey there! In this guide, we'll explore loops in Python. Loops are used to execute a block of code repeatedly based on a condition. Let's dive in!
 
+# Python Loops
 
 * Loops allow you to repeatedly execute a block of code while certain conditions are true.
 

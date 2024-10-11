@@ -2,7 +2,7 @@
 id: Sudoko-problem-dsa
 title: Sudoko Recursion
 sidebar_label: Sudoko
-sidebar_position: 10
+sidebar_position: 4
 description: "The Sudoku problem is a popular puzzle where the objective is to fill a 9x9 grid with digits from 1 to 9 so that each column, each row, and each of the nine 3x3 subgrids contain all the digits from 1 to 9 without repetition."
 tags: [sudoku, backtracking, recursion, puzzle-solving]
 ---
