@@ -1,5 +1,5 @@
 ---
-id: 
+id: counting-sort
 title: Counting Sort Algorithm
 sidebar_label: counting sort
 sidebar_position: 500
