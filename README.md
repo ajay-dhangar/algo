@@ -165,6 +165,13 @@ We are grateful to all the contributors who have helped improve this project. Yo
 		</tr>
 		<tr>
             <td align="center">
+                <a href="https://github.com/PavanTeja2005">
+                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
+                    <br />
+                    <sub><b>PavanTeja2005</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/shimmer12">
                     <img src="https://avatars.githubusercontent.com/u/92056170?v=4" width="100;" alt="shimmer12"/>
                     <br />
@@ -176,13 +183,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <img src="https://avatars.githubusercontent.com/u/125813798?v=4" width="100;" alt="monishkumardvs"/>
                     <br />
                     <sub><b>monishkumardvs</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/PavanTeja2005">
-                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
-                    <br />
-                    <sub><b>PavanTeja2005</b></sub>
                 </a>
             </td>
             <td align="center">
