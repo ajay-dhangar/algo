@@ -3,18 +3,15 @@ id: counting-sort
 title: Counting Sort Algorithm
 sidebar_label: counting sort
 sidebar_position: 500
-description: Counting Sort is an efficient sorting algorithm used for sorting a collection of integers when the range of the integers (k) is not significantly greater than the number of integers (n) in the collection. It works well when the integers are within a known, fixed range.
-tags: [@ajay-dhangar]
+description: "Counting Sort is an efficient sorting algorithm used for sorting a collection of integers when the range of the integers (k) is not significantly greater than the number of integers (n) in the collection. It works well when the integers are within a known, fixed range."
+tags: [counting-sort]
 ---
 
-# Counting Sort Algorithm
-
-## Overview
 Counting Sort is an efficient, non-comparative sorting algorithm suitable for sorting integers within a specific range. It operates by counting the occurrences of each unique value in the input data and then using those counts to determine the positions of each value in the sorted output.
 
 ## Characteristics
 - **Time Complexity**: $O(n + k)$, where `n` is the number of elements in the input array and `k` is the range of the input values.
-- **Space Complexity**: O(k), where `k` is the range of the input values.
+- **Space Complexity**: $O(k)$, where `k` is the range of the input values.
 - **Stability**: Counting Sort is stable, meaning that it preserves the relative order of equal elements.
 
 ## How It Works
