@@ -1,8 +1,8 @@
 ---
-id: @kjl98
-title: Added counting sort.md file
-sidebar_label: #333 
-sidebar_position: ___
+id: 
+title: Counting Sort Algorithm
+sidebar_label: counting sort
+sidebar_position: 500
 description: Counting Sort is an efficient sorting algorithm used for sorting a collection of integers when the range of the integers (k) is not significantly greater than the number of integers (n) in the collection. It works well when the integers are within a known, fixed range.
 tags: [@ajay-dhangar]
 ---
@@ -61,4 +61,4 @@ public class countingSort {
 		countingSort(arr);
 	}
 }
-
+```
