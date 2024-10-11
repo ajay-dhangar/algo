@@ -1,8 +1,8 @@
 ---
 id: combinatorics-theory
 title: combinatorics in  data structure
-sidebar_label: combinatorics
-sidebar_position: 6
+sidebar_label: Combinatorics
+sidebar_position: 1
 description: Combinatorics is a branch of mathematics dealing with combinations, arrangements, and counting of objects.
 tags: [Competitive Programming,math,counting]
 
