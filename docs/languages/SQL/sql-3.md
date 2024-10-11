@@ -1,5 +1,5 @@
 ---
-id: "sql_tutorial_3"
+id: "sql_select_statement"
 sidebar_position: 3
 title: "SQL SELECT"
 sidebar_label: "SQL Select"
@@ -7,11 +7,8 @@ description: "The SELECT statement retrieves specific data from one or more tabl
 tags: [sql, dbms, database]
 ---
 
-SQL SELECT Statement
-====================
 
-Syntax
-------
+## Syntax
 
 `SELECT _column1_, _column2_, ... FROM _table_name_;`
 
@@ -21,8 +18,8 @@ The `table_name` represents the name of the _table_ you want to select data from
 
 * * *
 
-Demo Database
--------------
+## Demo Database
+
 
 Below is a selection from the Customers table used in the examples:
 
@@ -34,8 +31,7 @@ Below is a selection from the Customers table used in the examples:
 | 4          | Around the Horn               | Thomas Hardy   | 120 Hanover Sq.        | London      | WA1 1DP    | UK       |
 | 5          | Berglunds snabbköp            | Christina Berglund | Berguvsvägen 8        | Luleå       | S-958 22   | Sweden   |
 
-Select ALL columns
-------------------
+## Select ALL columns
 
 If you want to return all columns without specifying every column name, you can use the `SELECT *` syntax:
 
@@ -69,8 +65,7 @@ Inside a table, a column often contains many duplicate values; and sometimes you
 | 4          | Around the Horn               | Thomas Hardy   | 120 Hanover Sq.        | London      | WA1 1DP    | UK       |
 | 5          | Berglunds snabbköp            | Christina Berglund | Berguvsvägen 8        | Luleå       | S-958 22   | Sweden   |
 
-SELECT Example Without DISTINCT
--------------------------------
+## SELECT Example Without DISTINCT
 
 If you omit the `DISTINCT` keyword, the SQL statement returns the "Country" value from all the records of the "Customers" table:
 
@@ -78,8 +73,7 @@ If you omit the `DISTINCT` keyword, the SQL statement returns the "Country" valu
 
 `SELECT Country FROM Customers;`
 
-Count Distinct
---------------
+## Count Distinct
 
 By using the `DISTINCT` keyword in a function called `COUNT`, we can return the number of different countries.
 
