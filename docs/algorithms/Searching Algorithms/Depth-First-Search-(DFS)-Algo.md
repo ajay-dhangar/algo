@@ -1,5 +1,5 @@
 id: dfs-algo  
-sidebar_position: 1  
+sidebar_position: 7
 title: Depth-First Search  
 sidebar_label: DFS  
 
