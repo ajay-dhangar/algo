@@ -26,13 +26,13 @@ const config = {
         debug: true,
         docs: {
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
+          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
+          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },

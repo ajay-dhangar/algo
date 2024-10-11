@@ -7,7 +7,7 @@ sidebar_label: Operator in JS
 
 Operators are symbols that perform operations on operands. JavaScript supports various types of operators, including arithmetic, assignment, comparison, logical, and more. Let's explore some common operators used in JavaScript:
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## 1. **Arithmetic Operators:**
 
@@ -53,7 +53,7 @@ The modulus operator returns the remainder of the division operation.
 let remainder = 15 % 4; // remainder = 3
 ```
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ## 2. **Assignment Operators:**
 
@@ -85,7 +85,7 @@ let z = 10;
 z -= 2; // z = 8
 ```
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## 3. **Comparison Operators:**
 
@@ -131,7 +131,7 @@ The less than operator checks if the left operand is less than the right operand
 let isLessThan = 5 < 10; // isLessThan = true
 ```
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ## 4. **Logical Operators:**
 
@@ -169,7 +169,7 @@ let condition = true;
 let result = !condition; // result = false
 ```
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## 5. **Ternary Operator:**
 
@@ -204,7 +204,7 @@ count++; // count = 6
 count--; // count = 5
 ```
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ## 8. **Bitwise Operators:**
 
@@ -266,7 +266,7 @@ Shifts the bits of a number to the right, filling the leftmost bits with zeros.
 let result = 5 >>> 1; // result = 2
 ```
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## 9. **Conditional Operator:**
 
@@ -278,7 +278,7 @@ let age = 20;
 let message = age >= 18 ? 'You can vote' : 'You are too young to vote';
 ```
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## 10. **Comma Operator:**
 

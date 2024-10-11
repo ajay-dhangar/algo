@@ -5,9 +5,9 @@ title: Decision Making in Python
 sidebar_label: Decision Making in Python
 ---
 
-Hey everyone! Today we'll explore decision-making in Python. Whether you're new to Python or need a refresher, this guide will help you understand the essential decision-making structures in Python. Let's dive right in!
-# Python Decision Making
+Hey there! In this guide, we'll explore decision-making in Python. Decision-making constructs allow you to execute code based on certain conditions. Let's dive in!
 
+## Decision Making
 
 * Python supports several decision-making constructs that allow you to execute code based on conditions.
 
