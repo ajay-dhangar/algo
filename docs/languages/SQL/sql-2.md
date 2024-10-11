@@ -1,5 +1,5 @@
 ---
-id: "sql_tutorial_2"
+id: "sql_syntax"
 sidebar_position: 2
 title: "SQL Syntax"
 sidebar_label: "SQL Statements"
@@ -7,18 +7,15 @@ description: "SQL statements are commands used to perform tasks such as querying
 tags: [sql, dbms, database]
 ---
 
-SQL Syntax
-==========
 
-SQL Statements
---------------
+
+## SQL Statements
 
 Most of the actions you need to perform on a database are done with SQL statements.
 
 SQL statements consist of keywords that are easy to understand.
 
-Database Tables
----------------
+## Database Tables
 
 A database most often contains one or more tables. Each table is identified by a name (e.g., "Customers" or "Orders") and contains records (rows) with data.
 
@@ -36,8 +33,7 @@ Below is a selection from the Customers table used in the examples:
 
 The table above contains five records (one for each customer) and seven columns (CustomerID, CustomerName, ContactName, Address, City, PostalCode, and Country).
 
-Keep in Mind That...
---------------------
+## Keep in Mind That...
 
 SQL keywords are NOT case-sensitive: `select` is the same as `SELECT`.
 
@@ -45,8 +41,7 @@ In this tutorial, we will write all SQL keywords in upper-case.
 
 * * *
 
-Semicolon after SQL Statements?
--------------------------------
+## Semicolon after SQL Statements?
 
 Some database systems require a semicolon at the end of each SQL statement.
 
@@ -56,8 +51,7 @@ In this tutorial, we will use a semicolon at the end of each SQL statement.
 
 * * *
 
-Some of The Most Important SQL Commands
----------------------------------------
+## Some of The Most Important SQL Commands
 
 * `SELECT` - extracts data from a database
 * `UPDATE` - updates data in a database
