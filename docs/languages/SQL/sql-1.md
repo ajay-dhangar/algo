@@ -1,5 +1,5 @@
 ---
-id: "sql_tutorial_1"
+id: "introduction-to-sql"
 sidebar_position: 1
 title: "Introduction to SQL"
 sidebar_label: "Introduction to SQL"
@@ -7,21 +7,12 @@ description: "SQL (Structured Query Language) is a standardized programming lang
 tags: [sql, dbms, database]
 ---
 
-SQL Tutorial
-============
 
 SQL is a standard language for storing, manipulating, and retrieving data in databases.
 
 Our SQL tutorial will teach you how to use SQL in: MySQL, SQL Server, MS Access, Oracle, Sybase, Informix, Postgres, and other database systems.
 
-------------------------
-Introduction to SQL
-===================
-
-SQL is a standard language for accessing and manipulating databases.
-
-What is SQL?
-------------
+## What is SQL?
 
 * SQL stands for Structured Query Language
 * SQL lets you access and manipulate databases
@@ -29,8 +20,7 @@ What is SQL?
 
 * * *
 
-What Can SQL do?
-----------------
+## What Can SQL do?
 
 * SQL can execute queries against a database
 * SQL can retrieve data from a database
@@ -45,8 +35,8 @@ What Can SQL do?
 
 * * *
 
-SQL is a Standard - BUT....
----------------------------
+## SQL is a Standard - BUT....
+
 
 Although SQL is an ANSI/ISO standard, there are different versions of the SQL language.
 
@@ -56,8 +46,8 @@ However, to be compliant with the ANSI standard, they all support at least the m
 
 * * *
 
-Using SQL in Your Web Site
---------------------------
+## Using SQL in Your Web Site
+
 
 To build a web site that shows data from a database, you will need:
 
@@ -66,8 +56,8 @@ To build a web site that shows data from a database, you will need:
 * To use SQL to get the data you want
 * To use HTML / CSS to style the page
 
-RDBMS
------
+## RDBMS
+
 
 RDBMS stands for Relational Database Management System.
 
