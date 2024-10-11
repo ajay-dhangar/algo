@@ -1,5 +1,5 @@
 ---
-id: DoublyLinkedList
+id: doubly-linked-list
 title: Doubly Linked List Data Structure (C Language)
 sidebar_label: Introduction to Doubly Linked List
 description: 'A doubly linked list is a dynamic data structure where each node contains two pointers, one pointing to the previous node and another pointing to the next node, and one is data field. This enables efficient traversal in both directions, making it a versatile structure for scenarios where bi-directional data manipulation is needed.'
