@@ -1,3 +1,12 @@
+---
+id: @kjl98
+title: Added counting sort.md
+sidebar_label: 
+sidebar_position: ___
+description: ___
+tags: [___, __, ]
+---
+
 # Counting Sort Algorithm
 
 ## Overview
