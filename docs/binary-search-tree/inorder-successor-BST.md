@@ -30,6 +30,7 @@ To find the in-order successor of a node in a BST, we need to consider two cases
    
 2. **If the node does not have a right subtree**:
    - Move upwards from the node. Traverse up the ancestors until you find a node that is the left child of its parent. That parent will be the in-order successor.
+   
 
 ### C++ Code Implementation
 
@@ -96,4 +97,4 @@ int main() {
 
     return 0;
 }
-```
+``` 
