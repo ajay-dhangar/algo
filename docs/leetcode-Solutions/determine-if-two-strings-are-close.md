@@ -47,7 +47,7 @@ class Solution:
         if sorted(f.values()) != sorted(g.values()):  # Step 4: Frequency comparison
             return False
         
-        return True  # Both checks passed, return True
+        return True 
 ```
 Time Complexity: O(n) 
 Space Complexity: O(1)       
