@@ -5,7 +5,8 @@ title: Operators in Python
 sidebar_label: Operators in Python
 ---
 
-Hey everyone! Today, we're going to dive into the usage of operators in Python. Whether you're just starting or looking to expand your knowledge, this guide will walk you through the most common operators in Python. Let's jump right in!
+Hey there! In this guide, we'll explore operators in Python. Operators are special symbols that perform operations on variables and values. Let's dive in!
+
 # Python Operators
 
 
