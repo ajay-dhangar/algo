@@ -1,15 +1,23 @@
+---
+id: "sql_tutorial_3"
+sidebar_position: 3
+title: "SQL SELECT"
+sidebar_label: "SQL Select"
+description: "The SELECT statement retrieves specific data from one or more tables in a database."
+tags: [sql, dbms, database]
+---
+
 SQL SELECT Statement
 ====================
 
 Syntax
 ------
 
-`SELECT _column1_, _column2, ..._   FROM _table_name_;`
+`SELECT _column1_, _column2_, ... FROM _table_name_;`
 
 Here, column1, column2, ... are the _field names_ of the table you want to select data from.
 
-The table\_name represents the name of the _table_ you want to select data from.
-
+The `table_name` represents the name of the _table_ you want to select data from.
 
 * * *
 
@@ -20,22 +28,22 @@ Below is a selection from the Customers table used in the examples:
 
 | CustomerID | CustomerName                  | ContactName    | Address                | City        | PostalCode | Country  |
 |------------|-------------------------------|----------------|------------------------|-------------|------------|----------|
-| 1          | Alfreds Futterkiste            | Maria Anders   | Obere Str. 57           | Berlin      | 12209      | Germany  |
-| 2          | Ana Trujillo Emparedados y helados | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 05021      | Mexico   |
-| 3          | Antonio Moreno Taquería        | Antonio Moreno | Mataderos 2312          | México D.F. | 05023      | Mexico   |
-| 4          | Around the Horn                | Thomas Hardy   | 120 Hanover Sq.         | London      | WA1 1DP    | UK       |
-| 5          | Berglunds snabbköp             | Christina Berglund | Berguvsvägen 8         | Luleå       | S-958 22   | Sweden   |
+| 1          | Alfreds Futterkiste           | Maria Anders   | Obere Str. 57          | Berlin      | 12209      | Germany  |
+| 2          | Ana Trujillo Emparedados y Helados | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 05021      | Mexico   |
+| 3          | Antonio Moreno Taquería       | Antonio Moreno | Mataderos 2312         | México D.F. | 05023      | Mexico   |
+| 4          | Around the Horn               | Thomas Hardy   | 120 Hanover Sq.        | London      | WA1 1DP    | UK       |
+| 5          | Berglunds snabbköp            | Christina Berglund | Berguvsvägen 8        | Luleå       | S-958 22   | Sweden   |
 
 Select ALL columns
 ------------------
 
-If you want to return all columns, without specifying every column name, you can use the `SELECT *` syntax:
+If you want to return all columns without specifying every column name, you can use the `SELECT *` syntax:
 
 ### Example
 
 Return all the columns from the Customers table:
 
-`SELECT \* FROM Customers;`
+`SELECT * FROM Customers;`
 
 SQL SELECT DISTINCT Statement
 -----------------------------
@@ -55,11 +63,11 @@ Inside a table, a column often contains many duplicate values; and sometimes you
 
 | CustomerID | CustomerName                  | ContactName    | Address                | City        | PostalCode | Country  |
 |------------|-------------------------------|----------------|------------------------|-------------|------------|----------|
-| 1          | Alfreds Futterkiste            | Maria Anders   | Obere Str. 57           | Berlin      | 12209      | Germany  |
-| 2          | Ana Trujillo Emparedados y helados | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 05021      | Mexico   |
-| 3          | Antonio Moreno Taquería        | Antonio Moreno | Mataderos 2312          | México D.F. | 05023      | Mexico   |
-| 4          | Around the Horn                | Thomas Hardy   | 120 Hanover Sq.         | London      | WA1 1DP    | UK       |
-| 5          | Berglunds snabbköp             | Christina Berglund | Berguvsvägen 8         | Luleå       | S-958 22   | Sweden   |
+| 1          | Alfreds Futterkiste           | Maria Anders   | Obere Str. 57          | Berlin      | 12209      | Germany  |
+| 2          | Ana Trujillo Emparedados y Helados | Ana Trujillo  | Avda. de la Constitución 2222 | México D.F. | 05021      | Mexico   |
+| 3          | Antonio Moreno Taquería       | Antonio Moreno | Mataderos 2312         | México D.F. | 05023      | Mexico   |
+| 4          | Around the Horn               | Thomas Hardy   | 120 Hanover Sq.        | London      | WA1 1DP    | UK       |
+| 5          | Berglunds snabbköp            | Christina Berglund | Berguvsvägen 8        | Luleå       | S-958 22   | Sweden   |
 
 SELECT Example Without DISTINCT
 -------------------------------
@@ -79,15 +87,12 @@ By using the `DISTINCT` keyword in a function called `COUNT`, we can return the 
 
 `SELECT COUNT(DISTINCT Country) FROM Customers;`
 
-**Note: The** COUNT(DISTINCT _column\_name_) is not supported in Microsoft Access databases.
+**Note:** The `COUNT(DISTINCT _column_name_)` is not supported in Microsoft Access databases.
 
 Here is a workaround for MS Access:
 
 ### Example
 
-`SELECT Count(\*) AS DistinctCountries  
-FROM (SELECT DISTINCT Country FROM Customers);`
+`SELECT Count(*) AS DistinctCountries FROM (SELECT DISTINCT Country FROM Customers);`
 
 You will learn about the COUNT function later in this tutorial.
-
-
