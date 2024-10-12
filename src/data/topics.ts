@@ -634,6 +634,354 @@ export const topics: Topic[] = [
           "Bridges",
         ],
       },
+      {
+        name: "Shortest Path Algos",
+        files: [
+          "Dijkstra's Algorithm",
+          "Bellman-Ford Algorithm",
+          "Floyd-Warshall Algorithm",
+          "Johnson's Algorithm",
+          "A* Algorithm",
+          "Bidirectional Search",
+          "Backtracking",
+          "Branch and Bound",
+          "Greedy Algorithms",
+          "Dynamic Programming",
+        ],
+      },
+      {
+        name: "Minimum Spanning Tree",
+        files: [
+          "Prim's Algorithm",
+          "Kruskal's Algorithm",
+          "Boruvka's Algorithm",
+          "Reverse-Delete Algorithm",
+          "Jarnik's Algorithm",
+          "Karger's Algorithm",
+        ],
+      },
     ],
   },
+  {
+    title: "Advanced Data Structures",
+    folders: [
+      {
+        name: "Trie",
+        files: [
+          "Introduction",
+          "Trie Operations",
+          "Implementing Trie",
+          "Applications",
+        ],
+      },
+      {
+        name: "Segment Trees",
+        files: [
+          "Introduction",
+          "Segment Tree Operations",
+          "Implementing Segment Tree",
+          "Applications",
+        ],
+      },
+      {
+        name: "Fenwick Tree",
+        files: [
+          "Introduction",
+          "Fenwick Tree Operations",
+          "Implementing Fenwick Tree",
+          "Applications",
+        ],
+      },
+      {
+        name: "Suffix Tree",
+        files: [
+          "Introduction",
+          "Suffix Tree Operations",
+          "Implementing Suffix Tree",
+          "Applications",
+        ],
+      },
+      {
+        name: "Bloom Filter",
+        files: [
+          "Introduction",
+          "Bloom Filter Operations",
+          "Implementing Bloom Filter",
+          "Applications",
+        ],
+      },
+      {
+        name: "Skip List",
+        files: [
+          "Introduction",
+          "Skip List Operations",
+          "Implementing Skip List",
+          "Applications",
+        ],
+      },
+      {
+        name: "Disjoint Set (Union-Find)",
+        files: [
+          "Introduction",
+          "Disjoint Set Operations",
+          "Implementing Disjoint Set",
+          "Applications",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Complex Data Structures",
+    folders: [
+      {
+        name: "B/B+ Trees",
+        files: [
+          "Introduction",
+          "B-Tree Operations",
+          "B-Tree Properties",
+          "B-Tree Implementation",
+          "B+ Tree Operations",
+          "B+ Tree Properties",
+          "B+ Tree Implementation",
+        ],
+      },
+      {
+        name: "Skip List",
+        files: [
+          "Introduction",
+          "Skip List Operations",
+          "Skip List Properties",
+          "Skip List Implementation",
+        ],
+      },
+      {
+        name: "ISAM",
+        files: [
+          "Introduction",
+          "ISAM Operations",
+          "ISAM Properties",
+          "ISAM Implementation",
+        ],
+      },
+      {
+        name: "2-3 trees",
+        files: [
+          "Introduction",
+          "2-3 Tree Operations",
+          "2-3 Tree Properties",
+          "2-3 Tree Implementation",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Indexing",
+    folders: [
+      {
+        name: "Introduction",
+        files: [
+          "What is Indexing?",
+          "Types of Indexing",
+          "Indexing Techniques",
+          "Indexing Algorithms",
+        ],
+      },
+      {
+        name: "Linear Indexing",
+        files: [
+          "Introduction",
+          "Linear Indexing Operations",
+          "Linear Indexing Properties",
+          "Linear Indexing Implementation",
+        ],
+      },
+      {
+        name: "Tree-Based Indexing",
+        files: [
+          "Introduction",
+          "Tree-Based Indexing Operations",
+          "Tree-Based Indexing Properties",
+          "Tree-Based Indexing Implementation",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Problem Solving Techniques",
+    folders: [
+      {
+        name: "Brute Force",
+        files: [
+          "What is Brute Force?",
+          "Brute Force Examples",
+          "Brute Force Problems",
+        ],
+      },
+      {
+        name: "Greedy Algorithms",
+        files: [
+          "What are Greedy Algorithms?",
+          "Greedy Algorithm Examples",
+          "Greedy Algorithm Problems",
+        ],
+      },
+      {
+        name: "Divide and Conquer",
+        files: [
+          "What is Divide and Conquer?",
+          "Divide and Conquer Examples",
+          "Divide and Conquer Problems",
+        ],
+      },
+      {
+        name: "Dynamic Programming",
+        files: [
+          "What is Dynamic Programming?",
+          "Dynamic Programming Examples",
+          "Dynamic Programming Problems",
+        ],
+      },
+      {
+        name: "Backtracking",
+        files: [
+          "What is Backtracking?",
+          "Backtracking Examples",
+          "Backtracking Problems",
+        ],
+      },
+      {
+        name: "Branch and Bound",
+        files: [
+          "What is Branch and Bound?",
+          "Branch and Bound Examples",
+          "Branch and Bound Problems",
+        ],
+      },
+      {
+        name: "Randomized Algorithms",
+        files: [
+          "What are Randomized Algorithms?",
+          "Randomized Algorithm Examples",
+          "Randomized Algorithm Problems",
+        ],
+      },
+      {
+        name: "Recursion",
+        files: [
+          "What is Recursion?",
+          "Recursion Examples",
+          "Recursion Problems",
+        ],
+      },
+      {
+        name: "Bit Manipulation",
+        files: [
+          "What is Bit Manipulation?",
+          "Bit Manipulation Examples",
+          "Bit Manipulation Problems",
+        ],
+      },
+      {
+        name: "Two Pointers",
+        files: [
+          "What are Two Pointers?",
+          "Two Pointers Examples",
+          "Two Pointers Problems",
+        ],
+      },
+      {
+        name: "Sliding Window",
+        files: [
+          "What is Sliding Window?",
+          "Sliding Window Examples",
+          "Sliding Window Problems",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Platforms for Practice",
+    folders: [
+      {
+        name: "LeetCode",
+        files: [
+          "Introduction",
+          "How to Practice",
+          "LeetCode Problems",
+          "LeetCode Contests",
+          "LeetCode Premium",
+        ],
+      },
+      {
+        name: "HackerRank",
+        files: [
+          "Introduction",
+          "How to Practice",
+          "HackerRank Problems",
+          "HackerRank Contests",
+          "HackerRank Premium",
+        ],
+      },
+      {
+        name: "Codeforces",
+        files: [
+          "Introduction",
+          "How to Practice",
+          "Codeforces Problems",
+          "Codeforces Contests",
+          "Codeforces Premium",
+        ],
+      },
+      {
+        name: "AtCoder",
+        files: [
+          "Introduction",
+          "How to Practice",
+          "AtCoder Problems",
+          "AtCoder Contests",
+          "AtCoder Premium",
+        ],
+      },
+      {
+        name: "TopCoder",
+        files: [
+          "Introduction",
+          "How to Practice",
+          "TopCoder Problems",
+          "TopCoder Contests",
+          "TopCoder Premium",
+        ],
+      },
+      {
+        name: "CodeChef",
+        files: [
+          "Introduction",
+          "How to Practice",
+          "CodeChef Problems",
+          "CodeChef Contests",
+          "CodeChef Premium",
+        ],
+      },
+      {
+        name: "SPOJ",
+        files: [
+          "Introduction",
+          "How to Practice",
+          "SPOJ Problems",
+          "SPOJ Contests",
+          "SPOJ Premium",
+        ],
+      },
+      {
+        name: "Project Euler",
+        files: [
+          "Introduction",
+          "How to Practice",
+          "Project Euler Problems",
+          "Project Euler Contests",
+          "Project Euler Premium",
+        ],
+      },
+    ],
+  }
 ];
