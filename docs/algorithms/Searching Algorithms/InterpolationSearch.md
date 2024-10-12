@@ -5,10 +5,6 @@ title: Interpolation Search
 sidebar_label: Interpolation Search
 ---
 
-## Interpolation Search
-
-### Definition
-
 Interpolation search is an optimized variant of binary search that works based on proportionality. It estimates the position of the target value in a sorted array by comparing the value of the target to the array's boundary values. This makes it particularly effective for uniformly distributed datasets.
 
 ### Key Characteristics
