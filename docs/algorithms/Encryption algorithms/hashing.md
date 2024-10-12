@@ -44,7 +44,7 @@ Hashing is a process that transforms input data (or a message) into a fixed-size
 
 ### Time Complexity:
 
-- **Hash Computation Time**: $O(n)$ 
+- **Hash Computation Time**: $O(n)$
   The time complexity for computing a hash value depends on the input size, with most hashing algorithms running in linear time relative to the input length.
 
 ### Space Complexity:
