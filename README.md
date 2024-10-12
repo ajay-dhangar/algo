@@ -105,26 +105,26 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/AbhijitMotekar99">
-                    <img src="https://avatars.githubusercontent.com/u/109235675?v=4" width="100;" alt="AbhijitMotekar99"/>
-                    <br />
-                    <sub><b>Abhijit Motekar</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/Gopal0Gupta">
                     <img src="https://avatars.githubusercontent.com/u/114791914?v=4" width="100;" alt="Gopal0Gupta"/>
                     <br />
                     <sub><b>Gopal Gupta</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Shariq2003">
                     <img src="https://avatars.githubusercontent.com/u/109452033?v=4" width="100;" alt="Shariq2003"/>
                     <br />
                     <sub><b>Shariq</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/AbhijitMotekar99">
+                    <img src="https://avatars.githubusercontent.com/u/109235675?v=4" width="100;" alt="AbhijitMotekar99"/>
+                    <br />
+                    <sub><b>Abhijit Motekar</b></sub>
                 </a>
             </td>
             <td align="center">
