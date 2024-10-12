@@ -12,14 +12,6 @@ Sorting algorithms play a crucial role in organizing data for efficient access a
 
 In this page we will learn about **Bubble Sort** , **Selection Sort** , **Insertion Sort** , **Merge Sort** and **Quick Sort**.
 
-### Libraries for implementation
-
-**STDIO.H**
-The stdio.h header file stands for "Standard Input Output" and is part of the C standard library. It provides functions for performing input and output operations such as reading and writing data to the console, files, and other input/output streams.
-
-**STRING.H**
-the string.h header file in C provides functions for manipulating arrays of characters (C-strings) and performing various operations on strings such as copying, concatenating, comparing, and searching.
-
 ### Bubble Sort
 
 Bubble sort is a simple, comparison-based sorting algorithm. It works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. This process is repeated until no more swaps are needed, indicating that the list is sorted.
@@ -46,15 +38,17 @@ Bubble sort is a simple, comparison-based sorting algorithm. It works by repeate
         }    
     ```
 **Time Complexity**
-    + **Worst Case**: O(n²) – when the array is sorted in reverse order.
-    + **Best Case**: O(n) – when the array is already sorted.
-    + **Space Complexity**: O(1) – sorts the list in place without extra space.
+    - **Worst Case**: O(n²) – when the array is sorted in reverse order.
+    - **Best Case**: O(n) – when the array is already sorted.
+    
+**Space Complexity**
+   - O(1) – sorts the list in place without extra space.
 
 **Stability**
-    + Stable – equal elements remain in the same relative order after sorting.
+   - Stable – equal elements remain in the same relative order after sorting.
 
 **Usage**
-    + Not used in practical applications due to its inefficiency, but useful for educational purposes.
+   - Not used in practical applications due to its inefficiency, but useful for educational purposes.
 
 ### Selection Sort
 
@@ -91,17 +85,17 @@ Selection sort divides the array into a sorted and an unsorted region. It works 
         }
     ```
 **Time Complexity**
-    + **Worst Case**: O(n²) – as it performs n comparisons for each element.
-    + **Best Case**: O(n) – when the array is already sorted.
+    - **Worst Case**: O(n²) – as it performs n comparisons for each element.
+    - **Best Case**: O(n) – when the array is already sorted.
     
 **Space Complexity**
-    + O(1) – in-place sorting.
+    - O(1) – in-place sorting.
 
 **Stability**
-    + Unstable – equal elements may be swapped, changing their relative order.
+    - Unstable – equal elements may be swapped, changing their relative order.
 
 **Usage**
-    + Useful when memory space is limited due to its in-place nature. Not efficient for large datasets.
+    - Useful when memory space is limited due to its in-place nature. Not efficient for large datasets.
 
 
 ### Insertion Sort
@@ -132,19 +126,19 @@ Insertion sort works similarly to how people arrange playing cards in their hand
         }
     ```
 **Time Complexity**
-    + **Worst Case**: O(n²) – when the array is sorted in reverse order.
-    + **Best Case**: O(n) – when the array is already sorted.
+    - **Worst Case**: O(n²) – when the array is sorted in reverse order.
+    - **Best Case**: O(n) – when the array is already sorted.
     
 **Space Complexity**
-    + O(1) – in-place sorting.
+    - O(1) – in-place sorting.
 
 **Stability**
-    + Stable – maintains the relative order of equal elements.
+    - Stable – maintains the relative order of equal elements.
 
 **Usage**
-    + Useful when memory space is limited due to its in-place nature. 
-    + Efficient for small datasets or nearly sorted data. 
-    + Commonly used in hybrid algorithms like Timsort.
+    - Useful when memory space is limited due to its in-place nature. 
+    - Efficient for small datasets or nearly sorted data. 
+    - Commonly used in hybrid algorithms like Timsort.
 
 ### Merge Sort
 
@@ -212,16 +206,16 @@ Merge sort is a divide-and-conquer algorithm. It splits the array into two halve
         }
     ```
 **Time Complexity**
-    + O(n log n) – consistently for all cases (worst, average, and best).
+    - O(n log n) – consistently for all cases (worst, average, and best).
     
 **Space Complexity**
-    + O(n) – requires additional space for temporary arrays during the merge process.
+    - O(n) – requires additional space for temporary arrays during the merge process.
 
 **Stability**
-    + Stable – equal elements maintain their relative order.
+    - Stable – equal elements maintain their relative order.
 
 **Usage**
-    + Suitable for large datasets and linked lists.
+    - Suitable for large datasets and linked lists.
 
 
 ### Quick Sort
@@ -278,16 +272,65 @@ Quick sort is a divide-and-conquer algorithm. It selects a **pivot (IN THIS IT I
     }
     ```
 **Time Complexity**
-    + **Worst Case**:O(n²) – occurs when the pivot is poorly chosen, such as when the array is already sorted.
+    - **Worst Case**:O(n²) – occurs when the pivot is poorly chosen, such as when the array is already sorted.
     
 **Space Complexity**
-    + O(log n) – due to recursive calls, but in-place sorting.
+    - O(log n) – due to recursive calls, but in-place sorting.
 
 **Stability**
-    + Unstable – the relative order of equal elements may change.
+    - Unstable – the relative order of equal elements may change.
 
 **Usage**
-    + Variants like randomized quicksort and 3-way quicksort improve performance in the worst case.
+    - Variants like randomized quicksort and 3-way quicksort improve performance in the worst case.
+
+### Main Function
+```text
+// Display function
+void display(int a[],int n) 
+{ 
+  int i; 
+  printf("\nArray is:"); 
+  for(i=0;i<n;i++) 
+  printf("%d\t",a[i]); 
+}
+```
+```text
+//main funcion
+void main() 
+{ 
+  int a[50],i,n,x; 
+  clrscr(); 
+  printf("Sortings\n"); 
+
+  //creation of array
+  
+  printf("\nenter no. of elements in array:"); 
+  scanf("%d",&n); 
+  for(i=0;i<n;i++) 
+  { 
+    printf("\nEnter no.:"); 
+    scanf("%d",&x); 
+    a[i]=x; 
+  } 
+display(a,n);
+
+//Function calling
+
+printf("\nInsertion sorting:\n"); 
+insertion_sort(a,n); 
+printf("\nBubble sortimg:\n"); 
+bubble_sort(a,n); 
+printf("\nSelection sorting:\n"); 
+selection_sort(a,n); 
+printf("\nQuick sorting:\n"); 
+quick_sort(a,0,n-1); 
+display(a,n); 
+printf("\nMerge sorting:\n"); 
+merge_sort(a,0,n-1); 
+display(a,n); 
+getch(); 
+} 
+```
 
 ### Conclusion
 
