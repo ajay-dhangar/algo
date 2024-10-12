@@ -1,7 +1,7 @@
 ---
 
 id: asymmetric-encryption-algo  
-sidebar_position: 3  
+sidebar_position: 2  
 title: Asymmetric Encryption  
 sidebar_label: Asymmetric Encryption  
 
