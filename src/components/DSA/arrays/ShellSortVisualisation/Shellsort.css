@@ -1,0 +1,21 @@
+.array-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .array-bar {
+    width: 20px;
+    margin: 0 2px;
+    background-color: lightblue;
+    transition: height 0.3s ease;
+  }
+  
+  .comparing {
+    background-color: orange;
+  }
+  
+  .shell-sort-visualization {
+    text-align: center;
+  }
+  
