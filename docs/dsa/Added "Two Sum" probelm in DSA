@@ -2,7 +2,8 @@ title: Added Two-Sum Problem
 sidebar_label: two-sum
 sidebar_position: 2
 tags: [Two-Sum]
-Description: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+Description: This is the first easiest leetcode problem. <br>
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
