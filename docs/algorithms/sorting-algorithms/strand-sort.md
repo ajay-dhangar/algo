@@ -1,5 +1,3 @@
-
-
 ---
 id: strand-sort  
 title: Strand Sort Algorithm  
@@ -151,6 +149,3 @@ Sorted list: 1 2 3 4 5 6 7 8
 
 - Not efficient for large datasets due to its O(n²) time complexity in the average and worst case.
 - Best suited for linked lists but can be adapted to arrays or vectors.
-
----
-
