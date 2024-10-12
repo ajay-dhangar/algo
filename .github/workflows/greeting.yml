@@ -1,0 +1,39 @@
+name: Auto Greeting for Issues and PRs
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+permissions:
+  issues: write
+  pull-requests: write
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Greeting Message
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const isIssue = !!context.payload.issue;
+            const isPR = !!context.payload.pull_request;
+
+            const greetingMessage = `
+              👋 Hello @${isIssue ? context.payload.issue.user.login : context.payload.pull_request.user.login}, welcome!
+
+              Thank you for opening this ${isIssue ? "issue" : "pull request"}. We appreciate your effort in helping to improve our Algo project. 
+              Our team will review it shortly. In the meantime, if you can provide any additional 
+              information or context, feel free to update this ${isIssue ? "issue" : "PR"}.
+
+              Please refer to our [CONTRIBUTING.md](https://github.com/ajay-dhangar/algo/blob/main/CONTRIBUTING.md) 
+              for guidelines on contributing to this project.
+
+              Thank you for your contribution! 🚀😊
+            `;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: isIssue ? context.issue.number : context.payload.pull_request.number,
+              body: greetingMessage
+            });
