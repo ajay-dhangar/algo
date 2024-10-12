@@ -8,7 +8,7 @@ sidebar_label: "Functions In C++"
 Hey there! In this guide, we'll explore functions in C++. Functions are blocks of code designed to perform a specific task, which can be reused throughout your program. Let's dive in!
 
 - C++ functions allow for modular programming by breaking down complex tasks into smaller, manageable pieces.
-- We’ll cover inline functions, default parameters, their Limitationss, and function overloading.
+- We’ll cover inline functions, default parameters, their Limitationss, virtual function and function overloading.
 
 ## 1. Definition of a Function
 
