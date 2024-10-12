@@ -9,7 +9,7 @@ tags: [Space Complexity, Big O Notation, Memory, Algorithm, Complexity Analysis,
 
 Space complexity is a measure of the amount of working storage an algorithm needs. It is a measure of the amount of memory space an algorithm needs to solve a problem as a function of the size of the input to the problem. It is the amount of memory space required by the algorithm to execute in its life cycle.
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## Why is Space Complexity important?
 
@@ -33,7 +33,7 @@ function sumOfN(n) {
 
 In the above example, the space complexity of the algorithm is O(1) because the algorithm uses a constant amount of memory space.
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ## Example of Space Complexity
 
@@ -211,7 +211,7 @@ In the above example, the space complexity of the algorithm is `O(1) + O(n) = O(
 
 :::
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ## Conclusion
 

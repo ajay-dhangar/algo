@@ -1,13 +1,11 @@
 ---
 id: loops-in-cpp
 sidebar_position: 3
-title: Loops In C++
-sidebar_label: Loops In C++
+title: "Loops In C++"
+sidebar_label: "Loops In C++"
 ---
 
-# C++ Loops
-
-Hey everyone! I'm Ajay Dhangar, and today we'll explore loops in C++, a crucial concept for automating repetitive tasks. Whether you're new to C++ or need a quick recap, this guide will provide a solid understanding of loops in C++. Let's get started!
+Hey there! In this guide, we'll explore loops in C++. Loops are used to execute a block of code repeatedly based on specific conditions. Let's dive in!
 
 * C++ provides several types of loops that allow you to execute a block of code multiple times based on specific conditions.
 * The main types of loops in C++ are `for`, `while`, and `do-while`.

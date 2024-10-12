@@ -1,71 +1,68 @@
 ---
-
-id: interpolation-search-algo  
-sidebar_position: 10
-title: Interpolation Search  
-sidebar_label: Interpolation Search  
-
+id: interpolation-search-algo
+sidebar_position: 6
+title: Interpolation Search
+sidebar_label: Interpolation Search
 ---
 
-### Definition:
+## Interpolation Search
 
-Interpolation search is an improved variant of binary search that works on the principle of proportionality. It estimates the position of the target value within the sorted array based on the value of the target and the values at the boundaries of the array. This makes it particularly effective for uniformly distributed data.
+### Definition
 
-### Characteristics:
+Interpolation search is an optimized variant of binary search that works based on proportionality. It estimates the position of the target value in a sorted array by comparing the value of the target to the array's boundary values. This makes it particularly effective for uniformly distributed datasets.
 
-- **Proportional Positioning**:
+### Key Characteristics
 
-  - Interpolation search calculates the probable position of the target value using a formula that takes into account the values at the low and high indices and the target value.
+- **Proportional Positioning**:  
+  Interpolation search calculates the estimated position of the target using a formula that takes into account the values at the low and high indices, as well as the target value.
+  
+- **Ideal for Uniformly Distributed Data**:  
+  The algorithm performs best when data is uniformly distributed, as the predicted position will closely match the target's actual location.
 
-- **Uniform Distribution**:
+- **Works on Sorted Arrays**:  
+  Like binary search, interpolation search requires the array to be sorted for efficient searching.
 
-  - The algorithm performs best when the data is uniformly distributed, as the estimated position will be closer to the actual position of the target.
+- **Memory Efficiency**:  
+  The algorithm operates in constant space, requiring no additional memory beyond the input array.
 
-- **Works on Sorted Data**:
+- **Stable Search**:  
+  It preserves the relative order of equal elements during the search process.
 
-  - Like binary search, interpolation search requires the array to be sorted.
+### Time Complexity
 
-- **No Additional Memory Required**:
-  - Linear search operates in constant space, requiring no additional memory beyond the input dataset.
+- **Best Case: $O(1)$**  
+  In the best scenario, the target is found in the estimated position after one comparison.
 
-- **Stable Search**:
-  - Linear search is stable, meaning it preserves the relative order of elements with equal keys during the search process.
+- **Average Case: $O(log log n)$**  
+  For uniformly distributed data, interpolation search can achieve a time complexity of $O(log log n)$, making it faster than binary search.
 
-### Time Complexity:
-- **Best Case: $O(1)$**
-  In the best case, the target element is found at the estimated position after just one comparison.
+- **Worst Case: $O(n)$**  
+  For non-uniformly distributed data, the algorithm’s performance may degrade to $O(n)$, similar to linear search.
 
-- **Average Case: $O(log log n)$**
-  For uniformly distributed data, interpolation search can achieve a time complexity of $O(log log n)$.
+### Space Complexity
 
-- **Worst Case: $O(n)$**
-  In the worst case, particularly for non-uniformly distributed data, the time complexity can degrade to $O(n)$.
+- **Iterative Approach: $O(1)$**  
+  The iterative version only needs constant space for the `low`, `high`, and `pos` variables.
 
-### Space Complexity:
-- **Iterative: $O(1)$**
-  The iterative version requires constant memory for storing low, high, and pos indices.
+### When to Use Interpolation Search
 
-### When to Use Interpolation Search:
-- **Uniformly Distributed Data**:
+- **Uniformly Distributed Data**:  
+  Best suited for datasets where the values are uniformly spread. It efficiently leverages the data distribution to predict the target's position.
+  
+- **Large Sorted Data**:  
+  Particularly effective for large, sorted datasets, as it significantly reduces comparisons by jumping to the estimated target location.
 
- - Interpolation search is ideal for datasets where the values are uniformly distributed. It leverages the distribution of data to predict the position of the target element, making it more efficient than linear search in such cases.
+- **Performance-Critical Applications**:  
+  When performance is critical, and the data is large and uniformly distributed, interpolation search offers improvements over linear or binary search.
 
-- **Large Sorted Data**:
+- **Numeric Data**:  
+  Works best with numeric data where the distribution is known or can be approximated. It's less effective for irregularly distributed or non-numeric data.
 
- - Interpolation search is particularly useful for large datasets that are sorted. It can significantly reduce the number of comparisons compared to linear search by jumping to the estimated position of the target element.
+### C++ Implementation
 
-- **Performance Critical Applications**:
+**Iterative Approach**:
 
- - When performance is critical and the dataset is large and sorted, interpolation search can offer significant improvements over linear search, especially if the data is uniformly distributed.
-
--**Numeric Data**:
-
- - Interpolation search works best with numeric data where the distribution is known or can be approximated. It uses the values of the elements to estimate the position of the target, making it less effective for non-numeric or irregularly distributed data.
-
- ### C++ Implementation:
-
- **Iterative Approach**
- ```cpp
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -110,9 +107,9 @@ int main() {
 }
 ```
 
-**Recursive Approach**
-```cpp
+**Recursive Approach**:
 
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -155,53 +152,46 @@ int main() {
 }
 ```
 
-### Use Cases:
+### Use Cases
 
-- **Efficient Search in Uniformly Distributed Data**:
+- **Efficient Search in Uniformly Distributed Data**:  
+  Commonly used for large datasets like databases where efficient lookups in uniformly distributed data are needed.
 
- - Interpolation search is often used in large datasets, such as databases, to perform efficient lookups or range queries in uniformly distributed data.
+- **Searching in Static Data**:  
+  Works well in scenarios where the data doesn’t change often, making it suitable for read-heavy applications.
 
-**Searching in Static Data**:
+### Advantages and Disadvantages
 
- - When the dataset doesn't change often and is uniformly distributed, interpolation search is the preferred choice due to its efficiency, especially for read-heavy applications.
+**Advantages**:
 
-### Advantages and Disadvantages:
+- **Efficient for Uniform Data**:  
+  Minimizes comparisons for uniformly distributed arrays, making it highly efficient for such datasets.
 
-### Advantages:
--**Efficient for Uniformly Distributed Data**:
+- **Log-Logarithmic Time Complexity**:  
+  Its $O(log log n)$ time complexity offers a significant speed boost over binary search in ideal conditions.
 
- - Interpolation search drastically reduces the number of comparisons needed to find an element in uniformly distributed datasets, making it ideal for such arrays.
+- **Memory Efficiency**:  
+  The algorithm operates with constant space, $O(1)$, making it memory efficient.
 
--**Logarithmic-Logarithmic Time Complexity**:
+**Disadvantages**:
 
-  - The O(log log n) time complexity makes interpolation search faster than binary search for uniformly distributed data.
+- **Requires Uniform Distribution**:  
+  Limited to uniformly distributed datasets, making it ineffective for irregular or unpredictable data.
 
--**Low Memory Usage**:
+- **Less Efficient for Small Datasets**:  
+  The overhead of calculating positions makes it less efficient than simpler search algorithms for smaller datasets.
 
- - The iterative version of interpolation search has a constant space complexity of O(1), making it memory efficient.
+- **Not Suitable for Linked Lists**:  
+  The algorithm requires random access to elements, so it's not usable with linked lists or other sequential data structures.
 
-### Disadvantages:
-- **Requires Uniformly Distributed Data**:
+### Optimizations and Applications
 
- - Interpolation search can only be applied to uniformly distributed arrays, limiting its use in scenarios where the data is not uniformly distributed.
+- **Hybrid Search Algorithms**:  
+  Combining interpolation search with other search techniques (e.g., binary search) can enhance performance in non-uniformly distributed datasets.
 
-- **Poor Performance on Small Datasets**:
+- **Exponential Search**:  
+  For arrays of unknown or infinite size, interpolation search can be combined with exponential search to first narrow down the range of the target element.
 
- - For small datasets, the overhead of calculating positions and repeatedly estimating the target's position may make interpolation search less efficient than linear or binary search.
+### Summary
 
-- **Not Suitable for Linked Lists**:
-
- - Interpolation search requires random access to elements (i.e., indexing), which is not possible in linked lists or other sequential data structures.
-
-### Optimizations and Applications:
-
-- **Hybrid Search Algorithms**:
-
- - Combining interpolation search with other search algorithms, such as binary search, can improve performance for datasets that are not perfectly uniform.
-
-- **Exponential Search**:
-
- - When the size of the array is unknown or infinite, interpolation search can be combined with exponential search to first find a range where the target might exist and then apply interpolation search within that range.
-
-### Summary:
-Interpolation search is an efficient and widely-used algorithm for searching through large, uniformly distributed, and sorted datasets. It operates in O(log log n) time complexity, making it far superior to binary search for uniformly distributed arrays. Interpolation search is well-suited for scenarios where the dataset is static, uniformly distributed, or sorted in advance, such as in databases or ordered lists. While it is not suitable for non-uniformly distributed data or linked lists, its power in uniformly distributed datasets makes it a fundamental algorithm in computer science.
+Interpolation search is a powerful algorithm for searching large, uniformly distributed, sorted datasets. With an average time complexity of $O(log log n)$, it outperforms binary search in ideal conditions. While it’s best suited for numeric, static datasets with uniform distribution, interpolation search remains an essential tool in the realm of efficient search algorithms.
