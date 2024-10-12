@@ -1,8 +1,8 @@
+---
 id: dfs-algo  
 sidebar_position: 7
 title: Depth-First Search  
-sidebar_label: DFS  
-
+sidebar_label: DFS 
 ---
 
 ### Definition:
@@ -38,12 +38,12 @@ sidebar_label: DFS
 
 ### Time Complexity:
 
-- **Time Complexity**: O(V + E)  
+- **Time Complexity**: $O(V + E)$  
   Where `V` is the number of vertices and `E` is the number of edges in the graph.
 
 ### Space Complexity:
 
-- **Space Complexity**: O(V)  
+- **Space Complexity**: $O(V)$  
   DFS uses space proportional to the number of vertices due to the recursion stack or explicit stack.
 
 ### Advantages of DFS:
@@ -140,4 +140,4 @@ DFS can explore all possible paths and backtrack to find solutions.
 DFS helps in finding paths and checking connectivity in graphs.
 
 ### Summary:
-DFS is an essential algorithm for graph traversal and problem-solving in various domains. Its memory efficiency, ability to find deep solutions, and use in applications like topological sorting and cycle detection make it valuable. While it may not always find the shortest path, it provides an efficient approach to explore graph structures in depth-first order.
+DFS is an essential algorithm for graph traversal and problem-solving in various domains. Its memory efficiency, ability to find deep solutions, and use in applications like topological sorting and cycle detection make it valuable. While it may not always find the shortest path, it provides an efficient approach to exploring graph structures in depth-first order.
