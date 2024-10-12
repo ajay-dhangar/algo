@@ -23,6 +23,7 @@
     "@giscus/react": "^3.0.0",
     "@heroicons/react": "^2.1.5",
     "@mdx-js/react": "^3.0.0",
+    "algo": "file:",
     "clsx": "^2.0.0",
     "framer-motion": "^11.9.0",
     "joi": "^17.13.3",
