@@ -21,12 +21,9 @@ jobs:
             const greetingMessage = `
               👋 Hello @${isIssue ? context.payload.issue.user.login : context.payload.pull_request.user.login}, welcome!
 
-              Thank you for opening this ${isIssue ? "issue" : "pull request"}. We appreciate your effort in helping to improve our Algo project. 
-              Our team will review it shortly. In the meantime, if you can provide any additional 
-              information or context, feel free to update this ${isIssue ? "issue" : "PR"}.
+              Thank you for opening this ${isIssue ? "issue" : "pull request"}. We appreciate your effort in helping to improve our Algo project. Our team will review it shortly. In the meantime, if you can provide any additional information or context, feel free to update this ${isIssue ? "issue" : "PR"}.
 
-              Please refer to our [CONTRIBUTING.md](https://github.com/ajay-dhangar/algo/blob/main/CONTRIBUTING.md) 
-              for guidelines on contributing to this project.
+              Please refer to our [CONTRIBUTING.md](https://github.com/ajay-dhangar/algo/blob/main/CONTRIBUTING.md) for guidelines on contributing to this project.
 
               Thank you for your contribution! 🚀😊
             `;
