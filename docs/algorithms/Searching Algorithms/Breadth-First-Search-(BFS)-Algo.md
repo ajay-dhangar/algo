@@ -1,13 +1,13 @@
+---
 id: bfs-algo  
 sidebar_position: 6
 title: Breadth-First Search  
 sidebar_label: BFS  
-
 ---
 
 ### Definition:
 
-**Breadth-First Search (BFS)** is a graph traversal algorithm used to explore all vertices and edges of a graph. It starts from an initial node and explores all of its neighbors at the present depth before moving on to nodes at the next depth level. BFS is commonly used to find the shortest path in unweighted graphs, level-order traversal in trees, and solving puzzles like the shortest path in a maze.
+**Breadth-First Search (BFS)** is a graph traversal algorithm used to explore all vertices and edges of a graph. It starts from an initial node and explores all of its neighbours at the present depth before moving on to nodes at the next depth level. BFS is commonly used to find the shortest path in unweighted graphs, level-order traversal in trees, and solve puzzles like the shortest path in a maze.
 
 ### Characteristics:
 
@@ -24,18 +24,18 @@ sidebar_label: BFS
 
 1. **Start at a node** (root or any node).
 2. **Mark the node as visited** and enqueue it.
-3. **Dequeue a node** from the front of the queue and explore its unvisited neighbors.
+3. **Dequeue a node** from the front of the queue and explore its unvisited neighbours.
 4. **Mark each neighbor as visited** and enqueue them.
 5. **Repeat** the process until the queue is empty.
 
 ### Time Complexity:
 
-- **Time Complexity**: O(V + E)  
+- **Time Complexity**: $O(V + E)$  
   Where `V` is the number of vertices and `E` is the number of edges in the graph.
 
 ### Space Complexity:
 
-- **Space Complexity**: O(V)  
+- **Space Complexity**: $O(V)$
   BFS uses space proportional to the number of vertices due to the queue and visited list.
 
 ### Advantages of BFS:
