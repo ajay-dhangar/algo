@@ -27,7 +27,7 @@ Asymmetric encryption, also known as public-key cryptography, is a type of encry
 
 ### Time Complexity:
 
-- **Encryption/Decryption Time**: $O(n²)$
+- **Encryption/Decryption Time**: $O(n²)$    
   The time complexity for asymmetric encryption and decryption can vary significantly based on the algorithm and the key size. Generally, it is slower than symmetric encryption.
 
 ### Space Complexity:
