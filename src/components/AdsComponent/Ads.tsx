@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-const AdsComponent: React.FC = () => {
+const Ads: React.FC = () => {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -31,10 +31,10 @@ const AdsComponent: React.FC = () => {
         data-ad-layout="in-article"
         data-ad-format="fluid"
         data-ad-client="ca-pub-5832817025080991"
-        data-ad-slot="3270832720"
+        data-ad-slot="5461416177"
        />
     </>
   );
 };
 
-export default AdsComponent;
+export default Ads;

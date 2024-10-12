@@ -13,6 +13,7 @@ import Tabs from "@theme/Tabs";
 import { FaReact } from "react-icons/fa";
 // import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import GiscusComponent from "../components/GiscusComponent";
+import Ads from "@site/src/components/AdsComponent/Ads";
 
 export default {
   // Re-use the default mapping
@@ -31,4 +32,5 @@ export default {
 //   LinearSearchVisualizer,
   AdsComponent,
   GiscusComponent,
+  Ads,
 };

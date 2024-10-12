@@ -5,9 +5,9 @@ title: Variables in JavaScript
 sidebar_label: Variables in JS
 ---
 
-Hey, everyone! I'm Ajay Dhangar, and today we're delving into a fundamental concept in JavaScript – Variables. Whether you're a beginner or seeking a refresher, this comprehensive guide will provide you with a solid understanding of JavaScript variables. Let's jump right in!
+Hey, everyone! In this guide, we'll explore the concept of variables in JavaScript. Variables are essential in programming, allowing you to store and manipulate data dynamically. Let's dive in!
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## 1. What are Variables?
 
@@ -79,7 +79,7 @@ In programming, variables are used to store and manage data. They act as symboli
    - They are block-scoped like variables declared with let.
 :::
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ## 2. Variable Declaration and Types
 
@@ -130,7 +130,7 @@ Once a variable is declared, you can assign values to it. JavaScript's dynamic t
 
 This flexibility is powerful, but it's crucial to be aware of the data types your variables hold to avoid unexpected behavior.
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## 3. Scope and Hoisting
 
@@ -175,7 +175,7 @@ let message = greet("Algo");
 console.log(message); // Outputs: Hello, Algo!
 ```
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ## 5. Best Practices
 

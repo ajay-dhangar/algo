@@ -1,5 +1,5 @@
 ---
-id: avl-intro
+id: avl-tree-intro
 sidebar_position: 16
 title: AVL Trees
 sidebar_label: AVL Trees

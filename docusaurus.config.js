@@ -26,13 +26,15 @@ const config = {
         debug: true,
         docs: {
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
+          editUrl:
+            "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
+          editUrl:
+            "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -57,6 +59,14 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "/",
+      announcementBar: {
+        id: "announcementBar",
+        content:
+          '📢 Join our <a target="_blank" href="https://www.whatsapp.com/channel/0029Vah6hro8F2pGUhuAcR0B">WhatsApp Channel</a> for the latest updates and collaboration on exciting projects!',
+        isCloseable: true,
+        backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
+      },
+
       navbar: {
         title: "Algo",
         logo: {
