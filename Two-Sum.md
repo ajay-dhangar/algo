@@ -1,6 +1,6 @@
 title: Added Two-Sum Problem 
 sidebar_label: two-sum
-sidebar_position: 2
+sidebar_position: 5
 tags: [Two-Sum]
 Description: This is the first easiest leetcode problem. <br>
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
