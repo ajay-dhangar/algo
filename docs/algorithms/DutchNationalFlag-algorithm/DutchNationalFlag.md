@@ -81,6 +81,7 @@ public:
     }
 };
 
+
 int main() {
     vector<int> nums = {0, 2, 1, 2, 0, 1};
     Solution sol;
@@ -94,3 +95,4 @@ int main() {
 
     return 0;
 }
+```
