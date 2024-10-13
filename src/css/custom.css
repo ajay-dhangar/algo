@@ -76,6 +76,14 @@ div[class^="announcementBar_"] .clean-btn {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 0.75rem 1.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
+  height: 73px;  
+}   
+
+.navbar__items { 
+  gap: 18px;
+}
+.navbar__logo img {
+  height: 35px;
 }
 
 .navbar a {
