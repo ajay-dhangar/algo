@@ -1,9 +1,8 @@
 {
-  "label": "Advanced Search Techniques",
-  "position": 10,
-  "link": {
+    "label": "Advanced Data Structures",
+    "position": 9,
+    "link": {
       "type": "generated-index",
-      "description": "Explore the essential RoadMap for Advanced Search Techniques concepts and methodologies."
-  }
+      "description": "Explore the essential RoadMap for Advanced Data Structures concepts and techniques."
+    }
 }
-
