@@ -6,6 +6,8 @@ A concurrent queue is a thread-safe data structure designed for safe access by m
 
 A concurrent queue follows the First In First Out (FIFO) principle, allowing multiple threads to perform enqueue and dequeue operations safely without explicit locks. This makes it ideal for multithreading environments.
 
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWItU6BP0_HnsEQmw-ofD-LWef-uGJSoNvJQ&s)
+
 ## Operations
 
 1. **Enqueue**: Add an element to the back of the queue.
