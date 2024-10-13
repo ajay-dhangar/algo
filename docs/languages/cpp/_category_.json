@@ -1,0 +1,8 @@
+{
+    "label": "C++",
+    "position": 3,
+    "link": {
+      "type": "generated-index",
+      "description": "C++ is a compiled, high-level, general-purpose programming language. Developed by Bjarne Stroustrup and first released in 1985, C++ builds on C with object-oriented features, allowing for both low-level memory manipulation and high-level abstractions, making it suitable for a wide range of applications."
+    }
+  }

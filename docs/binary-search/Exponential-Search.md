@@ -1,6 +1,6 @@
 ---
 id: exponential-search-dsa
-sidebar_position: 10
+sidebar_position: 4
 title: Exponential Search
 sidebar_label: Exponential Search
 description: "In this blog post, we'll explore Exponential Search, a searching algorithm that efficiently finds an element in a sorted array, especially when the size of the array is unknown."
