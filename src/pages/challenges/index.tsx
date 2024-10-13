@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaClock, FaTrophy } from "react-icons/fa";
 import Layout from "@theme/Layout";
+import { FaClock, FaTrophy, FaPlayCircle } from "react-icons/fa";
 
 const Challenges: React.FC = () => {
   return (
@@ -43,9 +43,13 @@ const Challenges: React.FC = () => {
               <FaClock className="text-gray-500 dark:text-gray-400" />
               <span className="text-gray-700 dark:text-gray-300">Time Limit: 30 min</span>
             </div>
-            <button className="mt-4 bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700 transition duration-300 border-none">
-              Start Challenge
-            </button>
+            <button
+  className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+  onClick={() => window.location.href = "/algo/challenges/challenge1"}
+>
+  <FaPlayCircle className="w-5 h-5" />
+  <span>Start Challenge</span>
+</button>
           </motion.div>
 
           {/* More Challenges */}
