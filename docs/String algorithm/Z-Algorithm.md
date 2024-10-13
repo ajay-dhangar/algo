@@ -165,5 +165,5 @@ Efficiently find all occurrences of a pattern in a string, which is useful in so
 
 ### Prefix-Suffix Problems:
 Can be used to find all prefixes of a string that are also suffixes, which is helpful in problems like finding palindromes and string periodicity.
-```
+
 
