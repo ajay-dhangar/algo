@@ -1,3 +1,12 @@
+---
+id: pillars-of-oops
+title: Pillars of OOP: Abstraction, Encapsulation, Inheritance, Polymorphism
+sidebar_label: Pillars of OOP
+sidebar_position: 4
+description: "The four main pillars of OOP are abstraction, encapsulation, inheritance, and polymorphism. These principles provide a foundation for creating robust and reusable code in object-oriented systems."
+tags: [oops, abstraction, encapsulation, inheritance, polymorphism]
+---
+
 # **Pillars of OOPs**
 
 Object-Oriented Programming (OOP) is built on four main pillars: **Abstraction**, **Encapsulation**, **Inheritance**, and **Polymorphism**. Each of these concepts plays a crucial role in creating modular, reusable, and maintainable code.

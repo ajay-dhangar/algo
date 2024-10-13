@@ -1,3 +1,12 @@
+---
+id: real-world-examples
+title: Real-World Examples of OOP
+sidebar_label: Real World Examples
+sidebar_position: 6
+description: "OOP concepts are widely used in real-world applications. This section showcases practical examples of OOP concepts are applied in various industries."
+tags: [oops, real-world, examples]
+---
+
 # **Real-World Examples of Object-Oriented Programming**
 
 Object-Oriented Programming (OOP) concepts are widely used in software development, allowing for more modular, maintainable, and reusable code. Below are some real-world examples of how OOP principles are applied.

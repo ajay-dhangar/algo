@@ -1,3 +1,12 @@
+---
+id: interface-vs-abstract-class
+title: Interface vs Abstract Class in OOP
+sidebar_label: Interface vs Abstract Class
+sidebar_position: 5
+description: "An interface defines a contract for behavior, whereas an abstract class provides partial implementation. Both are used to achieve abstraction but differ in their design and use cases."
+tags: [oops, interface, abstract-class]
+---
+
 # **Interface vs Abstract Classes**
 
 In object-oriented programming, both **interfaces** and **abstract classes** are used to achieve abstraction, allowing you to define methods that must be implemented by derived classes. However, they serve different purposes and have distinct characteristics.

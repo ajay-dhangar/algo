@@ -1,3 +1,11 @@
+---
+id: classes-and-objects
+title: Classes and Objects in OOP
+sidebar_label: Classes and Objects
+sidebar_position: 2
+description: "In OOP, a class is a blueprint for creating objects (instances), providing initial values for state (member variables) and implementations of behavior (member functions or methods)."
+tags: [oops, classes, objects]
+---
 
 # **Classes and Objects in Object-Oriented Programming**
 
