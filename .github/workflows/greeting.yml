@@ -1,4 +1,4 @@
-name: 'Auto Greeting for Issues and PRs'
+name: "Auto Greeting for Issues and PRs"
 
 on:
   issues:
@@ -50,7 +50,7 @@ jobs:
         run: |
           ISSUE_NUMBER=${{ github.event.issue.number }}
           curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -d '{"labels":["First-time Issue"]}' \
+          -d '{"labels":["Algo Contributor's Issue"]}' \
           "https://api.github.com/repos/${{ github.repository }}/issues/${ISSUE_NUMBER}"
 
       - name: Label first-time pull requests
@@ -58,5 +58,5 @@ jobs:
         run: |
           PR_NUMBER=${{ github.event.pull_request.number }}
           curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -d '{"labels":["First-time PR"]}' \
+          -d '{"labels":["Algo Contributor's PR"]}' \
           "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}"
