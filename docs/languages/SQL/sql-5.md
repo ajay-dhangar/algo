@@ -6,7 +6,6 @@ sidebar_label: "SQL ORDER BY"
 description: "SQL (Structured Query Language) is a standardized programming language for managing and manipulating relational databases."
 tags: [sql, dbms, database]
 ---
-## SQL ORDER BY
 
 The `ORDER BY` keyword is used to sort the result-set in ascending or descending order.
 
@@ -41,7 +40,7 @@ Below is a selection from the **Products** table used in the examples:
 * * *
 
 
-### DESC
+## DESC
 
 The `ORDER BY` keyword sorts the records in ascending order by default. To sort the records in descending order, use the `DESC` keyword.
 
@@ -54,7 +53,7 @@ ORDER BY Price DESC;
 ```
 * * *
 
-### Order Alphabetically
+## Order Alphabetically
 
 For string values the `ORDER BY` keyword will order alphabetically:
 
@@ -68,7 +67,7 @@ ORDER BY ProductName;
 
 * * *
 
-### Alphabetically DESC
+## Alphabetically DESC
 
 To sort the table reverse alphabetically, use the `DESC` keyword:
 
@@ -82,7 +81,7 @@ ORDER BY ProductName DESC;
 
 * * *
 
-### ORDER BY Several Columns
+## ORDER BY Several Columns
 
 The following SQL statement selects all customers from the "Customers" table, sorted by the "Country" and the "CustomerName" column. This means that it orders by Country, but if some rows have the same Country, it orders them by CustomerName:
 
@@ -94,7 +93,7 @@ ORDER BY Country, CustomerName;
 ```
 * * *
 
-### Using Both ASC and DESC
+## Using Both ASC and DESC
 
 The following SQL statement selects all customers from the "Customers" table, sorted ascending by the "Country" and descending by the "CustomerName" column:
 

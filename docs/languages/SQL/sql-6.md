@@ -6,7 +6,7 @@ sidebar_label: "SQL AND Operator"
 description: "SQL (Structured Query Language) is a standardized programming language for managing and manipulating relational databases."
 tags: [sql, dbms, database]
 ---
-## SQL AND Operator
+
 
 The `WHERE` clause can contain one or many `AND` operators.
 
@@ -28,7 +28,7 @@ WHERE Country = 'Spain' AND CustomerName LIKE 'G%';
 
 * * *
 
-### AND vs OR
+## AND vs OR
 
 The `AND` operator displays a record if _all_ the conditions are TRUE.
 
@@ -51,7 +51,7 @@ Below is a selection from the **Customers** table used in the examples:
 * * *
 
 
-### All Conditions Must Be True
+## All Conditions Must Be True
 
 The following SQL statement selects all fields from `Customers` where `Country` is "Germany" AND `City` is "Berlin" AND `PostalCode` is higher than 12000:
 
@@ -64,7 +64,7 @@ AND PostalCode > 12000;
 ```
 * * *
 
-### Combining AND and OR
+## Combining AND and OR
 
 You can combine the `AND` and `OR` operators.
 

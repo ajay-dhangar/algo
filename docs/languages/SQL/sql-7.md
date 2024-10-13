@@ -6,7 +6,6 @@ sidebar_label: "SQL OR Operator"
 description: "SQL (Structured Query Language) is a standardized programming language for managing and manipulating relational databases."
 tags: [sql, dbms, database]
 ---
-## SQL OR Operator
 
 The `WHERE` clause can contain one or more `OR` operators.
 
@@ -28,7 +27,7 @@ WHERE Country = 'Germany' OR Country = 'Spain';
 
 * * *
 
-### OR vs AND
+## OR vs AND
 
 The `OR` operator displays a record if _any_ of the conditions are TRUE.
 
@@ -50,7 +49,7 @@ Below is a selection from the **Customers** table used in the examples:
 
 * * *
 
-### At Least One Condition Must Be True
+## At Least One Condition Must Be True
 
 The following SQL statement selects all fields from Customers where either `City` is "Berlin", `CustomerName` starts with the letter "G" or `Country` is "Norway":
 
@@ -61,7 +60,7 @@ WHERE City = 'Berlin' OR CustomerName LIKE 'G%' OR Country = 'Norway';
 ```
 * * *
 
-### Combining AND and OR
+## Combining AND and OR
 
 You can combine the `AND` and `OR` operators.
 

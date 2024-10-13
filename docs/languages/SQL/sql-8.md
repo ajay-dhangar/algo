@@ -6,7 +6,6 @@ sidebar_label: "SQL NOT Operator"
 description: "SQL (Structured Query Language) is a standardized programming language for managing and manipulating relational databases."
 tags: [sql, dbms, database]
 ---
-## SQL NOT Operator
 
 The `NOT` operator is used in combination with other operators to give the opposite result, also called the negative result.
 
@@ -43,9 +42,9 @@ Below is a selection from the **Customers** table used in the examples:
 | 5          | Berglunds snabbköp            | Christina Berglund | Berguvsvägen 8        | Luleå       | S-958 22   | Sweden   |
 * * *
 
-### NOT LIKE
+## NOT LIKE
 
-#### Example
+### Example
 
 Select customers that does not start with the letter 'A':
 ```
@@ -54,9 +53,9 @@ WHERE CustomerName NOT LIKE 'A%';
 ```
 * * *
 
-### NOT BETWEEN
+## NOT BETWEEN
 
-#### Example
+### Example
 
 Select customers with a customerID not between 10 and 60:
 ```
@@ -67,8 +66,8 @@ WHERE CustomerID NOT BETWEEN 10 AND 60;
 
 * * *
 
-###  NOT IN
-#### Example
+##  NOT IN
+### Example
 
 Select customers that are not from Paris or London:
 ```
@@ -77,9 +76,9 @@ WHERE City NOT IN ('Paris', 'London');
 ```
 * * *
 
-### NOT Greater Than
+## NOT Greater Than
 
-#### Example
+### Example
 
 Select customers with a CustomerId not greater than 50:
 ```
@@ -90,9 +89,9 @@ WHERE NOT CustomerID > 50;
 
 * * *
 
-### NOT Less Than
+## NOT Less Than
 
-#### Example
+### Example
 
 Select customers with a CustomerID not less than 50:
 ```

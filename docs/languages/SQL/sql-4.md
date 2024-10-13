@@ -6,7 +6,6 @@ sidebar_label: "SQL WHERE Clause"
 description: "SQL (Structured Query Language) is a standardized programming language for managing and manipulating relational databases."
 tags: [sql, dbms, database]
 ---
-## SQL WHERE
 
 The `WHERE` clause is used to filter records.
 
@@ -45,7 +44,7 @@ Below is a selection from the **Customers** table used in the examples:
 
 * * *
 
-### Text Fields vs. Numeric Fields
+## Text Fields vs. Numeric Fields
 
 SQL requires single quotes around text values (most database systems will also allow double quotes).
 
@@ -60,7 +59,7 @@ WHERE CustomerID=1;
 
 * * *
 
-### Operators in The WHERE Clause
+## Operators in The WHERE Clause
 
 You can use other operators than the `=` operator to filter the search.
 
