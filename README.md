@@ -172,6 +172,13 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/kRajoria121">
+                    <img src="https://avatars.githubusercontent.com/u/138133004?v=4" width="100;" alt="kRajoria121"/>
+                    <br />
+                    <sub><b>Kundan Rajoria</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/haseebzaki-07">
                     <img src="https://avatars.githubusercontent.com/u/147314463?v=4" width="100;" alt="haseebzaki-07"/>
                     <br />
@@ -199,6 +206,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>monishkumardvs</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/nishant4500">
                     <img src="https://avatars.githubusercontent.com/u/135944619?v=4" width="100;" alt="nishant4500"/>
@@ -206,8 +215,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>nishant4500</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/kjl98">
                     <img src="https://avatars.githubusercontent.com/u/156598237?v=4" width="100;" alt="kjl98"/>
@@ -220,13 +227,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <img src="https://avatars.githubusercontent.com/u/129055361?v=4" width="100;" alt="govindumeesala"/>
                     <br />
                     <sub><b>Meesala Govindu</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/kRajoria121">
-                    <img src="https://avatars.githubusercontent.com/u/138133004?v=4" width="100;" alt="kRajoria121"/>
-                    <br />
-                    <sub><b>Kundan Rajoria</b></sub>
                 </a>
             </td>
             <td align="center">
