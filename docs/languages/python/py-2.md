@@ -6,8 +6,7 @@ sidebar_label: Variables in Python
 ---
 
 
-Hey everyone ! I'm Soumyadeep Paul, today we are delving into a fundamental concept in Pyhton - Variables.
-Whether you are a beginner or seeking refrehser this comprehensive guide will provide you solid understanding of Python Variables.Let's jump right in!
+Hey there! In this guide, we'll explore the concept of variables in Python. Variables are essential in programming, allowing you to store and manipulate data dynamically. Let's dive in!
 
 # Variables in Python
 

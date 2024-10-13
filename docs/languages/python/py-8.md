@@ -5,7 +5,8 @@ title: Classes in Python
 sidebar_label: Classes in Python  
 ---
 
-Hey everyone! Today, we're going to explore the usage of classes in Python. Whether you're a beginner or looking for a refresher, this guide will help you understand the essentials of object-oriented programming with classes. Let's dive in!
+Hey there! In this guide, we'll explore classes in Python. Classes are a fundamental part of object-oriented programming in Python. Let's dive in!
+
 # Python Classes
 
 

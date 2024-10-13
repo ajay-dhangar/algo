@@ -1,13 +1,12 @@
 ---
 id: operators-in-cpp
 sidebar_position: 3
-title: Operators in C++
-sidebar_label: Operators in C++
+title: "Operators in C++"
+sidebar_label: "Operators in C++"
 ---
 
-Hey everyone! I'm Ajay Dhangar, and today we're diving into a key concept in C++ – Operators. Whether you're a beginner or seeking a refresher, this guide will provide you with a solid understanding of how operators work in C++. Let's jump right in!
 
-# C++ Operators
+Hey there! In this guide, we'll explore operators in C++. Operators are symbols that instruct the compiler to perform specific operations on variables or values. C++ supports a variety of operators, including arithmetic, relational, logical, bitwise, and more. Let's dive in!
 
 - Operators are symbols that instruct the compiler to perform specific operations on variables or values.
 - C++ supports a variety of operators, including arithmetic, relational, logical, bitwise, and more.

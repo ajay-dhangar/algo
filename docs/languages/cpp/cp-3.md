@@ -1,13 +1,12 @@
 ---
 id: decision-making-in-cpp
 sidebar_position: 3
-title: Decision Making in C++
-sidebar_label: Decision Making in C++
+title: "Decision Making in C++"
+sidebar_label: "Decision Making in C++"
 ---
 
-Hey everyone! I'm Ajay Dhangar, and today we'll explore decision-making in C++. Whether you're new to C++ or need a refresher, this guide will help you understand the essential decision-making structures in C++. Let's dive right in!
 
-# Decision Making in C++
+Hey there! In this guide, we'll explore decision-making in C++. Decision-making structures allow you to execute different blocks of code based on certain conditions. Let's dive in!
 
 * Decision-making structures allow you to execute different blocks of code based on certain conditions.
 * C++ provides several constructs for decision-making, including `if`, `else` `if`, `else`, and `switch`.
