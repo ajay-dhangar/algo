@@ -39,7 +39,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@12.1.0
         with:
           urls: |
-            http://localhost:3000/algo
+            http://localhost:3000/algo/
             http://localhost:3000/algo/docs
             http://localhost:3000/algo/blog
           configPath: ./.github/workflows/lighthouserc.json
