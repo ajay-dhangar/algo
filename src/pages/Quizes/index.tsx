@@ -82,10 +82,13 @@ const Quizes: React.FC = () => {
               Challenge your knowledge on queue implementations and their use cases.
             </p>
             
-             <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+
+             <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+             onClick={() => window.location.href = "/algo/quizes/queues"}>
               <FaPlayCircle className="w-5 h-5" />
               <span>Start Quiz</span>
             </button>
+
           </motion.div>
 
           {/* Binary Tree Quiz Card */}
@@ -100,7 +103,8 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your understanding of Binary Tree structures and traversals.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+            onClick={() => window.location.href = "/algo/quizes/BinaryTree"}>
               <FaPlayCircle className="w-5 h-5" />
               <span>Start Quiz</span>
             </button>
@@ -118,7 +122,8 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Evaluate your knowledge of Binary Search Tree properties and operations.
             </p>
-            <button className="mt-4 border-none text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 bg-blue-600">
+            <button className="mt-4 border-none text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 bg-blue-600"
+            onClick={() => window.location.href = "/algo/quizes/BinarySearchTree"}>
               <FaPlayCircle className="w-5 h-5" />
               <span>Start Quiz</span>
             </button>
@@ -136,7 +141,8 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your skills on the balancing properties of AVL Trees.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+            onClick={() => window.location.href = "/algo/quizes/AVLtree"}>
               <FaPlayCircle className="w-5 h-5" />
               <span>Start Quiz</span>
             </button>
@@ -154,7 +160,8 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Challenge your understanding of the properties and algorithms of Red-Black Trees.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+            onClick={() => window.location.href = "/algo/quizes/RedBlackTree"}>
               <FaPlayCircle className="w-5 h-5" />
               <span>Start Quiz</span>
             </button>
@@ -172,7 +179,8 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your understanding of B-Tree properties and their applications.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+            onClick={() => window.location.href = "/algo/quizes/BTree"}>
               <FaPlayCircle className="w-5 h-5" />
               <span>Start Quiz</span>
             </button>
