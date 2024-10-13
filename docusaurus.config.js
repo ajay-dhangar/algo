@@ -91,6 +91,11 @@ const config = {
             position: "left",
           },
           {
+            to: "dsa-interview", 
+            label: "Top DSA Interview Questions",
+            position: "left",
+          },
+          {
             to: "dsa-roadmap",
             label: "Pick Topic For Contribution",
             position: "left",
