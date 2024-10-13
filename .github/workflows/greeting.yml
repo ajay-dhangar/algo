@@ -1,36 +1,62 @@
-name: Auto Greeting for Issues and PRs
+name: 'Auto Greeting for Issues and PRs'
+
 on:
   issues:
     types: [opened]
-  pull_request:
+  pull_request_target:
     types: [opened]
+
 permissions:
   issues: write
   pull-requests: write
+
 jobs:
   greeting:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Post Greeting Message
-        uses: actions/github-script@v6
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Greet first-time contributors
+        id: greet
+        uses: actions/first-interaction@v1
         with:
-          script: |
-            const isIssue = !!context.payload.issue;
-            const isPR = !!context.payload.pull_request;
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: |
+            👋 Hi @${{ github.actor }}! Thank you for opening your first issue on the Algo project. We're excited to help you out and appreciate your contribution. Please provide as much detail as possible to assist us in addressing the issue effectively.
+            Welcome aboard! 😊
+          pr-message: |
+            👋 Hi @${{ github.actor }}! Thank you for submitting your first pull request to the Algo project. Great job on the contribution! 🎉 We appreciate your efforts, and our team will review it soon. If you have any questions, feel free to ask. Keep up the great work! 🚀
 
-            const greetingMessage = `
-              👋 Hello @${isIssue ? context.payload.issue.user.login : context.payload.pull_request.user.login}, welcome!
+      - name: Assign issue or pull request to a team member
+        if: github.event_name == 'issues' || github.event_name == 'pull_request_target'
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number || github.event.pull_request.number }}
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -d '{"assignees":["team-member-username"]}' \
+          "https://api.github.com/repos/${{ github.repository }}/issues/${ISSUE_NUMBER}"
 
-              Thank you for opening this ${isIssue ? "issue" : "pull request"}. We appreciate your effort in helping to improve our Algo project. Our team will review it shortly. In the meantime, if you can provide any additional information or context, feel free to update this ${isIssue ? "issue" : "PR"}.
+      - name: Welcome message for community contributors
+        if: github.event_name == 'issues' || github.event_name == 'pull_request_target'
+        uses: EddieHubCommunity/gh-action-community/src/welcome@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: "👋 Hi @${{ github.actor }}! Thanks for opening this issue. We appreciate your contribution to the Algo project. Our team will review it soon."
+          pr-message: "🎉 Great job, @${{ github.actor }}! Thank you for submitting your pull request. We appreciate your contribution, and our team will review it shortly."
 
-              Please refer to our [CONTRIBUTING.md](https://github.com/ajay-dhangar/algo/blob/main/CONTRIBUTING.md) for guidelines on contributing to this project.
+      - name: Label first-time issues
+        if: github.event_name == 'issues'
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -d '{"labels":["First-time Issue"]}' \
+          "https://api.github.com/repos/${{ github.repository }}/issues/${ISSUE_NUMBER}"
 
-              Thank you for your contribution! 🚀😊
-            `;
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: isIssue ? context.issue.number : context.payload.pull_request.number,
-              body: greetingMessage
-            });
+      - name: Label first-time pull requests
+        if: github.event_name == 'pull_request_target'
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -d '{"labels":["First-time PR"]}' \
+          "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}"
