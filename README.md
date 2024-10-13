@@ -149,17 +149,17 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/J-B-Mugundh">
-                    <img src="https://avatars.githubusercontent.com/u/98593517?v=4" width="100;" alt="J-B-Mugundh"/>
-                    <br />
-                    <sub><b>Mugundh J B</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/ananyag309">
                     <img src="https://avatars.githubusercontent.com/u/145869907?v=4" width="100;" alt="ananyag309"/>
                     <br />
                     <sub><b>Ananya Gupta</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/J-B-Mugundh">
+                    <img src="https://avatars.githubusercontent.com/u/98593517?v=4" width="100;" alt="J-B-Mugundh"/>
+                    <br />
+                    <sub><b>Mugundh J B</b></sub>
                 </a>
             </td>
 		</tr>
@@ -508,14 +508,21 @@ We are grateful to all the contributors who have helped improve this project. Yo
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/AE-Hertz">
+                    <img src="https://avatars.githubusercontent.com/u/93651229?v=4" width="100;" alt="AE-Hertz"/>
+                    <br />
+                    <sub><b>Abhinandan</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
                 <a href="https://github.com/KunikaMakker">
                     <img src="https://avatars.githubusercontent.com/u/26879616?v=4" width="100;" alt="KunikaMakker"/>
                     <br />
                     <sub><b>Kunika Makker</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Subashree-selvaraj">
                     <img src="https://avatars.githubusercontent.com/u/132484553?v=4" width="100;" alt="Subashree-selvaraj"/>
@@ -528,6 +535,13 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <img src="https://avatars.githubusercontent.com/u/183209584?v=4" width="100;" alt="sejals23"/>
                     <br />
                     <sub><b>Sejal</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/samar12-rad">
+                    <img src="https://avatars.githubusercontent.com/u/128586929?v=4" width="100;" alt="samar12-rad"/>
+                    <br />
+                    <sub><b>Samarth Vaidya</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -544,6 +558,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Rajat singhal</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Rahul7raj">
                     <img src="https://avatars.githubusercontent.com/u/69787135?v=4" width="100;" alt="Rahul7raj"/>
@@ -558,8 +574,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Oebelus</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/shubhagarwal1">
                     <img src="https://avatars.githubusercontent.com/u/105449260?v=4" width="100;" alt="shubhagarwal1"/>
@@ -588,6 +602,8 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Vivek Prakash</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/IRFANSARI2">
                     <img src="https://avatars.githubusercontent.com/u/171218596?v=4" width="100;" alt="IRFANSARI2"/>
@@ -602,8 +618,6 @@ We are grateful to all the contributors who have helped improve this project. Yo
                     <sub><b>Harsh</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Amankr200">
                     <img src="https://avatars.githubusercontent.com/u/160874720?v=4" width="100;" alt="Amankr200"/>
