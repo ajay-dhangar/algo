@@ -1,0 +1,68 @@
+name: Lighthouse Report
+
+on:
+  pull_request_target:
+    branches:
+      - main
+      - algo-v**
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse-report:
+    permissions:
+      pull-requests: write # for marocchino/sticky-pull-request-comment
+    name: Lighthouse Report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Audit URLs using Lighthouse
+        id: lighthouse_audit
+        uses: treosh/lighthouse-ci-action@12.1.0
+        with:
+          urls: |
+            http://localhost:3000/algo/
+            http://localhost:3000/algo/docs
+            http://localhost:3000/algo/blog
+          configPath: ./.github/workflows/lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Format lighthouse score
+        id: format_lighthouse_score
+        uses: actions/github-script@v7.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const results = ${{ steps.lighthouse_audit.outputs.manifest }}
+            const links = ${{ steps.lighthouse_audit.outputs.links }}
+            const createLighthouseReport = (await import(`${process.env.GITHUB_WORKSPACE}/admin/scripts/formatLighthouseReport.js`)).default;
+            const comment = createLighthouseReport({ results, links });
+            core.setOutput("comment", comment);
+
+      - name: Add Lighthouse stats as comment
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v2.9.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.pull_request.number }}
+          header: lighthouse
+          message: ${{ steps.format_lighthouse_score.outputs.comment }}
