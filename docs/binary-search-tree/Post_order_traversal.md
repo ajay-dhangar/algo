@@ -3,7 +3,7 @@ id: postorder-traversal-binary-search-tree
 sidebar_position: 18
 title: Post-order Traversal in a Binary Search Tree
 sidebar_label: Post-order Traversal in BST
-description: "This post explains how to perform Post-order Traversal of a Binary Search Tree (BST) in C++, with code examples and detailed explanations."
+description: "This post explains how to perform Post-order Traversal of a Binary Search Tree (BST) in C++, with code examples and detailed explanations "
 tags: [dsa, binary trees, postorder, traversal, c++]
 ---
 
