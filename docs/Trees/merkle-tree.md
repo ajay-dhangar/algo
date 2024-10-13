@@ -27,7 +27,7 @@ A Merkle Tree, also known as a hash tree, is a binary tree where each leaf node 
    - Hash each block using a cryptographic hash function (e.g., SHA-256) to create leaf nodes.
 
 2. **Building the Tree**:
-   - Pair the leaf nodes and compute the hash of each pair to form the parent nodes.
+ give   - Pair the leaf nodes and compute the hash of each pair to form the parent nodes.
    - Continue pairing and hashing the parent nodes until only one node (Merkle Root) remains.
 
 3. **Verification Process**:
