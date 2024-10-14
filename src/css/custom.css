@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+    width: 5px;
+    background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--ifm-color-primary);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--ifm-color-primary-dark);
+}
+
 :root {
   --ifm-color-primary: #3b82f6;
   --ifm-color-primary-dark: #29784c;
@@ -17,7 +31,7 @@
 
 
 [data-theme='dark'] {
-  --ifm-color-primary: #b2c225;
+  --ifm-color-primary: rgb(234 179 8);
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
@@ -25,6 +39,35 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+div[class^="announcementBar_"] {
+  border-bottom: 1.8px dotted rgb(37, 184, 11);
+  font-weight: bold;
+  width: 100%;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+div[class^="announcementBar_"] a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+div[class^="announcementBar_"] a:hover {
+  color: var(--ifm-color-primary-dark);
+}
+
+[data-theme="dark"] div[class^="announcementBar_"] {
+  color: #e5e7eb;
+}
+
+div[class^="announcementBar_"] .clean-btn {
+  color: var(--ifm-color-primary);
+  opacity: 100%;
 }
 
 .navbar {
@@ -70,3 +113,14 @@ a:hover {
 .footer{
   background-color: #001;
 }
+
+/* .theme-doc-sidebar-item-category .theme-doc-sidebar-item-link .menu__link--active::before {
+  content: '';
+  position: relative;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid #48df84;
+  border-radius: 50%;
+  left: -0.5rem;
+  transform: translateY(-5%);
+} */

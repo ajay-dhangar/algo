@@ -9,7 +9,7 @@ tags: [time-complexity, space-complexity, time vs space complexity]
 
 Time and space complexity are two important concepts in computer science. Time complexity is the amount of time an algorithm takes to run, while space complexity is the amount of memory an algorithm uses. Both are important to consider when analyzing the efficiency of an algorithm.
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## Time vs Space Complexity
 
@@ -32,7 +32,7 @@ Time complexity is typically denoted using Big O notation, which describes the u
 
 Analyzing time complexity involves counting the number of operations an algorithm performs as a function of the input size. This analysis helps us compare different algorithms and determine which one is more efficient for a given problem.
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ### Space Complexity
 
@@ -50,7 +50,7 @@ For example, consider a sorting algorithm that uses additional memory to store i
 
 Understanding the trade-offs between time and space complexity is key to designing efficient algorithms that meet the performance requirements of a given problem.
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 ## Conclusion
 

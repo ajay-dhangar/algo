@@ -2,14 +2,14 @@
 id: Practice-Problems-on-sliding-window
 title: Practice Problems
 sidebar_label: Practice Problems
-sidebar_position: 19
+sidebar_position: 2
 description: Here are some practice problems for the Sliding Window technique, divided into topic-wise and difficulty-wise categories.
 tags: [DSA, algorithms, sliding window]
 ---
 
 ### Fixed Size Window:
 
-- [Maximum Sum of a Subarray of Size K](https://leetcode.com/problems/maximum-sum-of-a-subarray-of-size-k/)
+- [Maximum Sum of a Subarray of Size K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/)
 - [Minimize the Maximum of Two Arrays](https://leetcode.com/problems/minimize-the-maximum-of-two-arrays/)
 - [Longest Substring with K Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
 - [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)

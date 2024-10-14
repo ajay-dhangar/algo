@@ -2,7 +2,7 @@
 id: Practice-Problems-on stack
 title: Practice Problems
 sidebar_label: Practice Problems
-sidebar_position: 13
+sidebar_position: 2
 Description: Here are some practice problems for Stack data structure divided into topic-wise and difficulty wise.
 tags: [DSA, algorithms, stack, dsa]
 ---
@@ -60,4 +60,3 @@ tags: [DSA, algorithms, stack, dsa]
  - [Iterative Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/description/)
  - [Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/description/)
  - [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
-

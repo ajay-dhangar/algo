@@ -26,13 +26,15 @@ const config = {
         debug: true,
         docs: {
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
+          editUrl:
+            "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
+          editUrl:
+            "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -57,6 +59,14 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "/",
+      announcementBar: {
+        id: "announcementBar",
+        content:
+          '📢 Join our <a target="_blank" href="https://www.whatsapp.com/channel/0029Vah6hro8F2pGUhuAcR0B">WhatsApp Channel</a> for the latest updates and collaboration on exciting projects!',
+        isCloseable: true,
+        backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
+      },
+
       navbar: {
         title: "Algo",
         logo: {
@@ -71,52 +81,58 @@ const config = {
             label: "Tutorial",
           },
           {
-            to: "https://ajay-dhangar.github.io/algo/roadmap",
-            label: "Roadmap",
+            to: "blog",
+            label: "Blog",
             position: "left",
-            target: "_self",
           },
           {
-            to: "https://ajay-dhangar.github.io/algo/challenges",
-            label: "Challenges",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/practice",
-            label: "Practice",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/leaderboard",
-            label: "Leaderboard",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/community",
-            label: "Community",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/resources",
-            label: "Resources",
-            position: "left",
-            target: "_self",
-          },
-          {
-            to: "https://ajay-dhangar.github.io/algo/faq",
+            to: "faq",
             label: "FAQ",
             position: "left",
-            target: "_self",
           },
           {
-            to: "https://ajay-dhangar.github.io/algo/blogs",
-            label: "Blogs",
+            to: "dsa-roadmap",
+            label: "Pick Topic For Contribution",
             position: "left",
-            target: "_self",
+          },
+          {
+            type: "dropdown",
+            label: "More",
+            position: "right",
+            items: [
+              {
+                to: "roadmap",
+                label: "Roadmap",
+              },
+              {
+                to: "challenges",
+                label: "Challenges",
+              },
+              {
+                to: "practice",
+                label: "Practice",
+              },
+              {
+                to: "Quizes",
+                label: "Quizes",
+              },
+              {
+                to: "leaderboard",
+                label: "Leaderboard",
+              },
+              {
+                to: "community",
+                label: "Community",
+              },
+              {
+                to: "resources",
+                label: "Resources",
+              },
+              {
+                to: "blogs",
+                label: "Blogs",
+              },
+            ],
           },
           {
             href: "https://github.com/ajay-dhangar/algo",

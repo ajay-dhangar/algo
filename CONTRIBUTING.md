@@ -2,6 +2,14 @@
 
 Thank you for your interest in contributing to **Algo**! We welcome contributions from everyone, whether you're a beginner or an experienced developer.
 
+## Resources for Guidance
+Here are some resources that may be helpful as you contribute to Algo:
+- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction)
+- [React.js Documentation](https://legacy.reactjs.org/docs/getting-started.html)
+- [Markdown Guide](https://www.markdownguide.org/)
+- [MDX Documentation](https://mdxjs.com/docs/)
+- [Mermaid Documentation](https://mermaid.js.org/)
+
 ## How to Contribute
 
 ### 1. Fork the Repository
