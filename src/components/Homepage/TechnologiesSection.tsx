@@ -58,7 +58,7 @@ const technologies = [
     name: "Markdown",
     icon: (
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg"
+        src="https://upload.wikimedia.org/wikipedia/commons/5/57/Markdown-mark-purple.svg"
         alt="Markdown"
         className="h-12 w-12"
       />
