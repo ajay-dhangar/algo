@@ -29,7 +29,7 @@ index denotes the row, and the second index denotes the column. For example, in 
 
 **1-Creation**
 
-    ```text
+   ```text
     void create(int a[][10],int m,int n)
     {
         int i,j;
@@ -41,10 +41,10 @@ index denotes the row, and the second index denotes the column. For example, in 
         }
     }
 
-    ```
+   ```
 **2-Display**
 
-    ```text
+   ```text
     void display(int a[][10],int m,int n)
     {
         int i,j;
@@ -57,11 +57,11 @@ index denotes the row, and the second index denotes the column. For example, in 
         }
     }
 
-    ```
+   ```
 
 **3-Addition of two 2D arrays**
 
-    ```text
+   ```text
     void add(int a[][10],int b[][10],int m,int n)
     {
         int i,j,c[10][10];
@@ -72,10 +72,10 @@ index denotes the row, and the second index denotes the column. For example, in 
         display(c,m,n);
     }
 
-    ```
+   ```
 **4-Subtraction of two 2D arrays**
 
-    ```text
+   ```text
      void sub(int a[][10],int b[][10],int m,int n)
       {
           int i,j,c[10][10];
@@ -85,7 +85,7 @@ index denotes the row, and the second index denotes the column. For example, in 
           printf("\nSubtraction of these_\n");
           display(c,m,n);
       }
-      ```
+   ```
 ### Sparse Matrix
  A sparse matrix is a two-dimensional array in which most of the elements are zero or, more generally, do not
  contribute to the significant properties of the matrix. Sparse matrices are commonly encountered in various
@@ -94,7 +94,7 @@ index denotes the row, and the second index denotes the column. For example, in 
 
 **5-Sparse Matrix to 3 tuple**
 
-    ```text
+   ```text
     void sparse_3tuple(int a[][10],int c[][3],int m, int n)
       {
           int i,j,k,t;
@@ -118,11 +118,11 @@ index denotes the row, and the second index denotes the column. For example, in 
           printf("%d\t%d\t%d\t\n",c[t][0],c[t][1],c[t][2]);
       }
 
-    ```
+   ```
 
 **6-Creation of Sparse Matrix**
 
-    ```text
+   ```text
      void createsparse(int b[][3],int m)
       {
           int i,x;
@@ -133,10 +133,10 @@ index denotes the row, and the second index denotes the column. For example, in 
           for(x=1;x<=m;x++)
           scanf("%d%d%d",&b[x][0],&b[x][1],&b[x][2]);
       }
-    ```
+   ```
 **7-Display of Sparse Matrix**
 
-    ```text
+   ```text
      void display(int b[][3],int m)
       {
           int i;
@@ -145,10 +145,10 @@ index denotes the row, and the second index denotes the column. For example, in 
           printf("%d\t%d\t%d\t\n",b[i][0],b[i][1],b[i][2]);
       }
 
-    ```
+   ```
 **8-Display of Sparse Matrix to 3 tuple**
 
-    ```text
+   ```text
     void tuple_sparse(int a[][10],int b[][3],int m)
     {
         int i,j,k;
@@ -173,7 +173,7 @@ index denotes the row, and the second index denotes the column. For example, in 
         }
     }
 
-    ```
+   ```
 
 ### Conclusion
 By leveraging the power of 2D arrays, you can tackle complex data challenges, optimize performance, and
