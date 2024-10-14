@@ -43,7 +43,7 @@ class Solution:
                 if stack:
                     stack.pop()  # Remove the closest non-star character
             else:
-                stack.append(char)  # Add non-star characters to the stack
+                stack.append(char)
         
         return ''.join(stack)
 ```
