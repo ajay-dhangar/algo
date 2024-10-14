@@ -9,7 +9,7 @@ tags: [dsa, data structures, algorithms]
 
 Let's delve into the world of Data Structures and Algorithms (DSA) with Algo's comprehensive learning resources. From fundamental concepts to advanced topics, Algo provides a structured pathway to help you master DSA and enhance your programming skills. Whether you're a beginner or an experienced coder, Algo is here to guide you through the intricate world of DSA.
 
-<AdsComponent adSlot="3270832720" />
+<AdsComponent />
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -111,7 +111,7 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-<AdsComponent adSlot="5461416177" />
+<Ads />
 
 ## What Sets Algo Apart?
 

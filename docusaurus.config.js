@@ -26,13 +26,15 @@ const config = {
         debug: true,
         docs: {
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/Ajay-Dhangar/algo/tree/main/",
+          editUrl:
+            "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
+          editUrl:
+            "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -57,6 +59,14 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "/",
+      announcementBar: {
+        id: "announcementBar",
+        content:
+          '📢 Join our <a target="_blank" href="https://www.whatsapp.com/channel/0029Vah6hro8F2pGUhuAcR0B">WhatsApp Channel</a> for the latest updates and collaboration on exciting projects!',
+        isCloseable: true,
+        backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
+      },
+
       navbar: {
         title: "Algo",
         logo: {
@@ -85,45 +95,41 @@ const config = {
             label: "Pick Topic For Contribution",
             position: "left",
           },
-
           {
             type: "dropdown",
             label: "More",
             position: "right",
             items: [
               {
-                to: "https://ajay-dhangar.github.io/algo/roadmap",
-                target: "_self",
+                to: "roadmap",
                 label: "Roadmap",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/challenges",
-                target: "_self",
+                to: "challenges",
                 label: "Challenges",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/practice",
-                target: "_self",
+                to: "practice",
                 label: "Practice",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/leaderboard",
-                target: "_self",
+                to: "Quizes",
+                label: "Quizes",
+              },
+              {
+                to: "leaderboard",
                 label: "Leaderboard",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/community",
-                target: "_self",
+                to: "community",
                 label: "Community",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/resources",
-                target: "_self",
+                to: "resources",
                 label: "Resources",
               },
               {
-                to: "https://ajay-dhangar.github.io/algo/blogs",
-                target: "_self",
+                to: "blogs",
                 label: "Blogs",
               },
             ],

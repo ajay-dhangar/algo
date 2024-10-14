@@ -277,4 +277,8 @@ print "balanced"`}
   );
 };
 
+<k>
 export default StackQuiz;
+
+export default StackQuiz;
+</main>

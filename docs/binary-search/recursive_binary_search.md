@@ -2,7 +2,7 @@
 id: recursive-binary-search-DSA
 title: Recursive Binary Search
 sidebar_label: Recursive Binary Search
-sidebar_position: 8
+sidebar_position: 3
 description: "In this blog post, we'll explore the recursive binary search algorithm, a fundamental technique in computer science for efficiently finding an element in a sorted array. You'll learn what recursive binary search is, how it works, and its time complexity. We'll also cover practical applications and common problems you can solve using this algorithm. By the end, you'll have a thorough understanding of recursive binary search and how to implement it in your programming projects."
 tags: [dsa, algorithms, binary search, recursive]
 ---

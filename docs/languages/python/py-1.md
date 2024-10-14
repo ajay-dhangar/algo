@@ -5,8 +5,7 @@ title: Datatypes in Python
 sidebar_label: Datatypes in Python
 ---
 
-Hey everyone ! I'm Soumyadeep Paul , today we are delving into a fundamental concept in python - Datatypes.
-Whether you are a beginner or seeking refresher this comprehensive guide will provide you with a solid understanding of Python Datatypes.Let's jump right in !
+Hey there! In this guide, we'll explore the different data types available in Python. Understanding data types is crucial for writing efficient and clear Python code. Let's dive in!
 
 # Python Data Types
 
