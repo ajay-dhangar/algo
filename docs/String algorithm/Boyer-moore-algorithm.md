@@ -66,6 +66,8 @@ def boyer_moore_search(pattern, text):
 # Example usage
 text = "ABABDABACDABABCABAB"
 pattern = "ABABCABAB"
+
+```
 result = boyer_moore_search(pattern, text)
 
 print("Pattern found at indices:", result)
