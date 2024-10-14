@@ -91,6 +91,11 @@ const config = {
             position: "left",
           },
           {
+            to: "contributing",
+            label: "Contributing Guide",
+            position: "right",
+          },
+          {
             to: "dsa-roadmap",
             label: "Pick Topic For Contribution",
             position: "left",
