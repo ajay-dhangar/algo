@@ -3,6 +3,8 @@ title: Contributing to Algo
 hide_table_of_contents: true
 ---
 
+<h1 className="text-center">Contributing to Algo</h1>
+
 <div className="m-4 p-4">
 
 Welcome to the **Algo** project! We’re thrilled that you’re considering contributing to this open-source **DSA** collection. Whether you’re new to open source or experienced, follow the steps below to make your first contribution.
