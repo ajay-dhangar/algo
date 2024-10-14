@@ -1,9 +1,10 @@
 ---
 id: functions-in-cpp
-sidebar_position: 2
+sidebar_position: 6
 title: "Functions in C++"
 sidebar_label: "Functions in C++"
 ---
+
 
 ## Introduction to Functions in C++
 
@@ -86,9 +87,12 @@ C++ allows you to define multiple functions with the same name but different par
 Example:
 
 ```cpp
+
+
 int add(int a, int b) {
     return a + b;
 }
+
 
 double add(double a, double b) {
     return a + b;
@@ -124,4 +128,3 @@ int factorial(int n) {
 
 ## 8. Conclusion
 Functions are essential in C++ for creating organized, reusable, and modular code. By mastering the different types of functions, their syntax, and usage, you can write more efficient and maintainable programs. Keep practicing with functions to become proficient in C++ programming!
-
