@@ -5,8 +5,6 @@ title: Introduction to JavaScript
 sidebar_label: JavaScript Introduction
 ---
 
-# Introduction to JavaScript
-
 Hey, everyone! In this guide, we'll take a journey into **JavaScript**, one of the most popular programming languages used for web development. JavaScript allows you to create interactive, dynamic, and feature-rich web applications. Let's dive into the basics!
 
 <AdsComponent />
