@@ -1,8 +1,8 @@
 ---
 slug: recursion-vs-iteration
-title: Recursion vs. Iteration: A Comparative Analysis
+title: "Recursion vs. Iteration: A Comparative Analysis"
 authors: [AKSHITHA-CHILUKA]
-tags: [AKSHITHA-CHILUKA , algo, dsa, algorithms, recursion, iteration]
+tags: [AKSHITHA-CHILUKA, algo, dsa, algorithms, recursion, iteration]
 ---
 
 When designing algorithms, a common question arises: should you use recursion or iteration? Each approach has its strengths and weaknesses, and understanding these can help you choose the right one for your problem.
