@@ -3,6 +3,11 @@
 ## introduction
 Welcome to **Algo**, an open-source project that provides developers with algorithmic solutions and resources. Whether you're a beginner or an experienced coder, you can contribute, learn, and grow with us! 🚀
 
+## Learn how to contribute
+
+[Watch the contribution video](Algo-Contribution-Video-Readme.mp4)
+
+
 <div align = "center">
 <br>
 
@@ -791,4 +796,6 @@ Here are some resources that may be helpful as you contribute to Algo:
         <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
     </a>
 </div>
+<main>
 </main>
+
