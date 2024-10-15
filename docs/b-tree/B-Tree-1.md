@@ -26,7 +26,7 @@ B-Trees maintains balance by ensuring that each node has a minimum number of key
 | 3.      | Delete     | O(log n)        |
 
   
-****Note:**** “n” is the total number of elements in the B-tree
+****Note:**** n is the total number of elements in the B-tree
 
 ## ****Properties of B-Tree:**** 
 
