@@ -62,9 +62,7 @@ Select customers with a customerID not between 10 and 60:
 SELECT \* FROM Customers  
 WHERE CustomerID NOT BETWEEN 10 AND 60;
 ```
-[Try it Yourself »](trysql.asp?filename=trysql_select_not_between2)
 
-* * *
 
 ##  NOT IN
 ### Example
