@@ -34,13 +34,52 @@ const faqs: FAQItem[] = [
       "You can practice algorithms on websites like LeetCode, Codeforces, and CodeHarborHub.",
   },
   // Add more FAQs
+  {
+    question: "Is Algo free to use?",
+    answer: "Yes, Algo is completely free and open-source for everyone to use.",
+  },
+  {
+    question: "Can I suggest new features?",
+    answer:
+      "Yes, you can suggest new features by submitting an issue on GitHub or contacting the team directly.",
+  },
+  {
+    question: "How often is the platform updated?",
+    answer:
+      "We aim to update the platform regularly with new features, algorithms, and improvements based on community feedback and contributions.",
+  },
+  {
+    question: "Can I use Algo in my personal or commercial projects?",
+    answer:
+      "Yes, Algo is open-source and licensed under the MIT License, which allows you to use it in both personal and commercial projects.",
+  },
+  {
+    question: "How can I report bugs or issues?",
+    answer:
+      "You can report bugs by submitting an issue on our GitHub repository or contacting us directly through the support page.",
+  },
+  {
+    question: "Does Algo support multiple programming languages?",
+    answer:
+      "Yes, Algo supports solutions in a variety of programming languages such as Python, Java, C++, and more.",
+  },
+  {
+    question: "How do I stay updated with new features or announcements?",
+    answer:
+      "You can stay updated by joining our Discord community or subscribing to our newsletter for announcements and updates.",
+  },
 ];
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number>(0); // Start with the first question open
+  const [visibleCount, setVisibleCount] = useState<number>(5); // Start with 5 visible FAQs
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index === 0 ? index : index); // Collapse the first question when others are clicked
+  };
+
+  const loadMoreFAQs = () => {
+    setVisibleCount((prevCount) => prevCount + 3); // Load 3 more FAQs
   };
 
   return (
@@ -77,7 +116,7 @@ const FAQ: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7 }}
           >
-            {faqs.map((faq, index) => (
+            {faqs.slice(0, visibleCount).map((faq, index) => (
               <motion.div
                 key={index}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
@@ -109,6 +148,19 @@ const FAQ: React.FC = () => {
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Load More Button */}
+          {/* Load More Button */}
+{visibleCount < faqs.length && (
+  <div className="text-center mt-8">
+    <button
+      onClick={loadMoreFAQs}
+      className="bg-blue-900 p-4 text-lg text-white rounded hover:bg-blue-800 transition duration-300"
+    >
+      Load More FAQs
+    </button>
+  </div>
+)}
         </section>
       </div>
     </Layout>
