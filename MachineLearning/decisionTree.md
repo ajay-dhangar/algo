@@ -1,3 +1,4 @@
+---
 id: decision-tree  
 title: Decision Tree Algorithm  
 sidebar_label: Decision Tree  
