@@ -27,9 +27,9 @@ Segment Trees are commonly used for:
 
 ## Time Complexity
 
-- **Building the Segment Tree**: O(n)
-- **Querying**: O(log n)
-- **Updating**: O(log n)
+- **Building the Segment Tree**: $O(n)$
+- **Querying**: $O(log \ n)$
+- **Updating**: $O(log \ n)$
 
 ## Implementations
 

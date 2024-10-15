@@ -30,7 +30,7 @@ The Union-Find data structure is widely used in algorithms that require grouping
 
 ## Time Complexity
 
-- **Time Complexity**: O(α(n)) per operation, where α(n) is the inverse Ackermann function, which grows extremely slowly.
+- **Time Complexity**: $O(α(n))$ per operation, where $α(n)$ is the inverse Ackermann function, which grows extremely slowly.
 
 ## Implementations
 

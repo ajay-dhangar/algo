@@ -14,12 +14,12 @@ The **Sieve of Eratosthenes** is an ancient algorithm used to find all prime num
 ## Algorithm
 
 ### Steps:
-1. Create a list of consecutive integers from 2 to \( n \) (the limit).
-2. Start with the first prime number \( p = 2 \).
-3. Mark all multiples of \( p \) (from \( p^2 \) to \( n \)) as composite (not prime).
-4. Find the next number in the list that is not marked. This number is the next prime \( p \).
-5. Repeat steps 3 and 4 until \( p^2 \) is greater than \( n \).
-6. The numbers that remain unmarked in the list are all the prime numbers up to \( n \).
+1. Create a list of consecutive integers from 2 to $n$ (the limit).
+2. Start with the first prime number $p=2$.
+3. Mark all multiples of $p$ (from $p^2$ to $n$) as composite (not prime).
+4. Find the next number in the list that is not marked. This number is the next prime $p$.
+5. Repeat steps 3 and 4 until $p^2$ is greater than $n$.
+6. The numbers that remain unmarked in the list are all the prime numbers up to $n$.
 
 ### Example
 
@@ -32,11 +32,11 @@ To find all prime numbers up to 30:
 
 ## Time Complexity
 
-- The time complexity of the Sieve of Eratosthenes is \( O(n log(log(n))) \), where \( n \) is the limit up to which prime numbers are generated. This makes it very efficient for large values of \( n \).
+- The time complexity of the Sieve of Eratosthenes is $O(n \log(\log(n)))$, where $n$ is the limit up to which prime numbers are generated. This makes it very efficient for large values of $n$..
 
 ## Space Complexity
 
-- The space complexity is \( O(n) \) due to the array used to mark the prime numbers.
+- The space complexity is $O(n)$ due to the array used to mark the prime numbers.
 
 ## Implementations
 

@@ -22,13 +22,13 @@ The **GCD** of two integers is the largest positive integer that divides both nu
 The **Euclidean algorithm** is the most efficient method for computing the GCD. It works on the principle that the GCD of two numbers also divides their difference.
 
 #### Steps:
-1. Given two integers a and  b :
-   - If b = 0, then GCD(a, b) = a
-   - Otherwise, GCD(a, b) = GCD(b,a   mod b ).
+1. Given two integers $a$ and  $b$ :
+   - If $b$ = 0, then $GCD(a, b)$ = a
+   - Otherwise, $GCD(a, b)$ = $GCD(b,a \  mod \ b ).$
 
 ### Time Complexity
 
-- The time complexity of the Euclidean algorithm is ( O(log(min(a, b)))).
+- The time complexity of the Euclidean algorithm is $( O(log(min(a, b)))).$
 
 ## Least Common Multiple (LCM)
 
@@ -40,12 +40,11 @@ The **LCM** of two integers is the smallest positive integer that is divisible b
 
 The LCM can be calculated using the GCD with the following formula:
 
-LCM(a, b) = a x b divded by [GCD(a, b)].
-
+$LCM(a, b)$ = $\dfrac{a \times b}{\text{GCD}(a, b)}$.
 
 ### Time Complexity
 
-- The time complexity for calculating the LCM is O(log(min(a, b))) due to the GCD calculation.
+- The time complexity for calculating the LCM is $O(log(min(a, b)))$ due to the GCD calculation.
 
 ## Implementations
 

@@ -27,11 +27,11 @@ It is particularly useful in scenarios involving cumulative frequency tables, su
 
 ## Time Complexity
 
-- **Time Complexity**: O(log n) for both update and query operations, where n is the number of elements in the array.
+- **Time Complexity**: $O(log \ n)$ for both update and query operations, where n is the number of elements in the array.
 
 ## Space Complexity
 
-- **Space Complexity**: O(n) for storing the tree, where n is the number of elements.
+- **Space Complexity**: $O(n)$ for storing the tree, where n is the number of elements.
 
 ## Implementations
 
