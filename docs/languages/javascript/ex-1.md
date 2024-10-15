@@ -190,7 +190,7 @@ const maxAttempts = 3;
 let currentAttempts = 0;
 ```
 
-### Avoid `var`
+### Avoid `var
 
 The `var` keyword is outdated and can lead to unexpected issues. Prefer `let` and `const` for better-scoped variables.
 

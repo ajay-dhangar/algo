@@ -12,7 +12,7 @@ Here are some resources that may be helpful as you contribute to Algo:
 
 ## How to Contribute
 
-### 1. Fork the Repository
+### 1. Fork the Repository ( [Video 1](https://www.loom.com/share/4c5f309a28c444caa4e70557669979f6?sid=88202acf-3ab8-4321-bcf2-3ced94215994) )
 Start by forking the repository to your GitHub account.
 
 ### 2. Clone Your Fork
@@ -22,19 +22,19 @@ Clone the repository to your local machine using:
 $ git clone https://github.com/<your-username>/algo.git
 ```
 
-### 3. Create a New Branch
+### 3. Create a New Branch ([Video 2](https://www.loom.com/share/74493008c617419ea1a1f69755124dd8?sid=28379156-ff84-4e57-90a9-234b4ba15160) )
 Create a branch for your contribution:
 
 ```bash
 $ git checkout -b <branch-name>
 ```
 
-### 4. Make Your Changes
+### 4. Make Your Changes ( [Video 3](https://www.loom.com/share/ea1a931b8f9a492a8994ca3d006a4526?sid=0b889369-23a4-42c7-a61e-7e7de1474494), [Video 4](https://www.loom.com/share/55b170e45b7d4cbdb4fa443b84d03a3c?sid=7a4c1db8-ae74-4a05-815c-ca6f30f8c5c4) )
 Add new algorithms, improve documentation, or fix any issues. Be sure to:
 - Document your code with clear comments
 - Ensure that your solution is correct and efficient
 
-### 5. Commit Your Changes
+### 5. Commit Your Changes ( [Video 5](https://www.loom.com/share/47d2ba8e35fd4382979899fe21c29974?sid=8b5a3af6-5a80-4025-b045-76e64ff9a839) )
 Commit your changes with a descriptive commit message:
 
 ```bash

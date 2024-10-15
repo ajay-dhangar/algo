@@ -1,4 +1,4 @@
-// import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 import AdsComponent from "@site/src/components/AdsComponent";
 // import BrowserWindow from "@site/src/components/BrowserWindow";
 import ArrayVisualizations from "@site/src/components/DSA/arrays/ArrayVisualizations";
@@ -11,7 +11,7 @@ import MDXComponents from "@theme-original/MDXComponents";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import { FaReact } from "react-icons/fa";
-// import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import GiscusComponent from "../components/GiscusComponent";
 import Ads from "@site/src/components/AdsComponent/Ads";
 
@@ -28,7 +28,7 @@ export default {
   FaReact,
   InsertionSortVisualization,
 //   Image,
-//   LiteYouTubeEmbed,
+  LiteYouTubeEmbed,
 //   LinearSearchVisualizer,
   AdsComponent,
   GiscusComponent,
