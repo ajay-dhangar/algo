@@ -196,7 +196,7 @@ const DataStructuresQuiz: React.FC = () => {
   return (
     <Layout>
       <div style={{ backgroundColor: "lightblue", padding: "20px", borderRadius: "8px", color: "black", maxWidth: "600px", margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center" }}>Challenge 1: Quiz on Data Structures</h2>
+        <h2 style={{ textAlign: "center" }}>Data Structures Challenge-1</h2>
         <h3 style={{ textAlign: "center" }}>Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? `0${timeLeft % 60}` : timeLeft % 60}</h3>
         {showResult ? (
           <div style={{ textAlign: "center", marginTop: "20px", padding: "20px", borderRadius: "8px", backgroundColor: "white" }}>
