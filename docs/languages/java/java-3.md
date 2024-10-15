@@ -124,7 +124,8 @@ Java also supports conditional operators for compact decision-making.
 ### Example:
 
 ```java
-int num = 10; String result = (num > 0) ? "Positive" : "Non-positive"; System.out.println(result);
+int num = 10; String result = (num > 0) ? "Positive" : "Non-positive";
+System.out.println(result);
 ```
 
 ------

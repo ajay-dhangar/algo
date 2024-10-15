@@ -25,7 +25,9 @@ char grade;
 *   Variables can be initialized with a value at the time of declaration.
 
 ```java
-int age = 25; double salary = 45000.50; char grade = 'A';
+int age = 25;
+double salary = 45000.50;
+char grade = 'A';
 ```
 
 ## 3. Types of Variables in Java
@@ -35,7 +37,9 @@ int age = 25; double salary = 45000.50; char grade = 'A';
 *   Holds whole numbers, both positive and negative.
 
 ```java
-int x = 10; byte y = 20;     // Range: -128 to 127 short z = 30000; // Range: -32,768 to 32,767 long w = 123456789L; // Suffix 'L' for long literals
+int x = 10; byte y = 20;     // Range: -128 to 127
+short z = 30000; // Range: -32,768 to 32,767
+long w = 123456789L; // Suffix 'L' for long literals
 ```
 
 ### b. Floating-Point Variables (`float`, `double`)
@@ -43,7 +47,8 @@ int x = 10; byte y = 20;     // Range: -128 to 127 short z = 30000; // Range: -3
 *   Represents real numbers, with `float` using less precision than `double`.
 
 ```java
-float pi = 3.14f; // Suffix 'f' for float literals double gravity = 9.81;
+float pi = 3.14f; // Suffix 'f' for float literals
+double gravity = 9.81;
 ```
 
 ### c. Character Variables (`char`)
@@ -59,7 +64,8 @@ char initial = 'A';
 *   Holds either `true` or `false` values.
 
 ```java
-boolean isSunny = true; boolean isRaining = false;
+boolean isSunny = true;
+boolean isRaining = false;
 ```
 
 ### e. String Variables (`String`)
@@ -79,7 +85,8 @@ String greeting = "Hello, World!";
 ### a. Local Variable Example:
 
 ```java
-void myMethod() {     int localVar = 10;  // Only accessible inside myMethod
+void myMethod() {     
+    int localVar = 10;  // Only accessible inside myMethod
 }
 ```
 
@@ -88,7 +95,7 @@ void myMethod() {     int localVar = 10;  // Only accessible inside myMethod
 ```java
 class MyClass {     int globalVar = 20;  // Accessible throughout the MyClass
     void myMethod() {
-        globalVar = 30;   // Modifying globalVar
+            globalVar = 30;   // Modifying globalVar
         } }
 ```
 
@@ -111,7 +118,8 @@ Java allows conversion between data types either implicitly or explicitly (using
 
 
 ```java
-int x = 10; double y = x;  // Implicit conversion from int to double
+int x = 10; 
+double y = x;  // Implicit conversion from int to double
 ```
 
 ### b. Explicit Type Conversion (Casting)
@@ -119,7 +127,8 @@ int x = 10; double y = x;  // Implicit conversion from int to double
 *   You can explicitly convert a variable's type using type casting.
 
 ```java
-double pi = 3.14; int intPi = (int) pi;  // Cast double to int
+double pi = 3.14;
+int intPi = (int) pi;  // Cast double to int
 ```
 
 ## 7. Dynamic Variables
@@ -128,5 +137,6 @@ double pi = 3.14; int intPi = (int) pi;  // Cast double to int
 
 
 ```java
-int[] arr = new int[5]; // Dynamically allocate memory for an array of integers arr[0] = 5;
+int[] arr = new int[5]; // Dynamically allocate memory for an array of integers
+arr[0] = 5;
 ```
