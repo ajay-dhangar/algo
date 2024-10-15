@@ -1,3 +1,5 @@
+---
+
 id: earliest-deadline-first
 title: Earliest Deadline First Scheduling Algorithm
 sidebar_label: "Earliest Deadline First"
