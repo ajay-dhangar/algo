@@ -36,7 +36,7 @@ A Merkle Tree, also known as a hash tree, is a binary tree where each leaf node 
 
 ## Step-by-Step Execution
 
-Here's an example of how the Merkle Tree Algorithm works on a small dataset of four blocks:
+Here’s an example of how the Merkle Tree Algorithm works on a small dataset of four blocks:
 
 ```mermaid
 graph TB
