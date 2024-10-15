@@ -44,19 +44,3 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: "👋 Hi @${{ github.actor }}! Thanks for opening this issue. We appreciate your contribution to the Algo project. Our team will review it soon."
           pr-message: "🎉 Great job, @${{ github.actor }}! Thank you for submitting your pull request. We appreciate your contribution, and our team will review it shortly."
-
-      - name: Label first-time issues
-        if: github.event_name == 'issues'
-        run: |
-          ISSUE_NUMBER=${{ github.event.issue.number }}
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -d '{"labels":["Algo Contributor's Issue"]}' \
-          "https://api.github.com/repos/${{ github.repository }}/issues/${ISSUE_NUMBER}"
-
-      - name: Label first-time pull requests
-        if: github.event_name == 'pull_request_target'
-        run: |
-          PR_NUMBER=${{ github.event.pull_request.number }}
-          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -d '{"labels":["Algo Contributor's PR"]}' \
-          "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}"
