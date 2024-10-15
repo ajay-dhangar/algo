@@ -1,0 +1,8 @@
+{
+    "label": "Object-Oriented Programming (OOPs) Concepts",
+    "position": 8,
+    "link": {
+        "type": "generated-index",
+        "description": "Object-Oriented Programming (OOPs) is a programming paradigm based on the concept of objects, which can contain data and code. OOPs promotes the principles of encapsulation, inheritance, polymorphism, and abstraction. It is widely used in modern software development to create modular, reusable, and scalable code, making it easier to maintain and extend applications."
+    }
+}
