@@ -67,7 +67,7 @@ Comments: Use // for single-line comments and /* */ for multi-line comments.
 
 Semicolons: Each statement in C++ ends with a semicolon (;).
 
-Braces: Curly braces ({}) are used to define the beginning and end of code blocks.
+Braces: Curly braces (`{}`) are used to define the beginning and end of code blocks.
 
 ## 6. Conclusion
 C++ is a versatile and powerful programming language that has stood the test of time. With its support for both high-level and low-level programming, it is ideal for various applications, from system software to game development. Understanding the fundamentals of C++ will pave the way for developing efficient and robust applications.
