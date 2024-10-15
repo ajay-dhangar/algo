@@ -1,6 +1,3 @@
-
-### Blog: Practical Applications of Recursion
-
 ---
 slug: practical-applications-of-recursion
 title: Practical Applications of Recursion in Algorithms
