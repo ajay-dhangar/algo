@@ -1,10 +1,10 @@
 ---
-id: 
-title:
-sidebar_label:
-sidebar-position:
-description:
-tags:
+id: isPalindrome-problem 
+title: DSA Problem Solution
+sidebar_label: DSA Problem Solution
+sidebar-position: 1
+description: A palindrome reads the same forwards and backwards, like "121" or "racecar."
+tags: [DSA, leetcode, problem-solving]
 ---
 
 ## Leetcode: Problem-9
@@ -66,5 +66,4 @@ public class Solution {
 ## Analyze Complexity:
 
 ![Screenshot 2024-10-15 162602](https://github.com/user-attachments/assets/7dd17351-82b9-4863-b072-58dfcf6d806b)
-
 
