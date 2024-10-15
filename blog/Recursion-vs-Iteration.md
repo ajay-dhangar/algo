@@ -1,6 +1,3 @@
-
-### Blog: Recursion vs. Iteration
-
 ---
 slug: recursion-vs-iteration
 title: Recursion vs. Iteration: A Comparative Analysis
