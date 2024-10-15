@@ -34,7 +34,7 @@ const Challenges: React.FC = () => {
               transition={{ type: "spring", stiffness: 200 }}
             >
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                Challenge 1: 30-Minute Problem
+                Challenge 1: Data structures-1
               </h3>
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Solve the problem within 30 minutes to earn points and rank up.
@@ -59,10 +59,10 @@ const Challenges: React.FC = () => {
               transition={{ type: "spring", stiffness: 200 }}
             >
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                Challenge 2: 35-Minute Problem
+              Challenge 2: Data structures-2
               </h3>
               <p className="text-gray-500 dark:text-gray-400 mt-2">
-                Solve this challenging problem within 45 minutes to earn even more points!
+                Solve this challenging problem within 30 minutes to earn even more points!
               </p>
               <div className="flex items-center mt-4 space-x-4">
                 <FaClock className="text-gray-500 dark:text-gray-400" />
@@ -71,6 +71,30 @@ const Challenges: React.FC = () => {
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/challenges/challenge2"}
+              >
+                <FaPlayCircle className="w-5 h-5" />
+                <span>Start Challenge</span>
+              </button>
+            </motion.div>
+            {/* Challenge 3 Card */}
+            <motion.div
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                Challenge 3: Advance Data Structures
+              </h3>
+              <p className="text-gray-500 dark:text-gray-400 mt-2">
+                Solve this challenging problem within 30 minutes to earn even more points!
+              </p>
+              <div className="flex items-center mt-4 space-x-4">
+                <FaClock className="text-gray-500 dark:text-gray-400" />
+                <span className="text-gray-700 dark:text-gray-300">Time Limit: 60 min</span>
+              </div>
+              <button
+                className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+                onClick={() => window.location.href = "/algo/challenges/challenge3"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Challenge</span>
