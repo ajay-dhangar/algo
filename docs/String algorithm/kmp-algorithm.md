@@ -256,4 +256,4 @@ KMP helps solve problems where multiple occurrences of a pattern need to be foun
 
 ### Substring Search:
 This algorithm is useful in word processors, search engines, and file comparison tools where efficient substring searching is critical.
-```
+
