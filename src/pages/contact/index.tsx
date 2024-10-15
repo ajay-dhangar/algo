@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
     className="border-2 w-full md:w-2/3 lg:w-1/3 shadow-lg rounded-lg py-8 bg-[#d6eaf8] dark:bg-blue-950 px-6 md:px-10 flex flex-col justify-center"
   >
     <h2 className="text-3xl md:text-4xl font-bold font-serif text-blue-900 dark:text-[#d6eaf8] mb-6 text-center">
-      Get In Touch
+      Contact Us
     </h2>
     <p className="italic leading-snug text-blue-800 text-sm text-center">We are here to help and answer any question you might have. We look forward to hearing from you!!</p>
     <form onSubmit={handleSubmit} className="space-y-6">
