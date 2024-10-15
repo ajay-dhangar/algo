@@ -117,6 +117,10 @@ const config = {
                 label: "Quizes",
               },
               {
+                to: "QuizSolutions",
+                label: "Quizes Solutions",
+              },
+              {
                 to: "leaderboard",
                 label: "Leaderboard",
               },
