@@ -1,6 +1,3 @@
-
-### Blog 4: Optimizing Recursive Functions
-
 ---
 slug: optimizing-recursive-functions
 title: Optimizing Recursive Functions: Techniques and Tips
