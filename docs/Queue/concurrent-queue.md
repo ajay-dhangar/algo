@@ -1,3 +1,12 @@
+---
+id: concurrent-queue-data-structure
+title: "Concurrent Queue Data Structure"
+sidebar_label: "Concurrent Queue"
+sidebar_position: 8
+description: "A comprehensive guide to using the concurrent queue data structure for safe multithreading operations."
+tags: [data structure, concurrency, multithreading]
+---
+
 # Concurrent Queue Data Structure
 
 A concurrent queue is a thread-safe data structure designed for safe access by multiple threads. It allows efficient queue operations while ensuring data integrity and preventing race conditions.
