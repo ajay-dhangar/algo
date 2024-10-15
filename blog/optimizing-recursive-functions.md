@@ -1,8 +1,8 @@
 --- 
 slug: optimizing-recursive-functions
-title: Optimizing Recursive Functions: Techniques and Tips
+title: "Optimizing Recursive Functions: Techniques and Tips"
 authors: [AKSHITHA-CHILUKA]
-tags: [AKSHITHA-CHILUKA , algo, dsa, algorithms, recursion, optimization]
+tags: [AKSHITHA-CHILUKA, algo, dsa, algorithms, recursion, optimization]
 ---
 
 While recursion is a useful programming technique, it can lead to inefficiencies if not implemented correctly. Understanding how to optimize recursive functions is essential for better performance.
