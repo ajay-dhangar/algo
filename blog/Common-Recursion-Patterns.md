@@ -1,4 +1,3 @@
-# Blog : common-recursion-patterns
 ---
 slug: common-recursion-patterns
 title: Common Recursion Patterns in Algorithms
