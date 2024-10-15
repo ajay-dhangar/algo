@@ -34,17 +34,17 @@ const Quizes: React.FC = () => {
             transition={{ type: "spring", stiffness: 200 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Quiz on Arrays
+             Array Quiz Solutions
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your knowledge on array operations and algorithms.
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizes/arrays"}
+  onClick={() => window.location.href = "/algo/quizsolutions/arraysol"}
 >
   <FaPlayCircle className="w-5 h-5" />
-  <span>Start Quiz</span>
+  <span>See Solutions</span>
 </button>
           </motion.div>
 
@@ -55,17 +55,17 @@ const Quizes: React.FC = () => {
             transition={{ type: "spring", stiffness: 200 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Quiz on Stacks
+             Stack Quiz Solutions
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Evaluate your understanding of stack operations and applications.
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizes/stack"}
+  onClick={() => window.location.href = "/algo/quizsolutions/stacksol"}
 >
   <FaPlayCircle className="w-5 h-5" />
-  <span>Start Quiz</span>
+  <span>See Solutions</span>
 </button>
           </motion.div>
 
@@ -76,7 +76,8 @@ const Quizes: React.FC = () => {
             transition={{ type: "spring", stiffness: 200 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Quiz on Queues
+             Queues Quiz Solutions
+             
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Challenge your knowledge on queue implementations and their use cases.
@@ -87,7 +88,7 @@ const Quizes: React.FC = () => {
   onClick={() => window.location.href = "/algo/quizes/queue"}
 >
   <FaPlayCircle className="w-5 h-5" />
-  <span>Start Quiz</span>
+  <span>See Solutions</span>
 </button>
           </motion.div>
 
@@ -98,14 +99,15 @@ const Quizes: React.FC = () => {
             transition={{ type: 'spring', stiffness: 200 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Quiz on Binary Trees
+             Binary Trees Quiz Solutions
+              
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your understanding of Binary Tree structures and traversals.
             </p>
             <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
               <FaPlayCircle className="w-5 h-5" />
-              <span>Start Quiz</span>
+              <span>See Solutions</span>
             </button>
           </motion.div>
 
@@ -116,14 +118,14 @@ const Quizes: React.FC = () => {
             transition={{ type: 'spring', stiffness: 200 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Quiz on Binary Search Trees (BST)
+             Binary Search Trees (BST) Quiz solutions
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Evaluate your knowledge of Binary Search Tree properties and operations.
             </p>
             <button className="mt-4 border-none text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 bg-blue-600">
               <FaPlayCircle className="w-5 h-5" />
-              <span>Start Quiz</span>
+              <span>See Solutions</span>
             </button>
           </motion.div>
 
@@ -134,7 +136,7 @@ const Quizes: React.FC = () => {
             transition={{ type: 'spring', stiffness: 200 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Quiz on AVL Trees
+              AVL Trees Quiz solutions
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your skills on the balancing properties of AVL Trees.
@@ -144,7 +146,7 @@ const Quizes: React.FC = () => {
   onClick={() => window.location.href = "/algo/quizes/avl"}
 >
   <FaPlayCircle className="w-5 h-5" />
-  <span>Start Quiz</span>
+  <span>See Solutions</span>
 </button>
           </motion.div>
 
@@ -155,14 +157,14 @@ const Quizes: React.FC = () => {
             transition={{ type: 'spring', stiffness: 200 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Quiz on Red-Black Trees
+              Red-Black Trees Quiz solutions
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Challenge your understanding of the properties and algorithms of Red-Black Trees.
             </p>
             <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
               <FaPlayCircle className="w-5 h-5" />
-              <span>Start Quiz</span>
+              <span>See Solutions</span>
             </button>
           </motion.div>
 
@@ -173,14 +175,14 @@ const Quizes: React.FC = () => {
             transition={{ type: 'spring', stiffness: 200 }}
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-              Quiz on B-Trees
+             B-Trees Quiz solutions
             </h3>
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your understanding of B-Tree properties and their applications.
             </p>
             <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
               <FaPlayCircle className="w-5 h-5" />
-              <span>Start Quiz</span>
+              <span>See Solutions</span>
             </button>
           </motion.div>
         </div>
