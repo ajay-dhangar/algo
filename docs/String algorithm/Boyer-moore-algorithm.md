@@ -1,3 +1,14 @@
+---
+id: rabin-karp-algorithm
+title: "Rabin-Karp Algorithm"
+sidebar_label: "Rabin-Karp"
+sidebar_position: 7
+description: "A comprehensive guide to using the Rabin-Karp Algorithm for efficient pattern matching."
+tags: [pattern matching, string algorithms, competitive programming]
+---
+
+
+
 # Boyer-Moore Algorithm for Pattern Matching
 
 ## Definition:
