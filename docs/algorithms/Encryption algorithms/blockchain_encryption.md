@@ -1,5 +1,3 @@
-
-
 ---
 
 id: blockchain-cryptography-algo  
