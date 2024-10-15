@@ -105,10 +105,13 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your understanding of Binary Tree structures and traversals.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
-              <FaPlayCircle className="w-5 h-5" />
-              <span>See Solutions</span>
-            </button>
+            <button
+  className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+  onClick={() => window.location.href = "/algo/quizsolutions/binarytree"}
+>
+  <FaPlayCircle className="w-5 h-5" />
+  <span>See Solutions</span>
+</button>
           </motion.div>
 
           {/* Binary Search Tree Quiz Card */}
