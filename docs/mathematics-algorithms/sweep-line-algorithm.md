@@ -1,26 +1,26 @@
 ---
-
-id: sweep-line-algorithm  
-title: "Sweep Line Algorithm"  
-sidebar_label: "Sweep Line Algorithm"  
-sidebar_position: 6  
-description: "A comprehensive guide to understanding and implementing the sweep line algorithm for computational geometry."  
-tags: [computational geometry, algorithms, competitive programming]  
-
+id: sweep-line-algorithm
+title: "Sweep Line Algorithm"
+sidebar_label: "Sweep Line Algorithm"
+sidebar_position: 6
+description: "A comprehensive guide to understanding and implementing the sweep line algorithm for computational geometry."
+tags: [computational geometry, algorithms, competitive programming]
 ---
-
-## Sweep Line Algorithm
-
 
 The Sweep Line Algorithm is a powerful approach used in computational geometry to solve problems involving geometric figures (e.g., finding intersections, computing areas, etc.). The idea is to "sweep" a vertical line across the plane from left to right and process events as they occur.
 
 ### Key Concepts:
+
 1. Event Points: These are the key positions in the plane where important changes happen. These might include the start or end of a line, or an intersection between two objects.
 2. Active Set: As the sweep line moves, it maintains an active set of objects (e.g., lines, segments) that intersect the current position of the sweep line.
 
----
 
-### Code Implementation (Python):
+### Code Implementation
+
+The following code snippets demonstrate the implementation of the Sweep Line Algorithm in Python, C++, and Java. The algorithm is used to find intersections among a set of line segments by sweeping a line across the plane.
+
+<Tabs>
+<TabItem value="py" label="Python" default>
 
 ```python
 import heapq
@@ -30,7 +30,7 @@ class Event:
         self.x = x
         self.start = start
         self.segment = segment
-    
+
     def __lt__(self, other):
         return self.x < other.x or (self.x == other.x and self.start > other.start)
 
@@ -48,26 +48,26 @@ def sweep_line(segments):
         x1, y1, x2, y2 = seg
         events.append(Event(x1, True, seg))
         events.append(Event(x2, False, seg))
-    
+
     heapq.heapify(events)
     active_segments = []
     intersections = []
-    
+
     while events:
         event = heapq.heappop(events)
-        
+
         if event.start:
             active_segments.append(event.segment)
         else:
             active_segments.remove(event.segment)
-        
+
         # Check for intersections among active segments
         for i in range(len(active_segments)):
             for j in range(i + 1, len(active_segments)):
                 inter = find_intersection(active_segments[i], active_segments[j])
                 if inter:
                     intersections.append(inter)
-    
+
     return intersections
 
 def find_intersection(seg1, seg2):
@@ -89,9 +89,9 @@ intersections = sweep_line(segments)
 print(f"Intersections: {intersections}")
 ```
 
----
+</TabItem>
 
-### Code Implementation (C++):
+<TabItem value="cpp" label="C++">
 
 ```cpp
 #include <iostream>
@@ -117,17 +117,17 @@ struct Event {
 
 vector<pair<int, int>> sweep_line(vector<Segment>& segments) {
     vector<Event> events;
-    
+
     for (auto& seg : segments) {
         events.push_back({seg.x1, true, seg});
         events.push_back({seg.x2, false, seg});
     }
-    
+
     sort(events.begin(), events.end());
-    
+
     set<Segment> active_segments;
     vector<pair<int, int>> intersections;
-    
+
     for (auto& event : events) {
         if (event.start) {
             active_segments.insert(event.segment);
@@ -144,7 +144,7 @@ vector<pair<int, int>> sweep_line(vector<Segment>& segments) {
             }
         }
     }
-    
+
     return intersections;
 }
 
@@ -161,14 +161,14 @@ int main() {
     for (auto& inter : intersections) {
         cout << inter.first << ", " << inter.second << endl;
     }
-    
+
     return 0;
 }
 ```
 
----
+</TabItem>
 
-### Code Implementation (Java):
+<TabItem value="java" label="Java">
 
 ```java
 import java.util.*;
@@ -254,11 +254,12 @@ public class SweepLineAlgorithm {
 }
 ```
 
----
+</TabItem>
+
+</Tabs>
 
 ### Applications in Competitive Programming:
 
 1. Finding Segment Intersections: Used to detect where line segments cross, which is important in geometry-based problems.
 2. Computing the Union of Rectangles: Calculate the area covered by a union of several rectangles.
 3. Closest Pair of Points: Efficiently find the closest pair of points in a 2D plane.
-
