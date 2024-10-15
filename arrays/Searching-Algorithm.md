@@ -1,19 +1,20 @@
 ---
-id: arrys-Searching Algorithms-in-dsa
-title: Arrays - Searching Algorithms in DSA
+id: arrys-searching-algorithms-in-dsa
+title: "Arrays - Searching Algorithms in DSA"
 sidebar_label: Searching Algorithms
 sidebar_position: 2
-description:Searching Algorithms are methods used to find a specific value or condition within a collection of data. They are fundamental in computer science and software development, enabling efficient data retrieval from various data structures. This tutorial will cover two primary searching algorithms: Linear Search and Binary Search.
+description: "Searching Algorithms are methods used to find a specific value or condition within a collection of data. They are fundamental in computer science and software development, enabling efficient data retrieval from various data structures. This tutorial will cover two primary searching algorithms: Linear Search and Binary Search."
 tags: [dsa, arrays, searching algorithms]
 ---
 
 <AdsComponent />
+
 Searching Algorithms are methods used to find a specific value or condition within a collection of data. They are fundamental in computer science and software development, enabling efficient data retrieval from various data structures. This tutorial will cover two primary searching algorithms: Linear Search and Binary Search.
 
-##Linear Search
+## Linear Search
 Linear search is the simplest searching algorithm, which checks every element in a list until it finds the target value.
 
-##Algorithm
+## Algorithm
 1. Start from the first element of the array.
 2. Compare the current element with the target value.
 3. If they match, return the index of the current element.
@@ -21,7 +22,8 @@ Linear search is the simplest searching algorithm, which checks every element in
 5. Repeat steps 2-4 until the target is found or the end of the array is reached.
 6. If the target is not found, return -1. 
 
- ##Pseudo Code
+## Pseudo Code
+ 
 ```
  procedure binarySearch(A : sorted list of items, target)
     left = 0
@@ -38,12 +40,16 @@ Linear search is the simplest searching algorithm, which checks every element in
     return -1
 end procedure
 ```
-##Complexity
+
+## Complexity
 - Time Complexity: $O(log n)$
 - Space Complexity: $O(1)$
 - Stable: No
 
-##Example
+<Ads />
+
+## Example
+
 ```
 function binarySearch(arr, target) {
   let left = 0;
@@ -77,22 +83,25 @@ function searchDemo() {
   )
 }
 ```
-##Explanation
+
+## Explanation
 In the examples, we have two searching algorithms: Linear Search and Binary Search.
 
 Linear Search checks each element in the array [3, 5, 7, 9, 11] until it finds the target 9, returning its index 3.
 
 
-##Jump Search
+## Jump Search
 Jump Search is an algorithm that works on sorted arrays. It jumps ahead by a fixed number of steps instead of checking every element sequentially.
 
- ##Algorithm
+<AdsComponent />
+
+## Algorithm
 1. Define a block size to jump ahead, typically root n
 2. Start from the beginning of the array and jump ahead by the block size until the target value is less than or equal to the element at the current index.
 3. Perform a linear search within the identified block to find the target.
 4. If the target is found, return its index. If not found, return -1.
 
-##Pseudo Code 
+## Pseudo Code 
 ```
 procedure jumpSearch(A : sorted list of items, target)
     n = length(A)
@@ -113,12 +122,16 @@ procedure jumpSearch(A : sorted list of items, target)
 end procedure
 ```
 
-##Complexity
+## Complexity
 - Time Complexity: $O(√n)$
 - Space Complexity: $O(1)$
 - Stable: No
 
-##Example
+<Ads />
+
+<br />
+
+## Example
 ```
 function binarySearch(arr, target, left, right) {
   while (left <= right) {
@@ -141,18 +154,19 @@ let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(exponentialSearch(arr, 7)); // 6
 ```
 
-##Interpolation Search
+## Interpolation Search
 Interpolation Search is an improvement over binary search for uniformly distributed data. It estimates the position of the target value based on its value.
 
- ##Algorithm
-1.If the array is sorted and the target is within the bounds, calculate the position using the formula.
-2.Compare the value at the calculated position with the target.
-3.If they match, return the position.
-4.If the target is less, adjust the search to the left half.
-5.If greater, adjust to the right half.
-6.Repeat until the target is found or the bounds cross.
+## Algorithm
+1. If the array is sorted and the target is within the bounds, calculate the position using the formula.
+2. Compare the value at the calculated position with the target.
+3. If they match, return the position.
+4. If the target is less, adjust the search to the left half.
+5. If greater, adjust to the right half.
+6. Repeat until the target is found or the bounds cross.
 
-##Pseudo Code 
+## Pseudo Code 
+
 ```
 procedure interpolationSearch(A : sorted list of items, target)
     low = 0
@@ -170,10 +184,12 @@ procedure interpolationSearch(A : sorted list of items, target)
 end procedure
 ```
 
-##Complexity
+## Complexity
 - Time Complexity: $O(loglogn)$
 - Space Complexity: $O(1)$
 - Stable: No
+
+<AdsComponent />
 
 ##Example
 ```
@@ -206,7 +222,9 @@ function advancedSearchDemo() {
 }
 ```
 
-##Conclusion
+<Ads />
+
+## Conclusion
 In this tutorial, we explored several important searching algorithms used in data structures and algorithms (DSA):
 
 1. Linear Search:
