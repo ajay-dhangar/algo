@@ -6,12 +6,14 @@ sidebar_label: Decision Making  in JavaScript
 ---
 
 Hey everyone! Today, we're going to explore how decision-making works in JavaScript. Whether you're just starting or need a refresher, this guide will help you understand the key decision-making structures in JavaScript. Let's dive right in!
-# JavaScript Decision Making
+
+<AdsComponent />
 
 
 * JavaScript provides several decision-making structures that allow you to execute code based on certain conditions.
 
 * The most common decision-making statements are `if`, `if-else`, `else if`, and `switch` statements.
+* 
 ## 1. If Statements
 
 
@@ -22,6 +24,9 @@ if (num > 0) {                           // Check if 'num' is greater than 0
     console.log('The number is positive.'); // Print a message if the condition is true  
 }  
 ```
+
+<Ads />
+
 ## 2. If-Else Statements
 
 
@@ -68,6 +73,9 @@ switch (day) {                           // Switch based on the value of 'day'
         console.log('Invalid day');      // Print 'Invalid day' if 'day' doesn't match any case  
 }  
 ```
+
+<AdsComponent />
+
 ## 5. Ternary Operator
 
 

@@ -19,7 +19,7 @@ const GetInvolvedSection: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           
-        <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+        <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
     Hackathons
   </h3>
@@ -35,11 +35,11 @@ const GetInvolvedSection: React.FC = () => {
       Learn More
     </Link>
   </div>
-  <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+  <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
 </div>
 
 
-          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Workshops
             </h3>
@@ -55,11 +55,11 @@ const GetInvolvedSection: React.FC = () => {
       Learn More
     </Link>
   </div>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
           {/* Event 3 */}
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Community Meetups
             </h3>
@@ -75,11 +75,11 @@ const GetInvolvedSection: React.FC = () => {
       Learn More
     </Link>
   </div>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
           {/* Event 4 */}
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Mentorship Programs
             </h3>
@@ -95,12 +95,12 @@ const GetInvolvedSection: React.FC = () => {
       Learn More
     </Link>
   </div>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
           {/* Event 5 */}
           {/* Event 5 */}
-<div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+<div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
     Online Courses
   </h3>
@@ -116,11 +116,11 @@ const GetInvolvedSection: React.FC = () => {
       Learn More
     </Link>
   </div>
-  <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+  <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
 </div>
 
 
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Open Source Contributions
             </h3>
@@ -136,7 +136,7 @@ const GetInvolvedSection: React.FC = () => {
       Learn More
     </Link>
   </div>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
         </div>
       </div>
