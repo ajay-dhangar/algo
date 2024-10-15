@@ -1,6 +1,3 @@
-
-### Blog 5: Understanding Big O Notation
-
 ---
 slug: understanding-big-o-notation
 title: Understanding Big O Notation in Algorithm Analysis
