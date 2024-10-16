@@ -110,6 +110,19 @@ a:hover {
   text-decoration: none;
 }
 
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    rgb(255, 169, 8) 0%,
+    rgb(246, 41, 41) 40%,
+    rgb(152, 0, 255) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 .footer{
   background-color: #001;
 }
