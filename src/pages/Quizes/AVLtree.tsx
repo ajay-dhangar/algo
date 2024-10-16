@@ -178,7 +178,7 @@ const AVLTreeQuiz: React.FC = () => {
         ) : (
           <div>
             <h3 style={{ color: "black" }}>{questions[currentQuestion].question}</h3>
-            <div className="options">
+            <div>
               {questions[currentQuestion].options.map((option, index) => (
                 <button
                   key={index}
