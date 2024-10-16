@@ -8,40 +8,40 @@ tags: [dsa, data-structures, Conversions , C language]
 
 ### Header Files
 
-    ```text
+```text
         #include<stdio.h>
         #include<conio.h>
         #include<string.h>
         #include<ctype.h>
-    ```
+```
 ### Operations on Stack
 
 **Structure of stack**
 
-    ```text
+```text
         typedef struct stack
         {
             char a[max];
             int top;
         }stack;
-    ```
+```
 
 **Initialise**
-    ```text
+```text
         void init(stack*s)
         {
             s->top=-1;
         }   
-    ```
+ ```
 **Pop**
-    ```text
+```text
         void init(stack*s)
         {
             s->top=-1;
         }   
-    ```
+```
 **Push**
-    ```text
+```text
         void push(stack*s,char x)
         {
             if(!full(s))
@@ -52,9 +52,9 @@ tags: [dsa, data-structures, Conversions , C language]
             else
             printf("OVERFLOW");
         }  
-    ```
+ ```
 **Check Full**
-    ```text
+ ```text
         int full(stack*s)
         {
             if(s->top==max-1)
@@ -62,9 +62,9 @@ tags: [dsa, data-structures, Conversions , C language]
             else
             return(0);
         }   
-    ```
+   ```
 **Check Empty**
-    ```text
+ ```text
         int empty(stack*s)
         {
             if(s->top==-1)
@@ -72,10 +72,10 @@ tags: [dsa, data-structures, Conversions , C language]
             else
             return(0);
         }
-    ```
+ ```
 
 **Precedence function**
-    ```text
+```text
         int prec(char x)
         {
         if(x=='*'||x=='/'||x=='%')
@@ -86,7 +86,7 @@ tags: [dsa, data-structures, Conversions , C language]
         return(0);
         return(-1);
         }
-    ```
+```
 
 ### Infix to Postfix Conversion
 
