@@ -20,8 +20,8 @@ tags: [String, frequecy, Hashmap]
 
 - char highestLetter = ' '; : This initializes highestLetter to an empty character.
 - int highestCount = 0; : This initializes highestCount to zero.
-- for (char letter : frequency.keySet()) { ... }: This loop iterates over the keys (letters) in the frequency map.
-- if (frequency.get(letter) > highestCount) { ... }: Inside the loop, this condition checks if the current letter’s frequency is greater than highestCount. If so, it updates highestCount and sets highestLetter to the current letter.
+- for `(char letter : frequency.keySet()) { ... }`: This loop iterates over the keys (letters) in the frequency map.
+- if `(frequency.get(letter) > highestCount) { ... }`: Inside the loop, this condition checks if the current letter’s frequency is greater than highestCount. If so, it updates highestCount and sets highestLetter to the current letter.
 
 #### Return Statement:
 
