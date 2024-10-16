@@ -1,9 +1,12 @@
-package docs.balancedBinTree;
+# Balanced Binary Tree Checker
 
+This Java program checks if a binary tree is balanced. A binary tree is considered balanced if the height difference between the left and right subtrees of any node is no more than 1.
 
-import java.lang.Math;
+## Node Class
 
-// Node structure for the binary tree
+The `Node` class represents a node in the binary tree.
+
+```java
 class Node {
     int data;
     Node left;
@@ -16,9 +19,7 @@ class Node {
         right = null;
     }
 }
-
 class Solution {
-
     // Function to check if a binary tree is balanced
     public boolean isBalanced(Node root) {
         // Check if the tree's height difference between subtrees is less than 2
@@ -45,12 +46,11 @@ class Solution {
         return Math.max(leftHeight, rightHeight) + 1;
     }
 }
-
 public class Main {
     // Main function
     public static void main(String[] args) {
         // Creating a sample binary tree
-       /*  Node root = new Node(1);
+        Node root = new Node(1);
         root.left = new Node(2);
         root.right = new Node(3);
         root.left.left = new Node(4);
@@ -66,7 +66,6 @@ public class Main {
             System.out.println("The tree is balanced.");
         } else {
             System.out.println("The tree is not balanced.");
-        }*/
+        }
     }
 }
-
