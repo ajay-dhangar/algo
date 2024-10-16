@@ -200,7 +200,7 @@ void delete(Q){
         ) : (
           <div>
             <h3 style={{ color: "black" }}>{questions[currentQuestion].question}</h3>
-            <div style={{ marginBottom: "20px" }}>
+            <div className="options" style={{ marginBottom: "20px" }}>
               {questions[currentQuestion].options.map((option, index) => (
                 <div key={index}>
                   <input
