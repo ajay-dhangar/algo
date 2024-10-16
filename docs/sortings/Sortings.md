@@ -342,6 +342,7 @@ Heap Sort is a comparison-based sorting algorithm that uses a binary heap data s
 4. Repeat steps 2 and 3 until the heap size is reduced to 1.
 
 **Code:**
+
 // FUNCTION TO BUILD MAX HEAP
 void heapify(int arr[], int n, int i) {
     int largest = i; 
@@ -362,8 +363,9 @@ void heapify(int arr[], int n, int i) {
 
 // HEAP SORT FUNCTION
 void heapSort(int arr[], int n) {
-    for (int i = n / 2 - 1; i >= 0; i--)
+    for (int i = n / 2 - 1; i >= 0; i--){
         heapify(arr, n, i);
+    }
 
     for (int i = n - 1; i > 0; i--) {
         swap(&arr[0], &arr[i]);
