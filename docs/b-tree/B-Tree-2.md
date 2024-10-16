@@ -4,59 +4,55 @@ sidebar_position: 2
 title: Insert Operation in B-Tree
 sidebar_label: Insert Operation in B-Tree
 description: "Inserting a key into a B-tree while maintaining its properties."
-tags: [b-tree,algorithms, problem-solving, DSA, data structure]
+tags: [b-tree, algorithms, problem-solving, DSA, data structure]
 ---
 
 # Insert Operation in B-Tree
 
-In the previous post, we introduced B-Tree. We also discussed search() and traverse() functions.   
-In this post, insert() operation is discussed. A new key is always inserted at the leaf node. Let the key to be inserted be k. Like BST, we start from the root and traverse down till we reach a leaf node. Once we reach a leaf node, we insert the key in that leaf node. Unlike BSTs, we have a predefined range on the number of keys that a node can contain. So before inserting a key to the node, we make sure that the node has extra space. 
+In the previous post, we introduced B-Trees and discussed the `search()` and `traverse()` functions. In this post, we will discuss the `insert()` operation. A new key is always inserted at the leaf node. Let the key to be inserted be `k`. Like in a Binary Search Tree (BST), we start from the root and traverse down until we reach a leaf node. Once we reach a leaf node, we insert the key there. Unlike BSTs, we have a predefined range on the number of keys that a node can contain. So before inserting a key into the node, we must ensure that there is extra space.
 
-**How to make sure that a node has space available for a key before the key is inserted?** We use an operation called splitChild() that is used to split a child of a node. See the following diagram to understand split. In the following diagram, child y of x is being split into two nodes y and z. Note that the splitChild operation moves a key up and this is the reason B-Trees grow up, unlike BSTs which grow down. 
+**How do we ensure that a node has space available for a key before it is inserted?** We use an operation called `splitChild()`, which is used to split a child of a node. See the following diagram to understand the split. In this diagram, child `y` of `x` is being split into two nodes `y` and `z`. Note that the `splitChild` operation moves a key up, which is the reason B-Trees grow up, unlike BSTs, which grow down.  
 
 ![BTreeSplit](./image/BTreeSplit-1024x321.jpg)
 
-  
-As discussed above, to insert a new key, we go down from root to leaf. Before traversing down to a node, we first check if the node is full. If the node is full, we split it to create space. Following is the complete algorithm.
+As discussed, to insert a new key, we go down from the root to the leaf. Before traversing down to a node, we first check if the node is full. If the node is full, we split it to create space. The complete algorithm is as follows:
 
-****Insertion****   
-1. Initialize x as root.   
-2. While x is not leaf, do following   
-    ..****a)**** Find the child of x that is going to be traversed next. Let the child be y.   
-    ..****b)**** If y is not full, change x to point to y.   
-    ..****c)**** If y is full, split it and change x to point to one of the two parts of y. If k is smaller than mid key in y, then set x as the first part of y. Else second part of y. When we split y, we move a key from y to its parent x.   
-3. The loop in step 2 stops when x is leaf. x must have space for 1 extra key as we have been splitting all nodes in advance. So simply insert k to x. 
+### Insertion Algorithm  
+1. Initialize `x` as root.  
+2. While `x` is not a leaf, do the following:  
+   - **a)** Find the child of `x` that will be traversed next. Let the child be `y`.  
+   - **b)** If `y` is not full, change `x` to point to `y`.  
+   - **c)** If `y` is full, split it and change `x` to point to one of the two parts of `y`. If `k` is smaller than the middle key in `y`, set `x` as the first part of `y`. Otherwise, set it as the second part of `y`. When we split `y`, we move a key from `y` to its parent `x`.  
+3. The loop in step 2 stops when `x` is a leaf. `x` must have space for 1 extra key, as we have been splitting all nodes in advance. So, simply insert `k` into `x`.  
 
-Note that the algorithm follows the Cormen book. It is actually a proactive insertion algorithm where before going down to a node, we split it if it is full. The advantage of splitting before is, we never traverse a node twice. If we don’t split a node before going down to it and split it only if a new key is inserted (reactive), we may end up traversing all nodes again from leaf to root. This happens in cases when all nodes on the path from the root to leaf are full. So when we come to the leaf node, we split it and move a key up. Moving a key up will cause a split in parent node (because the parent was already full). This cascading effect never happens in this proactive insertion algorithm. There is a disadvantage of this proactive insertion though, we may do unnecessary splits. 
+Note that the algorithm follows the Cormen book. This is a proactive insertion algorithm; before going down to a node, we split it if it is full. The advantage of this preemptive splitting is that we never traverse a node twice. If we were to only split a node after a new key is inserted (a reactive approach), we might end up traversing all nodes from the leaf to the root again, especially when all nodes on the path from the root to the leaf are full. This may cause a cascading effect where splitting occurs up to the root.
 
-  
-Let us understand the algorithm with an example tree of minimum degree ‘t’ as 3 and a sequence of integers 10, 20, 30, 40, 50, 60, 70, 80 and 90 in an initially empty B-Tree.  
-Initially root is NULL. Let us first insert 10. 
+However, there is a disadvantage to this proactive insertion: we may perform unnecessary splits.
+
+### Example Insertion Sequence
+
+Let us understand the algorithm with an example B-Tree of minimum degree `t` as 3 and a sequence of integers: 10, 20, 30, 40, 50, 60, 70, 80, and 90 in an initially empty B-Tree. Initially, the root is `NULL`. Let us first insert `10`.  
 
 ![Btree1](./image/Btree1.png)
 
-Let us now insert 20, 30, 40 and 50. They all will be inserted in root because the maximum number of keys a node can accommodate is 2\*t – 1 which is 5.  
- 
+Next, let us insert `20`, `30`, `40`, and `50`. They will all be inserted in the root because the maximum number of keys a node can accommodate is \(2t - 1\), which is 5.  
 
 ![BTree2Ins](./image/BTree2Ins.png)
 
-Let us now insert 60. Since root node is full, it will first split into two, then 60 will be inserted into the appropriate child.   
- 
+Now, let us insert `60`. Since the root node is full, it will first split into two, and then `60` will be inserted into the appropriate child.  
 
 ![BTreeIns3](./image/BTreeIns3.png)
 
-  
-Let us now insert 70 and 80. These new keys will be inserted into the appropriate leaf without any split. 
+Let us now insert `70` and `80`. These new keys will be inserted into the appropriate leaf without any splits.  
 
 ![BTreeIns4](./image/BTreeIns4.png)
 
-  
-Let us now insert 90. This insertion will cause a split. The middle key will go up to the parent. 
+Finally, let us insert `90`. This insertion will cause a split, with the middle key moving up to the parent.  
 
 ![BTreeIns6](./image/BTreeIns6.png)
 
-  
 Following are the implementations of the above proactive algorithm.
+
 
 C++
 ---
@@ -328,21 +324,38 @@ int main()
     return 0;
 }
 ```
-**Output**
+**Output:**  
+Traversal of the constructed tree is: `5 6 7 10 12 17 20 30`  
+**Present**  
+**Not Present**
 
-Traversal of the constructed tree is 5 6 7 10 12 17 20 30 
-Present
-Not Present
+The B-tree is a data structure similar to a binary search tree but allows multiple keys per node and has a higher fanout. This enables the B-tree to store a large amount of data efficiently, making it commonly used in databases and file systems.
 
-The B-tree is a data structure that is similar to a binary search tree, but allows multiple keys per node and has a higher fanout. This allows the B-tree to store a large amount of data in an efficient manner, and it is commonly used in database and file systems.
+## Characteristics of B-Tree
 
-The B-tree is a balanced tree, which means that all paths from the root to a leaf have the same length. The tree has a minimum degree t, which is the minimum number of keys in a non-root node. Each node can have at most 2t-1 keys and 2t children. The root can have at least one key and at most 2t-1 keys. All non-root nodes have at least t-1 keys and at most 2t-1 keys.
+- **Balanced Tree:** All paths from the root to a leaf have the same length.
+- **Minimum Degree `t`:** 
+  - Each non-root node must contain at least \(t - 1\) keys and can contain at most \(2t - 1\) keys.
+  - The root can have at least one key and at most \(2t - 1\) keys.
+  - Each node can have at most \(2t\) children.
 
-The B-tree supports the following operations:
+## Supported Operations
 
-Search(k): search for a key k in the tree.  
-Insert(k): insert a key k into the tree.  
-Delete(k): delete a key k from the tree.  
-The search operation is similar to that of a binary search tree. The insert operation is more complicated, since inserting a key can cause a node to become full. If a node is full, it must be split into two nodes, and the median key moved up to the parent node. The delete operation is also more complicated, since deleting a key can cause a node to have too few keys. If a node has too few keys, it can be merged with a sibling node or borrow a key from a sibling node.
+1. **Search(k):** Searches for a key `k` in the tree.
+2. **Insert(k):** Inserts a key `k` into the tree.
+3. **Delete(k):** Deletes a key `k` from the tree.
 
-The B-tree has a number of advantages over other data structures. It has a higher fanout than binary search trees, which means that fewer disk accesses are required to search for a key. It is also a balanced tree, which means that all operations have a worst-case time complexity of O(log n). Finally, the B-tree is self-adjusting, which means that it can adapt to changes in the data set without requiring expensive rebalancing operations.
+### Search Operation
+The search operation is similar to that of a binary search tree, where you traverse down the tree based on the comparison of the key.
+
+### Insert Operation
+The insert operation is more complicated since inserting a key can cause a node to become full. If a node is full, it must be split into two nodes, and the median key is moved up to the parent node.
+
+### Delete Operation
+The delete operation is also complex. Deleting a key can cause a node to have too few keys. If a node has too few keys, it can either merge with a sibling node or borrow a key from a sibling node.
+
+## Advantages of B-Trees
+
+- **Higher Fanout:** B-trees have a higher fanout than binary search trees, resulting in fewer disk accesses when searching for a key.
+- **Balanced Structure:** All operations have a worst-case time complexity of \(O(\log n)\).
+- **Self-Adjusting:** B-trees can adapt to changes in the dataset without requiring expensive rebalancing operations.

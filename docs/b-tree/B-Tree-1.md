@@ -4,20 +4,16 @@ sidebar_position: 1
 title: Introduction of B-Tree
 sidebar_label: Introduction of B-Tree
 description: "A B-tree is a self-balancing tree data structure that maintains sorted data for efficient insertion, deletion, and search operations."
-tags: [b-tree,algorithms, problem-solving, DSA, data structure]
+tags: [b-tree, algorithms, problem-solving, DSA, data structure]
 ---
-# Introduction of B-Tree
-
 
 The limitations of traditional binary search trees can be frustrating. Meet the B-Tree, the multi-talented data structure that can handle massive amounts of data with ease. When it comes to storing and searching large amounts of data, traditional binary search trees can become impractical due to their poor performance and high memory usage. B-Trees, also known as B-Tree or Balanced Tree, are a type of self-balancing tree that was specifically designed to overcome these limitations.
 
 Unlike traditional binary search trees, B-Trees are characterized by the large number of keys that they can store in a single node, which is why they are also known as “large key” trees. Each node in a B-Tree can contain multiple keys, which allows the tree to have a larger branching factor and thus a shallower height. This shallow height leads to less disk I/O, which results in faster search and insertion operations. B-Trees are particularly well suited for storage systems that have slow, bulky data access such as hard drives, flash memory, and CD-ROMs.
 
-B-Trees maintains balance by ensuring that each node has a minimum number of keys, so the tree is always balanced. This balance guarantees that the time complexity for operations such as insertion, deletion, and searching is always O(log n), regardless of the initial shape of the tree.
+B-Trees maintain balance by ensuring that each node has a minimum number of keys, so the tree is always balanced. This balance guarantees that the time complexity for operations such as insertion, deletion, and searching is always **O(log n)**, regardless of the initial shape of the tree.
 
-## ****Time Complexity of B-Tree:****   
- 
-
+## Time Complexity of B-Tree: 
 
 | Sr. No. | Algorithm | Time Complexity |
 |---------|------------|-----------------|
@@ -25,229 +21,98 @@ B-Trees maintains balance by ensuring that each node has a minimum number of key
 | 2.      | Insert     | O(log n)        |
 | 3.      | Delete     | O(log n)        |
 
-  
-****Note:**** n is the total number of elements in the B-tree
+**Note:** `n` is the total number of elements in the B-tree.
 
-## ****Properties of B-Tree:**** 
-
+## Properties of B-Tree:
 
 *   All leaves are at the same level.
-*   B-Tree is defined by the term minimum degree ‘****t****‘. The value of ‘****t****‘ depends upon disk block size.
-*   Every node except the root must contain at least t-1 keys. The root may contain a minimum of ****1**** key.
-*   All nodes (including root) may contain at most (****2\*t – 1****) keys.
-*   Number of children of a node is equal to the number of keys in it plus ****1****.
-*   All keys of a node are sorted in increasing order. The child between two keys ****k1**** and ****k2**** contains all keys in the range from ****k1**** and ****k2****.
-*   B-Tree grows and shrinks from the root which is unlike Binary Search Tree. Binary Search Trees grow downward and also shrink from downward.
-*   Like other balanced Binary Search Trees, the time complexity to search, insert, and delete is O(log n).
-*   Insertion of a Node in B-Tree happens only at Leaf Node.
+*   B-Tree is defined by the term minimum degree **t**. The value of **t** depends upon disk block size.
+*   Every node except the root must contain at least `t-1` keys. The root may contain a minimum of **1** key.
+*   All nodes (including root) may contain at most **(2 * t – 1)** keys.
+*   Number of children of a node is equal to the number of keys in it plus **1**.
+*   All keys of a node are sorted in increasing order. The child between two keys **k<sub>1</sub>** and **k<sub>2</sub>** contains all keys in the range from **k<sub>1</sub>** to **k<sub>2</sub>**.
+*   B-Tree grows and shrinks from the root, unlike Binary Search Tree. Binary Search Trees grow downward and also shrink from downward.
+*   Like other balanced Binary Search Trees, the time complexity to search, insert, and delete is **O(log n)**.
+*   Insertion of a node in B-Tree happens only at the leaf node.
 
-  
-Following is an example of a B-Tree of minimum order 5   
-****Note:**** that in practical B-Trees, the value of the minimum order is much more than 5. 
-  
-We can see in the above diagram that all the leaf nodes are at the same level and all non-leafs have no empty sub-tree and have keys one less than the number of their children.
+Following is an example of a B-Tree of minimum order 5:  
+**Note:** In practical B-Trees, the value of the minimum order is much more than 5. 
 
-## ****Interesting Facts about B-Trees:**** 
+We can see in the above diagram that all the leaf nodes are at the same level and all non-leaves have no empty sub-tree and have keys one less than the number of their children.
 
-> *   The minimum height of the B-Tree that can exist with n number of nodes and m is the maximum number of children of a node can have is:  <h_sub>min</h_sub> = &lceil; log<sub>m</sub> (n + 1) &rceil; - 1
-> *   The maximum height of the B-Tree that can exist with n number of nodes and t is the minimum number of children that a non-root node can have is:  h<sub>max</sub> = &lfloor;log<sub>t</sub> &nbsp; &frac{n + 1}{2} &rfloor;
- and t = &lceil;&nbsp; &frac{m}{2} &nbsp;&rceil;
+## Interesting Facts about B-Trees:
 
+> The minimum height of the B-Tree that can exist with `n` number of nodes and `m` is the maximum number of children a node can have:  
+> **h<sub>min</sub> = ⌈ log<sub>m</sub> (n + 1) ⌉ - 1**  
+> 
+> The maximum height of the B-Tree that can exist with `n` number of nodes and `t` is the minimum number of children that a non-root node can have:  
+>   **h<sub>max</sub> = ⌊ log<sub>t</sub> ( (n + 1) / 2 ) ⌋**,  
+>   where **t = ⌈ m / 2 ⌉**.
 
-## ****Traversal in B-Tree:**** 
+## Traversal in B-Tree:
 
-Traversal is also similar to Inorder traversal of Binary Tree. We start from the leftmost child, recursively print the leftmost child, then repeat the same process for the remaining children and keys. In the end, recursively print the rightmost child. 
+Traversal is also similar to inorder traversal of a Binary Tree. We start from the leftmost child, recursively print the leftmost child, then repeat the same process for the remaining children and keys. In the end, recursively print the rightmost child. 
 
-## ****Search Operation in B-Tree:**** 
+## Search Operation in B-Tree:
 
-Search is similar to the search in Binary Search Tree. Let the key to be searched is k. 
+Search is similar to the search in a Binary Search Tree. Let the key to be searched be `k`.
 
-*   Start from the root and recursively traverse down. 
-*   For every visited non-leaf node, 
-    *   If the node has the key, we simply return the node. 
-    *   Otherwise, we recur down to the appropriate child (The child which is just before the first greater key) of the node. 
-*   If we reach a leaf node and don’t find k in the leaf node, then return NULL.
+*   Start from the root and recursively traverse down.
+*   For every visited non-leaf node:
+    *   If the node has the key, we simply return the node.
+    *   Otherwise, we recurse down to the appropriate child (the child just before the first greater key) of the node.
+*   If we reach a leaf node and don’t find `k` in the leaf node, return `NULL`.
 
-Searching a B-Tree is similar to searching a binary tree. The algorithm is similar and goes with recursion. At each level, the search is optimized as if the key value is not present in the range of the parent then the key is present in another branch. As these values limit the search they are also known as limiting values or separation values. If we reach a leaf node and don’t find the desired key then it will display NULL.
+Searching a B-Tree is similar to searching a binary tree. The algorithm is similar and goes with recursion. At each level, the search is optimized by using limiting values (separation values) to minimize unnecessary branches. If we reach a leaf node and don’t find the desired key, it will return `NULL`.
 
-## ****Algorithm for Searching an Element in a B-Tree:-****
-
-C++
----
+## Algorithm for Searching an Element in a B-Tree:
 
 ```
 struct Node {
-    int n;
-    int key[MAX_KEYS];
-    Node* child[MAX_CHILDREN];
-    bool leaf;
+	int n;
+	int key[MAX_KEYS];
+	Node* child[MAX_CHILDREN];
+	bool leaf;
 };
 
 Node* BtreeSearch(Node* x, int k) {
-    int i = 0;
-    while (i < x->n && k > x->key[i]) {
-        i++;
-    }
-    if (i < x->n && k == x->key[i]) {
-        return x;
-    }
-    if (x->leaf) {
-        return nullptr;
-    }
-    return BtreeSearch(x->child[i], k);
+	int i = 0;
+	while (i < x->n && k > x->key[i]) {
+		i++;
+	}
+	if (i < x->n && k == x->key[i]) {
+		return x;
+	}
+	if (x->leaf) {
+		return nullptr;
+	}
+	return BtreeSearch(x->child[i], k);
 }
 ```
 
-C
--
+## Examples:
 
-```
-BtreeSearch(x, k)
-    i = 1
-    // n[x] means number of keys in x node
-    while i < n[x] and k > keyi[x]
-        do i = i + 1
-    if i < n[x] and k == keyi[x]
-        then return (x, i)  
-    if leaf[x]
-        then return NIL
-    else
-        return BtreeSearch(ci[x], k)
-
-```
-
-Java
-----
-
-```
-class Node {
-    int n;
-    int[] key = new int[MAX_KEYS];
-    Node[] child = new Node[MAX_CHILDREN];
-    boolean leaf;
-}
-
-Node BtreeSearch(Node x, int k) {
-    int i = 0;
-    while (i < x.n && k >= x.key[i]) {
-        i++;
-    }
-    if (i < x.n && k == x.key[i]) {
-        return x;
-    }
-    if (x.leaf) {
-        return null;
-    }
-    return BtreeSearch(x.child[i], k);
-}
-```
-
-Python3
--------
-
-```
-class Node:
-    def __init__(self):
-        self.n = 0
-        self.key = [0] * MAX_KEYS
-        self.child = [None] * MAX_CHILDREN
-        self.leaf = True
-
-def BtreeSearch(x, k):
-    i = 0
-    while i < x.n and k >= x.key[i]:
-        i += 1
-    if i < x.n and k == x.key[i]:
-        return x
-    if x.leaf:
-        return None
-    return BtreeSearch(x.child[i], k)
-```
-C#
---
-
-```
-class Node {
-    public int n;
-    public int[] key = new int[MAX_KEYS];
-    public Node[] child = new Node[MAX_CHILDREN];
-    public bool leaf;
-}
-
-Node BtreeSearch(Node x, int k) {
-    int i = 0;
-    while (i < x.n && k >= x.key[i]) {
-        i++;
-    }
-    if (i < x.n && k == x.key[i]) {
-        return x;
-    }
-    if (x.leaf) {
-        return null;
-    }
-    return BtreeSearch(x.child[i], k);
-}
-
-```
-Javascript
-----------
-```
-// Define a Node class with properties n, key, child, and leaf
-class Node {
-    constructor() {
-        this.n = 0;
-        this.key = new Array(MAX_KEYS);
-        this.child = new Array(MAX_CHILDREN);
-        this.leaf = false;
-    }
-}
-
-// Define a function BtreeSearch that takes in a Node object x and an integer k
-function BtreeSearch(x, k) {
-    let i = 0;
-    while (i < x.n && k >= x.key[i]) {
-        i++;
-    }
-    if (i < x.n && k == x.key[i]) {
-        return x;
-    }
-    if (x.leaf) {
-        return null;
-    }
-    return BtreeSearch(x.child[i], k);
-}
-```
-
-****Examples:**** 
-
-> ****Input:**** Search 120 in the given B-Tree.   
->  
-> 
+> **Input:** Search 120 in the given B-Tree.
+>
 > ![](./image/output253.png)
-> 
->   
->    
-> ****Solution:****   
->  
-> 
+>
+>  
+> **Solution:**
+>
 > ![](./image/output254.png)
-> 
->   
->  
-> 
+>
+>  
 > ![](./image/output255.png)
-> 
->   
->  
-> 
+>
+>  
 > ![](./image/output256.png)
 
-In this example, we can see that our search was reduced by just limiting the chances where the key containing the value could be present. Similarly if within the above example we’ve to look for 180, then the control will stop at step 2 because the program will find that the key 180 is present within the current node. And similarly, if it’s to seek out 90 then as 90 < 100 so it’ll go to the left subtree automatically, and therefore the control flow will go similarly as shown within the above example.
+In this example, we can see that our search was reduced by just limiting the chances where the key containing the value could be present. Similarly, if within the above example we have to look for 180, then the control will stop at step 2 because the program will find that the key 180 is present within the current node. Similarly, if it’s to search for 90, then as `90 < 100`, it will go to the left subtree automatically, and the control flow will follow the same pattern as shown in the above example.
 
 Below is the implementation of the above approach:
 
-C++
----
+### C++ 
+
 
 ```
 #include <iostream>
@@ -353,8 +218,7 @@ BTreeNode* BTreeNode::search(int k)
     return C[i]->search(k);
 }
 ```
-Java
-----
+### Java
 
 ```
 // Java program to illustrate the sum of two numbers
@@ -451,8 +315,7 @@ class BTreeNode {
 ```
 
 
-Python3
--------
+### Python3
 
 ```
 # Create a node
@@ -550,222 +413,25 @@ if __name__ == "__main__":
 
 ```
 
-C#
---
 
-```
-using System;
+## Applications of B-Trees
 
-class BTreeNode
-{
-    public int[] keys; // An array of keys
-    public int t;      // Minimum degree
-    public BTreeNode[] C; // An array of child pointers
-    public int n;      // Current number of keys
-    public bool leaf;  // Is true when node is leaf. Otherwise false
+-   Used in large databases to access data stored on the disk.
+-   Searching for data in a dataset can be achieved in significantly less time using the B-Tree.
+-   Multilevel indexing can be achieved with the indexing feature.
+-   Most servers also use the B-tree approach.
+-   B-Trees are used in CAD systems to organize and search geometric data.
+-   B-Trees are also used in areas such as natural language processing, computer networks, and cryptography.
 
-    // Constructor
-    public BTreeNode(int t, bool leaf)
-    {
-        this.t = t;
-        this.leaf = leaf;
-        keys = new int[2 * t - 1];
-        C = new BTreeNode[2 * t];
-        n = 0;
-    }
+## Advantages of B-Trees
 
-    // A function to traverse all nodes in a subtree rooted
-    // with this node
-    public void Traverse()
-    {
-        int i;
-        for (i = 0; i < n; i++)
-        {
-            if (leaf == false)
-                C[i].Traverse();
-            Console.Write(keys[i] + " ");
-        }
-        if (leaf == false)
-            C[i].Traverse();
-    }
+-   Guaranteed time complexity of O(log n) for basic operations like insertion, deletion, and searching, making them suitable for large datasets and real-time applications.
+-   B-Trees are self-balancing.
+-   High concurrency and high throughput.
+-   Efficient storage utilization.
 
-    // A function to search a key in the subtree rooted with
-    // this node.
-    public BTreeNode Search(int k)
-    {
-        int i = 0;
-        while (i < n && k > keys[i])
-            i++;
-        if (i < n && keys[i] == k)
-            return this;
-        if (leaf == true)
-            return null;
-        return C[i].Search(k);
-    }
-}
+## Disadvantages of B-Trees
 
-// A BTree
-class BTree
-{
-    BTreeNode root; // Pointer to root node
-    int t;         // Minimum degree
-
-    // Constructor (Initializes tree as empty)
-    public BTree(int t)
-    {
-        root = null;
-        this.t = t;
-    }
-
-    // function to traverse the tree
-    public void Traverse()
-    {
-        if (root != null)
-            root.Traverse();
-    }
-
-    // function to search a key in this tree
-    public BTreeNode Search(int k)
-    {
-        return (root == null) ? null : root.Search(k);
-    }
-}
-
-```
-
-Javascript
-----------
-
-```
-class BTreeNode {
-    constructor(t, leaf = false) {
-        this.t = t; // Minimum degree
-        this.leaf = leaf; // Is true when node is leaf
-        this.keys = []; // An array of keys
-        this.children = []; // An array of child pointers
-    }
-
-    // A function to traverse all nodes in a subtree rooted with this node
-    traverse() {
-        let i;
-        for (i = 0; i < this.keys.length; i++) {
-            // If this is not a leaf, then before printing keys[i],
-            // traverse the subtree rooted with child pointers[i]
-            if (!this.leaf) {
-                this.children[i].traverse();
-            }
-            console.log(this.keys[i]);
-        }
-        // Print the subtree rooted with the last child
-        if (!this.leaf) {
-            this.children[i].traverse();
-        }
-    }
-
-    // A function to search a key in the subtree rooted with this node
-    search(k) {
-        let i = 0;
-        while (i < this.keys.length && k > this.keys[i]) {
-            i++;
-        }
-        // If found, return this node
-        if (i < this.keys.length && this.keys[i] === k) {
-            return this;
-        }
-        // If this is a leaf node
-        if (this.leaf) {
-            return null;
-        }
-        // Go to the appropriate child
-        return this.children[i].search(k);
-    }
-}
-
-class BTree {
-    constructor(t) {
-        this.root = null; // Pointer to root node
-        this.t = t; // Minimum degree
-    }
-
-    // Function to traverse the tree
-    traverse() {
-        if (this.root) {
-            this.root.traverse();
-        }
-    }
-
-    // Function to search a key in this tree
-    search(k) {
-        return this.root ? this.root.search(k) : null;
-    }
-
-    // Function to insert a new key in the B-Tree
-    insert(k) {
-        if (this.root === null) {
-            // Create a new root
-            this.root = new BTreeNode(this.t, true);
-            this.root.keys.push(k); // Insert key
-        } else {
-            if (this.root.keys.length === (2 * this.t) - 1) {
-                // Create a new root
-                const newRoot = new BTreeNode(this.t);
-                newRoot.children.push(this.root); // Old root becomes child of new root
-                this.splitChild(newRoot, 0); // Split the old root
-                const i = (newRoot.keys[0] < k) ? 1 : 0; // Find the child to insert the new key
-                newRoot.children[i].insertNonFull(k);
-                this.root = newRoot; // Update root
-            } else {
-                this.root.insertNonFull(k); // Insert key in non-full root
-            }
-        }
-    }
-
-    // Function to split the child of a node
-    splitChild(x, i) {
-        const t = this.t;
-        const z = new BTreeNode(t, x.children[i].leaf);
-        const y = x.children[i];
-        z.keys = y.keys.splice(t - 1); // Move t-1 keys to z
-        if (!y.leaf) {
-            z.children = y.children.splice(t); // Move the last t children to z
-        }
-        x.keys.splice(i, 0, y.keys.pop()); // Insert median key into x
-        x.children.splice(i + 1, 0, z); // Add z as child of x
-    }
-}
-
-// Usage
-const bTree = new BTree(3);
-bTree.insert(10);
-bTree.insert(20);
-bTree.insert(5);
-bTree.traverse(); // Output: 5, 10, 20
-
-```
-
-
-****Applications of B-Trees:****
---------------------------------
-
-*   It is used in large databases to access data stored on the disk
-*   Searching for data in a data set can be achieved in significantly less time using the B-Tree
-*   With the indexing feature, multilevel indexing can be achieved.
-*   Most of the servers also use the B-tree approach.
-*   B-Trees are used in CAD systems to organize and search geometric data.
-*   B-Trees are also used in other areas such as natural language processing, computer networks, and cryptography.
-
-****Advantages of B-Trees:****
-------------------------------
-
-*    B-Trees have a guaranteed time complexity of O(log n) for basic operations like insertion, deletion, and searching, which makes them suitable for large data sets and real-time applications.
-*    B-Trees are self-balancing.
-*   High-concurrency and high-throughput.
-*   Efficient storage utilization.
-
-****Disadvantages of B-Trees:****
----------------------------------
-
-*   B-Trees are based on disk-based data structures and can have a high disk usage.
-*   Not the best for all cases.
-*   Slow in comparison to other data structures.
-
+-   B-Trees are based on disk-based data structures and can have high disk usage.
+-   Not the best for all cases.
+-   Slower in comparison to other data structures.

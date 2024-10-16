@@ -4,53 +4,54 @@ sidebar_position: 3
 title: Delete Operation in B-Tree
 sidebar_label: Delete Operation in B-Tree
 description: "Removing a key from a B-tree while maintaining balance"
-tags: [b-tree,algorithms, problem-solving, DSA, data structure]
+tags: [b-tree, algorithms, problem-solving, DSA, data structure]
 ---
 
 # Delete Operation in B-Tree
 
-B Trees is a type of data structure commonly known as a Balanced Tree that stores multiple data items very easily. B Trees are one of the most useful data structures that provide ordered access to the data in the database. In this article, we will see the delete operation in the B-Tree. B-Trees are self-balancing trees.
+B-Trees are a type of data structure commonly known as a Balanced Tree that stores multiple data items efficiently. B-Trees provide ordered access to data in a database. In this article, we will explore the delete operation in the B-Tree, which is a self-balancing tree.
 
 ## Deletion Process in B-Trees
 
-Deletion from a B-tree is more complicated than insertion because we can delete a key from any node-not just a leaf—and when we delete a key from an internal node, we will have to rearrange the node’s children. 
+Deleting from a B-tree is more complicated than insertion because we can delete a key from any node—not just a leaf—and when we delete a key from an internal node, we will have to rearrange the node’s children.
 
-As in insertion, we must make sure the deletion doesn’t violate the B-tree properties. Just as we had to ensure that a node didn’t get too big due to insertion, we must ensure that a node doesn’t get too small during deletion (except that the root is allowed to have fewer than the minimum number t-1 of keys). Just as a simple insertion algorithm might have to back up if a node on the path to where the key was to be inserted was full, a simple approach to deletion might have to back up if a node (other than the root) along the path to where the key is to be deleted has the minimum number of keys.
+As with insertion, we must ensure that deletion does not violate B-tree properties. While we ensure that a node doesn’t get too big during insertion, we must ensure that a node doesn’t become too small during deletion (except that the root is allowed to have fewer than the minimum number \(t - 1\) of keys). A simple deletion approach might require backing up if a node (other than the root) along the path to where the key is to be deleted has the minimum number of keys.
 
-The deletion procedure deletes the key k from the subtree rooted at x. This procedure guarantees that whenever it calls itself recursively on a node x, the number of keys in x is at least the minimum degree t. Note that this condition requires one more key than the minimum required by the usual B-tree conditions, so sometimes a key may have to be moved into a child node before recursion descends to that child. This strengthened condition allows us to delete a key from the tree in one downward pass without having to “back up” (with one exception, which we’ll explain). You should interpret the following specification for deletion from a B-tree with the understanding that if the root node x ever becomes an internal node having no keys (this situation can occur in cases 2c and 3b then we delete x, and x’s only child x.c1 becomes the new root of the tree, decreasing the height of the tree by one and preserving the property that the root of the tree contains at least one key (unless the tree is empty).
+The deletion procedure removes the key `k` from the subtree rooted at `x`. This procedure guarantees that whenever it calls itself recursively on a node `x`, the number of keys in `x` is at least the minimum degree \(t\). This strengthened condition allows us to delete a key from the tree in one downward pass without having to "back up" (with one exception). If the root node `x` ever becomes an internal node having no keys, we delete `x`, and `x`’s only child `x.c1` becomes the new root of the tree, decreasing the height of the tree by one and preserving the property that the root of the tree contains at least one key (unless the tree is empty).
 
-Various Cases of Deletion
--------------------------
+## Various Cases of Deletion
 
-****Case 1:**** If the key k is in node x and x is a leaf, delete the key k from x.
+### Case 1:
+If the key `k` is in node `x` and `x` is a leaf, delete the key `k` from `x`.
 
-****Case 2:**** If the key k is in node x and x is an internal node, do the following.
+### Case 2:
+If the key `k` is in node `x` and `x` is an internal node, do the following:
 
-*   If the child y that precedes k in node x has at least t keys, then find the predecessor k0 of k in the sub-tree rooted at y. Recursively delete k0, and replace k with k0 in x. (We can find k0 and delete it in a single downward pass.)
-*   If y has fewer than t keys, then, symmetrically, examine the child z that follows k in node x. If z has at least t keys, then find the successor k0 of k in the subtree rooted at z. Recursively delete k0, and replace k with k0 in x. (We can find k0 and delete it in a single downward pass.)
-*   Otherwise, if both y and z have only t-1 keys, merge k and all of z into y, so that x loses both k and the pointer to z, and y now contains 2t-1 keys. Then free z and recursively delete k from y.
+1. If the child `y` that precedes `k` in node `x` has at least `t` keys, find the predecessor `k0` of `k` in the subtree rooted at `y`. Recursively delete `k0`, and replace `k` with `k0` in `x`.
+2. If `y` has fewer than `t` keys, examine the child `z` that follows `k` in node `x`. If `z` has at least `t` keys, find the successor `k0` of `k` in the subtree rooted at `z`. Recursively delete `k0`, and replace `k` with `k0` in `x`.
+3. Otherwise, if both `y` and `z` have only \(t - 1\) keys, merge `k` and all of `z` into `y`, so that `x` loses both `k` and the pointer to `z`, and `y` now contains \(2t - 1\) keys. Then free `z` and recursively delete `k` from `y`.
 
-****Case 3:**** If the key k is not present in internal node x, determine the root x.c(i) of the appropriate subtree that must contain k, if k is in the tree at all. If x.c(i) has only t-1 keys, execute steps 3a or 3b as necessary to guarantee that we descend to a node containing at least t keys. Then finish by recursing on the appropriate child of x.
+### Case 3:
+If the key `k` is not present in internal node `x`, determine the child `x.c(i)` of the appropriate subtree that must contain `k`, if `k` is in the tree at all. If `x.c(i)` has only \(t - 1\) keys, execute steps 3a or 3b as necessary to ensure that we descend to a node containing at least \(t\) keys. Then finish by recursing on the appropriate child of `x`.
 
-*   If x.c(i) has only t-1 keys but has an immediate sibling with at least t keys, give x.c(i) an extra key by moving a key from x down into x.c(i), moving a key from x.c(i) ’s immediate left or right sibling up into x, and moving the appropriate child pointer from the sibling into x.c(i).
-*   If x.c(i) and both of x.c(i)’s immediate siblings have t-1 keys, merge x.c(i) with one sibling, which involves moving a key from x down into the new merged node to become the median key for that node.
+1. If `x.c(i)` has only \(t - 1\) keys but has an immediate sibling with at least \(t\) keys, give `x.c(i)` an extra key by moving a key from `x` down into `x.c(i)`, moving a key from `x.c(i)`’s immediate left or right sibling up into `x`, and moving the appropriate child pointer from the sibling into `x.c(i)`.
+2. If `x.c(i)` and both of `x.c(i)`’s immediate siblings have \(t - 1\) keys, merge `x.c(i)` with one sibling, which involves moving a key from `x` down into the new merged node to become the median key for that node.
 
-Since most of the keys in a B-tree are in the leaves, deletion operations are most often used to delete keys from leaves. The recursive delete procedure then acts in one downward pass through the tree, without having to back up. When deleting a key in an internal node, however, the procedure makes a downward pass through the tree but may have to return to the node from which the key was deleted to replace the key with its predecessor or successor (cases 2a and 2b).
+Since most of the keys in a B-tree are in the leaves, deletion operations are often used to delete keys from leaves. The recursive delete procedure acts in one downward pass through the tree, without having to back up. When deleting a key in an internal node, however, the procedure makes a downward pass through the tree but may have to return to the node from which the key was deleted to replace the key with its predecessor or successor.
 
-The following figures explain the deletion process. 
+## Visualization of Deletion Process
 
 ![Deletion Operation in B+ Trees](./image/delete2.png)
 
-Deletion Operation in B+ Trees
+*Deletion Operation in B+ Trees*
 
 The next processes are shown below in the figure.
 
-![](./image/delete.png)
+![Deletion Operation in B+ Trees](./image/delete.png)
 
-Deletion Operation in B+ Trees
+*Deletion Operation in B+ Trees*
 
-****Implementation****
-----------------------
+## Implementation
 
 Following is the implementation of the deletion process.
 
@@ -843,7 +844,7 @@ public class Main {
 
 ```
 
-****Output:****
+**Output:**
 ```
 Traversal of tree constructed is  
  1 2 3 4 5 6 7 10 11 12 13 14 15 16 17 18 19 20 21 22 24 25 26  
