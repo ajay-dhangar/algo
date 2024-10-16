@@ -1,5 +1,5 @@
 ---
-id: Reversing a string
+id: reversing-a-string
 title: "How to reverse the string?"
 sidebar_label: "Reversing a string"
 sidebar_position: 4
