@@ -5,8 +5,6 @@ title: Introduction to JavaScript
 sidebar_label: JavaScript Introduction
 ---
 
-# Introduction to JavaScript
-
 Hey, everyone! In this guide, we'll take a journey into **JavaScript**, one of the most popular programming languages used for web development. JavaScript allows you to create interactive, dynamic, and feature-rich web applications. Let's dive into the basics!
 
 <AdsComponent />
@@ -68,9 +66,9 @@ Here’s an example of how JavaScript can enhance a web page by responding to us
 What happens here?
 HTML: Provides the structure (a heading and a button).
 JavaScript: Adds interactivity. When the button is clicked, the heading's text is changed to "Hello, JavaScript!".
-```html
+
 <AdsComponent />
-```
+
 ## 4. Where is JavaScript Used?
 JavaScript is everywhere! From simple web pages to complex applications, here are some areas where it's commonly used:
 
@@ -87,9 +85,10 @@ Frameworks like React Native (for mobile) and Electron (for desktop) allow devel
 Using libraries like Phaser and Three.js, JavaScript can even be used to create 2D and 3D games that run directly in the browser.
 
 ## 5. Adding JavaScript to Your Web Page
+
 To include JavaScript in a web page, you can embed it directly within the HTML using the  tag.
 
-5.1. Inline JavaScript
+### 5.1. Inline JavaScript
 You can add JavaScript code directly inside your HTML:
 
 ```html
@@ -98,8 +97,21 @@ You can add JavaScript code directly inside your HTML:
 </script>
 ```
 
-5.2. External JavaScript
+### 5.2. External JavaScript
 For larger projects, it's better to keep your JavaScript in a separate file:
 ```html
 <script src="main.js"></script>
 ```
+
+### 5.3. Best Practice
+
+- **Separation of Concerns**: Keep your HTML, CSS, and JavaScript separate for better organization.
+- **Asynchronous Loading**: Use the `defer` attribute to load scripts asynchronously without blocking the page rendering.
+
+```html
+<script src="main.js" defer></script>
+```
+
+## 6. Conclusion
+
+JavaScript is a powerful language that drives the interactivity of the web. By learning JavaScript, you can create dynamic web applications, interactive games, and much more. Stay tuned for more JavaScript guides and tutorials!
