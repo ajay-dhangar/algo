@@ -1,5 +1,5 @@
 ---
-id: tail_recursion
+id: tail-recursion
 title: Tail Recursion
 sidebar_label: "Tail Recursion"
 sidebar_position: 3
