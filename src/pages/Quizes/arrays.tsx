@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
-import "../quizes/quizes.css"
 
 const ArrayQuiz: React.FC = () => {
   const questions = [
-    // Easy Questions
     {
       question: (
         <>
-          1.What will the output of the below code?
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
+          1. What will the output of the below code?
+          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
             {`#include <iostream>
 using namespace std;
 
@@ -26,140 +24,137 @@ int main()
       answer: "A) 1, 2",
     },
     {
-      question:
-        "2.The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is",
-      options: ["A) Θ(n)", "B) Θ(logn)", "C) Θ(n*logn)", "D) Θ(1)"],
-      answer: "A) Θ(n)",
-    },
-    {
       question: (
         <>
-          3.An algorithm performs (logN) find operations, N insert operations,
-          (logN) delete operations, and (logN) decrease-key operations on a
-          set of data items with keys drawn from a linearly ordered set. Which
-          one of the following data structures is most suited for the algorithm
-          to achieve the best total asymptotic complexity?
-        </>
-      ),
-      options: [
-        "A) Unsorted array",
-        "B) Min-heap",
-        "C) Sorted array",
-        "D) Sorted doubly linked list",
-      ],
-      answer: "B) Min-heap",
-    },
-    // Average Questions
-    {
-      question:
-        "4.Consider an array consisting of –ve and +ve numbers. What would be the worst-case time complexity of an algorithm to segregate the numbers having the same sign altogether?",
-      options: ["A) O(N)", "B) O(N Log N)", "C) O(N * N)", "D) O(N Log Log N)"],
-      answer: "A) O(N)",
-    },
-    {
-      question: (
-        <>
-          5.Let A[1...n] be an array of n distinct numbers. If i &lt; j and
-          A[i] &gt; A[j], then the pair (i, j) is called an inversion of A. What
-          is the expected number of inversions in any permutation on n elements?
-        </>
-      ),
-      options: [
-        "A) n(n-1)/2",
-        "B) n(n-1)/4",
-        "C) n(n+1)/4",
-        "D) 2n[logn]",
-      ],
-      answer: "A) n(n-1)/2",
-    },
-    {
-      question: (
-        <>
-          6.Consider a two-dimensional array A[20][10]. Assume 4 words per
-          memory cell, the base address of array A is 100, elements are stored
-          in row-major order. What is the address of A[11][5]?
-        </>
-      ),
-      options: ["A) 560", "B) 460", "C) 570", "D) 575"],
-      answer: "A) 560",
-    },
-    {
-      question: (
-        <>
-          7.An array A consists of n integers in locations A[0], A[1], ...,
-          A[n-1]. Complete the following algorithm to cyclically shift the
-          elements of the array to the left by k places:
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`min = n; i = 0;
-while (___________) {
-    temp = A[i]; j = i;
-    while (________) {
-        A[j] = ________;
-        j= (j + k) mod n;
-        if (j < min) then min = j;
-    }
-    A[(n + i — k) mod n] = _________;
-    i = __________;`}
+          2. What will the output of the below code?
+          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+            {`#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    cout << arr[5] << endl;
+    return 0;
+}`}
           </pre>
         </>
       ),
-      options: [
-        "A) i > min; j != (n+i) mod n; A[j + k]; temp; i + 1;",
-        "B) i < min; j != (n+i) mod n; A[j + k]; temp; i + 1;",
-        "C) i > min; j != (n+i+k) mod n; A[(j + k)]; temp; i + 1;",
-        "D) i < min; j != (n+i-k) mod n; A[(j + k)]; temp; i + 1;",
-      ],
-      answer: "A) i > min; j != (n+i) mod n; A[j + k]; temp; i + 1;",
-    },
-    // Difficult Questions
-    {
-      question: "8.Which of the following correctly declares an array?",
-      options: ["A) int algo[20];", "B) int algo;", "C) algo{20};", "D) array algo[20];"],
-      answer: "A) int algo[20];",
+      options: ["A) 5", "B) 0", "C) Garbage value", "D) None"],
+      answer: "C) Garbage value",
     },
     {
       question: (
         <>
-          9.A three-dimensional array in ‘C++’ is declared as int A[x][y][z]. What is the address of an item at the location A[p][q][r]?
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            
+          3. What will the output of the below code?
+          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+            {`#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    cout << arr[4] << endl;
+    return 0;
+}`}
           </pre>
         </>
       ),
-      options: [
-        "A) &A[0][0][0] + w(y * z * q + z * p + r)",
-        "B) &A[0][0][0] + w(y * z * p + z * q + r)",
-        "C) &A[0][0][0] + w(x * y * p + z * q + r)",
-        "D) &A[0][0][0] + w(x * y * q + z * p + r)",
-      ],
-      answer: "A) &A[0][0][0] + w(y * z * q + z * p + r)",
+      options: ["A) 5", "B) 0", "C) 4", "D) None"],
+      answer: "A) 5",
     },
     {
       question: (
         <>
-          10.Let A be a square matrix of size n x n. What is the expected output of the following program?
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`C = 100
-for i = 1 to n do
-    for j = 1 to n do
-    {
-        Temp = A[i][j] + C
-        A[i][j] = A[j][i]
-        A[j][i] = Temp - C
-    }
-for i = 1 to n do
-    for j = 1 to n do
-        Output(A[i][j]);`}
+          4. What will the output of the below code?
+          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+            {`#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    cout << arr[0] << endl;
+    return 0;
+}`}
           </pre>
         </>
       ),
+      options: ["A) 1", "B) 0", "C) 5", "D) None"],
+      answer: "A) 1",
+    },
+    {
+      question: (
+        <>
+          5. What is the time complexity of accessing an element in an array by
+          its index?
+        </>
+      ),
+      options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
+      answer: "A) O(1)",
+    },
+    {
+      question: (
+        <>6. Which of the following statements is true about arrays in C++?</>
+      ),
       options: [
-        "A) Output the transposed matrix",
-        "B) Output the original matrix",
-        "C) Output an identity matrix",
-        "D) Output an error",
+        "A) The elements of an array are stored in contiguous memory locations",
+        "B) The elements of an array are stored in non-contiguous memory locations",
+        "C) The elements of an array are stored in random memory locations",
+        "D) None of the above",
       ],
-      answer: "A) Output the transposed matrix",
+      answer:
+        "A) The elements of an array are stored in contiguous memory locations",
+    },
+    {
+      question: (
+        <>
+          7. In C++, if an array is declared as int arr[5];, what will be the
+          default value of its elements?
+        </>
+      ),
+      options: ["A) 0", "B) 1", "C) Random value", "D) None"],
+      answer: "A) 0",
+    },
+    {
+      question: (
+        <>
+          8. What will be the output of the below code?
+          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+            {`#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[5];
+    cout << arr[0] << endl;
+    return 0;
+}`}
+          </pre>
+        </>
+      ),
+      options: ["A) 0", "B) 1", "C) Random value", "D) None"],
+      answer: "A) 0",
+    },
+    {
+      question: (
+        <>
+          9. What will be the output of the below code?
+          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+            {`#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    cout << arr << endl;
+    return 0;
+}`}
+          </pre>
+        </>
+      ),
+      options: ["A) Address of the first element", "B) 1", "C) 2", "D) None"],
+      answer: "A) Address of the first element",
     },
   ];
 
@@ -178,7 +173,7 @@ for i = 1 to n do
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null); // Reset selected option for the next question
+      setSelectedOption(null);
     } else {
       setShowResult(true);
     }
@@ -186,47 +181,56 @@ for i = 1 to n do
 
   return (
     <Layout>
-      <div style={{ backgroundColor: "lightblue", padding: "20px", borderRadius: "8px", color: "black", maxWidth: "600px", margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center" }}>Quiz on Arrays</h2>
-        {showResult ? (
-          <div style={{ textAlign: "center", marginTop: "20px", padding: "20px", borderRadius: "8px", backgroundColor: "white" }}>
-            <h3 style={{ color: "black" }}>Your Score: <span style={{ fontWeight: "bold", fontSize: "24px" }}>{score}</span> 🎉</h3>
-            <p style={{ fontSize: "18px", lineHeight: "1.6" }}>
-              {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
-            </p>
-          </div>
-        ) : (
-          <div>
-            <h3 style={{ color: "black" }}>{questions[currentQuestion].question}</h3>
-            <div className="options">
-              {questions[currentQuestion].options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleAnswer(option)}
-                  style={{
-                    display: "block",
-                    margin: "10px auto",
-                    padding: "10px",
-                    backgroundColor: selectedOption === option ? "orange" : "white",
-                    border: "1px solid black",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    width: "80%",
-                  }}
-                >
-                  {option}
-                </button>
-              ))}
+      <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-all duration-300 p-4">
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-xl w-full transition-all duration-300">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+            Quiz on Arrays
+          </h2>
+          {showResult ? (
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                Your Score: <span className="text-indigo-500">{score}</span> 🎉
+              </h3>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">
+                {score <= 5
+                  ? "Better luck next time!"
+                  : score <= 8
+                  ? "Good job!"
+                  : "Excellent work!"}
+              </p>
             </div>
-            <button onClick={nextQuestion} style={{ marginTop: "20px", padding: "10px 20px", cursor: "pointer" }}>
-              Next Question
-            </button>
-          </div>
-        )}
+          ) : (
+            <div>
+              <div className="text-gray-800 dark:text-gray-200 mb-4">
+                {questions[currentQuestion].question}
+              </div>
+              <div className="space-y-3">
+                {questions[currentQuestion].options.map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleAnswer(option)}
+                    className={`w-full py-2 px-4 rounded-lg border transition-colors duration-300 ${
+                      selectedOption === option
+                        ? "bg-indigo-500 text-white"
+                        : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+                    } hover:bg-indigo-400 dark:hover:bg-indigo-600 text-left`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={nextQuestion}
+                className="mt-6 w-full py-2 px-4 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-all duration-300"
+              >
+                Next Question
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </Layout>
   );
 };
 
 export default ArrayQuiz;
-
