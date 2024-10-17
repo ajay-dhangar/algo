@@ -18,6 +18,25 @@ Data types are an essential concept in programming languages like JavaScript. Th
    ```javascript
    let greeting = "Hello, World!";
    ```
+   - Template Literals / Template strings
+      - A special type of strings created using backticks(`)
+      ```javascript
+      let info = `Know more about Template Literals`;
+      ```
+      - Allows multi-line strings
+      ```javascript
+      let example = `This is an application 
+                  of template literals 
+                  in JavaScript `;
+      ```
+      - Allows string interpolation :- Template literals allow embedding variables and expressions directly into strings using '${}'
+
+      ```javascript
+      let num = 7,name = "Kim";
+      let interpolatedString = `${name}'s lucky number is ${2*num}`;
+      //Kim's lucky number is 14
+      ```
+
 
    ### Number:
    - Represents both integers and floating-point numbers.
