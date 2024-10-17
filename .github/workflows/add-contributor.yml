@@ -6,14 +6,13 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   update-contributors:
     runs-on: ubuntu-latest
     name: Automate Contributors Update in README
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout Repository
@@ -22,8 +21,8 @@ jobs:
       - name: Update Contributors List in README
         uses: akhilmhdh/contributors-readme-action@v2.3.10
         with:
-          commit_message: "chore: update contributors list in README"
+          commit_message: "update contributors list in README"
           committer_username: "ajay-dhangar"
-          committer_email: "99037494+Ajay-Dhangar@users.noreply.github.com"
+          committer_email: "99037494+ajay-dhangar@users.noreply.github.com"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
