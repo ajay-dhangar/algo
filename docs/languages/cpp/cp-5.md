@@ -1,6 +1,6 @@
 ---
 id: classes-in-cpp
-sidebar_position: 3
+sidebar_position: 5
 title: "Classes In C++"
 sidebar_label: "Classes In C++"
 ---
