@@ -1,3 +1,11 @@
+---
+id: aho-corasick-algorithm
+title: Aho-Corasick Algorithm
+sidebar_label: Aho-Corasick
+tags: [String Matching, DSA, Aho-Corasick, Tries]
+description: Solve the Aho-Corasick problem using efficient string matching to find occurrences of multiple patterns simultaneously in a given text.
+---
+
 # Aho-Corasick Algorithm
 
 ## Description
@@ -7,7 +15,7 @@ The Aho-Corasick algorithm is an efficient string matching algorithm used to fin
 ### Problem Definition
 
 Given:
-- A set of pattern strings P = {p1, p2, ..., pk}
+- A set of pattern strings `P = {p1, p2, ..., pk}`
 - A text string T
 
 Objective:
@@ -125,3 +133,4 @@ int main() {
 
     return 0;
 }
+```
