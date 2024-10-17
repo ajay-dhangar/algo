@@ -1,276 +1,336 @@
 ---
-id: classes-in-cpp
+id: strings-in-cpp
 sidebar_position: 6
-title: "Classes In C++"
-sidebar_label: "Classes In C++"
+title: "Strings In C++"
+sidebar_label: "Strings In C++"
 ---
 
-# Classes in C++
+# Strings in C++
 
-Hey there! In this guide, we'll explore classes in C++. Classes are the foundation of Object-Oriented Programming (OOP) in C++. They allow you to define your own data types, complete with attributes and behaviors. Let's dive in!
+Hey there! In this guide, we'll explore how to work with strings in C++. Strings are used to store sequences of characters and are a vital part of any C++ program. Let's dive in!
 
 ---
 
-## 1. Defining a Class
+## 1. C-Style Strings
 
-A class is a blueprint for creating objects. It can contain variables (attributes) and functions (methods).
-
-#### Syntax:
-
-```cpp
-class ClassName {
-public:
-    // attributes
-    int attribute;
-
-    // methods
-    void method() {
-        // code to be executed
-    }
-};
-```
+C++ inherits its basic string handling capabilities from C, known as C-style strings. These are arrays of characters terminated by a null character (`\0`).
 
 #### Example:
-
 ```cpp
 #include <iostream>
 using namespace std;
 
-class Car {
-public:
-    string brand;
-    string model;
-    int year;
+int main() {
+    char greeting[] = "Hello";
+    cout << greeting << endl;
+    return 0;
+}
+```
 
-    void display() {
-        cout << "Brand: " << brand << ", Model: " << model << ", Year: " << year << endl;
-    }
-};
+#### Output:
+```
+Hello
+```
+
+---
+
+## 2. C++ String Class
+
+C++ provides a more convenient way to handle strings through the `std::string` class, which is part of the C++ Standard Library.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string> // Required for string
+using namespace std;
 
 int main() {
-    Car car1;
-    car1.brand = "Toyota";
-    car1.model = "Corolla";
-    car1.year = 2020;
-    car1.display();
+    string greeting = "Hello, World!";
+    cout << greeting << endl;
+    return 0;
+}
+```
+
+#### Output:
+```
+Hello, World!
+```
+
+---
+
+## 3. Common String Operations
+
+### 3.1 String Length
+
+You can use the `.length()` or `.size()` method to get the length of a string.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string greeting = "Hello, World!";
+    cout << "Length: " << greeting.length() << endl;
+    return 0;
+}
+```
+
+#### Output:
+```
+Length: 13
+```
+
+---
+
+### 3.2 String Concatenation
+
+You can concatenate two strings using the `+` operator or the `.append()` method.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string firstName = "John";
+    string lastName = "Doe";
+    string fullName = firstName + " " + lastName;
+    cout << fullName << endl;
+    return 0;
+}
+```
+
+#### Output:
+```
+John Doe
+```
+
+---
+
+### 3.3 Accessing Characters in a String
+
+You can access individual characters in a string using array-like indexing.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string greeting = "Hello";
+    cout << greeting[0] << endl; // Output: H
+    return 0;
+}
+```
+
+#### Output:
+```
+H
+```
+
+---
+
+## 4. Modifying Strings
+
+### 4.1 Changing Characters
+
+You can modify individual characters in a string using array-like indexing.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string greeting = "Hello";
+    greeting[0] = 'J';
+    cout << greeting << endl; // Output: Jello
+    return 0;
+}
+```
+
+#### Output:
+```
+Jello
+```
+
+---
+
+### 4.2 Substrings
+
+You can extract a substring from a string using the `.substr()` method.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string greeting = "Hello, World!";
+    string sub = greeting.substr(0, 5); // Extracts "Hello"
+    cout << sub << endl;
+    return 0;
+}
+```
+
+#### Output:
+```
+Hello
+```
+
+---
+
+### 4.3 String Comparison
+
+You can compare two strings using the comparison operators (`==`, `!=`, `>`, `<`, etc.) or the `.compare()` method.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str1 = "Hello";
+    string str2 = "World";
+
+    if (str1 == str2) {
+        cout << "Strings are equal" << endl;
+    } else {
+        cout << "Strings are not equal" << endl;
+    }
 
     return 0;
 }
 ```
 
 #### Output:
-
 ```
-Brand: Toyota, Model: Corolla, Year: 2020
+Strings are not equal
 ```
 
 ---
 
-## 2. Constructors
+## 5. String Input
 
-Constructors are special functions that are automatically called when an object is created. They are used to initialize object attributes.
+You can input strings from the user using `cin` and `getline()`.
+
+### 5.1 Using `cin`
+
+`cin` stops reading input at the first space.
 
 #### Example:
-
 ```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
-class Car {
-public:
-    string brand;
-    string model;
-    int year;
+int main() {
+    string name;
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Hello, " << name << endl;
+    return 0;
+}
+```
 
-    // Constructor
-    Car(string b, string m, int y) {
-        brand = b;
-        model = m;
-        year = y;
-    }
+#### Output:
+```
+Enter your name: John
+Hello, John
+```
 
-    void display() {
-        cout << "Brand: " << brand << ", Model: " << model << ", Year: " << year << endl;
-    }
-};
+### 5.2 Using `getline()`
+
+`getline()` reads the entire line, including spaces.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
 
 int main() {
-    Car car1("Toyota", "Corolla", 2020);
-    car1.display();
+    string name;
+    cout << "Enter your full name: ";
+    getline(cin, name);
+    cout << "Hello, " << name << endl;
+    return 0;
+}
+```
+
+#### Output:
+```
+Enter your full name: John Doe
+Hello, John Doe
+```
+
+---
+
+## 6. String Functions
+
+C++ provides several functions to manipulate strings. Some of the most common ones are:
+
+### 6.1 `find()`
+
+Finds the first occurrence of a substring.
+
+#### Example:
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "Hello, World!";
+    size_t pos = str.find("World");
+
+    if (pos != string::npos) {
+        cout << "Found at position: " << pos << endl;
+    } else {
+        cout << "Not found!" << endl;
+    }
 
     return 0;
 }
 ```
 
 #### Output:
-
 ```
-Brand: Toyota, Model: Corolla, Year: 2020
-```
-
----
-
-## 3. Access Modifiers
-
-Access modifiers control the access level of class members. The most common are `public`, `private`, and `protected`.
-
-### 3.1 Public
-
-Members declared as `public` can be accessed from outside the class.
-
-#### Example:
-
-```cpp
-class Car {
-public:
-    string brand; // Accessible from outside
-};
-```
-
-### 3.2 Private
-
-Members declared as `private` can only be accessed from within the class.
-
-#### Example:
-
-```cpp
-class Car {
-private:
-    string brand; // Not accessible from outside
-
-public:
-    void setBrand(string b) {
-        brand = b;
-    }
-
-    string getBrand() {
-        return brand;
-    }
-};
-```
-
-### 3.3 Protected
-
-Protected members are similar to private members but can be accessed in derived classes.
-
-#### Example:
-
-```cpp
-class Vehicle {
-protected:
-    string type;
-};
+Found at position: 7
 ```
 
 ---
 
-## 4. Member Functions
+### 6.2 `replace()`
 
-Member functions operate on objects and can access and modify its attributes.
-
-#### Example:
-
-```cpp
-class Car {
-public:
-    string brand;
-
-    void setBrand(string b) {
-        brand = b;
-    }
-
-    void display() {
-        cout << "Brand: " << brand << endl;
-    }
-};
-```
-
----
-
-## 5. Inheritance
-
-Inheritance allows a class to inherit attributes and methods from another class.
-
-#### Syntax:
-
-```cpp
-class DerivedClass : public BaseClass {
-    // additional members
-};
-```
+Replaces part of the string with another string.
 
 #### Example:
-
 ```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
-class Vehicle {
-public:
-    string brand = "Toyota";
-};
-
-class Car : public Vehicle {
-public:
-    string model = "Corolla";
-};
-
 int main() {
-    Car car1;
-    cout << "Brand: " << car1.brand << ", Model: " << car1.model << endl;
+    string str = "Hello, World!";
+    str.replace(7, 5, "Universe");
+    cout << str << endl;
     return 0;
 }
 ```
 
 #### Output:
-
 ```
-Brand: Toyota, Model: Corolla
-```
-
----
-
-## 6. Polymorphism
-
-Polymorphism allows methods to do different things based on the object that invokes them.
-
-### 6.1 Function Overriding
-
-You can override a base class method in the derived class.
-
-#### Example:
-
-```cpp
-#include <iostream>
-using namespace std;
-
-class Animal {
-public:
-    void sound() {
-        cout << "This is an animal sound." << endl;
-    }
-};
-
-class Dog : public Animal {
-public:
-    void sound() {
-        cout << "The dog barks." << endl;
-    }
-};
-
-int main() {
-    Dog dog1;
-    dog1.sound(); // Calls the overridden method in Dog class
-    return 0;
-}
-```
-
-#### Output:
-
-```
-The dog barks.
+Hello, Universe!
 ```
 
 ---
 
-Classes are essential in C++ for creating objects that represent real-world entities. Understanding how to define classes, use constructors, and leverage OOP principles like inheritance and polymorphism will greatly improve your ability to write clean, reusable, and maintainable code!
+Strings are an essential part of C++ programming, and mastering them will greatly improve your ability to handle text and input in your programs. Happy coding!

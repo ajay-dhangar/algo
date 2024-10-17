@@ -70,7 +70,7 @@ queue[rear] = value;`}
       ],
       answer: "A) Enqueue operation",
     },
-    // Difficult Questions
+    // Difficult QuestionsclassName="options"
     {
       question: "8. Which of the following is not a type of queue?",
       options: ["A) Simple Queue", "B) Circular Queue", "C) Double-ended Queue", "D) Random Queue"],
@@ -148,7 +148,7 @@ enqueue(30);`}
         ) : (
           <div>
             <h3 style={{ color: "black" }}>{questions[currentQuestion].question}</h3>
-            <div>
+            <div className="options">
               {questions[currentQuestion].options.map((option, index) => (
                 <button
                   key={index}

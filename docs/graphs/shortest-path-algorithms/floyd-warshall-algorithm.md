@@ -9,6 +9,8 @@ tags: [dsa, algorithms, shortest path]
 ## Introduction
 The **Floyd-Warshall Algorithm** is an algorithm used to find the shortest paths between all pairs of vertices in a weighted graph. Unlike Dijkstra's or Bellman-Ford algorithms, which find the shortest path from a single source, the Floyd-Warshall algorithm computes the shortest paths between all pairs of vertices. The algorithm works with graphs that have negative weights but does not work with negative weight cycles.
 
+<FloydWarshallVisualizations />
+
 ## Implementation
 
 Let’s see how the Floyd-Warshall Algorithm can be implemented in Java:
