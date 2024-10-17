@@ -1,16 +1,11 @@
 ---
-id: strand_sort
+id: strand-sort
 title: Strand Sort
 sidebar_label: "Strand Sort"
 sidebar_position: 8
-description: An overview of Strand Sort Algorithm and its applications in programming.
-tags: [sorting,dsa,algorithms, programming,strand sort]
+description: An overview of the Strand Sort Algorithm and its applications in programming.
+tags: [sorting, dsa, algorithms, programming, strand sort]
 ---
-
-
-
-# Strand Sort
-(Has Implementation in C,Python and Java)
 
 **Strand Sort** is a recursive sorting algorithm that repeatedly extracts sorted sublists (strands) from the unsorted list and merges them to create a sorted list.
 
