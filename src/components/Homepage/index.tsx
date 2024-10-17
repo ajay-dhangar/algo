@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HeroSection from "./HeroSection";
 import FeaturesSection from "./FeaturesSection";
 import HowItWorksSection from "./HowItWorksSection";
@@ -10,6 +10,7 @@ import UserTestimonialsSection from "./UserTestimonialsSection";
 import CallToActionSection from "./CallToActionSection";
 
 const Homepage: React.FC = () => {
+
   return (
     <div>
       <HeroSection />
@@ -20,7 +21,7 @@ const Homepage: React.FC = () => {
       <GetInvolvedSection />
       <PopularAlgorithmsSection />
       <UserTestimonialsSection />
-      <CallToActionSection />
+      <CallToActionSection />      
     </div>
   );
 };
