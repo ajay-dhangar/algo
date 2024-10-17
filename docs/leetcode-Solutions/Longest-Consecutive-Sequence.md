@@ -69,3 +69,7 @@ class Solution {
         return longest;
     }
 }
+
+```
+Time Complexity: O(n). This is because each element is inserted and checked once.<br/>
+Space Complexity: O(n). The HashSet uses extra space.
