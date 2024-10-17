@@ -1,3 +1,11 @@
+---
+id: partition-equal-subset-sum-algorithm
+title: Partition Equal Subset Sum Algorithm
+sidebar_label: Leetcode 416
+tags: [Leetcode, Dynamic Programming, DSA, Partition Equal Subset Sum]
+description: Solve the Partition Equal Subset Sum problem using dynamic programming to check if a set can be partitioned into two subsets with equal sum.
+---
+
 # Partition Equal Subset Sum Algorithm (LeetCode #416)
 
 ## Description
@@ -52,3 +60,4 @@ bool canPartition(vector<int>& nums) {
 
     return dp[target];
 }
+```
