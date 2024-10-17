@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaDiscord, FaTwitter } from "react-icons/fa";
 import Link from "@docusaurus/Link";
+import GiscusComponent from "@site/src/components/GiscusComponent"; // Import GiscusComponent
 
 const Footer = () => {
+  // State to control the visibility of the GiscusComponent
+  const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
+
+  // Toggle function to show/hide GiscusComponent
+  const toggleFeedback = () => {
+    setIsFeedbackVisible(!isFeedbackVisible);
+  };
+
   return (
     <footer className="bg-[#1a1b26] text-gray-300 py-12">
       <div className="container mx-auto px-6 md:px-8">
@@ -14,13 +23,10 @@ const Footer = () => {
                 alt="Algo Logo"
                 className="w-16 h-16"
               />
-
               <span className="relative top-[-25px] text-3xl text-bold font-semibold ml-2 gradient-text">
                 Algo
               </span>
-
               <div>
-                {/* <h2 className="text-xl font-semibold text-white">Algo</h2> */}
                 <p className="text-gray-300 mt-1">
                   A platform to learn and practice DSA with a collection of
                   algorithms and data structures in various languages.
@@ -159,12 +165,13 @@ const Footer = () => {
               </Link>
             </li>
             <li className="list-none">
-              <Link
-                to="/algo/Feedback/"
-                className="hover:text-[#61dafb] transition-colors duration-300"
+              {/* Feedback Button to toggle GiscusComponent */}
+              <button
+                onClick={toggleFeedback}
+                className="text-indigo-500 dark:text-yellow-400 hover:text-[#61dafb] transition-colors duration-300 focus:outline-none bg-transparent border-none p-0"
               >
                 Feedback
-              </Link>
+              </button>
             </li>
             <li className="list-none">
               <Link
@@ -179,6 +186,13 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Algo, Inc. Built with Docusaurus.
           </p>
         </div>
+
+        {/* Conditionally render GiscusComponent */}
+        {isFeedbackVisible && (
+          <div className="mt-6">
+            <GiscusComponent />
+          </div>
+        )}
       </div>
     </footer>
   );
