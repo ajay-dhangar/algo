@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import "../quizes/quizes.css"
 
 const ArrayQuiz: React.FC = () => {
   const questions = [
@@ -197,7 +198,7 @@ for i = 1 to n do
         ) : (
           <div>
             <h3 style={{ color: "black" }}>{questions[currentQuestion].question}</h3>
-            <div>
+            <div className="options">
               {questions[currentQuestion].options.map((option, index) => (
                 <button
                   key={index}

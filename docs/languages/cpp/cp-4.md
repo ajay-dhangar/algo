@@ -1,6 +1,6 @@
 ---
 id: loops-in-cpp
-sidebar_position: 3
+sidebar_position: 4
 title: "Loops In C++"
 sidebar_label: "Loops In C++"
 ---
