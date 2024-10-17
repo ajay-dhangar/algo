@@ -1,8 +1,8 @@
 ---
-id: introduction-to-java # Unique identifier for the route.
-sidebar_position: 1 # Topic number for the sidebar.
-title: Introduction to Java # Title of the topic.
-sidebar_label: Introduction to Java # Topic label for the sidebar.
+id: introduction-to-java
+sidebar_position: 0
+title: Introduction to Java
+sidebar_label: Introduction to Java
 ---
 
 ## Overview
