@@ -96,6 +96,11 @@ const config = {
             position: "left",
           },
           {
+            to: "contributors",
+            label: "Contributors",
+            position: "left",
+          },
+          {
             type: "dropdown",
             label: "More",
             position: "right",
