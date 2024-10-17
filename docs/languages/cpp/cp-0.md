@@ -1,6 +1,6 @@
 ---
 id: introduction-to-cpp
-sidebar_position: 1
+sidebar_position: 0
 title: "Introduction to C++"
 sidebar_label: "Introduction to C++"
 ---
