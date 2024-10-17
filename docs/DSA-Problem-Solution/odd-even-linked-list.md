@@ -57,7 +57,7 @@ class Solution:
         # Connect the last odd node to the head of the even list
         odd.next = evenHead
         
-        return head  # Return the modified list starting with the head
+        return head
 ```        
 Time Complexity: O(n) <br />
 Space Complexity: O(1)
