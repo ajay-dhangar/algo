@@ -1,7 +1,6 @@
-
 ---
 id: strings-in-cpp
-sidebar_position: 7
+sidebar_position: 6
 title: "Strings In C++"
 sidebar_label: "Strings In C++"
 ---
