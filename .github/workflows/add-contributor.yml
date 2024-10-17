@@ -2,25 +2,27 @@ name: Update Contributors in README
 
 on:
   push:
-    branches: 
+    branches:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
-  contrib-readme-job:
+  update-contributors:
     runs-on: ubuntu-latest
-    name: A job to automate contrib in README
-    permissions:
-      contents: write
-      pull-requests: write
+    name: Automate Contributors Update in README
+
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Update Contributors List
+      - name: Update Contributors List in README
         uses: akhilmhdh/contributors-readme-action@v2.3.10
         with:
-          commit_message: "Updated contributors list"
+          commit_message: "chore: update contributors list in README"
           committer_username: "ajay-dhangar"
           committer_email: "99037494+Ajay-Dhangar@users.noreply.github.com"
         env:
