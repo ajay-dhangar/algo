@@ -152,13 +152,12 @@ If you are using GitHub Pages for hosting, this command is a convenient way to b
 
 We welcome contributions from developers of all experience levels. Please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) file for guidelines.
 
-## Contributors
+## Contributors ✨
 
-A heartfelt thank you to the following individuals for their valuable contributions to this project. Your support and dedication are greatly appreciated:
+Thanks to these amazing people who have contributed to **Algo** project:
 
-<!-- README: contributors -start -->
-
-<!-- README: contributors -end -->
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <br>
 
