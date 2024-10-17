@@ -85,7 +85,7 @@ const Quizes: React.FC = () => {
             
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizes/queue"}
+  onClick={() => window.location.href = "/algo/quizsolutions/queuesol"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>
@@ -105,10 +105,13 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your understanding of Binary Tree structures and traversals.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
-              <FaPlayCircle className="w-5 h-5" />
-              <span>See Solutions</span>
-            </button>
+            <button
+  className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+  onClick={() => window.location.href = "/algo/quizsolutions/binarytree"}
+>
+  <FaPlayCircle className="w-5 h-5" />
+  <span>See Solutions</span>
+</button>
           </motion.div>
 
           {/* Binary Search Tree Quiz Card */}
@@ -123,10 +126,13 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Evaluate your knowledge of Binary Search Tree properties and operations.
             </p>
-            <button className="mt-4 border-none text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 bg-blue-600">
-              <FaPlayCircle className="w-5 h-5" />
-              <span>See Solutions</span>
-            </button>
+            <button
+  className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+  onClick={() => window.location.href = "/algo/quizsolutions/bstsol"}
+>
+  <FaPlayCircle className="w-5 h-5" />
+  <span>See Solutions</span>
+</button>
           </motion.div>
 
           {/* AVL Tree Quiz Card */}
@@ -162,10 +168,13 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Challenge your understanding of the properties and algorithms of Red-Black Trees.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
-              <FaPlayCircle className="w-5 h-5" />
-              <span>See Solutions</span>
-            </button>
+            <button
+  className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+  onClick={() => window.location.href = "/algo/quizsolutions/redblack"}
+>
+  <FaPlayCircle className="w-5 h-5" />
+  <span>See Solutions</span>
+</button>
           </motion.div>
 
           {/* B-Tree Quiz Card */}
@@ -180,10 +189,13 @@ const Quizes: React.FC = () => {
             <p className="text-gray-500 dark:text-gray-400 mt-2">
               Test your understanding of B-Tree properties and their applications.
             </p>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
-              <FaPlayCircle className="w-5 h-5" />
-              <span>See Solutions</span>
-            </button>
+            <button
+  className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
+  onClick={() => window.location.href = "/algo/quizsolutions/btreesol"}
+>
+  <FaPlayCircle className="w-5 h-5" />
+  <span>See Solutions</span>
+</button>
           </motion.div>
         </div>
       </div>

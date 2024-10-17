@@ -28,3 +28,17 @@ narendra-dhangar:
   socials:
     linkedin: narendra-dhangar-880558297
     github: narendra-dhangar
+
+AKSHITHA-CHILUKA:
+  name: Chiluka Akshitha
+  title: B.Tech (IT) Student
+  url: https://github.com/AKSHITHA-CHILUKA
+  image_url: https://github.com/AKSHITHA-CHILUKA.png
+  email: 22wh1a12b5@bvrithyderabad.edu.in
+  page: true # Turns the feature on
+  description: >
+    a passionate software developer with an interest in developing innovative programs.
+  socials:
+    linkedin: https://www.linkedin.com/in/akshitha-chiluka-b19245259/
+    github: https://github.com/AKSHITHA-CHILUKA
+
