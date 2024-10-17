@@ -88,6 +88,8 @@ def nextPermutation(self, nums):
 - **Time Complexity**: O(n)
 - **Space Complexity**: O(1)
 
+---
+
 ### 32. Longest Valid Parentheses
 
 **Description**:  
