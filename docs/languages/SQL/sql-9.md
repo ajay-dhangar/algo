@@ -5,7 +5,9 @@ title: "SQL UPDATE Statement"
 sidebar_label: "SQL UPDATE Statement"
 description: "SQL (Structured Query Language) is a standardized programming language for managing and manipulating relational databases."
 tags: [sql, dbms, database]
----The `UPDATE` statement is used to modify existing records in a table. You can update specific records using the `WHERE` clause, or update all records in a table.
+---
+
+The `UPDATE` statement is used to modify existing records in a table. You can update specific records using the `WHERE` clause, or update all records in a table.
 
 In the statement below, we want to update the address of the customer with `CustomerID` 1.
 
