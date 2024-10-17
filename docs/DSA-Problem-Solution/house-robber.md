@@ -1,3 +1,11 @@
+---
+id: house-robber-algorithm
+title: House Robber Algorithm
+sidebar_label: Leetcode 198
+tags: [Leetcode, Dynamic Programming, DSA, House Robber]
+description: Solve the House Robber problem using dynamic programming to maximize the amount of money that can be robbed from houses without robbing two adjacent houses.
+---
+
 # House Robber Algorithm
 
 ## Description
@@ -52,3 +60,4 @@ int rob(vector<int>& nums) {
 
     return dp[n];
 }
+````
