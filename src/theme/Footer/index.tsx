@@ -160,6 +160,14 @@ const Footer = () => {
             </li>
             <li className="list-none">
               <Link
+                to="/algo/Feedback/"
+                className="hover:text-[#61dafb] transition-colors duration-300"
+              >
+                Feedback
+              </Link>
+            </li>
+            <li className="list-none">
+              <Link
                 to="#"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
