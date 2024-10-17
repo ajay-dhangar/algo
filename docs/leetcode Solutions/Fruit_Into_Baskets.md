@@ -1,3 +1,11 @@
+---
+id: fruit-into-baskets-leetcode-904
+title: Fruit Into Baskets
+sidebar_label: Leetcode 904
+tags: [Leetcode, Sliding Window, HashMap, DSA, Fruit Into Basket]
+description: Solve the Fruit Into Baskets problem using a sliding window and hash map to collect fruits with at most two types.
+---
+
 # Fruit Into Baskets ( Leetcode-904)
 
 ## Description
@@ -62,3 +70,4 @@ int main() {
     cout << "Maximum fruits collected: " << solution.totalFruit(fruits) << endl;
     return 0;
 }
+```
