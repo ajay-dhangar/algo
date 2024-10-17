@@ -2,13 +2,14 @@ name: Update Contributors in README
 
 on:
   push:
-    branches: ["main"]
+    branches: 
+      - main
   workflow_dispatch:
 
 jobs:
   contrib-readme-job:
     runs-on: ubuntu-latest
-    name: A job to automate contrib in readme
+    name: A job to automate contrib in README
     permissions:
       contents: write
       pull-requests: write
