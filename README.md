@@ -156,9 +156,9 @@ We welcome contributions from developers of all experience levels. Please refer 
 
 A heartfelt thank you to the following individuals for their valuable contributions to this project. Your support and dedication are greatly appreciated:
 
-<a href="https://github.com/ajay-dhangar/algo/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ajay-dhangar/algo" />
-</a>
+<!-- README: contributors -start -->
+
+<!-- README: contributors -end -->
 
 <br>
 
