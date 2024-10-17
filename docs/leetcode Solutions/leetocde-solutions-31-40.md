@@ -14,12 +14,12 @@ tags: [leetcode, algorithms, problem-solving, DSA, data structure]
 32. [Longest Valid Parentheses](#32-longest-valid-parentheses)  
 33. [Search in Rotated Sorted Array](#33-search-in-rotated-sorted-array)  
 34. [Find First and Last Position of Element in Sorted Array](#34-find-first-and-last-position-of-element-in-sorted-array)  
-35. [Reverse Nodes in k-Group](#35-reverse-nodes-in-k-group)  
+35. [Search Insert Position](#35-search-insert-position)  
 36. [Remove Duplicates from Sorted Array](#36-remove-duplicates-from-sorted-array)  
-37. [Remove Element](#37-remove-element)  
-38. [Find the Index of the First Occurrence in a String](#38-find-the-index-of-the-first-occurrence-in-a-string)  
-39. [Divide Two Integers](#39-divide-two-integers)  
-40. [Substring with Concatenation of All Words](#40-substring-with-concatenation-of-all-words)  
+37. [Sudoku Solver](#37-sudoku-solver)  
+38. [Count and Say](#38-count-and-say)  
+39. [Combination Sum](#39-combination-sum)  
+40. [Combination Sum II](#40-combination-sum-II)  
 ---
 
 ---
@@ -357,5 +357,455 @@ private int findLast(int[] nums, int target) {
 
 - **Time Complexity**: O(log n)
 - **Space Complexity**: O(1)
+
+---
+
+### 35. Search Insert Position
+
+**Description**:  
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+**Approach**:
+Using Binary Search
+
+**C++ Code**:
+```cpp
+ int searchInsert(vector<int>& nums, int target) {
+        int low=0;
+        int high=nums.size();
+        int mid;
+        if(target>nums[high-1]){
+            return high;
+        }
+        while(low<=high){
+              mid=(low+high)/2;
+            if(nums[mid]==target){  
+                return mid;
+            }
+          
+            if(target<nums[mid]){     
+            high=mid-1;    
+            }else{
+            low=mid+1;        
+            }
+          
+        }
+         return  low;   
+    }
+```
+
+**Python Code**:
+```python
+def searchInsert(self, nums: List[int], target: int) -> int:
+        if target <= nums[0]:
+            return 0
+        elif target > nums[-1]:
+            return len(nums)
+        low = 0
+        high = len(nums)-1
+        while low <= high:
+            mid = (low + high)//2
+            if nums[mid] == target:
+                return mid
+            if nums[mid] < target and target < nums[mid+1]:
+                return mid+1
+            elif nums[mid] < target:
+                low = mid+1
+            else:
+                high = mid
+        return low+1
+```
+
+- **Time Complexity**: O(log n)
+- **Space Complexity**: O(1)
+
+---
+
+### 36. Valid Sudoku
+
+**Description**:  
+Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+
+Each row must contain the digits 1-9 without repetition.
+Each column must contain the digits 1-9 without repetition.
+Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+
+Note:
+A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+Only the filled cells need to be validated according to the mentioned rules.
+
+**Approach**:
+Bit Manipulation
+
+**C++ Code**:
+```cpp
+ bool isValidSudoku(vector<vector<char>>& board) {
+        int R = board.size();
+        int C = board[0].size();
+        unordered_map<char,int> row[9];
+        unordered_map<char,int> col[9];
+        unordered_map<char,int> boxes[9];
+        for(int i=0; i<R; i++) {
+            for(int j=0; j<C; j++) {
+                char ch = board[i][j];
+                if(ch!='.' && (row[i][ch]++ >0 || col[j][ch]++ >0 || boxes[i/3*3+j/3][ch]++ >0)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+```
+
+**Python Code**:
+```python
+def isValidSudoku(self, board: List[List[str]]) -> bool:
+        box_number = lambda r,c: 3*(r//3) + (c//3)
+        hash_map_box = collections.defaultdict(set)
+        hash_map_col = collections.defaultdict(set)
+        hash_map_row = collections.defaultdict(set)
+        
+        for r in range(9):
+            for c, val in enumerate(board[r]):
+                if val=='.':
+                    continue
+                box_index = box_number(r,c)
+                if ((val in hash_map_box[box_index]) or
+                (val in hash_map_row[r]) or
+                (val in hash_map_col[c])):
+                    return False
+                
+                hash_map_row[r].add(val)
+                hash_map_col[c].add(val)
+                hash_map_box[box_index].add(val)
+        return True
+```
+
+- **Time Complexity**: O(n*m)
+- **Space Complexity**: O(n*m)
+
+---
+
+
+### 37. Sudoku Solver
+
+**Description**:  
+Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+
+Each row must contain the digits 1-9 without repetition.
+Each column must contain the digits 1-9 without repetition.
+Each of the nine 3 x 3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+
+Note:
+A Sudoku board (partially filled) could be valid but is not necessarily solvable.
+Only the filled cells need to be validated according to the mentioned rules.
+
+**Approach**:
+Backtracking
+
+**C++ Code**:
+```cpp
+ void solveSudoku(vector<vector<char>>& board) {
+        solve(board);
+    }
+
+    bool solve(vector<vector<char>>& board) {
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                if (board[r][c] == '.') {
+                    for (char d = '1'; d <= '9'; d++) {
+                        if (isValid(board, r, c, d)) {
+                            board[r][c] = d;
+                            if (solve(board)) return true;
+                            board[r][c] = '.';
+                        }
+                    }
+                    return false;
+                }
+            } 
+        }
+        return true;
+    }
+    bool isValid(vector<vector<char>>& board, int r, int c, char d) {
+        for (int row = 0; row < 9; row++)
+            if (board[row][c] == d) return false;
+        for (int col = 0; col < 9; col++)
+            if (board[r][col] == d) return false;
+        for (int row = (r / 3) * 3; row < (r / 3 + 1) * 3; row++)
+            for (int col = (c / 3) * 3; col < (c / 3 + 1) * 3; col++)
+                if (board[row][col] == d) return false;
+        return true;
+    }
+```
+
+**Python Code**:
+```python
+def solveSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: void Do not return anything, modify board in-place instead.
+        """
+        if not board or len(board) == 0:
+            return
+        self.solve(board)
+        
+    def solve(self, board):
+        """
+        rtype: boolean
+        """
+        for i in xrange(len(board)):
+            for j in xrange(len(board[0])):
+                if board[i][j] == '.':
+                    for c in "123456789":
+                        if self.isValid(board, i, j, c):
+                            board[i][j] = c
+                            # If it's the solution return true
+                            if self.solve(board): 
+                                return True
+                            # Otherwise go back
+                            else:
+                                board[i][j] = '.'
+                    return False
+        return True
+        
+    def isValid(self, board, x, y, c):
+        for i in xrange(9):
+            if board[i][y] == c: 
+                return False
+        for j in xrange(9):
+            if board[x][j] == c:
+                return False
+        for i in xrange(3):
+            for j in xrange(3):
+                if board[(x/3)*3 + i][(y/3)*3 + j] == c:
+                    return False
+                    
+        return True
+```
+
+- **Time Complexity**: O(9^m)
+- **Space Complexity**: O(1)
+
+---
+
+### 38. Count and Say
+
+**Description**:  
+The count-and-say sequence is a sequence of digit strings defined by the recursive formula:
+
+countAndSay(1) = "1"
+countAndSay(n) is the run-length encoding of countAndSay(n - 1).
+Run-length encoding (RLE) is a string compression method that works by replacing consecutive identical characters (repeated 2 or more times) with the concatenation of the character and the number marking the count of the characters (length of the run). For example, to compress the string "3322251" we replace "33" with "23", replace "222" with "32", replace "5" with "15" and replace "1" with "11". Thus the compressed string becomes "23321511".
+
+Given a positive integer n, return the nth element of the count-and-say sequence.
+
+**Approach**:
+Iterative approach
+
+**C++ Code**:
+```cpp
+string traverse(string curr) {
+        string ans;
+        int cnt = 1, n = curr.size();
+        char ch = curr[0];
+        for (int i = 1; i < n; ++i) {
+            if (curr[i] != ch) {
+                ans.push_back((char)(cnt + '0'));
+                ans.push_back(ch);
+                ch = curr[i];
+                cnt = 1;
+            } else {
+                ++cnt;
+            }
+        }
+        ans.push_back((char)(cnt + '0'));
+        ans.push_back(ch);
+        return ans;
+    }
+
+    string countAndSay(int n) {
+        string curr = "1";
+        for (int i = 2; i <= n; ++i) {
+            curr = traverse(curr);    
+        } 
+        return curr;
+    }
+```
+
+**Python Code**:
+```python
+def countAndSay(self, n):
+    """
+    :type n: int
+    :rtype: str
+    """
+    s = "0"
+    for i in range(n):
+        s = self.say(s)
+    return s
+
+def say(self, s):
+    sol = ""
+    if len(s) == 0:
+        return sol
+    if s == "0":
+        return "1"
+    count = 1
+    prev = s[0]
+    for j in range(1, len(s)):
+        if s[j] != prev:
+            sol += str(count) + prev
+            count = 1
+            prev = s[j]
+        else:
+            count += 1
+    sol += str(count) + prev
+    return sol
+```
+
+- **Time Complexity**: O(n^2)
+- **Space Complexity**: O(1)
+
+---
+
+### 39. Combination Sum
+
+**Description**:  
+Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+
+The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+
+The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
+
+**Approach**:
+Iterative approach
+
+**C++ Code**:
+```cpp
+ vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<vector<vector<int>>> dp(target + 1);
+        dp[0].push_back({});
+
+        for (int i = 1; i <= target; i++) {
+            for (int candidate : candidates) {
+                if (candidate <= i) {
+                    for (auto& prev : dp[i - candidate]) {
+                        vector<int> temp(prev);
+                        temp.push_back(candidate);
+                        sort(temp.begin(), temp.end());
+                        if (std::find(dp[i].begin(), dp[i].end(), temp) ==
+                            dp[i].end()) {
+                            dp[i].push_back(temp);
+                        }
+                    }
+                }
+            }
+        }
+        return dp[target];
+    }
+```
+
+**Python Code**:
+```python
+def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        dp = [[] for _ in range(target + 1)]
+        dp[0].append([])
+
+        for i in range(1, target + 1):
+            for candidate in candidates:
+                if candidate <= i:
+                    for prev in dp[i - candidate]:
+                        temp = prev + [candidate]
+                        temp.sort()
+                        if temp not in dp[i]:
+                            dp[i].append(temp)
+        return dp[target]
+```
+
+- **Time Complexity**: O(n^3)
+- **Space Complexity**: O(n^2)
+
+---
+
+### 40. Combination Sum II
+
+**Description**:  
+Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+
+Each number in candidates may only be used once in the combination.
+
+Note: The solution set must not contain duplicate combinations.
+
+**Approach**:
+1. Sorting the Array: First, we sort the candidates array. Sorting helps in easily skipping duplicates and ensures that we can break out of the loop early when the remaining candidates cannot form the target sum.
+2. Backtracking:
+-We use a backtracking approach to explore all possible combinations.
+-Start from the first element and try to include it in the current combination.
+-If the current element is the same as the previous element and it wasn't included in the previous combination, skip it to avoid duplicates.
+-Subtract the value of the current element from the target and recursively search for the remaining target in the subarray starting from the next index.
+-If the target becomes 0, it means we have found a valid combination, so we add it to the result list.
+-If the target becomes negative or we run out of elements, backtrack by removing the last element from the current combination.
+3. Pruning the Search:
+-As the array is sorted, if at any pint an element is greater than the target, we can break the loop since no further elements can be part of a valid combination (because they will all be greater).
+
+**C++ Code**:
+```cpp
+ vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        sort(candidates.begin(), candidates.end());
+        vector < vector < int >> ans;
+        vector < int > ds;
+        findCombination(0, target, candidates, ans, ds);
+        return ans;
+    }
+    void findCombination(int ind, int target, vector < int > & arr, vector < vector < int >> & ans, vector < int > & ds) {
+        if (target == 0) {
+            ans.push_back(ds);
+            return;
+        }
+        for (int i = ind; i < arr.size(); i++) {
+            if (i > ind && arr[i] == arr[i - 1]) continue;
+            if (arr[i] > target) break;
+            ds.push_back(arr[i]);
+            findCombination(i + 1, target - arr[i], arr, ans, ds);
+            ds.pop_back();
+        }
+    }
+```
+
+**Python Code**:
+```python
+def combinationSum2(self, candidates, target):
+        ans = []
+        ds = []
+        candidates.sort()
+
+
+        def findCombination(ind, target):
+            if target == 0:
+                ans.append(ds[:])
+                return
+            for i in range(ind, len(candidates)):
+                if i > ind and candidates[i] == candidates[i - 1]:
+                    continue
+                if candidates[i] > target:
+                    break
+                ds.append(candidates[i])
+                findCombination(i + 1, target - candidates[i])
+                ds.pop()
+
+
+        findCombination(0, target)
+        return ans
+```
+
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(n)
 
 ---
