@@ -118,11 +118,11 @@ const config = {
                 label: "Practice",
               },
               {
-                to: "Quizes",
+                to: "quizes",
                 label: "Quizes",
               },
               {
-                to: "QuizSolutions",
+                to: "quiz-solutions",
                 label: "Quizes Solutions",
               },
               {
