@@ -1,3 +1,12 @@
+---
+id: tail_recursion
+title: Tail Recursion
+sidebar_label: "Tail Recursion"
+sidebar_position: 3
+description: An overview of Tail Recursion and its applications in programming.
+tags: [recursion, algorithms, programming]
+---
+
 # Tail Recursion
 
 ## Definition

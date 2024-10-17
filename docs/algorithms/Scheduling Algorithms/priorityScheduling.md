@@ -1,3 +1,12 @@
+---
+id: Priority_Scheduling
+title: Priority Scheduling
+sidebar_label: "Priority Scheduling"
+sidebar_position: 6
+description: An overview of Priority Scheduling and its applications in programming.
+tags: [CPU Scheduling, algorithms, programming,priority]
+---
+
 # Priority Scheduling
 
 **Priority Scheduling** is a CPU scheduling algorithm where each process is assigned a priority, and the CPU is allocated to the process with the highest priority. The process with the highest priority gets executed first. If two processes have the same priority, a scheduling algorithm like FCFS (First-Come, First-Serve) or Round Robin is used to break the tie.

@@ -1,3 +1,12 @@
+---
+id: strand_sort
+title: Strand Sort
+sidebar_label: "Strand Sort"
+sidebar_position: 8
+description: An overview of Strand Sort Algorithm and its applications in programming.
+tags: [sorting,dsa,algorithms, programming,strand sort]
+---
+
 
 
 # Strand Sort

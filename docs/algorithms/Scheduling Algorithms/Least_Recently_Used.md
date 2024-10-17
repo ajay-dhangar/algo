@@ -1,3 +1,12 @@
+---
+id: LRU_Scheduling
+title: Least Recently used Scheduling
+sidebar_label: "Least Recently used Scheduling"
+sidebar_position: 6
+description: An overview of Least Recently used Scheduling and its applications in programming.
+tags: [CPU Scheduling, algorithms, programming,LRU]
+---
+
 # Least Recently Used (LRU) Cache Algorithm
 
 ## Definition
