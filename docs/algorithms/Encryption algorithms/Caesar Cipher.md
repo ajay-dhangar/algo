@@ -1,3 +1,11 @@
+---
+id: caesar-cipher-implementation
+title: Caesar Cipher Implementation
+sidebar_label: Caesar Cipher
+tags: [Cipher, Encryption, String Manipulation, DSA]
+description: A Caesar Cipher shifts each letter in the input string by a given number of positions down or up the alphabet, with non-alphabetic characters remaining unchanged.
+---
+
 # Caesar Cipher Implementation
 
 ## Description
@@ -72,3 +80,4 @@ int main() {
 
     return 0;
 }
+```
