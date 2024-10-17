@@ -1,5 +1,5 @@
 ---
-id: mutual_recursion
+id: mutual-recursion
 title: Mutual Recursion
 sidebar_label: "Mutual Recursion"
 sidebar_position: 1
@@ -11,11 +11,11 @@ tags: [recursion, algorithms, programming]
 # Mutual Recursion
 
 ## Definition
-Mutual recursion occurs when two or more functions call each other in a recursive manner. This means that the execution of one function depends on the execution of another, allowing for a collaborative approach to solving problems.
+Mutual recursion occurs when two or more functions recursively call each other. This means that the execution of one function depends on the execution of another, allowing for a collaborative approach to solving problems.
 
 ## Why It Is Useful
 Mutual recursion is useful for problems where two or more related tasks need to be handled in tandem. It is particularly applicable in:
-- Algorithms that involve alternating behaviors, such as even and odd calculations.
+- Algorithms that involve alternating behaviours, such as even and odd calculations.
 - Solving problems in graph theory, where different conditions can trigger different functions.
 
 ## Time Complexity Analysis
@@ -36,25 +36,25 @@ def is_odd(n):
         return False
     return is_even(n - 1)
 ```
-If \( n = 0 \), the function returns immediately.
+If $ n = 0 $, the function returns immediately.
 
 **Time Complexity:**  
-\( O(1) \)
+$ O(1) $
 
 ### Worst Case
 The worst case occurs when the mutual recursion continues to call each other before reaching a base case.
 
-**Example:** Using the same alternating function: For \( n = 5 \), the function makes multiple calls, alternating between `is_even` and `is_odd`.
+**Example:** Using the same alternating function: For $ n = 5 $, the function makes multiple calls, alternating between `is_even` and `is_odd`.
 
 **Time Complexity:**  
-\( O(n) \)
+$ O(n) $
 
 ## Example Using Mutual Recursion
 
 ### Problem: Check Even or Odd
 
 ### Dry Run
-For \( n = 3 \), the recursive process would look like this:
+For $ n = 3 $, the recursive process would look like this:
 
 1. Start with `is_even(3)`
    - Calls `is_odd(2)`
@@ -69,7 +69,7 @@ For \( n = 3 \), the recursive process would look like this:
 
 ## Advantages of Mutual Recursion
 
-1. **Structured Code**: Mutual recursion can provide a more organized structure for code by separating different behaviors into distinct functions.
+1. **Structured Code**: Mutual recursion can provide a more organized structure for code by separating different behaviours into distinct functions.
 
 2. **Clear Logic**: It can make the logic of certain algorithms clearer, especially when two functions are clearly related to the problem at hand.
 
