@@ -3,17 +3,17 @@
 @tailwind utilities;
 
 ::-webkit-scrollbar {
-    width: 5px;
-    background: #2a2a2a;
+  width: 5px;
+  background: #2a2a2a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--ifm-color-primary);
-    border-radius: 3px;
+  background: var(--ifm-color-primary);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--ifm-color-primary-dark);
+  background: var(--ifm-color-primary-dark);
 }
 
 :root {
@@ -29,8 +29,7 @@
   --ifm-dark-color: rgb(9, 9, 63);
 }
 
-
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: rgb(234 179 8);
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -88,21 +87,21 @@ div[class^="announcementBar_"] .clean-btn {
   color: #3b82f6;
 }
 
-[data-theme='dark'] .navbar {
+[data-theme="dark"] .navbar {
   background-color: #1a202c;
   color: #e5e7eb;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme='dark'] .navbar a {
+[data-theme="dark"] .navbar a {
   color: #f3f4f6; /* Light text for links */
 }
 
-[data-theme='dark'] .navbar a:hover {
+[data-theme="dark"] .navbar a:hover {
   color: #60a5fa; /* Lighter blue hover color in dark mode */
 }
 
-[data-theme='dark'] #__docusaurus_skipToContent_fallback {
+[data-theme="dark"] #__docusaurus_skipToContent_fallback {
   background: linear-gradient(rgba(15, 23, 42, 0.796), rgba(15, 23, 42, 0.23));
 }
 
@@ -123,7 +122,7 @@ a:hover {
   color: transparent;
 }
 
-.footer{
+.footer {
   background-color: #001;
 }
 
@@ -137,3 +136,25 @@ a:hover {
   left: -0.5rem;
   transform: translateY(-5%);
 } */
+
+.ktt10-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0.5rem;
+  background-color: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ktt10-flt {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1000;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--ifm-color-primary);
+}
