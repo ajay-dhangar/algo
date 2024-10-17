@@ -154,10 +154,10 @@ We welcome contributions from developers of all experience levels. Please refer 
 
 ## Contributors ✨
 
-Thanks to these amazing people who have contributed to **Algo** project:
+Thanks to these amazing people who have contributed to the **Algo** project:
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 
 <br>
 
