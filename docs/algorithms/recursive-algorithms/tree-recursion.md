@@ -1,5 +1,5 @@
 ---
-id: tree_recursion
+id: tree-recursion
 title: Tree Recursion
 sidebar_label: "Tree Recursion"
 sidebar_position: 4
