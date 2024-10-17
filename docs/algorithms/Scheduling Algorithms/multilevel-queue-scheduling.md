@@ -1,19 +1,15 @@
 ---
-id: queue_Scheduling
+id: multilevel-queue-scheduling
 title:  Multilevel Queue Scheduling Algorithm
 sidebar_label:  "Multilevel Queue Scheduling Algorithm"
 sidebar_position: 7
-description: An overview of  Multilevel Queue Scheduling Algorithm and its applications in programming.
-tags: [CPU Scheduling, algorithms, programming,queue]
+description: An overview of  the Multilevel Queue Scheduling Algorithm and its applications in programming.
+tags: [CPU Scheduling, algorithms, programming, queue]
 ---
 
-
-# Multilevel Queue Scheduling Algorithm
-
-## Definition
 Multilevel Queue Scheduling is a type of CPU scheduling algorithm where the processes are divided into multiple queues based on certain criteria (like process priority or memory size). Each queue can have its own scheduling algorithm, and processes do not move between queues.
 
-- It is mainly used in systems that can clearly separate processes into categories, such as real-time, system processes, or user processes.
+- It is mainly used in systems that can separate processes into categories, such as real-time, system processes, or user processes.
 - Each queue has a different priority level.
 
 ## Where It Is Used
