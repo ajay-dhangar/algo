@@ -232,7 +232,7 @@ print "balanced"`}
         ) : (
           <div>
             <h3 style={{ color: "black" }}>{`Q${currentQuestion + 1}: `}{questions[currentQuestion].question}</h3>
-            <div>
+            <div className="options">
               {questions[currentQuestion].options.map((option) => (
                 <button
                   key={option}
