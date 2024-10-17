@@ -1,10 +1,8 @@
 ---
-
 id: post-quantum-encryption-algo  
 sidebar_position: 7
 title: Post-Quantum Encryption  
-sidebar_label: Post-Quantum Encryption  
-
+sidebar_label: Post-Quantum Encryption
 ---
 
 ### Definition:
@@ -51,7 +49,7 @@ Post-quantum encryption (PQE) refers to cryptographic algorithms designed to wit
 
 ### C++ Example of Post-Quantum Encryption (Kyber Example):
 
-cpp
+```cpp
 #include <iostream>
 #include <oqs/oqs.h>
 
@@ -91,9 +89,12 @@ int main() {
 
     return 0;
 }
+```
 
+:::note
+This example uses the *liboqs* library, which implements several quantum-safe cryptographic algorithms. You need to install the library and set up your C++ environment to compile and run the code.
+:::
 
-> *Note:* This example uses the *liboqs* library, which implements several quantum-safe cryptographic algorithms. You need to install the library and set up your C++ environment to compile and run the code.
 ### Summary:
 
 Post-quantum encryption represents the future of cryptography in a quantum computing world. With quantum computers potentially capable of breaking traditional encryption schemes, post-quantum cryptographic algorithms like lattice-based, code-based, and hash-based cryptography provide the necessary security. While post-quantum encryption algorithms may require larger keys and more computational resources, their importance in protecting sensitive information against future quantum attacks cannot be overstated.
