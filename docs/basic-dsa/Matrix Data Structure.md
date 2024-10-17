@@ -1,3 +1,11 @@
+---
+id: matrix-data-structure
+sidebar_position: 1
+title: matrix-ds
+sidebar_label: Matrix Data Structure
+description: "One more of the basic Data Structure is Matrix Data structure and we'll know more about it."
+tags: [dsa, Matrix, DataStructure]
+---
 # Matrix Data Structure
 
 A **matrix** is a two-dimensional data structure that consists of rows and columns, forming a rectangular arrangement of numbers or other elements. Matrices are widely used in mathematics, computer science, engineering, and various applications such as graphics, machine learning, and optimization.
@@ -17,7 +25,6 @@ A **matrix** is a two-dimensional data structure that consists of rows and colum
    - **Zero Matrix**: A matrix in which all elements are zero.
 
 ## Representation
-
 In programming languages, matrices can be represented using arrays or lists. For example, in Python, a matrix can be represented using a list of lists:
 
 ```python
@@ -26,7 +33,7 @@ matrix = [
     [1, 2, 3],
     [4, 5, 6]
 ]
-
+```
 # Matrix Operations and Applications
 
 In this example, the first row contains the elements 1, 2, and 3, while the second row contains 4, 5, and 6.
@@ -37,27 +44,24 @@ Several operations can be performed on matrices, including:
 
 1. **Addition**: Two matrices of the same dimensions can be added together by adding their corresponding elements.
 
-   \[
-   C[i][j] = A[i][j] + B[i][j]
-   \]
-
+   $$C[i][j] = A[i][j] + B[i][j]$$
+   
 2. **Subtraction**: Similar to addition, two matrices of the same dimensions can be subtracted.
 
-   \[
-   C[i][j] = A[i][j] - B[i][j]
-   \]
+   
+   $$C[i][j] = A[i][j] - B[i][j]$$
+   
 
 3. **Multiplication**: Matrix multiplication involves the dot product of rows and columns. A matrix with dimensions m x n can be multiplied by a matrix with dimensions n x p to produce a resulting matrix of dimensions m x p.
 
-   \[
-   C[i][j] = '\sum_{k=1}^{n} A[i][k] \times B[k][j]'
-   \]
+   
+   $$C[i][j] = '\sum_{k=1}^{n} A[i][k] \times B[k][j]'$$
+   
 
 4. **Transposition**: The transpose of a matrix is formed by swapping its rows and columns. For a matrix A, the transpose is denoted as A^T.
 
-   \[
-   (A^T)[i][j] = A[j][i]
-   \]
+   $$(A^T)[i][j] = A[j][i]$$
+   
 
 5. **Determinant**: A scalar value that can be computed from a square matrix, providing information about the matrix properties, such as whether it is invertible.
 
