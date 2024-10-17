@@ -15,7 +15,7 @@ const ContributeSection: React.FC = () => {
 
         <div className="grid gap-10 md:grid-cols-3">
           {/* Fork the Repository */}
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl cursor-pointer">
             <FaGithub className="text-4xl text-indigo-500 dark:text-yellow-400 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Fork the Repository</h3>
             <p className="text-gray-600 dark:text-gray-400">
@@ -24,7 +24,7 @@ const ContributeSection: React.FC = () => {
           </div>
 
           {/* Create a New Branch */}
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl cursor-pointer">
             <FaCodeBranch className="text-4xl text-indigo-500 dark:text-yellow-400 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Create a New Branch</h3>
             <p className="text-gray-600 dark:text-gray-400">
@@ -33,7 +33,7 @@ const ContributeSection: React.FC = () => {
           </div>
 
           {/* Submit a Pull Request */}
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl cursor-pointer">
             <FaFileCode className="text-4xl text-indigo-500 dark:text-yellow-400 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Submit a Pull Request</h3>
             <p className="text-gray-600 dark:text-gray-400">

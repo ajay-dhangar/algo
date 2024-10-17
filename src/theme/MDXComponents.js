@@ -5,6 +5,8 @@ import ArrayVisualizations from "@site/src/components/DSA/arrays/ArrayVisualizat
 import BubbleSortVisualization from "@site/src/components/DSA/arrays/BubbleSortVisualization";
 import InsertionSortVisualization from "@site/src/components/DSA/arrays/InsertionSortVisualization";
 import SelectionSortVisualization from "@site/src/components/DSA/arrays/SelectionSortVisualization";
+import DijkstraVisuzalizations from "@site/src/components/DSA/graphs/DijkstraVisualizations";
+import FloydWarshallVisualizations from "@site/src/components/DSA/graphs/FloydWarshallVisualizations";
 import Highlight from "@site/src/components/Highlight";
 import MDXComponents from "@theme-original/MDXComponents";
 // import Image from "@theme/IdealImage";
@@ -26,6 +28,8 @@ export default {
   BubbleSortVisualization,
   SelectionSortVisualization,
   FaReact,
+  DijkstraVisuzalizations,
+  FloydWarshallVisualizations,
   InsertionSortVisualization,
 //   Image,
   LiteYouTubeEmbed,
