@@ -1,5 +1,5 @@
 ---
-id: non_tail_recursion
+id: non-tail-recursion
 title: Non-Tail Recursion
 sidebar_label: "Non-Tail Recursion"
 sidebar_position: 2
