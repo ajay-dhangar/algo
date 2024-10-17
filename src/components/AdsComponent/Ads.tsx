@@ -9,13 +9,22 @@ declare global {
 
 const Ads: React.FC = () => {
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    }
-    catch (err) {
-      console.error(err);
+    const loadAd = () => {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (error) {
+        console.error("Ad loading failed:", error);
+      }
+    };
+
+    // Ensure adsbygoogle script has loaded before pushing ads
+    if (window.adsbygoogle) {
+      loadAd();
+    } else {
+      console.warn("adsbygoogle not available.");
     }
   }, []);
+
   return (
     <>
       <Head>
@@ -32,7 +41,7 @@ const Ads: React.FC = () => {
         data-ad-format="fluid"
         data-ad-client="ca-pub-5832817025080991"
         data-ad-slot="5461416177"
-       />
+      />
     </>
   );
 };
