@@ -1,8 +1,8 @@
 ---
-id: functions-and-methods-in-java-separate # Unique identifier for the route.
-sidebar_position: 5 # Topic number for the sidebar.
-title: Functions and Methods in Java # Title of the topic.
-sidebar_label: Functions vs Methods # Topic label for the sidebar.
+id: functions-and-methods-in-java-separate
+sidebar_position: 5
+title: Functions and Methods in Java
+sidebar_label: Functions vs Methods
 ---
 
 ## Overview
