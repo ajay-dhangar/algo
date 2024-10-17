@@ -69,9 +69,9 @@ const Footer = () => {
           </div>
 
           {/* Resources */}
-          <div>
+          <div className="pl-32">
             <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 pl-0">
               <li className="list-none">
                 <Link
                   to="/algo/docs/"
@@ -102,7 +102,7 @@ const Footer = () => {
           {/* Community */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Community</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 pl-0">
               <li className="list-none">
                 <Link
                   to="#"
