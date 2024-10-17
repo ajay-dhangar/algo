@@ -3,7 +3,7 @@ id: sortings
 title: Sortings Data Structure (C Language)
 sidebar_label: Introduction to Sortings
 description: 'Sorting algorithms are fundamental in computer science, used to arrange data in a particular order, typically ascending or descending. Various sorting techniques are designed to optimize performance based on factors like time complexity, space complexity.'
-tags: [dsa, Sortings, Bubble sort, Insertion sort, Selection sort, Merge sort, Quick sort , C language]
+tags: [dsa, Sortings, Bubble sort, Insertion sort, Selection sort, Merge sort, Quick sort , C language, Heap Sort]
 ---
 
 ### Introduction to Sortings
@@ -331,6 +331,67 @@ display(a,n);
 getch(); 
 } 
 ```
+
+### Heap Sort
+Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It first builds a max heap and then repeatedly extracts the largest element (root of the heap) and places it at the end of the array, reducing the heap size and repeating the process until all elements are sorted.
+
+**Algorithm**
+1. Build a max heap from the input array.
+2. Swap the root (largest element) with the last element of the heap.
+3. Reduce the heap size by one and heapify the root.
+4. Repeat steps 2 and 3 until the heap size is reduced to 1.
+
+**Code:**
+```
+// FUNCTION TO BUILD MAX HEAP
+void heapify(int arr[], int n, int i) {
+    int largest = i; 
+    int left = 2 * i + 1; 
+    int right = 2 * i + 2;
+
+    if (left < n && arr[left] > arr[largest])
+        largest = left;
+
+    if (right < n && arr[right] > arr[largest])
+        largest = right;
+
+    if (largest != i) {
+        swap(&arr[i], &arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+// HEAP SORT FUNCTION
+void heapSort(int arr[], int n) {
+    for (int i = n / 2 - 1; i >= 0; i--){
+        heapify(arr, n, i);
+    }
+
+    for (int i = n - 1; i > 0; i--) {
+        swap(&arr[0], &arr[i]);
+        heapify(arr, i, 0);
+    }
+}
+
+// FUNCTION TO SWAP TWO ELEMENTS
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+```
+
+**Time Complexity**
+O(n log n) – consistently for all cases.
+
+**Space Complexity**
+O(1) – in-place sorting, no extra space required.
+
+**Stability**
+Unstable – the relative order of equal elements may change.
+
+**Usage**
+Used in applications where a guarantee of O(n log n) time is necessary and space is limited.
 
 ### Conclusion
 
