@@ -7,8 +7,6 @@ description: Here are some practice problems for the Two Pointers technique, inc
 tags: [DSA, algorithms, two pointers]
 ---
 
-
-
 ## Problem: Max Distance with Two Pointers (C++)
 ### Problem Statement:
 Given an array arr[] of N positive integers, find the maximum value of j - i such that arr[i] <= arr[j]. The goal is to maximize the distance between the indices while ensuring the condition arr[i] <= arr[j] holds.
@@ -19,8 +17,8 @@ This problem can be solved efficiently using the Two-Pointer Technique along wit
   * LMin[]: Stores the minimum value from the start of the array up to index i.
   * RMax[]: Stores the maximum value from index j to the end of the array.
 
-
 ## Solution in C++:
+```cpp
 #include <iostream>
 #include <vector>
 #include <algorithm> // For std::max and std::min
@@ -79,18 +77,3 @@ int main() {
     cout << "\nMaximum distance: " << maxDiff << endl;
     return 0;
 }
-
-
-### Explanation:
-   * LMin[]: This array is constructed by storing the minimum value encountered from the start up to the current index i. It helps check the condition arr[i] <= arr[j] efficiently.
-
-   * RMax[]: This array is constructed by storing the maximum value encountered from index j to the end of the array. It ensures that arr[j] >= arr[i] when compared with LMin[i].
-
-   * The Two-Pointer Approach traverses both arrays (LMin[] and RMax[]) simultaneously to find the maximum value of j - i where the condition arr[i] <= arr[j] holds.
-
-### Complexity:
- * Time Complexity: O(N), where N is the size of the array. This is due to the linear traversal of the input array and the auxiliary arrays.
- * Space Complexity: O(N) due to the use of auxiliary arrays LMin[] and RMax[].
-
-### Additional Notes:
- * This method efficiently solves the problem in linear time and is optimal compared to brute-force approaches that would run in O(N^2).
