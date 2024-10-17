@@ -1,15 +1,12 @@
 ---
-id: LRU_Scheduling
+id: least-recently-used-scheduling
 title: Least Recently used Scheduling
 sidebar_label: "Least Recently used Scheduling"
 sidebar_position: 6
-description: An overview of Least Recently used Scheduling and its applications in programming.
-tags: [CPU Scheduling, algorithms, programming,LRU]
+description: An overview of Least Recently Used Scheduling and its applications in programming.
+tags: [CPU Scheduling, algorithms, programming, LRU]
 ---
 
-# Least Recently Used (LRU) Cache Algorithm
-
-## Definition
 LRU (Least Recently Used) is a cache replacement algorithm that removes the least recently accessed item when the cache reaches its maximum capacity. It tracks the order in which items are used, ensuring that the most recently accessed items remain in the cache while the least recently accessed are evicted.
 
 - **Key Idea:** When a new item is accessed or added to the cache, it is moved to the front, and when the cache is full, the item at the end (least recently used) is removed.
