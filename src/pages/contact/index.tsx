@@ -158,6 +158,10 @@ const Contact: React.FC = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                required
+                pattern="[a-zA-Z ]+" 
+                onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Please enter a valid destination name without numbers or special characters')}
+                onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-gray-800 dark:text-gray-300 bg-gray-100 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {errors.name && (
