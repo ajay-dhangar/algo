@@ -175,7 +175,7 @@ index denotes the row, and the second index denotes the column. For example, in 
 
    ```
 
-###Applications of 2D Arrays
+### Applications of 2D Arrays
 - Image Processing: In image processing, images are represented as a grid of pixels. The color intensity of each pixel is stored in a 2D array.
 - Graph Algorithms: Graphs are often stored in adjacency matrices, where each cell represents the presence or absence of an edge between two vertices.
 - Game Development: 2D arrays are widely used in board games like chess, checkers, and grid-based puzzles to represent the game state.
