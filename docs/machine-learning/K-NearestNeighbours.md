@@ -155,7 +155,7 @@ Given a dataset with labelled examples (for classification) or continuous target
   The algorithm stores the entire dataset, which consists of n points in d dimensions.
 
 ### Example:
-Consider a simple k-NN classification example for predicting whether a fruit is an apple or an orange based on its features (weight and colour):
+Consider a simple k-NN classification example for predicting whether a fruit is an apple or an orange based on its features (weight and  Color):
 
 - Dataset:
   ```  
@@ -173,7 +173,7 @@ Consider a simple k-NN classification example for predicting whether a fruit is 
    Store the dataset as-is.
    
 2. **Calculate Distances**:  
-   For a new fruit with a weight of 160g and colour value of 7, compute the distance from this point to all existing data points.
+   For a new fruit with a weight of 160g and  Color value of 7, compute the distance from this point to all existing data points.
 
 3. **Find k Nearest Neighbors**:  
    If k=3, identify the 3 closest fruits to the new one based on the shortest distances.
