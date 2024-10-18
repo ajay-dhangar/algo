@@ -1,10 +1,10 @@
 ---
-id: isomorphic-strings
-title: "What are isomorphic strings."
-sidebar_label: "Isomorphic strings"
-sidebar_position: 6
-description: "Isomorphic strings are two strings that can be transformed into each other by a consistent mapping of characters. "
-tags: [String,isomorphic strings]
+id: loop-in-a-linked-list
+title: "Finding loop in a linked list."
+sidebar_label: "loop"
+sidebar_position: 10
+description: "This document includes solution to problem "finding loop in a linked list" along with approach and implementation."
+tags: [Linked list, loop]
 ---
 
 
