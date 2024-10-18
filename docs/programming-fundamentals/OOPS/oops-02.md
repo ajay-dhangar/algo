@@ -64,6 +64,32 @@ class Car {
 ```
 </details>
 
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+class Car {
+    #model; // Private field
+    #year;  // Private field
+
+    // Constructor
+    constructor(model, year) {
+        this.#model = model;
+        this.#year = year;
+    }
+
+    // Method to display car details
+    display() {
+        console.log(`Model: ${this.#model}, Year: ${this.#year}`);
+    }
+}
+
+const myCar = new Car("Toyota", 2020);
+myCar.display(); // Output: Model: Toyota, Year: 2020
+
+```
+</details>
+
 ---
 
 ## **What is an Object?**
@@ -94,6 +120,24 @@ public class Main {
         myCar.display(); // Output: Model: Toyota, Year: 2020
     }
 }
+```
+</details>
+
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+class Car {
+    constructor(model, year) {
+        this.model = model;
+        this.year = year;
+    }
+    display() {
+        console.log(`Model: ${this.model}, Year: ${this.year}`);
+    }
+}
+const myCar = new Car("Toyota", 2020);
+myCar.display(); // Output: Model: Toyota, Year: 2020
 ```
 </details>
 

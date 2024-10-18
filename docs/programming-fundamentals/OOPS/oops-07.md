@@ -23,6 +23,9 @@ Inheritance is a fundamental principle in Object-Oriented Programming (OOP) that
 ### **Example of Inheritance**
 
 
+<details>
+<summary><strong>C++ Code</strong></summary>
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -48,6 +51,31 @@ int main() {
     return 0;
 }
 ```
+</details>
+
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+class Vehicle {
+    move() {
+        console.log("Vehicle is moving");
+    }
+}
+
+class Car extends Vehicle {  // Car inherits from Vehicle
+    honk() {
+        console.log("Car is honking");
+    }
+}
+
+// Main code
+const car = new Car();
+car.move();  // Inherited method
+car.honk();  // Car's own method
+
+```
+</details>
 
 ## Advantages of Inheritance
 Code reuse: Common code is written in the parent class and reused by child classes.
