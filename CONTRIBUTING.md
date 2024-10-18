@@ -98,7 +98,7 @@ tags: [<tag1>, <tag2>]
 #### f. Diagrams and Visuals with Mermaid
 - Create diagrams using Mermaid syntax:
 
-  ```md
+  ````md
     ```mermaid
     graph TD;
         A-->B;
@@ -106,7 +106,7 @@ tags: [<tag1>, <tag2>]
         B-->D;
         C-->D;
     ```
-    ````
+  ````
 
 #### g. Using React Components
 - Import React components for interactivity:
