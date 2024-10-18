@@ -1,5 +1,5 @@
 ---
-id: "sql-update-statement"
+id: sql-update-statement
 sidebar_position: 9
 title: "SQL UPDATE Statement"
 sidebar_label: "SQL UPDATE Statement"
