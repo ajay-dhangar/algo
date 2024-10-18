@@ -59,6 +59,7 @@ const FAQ: React.FC = () => {
                                 {openProblems[key] ? '-' : '+'}
                             </button>
                         </div>
+                        
                         {openProblems[key] && (
                             <motion.div
                                 className="transition-all duration-300"
