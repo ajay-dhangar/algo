@@ -1,5 +1,5 @@
 ---
-id: "sql-drop-statement"
+id: sql-drop-statement
 sidebar_position: 13
 title: "SQL DROP Statement"
 sidebar_label: "SQL DROP Statement"
