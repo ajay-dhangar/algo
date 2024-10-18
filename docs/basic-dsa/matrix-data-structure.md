@@ -6,7 +6,6 @@ sidebar_label: Matrix Data Structure
 description: "One more of the basic Data Structure is Matrix Data structure and we'll know more about it."
 tags: [dsa, Matrix, DataStructure]
 ---
-# Matrix Data Structure
 
 A **matrix** is a two-dimensional data structure that consists of rows and columns, forming a rectangular arrangement of numbers or other elements. Matrices are widely used in mathematics, computer science, engineering, and various applications such as graphics, machine learning, and optimization.
 
