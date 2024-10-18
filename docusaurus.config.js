@@ -96,6 +96,11 @@ const config = {
             position: "left",
           },
           {
+            to: "contributors",
+            label: "Contributors",
+            position: "left",
+          },
+          {
             type: "dropdown",
             label: "More",
             position: "right",
@@ -113,11 +118,11 @@ const config = {
                 label: "Practice",
               },
               {
-                to: "Quizes",
+                to: "quizes",
                 label: "Quizes",
               },
               {
-                to: "QuizSolutions",
+                to: "quiz-solutions",
                 label: "Quizes Solutions",
               },
               {
