@@ -1,5 +1,5 @@
 ---
-id: "sql-alter-table-statement"
+id: sql-alter-table-statement
 sidebar_position: 12
 title: "SQL ALTER TABLE Statement"
 sidebar_label: "SQL ALTER TABLE Statement"
