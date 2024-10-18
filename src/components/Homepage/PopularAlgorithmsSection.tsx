@@ -30,7 +30,7 @@ const PopularAlgorithmsSection: React.FC = () => {
       link: "/docs/category/linked-list", 
     },
     {
-      title: "Recusrion",
+      title: "Recursion",
       description: "Function calls itself for solutions",
       link: "/docs/Recursion/", 
     },
