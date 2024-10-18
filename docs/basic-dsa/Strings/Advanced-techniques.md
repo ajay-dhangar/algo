@@ -1,5 +1,5 @@
 ---
-id: Advanced String
+id: advanced-string
 title: "Advanced Strings"
 sidebar_label: "Adv Strings"
 sidebar_position: 4
