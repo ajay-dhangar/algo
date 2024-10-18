@@ -40,8 +40,9 @@ This document provides a Python implementation of a binary tree and a method to 
            return -1
 
         return max(left_height, right_height) + 1
-
+```
 # Creating a sample binary tree
+ ```
  root = Node(1)
  root.left = Node(2)
  root.right = Node(3)
