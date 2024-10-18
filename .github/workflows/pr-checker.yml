@@ -1,0 +1,33 @@
+name: PR Issue Checker
+# Created my @smog-root.
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  check_pr_description:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check PR Description
+        id: check_pr_description
+        run: |
+          PR_DESCRIPTION="${{ github.event.pull_request.body }}"
+          if [[ -z "$PR_DESCRIPTION" ]]; then
+            echo "PR description is missing."
+            exit 1
+          fi
+
+          if [[ ! "$PR_DESCRIPTION" =~ Fixes\ #[0-9]+ ]]; then
+            echo "The PR description should include 'Fixes #<issue-number>' if not addressing any issue."
+            echo "##[error]Fixes #NEW must be included in the description."
+            exit 1
+          fi
+
+          echo "PR description is valid."
+
+      - name: Output result
+        run: echo "All checks passed."
