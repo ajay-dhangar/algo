@@ -22,25 +22,25 @@ We'll implement a depth-first search (DFS) approach to check if the binary tree 
 ### Java Implementation
 
 ```java
->+ class Solution {
-+    public boolean isBalanced(TreeNode root) {
-+       return dfsHeight(root) != -1;
-+   }
-+    
-+    private int dfsHeight(TreeNode node) {
-+        if (node == null) return 0;
-+        
-+        int leftHeight = dfsHeight(node.left);
-+        if (leftHeight == -1) return -1;
-+        
-+        int rightHeight = dfsHeight(node.right);
-+        if (rightHeight == -1) return -1;
-+        
-+        if (Math.abs(leftHeight - rightHeight) > 1) return -1;
-+        
-+        return Math.max(leftHeight, rightHeight) + 1;
-+    }
-+}
+ class Solution {
+    public boolean isBalanced(TreeNode root) {
+       return dfsHeight(root) != -1;
+   }
+    
+    private int dfsHeight(TreeNode node) {
+        if (node == null) return 0;
+        
+        int leftHeight = dfsHeight(node.left);
+        if (leftHeight == -1) return -1;
+        
+        int rightHeight = dfsHeight(node.right);
+        if (rightHeight == -1) return -1;
+        
+        if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+        
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+}
 ```
 
 ### Explanation
@@ -66,35 +66,35 @@ The space complexity is O(h), where h is the height of the tree. This space is u
 Here's an example of how to use the `Solution` class:
 
 ```java
->+ class TreeNode {
+ class TreeNode {
 +    int val;
-+    TreeNode left;
-+    TreeNode right;
-+    TreeNode(int val) { this.val = val; }
-+}
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int val) { this.val = val; }
+}
 
-+ public class Main {
-+    public static void main(String[] args) {
-+        // Creating a sample binary tree
-+        TreeNode root = new TreeNode(1);
-+        root.left = new TreeNode(2);
-+        root.right = new TreeNode(3);
-+        root.left.left = new TreeNode(4);
-+        root.left.right = new TreeNode(5);
-+        root.left.right.right = new TreeNode(6);
-+        root.left.right.right.right = new TreeNode(7);
+ public class Main {
+   public static void main(String[] args) {
+        // Creating a sample binary tree
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.left.right.right = new TreeNode(6);
+        root.left.right.right.right = new TreeNode(7);
 
-+        // Creating an instance of the Solution class
-+        Solution solution = new Solution();
+        // Creating an instance of the Solution class
+        Solution solution = new Solution();
 
-+        // Checking if the tree is balanced
-+        if (solution.isBalanced(root)) {
-+            System.out.println("The tree is balanced.");
-+        } else {
-+            System.out.println("The tree is not balanced.");
-+        }
-+    }
-+}
+        // Checking if the tree is balanced
+        if (solution.isBalanced(root)) {
+            System.out.println("The tree is balanced.");
+        } else {
+            System.out.println("The tree is not balanced.");
+        }
+    }
+}
 ```
 
 This example creates a binary tree and uses the `Solution` class to check if it's balanced. The output will be "The tree is not balanced." because the left subtree has a depth of 4 while the right subtree has a depth of 1, violating the balance condition.
