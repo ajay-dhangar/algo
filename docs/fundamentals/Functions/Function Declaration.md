@@ -4,7 +4,7 @@ title: Function Declaration
 sidebar_label: Function Declaration
 sidebar_position: 1
 description: Learn about how functions are declared in various programming languages.
-tags: [functions, programming, syntax]
+tags: [functions, fundamental, programming fundamentals, syntax]
 ---
 
 ## Overview
