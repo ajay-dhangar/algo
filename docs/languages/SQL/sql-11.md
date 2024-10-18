@@ -1,5 +1,5 @@
 ---
-id: "sql-insert-into-statement"
+id: sql-insert-into-statement
 sidebar_position: 11
 title: "SQL INSERT INTO Statement"
 sidebar_label: "SQL INSERT INTO Statement"
