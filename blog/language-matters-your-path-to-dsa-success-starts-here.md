@@ -1,7 +1,7 @@
 ---
 slug: language-matters-your-path-to-dsa-success-starts-here
 title: "Language Matters: Your Path to DSA Success Starts Here"
-authors: [ADTYA-JANI]
+authors: [ADITYA-JANI]
 tags: [ADITYA-JANI, programming, dsa, data-structures, algorithms, python, java, c++, learning]
 ---
 In the realm of computer science and software development, mastering Data Structures and Algorithms (DSA) is crucial for creating efficient and effective software solutions. However, a common question arises: Which programming language should one choose to learn DSA? This blog explores the factors to consider when choosing a language for DSA, highlights some of the most popular languages, and provides recommendations based on various scenarios.
