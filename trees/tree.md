@@ -1,3 +1,12 @@
+---
+id: tree-algorithms-cpp
+title: Tree Algorithms in C++
+sidebar_label: Tree Algorithms
+sidebar_position: 5
+description: This document contains implementations of basic tree algorithms in C++ including traversals, BST operations, and tree properties.
+tags: [C++, Trees, Algorithms]
+---
+
 # Tree Algorithms in C++
 
 This repository contains implementations of basic tree algorithms in C++.
