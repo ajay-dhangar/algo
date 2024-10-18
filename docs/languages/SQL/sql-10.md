@@ -1,5 +1,5 @@
 ---
-id: "sql-delete-statement"
+id: sql-delete-statement
 sidebar_position: 10
 title: "SQL DELETE Statement"
 sidebar_label: "SQL DELETE Statement"
