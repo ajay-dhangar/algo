@@ -1,3 +1,12 @@
+---
+id: llama-index-code
+title: Llama Index Code Implementation
+sidebar_label: Code Implementation
+sidebar_position: 1
+description: Code for using LlamaIndex in a document query system.
+tags: [LlamaIndex, Code, LangChain]
+---
+
 ## Llama Index
 
 Llama Index is a Large Language Model (LLM) framework designed for

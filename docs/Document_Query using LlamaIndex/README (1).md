@@ -1,3 +1,14 @@
+---
+id: document-query-llamaindex
+title: Document Query System with LlamaIndex and LLM Integration
+sidebar_label: Document Query
+sidebar_position: 2
+description: A system to query documents using LlamaIndex and integrate it with large language models.
+tags: [LlamaIndex, LLM, Document Query, LangChain]
+---
+
+
+
 # 📖 Document Query System with LlamaIndex and LLM Integration 🚀
 
 Welcome to the **Document Query System** project! This repository demonstrates how to use **LlamaIndex** along with a **Vector Store** and **Large Language Models (LLMs)** to perform efficient document retrieval and query generation using PDF files or web pages. 📑✨
@@ -21,3 +32,5 @@ To get started, clone this repository and install the required packages:
 
 ```bash
 !pip -q install llama-index langchain llama-index-readers-web llama-index-embeddings-langchain llama-index-llms-huggingface langchain-community
+
+ ```
