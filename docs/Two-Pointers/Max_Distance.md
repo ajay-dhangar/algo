@@ -3,7 +3,7 @@ id: practice-problems-on-two-pointers
 title: Practice Problems
 sidebar_label: Practice Problems
 sidebar_position: 3
-description: Here are some practice problems for the Two Pointers technique, including an implementation to find the maximum distance under the constraint arr[i] <= arr[j].
+description: Here are some practice problems for the Two Pointers technique, including an implementation to find the maximum distance between two elements with a specific condition.
 tags: [DSA, algorithms, two pointers]
 ---
 
@@ -79,3 +79,4 @@ int main() {
     cout << "\nMaximum distance: " << maxDiff << endl;
     return 0;
 }
+```
