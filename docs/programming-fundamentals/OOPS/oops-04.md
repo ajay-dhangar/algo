@@ -86,6 +86,40 @@ public class Main {
 ```
 </details>
 
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+//JavaScript doesn't have a built-in concept of abstract classes like in Java or C++, but you can mimic this 
+//behavior using a combination of class inheritance and throwing errors when an abstract method is not implemented.
+
+class Animal {
+    // Abstract method
+    sound() {
+        throw new Error("Abstract method 'sound' must be implemented by subclass");
+    }
+
+    // Concrete method
+    sleep() {
+        console.log("Sleeping...");
+    }
+}
+
+class Dog extends Animal {
+    // Implement the abstract method
+    sound() {
+        console.log("Woof!");
+    }
+}
+
+// Main code
+const dog = new Dog();
+dog.sound(); // Calls the sound method
+dog.sleep(); // Calls the sleep method from the Animal class
+
+```
+</details>
+
 --- 
 ## **2. What is an Interface?**
 
@@ -147,6 +181,34 @@ public class Main {
 }
 ```
 </details>
+
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+// JavaScript does not have a built-in concept of interfaces like Java or C++, but you can simulate 
+// interfaces by defining a structure that classes must follow.
+
+class IAnimal {
+    sound() {
+        throw new Error("Method 'sound()' must be implemented");
+    }
+}
+
+class Cat extends IAnimal {
+    // Implementing the sound method
+    sound() {
+        console.log("Meow!");
+    }
+}
+
+// Main code
+const cat = new Cat();
+cat.sound(); // Calls the sound method
+
+```
+</details>
+
 
 ---
 

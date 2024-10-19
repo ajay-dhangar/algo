@@ -41,7 +41,7 @@ const Quizes: React.FC = () => {
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizsolutions/arraysol"}
+  onClick={() => window.location.href = "#"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>
@@ -62,7 +62,7 @@ const Quizes: React.FC = () => {
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizsolutions/stacksol"}
+  onClick={() => window.location.href = "#"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>
@@ -85,7 +85,7 @@ const Quizes: React.FC = () => {
             
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizsolutions/queuesol"}
+  onClick={() => window.location.href = "#"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>
@@ -107,7 +107,7 @@ const Quizes: React.FC = () => {
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizsolutions/binarytree"}
+  onClick={() => window.location.href = "#"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>
@@ -128,7 +128,7 @@ const Quizes: React.FC = () => {
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizsolutions/bstsol"}
+  onClick={() => window.location.href = "#"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>
@@ -149,7 +149,7 @@ const Quizes: React.FC = () => {
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizes/avl"}
+  onClick={() => window.location.href = "#"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>
@@ -170,7 +170,7 @@ const Quizes: React.FC = () => {
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizsolutions/redblack"}
+  onClick={() => window.location.href = "#"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>
@@ -191,7 +191,7 @@ const Quizes: React.FC = () => {
             </p>
             <button
   className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-  onClick={() => window.location.href = "/algo/quizsolutions/btreesol"}
+  onClick={() => window.location.href = "#"}
 >
   <FaPlayCircle className="w-5 h-5" />
   <span>See Solutions</span>

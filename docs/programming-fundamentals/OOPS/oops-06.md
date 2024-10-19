@@ -23,6 +23,9 @@ Encapsulation is a core concept in Object-Oriented Programming (OOP) that involv
 ### **Example of Encapsulation**
 
 
+<details>
+<summary><strong>C++ Code</strong></summary>
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -48,6 +51,35 @@ int main() {
     return 0;
 }
 ```
+
+</details>
+
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+class Employee {
+    #salary;  // Private field
+
+    // Setter method for salary
+    setSalary(salary) {
+        this.#salary = salary;
+    }
+
+    // Getter method for salary
+    getSalary() {
+        return this.#salary;
+    }
+}
+
+// Main code to demonstrate encapsulation
+const emp = new Employee();
+emp.setSalary(5000);
+console.log(`Employee Salary: ${emp.getSalary()}`); // Output: Employee Salary: 5000
+
+```
+
+</details>
 
 ## Advantages of Encapsulation
 Increased security by restricting access to sensitive data.

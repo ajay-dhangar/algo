@@ -73,6 +73,33 @@ public class Main {
 ```
 </details>
 
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+// In JavaScript, abstract methods are not natively supported, but we can simulate abstract behavior 
+// by throwing an error in the base class method and forcing subclasses to implement it.
+class Shape {
+    // Simulate an abstract method
+    draw() {
+        throw new Error("Method 'draw()' must be implemented");
+    }
+}
+
+class Circle extends Shape {
+    // Implementing the abstract method
+    draw() {
+        console.log("Drawing Circle");
+    }
+}
+
+// Main code
+const circle = new Circle();
+circle.draw(); // Output: Drawing Circle
+
+```
+</details>
+
 ---
 
 ## **2. Encapsulation**
@@ -147,6 +174,36 @@ public class Main {
 ```
 </details>
 
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+class BankAccount {
+    #balance; // Private field
+
+    constructor() {
+        this.#balance = 0; // Initialize balance in constructor
+    }
+
+    // Method to deposit money
+    deposit(amount) {
+        this.#balance += amount;
+    }
+
+    // Method to display balance
+    displayBalance() {
+        console.log(`Balance: ${this.#balance}`);
+    }
+}
+
+// Main code
+const account = new BankAccount();
+account.deposit(1000);
+account.displayBalance(); // Output: Balance: 1000
+
+```
+</details>
+
 ---
 
 ## **3. Inheritance**
@@ -215,6 +272,30 @@ public class Main {
 ```
 </details>
 
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+class Animal {
+    eat() {
+        console.log("Eating...");
+    }
+}
+
+class Dog extends Animal { // Dog inherits from Animal
+    bark() {
+        console.log("Woof!");
+    }
+}
+
+// Main code
+const dog = new Dog();
+dog.eat(); // Inherited method
+dog.bark(); // Dog's own method
+
+```
+</details>
+
 ---
 
 ## **4. Polymorphism**
@@ -278,6 +359,33 @@ public class Main {
 ```
 </details>
 
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+// JavaScript does not support method overloading in the same way that Java does. 
+// Instead, you can achieve similar functionality by using a single method that checks 
+// the types of its arguments and performs the appropriate operation.
+
+class Math {
+    add(a, b) {
+        // Check types of a and b
+        if (typeof a === 'number' && typeof b === 'number') {
+            return a + b; // Addition
+        } else {
+            throw new Error("Invalid arguments: Both arguments must be numbers");
+        }
+    }
+}
+
+// Main code
+const math = new Math();
+console.log("Int Addition: " + math.add(5, 10)); // Output: Int Addition: 15
+console.log("Double Addition: " + math.add(5.5, 10.5)); // Output: Double Addition: 16
+
+```
+</details>
+
 ### **4.2 Runtime Polymorphism**
 
 Also known as **method overriding**, it occurs when a derived class provides a specific implementation of a method that is already defined in its base class. The decision about which method to call is made at runtime.
@@ -336,6 +444,29 @@ public class Main {
         animal.sound(); // Calls Dog's sound method
     }
 }
+```
+</details>
+
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+class Animal {
+    sound() { // Base class method
+        console.log("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    sound() { // Override method
+        console.log("Woof!");
+    }
+}
+
+// Main code
+const animal = new Dog(); // Reference to base class
+animal.sound(); // Calls Dog's sound method, Output: Woof!
+
 ```
 </details>
 
