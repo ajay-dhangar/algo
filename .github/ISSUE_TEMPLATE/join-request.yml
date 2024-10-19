@@ -1,0 +1,37 @@
+name: "Join Algo Community"
+description: "Request to join the Algo Community"
+title: "Join Request: [Your Name Here]"
+labels: ["join-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the details below to request to join the Algo Community.
+
+  - type: input
+    attributes:
+      label: "Full Name"
+      description: "Your full name."
+      placeholder: "John Doe"
+      required: true
+
+  - type: input
+    attributes:
+      label: "Email"
+      description: "Your email address."
+      placeholder: "john@example.com"
+      required: true
+
+  - type: input
+    attributes:
+      label: "GitHub Username"
+      description: "Your GitHub username."
+      placeholder: "@username"
+      required: true
+
+  - type: textarea
+    attributes:
+      label: "Why do you want to join?"
+      description: "Briefly describe why you want to join the Algo Community."
+      placeholder: "I would like to join because..."
+      required: true
