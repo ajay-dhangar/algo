@@ -12,13 +12,22 @@ const FAQ: React.FC = () => {
         isValidParentheses: false,
     });
 
-    const handleToggle = (problem) => {
+    const [copiedProblem, setCopiedProblem] = useState(""); 
+
+    const handleToggle = (problem: string) => {
         setOpenProblems((prev) => ({
             ...prev,
             [problem]: !prev[problem],
         }));
     };
-    // Combine both problems into an array for easier rendering
+
+    const handleCopySolution = (solution: string, problemKey: string) => {
+        navigator.clipboard.writeText(solution).then(() => {
+            setCopiedProblem(problemKey); 
+            setTimeout(() => setCopiedProblem(""), 2000); 
+        });
+    };
+
     const problemKeys = Object.keys(problemsData);
 
     return (
@@ -27,7 +36,6 @@ const FAQ: React.FC = () => {
             description="Find answers to the most common questions about Algo."
         >
             <div className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-                {/* Header Section */}
                 <section className="container mx-auto py-12 px-6 md:px-12 text-center">
                     <motion.h1
                         className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 dark:text-white"
@@ -59,7 +67,7 @@ const FAQ: React.FC = () => {
                                 {openProblems[key] ? '-' : '+'}
                             </button>
                         </div>
-                        
+
                         {openProblems[key] && (
                             <motion.div
                                 className="transition-all duration-300"
@@ -77,11 +85,21 @@ const FAQ: React.FC = () => {
                                         </li>
                                     ))}
                                 </ul>
+                                <div className="relative bg-gray-100 p-4 rounded border-l-4 border-black">
+                                    <h2 className="text-xl font-bold">Solution:</h2>
+                                    <button
+                                        className="absolute top-2 right-2 text-white py-2 px-4 rounded"
+                                        style={{ backgroundColor: '#060270', hover: { backgroundColor: '#040160' },border:'2px solid #060270', }}
+                                        onClick={() => handleCopySolution(problemsData[key].solution, key)}
+                                    >
+                                        {copiedProblem === key ? "Copied!" : "Copy"}
+                                    </button>
+                                    <pre className="solution-code bg-gray-200 p-4 rounded font-bold mt-2">
+                                        {problemsData[key].solution}
+                                    </pre>
+                                </div>
 
-                                <h2 className="text-xl bg-gray-100 p-4 rounded border-l-4 border-black font-bold ">Solution:</h2>
-                                <pre className="solution-code bg-gray-200 p-4 rounded font-bold">
-                                    {problemsData[key].solution}
-                                </pre>
+
                             </motion.div>
                         )}
                     </div>
