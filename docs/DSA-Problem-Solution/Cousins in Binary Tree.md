@@ -1,253 +1,190 @@
 ---
-id: loop-in-a-linked-list
-title: "Finding a Loop in a Linked List"
-sidebar_label: "Loop"
-sidebar_position: 10
-description: "This document includes the solution to the problem of finding a loop in a linked list, along with the approach and implementation."
-tags: [Linked list, loop]
+id: cousins-in-binary-tree
+title: "Cousins in Binary Tree"
+sidebar_label: "Cousins"
+sidebar_position: 11
+description: "This document includes the solution to the problem of determining if two nodes in a binary tree are cousins, along with the approach and implementation."
+tags: [binary tree, cousins]
 ---
 
-# Finding a Loop in a Linked List
+# Cousins in Binary Tree
 
 ## Problem Description
 
-In a linked list, a **loop** occurs when a node's next pointer points back to a previous node, creating a cycle. Detecting a loop is crucial, as it can lead to infinite traversals and memory issues. The goal is to determine whether a loop exists in the linked list and, if so, identify the node where the loop begins.
+Given the root of a binary tree with unique values and the values of two different nodes of the tree, `x` and `y`, return `true` if the nodes corresponding to the values `x` and `y` in the tree are cousins, or `false` otherwise.
+
+Two nodes of a binary tree are considered cousins if they have the same depth but different parents.
+
+Note that in a binary tree, the root node is at depth 0, and children of each depth `k` node are at depth `k + 1`.
 
 ## Approach
 
-One of the most efficient methods for detecting a loop in a linked list is **Floyd's Cycle-Finding Algorithm**, also known as the "Tortoise and Hare" algorithm.
+To determine if two nodes are cousins, we can use a **Breadth-First Search (BFS)** approach. We will traverse the tree level by level while keeping track of the parent of each node and their respective depths.
 
 ### Steps:
 
-1. **Initialization**: Use two pointers, `slow` and `fast`. The `slow` pointer moves one step at a time, while the `fast` pointer moves two steps at a time.
+1. **Initialization**: Use a queue to facilitate the BFS traversal. Store each node along with its parent and depth.
 
-2. **Traversal**:
-   - Start both pointers at the head of the linked list.
-   - Move `slow` by one node and `fast` by two nodes in each iteration.
-   - If `fast` reaches the end of the list (`null`), there is no loop.
-   - If `slow` equals `fast`, a loop exists.
+2. **BFS Traversal**:
+   - Dequeue each node from the front of the queue.
+   - If the current node has children, enqueue them along with their parent and the incremented depth.
+   - Check if both `x` and `y` are found at the same depth but with different parents.
 
-3. **Finding the Start of the Loop**:
-   - Once a loop is detected, to find the starting node of the loop:
-     - Move one pointer back to the head of the list and keep the other at the meeting point.
-     - Move both pointers one step at a time; the node where they meet is the start of the loop.
+3. **Return Result**:
+   - If both nodes are found to be cousins during the traversal, return `true`.
+   - If the traversal ends without finding them, return `false`.
 
 ## Java Implementation
 
 ```java
-class Node {
-    int value;
-    Node next;
+import java.util.LinkedList;
+import java.util.Queue;
 
-    Node(int value) {
-        this.value = value;
-        this.next = null;
-    }
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
 }
 
-class LinkedList {
-    Node head;
+class Solution {
+    public boolean isCousins(TreeNode root, int x, int y) {
+        if (root == null) return false;
+        
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            boolean foundX = false, foundY = false;
+            
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                
+                // Check if both x and y are found at the same level
+                if (node.val == x) foundX = true;
+                if (node.val == y) foundY = true;
 
-    // Detect loop using Floyd's Cycle-Finding Algorithm
-    public Node detectLoop() {
-        Node slow = head;
-        Node fast = head;
+                // Check for siblings (same parent)
+                if (node.left != null && node.right != null) {
+                    if ((node.left.val == x && node.right.val == y) || 
+                        (node.left.val == y && node.right.val == x)) {
+                        return false; // x and y are siblings, not cousins
+                    }
+                }
 
-        // Phase 1: Detect loop
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if (slow == fast) { // Loop detected
-                break;
+                // Add child nodes to the queue
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
             }
+
+            // If both x and y are found at the same level, they are cousins
+            if (foundX && foundY) return true;
         }
 
-        // No loop
-        if (fast == null || fast.next == null) {
-            return null;
-        }
-
-        // Phase 2: Find the start of the loop
-        slow = head;
-        while (slow != fast) {
-            slow = slow.next;
-            fast = fast.next;
-        }
-
-        return slow; // Start of the loop
-    }
-
-    // Method to create a loop for testing
-    public void createLoop(int loopStartIndex) {
-        Node loopStartNode = head;
-        Node lastNode = head;
-        int index = 0;
-
-        // Find the loop start node
-        while (index < loopStartIndex) {
-            loopStartNode = loopStartNode.next;
-            index++;
-        }
-
-        // Find the last node
-        while (lastNode.next != null) {
-            lastNode = lastNode.next;
-        }
-
-        // Create the loop
-        lastNode.next = loopStartNode;
-    }
-}
-
-// Example usage
-public class Main {
-    public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.head = new Node(1);
-        ll.head.next = new Node(2);
-        ll.head.next.next = new Node(3);
-        ll.head.next.next.next = new Node(4);
-        ll.head.createLoop(1); // Creating a loop back to node with value 2
-
-        Node loopStart = ll.detectLoop();
-        if (loopStart != null) {
-            System.out.println("Loop detected at node with value: " + loopStart.value);
-        } else {
-            System.out.println("No loop detected.");
-        }
+        return false; // Not cousins if the loop completes
     }
 }
 //C++ Implementation
 #include <iostream>
+#include <queue>
 
-class Node {
-public:
-    int value;
-    Node* next;
+using namespace std;
 
-    Node(int val) : value(val), next(nullptr) {}
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-class LinkedList {
+class Solution {
 public:
-    Node* head;
+    bool isCousins(TreeNode* root, int x, int y) {
+        if (!root) return false;
+        
+        queue<TreeNode*> q;
+        q.push(root);
+        
+        while (!q.empty()) {
+            int size = q.size();
+            bool foundX = false, foundY = false;
 
-    LinkedList() : head(nullptr) {}
+            for (int i = 0; i < size; i++) {
+                TreeNode* node = q.front();
+                q.pop();
+                
+                // Check if both x and y are found at the same level
+                if (node->val == x) foundX = true;
+                if (node->val == y) foundY = true;
 
-    // Detect loop using Floyd's Cycle-Finding Algorithm
-    Node* detectLoop() {
-        Node* slow = head;
-        Node* fast = head;
+                // Check for siblings (same parent)
+                if (node->left && node->right) {
+                    if ((node->left->val == x && node->right->val == y) ||
+                        (node->left->val == y && node->right->val == x)) {
+                        return false; // x and y are siblings, not cousins
+                    }
+                }
 
-        // Phase 1: Detect loop
-        while (fast != nullptr && fast->next != nullptr) {
-            slow = slow->next;
-            fast = fast->next->next;
-
-            if (slow == fast) { // Loop detected
-                break;
+                // Add child nodes to the queue
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
             }
+
+            // If both x and y are found at the same level, they are cousins
+            if (foundX && foundY) return true;
         }
 
-        // No loop
-        if (fast == nullptr || fast->next == nullptr) {
-            return nullptr;
-        }
-
-        // Phase 2: Find the start of the loop
-        slow = head;
-        while (slow != fast) {
-            slow = slow->next;
-            fast = fast->next;
-        }
-
-        return slow; // Start of the loop
-    }
-
-    // Method to create a loop for testing
-    void createLoop(int loopStartIndex) {
-        Node* loopStartNode = head;
-        Node* lastNode = head;
-        int index = 0;
-
-        // Find the loop start node
-        while (index < loopStartIndex) {
-            loopStartNode = loopStartNode->next;
-            index++;
-        }
-
-        // Find the last node
-        while (lastNode->next != nullptr) {
-            lastNode = lastNode->next;
-        }
-
-        // Create the loop
-        lastNode->next = loopStartNode;
+        return false; // Not cousins if the loop completes
     }
 };
-
-// Example usage
-int main() {
-    LinkedList ll;
-    ll.head = new Node(1);
-    ll.head->next = new Node(2);
-    ll.head->next->next = new Node(3);
-    ll.head->next->next->next = new Node(4);
-    ll.head->createLoop(1); // Creating a loop back to node with value 2
-
-    Node* loopStart = ll.detectLoop();
-    if (loopStart != nullptr) {
-        std::cout << "Loop detected at node with value: " << loopStart->value << std::endl;
-    } else {
-        std::cout << "No loop detected." << std::endl;
-    }
-
-    return 0;
-}
 //Python Implementation
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
+from collections import deque
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
-    def detect_loop(self):
-        slow = fast = self.head
+class Solution:
+    def isCousins(self, root: TreeNode, x: int, y: int) -> bool:
+        if not root:
+            return False
+        
+        queue = deque([root])
+        
+        while queue:
+            size = len(queue)
+            foundX = foundY = False
 
-        # Phase 1: Detect loop
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-            if slow == fast:  # Loop detected
-                break
-        else:
-            return None  # No loop
+            for _ in range(size):
+                node = queue.popleft()
+                
+                # Check if both x and y are found at the same level
+                if node.val == x:
+                    foundX = True
+                if node.val == y:
+                    foundY = True
 
-        # Phase 2: Find the start of the loop
-        slow = self.head
-        while slow != fast:
-            slow = slow.next
-            fast = fast.next
+                # Check for siblings (same parent)
+                if node.left and node.right:
+                    if (node.left.val == x and node.right.val == y) or \
+                       (node.left.val == y and node.right.val == x):
+                        return False  # x and y are siblings, not cousins
 
-        return slow  # Start of the loop
+                # Add child nodes to the queue
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
 
-# Example usage
-if __name__ == "__main__":
-    ll = LinkedList()
-    ll.head = Node(1)
-    ll.head.next = Node(2)
-    ll.head.next.next = Node(3)
-    ll.head.next.next.next = Node(4)
-    ll.head.next.next.next.next = ll.head.next  # Creating a loop
+            # If both x and y are found at the same level, they are cousins
+            if foundX and foundY:
+                return True
+        
+        return False  # Not cousins if the loop completes
 
-    loop_start = ll.detect_loop()
-    if loop_start:
-        print(f"Loop detected at node with value: {loop_start.value}")
-    else:
-        print("No loop detected.")
 
 Time Complexity: O(n) <br />
-Space Complexity: O(1)
+Space Complexity: O(n)
