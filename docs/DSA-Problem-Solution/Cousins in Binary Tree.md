@@ -184,7 +184,10 @@ class Solution:
                 return True
         
         return False  # Not cousins if the loop completes
+        ```
 
 
-Time Complexity: O(n) <br />
-Space Complexity: O
+
+
+### Time Complexity: O(n) 
+### Space Complexity: O(n)
