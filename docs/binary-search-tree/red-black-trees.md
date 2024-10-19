@@ -1,15 +1,11 @@
 ---
-
 id: rbt-intro  
-sidebar_position: 2  
+sidebar_position: 17 
 title: Red-Black Trees  
 sidebar_label: Red-Black Trees  
 description: "In this blog post, we'll explore Red-Black trees, a type of self-balancing binary search tree that guarantees logarithmic time complexity for search, insertion, and deletion operations."  
-tags: [dsa, data structures, rbt]  
-
+tags: [dsa, data structures, rbt]
 ---
-
-## Introduction
 
 A **Red-Black Tree (RBT)** is a self-balancing binary search tree (BST) that ensures the tree remains approximately balanced after insertions and deletions. The primary goal of a Red-Black Tree is to keep the height of the tree O(log n), ensuring efficient operations.
 
