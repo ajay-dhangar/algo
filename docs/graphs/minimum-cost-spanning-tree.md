@@ -7,11 +7,11 @@ tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 
 ---
 
-### Definition:
+A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tree that has the smallest possible total edge weight among all spanning trees. An MST connects all vertices in the graph without cycles and with the minimum sum of edge weights.
 
-A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tree that has the smallest possible total edge weight among all spanning trees. An MST connects all vertices in the graph without cycles and with the minimum sum of edge weights. 
+<AdsComponent />
 
-### Characteristics:
+## Characteristics:
 
 - **Optimal Substructure**:  
   MST exhibits optimal substructure, meaning that an MST of a graph contains the MSTs of its subgraphs.
@@ -19,7 +19,7 @@ A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tre
 - **Greedy Approach**:  
   Both Prim's and Kruskal's algorithms use a greedy strategy to find the MST. They build the MST by adding edges in a way that minimizes the total weight while ensuring no cycles are formed.
 
-### Prim's Algorithm:
+## Prim's Algorithm:
 
 1. **Initialization**:  
    Start with an arbitrary vertex and mark it as part of the MST. Initialize a priority queue (min-heap) to keep track of the edges.
@@ -30,7 +30,9 @@ A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tre
 3. **Repeat**:  
    Repeat the process until all vertices are included in the MST.
 
-### Time Complexity of Prim's Algorithm:
+<Ads />
+
+## Time Complexity of Prim's Algorithm:
 
 - **Time Complexity**: $O(E \log V)$  
   The complexity arises from maintaining the priority queue for the edges, where E is the number of edges and V is the number of vertices.
@@ -49,19 +51,20 @@ A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tre
 4. **Repeat**:  
    Continue until the MST contains exactly \(V-1\) edges, where V is the number of vertices.
 
-### Time Complexity of Kruskal's Algorithm:
+## Time Complexity of Kruskal's Algorithm:
 
 - **Time Complexity**: $O(E \log E + E \log V)$  
   The complexity comes from sorting the edges and performing union-find operations.
 
-### Example:
+## Example:
 
 Consider the following graph with vertices and weighted edges:
 
+<AdsComponent />
 
-### Step-by-Step Execution:
+## Step-by-Step Execution:
 
-#### Prim's Algorithm:
+### Prim's Algorithm:
 
 1. **Initialization**:  
    Start from vertex A and add edges to the priority queue:  
@@ -78,7 +81,7 @@ Consider the following graph with vertices and weighted edges:
 
 The final MST contains edges: `{(A, B), (B, D), (A, C)}` with a total weight of `1 + 2 + 3 = 6`.
 
-#### Kruskal's Algorithm:
+### Kruskal's Algorithm:
 
 1. **Edge Sorting**:  
    Sorted edges: `{(A, B, 1), (B, D, 2), (A, C, 3), (B, C, 4), (D, C, 5)}`.
@@ -90,7 +93,7 @@ The final MST contains edges: `{(A, B), (B, D), (A, C)}` with a total weight of 
 
 The final MST contains edges: `{(A, B), (B, D), (A, C)}` with a total weight of `1 + 2 + 3 = 6`.
 
-### C++ Implementation of Prim's Algorithm:
+## C++ Implementation of Prim's Algorithm:
 
 ```cpp
 #include <iostream>
@@ -150,8 +153,10 @@ int main() {
 
     return 0;
 }
+```
 
-### C++ Implementation of Kruskal Algorithm:
+## C++ Implementation of Kruskal Algorithm:
+
 ```cpp
 
 #include <iostream>
@@ -230,7 +235,10 @@ int main() {
     kruskalMST(edges, V);
     return 0;
 }
+```
 
-### Conclusion:
+<Ads />
 
- Prim's and Kruskal's algorithms. Both algorithms efficiently find the MST of a weighted graph, ensuring that all vertices are connected with the minimum total edge weight. Understanding these algorithms is fundamental for various applications in computer science, including network design, clustering, and resource management.
+## Conclusion:
+
+Prim's and Kruskal's algorithms. Both algorithms efficiently find the MST of a weighted graph, ensuring that all vertices are connected with the minimum total edge weight. Understanding these algorithms is fundamental for various applications in computer science, including network design, clustering, and resource management.
