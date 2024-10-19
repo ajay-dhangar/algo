@@ -87,6 +87,7 @@ This pattern extends binary search to two-dimensional arrays or matrices. It cov
 | Find the Smallest Divisor | Medium | [LeetCode](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/) | [Explanation](https://takeuforward.org/arrays/find-the-smallest-divisor-given-a-threshold/) |
 | Aggressive Cows | Hard | [GeeksforGeeks](https://www.geeksforgeeks.org/problems/aggressive-cows/0) | [Explanation](https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/) |
 | Median of Two Sorted Arrays | Hard | [LeetCode](https://leetcode.com/problems/median-of-two-sorted-arrays/) | [Explanation](https://takeuforward.org/data-structure/median-of-two-sorted-arrays-of-different-sizes) |
+| Capacity to Ship Packages Within D days | Medium | [LeetCode](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/description/) | [Explanation](https://takeuforward.org/arrays/capacity-to-ship-packages-within-d-days/) |
 
 ### Pattern 3: Binary Search on 2D Arrays
 
