@@ -1,17 +1,17 @@
 ---
 id: pattern-search-2d
-title: Pattern Search in 2-D Arrays
-sidebar_label: Introduction to Pattern Search in 2-D Arrays
+title: "Introduction to Pattern Search in 2-D Arrays"
+sidebar_label: "Pattern Search in 2-D Arrays"
 sidebar_position: 1
-description: The Pattern Search in 2-D Arrays algorithm efficiently finds a specified pattern within a two-dimensional array, making it useful in various applications such as image processing and text recognition.
+description: "The Pattern Search in 2-D Arrays algorithm efficiently finds a specified pattern within a two-dimensional array, making it useful in various applications such as image processing and text recognition."
 tags: [basic-dsa, data-structures, Pattern Search]
 ---
 
-### Definition
-
 The Pattern Search in 2-D Arrays algorithm is used to locate a specific pattern or subarray within a two-dimensional array (matrix). This method is particularly useful in applications such as image processing, where one may need to find specific shapes or features within a larger image.
 
-### Characteristics
+<AdsComponent />
+
+## Characteristics
 
 - **Search in Two Dimensions**:
   - The algorithm is designed to work with matrices, allowing for horizontal, vertical, and diagonal searches.
@@ -22,18 +22,20 @@ The Pattern Search in 2-D Arrays algorithm is used to locate a specific pattern 
 - **Efficient Searching**:
   - Depending on the implementation, it can provide efficient searching capabilities, especially in matrices with specific constraints.
 
-### Time Complexity
+## Time Complexity
 
-- **Best Case: O(m * n)**
+- **Best Case: $O(m * n)$**
   - In the best case, where the pattern is found early, the search complexity is linear relative to the size of the matrix.
 
-- **Average and Worst Case: O(m * n * p * q)**
+- **Average and Worst Case: $O(m * n * p * q)$**
   - In the worst case, the algorithm may need to compare each element of the matrix (m x n) with every element of the pattern (p x q), leading to higher complexity.
 
-- **Space Complexity: O(1)**
+- **Space Complexity: $O(1)$**
   - The algorithm can be implemented with constant extra space, not accounting for the input matrix.
 
-### Python Implementation
+<Ads />
+
+## Python Implementation
 
 ```python
 def search_pattern(matrix, pattern):
@@ -83,3 +85,4 @@ if __name__ == "__main__":
     
     found = search_pattern(matrix, pattern)
     print("Pattern found:", found)  # Output: True
+```
