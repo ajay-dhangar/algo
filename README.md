@@ -557,17 +557,17 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/770navyasharma">
-                    <img src="https://avatars.githubusercontent.com/u/115488727?v=4" width="100;" alt="770navyasharma"/>
-                    <br />
-                    <sub><b>Navya Sharma</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/Subashree-selvaraj">
                     <img src="https://avatars.githubusercontent.com/u/132484553?v=4" width="100;" alt="Subashree-selvaraj"/>
                     <br />
                     <sub><b>subashree</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/770navyasharma">
+                    <img src="https://avatars.githubusercontent.com/u/115488727?v=4" width="100;" alt="770navyasharma"/>
+                    <br />
+                    <sub><b>Navya Sharma</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -578,17 +578,17 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/meghanakn473">
+                    <img src="https://avatars.githubusercontent.com/u/165137755?v=4" width="100;" alt="meghanakn473"/>
+                    <br />
+                    <sub><b>K N Meghana</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/yogeswari05">
                     <img src="https://avatars.githubusercontent.com/u/137740335?v=4" width="100;" alt="yogeswari05"/>
                     <br />
                     <sub><b>Chekka Yogeswari</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/vedhcet-07">
-                    <img src="https://avatars.githubusercontent.com/u/176995332?v=4" width="100;" alt="vedhcet-07"/>
-                    <br />
-                    <sub><b>Vishwas M D</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -601,10 +601,10 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/meghanakn473">
-                    <img src="https://avatars.githubusercontent.com/u/165137755?v=4" width="100;" alt="meghanakn473"/>
+                <a href="https://github.com/vedhcet-07">
+                    <img src="https://avatars.githubusercontent.com/u/176995332?v=4" width="100;" alt="vedhcet-07"/>
                     <br />
-                    <sub><b>K N Meghana</b></sub>
+                    <sub><b>Vishwas M D</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -777,6 +777,13 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 		</tr>
 		<tr>
             <td align="center">
+                <a href="https://github.com/NishantRana07">
+                    <img src="https://avatars.githubusercontent.com/u/126577697?v=4" width="100;" alt="NishantRana07"/>
+                    <br />
+                    <sub><b>Nishant Rana</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/MithanshuHedau">
                     <img src="https://avatars.githubusercontent.com/u/144697427?v=4" width="100;" alt="MithanshuHedau"/>
                     <br />
@@ -811,6 +818,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>AJ</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/akash70629">
                     <img src="https://avatars.githubusercontent.com/u/76689571?v=4" width="100;" alt="akash70629"/>
@@ -818,8 +827,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Akash Das</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/oebelus">
                     <img src="https://avatars.githubusercontent.com/u/71945388?v=4" width="100;" alt="oebelus"/>
@@ -855,6 +862,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Sejal</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Suvadip-sana">
                     <img src="https://avatars.githubusercontent.com/u/78638404?v=4" width="100;" alt="Suvadip-sana"/>
@@ -862,8 +871,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Suvadip Sana</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/aasritha-24">
                     <img src="https://avatars.githubusercontent.com/u/171145729?v=4" width="100;" alt="aasritha-24"/>
@@ -899,6 +906,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Thalla Jayanth</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/ImgBotApp">
                     <img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100;" alt="ImgBotApp"/>
@@ -906,8 +915,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Imgbot</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/IRFANSARI2">
                     <img src="https://avatars.githubusercontent.com/u/171218596?v=4" width="100;" alt="IRFANSARI2"/>
