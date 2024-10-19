@@ -17,126 +17,126 @@ const GetInvolvedSection: React.FC = () => {
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          
-        <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-    Hackathons
-  </h3>
-  <p className="text-gray-600 dark:text-gray-300 mb-4">
-    Participate in our hackathons to showcase your skills and win exciting prizes!
-  </p>
-  {/* Center the button */}
-  <div className="flex justify-center">
-    <Link
-      to="#"
-      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-    >
-      Learn More
-    </Link>
-  </div>
-  <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
-</div>
 
 
-          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-white mb-2">
+              Hackathons
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Participate in our hackathons to showcase your skills and win exciting prizes!
+            </p>
+            {/* Center the button */}
+            <div className="flex justify-center">
+              <Link
+                to="#"
+                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+          </div>
+
+
+          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Workshops
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Join our workshops to learn about the latest technologies and best
               practices in software development.
             </p>
             <div className="flex justify-center">
-    <Link
-      to="#"
-      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-    >
-      Learn More
-    </Link>
-  </div>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+              <Link
+                to="#"
+                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
           {/* Event 3 */}
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Community Meetups
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Connect with fellow contributors and share ideas at our regular
               community meetups.
             </p>
             <div className="flex justify-center">
-    <Link
-      to="#"
-      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-    >
-      Learn More
-    </Link>
-  </div>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+              <Link
+                to="#"
+                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
           {/* Event 4 */}
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Mentorship Programs
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Sign up for our mentorship programs to get guidance from
               experienced developers in the industry.
             </p>
             <div className="flex justify-center">
-    <Link
-      to="#"
-      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-    >
-      Learn More
-    </Link>
-  </div>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+              <Link
+                to="#"
+                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
           {/* Event 5 */}
           {/* Event 5 */}
-<div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-    Online Courses
-  </h3>
-  <p className="text-gray-600 dark:text-gray-300 mb-4">
-    Enroll in our online courses to gain valuable skills and certifications.
-  </p>
-  {/* Center the button */}
-  <div className="flex justify-center">
-    <Link
-      to="#"
-      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-    >
-      Learn More
-    </Link>
-  </div>
-  <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
-</div>
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Online Courses
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Enroll in our online courses to gain valuable skills and certifications.
+            </p>
+            {/* Center the button */}
+            <div className="flex justify-center">
+              <Link
+                to="#"
+                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+          </div>
 
 
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Open Source Contributions
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Contribute to our project and enhance your coding skills while
               making a positive impact!
             </p>
             <div className="flex justify-center">
-    <Link
-      to="#"
-      className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700"
-    >
-      Learn More
-    </Link>
-  </div>
-            <div className="absolute inset-0 bg-blue-100 opacity-30 rounded-lg"></div>
+              <Link
+                to="#"
+                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
         </div>
       </div>

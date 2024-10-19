@@ -28,3 +28,31 @@ narendra-dhangar:
   socials:
     linkedin: narendra-dhangar-880558297
     github: narendra-dhangar
+
+AKSHITHA-CHILUKA:
+  name: Chiluka Akshitha
+  title: B.Tech (IT) Student
+  url: https://github.com/AKSHITHA-CHILUKA
+  image_url: https://github.com/AKSHITHA-CHILUKA.png
+  email: 22wh1a12b5@bvrithyderabad.edu.in
+  page: true # Turns the feature on
+  description: >
+    a passionate software developer with an interest in developing innovative programs.
+  socials:
+    linkedin: https://www.linkedin.com/in/akshitha-chiluka-b19245259/
+    github: https://github.com/AKSHITHA-CHILUKA
+
+
+ADITYA-JANI:
+  name: Aditya Jani
+  title: First-Year MCA Student, Developer, Tech Enthusiast
+  url: https://github.com/AdityaJani616
+  image_url: https://github.com/AdityaJani616.png
+  email: adityajani616@gmail.com
+  page: true # Turns the feature on
+  description: >
+    A passionate developer with an interest in building solutions that blend technology and social impact. I am a Full Stack Developer, with a keen interest in projects related to web development, and community-driven initiatives. 
+  socials:
+    linkedin: https://www.linkedin.com/in/adityajani616
+    github: https://github.com/AdityaJani616
+    portfolio: https://portfolio-azure-tau-65.vercel.app/

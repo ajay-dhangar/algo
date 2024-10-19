@@ -30,7 +30,7 @@ const PopularAlgorithmsSection: React.FC = () => {
       link: "/docs/category/linked-list", 
     },
     {
-      title: "Recusrion",
+      title: "Recursion",
       description: "Function calls itself for solutions",
       link: "/docs/Recursion/", 
     },
@@ -45,7 +45,7 @@ const PopularAlgorithmsSection: React.FC = () => {
           <span className="text-blue-600 dark:text-yellow-400">Algorithms</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {algorithms.map((algorithm, index) => (
             <motion.div
             key={index}

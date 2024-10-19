@@ -1,9 +1,8 @@
-
 ---
-id: bitonic-sort-algo  
-sidebar_position: 12  
-title: Bitonic Sort  
-sidebar_label: Bitonic Sort  
+id: bitonic-sort-algo
+sidebar_position: 12
+title: Bitonic Sort
+sidebar_label: Bitonic Sort
 description: A detailed guide on the Bitonic Sort algorithm with Python implementation examples.
 tags: [bitonic sort, algorithms, sorting algorithms]
 ---
@@ -15,9 +14,11 @@ Bitonic sort is a **parallel sorting algorithm** that can sort a sequence of num
 ### Characteristics:
 
 - **Bitonic Sequence**:
+
   - A bitonic sequence is a sequence that first increases and then decreases, or vice versa. Bitonic sort leverages this property to efficiently split and merge subarrays.
 
 - **Parallel Sorting**:
+
   - Bitonic sort is highly efficient when implemented on parallel architectures, where multiple processors can perform the sorting operations concurrently.
 
 - **Recursive Structure**:
@@ -71,3 +72,4 @@ print("Sorted array:", arr)
 ### Summary:
 
 Bitonic sort is a **parallel-friendly sorting algorithm** that is well-suited for distributed computing environments. With a time complexity of $O(log^2 n)$, it is very efficient for sorting large datasets in parallel. However, its sequential performance is not as competitive as other common sorting algorithms like quicksort or mergesort in practical applications.
+

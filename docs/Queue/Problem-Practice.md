@@ -36,3 +36,28 @@ tags: [DSA, algorithms, Queue, dsa]
 - [Design Front Middle Back Queue](https://leetcode.com/problems/design-front-middle-back-queue/description/)
 - [First negative in every window of size k](https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1)
 - [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/description/)
+
+### Easy
+
+- [Stack using two queues](https://www.geeksforgeeks.org/problems/stack-using-two-queues/1?page=1&category=Queue&sortBy=difficulty)
+- [Queue using stack](https://www.geeksforgeeks.org/problems/queue-using-stack/1?page=1&category=Queue&sortBy=difficulty)
+- [Reverse First K elements of Queue](https://www.geeksforgeeks.org/problems/reverse-first-k-elements-of-queue/1?page=1&category=Queue&sortBy=difficulty)
+- [Generate Binary Numbers](https://www.geeksforgeeks.org/problems/generate-binary-numbers-1587115620/1?page=1&category=Queue&sortBy=difficulty)
+- [Minimum Cost of ropes](https://www.geeksforgeeks.org/problems/minimum-cost-of-ropes-1587115620/1?page=1&category=Queue&sortBy=difficulty)
+
+### Medium
+
+- [IPL 2021 - Match Day 2](https://www.geeksforgeeks.org/problems/ipl-2021-match-day-2--141634/1?page=1&category=Queue&sortBy=difficulty)
+- [First negative in every window of size k](https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1?page=1&category=Queue&sortBy=difficulty)
+- [Print Binary Tree levels in sorted order
+  ](https://www.geeksforgeeks.org/problems/print-binary-tree-levels-in-sorted-order3241/1?page=2&category=Queue&sortBy=difficulty)
+- [Restricted Pacman](https://www.geeksforgeeks.org/problems/restricted-pacman--141631/1?page=2&category=Queue&sortBy=difficulty)
+- [Count the Reversals](https://www.geeksforgeeks.org/problems/count-the-reversals0401/1?page=2&category=Queue&sortBy=difficulty)
+
+### Hard
+
+- [LRU Cache](https://www.geeksforgeeks.org/problems/lru-cache/1?page=2&category=Queue&sortBy=difficulty)
+- [Steps by Knight](https://www.geeksforgeeks.org/problems/steps-by-knight5927/1?page=2&category=Queue&sortBy=difficulty)
+- [Complete Binary Tree](https://www.geeksforgeeks.org/problems/complete-binary-tree/1?page=2&category=Queue&sortBy=difficulty)
+- [Card Rotation](https://www.geeksforgeeks.org/problems/card-rotation5834/1?page=2&category=Queue&sortBy=difficulty)
+- [Police and Thieves](https://www.geeksforgeeks.org/problems/police-and-thieves--141631/1?page=2&category=Queue&sortBy=difficulty)
