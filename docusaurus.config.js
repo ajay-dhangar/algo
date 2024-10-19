@@ -90,9 +90,19 @@ const config = {
             label: "FAQ",
             position: "left",
           },
+           {
+            to: "dsa-interview", 
+            label: "Top DSA Interview Questions",
+            position: "left",
+          },
           {
             to: "dsa-roadmap",
             label: "Pick Topic For Contribution",
+            position: "left",
+          },
+          {
+            to: "contributors",
+            label: "Contributors",
             position: "left",
           },
           {
@@ -113,11 +123,11 @@ const config = {
                 label: "Practice",
               },
               {
-                to: "Quizes",
+                to: "quizes",
                 label: "Quizes",
               },
               {
-                to: "QuizSolutions",
+                to: "quiz-solutions",
                 label: "Quizes Solutions",
               },
               {

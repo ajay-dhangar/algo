@@ -93,7 +93,7 @@ const HowItWorksSection: React.FC = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl"
+              className="flex flex-col items-center text-center bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl cursor-pointer"
             >
               <div className="mb-6">{step.icon}</div>
               <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
