@@ -1,9 +1,9 @@
 ---
 id: kadanes-algorithm
-title: Kadane's Algorithm
-sidebar_label: Introduction to Kadane's Algorithm
+title: "Kadane's Algorithm"
+sidebar_label: "Introduction to Kadane's Algorithm"
 sidebar_position: 2
-description: Kadane's Algorithm efficiently finds the maximum sum of a contiguous subarray. It is a fundamental algorithm for solving problems involving subarray sums.
+description: "Kadane's Algorithm efficiently finds the maximum sum of a contiguous subarray. It is a fundamental algorithm for solving problems involving subarray sums."
 tags: [basic-dsa, data-structures, Kadane's Algorithm]
 ---
 
