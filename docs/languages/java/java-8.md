@@ -1,6 +1,6 @@
 ---
 id: objects-in-java
-sidebar_position: 7
+sidebar_position: 8
 title: Objects in Java
 sidebar_label: Objects
 ---
