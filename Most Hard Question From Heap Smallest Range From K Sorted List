@@ -1,0 +1,54 @@
+class node{
+    public:
+    int data;
+    int i;
+    int j;
+    node(int data,int row,int col){
+        this->data=data;
+        i=row;
+        j=col;
+    }
+};
+class compare{
+    public:
+    bool operator()(node* a,node* b){
+        return a->data>b->data;
+    }
+};
+int kSorted(vector<vector<int>> &a, int k, int n) {
+    // Write your code here.
+    priority_queue<node*,vector<node*>,compare>pq;
+    int mini=INT_MAX;
+    int maxi=INT_MIN;
+    for(int i=0;i<k;i++){
+        node* temp=new node(a[i][0],i,0);
+        pq.push(temp);
+        mini=min(a[i][0],mini);
+        maxi=max(a[i][0],maxi);
+    }
+    int start=mini;
+    int end=maxi;
+    while(!pq.empty()){
+        auto temp=pq.top();
+        pq.pop();
+        mini = temp->data;
+        if(maxi-mini<end-start){
+                start=mini;
+                end=maxi;
+            }
+        int i=temp->i;
+        int j=temp->j;
+        
+        if(j+1<n){
+            node* newnode=new node(a[i][j+1],i,j+1);
+            pq.push(newnode);
+            maxi = max(maxi, newnode->data);
+            
+        }
+        else{
+            break;
+        }
+    }
+    return end-start+1;
+    
+}
