@@ -3,11 +3,9 @@ id: strings-in-java
 sidebar_position: 5
 title: "Strings In Java"
 sidebar_label: "Strings In Java"
----# Strings in Java
+---
 
 Hello! In this guide, we'll explore how to work with strings in Java. Strings are a crucial part of Java programming as they allow you to manipulate and process text easily. Let's dive in!
-
----
 
 ## 1. Java Strings
 
