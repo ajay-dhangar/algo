@@ -153,3 +153,8 @@ a:hover {
   left: 1rem;
   z-index: 1000;
 }
+
+button {
+  cursor: pointer;
+  border: 1px solid var(--ifm-color-primary);
+}
