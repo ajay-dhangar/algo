@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <ul className="flex flex-wrap justify-center md:justify-start space-x-6 mb-4 md:mb-0 text-[#6366F1]">
-            <li><Link to="#" className="text-sm hover:text-[#61dafb] transition duration-200">Features</Link></li>
+            <li><Link to="/features/" className="text-sm hover:text-[#61dafb] transition duration-200">Features</Link></li>
             <li><Link to="/algo/about/" className="text-sm hover:text-[#61dafb] transition duration-200">About Us</Link></li>
             <li><Link to="/algo/contact/" className="text-sm hover:text-[#61dafb] transition duration-200">Contact</Link></li>
             <li><Link to="#" className="text-sm hover:text-[#61dafb] transition duration-200">Privacy Policy</Link></li>
