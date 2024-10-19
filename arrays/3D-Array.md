@@ -1,3 +1,12 @@
+---
+id: 3D-Array
+title: "Introduction to 3D-Array"
+sidebar_label: "Creation of 3D-Array"
+sidebar_position: 1
+description: "A 3D array in Java is an array of arrays of arrays. It allows you to represent data in a three-dimensional space. ."
+tags: [[basic-dsa, data-structures, 3D-Array]]
+---
+
 # 3D Arrays in Java
 
 ## Introduction
@@ -12,9 +21,10 @@ A 3D array in Java is structured as multiple 2D arrays stacked on top of each ot
 - **Third index**: Represents the columns in each 2D array.
 
 ### Syntax
-```java
-datatype[][][] arrayName = new datatype[x][y][z];
 
+```text
+datatype[][][] arrayName = new datatype[x][y][z];
+```
 ### Characteristics of a 3D-Array.
  - **Size**: A 3D array's size is determined by multiplying its three dimensions: x * y * z.
 
@@ -27,6 +37,9 @@ datatype[][][] arrayName = new datatype[x][y][z];
 ### Code
 
 **Creation & Display 3D-Array**
+```java
+
+
 
    ```text
 public class ThreeDArrayExample {
