@@ -984,18 +984,11 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 
 ## Stargazers
 
-<div align='center'>
-
-[![Stargazers repo roster for @ajay-dhangar/algo](https://reporoster.com/stars/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/stargazers)
-
-</div>
+[![Stargazers repo roster for @ajay-dhangar/algo](https://reporoster.com/stars/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/stargazers)
 
 ## Forkers
-<div align='center'>
 
-[![Forkers repo roster for @ajay-dhangar/algo](https://reporoster.com/forks/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/network/members)
-
-</div>
+[![Forkers repo roster for @ajay-dhangar/algo](https://reporoster.com/forks/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/network/members)
 
 ## Resources for Guidance
 Here are some resources that may be helpful as you contribute to Algo:
