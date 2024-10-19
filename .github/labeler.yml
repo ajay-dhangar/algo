@@ -1,0 +1,10 @@
+frontend:
+  - "src/**/*.js"
+  - "src/**/*.jsx"
+  - "src/**/*.ts"
+  - "src/**/*.tsx"
+docs:
+  - "**/*.md"
+  - "docs/**/*.md"
+  - "**/*.mdx"
+  - "docs/**/*.mdx"
