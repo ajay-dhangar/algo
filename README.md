@@ -3,11 +3,6 @@
 ## introduction
 Welcome to **Algo**, an open-source project that provides developers with algorithmic solutions and resources. Whether you're a beginner or an experienced coder, you can contribute, learn, and grow with us! 🚀
 
-## Learn how to contribute
-
-[Watch the contribution video](Algo-Contribution-Video-Readme.mp4)
-
-
 <div align = "center">
 <br>
 
