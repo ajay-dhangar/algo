@@ -1,3 +1,13 @@
+---
+id: Functions
+title: Introduction to functions fundamentals
+sidebar_label: Programming fundamentals
+sidebar_position: 4
+description: "Information About functions in progamming"
+tags: [functions,fundamentals]
+---
+
+
 # Functions in C
 
 ## What are Functions?
