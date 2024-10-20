@@ -7,11 +7,10 @@ description: "This document contains solutions to LeetCode DSA problems 1-10 con
 tags: [leetcode, algorithms, problem-solving, DSA, data structure]
 ---
 
-<k>
-# Greedy-LeetCode Solutions 1-10
-=======
+
+
 # Greedy-LeetCode Solutions 1-5
-</main>
+
 
 ## Questions
 1. [The Two Sneaky Numbers of Digitville](#1-the-two-sneaky-numbers-of-digitville)  
@@ -19,14 +18,13 @@ tags: [leetcode, algorithms, problem-solving, DSA, data structure]
 3. [Find the Number of Winning Players](#3-find-the-number-of-winning-players)  
 4. [Count Pairs That Form a Complete Day I](#4-count-pairs-that-form-a-complete-day-i)  
 5. [Remove Element](#5-remove-element)  
-<k>
+
 6. [Remove Duplicates from Sorted Array](#6-remove-duplicates-from-sorted-array)  
 7. [Merge Two Sorted Lists](#7-merge-two-sorted-lists)  
 8. [Generate Parentheses](#8-generate-parentheses)  
 9. [Merge k Sorted Lists](#9-merge-k-sorted-lists)  
 10. [Swap Nodes in Pairs](#10-swap-nodes-in-pairs)  
-=======
-</main>
+
 
 ---
 ## 1. The Two Sneaky Numbers of Digitville
