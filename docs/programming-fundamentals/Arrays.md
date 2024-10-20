@@ -1,3 +1,13 @@
+---
+id: Arrays
+title: Introduction to Arrays fundamentals
+sidebar_label: Programming fundamentals
+sidebar_position: 1
+description: "Information About Arrays in progamming"
+tags: [arrays,fundamentals]
+---
+
+
 # Arrays in C
 
 ## What is an Array?
