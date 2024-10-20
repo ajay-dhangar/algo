@@ -122,10 +122,10 @@ C also provides several operators that can be used to form conditions.
 ### 1. Relational Operators
 - == : Equal to
 - != : Not equal to
-- &lt; : Greater than
-- < : Less than
-- &lt;= : Greater than or equal to
-- <= : Less than or equal to
+- > : Greater than
+- &lt; : Less than
+- >= : Greater than or equal to
+- &lt;= : Less than or equal to
   
 ### 2. Logical Operators
 - && : Logical AND
