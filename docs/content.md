@@ -11,9 +11,6 @@ Let's delve into the world of Data Structures and Algorithms (DSA) with Algo's c
 
 <AdsComponent />
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs>
   <TabItem value="ds" label="Data Structures" default>
     ```mermaid
