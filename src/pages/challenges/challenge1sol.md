@@ -1,4 +1,4 @@
-# Data Structures Quiz Solutions and Explanations
+# Data Structures Challenge 1  Solutions
 
 ## Question 1
 **What is the time complexity of accessing an element in an array?**  

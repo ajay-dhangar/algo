@@ -82,10 +82,10 @@ const Challenges: React.FC = () => {
               transition={{ type: "spring", stiffness: 200 }}
             >
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                Challenge 2: Solution
+                Challenge 1: Solution
               </h3>
               <p className="text-gray-500 dark:text-gray-400 mt-2">
-                check the solution of challenge 2 </p>
+                check the solution of challenge 1 </p>
               <div className="flex items-center mt-4 space-x-4">
               </div>
               <button
@@ -105,7 +105,7 @@ const Challenges: React.FC = () => {
                 Challenge 2: Solution
               </h3>
               <p className="text-gray-500 dark:text-gray-400 mt-2">
-                check the solution of challenge 1 </p>
+                check the solution of challenge 2</p>
               <div className="flex items-center mt-4 space-x-4">
               </div>
               <button

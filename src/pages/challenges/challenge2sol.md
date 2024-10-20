@@ -1,4 +1,4 @@
-# Data Structures Quiz Solutions and Explanations
+# Data Structures Challenge 2 Solutions 
 
 ## Question 1
 **Which of the following is not a linear data structure?**  
