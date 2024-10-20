@@ -7,7 +7,9 @@ description: "A comprehensive guide to using the KMP Algorithm for efficient pat
 tags: [pattern matching, string algorithms, competitive programming]
 ---
 
-# KMP Algorithm for Pattern Matching
+In computer science, the **KMP (Knuth-Morris-Pratt) Algorithm** is an efficient pattern-matching algorithm that searches for occurrences of a pattern in a text. It achieves linear time complexity by precomputing an auxiliary array called the LPS (Longest Prefix Suffix) array, which helps skip unnecessary comparisons during the search.
+
+<AdsComponent />
 
 ## Definition:
 
@@ -20,6 +22,8 @@ Given a pattern and a text, the KMP algorithm precomputes the LPS array, which s
 ### LPS Array:
 
 The LPS array helps in determining how much the pattern should be shifted without re-evaluating characters that have already been matched. For every mismatch during the search, the LPS array tells how many characters can be skipped.
+
+<Ads />
 
 ## Code
 
@@ -234,6 +238,8 @@ public class KMPAlgorithm {
 }
 ```
 
+<AdsComponent />
+
 ## Explanation of the Code:
 
 - **calculate_lps:** This function computes the LPS array for the given pattern. The LPS array is used to determine the next positions to compare in case of a mismatch.
@@ -256,4 +262,3 @@ KMP helps solve problems where multiple occurrences of a pattern need to be foun
 
 ### Substring Search:
 This algorithm is useful in word processors, search engines, and file comparison tools where efficient substring searching is critical.
-

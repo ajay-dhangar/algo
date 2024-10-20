@@ -1,9 +1,9 @@
 ---
-id: Matrix-binary-dsa
-sidebar_position: 5
+id: matrix-binary-dsa
+sidebar_position: 10
 title: Binary Search in Matrix
 sidebar_label: Binary Search in Matrix
-description: "In this blog post, we'll explore binary search in a matrix, an optimized method to find an element in a sorted 2D matrix efficiently."
+description: "In this blog post, we'll explore binary search in a matrix, an optimized method to find an element in a sorted 2D matrix efficiently in C++."
 tags: [dsa, algorithms, binary search, matrix]
 ---
 
@@ -27,29 +27,32 @@ We are given an `m x n` matrix where each row is sorted in ascending order from 
 
 ### Points to Remember:
     Binary search requires that the matrix is sorted both row-wise and column-wise.
-    
+
     Works effectively for two-dimensional arrays.
-    
+
     Faster and more efficient than sequential search, especially for larger datasets.
-    
+
     Utilizes the divide and conquer approach, similar to standard binary search.
-    
+
     Ideal for large datasets where the matrix dimensions are substantial, enabling quick lookups.
 ### Code Implementation:
 
 ```java
-public class BinarySearchInMatrix {
+#include <iostream>
+#include <vector>
 
-    public boolean searchMatrix(int[][] matrix, int target) {
-        int rows = matrix.length;
+class BinarySearchInMatrix {
+public:
+    bool searchMatrix(const std::vector<std::vector<int>>& matrix, int target) {
+        int rows = matrix.size();
         if (rows == 0) return false;
-        int cols = matrix[0].length;
+        int cols = matrix[0].size();
 
         int low = 0;
         int high = (rows * cols) - 1;  // Treating the 2D matrix as a single flat array
 
         while (low <= high) {
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;  // To prevent overflow
             int midElement = matrix[mid / cols][mid % cols];  // Mapping the 1D index back to 2D
 
             if (midElement == target) {
@@ -62,18 +65,19 @@ public class BinarySearchInMatrix {
         }
         return false;  // Target not found
     }
+};
 
-    public static void main(String[] args) {
-        BinarySearchInMatrix searcher = new BinarySearchInMatrix();
-        int[][] matrix = {
-            {1, 3, 5, 7},
-            {10, 11, 16, 20},
-            {23, 30, 34, 60}
-        };
-        int target = 3;
-        boolean result = searcher.searchMatrix(matrix, target);
-        System.out.println("Target found: " + result);  // Output: Target found: true
-    }
+int main() {
+    BinarySearchInMatrix searcher;
+    std::vector<std::vector<int>> matrix = {
+        {1, 3, 5, 7},
+        {10, 11, 16, 20},
+        {23, 30, 34, 60}
+    };
+    int target = 3;
+    bool result = searcher.searchMatrix(matrix, target);
+    std::cout << "Target found: " << std::boolalpha << result << std::endl;  // Output: Target found: true
+    return 0;
 }
 
-
+```
