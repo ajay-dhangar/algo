@@ -95,9 +95,11 @@ const BinaryTreeQuiz: React.FC = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
+    setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
@@ -117,51 +119,53 @@ const BinaryTreeQuiz: React.FC = () => {
       title="Binary Tree Quiz"
       description="Test your knowledge of binary trees with this quiz!"
     >
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 py-10 dark:bg-gray-800">
-        <div className="w-full max-w-xl p-8 bg-white rounded-lg shadow-lg dark:bg-gray-900">
-          <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-100">
-            Quiz on Binary Trees
-          </h2>
+      <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Binary Tree</h2>
           {showResult ? (
-            <div className="text-center mt-8">
-              <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-200">
-                Your Score:{" "}
-                <span className="text-3xl font-bold text-blue-500 dark:text-blue-300">
-                  {score}
-                </span>{" "}
-                🎉
-              </h3>
-              <p className="mt-4 text-gray-600 text-lg dark:text-gray-300">
-                {score <= 5
-                  ? "Better luck next time!"
-                  : score <= 8
-                  ? "Good job!"
-                  : "Excellent work!"}
-              </p>
-              <button
-                className="mt-6 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors"
-                onClick={() => window.location.reload()}
-              >
-                Retry Quiz
-              </button>
+            <div>
+              <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
+                <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
+                  Your Score: <span className="text-4xl">{score}</span> 🎉
+                </h3>
+                <p className="mt-4 text-lg">
+                  {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
+                </p>
+              </div>
+
+              {/* Solutions Section */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions:</h3>
+                {questions.map((q, index) => (
+                  <div key={index} className="mb-6 text-left">
+                    <p className="text-lg font-semibold">{q.question}</p>
+                    <p className="text-md">
+                      <span className="font-bold">Your Answer:</span> {userAnswers[index]}
+                    </p>
+                    <p className="text-md">
+                      <span className="font-bold">Correct Answer:</span> {q.answer}
+                    </p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+                      <span className="font-bold">Explanation:</span> {q.explanation}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           ) : (
             <div>
-              <h3 className="text-lg font-medium text-gray-700 mt-4 text-left dark:text-gray-200">
+              <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4 text-left">
                 {questions[currentQuestion].question}
               </h3>
-              <div className="mt-6 space-y-3">
+              <div className="space-y-4">
                 {questions[currentQuestion].options.map((option, index) => (
                   <button
                     key={index}
                     onClick={() => handleAnswer(option)}
-                    className={`w-full px-4 py-2 text-left border-none rounded-lg text-gray-800 dark:text-gray-100 
-                      ${
-                        selectedOption === option
-                          ? "bg-gray-500 text-white"
-                          : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                      } 
-                    `}
+                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
+                        ? "bg-blue-600 text-white dark:bg-blue-500"
+                        : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                      }`}
                   >
                     {option}
                   </button>
@@ -169,7 +173,7 @@ const BinaryTreeQuiz: React.FC = () => {
               </div>
               <button
                 onClick={nextQuestion}
-                className="mt-6 w-full px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors border-none"
+                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none"
               >
                 Next Question
               </button>

@@ -90,7 +90,7 @@ const Footer = () => {
               </li>
               <li className="list-none">
                 <Link
-                  to="#"
+                  to="/docs/"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
                   Tutorials
