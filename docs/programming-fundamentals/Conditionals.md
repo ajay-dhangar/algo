@@ -1,3 +1,13 @@
+---
+id: Conditionals
+title: Introduction to conditinols fundamentals
+sidebar_label: Programming fundamentals
+sidebar_position: 2
+description: "Information About conditionals in progamming"
+tags: [conditionals,fundamentals]
+---
+
+
 # Conditionals in C
 
 ## What are Conditionals?
