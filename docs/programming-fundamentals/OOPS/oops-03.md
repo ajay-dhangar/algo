@@ -99,6 +99,33 @@ public class Main {
 ```
 </details>
 
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+class Rectangle {
+    // Default Constructor
+    constructor(width = 0, height = 0) {
+        this.width = width;
+        this.height = height;
+    }
+
+    // Method to display width and height
+    display() {
+        console.log(`Width: ${this.width}, Height: ${this.height}`);
+    }
+}
+
+// Main code to demonstrate constructors
+const rect1 = new Rectangle();        // Default constructor
+const rect2 = new Rectangle(10, 5);   // Parameterized constructor
+
+rect1.display(); // Output: Width: 0, Height: 0
+rect2.display(); // Output: Width: 10, Height: 5
+
+```
+</details>
+
 ---
 
 ## **2. What is a Destructor?**
@@ -171,6 +198,50 @@ public class Main {
         System.gc(); // Calling garbage collector
     }
 }
+```
+</details>
+
+<details>
+<summary><strong>JavaScript Code</strong></summary>
+
+```js
+// In JavaScript, there is no explicit destructor like in Java or C++. Instead, memory management is handled
+//  automatically by the garbage collector. However, you can mimic the behavior of a destructor using the 
+//  finalize method available via the FinalizationRegistry, which lets you run cleanup code when an object 
+//  is garbage collected.
+
+class Rectangle {
+    #width;  // Private field
+    #height; // Private field
+
+    constructor(width, height) {
+        this.#width = width;
+        this.#height = height;
+        console.log("Constructor called!");
+    }
+
+    // Method to display width and height
+    display() {
+        console.log(`Width: ${this.#width}, Height: ${this.#height}`);
+    }
+}
+
+// Create a FinalizationRegistry to simulate destructor
+const registry = new FinalizationRegistry(() => {
+    console.log("Destructor called!");
+});
+
+// Main code
+let rect = new Rectangle(10, 5);
+rect.display();
+
+// Register the object for cleanup when it's garbage collected
+registry.register(rect, "Rectangle Instance");
+
+// Simulate object being nullified and garbage collected
+rect = null;
+globalThis.gc?.(); // This is optional; the garbage collector runs automatically
+
 ```
 </details>
 

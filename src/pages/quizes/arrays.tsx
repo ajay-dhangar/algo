@@ -162,9 +162,11 @@ int main()
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
+    setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
@@ -180,40 +182,54 @@ int main()
   };
 
   return (
-    <Layout>
-      <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900 transition-all duration-300 p-4">
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-xl w-full transition-all duration-300">
-          <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">
-            Quiz on Arrays
-          </h2>
+    <Layout title="Arrays Quiz" description="Test your knowledge on array operations and algorithms.">
+      <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Arrays</h2>
           {showResult ? (
-            <div className="mt-6">
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                Your Score: <span className="text-indigo-500">{score}</span> 🎉
-              </h3>
-              <p className="mt-4 text-gray-600 dark:text-gray-300">
-                {score <= 5
-                  ? "Better luck next time!"
-                  : score <= 8
-                  ? "Good job!"
-                  : "Excellent work!"}
-              </p>
+            <div>
+              <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
+                <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
+                  Your Score: <span className="text-4xl">{score}</span> 🎉
+                </h3>
+                <p className="mt-4 text-lg">
+                  {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
+                </p>
+              </div>
+
+              {/* Solutions Section */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions:</h3>
+                {questions.map((q, index) => (
+                  <div key={index} className="mb-6 text-left">
+                    <p className="text-lg font-semibold">{q.question}</p>
+                    <p className="text-md">
+                      <span className="font-bold">Your Answer:</span> {userAnswers[index]}
+                    </p>
+                    <p className="text-md">
+                      <span className="font-bold">Correct Answer:</span> {q.answer}
+                    </p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+                      <span className="font-bold">Explanation:</span> {q.explanation}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           ) : (
             <div>
-              <div className="text-gray-800 dark:text-gray-200 mb-4">
+              <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4 text-left">
                 {questions[currentQuestion].question}
-              </div>
-              <div className="space-y-3">
+              </h3>
+              <div className="space-y-4">
                 {questions[currentQuestion].options.map((option, index) => (
                   <button
                     key={index}
                     onClick={() => handleAnswer(option)}
-                    className={`w-full py-2 px-4 rounded-lg border transition-colors duration-300 ${
-                      selectedOption === option
-                        ? "bg-indigo-500 text-white"
-                        : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
-                    } hover:bg-indigo-400 dark:hover:bg-indigo-600 text-left`}
+                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
+                        ? "bg-blue-600 text-white dark:bg-blue-500"
+                        : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                      }`}
                   >
                     {option}
                   </button>
@@ -221,7 +237,7 @@ int main()
               </div>
               <button
                 onClick={nextQuestion}
-                className="mt-6 w-full py-2 px-4 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-all duration-300"
+                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none"
               >
                 Next Question
               </button>
