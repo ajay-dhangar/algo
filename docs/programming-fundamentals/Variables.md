@@ -1,3 +1,12 @@
+---
+id: Variables
+title: Introduction to variables fundamentals
+sidebar_label: Programming fundamentals
+sidebar_position: 6
+description: "Information About variables in progamming"
+tags: [variables,fundamentals]
+---
+
 # Variables in C
 
 ## What are Variables?
