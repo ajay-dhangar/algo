@@ -1,6 +1,6 @@
 ---
 id: operators-in-cpp
-sidebar_position: 3
+sidebar_position: 2
 title: "Operators in C++"
 sidebar_label: "Operators in C++"
 ---

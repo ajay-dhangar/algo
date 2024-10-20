@@ -195,8 +195,8 @@ const DataStructuresQuiz: React.FC = () => {
 
   return (
     <Layout>
-      <div style={{ backgroundColor: "lightblue", padding: "20px", borderRadius: "8px", color: "black", maxWidth: "600px", margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center" }}>Challenge 1: Quiz on Data Structures</h2>
+      <div className="bg-gray-200 my-10 mx-auto p-10 rounded-3xl" style={{ color: "black", maxWidth: "600px" }}>
+        <h2 style={{ textAlign: "center" }}>Data Structures Challenge-1</h2>
         <h3 style={{ textAlign: "center" }}>Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? `0${timeLeft % 60}` : timeLeft % 60}</h3>
         {showResult ? (
           <div style={{ textAlign: "center", marginTop: "20px", padding: "20px", borderRadius: "8px", backgroundColor: "white" }}>
@@ -206,29 +206,26 @@ const DataStructuresQuiz: React.FC = () => {
             </p>
           </div>
         ) : (
-          <div>
+          <div className="bg-white p-5 rounded-2xl">
             <h3 style={{ color: "black" }}>{questions[currentQuestion].question}</h3>
             <div>
               {questions[currentQuestion].options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleAnswer(option)}
+                  className="text-left my-2 bg-white rounded-md p-3 w-full"
                   style={{
                     display: "block",
-                    margin: "10px auto",
-                    padding: "10px",
-                    backgroundColor: selectedOption === option ? "orange" : "white",
-                    border: "1px solid black",
-                    borderRadius: "5px",
+                    border: selectedOption === option ? "2px solid orange" : "1px solid #ddd",
+                    backgroundColor: selectedOption === option ? "rgba(255, 165, 0, 0.1)" : "white",
                     cursor: "pointer",
-                    width: "80%",
                   }}
                 >
                   {option}
                 </button>
               ))}
             </div>
-            <button onClick={nextQuestion} style={{ marginTop: "20px", padding: "10px 20px", cursor: "pointer" }}>
+            <button onClick={nextQuestion} className="bg-gray-800 rounded-lg text-white border border-gray-800" style={{ marginTop: "20px", padding: "10px 20px", cursor: "pointer" }}>
               Next Question
             </button>
           </div>

@@ -1,0 +1,23 @@
+name: "Mark Stale Issues and PRs"
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Close Stale Issues and PRs"
+      uses: actions/stale@v8
+      with:
+        days-before-stale: 30
+        days-before-close: 7
+        stale-issue-message: "This issue has been automatically marked as stale due to inactivity."
+        close-issue-message: "This issue is now closed due to inactivity."
+        stale-pr-message: "This pull request has been automatically marked as stale due to inactivity."
+        close-pr-message: "This pull request is now closed due to inactivity."
+        exempt-issue-labels: "pinned"
+        exempt-pr-labels: "pinned"
+        only-labels: ""
+        remove-stale-when-updated: true

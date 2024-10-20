@@ -30,6 +30,8 @@ const config = {
             "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
@@ -90,9 +92,19 @@ const config = {
             label: "FAQ",
             position: "left",
           },
+           {
+            to: "dsa-interview", 
+            label: "Top DSA Interview Questions",
+            position: "left",
+          },
           {
             to: "dsa-roadmap",
             label: "Pick Topic For Contribution",
+            position: "left",
+          },
+          {
+            to: "contributors",
+            label: "Contributors",
             position: "left",
           },
           {
@@ -113,8 +125,12 @@ const config = {
                 label: "Practice",
               },
               {
-                to: "Quizes",
+                to: "quizes",
                 label: "Quizes",
+              },
+              {
+                to: "quiz-solutions",
+                label: "Quizes Solutions",
               },
               {
                 to: "leaderboard",
@@ -164,6 +180,18 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: [
+          'java',
+          'latex',
+          'haskell',
+          'matlab',
+          'PHp',
+          'powershell',
+          'bash',
+          'diff',
+          'json',
+          'scss',
+        ],
       },
       docs: {
         sidebar: {
@@ -179,7 +207,7 @@ const config = {
 
   plugins: [
     [
-      path.join(__dirname, "/plugins/my-plugin"),
+      path.join(__dirname, "/plugins/my-plugin",),
       {
         settings: "Some20settings",
         api: "Some-API",
