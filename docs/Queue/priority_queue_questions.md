@@ -103,3 +103,123 @@ We can use a priority queue to ensure that we always try to place the most frequ
 - **Space Complexity**: O(k) for the frequency map and the heap.
 
 ---
+
+## 6. Median in a Stream
+
+### Question:
+Design a data structure that supports the following operations efficiently:
+- `add_num(int num)`: Adds an integer `num` from a data stream to the data structure.
+- `find_median()`: Returns the median of all elements so far.
+
+### Explanation:
+To find the median in a stream, we can use two heaps:
+- A **max-heap** to store the smaller half of the elements.
+- A **min-heap** to store the larger half of the elements.
+
+By maintaining this balance:
+- If the total number of elements is odd, the max-heap will have one more element than the min-heap, making it the median.
+- If the total number of elements is even, the median is the average of the roots of both heaps.
+
+### Complexity Analysis:
+- **Time Complexity**: O(log n) for `add_num` due to heap insertion and balancing, O(1) for `find_median`.
+- **Space Complexity**: O(n) to store all the elements.
+
+---
+
+## 7. Find the Running Median
+
+### Question:
+Given a stream of integers, find the median of the integers at each insertion point. For example, if the stream is `[5, 15, 1, 3]`, the running medians are `[5, 10, 5, 4]`.
+
+### Explanation:
+We can solve this problem similarly to the "Median in a Stream" problem, using two heaps:
+- A max-heap for the lower half.
+- A min-heap for the upper half.
+
+At each insertion, we rebalance the heaps to ensure that the difference in sizes between the two heaps is no more than one, and calculate the median accordingly:
+- If both heaps are balanced in size, the median is the average of the roots of both heaps.
+- If one heap has more elements, the median is the root of that heap.
+
+### Complexity Analysis:
+- **Time Complexity**: O(log n) for each insertion due to heap operations.
+- **Space Complexity**: O(n) for storing all elements in the heaps.
+
+---
+
+## 8. Task Scheduler
+
+### Question:
+Given a list of tasks and a positive integer `n` representing the cooldown period between the same tasks, find the minimum time required to complete all tasks.
+
+### Explanation:
+To solve this problem, we can use a priority queue to manage the cooldown period:
+- Count the frequency of each task.
+- Use a max-heap to execute tasks in the order of their frequencies.
+- Use a queue to keep track of tasks during their cooldown period.
+
+At each time unit:
+- If a task is ready to be executed after cooldown, reinsert it into the heap.
+- Repeat until all tasks are executed, and track the time.
+
+### Complexity Analysis:
+- **Time Complexity**: O(n log k) where n is the total number of tasks, and k is the number of unique tasks.
+- **Space Complexity**: O(k) for the heap and queue.
+
+---
+
+## 9. Connect Ropes to Minimize Cost
+
+### Question:
+Given an array of integers representing the lengths of ropes, connect them such that the cost to connect ropes is minimized. The cost of connecting two ropes is equal to the sum of their lengths.
+
+### Explanation:
+To minimize the cost, use a min-heap:
+- Insert all rope lengths into the min-heap.
+- While there are more than one rope in the heap:
+  - Extract the two smallest ropes.
+  - Calculate the cost to combine them.
+  - Add the combined rope back into the heap.
+- Repeat until only one rope remains.
+
+The sum of all combination costs will be the minimum cost.
+
+### Complexity Analysis:
+- **Time Complexity**: O(n log n) due to heap operations.
+- **Space Complexity**: O(n) for the heap.
+
+---
+
+## 10. Find K Closest Points to the Origin
+
+### Question:
+Given an array of points in a 2D plane, return the `k` closest points to the origin `(0, 0)`.
+
+### Explanation:
+We can use a max-heap to keep track of the k closest points:
+- Compute the Euclidean distance of each point from the origin.
+- Use a max-heap of size `k` to store the points with their distances.
+- If a new point is closer than the farthest point in the heap, remove the farthest point and add the new one.
+- At the end, the heap will contain the k closest points.
+
+### Complexity Analysis:
+- **Time Complexity**: O(n log k) for maintaining the heap.
+- **Space Complexity**: O(k) for the heap.
+
+---
+
+## 11. Find the Skyline of a City
+
+### Question:
+Given the `buildings` array where each building is represented as `[left, right, height]`, find the skyline formed by these buildings.
+
+### Explanation:
+To solve this, use a priority queue to maintain active building heights as we sweep from left to right through all critical points (both start and end of buildings):
+- Store active heights in a max-heap.
+- At each critical point, add or remove heights as buildings start or end.
+- Record changes in the maximum height, which forms the critical points of the skyline.
+
+### Complexity Analysis:
+- **Time Complexity**: O(n log n) due to sorting and heap operations.
+- **Space Complexity**: O(n) for the heap.
+
+---

@@ -12,11 +12,13 @@ const BinarySearchTreeQuiz: React.FC = () => {
         "D) A tree where all nodes are on one side.",
       ],
       answer: "C) A tree where the left child is less than the parent and the right child is greater.",
+      explanation: "In a BST, each node's left child is less than the node, and the right child is greater, maintaining the sorted order.",
     },
     {
       question: "2. What is the time complexity for searching an element in a balanced binary search tree?",
       options: ["A) O(n)", "B) O(log n)", "C) O(n log n)", "D) O(1)"],
       answer: "B) O(log n)",
+      explanation: "In a balanced BST, the height of the tree is log(n), making search operations efficient at O(log n).",
     },
     // Additional questions...
   ];
@@ -25,9 +27,12 @@ const BinarySearchTreeQuiz: React.FC = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
+    setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
+
     if (selected === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
@@ -48,13 +53,34 @@ const BinarySearchTreeQuiz: React.FC = () => {
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Binary Search Trees</h2>
           {showResult ? (
-            <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
-                Your Score: <span className="text-4xl">{score}</span> 🎉
-              </h3>
-              <p className="mt-4 text-lg">
-                {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
-              </p>
+            <div>
+              <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
+                <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
+                  Your Score: <span className="text-4xl">{score}</span> 🎉
+                </h3>
+                <p className="mt-4 text-lg">
+                  {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
+                </p>
+              </div>
+
+              {/* Solutions Section */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions:</h3>
+                {questions.map((q, index) => (
+                  <div key={index} className="mb-6 text-left">
+                    <p className="text-lg font-semibold">{q.question}</p>
+                    <p className="text-md">
+                      <span className="font-bold">Your Answer:</span> {userAnswers[index]}
+                    </p>
+                    <p className="text-md">
+                      <span className="font-bold">Correct Answer:</span> {q.answer}
+                    </p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+                      <span className="font-bold">Explanation:</span> {q.explanation}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           ) : (
             <div>
@@ -66,11 +92,10 @@ const BinarySearchTreeQuiz: React.FC = () => {
                   <button
                     key={index}
                     onClick={() => handleAnswer(option)}
-                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${
-                      selectedOption === option
+                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
                         ? "bg-blue-600 text-white dark:bg-blue-500"
                         : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                    }`}
+                      }`}
                   >
                     {option}
                   </button>
