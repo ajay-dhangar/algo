@@ -253,6 +253,3 @@ int main() {
 ## Conclusion
 
 The **Aho-Corasick Algorithm** is an optimal solution for problems involving multiple pattern matching. Its combination of a trie and failure links ensures that it can handle large datasets and multiple queries efficiently.
-```
-
----
