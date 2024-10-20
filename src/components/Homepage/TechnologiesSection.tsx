@@ -58,7 +58,7 @@ const technologies = [
     name: "Markdown",
     icon: (
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg"
+        src="https://upload.wikimedia.org/wikipedia/commons/5/57/Markdown-mark-purple.svg"
         alt="Markdown"
         className="h-12 w-12"
       />
@@ -85,7 +85,7 @@ const TechnologiesSection: React.FC = () => {
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl"
+              className="flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer transition transform hover:scale-105 hover:shadow-xl"
             >
               <div className={`text-6xl ${tech.color} mb-4`}>{tech.icon}</div>
               <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
