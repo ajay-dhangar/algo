@@ -7,7 +7,9 @@ description: "A basic string-search algorithm that checks every position in the 
 tags: [pattern matching, string algorithms, brute-force search, naive search, competitive programming]
 ---
 
-# Naive Search Algorithm
+In computer science, the **Naive Search Algorithm** (also known as brute-force search) is a basic string matching technique that checks every possible position in the text for the occurrence of a given pattern. Although simple to implement, it is inefficient for large texts and patterns as it performs comparisons one by one without any optimization.
+
+<AdsComponent />
 
 ## Overview
 
@@ -36,6 +38,8 @@ For the text `text = "abcabcabc"` and pattern `pattern = "abc"`, the naive searc
 - Compare `"abc"` with the next `"abc"` at index 3: **Match**.
 
 Thus, matches are found at indices 0 and 3.
+
+<Ads />
 
 ## Code Implementation
 
@@ -114,6 +118,8 @@ int main() {
 }
 ```
 
+<AdsComponent />
+
 ## Limitations
 
 - **Efficiency:** The algorithm performs O(n * m) comparisons in the worst case, which is inefficient for large texts and patterns.
@@ -124,8 +130,16 @@ int main() {
 - **Educational Use:** Due to its simplicity, the naive search is often used to introduce pattern matching algorithms.
 - **Small-scale Search Problems:** Suitable for small text searches or when efficiency is not a primary concern.
 
+## Complexity Analysis
+
+- **Time Complexity:** The naive search algorithm has a time complexity of $O(n * m)$ in the worst case, where n is the length of the text and m is the length of the pattern.
+
+- **Space Complexity:** The space complexity of the algorithm is $O(1)$ as it does not require any additional space apart from the input strings.
+
+The naive search algorithm is a simple and intuitive approach to pattern matching but is not suitable for large-scale applications due to its inefficiency. More advanced algorithms like Rabin-Karp, Knuth-Morris-Pratt, or Boyer-Moore are preferred for real-world scenarios.
+
+<AdsComponent />
+
 ## Conclusion
 
-The Naive Search Algorithm is easy to understand and implement, making it a good starting point for learning string matching techniques. However, for more complex applications, algorithms like Rabin-Karp, Boyer-Moore, or Knuth-Morris-Pratt offer more efficient solutions.
-```
-
+The **Naive Search Algorithm** is a basic string matching technique that checks every possible position in the text for the occurrence of a given pattern. Although simple to implement, it is inefficient for large texts and patterns as it performs comparisons one by one without any optimization.

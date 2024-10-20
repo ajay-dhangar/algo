@@ -7,7 +7,9 @@ description: "An efficient algorithm for multiple pattern matching using a trie 
 tags: [pattern matching, string algorithms, Aho-Corasick, trie, competitive programming]
 ---
 
-# Aho-Corasick Algorithm
+In computer science, the **Aho-Corasick Algorithm** is a string searching algorithm that efficiently finds multiple patterns in a given text. It constructs a finite-state machine in the form of a trie (prefix tree) with failure links, allowing it to search for all patterns simultaneously in linear time.
+
+<AdsComponent />
 
 ## Overview
 
@@ -237,6 +239,8 @@ int main() {
     return 0;
 }
 ```
+
+<Ads />
 
 ## Advantages
 
