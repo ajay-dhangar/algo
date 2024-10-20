@@ -1,7 +1,7 @@
 ---
 id: delete-all-occurences-of-key
 title: "Deleting All Occurrences of a Key in a Doubly Linked List"
-sidebar_label: "Deleting All Occurrences of a Key in a Doubly Linked List
+sidebar_label: "Deleting All Occurrences of a Key in a Doubly Linked List"
 sidebar_position: 12
 description: "This document provides a detailed explanation and implementation for deleting all occurrences of a key in a doubly linked list , including step-by-step instructions and example code."
 tags: [Linked list,Deletion]
