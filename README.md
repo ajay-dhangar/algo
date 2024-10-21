@@ -110,13 +110,13 @@ This website is built using [Docusaurus 3](https://docusaurus.io/), a modern sta
 ## Installation
 
 ```bash
-$ npm install
+ npm install
 ```
 
 ## Local Development
 
 ```bash
-$ npm start
+ npm start
 ```
 
 This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
@@ -124,7 +124,7 @@ This command starts a local development server and opens a browser window. Most 
 ## Build
 
 ```bash
-$ npm run build
+ npm run build
 ```
 
 This command generates static content into the `build` directory, which can be served using any static content hosting service.
@@ -134,13 +134,13 @@ This command generates static content into the `build` directory, which can be s
 ### Using SSH:
 
 ```bash
-$ USE_SSH=true npm run deploy
+ USE_SSH=true npm run deploy
 ```
 
 ### Not using SSH:
 
 ```bash
-$ GIT_USER=<Your GitHub username> npm run deploy
+ GIT_USER=<Your GitHub username> npm run deploy
 ```
 
 If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
