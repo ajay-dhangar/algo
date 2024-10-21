@@ -119,7 +119,7 @@ const Contributors: React.FC = () => {
                     <img
                       src={contributor.avatar_url}
                       alt={contributor.login}
-                      className="w-full h-48 rounded-t-xl transition duration-300 transform hover:scale-105 object-top object-cover"
+                      className="w-full h-85 rounded-t-xl transition duration-300 transform hover:scale-105 object-top object-cover"
                     />
                   </a>
                   <div className="p-4">
