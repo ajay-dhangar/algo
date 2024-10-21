@@ -3,7 +3,7 @@
 id: support-vector-machine  
 title: Support Vector Machine (SVM) Algorithm  
 sidebar_label: Support Vector Machine  
-description: "In this post, we delve into the Support Vector Machine (SVM), a powerful machine learning model known for its effectiveness in classification tasks and its ability to handle high-dimensional data."  
+description: "SVM is a powerful machine learning model known for its effectiveness in classification tasks and its ability to handle high-dimensional data."  
 tags: [machine learning, algorithms, SVM, classification, regression]
 
 ---
