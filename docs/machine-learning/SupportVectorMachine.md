@@ -61,17 +61,17 @@ Given a dataset with features and target labels, the objective of SVM is to find
 - **Linear Kernel**:  
   Used when the data is linearly separable. The decision boundary is a straight line (or hyperplane).
   
-  $$ K(x, y) = x \cdot y $$
+  $$K(x, y) = x \cdot y$$
   
 - **Polynomial Kernel**:  
   Creates a non-linear decision boundary by raising the dot product of input vectors to a specified degree.
   
-  $$ K(x, y) = (x \cdot y + c)^d $$
+  $$K(x, y) = (x \cdot y + c)^d$$
   
 - **Radial Basis Function (RBF)**:  
   A popular kernel for non-linearly separable data, mapping data points into higher-dimensional space.
   
-  $$ K(x, y) = \exp(-\gamma ||x - y||^2) $$
+  $$K(x, y) = \exp(-\gamma ||x - y||^2)$$
 
 ### Time Complexity:
 - **Training Time Complexity: $O(n^2)$ to $O(n^3)$**  
