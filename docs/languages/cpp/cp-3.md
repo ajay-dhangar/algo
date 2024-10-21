@@ -1,13 +1,17 @@
 ---
-id: decision-making-in-cpp
+id: control-statements-in-cpp
 sidebar_position: 3
-title: "Decision Making in C++"
-sidebar_label: "Decision Making in C++"
+title: "Control Statements in C++"
+sidebar_label: "Control Statements in C++"
 ---
 
 
-Hey there! In this guide, we'll explore decision-making in C++. Decision-making structures allow you to execute different blocks of code based on certain conditions. Let's dive in!
+Hey there! In this guide, we'll explore decision-making in C++. Conditional statements, also called decision control structures, like `if`, `else` `if`, `else`, and `switch` are used for making decisions in C programs.
 
+Referred to as Decision-Making Statements, they assess one or more conditions and determine whether a block of code should be executed. 
+These statements: 
+* Guide the flow of program execution 
+* Choosing the path based on evaluated conditions
 * Decision-making structures allow you to execute different blocks of code based on certain conditions.
 * C++ provides several constructs for decision-making, including `if`, `else` `if`, `else`, and `switch`.
 
@@ -138,4 +142,4 @@ std::cout << result << std::endl;
 
 ---
 
-Understanding decision-making structures in C++ is crucial for controlling the flow of your program and executing different actions based on conditions. Happy coding!
+Understanding Control Statements structures in C++ is crucial for controlling the flow of your program and executing different actions based on conditions. Happy coding!
