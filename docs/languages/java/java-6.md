@@ -1,6 +1,6 @@
 ---
 id: classes-in-java
-sidebar_position: 6
+sidebar_position: 7
 title: Classes in Java
 sidebar_label: Classes
 ---

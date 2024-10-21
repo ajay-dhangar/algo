@@ -1,4 +1,3 @@
-// data/problemsData.js
 const problemsData = {
     twoSum: {
         title: "1. Two Sum",

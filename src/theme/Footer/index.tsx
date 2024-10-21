@@ -69,7 +69,7 @@ const Footer = () => {
           </div>
 
           {/* Resources */}
-          <div className="pl-32">
+          <div className="md:pl-32">
             <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
             <ul className="space-y-3 pl-0">
               <li className="list-none">
@@ -90,7 +90,7 @@ const Footer = () => {
               </li>
               <li className="list-none">
                 <Link
-                  to="#"
+                  to="/docs/"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
                   Tutorials
@@ -100,7 +100,7 @@ const Footer = () => {
           </div>
 
           {/* Community */}
-          <div>
+          <div className="md:pl-32">
             <h3 className="text-lg font-semibold mb-4 text-white">Community</h3>
             <ul className="space-y-3 pl-0">
               <li className="list-none">
