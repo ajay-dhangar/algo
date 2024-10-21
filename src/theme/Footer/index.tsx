@@ -133,39 +133,14 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <ul className="flex flex-wrap justify-center md:justify-start space-x-6 mb-4 md:mb-0 text-sm text-gray-400">
-            <li className="list-none">
-              <Link
-                to="#"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                Features
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="/algo/about/"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                About Us
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="/algo/contact/"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                Contact
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="#"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                Privacy Policy
-              </Link>
-            </li>
+
+          <ul className="flex flex-wrap justify-center md:justify-start space-x-6 mb-4 md:mb-0 text-[#6366F1]">
+            <li><Link to="#" className="text-sm hover:text-[#61dafb] transition duration-200">Features</Link></li>
+            <li><Link to="/algo/about/" className="text-sm hover:text-[#61dafb] transition duration-200">About Us</Link></li>
+            <li><Link to="/algo/contact/" className="text-sm hover:text-[#61dafb] transition duration-200">Contact</Link></li>
+            <li><Link to="/privacy/" className="text-sm hover:text-[#61dafb] transition duration-200">Privacy Policy</Link></li>
+            <li><Link to="/algo/terms/" className="text-sm hover:text-[#61dafb] transition duration-200">Terms and Condition</Link></li>
+
           </ul>
           <p className="text-sm text-gray-500 mt-4 md:mt-0">
             &copy; {new Date().getFullYear()} Algo, Inc. Built with Docusaurus.
