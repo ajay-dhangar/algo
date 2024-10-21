@@ -16,7 +16,6 @@ The **Ackermann function** is a mathematical recursive function with two non-neg
 1. **Recursive Definition:**
    The Ackermann function is defined by the following recursive rules:
 
-![1729497482068](image/Ackerman/1729497482068.png)
 
 When **m**=**0**,the function simply returns n+1 .
 
@@ -42,15 +41,13 @@ When m>0 and n>0, it makes two recursive calls, first to A(m,n−1) and then to 
   For small values of m and n, such as A(2,2)):
 * A(2,2)=9
 
-    This can be traced through several recursive steps, showcasing how each call is 			        nested deeply within others.
-
+  This can be traced through several recursive steps, showcasing how each call is 			        nested deeply within others.
 
 #### Explanation:
 
 * **Base Case (m = 0):** If m=0, the function simply returns n+1. This acts as the termination point for recursive calls when mm**m** becomes zero.
 * **Recursive Case 1 (m > 0 and n = 0):** If m is greater than 0 and n=0, the function makes a recursive call to A(m−1,1). This reduces the value of m by 1 and resets n to 1.
 * **Recursive Case 2 (m > 0 and n > 0):** If both mm**m** and nn**n** are greater than 0, the function first computes A(m,n−1) and then recursively calls A(m−1,result of A(m,n−1)).
-
 
 ### **Example Walkthrough:**
 
@@ -145,7 +142,7 @@ int ackermann(int m, int n) {
         } else if (m == 2) {
             n = 2 * n + 3;
         } else {
-        
+      
             stk.push(make_pair(m - 1, -1)); 
             n = -1; 
             continue;
