@@ -91,7 +91,7 @@ Autoencoders are trained to minimize the reconstruction loss between the input a
 
 ### Time Complexity:
 - **Training Complexity**:  
-  The time complexity depends on the number of layers and neurons in the encoder and decoder. For an autoencoder with \( l \) layers and \( n \) neurons per layer, the complexity is \( O(n \cdot l) \).
+  The time complexity depends on the number of layers and neurons in the encoder and decoder. For an autoencoder with $l$ layers and $n$ neurons per layer, the complexity is $O(n \cdot l)$.
   
 - **Prediction Complexity**:  
   The prediction or encoding complexity is also proportional to the number of layers and neurons, as the data passes through each layer of the network.
