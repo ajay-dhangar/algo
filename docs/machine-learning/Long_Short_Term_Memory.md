@@ -97,14 +97,14 @@ LSTMs process data in sequential order, using the previous hidden state and cell
 
 ### Time Complexity:
 - **Training Complexity**:  
-  The time complexity of training an LSTM is proportional to the sequence length \( T \), the size of the input \( n \), and the number of hidden units \( h \), and is approximately \( O(T \cdot n \cdot h^2) \).
+  The time complexity of training an LSTM is proportional to the sequence length $T$, the size of the input $n$, and the number of hidden units $h$, and is approximately $O(T \cdot n \cdot h^2)$.
 
 - **Prediction Complexity**:  
   For inference, the complexity depends on the sequence length, as LSTMs must process each time step sequentially.
 
 ### Space Complexity:
 - **Space Complexity**:  
-  LSTMs need memory proportional to the sequence length \( T \) and the number of hidden units \( h \), resulting in a space complexity of \( O(T \cdot h) \).
+  LSTMs need memory proportional to the sequence length $T$ and the number of hidden units $h$, resulting in a space complexity of $O(T \cdot h)$.
 
 ### Example:
 Consider an example where we use an LSTM to perform sentiment analysis on text data:
