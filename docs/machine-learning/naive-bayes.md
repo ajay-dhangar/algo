@@ -1,15 +1,15 @@
 ---
-
 id: naive-bayes-theorem  
 title: Naive Bayes Algorithm  
 sidebar_label: Naive Bayes  
 description: "In this post, we’ll explore the Naive Bayes Theorem, a fundamental probabilistic algorithm used for classification tasks based on Bayes' Theorem and the assumption of conditional independence."  
-tags: [machine learning, algorithms, naive bayes, classification, bayes theorem, probability]  
-
+tags: [machine learning, algorithms, naive bayes, classification, bayes theorem, probability]
 ---
 
 ### Definition:
 The **Naive Bayes** algorithm is a probabilistic classifier based on **Bayes' Theorem** with the assumption that the features are conditionally independent given the class label. Despite the "naive" assumption of feature independence, it is highly effective for various real-world applications such as spam filtering, text classification, and recommendation systems.
+
+<AdsComponent />
 
 ### Characteristics:
 - **Probabilistic Model**:  
@@ -31,9 +31,11 @@ The **Naive Bayes** algorithm is a probabilistic classifier based on **Bayes' Th
 3. **Bernoulli Naive Bayes**:  
    Applied to binary data, where the features take on binary values (e.g., presence or absence of a word in text classification).
 
+<Ads />
+
 ### Steps Involved:
 1. **Input the Data**:  
-   The algorithm receives labeled training data, where each example consists of a set of features and a corresponding class label.
+   The algorithm receives labelled training data, where each example consists of a set of features and a corresponding class label.
    
 2. **Calculate Prior Probabilities**:  
    The prior probability of each class is computed based on the frequency of each class in the training data.
@@ -44,13 +46,16 @@ The **Naive Bayes** algorithm is a probabilistic classifier based on **Bayes' Th
 4. **Apply Bayes' Theorem**:  
    Using Bayes' Theorem, the posterior probability of each class is calculated based on the priors and likelihoods:
    
-  ![image](https://github.com/user-attachments/assets/b7c360d9-7fd6-45d6-ba13-8be3617da7ef)
+   $$
+   P(y|X) = \frac{P(X|y) \cdot P(y)}{P(X)}
+   $$
 
-   
-   where P(y|X) is the posterior probability of the class given the feature vector, P(X|y) is the likelihood, P(y) is the prior, and P(X) is the evidence.
+   where $P(y|X)$ is the posterior probability of the class given the feature vector, $P(X|y)$ is the likelihood, $P(y)$ is the prior, and $P(X)$ is the evidence.
 
 5. **Classify New Data**:  
    For a new data point, the algorithm computes the posterior probability for each class and assigns the label of the class with the highest probability.
+
+<AdsComponent />
 
 ### Problem Statement:
 Given a dataset with multiple features and corresponding class labels, the objective is to train a Naive Bayes classifier that can predict the class label for new, unseen data based on the calculated probabilities.
@@ -59,14 +64,15 @@ Given a dataset with multiple features and corresponding class labels, the objec
 - **Bayes' Theorem**:  
   Bayes' Theorem is a mathematical formula used to calculate conditional probabilities. It is expressed as:
   
-![image](https://github.com/user-attachments/assets/a54ebaeb-7d44-4019-909f-de463d0b7e73)
+  $$
+  P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
+  $$
 
-  
   where:
-  -  P(A|B) is the posterior probability of event A given that B is true.
-  -  P(B|A) is the likelihood of observing B given that A is true.
-  -  P(A) is the prior probability of event A.
-  -  P(B) is the total probability of event B.
+  - $P(A|B)$ is the posterior probability of event $A given that $B$ is true.
+  - $P(B|A)$ is the likelihood of observing $B$ given that $A$ is true.
+  - $P(A)$ is the prior probability of event $A$.
+  - $P(B)$ is the total probability of event $B$.
 
 - **Prior Probability**:  
   The prior probability represents the initial belief about the class labels before considering any feature values, based on the distribution of classes in the training data.
@@ -80,15 +86,17 @@ Given a dataset with multiple features and corresponding class labels, the objec
 - **Naive Assumption**:  
   Naive Bayes assumes that all features are independent given the class, simplifying the probability calculations. This assumption, although unrealistic in many cases, allows for efficient computation and often leads to good results.
 
+<Ads />
+
 ### Split Criteria:
 Naive Bayes splits data based on the **highest posterior probability** for each class, assigning the class label that maximizes this probability.
 
 ### Time Complexity:
 - **Training Complexity**:  
-  Training involves calculating probabilities for each feature and class, resulting in a time complexity of \( O(n \cdot k) \), where \( n \) is the number of features and \( k \) is the number of classes.
+  Training involves calculating probabilities for each feature and class, resulting in a time complexity of $ O(n \cdot k) $, where $ n $ is the number of features and $ k $ is the number of classes.
   
 - **Prediction Complexity**:  
-  For predicting the class of a new data point, the time complexity is \( O(n \cdot k) \), as it requires computing the posterior probability for each class.
+  For predicting the class of a new data point, the time complexity is $ O(n \cdot k) $, as it requires computing the posterior probability for each class.
 
 ### Space Complexity:
 - **Space Complexity**:  
@@ -113,20 +121,28 @@ Step-by-Step Execution:
 2. **Calculate Priors**:  
    The prior probabilities of the classes (spam and not spam) are calculated based on the class distribution:
    
- ![image](https://github.com/user-attachments/assets/02973d06-60b6-4f2e-9c11-6c082ab71bd3)
-
+   $$
+   P(\text{Spam}) = \frac{\text{Number of spam emails}}{\text{Total number of emails}}
+   $$
    
-4. **Calculate Likelihoods**:  
+   $$
+   P(\text{Not Spam}) = \frac{\text{Number of non-spam emails}}{\text{Total number of emails}}
+   $$
+
+3. **Calculate Likelihoods**:  
    For each word (feature) and class, the likelihood is calculated. For example:
    
-![image](https://github.com/user-attachments/assets/24af7575-f217-40f7-b760-ec9ba8841fa2)
+   $$
+   P(\text{Free}|\text{Spam}) = \frac{\text{Number of spam emails containing 'Free'}}{\text{Total number of spam emails}}
+   $$
 
-   
-6. **Apply Bayes' Theorem**:  
+4. **Apply Bayes' Theorem**:  
    Using Bayes' Theorem, the posterior probabilities for new emails are calculated.
 
-7. **Make Predictions**:  
+5. **Make Predictions**:  
    The class with the highest posterior probability is predicted (spam or not spam).
+
+<AdsComponent />
 
 ### Python Implementation:
 Here is a basic implementation of Naive Bayes using **scikit-learn**:
