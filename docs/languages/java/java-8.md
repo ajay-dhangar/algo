@@ -5,23 +5,19 @@ title: "Inheritance in Java"
 sidebar_label: "Inheritance in Java"
 ---
 
-# Inheritance in Java
-
 Hey there! In this guide, we'll explore the concept of inheritance in Java. Inheritance allows one class to inherit fields and methods from another class, promoting code reusability and organization. Let's dive in!
 
----
+<AdsComponent />
 
 ## 1. What is Inheritance?
 
 Inheritance is a mechanism in object-oriented programming that allows one class (called the **subclass** or **child class**) to inherit properties and behaviors (fields and methods) from another class (called the **superclass** or **parent class**).
 
----
-
 ## 2. Syntax of Inheritance
 
 In Java, the `extends` keyword is used to inherit a class.
 
-#### Example:
+**Example:**
 
 ```java
 // Superclass
@@ -47,7 +43,7 @@ public class Main {
 }
 ```
 
-#### Output:
+**Output:**
 
 ```
 This animal is eating.
@@ -56,7 +52,7 @@ The dog is barking.
 
 In this example, the `Dog` class inherits the `eat()` method from the `Animal` class.
 
----
+<Ads />
 
 ## 3. Types of Inheritance
 
@@ -64,7 +60,7 @@ In this example, the `Dog` class inherits the `eat()` method from the `Animal` c
 
 Single inheritance occurs when a subclass inherits from a single superclass.
 
-#### Example:
+**Example:**
 
 ```java
 class A {
@@ -88,20 +84,20 @@ public class Main {
 }
 ```
 
-#### Output:
+**Output:**
 
 ```
 Class A method
 Class B method
 ```
 
----
+<AdsComponent />
 
 ### 3.2 Multilevel Inheritance
 
 Multilevel inheritance occurs when a class is derived from a class that is also derived from another class.
 
-#### Example:
+**Example:**
 
 ```java
 class A {
@@ -132,7 +128,7 @@ public class Main {
 }
 ```
 
-#### Output:
+**Output:**
 
 ```
 Class A method
@@ -140,13 +136,13 @@ Class B method
 Class C method
 ```
 
----
+<Ads />
 
 ### 3.3 Hierarchical Inheritance
 
 In hierarchical inheritance, multiple classes inherit from a single superclass.
 
-#### Example:
+**Example:**
 
 ```java
 class A {
@@ -181,7 +177,7 @@ public class Main {
 }
 ```
 
-#### Output:
+**Output:**
 
 ```
 Class A method
@@ -190,7 +186,7 @@ Class A method
 Class C method
 ```
 
----
+<AdsComponent />
 
 ## 4. The `super` Keyword
 
@@ -198,7 +194,7 @@ The `super` keyword is used to refer to the immediate superclass's methods or co
 
 ### 4.1 Using `super` to Call Superclass Methods
 
-#### Example:
+**Example:**
 
 ```java
 class Animal {
@@ -222,20 +218,20 @@ public class Main {
 }
 ```
 
-#### Output:
+**Output:**
 
 ```
 Animal is making a sound
 Dog is barking
 ```
 
----
+<Ads />
 
 ### 4.2 Using `super` to Call Superclass Constructors
 
 You can also use `super()` to call a superclass constructor.
 
-#### Example:
+**Example:**
 
 ```java
 class Animal {
@@ -258,20 +254,20 @@ public class Main {
 }
 ```
 
-#### Output:
+**Output:**
 
 ```
 Animal is created
 Dog is created
 ```
 
----
+<AdsComponent />
 
 ## 5. Method Overriding
 
 Method overriding allows a subclass to provide a specific implementation of a method that is already defined in its superclass.
 
-#### Example:
+**Example:**
 
 ```java
 class Animal {
@@ -295,16 +291,13 @@ public class Main {
 }
 ```
 
-#### Output:
+**Output:**
 
 ```
 Cat meows
 ```
 
----
 
 ## 6. Final Thoughts
 
 Inheritance is a fundamental concept in Java that helps you reuse code, establish relationships between classes, and create well-structured applications. By understanding inheritance and how to use it effectively, you can create more modular and maintainable Java applications.
-
-Happy coding!
