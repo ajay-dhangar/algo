@@ -5,6 +5,28 @@
 <p>
     This README introduces two important concepts in Java: <strong>Strings</strong> and <strong>StringBuilder</strong>. Both are used to handle sequences of characters but differ in their mutability and performance. Understanding how and when to use each is essential for efficient string manipulation in Java.
 </p>
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>sidebar_label</th>
+            <th>sidebar_position</th>
+            <th>description</th>
+            <th>tags</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>strings-and-stringbuilder</td>
+            <td>Strings and StringBuilder in Java</td>
+            <td>Java Strings</td>
+            <td>5</td>
+            <td>An introduction to Java Strings and StringBuilder, covering differences and code examples.</td>
+            <td>Java, Strings, StringBuilder, Programming</td>
+        </tr>
+    </tbody>
+</table>
 
 <hr>
 
