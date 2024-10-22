@@ -55,7 +55,7 @@ Linear search, also known as sequential search, is the simplest searching algori
 - **Data in Linked Lists**:
   - Linear search works well with linked lists, where random access is not possible and each element must be checked sequentially.
 
-### C++ Implementation:
+### C++ and Python Implementation:
 
 **Iterative Approach**
 ```cpp
