@@ -84,5 +84,4 @@ Aggregate functions can be combined with the `GROUP BY` clause to group rows tha
   FROM employees
   GROUP BY department;
   ```
-
 ---
