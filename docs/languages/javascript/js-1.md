@@ -57,6 +57,8 @@ graph TD
   A -->|=| F["{ key: 'value', age: 25 }"]
 ```
 
+<Ads />
+
 :::tip Definition 
 In JavaScript, variables are containers that hold information, allowing you to reference and manipulate values within your code. Variables are fundamental to programming, enabling you to work with data dynamically.
 
@@ -79,7 +81,7 @@ In programming, variables are used to store and manage data. They act as symboli
    - They are block-scoped like variables declared with let.
 :::
 
-<Ads />
+<AdsComponent />
 
 ## 2. Variable Declaration and Types
 
@@ -130,7 +132,7 @@ Once a variable is declared, you can assign values to it. JavaScript's dynamic t
 
 This flexibility is powerful, but it's crucial to be aware of the data types your variables hold to avoid unexpected behavior.
 
-<AdsComponent />
+<Ads />
 
 ## 3. Scope and Hoisting
 
@@ -175,7 +177,7 @@ let message = greet("Algo");
 console.log(message); // Outputs: Hello, Algo!
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 5. Best Practices
 
