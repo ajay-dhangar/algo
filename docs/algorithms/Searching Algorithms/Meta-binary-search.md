@@ -59,6 +59,62 @@ Complexity: Similar to binary search, the worst case would require halving the s
 - **Optimization**:
   -  It helps optimize binary search when the range of values is large, but the exact value we're searching for can be extracted efficiently using bitwise comparisons.
 
+```cpp
+// C++ implementation of the optimized approach
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+
+// Function to implement optimized Meta Binary Search
+int optimizedMetaBinarySearch(const vector<int>& A, int key_to_search) {
+    int n = static_cast<int>(A.size());
+    
+    // Edge case: if the array is empty
+    if (n == 0) return -1;
+
+    // Set number of bits to represent the largest array index
+    int lg = log2(n - 1) + 1; 
+    int pos = 0;
+
+    // Main loop for searching the key
+    for (int i = lg; i >= 0; i--) {
+        if (A[pos] == key_to_search) {
+            return pos; // Key found
+        }
+
+        // Construct new position
+        int new_pos = pos | (1 << i);
+        // Check bounds and values
+        if (new_pos < n && A[new_pos] <= key_to_search) {
+            pos = new_pos; // Move to the new position
+        }
+    }
+
+    // Final check if the key is at the current position
+    return (A[pos] == key_to_search) ? pos : -1;
+}
+
+// Function to test the optimized Meta Binary Search
+int main() {
+    vector<int> A = {-2, 10, 100, 250, 32315}; // Example sorted array
+
+    int key = 10; // Key to search
+    int result = optimizedMetaBinarySearch(A, key);
+
+    if (result != -1) {
+        cout << "Element found at index: " << result << endl;
+    } else {
+        cout << "Element not found." << endl;
+    }
+
+    return 0;
+}
+
+```
 - **Integer-based Problems**:
   - Works well in problems where you're dealing with integer values or ranges, like finding specific values within a range.
 
