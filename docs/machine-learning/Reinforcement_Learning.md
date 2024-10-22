@@ -82,12 +82,12 @@ One of the key challenges in RL is balancing between:
 
 
 Where:
-- \( Q(s, a) \) is the Q-value of taking action \( a \) in state \( s \)
-- \( r \) is the reward received after taking action \( a \)
-- α is the learning rate
-- γ is the discount factor (the weight of future rewards)
+- $Q(s, a)$ is the Q-value of taking action $( a )$ in state $(s)$
+- $( r )$ is the reward received after taking action $( a )$
+- $α$ is the learning rate
+- $γ$ is the discount factor (the weight of future rewards)
 - ![image](https://github.com/user-attachments/assets/36e1cfa7-aa4f-457e-8b7f-ba485f205cc5)
- is the maximum Q-value for the next state \( s' \)
+ is the maximum Q-value for the next state $s'$
 
 ### Policy Gradient Methods:
 In **policy gradient** methods, the policy is parameterized, and the goal is to directly optimize the policy parameters. These methods are well-suited for high-dimensional action spaces and continuous control tasks.
@@ -96,7 +96,7 @@ In **policy gradient** methods, the policy is parameterized, and the goal is to 
 The **reward signal** is crucial in RL. The agent's goal is to maximize the **cumulative reward** over time. It must learn which actions lead to higher rewards, even if the rewards are delayed.
 
 ### Discount Factor:
-The **discount factor** \( \gamma \) controls the importance of future rewards. A discount factor close to 1 makes the agent prioritize long-term rewards, while a lower value emphasizes immediate rewards.
+The **discount factor** $γ$ controls the importance of future rewards. A discount factor close to 1 makes the agent prioritize long-term rewards, while a lower value emphasizes immediate rewards.
 
 ### Example:
 Consider a simple game where an agent has to move through a maze to reach the goal. The agent receives positive rewards for moving closer to the goal and negative rewards for hitting walls.
