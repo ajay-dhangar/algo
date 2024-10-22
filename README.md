@@ -46,7 +46,7 @@ Welcome to **Algo**, an open-source project that provides developers with algori
    <tr>
       <td><img src="girlscript.jpg" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
       <td>GSSoC'24 Extd</td>
-      <td>GSSoC'24 Extd is a one-month open-source Program conducted by the GirlScript Foundation. It is an initiative to introduce more beginners to Open-Source Software Development.</td>
+      <td>GSSoC'24 Extd is a one-month open-source program conducted by the GirlScript Foundation. It is an initiative to introduce more beginners to Open-Source Software Development.</td>
        <td>Active</td>
    </tr>
     <tr>
