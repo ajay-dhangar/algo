@@ -1,10 +1,8 @@
-// src/pages/Challenges.tsx
-
 import React from "react";
 import { motion } from "framer-motion";
 import Layout from "@theme/Layout";
 import ChallengeCard from "../../components/ChallengeCard";
-import SectionHeader from "../../components/SectionHeader";
+import Header from "../../components/Header";
 import challengeData from "../../data/challengeData";
 
 const Challenges: React.FC = () => {
@@ -14,7 +12,7 @@ const Challenges: React.FC = () => {
       description="Participate in coding challenges to earn points and rank up."
     >
       <section className="relative bg-gray-100 dark:bg-gray-900 py-16 px-8">
-        <SectionHeader
+        <Header
           title="Coding Challenges"
           description="Push your coding limits by participating in timed coding challenges."
         />
