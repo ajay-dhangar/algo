@@ -42,8 +42,8 @@ Where:
  is the distribution of the real data.
 - ![image](https://github.com/user-attachments/assets/d03461ef-0afc-4136-a22a-233766f7208d)
  is the distribution of the random noise input.
-- D(x) is the probability that \( x \) is real.
-- G(z) is the generator's output based on random noise \( z \).
+- $D(x)$ is the probability that &( x )$ is real.
+- $G(z)$ is the generator's output based on random noise $( z )$.
 
 ### Types of GANs:
 1. **Vanilla GAN**:  
