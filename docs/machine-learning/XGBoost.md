@@ -3,7 +3,7 @@
 id: xgboost  
 title: XGBoost Algorithm  
 sidebar_label: XGBoost  
-description: "In this post, we'll dive into XGBoost, a highly efficient and scalable machine learning algorithm known for its accuracy and speed in solving both classification and regression problems."  
+description: "XGBoost is a highly efficient and scalable machine learning algorithm known for its accuracy and speed in solving both classification and regression problems."  
 tags: [machine learning, algorithms, xgboost, classification, regression]
 
 ---
@@ -51,12 +51,13 @@ Given a dataset, the goal of XGBoost is to iteratively build a model that minimi
 ### Objective Function:
 The objective function minimized by XGBoost is defined as:
 
+$Obj(\Theta)$ = $\sum_{i=1}$ L($y_i$, $\hat{y}$) + $\sum_{k=1}${K} $\Omega(f_k)$
 
-$$Obj(\Theta) = \sum_{i=1}^{n} L(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k)$$
+
 
 
 Where:
-- (L($y_i$, $\hat{y}_i)$) is the loss function measuring the difference between true values ($y_i$) and predicted values \($\hat{y}_i$).
+- (L($y_i$, $\hat{y}_i$)) is the loss function measuring the difference between true values ($y_i$) and predicted values \($\hat{y}_i$).
 - $\Omega(f_k)$ is the regularization term penalizing the complexity of the model.
 
 ### Time Complexity:
