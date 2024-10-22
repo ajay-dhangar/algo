@@ -40,7 +40,7 @@ Palindrome property: A number is a palindrome if it reads the same forward and b
 
 
 ```java
-// your code here
+
 public class Palindrome_number {
     public static void main(String[] args) {
       Palindrome_number obj = new Palindrome_number();

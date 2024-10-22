@@ -39,7 +39,7 @@ If the loop completes without finding any mismatches, return true, indicating th
 ## java Implementation 
 
 ```java
-// your code here
+
 public class Palindrome_string {
   public static void main(String[] args) {
     Palindrome_string obj = new Palindrome_string();
@@ -67,8 +67,8 @@ public class Palindrome_string {
 **👉🏻👉🏻👉🏻 time complexity**= O(n);
 **👉🏻👉🏻👉🏻space complexity**= O(1);
 **👉🏻👉🏻👉🏻logic =**
-//1.The key logic is the use of two pointers (left and right) to compare characters from both ends of the string and progressively move toward the center.
-//2.If all characters match, the string is a palindrome. If any pair of characters does not match, the string is not a palindrome.
+1.The key logic is the use of two pointers (left and right) to compare characters from both ends of the string and progressively move toward the center.
+2.If all characters match, the string is a palindrome. If any pair of characters does not match, the string is not a palindrome.
 
 ## Conclusion 
 
