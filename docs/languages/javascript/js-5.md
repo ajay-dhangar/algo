@@ -6,14 +6,14 @@ sidebar_label: Loops in JavaScript
 ---
 
 Hey everyone! Today, we will explore loops in JavaScript, a key concept for automating repetitive tasks. Whether you're just starting or need a quick refresher, this guide will help you understand how loops work in JavaScript. Let's get started!
-# JavaScript Loops
 
+<AdsComponent />
 
 * Loops allow you to execute a block of code repeatedly while a specified condition is true.
 
 * JavaScript provides several types of loops, such as `for`, `while`, and `do-while` loops.
-## 1. For Loop
 
+## 1. For Loop
 
 The `for` loop is the most commonly used loop in JavaScript. It repeats a block of code for a set number of times.  
 ```javascript  
@@ -21,8 +21,8 @@ for (let i = 0; i < 5; i++) {              // Loop from 0 to 4
     console.log(i);                       // Print the current value of 'i'  
 }  
 ```
-## 2. For-In Loop
 
+## 2. For-In Loop
 
 The `for-in` loop is used to iterate over the properties of an object.  
 ```javascript  
@@ -31,8 +31,10 @@ for (let key in person) {                  // Iterate over each property in the 
     console.log(key + ': ' + person[key]); // Print the property and its value  
 }  
 ```
-## 3. For-Of Loop
 
+<Ads />
+
+## 3. For-Of Loop
 
 The `for-of` loop is used to iterate over iterable objects like arrays or strings.  
 ```javascript  
@@ -41,8 +43,8 @@ for (let num of numbers) {                // Iterate over each number in the 'nu
     console.log(num);                     // Print the current number  
 }  
 ```
-## 4. While Loop
 
+## 4. While Loop
 
 The `while` loop executes a block of code as long as the specified condition is true.  
 ```javascript  
@@ -52,8 +54,10 @@ while (count < 5) {                       // Continue looping while 'count' is l
     count++;                              // Increment 'count' by 1  
 }  
 ```
-## 5. Do-While Loop
 
+<AdsComponent />
+
+## 5. Do-While Loop
 
 The `do-while` loop is similar to the `while` loop but ensures the code is executed at least once before checking the condition.  
 ```javascript  
@@ -63,8 +67,8 @@ do {                                       // Execute the loop body at least onc
     count++;                              // Increment 'count' by 1  
 } while (count < 5);                      // Continue looping while 'count' is less than 5  
 ```
-## 6. Break Statement
 
+## 6. Break Statement
 
 The `break` statement is used to exit a loop prematurely.  
 ```javascript  
@@ -75,8 +79,8 @@ for (let i = 0; i < 10; i++) {            // Loop from 0 to 9
     console.log(i);                       // Print numbers from 0 to 4  
 }  
 ```
-## 7. Continue Statement
 
+## 7. Continue Statement
 
 The `continue` statement skips the current iteration of the loop and moves to the next iteration.  
 ```javascript  
@@ -87,8 +91,8 @@ for (let i = 0; i < 5; i++) {             // Loop from 0 to 4
     console.log(i);                       // Print numbers except 3  
 }  
 ```
-## 8. Nested Loops
 
+## 8. Nested Loops
 
 In JavaScript, you can use loops inside other loops. These are called nested loops and are useful for iterating over multi-dimensional arrays.  
 ```javascript  
@@ -98,3 +102,26 @@ for (let i = 1; i <= 3; i++) {            // Outer loop from 1 to 3
     }  
 }  
 ```
+
+<Ads />
+
+## 9. Loop Control Statements
+
+Loop control statements allow you to control the flow of loops. Here are some common loop control statements in JavaScript:
+
+* `break`: Exits the loop immediately.
+* `continue`: Skips the current iteration and moves to the next one.
+* `return`: Exits the loop and the enclosing function.
+
+## 10. Infinite Loops
+
+An infinite loop is a loop that runs indefinitely. It occurs when the loop condition is always true or the loop lacks an exit condition.  
+```javascript
+while (true) {                            // Infinite loop  
+    console.log('This is an infinite loop!');  
+}  
+```
+
+## Conclusion
+
+Loops are essential for automating repetitive tasks in JavaScript. By using loops effectively, you can iterate over data structures, perform calculations, and execute code based on conditions. Practice writing loops to enhance your programming skills and build efficient applications.

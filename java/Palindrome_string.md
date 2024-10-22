@@ -38,6 +38,8 @@ If the loop completes without finding any mismatches, return true, indicating th
 
 ## java Implementation 
 
+```java
+// your code here
 public class Palindrome_string {
   public static void main(String[] args) {
     Palindrome_string obj = new Palindrome_string();
@@ -60,6 +62,8 @@ public class Palindrome_string {
   }
 }
 
+```
+
 **👉🏻👉🏻👉🏻 time complexity**= O(n);
 **👉🏻👉🏻👉🏻space complexity**= O(1);
 **👉🏻👉🏻👉🏻logic =**
@@ -68,4 +72,4 @@ public class Palindrome_string {
 
 ## Conclusion 
 
-In this article, we learned about the Palindrome in string . Palindroem is a when you read from left to right and right to left is same  that basically a palindrome. The time complexit is O(1) and the space complexity is O(1). 
+In this article, we learned about the Palindrome in string . Palindroem is a when you read from left to right and right to left is same  that basically a palindrome. The time complexit is O(1) and the space complexity is O(1)..

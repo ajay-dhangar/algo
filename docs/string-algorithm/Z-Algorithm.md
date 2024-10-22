@@ -1,5 +1,5 @@
 ---
-id: Z-Algorithm
+id: z-algorithm
 title: "Z Algorithm"
 sidebar_label: "Z Algorithm"
 sidebar_position: 6
@@ -7,7 +7,9 @@ description: "A comprehensive guide to using the Z-Algorithm for efficient patte
 tags: [pattern matching, string algorithms, competitive programming]
 ---
 
-# Z Algorithm for Pattern Matching
+In computer science, the **Z-Algorithm** is an efficient linear-time algorithm used for pattern matching in strings. It computes an array Z for a given string S, where Z[i] contains the length of the longest substring starting from S[i] that is also a prefix of S. The Z-Algorithm is widely used in competitive programming and string matching applications.
+
+<AdsComponent />
 
 ## Definition:
 
@@ -17,9 +19,9 @@ The Z-Algorithm computes an array Z for a string S such that Z[i] contains the l
 
 Given a string S of length n, the Z-array is computed where Z[i] is the length of the longest substring starting from S[i] that matches the prefix of S. The algorithm runs in O(n) time and is used in various string matching applications.
 
-## Code
+<Ads />
 
-### Code Implementation (Python):
+## Code Implementation
 
 ```python
 def calculate_z(S):
@@ -146,6 +148,8 @@ public class ZAlgorithm {
 }
 ```
 
+<AdsComponent />
+
 ## Explanation of the Code:
 
 - **calculate_z:** This function computes the Z-array for the given string S. The Z-array holds the length of the longest substring starting from index i that matches the prefix of the string.
@@ -165,5 +169,3 @@ Efficiently find all occurrences of a pattern in a string, which is useful in so
 
 ### Prefix-Suffix Problems:
 Can be used to find all prefixes of a string that are also suffixes, which is helpful in problems like finding palindromes and string periodicity.
-
-

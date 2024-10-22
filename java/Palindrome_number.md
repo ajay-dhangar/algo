@@ -14,10 +14,14 @@ Given a number , check is it palindrome or not , and return answer in boolean. P
 
 ## Approach
 
-(rev = rev * 10 + x % 10; and x = x / 10;)
-//Modulo operator (%) is used to extract the last digit of the number.
-// division (/) is used to remove the last digit of the number.
-//Palindrome property: A number is a palindrome if it reads the same forward and backward.
+rev = rev * 10 + (x % 10);
+
+This expression shifts the current value of rev one decimal place to the left by multiplying it by 10.
+The last digit of x is extracted using x % 10 (modulus operation).
+The last digit is then added to rev.
+Modulo operator (%) is used to extract the last digit of the number.
+division (/) is used to remove the last digit of the number.
+Palindrome property: A number is a palindrome if it reads the same forward and backward.
 
 ### Steps:
 
@@ -34,6 +38,9 @@ Given a number , check is it palindrome or not , and return answer in boolean. P
 
 ## java Implementation 
 
+
+```java
+// your code here
 public class Palindrome_number {
     public static void main(String[] args) {
       Palindrome_number obj = new Palindrome_number();
@@ -41,7 +48,7 @@ public class Palindrome_number {
       System.out.println(ans);
     }
 
-      public boolean palindrome(int num) {
+       public boolean palindrome(int num) {
         if(num<0){    //if number is less than zero then return false;
           return false;
         }
@@ -55,6 +62,8 @@ public class Palindrome_number {
       }
 
 }
+```
+   
 
 
 ** 👉🏻👉🏻👉🏻 time complexity=constant. O(1)**
@@ -68,4 +77,4 @@ Palindrome property: A number is a palindrome if it reads the same forward and b
 
 ## Conclusion 
 
-In this article, we learned about the Palindrome in number  . Palindroem is a when you read from left to right and right to left is same  that basically a palindrome. The time complexit is O(n) and the space complexity is O(1). 
+In this article, we learned about the Palindrome in number  . Palindroem is a when you read from left to right and right to left is same  that basically a palindrome. The time complexit is O(n) and the space complexity is O(1).. 
