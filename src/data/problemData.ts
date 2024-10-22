@@ -1258,632 +1258,630 @@ class Solution:
     `,
     },
   },
+  preorderTraversal: {
+    title: "23. Binary Tree Preorder Traversal",
+    description:
+      "Given the root of a binary tree , return the preorder traversal of its nodes' values.",
+    examples: [
+      { input: "[1,null ,2 ,3]", output: `[1 ,2 ,3]` },
+      { input: "[]", output: `[]` },
+      { input: "[1]", output: `[1]` },
+      { input: "[1 ,2]", output: `[1 ,2]` },
+      { input: "[1,null ,2]", output: `[1 ,2]` },
+    ],
+    solution: `
+    class Solution {
+    public:
+       vector<int> ans;
+       vector<int> preorderTraversal(TreeNode* root) {
+           if(root == NULL)
+               return ans;
+
+           ans.push_back(root -> val);
+           preorderTraversal(root -> left);
+           preorderTraversal(root -> right);
+
+           return ans;
+       }
+    };`,
+  },
+
+  postorderTraversal: {
+    title: "24. Binary Tree Postorder Traversal",
+    description:
+      "Given the root of a binary tree , return the postorder traversal of its nodes' values.",
+    examples: [
+      { input: "[1,null ,2 ,3]", output: `[3 ,2 ,1]` },
+      { input: "[]", output: `[]` },
+      { input: "[1]", output: `[1]` },
+      { input: "[1 ,2]", output: `[2 ,1]` },
+      { input: "[1,null ,2]", output: `[2 ,1]` },
+    ],
+    solution: `
+    class Solution {
+    public:
+       vector<int> ans;
+       vector<int> postorderTraversal(TreeNode* root) {
+           if(root == NULL)
+               return ans;
+
+           postorderTraversal(root -> left);
+           postorderTraversal(root -> right);
+
+           ans.push_back(root -> val);
+
+           return ans;
+       }
+    };`,
+  },
+
+  removeElements: {
+    title: "25. Remove Linked List Elements",
+    description: "Given the head of a linked list and an integer val...",
+    examples: [
+      { input: "[1 ,2 ,6 ,3 ,4 ,5 ,6], val=6", output: "[1 ,2 ,3 ,4 ,5]" },
+      { input: "[], val=1", output: "[]" },
+      { input: "[7 ,7 ,7 ,7], val=7", output: "[]" },
+    ],
+    solution: `
+    class Solution {
+    public:
+    ListNode* removeElements(ListNode* head,int val){
+    if(head==0) //if head is empty
+    return head;
+    if(head->val==val) //if value matches
+    return removeElements(head->next,val); //just ignore the element node
+    else{
+    head->next=removeElements(head->next,val);
+    }
+    return head;
+    }
+    };
+    `,
+  },
+
+  reverseList: {
+    title: "26. Reverse Linked List",
+    description: "Given the head of a singly linked list...",
+    examples: [
+      { input: "[1 ,2 ,3 ,4 ,5]", output: "[5 ,4 ,3 ,2 ,1]" },
+      { input: "[1 ,2]", output: "[2 ,1]" },
+      { input: "[]", output: "[]" },
+    ],
+    solution: `
+    class Solution{
+    public:
+    ListNode* reverseList(ListNode* head){
+    vector<int>res;
+    ListNode* temp=head;
+    while(temp){
+    res.push_back(temp->val);
+    temp=temp->next;
+    }
+
+    temp=head;
+
+    for(int i=res.size()-1;i>=0;i--){
+    temp->val=res[i];
+    temp=temp->next;
+    }
+    return head;
+    }
+    };
+    `,
+  },
+
+  findKthLargest: {
+    title: "27. Kth Largest Element in an Array",
+    description:
+      "Given an integer array nums and an integer k, return the kth largest element in the array.",
+    examples: [
+      { input: "[3,2,1,5,6,4], k = 2", output: "5" },
+      { input: "[3,2,3,1,2,4,5,5,6], k = 4", output: "4" },
+    ],
+    solution: `
+    class Solution {
+    public:
+        int findKthLargest(vector<int>& nums, int k) {
+            sort(nums.begin(), nums.end());
+            int n = nums.size();
+            return nums[n - k];
+        }
+    };`,
+  },
+
+  containsDuplicate: {
+    title: "28. Contains Duplicate",
+    description:
+      "Given an integer array nums, return true if any value appears at least twice in the array.",
+    examples: [
+      { input: "[1,2,3,1]", output: "true" },
+      { input: "[1,2,3,4]", output: "false" },
+      { input: "[1,1,1,3,3,4,3,2,4,2]", output: "true" },
+    ],
+    solutionOne: `
+    class Solution {
+    public:
+        bool containsDuplicate(vector<int>& nums) {
+            return (nums.size() > unordered_set<int>(nums.begin(), nums.end()).size());
+        }
+    };`,
+    solutionTwo: `
+    class Solution {
+    public:
+        bool containsDuplicate(vector<int>& nums) {
+            unordered_map<int,int> ans;
+            for(int i = 0; i < nums.size(); i++) {
+                ans[nums[i]]++;
+            }
+
+            for(auto x : ans) {
+                if(x.second >= 2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    };`,
+  },
+
+  invertBinaryTree: {
+    title: "29. Invert Binary Tree",
+    description:
+      "Given the root of a binary tree, invert the tree and return its root.",
+    examples: [
+      { input: "[4,2,7,1,3,6,9]", output: "[4,7,2,9,6,3,1]" },
+      { input: "[2,1,3]", output: "[2,3,1]" },
+      { input: "[]", output: "[]" },
+    ],
+    solution: `class Solution {
+    public:
+        TreeNode* invertTree(TreeNode* root) {
+           if(root) {
+               invertTree(root->left);
+               invertTree(root->right);
+               swap(root->left , root->right);
+           }
+           return root;
+        }
+    };`,
+  },
+
+  MyQueue: {
+    title: "30. Implement Queue using Stacks",
+    description:
+      "Implement a first in first out (FIFO) queue using only two stacks.",
+    examples: [
+      {
+        input: `["MyQueue", "push", "push", "peek", "pop", "empty"]`,
+        output: `[null,null,null ,1 ,1 ,false]`,
+      },
+    ],
+    solution: `
+    class MyQueue {
+    public:
+       stack<int> s1,s2;
+
+       MyQueue() {}
+
+       void push(int x) {
+           while(!s1.empty()) {
+               s2.push(s1.top());
+               s1.pop();
+           }
+
+           s2.push(x);
+           while(!s2.empty()) {
+               s1.push(s2.top());
+               s2.pop();
+           }
+       }
+
+       int pop() {
+           int curr = s1.top();
+           s1.pop();
+           return curr;
+       }
+
+       int peek() {
+           return s1.top();
+       }
+
+       bool empty() {
+           return s1.empty();
+       }
+    };`,
+  },
+
+  isAnagram: {
+    title: "31. Valid Anagram",
+    description:
+      "Given two strings s and t , return true if t is an anagram of s , and false otherwise.",
+    examples: [
+      { input: "anagram , nagaram", output: "true" },
+      { input: "rat , car", output: "false" },
+    ],
+    solution: `
+    class Solution {
+    public:
+       bool isAnagram(string s,string t) {
+           if(s.length() != t.length())
+               return false;
+
+           int count[26] = {0};
+           for(char ch : s)
+               count[ch - 'a']++;
+
+           for(char ch : t)
+               count[ch - 'a']--;
+
+           for(int i = 0; i < 26; i++) {
+               if(count[i] != 0)
+                   return false;
+           }
+
+           return true;
+       }
+    };`,
+  },
+
+  missingNumber: {
+    title: "32. Missing Number",
+    description:
+      "Given an array nums containing n distinct numbers in the range [0,n], return the only number in the range that is missing from the array.",
+    examples: [
+      { input: "[3 ,0 ,1]", output: "2" },
+      { input: "[0 ,1]", output: "2" },
+    ],
+    solution: `
+    class Solution {
+    public:
+       int missingNumber(vector<int>& nums) {
+           int sum = 0;
+           int n = nums.size();
+
+           for(int i = 0; i < n; i++) {
+               sum += nums[i];
+           }
+
+           return (n * (n + 1) / 2 - sum);
+       }
+    };`,
+  },
+
+  guessNumber: {
+    title: "33. Guess Number Higher or Lower",
+    description: "You are playing a Guess Game...",
+    examples: [
+      { input: "n=10,pick=6", output: "6" },
+      { input: "n=1,pick=1", output: "1" },
+      { input: "n=2,pick=2", output: "2" },
+    ],
+    solution: `
+    class Solution {
+    public:
+       int guessNumber(int n) {
+           int start = 1;
+           int end = n;
+
+           while(start <= end) {
+               int mid = start + (end - start) / 2;
+
+               if(guess(mid) == 0)
+                   return mid;
+               else if(guess(mid) < 0)
+                   end = mid - 1;
+               else
+                   start = mid + 1;
+           }
+
+           return -1;
+       }
+    };`,
+  },
+
+  intersect: {
+    title: "34. Intersection of Two Arrays II",
+    description: "Given two integer arrays nums1 and nums2...",
+    examples: [
+      { input: "[1 ,2 ,2 ,1], [2 ,2]", output: "[2 ,2]" },
+      { input: "[4 ,9 ,5], [9 ,4 ,9 ,8 ,4]", output: "[4 ,9]" },
+    ],
+    solution: `
+    class Solution{
+    public:
+    vector<int> intersect(vector<int>& nums1 , vector<int>& nums2){
+    vector<int> ans ;
+    sort(nums1.begin() , nums1.end());
+    sort(nums2.begin() , nums2.end());
+
+    int i=0,j=0 ;
+    while(i<nums1.size() && j<nums2.size()){
+    if(nums1[i]<nums2[j])
+    i++ ;
+    else if(nums1[i]>nums2[j])
+    j++ ;
+    else{
+    ans.push_back(nums1[i]);
+    i++ ;
+    j++ ;
+    }
+    }
+    return ans ;
+    }
+    };
+    `,
+  },
+
+  runningSum: {
+    title: "35. Running Sum of 1d Array",
+    description: "Given an array nums...",
+    examples: [
+      { input: "[1 ,2 ,3 ,4]", output: "[1 ,3 ,6 ,10]" },
+      { input: "[5]", output: "[5]" },
+    ],
+    solution: `
+        class Solution{
+        public:
+        vector<int> runningSum(vector<int>& nums){
+        for(int i=1;i<nums.size();i++)
+        {
+        nums[i]+=nums[i-1];
+        }
+        return nums;
+        }
+        };
+        `,
+  },
+
+  shuffleString: {
+    title: "36. Shuffle String",
+    description: "Given a string s and an integer array indices...",
+    examples: [
+      {
+        input: `"codeleet", indices = [4,5,6,7,0,2,1,3]`,
+        output: `"leetcode"`,
+      },
+    ],
+    solution: `
+        class Solution{
+        public:
+        string restoreString(string s , vector<int>& indices){
+        string res=s;
+        for(int i=0;i<indices.size();i++)
+        {
+        res[indices[i]]=s[i];
+        }
+        return res;
+        }
+        };
+        `,
+  },
+
+  maxLevelSum: {
+    title: "37. Maximum Level Sum of a Binary Tree",
+    description: "Given the root of a binary tree...",
+    examples: [{ input: "[1 ,7 ,0 ,7 ,-8,null,null]", output: "2" }],
+    solution: `
+        class Solution{
+        public:
+        int maxLevelSum(TreeNode* root){
+        queue<TreeNode*>q;
+        int level=1,max_level=0,max_sum=INT_MIN;
+
+        if(root==nullptr)
+        return 0;
+
+        q.push(root);
+        while(!q.empty()){
+        int len=q.size();
+        int sum=0;
+
+        while(len--){
+        TreeNode* front=q.front();
+        q.pop();
+
+        if(front->right)
+        q.push(front->right);
+        if(front->left)
+        q.push(front->left);
+        sum=sum+front->val;
+        }
+        if(sum>max_sum)
+        {
+        max_sum=sum;
+        max_level=level;
+        }
+        level++;
+        }
+        return max_level;
+        }
+        };`,
+  },
+
+  firstAlphabet: {
+    title: "38. First Alphabet of Each Word",
+    description:
+      "Given a string S, create a string with the first letter of every word in the string.",
+    examples: [
+      { input: "geeks for geeks", output: "gfg" },
+      { input: "bad is good", output: "big" },
+    ],
+    solution: `
+    class Solution {
+    public:
+        string firstAlphabet(string S) {
+            string ans;
+            ans += S[0]; // Add the first character of the first word
+
+            for (int i = 1; i < S.size(); i++) {
+                if (S[i - 1] == ' ') // Check if the previous character is a space
+                    ans += S[i]; // Add the current character to the answer
+            }
+            return ans;
+        }
+    };`,
+  },
+
+  countLeaves: {
+    title: "39. Count Leaves in a Binary Tree",
+    description:
+      "Given a Binary Tree of size N, count the number of leaves in it.",
+    examples: [
+      {
+        input: "Given Tree is [4, 8, 10, 7, 3, null, 5, null, null, null]",
+        output: "3",
+      },
+    ],
+    solution: `
+    int countLeaves(Node* root) {
+        if (root == NULL)
+            return 0;
+
+        if (root->left == NULL && root->right == NULL)
+            return 1;
+
+        return countLeaves(root->left) + countLeaves(root->right);
+    }
+    `,
+    timeComplexity: "O(n) where n is the number of nodes in the binary tree.",
+  },
+
+  generateBinaryNumbers: {
+    title: "40. Generate Binary Numbers from 1 to N",
+    description:
+      "Given a number N, generate and print all binary numbers with decimal values from 1 to N.",
+    examples: [
+      { input: "N = 2", output: "1 10" },
+      { input: "N = 5", output: "1 10 11 100 101" },
+    ],
+    solution: `
+    vector<string> generate(int N) {
+        queue<string> q;
+        vector<string> v;
+
+        q.push("1");
+        while (N--) {
+            string s = q.front();
+            v.push_back(s);
+            q.pop();
+            q.push(s + "0");
+            q.push(s + "1");
+        }
+        return v;
+    }
+    `,
+    timeComplexity: "O(N log2N)",
+    spaceComplexity: "O(N log2N)",
+  },
+
+  minimumDifference: {
+    title: "41. Minimum Difference Between Any Pair",
+    description:
+      "Given an unsorted array, find the minimum difference between any pair in the given array.",
+    examples: [
+      { input: "[2, 4, 5, 9, 7]", output: "1" },
+      { input: "[3, 10, 8, 6]", output: "2" },
+    ],
+    solution: `
+    class Solution {
+    public:
+        int minimum_difference(vector<int> nums) {
+            sort(nums.begin(), nums.end());
+            int minm = INT_MAX;
+
+            for (int i = 0; i < nums.size() - 1; i++) {
+                minm = min(minm, nums[i + 1] - nums[i]);
+            }
+            return minm;
+        }
+    };`,
+    timeComplexity: "O(N log N) where N is the length of the array.",
+    spaceComplexity: "O(1)",
+  },
+  mthHalf: {
+    title: "42. Halve N, M-1 Times",
+    description:
+      "Given two values N and M, return the value when N is halved M-1 times.",
+    examples: [
+      { input: "N = 100, M = 4", output: "12" },
+      { input: "N = 10, M = 5", output: "0" },
+    ],
+    solution: `
+    class Solution {
+    public:
+        int mthHalf(int N, int M) {
+            return N / pow(2, M - 1);
+        }
+    };`,
+    timeComplexity: "O(1)",
+    spaceComplexity: "O(1)",
+  },
+
+  removeChars: {
+    title: "43. Remove Characters from First String",
+    description:
+      "Given two strings string1 and string2, remove those characters from string1 which are present in string2.",
+    examples: [
+      { input: 'string1 = "computer", string2 = "cat"', output: '"ompuer"' },
+      { input: 'string1 = "occurrence", string2 = "car"', output: '"ouene"' },
+    ],
+    solution: `
+    class Solution {
+    public:
+        string removeChars(string string1, string string2) {
+            int arr[26] = {0};
+            for (int i = 0; i < string2.size(); i++)
+                arr[string2[i] - 'a']++;
+
+            string ans;
+            for (int i = 0; i < string1.size(); i++) {
+                if (arr[string1[i] - 'a'] == 0) // If value is 0, add to new string
+                    ans += string1[i];
+            }
+            return ans;
+        }
+    };`,
+    timeComplexity: "O(|String1| + |String2|)",
+    spaceComplexity: "O(1)",
+  },
+  rotateArray: {
+    title: "44. Rotate Array by D Elements",
+    description:
+      "Given an unsorted array arr[] of size N, rotate it by D elements (clockwise).",
+    examples: [
+      {
+        input: "N = 5, D = 2, arr = [1, 2, 3, 4, 5]",
+        output: "[3, 4, 5, 1, 2]",
+      },
+      {
+        input: "N = 10, D = 3, arr = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]",
+        output: "[8, 10, 12, 14, 16, 18, 20, 2, 4, 6]",
+      },
+    ],
+    solution: `
+    #include<bits/stdc++.h>
+    using namespace std;
+
+    class Solution {
+    public:
+        void rotateArray(int n, int d, vector<int>& arr) {
+            d = d % n; // Handle cases where d >= n
+            vector<int> rotated(n);
+
+            for (int i = 0; i < n; i++) {
+                rotated[(i + n - d) % n] = arr[i];
+            }
+
+            for (int i = 0; i < n; i++) {
+                cout << rotated[i] << " ";
+            }
+            cout << endl;
+        }
+    };`,
+    timeComplexity: "O(n)",
+    spaceComplexity: "O(n)",
+  },
 };
-
-//   preorderTraversal: {
-//     title: "23. Binary Tree Preorder Traversal",
-//     description:
-//       "Given the root of a binary tree , return the preorder traversal of its nodes' values.",
-//     examples: [
-//       { input: "[1,null ,2 ,3]", output: `[1 ,2 ,3]` },
-//       { input: "[]", output: `[]` },
-//       { input: "[1]", output: `[1]` },
-//       { input: "[1 ,2]", output: `[1 ,2]` },
-//       { input: "[1,null ,2]", output: `[1 ,2]` },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//        vector<int> ans;
-//        vector<int> preorderTraversal(TreeNode* root) {
-//            if(root == NULL)
-//                return ans;
-
-//            ans.push_back(root -> val);
-//            preorderTraversal(root -> left);
-//            preorderTraversal(root -> right);
-
-//            return ans;
-//        }
-//     };`,
-//   },
-
-//   postorderTraversal: {
-//     title: "24. Binary Tree Postorder Traversal",
-//     description:
-//       "Given the root of a binary tree , return the postorder traversal of its nodes' values.",
-//     examples: [
-//       { input: "[1,null ,2 ,3]", output: `[3 ,2 ,1]` },
-//       { input: "[]", output: `[]` },
-//       { input: "[1]", output: `[1]` },
-//       { input: "[1 ,2]", output: `[2 ,1]` },
-//       { input: "[1,null ,2]", output: `[2 ,1]` },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//        vector<int> ans;
-//        vector<int> postorderTraversal(TreeNode* root) {
-//            if(root == NULL)
-//                return ans;
-
-//            postorderTraversal(root -> left);
-//            postorderTraversal(root -> right);
-
-//            ans.push_back(root -> val);
-
-//            return ans;
-//        }
-//     };`,
-//   },
-
-//   removeElements: {
-//     title: "25. Remove Linked List Elements",
-//     description: "Given the head of a linked list and an integer val...",
-//     examples: [
-//       { input: "[1 ,2 ,6 ,3 ,4 ,5 ,6], val=6", output: "[1 ,2 ,3 ,4 ,5]" },
-//       { input: "[], val=1", output: "[]" },
-//       { input: "[7 ,7 ,7 ,7], val=7", output: "[]" },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//     ListNode* removeElements(ListNode* head,int val){
-//     if(head==0) //if head is empty
-//     return head;
-//     if(head->val==val) //if value matches
-//     return removeElements(head->next,val); //just ignore the element node
-//     else{
-//     head->next=removeElements(head->next,val);
-//     }
-//     return head;
-//     }
-//     };
-//     `,
-//   },
-
-//   reverseList: {
-//     title: "26. Reverse Linked List",
-//     description: "Given the head of a singly linked list...",
-//     examples: [
-//       { input: "[1 ,2 ,3 ,4 ,5]", output: "[5 ,4 ,3 ,2 ,1]" },
-//       { input: "[1 ,2]", output: "[2 ,1]" },
-//       { input: "[]", output: "[]" },
-//     ],
-//     solution: `
-//     class Solution{
-//     public:
-//     ListNode* reverseList(ListNode* head){
-//     vector<int>res;
-//     ListNode* temp=head;
-//     while(temp){
-//     res.push_back(temp->val);
-//     temp=temp->next;
-//     }
-
-//     temp=head;
-
-//     for(int i=res.size()-1;i>=0;i--){
-//     temp->val=res[i];
-//     temp=temp->next;
-//     }
-//     return head;
-//     }
-//     };
-//     `,
-//   },
-
-//   findKthLargest: {
-//     title: "27. Kth Largest Element in an Array",
-//     description:
-//       "Given an integer array nums and an integer k, return the kth largest element in the array.",
-//     examples: [
-//       { input: "[3,2,1,5,6,4], k = 2", output: "5" },
-//       { input: "[3,2,3,1,2,4,5,5,6], k = 4", output: "4" },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//         int findKthLargest(vector<int>& nums, int k) {
-//             sort(nums.begin(), nums.end());
-//             int n = nums.size();
-//             return nums[n - k];
-//         }
-//     };`,
-//   },
-
-//   containsDuplicate: {
-//     title: "28. Contains Duplicate",
-//     description:
-//       "Given an integer array nums, return true if any value appears at least twice in the array.",
-//     examples: [
-//       { input: "[1,2,3,1]", output: "true" },
-//       { input: "[1,2,3,4]", output: "false" },
-//       { input: "[1,1,1,3,3,4,3,2,4,2]", output: "true" },
-//     ],
-//     solutionOne: `
-//     class Solution {
-//     public:
-//         bool containsDuplicate(vector<int>& nums) {
-//             return (nums.size() > unordered_set<int>(nums.begin(), nums.end()).size());
-//         }
-//     };`,
-//     solutionTwo: `
-//     class Solution {
-//     public:
-//         bool containsDuplicate(vector<int>& nums) {
-//             unordered_map<int,int> ans;
-//             for(int i = 0; i < nums.size(); i++) {
-//                 ans[nums[i]]++;
-//             }
-
-//             for(auto x : ans) {
-//                 if(x.second >= 2) {
-//                     return true;
-//                 }
-//             }
-//             return false;
-//         }
-//     };`,
-//   },
-
-//   invertBinaryTree: {
-//     title: "29. Invert Binary Tree",
-//     description:
-//       "Given the root of a binary tree, invert the tree and return its root.",
-//     examples: [
-//       { input: "[4,2,7,1,3,6,9]", output: "[4,7,2,9,6,3,1]" },
-//       { input: "[2,1,3]", output: "[2,3,1]" },
-//       { input: "[]", output: "[]" },
-//     ],
-//     solution: `class Solution {
-//     public:
-//         TreeNode* invertTree(TreeNode* root) {
-//            if(root) {
-//                invertTree(root->left);
-//                invertTree(root->right);
-//                swap(root->left , root->right);
-//            }
-//            return root;
-//         }
-//     };`,
-//   },
-
-//   MyQueue: {
-//     title: "30. Implement Queue using Stacks",
-//     description:
-//       "Implement a first in first out (FIFO) queue using only two stacks.",
-//     examples: [
-//       {
-//         input: `["MyQueue", "push", "push", "peek", "pop", "empty"]`,
-//         output: `[null,null,null ,1 ,1 ,false]`,
-//       },
-//     ],
-//     solution: `
-//     class MyQueue {
-//     public:
-//        stack<int> s1,s2;
-
-//        MyQueue() {}
-
-//        void push(int x) {
-//            while(!s1.empty()) {
-//                s2.push(s1.top());
-//                s1.pop();
-//            }
-
-//            s2.push(x);
-//            while(!s2.empty()) {
-//                s1.push(s2.top());
-//                s2.pop();
-//            }
-//        }
-
-//        int pop() {
-//            int curr = s1.top();
-//            s1.pop();
-//            return curr;
-//        }
-
-//        int peek() {
-//            return s1.top();
-//        }
-
-//        bool empty() {
-//            return s1.empty();
-//        }
-//     };`,
-//   },
-
-//   isAnagram: {
-//     title: "31. Valid Anagram",
-//     description:
-//       "Given two strings s and t , return true if t is an anagram of s , and false otherwise.",
-//     examples: [
-//       { input: "anagram , nagaram", output: "true" },
-//       { input: "rat , car", output: "false" },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//        bool isAnagram(string s,string t) {
-//            if(s.length() != t.length())
-//                return false;
-
-//            int count[26] = {0};
-//            for(char ch : s)
-//                count[ch - 'a']++;
-
-//            for(char ch : t)
-//                count[ch - 'a']--;
-
-//            for(int i = 0; i < 26; i++) {
-//                if(count[i] != 0)
-//                    return false;
-//            }
-
-//            return true;
-//        }
-//     };`,
-//   },
-
-//   missingNumber: {
-//     title: "32. Missing Number",
-//     description:
-//       "Given an array nums containing n distinct numbers in the range [0,n], return the only number in the range that is missing from the array.",
-//     examples: [
-//       { input: "[3 ,0 ,1]", output: "2" },
-//       { input: "[0 ,1]", output: "2" },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//        int missingNumber(vector<int>& nums) {
-//            int sum = 0;
-//            int n = nums.size();
-
-//            for(int i = 0; i < n; i++) {
-//                sum += nums[i];
-//            }
-
-//            return (n * (n + 1) / 2 - sum);
-//        }
-//     };`,
-//   },
-
-//   guessNumber: {
-//     title: "33. Guess Number Higher or Lower",
-//     description: "You are playing a Guess Game...",
-//     examples: [
-//       { input: "n=10,pick=6", output: "6" },
-//       { input: "n=1,pick=1", output: "1" },
-//       { input: "n=2,pick=2", output: "2" },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//        int guessNumber(int n) {
-//            int start = 1;
-//            int end = n;
-
-//            while(start <= end) {
-//                int mid = start + (end - start) / 2;
-
-//                if(guess(mid) == 0)
-//                    return mid;
-//                else if(guess(mid) < 0)
-//                    end = mid - 1;
-//                else
-//                    start = mid + 1;
-//            }
-
-//            return -1;
-//        }
-//     };`,
-//   },
-
-//   intersect: {
-//     title: "34. Intersection of Two Arrays II",
-//     description: "Given two integer arrays nums1 and nums2...",
-//     examples: [
-//       { input: "[1 ,2 ,2 ,1], [2 ,2]", output: "[2 ,2]" },
-//       { input: "[4 ,9 ,5], [9 ,4 ,9 ,8 ,4]", output: "[4 ,9]" },
-//     ],
-//     solution: `
-//     class Solution{
-//     public:
-//     vector<int> intersect(vector<int>& nums1 , vector<int>& nums2){
-//     vector<int> ans ;
-//     sort(nums1.begin() , nums1.end());
-//     sort(nums2.begin() , nums2.end());
-
-//     int i=0,j=0 ;
-//     while(i<nums1.size() && j<nums2.size()){
-//     if(nums1[i]<nums2[j])
-//     i++ ;
-//     else if(nums1[i]>nums2[j])
-//     j++ ;
-//     else{
-//     ans.push_back(nums1[i]);
-//     i++ ;
-//     j++ ;
-//     }
-//     }
-//     return ans ;
-//     }
-//     };
-//     `,
-//   },
-
-//   runningSum: {
-//     title: "35. Running Sum of 1d Array",
-//     description: "Given an array nums...",
-//     examples: [
-//       { input: "[1 ,2 ,3 ,4]", output: "[1 ,3 ,6 ,10]" },
-//       { input: "[5]", output: "[5]" },
-//     ],
-//     solution: `
-//         class Solution{
-//         public:
-//         vector<int> runningSum(vector<int>& nums){
-//         for(int i=1;i<nums.size();i++)
-//         {
-//         nums[i]+=nums[i-1];
-//         }
-//         return nums;
-//         }
-//         };
-//         `,
-//   },
-
-//   shuffleString: {
-//     title: "36. Shuffle String",
-//     description: "Given a string s and an integer array indices...",
-//     examples: [
-//       {
-//         input: `"codeleet", indices = [4,5,6,7,0,2,1,3]`,
-//         output: `"leetcode"`,
-//       },
-//     ],
-//     solution: `
-//         class Solution{
-//         public:
-//         string restoreString(string s , vector<int>& indices){
-//         string res=s;
-//         for(int i=0;i<indices.size();i++)
-//         {
-//         res[indices[i]]=s[i];
-//         }
-//         return res;
-//         }
-//         };
-//         `,
-//   },
-
-//   maxLevelSum: {
-//     title: "37. Maximum Level Sum of a Binary Tree",
-//     description: "Given the root of a binary tree...",
-//     examples: [{ input: "[1 ,7 ,0 ,7 ,-8,null,null]", output: "2" }],
-//     solution: `
-//         class Solution{
-//         public:
-//         int maxLevelSum(TreeNode* root){
-//         queue<TreeNode*>q;
-//         int level=1,max_level=0,max_sum=INT_MIN;
-
-//         if(root==nullptr)
-//         return 0;
-
-//         q.push(root);
-//         while(!q.empty()){
-//         int len=q.size();
-//         int sum=0;
-
-//         while(len--){
-//         TreeNode* front=q.front();
-//         q.pop();
-
-//         if(front->right)
-//         q.push(front->right);
-//         if(front->left)
-//         q.push(front->left);
-//         sum=sum+front->val;
-//         }
-//         if(sum>max_sum)
-//         {
-//         max_sum=sum;
-//         max_level=level;
-//         }
-//         level++;
-//         }
-//         return max_level;
-//         }
-//         };`,
-//   },
-
-//   firstAlphabet: {
-//     title: "38. First Alphabet of Each Word",
-//     description:
-//       "Given a string S, create a string with the first letter of every word in the string.",
-//     examples: [
-//       { input: "geeks for geeks", output: "gfg" },
-//       { input: "bad is good", output: "big" },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//         string firstAlphabet(string S) {
-//             string ans;
-//             ans += S[0]; // Add the first character of the first word
-
-//             for (int i = 1; i < S.size(); i++) {
-//                 if (S[i - 1] == ' ') // Check if the previous character is a space
-//                     ans += S[i]; // Add the current character to the answer
-//             }
-//             return ans;
-//         }
-//     };`,
-//   },
-
-//   countLeaves: {
-//     title: "39. Count Leaves in a Binary Tree",
-//     description:
-//       "Given a Binary Tree of size N, count the number of leaves in it.",
-//     examples: [
-//       {
-//         input: "Given Tree is [4, 8, 10, 7, 3, null, 5, null, null, null]",
-//         output: "3",
-//       },
-//     ],
-//     solution: `
-//     int countLeaves(Node* root) {
-//         if (root == NULL)
-//             return 0;
-
-//         if (root->left == NULL && root->right == NULL)
-//             return 1;
-
-//         return countLeaves(root->left) + countLeaves(root->right);
-//     }
-//     `,
-//     timeComplexity: "O(n) where n is the number of nodes in the binary tree.",
-//   },
-
-//   generateBinaryNumbers: {
-//     title: "40. Generate Binary Numbers from 1 to N",
-//     description:
-//       "Given a number N, generate and print all binary numbers with decimal values from 1 to N.",
-//     examples: [
-//       { input: "N = 2", output: "1 10" },
-//       { input: "N = 5", output: "1 10 11 100 101" },
-//     ],
-//     solution: `
-//     vector<string> generate(int N) {
-//         queue<string> q;
-//         vector<string> v;
-
-//         q.push("1");
-//         while (N--) {
-//             string s = q.front();
-//             v.push_back(s);
-//             q.pop();
-//             q.push(s + "0");
-//             q.push(s + "1");
-//         }
-//         return v;
-//     }
-//     `,
-//     timeComplexity: "O(N log2N)",
-//     spaceComplexity: "O(N log2N)",
-//   },
-
-//   minimumDifference: {
-//     title: "41. Minimum Difference Between Any Pair",
-//     description:
-//       "Given an unsorted array, find the minimum difference between any pair in the given array.",
-//     examples: [
-//       { input: "[2, 4, 5, 9, 7]", output: "1" },
-//       { input: "[3, 10, 8, 6]", output: "2" },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//         int minimum_difference(vector<int> nums) {
-//             sort(nums.begin(), nums.end());
-//             int minm = INT_MAX;
-
-//             for (int i = 0; i < nums.size() - 1; i++) {
-//                 minm = min(minm, nums[i + 1] - nums[i]);
-//             }
-//             return minm;
-//         }
-//     };`,
-//     timeComplexity: "O(N log N) where N is the length of the array.",
-//     spaceComplexity: "O(1)",
-//   },
-//   mthHalf: {
-//     title: "42. Halve N, M-1 Times",
-//     description:
-//       "Given two values N and M, return the value when N is halved M-1 times.",
-//     examples: [
-//       { input: "N = 100, M = 4", output: "12" },
-//       { input: "N = 10, M = 5", output: "0" },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//         int mthHalf(int N, int M) {
-//             return N / pow(2, M - 1);
-//         }
-//     };`,
-//     timeComplexity: "O(1)",
-//     spaceComplexity: "O(1)",
-//   },
-
-//   removeChars: {
-//     title: "43. Remove Characters from First String",
-//     description:
-//       "Given two strings string1 and string2, remove those characters from string1 which are present in string2.",
-//     examples: [
-//       { input: 'string1 = "computer", string2 = "cat"', output: '"ompuer"' },
-//       { input: 'string1 = "occurrence", string2 = "car"', output: '"ouene"' },
-//     ],
-//     solution: `
-//     class Solution {
-//     public:
-//         string removeChars(string string1, string string2) {
-//             int arr[26] = {0};
-//             for (int i = 0; i < string2.size(); i++)
-//                 arr[string2[i] - 'a']++;
-
-//             string ans;
-//             for (int i = 0; i < string1.size(); i++) {
-//                 if (arr[string1[i] - 'a'] == 0) // If value is 0, add to new string
-//                     ans += string1[i];
-//             }
-//             return ans;
-//         }
-//     };`,
-//     timeComplexity: "O(|String1| + |String2|)",
-//     spaceComplexity: "O(1)",
-//   },
-//   rotateArray: {
-//     title: "44. Rotate Array by D Elements",
-//     description:
-//       "Given an unsorted array arr[] of size N, rotate it by D elements (clockwise).",
-//     examples: [
-//       {
-//         input: "N = 5, D = 2, arr = [1, 2, 3, 4, 5]",
-//         output: "[3, 4, 5, 1, 2]",
-//       },
-//       {
-//         input: "N = 10, D = 3, arr = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]",
-//         output: "[8, 10, 12, 14, 16, 18, 20, 2, 4, 6]",
-//       },
-//     ],
-//     solution: `
-//     #include<bits/stdc++.h>
-//     using namespace std;
-
-//     class Solution {
-//     public:
-//         void rotateArray(int n, int d, vector<int>& arr) {
-//             d = d % n; // Handle cases where d >= n
-//             vector<int> rotated(n);
-
-//             for (int i = 0; i < n; i++) {
-//                 rotated[(i + n - d) % n] = arr[i];
-//             }
-
-//             for (int i = 0; i < n; i++) {
-//                 cout << rotated[i] << " ";
-//             }
-//             cout << endl;
-//         }
-//     };`,
-//     timeComplexity: "O(n)",
-//     spaceComplexity: "O(n)",
-//   },
-// };
 
 export default problemsData;

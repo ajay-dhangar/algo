@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
+import Tabs from "@theme/Tabs"; // Import Tabs component
+import TabItem from "@theme/TabItem"; // Import TabItem component
 import problemsData from "../../data/problemData";
 
 const DSAQuestions: React.FC = () => {
@@ -104,33 +106,74 @@ const DSAQuestions: React.FC = () => {
                     <div className="mt-6 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg border-l-4 border-blue-600">
                       <h4 className="text-lg font-bold mb-2">Solutions:</h4>
 
-                      {Object.keys(problemsData[key].solution).map((lang) => (
-                        <div key={lang} className="mt-4">
-                          <h5 className="font-bold text-blue-600">
-                            {lang.toUpperCase()} Solution:
-                          </h5>
+                      <Tabs>
+                        <TabItem value="cpp" label="C++">
                           <div className="relative">
                             <button
                               className="absolute top-2 right-2 text-sm text-white bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded"
                               onClick={() =>
                                 handleCopySolution(
-                                  problemsData[key].solution[lang],
+                                  problemsData[key].solution.cpp,
                                   key,
-                                  lang
+                                  "cpp"
                                 )
                               }
                             >
                               {copiedLang?.problemKey === key &&
-                              copiedLang?.lang === lang
+                              copiedLang?.lang === "cpp"
                                 ? "Copied!"
                                 : "Copy"}
                             </button>
                             <pre className="whitespace-pre-wrap bg-gray-200 dark:bg-gray-800 p-3 rounded-md text-sm font-mono mt-2 overflow-auto">
-                              {problemsData[key].solution[lang]}
+                              {problemsData[key].solution.cpp}
                             </pre>
                           </div>
-                        </div>
-                      ))}
+                        </TabItem>
+                        <TabItem value="java" label="Java">
+                          <div className="relative">
+                            <button
+                              className="absolute top-2 right-2 text-sm text-white bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded"
+                              onClick={() =>
+                                handleCopySolution(
+                                  problemsData[key].solution.java,
+                                  key,
+                                  "java"
+                                )
+                              }
+                            >
+                              {copiedLang?.problemKey === key &&
+                              copiedLang?.lang === "java"
+                                ? "Copied!"
+                                : "Copy"}
+                            </button>
+                            <pre className="whitespace-pre-wrap bg-gray-200 dark:bg-gray-800 p-3 rounded-md text-sm font-mono mt-2 overflow-auto">
+                              {problemsData[key].solution.java}
+                            </pre>
+                          </div>
+                        </TabItem>
+                        <TabItem value="python" label="Python">
+                          <div className="relative">
+                            <button
+                              className="absolute top-2 right-2 text-sm text-white bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded"
+                              onClick={() =>
+                                handleCopySolution(
+                                  problemsData[key].solution.python,
+                                  key,
+                                  "python"
+                                )
+                              }
+                            >
+                              {copiedLang?.problemKey === key &&
+                              copiedLang?.lang === "python"
+                                ? "Copied!"
+                                : "Copy"}
+                            </button>
+                            <pre className="whitespace-pre-wrap bg-gray-200 dark:bg-gray-800 p-3 rounded-md text-sm font-mono mt-2 overflow-auto">
+                              {problemsData[key].solution.python}
+                            </pre>
+                          </div>
+                        </TabItem>
+                      </Tabs>
                     </div>
                   </motion.div>
                 )}
