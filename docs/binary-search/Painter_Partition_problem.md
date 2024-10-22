@@ -1,18 +1,25 @@
+---
+id: painter-partition-problem
+title: Painter Partition Problem (C++)
+sidebar_label: Painter Partition
+sidebar_position: 1
+description: Solve the Painter Partition problem using Binary Search and Greedy approaches.
+tags: [binary search, greedy, algorithms, c++]
+---
 
 # Painter Partition Problem (C++)
 
-## Problem Statement:
-You are given an array `boards[]` where `boards[i]` represents the length of the i-th board. You have `k` painters and each painter takes 1 unit time to paint 1 unit of the board. Each painter can only paint continuous sections of boards. Your task is to minimize the time taken to paint all the boards.
+## Problem Statement
+You are given an array `boards[]` where `boards[i]` represents the length of the i-th board. You have `k` painters and each painter takes 1 unit of time to paint 1 unit length of the board. Each painter can only paint continuous sections of boards. Your task is to minimize the time taken to paint all the boards.
 
-## Approach:
+## Approach
 This problem can be solved using **Binary Search** on the time range and a **Greedy approach** to allocate boards to painters.
 
-  - Use binary search to find the minimal maximum time (`mid`) a painter can take to paint the boards.
-  - Use a greedy method to count the number of painters required for each time guess (`mid`).
-  
-  The binary search will try to minimize the maximum time required.
+- Use Binary Search to find the minimal maximum time (`mid`) a painter can take to paint the boards.
+- Use a greedy method to count the number of painters required for each time guess (`mid`).
+- The goal is to minimize the maximum time required.
 
-## Solution in C++:
+## Solution in C++
 
 ```cpp
 #include <bits/stdc++.h>
@@ -64,13 +71,33 @@ int main() {
     int k = 2; // Number of painters
     
     int ans = findLargestMinDistance(boards, k);
-    cout << "The answer is: " << ans << "
-";
+    cout << "The answer is: " << ans << "\n";
     
     return 0;
 }
 ```
 
-## Key Concepts:
+## Key Concepts
+
 - **Binary Search**: Used to find the minimum maximum time required to paint all the boards.
-- **Greedy Approach**: The helper function `countPainters` assigns boards to painters ensuring the total time doesn't exceed the given limit for that iteration.
+- **Greedy Approach**: The helper function `countPainters` assigns boards to painters ensuring the total time doesn’t exceed the given limit for that iteration.
+
+## Mathematical Representation
+
+The problem can be thought of in terms of minimizing the largest workload:
+
+$$ \text{Minimize } \max(\text{time taken by any painter}) $$
+
+### Mermaid Diagram
+
+```mermaid
+graph TD;
+    Start-->BinarySearch;
+    BinarySearch-->MidCalculation;
+    MidCalculation-->PainterCount;
+    PainterCount--Yes-->MinTime;
+    PainterCount--No-->AdjustBounds;
+    AdjustBounds-->BinarySearch;
+```
+
+
