@@ -109,7 +109,7 @@ CNNs split data by progressively extracting features at different layers, with l
 
 ### Time Complexity:
 - **Training Complexity**:  
-  The time complexity depends on the number of filters, kernel size, and input dimensions. For an image of size \( n \times n \) with \( k \) filters of size \( f \times f \), the time complexity of a convolutional layer is \( O(n^2 \cdot f^2 \cdot k) \).
+  The time complexity depends on the number of filters, kernel size, and input dimensions. For an image of size $n \times n$ with $k$ filters of size $f \times f$, the time complexity of a convolutional layer is $O(n^2 \cdot f^2 \cdot k)$.
 
 - **Prediction Complexity**:  
   For inference, the time complexity depends on the depth of the network and the number of layers.
