@@ -31,6 +31,7 @@ Aggregate functions ignore null values, except for `COUNT()`.
 - **Example**: 
   ```sql
   SELECT MIN(salary) FROM employees;
+  ```
 
 ### MAX()
 - **Description**: Returns the largest value within the selected column.
@@ -38,6 +39,7 @@ Aggregate functions ignore null values, except for `COUNT()`.
 - **Example**: 
   ```sql
   SELECT MAX(salary) FROM employees;
+  ```
 
 ### COUNT()
 - **Description**: Returns the number of rows in a set.
@@ -47,6 +49,7 @@ Aggregate functions ignore null values, except for `COUNT()`.
 - **Example**: 
   ```sql
   SELECT COUNT(*) FROM employees;
+  ```
 
 ### SUM()
 - **Description**: Returns the total sum of a numerical column.
@@ -54,6 +57,7 @@ Aggregate functions ignore null values, except for `COUNT()`.
 - **Example**: 
   ```sql
   SELECT SUM(salary) FROM employees;
+  ```
 
 ### AVG()
 - **Description**: Returns the average value of a numerical column.
@@ -61,6 +65,7 @@ Aggregate functions ignore null values, except for `COUNT()`.
 - **Example**: 
   ```sql
   SELECT AVG(salary) FROM employees;
+  ```
 
 ## Using Aggregate Functions with GROUP BY
 
@@ -71,8 +76,13 @@ Aggregate functions can be combined with the `GROUP BY` clause to group rows tha
   SELECT column1, AGGREGATE_FUNCTION(column2)
   FROM table_name
   GROUP BY column1;
+  ```
+
 - **Example**: 
   ```sql
   SELECT department, COUNT(*) AS employee_count
   FROM employees
   GROUP BY department;
+  ```
+
+---
