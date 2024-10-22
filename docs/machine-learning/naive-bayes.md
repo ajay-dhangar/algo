@@ -69,7 +69,7 @@ Given a dataset with multiple features and corresponding class labels, the objec
   $$
 
   where:
-  - $P(A|B)$ is the posterior probability of event $A given that $B$ is true.
+  - $P(A|B)$ is the posterior probability of event $A$ given that $B$ is true.
   - $P(B|A)$ is the likelihood of observing $B$ given that $A$ is true.
   - $P(A)$ is the prior probability of event $A$.
   - $P(B)$ is the total probability of event $B$.
@@ -105,7 +105,8 @@ Naive Bayes splits data based on the **highest posterior probability** for each 
 ### Example:
 Consider a spam detection system that classifies emails as "spam" or "not spam" based on features such as the presence of certain words (binary features).
 
-- Dataset:
+**Dataset:**
+
 | Word 'Free' | Word 'Money' | Spam |
 |-------------|--------------|------|
 | Yes         | Yes          | Yes  |
