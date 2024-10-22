@@ -94,14 +94,14 @@ RNNs handle sequential data where each input depends on the previous elements. T
 
 ### Time Complexity:
 - **Training Complexity**:  
-  The time complexity of training an RNN depends on the number of time steps \( T \), the size of the input \( n \), and the number of hidden units \( h \). It is roughly \( O(T \cdot n \cdot h^2) \).
+  The time complexity of training an RNN depends on the number of time steps $T$, the size of the input $n$, and the number of hidden units $h$. It is roughly $O(T \cdot n \cdot h^2)$.
 
 - **Prediction Complexity**:  
   For inference, the time complexity is also dependent on the sequence length, as each time step requires an update to the hidden state.
 
 ### Space Complexity:
 - **Space Complexity**:  
-  The space complexity depends on the number of hidden units and time steps. Since RNNs store the hidden state at each time step, they require memory proportional to \( O(T \cdot h) \), where \( T \) is the number of time steps and \( h \) is the size of the hidden state.
+  The space complexity depends on the number of hidden units and time steps. Since RNNs store the hidden state at each time step, they require memory proportional to $O(T \cdot h)$, where $T$ is the number of time steps and $h$ is the size of the hidden state.
 
 ### Example:
 Consider an example where we use an RNN to perform text generation:
