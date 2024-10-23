@@ -276,7 +276,7 @@ const DataStructuresQuiz = () => {
   const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes in seconds
   const [timerId, setTimerId] = useState(null);
   const [timeSpent, setTimeSpent] = useState(0); // To store the time spent on solving the quiz
-
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
   // Timer logic
   useEffect(() => {
     if (timeLeft > 0) {
@@ -292,11 +292,14 @@ const DataStructuresQuiz = () => {
   }, [timeLeft]);
 
   // Handle option selection
-  const handleOptionSelect = (option) => {
+  const handleOptionSelect = (option:string) => {
     setSelectedOption(option);
     if (option === questions[currentQuestionIndex].answer) {
       setCorrectAnswers(correctAnswers + 1);
     }
+    const updatedAnswers = [...userAnswers];
+    updatedAnswers[currentQuestionIndex] = option;
+    setUserAnswers(updatedAnswers);
   };
 
   // Move to next question
@@ -350,6 +353,21 @@ const DataStructuresQuiz = () => {
             </h2>
             <h2>Time Spent: {formatTime(timeSpent)}</h2>{" "}
             {/* Show time spent here */}
+            <div style={{ textAlign: "left", marginTop: "20px" }}>              <h4 style={{ color: "black", marginBottom: "10px" }}>Review Your Answers:</h4>
+              <ul>
+                {questions.map((question, index) => (
+                  <li key={index} style={{ marginBottom: "15px" }}>
+                    <p><strong>{question.question}</strong></p>
+                    <p>
+                      Your Answer: <span style={{ color: userAnswers[index] === question.answer ? "green" : "red" }}>
+                        {userAnswers[index]}
+                      </span>
+                    </p>
+                    <p>Correct Answer: <span style={{ color: "green" }}>{question.answer}</span></p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ) : (
           <div>
