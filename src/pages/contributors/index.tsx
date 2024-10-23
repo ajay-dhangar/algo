@@ -15,7 +15,7 @@ const Contributors: React.FC = () => {
   const [contributors, setContributors] = useState<Contributor[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [visibleCount, setVisibleCount] = useState<number>(6); // Show 6 contributors initially
+  const [visibleCount, setVisibleCount] = useState<number>(12); // Show 12 contributors initially
 
   useEffect(() => {
     async function fetchContributors() {
@@ -35,12 +35,17 @@ const Contributors: React.FC = () => {
           );
           const data: Contributor[] = response.data;
           if (data.length === 0) break;
-          allContributors = [...allContributors, ...data];
+          allContributors.push(...data); // Use push for better performance
           page++;
         }
         setContributors(allContributors);
       } catch (error) {
-        setError("Failed to load contributors. Please try again later.");
+        // Improved error handling
+        if (axios.isAxiosError(error)) {
+          setError(error.message);
+        } else {
+          setError("Failed to load contributors. Please try again later.");
+        }
       } finally {
         setLoading(false);
       }
@@ -50,7 +55,7 @@ const Contributors: React.FC = () => {
   }, []);
 
   const loadMoreContributors = () => {
-    setVisibleCount((prevCount) => prevCount + 6); // Load 6 more contributors
+    setVisibleCount((prevCount) => prevCount + 12); // Load 12 more contributors
   };
 
   return (
