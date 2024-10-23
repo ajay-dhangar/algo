@@ -1,6 +1,6 @@
 ---
 id: pointers-in-cpp
-sidebar_position: 6
+sidebar_position: 9
 title: "Pointers in C++"
 sidebar_label: "Pointers in C++"
 ---
