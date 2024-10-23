@@ -57,6 +57,7 @@ ADITYA-JANI:
     github: https://github.com/AdityaJani616
     portfolio: https://portfolio-azure-tau-65.vercel.app/
 
+
 Rishi-Verma:
   name: Rishi Verma
   title: B.Tech(CSE) STUDENT, Developer, Tech Enthusiast , Competitive Programmer
@@ -69,3 +70,19 @@ Rishi-Verma:
   socials:
     linkedin: https://www.linkedin.com/in/rishi-verma-sde/
     github: https://github.com/coder-writes
+
+LOKESH-BIJARNIYA:
+  name: Lokesh Bijarniya
+  title: BTech CSE Student | Full Stack Developer | DSA Enthusiast
+  url: https://github.com/Lokesh-Bijarniya
+  image_url: https://github.com/Lokesh-Bijarniya.png
+  email: lkbijarniya2@gmail.com
+  page: true # Turns the feature on
+  description: >
+    I am a BTech CSE student with a passion for full stack development and a deep interest in data structures and algorithms (DSA). As an aspiring software engineer, I enjoy building web applications that solve real-world problems and continuously improving my problem-solving skills through DSA. My goal is to create impactful solutions using modern technologies, while constantly learning and growing in the field of software development.
+  socials:
+    linkedin: https://www.linkedin.com/in/lokesh-bijarniya/
+    github: https://github.com/Lokesh-Bijarniya/
+    leetcode: https://leetcode.com/u/Lokesh_Bijarniya_/
+    portfolio: https://lokesh-bijarniya-portfolio.vercel.app/
+
