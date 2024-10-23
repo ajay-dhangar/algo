@@ -1,5 +1,3 @@
-// src/pages/Challenges.tsx
-
 import React from "react";
 import { motion } from "framer-motion";
 import Layout from "@theme/Layout";
