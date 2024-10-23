@@ -32,7 +32,7 @@ tags: [deep learning, neural networks, GANs, generative models]
    The generator and discriminator play a two-player minimax game, where the generator tries to fool the discriminator, and the discriminator tries not to be fooled. The objective of the generator is to minimize the discriminator's accuracy, while the discriminator's goal is to maximize its classification accuracy.
 
 ### Objective Function:
-The objective function for GANs is a **minimax game** where the generator \( G \) tries to minimize the loss, and the discriminator \( D \) tries to maximize it. This is given by:
+The objective function for GANs is a **minimax game** where the generator $G$ tries to minimize the loss, and the discriminator $D$ tries to maximize it. This is given by:
 
 ![image](https://github.com/user-attachments/assets/684b5961-1fad-4995-8632-c7d3e0d51da5)
 
@@ -87,7 +87,7 @@ Where:
 ### Example of GAN Architecture:
 
 1. **Generator Network**:  
-   - Input: Random noise vector (e.g., \( z \sim N(0, 1) \)).
+   - Input: Random noise vector (e.g., $z \sim N(0, 1)$).
    - Output: Synthetic data (e.g., an image).
    
    ![Generator Network](https://github.com/user-attachments/assets/e457fd7f-a8c5-46d8-a3be-2a517f8bcdd4)
