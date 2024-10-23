@@ -56,3 +56,16 @@ ADITYA-JANI:
     linkedin: https://www.linkedin.com/in/adityajani616
     github: https://github.com/AdityaJani616
     portfolio: https://portfolio-azure-tau-65.vercel.app/
+
+Rishi-Verma:
+  name: Rishi Verma
+  title: B.Tech(CSE) STUDENT, Developer, Tech Enthusiast , Competitive Programmer
+  url: https://github.com/coder-writes
+  image_url: https://github.com/coder-writes.png
+  email: vrishi7654@gmail.com
+  page: true # Turns the feature on
+  description: >
+     A tech enthusiast and competitive programmer with a knack for developing innovative solutions. I am a B.Tech(CSE) student who loves to dive deep into coding challenges and explore the latest trends in technology. My interests span across web development, software engineering, and community-driven projects.
+  socials:
+    linkedin: https://www.linkedin.com/in/rishi-verma-sde/
+    github: https://github.com/coder-writes
