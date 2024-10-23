@@ -133,7 +133,7 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <ul className="flex flex-wrap justify-center md:justify-start space-x-6 mb-4 md:mb-0 text-sm text-gray-400">
+          <ul className="flex flex-nowrap justify-center items-center pl-0 md:justify-start space-x-4 mb-4 md:mb-0 text-xs md:text-sm text-gray-400">
             <li className="list-none">
               <Link
                 to="#"

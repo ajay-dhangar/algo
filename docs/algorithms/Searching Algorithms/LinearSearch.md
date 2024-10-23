@@ -55,7 +55,7 @@ Linear search, also known as sequential search, is the simplest searching algori
 - **Data in Linked Lists**:
   - Linear search works well with linked lists, where random access is not possible and each element must be checked sequentially.
 
-### C++ Implementation:
+### C++ and Python Implementation:
 
 **Iterative Approach**
 ```cpp
@@ -87,6 +87,26 @@ int main() {
     return 0;
 }
 ```
+```python
+def linearSearchIterative(array, size, target):
+    for i in range(len(array)):
+        if array[i] == target: 
+            return i #Return index if target is found
+    return -1 #Return -1 if target is not found
+def main():
+    array = [1 ,2 ,5 ,3 ,7 ,9 ,4 ,1 ,9 ,6 ]
+    size = len(array)
+    target = 9
+    result = linearSearchIterative(array,size,target)
+    if result != -1:
+        print("Element found at index",result)
+    else:
+        print("Element not found ")
+
+if __name__ == "__main__":
+    main()
+  ```
+
 
 **Recursive Approach**
 ```cpp
@@ -118,6 +138,29 @@ int main() {
 
     return 0;
 }
+```
+```python
+def linear_search_recursive(arr, size, target):
+    if size == 0:
+        return -1  # Return -1 if the array is empty
+    if arr[size - 1] == target:
+        return size - 1  # Return index if target is found
+    return linear_search_recursive(arr, size - 1, target)  # Recur for the rest of the array
+
+def main():
+    arr = [10, 23, 45, 70, 11, 15]
+    size = len(arr)
+    target = 70
+
+    result = linear_search_recursive(arr, size, target)
+
+    if result != -1:
+        print("Element found at index", result)
+    else:
+        print("Element not found")
+
+if __name__ == "__main__":
+    main()
 ```
 
 ### Use Cases:
