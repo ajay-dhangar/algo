@@ -26,23 +26,50 @@ pip install d-treevis
 ```
 
 ## 📖 **Usage**
-To get started, import the library and use the `create_tree` and `create_sankey` functions:
+
+
+You can use this library during the development phase of your decision tree model to visualize your decision tree.
+
+```python
+# Create and train the decision tree model
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy:.2f}')
+
+
+# Create and train the decision tree model
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy:.2f}')
+```
+
+### **Using the Library** 🚀
+
+First, you need to import the library:
 
 ```python
 import d_treevis as dtv
-``` 
+```
 
-Next, fit a sklearn Decision Tree Classifier on your dataset and pass it to the `create_tree` function:
+Then, you can call the `create_tree` function to visualize your decision tree:
 
 ```python
-from sklearn.tree import DecisionTreeClassifier
-    
-# Fit a Decision Tree Classifier on your dataset
-tree_model = DecisionTreeClassifier()
-tree_model.fit(X, y)
-
 # Visualize the decision tree
-visualizer.visualize(tree_model)
+dtv.create_tree(tree_model)
 ```
 
 You can also customize the target names and colors for better visualization:
@@ -53,8 +80,32 @@ target_names = ['Survived', 'Not Survived']
 target_colors = ['red', 'yellow']
 
 # Visualize the decision tree with custom target names and colors
-visualizer.visualize(tree_model, target_names=target_names, target_colors=target_colors)
+dtv.create_tree(tree_model, target_names=target_names, target_colors=target_colors)
 ```
+
+## 📈 **Example**
+
+- To create a tree diagram, you can use the `create_tree` function:
+
+```python
+dtv.create_tree(tree_model=model,
+                X=X_train,
+                target_names=['Not Survived', 'Survived'],
+                target_colors=['red', 'green'],
+                save_path='titanic-tree.html')
+```
+
+- To create a sankey diagram, you can use the `create_sankey` function:
+```python
+dtv.create_sankey(tree_model=model,
+                X=X_train,
+                target_names=['Not Survived', 'Survived'],
+                target_colors=['red', 'green'],
+                save_path='titanic-sankey.html')
+```
+
+> [!TIP]
+> It is recommended to use this library during the development phase of your decision tree model to visualize your decision tree. Also best if it used in the Jupyter Notebook, for a pruned tree, you can use the `max_depth` parameter.
 
 ## 📧 **Contact**
 If you have any questions or suggestions, feel free to reach the main author at [Yash Kumar Saini](https://github.com/yashksaini-coder).
