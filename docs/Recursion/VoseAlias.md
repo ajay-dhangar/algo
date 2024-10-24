@@ -2,7 +2,7 @@
 id: vose-alias 
 title: Vose Alias Method  
 sidebar_label: Generate Vose Alias Method Via Recursion 
-description: "The Recursive Vose's Alias Method is an efficient algorithm designed for sampling from discrete probability distributions. It features a preprocessing time of O(n), allowing for quick setup, while enabling constant-time sampling at O(1), making it ideal for applications requiring rapid random sampling. The method effectively handles non-uniform distributions by categorizing probabilities into small and large lists, utilizing a recursive approach to build an alias table that accurately represents the distribution. Despite its recursive nature, the algorithm remains straightforward to implement and understand. Its versatility makes it applicable in various fields, including computer graphics, machine learning, and simulations, where fast and reliable sampling is essential. Overall, the Recursive Vose's Alias Method combines speed and flexibility, making it a valuable tool for efficient random sampling in discrete settings."
+description: "The Recursive Vose's Alias Method is an efficient algorithm for fast random sampling from discrete probability distributions. With O(n) preprocessing and O(1) sampling, it's ideal for non-uniform distributions, widely used in areas like computer graphics, machine learning, and simulations. Perfect for applications needing quick, reliable sampling."
 tags: [VoseAlias, recursion, dsa]
 ---
 ## Vose Alias Via Recursion
@@ -139,7 +139,6 @@ Enter the number of probabilities: 5
 Enter the probabilities (space-separated, must sum to 1):
 0.1 0.2 0.25 0.15 0.3
 Sampled index: 3
-
 
 Enter the number of probabilities: 4
 Enter the probabilities (space-separated, must sum to 1):
