@@ -105,3 +105,96 @@ int main() {
     return 0;
 }
 ```
+
+### JAVA Code Implementation
+
+```java
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left, right;
+
+    TreeNode(int x) {
+        val = x;
+        left = right = null;
+    }
+}
+
+public class BinarySearchTree {
+    
+    // Function to find the minimum value node in a BST
+    TreeNode minValueNode(TreeNode node) {
+        TreeNode current = node;
+        while (current != null && current.left != null) {
+            current = current.left;
+        }
+        return current;
+    }
+
+    // Function to delete a value from a binary search tree
+    TreeNode deleteBST(TreeNode root, int val) {
+        if (root == null) {
+            return root;
+        }
+
+        // If the value to be deleted is smaller than the root's value
+        if (val < root.val) {
+            root.left = deleteBST(root.left, val);
+        }
+        // If the value to be deleted is greater than the root's value
+        else if (val > root.val) {
+            root.right = deleteBST(root.right, val);
+        }
+        // Value is found
+        else {
+            // Node with only one child or no child
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+
+            // Node with two children: Get the inorder successor (smallest in the right subtree)
+            TreeNode temp = minValueNode(root.right);
+
+            // Copy the inorder successor's content to this node
+            root.val = temp.val;
+
+            // Delete the inorder successor
+            root.right = deleteBST(root.right, temp.val);
+        }
+
+        return root;
+    }
+
+    // Helper function to perform in-order traversal to print the BST
+    void inorderTraversal(TreeNode root) {
+        if (root != null) {
+            inorderTraversal(root.left);
+            System.out.print(root.val + " ");
+            inorderTraversal(root.right);
+        }
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree bst = new BinarySearchTree();
+
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(7);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+
+        System.out.println("Original BST (in-order traversal): ");
+        bst.inorderTraversal(root);
+        System.out.println();
+
+        int valueToDelete = 2;
+        root = bst.deleteBST(root, valueToDelete);
+
+        System.out.println("BST after deletion of value " + valueToDelete + " (in-order traversal): ");
+        bst.inorderTraversal(root);
+    }
+}
+```
