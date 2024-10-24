@@ -55,7 +55,7 @@ Binary search is an efficient algorithm for finding an element in a **sorted arr
 - **Efficient Lookups**:
   - It is used in situations where fast lookup times are critical, such as in searching through large databases, dictionaries, or ordered lists.
 
-### C++ Implementation:
+### C++ and Python Implementation:
 
 **Iterative Approach**
 ```cpp
@@ -97,6 +97,37 @@ int main() {
     return 0;
 }
 ```
+```python
+def binary_search_iterative(arr, target):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = low + (high - low) // 2  # Avoid overflow for large indices
+
+        if arr[mid] == target:
+            return mid  # Target element found
+        elif arr[mid] < target:
+            low = mid + 1  # Search in the right half
+        else:
+            high = mid - 1  # Search in the left half
+
+    return -1  # Return -1 if target is not found
+
+def main():
+    arr = [2, 3, 4, 10, 40]
+    target = 10
+
+    result = binary_search_iterative(arr, target)
+
+    if result != -1:
+        print("Element found at index", result)
+    else:
+        print("Element not found")
+
+if __name__ == "__main__":
+    main()
+```
 
 **Recursive Approach**
 ```cpp
@@ -135,7 +166,34 @@ int main() {
     return 0;
 }
 ```
+```python
+def binary_search_recursive(arr, low, high, target):
+    if low <= high:
+        mid = low + (high - low) // 2  # Avoid overflow for large indices
 
+        if arr[mid] == target:
+            return mid  # Target element found
+        elif arr[mid] < target:
+            return binary_search_recursive(arr, mid + 1, high, target)  # Search in the right half
+        else:
+            return binary_search_recursive(arr, low, mid - 1, target)  # Search in the left half
+
+    return -1  # Return -1 if target is not found
+
+def main():
+    arr = [2, 3, 4, 10, 40]
+    target = 10
+
+    result = binary_search_recursive(arr, 0, len(arr) - 1, target)
+
+    if result != -1:
+        print("Element found at index", result)
+    else:
+        print("Element not found")
+
+if __name__ == "__main__":
+    main()
+```
 ### Variations of Binary Search:
 
 - **Finding the First or Last Occurrence**:
