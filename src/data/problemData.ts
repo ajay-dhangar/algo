@@ -1261,114 +1261,242 @@ class Solution:
   preorderTraversal: {
     title: "23. Binary Tree Preorder Traversal",
     description:
-      "Given the root of a binary tree , return the preorder traversal of its nodes' values.",
+      "Given the root of a binary tree, return the preorder traversal of its nodes' values.",
     examples: [
-      { input: "[1,null ,2 ,3]", output: `[1 ,2 ,3]` },
-      { input: "[]", output: `[]` },
-      { input: "[1]", output: `[1]` },
-      { input: "[1 ,2]", output: `[1 ,2]` },
-      { input: "[1,null ,2]", output: `[1 ,2]` },
+      { input: "[1,null,2,3]", output: "[1,2,3]" },
+      { input: "[]", output: "[]" },
+      { input: "[1]", output: "[1]" },
+      { input: "[1,2]", output: "[1,2]" },
+      { input: "[1,null,2]", output: "[1,2]" },
     ],
-    solution: `
-    class Solution {
-    public:
-       vector<int> ans;
-       vector<int> preorderTraversal(TreeNode* root) {
-           if(root == NULL)
-               return ans;
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      vector<int> ans;
+      vector<int> preorderTraversal(TreeNode* root) {
+          if (root == NULL)
+              return ans;
+  
+          ans.push_back(root->val);
+          preorderTraversal(root->left);
+          preorderTraversal(root->right);
+  
+          return ans;
+      }
+  };`,
 
-           ans.push_back(root -> val);
-           preorderTraversal(root -> left);
-           preorderTraversal(root -> right);
+      java: `
+  import java.util.*;
+  
+  class Solution {
+      public List<Integer> preorderTraversal(TreeNode root) {
+          List<Integer> result = new ArrayList<>();
+          preorder(root, result);
+          return result;
+      }
+  
+      private void preorder(TreeNode node, List<Integer> result) {
+          if (node == null) return;
+          result.add(node.val);
+          preorder(node.left, result);
+          preorder(node.right, result);
+      }
+  };`,
 
-           return ans;
-       }
-    };`,
+      python: `
+  class Solution:
+      def preorderTraversal(self, root: TreeNode) -> List[int]:
+          result = []
+          self.preorder(root, result)
+          return result
+  
+      def preorder(self, node: TreeNode, result: List[int]) -> None:
+          if not node:
+              return
+          result.append(node.val)
+          self.preorder(node.left, result)
+          self.preorder(node.right, result)
+      `,
+    },
   },
 
   postorderTraversal: {
     title: "24. Binary Tree Postorder Traversal",
     description:
-      "Given the root of a binary tree , return the postorder traversal of its nodes' values.",
+      "Given the root of a binary tree, return the postorder traversal of its nodes' values.",
     examples: [
-      { input: "[1,null ,2 ,3]", output: `[3 ,2 ,1]` },
-      { input: "[]", output: `[]` },
-      { input: "[1]", output: `[1]` },
-      { input: "[1 ,2]", output: `[2 ,1]` },
-      { input: "[1,null ,2]", output: `[2 ,1]` },
+      { input: "[1,null,2,3]", output: "[3,2,1]" },
+      { input: "[]", output: "[]" },
+      { input: "[1]", output: "[1]" },
+      { input: "[1,2]", output: "[2,1]" },
+      { input: "[1,null,2]", output: "[2,1]" },
     ],
-    solution: `
-    class Solution {
-    public:
-       vector<int> ans;
-       vector<int> postorderTraversal(TreeNode* root) {
-           if(root == NULL)
-               return ans;
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      vector<int> ans;
+      vector<int> postorderTraversal(TreeNode* root) {
+          if (root == NULL)
+              return ans;
+  
+          postorderTraversal(root->left);
+          postorderTraversal(root->right);
+          ans.push_back(root->val);
+  
+          return ans;
+      }
+  };`,
 
-           postorderTraversal(root -> left);
-           postorderTraversal(root -> right);
+      java: `
+  import java.util.*;
+  
+  class Solution {
+      public List<Integer> postorderTraversal(TreeNode root) {
+          List<Integer> result = new ArrayList<>();
+          postorder(root, result);
+          return result;
+      }
+  
+      private void postorder(TreeNode node, List<Integer> result) {
+          if (node == null) return;
+          postorder(node.left, result);
+          postorder(node.right, result);
+          result.add(node.val);
+      }
+  };`,
 
-           ans.push_back(root -> val);
-
-           return ans;
-       }
-    };`,
+      python: `
+  class Solution:
+      def postorderTraversal(self, root: TreeNode) -> List[int]:
+          result = []
+          self.postorder(root, result)
+          return result
+  
+      def postorder(self, node: TreeNode, result: List[int]) -> None:
+          if not node:
+              return
+          self.postorder(node.left, result)
+          self.postorder(node.right, result)
+          result.append(node.val)
+      `,
+    },
   },
 
   removeElements: {
     title: "25. Remove Linked List Elements",
-    description: "Given the head of a linked list and an integer val...",
+    description:
+      "Given the head of a linked list and an integer val, remove all the nodes of the linked list that have Node.val equal to val, and return the new head.",
     examples: [
-      { input: "[1 ,2 ,6 ,3 ,4 ,5 ,6], val=6", output: "[1 ,2 ,3 ,4 ,5]" },
+      { input: "[1,2,6,3,4,5,6], val=6", output: "[1,2,3,4,5]" },
       { input: "[], val=1", output: "[]" },
-      { input: "[7 ,7 ,7 ,7], val=7", output: "[]" },
+      { input: "[7,7,7,7], val=7", output: "[]" },
     ],
-    solution: `
-    class Solution {
-    public:
-    ListNode* removeElements(ListNode* head,int val){
-    if(head==0) //if head is empty
-    return head;
-    if(head->val==val) //if value matches
-    return removeElements(head->next,val); //just ignore the element node
-    else{
-    head->next=removeElements(head->next,val);
-    }
-    return head;
-    }
-    };
-    `,
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      ListNode* removeElements(ListNode* head, int val) {
+          if (head == NULL)
+              return head;
+          if (head->val == val)
+              return removeElements(head->next, val);
+          head->next = removeElements(head->next, val);
+          return head;
+      }
+  };`,
+
+      java: `
+  class Solution {
+      public ListNode removeElements(ListNode head, int val) {
+          if (head == null) return null;
+          if (head.val == val) return removeElements(head.next, val);
+          head.next = removeElements(head.next, val);
+          return head;
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def removeElements(self, head: ListNode, val: int) -> ListNode:
+          if not head:
+              return None
+          if head.val == val:
+              return self.removeElements(head.next, val)
+          head.next = self.removeElements(head.next, val)
+          return head
+      `,
+    },
   },
 
   reverseList: {
     title: "26. Reverse Linked List",
-    description: "Given the head of a singly linked list...",
+    description:
+      "Given the head of a singly linked list, reverse the list, and return the reversed list.",
     examples: [
-      { input: "[1 ,2 ,3 ,4 ,5]", output: "[5 ,4 ,3 ,2 ,1]" },
-      { input: "[1 ,2]", output: "[2 ,1]" },
+      { input: "[1,2,3,4,5]", output: "[5,4,3,2,1]" },
+      { input: "[1,2]", output: "[2,1]" },
       { input: "[]", output: "[]" },
     ],
-    solution: `
-    class Solution{
-    public:
-    ListNode* reverseList(ListNode* head){
-    vector<int>res;
-    ListNode* temp=head;
-    while(temp){
-    res.push_back(temp->val);
-    temp=temp->next;
-    }
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      ListNode* reverseList(ListNode* head) {
+          vector<int> res;
+          ListNode* temp = head;
+          while (temp) {
+              res.push_back(temp->val);
+              temp = temp->next;
+          }
+  
+          temp = head;
+          for (int i = res.size() - 1; i >= 0; i--) {
+              temp->val = res[i];
+              temp = temp->next;
+          }
+          return head;
+      }
+  };`,
 
-    temp=head;
+      java: `
+  class Solution {
+      public ListNode reverseList(ListNode head) {
+          List<Integer> values = new ArrayList<>();
+          ListNode temp = head;
+          while (temp != null) {
+              values.add(temp.val);
+              temp = temp.next;
+          }
+  
+          temp = head;
+          for (int i = values.size() - 1; i >= 0; i--) {
+              temp.val = values.get(i);
+              temp = temp.next;
+          }
+  
+          return head;
+      }
+  };`,
 
-    for(int i=res.size()-1;i>=0;i--){
-    temp->val=res[i];
-    temp=temp->next;
-    }
-    return head;
-    }
-    };
-    `,
+      python: `
+  class Solution:
+      def reverseList(self, head: ListNode) -> ListNode:
+          values = []
+          current = head
+          while current:
+              values.append(current.val)
+              current = current.next
+  
+          current = head
+          for val in reversed(values):
+              current.val = val
+              current = current.next
+  
+          return head
+      `,
+    },
   },
 
   findKthLargest: {
@@ -1379,15 +1507,33 @@ class Solution:
       { input: "[3,2,1,5,6,4], k = 2", output: "5" },
       { input: "[3,2,3,1,2,4,5,5,6], k = 4", output: "4" },
     ],
-    solution: `
-    class Solution {
-    public:
-        int findKthLargest(vector<int>& nums, int k) {
-            sort(nums.begin(), nums.end());
-            int n = nums.size();
-            return nums[n - k];
-        }
-    };`,
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      int findKthLargest(vector<int>& nums, int k) {
+          sort(nums.begin(), nums.end());
+          return nums[nums.size() - k];
+      }
+  };`,
+
+      java: `
+  import java.util.*;
+  
+  class Solution {
+      public int findKthLargest(int[] nums, int k) {
+          Arrays.sort(nums);
+          return nums[nums.length - k];
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def findKthLargest(self, nums: List[int], k: int) -> int:
+          nums.sort()
+          return nums[-k]
+      `,
+    },
   },
 
   containsDuplicate: {
@@ -1399,30 +1545,34 @@ class Solution:
       { input: "[1,2,3,4]", output: "false" },
       { input: "[1,1,1,3,3,4,3,2,4,2]", output: "true" },
     ],
-    solutionOne: `
-    class Solution {
-    public:
-        bool containsDuplicate(vector<int>& nums) {
-            return (nums.size() > unordered_set<int>(nums.begin(), nums.end()).size());
-        }
-    };`,
-    solutionTwo: `
-    class Solution {
-    public:
-        bool containsDuplicate(vector<int>& nums) {
-            unordered_map<int,int> ans;
-            for(int i = 0; i < nums.size(); i++) {
-                ans[nums[i]]++;
-            }
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      bool containsDuplicate(vector<int>& nums) {
+          return (nums.size() > unordered_set<int>(nums.begin(), nums.end()).size());
+      }
+  };`,
 
-            for(auto x : ans) {
-                if(x.second >= 2) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    };`,
+      java: `
+  import java.util.*;
+  
+  class Solution {
+      public boolean containsDuplicate(int[] nums) {
+          Set<Integer> numSet = new HashSet<>();
+          for (int num : nums) {
+              if (!numSet.add(num)) return true;
+          }
+          return false;
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def containsDuplicate(self, nums: List[int]) -> bool:
+          return len(nums) > len(set(nums))
+      `,
+    },
   },
 
   invertBinaryTree: {
@@ -1434,95 +1584,207 @@ class Solution:
       { input: "[2,1,3]", output: "[2,3,1]" },
       { input: "[]", output: "[]" },
     ],
-    solution: `class Solution {
-    public:
-        TreeNode* invertTree(TreeNode* root) {
-           if(root) {
-               invertTree(root->left);
-               invertTree(root->right);
-               swap(root->left , root->right);
-           }
-           return root;
-        }
-    };`,
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      TreeNode* invertTree(TreeNode* root) {
+          if (root) {
+              invertTree(root->left);
+              invertTree(root->right);
+              swap(root->left, root->right);
+          }
+          return root;
+      }
+  };`,
+
+      java: `
+  class Solution {
+      public TreeNode invertTree(TreeNode root) {
+          if (root == null) return null;
+          TreeNode left = invertTree(root.left);
+          TreeNode right = invertTree(root.right);
+          root.left = right;
+          root.right = left;
+          return root;
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def invertTree(self, root: TreeNode) -> TreeNode:
+          if root is None:
+              return None
+          root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
+          return root
+      `,
+    },
   },
 
   MyQueue: {
     title: "30. Implement Queue using Stacks",
     description:
-      "Implement a first in first out (FIFO) queue using only two stacks.",
+      "Implement a first-in-first-out (FIFO) queue using only two stacks.",
     examples: [
       {
         input: `["MyQueue", "push", "push", "peek", "pop", "empty"]`,
-        output: `[null,null,null ,1 ,1 ,false]`,
+        output: `[null,null,null,1,1,false]`,
       },
     ],
-    solution: `
-    class MyQueue {
-    public:
-       stack<int> s1,s2;
+    solution: {
+      cpp: `
+  class MyQueue {
+  public:
+      stack<int> s1, s2;
+  
+      MyQueue() {}
+  
+      void push(int x) {
+          while (!s1.empty()) {
+              s2.push(s1.top());
+              s1.pop();
+          }
+          s2.push(x);
+          while (!s2.empty()) {
+              s1.push(s2.top());
+              s2.pop();
+          }
+      }
+  
+      int pop() {
+          int curr = s1.top();
+          s1.pop();
+          return curr;
+      }
+  
+      int peek() {
+          return s1.top();
+      }
+  
+      bool empty() {
+          return s1.empty();
+      }
+  };`,
 
-       MyQueue() {}
+      java: `
+  import java.util.Stack;
+  
+  class MyQueue {
+      private Stack<Integer> s1;
+      private Stack<Integer> s2;
+  
+      public MyQueue() {
+          s1 = new Stack<>();
+          s2 = new Stack<>();
+      }
+  
+      public void push(int x) {
+          while (!s1.isEmpty()) {
+              s2.push(s1.pop());
+          }
+          s2.push(x);
+          while (!s2.isEmpty()) {
+              s1.push(s2.pop());
+          }
+      }
+  
+      public int pop() {
+          return s1.pop();
+      }
+  
+      public int peek() {
+          return s1.peek();
+      }
+  
+      public boolean empty() {
+          return s1.isEmpty();
+      }
+  };`,
 
-       void push(int x) {
-           while(!s1.empty()) {
-               s2.push(s1.top());
-               s1.pop();
-           }
-
-           s2.push(x);
-           while(!s2.empty()) {
-               s1.push(s2.top());
-               s2.pop();
-           }
-       }
-
-       int pop() {
-           int curr = s1.top();
-           s1.pop();
-           return curr;
-       }
-
-       int peek() {
-           return s1.top();
-       }
-
-       bool empty() {
-           return s1.empty();
-       }
-    };`,
+      python: `
+  class MyQueue:
+  
+      def __init__(self):
+          self.s1 = []
+          self.s2 = []
+  
+      def push(self, x: int) -> None:
+          while self.s1:
+              self.s2.append(self.s1.pop())
+          self.s2.append(x)
+          while self.s2:
+              self.s1.append(self.s2.pop())
+  
+      def pop(self) -> int:
+          return self.s1.pop()
+  
+      def peek(self) -> int:
+          return self.s1[-1]
+  
+      def empty(self) -> bool:
+          return not self.s1
+      `,
+    },
   },
 
   isAnagram: {
     title: "31. Valid Anagram",
     description:
-      "Given two strings s and t , return true if t is an anagram of s , and false otherwise.",
+      "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
     examples: [
-      { input: "anagram , nagaram", output: "true" },
-      { input: "rat , car", output: "false" },
+      { input: "anagram, nagaram", output: "true" },
+      { input: "rat, car", output: "false" },
     ],
-    solution: `
-    class Solution {
-    public:
-       bool isAnagram(string s,string t) {
-           if(s.length() != t.length())
-               return false;
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      bool isAnagram(string s, string t) {
+          if (s.length() != t.length())
+              return false;
+  
+          int count[26] = {0};
+          for (char ch : s)
+              count[ch - 'a']++;
+  
+          for (char ch : t)
+              count[ch - 'a']--;
+  
+          for (int i = 0; i < 26; i++) {
+              if (count[i] != 0)
+                  return false;
+          }
+  
+          return true;
+      }
+  };`,
 
-           int count[26] = {0};
-           for(char ch : s)
-               count[ch - 'a']++;
+      java: `
+  class Solution {
+      public boolean isAnagram(String s, String t) {
+          if (s.length() != t.length()) return false;
+          int[] count = new int[26];
+          for (char c : s.toCharArray()) count[c - 'a']++;
+          for (char c : t.toCharArray()) {
+              if (--count[c - 'a'] < 0) return false;
+          }
+          return true;
+      }
+  };`,
 
-           for(char ch : t)
-               count[ch - 'a']--;
-
-           for(int i = 0; i < 26; i++) {
-               if(count[i] != 0)
-                   return false;
-           }
-
-           return true;
-       }
-    };`,
+      python: `
+  class Solution:
+      def isAnagram(self, s: str, t: str) -> bool:
+          if len(s) != len(t):
+              return False
+          count = [0] * 26
+          for ch in s:
+              count[ord(ch) - ord('a')] += 1
+          for ch in t:
+              count[ord(ch) - ord('a')] -= 1
+          return all(c == 0 for c in count)
+      `,
+    },
   },
 
   missingNumber: {
@@ -1530,221 +1792,474 @@ class Solution:
     description:
       "Given an array nums containing n distinct numbers in the range [0,n], return the only number in the range that is missing from the array.",
     examples: [
-      { input: "[3 ,0 ,1]", output: "2" },
-      { input: "[0 ,1]", output: "2" },
+      { input: "[3, 0, 1]", output: "2" },
+      { input: "[0, 1]", output: "2" },
     ],
-    solution: `
-    class Solution {
-    public:
-       int missingNumber(vector<int>& nums) {
-           int sum = 0;
-           int n = nums.size();
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      int missingNumber(vector<int>& nums) {
+          int sum = 0;
+          int n = nums.size();
+  
+          for (int i = 0; i < n; i++) {
+              sum += nums[i];
+          }
+  
+          return (n * (n + 1) / 2 - sum);
+      }
+  };`,
 
-           for(int i = 0; i < n; i++) {
-               sum += nums[i];
-           }
+      java: `
+  class Solution {
+      public int missingNumber(int[] nums) {
+          int sum = 0, n = nums.length;
+          for (int num : nums) {
+              sum += num;
+          }
+          return n * (n + 1) / 2 - sum;
+      }
+  };`,
 
-           return (n * (n + 1) / 2 - sum);
-       }
-    };`,
+      python: `
+  class Solution:
+      def missingNumber(self, nums: List[int]) -> int:
+          n = len(nums)
+          return n * (n + 1) // 2 - sum(nums)
+      `,
+    },
   },
 
   guessNumber: {
     title: "33. Guess Number Higher or Lower",
-    description: "You are playing a Guess Game...",
+    description:
+      "You are playing a Guess Game where you have to guess a number between 1 and n. Each time you guess wrong, the system will tell you whether the actual number is higher or lower.",
     examples: [
-      { input: "n=10,pick=6", output: "6" },
-      { input: "n=1,pick=1", output: "1" },
-      { input: "n=2,pick=2", output: "2" },
+      { input: "n=10, pick=6", output: "6" },
+      { input: "n=1, pick=1", output: "1" },
+      { input: "n=2, pick=2", output: "2" },
     ],
-    solution: `
-    class Solution {
-    public:
-       int guessNumber(int n) {
-           int start = 1;
-           int end = n;
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      int guessNumber(int n) {
+          int start = 1;
+          int end = n;
+  
+          while (start <= end) {
+              int mid = start + (end - start) / 2;
+  
+              if (guess(mid) == 0)
+                  return mid;
+              else if (guess(mid) < 0)
+                  end = mid - 1;
+              else
+                  start = mid + 1;
+          }
+  
+          return -1;
+      }
+  };`,
 
-           while(start <= end) {
-               int mid = start + (end - start) / 2;
+      java: `
+  class Solution extends GuessGame {
+      public int guessNumber(int n) {
+          int start = 1, end = n;
+  
+          while (start <= end) {
+              int mid = start + (end - start) / 2;
+              int result = guess(mid);
+              if (result == 0) return mid;
+              else if (result < 0) end = mid - 1;
+              else start = mid + 1;
+          }
+  
+          return -1;
+      }
+  };`,
 
-               if(guess(mid) == 0)
-                   return mid;
-               else if(guess(mid) < 0)
-                   end = mid - 1;
-               else
-                   start = mid + 1;
-           }
-
-           return -1;
-       }
-    };`,
+      python: `
+  class Solution:
+      def guessNumber(self, n: int) -> int:
+          start, end = 1, n
+          while start <= end:
+              mid = (start + end) // 2
+              res = guess(mid)
+              if res == 0:
+                  return mid
+              elif res < 0:
+                  end = mid - 1
+              else:
+                  start = mid + 1
+      `,
+    },
   },
 
   intersect: {
     title: "34. Intersection of Two Arrays II",
-    description: "Given two integer arrays nums1 and nums2...",
+    description:
+      "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays, and you may return the result in any order.",
     examples: [
-      { input: "[1 ,2 ,2 ,1], [2 ,2]", output: "[2 ,2]" },
-      { input: "[4 ,9 ,5], [9 ,4 ,9 ,8 ,4]", output: "[4 ,9]" },
+      { input: "[1, 2, 2, 1], [2, 2]", output: "[2, 2]" },
+      { input: "[4, 9, 5], [9, 4, 9, 8, 4]", output: "[4, 9]" },
     ],
-    solution: `
-    class Solution{
-    public:
-    vector<int> intersect(vector<int>& nums1 , vector<int>& nums2){
-    vector<int> ans ;
-    sort(nums1.begin() , nums1.end());
-    sort(nums2.begin() , nums2.end());
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+          vector<int> ans;
+          sort(nums1.begin(), nums1.end());
+          sort(nums2.begin(), nums2.end());
+  
+          int i = 0, j = 0;
+          while (i < nums1.size() && j < nums2.size()) {
+              if (nums1[i] < nums2[j]) {
+                  i++;
+              } else if (nums1[i] > nums2[j]) {
+                  j++;
+              } else {
+                  ans.push_back(nums1[i]);
+                  i++;
+                  j++;
+              }
+          }
+          return ans;
+      }
+  };`,
 
-    int i=0,j=0 ;
-    while(i<nums1.size() && j<nums2.size()){
-    if(nums1[i]<nums2[j])
-    i++ ;
-    else if(nums1[i]>nums2[j])
-    j++ ;
-    else{
-    ans.push_back(nums1[i]);
-    i++ ;
-    j++ ;
-    }
-    }
-    return ans ;
-    }
-    };
-    `,
+      java: `
+  import java.util.Arrays;
+  import java.util.ArrayList;
+  
+  class Solution {
+      public int[] intersect(int[] nums1, int[] nums2) {
+          Arrays.sort(nums1);
+          Arrays.sort(nums2);
+          ArrayList<Integer> result = new ArrayList<>();
+          
+          int i = 0, j = 0;
+          while (i < nums1.length && j < nums2.length) {
+              if (nums1[i] < nums2[j]) {
+                  i++;
+              } else if (nums1[i] > nums2[j]) {
+                  j++;
+              } else {
+                  result.add(nums1[i]);
+                  i++;
+                  j++;
+              }
+          }
+  
+          return result.stream().mapToInt(k -> k).toArray();
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+          nums1.sort()
+          nums2.sort()
+          result = []
+          i = j = 0
+          while i < len(nums1) and j < len(nums2):
+              if nums1[i] < nums2[j]:
+                  i += 1
+              elif nums1[i] > nums2[j]:
+                  j += 1
+              else:
+                  result.append(nums1[i])
+                  i += 1
+                  j += 1
+          return result
+      `,
+    },
   },
 
   runningSum: {
     title: "35. Running Sum of 1d Array",
-    description: "Given an array nums...",
+    description: "Given an array nums, return the running sum of nums.",
     examples: [
-      { input: "[1 ,2 ,3 ,4]", output: "[1 ,3 ,6 ,10]" },
+      { input: "[1, 2, 3, 4]", output: "[1, 3, 6, 10]" },
       { input: "[5]", output: "[5]" },
     ],
-    solution: `
-        class Solution{
-        public:
-        vector<int> runningSum(vector<int>& nums){
-        for(int i=1;i<nums.size();i++)
-        {
-        nums[i]+=nums[i-1];
-        }
-        return nums;
-        }
-        };
-        `,
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      vector<int> runningSum(vector<int>& nums) {
+          for (int i = 1; i < nums.size(); i++) {
+              nums[i] += nums[i - 1];
+          }
+          return nums;
+      }
+  };`,
+
+      java: `
+  class Solution {
+      public int[] runningSum(int[] nums) {
+          for (int i = 1; i < nums.length; i++) {
+              nums[i] += nums[i - 1];
+          }
+          return nums;
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def runningSum(self, nums: List[int]) -> List[int]:
+          for i in range(1, len(nums)):
+              nums[i] += nums[i - 1]
+          return nums
+      `,
+    },
   },
 
   shuffleString: {
     title: "36. Shuffle String",
-    description: "Given a string s and an integer array indices...",
+    description:
+      "Given a string s and an integer array indices of the same length as s, shuffle the string according to the indices array.",
     examples: [
       {
-        input: `"codeleet", indices = [4,5,6,7,0,2,1,3]`,
+        input: `"codeleet", indices = [4, 5, 6, 7, 0, 2, 1, 3]`,
         output: `"leetcode"`,
       },
     ],
-    solution: `
-        class Solution{
-        public:
-        string restoreString(string s , vector<int>& indices){
-        string res=s;
-        for(int i=0;i<indices.size();i++)
-        {
-        res[indices[i]]=s[i];
-        }
-        return res;
-        }
-        };
-        `,
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      string restoreString(string s, vector<int>& indices) {
+          string res = s;
+          for (int i = 0; i < indices.size(); i++) {
+              res[indices[i]] = s[i];
+          }
+          return res;
+      }
+  };`,
+
+      java: `
+  class Solution {
+      public String restoreString(String s, int[] indices) {
+          char[] res = new char[s.length()];
+          for (int i = 0; i < s.length(); i++) {
+              res[indices[i]] = s.charAt(i);
+          }
+          return new String(res);
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def restoreString(self, s: str, indices: List[int]) -> str:
+          res = [''] * len(s)
+          for i, idx in enumerate(indices):
+              res[idx] = s[i]
+          return ''.join(res)
+      `,
+    },
   },
 
   maxLevelSum: {
     title: "37. Maximum Level Sum of a Binary Tree",
-    description: "Given the root of a binary tree...",
-    examples: [{ input: "[1 ,7 ,0 ,7 ,-8,null,null]", output: "2" }],
-    solution: `
-        class Solution{
-        public:
-        int maxLevelSum(TreeNode* root){
-        queue<TreeNode*>q;
-        int level=1,max_level=0,max_sum=INT_MIN;
+    description:
+      "Given the root of a binary tree, return the level with the maximum sum.",
+    examples: [{ input: "[1, 7, 0, 7, -8, null, null]", output: "2" }],
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      int maxLevelSum(TreeNode* root) {
+          if (!root) return 0;
+          
+          queue<TreeNode*> q;
+          q.push(root);
+          
+          int maxSum = INT_MIN, level = 1, maxLevel = 1;
+          
+          while (!q.empty()) {
+              int size = q.size();
+              int levelSum = 0;
+              
+              for (int i = 0; i < size; i++) {
+                  TreeNode* node = q.front();
+                  q.pop();
+                  levelSum += node->val;
+                  
+                  if (node->left) q.push(node->left);
+                  if (node->right) q.push(node->right);
+              }
+              
+              if (levelSum > maxSum) {
+                  maxSum = levelSum;
+                  maxLevel = level;
+              }
+              level++;
+          }
+          return maxLevel;
+      }
+  };`,
 
-        if(root==nullptr)
-        return 0;
+      java: `
+  class Solution {
+      public int maxLevelSum(TreeNode root) {
+          if (root == null) return 0;
+          
+          Queue<TreeNode> queue = new LinkedList<>();
+          queue.add(root);
+          
+          int level = 1, maxLevel = 1;
+          int maxSum = Integer.MIN_VALUE;
+          
+          while (!queue.isEmpty()) {
+              int size = queue.size();
+              int currentSum = 0;
+              
+              for (int i = 0; i < size; i++) {
+                  TreeNode node = queue.poll();
+                  currentSum += node.val;
+                  
+                  if (node.left != null) queue.add(node.left);
+                  if (node.right != null) queue.add(node.right);
+              }
+              
+              if (currentSum > maxSum) {
+                  maxSum = currentSum;
+                  maxLevel = level;
+              }
+              level++;
+          }
+          
+          return maxLevel;
+      }
+  };`,
 
-        q.push(root);
-        while(!q.empty()){
-        int len=q.size();
-        int sum=0;
-
-        while(len--){
-        TreeNode* front=q.front();
-        q.pop();
-
-        if(front->right)
-        q.push(front->right);
-        if(front->left)
-        q.push(front->left);
-        sum=sum+front->val;
-        }
-        if(sum>max_sum)
-        {
-        max_sum=sum;
-        max_level=level;
-        }
-        level++;
-        }
-        return max_level;
-        }
-        };`,
+      python: `
+  class Solution:
+      def maxLevelSum(self, root: Optional[TreeNode]) -> int:
+          if not root:
+              return 0
+          
+          q = deque([root])
+          level = 1
+          max_sum = float('-inf')
+          result_level = 1
+          
+          while q:
+              current_sum = 0
+              for _ in range(len(q)):
+                  node = q.popleft()
+                  current_sum += node.val
+                  if node.left:
+                      q.append(node.left)
+                  if node.right:
+                      q.append(node.right)
+              
+              if current_sum > max_sum:
+                  max_sum = current_sum
+                  result_level = level
+              
+              level += 1
+          
+          return result_level
+      `,
+    },
   },
 
   firstAlphabet: {
     title: "38. First Alphabet of Each Word",
     description:
-      "Given a string S, create a string with the first letter of every word in the string.",
+      "Given a string S, return a string containing the first letter of each word in the string.",
     examples: [
-      { input: "geeks for geeks", output: "gfg" },
-      { input: "bad is good", output: "big" },
+      { input: `"geeks for geeks"`, output: `"gfg"` },
+      { input: `"bad is good"`, output: `"big"` },
     ],
-    solution: `
-    class Solution {
-    public:
-        string firstAlphabet(string S) {
-            string ans;
-            ans += S[0]; // Add the first character of the first word
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      string firstAlphabet(string S) {
+          string ans;
+          ans += S[0];  // Add the first character
+          
+          for (int i = 1; i < S.size(); i++) {
+              if (S[i - 1] == ' ')
+                  ans += S[i];  // Add character after space
+          }
+          
+          return ans;
+      }
+  };`,
 
-            for (int i = 1; i < S.size(); i++) {
-                if (S[i - 1] == ' ') // Check if the previous character is a space
-                    ans += S[i]; // Add the current character to the answer
-            }
-            return ans;
-        }
-    };`,
+      java: `
+  class Solution {
+      public String firstAlphabet(String S) {
+          StringBuilder ans = new StringBuilder();
+          ans.append(S.charAt(0));  // Add first letter
+          
+          for (int i = 1; i < S.length(); i++) {
+              if (S.charAt(i - 1) == ' ') {
+                  ans.append(S.charAt(i));  // Add letter after space
+              }
+          }
+          
+          return ans.toString();
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def firstAlphabet(self, S: str) -> str:
+          result = S[0]  # Start with the first character
+          for i in range(1, len(S)):
+              if S[i-1] == ' ':
+                  result += S[i]  # Add character after space
+          return result
+      `,
+    },
   },
 
   countLeaves: {
     title: "39. Count Leaves in a Binary Tree",
-    description:
-      "Given a Binary Tree of size N, count the number of leaves in it.",
+    description: "Given a Binary Tree, count the number of leaf nodes.",
     examples: [
-      {
-        input: "Given Tree is [4, 8, 10, 7, 3, null, 5, null, null, null]",
-        output: "3",
-      },
+      { input: "[4, 8, 10, 7, 3, null, 5, null, null, null]", output: "3" },
     ],
-    solution: `
-    int countLeaves(Node* root) {
-        if (root == NULL)
-            return 0;
+    solution: {
+      cpp: `
+  int countLeaves(Node* root) {
+      if (!root) return 0;
+      
+      if (!root->left && !root->right) return 1;
+      
+      return countLeaves(root->left) + countLeaves(root->right);
+  };`,
 
-        if (root->left == NULL && root->right == NULL)
-            return 1;
+      java: `
+  class Solution {
+      public int countLeaves(Node root) {
+          if (root == null) return 0;
+          
+          if (root.left == null && root.right == null) return 1;
+          
+          return countLeaves(root.left) + countLeaves(root.right);
+      }
+  };`,
 
-        return countLeaves(root->left) + countLeaves(root->right);
-    }
-    `,
-    timeComplexity: "O(n) where n is the number of nodes in the binary tree.",
+      python: `
+  class Solution:
+      def countLeaves(self, root: Optional[Node]) -> int:
+          if not root:
+              return 0
+          
+          if not root.left and not root.right:
+              return 1
+          
+          return self.countLeaves(root.left) + self.countLeaves(root.right)
+      `,
+    },
   },
 
   generateBinaryNumbers: {
@@ -1755,24 +2270,56 @@ class Solution:
       { input: "N = 2", output: "1 10" },
       { input: "N = 5", output: "1 10 11 100 101" },
     ],
-    solution: `
-    vector<string> generate(int N) {
-        queue<string> q;
-        vector<string> v;
+    solution: {
+      cpp: `
+  vector<string> generate(int N) {
+      queue<string> q;
+      vector<string> v;
+      
+      q.push("1");
+      while (N--) {
+          string s = q.front();
+          v.push_back(s);
+          q.pop();
+          q.push(s + "0");
+          q.push(s + "1");
+      }
+      return v;
+  };`,
 
-        q.push("1");
-        while (N--) {
-            string s = q.front();
-            v.push_back(s);
-            q.pop();
-            q.push(s + "0");
-            q.push(s + "1");
-        }
-        return v;
-    }
-    `,
-    timeComplexity: "O(N log2N)",
-    spaceComplexity: "O(N log2N)",
+      java: `
+  import java.util.*;
+  class Solution {
+      public List<String> generate(int N) {
+          Queue<String> q = new LinkedList<>();
+          List<String> result = new ArrayList<>();
+          
+          q.add("1");
+          while (N-- > 0) {
+              String s = q.poll();
+              result.add(s);
+              q.add(s + "0");
+              q.add(s + "1");
+          }
+          return result;
+      }
+  };`,
+
+      python: `
+  from collections import deque
+  class Solution:
+      def generate(self, N: int) -> List[str]:
+          q = deque(["1"])
+          result = []
+          while N > 0:
+              s = q.popleft()
+              result.append(s)
+              q.append(s + '0')
+              q.append(s + '1')
+              N -= 1
+          return result
+      `,
+    },
   },
 
   minimumDifference: {
@@ -1783,22 +2330,49 @@ class Solution:
       { input: "[2, 4, 5, 9, 7]", output: "1" },
       { input: "[3, 10, 8, 6]", output: "2" },
     ],
-    solution: `
-    class Solution {
-    public:
-        int minimum_difference(vector<int> nums) {
-            sort(nums.begin(), nums.end());
-            int minm = INT_MAX;
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      int minimum_difference(vector<int> nums) {
+          sort(nums.begin(), nums.end());
+          int minm = INT_MAX;
 
-            for (int i = 0; i < nums.size() - 1; i++) {
-                minm = min(minm, nums[i + 1] - nums[i]);
-            }
-            return minm;
-        }
-    };`,
-    timeComplexity: "O(N log N) where N is the length of the array.",
-    spaceComplexity: "O(1)",
+          for (int i = 0; i < nums.size() - 1; i++) {
+              minm = min(minm, nums[i + 1] - nums[i]);
+          }
+          return minm;
+      }
+  };`,
+
+      java: `
+  import java.util.*;
+  class Solution {
+      public int minimum_difference(int[] nums) {
+          Arrays.sort(nums);
+          int minm = Integer.MAX_VALUE;
+
+          for (int i = 0; i < nums.length - 1; i++) {
+              minm = Math.min(minm, nums[i + 1] - nums[i]);
+          }
+          return minm;
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def minimum_difference(self, nums: List[int]) -> int:
+          nums.sort()
+          minm = float('inf')
+
+          for i in range(len(nums) - 1):
+              minm = min(minm, nums[i + 1] - nums[i])
+          
+          return minm
+      `,
+    },
   },
+
   mthHalf: {
     title: "42. Halve N, M-1 Times",
     description:
@@ -1807,15 +2381,28 @@ class Solution:
       { input: "N = 100, M = 4", output: "12" },
       { input: "N = 10, M = 5", output: "0" },
     ],
-    solution: `
-    class Solution {
-    public:
-        int mthHalf(int N, int M) {
-            return N / pow(2, M - 1);
-        }
-    };`,
-    timeComplexity: "O(1)",
-    spaceComplexity: "O(1)",
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      int mthHalf(int N, int M) {
+          return N / pow(2, M - 1);
+      }
+  };`,
+
+      java: `
+  class Solution {
+      public int mthHalf(int N, int M) {
+          return (int) (N / Math.pow(2, M - 1));
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def mthHalf(self, N: int, M: int) -> int:
+          return N // (2 ** (M - 1))
+          `,
+    },
   },
 
   removeChars: {
@@ -1826,25 +2413,57 @@ class Solution:
       { input: 'string1 = "computer", string2 = "cat"', output: '"ompuer"' },
       { input: 'string1 = "occurrence", string2 = "car"', output: '"ouene"' },
     ],
-    solution: `
-    class Solution {
-    public:
-        string removeChars(string string1, string string2) {
-            int arr[26] = {0};
-            for (int i = 0; i < string2.size(); i++)
-                arr[string2[i] - 'a']++;
+    solution: {
+      cpp: `
+  class Solution {
+  public:
+      string removeChars(string string1, string string2) {
+          int arr[26] = {0};
+          for (int i = 0; i < string2.size(); i++)
+              arr[string2[i] - 'a']++;
 
-            string ans;
-            for (int i = 0; i < string1.size(); i++) {
-                if (arr[string1[i] - 'a'] == 0) // If value is 0, add to new string
-                    ans += string1[i];
-            }
-            return ans;
-        }
-    };`,
-    timeComplexity: "O(|String1| + |String2|)",
-    spaceComplexity: "O(1)",
+          string ans;
+          for (int i = 0; i < string1.size(); i++) {
+              if (arr[string1[i] - 'a'] == 0) // If value is 0, add to new string
+                  ans += string1[i];
+          }
+          return ans;
+      }
+  };`,
+
+      java: `
+  class Solution {
+      public String removeChars(String string1, String string2) {
+          int[] arr = new int[26];
+          for (int i = 0; i < string2.length(); i++)
+              arr[string2.charAt(i) - 'a']++;
+
+          StringBuilder ans = new StringBuilder();
+          for (int i = 0; i < string1.length(); i++) {
+              if (arr[string1.charAt(i) - 'a'] == 0)
+                  ans.append(string1.charAt(i));
+          }
+          return ans.toString();
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def removeChars(self, string1: str, string2: str) -> str:
+          arr = [0] * 26
+          for char in string2:
+              arr[ord(char) - ord('a')] += 1
+
+          ans = []
+          for char in string1:
+              if arr[ord(char) - ord('a')] == 0:
+                  ans.append(char)
+
+          return ''.join(ans)
+          `,
+    },
   },
+
   rotateArray: {
     title: "44. Rotate Array by D Elements",
     description:
@@ -1859,28 +2478,54 @@ class Solution:
         output: "[8, 10, 12, 14, 16, 18, 20, 2, 4, 6]",
       },
     ],
-    solution: `
-    #include<bits/stdc++.h>
-    using namespace std;
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
 
-    class Solution {
-    public:
-        void rotateArray(int n, int d, vector<int>& arr) {
-            d = d % n; // Handle cases where d >= n
-            vector<int> rotated(n);
+  class Solution {
+  public:
+      void rotateArray(int n, int d, vector<int>& arr) {
+          d = d % n; // Handle cases where d >= n
+          vector<int> rotated(n);
 
-            for (int i = 0; i < n; i++) {
-                rotated[(i + n - d) % n] = arr[i];
-            }
+          for (int i = 0; i < n; i++) {
+              rotated[(i + n - d) % n] = arr[i];
+          }
 
-            for (int i = 0; i < n; i++) {
-                cout << rotated[i] << " ";
-            }
-            cout << endl;
-        }
-    };`,
-    timeComplexity: "O(n)",
-    spaceComplexity: "O(n)",
+          for (int i = 0; i < n; i++) {
+              cout << rotated[i] << " ";
+          }
+          cout << endl;
+      }
+  };`,
+
+      java: `
+  import java.util.*;
+
+  class Solution {
+      public void rotateArray(int n, int d, int[] arr) {
+          d = d % n; // Handle cases where d >= n
+          int[] rotated = new int[n];
+
+          for (int i = 0; i < n; i++) {
+              rotated[(i + n - d) % n] = arr[i];
+          }
+
+          for (int i = 0; i < n; i++) {
+              System.out.print(rotated[i] + " ");
+          }
+          System.out.println();
+      }
+  };`,
+
+      python: `
+  class Solution:
+      def rotateArray(self, n: int, d: int, arr: List[int]) -> List[int]:
+          d = d % n  # Handle cases where d >= n
+          return arr[d:] + arr[:d]
+          `,
+    },
   },
 };
 
