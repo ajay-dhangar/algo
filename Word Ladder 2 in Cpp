@@ -1,0 +1,48 @@
+class Solution {
+public:
+    vector<vector<string>> findSequences(string beginWord, string endWord, vector<string>& wordList) {
+        // code here
+        vector<vector<string>>ans;
+        unordered_set<string>st(wordList.begin(),wordList.end());
+        vector<string>vis;
+        vis.push_back(beginWord);
+        queue<vector<string>>q;
+        q.push({beginWord});
+        st.erase(beginWord);
+        int level=0;
+        while(!q.empty()){
+            vector<string>vec=q.front();
+            q.pop();
+            string word=vec.back();
+            if(vec.size()>level){
+                level++;
+            for(auto it:vis){
+                st.erase(it);
+            }
+            }
+            if(word==endWord){
+                if(ans.size()==0){
+                ans.push_back(vec);
+            }
+            else if(ans[0].size()==vec.size()){
+                ans.push_back(vec);
+            }
+            }
+            
+            for(int i=0;i<word.size();i++){
+                char original=word[i];
+                for(char ch='a';ch<='z';ch++){
+                    word[i]=ch;
+                    if(st.count(word)>0){
+                        vis.push_back(word);
+                        vec.push_back(word);
+                        q.push(vec);
+                        vec.pop_back();
+                    }
+                }
+                word[i]=original;
+            }
+        }
+        return ans;
+    }
+};
