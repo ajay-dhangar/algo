@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaGithub, FaLinkedin, FaDiscord, FaTwitter } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -6,6 +6,26 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import Link from "@docusaurus/Link";
 
 const Footer = () => {
+  useEffect(() => {
+    // Create script element for GTranslate
+    const script = document.createElement("script");
+    script.src = "https://cdn.gtranslate.net/widgets/latest/popup.js";
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Set GTranslate settings
+    window.gtranslateSettings = {
+      "default_language": "en",
+      "detect_browser_language": true,
+      "wrapper_selector": ".gtranslate_wrapper"
+    };
+
+    // Cleanup script on component unmount
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <footer className="bg-[#1a1b26] text-gray-300 py-12">
       <div className="container mx-auto px-6 md:px-8">
@@ -173,6 +193,9 @@ const Footer = () => {
               >
                 Privacy Policy
               </Link>
+            </li>
+            <li className="list-none">
+              <div className="gtranslate_wrapper"></div>
             </li>
           </ul>
           <p className="text-sm text-gray-500 mt-4 md:mt-0">
