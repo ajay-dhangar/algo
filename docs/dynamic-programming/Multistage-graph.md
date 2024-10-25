@@ -1,5 +1,5 @@
 ---
-id: MULTISTAGE GRAPH
+id: multistage-graph
 title: MULTISTAGE GRAPH
 sidebar_label: SHORTEST PATH IN MULTISTAGE GRAPH
 tags: [Dynamic Programming,Graph, DSA]
