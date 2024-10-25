@@ -1,0 +1,65 @@
+# Sample Inputs and Outputs for Topological Sorting in C++
+
+## Sample 1
+Input:
+Vertices = 6
+Edges:
+5 -> 2
+5 -> 0
+4 -> 0
+4 -> 1
+2 -> 3
+3 -> 1
+
+Expected Output:
+Topological Sort of the given graph:
+5 4 2 3 1 0
+
+-----------------------------------------------------
+
+## Sample 2
+Input:
+Vertices = 4
+Edges:
+0 -> 1
+0 -> 2
+1 -> 3
+2 -> 3
+
+Expected Output:
+Topological Sort of the given graph:
+0 1 2 3
+
+-----------------------------------------------------
+
+## Sample 3
+Input:
+Vertices = 5
+Edges:
+4 -> 0
+4 -> 1
+3 -> 1
+3 -> 2
+1 -> 2
+
+Expected Output:
+Topological Sort of the given graph:
+4 3 1 2 0
+
+-----------------------------------------------------
+
+## Sample 4
+Input:
+Vertices = 7
+Edges:
+6 -> 5
+6 -> 4
+5 -> 4
+5 -> 2
+2 -> 3
+3 -> 1
+4 -> 1
+
+Expected Output:
+Topological Sort of the given graph:
+6 5 4 2 3 1 0
