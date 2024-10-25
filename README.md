@@ -1186,7 +1186,7 @@ Here are some resources that may be helpful as you contribute to Algo:
 
 <!-- Footer with Social Media Links -->
 <div align="center">
-    <h2 style="font-weight: bold; color: #2b9348;">Connect with Me!</h2>
+    <h2 style="font-style: italic; color: #2b9348;">🌟 Connect with Me! 🌟</h2>
     <p style="font-size: 16px; margin: 0;">Feel free to reach out on these platforms:</p>
     <a href="https://www.instagram.com/_ajay.dhangar/" target="_blank">
         <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram"/>
@@ -1201,8 +1201,4 @@ Here are some resources that may be helpful as you contribute to Algo:
         <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook"/>
     </a>
     <a href="https://www.youtube.com/@ajay-dhangar" target="_blank">
-        <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube"/>
-    </a>
-</div>
-
-<br />
+        <img src="https://img.icons8.com/color/48/00000
