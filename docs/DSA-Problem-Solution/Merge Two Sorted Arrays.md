@@ -60,7 +60,9 @@ arr2 = [2, 4, 6]
 merged_result = merge_sorted_arrays(arr1, arr2)
 print(merged_result)  # Output: [1, 2, 3, 4, 5, 6]
 ```
-```JavaScript Implementation
+### JavaScript Implementation
+
+```javaScript 
 function mergeSortedArrays(arr1, arr2) {
     let i = 0; // Pointer for arr1
     let j = 0; // Pointer for arr2
@@ -98,7 +100,9 @@ const arr2 = [2, 4, 6];
 const mergedResult = mergeSortedArrays(arr1, arr2);
 console.log(mergedResult); // Output: [1, 2, 3, 4, 5, 6]
 ```
-```Java Implementation
+### Java Implementation
+
+```java 
 import java.util.ArrayList;
 import java.util.Arrays;
 
