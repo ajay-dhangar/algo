@@ -1181,3 +1181,28 @@ Here are some resources that may be helpful as you contribute to Algo:
         <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
     </a>
 </div>
+
+<br />
+
+<!-- Footer with Social Media Links -->
+<div align="center">
+    <h4>Connect with Me:</h4>
+    <a href="https://www.instagram.com/_ajay.dhangar/" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram"/>
+    </a>
+    <a href="https://www.linkedin.com/in/ajay-dhangar" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn"/>
+    </a>
+    <a href="https://x.com/codeswithajay" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/twitter-squared.png" alt="Twitter"/>
+    </a>
+    <a href="https://www.facebook.com/people/Ajay-Dhangar/pfbid02mcdobPsG1FecFSNMoc25jU9mEzDntVAsxRFrqRTRr81kb1Kx1fKtUjXkdb6BoH8dl/" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook"/>
+    </a>
+    <a href="https://www.youtube.com/@ajay-dhangar" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube"/>
+    </a>
+</div>
+
+<br />
+
