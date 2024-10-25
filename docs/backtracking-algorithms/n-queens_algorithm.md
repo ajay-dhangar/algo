@@ -17,7 +17,7 @@ Backtracking is a technique that builds the solution one piece at a time and rem
 
 Here's the Python code for the algorithm:
 
-python ```
+```
 # Function to check if a queen can be placed on the board at [row][col]
 def is_safe(board, row, col, n):
     # Check left side of the row
@@ -73,18 +73,18 @@ n_queens(n)
 ```
 
 ### Explanation of Functions
-is_safe(board, row, col, n): Checks if it is safe to place a queen at a specific [row][col] position. It ensures no other queens threaten the position from the left side, upper-left diagonal, or lower-left diagonal, as queens are placed from left to right.
+- `is_safe(board, row, col, n)`: Checks if it is safe to place a queen at a specific `[row][col]` position. It ensures no other queens threaten the position from the left side, upper-left diagonal, or lower-left diagonal, as queens are placed from left to right.
 
-solve_n_queens(board, col, n): Tries to solve the N-Queens problem by placing queens one column at a time. If placing a queen in a specific cell doesn’t lead to a solution, it removes the queen (backtracks) and tries the next cell.
+- `solve_n_queens(board, col, n)`: Tries to solve the N-Queens problem by placing queens one column at a time. If placing a queen in a specific cell doesn’t lead to a solution, it removes the queen (backtracks) and tries the next cell.
 
-n_queens(n): Initializes the board and starts the recursive process by calling solve_n_queens. If a solution is found, it prints the board configuration; otherwise, it prints that no solution exists.
+- `n_queens(n)`: Initializes the board and starts the recursive process by calling `solve_n_queens`. If a solution is found, it prints the board configuration; otherwise, it prints that no solution exists.
 
-Complexity
-Time Complexity: 
+### Complexity
+- **Time Complexity:** 
 𝑂(𝑁!), where N is the board size. This is due to the combinatorial nature of the placements.
 
-Space Complexity: 
-𝑂(𝑁2), as a 2D list of size N×N is used to store the board configuration.
+- **Space Complexity:** 
+𝑂(N<sup>2</sup>), as a 2D list of size N×N is used to store the board configuration.
 
-Note: This algorithm is adapted from GeeksforGeeks.
+**Note: This algorithm is adapted from GeeksforGeeks.**
 
