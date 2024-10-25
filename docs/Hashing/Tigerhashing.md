@@ -28,9 +28,10 @@ The Tiger Hash function takes an input message and processes it in blocks of 512
 ```plaintext
 Input: Message M
 Output: 192-bit Hash Value
+```
 
 1. Pad the message M to make its length a multiple of 512 bits.
-2. Initialize three 64-bit variables: A, B, C with predefined values.
+2. Initialize three 64-bit variables: A, B, and C with predefined values.
 3. For each 512-bit block of the padded message:
    a. Perform a series of transformations on A, B, and C using the block and S-boxes.
    b. Update A, B, and C after processing each block.
