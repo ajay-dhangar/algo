@@ -17,7 +17,7 @@ Backtracking is a technique that builds the solution one piece at a time and rem
 
 Here's the Python code for the algorithm:
 
-```
+```python
 # Function to check if a queen can be placed on the board at [row][col]
 def is_safe(board, row, col, n):
     # Check left side of the row
