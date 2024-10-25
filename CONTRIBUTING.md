@@ -49,7 +49,7 @@ If your contribution involves documentation, here’s how to write effective con
 Each documentation file should start with a front matter section for Docusaurus to recognize the page:
 ```md
 ---
-id: <unique_id>
+id: <unique-id>
 title: <Page Title>
 sidebar_label: <Sidebar Label>
 sidebar_position: <Position in Sidebar>
