@@ -36,9 +36,9 @@ tags: [machine learning, algorithms, ICA, signal processing]
 ### Mathematical Model:
 In ICA, the observed data \( X \) can be modeled as:
 
-\[
+$$
 X = A.S
-\]
+$$
 
 Where:
 - \( X \) is the observed data matrix.
