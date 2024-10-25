@@ -1,3 +1,13 @@
+---
+id: Merge Two Sorted Arrays
+title: "Merge Two Sorted Arrays."
+sidebar_label: "DSA Problem Solution"
+sidebar_position: 5
+description: "This problem is a common exercise in understanding array manipulation and is often used to illustrate the two-pointer technique"
+tags: [DSA, algorithms,Problem-Solving]
+---
+
+
 # Merge Two Sorted Arrays
 
 ## Problem Description
@@ -146,5 +156,3 @@ public class MergeSortedArrays {
     }
 }
 ```
-## Conclusion
-The merging of two sorted arrays is a fundamental problem in computer science that demonstrates the efficiency of the two-pointer technique. The provided implementations in Python, JavaScript, and Java offer a straightforward approach to solving this problem.
