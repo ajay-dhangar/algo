@@ -23,20 +23,39 @@ Bubble sort is a simple, comparison-based sorting algorithm. It works by repeate
   - Repeat the process for the entire list until no swaps are made during a pass.
 
 ### Solution in C
-  ```text
-        void bubble_sort(int a[],int n) 
-        { 
-            int i,j,temp; 
-            for(i=1;i<n;i++) 
-            for(j=0;j<n-i;j++) 
-            if(a[j]>a[j+1]) 
-            { 
-                temp=a[j]; 
-                a[j]=a[j+1]; 
-                a[j+1]=temp; 
-            } 
-        display(a,n); 
-        }    
+  ```c
+        #include <stdio.h>
+
+// Function to display array elements
+void display(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
+
+// Function to perform bubble sort on an array
+void bubble_sort(int a[], int n) {
+    int i, j, temp;
+    for (i = 1; i < n; i++) {
+        for (j = 0; j < n - i; j++) {
+            if (a[j] > a[j + 1]) {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+    display(a, n);  // Calling `display` after sorting
+}
+
+int main() {
+    int a[] = {5, 2, 9, 1, 5, 6};
+    int n = sizeof(a) / sizeof(a[0]);
+    bubble_sort(a, n);
+    return 0;
+}
+
   ```
 
 ### Solution in Java
