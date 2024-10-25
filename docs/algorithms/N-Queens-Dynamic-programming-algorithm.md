@@ -57,7 +57,6 @@ def solve_n_queens(n):
     solve([-1] * n, 0)  # Initialize an empty board
     return result
 
-# Example usage
 solutions = solve_n_queens(4)
 for solution in solutions:
     print(solution)
