@@ -7,8 +7,6 @@ description: "Deletion involves removing a key-value pair from the hash table us
 tags: [hashing, data structures, deletion]
 ---
 
-## Deletion in Hash Table
-
 The deletion operation in a hash table involves removing a key-value pair using the key. If the key is not present, no operation is performed.
 
 ### Steps for Deletion
@@ -20,17 +18,6 @@ The deletion operation in a hash table involves removing a key-value pair using 
 ### Time Complexity
 - **Average Case**: $O(1)$
 - **Worst Case**: $O(n)$
-
-### Example Code (Python)
-
-```python
-class HashTable:
-    def __init__(self):
-        self.table = {}
-
-    def delete(self, key):
-        if key in self.table:
-            del self.table[key]
 
 ### Example Code (cpp)
 
@@ -86,6 +73,7 @@ int main() {
 
     return 0;
 }
+```
 
 ### Example Code (java)
 
