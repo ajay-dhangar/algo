@@ -24,13 +24,13 @@ tags: [Modular Arithmetic, Exponentiation, Algorithms, Number Theory, Recursion]
 The **modular exponentiation algorithm** employs **exponentiation by squaring**, which reduces the problem size at each step by halving the exponent. This approach can be implemented recursively or iteratively and uses the following properties:
 
 - If `exp` is even:  
-  \[
+  $$
   \text{base}^{\text{exp}} = (\text{base}^{\text{exp}/2})^2
-  \]
+  $$
 - If `exp` is odd:  
-  \[
+  $$
   \text{base}^{\text{exp}} = \text{base} \times (\text{base}^{(\text{exp}-1)/2})^2
-  \]
+  $$
 
 At each step, the intermediate result is taken modulo `mod` to keep the numbers manageable.
 
