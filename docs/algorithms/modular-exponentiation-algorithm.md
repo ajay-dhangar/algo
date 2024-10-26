@@ -20,7 +20,7 @@ tags: [Modular Arithmetic, Exponentiation, Algorithms, Number Theory, Recursion]
 - **Output**: The result of `(base^exp) % mod`, calculated efficiently.
 - **Constraints**: Large values for `base` and `exp` make a direct approach infeasible, so modular exponentiation is necessary for efficiency.
 
-## Solution Approach
+## Solution approach
 The **modular exponentiation algorithm** employs **exponentiation by squaring**, which reduces the problem size at each step by halving the exponent. This approach can be implemented recursively or iteratively and uses the following properties:
 
 - If `exp` is even:  
