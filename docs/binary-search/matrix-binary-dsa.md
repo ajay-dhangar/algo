@@ -37,7 +37,7 @@ We are given an `m x n` matrix where each row is sorted in ascending order from 
     Ideal for large datasets where the matrix dimensions are substantial, enabling quick lookups.
 ### Code Implementation:
 
-```java
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -81,3 +81,47 @@ int main() {
 }
 
 ```
+### Code Implementation:
+
+```java
+import java.util.*;
+
+public class BinarySearchInMatrix {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int rows = matrix.length;
+        if (rows == 0) return false;
+        int cols = matrix[0].length;
+
+        int low = 0;
+        int high = (rows * cols) - 1; // Treating the 2D matrix as a single flat array
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2; // To prevent overflow
+            int midElement = matrix[mid / cols][mid % cols]; // Mapping the 1D index back to 2D
+
+            if (midElement == target) {
+                return true; // Target found
+            } else if (midElement < target) {
+                low = mid + 1; // Target is to the right
+            } else {
+                high = mid - 1; // Target is to the left
+            }
+        }
+        return false; // Target not found
+    }
+
+    public static void main(String[] args) {
+        BinarySearchInMatrix searcher = new BinarySearchInMatrix();
+        int[][] matrix = {
+            {1, 3, 5, 7},
+            {10, 11, 16, 20},
+            {23, 30, 34, 60}
+        };
+        int target = 3;
+        boolean result = searcher.searchMatrix(matrix, target);
+        System.out.println("Target found: " + result); // Output: Target found: true
+    }
+}
+
+```
+
