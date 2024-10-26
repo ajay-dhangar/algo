@@ -1,3 +1,14 @@
+---
+id: Tarjan's
+title: Introduction to Tarjan's Algorithm
+sidebar_label: Tarjan's Algorithm
+sidebar_position: 1
+description: "Information Tarjan's algorithm"
+tags: [Algorithm,tarjan's]
+---
+
+
+
 # Tarjan's Algorithm for Strongly Connected Components
 ## Overview
 Tarjan's Algorithm is an efficient DFS-based algorithm used to find all Strongly Connected Components (SCCs) in a directed graph. A strongly connected component of a directed graph is a maximal subset of vertices where each vertex is reachable from every other vertex in the subset.
