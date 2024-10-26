@@ -73,3 +73,60 @@ int main() {
     return 0;
 }
 ```
+### JAVA Code Implementation
+
+```java
+// Definition for a binary search tree node
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    // Constructor for initializing a TreeNode with a value
+    TreeNode(int x) {
+        val = x;
+        left = null;
+        right = null;
+    }
+}
+
+public class BinarySearchTree {
+
+    // Function to search a value in a binary search tree
+    public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null || root.val == val) {
+            return root;
+        }
+        if (val < root.val) {
+            return searchBST(root.left, val);
+        } else {
+            return searchBST(root.right, val);
+        }
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree bst = new BinarySearchTree();
+
+        // Building the binary search tree
+        TreeNode root = new TreeNode(4);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(7);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(3);
+
+        // Define the target value to search for
+        int target = 2;
+        
+        // Search for the target value in the tree
+        TreeNode result = bst.searchBST(root, target);
+
+        // Output the result
+        if (result != null) {
+            System.out.println("Found: " + result.val);
+        } else {
+            System.out.println("Value not found in the BST.");
+        }
+    }
+}
+
+```

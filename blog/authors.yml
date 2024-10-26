@@ -28,3 +28,61 @@ narendra-dhangar:
   socials:
     linkedin: narendra-dhangar-880558297
     github: narendra-dhangar
+
+AKSHITHA-CHILUKA:
+  name: Chiluka Akshitha
+  title: B.Tech (IT) Student
+  url: https://github.com/AKSHITHA-CHILUKA
+  image_url: https://github.com/AKSHITHA-CHILUKA.png
+  email: 22wh1a12b5@bvrithyderabad.edu.in
+  page: true # Turns the feature on
+  description: >
+    a passionate software developer with an interest in developing innovative programs.
+  socials:
+    linkedin: https://www.linkedin.com/in/akshitha-chiluka-b19245259/
+    github: https://github.com/AKSHITHA-CHILUKA
+
+
+ADITYA-JANI:
+  name: Aditya Jani
+  title: First-Year MCA Student, Developer, Tech Enthusiast
+  url: https://github.com/AdityaJani616
+  image_url: https://github.com/AdityaJani616.png
+  email: adityajani616@gmail.com
+  page: true # Turns the feature on
+  description: >
+    A passionate developer with an interest in building solutions that blend technology and social impact. I am a Full Stack Developer, with a keen interest in projects related to web development, and community-driven initiatives. 
+  socials:
+    linkedin: https://www.linkedin.com/in/adityajani616
+    github: https://github.com/AdityaJani616
+    portfolio: https://portfolio-azure-tau-65.vercel.app/
+
+
+Rishi-Verma:
+  name: Rishi Verma
+  title: B.Tech(CSE) STUDENT, Developer, Tech Enthusiast , Competitive Programmer
+  url: https://github.com/coder-writes
+  image_url: https://github.com/coder-writes.png
+  email: vrishi7654@gmail.com
+  page: true # Turns the feature on
+  description: >
+     A tech enthusiast and competitive programmer with a knack for developing innovative solutions. I am a B.Tech(CSE) student who loves to dive deep into coding challenges and explore the latest trends in technology. My interests span across web development, software engineering, and community-driven projects.
+  socials:
+    linkedin: https://www.linkedin.com/in/rishi-verma-sde/
+    github: https://github.com/coder-writes
+
+LOKESH-BIJARNIYA:
+  name: Lokesh Bijarniya
+  title: BTech CSE Student | Full Stack Developer | DSA Enthusiast
+  url: https://github.com/Lokesh-Bijarniya
+  image_url: https://github.com/Lokesh-Bijarniya.png
+  email: lkbijarniya2@gmail.com
+  page: true # Turns the feature on
+  description: >
+    I am a BTech CSE student with a passion for full stack development and a deep interest in data structures and algorithms (DSA). As an aspiring software engineer, I enjoy building web applications that solve real-world problems and continuously improving my problem-solving skills through DSA. My goal is to create impactful solutions using modern technologies, while constantly learning and growing in the field of software development.
+  socials:
+    linkedin: https://www.linkedin.com/in/lokesh-bijarniya/
+    github: https://github.com/Lokesh-Bijarniya/
+    leetcode: https://leetcode.com/u/Lokesh_Bijarniya_/
+    portfolio: https://lokesh-bijarniya-portfolio.vercel.app/
+
