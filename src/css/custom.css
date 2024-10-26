@@ -15,6 +15,15 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ifm-color-primary-dark);
 }
+/* Custom CSS for the chatbot */
+#chatbot-container {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 1000; /* Ensures it’s on top */
+  width: 300px; /* Adjust width as needed */
+  height: 500px; /* Adjust height as needed */
+}
 
 :root {
   --ifm-color-primary: #3b82f6;

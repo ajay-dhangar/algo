@@ -4,7 +4,13 @@ const ChatbotScript = () => {
   useEffect(() => {
     window.embeddedChatbotConfig = {
       chatbotId: "lb8tTNFhXryOebzVM1edo",
-      domain: "www.chatbase.co"
+      domain: "www.chatbase.co",
+      customStyles: {
+        position: 'fixed',
+        left: '20px',
+        bottom: '20px',
+        zIndex: '1000', // Ensures it stays on top of other elements
+      }
     };
 
     const script = document.createElement('script');

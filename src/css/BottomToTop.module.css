@@ -1,15 +1,17 @@
 .scrollToTopButton {
   position: fixed;
   bottom: 80px;
-  right: 20px;
+  left: 20px; /* Position on the left bottom corner */
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 50%; /* Changed to 50% for a fully rounded button */
+  width: 50px; /* Set a width for the circular button */
+  height: 50px; /* Set a height for the circular button */
+  padding: 0; /* Removed padding to maintain the circle shape */
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow for a more polished look */
+  transition: opacity 0.3s, transform 0.2s; /* Added transform for hover effect */
   opacity: 0.8;
   z-index: 1000;
 }
@@ -17,4 +19,5 @@
 .scrollToTopButton:hover {
   background-color: #0056b3;
   opacity: 1;
+  transform: scale(1.1); /* Slightly enlarge on hover for emphasis */
 }
