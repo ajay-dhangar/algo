@@ -19,7 +19,7 @@ Tarjan's Algorithm is an efficient DFS-based algorithm used to find all Strongly
 **Time Complexity**
 - O(V + E) where V is the number of vertices and E is the number of edges. This efficiency arises because each node and edge is visited only once.
 
-![Graph Diagram](./graph_diagram.png "Example of Graph for Tarjan's Algorithm")
+![Graph Diagram](./algorithm.png "Example of Graph for Tarjan's Algorithm")
 
 
 ## Pseudocode
