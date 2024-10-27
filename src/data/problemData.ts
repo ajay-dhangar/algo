@@ -2736,6 +2736,16 @@ class Solution:
           return result
       `,
     },
+    "timeComplexity": {
+        "cpp": "O(N)",
+        "java": "O(N)",
+        "python": "O(N)"
+    },
+    "spaceComplexity": {
+        "cpp": "O(N)",
+        "java": "O(N)",
+        "python": "O(N)"
+    }
   },
 
   minimumDifference: {
