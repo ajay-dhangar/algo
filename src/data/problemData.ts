@@ -631,6 +631,17 @@ class Solution:
         if not present[i]: return i
       return n + 1`,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    
   },
 
   maxSubArray: {
