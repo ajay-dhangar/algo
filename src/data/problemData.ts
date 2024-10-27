@@ -2033,6 +2033,17 @@ class Solution:
           return not self.s1
       `,
     },
+    timeComplexity: {
+        cpp: "O(n) for push, O(1) for pop and peek",
+        java: "O(n) for push, O(1) for pop and peek",
+        python: "O(n) for push, O(1) for pop and peek",
+    },
+    spaceComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    
   },
 
   isAnagram: {
