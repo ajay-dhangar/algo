@@ -2797,6 +2797,16 @@ class Solution:
           return minm
       `,
     },
+    "timeComplexity": {
+        "cpp": "O(n log n)",
+        "java": "O(n log n)",
+        "python": "O(n log n)"
+    },
+    "spaceComplexity": {
+        "cpp": "O(1)",
+        "java": "O(1)",
+        "python": "O(1)"
+    }
   },
 
   mthHalf: {
