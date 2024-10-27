@@ -250,7 +250,7 @@ Conclusion:
     return matchesTag && matchesSearch;
   });
 
-  const tags = ["All", "Theory", "Sorting", "Graphs"];
+  const tags = ["All", "Theory", "Sorting", "Graphs","Algorithms"];
 
   const handleReadMore = (content: string) => {
     setModalContent(content);
