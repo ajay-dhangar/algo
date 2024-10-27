@@ -944,6 +944,17 @@ class Solution:
         nums1.sort()
     `,
     },
+    timeComplexity: {
+        cpp: "O((m+n) log(m+n))",
+        java: "O((m+n) log(m+n))",
+        python: "O((m+n) log(m+n))",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    
   },
   inorderTraversal: {
     title: "15. Binary Tree Inorder Traversal",
