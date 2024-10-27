@@ -1859,6 +1859,17 @@ class Solution:
           return len(nums) > len(set(nums))
       `,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    
   },
 
   invertBinaryTree: {
