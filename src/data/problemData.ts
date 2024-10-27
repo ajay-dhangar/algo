@@ -1203,6 +1203,17 @@ class Solution:
         return max(leftDepth, rightDepth) + 1
     `,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(h)",
+        java: "O(h)",
+        python: "O(h)",
+    },
+    
   },
   hasPathSum: {
     title: "19. Path Sum",
