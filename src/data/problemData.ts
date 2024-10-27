@@ -2434,6 +2434,17 @@ class Solution:
           return ''.join(res)
       `,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    
   },
 
   maxLevelSum: {
