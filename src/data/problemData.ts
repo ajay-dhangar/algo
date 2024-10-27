@@ -427,6 +427,17 @@ class Solution:
             nums[i], nums[j] = nums[j], nums[i]
         nums[i + 1:] = nums[i + 1:][::-1]`,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    
   },
   searchInsert: {
     title: "7. Search Insert Position",
