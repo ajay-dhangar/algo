@@ -1,14 +1,16 @@
-| id  | title                                 | sidebar_label                      | description                                                         | tags              |
-| --- | ------------------------------------- | ----------------------------------- | ------------------------------------------------------------------- | ----------------- |
-| Longest Subarray with sum K | Find Longest Subarray with Sum k      | Longest Subarray with Sum k         | Find the length of the longest subarray whose sum equals to k.       | `Array`, `Hashing`, `DSA` |
-
+---
+id: <longest-subarray-sum-k>
+title: <Find Longest Subarray with Sum k>
+sidebar_label: <Longest Subarray with Sum k>
+sidebar_position: <1>
+description: <Find the length of the longest subarray whose sum equals k.>
+tags: [<Array>, <Hashing>, <DSA>]
 ---
 
-## Problem Statement
+# Problem Statement
 Given an array `a[]` and an integer `k`, find the length of the longest subarray that sums to `k`.
 
 [LeetCode Problem Link](https://leetcode.com/problems/subarray-sum-equals-k/)
----
 
 ## Examples
 
@@ -106,12 +108,14 @@ public class tUf {
         System.out.println("The length of the longest subarray is: " + len);
     }
 }
+
 ```
 
 ---
 ## Time Complexity
-Time Complexity: O(N), where N is the number of elements in the array. We process each element only once.
-Space Complexity: O(N), as we are using a HashMap to store the prefix sums.
+**Time Complexity**: `O(N)`, where N is the number of elements in the array. We process each element only once.
+
+**Space Complexity**: `O(N)`, as we are using a HashMap to store the prefix sums.
 
 ---
 ## Conclusion

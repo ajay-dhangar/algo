@@ -1,15 +1,16 @@
-| id  | title                         | sidebar_label                | description                                                                                        | tags              |
-| --- | ----------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------- | ----------------- |
-| Maximum Product Subarray   | Maximum Product Subarray in a Array      | Maximum Product Subarray      | Given an array containing both negative and positive integers, find the maximum product subarray. | `Dynamic Programming`, `Array` |
-
+---
+id: <maximum-product-subarray>
+title: <Maximum Product Subarray in an Array>
+sidebar_label: <Maximum Product Subarray>
+sidebar_position: <1>
+description: <Find the maximum product of a contiguous subarray within an array containing both negative and positive integers.>
+tags: [<Dynamic Programming>, <Array>]
 ---
 
-## Problem Statement
+# Problem Statement
 Given an array that contains both negative and positive integers, find the maximum product subarray.
 
 **LeetCode Problem Link**: [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/description/)
-
----
 
 ## Examples
 
@@ -70,11 +71,14 @@ public class Main {
         System.out.print("The maximum product subarray is: " + answer);
     }
 }
+
 ```
 
 ---
 ## Time Complexity
-The time complexity of this algorithm is O(n), where n is the number of elements in the input array. We traverse the array once to calculate the maximum product.The space complexity is O(1) since we are using only a constant amount of space for variables.
+The **Time complexity** of this algorithm is `O(n)`, where n is the number of elements in the input array. We traverse the array once to calculate the maximum product.
+
+The **Space complexity** is `O(1)` since we are using only a constant amount of space for variables.
 
 ---
 ## Conclusion

@@ -1,19 +1,20 @@
-| id  | title            | sidebar_label       | description                                                                                     | tags                   |
-| --- | ---------------- | ------------------- | ----------------------------------------------------------------------------------------------- | ---------------------- |
-| Reverse Pairs   | Count Reverse Pairs | Count Reverse Pairs | Given an array, return the count of reverse pairs where i < j and arr[i] > 2 * arr[j].           | `Merge Sort`, `Array` |
-
+---
+id: <reverse-pairs>
+title: <Count Reverse Pairs>
+sidebar_label: <Count Reverse Pairs>
+sidebar_position: <1>
+description: <Count the number of reverse pairs in an array where i < j and arr[i] > 2 * arr[j].>
+tags: [<Merge Sort>, <Array>]
 ---
 
-## Problem Statement
+# Problem Statement
 Given an array of numbers, return the count of reverse pairs. Reverse Pairs are those pairs where `i < j` and `arr[i] > 2 * arr[j]`.
 
 **LeetCode Problem Link**: [Reverse Pairs](https://leetcode.com/problems/reverse-pairs/description/)
 
----
-
 ## Examples
 
-**Example 1**:  
+### Example 1  
 Input:  
 `N = 5, array[] = {1, 3, 2, 3, 1}`  
 Output:  
@@ -21,17 +22,13 @@ Output:
 **Explanation**:  
 The pairs are `(3, 1)` and `(3, 1)` as both satisfy the condition `arr[i] > 2 * arr[j]`.
 
----
-
-**Example 2**:  
+### Example 2  
 Input:  
 `N = 4, array[] = {3, 2, 1, 4}`  
 Output:  
 `1`  
 **Explanation**:  
 There is only 1 pair `(3, 1)` that satisfies the condition `arr[i] > 2 * arr[j]`.
-
----
 
 ## Approach
 
@@ -40,13 +37,13 @@ The problem can be solved using a modified **Merge Sort** approach, similar to t
 2. **Count pairs** where `arr[i] > 2 * arr[j]` using two pointers during the merge step.
 3. Merge sort ensures that both halves are sorted, making it efficient to count valid pairs.
 
-### Steps:
+### Steps
 1. Implement a **modified merge sort** where:
    - During the merge process, count valid pairs by iterating through the left and right halves.
    - For each element in the left half, count how many elements in the right half satisfy the condition.
 2. After counting the pairs, merge the two halves back into the original array.
 
-### Implementation
+## Java Implementation
 
 ```java
 import java.util.*;
@@ -123,19 +120,20 @@ public class CountReversePairs {
         System.out.println("The number of reverse pairs is: " + count);
     }
 }
+
 ```
 
 ---
 ## Time Complexity
-The time complexity is O(N log N), where N is the size of the array.
+The **Time complexity** is O(N log N), where N is the size of the array.
 
-Merge Sort: Recursively divides the array, which takes O(log N).
-Counting pairs: For each split, the counting process takes O(N).
-Thus, the total time complexity is O(N log N).
+**Merge Sort**: Recursively divides the array, which takes O(log N).
+**Counting pairs**: For each split, the counting process takes O(N).
 
-Space Complexity
-The space complexity is O(N) because of the temporary array used to store the merged elements.
+Thus, the total time complexity is `O(N log N)`.
+
+**Space Complexity**: The space complexity is `O(N)` because of the temporary array used to store the merged elements.
 
 ---
 ## Conclusion
-This problem is a modification of the inversion count problem, with the condition arr[i] > 2 * arr[j]. The approach uses merge sort to efficiently count such pairs in O(N log N) time. This is optimal for large arrays and ensures that the problem can be solved within reasonable time limits.
+This problem is a modification of the inversion count problem, with the condition `arr[i] > 2 * arr[j].` The approach uses merge sort to efficiently count such pairs in `O(N log N)` time. This is optimal for large arrays and ensures that the problem can be solved within reasonable time limits.

@@ -1,15 +1,18 @@
-| id  | title                                 | sidebar_label                      | description                                                         | tags              |
-| --- | ------------------------------------- | ----------------------------------- | ------------------------------------------------------------------- | ----------------- |
-| Kadane's Algorithm  | Kadane's Algorithm: Maximum Subarray Sum | Maximum Subarray Sum              | Find the maximum sum of a contiguous subarray in an integer array.   | `Array`, `Dynamic Programming`, `Greedy`, `DSA` |
-
 ---
+id: <kadanes-algorithm>
+title: <Kadane's Algorithm- Maximum Subarray Sum>
+sidebar_label: <Maximum Subarray Sum>
+sidebar_position: <1>
+description: <Find the maximum sum of a contiguous subarray in an integer array.>
+tags: [<Array>, <Dynamic Programming>, <Greedy>, <DSA>]
+---
+
+# Kadane's Algorithm: Maximum Subarray Sum
 
 ## Problem Statement
 Given an integer array `arr`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
-[Leetcode Problem Link](https://leetcode.com/problems/maximum-subarray/description/)
-
----
+[LeetCode Problem Link](https://leetcode.com/problems/maximum-subarray/description/)
 
 ## Examples
 
@@ -40,14 +43,12 @@ Array has only one element, which gives a positive sum of 1.
 ## Intuition
 The intuition behind **Kadane's Algorithm** is simple: a subarray with a negative sum will always reduce the sum of the total subarray, so it's better to discard such subarrays and reset the sum to 0 whenever the sum goes below 0.
 
-### Key Idea:
+### Key Idea
 - Iterate through the array and add elements to a running sum.
 - If the sum becomes negative at any point, reset it to zero since no subarray with a negative sum is worth considering.
 - Track the maximum sum encountered during the iteration.
 
----
-
-## Approach:
+## Approach
 1. Initialize two variables: `maxi` to store the maximum sum and `sum` to store the current subarray sum.
 2. Iterate through the array:
    - Add the current element to `sum`.
@@ -55,12 +56,10 @@ The intuition behind **Kadane's Algorithm** is simple: a subarray with a negativ
    - If `sum` becomes negative, reset it to `0`.
 3. Return `maxi` as the result.
 
-### Edge Case:
+### Edge Case
 In some scenarios, the question may mention that the sum of an empty subarray should be considered. In that case, compare `maxi` with `0` before returning the result, and ensure you return the larger value.
 
----
-
-## Java Implementation :
+## Java Implementation
 
 ```java
 import java.util.*;
@@ -91,12 +90,14 @@ public class Main {
         System.out.println("The maximum subarray sum is: " + maxSum);
     }
 }
+
 ```
 
 ---
 ## Time Complexity
-The time complexity of Kadane's Algorithm is O(n), where n is the number of elements in the array. This is because we make a single pass through the array to calculate the maximum subarray sum.
-Space Complexity: O(1) as we are not using any extra space.
+The **Time complexity** of Kadane's Algorithm is `O(n)`, where n is the number of elements in the array. This is because we make a single pass through the array to calculate the maximum subarray sum.
+
+**Space Complexity**: `O(1)` as we are not using any extra space.
 
 ---
 ## Conclusion

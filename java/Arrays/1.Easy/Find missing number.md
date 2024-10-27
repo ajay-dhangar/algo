@@ -1,10 +1,13 @@
-| id  | title                            | sidebar_label               | description                                                | tags              |
-| --- | -------------------------------- | --------------------------- | ---------------------------------------------------------- | ----------------- |
-| Find missing number   | Find the Missing Number in Array | Find Missing Number in Array | Find the missing number in an array of size N containing numbers from 1 to N. | `Array`, `XOR`, `DSA` |
-
+---
+id: <find-missing-number>
+title: <Find the Missing Number in Array>
+sidebar_label: <Find Missing Number in Array>
+sidebar_position: <1>
+description: <Find the missing number in an array of size N containing numbers from 1 to N.>
+tags: [<Array>, <XOR>, <DSA>]
 ---
 
-## Problem Statement
+# Problem Statement
 You are given an array `a` of size `N-1` containing numbers from `1` to `N`. The array has one number missing. Find the missing number.
 
 [LeetCode Problem Link](https://leetcode.com/problems/missing-number/description/)
@@ -62,15 +65,15 @@ This problem can be solved using the properties of XOR:
 ```java
 import java.util.*;
 
-public class tUf {
+public class FindMissingNumber {
     public static int missingNumber(int []a, int N) {
         int xor1 = 0, xor2 = 0;
 
         for (int i = 0; i < N - 1; i++) {
             xor2 = xor2 ^ a[i]; // XOR of array elements
-            xor1 = xor1 ^ (i + 1); //XOR up to [1...N-1]
+            xor1 = xor1 ^ (i + 1); // XOR up to [1...N-1]
         }
-        xor1 = xor1 ^ N; //XOR up to [1...N]
+        xor1 = xor1 ^ N; // XOR up to [1...N]
 
         return (xor1 ^ xor2); // the missing number
     }
@@ -86,8 +89,9 @@ public class tUf {
 ```
 ---
 ## Time Complexity
-Time Complexity: O(N), where N is the number of elements in the array. We only need to iterate over the array once to calculate the XORs.
-Space Complexity: O(1), as we are only using a constant amount of extra space.
+**Time Complexity**: `O(N)`, where N is the number of elements in the array. We only need to iterate over the array once to calculate the XORs.
+
+**Space Complexity**: `O(1)`, as we are only using a constant amount of extra space.
 
 ---
 ## Conclusion
