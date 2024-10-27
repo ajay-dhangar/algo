@@ -1,10 +1,10 @@
 ---
-id: <maximum-product-subarray>
-title: <Maximum Product Subarray in an Array>
-sidebar_label: <Maximum Product Subarray>
-sidebar_position: <1>
-description: <Find the maximum product of a contiguous subarray within an array containing both negative and positive integers.>
-tags: [<Dynamic Programming>, <Array>]
+id: maximum-product-subarray
+title: Maximum Product Subarray in an Array
+sidebar_label: Maximum Product Subarray
+sidebar_position: 1
+description: Find the maximum product of a contiguous subarray within an array containing both negative and positive integers.
+tags: [Dynamic Programming, Array]
 ---
 
 # Problem Statement

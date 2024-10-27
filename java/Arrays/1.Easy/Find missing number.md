@@ -1,10 +1,10 @@
 ---
-id: <find-missing-number>
-title: <Find the Missing Number in Array>
-sidebar_label: <Find Missing Number in Array>
-sidebar_position: <1>
-description: <Find the missing number in an array of size N containing numbers from 1 to N.>
-tags: [<Array>, <XOR>, <DSA>]
+id: find-missing-number
+title: Find the Missing Number in Array
+sidebar_label: Find Missing Number in Array
+sidebar_position: 1
+description: Find the missing number in an array of size N containing numbers from 1 to N.
+tags: [Array, XOR, DSA]
 ---
 
 # Problem Statement

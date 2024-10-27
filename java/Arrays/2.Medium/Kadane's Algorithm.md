@@ -1,10 +1,10 @@
 ---
-id: <kadanes-algorithm>
-title: <Kadane's Algorithm- Maximum Subarray Sum>
-sidebar_label: <Maximum Subarray Sum>
-sidebar_position: <1>
-description: <Find the maximum sum of a contiguous subarray in an integer array.>
-tags: [<Array>, <Dynamic Programming>, <Greedy>, <DSA>]
+id: kadanes-algorithm>
+title: Kadane's Algorithm- Maximum Subarray Sum
+sidebar_label: Maximum Subarray Sum
+sidebar_position: 1
+description: Find the maximum sum of a contiguous subarray in an integer array.
+tags: [Array, Dynamic Programming, Greedy, DSA]
 ---
 
 # Kadane's Algorithm: Maximum Subarray Sum

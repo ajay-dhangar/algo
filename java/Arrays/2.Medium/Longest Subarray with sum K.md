@@ -1,10 +1,10 @@
 ---
-id: <longest-subarray-sum-k>
-title: <Find Longest Subarray with Sum k>
-sidebar_label: <Longest Subarray with Sum k>
-sidebar_position: <1>
-description: <Find the length of the longest subarray whose sum equals k.>
-tags: [<Array>, <Hashing>, <DSA>]
+id: longest-subarray-sum-k
+title: Find Longest Subarray with Sum k
+sidebar_label: Longest Subarray with Sum k
+sidebar_position: 1
+description: Find the length of the longest subarray whose sum equals k.
+tags: [Array, Hashing, DSA]
 ---
 
 # Problem Statement

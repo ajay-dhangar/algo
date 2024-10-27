@@ -1,10 +1,10 @@
 ---
-id: <reverse-pairs>
-title: <Count Reverse Pairs>
-sidebar_label: <Count Reverse Pairs>
-sidebar_position: <1>
-description: <Count the number of reverse pairs in an array where i < j and arr[i] > 2 * arr[j].>
-tags: [<Merge Sort>, <Array>]
+id: reverse-pairs
+title: Count Reverse Pairs
+sidebar_label: Count Reverse Pairs
+sidebar_position: 1
+description: Count the number of reverse pairs in an array where i < j and arr[i] > 2 * arr[j].
+tags: [Merge Sort, Array]
 ---
 
 # Problem Statement

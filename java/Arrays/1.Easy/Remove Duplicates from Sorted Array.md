@@ -1,10 +1,10 @@
 ---
-id: <remove-duplicates-sorted-array>
-title: <Remove Duplicates in-place from Sorted Array>
-sidebar_label: <Remove Duplicates in-place>
-sidebar_position: <1>
-description: <Given a sorted array, remove the duplicates in-place and return the new length.>
-tags: [<Array>, <In-place>, <DSA>]
+id: remove-duplicates-sorted-array
+title: Remove Duplicates in-place from Sorted Array
+sidebar_label: Remove Duplicates in-place
+sidebar_position: 1
+description: Given a sorted array, remove the duplicates in-place and return the new length.
+tags: [Array, In-place, DSA]
 ---
 
 # Remove Duplicates in-place from Sorted Array
