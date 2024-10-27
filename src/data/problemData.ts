@@ -687,6 +687,17 @@ class Solution:
         max_sum = max(max_sum, curr_sum)
       return max_sum`,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    
   },
   mySqrt: {
     title: "11. Sqrt(x)",
