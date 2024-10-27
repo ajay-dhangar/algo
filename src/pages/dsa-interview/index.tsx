@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
-import Tabs from "@theme/Tabs"; // Import Tabs component
-import TabItem from "@theme/TabItem"; // Import TabItem component
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 import problemsData from "../../data/problemData";
 
 const DSAQuestions: React.FC = () => {
@@ -127,6 +127,17 @@ const DSAQuestions: React.FC = () => {
                             <pre className="whitespace-pre-wrap bg-gray-200 dark:bg-gray-800 p-3 rounded-md text-sm font-mono mt-2 overflow-auto">
                               {problemsData[key].solution.cpp}
                             </pre>
+                            {/* Time and Space Complexity */}
+                            {problemsData[key].timeComplexity?.cpp && (
+                              <div className="mt-2 text-gray-700 dark:text-gray-300">
+                                <p><strong>Time Complexity:</strong> {problemsData[key].timeComplexity.cpp}</p>
+                              </div>
+                            )}
+                            {problemsData[key].spaceComplexity?.cpp && (
+                              <div className="mt-2 text-gray-700 dark:text-gray-300">
+                                <p><strong>Space Complexity:</strong> {problemsData[key].spaceComplexity.cpp}</p>
+                              </div>
+                            )}
                           </div>
                         </TabItem>
                         <TabItem value="java" label="Java">
@@ -149,6 +160,17 @@ const DSAQuestions: React.FC = () => {
                             <pre className="whitespace-pre-wrap bg-gray-200 dark:bg-gray-800 p-3 rounded-md text-sm font-mono mt-2 overflow-auto">
                               {problemsData[key].solution.java}
                             </pre>
+                            {/* Time and Space Complexity */}
+                            {problemsData[key].timeComplexity?.java && (
+                              <div className="mt-2 text-gray-700 dark:text-gray-300">
+                                <p><strong>Time Complexity:</strong> {problemsData[key].timeComplexity.java}</p>
+                              </div>
+                            )}
+                            {problemsData[key].spaceComplexity?.java && (
+                              <div className="mt-2 text-gray-700 dark:text-gray-300">
+                                <p><strong>Space Complexity:</strong> {problemsData[key].spaceComplexity.java}</p>
+                              </div>
+                            )}
                           </div>
                         </TabItem>
                         <TabItem value="python" label="Python">
@@ -171,6 +193,17 @@ const DSAQuestions: React.FC = () => {
                             <pre className="whitespace-pre-wrap bg-gray-200 dark:bg-gray-800 p-3 rounded-md text-sm font-mono mt-2 overflow-auto">
                               {problemsData[key].solution.python}
                             </pre>
+                            {/* Time and Space Complexity */}
+                            {problemsData[key].timeComplexity?.python && (
+                              <div className="mt-2 text-gray-700 dark:text-gray-300">
+                                <p><strong>Time Complexity:</strong> {problemsData[key].timeComplexity.python}</p>
+                              </div>
+                            )}
+                            {problemsData[key].spaceComplexity?.python && (
+                              <div className="mt-2 text-gray-700 dark:text-gray-300">
+                                <p><strong>Space Complexity:</strong> {problemsData[key].spaceComplexity.python}</p>
+                              </div>
+                            )}
                           </div>
                         </TabItem>
                       </Tabs>
