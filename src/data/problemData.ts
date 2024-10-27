@@ -222,6 +222,16 @@ class Solution:
                     k -= 1
         return res`,
     },
+    timeComplexity: {
+        cpp: "O(n^2)",
+        java: "O(n^2)",
+        python: "O(n^2)",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
   },
 
   isValidParentheses: {
