@@ -4,6 +4,8 @@ import AdsComponent from "@site/src/components/AdsComponent";
 import ArrayVisualizations from "@site/src/components/DSA/arrays/ArrayVisualizations";
 import BubbleSortVisualization from "@site/src/components/DSA/arrays/BubbleSortVisualization";
 import InsertionSortVisualization from "@site/src/components/DSA/arrays/InsertionSortVisualization";
+import QuickSortVisualization from "@site/src/components/DSA/arrays/QuickSortVisualization";
+import HeapSortVisualization from "@site/src/components/DSA/arrays/HeapSortVisualization";
 import SelectionSortVisualization from "@site/src/components/DSA/arrays/SelectionSortVisualization";
 import DijkstraVisuzalizations from "@site/src/components/DSA/graphs/DijkstraVisualizations";
 import FloydWarshallVisualizations from "@site/src/components/DSA/graphs/FloydWarshallVisualizations";
@@ -31,6 +33,8 @@ export default {
   DijkstraVisuzalizations,
   FloydWarshallVisualizations,
   InsertionSortVisualization,
+  QuickSortVisualization,
+  HeapSortVisualization,
 //   Image,
   LiteYouTubeEmbed,
 //   LinearSearchVisualizer,
