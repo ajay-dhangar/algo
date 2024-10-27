@@ -1,3 +1,14 @@
+---
+id: Constant-Product-AMM
+title: Simple Constant Product AMM Implementation
+sidebar_label: Cost product AMM
+sidebar_position: 8
+description: he Constant Product AMM has revolutionized the world of decentralized finance, offering a unique and efficient way to trade and provide liquidity. 
+tags: [C, product]
+---
+
+
+
 # 🤖 Simple Constant Product AMM Implementation
 
 ## 🎯 Overview
