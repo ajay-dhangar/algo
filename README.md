@@ -60,6 +60,12 @@ Welcome to **Algo**, an open-source project that provides developers with algori
 
 <br />
 
+
+## 🌐 Demo Links
+
+- [Demo](https://ajay-dhangar.github.io/algo/)
+
+
 ## Table of Contents
 
 - [Algo - Open Source Algorithm Repository](#algo---open-source-algorithm-repository)
