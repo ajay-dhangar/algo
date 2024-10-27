@@ -1066,6 +1066,17 @@ class Solution:
         return self.isSymmetricTest(p.left, q.right) and self.isSymmetricTest(p.right, q.left)
     `,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(h)",
+        java: "O(h)",
+        python: "O(h)",
+    },
+    
   },
 
   levelOrderTraversal: {
