@@ -1,5 +1,4 @@
-
-
+---
 ### Searching Algorithms: Finding Your Way Through Data
 slug: searching-algorithms-finding-your-way-through-data  
 title: "Searching Algorithms: Finding Your Way Through Data"  
