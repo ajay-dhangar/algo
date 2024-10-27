@@ -255,30 +255,112 @@ const DataStructuresQuiz = () => {
   };
 
   return (
+    // <Layout
+    //   title="Data Structures Quiz"
+    //   description="Test your knowledge of data structures with this quiz."
+    // >
+    //   <div className="bg-gray-200 max-w-2xl mx-auto rounde-2xl my-10 rounded-3xl p-10">
+    //     <h2 className="text-center">Data Structures Challenge-2</h2>
+    //     {showResult ? (
+    //       <div>
+    //         <h2>
+    //           Your Score: {correctAnswers} out of {questions.length}
+    //         </h2>
+    //         <h2>Time Spent: {formatTime(timeSpent)}</h2>{" "}
+    //         {/* Show time spent here */}
+    //         <div style={{ textAlign: "left", marginTop: "20px" }}>              <h4 style={{ color: "black", marginBottom: "10px" }}>Review Your Answers:</h4>
+    //           <ul>
+    //             {questions.map((question, index) => (
+    //               <li key={index} style={{ marginBottom: "15px" }}>
+    //                 <p><strong>{question.question}</strong></p>
+    //                 <p>
+    //                   Your Answer: <span style={{ color: userAnswers[index] === question.answer ? "green" : "red" }}>
+    //                     {userAnswers[index]}
+    //                   </span>
+    //                 </p>
+    //                 <p>Correct Answer: <span style={{ color: "green" }}>{question.answer}</span></p>
+    //               </li>
+    //             ))}
+    //           </ul>
+    //         </div>
+    //       </div>
+    //     ) : (
+    //       <div>
+    //         <h3 className="text-center">Time Left: {formatTime(timeLeft)}</h3>{" "}
+    //         {/* Show running timer */}
+    //         <div className="bg-white rounded-2xl p-4">
+    //           <h3>{questions[currentQuestionIndex].question}</h3>
+    //           <div>
+    //             {questions[currentQuestionIndex].options.map(
+    //               (option, index) => (
+    //                 <div
+    //                   key={index}
+    //                   className="text-left my-2 bg-white rounded-md p-3 w-full"
+    //                   style={{
+    //                     border: selectedOption === option ? "2px solid orange" : "1px solid #ddd",
+    //                     backgroundColor: selectedOption === option ? "rgba(255, 165, 0, 0.1)" : "white",
+    //                     cursor: "pointer",
+    //                   }}
+    //                   onClick={() => handleOptionSelect(option)}
+    //                 >
+    //                   {option}
+    //                 </div>
+    //               )
+    //             )}
+    //           </div>
+    //           <button className="mt-5 bg-gray-800 rounded-lg text-white border border-gray-800 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed" onClick={handleNextQuestion} disabled={!selectedOption}>
+    //             Next Question
+    //           </button>
+    //           <button className="mt-5 bg-gray-100 border border-gray-800 rounded-lg text-gray-800 ml-2 p-3" onClick={handleSubmitQuiz}>Submit Quiz</button>
+    //         </div>
+    //       </div>
+    //     )}
+    //   </div>
+    // </Layout>
+
     <Layout
       title="Data Structures Quiz"
       description="Test your knowledge of data structures with this quiz."
     >
-      <div className="bg-gray-200 max-w-2xl mx-auto rounde-2xl my-10 rounded-3xl p-10">
-        <h2 className="text-center">Data Structures Challenge-2</h2>
+      <div className="bg-gray-200 dark:bg-gray-800 max-w-2xl mx-auto rounded-2xl my-10 p-10">
+        <h2 className="text-center text-gray-900 dark:text-gray-100">
+          Data Structures Challenge-1
+        </h2>
         {showResult ? (
           <div>
-            <h2>
+            <h2 className="text-gray-900 dark:text-gray-100">
               Your Score: {correctAnswers} out of {questions.length}
             </h2>
-            <h2>Time Spent: {formatTime(timeSpent)}</h2>{" "}
-            {/* Show time spent here */}
-            <div style={{ textAlign: "left", marginTop: "20px" }}>              <h4 style={{ color: "black", marginBottom: "10px" }}>Review Your Answers:</h4>
+            <h2 className="text-gray-900 dark:text-gray-100">
+              Time Spent: {formatTime(timeSpent)}
+            </h2>
+            <div className="text-left mt-5">
+              <h4 className="text-black dark:text-gray-100 mb-2">
+                Review Your Answers:
+              </h4>
               <ul>
                 {questions.map((question, index) => (
-                  <li key={index} style={{ marginBottom: "15px" }}>
-                    <p><strong>{question.question}</strong></p>
+                  <li key={index} className="mb-4">
+                    <p className="font-bold text-gray-900 dark:text-gray-100">
+                      {question.question}
+                    </p>
                     <p>
-                      Your Answer: <span style={{ color: userAnswers[index] === question.answer ? "green" : "red" }}>
+                      Your Answer:{" "}
+                      <span
+                        style={{
+                          color:
+                            userAnswers[index] === question.answer
+                              ? "green"
+                              : "red",
+                        }}
+                      >
                         {userAnswers[index]}
                       </span>
                     </p>
-                    <p>Correct Answer: <span style={{ color: "green" }}>{question.answer}</span></p>
+                    <p>
+                      Correct Answer:{" "}
+                      <span className="text-green-600">{question.answer}</span>
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -286,19 +368,29 @@ const DataStructuresQuiz = () => {
           </div>
         ) : (
           <div>
-            <h3 className="text-center">Time Left: {formatTime(timeLeft)}</h3>{" "}
-            {/* Show running timer */}
-            <div className="bg-white rounded-2xl p-4">
-              <h3>{questions[currentQuestionIndex].question}</h3>
+            <h3 className="text-center text-gray-900 dark:text-gray-100">
+              Time Left: {formatTime(timeLeft)}
+            </h3>
+            <div className="bg-white dark:bg-gray-900 rounded-2xl p-4">
+              <h3 className="text-gray-900 dark:text-gray-100">
+                {questions[currentQuestionIndex].question}
+              </h3>
               <div>
                 {questions[currentQuestionIndex].options.map(
                   (option, index) => (
                     <div
                       key={index}
-                      className="text-left my-2 bg-white rounded-md p-3 w-full"
+                      className="text-left my-2 dark:text-gray-900 rounded-md p-3 w-full"
                       style={{
-                        border: selectedOption === option ? "2px solid orange" : "1px solid #ddd",
-                        backgroundColor: selectedOption === option ? "rgba(255, 165, 0, 0.1)" : "white",
+                        border:
+                          selectedOption === option
+                            ? "2px solid orange"
+                            : "1px solid #ddd",
+                        backgroundColor:
+                          selectedOption === option
+                            ? "rgb(17, 24, 39, 1)"
+                            : "white",
+                        color: selectedOption === option ? "#ffffff" : "black",
                         cursor: "pointer",
                       }}
                       onClick={() => handleOptionSelect(option)}
@@ -308,10 +400,19 @@ const DataStructuresQuiz = () => {
                   )
                 )}
               </div>
-              <button className="mt-5 bg-gray-800 rounded-lg text-white border border-gray-800 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed" onClick={handleNextQuestion} disabled={!selectedOption}>
+              <button
+                className="mt-5 bg-gray-800 dark:bg-orange-600 text-white dark:text-gray-100 rounded-lg border border-gray-800 dark:border-orange-600 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed"
+                onClick={handleNextQuestion}
+                disabled={!selectedOption}
+              >
                 Next Question
               </button>
-              <button className="mt-5 bg-gray-100 border border-gray-800 rounded-lg text-gray-800 ml-2 p-3" onClick={handleSubmitQuiz}>Submit Quiz</button>
+              <button
+                className="mt-5 bg-gray-100 dark:bg-gray-700 border border-gray-800 dark:border-gray-600 rounded-lg text-gray-800 dark:text-gray-100 ml-2 p-3"
+                onClick={handleSubmitQuiz}
+              >
+                Submit Quiz
+              </button>
             </div>
           </div>
         )}
