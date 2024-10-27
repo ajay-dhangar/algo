@@ -756,6 +756,17 @@ class Solution:
         return res
     `,
     },
+    timeComplexity: {
+        cpp: "O(log n)",
+        java: "O(log n)",
+        python: "O(log n)",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    
   },
 
   searchMatrix: {
