@@ -1,7 +1,7 @@
 ---
-id: Tarjan's
-title: Introduction to Tarjan's Algorithm
-sidebar_label: Tarjan's Algorithm
+id: Tarjan
+title: "Introduction to Tarjan's Algorithm"
+sidebar_label: "Tarjan's Algorithm"
 sidebar_position: 1
 description: "Information Tarjan's algorithm"
 tags: [Algorithm,tarjan's]
