@@ -46,6 +46,43 @@ Let us see how to implement binary search in Java:
 			System.out.println("Target not found!");
 		}
 ```
+## Implementation
+
+Let us see how to implement binary search in javascript:
+
+```javascript
+function binarySearch(arr, target) {
+    let low = 0;
+    let high = arr.length - 1;
+    let flag = false; // element not yet found
+
+    while (low <= high) {
+        let mid = Math.floor((low + high) / 2);
+
+        if (arr[mid] === target) {
+            flag = true; // element found
+            console.log("Target found!");
+            break;
+        } else if (arr[mid] < target) {
+            // target is to the right of mid element
+            low = mid + 1;
+        } else {
+            // target is to the left of mid element
+            high = mid - 1;
+        }
+    }
+
+    if (!flag) {
+        console.log("Target not found!");
+    }
+}
+
+// Example usage
+let arr = [1, 3, 5, 7, 9, 11];
+let target = 7;
+binarySearch(arr, target);
+
+```
 
 In this algorithm, the searching interval of the array is divided into half at every iteration until the target is found. This results in lesser comparisions and decreases the time required.
 
