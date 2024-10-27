@@ -3,7 +3,7 @@ id: tree-algorithms-cpp
 title: Tree Algorithms in C++
 sidebar_label: Tree Algorithms
 sidebar_position: 5
-description: This document contains implementations of basic tree algorithms in C++ including traversals, BST operations, and tree properties.
+description: This document contains implementations of basic tree algorithms in C++ including traversals, BST operations, and tree properties, along with time and space complexities.
 tags: [C++, Trees, Algorithms]
 ---
 
@@ -35,6 +35,9 @@ void inorderTraversal(TreeNode* root) {
 }
 ```
 
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h) (where h is the height of the tree, due to recursion stack)
+
 ### Pre-order Traversal
 
 ```cpp
@@ -46,6 +49,9 @@ void preorderTraversal(TreeNode* root) {
 }
 ```
 
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h)
+
 ### Post-order Traversal
 
 ```cpp
@@ -56,6 +62,9 @@ void postorderTraversal(TreeNode* root) {
     cout << root->val << " ";
 }
 ```
+
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h)
 
 ### Level-order Traversal (BFS)
 
@@ -76,6 +85,9 @@ void levelOrderTraversal(TreeNode* root) {
 }
 ```
 
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(n) (for the queue)
+
 ## 2. Binary Search Tree (BST) Operations
 
 ### Insertion
@@ -91,6 +103,9 @@ TreeNode* insert(TreeNode* root, int val) {
 }
 ```
 
+- **Time Complexity**: O(h)
+- **Space Complexity**: O(h) (due to recursion)
+
 ### Search
 
 ```cpp
@@ -101,6 +116,9 @@ TreeNode* search(TreeNode* root, int val) {
 }
 ```
 
+- **Time Complexity**: O(h)
+- **Space Complexity**: O(h)
+
 ### Finding Minimum Value
 
 ```cpp
@@ -109,6 +127,9 @@ TreeNode* findMin(TreeNode* root) {
     return root;
 }
 ```
+
+- **Time Complexity**: O(h)
+- **Space Complexity**: O(1)
 
 ## 3. Tree Properties
 
@@ -121,6 +142,9 @@ int height(TreeNode* root) {
 }
 ```
 
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h)
+
 ### Size of a Tree
 
 ```cpp
@@ -129,6 +153,9 @@ int size(TreeNode* root) {
     return 1 + size(root->left) + size(root->right);
 }
 ```
+
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h)
 
 ## 4. Lowest Common Ancestor (LCA)
 
@@ -141,6 +168,9 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
     return left ? left : right;
 }
 ```
+
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h)
 
 ## 5. Tree Transformations
 
@@ -155,6 +185,9 @@ void mirror(TreeNode* root) {
 }
 ```
 
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h)
+
 ## 6. Miscellaneous
 
 ### Check if Two Trees are Identical
@@ -168,6 +201,9 @@ bool areIdentical(TreeNode* root1, TreeNode* root2) {
            areIdentical(root1->right, root2->right);
 }
 ```
+
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h)
 
 ### Find the Diameter of a Binary Tree
 
@@ -187,5 +223,8 @@ int diameterOfBinaryTree(TreeNode* root) {
     return diameter;
 }
 ```
+
+- **Time Complexity**: O(n)
+- **Space Complexity**: O(h)
 
 These implementations cover the basic algorithms for tree data structures in C++. They can be used as a reference or starting point for more complex tree-related problems.

@@ -39,6 +39,14 @@ Inserting E at the right of B
    /     / \                  / \   / \
   D     F   G                D   E F   G
 ```
+
+#### Time Complexity
+- **Average Case:** O(log N) if balanced.
+- **Worst Case:** O(N) for a skewed tree.
+
+#### Space Complexity
+- **Average and Worst Case:** O(N), due to recursion stack.
+
 ### 2. Deletion
 In a binary tree, when deleting a node, the node to be deleted is replaced by the deepest node in the tree. This approach ensures that the tree remains complete. The deletion process involves the following steps:
 
@@ -129,6 +137,14 @@ Case # 01: Deleting A (Root Node Removal)
    / \   / \                  / \   / 
   D   E F   G                D   E F
 ```
+
+#### Time Complexity
+- **Average Case:** O(log N) if balanced.
+- **Worst Case:** O(N) for a skewed tree.
+
+#### Space Complexity
+- **Average and Worst Case:** O(N) due to recursion stack.
+
 ### 3. Searching
 Searching for a value in a binary tree involves comparing the value with the current node’s data and then recursively searching in the left or right subtree based on the comparison.
 
@@ -147,6 +163,13 @@ bool search(Node* root, int val) {
     }
 }
 ```
+#### Time Complexity
+- **Average Case:** O(log N) if balanced.
+- **Worst Case:** O(N) for a skewed tree.
+
+#### Space Complexity
+- **Average and Worst Case:** O(N), due to recursion stack.
+
 ## Complexity Analysis of Binary Tree Operations
 
 ### 1. Time Complexity
@@ -185,6 +208,11 @@ void preOrder(Node* root) {
 
   Pre-Order Traversal: A B D E C F G
 ```
+#### Time Complexity
+- O(N), as every node is visited once.
+
+#### Space Complexity
+- O(N) in the worst case due to recursion stack for a skewed tree.
 
 #### b) In-order Traversal (Left, Root, Right)
 In in-order traversal, we visit the left subtree first, then the root node, and finally the right subtree. For binary search trees, in-order traversal visits nodes in ascending order.
@@ -207,6 +235,12 @@ void inOrder(Node* root) {
 
   In-Order Traversal: D B E A F C G
 ```
+#### Time Complexity
+- O(N), as each node is visited once.
+
+#### Space Complexity
+- O(N) in the worst case due to recursion stack for a skewed tree.
+
 #### c) Post-order Traversal (Left, Right, Root)
 In post-order traversal, we visit the left subtree first, followed by the right subtree, and finally the root node.
 
@@ -228,3 +262,8 @@ void postOrder(Node* root) {
 
   Post-Order Traversal: D E B F G C A
 ```
+#### Time Complexity
+- O(N), as each node is visited once.
+
+#### Space Complexity
+- O(N) in the worst case due to recursion stack for a skewed tree.
