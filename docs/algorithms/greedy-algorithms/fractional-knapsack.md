@@ -1,5 +1,5 @@
 ---
-id: fractional-knapsack -1
+id: fractional-knapsack-2
 title: Fractional Knapsack Problem 2
 sidebar_label: Fractional Knapsack 
 description: "In this blog post, we'll explore the Fractional Knapsack Problem, a greedy algorithm used to maximize the value of items that can be carried in a knapsack with a weight limit." 
