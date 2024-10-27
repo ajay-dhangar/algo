@@ -2328,6 +2328,17 @@ class Solution:
           return result
       `,
     },
+    timeComplexity: {
+        cpp: "O(n log n + m log m)",
+        java: "O(n log n + m log m)",
+        python: "O(n log n + m log m)",
+    },
+    spaceComplexity: {
+        cpp: "O(1) or O(min(n, m)) depending on the result size",
+        java: "O(n + m)",
+        python: "O(min(n, m))",
+    },
+    
   },
 
   runningSum: {
