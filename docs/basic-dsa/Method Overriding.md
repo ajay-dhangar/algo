@@ -1,5 +1,5 @@
 ---
-id: basic dsa1
+id: method-overriding
 title: Method Overriding
 sidebar_label: Introduction to Method Overriding
 sidebar_position: 2
