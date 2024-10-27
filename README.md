@@ -1210,6 +1210,13 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Amankr200</b></sub>
                 </a>
             </td>
+            <td align="center">
+                <a href="https://github.com/Subashree-selvaraj">
+                    <img src="https://avatars.githubusercontent.com/u/132484553?v=4" width="100;" alt="subashree200""/>
+                    <br />
+                    <sub><b>Subashree S</b></sub>
+                </a>
+            </td>
 		</tr>
 	<tbody>
 </table>
