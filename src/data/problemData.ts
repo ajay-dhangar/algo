@@ -428,16 +428,16 @@ class Solution:
         nums[i + 1:] = nums[i + 1:][::-1]`,
     },
     timeComplexity: {
-        cpp: "O(n)",
-        java: "O(n)",
-        python: "O(n)",
-    },
-    spaceComplexity: {
-        cpp: "O(1)",
-        java: "O(1)",
-        python: "O(1)",
-    },
-    
+    cpp: "O(n)",
+    java: "O(n)",
+    python: "O(n)",
+},
+spaceComplexity: {
+    cpp: "O(1)",
+    java: "O(1)",
+    python: "O(1)",
+},
+
   },
   searchInsert: {
     title: "7. Search Insert Position",
@@ -490,6 +490,17 @@ class Solution:
                 low = mid + 1
         return low`,
     },
+    timeComplexity: {
+        cpp: "O(log n)",
+        java: "O(log n)",
+        python: "O(log n)",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    
   },
 
   isValidSudoku: {
