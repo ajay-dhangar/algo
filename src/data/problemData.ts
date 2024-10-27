@@ -2666,6 +2666,16 @@ class Solution:
           return self.countLeaves(root.left) + self.countLeaves(root.right)
       `,
     },
+    "timeComplexity": {
+        "cpp": "O(n)",
+        "java": "O(n)",
+        "python": "O(n)"
+    },
+    "spaceComplexity": {
+        "cpp": "O(h)",
+        "java": "O(h)",
+        "python": "O(h)"
+    }
   },
 
   generateBinaryNumbers: {
