@@ -567,6 +567,17 @@ class Solution:
           blocks[(i//3)*3+j//3].add(curr)
       return True`,
     },
+    timeComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    
   },
 
   firstMissingPositive: {
