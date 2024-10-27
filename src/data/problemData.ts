@@ -1332,6 +1332,17 @@ class Solution:
         return res
     `,
     },
+    timeComplexity: {
+        cpp: "O(n^2)",
+        java: "O(n^2)",
+        python: "O(n^2)",
+    },
+    spaceComplexity: {
+        cpp: "O(n^2)",
+        java: "O(n^2)",
+        python: "O(n^2)",
+    },
+    
   },
 
   maxProfit: {
