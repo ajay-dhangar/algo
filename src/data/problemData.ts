@@ -824,6 +824,17 @@ class Solution:
         return False
     `,
     },
+    timeComplexity: {
+        cpp: "O(log(m * n))",
+        java: "O(log(m * n))",
+        python: "O(log(m * n))",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    
   },
 
   deleteDuplicates: {
