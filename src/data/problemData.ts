@@ -290,6 +290,17 @@ class Solution:
                 stack.append(char)
         return not stack`,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    
   },
 
   mergeTwoLists: {
