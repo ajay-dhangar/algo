@@ -2908,6 +2908,16 @@ class Solution:
           return ''.join(ans)
           `,
     },
+    "timeComplexity": {
+        "cpp": "O(m + n)",
+        "java": "O(m + n)",
+        "python": "O(m + n)"
+    },
+    "spaceComplexity": {
+        "cpp": "O(1)",
+        "java": "O(1)",
+        "python": "O(1)"
+    }
   },
 
   rotateArray: {
