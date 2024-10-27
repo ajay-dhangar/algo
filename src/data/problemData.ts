@@ -2551,6 +2551,17 @@ class Solution:
           return result_level
       `,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(w)",
+        java: "O(w)",
+        python: "O(w)",
+    },
+    
   },
 
   firstAlphabet: {
