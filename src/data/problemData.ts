@@ -1261,6 +1261,17 @@ class Solution:
         return self.hasPathSum(root.left, sum - root.val) or self.hasPathSum(root.right, sum - root.val)
     `,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(h)",
+        java: "O(h)",
+        python: "O(h)",
+    },
+    
   },
 
   generatePascalTriangle: {
