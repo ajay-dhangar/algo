@@ -1005,6 +1005,17 @@ class Solution:
         return ans
     `,
     },
+    timeComplexity: {
+        cpp: "O(n)",
+        java: "O(n)",
+        python: "O(n)",
+    },
+    spaceComplexity: {
+        cpp: "O(h)",
+        java: "O(h)",
+        python: "O(h)",
+    },
+    
   },
 
   isSymmetric: {
