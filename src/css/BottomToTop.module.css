@@ -1,5 +1,5 @@
 .scrollToTopButton {
-  position: fixed;
+  position: absolute;
   bottom: 80px;
   right: 20px;
   background-color: #007bff;
