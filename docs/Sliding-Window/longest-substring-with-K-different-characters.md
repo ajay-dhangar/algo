@@ -96,6 +96,42 @@ int main() {
     return 0;
 }
 ```
+
+### Python Code Implementation:
+```python
+def longest_substring_k_distinct(s, k):
+    if not s or k == 0:
+        return 0
+
+    char_freq = {}
+    max_length = 0
+    left = 0
+
+    for right in range(len(s)):
+        right_char = s[right]
+        char_freq[right_char] = char_freq.get(right_char, 0) + 1
+
+        # Shrink the window if we have more than 'k' distinct characters
+        while len(char_freq) > k:
+            left_char = s[left]
+            char_freq[left_char] -= 1
+
+            if char_freq[left_char] == 0:
+                del char_freq[left_char]  # Remove from map if frequency becomes 0
+            left += 1  # Move the left pointer
+
+        # Update the maximum length of the valid window
+        max_length = max(max_length, right - left + 1)
+
+    return max_length
+
+# Test the function
+s = "araaci"
+k = 2
+print(f"Longest substring with {k} distinct characters: {longest_substring_k_distinct(s, k)}")
+```
+
+
 ## Explanation:
 We use a sliding window that moves over the string by adjusting the right pointer to include more characters.
 The charFreq map keeps track of the frequency of characters in the window.
