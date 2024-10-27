@@ -1,8 +1,6 @@
-.
-
 ---
 
-### 9. Greedy Algorithms: Making the Best Local Choice
+###  Greedy Algorithms: Making the Best Local Choice
 slug: greedy-algorithms-making-the-best-local-choice  
 title: "Greedy Algorithms: Making the Best Local Choice"  
 authors: [AKSHITHA-CHILUKA]  

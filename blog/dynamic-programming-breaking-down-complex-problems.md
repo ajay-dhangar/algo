@@ -1,6 +1,6 @@
 ---
 
-### 6. Dynamic Programming: Breaking Down Complex Problems
+### Dynamic Programming: Breaking Down Complex Problems
 slug: dynamic-programming-breaking-down-complex-problems  
 title: "Dynamic Programming: Breaking Down Complex Problems"  
 authors: [ADITYA-JANI]  
