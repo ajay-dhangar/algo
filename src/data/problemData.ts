@@ -356,6 +356,17 @@ class Solution:
             l2.next = self.mergeTwoLists(l1, l2.next)
             return l2`,
     },
+    timeComplexity: {
+        cpp: "O(n + m)",
+        java: "O(n + m)",
+        python: "O(n + m)",
+    },
+    spaceComplexity: {
+        cpp: "O(1)",
+        java: "O(1)",
+        python: "O(1)",
+    },
+    
   },
 
   nextPermutation: {
