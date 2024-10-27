@@ -202,17 +202,17 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/Riyachauhan11">
-                    <img src="https://avatars.githubusercontent.com/u/96919050?v=4" width="100;" alt="Riyachauhan11"/>
-                    <br />
-                    <sub><b>Riya Chauhan</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/inkerton">
                     <img src="https://avatars.githubusercontent.com/u/127668005?v=4" width="100;" alt="inkerton"/>
                     <br />
                     <sub><b>Janvi</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Riyachauhan11">
+                    <img src="https://avatars.githubusercontent.com/u/96919050?v=4" width="100;" alt="Riyachauhan11"/>
+                    <br />
+                    <sub><b>Riya Chauhan</b></sub>
                 </a>
             </td>
             <td align="center">
