@@ -1,4 +1,10 @@
-
+---
+id: Add-rat-in-a-maze
+sidebar_position: 5
+title: Add rat in a maze
+sidebar_label: Add rat in a maze
+tags: [DSA, Backtracking]
+---
 
 # Rat in a Maze - Backtracking Solution
 
