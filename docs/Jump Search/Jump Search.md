@@ -17,46 +17,47 @@ Space Complexity: O(1)
 ## Implementation:
 
         ```C++
-        #include <iostream>
-        #include <cmath>
         
-        using namespace std;
-        
-        int jumpSearch(int arr[], int n, int target) {
-            // Calculate jump size
-            int step = sqrt(n);
-            int prev = 0;
-        
-            // Find the block where the element is present
-            while (arr[min(step, n)-1] < target) {
-                prev = step;
-                step += sqrt(n);
-                if (prev >= n)
-                    return -1; // Element is not present
-            }
-        
-            // Perform linear search in the found block
-            for (int i = prev; i < min(step, n); i++) {
-                if (arr[i] == target)
-                    return i; // Return index of the target element
-            }
-        
-            return -1; // Element not found
-        }
-        
-        int main() {
-            int arr[] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
-            int n = sizeof(arr) / sizeof(arr[0]);
-            int target = 15;
-        
-            int result = jumpSearch(arr, n, target);
-            if (result != -1)
-                cout << "Element found at index " << result << endl;
-            else
-                cout << "Element not found in the array" << endl;
-        
-            return 0;
-        }
+                #include <iostream>
+                #include <cmath>
+                
+                using namespace std;
+                
+                int jumpSearch(int arr[], int n, int target) {
+                    // Calculate jump size
+                    int step = sqrt(n);
+                    int prev = 0;
+                
+                    // Find the block where the element is present
+                    while (arr[min(step, n)-1] < target) {
+                        prev = step;
+                        step += sqrt(n);
+                        if (prev >= n)
+                            return -1; // Element is not present
+                    }
+                
+                    // Perform linear search in the found block
+                    for (int i = prev; i < min(step, n); i++) {
+                        if (arr[i] == target)
+                            return i; // Return index of the target element
+                    }
+                
+                    return -1; // Element not found
+                }
+                
+                int main() {
+                    int arr[] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
+                    int n = sizeof(arr) / sizeof(arr[0]);
+                    int target = 15;
+                
+                    int result = jumpSearch(arr, n, target);
+                    if (result != -1)
+                        cout << "Element found at index " << result << endl;
+                    else
+                        cout << "Element not found in the array" << endl;
+                
+                    return 0;
+                }
 ## Explanation:
 1) Step Calculation: We calculate step = sqrt(n) to jump optimally through the array.
 2) Jumping: We jump by the step until we reach an element larger than the target or reach the end of the array.
