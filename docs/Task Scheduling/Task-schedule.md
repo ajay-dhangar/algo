@@ -1,8 +1,12 @@
-### Task Scheduling (Topological Sorting)
-
+---
+id: task-scheduling
+title: Task Scheduling
+sidebar_label: Task Scheduling
+description: The program finds a valid order for task execution based on dependencies, using Topological Sorting with Kahn’s algorithm.
+tags: [Topological Sorting, DAG, DSA, Scheduling]
 ---
 
-# Task Scheduling Using Topological Sorting in C
+### Task Scheduling (Topological Sorting)
 
 This project demonstrates a Task Scheduling algorithm using Topological Sorting (Kahn’s Algorithm) implemented in C. This algorithm determines an order in which tasks can be completed given dependencies between them.
 
