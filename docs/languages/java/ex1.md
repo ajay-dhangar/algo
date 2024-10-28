@@ -57,8 +57,7 @@ Since Java is syntactically similar to C++ and C#, it is easier for developers t
 In this section, we will explore the basic structure of a Java program, using a "Hello World" example to understand key syntax rules.
 
 ### 1. "Hello World" Example
-```java
-// Main.java
+```java title="Main.java"
 public class Main {
   public static void main(String[] args) {
     System.out.println("Hello World");
@@ -101,9 +100,7 @@ public static void main(String[] args) {
 ```
 
 ### Note :
-- The curly braces {} marks the beginning and the end of a block of code.
-System is a built-in Java class that contains useful members, such as out, which is short for "output".
-The println() method, short for "print line", is used to print a value to the screen (or a file).
-Don't worry too much about how System, out and println() works. Just know that you need them together 
-to print stuff to the screen.
-You should also note that each code statement must end with a semicolon (;).
+- The curly braces `{}` marks the beginning and the end of a block of code.
+- System is a built-in Java class that contains useful members, such as out, which is short for "output".
+- The `println()` method, short for "print line", is used to print a value to the screen (or a file).
+- You should also note that each code statement must end with a semicolon (;).
