@@ -1,3 +1,11 @@
+---
+id: Hierarchial-clustering
+sidebar_position: 5
+title: Hierarchial clustering
+sidebar_label: Hierarchial clustering
+tags: [Machine Learning, Clustering]
+---
+
 # Hierarchical Clustering Algorithm
 
 Hierarchical clustering is a method of grouping similar data points into clusters based on their relative distances from each other. Unlike flat clustering techniques such as k-means, hierarchical clustering does not require a pre-specified number of clusters. Instead, it creates a hierarchy of clusters that can be visualized as a dendrogram, which shows the hierarchical relationship between clusters.
