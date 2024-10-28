@@ -52,7 +52,7 @@ function bucketSort(array, bucketSize):
     return sortedArray
 ```
 
-### Implementation in Python, C++, and Java
+### Implementation in Python, C++, Java and JavaScript
 
 #### Python Implementation
 
@@ -188,6 +188,65 @@ public class BucketSort {
     }
 }
 ```
+
+#### JavaScript Code Implementation
+
+```javascript
+function bucketSort(nums, bucketSize) {
+    if (nums.length === 0) return;
+
+    // Determine minimum and maximum values
+    const minValue = Math.min(...nums);
+    const maxValue = Math.max(...nums);
+
+    // Initialize buckets
+    const numBuckets = Math.floor((maxValue - minValue) / bucketSize) + 1;
+    const buckets = Array.from({ length: numBuckets }, () => []);
+
+    // Distribute input array values into buckets
+    for (const num of nums) {
+        const bucketIndex = Math.floor((num - minValue) / bucketSize);
+        buckets[bucketIndex].push(num);
+    }
+
+    // Sort each bucket and concatenate them
+    nums.length = 0; // Clear the original array
+    for (const bucket of buckets) {
+        bucket.sort((a, b) => a - b); // Sort the current bucket
+        nums.push(...bucket); // Concatenate sorted bucket to nums
+    }
+}
+
+// Example usage
+const data = [42, 32, 33, 52, 37, 47, 51];
+bucketSort(data, 5);
+console.log(data); // Output: [32, 33, 37, 42, 47, 51, 52]
+```
+
+### Explanation of the Code
+
+1. **Function `bucketSort`**:
+   - The function takes an array `nums` and a `bucketSize` as parameters.
+   - It first checks if the array is empty and returns if true.
+
+2. **Finding Minimum and Maximum Values**:
+   - The minimum and maximum values of the array are determined using `Math.min` and `Math.max`.
+
+3. **Initializing Buckets**:
+   - The number of buckets is calculated based on the range of the values divided by the `bucketSize`.
+   - Buckets are initialized as an array of empty arrays.
+
+4. **Distributing Values into Buckets**:
+   - Each number in the input array is placed into its respective bucket based on its calculated index.
+
+5. **Sorting Buckets**:
+   - Each bucket is sorted using the native `sort` method.
+   - The original array `nums` is cleared, and the sorted buckets are concatenated back into it.
+
+6. **Example Usage**:
+   - An example array `data` is provided, and `bucketSort` is called with this array and a `bucketSize`.
+   - The sorted array is printed to the console.
+
 
 ### Complexity
 
