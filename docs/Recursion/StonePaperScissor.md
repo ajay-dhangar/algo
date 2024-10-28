@@ -55,10 +55,6 @@ The **Stone-Paper-Scissors Game** is a simple yet engaging hand game that challe
 
 * The game should maintain a record of wins and losses, allowing players to see their performance over multiple rounds. This tracking helps build competitiveness and encourages players to improve their strategies.
 
-**User Experience** :
-
-* A visually appealing interface, complete with graphics and animations, is necessary to enhance player engagement. A good user experience will attract and retain players, making the game more enjoyable
-
 #### Complexity :
 
 The complexity analysis of the **Stone-Paper-Scissors Game** involves examining both the time complexity and space complexity of the implementation. This analysis helps to understand the efficiency of the game in terms of performance and resource usage.
