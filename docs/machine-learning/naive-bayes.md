@@ -1,176 +1,125 @@
----
-id: naive-bayes-theorem  
-title: Naive Bayes Algorithm  
-sidebar_label: Naive Bayes  
-description: "In this post, we’ll explore the Naive Bayes Theorem, a fundamental probabilistic algorithm used for classification tasks based on Bayes' Theorem and the assumption of conditional independence."  
-tags: [machine learning, algorithms, naive bayes, classification, bayes theorem, probability]
----
+## Introduction
 
-### Definition:
-The **Naive Bayes** algorithm is a probabilistic classifier based on **Bayes' Theorem** with the assumption that the features are conditionally independent given the class label. Despite the "naive" assumption of feature independence, it is highly effective for various real-world applications such as spam filtering, text classification, and recommendation systems.
+Naive Bayes is a family of probabilistic algorithms based on Bayes' theorem, primarily used for classification tasks in machine learning. It operates under the assumption that the features are independent given the class label, which simplifies calculations and allows for efficient training and prediction. Naive Bayes is particularly effective in scenarios where the dimensionality of the data is high, making it suitable for applications such as:
 
-<AdsComponent />
+- **Text Classification:** Categorizing emails as spam or not spam.
+- **Sentiment Analysis:** Determining the sentiment of customer reviews.
+- **Medical Diagnosis:** Classifying diseases based on symptoms.
 
-### Characteristics:
-- **Probabilistic Model**:  
-  Naive Bayes predicts the class label by calculating the posterior probability of each class based on the input features and selecting the class with the highest probability.
-  
-- **Conditional Independence Assumption**:  
-  Naive Bayes assumes that each feature is independent of others given the class label, which simplifies the calculation of probabilities but may not always hold in practice.
+The simplicity and speed of Naive Bayes make it a popular choice for many practical applications.
 
-- **Efficient and Scalable**:  
-  Naive Bayes is computationally efficient and can scale well to large datasets with multiple features.
+## How It Works
 
-### Types of Naive Bayes:
-1. **Gaussian Naive Bayes**:  
-   Used when the features are continuous and follow a Gaussian (normal) distribution. Commonly applied in cases where the data can be assumed to be normally distributed.
-   
-2. **Multinomial Naive Bayes**:  
-   Used for discrete data, often applied in text classification, where the features represent counts or frequencies of words (e.g., spam detection).
-   
-3. **Bernoulli Naive Bayes**:  
-   Applied to binary data, where the features take on binary values (e.g., presence or absence of a word in text classification).
+Naive Bayes classifiers use Bayes' theorem to predict the probability of each class given the input features. The steps involved are:
 
-<Ads />
-
-### Steps Involved:
-1. **Input the Data**:  
-   The algorithm receives labelled training data, where each example consists of a set of features and a corresponding class label.
-   
-2. **Calculate Prior Probabilities**:  
-   The prior probability of each class is computed based on the frequency of each class in the training data.
-
-3. **Calculate Likelihood**:  
-   For each feature and class, the likelihood is calculated by determining how likely it is to observe a particular feature value given the class.
-
-4. **Apply Bayes' Theorem**:  
-   Using Bayes' Theorem, the posterior probability of each class is calculated based on the priors and likelihoods:
-   
+1. **Calculate Prior Probabilities:** Determine the prior probability of each class based on training data.
+2. **Calculate Likelihood:** For each feature, compute the likelihood of observing that feature given each class.
+3. **Apply Bayes' Theorem:** Combine the prior probabilities and likelihoods to calculate the posterior probability for each class using:
    $$
-   P(y|X) = \frac{P(X|y) \cdot P(y)}{P(X)}
+   P(C|X) = \frac{P(X|C) \cdot P(C)}{P(X)}
    $$
+   where $$C$$ is a class and $$X$$ represents the features.
+4. **Make Predictions:** Assign the class with the highest posterior probability to the input data.
 
-   where $P(y|X)$ is the posterior probability of the class given the feature vector, $P(X|y)$ is the likelihood, $P(y)$ is the prior, and $P(X)$ is the evidence.
+This process allows Naive Bayes to efficiently classify data points based on their features.
 
-5. **Classify New Data**:  
-   For a new data point, the algorithm computes the posterior probability for each class and assigns the label of the class with the highest probability.
+## Types of Naive Bayes Classifiers
 
-<AdsComponent />
+### Gaussian Naive Bayes
+Assumes that features follow a Gaussian (normal) distribution. It is suitable for continuous data.
 
-### Problem Statement:
-Given a dataset with multiple features and corresponding class labels, the objective is to train a Naive Bayes classifier that can predict the class label for new, unseen data based on the calculated probabilities.
+### Multinomial Naive Bayes
+Designed for discrete counts, often used in text classification where features represent word counts or frequencies.
 
-### Key Concepts:
-- **Bayes' Theorem**:  
-  Bayes' Theorem is a mathematical formula used to calculate conditional probabilities. It is expressed as:
-  
-  $$
-  P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
-  $$
+### Bernoulli Naive Bayes
+Similar to Multinomial, but assumes binary features (presence or absence of a feature), making it effective for binary classification tasks.
 
-  where:
-  - $P(A|B)$ is the posterior probability of event $A$ given that $B$ is true.
-  - $P(B|A)$ is the likelihood of observing $B$ given that $A$ is true.
-  - $P(A)$ is the prior probability of event $A$.
-  - $P(B)$ is the total probability of event $B$.
+## Benefits and Use Cases
 
-- **Prior Probability**:  
-  The prior probability represents the initial belief about the class labels before considering any feature values, based on the distribution of classes in the training data.
-  
-- **Likelihood**:  
-  The likelihood is the probability of observing the feature values given a specific class label.
+### Benefits
+1. **Simplicity:** Easy to implement and understand, making it accessible for beginners.
+2. **Efficiency:** Fast training and prediction times, especially with large datasets.
+3. **Performance:** Often performs surprisingly well even with strong independence assumptions.
 
-- **Posterior Probability**:  
-  The posterior probability is the probability of a class label after considering the observed feature values, which is what Naive Bayes uses to make predictions.
+### Use Cases
+- **Spam Detection:** Classifying emails as spam or not based on content.
+- **Document Categorization:** Automatically categorizing articles or papers into predefined topics.
+- **Recommendation Systems:** Suggesting products based on user behavior and preferences.
 
-- **Naive Assumption**:  
-  Naive Bayes assumes that all features are independent given the class, simplifying the probability calculations. This assumption, although unrealistic in many cases, allows for efficient computation and often leads to good results.
+## Implementation
 
-<Ads />
+### Dependencies
+Ensure you have the following libraries installed:
+```bash
+pip install numpy pandas scikit-learn
+```
 
-### Split Criteria:
-Naive Bayes splits data based on the **highest posterior probability** for each class, assigning the class label that maximizes this probability.
-
-### Time Complexity:
-- **Training Complexity**:  
-  Training involves calculating probabilities for each feature and class, resulting in a time complexity of $ O(n \cdot k) $, where $ n $ is the number of features and $ k $ is the number of classes.
-  
-- **Prediction Complexity**:  
-  For predicting the class of a new data point, the time complexity is $ O(n \cdot k) $, as it requires computing the posterior probability for each class.
-
-### Space Complexity:
-- **Space Complexity**:  
-  The space complexity is mainly determined by storing the calculated probabilities, which depends on the number of features, classes, and their possible values.
-
-### Example:
-Consider a spam detection system that classifies emails as "spam" or "not spam" based on features such as the presence of certain words (binary features).
-
-**Dataset:**
-
-| Word 'Free' | Word 'Money' | Spam |
-|-------------|--------------|------|
-| Yes         | Yes          | Yes  |
-| Yes         | No           | No   |
-| No          | Yes          | Yes  |
-| No          | No           | No   |
-
-Step-by-Step Execution:
-
-1. **Input Data**:  
-   The model receives training data with features (words) and labels (spam/not spam).
-
-2. **Calculate Priors**:  
-   The prior probabilities of the classes (spam and not spam) are calculated based on the class distribution:
-   
-   $$
-   P(\text{Spam}) = \frac{\text{Number of spam emails}}{\text{Total number of emails}}
-   $$
-   
-   $$
-   P(\text{Not Spam}) = \frac{\text{Number of non-spam emails}}{\text{Total number of emails}}
-   $$
-
-3. **Calculate Likelihoods**:  
-   For each word (feature) and class, the likelihood is calculated. For example:
-   
-   $$
-   P(\text{Free}|\text{Spam}) = \frac{\text{Number of spam emails containing 'Free'}}{\text{Total number of spam emails}}
-   $$
-
-4. **Apply Bayes' Theorem**:  
-   Using Bayes' Theorem, the posterior probabilities for new emails are calculated.
-
-5. **Make Predictions**:  
-   The class with the highest posterior probability is predicted (spam or not spam).
-
-<AdsComponent />
-
-### Python Implementation:
-Here is a basic implementation of Naive Bayes using **scikit-learn**:
+### Code
+Below is a Python implementation of a Naive Bayes classifier using `scikit-learn`.
 
 ```python
-from sklearn.datasets import load_iris
+import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
 
-# Load dataset
-iris = load_iris()
-X, y = iris.data, iris.target
+# Sample dataset: Features (X) and Labels (y)
+data = {
+    'Feature1': [1, 2, 3, 4, 5],
+    'Feature2': [2, 3, 4, 5, 6],
+    'Label': [0, 0, 1, 1, 1]  # Binary classification
+}
 
-# Split dataset
+df = pd.DataFrame(data)
+X = df[['Feature1', 'Feature2']]
+y = df['Label']
+
+# Step 1: Split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Create Gaussian Naive Bayes model
-nb = GaussianNB()
+# Step 2: Create and train the Naive Bayes classifier
+model = GaussianNB()
+model.fit(X_train, y_train)
 
-# Train model
-nb.fit(X_train, y_train)
+# Step 3: Make predictions on test data
+y_pred = model.predict(X_test)
 
-# Predict
-y_pred = nb.predict(X_test)
-
-# Evaluate
+# Step 4: Evaluate model accuracy
 accuracy = accuracy_score(y_test, y_pred)
-print(f"Accuracy: {accuracy:.2f}")
+print(f"Accuracy: {accuracy * 100:.2f}%")
 ```
+
+## Example
+
+### Sample Data
+Using a simple dataset with two features:
+```python
+data = {
+    'Feature1': [1, 2, 3, 4, 5],
+    'Feature2': [2, 3, 4, 5, 6],
+    'Label': [0, 0, 1, 1, 1]
+}
+```
+
+### Explanation
+1. **Data Preparation:** The dataset is organized into features and labels.
+2. **Train-Test Split:** The data is split into training and testing sets to evaluate model performance.
+3. **Model Training:** The Gaussian Naive Bayes model is trained using the training set.
+4. **Prediction and Evaluation:** Predictions are made on the test set and accuracy is computed.
+
+### Output
+The algorithm will print the accuracy of the classifier on the test set.
+
+## Running the Code
+
+1. **Run the Code:** Copy the code into a Python file (e.g., `naive_bayes.py`) and execute:
+    ```bash
+    python naive_bayes.py
+    ```
+2. **Observe Output:** Check the terminal output for model accuracy.
+
+## References
+
+- "Naive Bayes Classifier" from [Wikipedia](https://en.wikipedia.org/wiki/Naive_Bayes_classifier)
+- "Scikit-Learn Documentation" from [Scikit-Learn](https://scikit-learn.org/stable/modules/naive_bayes.html)
