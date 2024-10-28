@@ -1,19 +1,20 @@
 Jump Search is a searching algorithm used to find an element in a sorted array. It works by jumping ahead by a fixed number of steps, rather than checking each element one by one (as in linear search). Once it finds an interval where the target element might be, it performs a linear search within that interval.
-##Key Points:
+
+## Key Points:
     1) Step Size: We select a fixed jump size, typically the square root of the array length, as a good balance between linear and binary search.
     2) Process: Jump by this fixed step size until the next jump goes past the element or reaches a number greater than the target.
     3) Linear Search in Interval: Once the jump overshoots or reaches the interval where the target could lie, it performs a linear search in this smaller interval.
 
-##Complexity:
+## Complexity:
     Time Complexity: O(n)
     Space Complexity: O(1)
 
-##Steps:
+## Steps:
     1) Choose a block size (commonly step=array sizestep=array size).
     2) Jump forward by this step size until the current element is larger than or equal to the target.
     3) If we find the element within the block, perform a linear search in the interval to locate the exact position of the element.
 
-##Implementation:
+## Implementation:
 '''C++
 
         #include <iostream>
@@ -56,7 +57,7 @@ Jump Search is a searching algorithm used to find an element in a sorted array. 
         
             return 0;
         }
-##Explanation:
+## Explanation:
     1) Step Calculation: We calculate step = sqrt(n) to jump optimally through the array.
     2) Jumping: We jump by the step until we reach an element larger than the target or reach the end of the array.
     3) Linear Search: Once we find the interval, a linear search in the small block checks for the exact position of the target element.
