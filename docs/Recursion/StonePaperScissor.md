@@ -2,7 +2,7 @@
 id: stone-paper-scissor-game 
 title: Stone Paper Scissor Game Using Recursion
 sidebar_label: Generate Stone Paper Scissor Game 
-description: "Play the classic Stone-Paper-Scissors Game online and enjoy a fun, interactive experience! This timeless hand game is perfect for quick decision-making and strategic play, allowing you to challenge friends or the computer. With simple rules, anyone can join in, making it a great choice for players of all ages. Choose between Stone, Paper, or Scissors and see if you can outsmart your opponent in fast-paced rounds. The game features vibrant graphics and animations, enhancing your gaming experience. Ideal for mental breaks or casual competition, the Stone-Paper-Scissors Game is accessible on any device, letting you enjoy a few minutes of classic fun anytime, anywhere!"
+description: "Stone Paper Scissors is a classic hand game enjoyed by people of all ages around the world. In this engaging game, two players simultaneously choose one of three options: stone, paper, or scissors. The rules are simple: stone crushes scissors, scissors cut paper, and paper covers stone. This fast-paced game not only fosters friendly competition but also helps improve decision-making and strategic thinking skills. Often played in a best-of-three format, players aim to win two out of three rounds to determine the overall winner."
 tags: [StonePaperScissor, recursion, dsa]
 ---
 ## Stone Paper Scissor Game Via Recursion
