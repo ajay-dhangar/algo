@@ -16,8 +16,7 @@ Space Complexity: O(1)
 
 ## Implementation:
 
-    ```C++
-
+        ```C++
         #include <iostream>
         #include <cmath>
         
