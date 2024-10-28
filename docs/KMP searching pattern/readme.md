@@ -1,3 +1,12 @@
+---
+id: kmp-searching-pattern
+title: KMP searching pattern
+sidebar_label: KMP Searching
+description: This algorithm is an efficient string matching that finds the different occurence of a word.
+tags: [Dynamic Programming,Algorithm, DSA]
+---
+
+
 # 🔍 KMP (Knuth-Morris-Pratt) Pattern Searching Algorithm
 
 ## 📚 Overview
