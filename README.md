@@ -171,17 +171,17 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/pavitraag">
-                    <img src="https://avatars.githubusercontent.com/u/100479594?v=4" width="100;" alt="pavitraag"/>
-                    <br />
-                    <sub><b>Pavitraa G</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/shravya312">
                     <img src="https://avatars.githubusercontent.com/u/125795769?v=4" width="100;" alt="shravya312"/>
                     <br />
                     <sub><b>Shravya H Jain</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/pavitraag">
+                    <img src="https://avatars.githubusercontent.com/u/100479594?v=4" width="100;" alt="pavitraag"/>
+                    <br />
+                    <sub><b>Pavitraa G</b></sub>
                 </a>
             </td>
             <td align="center">
