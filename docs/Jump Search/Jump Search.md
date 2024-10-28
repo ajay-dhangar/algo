@@ -16,7 +16,7 @@ Space Complexity: O(1)
 
 ## Implementation:
 
- ```C++
+   ```C++
         
                 #include <iostream>
                 #include <cmath>
@@ -58,6 +58,8 @@ Space Complexity: O(1)
                 
                     return 0;
                 }
+```
+
 ## Explanation:
 1) Step Calculation: We calculate step = sqrt(n) to jump optimally through the array.
 2) Jumping: We jump by the step until we reach an element larger than the target or reach the end of the array.
