@@ -112,7 +112,7 @@ function countingSortByDigit(array, digit):
         array[i] = output[i]
 ```
 
-### Radix Sort Implementation in Python, C++, and Java
+### Radix Sort Implementation in Python, C++, Java and JavaScript
 
 #### Python
 
@@ -245,6 +245,75 @@ public class RadixSort {
     }
 }
 ```
+
+#### JavaScript Code Implementation
+
+```javascript
+function countingSortByDigit(array, digit) {
+    const size = array.length;
+    const output = new Array(size);
+    const count = new Array(10).fill(0);
+
+    // Count occurrences of each digit
+    for (let i = 0; i < size; i++) {
+        const digitValue = Math.floor((array[i] / digit) % 10);
+        count[digitValue]++;
+    }
+
+    // Update count array to get the actual position of digits
+    for (let i = 1; i < 10; i++) {
+        count[i] += count[i - 1];
+    }
+
+    // Build the output array
+    for (let i = size - 1; i >= 0; i--) {
+        const digitValue = Math.floor((array[i] / digit) % 10);
+        output[count[digitValue] - 1] = array[i];
+        count[digitValue]--;
+    }
+
+    // Copy the output array to the original array
+    for (let i = 0; i < size; i++) {
+        array[i] = output[i];
+    }
+}
+
+function radixSort(array) {
+    const maxNumber = Math.max(...array);
+    for (let digit = 1; Math.floor(maxNumber / digit) > 0; digit *= 10) {
+        countingSortByDigit(array, digit);
+    }
+}
+
+// Example usage
+const arr = [170, 45, 75, 90, 802, 24, 2, 66];
+radixSort(arr);
+console.log(arr.join(" ")); // Output: 2 24 45 66 75 90 170 802
+```
+
+### Explanation of the Code
+
+1. **Function `countingSortByDigit`**:
+   - This function sorts the `array` based on the specified `digit`.
+   - It initializes an output array and a count array to store occurrences of digits.
+
+2. **Counting Occurrences**:
+   - For each element, it extracts the digit value and increments the corresponding count.
+
+3. **Building the Output Array**:
+   - It calculates the actual positions of each digit by accumulating the counts.
+   - Then it builds the output array by placing each element in its correct position based on the current digit.
+
+4. **Copying the Output**:
+   - Finally, it copies the sorted output back to the original array.
+
+5. **Function `radixSort`**:
+   - This function finds the maximum number in the array to determine the number of digits.
+   - It repeatedly calls `countingSortByDigit`, incrementing the digit value by a factor of 10 each time.
+
+6. **Example Usage**:
+   - An example array `arr` is sorted using `radixSort`, and the sorted array is printed to the console.
+
 
 ### Complexity of Radix Sort
 
