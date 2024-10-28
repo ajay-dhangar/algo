@@ -1,6 +1,14 @@
+---
+id: Grundy Algorithm
+sidebar_position: 5
+title: Grundy Algo
+sidebar_label: Grundy algorithm
+tags: [Game-theory, Grundy]
+---
+
 # Grundy Algorithm (Numbers) in Game Theory
 
-The **Grundy algorithm** (or **Nimbers**) is used in combinatorial game theory to analyze and solve impartial games—games where available moves and win/loss conditions are the same for both players. This algorithm assigns each game position a **Grundy number** to determine whether it is a winning or losing position, allowing players to strategize optimally.
+The **Grundy algorithm** (or **Numbers**) is used in combinatorial game theory to analyze and solve impartial games—games where available moves and win/loss conditions are the same for both players. This algorithm assigns each game position a **Grundy number** to determine whether it is a winning or losing position, allowing players to strategize optimally.
 
 ## Key Concepts
 
