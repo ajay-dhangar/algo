@@ -160,77 +160,137 @@ const DataStructuresQuiz: React.FC = () => {
     },
   ];
 
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [correctAnswers, setCorrectAnswers] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes in seconds
+  const [timerId, setTimerId] = useState(null);
+  const [timeSpent, setTimeSpent] = useState(0); // To store the time spent on solving the quiz
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
+  // Timer logic
   useEffect(() => {
-    if (timeLeft > 0 && !showResult) {
-      const timer = setInterval(() => {
-        setTimeLeft((prevTime) => prevTime - 1);
+    if (timeLeft > 0) {
+      const id = setInterval(() => {
+        setTimeLeft((prev) => prev - 1);
       }, 1000);
-      return () => clearInterval(timer);
-    } else if (timeLeft === 0) {
-      setShowResult(true);
+      setTimerId(id);
+    } else {
+      handleFinishQuiz(); // Automatically finish the quiz when time runs out
     }
-  }, [timeLeft, showResult]);
 
-  const handleAnswer = (selected: string) => {
-    setSelectedOption(selected);
-    if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
+    return () => clearInterval(timerId); // Clean up timer on unmount
+  }, [timeLeft]);
+
+  // Handle option selection
+  const handleOptionSelect = (option:string) => {
+    setSelectedOption(option);
+    if (option === questions[currentQuestionIndex].answer) {
+      setCorrectAnswers(correctAnswers + 1);
     }
+    const updatedAnswers = [...userAnswers];
+    updatedAnswers[currentQuestionIndex] = option;
+    setUserAnswers(updatedAnswers);
   };
 
-  const nextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null); // Reset selected option for the next question
-    } else {
-      setShowResult(true);
+  // Move to next question
+  const handleNextQuestion = () => {
+    if (selectedOption) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setSelectedOption("");
     }
+    
+  };
+
+  // Function to finish the quiz
+  const handleFinishQuiz = () => {
+    clearInterval(timerId); // Stop the timer when the quiz is finished
+    setTimeSpent(1800 - timeLeft); // Calculate time spent
+    setShowResult(true);
+  };
+
+  // Function to submit the quiz
+  const handleSubmitQuiz = () => {
+    handleFinishQuiz(); // Call finish quiz function
+  };
+
+  // Automatically finish quiz when all questions are answered
+  useEffect(() => {
+    if (currentQuestionIndex === questions.length) {
+      handleFinishQuiz();
+    }
+  }, [currentQuestionIndex]);
+
+  // Format time as MM:SS
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(
+      2,
+      "0"
+    )}`;
   };
 
   return (
-    <Layout>
-      <div style={{ backgroundColor: "lightblue", padding: "20px", borderRadius: "8px", color: "black", maxWidth: "600px", margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center" }}>Data Structures Challenge-1</h2>
-        <h3 style={{ textAlign: "center" }}>Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? `0${timeLeft % 60}` : timeLeft % 60}</h3>
+    <Layout
+      title="Data Structures Quiz"
+      description="Test your knowledge of data structures with this quiz."
+    >
+      <div className="bg-gray-200 max-w-2xl mx-auto rounde-2xl my-10 rounded-3xl p-10">
+        <h2 className="text-center">Data Structures Challenge-1</h2>
         {showResult ? (
-          <div style={{ textAlign: "center", marginTop: "20px", padding: "20px", borderRadius: "8px", backgroundColor: "white" }}>
-            <h3 style={{ color: "black" }}>Your Score: <span style={{ fontWeight: "bold", fontSize: "24px" }}>{score}</span> 🎉</h3>
-            <p style={{ fontSize: "18px", lineHeight: "1.6" }}>
-              {score <= 15 ? "Better luck next time!" : score <= 25 ? "Good job!" : "Excellent work!"}
-            </p>
+          <div>
+            <h2>
+              Your Score: {correctAnswers} out of {questions.length}
+            </h2>
+            <h2>Time Spent: {formatTime(timeSpent)}</h2>{" "}
+            {/* Show time spent here */}
+            <div style={{ textAlign: "left", marginTop: "20px" }}>              <h4 style={{ color: "black", marginBottom: "10px" }}>Review Your Answers:</h4>
+              <ul>
+                {questions.map((question, index) => (
+                  <li key={index} style={{ marginBottom: "15px" }}>
+                    <p><strong>{question.question}</strong></p>
+                    <p>
+                      Your Answer: <span style={{ color: userAnswers[index] === question.answer ? "green" : "red" }}>
+                        {userAnswers[index]}
+                      </span>
+                    </p>
+                    <p>Correct Answer: <span style={{ color: "green" }}>{question.answer}</span></p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ) : (
           <div>
-            <h3 style={{ color: "black" }}>{questions[currentQuestion].question}</h3>
-            <div>
-              {questions[currentQuestion].options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleAnswer(option)}
-                  style={{
-                    display: "block",
-                    margin: "10px auto",
-                    padding: "10px",
-                    backgroundColor: selectedOption === option ? "orange" : "white",
-                    border: "1px solid black",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    width: "80%",
-                  }}
-                >
-                  {option}
-                </button>
-              ))}
+            <h3 className="text-center">Time Left: {formatTime(timeLeft)}</h3>{" "}
+            {/* Show running timer */}
+            <div className="bg-white rounded-2xl p-4">
+              <h3>{questions[currentQuestionIndex].question}</h3>
+              <div>
+                {questions[currentQuestionIndex].options.map(
+                  (option, index) => (
+                    <div
+                      key={index}
+                      className="text-left my-2 bg-white rounded-md p-3 w-full"
+                      style={{
+                        border: selectedOption === option ? "2px solid orange" : "1px solid #ddd",
+                        backgroundColor: selectedOption === option ? "rgba(255, 165, 0, 0.1)" : "white",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleOptionSelect(option)}
+                    >
+                      {option}
+                    </div>
+                  )
+                )}
+              </div>
+              <button className="mt-5 bg-gray-800 rounded-lg text-white border border-gray-800 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed" onClick={handleNextQuestion} disabled={!selectedOption}>
+                Next Question
+              </button>
+              <button className="mt-5 bg-gray-100 border border-gray-800 rounded-lg text-gray-800 ml-2 p-3" onClick={handleSubmitQuiz}>Submit Quiz</button>
             </div>
-            <button onClick={nextQuestion} style={{ marginTop: "20px", padding: "10px 20px", cursor: "pointer" }}>
-              Next Question
-            </button>
           </div>
         )}
       </div>
@@ -239,3 +299,4 @@ const DataStructuresQuiz: React.FC = () => {
 };
 
 export default DataStructuresQuiz;
+

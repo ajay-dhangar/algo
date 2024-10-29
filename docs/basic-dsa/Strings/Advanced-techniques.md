@@ -1,20 +1,18 @@
 ---
-id: Advanced String
+id: advanced-string
 title: "Advanced Strings"
 sidebar_label: "Adv Strings"
 sidebar_position: 4
-description: "`StringBuilder` is a mutable character sequence in Java that enables efficient modifications of strings without creating new objects, improving performance for dynamic string manipulation."
+description: "StringBuilder is a mutable character sequence in Java that enables efficient modifications of strings without creating new objects, improving performance for dynamic string manipulation."
 tags: [String Manipulation, StringBuilder, Java, Mutable Strings, Performance Optimization, Dynamic Text, Programming Concepts]
-
 ---
-# Advanced String Concepts in Java
 
-In addition to the basic string methods, there are several advanced topics and techniques that can enhance your string manipulation skills in Java.
+In addition to the basic string methods, several advanced topics and techniques can enhance your string manipulation skills in Java.
 
 ## 1. StringBuilder and StringBuffer
 
 ### StringBuilder
-`StringBuilder` is a mutable sequence of characters. Unlike strings, which are immutable, `StringBuilder` allows you to modify the character sequence without creating new objects.
+`StringBuilder` is a mutable sequence of characters. Unlike immutable strings, `StringBuilder` allows you to modify the character sequence without creating new objects.
 
 #### Example:
 ```java

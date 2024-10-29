@@ -86,132 +86,112 @@ const Contact: React.FC = () => {
 
       <ToastContainer />
 
-      <section className="container mx-auto py-12 px-6 md:px-12 text-center">
-        <motion.h1
-          className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 dark:text-white"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Contact <span className="text-blue-600 dark:text-yellow-400">Us</span>
-        </motion.h1>
-        <motion.p
-          className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          We would love to hear from you. Reach out to us through the form below, or visit us at our office.
-        </motion.p>
-      </section>
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-10 w-full p-5 lg:p-10 min-h-screen bg-gray-100 dark:bg-gray-600">
+  {/* Form Section */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="border-2 w-full md:w-2/3 lg:w-1/3 shadow-lg rounded-lg py-8 bg-[#d6eaf8] dark:bg-blue-950 px-6 md:px-10 flex flex-col justify-center"
+  >
+    <h2 className="text-3xl md:text-4xl font-bold font-serif text-blue-900 dark:text-[#d6eaf8] mb-6 text-center">
+      Contact Us
+    </h2>
+    <p className="italic leading-snug text-blue-800 text-sm text-center dark:text-slate-300">We are here to help and answer any question you might have. We look forward to hearing from you!!</p>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label className="block text-md text-blue-800 font-bold dark:text-gray-300">
+          Name
+        </label>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          pattern="[a-zA-Z ]+" 
+           onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Please enter a valid name without numbers or special characters')}
+           onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
+          className="mt-1 block w-full px-4 py-3 rounded-md text-gray-800 dark:text-gray-300 border border-blue-900 focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+        {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
+      </div>
 
-      <section className="container mx-auto py-8 px-6 md:px-12">
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-center md:items-start">
-            <FaPhoneAlt className="text-3xl text-gray-600 dark:text-gray-300 mb-4" />
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
-              Call Us
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">+91 702 459 2105</p>
-          </div>
+      <div>
+        <label className="block text-md text-blue-800 font-bold dark:text-gray-300">
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="mt-1 block w-full px-4 py-3 rounded-md text-gray-800 dark:text-gray-300 border border-blue-900 focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+        {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
+      </div>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-center md:items-start">
-            <FaEnvelope className="text-3xl text-gray-600 dark:text-gray-300 mb-4" />
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
-              Email Us
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">ajaydhangar49@gmail.com</p>
-          </div>
+      <div>
+        <label className="block text-md text-blue-800 font-bold dark:text-gray-300">
+          Message
+        </label>
+        <textarea
+          name="message"
+          rows={6}
+          value={formData.message}
+          onChange={handleChange}
+          className="mt-1 block w-full px-4 py-2 rounded-md text-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+        ></textarea>
+        {errors.message && <p className="text-sm text-red-600">{errors.message}</p>}
+      </div>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-center md:items-start">
-            <FaMapMarkerAlt className="text-3xl text-gray-600 dark:text-gray-300 mb-4" />
-            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
-              Visit Us
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">Mandsaur, Madhya Pradesh, India</p>
-          </div>
-        </motion.div>
-      </section>
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-md shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition duration-300"
+        type="submit"
+      >
+        Send Message
+      </motion.button>
+    </form>
+  </motion.div>
 
-      <section className="container mx-auto py-12 px-6 md:px-12">
-        <motion.div
-          className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">
-            Get In Touch
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                pattern="[a-zA-Z ]+" 
-                onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Please enter a valid destination name without numbers or special characters')}
-                onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-gray-800 dark:text-gray-300 bg-gray-100 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              {errors.name && (
-                <p className="text-sm text-red-600">{errors.name}</p>
-              )}
-            </div>
+  {/* Cards Section */}
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.5 }}
+    className="flex flex-col gap-5 w-full md:w-2/3 lg:w-1/4"
+  >
+    <div className="bg-gradient-to-l from-blue-200 via-blue-400 to-blue-600 dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center md:items-start">
+      <div className="bg-[#B7E0FF] rounded-full px-3 py-3 flex items-center mb-2">
+        <FaPhoneAlt className="text-lg text-blue-600 dark:text-gray-800" />
+      </div>
+      <h3 className="text-xl font-semibold text-white dark:text-black mb-1">Call Us</h3>
+      <p className="text-white dark:text-gray-600 font-bold text-lg">+1 (234) 567-890</p>
+    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-gray-800 dark:text-gray-300 bg-gray-100 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              {errors.email && (
-                <p className="text-sm text-red-600">{errors.email}</p>
-              )}
-            </div>
+    <div className="bg-gradient-to-tl from-blue-200 via-blue-400 to-blue-600 dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center md:items-start">
+      <div className="bg-[#B7E0FF] rounded-full px-3 py-3 flex items-center mb-2">
+        <FaEnvelope className="text-lg text-blue-600 dark:text-gray-800" />
+      </div>
+      <h3 className="text-xl font-semibold text-white dark:text-black mb-1">Email Us</h3>
+      <p className="text-white dark:text-gray-600 font-bold text-lg">ajaydhangar49@gmail.com</p>
+    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                Message
-              </label>
-              <textarea
-                name="message"
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md text-gray-800 dark:text-gray-300 bg-gray-100 dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-              {errors.message && (
-                <p className="text-sm text-red-600">{errors.message}</p>
-              )}
-            </div>
+    <div className="bg-gradient-to-l from-blue-200 via-blue-400 to-blue-600 dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center md:items-start">
+      <div className="bg-[#B7E0FF] rounded-full px-3 py-3 flex items-center mb-2">
+        <FaMapMarkerAlt className="text-lg text-blue-600 dark:text-gray-800" />
+      </div>
+      <h3 className="text-xl font-semibold text-white dark:text-black mb-1">Visit Us</h3>
+      <p className="text-white dark:text-gray-600 font-bold text-lg">
+        Mandsaur, Madhya Pradesh, India
+      </p>
+    </div>
+  </motion.div>
+</div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-md shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300 border border-gray-200 dark:border-gray-700"
-              type="submit"
-            >
-              Send Message
-            </motion.button>
-          </form>
-        </motion.div>
-      </section>
+
     </div>
     </Layout>
   );

@@ -13,7 +13,7 @@ Hey everyone! Today, we're going to explore how decision-making works in JavaScr
 * JavaScript provides several decision-making structures that allow you to execute code based on certain conditions.
 
 * The most common decision-making statements are `if`, `if-else`, `else if`, and `switch` statements.
-* 
+
 ## 1. If Statements
 
 

@@ -152,9 +152,11 @@ const RedBlackTreeQuiz: React.FC = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
+    setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
@@ -170,44 +172,68 @@ const RedBlackTreeQuiz: React.FC = () => {
   };
 
   return (
-    <Layout>
-      <div style={{ backgroundColor: "lightcoral", padding: "20px", borderRadius: "8px", color: "black", maxWidth: "600px", margin: "0 auto" }}>
-        <h2 style={{ textAlign: "center" }}>Quiz on Red-Black Trees</h2>
-        {showResult ? (
-          <div style={{ textAlign: "center", marginTop: "20px", padding: "20px", borderRadius: "8px", backgroundColor: "white" }}>
-            <h3 style={{ color: "black" }}>Your Score: <span style={{ fontWeight: "bold", fontSize: "24px" }}>{score}</span> 🎉</h3>
-            <p style={{ fontSize: "18px", lineHeight: "1.6" }}>
-              {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
-            </p>
-          </div>
-        ) : (
-          <div>
-            <h3 style={{ color: "black" }}>{questions[currentQuestion].question}</h3>
-            <div className="options">
-              {questions[currentQuestion].options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleAnswer(option)}
-                  style={{
-                    display: "block",
-                    margin: "10px auto",
-                    padding: "10px",
-                    backgroundColor: selectedOption === option ? "orange" : "white",
-                    border: "1px solid black",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    width: "80%",
-                  }}
-                >
-                  {option}
-                </button>
-              ))}
+    <Layout title="Quiz on Red-Black Trees" description="Challenge your understanding of the properties and algorithms of Red-Black Trees.">
+      <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Red-Black Trees</h2>
+          {showResult ? (
+            <div>
+              <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
+                <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
+                  Your Score: <span className="text-4xl">{score}</span> 🎉
+                </h3>
+                <p className="mt-4 text-lg">
+                  {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
+                </p>
+              </div>
+
+              {/* Solutions Section */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions:</h3>
+                {questions.map((q, index) => (
+                  <div key={index} className="mb-6 text-left">
+                    <p className="text-lg font-semibold">{q.question}</p>
+                    <p className="text-md">
+                      <span className="font-bold">Your Answer:</span> {userAnswers[index]}
+                    </p>
+                    <p className="text-md">
+                      <span className="font-bold">Correct Answer:</span> {q.answer}
+                    </p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+                      <span className="font-bold">Explanation:</span> {q.explanation}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <button onClick={nextQuestion} style={{ marginTop: "20px", padding: "10px 20px", cursor: "pointer" }}>
-              Next Question
-            </button>
-          </div>
-        )}
+          ) : (
+            <div>
+              <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4 text-left">
+                {questions[currentQuestion].question}
+              </h3>
+              <div className="space-y-4">
+                {questions[currentQuestion].options.map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleAnswer(option)}
+                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
+                        ? "bg-blue-600 text-white dark:bg-blue-500"
+                        : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                      }`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              <button
+                onClick={nextQuestion}
+                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none"
+              >
+                Next Question
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </Layout>
   );

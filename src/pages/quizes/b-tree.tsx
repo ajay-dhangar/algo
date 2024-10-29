@@ -110,9 +110,11 @@ const BTree: React.FC = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
+    setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
@@ -132,43 +134,53 @@ const BTree: React.FC = () => {
       title="Quiz on B-Trees"
       description="Test your knowledge of B-Trees with this quiz!"
     >
-      <div className="bg-white dark:bg-gray-900 min-h-screen flex items-center justify-center p-4 transition-colors duration-300">
-        <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md w-full max-w-xl transition-colors duration-300">
-          <h2 className="text-2xl font-bold text-center mb-4">
-            Quiz on B-Trees
-          </h2>
+      <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
+        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on B-Trees</h2>
           {showResult ? (
-            <div className="text-center mt-6">
-              <h3 className="text-2xl font-semibold">
-                Your Score:{" "}
-                <span className="text-green-500 dark:text-green-400">
-                  {score}
-                </span>{" "}
-                🎉
-              </h3>
-              <p className="mt-4 text-lg">
-                {score <= 5
-                  ? "Better luck next time!"
-                  : score <= 8
-                  ? "Good job!"
-                  : "Excellent work!"}
-              </p>
+            <div>
+              <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
+                <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
+                  Your Score: <span className="text-4xl">{score}</span> 🎉
+                </h3>
+                <p className="mt-4 text-lg">
+                  {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
+                </p>
+              </div>
+
+              {/* Solutions Section */}
+              <div className="mt-8">
+                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions:</h3>
+                {questions.map((q, index) => (
+                  <div key={index} className="mb-6 text-left">
+                    <p className="text-lg font-semibold">{q.question}</p>
+                    <p className="text-md">
+                      <span className="font-bold">Your Answer:</span> {userAnswers[index]}
+                    </p>
+                    <p className="text-md">
+                      <span className="font-bold">Correct Answer:</span> {q.answer}
+                    </p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+                      <span className="font-bold">Explanation:</span> {q.explanation}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           ) : (
             <div>
-              <h3 className="text-lg font-medium mb-4">
+              <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4 text-left">
                 {questions[currentQuestion].question}
               </h3>
-              <div className="flex flex-col space-y-3">
+              <div className="space-y-4">
                 {questions[currentQuestion].options.map((option, index) => (
                   <button
                     key={index}
                     onClick={() => handleAnswer(option)}
-                    className={`py-2 px-4 rounded-lg border border-gray-300 dark:border-gray-700 transition-colors text-left text-gray-800 dark:text-gray-100 ${
-                      selectedOption === option
-                        ? "bg-gray-600 text-white dark:bg-gray-500" 
+                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
+                        ? "bg-blue-600 text-white dark:bg-blue-500"
                         : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                    }`}
+                      }`}
                   >
                     {option}
                   </button>
@@ -176,7 +188,7 @@ const BTree: React.FC = () => {
               </div>
               <button
                 onClick={nextQuestion}
-                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 rounded-lg w-full transition-colors duration-300 text-white font-semibold border-none"
+                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none"
               >
                 Next Question
               </button>

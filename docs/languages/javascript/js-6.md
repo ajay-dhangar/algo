@@ -6,9 +6,11 @@ sidebar_label: Type Casting in JavaScript
 ---
 
 Hey everyone! Today, we will explore Type Casting in JavaScript, an essential concept for converting data types and ensuring smooth operations in your code. Whether you're a beginner or just need a quick refresher, this guide will help you understand how to effectively change between different types in JavaScript. Let's dive in!
-# Type Casting
 
-#### Q. Why do we need Type Casting? 
+<AdsComponent />
+
+## Q. Why do we need Type Casting? 
+
 * **JavaScript** is a loosely-typed language, meaning variables aren't tied to any specific data type. 
 * However, there are scenarios where you'll need to change the type of a variable to perform certain operations. 
 * Hence, type casting is essential for accurate, efficient, and error-free handling of data in JavaScript applications.
@@ -29,7 +31,7 @@ graph TD
     style C fill:#fdfd96,stroke:#333,stroke-width:2px;
 ```
 
-## 1. Implicit Type Casting : 
+### 1. Implicit Type Casting : 
 
 - Also known as **Type Coercion**
 - In implicit type casting, JavaScript automatically converts one data type to another.
@@ -47,7 +49,7 @@ let truthy = '5' == 5;  // true (type coercion between string and number)
     - In the second example, `"10"` (`string`) is automatically converted to a `number` to perform subtraction.
     - In the third example, JavaScript compares a `string` and a `number` by converting the `string` to a `number`.
 
-## 2. Explicit Type Casting : 
+### 2. Explicit Type Casting : 
 
 Unlike implicit type casting, explicit type casting requires you to manually convert a value from one type to another. JavaScript provides built-in methods to facilitate this process.
 
@@ -93,4 +95,6 @@ let numberValue = 100;
 let str = String(numberValue);  // "100"
 ```
 
+## Conclusion
 
+Type casting is a crucial aspect of JavaScript programming, allowing you to convert data types for seamless operations. By understanding implicit and explicit type casting, you can handle data effectively and ensure your code runs smoothly. Practice these concepts to enhance your programming skills and build robust applications.
