@@ -1,3 +1,4 @@
+---
 id: Abstraction
 title: Abstraction in Object Oriented Programming
 sidebar_label: Generate Detail about Abstraction
