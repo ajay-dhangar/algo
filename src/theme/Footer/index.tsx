@@ -29,7 +29,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#1a1b26] text-gray-300 py-12">
       <div className="container mx-auto px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
           <div className="md:col-span-1">
             <div className="mb-6">
               <img
@@ -95,7 +95,7 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-
+        <div className="grid grid-cols-2">
           {/* Resources */}
           <div className="md:pl-32">
             <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
@@ -156,6 +156,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
+          </div>
           </div>
         </div>
 
