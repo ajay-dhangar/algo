@@ -3,7 +3,7 @@ title: Abstraction in Object Oriented Programming
 sidebar_label: Generate Detail about Abstraction
 description: "Abstraction in Java is the process of hiding unnecessary implementation details from the user, focusing on exposing only the essential functionalities. It allows developers to interact with objects at a higher level, without needing to understand the complexities of the underlying code. This ensures that the program is more modular, maintainable, and user-friendly."
 tags: [Abstraaction, OOPS, Java]
-
+---
 # Abstraction 
 
 - In simple terms, abstraction “displays” only the relevant attributes of objects and “hides” the unnecessary details.
