@@ -1,36 +1,47 @@
-# N Queen Problem using Backtracking:
+---
+id: n-queens
+title: N-Queens Algorithm using Backtracking
+sidebar_label: N-Queens
+sidebar_position: 1
+description: Overview and implementation of the N-Queens problem using a backtracking algorithm.
+tags: [backtracking, algorithms]
+---
+
+# N-Queens Algorithm
+
+## Introduction
+The N-Queens problem is a classic example of constraint satisfaction problems and explores ways to place `n` queens on an `n×n` chessboard such that no two queens can attack each other. This challenge is often solved using backtracking techniques and has various applications in algorithm design and artificial intelligence.
 
 ### Problem Statement
 
-The task is to place 𝑛 queens on an n×n chessboard such that no two queens can attack each other. This means:
-
-- No two queens can be in the same row, column, or diagonal.
+The goal is to place `n` queens on an `n×n` chessboard so that:
+- No two queens are in the same row, column, or diagonal.
 
 ### Approach
-Backtracking is a technique that builds the solution one piece at a time and removes solutions that don’t satisfy the constraints.
+Backtracking builds the solution step-by-step, eliminating configurations that violate constraints.
 
 ### Algorithm
-1. **Place Queen in Row:** Place queens one by one in different rows, starting from the leftmost column.
-2. **Check Safety:** For each cell in the current row, check if placing the queen there will not lead to conflicts with previously placed queens.
-3. **Recursive Backtracking:** If the placement is safe, move to place the next queen in the following row.
-4. **Backtrack:** If placing a queen in a specific column leads to no solution, backtrack and try the next cell in the row.
+1. **Place Queen in Row**: Place queens one by one in different rows, beginning with the leftmost column.
+2. **Check Safety**: For each cell in the current row, check if placing the queen will not conflict with previously placed queens.
+3. **Recursive Backtracking**: If a placement is safe, proceed to place the next queen in the following row.
+4. **Backtrack**: If placing a queen in a column leads to no solution, remove the queen and try the next cell in the row.
 
-Here's the Python code for the algorithm:
+### Python Code Implementation
 
 ```python
 # Function to check if a queen can be placed on the board at [row][col]
 def is_safe(board, row, col, n):
-    # Check left side of the row
+    # Checking the left side of the row
     for i in range(col):
         if board[row][i] == 1:
             return False
     
-    # Check upper diagonal on the left side
+    # Checking upper diagonal on the left side
     for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
 
-    # Check lower diagonal on the left side
+    # Checking lower diagonal on the left side
     for i, j in zip(range(row, n), range(col, -1, -1)):
         if board[i][j] == 1:
             return False
@@ -43,8 +54,9 @@ def solve_n_queens(board, col, n):
     if col >= n:
         return True
     
-    # Try placing the queen in each row for this column
+    # Try placing a queen in each row for this column
     for i in range(n):
+        # Check if it's safe to place the queen
         if is_safe(board, i, col, n):
             # Place the queen
             board[i][col] = 1
@@ -60,31 +72,48 @@ def solve_n_queens(board, col, n):
 
 # Function to initialize the board and call solve_n_queens
 def n_queens(n):
+    # Initialize an n x n chessboard with all positions set to 0
     board = [[0 for _ in range(n)] for _ in range(n)]
+    # Attempt to solve the N-Queens problem
     if solve_n_queens(board, 0, n):
+        # If solution exists, print the board
         for row in board:
             print(row)
     else:
+        # If no solution exists, print message
         print("No solution exists")
 
 # Driver code to test the above functions
-n = int(input())
+n = int(input("Enter the number of queens (and board size): "))
 n_queens(n)
+
 ```
 
-### Explanation of Functions
-- `is_safe(board, row, col, n)`: Checks if it is safe to place a queen at a specific `[row][col]` position. It ensures no other queens threaten the position from the left side, upper-left diagonal, or lower-left diagonal, as queens are placed from left to right.
-
-- `solve_n_queens(board, col, n)`: Tries to solve the N-Queens problem by placing queens one column at a time. If placing a queen in a specific cell doesn’t lead to a solution, it removes the queen (backtracks) and tries the next cell.
-
-- `n_queens(n)`: Initializes the board and starts the recursive process by calling `solve_n_queens`. If a solution is found, it prints the board configuration; otherwise, it prints that no solution exists.
-
+## Explanation of Functions
+- `is_safe(board, row, col, n)`: Checks if it is safe to place a queen at position `[row][col]` by ensuring no other queens threaten the position from the left side, upper-left diagonal, or lower-left diagonal.
+- `solve_n_queens(board, col, n)`: Solves the problem by placing queens one column at a time. If placing a queen in a specific cell doesn’t lead to a solution, it backtracks.
+- `n_queens(n)`: Initializes the board and starts the recursive process by calling solve_n_queens. If a solution is found, it prints the board configuration; otherwise, it outputs that no solution exists.
+  
 ### Complexity
-- **Time Complexity:** 
-𝑂(𝑁!), where N is the board size. This is due to the combinatorial nature of the placements.
+- **Time Complexity:** The time complexity is O(N!) due to the combinatorial nature of queen placements.
+- **Space Complexity:** The space complexity is 𝑂(N<sup>2</sup>) because an n×n board is used to store the board configuration.
 
-- **Space Complexity:** 
-𝑂(N<sup>2</sup>), as a 2D list of size N×N is used to store the board configuration.
+### Example Walkthrough
+For a 4x4 board, the algorithm would place the queens row by row, backtracking as necessary until it finds a valid solution:
 
+1. **Initial Placement:** The algorithm places the first queen in the top-left cell.
+2. **Row-by-Row Backtracking:** As it tries to place each subsequent queen, it checks for safety, backtracks when conflicts arise, and adjusts placements until a valid configuration is found.
+
+### Visual Representation with Mermaid Diagram
+Here's a conceptual flow of the backtracking process in the N-Queens algorithm:
+
+```mermaid
+graph TD;
+    A[Start] --> B[Place Queen in Row]
+    B --> C{Is Placement Safe?}
+    C -- Yes --> D[Place Queen in Next Row]
+    C -- No --> E[Backtrack]
+    D --> C
+    E --> B
+```
 **Note: This algorithm is adapted from GeeksforGeeks.**
-
