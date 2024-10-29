@@ -106,3 +106,79 @@ int main() {
 }
 
 ```
+
+
+### JavaScript Code Implementation
+
+```javascript
+function isSafe(v, graph, color, c) {
+    // Check if the current color assignment is safe for vertex v
+    for (let i = 0; i < graph.length; i++) {
+        if (graph[v][i] === 1 && color[i] === c) { // Check adjacency and color constraint
+            return false;
+        }
+    }
+    return true;
+}
+
+function graphColoringUtil(graph, m, color, v) {
+    // All vertices are colored
+    if (v === graph.length) {
+        return true;
+    }
+
+    // Try different colors for vertex v
+    for (let c = 1; c <= m; c++) {
+        if (isSafe(v, graph, color, c)) {
+            color[v] = c; // Assign color c to vertex v
+
+            // Recur to assign colors to the rest of the vertices
+            if (graphColoringUtil(graph, m, color, v + 1)) {
+                return true;
+            }
+
+            color[v] = 0; // Backtrack if no solution found
+        }
+    }
+
+    return false; // Return false if no coloring is possible
+}
+
+function graphColoring(graph, m) {
+    const color = Array(graph.length).fill(0); // Initialize all vertices with no color
+
+    // Call the utility function to solve the problem
+    if (!graphColoringUtil(graph, m, color, 0)) {
+        console.log(`No solution exists for ${m} colors.`);
+        return false;
+    }
+
+    // Print the solution
+    console.log(`Solution exists for ${m} colors:`);
+    for (let i = 0; i < graph.length; i++) {
+        console.log(`Vertex ${i} -> Color ${color[i]}`);
+    }
+    return true;
+}
+
+// Example graph represented by adjacency matrix
+const graph = [
+    [0, 1, 1, 1],
+    [1, 0, 1, 0],
+    [1, 1, 0, 1],
+    [1, 0, 1, 0]
+];
+const m = 3; // Number of colors
+graphColoring(graph, m);
+```
+
+### Explanation of the Code
+
+1. **`isSafe` Function**: Checks whether it's safe to assign a color `c` to vertex `v` by ensuring that no adjacent vertices have the same color.
+  
+2. **`graphColoringUtil` Function**: A recursive utility function that tries to color the graph. If it successfully colors all vertices, it returns `true`. If it can't color a vertex with any of the available colors, it backtracks.
+
+3. **`graphColoring` Function**: Initializes the `color` array and calls the utility function. It also prints the results or indicates that no solution exists.
+
+4. **Example Graph**: The adjacency matrix defines a graph with 4 vertices, and the program attempts to color it using up to 3 colors.
+
