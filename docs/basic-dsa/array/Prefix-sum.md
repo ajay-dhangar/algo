@@ -82,6 +82,62 @@ int main() {
 }
 ```
 
+### JavaScript Code Implementation
+
+```javascript
+// Function to calculate prefix sums
+function prefixSum(arr) {
+    const n = arr.length;
+    const prefix = new Array(n); // Array to store prefix sums
+    prefix[0] = arr[0]; // Initialize the first element of prefix sum array
+
+    // Calculate prefix sums
+    for (let i = 1; i < n; i++) {
+        prefix[i] = prefix[i - 1] + arr[i];
+    }
+    return prefix; // Return the prefix sum array
+}
+
+// Function to get the sum of a subarray using prefix sums
+function getSum(prefix, left, right) {
+    if (left === 0) {
+        return prefix[right]; // Sum from the start to 'right'
+    }
+    return prefix[right] - prefix[left - 1]; // Sum from 'left' to 'right'
+}
+
+// Main Function
+const arr = [1, 2, 3, 4, 5]; // Example array
+const prefix = prefixSum(arr); // Calculate prefix sums
+
+// Display the prefix sums
+console.log("Prefix Sum Array:");
+console.log(prefix);
+
+// Example: Get the sum of elements from index 1 to 3
+const left = 1, right = 3; // Sum from index 1 to 3 (2+3+4)
+const sum = getSum(prefix, left, right);
+console.log(`Sum of elements from index ${left} to ${right}: ${sum}`);
+```
+
+### Explanation of the Code
+
+1. **`prefixSum` Function**:
+   - This function takes an array (`arr`) as input and calculates the prefix sums.
+   - It initializes an array called `prefix` and calculates the cumulative sums in a loop.
+
+2. **`getSum` Function**:
+   - This function takes the `prefix` array and two indices, `left` and `right`, to calculate the sum of the subarray.
+   - It handles the case where `left` is 0, returning the sum from the start of the array to `right`.
+   - Otherwise, it returns the difference between the prefix sums at `right` and `left - 1`.
+
+3. **Main Code**:
+   - An example array is defined.
+   - The `prefixSum` function is called to compute the prefix sums.
+   - The prefix sums are printed to the console.
+   - The sum of the elements from index 1 to 3 is calculated and displayed.
+
+
 ### Summary:
 
 The prefix sum algorithm is a straightforward yet powerful tool for optimizing range sum queries on an array. By preprocessing the array to build cumulative sums, it enables fast query responses in constant time. This makes it particularly suitable for applications involving frequent range sum queries, such as financial data analysis, signal processing, and game development.
