@@ -50,6 +50,8 @@ In the N-Queens problem, the task is to place N queens on an NxN chessboard such
 5. If placing a queen leads to a conflict, backtrack and try a different row for the previous queen.
 6. Continue this process until all possible placements have been tried.
 
+#### C++ Code Implementation
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -115,6 +117,83 @@ int main() {
     return 0;
 }
 ```
+
+#### JavaScript Code Implementation
+
+```javascript
+function isSafe(board, row, col, N) {
+    // Check row on the left side
+    for (let i = 0; i < col; i++) {
+        if (board[row][i]) return false;
+    }
+
+    // Check upper diagonal on the left side
+    for (let i = row, j = col; i >= 0 && j >= 0; i--, j--) {
+        if (board[i][j]) return false;
+    }
+
+    // Check lower diagonal on the left side
+    for (let i = row, j = col; j >= 0 && i < N; i++, j--) {
+        if (board[i][j]) return false;
+    }
+
+    return true;
+}
+
+function solveNQueensUtil(board, col, N) {
+    if (col >= N) return true;  // All queens are placed
+
+    for (let i = 0; i < N; i++) {
+        if (isSafe(board, i, col, N)) {
+            board[i][col] = 1;  // Place queen
+            
+            if (solveNQueensUtil(board, col + 1, N)) {
+                return true;  // Found solution
+            }
+            
+            board[i][col] = 0;  // Backtrack
+        }
+    }
+
+    return false;  // No solution found
+}
+
+function solveNQueens(N) {
+    const board = Array.from({ length: N }, () => Array(N).fill(0)); // Initialize N x N board
+
+    if (!solveNQueensUtil(board, 0, N)) {
+        console.log("Solution does not exist");
+        return;
+    }
+
+    // Print solution
+    for (let i = 0; i < N; i++) {
+        console.log(board[i].join(" ")); // Print each row
+    }
+}
+
+// Example usage
+const N = 8; // Size of the chessboard (8x8)
+solveNQueens(N);
+```
+
+### Explanation of the Code
+
+1. **`isSafe` Function**: Checks if it's safe to place a queen at the specified position (row, col) by checking:
+   - The current row on the left side for other queens.
+   - The upper diagonal on the left side.
+   - The lower diagonal on the left side.
+
+2. **`solveNQueensUtil` Function**: A recursive utility function that attempts to place queens column by column:
+   - If all queens are placed (`col >= N`), it returns `true`.
+   - For each row in the current column, it checks if placing a queen is safe.
+   - If it's safe, it places the queen and recursively tries to place queens in the next column.
+   - If placing leads to no solution, it backtracks by removing the queen.
+
+3. **`solveNQueens` Function**: Initializes the chessboard and calls the utility function. If no solution exists, it prints a message. Otherwise, it prints the board configuration.
+
+4. **Example Usage**: The code is set to solve the 8-Queens problem by default, but you can change the value of `N` to solve for different sizes.
+
 
 ### Pseudocode for the N-Queens Problem
 Here is the pseudocode that represents the backtracking approach used to solve the N-Queens problem:

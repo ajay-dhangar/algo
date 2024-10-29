@@ -66,7 +66,7 @@ end procedure
 
 ## Example
 
-Here's a basic implementation of Heap Sort in Java:
+### Java Implementation
 
 ```java
 public class HeapSort {
@@ -110,6 +110,81 @@ public class HeapSort {
     }
 }
 ```
+
+### JavaScript Code Implementation
+
+```javascript
+class HeapSort {
+    heapSort(arr) {
+        const n = arr.length;
+
+        // Build a maxheap
+        for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+            this.heapify(arr, n, i);
+        }
+
+        // One by one extract elements from heap
+        for (let i = n - 1; i > 0; i--) {
+            // Move current root to end
+            [arr[0], arr[i]] = [arr[i], arr[0]]; // Swap
+
+            // Call heapify on the reduced heap
+            this.heapify(arr, i, 0);
+        }
+    }
+
+    heapify(arr, n, i) {
+        let largest = i; // Initialize largest as root
+        const left = 2 * i + 1; // left = 2*i + 1
+        const right = 2 * i + 2; // right = 2*i + 2
+
+        // If left child is larger than root
+        if (left < n && arr[left] > arr[largest]) {
+            largest = left;
+        }
+
+        // If right child is larger than largest so far
+        if (right < n && arr[right] > arr[largest]) {
+            largest = right;
+        }
+
+        // If largest is not root
+        if (largest !== i) {
+            // Swap
+            [arr[i], arr[largest]] = [arr[largest], arr[i]]; // Swap
+
+            // Recursively heapify the affected sub-tree
+            this.heapify(arr, n, largest);
+        }
+    }
+}
+
+// Example usage
+const arr = [12, 11, 13, 5, 6, 7];
+const heapSort = new HeapSort();
+heapSort.heapSort(arr);
+console.log("Sorted array is:", arr.join(" ")); // Output the sorted array
+```
+
+### Explanation of the Code
+
+1. **HeapSort Class**:
+   - Contains methods for performing heap sort.
+
+2. **`heapSort` Method**:
+   - Accepts an array (`arr`) as input.
+   - Builds a max heap by calling `heapify` for each non-leaf node, starting from the last non-leaf node down to the root.
+   - Repeatedly extracts the maximum element (the root of the heap) and swaps it with the last element of the heap, then reduces the size of the heap and calls `heapify` on the root.
+
+3. **`heapify` Method**:
+   - Maintains the heap property for a subtree rooted at index `i`, ensuring the largest element is at the root.
+   - Compares the node with its left and right children and swaps if necessary, then recursively calls `heapify` to ensure the subtree maintains the heap property.
+
+4. **Example Usage**:
+   - An example array is created.
+   - An instance of `HeapSort` is created, and `heapSort` is called on the array.
+   - The sorted array is printed to the console.
+
 
 ## Conclusion
 
