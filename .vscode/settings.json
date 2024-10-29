@@ -1,6 +1,0 @@
-{
-    "yaml.schemas": {
-        "file:///c%3A/Users/Ajay%20Dhangar/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
-        "https://json.schemastore.org/github-issue-forms.json": "file:///f%3A/GitHub/algo/.github/ISSUE_TEMPLATE/config.yml"
-    }
-}

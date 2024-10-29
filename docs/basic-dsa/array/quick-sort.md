@@ -75,5 +75,64 @@ public class QuickSort {
 }
 ```
 
+
+### JavaScript Code Implementation
+
+```javascript
+class QuickSort {
+    static quickSort(arr, low, high) {
+        if (low < high) {
+            const pi = this.partition(arr, low, high);
+            this.quickSort(arr, low, pi - 1);  // Recursively sort elements before partition
+            this.quickSort(arr, pi + 1, high); // Recursively sort elements after partition
+        }
+    }
+
+    static partition(arr, low, high) {
+        const pivot = arr[high]; // Choose the last element as pivot
+        let i = low - 1; // Pointer for the smaller element
+        
+        for (let j = low; j < high; j++) {
+            // If current element is smaller than or equal to pivot
+            if (arr[j] <= pivot) {
+                i++; // Increment the index of smaller element
+                // Swap arr[i] and arr[j]
+                [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap using destructuring
+            }
+        }
+        // Swap arr[i + 1] and arr[high] (or pivot)
+        [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]]; // Swap pivot to correct position
+        return i + 1; // Return the partitioning index
+    }
+}
+
+// Example usage
+const arr = [10, 7, 8, 9, 1, 5];
+const n = arr.length;
+QuickSort.quickSort(arr, 0, n - 1);
+console.log("Sorted array is:", arr.join(" ")); // Output the sorted array
+```
+
+### Explanation of the Code
+
+1. **QuickSort Class**:
+   - Contains static methods for performing the quick sort algorithm.
+
+2. **`quickSort` Method**:
+   - Takes an array (`arr`), and the indices (`low` and `high`) that define the portion of the array to be sorted.
+   - If `low` is less than `high`, it calls the `partition` method to find the pivot index and recursively sorts the subarrays on either side of the pivot.
+
+3. **`partition` Method**:
+   - Chooses the last element as the pivot.
+   - Initializes a pointer (`i`) to track the index of the smaller element.
+   - Iterates through the array, comparing each element to the pivot, and swaps elements to ensure those smaller than the pivot are to its left.
+   - Finally, it swaps the pivot element with the element at `i + 1` to place it in its correct sorted position and returns the index of the pivot.
+
+4. **Example Usage**:
+   - An example array is created.
+   - The `quickSort` method is called on the array.
+   - The sorted array is printed to the console.
+
+
 <br />
 **Quick Sort** is versatile and efficient, making it a popular choice in practical applications.
