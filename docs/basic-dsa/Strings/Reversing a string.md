@@ -4,7 +4,7 @@ title: "How to reverse the string?"
 sidebar_label: "Reversing a string"
 sidebar_position: 4
 description: "Reversing a string is the process of rearranging the characters in a string so that they appear in the opposite order."
-tags: [String, reverse, inbuilt function, StringBuilder]
+tags: [String, reverse, inbuilt function, StringBuilder, Java, C++, Python, JavaScript]
 ---
 
 ## Description:
@@ -94,5 +94,59 @@ original_string = "Hello, World!"
 reversed_string = original_string[::-1]
 print(reversed_string)  # Output: "!dlroW ,olleH"
 ```
+---
+
+## Reversing a String in JavaScript
+
+#### Method 1
+You can reverse a string in JavaScript by converting it into an array, using the `reverse` method, and then joining it back into a string.
+
+### Example Code
+
+```javascript
+function reverseString(str) {
+    return str.split('')   // Convert string to an array of characters
+              .reverse()  // Reverse the array
+              .join('');  // Join the array back into a string
+}
+
+const str = "Hello, World!";
+const reversedStr = reverseString(str);
+console.log(reversedStr); // Output: "!dlroW ,olleH"
+```
+
+### Explanation
+
+1. **`split('')`**: This method splits the string into an array of characters.
+2. **`reverse()`**: This method reverses the order of elements in the array.
+3. **`join('')`**: This method joins the elements of the array back into a single string.
+
+You can use this `reverseString` function to reverse any string in JavaScript!
+
+#### Method 2
+To reverse a string in JavaScript without using any libraries, you can manually swap characters. For this go through the following code example:
+
+### Example Code
+
+```javascript
+function reverseString(str) {
+    let reversed = ''; // Initialize an empty string to store the reversed result
+    for (let i = str.length - 1; i >= 0; i--) { // Start from the end of the string
+        reversed += str[i]; // Append each character to the reversed string
+    }
+    return reversed; // Return the reversed string
+}
+
+const str = "Hello, World!";
+const reversedStr = reverseString(str);
+console.log(reversedStr); // Output: "!dlroW ,olleH"
+```
+
+### Explanation
+
+1. **Initialization**: We initialize an empty string `reversed` to hold the reversed result.
+2. **Loop**: We use a `for` loop that starts from the last character of the input string (`str.length - 1`) and decrements to `0`.
+3. **Appending Characters**: In each iteration, we append the current character to the `reversed` string.
+4. **Return**: Finally, we return the `reversed` string.
 
 
