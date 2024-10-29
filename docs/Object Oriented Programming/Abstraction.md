@@ -276,10 +276,6 @@ obj.print();
  }  
 } 
 
-// RESULT
-Hello
-```
-
 
 ## Interface inheritance
 
