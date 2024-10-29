@@ -1,7 +1,7 @@
 ---
 id: add-two-numbers-as-linked-lists
 title: "Add two numbers represented as linked lists"
-sidebar_label:  "Adding Two Numbers Represented as Linked Lists"
+sidebar_label:  "Addition"
 sidebar_position: 11
 description: "This document provides a detailed explanation and implementation for adding two numbers represented as linked lists, including step-by-step instructions and example code."
 tags: [Linked list]
