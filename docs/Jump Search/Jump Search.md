@@ -1,3 +1,12 @@
+---
+id: jump-search
+title: Jump Search Algorithm
+sidebar_label: Jump Search
+sidebar_position: 2
+description: "This post explores the use of Jump Search Algorithm. We'll provide code implementations C++."
+tags: [searching, algorithms]
+---
+
 Jump Search is a searching algorithm used to find an element in a sorted array. It works by jumping ahead by a fixed number of steps, rather than checking each element one by one (as in linear search). Once it finds an interval where the target element might be, it performs a linear search within that interval.
 
 ## Key Points:
