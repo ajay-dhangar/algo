@@ -103,6 +103,41 @@ int main() {
     return 0;
 }
 ```
+
+### Python Code Implementation:
+
+```python
+from bisect import bisect_right
+
+# Helper function to check if x can be the minimum maximum
+def can_minimize(x, A, B):
+    idxA = bisect_right(A, x)
+    idxB = bisect_right(B, x)
+    return idxA > 0 and idxB > 0  # There exists elements <= x in both arrays
+
+def minimize_max_of_two_arrays(A, B):
+    low = min(A[0], B[0])  # Lower bound of the search space
+    high = max(A[-1], B[-1])  # Upper bound of the search space
+    result = high
+
+    while low <= high:
+        mid = low + (high - low) // 2
+        if can_minimize(mid, A, B):
+            result = mid  # mid can be a candidate for the minimum maximum
+            high = mid - 1  # Try to minimize further
+        else:
+            low = mid + 1  # Increase the lower bound
+
+    return result
+
+# Test the function
+A = [1, 4, 6]
+B = [2, 5, 8]
+result = minimize_max_of_two_arrays(A, B)
+print(f"The minimum maximum value is: {result}")
+```
+
+
 ## Explanation:
 Binary Search on Maximum Value:
 We perform binary search on the possible values for the maximum between the two selected elements from the arrays.

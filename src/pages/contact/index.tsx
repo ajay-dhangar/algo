@@ -168,7 +168,7 @@ const Contact: React.FC = () => {
         <FaPhoneAlt className="text-lg text-blue-600 dark:text-gray-800" />
       </div>
       <h3 className="text-xl font-semibold text-white dark:text-black mb-1">Call Us</h3>
-      <p className="text-white dark:text-gray-600 font-bold text-lg">+91 702 459 2105</p>
+      <p className="text-white dark:text-gray-600 font-bold text-lg">+1 (234) 567-890</p>
     </div>
 
     <div className="bg-gradient-to-tl from-blue-200 via-blue-400 to-blue-600 dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center md:items-start">
