@@ -256,7 +256,7 @@ If a class implements multiple interfaces, or an interface extends multiple inte
 <img height="350" src="https://user-images.githubusercontent.com/13514156/120522069-b4c32580-c39a-11eb-9c48-6331fe379440.png">
 </p>
 
-```Multiple inheritance is not supported through class in java, but it is possible by an interface, why?```
+```Multiple inheritance is not supported through class in java, but it is possible by an interface```
 
 As we have explained in the inheritance chapter, multiple inheritance is not supported in the case of class because of ambiguity. However, it is supported in case of an interface because there is no ambiguity. It is because its implementation is provided by the implementation class. For example:
 
@@ -379,16 +379,5 @@ But there are many differences between abstract class and interface that are giv
 | When to used | To avoid independence | For future Enhancement |
 
 
-Example: 
-```javapublic abstract class Shape{
-public abstract void draw();
-}	
-```
 
-Example:
-```java
-public interface Drawable{
-void d
-aw();
-}
 
