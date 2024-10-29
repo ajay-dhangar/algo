@@ -1,10 +1,16 @@
+---
+id: stochastic-gradient-descent  
+title: Stochastic Gradient Descent (SGD)  
+sidebar_label: SGD  
+description: "Stochastic Gradient Descent (SGD) is an optimization algorithm used to minimize the loss function in machine learning and deep learning models."  
+tags: [optimization, machine learning, deep learning]
 
+---
 
-# Stochastic Gradient Descent (SGD)
+### Overview
+Stochastic Gradient Descent (SGD) is an optimization algorithm used to minimize the loss function in machine learning and deep learning models. Unlike standard gradient descent, which calculates the gradient of the loss function for the entire dataset, SGD updates the model parameters for each training example one at a time, making it faster and more suitable for large datasets.
 
-Stochastic Gradient Descent (SGD) is an optimization algorithm used to minimize the loss function in machine learning and deep learning models. Unlike standard gradient descent, which calculates the gradient of the loss function for the entire dataset, SGD updates the model parameters for each training example one at a time, which makes it faster and more suitable for large datasets.
-
-## How It Works
+### How It Works
 
 1. **Initialize Parameters**: Start with some initial values for the model parameters (weights and biases).
 2. **Shuffle Data**: Randomly shuffle the training data.
@@ -21,21 +27,21 @@ Stochastic Gradient Descent (SGD) is an optimization algorithm used to minimize 
 
 4. **Repeat**: Continue this process for multiple epochs (iterations over the entire dataset).
 
-## Advantages and Disadvantages
+### Advantages and Disadvantages
 
-### Advantages
+#### Advantages
 - **Faster convergence for large datasets**: Because SGD updates parameters for each training example, it can converge faster than batch gradient descent.
 - **Better generalization**: The noisy updates can help escape local minima, potentially leading to better generalization on test data.
 
-### Disadvantages
+#### Disadvantages
 - **Noisy updates**: The parameter updates can be noisy because they are based on a single example, which can cause the loss function to fluctuate.
 - **Sensitive to learning rate**: Choosing the right learning rate is crucial for proper convergence.
 
-## Example Code in Python
+### Example Code in Python
 
 Below is an example implementation of SGD to minimize a simple quadratic loss function using NumPy.
 
-### Quadratic Loss Function Example
+#### Quadratic Loss Function Example
 
 Let's say we have a simple linear model \( y = wx + b \), and we want to minimize the mean squared error loss function.
 
@@ -80,29 +86,3 @@ for iteration in range(n_iterations):
 
 print(f"Trained weight: {w[0]}, Trained bias: {b[0]}")
 ```
-
-### Explanation
-
-1. **Data Generation**: We generate synthetic data using a linear equation with some noise.
-2. **Parameter Initialization**: The weight and bias are initialized randomly.
-3. **SGD Loop**:
-   - At each iteration, a random data point is chosen to update the weight and bias.
-   - The gradient of the mean squared error loss function is computed with respect to the weight and bias.
-   - The parameters are updated using the gradients scaled by the learning rate.
-4. **Result Output**: The trained weight and bias values are printed after training.
-
-## Running the Code
-
-1. Install the necessary dependencies (if you don't already have NumPy installed):
-   ```bash
-   pip install numpy
-   ```
-
-2. Run the script:
-   ```bash
-   python sgd_example.py
-   ```
-
-## Conclusion
-
-Stochastic Gradient Descent is a powerful and efficient optimization algorithm, especially for large datasets. It is widely used in training machine learning models, including deep learning networks.
