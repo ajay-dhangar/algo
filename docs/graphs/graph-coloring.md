@@ -81,3 +81,34 @@ Key Concepts:
 ➢ The greedy algorithm is a simple and efficient approach to solve the graph coloring problem. It works by iteratively assigning the smallest available color to each vertex while ensuring that no two adjacent vertices share the same color.
 
 
+Here is an example:
+Using the adjacency matrix:
+
+```
+graph[V][V] = {
+    {0, 1, 1, 1},
+    {1, 0, 1, 0},
+    {1, 1, 0, 1},
+    {1, 0, 1, 0}
+};
+```
+
+- With m = 3 colors, a possible output is:
+
+```
+Solution exists with the following color assignment:
+Vertex 0 ---> Color 1
+Vertex 1 ---> Color 2
+Vertex 2 ---> Color 3
+Vertex 3 ---> Color 1
+```
+
+This result assigns colors such that no two adjacent vertices share the same color.
+
+### Limitations
+- This approach is not efficient for large graphs, as it uses a backtracking technique that has exponential time complexity in the worst case.
+- The solution may not be optimal for large and complex graphs.
+
+### Notes
+- Adjust the adjacency matrix and m (number of colors) as needed to test different graphs.
+This code can be modified to use a non-greedy approach for graphs where a minimal coloring is essential.
