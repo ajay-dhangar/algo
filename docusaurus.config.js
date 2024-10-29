@@ -69,6 +69,13 @@ const config = {
         backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
       },
 
+      algolia: {
+        apiKey: "865d7bd9906f532b1d8cb5cc0f02b383",
+        indexName: "ajay-dhangario",
+        appId: "T0I3F584D5",
+        contextualSearch: false,
+      },
+
       navbar: {
         title: "Algo",
         logo: {
@@ -92,8 +99,8 @@ const config = {
             label: "FAQ",
             position: "left",
           },
-           {
-            to: "dsa-interview", 
+          {
+            to: "dsa-interview",
             label: "Top DSA Interview Questions",
             position: "left",
           },
@@ -155,6 +162,10 @@ const config = {
             label: "GitHub",
             position: "right",
           },
+          {
+            type: "search",
+            position: "right",
+          },
         ],
       },
       footer: {
@@ -181,16 +192,16 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
         additionalLanguages: [
-          'java',
-          'latex',
-          'haskell',
-          'matlab',
-          'PHp',
-          'powershell',
-          'bash',
-          'diff',
-          'json',
-          'scss',
+          "java",
+          "latex",
+          "haskell",
+          "matlab",
+          "PHp",
+          "powershell",
+          "bash",
+          "diff",
+          "json",
+          "scss",
         ],
       },
       docs: {
@@ -207,7 +218,7 @@ const config = {
 
   plugins: [
     [
-      path.join(__dirname, "/plugins/my-plugin",),
+      path.join(__dirname, "/plugins/my-plugin"),
       {
         settings: "Some20settings",
         api: "Some-API",
