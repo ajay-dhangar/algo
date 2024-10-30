@@ -2605,6 +2605,106 @@ class Solution:
           return max(lis)
           `,
     },
+  },
+
+  intersectionOfTwoLinkedLists: {
+    title: "46. Intersection of Two Linked Lists",
+    description:
+      "Given the heads of two singly linked lists, headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection, return null.",
+    examples: [
+      {
+        input: "headA = [4,1,8,4,5], headB = [5,6,1,8,4,5]",
+        output: "Intersected at '8'",
+        explanation:
+          "The two linked lists intersect at node '8'.",
+      },
+      {
+        input: "headA = [1,9,1,2,4], headB = [3,2,4]",
+        output: "Intersected at '2'",
+        explanation:
+          "The two linked lists intersect at node '2'.",
+      },
+      {
+        input: "headA = [2,6,4], headB = [1,5]",
+        output: "null",
+        explanation:
+          "The two linked lists do not intersect, so the output is null.",
+      },
+    ],
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
+
+  struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
+
+  class Solution {
+  public:
+      ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+          if (!headA || !headB) return NULL;
+
+          ListNode *a = headA;
+          ListNode *b = headB;
+
+          while (a != b) {
+              a = a ? a->next : headB;
+              b = b ? b->next : headA;
+          }
+
+          return a;
+      }
+  };`,
+
+      java: `
+  public class ListNode {
+      int val;
+      ListNode next;
+      ListNode(int x) {
+          val = x;
+          next = null;
+      }
+  }
+
+  public class Solution {
+      public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+          if (headA == null || headB == null) return null;
+
+          ListNode a = headA;
+          ListNode b = headB;
+
+          while (a != b) {
+              a = (a != null) ? a.next : headB;
+              b = (b != null) ? b.next : headA;
+          }
+
+          return a;
+      }
+  };`,
+
+      python: `
+  class ListNode:
+      def __init__(self, x):
+          self.val = x
+          self.next = None
+
+  class Solution:
+      def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+          if not headA or not headB:
+              return None
+
+          a, b = headA, headB
+
+          while a != b:
+              a = a.next if a else headB
+              b = b.next if b else headA
+
+          return a
+          `,
+    },
   }
 };
 
