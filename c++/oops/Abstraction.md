@@ -6,8 +6,10 @@ using namespace std;
 
 class Shape {
 public:
+
 // Pure virtual function for drawing the shape
-    virtual void draw() = 0;  // This makes the class abstract
+
+   virtual void draw() = 0;  // This makes the class abstract
 
 // Non-virtual method for demonstration (optional)
     void info() {
