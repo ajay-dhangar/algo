@@ -70,3 +70,55 @@ print(hash_table.search('banana'))  # Output: None
 
 ```
 
+## Example: Chaining in JavaScript
+
+```javascript
+class HashTable {
+    constructor() {
+        this.table = Array.from({ length: 10 }, () => []);  // Hash table with 10 slots
+    }
+
+    hash(key) {
+        let hash = 0;
+        for (let char of key.toString()) {
+            hash += char.charCodeAt(0);
+        }
+        return hash % this.table.length;  // Simple hash function
+    }
+
+    insert(key, value) {
+        const index = this.hash(key);
+        for (let pair of this.table[index]) {
+            if (pair[0] === key) {
+                pair[1] = value;  // Update if key exists
+                return;
+            }
+        }
+        this.table[index].push([key, value]);  // Add new key-value pair
+    }
+
+    search(key) {
+        const index = this.hash(key);
+        for (let pair of this.table[index]) {
+            if (pair[0] === key) {
+                return pair[1];  // Return the value if key is found
+            }
+        }
+        return null;  // Key not found
+    }
+
+    delete(key) {
+        const index = this.hash(key);
+        this.table[index] = this.table[index].filter(pair => pair[0] !== key);  // Remove the key-value pair
+    }
+}
+
+// Example usage
+const hashTable = new HashTable();
+hashTable.insert('apple', 1);
+hashTable.insert('banana', 2);
+hashTable.insert('orange', 3);
+console.log(hashTable.search('banana'));  // Output: 2
+hashTable.delete('banana');
+console.log(hashTable.search('banana'));  // Output: null
+```
