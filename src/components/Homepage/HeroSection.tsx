@@ -2,7 +2,7 @@ import React from "react";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
 import AnimatedGIF from "./AnimatedGIF";
 import mainGif from "./assets/main.gif";
-import { Link } from "@docusaurus/Link";
+import { default as Link } from "@docusaurus/Link"; // Fixed import statement for Link
 
 
 const HeroSection = () => {
