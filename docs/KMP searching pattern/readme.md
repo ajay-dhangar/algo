@@ -12,9 +12,7 @@ tags: [Dynamic Programming,Algorithm, DSA]
 ## 📚 Overview
 The KMP algorithm is an efficient string matching algorithm that finds occurrences of a "word" W within a main "text string" S by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
 
-<div align="center">
-    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221125004358/image-660x398.png" alt="KMP Algorithm" width="500">
-</div>
+![KMP Algorithm](https://media.geeksforgeeks.org/wp-content/uploads/20221125004358/image-660x398.png)
 
 ## ⭐ Key Features
 - 🚀 Time Complexity: O(n + m) where n is text length and m is pattern length
