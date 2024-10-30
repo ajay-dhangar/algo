@@ -1,6 +1,6 @@
 ---
 id: stochastic-gradient-descent  
-title: Stochastic Gradient Descent (SGD)  
+title: "Stochastic Gradient Descent (SGD)"
 sidebar_label: SGD  
 description: "Stochastic Gradient Descent (SGD) is an optimization algorithm used to minimize the loss function in machine learning and deep learning models."  
 tags: [optimization, machine learning, deep learning]
@@ -17,9 +17,7 @@ Stochastic Gradient Descent (SGD) is an optimization algorithm used to minimize 
 3. **Parameter Update**:
    - For each training example \( x_i \), compute the gradient of the loss function with respect to the model parameters.
    - Update the parameters using the formula:
-     \[
-     \theta = \theta - \eta \cdot \nabla J(\theta; x_i, y_i)
-     \]
+     $\[\theta = \theta - \eta \cdot \nabla J(\theta; x_i, y_i)\]$
    where:
    - \( \theta \) represents the model parameters (weights and biases).
    - \( \eta \) is the learning rate (step size).
