@@ -1,14 +1,16 @@
 ---
-id: Hierarchial-clustering
-sidebar_position: 5
-title: Hierarchial clustering
-sidebar_label: Hierarchial clustering
+
+id: hierarchical-clustering  
+title: Hierarchical Clustering Algorithm  
+sidebar_label: Hierarchical Clustering  
+description: "Hierarchical clustering is a method of grouping similar data points into clusters based on their relative distances, creating a hierarchy that can be visualized as a dendrogram."  
 tags: [Machine Learning, Clustering]
+
 ---
 
 # Hierarchical Clustering Algorithm
 
-Hierarchical clustering is a method of grouping similar data points into clusters based on their relative distances from each other. Unlike flat clustering techniques such as k-means, hierarchical clustering does not require a pre-specified number of clusters. Instead, it creates a hierarchy of clusters that can be visualized as a dendrogram, which shows the hierarchical relationship between clusters.
+Hierarchical clustering is a method of grouping similar data points into clusters based on their relative distances from each other. Unlike flat clustering techniques such as k-means, hierarchical clustering does not require a pre-specified number of clusters. Instead, it creates a hierarchy of clusters that can be visualized as a dendrogram, showing the hierarchical relationship between clusters.
 
 ---
 
@@ -19,9 +21,6 @@ Hierarchical clustering is a method of grouping similar data points into cluster
 - [Linkage Methods](#linkage-methods)
 - [Benefits and Use Cases](#benefits-and-use-cases)
 - [Implementation](#implementation)
-- [Example](#example)
-- [Running the Code](#running-the-code)
-- [References](#references)
 
 ---
 
@@ -85,7 +84,7 @@ Each linkage method produces different cluster shapes, and the choice of linkage
 1. **Flexibility:** Hierarchical clustering can produce a range of cluster sizes and numbers, allowing for detailed exploration of data structure.
 2. **Visualization:** The dendrogram provides a clear, visual representation of how clusters relate at different levels, which is useful for understanding the data's structure.
 3. **No Need to Predefine Cluster Count:** Hierarchical clustering does not require the user to specify the number of clusters in advance, which is often a requirement in methods like k-means.
-  
+
 ### Use Cases
 - **Biological Data Analysis:** Constructing phylogenetic trees or understanding genetic similarity between species.
 - **Market Segmentation:** Grouping customers by purchasing patterns or demographics.
@@ -100,12 +99,11 @@ Each linkage method produces different cluster shapes, and the choice of linkage
 Ensure you have the following libraries installed:
 ```bash
 pip install scipy matplotlib
+```
+
+#### Python Implementation 
 
 ```
-### Code
-Below is a Python implementation of hierarchical clustering using `scipy` and `matplotlib` for visualization.
-
-```python
 import numpy as np
 from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 from scipy.spatial.distance import pdist
@@ -151,53 +149,5 @@ plt.ylabel("Y-axis")
 plt.show()
 ```
 
----
-
-## Example
-
-### Sample Data
-Using the sample data in the code:
-```python
-data = np.array([
-    [1, 2],
-    [2, 3],
-    [3, 4],
-    [5, 6],
-    [8, 8],
-    [7, 7],
-    [8, 9]
-])
-```
-
-### Explanation
-1. **Compute Pairwise Distances:** We calculate the pairwise distances between points.
-2. **Linkage Calculation:** Using the `linkage` function with `single` linkage, clusters are merged based on the shortest distance between them.
-3. **Dendrogram:** The dendrogram visualizes the merging process. The height represents the distance between clusters.
-4. **Thresholding:** By setting a threshold, we can extract clusters based on the specified distance.
-
-### Output
-The algorithm will print the cluster assignments and display a dendrogram and a scatter plot of the clustered data.
-
----
-
-## Running the Code
-
-1. **Run the Code:** Copy the code into a Python file (e.g., `hierarchical_clustering.py`) and execute:
-    ```bash
-    python hierarchical_clustering.py
-    ```
-2. **Observe Output:** Check the terminal output for cluster assignments and the plots for visualizations.
-
----
-
-## References
-
-- "Hierarchical Clustering" from [Wikipedia](https://en.wikipedia.org/wiki/Hierarchical_clustering)
-- "Linkage Methods in Hierarchical Clustering" from [Scipy Documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html)
-
----
-
-### Notes
-Adjust the threshold and linkage method based on your dataset and clustering requirements for optimal results.
 
 
