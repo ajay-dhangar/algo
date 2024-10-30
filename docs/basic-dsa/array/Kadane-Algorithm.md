@@ -113,6 +113,42 @@ if __name__ == "__main__":
 
 ```
 
+### JavaScript Code Implementation
+
+```javascript
+function kadane(nums) {
+    let maxSoFar = nums[0];
+    let currentMax = nums[0];
+
+    for (let i = 1; i < nums.length; i++) {
+        currentMax = Math.max(nums[i], currentMax + nums[i]);
+        maxSoFar = Math.max(maxSoFar, currentMax);
+    }
+
+    return maxSoFar;
+}
+
+// Example usage
+const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+const maxSum = kadane(nums);
+console.log("Maximum sum of the contiguous subarray:", maxSum);
+```
+
+### Explanation of the Code
+
+1. **`kadane` Function**: 
+   - Takes an array of numbers (`nums`) as input.
+   - Initializes two variables, `maxSoFar` and `currentMax`, with the first element of the array.
+   - Loops through the array starting from the second element:
+     - Updates `currentMax` to be the maximum of the current element or the sum of `currentMax` and the current element.
+     - Updates `maxSoFar` to keep track of the maximum sum found so far.
+   - Returns `maxSoFar` after completing the loop.
+
+2. **Example Usage**: 
+   - An example array of integers is provided.
+   - The function is called, and the maximum sum of the contiguous subarray is printed to the console.
+
+
 ### Summary:
 
 Kadane's algorithm provides an efficient way to determine the maximum sum of a contiguous subarray within an array of numbers. By using a dynamic programming approach, it ensures optimal performance with a linear time complexity and constant space requirements. This algorithm is widely applicable in various fields, particularly in financial analysis and signal processing.
