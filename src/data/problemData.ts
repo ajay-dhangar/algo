@@ -2983,7 +2983,7 @@ class Solution:
 },
 
 countInversions: {
-    title: "Count Inversions in an Array",
+    title: "49. Count Inversions in an Array",
     description:
       "Implement a function to count the number of inversions in an array. An inversion is defined as a pair of indices (i, j) such that i < j and arr[i] > arr[j]. This can be achieved efficiently using a modified MergeSort algorithm, which counts inversions while merging.",
     examples: [
@@ -3135,6 +3135,90 @@ class Solution:
 
     def countInversions(self, arr):
         return self.mergeSortAndCount(arr, 0, len(arr) - 1)
+`,
+    },
+},
+
+sortArray012: {
+    title: "50. Sort an Array of 0s, 1s, and 2s",
+    description:
+      "Implement a function to sort an array containing only 0s, 1s, and 2s. The task can be efficiently accomplished using the Dutch National Flag algorithm, which categorizes the elements in a single pass through the array.",
+    examples: [
+      {
+        input: "array = [2, 0, 1, 2, 0, 1, 1]",
+        output: "[0, 0, 1, 1, 1, 2, 2]",
+        explanation:
+          "The array is sorted in ascending order with all 0s followed by 1s and then 2s.",
+      },
+      {
+        input: "array = [1, 2, 0, 0, 1, 2]",
+        output: "[0, 0, 1, 1, 2, 2]",
+        explanation:
+          "After sorting, the array contains all 0s first, followed by 1s and then 2s.",
+      },
+      {
+        input: "array = []",
+        output: "[]",
+        explanation:
+          "An empty array remains empty after sorting.",
+      },
+    ],
+    solution: {
+      cpp: `
+#include <vector>
+using namespace std;
+
+void sortColors(vector<int>& nums) {
+    int low = 0, mid = 0, high = nums.size() - 1;
+    while (mid <= high) {
+        if (nums[mid] == 0) {
+            swap(nums[low++], nums[mid++]);
+        } else if (nums[mid] == 1) {
+            mid++;
+        } else {
+            swap(nums[mid], nums[high--]);
+        }
+    }
+}
+`,
+
+      java: `
+public class Solution {
+    public void sortColors(int[] nums) {
+        int low = 0, mid = 0, high = nums.length - 1;
+        while (mid <= high) {
+            if (nums[mid] == 0) {
+                swap(nums, low++, mid++);
+            } else if (nums[mid] == 1) {
+                mid++;
+            } else {
+                swap(nums, mid, high--);
+            }
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+`,
+
+      python: `
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        low, mid, high = 0, 0, len(nums) - 1
+        while mid <= high:
+            if nums[mid] == 0:
+                nums[low], nums[mid] = nums[mid], nums[low]
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                nums[mid], nums[high] = nums[high], nums[mid]
+                high -= 1
 `,
     },
 },
