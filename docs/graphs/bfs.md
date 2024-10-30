@@ -78,6 +78,55 @@ int main() {
     return 0;
 }
 ```
+### JAVA Implementation:
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void bfs(int start, List<List<Integer>> adjList, int n) {
+        boolean[] visited = new boolean[n];
+        Queue<Integer> queue = new LinkedList<>();
+
+        visited[start] = true;
+        queue.add(start);
+
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            System.out.print(node + " ");
+
+            for (int neighbor : adjList.get(node)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 5;  // number of nodes
+        List<List<Integer>> adjList = new ArrayList<>();
+
+        // Initialize adjacency list
+        for (int i = 0; i < n; i++) {
+            adjList.add(new ArrayList<>());
+        }
+
+        adjList.get(0).addAll(Arrays.asList(1, 2));
+        adjList.get(1).addAll(Arrays.asList(0, 3, 4));
+        adjList.get(2).add(0);
+        adjList.get(3).add(1);
+        adjList.get(4).add(1);
+
+        int startNode = 0;
+        System.out.print("BFS traversal starting from node " + startNode + ": ");
+        bfs(startNode, adjList, n);
+        System.out.println();
+    }
+}
+
+```
 
 ### Conclusion:
 

@@ -266,6 +266,99 @@ public class CircularQueue {
 }
 ```
 
+
+#### C Implementation
+
+```C
+#include <stdio.h>
+
+#define SIZE 5
+
+int items[SIZE];
+int front = -1, rear = -1;
+
+// Check if the queue is full
+int isFull() {
+    return (front == (rear + 1) % SIZE) || (front == 0 && rear == SIZE - 1);
+}
+
+// Check if the queue is empty
+int isEmpty() {
+    return front == -1;
+}
+
+// Add an element to the queue
+void enQueue(int element) {
+    if (isFull()) {
+        printf("\nQueue is full!!\n");
+    } else {
+        if (isEmpty()) {
+            front = 0;
+        }
+        rear = (rear + 1) % SIZE;
+        items[rear] = element;
+        printf("\nInserted -> %d", element);
+    }
+}
+
+// Remove an element from the queue
+int deQueue() {
+    if (isEmpty()) {
+        printf("\nQueue is empty!!\n");
+        return -1;
+    } else {
+        int element = items[front];
+        if (front == rear) { // Queue has only one element
+            front = -1;
+            rear = -1;
+        } else {
+            front = (front + 1) % SIZE;
+        }
+        printf("\nDeleted element -> %d\n", element);
+        return element;
+    }
+}
+
+// Display the elements in the queue
+void display() {
+    if (isEmpty()) {
+        printf("\nEmpty Queue\n");
+    } else {
+        printf("\nFront -> %d\n", front);
+        printf("Items -> ");
+        for (int i = front; i != rear; i = (i + 1) % SIZE) {
+            printf("%d ", items[i]);
+        }
+        printf("%d ", items[rear]); // Print the last element
+        printf("\nRear -> %d\n", rear);
+    }
+}
+
+int main() {
+    deQueue(); // Attempt to dequeue from an empty queue
+
+    enQueue(1);
+    enQueue(2);
+    enQueue(3);
+    enQueue(4);
+    enQueue(5);
+
+    enQueue(6); // Attempt to enqueue into a full queue
+
+    display(); // Display the queue
+
+    deQueue(); // Dequeue one element
+    display(); // Display the queue again
+
+    enQueue(7); // Enqueue one element to test circular queue functionality
+    display(); // Display the queue
+
+    enQueue(8); // Attempt to enqueue into a full queue
+
+    return 0;
+}
+
+```
 ### Complexity
 
 - **Time Complexity**:
