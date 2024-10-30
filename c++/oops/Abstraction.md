@@ -1,10 +1,7 @@
-
-
 #include <iostream>
 using namespace std;
-
-
 class Shape {
+
 public:
 
 // Pure virtual function for drawing the shape
@@ -12,13 +9,16 @@ public:
    virtual void draw() = 0;  // This makes the class abstract
 
 // Non-virtual method for demonstration (optional)
-    void info() {
+
+   void info() {
         cout << "This is a shape." << endl;
     }
 };
 
 // Derived class: Circle (inherits from Shape)
+
 class Circle: public Shape {
+
 private:
     int radius;
 
@@ -26,12 +26,14 @@ public:
     Circle(int r) : radius(r) {}
 
 // Implementing the pure virtual function
-    void draw() override {
+
+   void draw() override {
         cout << "Drawing a circle with radius " << radius << endl;
     }
 };
 
 // Derived class: Square (inherits from Shape)
+
 class Square: public Shape {
 private:
     int side;
