@@ -3222,6 +3222,88 @@ class Solution:
 `,
     },
 },
+
+searchInNearlySortedArray: {
+    title: "51. Perform a Search in a Nearly Sorted Array",
+    description:
+      "Implement a function to search for a target element in a nearly sorted array. In a nearly sorted array, each element is at most one position away from its original position. This allows for an efficient search using a modified binary search algorithm.",
+    examples: [
+      {
+        input: "array = [10, 3, 40, 20, 50, 80, 70], target = 20",
+        output: "3",
+        explanation:
+          "The target element 20 is found at index 3 in the array.",
+      },
+      {
+        input: "array = [10, 3, 40, 20, 50, 80, 70], target = 90",
+        output: "-1",
+        explanation:
+          "The target element 90 is not present in the array, so the output is -1.",
+      },
+      {
+        input: "array = [1], target = 1",
+        output: "0",
+        explanation:
+          "The array contains only one element, which is the target; thus, it is found at index 0.",
+      },
+    ],
+    solution: {
+      cpp: `
+#include <vector>
+using namespace std;
+
+int searchInNearlySortedArray(vector<int>& arr, int target) {
+    int n = arr.size();
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+        if (i > 0 && arr[i - 1] == target) {
+            return i - 1;
+        }
+        if (i < n - 1 && arr[i + 1] == target) {
+            return i + 1;
+        }
+    }
+    return -1;
+}
+`,
+
+      java: `
+public class Solution {
+    public int searchInNearlySortedArray(int[] arr, int target) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == target) {
+                return i;
+            }
+            if (i > 0 && arr[i - 1] == target) {
+                return i - 1;
+            }
+            if (i < n - 1 && arr[i + 1] == target) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+}
+`,
+
+      python: `
+class Solution:
+    def searchInNearlySortedArray(self, arr: List[int], target: int) -> int:
+        n = len(arr)
+        for i in range(n):
+            if arr[i] == target:
+                return i
+            if i > 0 and arr[i - 1] == target:
+                return i - 1
+            if i < n - 1 and arr[i + 1] == target:
+                return i + 1
+        return -1
+`,
+    },
+},
 };
 
 export default problemsData;
