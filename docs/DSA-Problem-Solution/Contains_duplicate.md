@@ -1,33 +1,41 @@
 ---
 id: Contains-Duplicate-leetcode-217
-title: Contains duplicate.
+title: Contains Duplicate
 sidebar_label: Leetcode 217
 tags: [Leetcode, Array, DSA, Contains duplicate]
 description: Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 ---
 
-## 217. Contains duplicate
-**Description**: 
-You are given an array of integers, nums, which may contain both positive and negative numbers. Your task is to determine whether any value appears more than once in the array. If at least one duplicate exists, return true. Otherwise, return false.
+## 217. Contains Duplicate
+**Description**:  
+You are given an array of integers, `nums`, which may contain both positive and negative numbers. Your task is to determine whether any value appears more than once in the array. If at least one duplicate exists, return `true`. Otherwise, return `false`.
 
 ## Example 1:
 
-**Input:**
-Input: nums = [1, 2, 3, 1]
-Output: true (because 1 appears twice)
-**Explanation:** 
-- The frequency of 1 is- 2 
-- The frequency of 2 is- 1 
-- The frequency of 3 is- 1 
-- so 1 frequency is 2 so duplicate is there so return true.
+**Input:**  
+`nums = [1, 2, 3, 1]`
+
+**Output:**  
+`true` (because 1 appears twice)
+
+**Explanation:**  
+- The frequency of 1 is 2  
+- The frequency of 2 is 1  
+- The frequency of 3 is 1  
+- Since 1 appears twice, there is a duplicate, so the output is `true`.
+
 ## Example 2:
 
-**Input:** Input: nums = [1, 2, 3, 4]
-Output: false (because all elements are distinct)
-**Explanation:** 
--All elements are distinct and unique.
+**Input:**  
+`nums = [1, 2, 3, 4]`
 
- **C++ Code**:
+**Output:**  
+`false` (because all elements are distinct)
+
+**Explanation:**  
+- All elements are unique and appear only once.
+
+## C++ Code:
 ```cpp
 #include <iostream>
 #include <unordered_set>
