@@ -2527,6 +2527,85 @@ class Solution:
           `,
     },
   },
+
+  longestIncreasingSubsequence: {
+    title: "45. Longest Increasing Subsequence",
+    description:
+      "Given an array arr[] of size N, find the length of the longest subsequence of the array which is strictly increasing.",
+    examples: [
+      {
+        input: "N = 6, arr = [5, 8, 3, 7, 9, 1]",
+        output: "3",
+        explanation: "The longest increasing subsequence is [5, 7, 9], so the length is 3.",
+      },
+      {
+        input: "N = 4, arr = [3, 10, 2, 1, 20]",
+        output: "3",
+        explanation: "The longest increasing subsequence is [3, 10, 20], so the length is 3.",
+      },
+    ],
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
+
+  class Solution {
+  public:
+      int longestIncreasingSubsequence(int n, vector<int>& arr) {
+          vector<int> lis(n, 1);
+
+          for (int i = 1; i < n; i++) {
+              for (int j = 0; j < i; j++) {
+                  if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+                      lis[i] = lis[j] + 1;
+                  }
+              }
+          }
+
+          return *max_element(lis.begin(), lis.end());
+      }
+  };`,
+
+      java: `
+  import java.util.*;
+
+  class Solution {
+      public int longestIncreasingSubsequence(int n, int[] arr) {
+          int[] lis = new int[n];
+          Arrays.fill(lis, 1);
+
+          for (int i = 1; i < n; i++) {
+              for (int j = 0; j < i; j++) {
+                  if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+                      lis[i] = lis[j] + 1;
+                  }
+              }
+          }
+
+          int max = 0;
+          for (int length : lis) {
+              max = Math.max(max, length);
+          }
+          return max;
+      }
+  };`,
+
+      python: `
+  from typing import List
+
+  class Solution:
+      def longestIncreasingSubsequence(self, n: int, arr: List[int]) -> int:
+          lis = [1] * n
+
+          for i in range(1, n):
+              for j in range(i):
+                  if arr[i] > arr[j]:
+                      lis[i] = max(lis[i], lis[j] + 1)
+
+          return max(lis)
+          `,
+    },
+  }
 };
 
 export default problemsData;
