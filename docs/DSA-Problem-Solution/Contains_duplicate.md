@@ -61,7 +61,7 @@ int main() {
 }
 
 ```
-## Approach and code explanation ##
+## Approach and code explanation
 **Using a Set for Uniqueness:**
 - A set data structure inherently stores unique values. In C++, we use an unordered_set for this purpose, which allows us to:
 Insert elements in O(1) average time.
@@ -83,8 +83,8 @@ Insert into the set: If not found, add the number to the set.
 Final Result: If the loop completes without finding any duplicates, return false.
 
 ## complexcity
-## Time Complexity: ##
+## Time Complexity:
 Time complexity- O(n), where n is the size of the input array.
 
-## Space complexity: ##
+## Space complexity:
 -O(n), as we are using an unordered_set to store up to n unique elements.
