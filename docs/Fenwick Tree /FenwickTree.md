@@ -47,60 +47,6 @@ function getSum(i):
     return sum
 ```
 
-
-Here's a .md file structure for the Fenwick Tree (Binary Indexed Tree) algorithm:
-
-markdown
-Copy code
----
-id: FenwickTree
-title: "Introduction to Fenwick Tree (Binary Indexed Tree)"
-sidebar_label: "Fenwick Tree"
-sidebar_position: 2
-description: "Information on Fenwick Tree (Binary Indexed Tree) Algorithm"
-tags: [Algorithm, Fenwick Tree, Binary Indexed Tree]
----
-
-# Fenwick Tree (Binary Indexed Tree)
-## Overview
-The Fenwick Tree, also known as a Binary Indexed Tree (BIT), is a data structure used for efficiently calculating prefix sums and updating elements. It offers a significant performance boost when dealing with cumulative frequency tables, making it ideal for scenarios where frequent updates and prefix sum queries are required.
-
-## Use Cases
-- **Efficient Range Queries**: Commonly used in situations where range sums and point updates are frequent.
-- **Inversion Counting in Arrays**: Used in competitive programming to count inversions in arrays.
-- **Data Compression**: Supports cumulative frequency counting, which helps in data compression algorithms.
-- **2D Queries**: Fenwick Trees can also be extended to 2D data structures, allowing applications in grid-based problems.
-
-## Algorithm Details
-### Key Concepts
-1. **Binary Indexed Representation**: Fenwick Trees leverage binary representation for efficient sum and update operations.
-2. **Operations**:
-   - **Update**: Modify the value of a specific element.
-   - **Query**: Compute the cumulative sum up to a specific index.
-
-### Time Complexity
-- Both update and query operations are `O(log N)` where `N` is the number of elements, due to the logarithmic depth of the tree.
-
-![Fenwick Tree Diagram](./fenwick_tree_diagram.png "Example of Fenwick Tree for an Array")
-
-## Pseudocode
-
-```cpp
-// Function to add 'val' to index 'i' (1-based index)
-function update(i, val):
-    while i <= n:
-        BITree[i] += val
-        i += (i & -i)
-
-// Function to get sum from index 1 to i (1-based index)
-function getSum(i):
-    sum = 0
-    while i > 0:
-        sum += BITree[i]
-        i -= (i & -i)
-    return sum
-```
-
 ## Example Code in C++
 Here’s a C++ implementation of the Fenwick Tree:
 
