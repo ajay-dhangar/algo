@@ -1,6 +1,6 @@
 ---
 id: objects-in-csharp
-sidebar_position: 13
+sidebar_position: 6
 title: "Objects in C#"
 sidebar_label: "Objects in C#"
 ---
