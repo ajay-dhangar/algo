@@ -1,6 +1,6 @@
 ---
 id: classes-in-csharp
-sidebar_position: 12
+sidebar_position: 7
 title: "Classes in C#"
 sidebar_label: "Classes in C#"
 ---
