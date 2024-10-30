@@ -119,13 +119,13 @@ const FAQ: React.FC = () => {
             {faqs.slice(0, visibleCount).map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+                className="bg-blue-100 dark:bg-blue-950 rounded-lg shadow-lg overflow-hidden"
               >
                 <div
                   className="flex justify-between items-center p-4 cursor-pointer"
                   onClick={() => toggleFAQ(index)}
                 >
-                  <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">
+                  <h3 className="text-xl font-bold text-blue-950 dark:text-[#BFECFF]">
                     {faq.question}
                   </h3>
                   <span className="text-gray-600 dark:text-gray-300 text-3xl">
@@ -141,7 +141,7 @@ const FAQ: React.FC = () => {
                   transition={{ duration: 0.3 }}
                   style={{ overflow: "hidden" }}
                 >
-                  <p className="p-4 text-gray-600 dark:text-gray-300">
+                  <p className="px-4  text-[#654520] dark:text-[#98DED9] font-semibold">
                     {faq.answer}
                   </p>
                 </motion.div>
