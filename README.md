@@ -1,9 +1,16 @@
-# [Algo](https://ajay-dhangar.github.io/algo/) - Open Source Algorithm Repository
+# 🧮[Algo](https://ajay-dhangar.github.io/algo/) - Open Source Algorithm Repository
 
-## introduction
+<div align="center">
+  
+<img src="https://github.com/user-attachments/assets/17862b77-f2f9-4b52-8646-152e706de971" height=200  width=300 alt="GT"/>
+</div>
+
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+
+## 📝 Introduction
 Welcome to **Algo**, an open-source project that provides developers with algorithmic solutions and resources. Whether you're a beginner or an experienced coder, you can contribute, learn, and grow with us! 🚀
-
-<div align = "center">
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+<div align="center">
 <br>
 
 <table align="center">
@@ -13,9 +20,9 @@ Welcome to **Algo**, an open-source project that provides developers with algori
             <td><b>🍴 Forks</b></td>
             <td><b>🐛 Issues</b></td>
             <td><b>🔔 Open PRs</b></td>
-            <td><b>🔕 Close PRs</b></td>
+            <td><b>🔕 Closed PRs</b></td>
             <td><b>🛠 Languages</b></td>
-            <td><b>🌐 Contributors </b></td>
+            <td><b>🌐 Contributors</b></td>
         </tr>
      </thead>
     <tbody>
@@ -24,16 +31,16 @@ Welcome to **Algo**, an open-source project that provides developers with algori
             <td><img alt="Forks" src="https://img.shields.io/github/forks/ajay-dhangar/algo?style=flat&logo=github"/></td>
             <td><img alt="Issues" src="https://img.shields.io/github/issues/ajay-dhangar/algo?style=flat&logo=github"/></td>
             <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/ajay-dhangar/algo?style=flat&logo=github"/></td>
-           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/ajay-dhangar/algo?style=flat&color=critical&logo=github"/></td>
-           <td><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ajay-dhangar/algo?style=flat&color=critical&logo=github"></td>
-           <td><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/ajay-dhangar/algo?color=2b9348"></td>
+            <td><img alt="Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/ajay-dhangar/algo?style=flat&color=critical&logo=github"/></td>
+            <td><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ajay-dhangar/algo?style=flat&color=critical&logo=github"></td>
+            <td><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/ajay-dhangar/algo?color=2b9348"></td>
         </tr>
     </tbody>
 </table>
 </div>
 <br>
-
-## 🚀Featured In
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+## 🚀 Featured In
 
 <table>
 
@@ -47,125 +54,167 @@ Welcome to **Algo**, an open-source project that provides developers with algori
       <td><img src="girlscript.jpg" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
       <td>GSSoC'24 Extd</td>
       <td>GSSoC'24 Extd is a one-month open-source Program conducted by the GirlScript Foundation. It is an initiative to introduce more beginners to Open-Source Software Development.</td>
-       <td>Active</td>
+      <td>Active ✅</td>
    </tr>
-    <tr>
+   <tr>
       <td><img src="festhack.jpg" width="200" height="auto" loading="lazy" alt="Hacktoberfest 2024"/></td>
       <td>Hacktoberfest 2024</td>
       <td>Hacktoberfest is a month-long celebration of open source software run by DigitalOcean, GitHub, and Twilio. It encourages contributions to open source projects and promotes a global community of developers.</td>
-        <td>Excluded</td>
+      <td>Excluded ❌</td>
    </tr>
 
 </table>
 
 <br />
-
-
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
 ## 🌐 Demo Links
 
-- [Demo](https://ajay-dhangar.github.io/algo/)
-
-
-## Table of Contents
+- [Demo](https://ajay-dhangar.github.io/algo/) 🚀
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+## 📚 Table of Contents
 
 - [Algo - Open Source Algorithm Repository](#algo---open-source-algorithm-repository)
-  - [introduction](#introduction)
-  - [🚀Featured In](#featured-in)
-  - [Table of Contents](#table-of-contents)
-  - [Project Overview](#project-overview)
-    - [Pick up Topics](#pick-up-topics)
-  - [Features](#features)
-  - [Website](#website)
-  - [Installation](#installation)
-  - [Local Development](#local-development)
-  - [Build](#build)
-  - [Deployment](#deployment)
-    - [Using SSH:](#using-ssh)
-    - [Not using SSH:](#not-using-ssh)
-  - [Contributing](#contributing)
-  - [Contributors ✨](#contributors-)
-  - [Stargazers](#stargazers)
-  - [Forkers](#forkers)
-  - [Resources for Guidance](#resources-for-guidance)
-
-
-## Project Overview
+  - [📝 Introduction](#introduction)
+  - [🚀 Featured In](#featured-in)
+  - [🌐 Demo Links](#demo-links)
+  - [📚 Table of Contents](#table-of-contents)
+  - [📖 Project Overview](#project-overview)
+    - [📌 Pick up Topics](#pick-up-topics)
+  - [🌟 Features](#features)
+  - [🌍 Website](#website)
+  - [⚙️ Installation](#installation)
+  - [🔍 Local Development](#local-development)
+  - [🏗️ Build](#build)
+  - [🚀 Deployment](#deployment)
+    - [🔑 Using SSH:](#using-ssh)
+    - [📡 Not using SSH:](#not-using-ssh)
+  - [🤝 Contributing](#contributing)
+  - [👥 Contributors ✨](#contributors-)
+  - [🌟 Stargazers](#stargazers)
+  - [🍴 Forkers](#forkers)
+  - [📖 Resources for Guidance](#resources-for-guidance)
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+## 📖 Project Overview
 
 Algo provides a collection of well-documented algorithmic solutions written in various programming languages, covering a range of topics like sorting, searching, dynamic programming, and more.
 
-### Pick up Topics
+### 📌 Pick up Topics
 
 - [DSA Roadmap](https://roadmap.sh/datastructures-and-algorithms)
 
 We aim to:
-- Create an extensive library of algorithms in different languages
-- Help developers learn algorithmic problem-solving
-- Foster open-source contribution and collaboration
+- Create an extensive library of algorithms in different languages 🌐
+- Help developers learn algorithmic problem-solving 💡
+- Foster open-source contribution and collaboration 🤝
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+## 🌟 Features
 
-## Features
+- **Multi-language Support**: Algorithms in multiple programming languages 🌍
+- **Beginner-Friendly**: Well-structured, easy-to-understand explanations 📚
+- **Open Source Contributions**: Welcoming developers at all levels to contribute 🙌
+- **Community Forum**: A new interactive platform where developers can ask questions, share ideas, and collaborate in real-time. This forum will help bridge the gap between beginners and experts, allowing for deeper engagement and problem-solving 💬.
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+## 🌍 Website
 
-- **Multi-language Support**: Algorithms in multiple programming languages
-- **Beginner-Friendly**: Well-structured, easy-to-understand explanations
-- **Open Source Contributions**: Welcoming developers at all levels to contribute
-- **Community Forum**: A new interactive platform where developers can ask questions, share ideas, and collaborate in real-time. This forum will help bridge the gap between beginners and experts, allowing for deeper engagement and problem-solving.
+This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator 🛠️.
 
-## Website
+## ⚙️ Installation Guide
 
-This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+To set up the project on your local machine, follow these steps:
 
-## Installation
+### 📦 Prerequisites
 
+Ensure you have the following software installed:
+
+- **Node.js** (version 14 or later) 🌐: Download it from [Node.js Official Site](https://nodejs.org/).
+- **npm** (Node Package Manager): It comes bundled with Node.js, so you don't need to install it separately.
+
+### 🔍 Step 1: Clone the Repository
+
+First, clone the repository to your local machine. Open your terminal and run:
 ```bash
- npm install
+
+git clone https://github.com/ajay-dhangar/algo.git
 ```
 
-## Local Development
+📁 Step 2: Navigate to the Project Directory
+Change into the project directory:
 
+Copy code
 ```bash
- npm start
+cd algo
 ```
+⚙️ Step 3: Install Dependencies
+Install the project dependencies using npm. Run the following command:
 
-This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
 
-## Build
-
+Copy code
 ```bash
- npm run build
+npm install
 ```
+🏗️ Step 4: Start Local Development Server
+To start the local development server and open your browser, use:
 
-This command generates static content into the `build` directory, which can be served using any static content hosting service.
 
-## Deployment
-
-### Using SSH:
-
+Copy code
 ```bash
- USE_SSH=true npm run deploy
+npm start
 ```
+This command will launch a development server and automatically open your default web browser. You can make changes to the code, and they will reflect live without needing to restart the server 🔄.
 
-### Not using SSH:
+🚀 Step 5: Build for Production
+If you want to create a production build, run:
 
+bash
+Copy code
 ```bash
- GIT_USER=<Your GitHub username> npm run deploy
+npm run build
 ```
+This command compiles your project into static files for production and places them in the build directory 📦.
 
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+📡 Step 6: Deploy Your Application
+If you're ready to deploy your application, use one of the following methods:
 
-## Contributing
+🔑 Using SSH:
+If you prefer to deploy using SSH, run:
 
-We welcome contributions from developers of all experience levels. For guidelines, please see the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+bash
+Copy code
+```bash
+USE_SSH=true npm run deploy
+```
+📡 Not Using SSH:
+If you're not using SSH, you can deploy with:
 
-## Contributors ✨
+bash
+Copy code
+```bash
+GIT_USER=<Your GitHub username> npm run deploy
+```
+This command will build the website and push it to the gh-pages branch of your GitHub repository 📤.
+
+🎉 That's it!
+You are now set up and ready to develop! If you encounter any issues, please refer to the documentation or open an issue in the repository.
+
+vbnet
+Copy code
+
+This installation guide provides clear steps for users to follow, ensuring they can easily se
+
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+
+## 💓 Contributors 
 
 Thanks to these amazing people who have contributed to the **Algo** project:
 
 <!-- readme: contributors -start -->
 <table>
-	<tbody>
+	<table >
+    <tbody>
 		<tr>
-            <td align="center">
+            <td align="center" style="padding: 10px;">
                 <a href="https://github.com/ajay-dhangar">
-                    <img src="https://avatars.githubusercontent.com/u/99037494?v=4" width="100;" alt="ajay-dhangar"/>
+                    <img src="https://avatars.githubusercontent.com/u/99037494?v=4" width="100"  alt="ajay-dhangar"  "/>
                     <br />
                     <sub><b>Ajay Dhangar</b></sub>
                 </a>
@@ -1223,15 +1272,15 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 <!-- readme: contributors -end -->
 
 <br>
-
-## Stargazers
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+## ⭐Stargazers
 
 [![Stargazers repo roster for @ajay-dhangar/algo](https://reporoster.com/stars/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/stargazers)
-
-## Forkers
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
+## 🍴 Forkers
 
 [![Forkers repo roster for @ajay-dhangar/algo](https://reporoster.com/forks/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/network/members)
-
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
 ## Resources for Guidance
 Here are some resources that may be helpful as you contribute to Algo:
 - [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction)
@@ -1245,3 +1294,4 @@ Here are some resources that may be helpful as you contribute to Algo:
         <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
     </a>
 </div>
+<a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0382.gif" border="0" alt="animated-line-image-0382" /></a>
