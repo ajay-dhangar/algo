@@ -2705,7 +2705,91 @@ class Solution:
           return a
           `,
     },
-  }
+  },
+
+  coinChange: {
+    title: "47. Coin Change",
+    description:
+      "Given an integer array 'coins' representing different coin denominations and an integer 'amount' representing a total amount of money, return the fewest number of coins that you need to make up that amount. If that amount cannot be made up by any combination of the coins, return -1.",
+    examples: [
+      {
+        input: "coins = [1, 2, 5], amount = 11",
+        output: "3",
+        explanation:
+          "The fewest number of coins needed is 3: 11 = 5 + 5 + 1.",
+      },
+      {
+        input: "coins = [2], amount = 3",
+        output: "-1",
+        explanation:
+          "It is not possible to make up the amount 3 with only coin of denomination 2.",
+      },
+      {
+        input: "coins = [1], amount = 0",
+        output: "0",
+        explanation:
+          "The amount is already 0, so no coins are needed.",
+      },
+    ],
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
+  
+  class Solution {
+  public:
+      int coinChange(vector<int>& coins, int amount) {
+          vector<int> dp(amount + 1, amount + 1);
+          dp[0] = 0;
+  
+          for (int i = 1; i <= amount; i++) {
+              for (int coin : coins) {
+                  if (i - coin >= 0) {
+                      dp[i] = min(dp[i], 1 + dp[i - coin]);
+                  }
+              }
+          }
+  
+          return dp[amount] == amount + 1 ? -1 : dp[amount];
+      }
+  };`,
+  
+      java: `
+  import java.util.Arrays;
+  
+  public class Solution {
+      public int coinChange(int[] coins, int amount) {
+          int[] dp = new int[amount + 1];
+          Arrays.fill(dp, amount + 1);
+          dp[0] = 0;
+  
+          for (int i = 1; i <= amount; i++) {
+              for (int coin : coins) {
+                  if (i - coin >= 0) {
+                      dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
+                  }
+              }
+          }
+  
+          return dp[amount] == amount + 1 ? -1 : dp[amount];
+      }
+  };`,
+  
+      python: `
+  class Solution:
+      def coinChange(self, coins: List[int], amount: int) -> int:
+          dp = [float('inf')] * (amount + 1)
+          dp[0] = 0
+  
+          for i in range(1, amount + 1):
+              for coin in coins:
+                  if i - coin >= 0:
+                      dp[i] = min(dp[i], 1 + dp[i - coin])
+  
+          return dp[amount] if dp[amount] != float('inf') else -1
+          `,
+    },
+  }  
 };
 
 export default problemsData;
