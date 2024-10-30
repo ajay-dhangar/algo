@@ -323,7 +323,3 @@ A)Insertion Sort
 B) Quick Sort
 C)Heap Sort
 D) Merge Sort
-
-**Answer:** D)Merge Sort and deletion at both ends 
-
-**Explanation:** The worst-case time complexity of Merge Sort is O(n Logn). Here, n is the number of elements in the linked list.
