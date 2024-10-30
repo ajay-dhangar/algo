@@ -46,7 +46,11 @@ If your contribution involves documentation, here’s how to write effective con
 - MDX allows you to use React components inside Markdown files. This is helpful for adding interactive elements or custom components.
 
 #### b. Content Structure
-Each documentation file should start with a front matter section for Docusaurus to recognize the page:
+
+![image](https://github.com/user-attachments/assets/a3567a71-6ca5-4f78-b736-59f2109440f5)
+
+Each documentation file should start with a front-matter section for Docusaurus to recognize the page:
+
 ```md
 ---
 id: <unique-id>
