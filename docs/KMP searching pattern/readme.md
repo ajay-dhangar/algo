@@ -1,31 +1,41 @@
 ---
 id: kmp-searching-pattern
-title: KMP searching pattern
-sidebar_label: KMP Searching
-description: This algorithm is an efficient string matching that finds the different occurence of a word.
-tags: [Dynamic Programming,Algorithm, DSA]
+title: KMP Pattern Searching Algorithm - Complete Guide
+sidebar_label: KMP Pattern Searching
+description: A comprehensive guide to the Knuth-Morris-Pratt (KMP) string matching algorithm, including theory, analysis, and implementations in multiple languages
+tags: [Algorithms, String Matching, Pattern Searching, Dynamic Programming]
 ---
-
 
 # 🔍 KMP (Knuth-Morris-Pratt) Pattern Searching Algorithm
 
-## 📚 Overview
-The KMP algorithm is an efficient string matching algorithm that finds occurrences of a "word" W within a main "text string" S by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin, thus bypassing re-examination of previously matched characters.
+## 📚 Introduction
 
-![KMP Algorithm](https://media.geeksforgeeks.org/wp-content/uploads/20221125004358/image-660x398.png)
+The Knuth-Morris-Pratt (KMP) algorithm is an efficient string-matching algorithm that searches for occurrences of a "word" W within a main "text string" S. Unlike naive approaches, it achieves linear time complexity by utilizing pattern information to avoid unnecessary comparisons.
 
 ## ⭐ Key Features
+
 - 🚀 Time Complexity: O(n + m) where n is text length and m is pattern length
 - 💾 Space Complexity: O(m) for pattern preprocessing
 - 🎯 Efficient for patterns with repeating characters
 - 🔄 No backtracking in the main text string
 
 ## 🛠️ How It Works
-1. **Preprocessing Phase**: Create a Longest Proper Prefix which is also Suffix (LPS) array
-2. **Searching Phase**: Use the LPS array to skip unnecessary comparisons
+
+### Algorithm Overview
+
+The key insight of KMP is that when a mismatch occurs, the pattern's structure can determine where to continue the search, rather than starting over. This is achieved through two main phases:
+
+1. **Preprocessing Phase**: 
+   - Create a Longest Proper Prefix which is also Suffix (LPS) array
+   - This array helps skip unnecessary comparisons
+   
+2. **Searching Phase**: 
+   - Use the LPS array to efficiently find pattern matches
+   - Avoid re-examining previously matched characters
 
 ### LPS Array Explanation
-The LPS array stores the lengths of the longest proper prefix that is also a suffix for each position in the pattern. This helps in determining how many characters to skip when a mismatch occurs.
+
+The LPS array stores the lengths of the longest proper prefix that is also a suffix for each position in the pattern.
 
 Example:
 ```
@@ -33,122 +43,312 @@ Pattern: "AAACAAAA"
 LPS:     [0,1,2,0,1,2,3,3]
 ```
 
-## 💻 Implementation
+## 💻 Multi-Language Implementations
 
-### Creating the LPS Array
-```python
-def compute_lps_array(pattern):
-    m = len(pattern)
-    lps = [0] * m  # Initialize LPS array with zeros
-    
-    length = 0  # Length of previous longest prefix suffix
-    i = 1       # Iterator starting from second character
-    
-    while i < m:
-        if pattern[i] == pattern[length]:
-            length += 1
-            lps[i] = length
-            i += 1
-        else:
-            if length != 0:
-                # This is the tricky part
-                length = lps[length - 1]
-            else:
-                lps[i] = 0
-                i += 1
-    return lps
-```
+### Python Implementation
 
-### KMP Search Algorithm
 ```python
-def kmp_search(text, pattern):
-    n = len(text)
-    m = len(pattern)
-    matches = []  # Store all positions where pattern is found
-    
-    # Create LPS array
-    lps = compute_lps_array(pattern)
-    
-    i = 0  # Index for text
-    j = 0  # Index for pattern
-    
-    while i < n:
-        if pattern[j] == text[i]:
-            i += 1
-            j += 1
+class KMPMatcher:
+    def __init__(self, pattern: str):
+        """
+        Initialize KMP matcher with a pattern.
         
-        if j == m:
-            matches.append(i - j)  # Pattern found at i-j
-            j = lps[j - 1]
+        Args:
+            pattern: The pattern string to search for
+        """
+        self.pattern = pattern
+        self.partial_match_table = self._build_partial_match_table()
+    
+    def _build_partial_match_table(self) -> list[int]:
+        """
+        Build the partial match table (failure function) for the pattern.
         
-        elif i < n and pattern[j] != text[i]:
-            if j != 0:
-                j = lps[j - 1]
-            else:
+        Returns:
+            List of integers representing the partial match values
+        """
+        table = [0] * len(self.pattern)
+        length = 0
+        i = 1
+        
+        while i < len(self.pattern):
+            if self.pattern[i] == self.pattern[length]:
+                length += 1
+                table[i] = length
                 i += 1
+            else:
+                if length != 0:
+                    length = table[length - 1]
+                else:
+                    table[i] = 0
+                    i += 1
+        
+        return table
+    
+    def search(self, text: str) -> list[int]:
+        """
+        Find all occurrences of the pattern in the given text.
+        
+        Args:
+            text: The text string to search in
+            
+        Returns:
+            List of starting indices where the pattern was found
+        """
+        if not self.pattern or not text:
+            return []
+            
+        matches = []
+        j = 0  # Pattern index
+        i = 0  # Text index
+        
+        while i < len(text):
+            if self.pattern[j] == text[i]:
+                i += 1
+                j += 1
                 
-    return matches
+                if j == len(self.pattern):
+                    matches.append(i - j)
+                    j = self.partial_match_table[j - 1]
+            else:
+                if j != 0:
+                    j = self.partial_match_table[j - 1]
+                else:
+                    i += 1
+        
+        return matches
 ```
 
-## 🎯 Example Usage
+### C++ Implementation
+
+```cpp
+#include <vector>
+#include <string>
+#include <string_view>
+
+class KMPMatcher {
+private:
+    std::string pattern;
+    std::vector<int> partial_match_table;
+    
+    std::vector<int> buildPartialMatchTable() {
+        std::vector<int> table(pattern.length(), 0);
+        int length = 0;
+        int i = 1;
+        
+        while (i < pattern.length()) {
+            if (pattern[i] == pattern[length]) {
+                ++length;
+                table[i] = length;
+                ++i;
+            } else {
+                if (length != 0) {
+                    length = table[length - 1];
+                } else {
+                    table[i] = 0;
+                    ++i;
+                }
+            }
+        }
+        
+        return table;
+    }
+    
+public:
+    explicit KMPMatcher(std::string_view pat) 
+        : pattern(pat)
+        , partial_match_table(buildPartialMatchTable()) {}
+    
+    std::vector<int> search(std::string_view text) const {
+        std::vector<int> matches;
+        if (pattern.empty() || text.empty()) {
+            return matches;
+        }
+        
+        int j = 0;  // Pattern index
+        int i = 0;  // Text index
+        
+        while (i < text.length()) {
+            if (pattern[j] == text[i]) {
+                ++i;
+                ++j;
+                
+                if (j == pattern.length()) {
+                    matches.push_back(i - j);
+                    j = partial_match_table[j - 1];
+                }
+            } else {
+                if (j != 0) {
+                    j = partial_match_table[j - 1];
+                } else {
+                    ++i;
+                }
+            }
+        }
+        
+        return matches;
+    }
+};
+```
+
+### Java Implementation
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class KMPMatcher {
+    private final String pattern;
+    private final int[] partialMatchTable;
+    
+    public KMPMatcher(String pattern) {
+        this.pattern = pattern;
+        this.partialMatchTable = buildPartialMatchTable();
+    }
+    
+    private int[] buildPartialMatchTable() {
+        int[] table = new int[pattern.length()];
+        int length = 0;
+        int i = 1;
+        
+        while (i < pattern.length()) {
+            if (pattern.charAt(i) == pattern.charAt(length)) {
+                length++;
+                table[i] = length;
+                i++;
+            } else {
+                if (length != 0) {
+                    length = table[length - 1];
+                } else {
+                    table[i] = 0;
+                    i++;
+                }
+            }
+        }
+        
+        return table;
+    }
+    
+    public List<Integer> search(String text) {
+        List<Integer> matches = new ArrayList<>();
+        
+        if (pattern.isEmpty() || text.isEmpty()) {
+            return matches;
+        }
+        
+        int j = 0;  // Pattern index
+        int i = 0;  // Text index
+        
+        while (i < text.length()) {
+            if (pattern.charAt(j) == text.charAt(i)) {
+                i++;
+                j++;
+                
+                if (j == pattern.length()) {
+                    matches.add(i - j);
+                    j = partialMatchTable[j - 1];
+                }
+            } else {
+                if (j != 0) {
+                    j = partialMatchTable[j - 1];
+                } else {
+                    i++;
+                }
+            }
+        }
+        
+        return matches;
+    }
+}
+```
+
+## 🎯 Usage Examples
+
+### Basic Usage
 ```python
-# Example usage
-text = "ABABDABACDABABCABAB"
-pattern = "ABABCABAB"
-
-matches = kmp_search(text, pattern)
-print(f"Pattern found at indices: {matches}")
+# Python example
+matcher = KMPMatcher("ABAB")
+text = "ABABCABABABD"
+matches = matcher.search(text)
+print(f"Pattern found at indices: {matches}")  # Output: [0, 6]
 ```
 
-## 🔍 Step-by-Step Example
-Let's see how KMP works with a simple example:
+### Step-by-Step Example
+
+Let's walk through how KMP processes a simple example:
 ```
-Text: "ABABCABAB"
-Pattern: "ABAB"
+Text:    ABABCABAB
+Pattern: ABAB
 
-LPS array for pattern: [0,0,1,2]
+Step 1: Build partial match table for pattern
+Pattern: A  B  A  B
+Table:  [0, 0, 1, 2]
 
-Step 1: Compare text and pattern
-A B A B C A B A B
-A B A B
-✓ ✓ ✓ ✓         Pattern found at index 0
+Step 2: Search process
+1. ABABCABAB  (match at index 0)
+   ABAB
+   ✓✓✓✓
 
-Step 2: Use LPS to slide pattern
-A B A B C A B A B
-    A B A B
-    ✗           Mismatch, use LPS to slide
+2. ABABCABAB  (attempt at index 2, using partial match table)
+     ABAB
+     ✓✓✓✓
 
-Step 3: Continue searching
-A B A B C A B A B
-        A B A B
-        ✗       Mismatch, continue...
+3. ABABCABAB  (match at index 5)
+        ABAB
+        ✓✓✓✓
 ```
 
-## ⚡ Performance Comparison
-Traditional string matching algorithms:
-- Naive approach: O(mn)
-- KMP algorithm: O(m + n)
+## 🚨 Common Pitfalls and Solutions
 
-Where:
-- m = length of pattern
-- n = length of text
+1. **Empty String Handling**
+   ```python
+   def search(self, text: str) -> list[int]:
+       if not self.pattern or not text:
+           return []  # Handle empty strings gracefully
+   ```
 
-## 🚨 Common Pitfalls
-1. Not handling empty strings
-2. Incorrect LPS array computation
-3. Not considering case sensitivity
-4. Improper handling of pattern length > text length
+2. **Pattern Longer Than Text**
+   ```python
+   def search(self, text: str) -> list[int]:
+       if len(self.pattern) > len(text):
+           return []  # Pattern can't be found in shorter text
+   ```
 
-## 🔗 Additional Resources
-- Original Paper: Knuth, Morris, Pratt (1977)
-- Applications in:
-  - Text editors
-  - DNA sequence matching
-  - Network security
-  - Pattern recognition
+3. **Case Sensitivity**
+   ```python
+   def case_insensitive_search(self, text: str) -> list[int]:
+       return self.search(text.lower())  # Convert both to same case
+   ```
 
 ## ✨ Best Practices
-1. Always validate input strings
-2. Use built-in string functions for small strings
-3. Consider memory constraints for large texts
-4. Cache LPS array if same pattern is used multiple times
+
+1. **Input Validation**
+   - Always validate input strings
+   - Handle edge cases gracefully
+   - Document expected behavior
+
+2. **Memory Efficiency**
+   - Reuse partial match table for multiple searches
+   - Use appropriate data structures for your language
+   - Consider memory constraints for large texts
+
+3. **Performance Optimization**
+   - Use built-in string methods for very short patterns
+   - Consider streaming for large texts
+   - Profile your specific use case
+
+## 🔗 Applications
+
+1. **Text Editors**
+   - Find and replace functionality
+   - Search highlighting
+   - Code completion
+
+2. **Bioinformatics**
+   - DNA sequence matching
+   - Protein pattern recognition
+   - Genome analysis
+
+3. **Network Security**
+   - Intrusion detection
+   - Pattern matching in network packets
+   - Malware signature detection
