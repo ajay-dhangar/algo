@@ -1,17 +1,18 @@
 ---
-id: Abstraction
-title: Abstraction in Object Oriented Programming
-sidebar_label: Generate Detail about Abstraction
-description: "Abstraction in Java is the process of hiding unnecessary implementation details from the user, focusing on exposing only the essential functionalities. It allows developers to interact with objects at a higher level, without needing to understand the complexities of the underlying code. This ensures that the program is more modular, maintainable, and user-friendly."
+id: abstraction
+title: "Abstraction in Object-Oriented Programming"
+sidebar_label: "Generate Details about Abstraction"
+description: "Abstraction in Java is the process of hiding unnecessary implementation details from the user, focusing on exposing only the essential functionalities"
 tags: [Abstraaction, OOPS, Java]
 ---
-# Abstraction 
+
+<Ads />
 
 - In simple terms, abstraction “displays” only the relevant attributes of objects and “hides” the unnecessary details.
 
-- It is the process of hiding internal implementation details from the user and providing only necessary functionality to the users. It removes all non-essential things and shows only important things to users.
+- It is the process of hiding internal implementation details from the user and providing only necessary functionality. It removes all non-essential items and shows only important ones to users.
 
-For example, when we are driving a car, we are only concerned about driving the car like start/stop the car, accelerate/ break, etc. We are not concerned about how the actual start/stop mechanism or accelerate/brake process works internally. We are just not interested in those details.
+For example, when we are driving a car, we are only concerned about the basics, such as starting/stopping the car, accelerating/breaking, etc. We are not concerned about how the actual start/stop mechanism or acceleration/brake process works internally. We are just not interested in those details.
 
 In other words, Abstraction in Java is a technique by which we can hide the data that is not required to a user
 
@@ -19,34 +20,39 @@ Abstraction forces to use Inheritance
 
 Example
 
-We all use an ATM machine for cash withdrawal, money transfer, retrieve min-statement, etc in our daily life. But we don't know internally what things are happening inside ATM machine when you insert ATM card for performing any kind of operations.
+In our daily lives, we all use an ATM for cash withdrawals, money transfers, retrieving min-statements, etc. But we don't know internally what things are happening inside ATM when you insert an ATM card for performing any kind of operations.
 
-## Abstraction in java
+## Abstraction in Java
 
-There are two ways to achieve abstraction in java. They are as follows:
+There are two ways to achieve abstraction in Java. They are as follows:
 * 1. Abstract class (0 to 100%)
 * 2. Interface (100%)
 
 ### Advantages
 
-  **1**. It reduces the complexity of viewing the things.
+  **1**. It reduces the complexity of viewing things.
   **2**. Avoids code duplication and increases reusability.
-  **3**. Helps to increase security of an application or program as only important details are provided to the user.
-  **4**. Programmer can implement abstract method to perform different tasks depending on the need. 
+  **3**. Helps to increase the security of an application or program as only important details are provided to the user.
+  **4**. Programmers can implement abstract methods to perform different tasks depending on the need. 
+
+<Ads />
 
 ### Abstract Class in Java
-An abstract class is a class, which is declared with `abstract` keyword. It is just like a normal class but has two differences.
+
+An abstract class is a class, that is declared with the `abstract` keyword. It is just like a normal class but has two differences.
 
 * 1. We cannot create an object of this class. Only objects of its non-abstract (or concrete) sub-classes can be created.
  
  * 2. It can have zero or more abstract methods which are not allowed in a non-abstract class (concrete class).
 
- :bulb: Key points:
-* 1. Abstract is a non-access modifier in java which is applicable for classes, interfaces, methods, and inner classes. It represents an incomplete class which depends on subclasses for its implementation. Creating subclass is compulsory for abstract class.
+Key points:
+* 1. The abstract is a non-access modifier in java which is applicable for classes, interfaces, methods, and inner classes. It represents an incomplete class which depends on subclasses for its implementation. Creating a subclass is compulsory for abstract classes.
 - 2. A non-abstract class is sometimes called a concrete class.
-- 3. An abstract concept is not applicable to variables.
+- 3. An abstract concept does not apply to variables.
 
-```An abstract class can have a data member, abstract method, method body (non-abstract method), constructor, and even main() method.```
+:::tip
+An abstract class can have a data member, abstract method, method body (non-abstract method), constructor, and even main() method.
+:::
 
 ### Abstract Method in Java
 A method which is declared with abstract modifier and has no implementation (means no body) is called an abstract method in java. It does not contain any body. It has simply a signature declaration followed by a semicolon. It has the following general form as given below.
@@ -62,14 +68,14 @@ For example:
 Since the abstract method does not contain any body. Therefore, it is also known as an incomplete method in java.
 A non-abstract class cannot have an abstract method whether it is inherited or declared. In Java.
 
- :bulb: Key points:
-- 1. Abstract method cannot be static.
+Key points:
+- 1. The abstract method cannot be static.
 - 2. It cannot be private because the abstract method must be implemented in the subclass. If we declare it as private, we cannot implement it from outside the class.
 - 3. A concrete method is a method which has always the body. It is also called a complete method in java.
 
 
 - Declares the existence of methods but not the implementation of those.
-- An abstract class defines behaviors that can vary due to polymorphism and that each explicit class that inherits from it must implement depending on its specific need.
+- An abstract class defines behaviours that can vary due to polymorphism and that each explicit class that inherits from it must implement depending on its specific need.
 - You cannot have an instance of an abstract class
 - For a class to be abstract at least one of its methods must be abstract (this is the difference between a conventional class and an abstract class)
 - An abstract class cannot be instantiated but it can be inherited (Objects cannot be created directly with new)
@@ -79,7 +85,10 @@ A non-abstract class cannot have an abstract method whether it is inherited or d
 
 An abstract class forces you to use inheritance
 
+<Ads />
+
 Example Abstract class
+
 ```java
 abstract class Car{  
   abstract void run();  
@@ -131,9 +140,9 @@ gear changed
 
 ## Interface
 
-Another way to achieve abstraction in Java, is with interfaces.
+Another way to achieve abstraction in Java is with interfaces.
 
-The interface in Java is a mechanism to achieve abstraction. There can be only abstract methods in the Java interface, not method body. It is used to achieve abstraction and multiple inheritance in Java.
+The interface in Java is a mechanism to achieve abstraction. There can be only abstract methods in the Java interface, not a method body. It is used to achieve abstraction and multiple inheritance in Java.
 
 - It is an abstract class, that is, it cannot be instantiated
 - Since Java 8, we can have default and static methods in an interface.
@@ -172,6 +181,8 @@ class Main {
   }
 }
 ```
+
+<Ads />
 
 ### Multiple Interfaces 
 
@@ -218,7 +229,7 @@ class Main {
   - Java does not support "multiple inheritance" (a class can only inherit from one superclass). However, it can be achieved with interfaces, because the class can implement multiple interfaces. Note: To implement multiple interfaces, separate them with a comma (see example below).
   - It can be used to achieve loose coupling.
 
-
+<Ads />
 
 
 ## The relationship between classes and interfaces
@@ -249,6 +260,8 @@ System.out.println("ROI: "+b.rateOfInterest());
 }}  
 ```
 
+<Ads />
+
 ## Multiple inheritance in Java by interface
 
 If a class implements multiple interfaces, or an interface extends multiple interfaces, it is known as multiple inheritance.
@@ -257,7 +270,9 @@ If a class implements multiple interfaces, or an interface extends multiple inte
 <img height="350" src="https://user-images.githubusercontent.com/13514156/120522069-b4c32580-c39a-11eb-9c48-6331fe379440.png">
 </p>
 
-```Multiple inheritance is not supported through class in java, but it is possible by an interface```
+:::tip
+Multiple inheritance is not supported through class in Java, but it is possible by an interface.
+:::
 
 As we have explained in the inheritance chapter, multiple inheritance is not supported in the case of class because of ambiguity. However, it is supported in case of an interface because there is no ambiguity. It is because its implementation is provided by the implementation class. For example:
 
@@ -276,7 +291,9 @@ TestInterface3 obj = new TestInterface3();
 obj.print();  
  }  
 } 
+```
 
+<Ads />
 
 ## Interface inheritance
 
@@ -301,6 +318,8 @@ obj.show();
 }  
 ```
 
+<Ads />
+
 ## Default Method in Interface
 
 ```java
@@ -323,9 +342,11 @@ drawing rectangle
 default method
 ```
 
+<Ads />
+
 ## Static Method in Interface
 
-Since Java 8, we can have static method in interface
+Since Java 8, we can have static methods in the interface
 
 ```java
 interface Drawable{  
@@ -344,27 +365,29 @@ System.out.println(Drawable.cube(3));
 }} 
 ```
 
+<Ads />
+
 ## Difference between abstract class and interface
 
 The main difference between interface and abstract class is that an interface provides an encapsulation mechanism for method protocols without forcing the user to use inheritance.
 
-But there are many differences between abstract class and interface that are given below.
+However, there are many differences between abstract class and interface that are given below.
 
 | Abstract class	| Interface|
 |---|---|
 | Abstract class can have abstract and non-abstract methods. |	Interface can have only abstract methods. Since Java 8, it can have default and static methods also.|
 | Abstract class doesn't support multiple inheritance. | Interface supports multiple inheritance.|
 | Abstract class can have final, non-final, static and non-static variables.	| Interface has only static and final variables.|
-| Abstract class can provide the implementation of interface.	| Interface can't provide the implementation of abstract class.|
-| The abstract keyword is used to declare abstract class.	| The interface keyword is used to declare interface.|
+| Abstract class can provide the implementation of an interface.	| Interface can't provide the implementation of an abstract class.|
+| The abstract keyword is used to declare an abstract class.	| The interface keyword is used to declare an interface.|
 | An abstract class can extend another Java class and implement multiple Java interfaces.	| An interface can extend another Java interface only.|
-| An abstract class can be extended using keyword "extends".	| An interface can be implemented using keyword "implements".|
+| An abstract class can be extended using the keyword "extends".	| An interface can be implemented using the keyword "implements".|
 | A Java abstract class can have class members like private, protected, etc.	| Members of a Java interface are public by default.|
-| An abstract class can inherit from a single class (abstract or not) | interface can extend several interfaces at the same time. |
-| An abstract class can have methods that are or are not abstract | interfaces can only and exclusively define abstract methods or a default method |
+| An abstract class can inherit from a single class (abstract or not) | Interface can extend several interfaces at the same time. |
+| An abstract class can have methods that are or are not abstract | Interfaces can only and exclusively define abstract methods or a default method |
 | In abstract classes the word abstract is mandatory to define an abstract method (as well as the class) | When you define an interface, this word is optional since it is inferred in the concept of interface.|
-| Abstract classes, unlike interfaces, can have constructors, default method implementations and can only be inherited once from these. | Although in java 8, default implementations are allowed, they cannot contain constructors. In the case of interfaces, if you can implement multiple of these |
-| abstract classes are more used for base type objects. It is like the parent in the hierarchy in a set of objects that share the same parent. | The interfaces are known as a contract. This is because they force you to implement their methods, which ensures all business logic that every object that implements it will have access to the methods defined in it. |
+| Abstract classes, unlike interfaces, can have constructors, and default method implementations and can only be inherited once from these. | Although in java 8, default implementations are allowed, they cannot contain constructors. In the case of interfaces, if you can implement multiple of these |
+| Abstract classes are more used for base-type objects. It is like the parent in the hierarchy in a set of objects that share the same parent. | The interfaces are known as a contract. This is because they force you to implement their methods, which ensures all business logic that every object that implements it will have access to the methods defined in it. |
 | Abstract think more about objects | Interface think more about implementation |
 
 | parameters | Abstract class | Interface |
@@ -374,7 +397,3 @@ But there are many differences between abstract class and interface that are giv
 | Access modifiers | All access modifiers |  Only public acces modifiers |
 | speed | Fast | Slow |
 | When to used | To avoid independence | For future Enhancement |
-
-
-
-
