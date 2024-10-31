@@ -1,5 +1,7 @@
 # [Algo](https://ajay-dhangar.github.io/algo/) - Open Source Algorithm Repository
 
+<img src="https://profile-counter.glitch.me/ajay-dhangar/count.svg" alt="hit counter" align="center">
+
 ## introduction
 Welcome to **Algo**, an open-source project that provides developers with algorithmic solutions and resources. Whether you're a beginner or an experienced coder, you can contribute, learn, and grow with us! 🚀
 
