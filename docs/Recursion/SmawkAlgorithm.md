@@ -204,7 +204,7 @@ int main() {
 
     vector<int> minima_indices = smawk(matrix);
 
-    cout << "Row-wise minimum indices:\n";
+    cout << "Row-wise minimum indices is :\n";
     for (int i = 0; i < minima_indices.size(); ++i) {
         cout << "Row " << i << ": Column " << minima_indices[i] << "\n";
     }
