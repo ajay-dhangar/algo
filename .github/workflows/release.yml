@@ -1,40 +1,55 @@
-name: "Release"
+name: Release
 
 on:
   push:
     tags:
-      - "v*"
+      - 'v*.*.*'  # Trigger the workflow on tags like v1.0.0, v1.1.0, etc.
 
 jobs:
   release:
-    name: "Create Release"
+    name: Build and Release Algo Site
     runs-on: ubuntu-latest
 
     steps:
-    - name: "Checkout Code"
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: "Set up Node.js"
-      uses: actions/setup-node@v3
-      with:
-        node-version: "20"
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: "Install Dependencies"
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: "Create GitHub Release"
-      uses: actions/create-release@v1
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: "Release ${{ github.ref }}"
-        body: "Automated release generated from GitHub Actions."
-        draft: false
-        prerelease: false
+      - name: Build Algo site
+        run: npm run build
 
-    - name: "Upload Release Assets"
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build.zip
-        asset_name: build.zip
-        asset_content_type: application/zip
+      - name: Generate Release Notes
+        id: release_notes
+        uses: release-drafter/release-drafter@v5
+        with:
+          config-name: '.github/release-drafter.yml' # Requires a Release Drafter config
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ github.ref_name }}   # Tag name from the push event
+          release_name: ${{ github.ref_name }}
+          body: ${{ steps.release_notes.outputs.body }}
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Built Site (Optional)
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build  # Directory containing built static site files (Algo build output)
+          asset_name: algo-site.zip
+          asset_content_type: application/zip
+
+  # Optionally, you could add additional jobs here to deploy to GitHub Pages if needed
