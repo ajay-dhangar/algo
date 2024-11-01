@@ -110,6 +110,11 @@ const config = {
             position: "left",
           },
           {
+            to: "Visualizing",
+            label: "Sorting Visualizer",
+            position: "left",
+          },
+          {
             to: "contributors",
             label: "Contributors",
             position: "left",
