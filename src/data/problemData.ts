@@ -2789,7 +2789,355 @@ class Solution:
           return dp[amount] if dp[amount] != float('inf') else -1
           `,
     },
-  }  
+  },
+  
+  quickSortAndMergeSort: {
+    title: "48. QuickSort and MergeSort",
+    description:
+      "Implement the QuickSort and MergeSort algorithms to sort an array of integers. QuickSort is a divide-and-conquer algorithm that selects a 'pivot' element and partitions the other elements into two sub-arrays according to whether they are less than or greater than the pivot. MergeSort also uses divide-and-conquer by dividing the array into halves, sorting each half, and merging them back together.",
+    examples: [
+      {
+        input: "array = [3, 6, 8, 10, 1, 2, 1]",
+        output: "[1, 1, 2, 3, 6, 8, 10]",
+        explanation:
+          "The array is sorted in ascending order using either QuickSort or MergeSort.",
+      },
+      {
+        input: "array = [5, 2, 9, 1, 5, 6]",
+        output: "[1, 2, 5, 5, 6, 9]",
+        explanation:
+          "Both sorting algorithms yield the same sorted array.",
+      },
+      {
+        input: "array = []",
+        output: "[]",
+        explanation:
+          "An empty array remains empty after sorting.",
+      },
+    ],
+    solution: {
+      cpp: `
+#include <vector>
+using namespace std;
+
+// QuickSort
+void quickSort(vector<int>& nums, int low, int high) {
+    if (low < high) {
+        int pivot = partition(nums, low, high);
+        quickSort(nums, low, pivot - 1);
+        quickSort(nums, pivot + 1, high);
+    }
+}
+
+int partition(vector<int>& nums, int low, int high) {
+    int pivot = nums[high];
+    int i = low - 1;
+    for (int j = low; j < high; j++) {
+        if (nums[j] < pivot) {
+            i++;
+            swap(nums[i], nums[j]);
+        }
+    }
+    swap(nums[i + 1], nums[high]);
+    return i + 1;
+}
+
+// MergeSort
+void mergeSort(vector<int>& nums, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        mergeSort(nums, left, mid);
+        mergeSort(nums, mid + 1, right);
+        merge(nums, left, mid, right);
+    }
+}
+
+void merge(vector<int>& nums, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    vector<int> L(n1), R(n2);
+    for (int i = 0; i < n1; i++) L[i] = nums[left + i];
+    for (int j = 0; j < n2; j++) R[j] = nums[mid + 1 + j];
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) nums[k++] = L[i++];
+        else nums[k++] = R[j++];
+    }
+    while (i < n1) nums[k++] = L[i++];
+    while (j < n2) nums[k++] = R[j++];
+}
+`,
+
+      java: `
+import java.util.Arrays;
+
+public class Solution {
+    // QuickSort
+    public void quickSort(int[] nums, int low, int high) {
+        if (low < high) {
+            int pivot = partition(nums, low, high);
+            quickSort(nums, low, pivot - 1);
+            quickSort(nums, pivot + 1, high);
+        }
+    }
+
+    private int partition(int[] nums, int low, int high) {
+        int pivot = nums[high];
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (nums[j] < pivot) {
+                i++;
+                swap(nums, i, j);
+            }
+        }
+        swap(nums, i + 1, high);
+        return i + 1;
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    // MergeSort
+    public void mergeSort(int[] nums, int left, int right) {
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            mergeSort(nums, left, mid);
+            mergeSort(nums, mid + 1, right);
+            merge(nums, left, mid, right);
+        }
+    }
+
+    private void merge(int[] nums, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+        for (int i = 0; i < n1; i++) L[i] = nums[left + i];
+        for (int j = 0; j < n2; j++) R[j] = nums[mid + 1 + j];
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) nums[k++] = L[i++];
+            else nums[k++] = R[j++];
+        }
+        while (i < n1) nums[k++] = L[i++];
+        while (j < n2) nums[k++] = R[j++];
+    }
+}
+`,
+
+      python: `
+class Solution:
+    # QuickSort
+    def quickSort(self, nums: List[int], low: int, high: int) -> None:
+        if low < high:
+            pivot = self.partition(nums, low, high)
+            self.quickSort(nums, low, pivot - 1)
+            self.quickSort(nums, pivot + 1, high)
+
+    def partition(self, nums: List[int], low: int, high: int) -> int:
+        pivot = nums[high]
+        i = low - 1
+        for j in range(low, high):
+            if nums[j] < pivot:
+                i += 1
+                nums[i], nums[j] = nums[j], nums[i]
+        nums[i + 1], nums[high] = nums[high], nums[i + 1]
+        return i + 1
+
+    # MergeSort
+    def mergeSort(self, nums: List[int], left: int, right: int) -> None:
+        if left < right:
+            mid = left + (right - left) // 2
+            self.mergeSort(nums, left, mid)
+            self.mergeSort(nums, mid + 1, right)
+            self.merge(nums, left, mid, right)
+
+    def merge(self, nums: List[int], left: int, mid: int, right: int) -> None:
+        n1 = mid - left + 1
+        n2 = right - mid
+        L = nums[left:left + n1]
+        R = nums[mid + 1:mid + 1 + n2]
+        i = j = 0
+        k = left
+        while i < n1 and j < n2:
+            if L[i] <= R[j]:
+                nums[k] = L[i]
+                i += 1
+            else:
+                nums[k] = R[j]
+                j += 1
+            k += 1
+        while i < n1:
+            nums[k] = L[i]
+            i += 1
+            k += 1
+        while j < n2:
+            nums[k] = R[j]
+            j += 1
+            k += 1
+`,
+    },
+},
+
+countInversions: {
+    title: "Count Inversions in an Array",
+    description:
+      "Implement a function to count the number of inversions in an array. An inversion is defined as a pair of indices (i, j) such that i < j and arr[i] > arr[j]. This can be achieved efficiently using a modified MergeSort algorithm, which counts inversions while merging.",
+    examples: [
+      {
+        input: "array = [2, 4, 1, 3, 5]",
+        output: "3",
+        explanation:
+          "The inversions are (2, 1), (4, 1), and (4, 3).",
+      },
+      {
+        input: "array = [1, 20, 6, 4, 5]",
+        output: "5",
+        explanation:
+          "The inversions are (1, 6), (1, 4), (1, 5), (20, 6), and (20, 4).",
+      },
+      {
+        input: "array = [1, 2, 3, 4, 5]",
+        output: "0",
+        explanation:
+          "There are no inversions in a sorted array.",
+      },
+    ],
+    solution: {
+      cpp: `
+#include <vector>
+using namespace std;
+
+int mergeAndCount(vector<int>& arr, int left, int mid, int right) {
+    int i = left; 
+    int j = mid + 1; 
+    int k = 0; 
+    int inv_count = 0; 
+    vector<int> temp(right - left + 1);
+
+    while (i <= mid && j <= right) {
+        if (arr[i] <= arr[j]) {
+            temp[k++] = arr[i++];
+        } else {
+            temp[k++] = arr[j++];
+            inv_count += (mid - i + 1); // Count inversions
+        }
+    }
+
+    while (i <= mid) temp[k++] = arr[i++];
+    while (j <= right) temp[k++] = arr[j++];
+
+    for (int i = left; i <= right; i++) arr[i] = temp[i - left];
+
+    return inv_count;
+}
+
+int mergeSortAndCount(vector<int>& arr, int left, int right) {
+    int inv_count = 0;
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        inv_count += mergeSortAndCount(arr, left, mid);
+        inv_count += mergeSortAndCount(arr, mid + 1, right);
+        inv_count += mergeAndCount(arr, left, mid, right);
+    }
+    return inv_count;
+}
+
+int countInversions(vector<int>& arr) {
+    return mergeSortAndCount(arr, 0, arr.size() - 1);
+}
+`,
+
+      java: `
+public class Solution {
+    public int mergeAndCount(int[] arr, int left, int mid, int right) {
+        int i = left;
+        int j = mid + 1;
+        int k = 0;
+        int invCount = 0;
+        int[] temp = new int[right - left + 1];
+
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+                invCount += (mid - i + 1);
+            }
+        }
+
+        while (i <= mid) temp[k++] = arr[i++];
+        while (j <= right) temp[k++] = arr[j++];
+
+        for (int m = left; m <= right; m++) arr[m] = temp[m - left];
+
+        return invCount;
+    }
+
+    public int mergeSortAndCount(int[] arr, int left, int right) {
+        int invCount = 0;
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            invCount += mergeSortAndCount(arr, left, mid);
+            invCount += mergeSortAndCount(arr, mid + 1, right);
+            invCount += mergeAndCount(arr, left, mid, right);
+        }
+        return invCount;
+    }
+
+    public int countInversions(int[] arr) {
+        return mergeSortAndCount(arr, 0, arr.length - 1);
+    }
+}
+`,
+
+      python: `
+class Solution:
+    def mergeAndCount(self, arr, left, mid, right):
+        i = left
+        j = mid + 1
+        k = 0
+        inv_count = 0
+        temp = []
+
+        while i <= mid and j <= right:
+            if arr[i] <= arr[j]:
+                temp.append(arr[i])
+                i += 1
+            else:
+                temp.append(arr[j])
+                inv_count += (mid - i + 1)
+                j += 1
+
+        while i <= mid:
+            temp.append(arr[i])
+            i += 1
+        while j <= right:
+            temp.append(arr[j])
+            j += 1
+
+        for m in range(len(temp)):
+            arr[left + m] = temp[m]
+
+        return inv_count
+
+    def mergeSortAndCount(self, arr, left, right):
+        inv_count = 0
+        if left < right:
+            mid = left + (right - left) // 2
+            inv_count += self.mergeSortAndCount(arr, left, mid)
+            inv_count += self.mergeSortAndCount(arr, mid + 1, right)
+            inv_count += self.mergeAndCount(arr, left, mid, right)
+        return inv_count
+
+    def countInversions(self, arr):
+        return self.mergeSortAndCount(arr, 0, len(arr) - 1)
+`,
+    },
+},
 };
 
 export default problemsData;
