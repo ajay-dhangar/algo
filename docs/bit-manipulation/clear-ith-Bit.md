@@ -1,11 +1,11 @@
 ---
 id: clear-ith-bit
-tittle: 
-sidebar-level:
-sidebar-position:
-tags:
+tittle: Clear ith Bit
+sidebar-level: Clear ith Bit
+sidebar-position: 2
+Description: Clearing the i-th bit in a number is a nifty bit manipulation technique. This involves setting the i-th bit to 0, leaving all other bits unchanged.
+tags: [dsa, bit manipulation, clear bits]
 ---
-
 
 # Description
 
