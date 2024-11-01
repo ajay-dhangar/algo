@@ -1,5 +1,5 @@
 ---
-id: isPowerOfTwo
+id: is-power-of-two
 sidebar_position: 1
 title: check isPowerOfTwo
 sidebar_label: Is power of two?
