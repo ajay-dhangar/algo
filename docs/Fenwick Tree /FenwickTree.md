@@ -1,5 +1,5 @@
 ---
-id: FenwickTree
+id: fenwick-tree
 title: "Introduction to Fenwick Tree (Binary Indexed Tree)"
 sidebar_label: "Fenwick Tree"
 sidebar_position: 1
@@ -27,7 +27,7 @@ The Fenwick Tree, also known as a Binary Indexed Tree (BIT), is a data structure
 ### Time Complexity
 - Both update and query operations are `O(log N)` where `N` is the number of elements, due to the logarithmic depth of the tree.
 
-![Fenwick Tree Diagram](./fenwick_tree_diagram.png "Example of Fenwick Tree for an Array")
+![Fenwick Tree Diagram](https://media.geeksforgeeks.org/wp-content/cdn-uploads/BITSum.png "Example of Fenwick Tree for an Array")
 
 ## Pseudocode
 
