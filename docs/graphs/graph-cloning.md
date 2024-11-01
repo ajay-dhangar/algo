@@ -49,10 +49,11 @@ To clone a graph, perform a depth-first search (DFS) or breadth-first search (BF
 - The time complexity of the graph cloning algorithm is `O(V + E)`, where `V` is the number of vertices and `E` is the number of edges. Each node and its neighbors are visited once during the DFS traversal, making the process linear with respect to the graph's size. The use of a map to track visited nodes ensures efficient lookups.
 
 ### Sample Input:
-     //  0
+    ``` 
+         0
         / \
        1---2
-        
+    ```
 ### Sample Output:
     Original graph:
     Node: 0 Neighbors: 1 2
@@ -147,8 +148,5 @@ int main() {
 
     return 0;
 }
-
-
-
 ```
-Footer
+
