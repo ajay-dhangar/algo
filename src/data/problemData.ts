@@ -2527,6 +2527,269 @@ class Solution:
           `,
     },
   },
+
+  longestIncreasingSubsequence: {
+    title: "45. Longest Increasing Subsequence",
+    description:
+      "Given an array arr[] of size N, find the length of the longest subsequence of the array which is strictly increasing.",
+    examples: [
+      {
+        input: "N = 6, arr = [5, 8, 3, 7, 9, 1]",
+        output: "3",
+        explanation: "The longest increasing subsequence is [5, 7, 9], so the length is 3.",
+      },
+      {
+        input: "N = 4, arr = [3, 10, 2, 1, 20]",
+        output: "3",
+        explanation: "The longest increasing subsequence is [3, 10, 20], so the length is 3.",
+      },
+    ],
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
+
+  class Solution {
+  public:
+      int longestIncreasingSubsequence(int n, vector<int>& arr) {
+          vector<int> lis(n, 1);
+
+          for (int i = 1; i < n; i++) {
+              for (int j = 0; j < i; j++) {
+                  if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+                      lis[i] = lis[j] + 1;
+                  }
+              }
+          }
+
+          return *max_element(lis.begin(), lis.end());
+      }
+  };`,
+
+      java: `
+  import java.util.*;
+
+  class Solution {
+      public int longestIncreasingSubsequence(int n, int[] arr) {
+          int[] lis = new int[n];
+          Arrays.fill(lis, 1);
+
+          for (int i = 1; i < n; i++) {
+              for (int j = 0; j < i; j++) {
+                  if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+                      lis[i] = lis[j] + 1;
+                  }
+              }
+          }
+
+          int max = 0;
+          for (int length : lis) {
+              max = Math.max(max, length);
+          }
+          return max;
+      }
+  };`,
+
+      python: `
+  from typing import List
+
+  class Solution:
+      def longestIncreasingSubsequence(self, n: int, arr: List[int]) -> int:
+          lis = [1] * n
+
+          for i in range(1, n):
+              for j in range(i):
+                  if arr[i] > arr[j]:
+                      lis[i] = max(lis[i], lis[j] + 1)
+
+          return max(lis)
+          `,
+    },
+  },
+
+  intersectionOfTwoLinkedLists: {
+    title: "46. Intersection of Two Linked Lists",
+    description:
+      "Given the heads of two singly linked lists, headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection, return null.",
+    examples: [
+      {
+        input: "headA = [4,1,8,4,5], headB = [5,6,1,8,4,5]",
+        output: "Intersected at '8'",
+        explanation:
+          "The two linked lists intersect at node '8'.",
+      },
+      {
+        input: "headA = [1,9,1,2,4], headB = [3,2,4]",
+        output: "Intersected at '2'",
+        explanation:
+          "The two linked lists intersect at node '2'.",
+      },
+      {
+        input: "headA = [2,6,4], headB = [1,5]",
+        output: "null",
+        explanation:
+          "The two linked lists do not intersect, so the output is null.",
+      },
+    ],
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
+
+  struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
+
+  class Solution {
+  public:
+      ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+          if (!headA || !headB) return NULL;
+
+          ListNode *a = headA;
+          ListNode *b = headB;
+
+          while (a != b) {
+              a = a ? a->next : headB;
+              b = b ? b->next : headA;
+          }
+
+          return a;
+      }
+  };`,
+
+      java: `
+  public class ListNode {
+      int val;
+      ListNode next;
+      ListNode(int x) {
+          val = x;
+          next = null;
+      }
+  }
+
+  public class Solution {
+      public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+          if (headA == null || headB == null) return null;
+
+          ListNode a = headA;
+          ListNode b = headB;
+
+          while (a != b) {
+              a = (a != null) ? a.next : headB;
+              b = (b != null) ? b.next : headA;
+          }
+
+          return a;
+      }
+  };`,
+
+      python: `
+  class ListNode:
+      def __init__(self, x):
+          self.val = x
+          self.next = None
+
+  class Solution:
+      def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+          if not headA or not headB:
+              return None
+
+          a, b = headA, headB
+
+          while a != b:
+              a = a.next if a else headB
+              b = b.next if b else headA
+
+          return a
+          `,
+    },
+  },
+
+  coinChange: {
+    title: "47. Coin Change",
+    description:
+      "Given an integer array 'coins' representing different coin denominations and an integer 'amount' representing a total amount of money, return the fewest number of coins that you need to make up that amount. If that amount cannot be made up by any combination of the coins, return -1.",
+    examples: [
+      {
+        input: "coins = [1, 2, 5], amount = 11",
+        output: "3",
+        explanation:
+          "The fewest number of coins needed is 3: 11 = 5 + 5 + 1.",
+      },
+      {
+        input: "coins = [2], amount = 3",
+        output: "-1",
+        explanation:
+          "It is not possible to make up the amount 3 with only coin of denomination 2.",
+      },
+      {
+        input: "coins = [1], amount = 0",
+        output: "0",
+        explanation:
+          "The amount is already 0, so no coins are needed.",
+      },
+    ],
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
+  
+  class Solution {
+  public:
+      int coinChange(vector<int>& coins, int amount) {
+          vector<int> dp(amount + 1, amount + 1);
+          dp[0] = 0;
+  
+          for (int i = 1; i <= amount; i++) {
+              for (int coin : coins) {
+                  if (i - coin >= 0) {
+                      dp[i] = min(dp[i], 1 + dp[i - coin]);
+                  }
+              }
+          }
+  
+          return dp[amount] == amount + 1 ? -1 : dp[amount];
+      }
+  };`,
+  
+      java: `
+  import java.util.Arrays;
+  
+  public class Solution {
+      public int coinChange(int[] coins, int amount) {
+          int[] dp = new int[amount + 1];
+          Arrays.fill(dp, amount + 1);
+          dp[0] = 0;
+  
+          for (int i = 1; i <= amount; i++) {
+              for (int coin : coins) {
+                  if (i - coin >= 0) {
+                      dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
+                  }
+              }
+          }
+  
+          return dp[amount] == amount + 1 ? -1 : dp[amount];
+      }
+  };`,
+  
+      python: `
+  class Solution:
+      def coinChange(self, coins: List[int], amount: int) -> int:
+          dp = [float('inf')] * (amount + 1)
+          dp[0] = 0
+  
+          for i in range(1, amount + 1):
+              for coin in coins:
+                  if i - coin >= 0:
+                      dp[i] = min(dp[i], 1 + dp[i - coin])
+  
+          return dp[amount] if dp[amount] != float('inf') else -1
+          `,
+    },
+  }  
 };
 
 export default problemsData;
