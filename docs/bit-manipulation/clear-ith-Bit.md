@@ -17,9 +17,9 @@ Clearing the i-th bit in a number is a common bit manipulation technique. This o
 **2. AND Operation:** Perform a bitwise AND between the original number and the mask. This will clear the i-th bit while keeping all other bits unchanged.
 
 ## Formula 
-> mask =∼ (1<<𝑖)
+> `mask =∼ (1<<𝑖)`
 
-> result = num&mask
+> `result = num&mask`
 
 
 # Code in Java
@@ -39,7 +39,7 @@ public class clearIthBit {
 ```
 
 # Explanation:
-• **Create Mask:** The mask ~(1 << i) flips all bits of 1 << i. For i = 2, 1 << 2 results in 00000100, and ~00000100 results in 11111011.
+• **Create Mask:** The mask `~(1 << i)` flips all bits of `1 << i`. For i = 2, `1 << 2` results in 00000100, and ~00000100 results in 11111011.
 
 • **AND Operation:** Performing num & mask clears the i-th bit. If num = 29 (binary 11101), then 29 & 11111011 results in 11001 (binary 11001, decimal 25).
 
@@ -47,10 +47,10 @@ public class clearIthBit {
 
 ## Bitwise Operators:
 
-➔ ~: Bitwise NOT (flips all bits)
+➔ `~`: Bitwise NOT (flips all bits)
 
-➔ &: Bitwise AND
+➔ `&`: Bitwise AND
 
-➔ <<: Left shift (shifts bits to the left)
+➔ `<<`: Left shift (shifts bits to the left)
 
 This technique is widely used in low-level programming, graphics, networking, and other areas where efficient bit manipulation is crucial.
