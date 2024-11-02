@@ -63,7 +63,7 @@ if __name__ == "__main__":
 2. $ 56 \mod 42 = 14 $
 3. $ 42 \mod 14 = 0 $
 
-$$ \text{GCD} = 14 $$
+$ \text{GCD} = 14 $
 
 ### Example 2: GCD of 101 and 103
 1. $ 103 \mod 101 = 2 $
