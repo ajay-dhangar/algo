@@ -3,7 +3,7 @@ id: reverse-pairs
 title: Count Reverse Pairs
 sidebar_label: Count Reverse Pairs
 sidebar_position: 1
-description: Count the number of reverse pairs in an array where i < j and arr[i] > 2 * arr[j].
+description: Count the number of reverse pairs in an array where i is less than j and the element at index i is greater than twice the element at index j.
 tags: [Merge Sort, Array]
 ---
 
