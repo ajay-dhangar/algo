@@ -153,3 +153,46 @@ if __name__ == "__main__":
     else:
         print("The strings are not isomorphic.")
 ```
+
+### JavaScript
+
+```javascript
+function areIsomorphic(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+
+    const mapping = new Map();
+    const mappedChars = new Set();
+
+    for (let i = 0; i < str1.length; i++) {
+        const char1 = str1[i];
+        const char2 = str2[i];
+
+        if (mapping.has(char1)) {
+            if (mapping.get(char1) !== char2) {
+                return false;
+            }
+        } else {
+            if (mappedChars.has(char2)) {
+                return false;
+            }
+
+            mapping.set(char1, char2);
+            mappedChars.add(char2);
+        }
+    }
+
+    return true;
+}
+
+// Usage
+const str1 = "egg";
+const str2 = "add";
+
+if (areIsomorphic(str1, str2)) {
+    console.log("The strings are isomorphic.");
+} else {
+    console.log("The strings are not isomorphic.");
+}
+```
