@@ -1,5 +1,5 @@
 ---
-id: Merge K Sorted Arrays
+id: merge-k-sorted-arrays
 title: Merge K Sorted Arrays
 sidebar_label: GFG
 tags: [GFG, Arrays, Sorting, Heap, DSA]
