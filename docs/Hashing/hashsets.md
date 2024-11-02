@@ -207,3 +207,116 @@ int main() {
     return 0;
 }
 ```
+
+### Example of HashSet Implementation in JavaScript
+
+
+### 1. **HashSet Implementation**
+
+```javascript
+class HashSet {
+    constructor(size = 1000) {
+        this.size = size;
+        this.table = Array.from({ length: size }, () => []);
+    }
+
+    hashFunction(key) {
+        let hash = 0;
+        for (const char of key) {
+            hash += char.charCodeAt(0);
+        }
+        return hash % this.size;
+    }
+
+    add(key) {
+        const index = this.hashFunction(key);
+        if (!this.table[index].includes(key)) {
+            this.table[index].push(key);
+        }
+    }
+
+    contains(key) {
+        const index = this.hashFunction(key);
+        return this.table[index].includes(key);
+    }
+
+    remove(key) {
+        const index = this.hashFunction(key);
+        this.table[index] = this.table[index].filter(item => item !== key);
+    }
+}
+
+// Example usage
+const hashSet = new HashSet();
+hashSet.add("apple");
+console.log("Contains 'apple':", hashSet.contains("apple"));  // Output: true
+hashSet.remove("apple");
+console.log("Contains 'apple':", hashSet.contains("apple"));  // Output: false
+```
+
+### 2. **Finding Duplicates in an Array**
+Problem: Given an array, determine if it contains any duplicates.
+
+```javascript
+function containsDuplicates(nums) {
+    const hashSet = new Set();
+    for (const num of nums) {
+        if (hashSet.has(num)) {
+            return true;  // Duplicate found
+        }
+        hashSet.add(num);
+    }
+    return false;  // No duplicates found
+}
+
+// Example usage
+console.log(containsDuplicates([1, 2, 3, 1]));  // Output: true
+console.log(containsDuplicates([1, 2, 3]));     // Output: false
+```
+
+### 3. **Intersection of Two Arrays**
+Problem: Given two arrays, return their intersection (common elements).
+
+```javascript
+function intersection(nums1, nums2) {
+    const set1 = new Set(nums1);
+    const result = [];
+    for (const num of nums2) {
+        if (set1.has(num)) {
+            result.push(num);
+            set1.delete(num);  // Avoid duplicates in result
+        }
+    }
+    return result;
+}
+
+// Example usage
+console.log(intersection([1, 2, 2, 1], [2, 2]));  // Output: [2]
+```
+
+### 4. **Unique Email Addresses**
+Problem: Given a list of email addresses, return the number of unique email addresses, ignoring periods . and any portion of the address after a plus sign + in the local name.
+
+```javascript
+function cleanEmail(email) {
+    const [local, domain] = email.split('@');
+    const cleanLocal = local.split('+')[0].replace(/\./g, '');
+    return `${cleanLocal}@${domain}`;
+}
+
+function uniqueEmails(emails) {
+    const uniqueSet = new Set();
+    for (const email of emails) {
+        uniqueSet.add(cleanEmail(email));
+    }
+    return uniqueSet.size;
+}
+
+// Example usage
+const emails = [
+    "test.email+alex@leetcode.com", 
+    "test.e.mail+bob@leetcode.com", 
+    "testemail+david@lee.tcode.com"
+];
+console.log("Unique emails:", uniqueEmails(emails));  // Output: 2
+```
