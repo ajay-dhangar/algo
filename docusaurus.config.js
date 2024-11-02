@@ -105,6 +105,11 @@ const config = {
             position: "left",
           },
           {
+            to: "Visualizing",
+            label: "Sorting Visualizer",
+            position: "left",
+          },
+          {
             to: "dsa-roadmap",
             label: "Pick Topic For Contribution",
             position: "left",
