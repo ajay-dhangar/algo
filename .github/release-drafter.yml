@@ -1,13 +1,19 @@
-name-template: "v$NEXT_PATCH_VERSION"
-tag-template: "v$NEXT_PATCH_VERSION"
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
 categories:
-  - title: "🚀 New Features"
+  - title: '🚀 New Features'
     labels:
-      - enhancement
-  - title: "🐛 Bug Fixes"
+      - 'feature'
+  - title: '🐛 Bug Fixes'
     labels:
-      - bug
-  - title: "📚 Documentation"
+      - 'bug'
+  - title: '📖 Documentation'
     labels:
-      - documentation
-change-template: "- $TITLE (#$NUMBER) @$AUTHOR"
+      - 'documentation'
+  - title: '🛠 Maintenance'
+    labels:
+      - 'chore'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+template: |
+  ## What's Changed
+  $CHANGES
