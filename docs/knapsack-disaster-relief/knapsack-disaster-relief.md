@@ -102,3 +102,53 @@ int main() {
 
 3. **Result:**
    - The final answer, which is the maximum achievable priority score, is stored in `dp[n][W]`.
+  
+### Optimised Approach 
+
+By using a 1D array, we reduce the space complexity to 𝑂(𝑊). Instead of maintaining a table of size `𝑛×𝑊`, we can maintain a single array `dp[W+1]`, updating it from right to left.
+
+### C++ Code 
+
+``` cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Optimized 0/1 Knapsack Solution with 1D DP array
+int knapsack(int W, vector<int>& weights, vector<int>& values, int n) {
+    // Create a 1D array to store the maximum priority score for each weight limit
+    vector<int> dp(W + 1, 0);
+
+    // Build the array in a bottom-up manner
+    for (int i = 0; i < n; i++) {
+        // Update the dp array from right to left to avoid overwriting the results
+        for (int w = W; w >= weights[i]; w--) {
+            dp[w] = max(dp[w], dp[w - weights[i]] + values[i]);
+        }
+    }
+
+    // Return the maximum priority score for the given weight limit
+    return dp[W];
+}
+
+int main() {
+    int W = 50;
+    vector<int> weights = {10, 20, 30};
+    vector<int> values = {60, 100, 120};
+    int n = weights.size();
+
+    // Output the result
+    cout << "Maximum priority score: " << knapsack(W, weights, values, n) << endl;
+    return 0;
+}
+```
+### Code Explanation
+
+1. **1D Array:**
+   - We use a 1D array dp of size `W+1` instead of a 2D array.
+
+2. **Right-to-Left Update:**
+   - For each item, we iterate through the weight limit W to weights[i] (from right to left). This is to avoid overwriting values in dp that are needed for the current iteration.
+
+3. **Efficiency:**
+   - This reduces space complexity from `𝑂(𝑛𝑊)` to `𝑂(𝑊)`, while still keeping the same time complexity `𝑂(𝑛𝑊)`.
