@@ -2983,7 +2983,7 @@ class Solution:
 },
 
 countInversions: {
-    title: "Count Inversions in an Array",
+    title: "49. Count Inversions in an Array",
     description:
       "Implement a function to count the number of inversions in an array. An inversion is defined as a pair of indices (i, j) such that i < j and arr[i] > arr[j]. This can be achieved efficiently using a modified MergeSort algorithm, which counts inversions while merging.",
     examples: [
@@ -3135,6 +3135,172 @@ class Solution:
 
     def countInversions(self, arr):
         return self.mergeSortAndCount(arr, 0, len(arr) - 1)
+`,
+    },
+},
+
+sortArray012: {
+    title: "50. Sort an Array of 0s, 1s, and 2s",
+    description:
+      "Implement a function to sort an array containing only 0s, 1s, and 2s. The task can be efficiently accomplished using the Dutch National Flag algorithm, which categorizes the elements in a single pass through the array.",
+    examples: [
+      {
+        input: "array = [2, 0, 1, 2, 0, 1, 1]",
+        output: "[0, 0, 1, 1, 1, 2, 2]",
+        explanation:
+          "The array is sorted in ascending order with all 0s followed by 1s and then 2s.",
+      },
+      {
+        input: "array = [1, 2, 0, 0, 1, 2]",
+        output: "[0, 0, 1, 1, 2, 2]",
+        explanation:
+          "After sorting, the array contains all 0s first, followed by 1s and then 2s.",
+      },
+      {
+        input: "array = []",
+        output: "[]",
+        explanation:
+          "An empty array remains empty after sorting.",
+      },
+    ],
+    solution: {
+      cpp: `
+#include <vector>
+using namespace std;
+
+void sortColors(vector<int>& nums) {
+    int low = 0, mid = 0, high = nums.size() - 1;
+    while (mid <= high) {
+        if (nums[mid] == 0) {
+            swap(nums[low++], nums[mid++]);
+        } else if (nums[mid] == 1) {
+            mid++;
+        } else {
+            swap(nums[mid], nums[high--]);
+        }
+    }
+}
+`,
+
+      java: `
+public class Solution {
+    public void sortColors(int[] nums) {
+        int low = 0, mid = 0, high = nums.length - 1;
+        while (mid <= high) {
+            if (nums[mid] == 0) {
+                swap(nums, low++, mid++);
+            } else if (nums[mid] == 1) {
+                mid++;
+            } else {
+                swap(nums, mid, high--);
+            }
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+}
+`,
+
+      python: `
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        low, mid, high = 0, 0, len(nums) - 1
+        while mid <= high:
+            if nums[mid] == 0:
+                nums[low], nums[mid] = nums[mid], nums[low]
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                nums[mid], nums[high] = nums[high], nums[mid]
+                high -= 1
+`,
+    },
+},
+
+searchInNearlySortedArray: {
+    title: "51. Perform a Search in a Nearly Sorted Array",
+    description:
+      "Implement a function to search for a target element in a nearly sorted array. In a nearly sorted array, each element is at most one position away from its original position. This allows for an efficient search using a modified binary search algorithm.",
+    examples: [
+      {
+        input: "array = [10, 3, 40, 20, 50, 80, 70], target = 20",
+        output: "3",
+        explanation:
+          "The target element 20 is found at index 3 in the array.",
+      },
+      {
+        input: "array = [10, 3, 40, 20, 50, 80, 70], target = 90",
+        output: "-1",
+        explanation:
+          "The target element 90 is not present in the array, so the output is -1.",
+      },
+      {
+        input: "array = [1], target = 1",
+        output: "0",
+        explanation:
+          "The array contains only one element, which is the target; thus, it is found at index 0.",
+      },
+    ],
+    solution: {
+      cpp: `
+#include <vector>
+using namespace std;
+
+int searchInNearlySortedArray(vector<int>& arr, int target) {
+    int n = arr.size();
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+        if (i > 0 && arr[i - 1] == target) {
+            return i - 1;
+        }
+        if (i < n - 1 && arr[i + 1] == target) {
+            return i + 1;
+        }
+    }
+    return -1;
+}
+`,
+
+      java: `
+public class Solution {
+    public int searchInNearlySortedArray(int[] arr, int target) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == target) {
+                return i;
+            }
+            if (i > 0 && arr[i - 1] == target) {
+                return i - 1;
+            }
+            if (i < n - 1 && arr[i + 1] == target) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+}
+`,
+
+      python: `
+class Solution:
+    def searchInNearlySortedArray(self, arr: List[int], target: int) -> int:
+        n = len(arr)
+        for i in range(n):
+            if arr[i] == target:
+                return i
+            if i > 0 and arr[i - 1] == target:
+                return i - 1
+            if i < n - 1 and arr[i + 1] == target:
+                return i + 1
+        return -1
 `,
     },
 },
