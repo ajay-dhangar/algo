@@ -59,18 +59,18 @@ if __name__ == "__main__":
 ## Example Walkthrough
 
 ### Example 1: GCD of 56 and 98
-1. $$ 98 \mod 56 = 42 $$
-2. $$ 56 \mod 42 = 14 $$
-3. $$ 42 \mod 14 = 0 $$
+1. $ 98 \mod 56 = 42 $
+2. $ 56 \mod 42 = 14 $
+3. $ 42 \mod 14 = 0 $
 
 $$ \text{GCD} = 14 $$
 
 ### Example 2: GCD of 101 and 103
-1. $$ 103 \mod 101 = 2 $$
-2. $$ 101 \mod 2 = 1 $$
-3. $$ 2 \mod 1 = 0 $$
+1. $ 103 \mod 101 = 2 $
+2. $ 101 \mod 2 = 1 $
+3. $ 2 \mod 1 = 0 $
 
-$$ \text{GCD} = 1 $$
+$ \text{GCD} = 1 $
 
 ## Applications and Use Cases
 - **Simplifying Fractions**: Reducing fractions to their simplest form.
@@ -79,9 +79,9 @@ $$ \text{GCD} = 1 $$
 
 ## Math Representation
 
-$$ a = b \times q + r $$
+$ a = b \times q + r $
 
-where $$ q $$ is the quotient and $$ r $$    is the remainder.
+where $ q $ is the quotient and $ r $    is the remainder.
 
 ## Diagrams 
 
