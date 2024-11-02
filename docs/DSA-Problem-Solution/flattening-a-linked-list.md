@@ -1,12 +1,11 @@
 ---
 id: flattening-a-linked-list
-title: "Flattening a linked list"
-sidebar_label: "flattening"
+title: "Flattening a linked list involves converting a multi-level linked list into a single-level linked list."
+sidebar_label: "flattening a linked list"
 sidebar_position: 15
-description: "Flattening a linked list  "
-tags: [linked list]
+description: "Flattening a linked list involves converting a multi-level linked list into a single-level linked list."
+tags: [linked list,flattening]
 ---
-
 
 # Flattening a Linked List
 

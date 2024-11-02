@@ -138,6 +138,53 @@ hash_table.table = {'apple': 10, 'banana': 20}
 hash_table.delete('apple')
 ```
 
+### Example Code (JavaScript)
+
+```javascript
+class HashTable {
+    constructor() {
+        this.table = new Map();
+    }
+
+    // Function to delete a key from the hash table
+    deleteKey(key) {
+        if (this.table.has(key)) {
+            this.table.delete(key);  // Erase the key if it exists
+            console.log(`Key ${key} deleted.`);
+        } else {
+            console.log(`Key ${key} not found.`);
+        }
+    }
+
+    // Function to insert a key-value pair into the hash table
+    insert(key, value) {
+        this.table.set(key, value);
+    }
+
+    // Function to display the hash table
+    display() {
+        for (const [key, value] of this.table.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+    }
+}
+
+// Example usage
+const ht = new HashTable();
+
+ht.insert(1, 100);
+ht.insert(2, 200);
+ht.insert(3, 300);
+
+console.log("Hash Table before deletion:");
+ht.display();
+
+ht.deleteKey(2);  // Deleting key 2
+
+console.log("Hash Table after deletion:");
+ht.display();
+```
+
 ### Conclusion
 
 Deletion is essential for maintaining the dynamic nature of a hash table by removing unwanted key-value pairs.
