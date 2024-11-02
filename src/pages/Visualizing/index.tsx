@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Layout from "@theme/Layout";
 import "../../css/visualiezer.css";
 
-const DSARoadmap: React.FC = () => {
+const Visualizing: React.FC = () => {
   useEffect(() => {
     function swap(e: HTMLElement, r: HTMLElement) {
         let t = e.style.height;
@@ -384,4 +384,4 @@ async function selection() {
   );
 };
 
-export default DSARoadmap;
+export default Visualizing;
