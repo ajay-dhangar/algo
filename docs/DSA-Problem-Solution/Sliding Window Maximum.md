@@ -6,7 +6,7 @@ tags: [LeetCode , Arrays, Queue , Sliding Window , Heap (Priority Queue) , Monot
 description: Given array of integers nums , with sliding window of size k which is moving from the very left of the array to the very right. Each time the sliding window moves right by one position.Return the max for each sliding window.
 ---
 
-# Partition Equal Subset Sum Algorithm (GFG)
+# Sliding Window Maximum (LeetCode 239)
 
 ## Description
 
