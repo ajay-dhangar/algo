@@ -1,7 +1,5 @@
 import React from "react";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
-import AnimatedGIF from "./AnimatedGIF";
-import mainGif from "./assets/main.gif";
 import { default as Link } from "@docusaurus/Link"; // Fixed import statement for Link
 
 
@@ -29,10 +27,6 @@ const HeroSection = () => {
           >
             View on GitHub <FaGithub className="ml-2" />
           </Link>
-        </div>
-        <br />
-        <div className="mt-12">
-          <AnimatedGIF srcs={[mainGif]} alts={["Animated GIF"]} />
         </div>
       </div>
 

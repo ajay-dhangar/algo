@@ -133,3 +133,37 @@ letter, count = highest_frequency_letter(input_string)
 print(f"The letter '{letter}' has the highest frequency: {count}")
 
 ```
+
+# Find the Letter with the Highest Frequency in a String (JavaScript)
+
+```javascript
+function highestFrequencyLetter(s) {
+    const frequency = {};
+
+    // Count frequency of each letter
+    for (const letter of s) {
+        if (/[a-zA-Z]/.test(letter)) { // Check if the character is a letter
+            const lowerLetter = letter.toLowerCase(); // Convert to lowercase
+            frequency[lowerLetter] = (frequency[lowerLetter] || 0) + 1; // Increment count
+        }
+    }
+
+    let highestLetter = ' ';
+    let highestCount = 0;
+
+    // Find the letter with the highest frequency
+    for (const [letter, count] of Object.entries(frequency)) {
+        if (count > highestCount) {
+            highestCount = count;
+            highestLetter = letter;
+        }
+    }
+
+    return highestLetter;
+}
+
+// Example usage
+const input = "Hello, World!";
+const letter = highestFrequencyLetter(input);
+console.log("The letter with the highest frequency:", letter); // Output the result
+```

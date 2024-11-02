@@ -37,6 +37,26 @@ hash_table.table = {'apple': 10, 'banana': 20}
 hash_table.update('apple', 30)  # Updates value
 ```
 
+### Example Code (Javascript)
+
+```javascript
+class HashTable {
+    constructor() {
+        this.table = {};
+    }
+
+    update(key, value) {
+        this.table[key] = value;
+    }
+}
+
+// Example usage
+const hashTable = new HashTable();
+hashTable.table = { 'apple': 10, 'banana': 20 };
+hashTable.update('apple', 30);  // Updates the value for 'apple'
+console.log(hashTable.table);    // Output: { 'apple': 30, 'banana': 20 }
+```
+
 ### Conclusion
 
 Update is critical for modifying data in hash tables, making them adaptable and suitable for dynamic applications.
