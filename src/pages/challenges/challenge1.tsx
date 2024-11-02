@@ -237,8 +237,8 @@ const DataStructuresQuiz: React.FC = () => {
       title="Data Structures Quiz"
       description="Test your knowledge of data structures with this quiz."
     >
-      <div className="bg-gray-200 max-w-2xl mx-auto rounde-2xl my-10 rounded-3xl p-10">
-        <h2 className="text-center">Data Structures Challenge-1</h2>
+      <div className="bg-blue-100 text-sky-800 max-w-2xl mx-auto rounded-2xl my-10 rounded-3xl p-10">
+        <h2 className="text-center text-blue-600">Data Structures Challenge-1</h2>
         {showResult ? (
           <div>
             <h2>
@@ -246,7 +246,8 @@ const DataStructuresQuiz: React.FC = () => {
             </h2>
             <h2>Time Spent: {formatTime(timeSpent)}</h2>{" "}
             {/* Show time spent here */}
-            <div style={{ textAlign: "left", marginTop: "20px" }}>              <h4 style={{ color: "black", marginBottom: "10px" }}>Review Your Answers:</h4>
+            <div style={{ textAlign: "left", marginTop: "20px" }}>              
+              <h4 style={{ color: "black", marginBottom: "10px" }}>Review Your Answers:</h4>
               <ul>
                 {questions.map((question, index) => (
                   <li key={index} style={{ marginBottom: "15px" }}>
@@ -264,19 +265,19 @@ const DataStructuresQuiz: React.FC = () => {
           </div>
         ) : (
           <div>
-            <h3 className="text-center">Time Left: {formatTime(timeLeft)}</h3>{" "}
+            <h3 className="text-center text-rose-900">Time Left: {formatTime(timeLeft)}</h3>{" "}
             {/* Show running timer */}
-            <div className="bg-white rounded-2xl p-4">
+            <div className="bg-gray-100 text-neutral-800 rounded-2xl p-4">
               <h3>{questions[currentQuestionIndex].question}</h3>
               <div>
                 {questions[currentQuestionIndex].options.map(
                   (option, index) => (
                     <div
                       key={index}
-                      className="text-left my-2 bg-white rounded-md p-3 w-full"
+                      className="text-left my-2 rounded-md p-3 w-full"
                       style={{
-                        border: selectedOption === option ? "2px solid orange" : "1px solid #ddd",
-                        backgroundColor: selectedOption === option ? "rgba(255, 165, 0, 0.1)" : "white",
+                        border: selectedOption === option ? "2px solid blue" : "1px solid #ddd",
+                        backgroundColor: selectedOption === option ? "rgba(11, 19, 43, 0.1)" : "white",
                         cursor: "pointer",
                       }}
                       onClick={() => handleOptionSelect(option)}
@@ -286,10 +287,10 @@ const DataStructuresQuiz: React.FC = () => {
                   )
                 )}
               </div>
-              <button className="mt-5 bg-gray-800 rounded-lg text-white border border-gray-800 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed" onClick={handleNextQuestion} disabled={!selectedOption}>
+              <button className="mt-5 bg-blue-600 rounded-lg text-white border border-blue-600 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed" onClick={handleNextQuestion} disabled={!selectedOption}>
                 Next Question
               </button>
-              <button className="mt-5 bg-gray-100 border border-gray-800 rounded-lg text-gray-800 ml-2 p-3" onClick={handleSubmitQuiz}>Submit Quiz</button>
+              <button className="mt-5 bg-gray-200 border border-gray-800 rounded-lg text-gray-800 ml-2 p-3" onClick={handleSubmitQuiz}>Submit Quiz</button>
             </div>
           </div>
         )}
