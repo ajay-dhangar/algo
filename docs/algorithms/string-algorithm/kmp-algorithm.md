@@ -237,6 +237,70 @@ public class KMPAlgorithm {
     }
 }
 ```
+### Code Implementation (JavaScript):
+
+```javascript
+function calculateLPS(pattern) {
+    const m = pattern.length;
+    const lps = new Array(m).fill(0); // Longest Prefix Suffix array
+    let length = 0; // Length of the previous longest prefix suffix
+    let i = 1;
+
+    while (i < m) {
+        if (pattern[i] === pattern[length]) {
+            length++;
+            lps[i] = length;
+            i++;
+        } else {
+            if (length !== 0) {
+                length = lps[length - 1];
+            } else {
+                lps[i] = 0;
+                i++;
+            }
+        }
+    }
+
+    return lps;
+}
+
+function kmpSearch(pattern, text) {
+    const m = pattern.length;
+    const n = text.length;
+    const lps = calculateLPS(pattern);
+    const result = [];
+
+    let i = 0; // Index for text
+    let j = 0; // Index for pattern
+
+    while (i < n) {
+        if (pattern[j] === text[i]) {
+            i++;
+            j++;
+        }
+
+        if (j === m) {
+            result.push(i - j); // Pattern found at index i - j
+            j = lps[j - 1];
+        } else if (i < n && pattern[j] !== text[i]) {
+            if (j !== 0) {
+                j = lps[j - 1];
+            } else {
+                i++;
+            }
+        }
+    }
+
+    return result;
+}
+
+// Example usage
+const text = "ABABDABACDABABCABAB";
+const pattern = "ABABCABAB";
+const result = kmpSearch(pattern, text);
+
+console.log("Pattern found at indices:", result.join(" ")); // Output the indices
+```
 
 <AdsComponent />
 
