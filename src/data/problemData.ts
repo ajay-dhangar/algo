@@ -2655,6 +2655,170 @@ class Solution:
           `,
         },
     },
+    findAllAnagramsInString: {
+        title: "53. Find All Anagrams in a String",
+        description:
+          "Given a string s and a non-empty string p, find all the start indices of p's anagrams in s. Strings consist of lowercase English letters, and the order of output does not matter. An anagram of p is a permutation of p, and the function should return an array of starting indices where anagrams of p begin in s.",
+        examples: [
+          {
+            input: "s = 'cbaebabacd', p = 'abc'",
+            output: "[0, 6]",
+            explanation: "The substring 'cba' starting at index 0 and 'bac' starting at index 6 are anagrams of 'abc'.",
+          },
+          {
+            input: "s = 'abab', p = 'ab'",
+            output: "[0, 1, 2]",
+            explanation: "The substring 'ab' starting at indices 0, 1, and 2 are all anagrams of 'ab'.",
+          },
+        ],
+        solution: {
+          cpp: `
+      #include<bits/stdc++.h>
+      using namespace std;
+    
+      class Solution {
+      public:
+          vector<int> findAnagrams(string s, string p) {
+              vector<int> result;
+              vector<int> p_count(26, 0), s_count(26, 0);
+    
+              if (s.size() < p.size()) return result;
+    
+              for (int i = 0; i < p.size(); i++) {
+                  p_count[p[i] - 'a']++;
+                  s_count[s[i] - 'a']++;
+              }
+    
+              if (p_count == s_count) result.push_back(0);
+    
+              for (int i = p.size(); i < s.size(); i++) {
+                  s_count[s[i] - 'a']++;
+                  s_count[s[i - p.size()] - 'a']--;
+    
+                  if (p_count == s_count) result.push_back(i - p.size() + 1);
+              }
+    
+              return result;
+          }
+      };`,
+    
+          java: `
+      import java.util.*;
+    
+      class Solution {
+          public List<Integer> findAnagrams(String s, String p) {
+              List<Integer> result = new ArrayList<>();
+              if (s.length() < p.length()) return result;
+    
+              int[] p_count = new int[26];
+              int[] s_count = new int[26];
+    
+              for (int i = 0; i < p.length(); i++) {
+                  p_count[p.charAt(i) - 'a']++;
+                  s_count[s.charAt(i) - 'a']++;
+              }
+    
+              if (Arrays.equals(p_count, s_count)) result.add(0);
+    
+              for (int i = p.length(); i < s.length(); i++) {
+                  s_count[s.charAt(i) - 'a']++;
+                  s_count[s.charAt(i - p.length()) - 'a']--;
+    
+                  if (Arrays.equals(p_count, s_count)) result.add(i - p.length() + 1);
+              }
+    
+              return result;
+          }
+      };`,
+    
+          python: `
+      from typing import List
+      from collections import Counter
+    
+      class Solution:
+          def findAnagrams(self, s: str, p: str) -> List[int]:
+              p_count = Counter(p)
+              s_count = Counter(s[:len(p)])
+              result = []
+    
+              if s_count == p_count:
+                  result.append(0)
+    
+              for i in range(len(p), len(s)):
+                  s_count[s[i]] += 1
+                  s_count[s[i - len(p)]] -= 1
+    
+                  if s_count[s[i - len(p)] ] == 0:
+                      del s_count[s[i - len(p)]]
+    
+                  if s_count == p_count:
+                      result.append(i - len(p) + 1)
+    
+              return result
+          `,
+        },
+      },
+      climbingStairs: {
+        title: "54. Climbing Stairs",
+        description:
+          "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+        examples: [
+          {
+            input: "n = 2",
+            output: "2",
+            explanation: "There are two ways to climb to the top: 1 step + 1 step or 2 steps.",
+          },
+          {
+            input: "n = 3",
+            output: "3",
+            explanation: "There are three ways to climb to the top: 1 step + 1 step + 1 step, 1 step + 2 steps, or 2 steps + 1 step.",
+          },
+        ],
+        solution: {
+          cpp: `
+      #include<bits/stdc++.h>
+      using namespace std;
+    
+      class Solution {
+      public:
+          int climbStairs(int n) {
+              if (n <= 1) return 1;
+              int first = 1, second = 2;
+              for (int i = 3; i <= n; i++) {
+                  int temp = second;
+                  second += first;
+                  first = temp;
+              }
+              return second;
+          }
+      };`,
+    
+          java: `
+      class Solution {
+          public int climbStairs(int n) {
+              if (n <= 1) return 1;
+              int first = 1, second = 2;
+              for (int i = 3; i <= n; i++) {
+                  int temp = second;
+                  second += first;
+                  first = temp;
+              }
+              return second;
+          }
+      };`,
+    
+          python: `
+      class Solution:
+          def climbStairs(self, n: int) -> int:
+              if n <= 1:
+                  return 1
+              first, second = 1, 2
+              for i in range(3, n + 1):
+                  first, second = second, first + second
+              return second
+          `,
+        },
+      },        
 };
 
 export default problemsData;
