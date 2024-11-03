@@ -2527,8 +2527,7 @@ class Solution:
           `,
         },
     },
-  
-  longestIncreasingSubsequence: {
+   longestIncreasingSubsequence: {
     title: "45. Longest Increasing Subsequence",
     description:
       "Given an array arr[] of size N, find the length of the longest subsequence of the array which is strictly increasing.",
@@ -3432,7 +3431,7 @@ class Solution:
           `,
         },
     },
-    findAllAnagramsInString: {
+  findAllAnagramsInString: {
         title: "53. Find All Anagrams in a String",
         description:
           "Given a string s and a non-empty string p, find all the start indices of p's anagrams in s. Strings consist of lowercase English letters, and the order of output does not matter. An anagram of p is a permutation of p, and the function should return an array of starting indices where anagrams of p begin in s.",
@@ -3595,139 +3594,7 @@ class Solution:
               return second
           `,
         },
-  },
-  minimumWindowSubstring: {
-    title: "55. Minimum Window Substring",
-    description:
-      "Given two strings s and t, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string \"\". The answer is guaranteed to be unique.",
-    examples: [
-      {
-        input: "s = 'ADOBECODEBANC', t = 'ABC'",
-        output: "'BANC'",
-        explanation: "The smallest substring containing all characters of t is 'BANC'.",
-      },
-      {
-        input: "s = 'a', t = 'a'",
-        output: "'a'",
-        explanation: "The entire string is the minimum window substring.",
-      },
-      {
-        input: "s = 'a', t = 'aa'",
-        output: "''",
-        explanation: "There is no valid substring since t contains more 'a's than s.",
-      },
-    ],
-    solution: {
-      cpp: `
-  #include<bits/stdc++.h>
-  using namespace std;
-
-  class Solution {
-  public:
-      string minWindow(string s, string t) {
-          unordered_map<char, int> t_count, s_count;
-          for (char c : t) t_count[c]++;
-          int required = t_count.size();
-          int formed = 0;
-          int l = 0, r = 0, min_length = INT_MAX, start = 0;
-
-          while (r < s.length()) {
-              char c = s[r];
-              s_count[c]++;
-              if (t_count.count(c) && s_count[c] == t_count[c]) formed++;
-
-              while (l <= r && formed == required) {
-                  c = s[l];
-                  if (r - l + 1 < min_length) {
-                      min_length = r - l + 1;
-                      start = l;
-                  }
-                  s_count[c]--;
-                  if (t_count.count(c) && s_count[c] < t_count[c]) formed--;
-                  l++;
-              }
-              r++;
-          }
-          return min_length == INT_MAX ? "" : s.substr(start, min_length);
-      }
-  };`,
-
-      java: `
-  import java.util.*;
-
-  class Solution {
-      public String minWindow(String s, String t) {
-          Map<Character, Integer> t_count = new HashMap<>();
-          for (char c : t.toCharArray()) t_count.put(c, t_count.getOrDefault(c, 0) + 1);
-          int required = t_count.size();
-          int formed = 0;
-          int l = 0, r = 0, min_length = Integer.MAX_VALUE, start = 0;
-
-          Map<Character, Integer> s_count = new HashMap<>();
-          while (r < s.length()) {
-              char c = s.charAt(r);
-              s_count.put(c, s_count.getOrDefault(c, 0) + 1);
-              if (t_count.containsKey(c) && s_count.get(c).intValue() == t_count.get(c).intValue()) formed++;
-
-              while (l <= r && formed == required) {
-                  c = s.charAt(l);
-                  if (r - l + 1 < min_length) {
-                      min_length = r - l + 1;
-                      start = l;
-                  }
-                  s_count.put(c, s_count.get(c) - 1);
-                  if (t_count.containsKey(c) && s_count.get(c).intValue() < t_count.get(c).intValue()) formed--;
-                  l++;
-              }
-              r++;
-          }
-          return min_length == Integer.MAX_VALUE ? "" : s.substring(start, start + min_length);
-      }
-  };`,
-
-      python: `
-  from collections import Counter, defaultdict
-
-  class Solution:
-      def minWindow(self, s: str, t: str) -> str:
-          if not t or not s:
-              return ""
-
-          dict_t = Counter(t)
-          required = len(dict_t)
-
-          l, r = 0, 0
-          formed = 0
-          window_counts = defaultdict(int)
-
-          min_length = float("inf")
-          start = 0
-
-          while r < len(s):
-              character = s[r]
-              window_counts[character] += 1
-
-              if character in dict_t and window_counts[character] == dict_t[character]:
-                  formed += 1
-
-              while l <= r and formed == required:
-                  character = s[l]
-
-                  if r - l + 1 < min_length:
-                      min_length = r - l + 1
-                      start = l
-
-                  window_counts[character] -= 1
-                  if character in dict_t and window_counts[character] < dict_t[character]:
-                      formed -= 1
-                  l += 1
-
-              r += 1
-
-          return "" if min_length == float("inf") else s[start:start + min_length]
-      `,
-    },
-  },
+      }, 
 };
 
 export default problemsData;
