@@ -1,13 +1,13 @@
 ---
-id: Reverse_Linked_List
+id: reverse-linked-list
 sidebar_position: 1 
 title: Reverse Linked List 
 sidebar_label: Reverse Linked List 
-description: "This document explains the reversing a linked list in java." 
+description: "This document explains reversing a linked list in java." 
 tags: [java, data structures, linked list]
 ---
 
-# *Reverse Linked List*
+# *Reversing a Linked List*
 
 ## *Description*
 
@@ -15,7 +15,7 @@ Given a singly linked list, reverse the order of its nodes.
 
 ## *Approach*
 
-- *Steps:*
+*Steps:*
 
 1. Initialize three pointers: `prev`, `cur`, and `next`.
 2. Traverse the linked list.
@@ -92,11 +92,9 @@ Reversed List:
 ```
 
 
-- *Time Complexity*
--- O(n), where n is the number of nodes.
+- *Time Complexity*: O(n), where n is the number of nodes.
 
-- *Space Complexity*
---O(1), as only a constant amount of space is used.
+- *Space Complexity*: O(1), as only a constant amount of space is used.
 
 # *Conclusion*
 In this article, we learned about reversing a linked list and implemented it in Java.
