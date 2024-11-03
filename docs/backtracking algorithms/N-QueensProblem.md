@@ -1,5 +1,5 @@
 ---
-id: N-Queens Problem
+id: n-queens-problem
 title: N-Queens Problem in C
 sidebar_label: Backtracking algorithms
 sidebar_position: 1
@@ -40,7 +40,7 @@ The **backtracking** approach is used to solve the N-Queens problem. The idea is
 The time complexity for solving the N-Queens problem using backtracking is `O(N!)`, since we try placing a queen in every column of each row and backtrack if needed.
 
 ## Program: 
-```
+```c
 #include <stdio.h>
 #include <stdbool.h>
 
