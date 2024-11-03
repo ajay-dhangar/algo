@@ -1,3 +1,40 @@
+---
+id: <Boolean Expression Parser>
+title: <Boolean Expression Parser>
+sidebar_label: <Boolean Expression Parser>
+sidebar_position: <1>
+description: <A Java program that parses and evaluates a boolean expression represented as a string, using a stack-based approach to handle operations like AND (&), OR (|), and NOT (!)>
+tags: [java, dynamic progrmming, data structure]
+---
+
+# *Boolean Expression Parser*
+
+## * Description*
+A Java program that parses and evaluates a boolean expression represented as a string, using a stack-based approach to handle operations like AND (&), OR (|), and NOT (!).
+
+## *Approach*
+
+- *Steps :*
+Initialize Stack: Use a stack to manage characters.
+Process Characters:
+Ignore commas.
+Push all characters except ')' onto the stack.
+Evaluate on ')':
+Use a temporary buffer stack to gather values until '(' is reached.
+Pop '(' and the operator before it from the stack.
+Apply Operator:
+For &: Set result = true and perform AND on all values in buffer.
+For |: Set result = false and perform OR on all values in buffer.
+For !: Apply NOT to the single value in buffer.
+Push Result: Push the result ('t' or 'f') back onto the stack.
+Final Result: Return the top of the stack as the result.
+
+## *java implementation *
+
+
+
+
+
 import java.util.Stack;
 
 public class BooleanExpressionParser {
@@ -54,3 +91,24 @@ public class BooleanExpressionParser {
         System.out.println(parseBoolExpr(expression3)); // Output: false
     }
 }
+---
+
+Output:
+---
+
+For expression1 = "&(|(f))", output is false.
+For expression2 = "|(f,f,f,t)", output is true.
+For expression3 = "!(|(f,t))", output is false.
+---
+
+- *Time Complexity*
+-- O(n), where n is the length of the expression, as each character is processed once.
+
+- *Space Complexity*
+--  O(n), due to the stack usage for storing characters and intermediate results.
+
+# *Conclusion*
+ The parser efficiently evaluates boolean expressions with operators &, |, and ! using stack-based processing for expressions of reasonable length.
+
+
+
