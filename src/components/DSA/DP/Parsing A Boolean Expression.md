@@ -1,13 +1,11 @@
 ---
-id: <Boolean Expression Parser>
-title: <Boolean Expression Parser>
-sidebar_label: <Boolean Expression Parser>
-sidebar_position: <1>
-description: <A Java program that parses and evaluates a boolean expression represented as a string, using a stack-based approach to handle operations like AND (&), OR (|), and NOT (!)>
+id: boolean-expression-parser
+title: Boolean Expression Parser
+sidebar_label: Boolean Expression Parser
+sidebar_position: 1
+description: A Java program that parses and evaluates a boolean expression represented as a string, using a stack-based approach to handle operations.
 tags: [java, dynamic progrmming, data structure]
 ---
-
-# *Boolean Expression Parser*
 
 ## * Description*
 A Java program that parses and evaluates a boolean expression represented as a string, using a stack-based approach to handle operations like AND (&), OR (|), and NOT (!).
@@ -31,10 +29,7 @@ Final Result: Return the top of the stack as the result.
 
 ## *java implementation *
 
-
-
-
-
+```java
 import java.util.Stack;
 
 public class BooleanExpressionParser {
@@ -91,24 +86,21 @@ public class BooleanExpressionParser {
         System.out.println(parseBoolExpr(expression3)); // Output: false
     }
 }
----
+```
 
 Output:
----
 
+```
 For expression1 = "&(|(f))", output is false.
 For expression2 = "|(f,f,f,t)", output is true.
 For expression3 = "!(|(f,t))", output is false.
----
+```
 
-- *Time Complexity*
--- O(n), where n is the length of the expression, as each character is processed once.
+### Time Complexity
+- $O(n)$, where n is the length of the expression, as each character is processed once.
 
-- *Space Complexity*
---  O(n), due to the stack usage for storing characters and intermediate results.
+### Space Complexity
+- $O(n)$, due to the stack usage for storing characters and intermediate results.
 
-# *Conclusion*
- The parser efficiently evaluates boolean expressions with operators &, |, and ! using stack-based processing for expressions of reasonable length.
-
-
-
+## Conclusion
+The parser efficiently evaluates boolean expressions with operators &, |, and ! using stack-based processing for expressions of reasonable length.
