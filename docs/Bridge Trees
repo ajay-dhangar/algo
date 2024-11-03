@@ -18,18 +18,38 @@ Thus the total time complexity will be O((N+M)+(N+M)), which is equivalent to O(
 
 */
 // Pseudocode for making the bridge tree
-dfs(int node, int component_number) {
-    component[node] = component_number //All nodes with the same component number will be shrunk into one node in the bridge tree. This is because we aren't traversing a bridge, and thus, "shrinking" the components without a bridge to one node in the bridge tree.
-    vis[node] = true //so that we don't visit this again.
-    for every adjacent edge such that the edge is not a bridge {
-        next = other endpoint of the edge
-        if vis[next] = true: continue //already visited this node.
-        dfs(next, component_number);
-    }     
+// Function to perform DFS and find bridges
+function dfs(node, componentNumber) {
+    component[node] = componentNumber; // Mark the component for the node
+    vis[node] = true; // Mark this node as visited
+
+    // Iterate through each adjacent edge that is not a bridge
+    for (each adjacentEdge in adjacencyList[node]) {
+        next = otherEndpoint(adjacentEdge); // Get the other endpoint of the edge
+
+        // If the next node has already been visited, skip it
+        if (vis[next] === true) {
+            continue; // Already visited this node
+        }
+        
+        // Recursively call DFS for the next node
+        dfs(next, componentNumber);
+    }
 }
 
-main() {
-    Find all the bridges in the graph //check the pre-requisites section of this blog for this
-    for i in 1, 2, 3, ..., n and vis[i] = false { 
-        call dfs(i, unique_component_number) //ensure the component number is unique. A simple way to do it is just by incrementing it by 1 whenever you are calling the dfs function.
+// Main function to execute the bridge-finding algorithm
+function main() {
+    findAllBridges(); // Function to find all the bridges in the graph
+
+    // Loop through each node in the graph
+    for (let i = 0; i < n; i++) { // Assume n is the total number of nodes
+        if (vis[i] === false) { // If the node has not been visited
+            dfs(i, uniqueComponentNumber); // Call DFS with a unique component number
+            uniqueComponentNumber++; // Increment the component number for the next call
+        }
     }
+}
+
+// Assume additional helper functions are defined:
+// - findAllBridges: to find all the bridges in the graph
+// - otherEndpoint: to get the other endpoint of an edge
