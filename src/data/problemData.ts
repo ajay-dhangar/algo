@@ -2527,7 +2527,7 @@ class Solution:
           `,
         },
     },
-  longestIncreasingSubsequence: {
+   longestIncreasingSubsequence: {
     title: "45. Longest Increasing Subsequence",
     description:
       "Given an array arr[] of size N, find the length of the longest subsequence of the array which is strictly increasing.",
@@ -3431,7 +3431,7 @@ class Solution:
           `,
         },
     },
-    findAllAnagramsInString: {
+  findAllAnagramsInString: {
         title: "53. Find All Anagrams in a String",
         description:
           "Given a string s and a non-empty string p, find all the start indices of p's anagrams in s. Strings consist of lowercase English letters, and the order of output does not matter. An anagram of p is a permutation of p, and the function should return an array of starting indices where anagrams of p begin in s.",
