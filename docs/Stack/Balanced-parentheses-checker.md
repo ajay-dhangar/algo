@@ -8,9 +8,9 @@ tags: [dsa, algorithms, stack]
 
 ### Problem Definition
 The goal of this program is to check if an expression containing parentheses is balanced. The expression may contain three types of parentheses:
-- Round brackets ()
-- Curly brackets {}
-- Square brackets []
+- Round brackets `()`
+- Curly brackets `{}`
+- Square brackets `[]`
                                         
 An expression is said to be balanced if every opening parenthesis has a corresponding closing parenthesis in the correct order.
 
@@ -19,8 +19,8 @@ This program uses a stack data structure to solve the problem of checking whethe
 
 ### Algorithm Steps
 Scan the expression:
-1. If an opening parenthesis ((, {, or [) is encountered, push it onto the stack.
-2. If a closing parenthesis (), }, or ]) is encountered, check if it matches the top of the stack:
+1. If an opening parenthesis `((, {, or [)` is encountered, push it onto the stack.
+2. If a closing parenthesis `(), }, or ])` is encountered, check if it matches the top of the stack:
 3. If the stack is empty or the parentheses don't match, the expression is unbalanced.
 4. At the end: If the stack is empty, the expression is balanced; otherwise, it's unbalanced.
 
