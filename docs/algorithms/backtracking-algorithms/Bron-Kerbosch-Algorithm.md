@@ -7,8 +7,6 @@ description: "The Bron-Kerbosch algorithm is a backtracking algorithm used to fi
 tags: [graph-theory, bron-kerbosch, maximal-clique, backtracking, clique-detection, pivoting, optimization]
 ---
 
-# Bron-Kerbosch Algorithm
-
 The **Bron-Kerbosch algorithm** is a backtracking algorithm used to find all maximal cliques in an undirected graph. A clique is a subset of vertices, all of which are adjacent to each other, and a maximal clique is a clique that cannot be extended by including an adjacent vertex. This algorithm is known for its recursive nature and efficiency in finding cliques in graphs without needing to search through all vertex subsets.
 
 ## Definition
