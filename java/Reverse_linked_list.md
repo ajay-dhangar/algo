@@ -88,5 +88,5 @@ public class LinkedList {
 - *Space Complexity*
 --O(1), as only a constant amount of space is used.
 
-#*Conclusion*
+# *Conclusion*
 In this article, we learned about reversing a linked list and implemented it in Java.
