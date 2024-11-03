@@ -1,6 +1,6 @@
 ---
 id: dft
-title: Depth-First Traversal (DFT)
+title: "Depth-First Traversal (DFT)"
 sidebar_label: Depth-First Traversal
 description: "In this blog post, we'll explore Depth-First Traversal (DFT), a tree traversal algorithm that explores nodes by going as deep as possible before backtracking."
 tags: [dsa, algorithms, tree, traversal]
@@ -98,3 +98,4 @@ int main() {
 
     return 0;
 }
+```
