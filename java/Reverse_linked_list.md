@@ -22,13 +22,12 @@ Given a singly linked list, reverse the order of its nodes.
 3. In each iteration, reverse the `next` pointer of the current node.
 4. Move `prev` and `cur` one step forward.
 
+
 ## *Java Implementation*
 
 ```
 public class LinkedList {
-    static Node head;
-
-    static class Node {
+    public static class Node {
         int data;
         Node next;
 
@@ -37,6 +36,8 @@ public class LinkedList {
             this.next = null;
         }
     }
+
+    public static Node head;
 
     public static void reverse() {
         Node prev = null;
@@ -64,12 +65,11 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        list.head = new Node(1);
-        list.head.next = new Node(2);
-        list.head.next.next = new Node(3);
-        list.head.next.next.next = new Node(4);
-        list.head.next.next.next.next = new Node(5);
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next = new Node(5);
 
         System.out.println("Original List: ");
         printList();
@@ -81,6 +81,16 @@ public class LinkedList {
     }
 }
 ```
+
+Output:
+
+```
+Original List: 
+1 2 3 4 5 
+Reversed List: 
+5 4 3 2 1 
+```
+
 
 - *Time Complexity*
 -- O(n), where n is the number of nodes.
