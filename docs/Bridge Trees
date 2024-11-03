@@ -1,0 +1,35 @@
+/* 
+Bridges are those edges in a graph, which upon removal from the graph will make it disconnected.
+The idea of a bridge tree is to shrink the maximal components without a bridge into one node, leaving only the bridges of the original graph as the edges in the bridge tree.
+
+Properties of the bridge tree -->
+1. All the bridges of the original graph are represented as edges in the bridge tree.
+2. The bridge tree is connected if the original graph is connected.
+3. The bridge tree does not contain any cycles.
+4. The bridge tree will contain ≤ N nodes, where N is the number of nodes in the original graph.
+5. The bridge tree will contain ≤ N−1 edges, where N is the number of nodes in the original graph.
+
+The time complexity of making the bridge tree
+In this section, N stands for the number of nodes and M stands for the number of edges in the original graph. The bridges in the graph can be found in O(N+M).
+The time complexity for the DFS function is O(N+M). Note that we can store the ID of the edge alongside the adjacent node in the adjacency list. We can have 
+an array isBridge, and mark isBridge[edge] = true for every edge which is a bridge. During the DFS, just check if the current edge is marked as a bridge using its stored ID.
+
+Thus the total time complexity will be O((N+M)+(N+M)), which is equivalent to O(N+M).
+
+*/
+// Pseudocode for making the bridge tree
+dfs(int node, int component_number) {
+    component[node] = component_number //All nodes with the same component number will be shrunk into one node in the bridge tree. This is because we aren't traversing a bridge, and thus, "shrinking" the components without a bridge to one node in the bridge tree.
+    vis[node] = true //so that we don't visit this again.
+    for every adjacent edge such that the edge is not a bridge {
+        next = other endpoint of the edge
+        if vis[next] = true: continue //already visited this node.
+        dfs(next, component_number);
+    }     
+}
+
+main() {
+    Find all the bridges in the graph //check the pre-requisites section of this blog for this
+    for i in 1, 2, 3, ..., n and vis[i] = false { 
+        call dfs(i, unique_component_number) //ensure the component number is unique. A simple way to do it is just by incrementing it by 1 whenever you are calling the dfs function.
+    }
