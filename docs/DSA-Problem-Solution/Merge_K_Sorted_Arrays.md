@@ -16,7 +16,7 @@ The **Merge K Sorted Arrays** problem is an intuitive problem based on Priority 
 
 Given:
 
-- A 2D array of integers `arr` of size k\*k.
+- A 2D array of integers `arr` of size $k\*k$.
 
 Objective:
 
@@ -35,8 +35,8 @@ Objective:
 
 ### Time Complexity
 
-- **Time Complexity**: O(K^2\* log(K)), where insertion and deletion in a Min Heap requires log K time and for all K^2 elements it takes (K^2 \* log(K)) time
-- **Space Complexity**: O(K) for the result array.
+- **Time Complexity**: $O(K^2\* log(K))$, where insertion and deletion in a Min Heap requires log K time and for all $K^2$ elements it takes $(K^2 \* log(K))$ time
+- **Space Complexity**: $O(K)$ for the result array.
 
 ### C++ Implementation
 
