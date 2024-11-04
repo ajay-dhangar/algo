@@ -1,7 +1,7 @@
 ---
 id: Functions
 title: Introduction to functions fundamentals
-sidebar_label: Programming fundamentals
+sidebar_label:Functions
 sidebar_position: 4
 description: "Information About functions in progamming"
 tags: [functions,fundamentals]

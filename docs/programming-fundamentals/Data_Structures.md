@@ -1,7 +1,7 @@
 ---
 id: Data Structures
 title: Introduction to Data Structures fundamentals
-sidebar_label: Programming fundamentals
+sidebar_label: Data Structures
 sidebar_position: 3
 description: "Information About Data structures in progamming"
 tags: [Data structures,fundamentals]
