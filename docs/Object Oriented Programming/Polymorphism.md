@@ -2,7 +2,8 @@
 id: Polymorphism
 title: "Polymorphism in Object-Oriented Programming"
 sidebar_label: "Generate Details about Polymorphism"
-description: "Abstraction in Java is the process of hiding unnecessary implementation details from the user, focusing on exposing only the essential functionalities"
+description: "
+Polymorphism is a core concept in object-oriented programming that allows objects of different classes to be treated as instances of the same class through a shared interface"
 tags: [Polymorphism, OOPS, Java]
 ---
 
