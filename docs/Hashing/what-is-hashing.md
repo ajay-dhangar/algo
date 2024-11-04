@@ -140,6 +140,65 @@ int main() {
 
 ```
 
+**JavaScript Implementation**:
+
+```javascript
+class HashMap {
+    constructor() {
+        this.size = 1000;
+        this.map = Array.from({ length: this.size }, () => []);
+    }
+
+    hashFunction(key) {
+        let hash = 0;
+        for (let i = 0; i < key.length; i++) {
+            hash = (hash * 31 + key.charCodeAt(i)) % this.size;
+        }
+        return hash;
+    }
+
+    insert(key, value) {
+        const index = this.hashFunction(key);
+        for (const pair of this.map[index]) {
+            if (pair[0] === key) {
+                pair[1] = value;
+                return;
+            }
+        }
+        this.map[index].push([key, value]);
+    }
+
+    get(key) {
+        const index = this.hashFunction(key);
+        for (const pair of this.map[index]) {
+            if (pair[0] === key) {
+                return pair[1];
+            }
+        }
+        return null;
+    }
+
+    deleteKey(key) {
+        const index = this.hashFunction(key);
+        const bucket = this.map[index];
+        for (let i = 0; i < bucket.length; i++) {
+            if (bucket[i][0] === key) {
+                bucket.splice(i, 1);
+                return;
+            }
+        }
+    }
+}
+
+// Example usage
+const hashMap = new HashMap();
+hashMap.insert("name", "Alice");
+console.log(hashMap.get("name"));  // Output: Alice
+hashMap.deleteKey("name");
+console.log(hashMap.get("name"));  // Output: null
+```
+
+
 ### Common Hash Map Problems
 Here are some problems commonly encountered when working with hash maps, along with their solutions.
 
@@ -192,6 +251,32 @@ Here are some problems commonly encountered when working with hash maps, along w
     }
 
     ```
+
+   - **JavaScript Solution**:
+
+    ```javascript
+    function twoSum(nums, target) {
+        const hashmap = new Map();
+
+        for (let i = 0; i < nums.length; i++) {
+            const complement = target - nums[i];
+
+            if (hashmap.has(complement)) {
+                return [hashmap.get(complement), i];
+            }
+
+            hashmap.set(nums[i], i);
+        }
+
+        return [];
+    }
+
+    // Example usage
+    const nums = [2, 7, 11, 15];
+    const result = twoSum(nums, 9);
+    console.log(result);  // Output: [0, 1]
+    ```
+
 
 - **Group Anagrams**
 **Problem**: Given an array of strings, group the anagrams together.
@@ -249,6 +334,31 @@ Here are some problems commonly encountered when working with hash maps, along w
     }
 
     ```
+
+   - **JavaScript Solution**:
+
+    ```javascript
+    function groupAnagrams(strs) {
+        const anagrams = new Map();
+
+        for (const s of strs) {
+            const key = s.split('').sort().join('');
+
+            if (!anagrams.has(key)) {
+                anagrams.set(key, []);
+            }
+            anagrams.get(key).push(s);
+        }
+
+        return Array.from(anagrams.values());
+    }
+
+    // Example usage
+    const strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+    const result = groupAnagrams(strs);
+    console.log(result);  // Output: [ [ 'eat', 'tea', 'ate' ], [ 'tan', 'nat' ], [ 'bat' ] ]
+    ```
+
 
 ### Conclusion
 Hashing is a fundamental concept in computer science that allows for efficient data retrieval and storage. Hash maps, which leverage hashing, provide an optimal way to manage key-value pairs. Understanding these concepts and their applications is essential for solving various algorithmic challenges, particularly in competitive programming and real-world applications.
