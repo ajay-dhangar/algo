@@ -27,8 +27,6 @@ The Fenwick Tree, also known as a Binary Indexed Tree (BIT), is a data structure
 ### Time Complexity
 - Both update and query operations are `O(log N)` where `N` is the number of elements, due to the logarithmic depth of the tree.
 
-![Fenwick Tree Diagram](https://media.geeksforgeeks.org/wp-content/cdn-uploads/BITSum.png "Example of Fenwick Tree for an Array")
-
 ## Pseudocode
 
 ```cpp
@@ -108,11 +106,6 @@ int main() {
 
 ## Example Walkthrough
 Suppose we have an array of integers and initialize the Fenwick Tree with zeroes. For each update and query operation, the tree adjusts only the necessary indices, significantly improving efficiency.
-
-## Diagram of Operations
-An example array and its binary representation after a series of updates would visually demonstrate the indices affected by each operation.
-
-![Graph Diagram](./Binary_index.png "Example of Graph for Fenwick tree")
 
 ## Real-World Example
 In competitive programming and applications dealing with real-time data processing, such as live leaderboard rankings or real-time transaction data, Fenwick Trees provide a fast and memory-efficient way to maintain cumulative values.
