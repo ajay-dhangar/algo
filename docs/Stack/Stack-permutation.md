@@ -101,3 +101,33 @@ int main() {
 
 ```
 
+### Python Implementation:
+```python
+def is_stack_permutation(input, output):
+    stack = []
+    j = 0
+    n = len(input)
+
+    for i in range(n):
+        # Push the current element of the input array to the stack
+        stack.append(input[i])
+
+        # Check if the top of the stack matches the output array
+        while stack and stack[-1] == output[j]:
+            stack.pop()
+            j += 1
+
+    # If j has reached n, then output is a valid permutation
+    return j == n
+
+if __name__ == "__main__":
+    input = [1, 2, 3]
+    output = [2, 1, 3]
+
+    if is_stack_permutation(input, output):
+        print("Yes, it is a stack permutation")
+    else:
+        print("No, it is not a stack permutation")
+```
+
+
