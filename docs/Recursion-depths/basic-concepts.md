@@ -1,7 +1,12 @@
+---
+id: recursion-depth-basic-concepts
+title: Basic Concepts of Recursion Depth
+sidebar_label: Basic Concepts
+sidebar_position: 2
+description: Introduction to recursion and understanding recursion depth.
+tags: [recursion, depth, basics]
+---
 
-| ID                         | Title                             | Sidebar Label    | Sidebar Position | Description                                            | Tags                      |
-|----------------------------|-----------------------------------|------------------|------------------|--------------------------------------------------------|---------------------------|
-| recursion-depth-basic-concepts | Basic Concepts of Recursion Depth | Basic Concepts    | 2                | Introduction to recursion and understanding recursion depth. | recursion, depth, basics  |
 # Basic Concepts of Recursion Depth
 
 Recursion is a programming technique where a function calls itself in order to solve smaller instances of a problem. The recursion depth is the total number of recursive calls in a function.

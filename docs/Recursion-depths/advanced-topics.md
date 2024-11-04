@@ -1,9 +1,13 @@
-
 ---
-Advanced topics in recursion, including dynamic programming and recursion depth in complex algorithms.
-| ID                      | Title                         | Sidebar Label    | Sidebar Position | Description                                            | Tags                     |
-|-------------------------|-------------------------------|------------------|------------------|--------------------------------------------------------|--------------------------|
-| recursion-depth-advanced | Advanced Recursion Depth Topics| Advanced Topics   | 8                | Advanced concepts related to recursion depth, including dynamic programming and backtracking. | advanced, recursion, algorithms |
+id: recursion-depth-advanced
+title: Advanced Recursion Depth Topics
+sidebar_label: Advanced Topics
+sidebar_position: 1
+description: Advanced concepts related to recursion depth, including dynamic programming and backtracking.
+tags: [advanced, recursion, algorithms]
+---
+
+
 
 # Advanced Recursion Depth Topics
 

@@ -1,6 +1,11 @@
-| ID                        | Title                          | Sidebar Label | Sidebar Position | Description                                                   | Tags                          |
-|---------------------------|--------------------------------|---------------|------------------|---------------------------------------------------------------|-------------------------------|
-| recursion-depth-errors    | Handling Recursion Depth Errors | Depth Errors   | 7                | Handling stack overflow and other errors due to high recursion depth. | errors, recursion, stack-overflow |
+---
+id: recursion-depth-errors
+title: Handling Recursion Depth Errors
+sidebar_label: Depth Errors
+sidebar_position: 3
+description: Handling stack overflow and other errors due to high recursion depth.
+tags: [errors, recursion, stack-overflow]
+---
 
 # Handling Recursion Depth Errors
 
@@ -21,7 +26,8 @@ Recursion is a powerful programming technique, but when the recursion depth exce
 ### 1. Set a Limit
 - Some programming languages, like Python, allow you to adjust the maximum recursion depth. You can set a higher limit if necessary, but be cautious as this might lead to stack overflow.
 - **Example**:
-  ```python
+
+```python
   import sys
   sys.setrecursionlimit(1000)  # Set recursion limit to 1000
 ``` 
@@ -49,6 +55,6 @@ def factorial(n):
     elif n == 0 or n == 1:
         return 1
     return n * factorial(n - 1)
-
+```
 ### Summary
 Handling recursion depth errors is essential for creating reliable recursive functions. Always check for potential stack overflow and infinite recursion, and consider using iterative solutions when necessary to enhance your program's stability and performance.

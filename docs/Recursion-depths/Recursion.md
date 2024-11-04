@@ -1,6 +1,12 @@
-| id                         | sidebar_position | title                     | sidebar_label               | tags                 |
-|----------------------------|------------------|---------------------------|-----------------------------|----------------------|
-| recursion-depth-overview   | 1                | Recursion Depth Overview  | Overview                    | recursion, algorithms, depth |
+---
+id: recursion-depth-overview
+title: Recursion Depth Overview
+sidebar_label: Overview
+sidebar_position: 5
+description: An overview of recursion depth and its role in recursive algorithms.
+tags: [recursion, algorithms, depth]
+---
+
 
 # Recursion Depth Overview
 
