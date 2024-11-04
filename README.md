@@ -312,17 +312,17 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/shuvojitss">
-                    <img src="https://avatars.githubusercontent.com/u/142198651?v=4" width="100;" alt="shuvojitss"/>
-                    <br />
-                    <sub><b>Shuvojit Samanta</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/IkkiOcean">
                     <img src="https://avatars.githubusercontent.com/u/76002919?v=4" width="100;" alt="IkkiOcean"/>
                     <br />
                     <sub><b>Vivek Prakash</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/shuvojitss">
+                    <img src="https://avatars.githubusercontent.com/u/142198651?v=4" width="100;" alt="shuvojitss"/>
+                    <br />
+                    <sub><b>Shuvojit Samanta</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -393,13 +393,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/shriyadindi">
-                    <img src="https://avatars.githubusercontent.com/u/126611334?v=4" width="100;" alt="shriyadindi"/>
-                    <br />
-                    <sub><b>Shriya Dindi</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/Subashree-selvaraj">
                     <img src="https://avatars.githubusercontent.com/u/132484553?v=4" width="100;" alt="Subashree-selvaraj"/>
                     <br />
@@ -427,8 +420,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Rashigera</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Alpha1zln">
                     <img src="https://avatars.githubusercontent.com/u/98889077?v=4" width="100;" alt="Alpha1zln"/>
@@ -436,6 +427,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>SHREYAS YADUVANSHI</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/aditiverma-21">
                     <img src="https://avatars.githubusercontent.com/u/180853305?v=4" width="100;" alt="aditiverma-21"/>
@@ -448,13 +441,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <img src="https://avatars.githubusercontent.com/u/138133004?v=4" width="100;" alt="kRajoria121"/>
                     <br />
                     <sub><b>Kundan Rajoria</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/Riddhi12349">
-                    <img src="https://avatars.githubusercontent.com/u/91315409?v=4" width="100;" alt="Riddhi12349"/>
-                    <br />
-                    <sub><b>riddhi</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -471,8 +457,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Mehul Prajapati</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Mansi07sharma">
                     <img src="https://avatars.githubusercontent.com/u/142892607?v=4" width="100;" alt="Mansi07sharma"/>
@@ -487,6 +471,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>sarthaxtic</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/shimmer12">
                     <img src="https://avatars.githubusercontent.com/u/92056170?v=4" width="100;" alt="shimmer12"/>
@@ -495,10 +481,10 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/T-Fathima">
-                    <img src="https://avatars.githubusercontent.com/u/148070120?v=4" width="100;" alt="T-Fathima"/>
+                <a href="https://github.com/LitZeus">
+                    <img src="https://avatars.githubusercontent.com/u/142726372?v=4" width="100;" alt="LitZeus"/>
                     <br />
-                    <sub><b>Tatheer Fathima</b></sub>
+                    <sub><b>Tejas Athalye</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -509,19 +495,40 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/LitZeus">
-                    <img src="https://avatars.githubusercontent.com/u/142726372?v=4" width="100;" alt="LitZeus"/>
+                <a href="https://github.com/Siddhart2004">
+                    <img src="https://avatars.githubusercontent.com/u/90645484?v=4" width="100;" alt="Siddhart2004"/>
                     <br />
-                    <sub><b>Tejas Athalye</b></sub>
+                    <sub><b>SIDDHARTH A</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/T-Fathima">
+                    <img src="https://avatars.githubusercontent.com/u/148070120?v=4" width="100;" alt="T-Fathima"/>
+                    <br />
+                    <sub><b>Tatheer Fathima</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/shriyadindi">
+                    <img src="https://avatars.githubusercontent.com/u/126611334?v=4" width="100;" alt="shriyadindi"/>
+                    <br />
+                    <sub><b>Shriya Dindi</b></sub>
                 </a>
             </td>
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/Siddhart2004">
-                    <img src="https://avatars.githubusercontent.com/u/90645484?v=4" width="100;" alt="Siddhart2004"/>
+                <a href="https://github.com/sriraghavi22">
+                    <img src="https://avatars.githubusercontent.com/u/140194099?v=4" width="100;" alt="sriraghavi22"/>
                     <br />
-                    <sub><b>SIDDHARTH A</b></sub>
+                    <sub><b>sriraghavi22</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/govindumeesala">
+                    <img src="https://avatars.githubusercontent.com/u/129055361?v=4" width="100;" alt="govindumeesala"/>
+                    <br />
+                    <sub><b>Meesala Govindu</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -539,28 +546,12 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/govindumeesala">
-                    <img src="https://avatars.githubusercontent.com/u/129055361?v=4" width="100;" alt="govindumeesala"/>
-                    <br />
-                    <sub><b>Meesala Govindu</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/sriraghavi22">
-                    <img src="https://avatars.githubusercontent.com/u/140194099?v=4" width="100;" alt="sriraghavi22"/>
-                    <br />
-                    <sub><b>sriraghavi22</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/jainaryan04">
                     <img src="https://avatars.githubusercontent.com/u/138214350?v=4" width="100;" alt="jainaryan04"/>
                     <br />
                     <sub><b>Aryan Ramesh Jain</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/AADESHak007">
                     <img src="https://avatars.githubusercontent.com/u/123197632?v=4" width="100;" alt="AADESHak007"/>
@@ -568,6 +559,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Aadesh_Kumar</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/khurshed07">
                     <img src="https://avatars.githubusercontent.com/u/114801597?v=4" width="100;" alt="khurshed07"/>
@@ -603,8 +596,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Sarthak</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/AdityaJani616">
                     <img src="https://avatars.githubusercontent.com/u/108350583?v=4" width="100;" alt="AdityaJani616"/>
@@ -612,6 +603,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Aditya Jani</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/AswaniBolisetti">
                     <img src="https://avatars.githubusercontent.com/u/117751107?v=4" width="100;" alt="AswaniBolisetti"/>
@@ -631,6 +624,13 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <img src="https://avatars.githubusercontent.com/u/98252196?v=4" width="100;" alt="Shantnu-singh"/>
                     <br />
                     <sub><b>shantnu</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Riddhi12349">
+                    <img src="https://avatars.githubusercontent.com/u/91315409?v=4" width="100;" alt="Riddhi12349"/>
+                    <br />
+                    <sub><b>riddhi</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -759,17 +759,17 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/karanmaheshwari16">
-                    <img src="https://avatars.githubusercontent.com/u/154254173?v=4" width="100;" alt="karanmaheshwari16"/>
-                    <br />
-                    <sub><b>karanmaheshwari16</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/Bhum-ika">
                     <img src="https://avatars.githubusercontent.com/u/91523494?v=4" width="100;" alt="Bhum-ika"/>
                     <br />
                     <sub><b>Bhumika Sharma</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/karanmaheshwari16">
+                    <img src="https://avatars.githubusercontent.com/u/154254173?v=4" width="100;" alt="karanmaheshwari16"/>
+                    <br />
+                    <sub><b>karanmaheshwari16</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -782,17 +782,17 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 		</tr>
 		<tr>
             <td align="center">
-                <a href="https://github.com/vishantrathi">
-                    <img src="https://avatars.githubusercontent.com/u/129350236?v=4" width="100;" alt="vishantrathi"/>
-                    <br />
-                    <sub><b>Vishant Rathi</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/narendra-dhangar">
                     <img src="https://avatars.githubusercontent.com/u/161828345?v=4" width="100;" alt="narendra-dhangar"/>
                     <br />
                     <sub><b>Narendra Dhangar </b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/vishantrathi">
+                    <img src="https://avatars.githubusercontent.com/u/129350236?v=4" width="100;" alt="vishantrathi"/>
+                    <br />
+                    <sub><b>Vishant Rathi</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -803,13 +803,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/tanushrigoel">
-                    <img src="https://avatars.githubusercontent.com/u/115028578?v=4" width="100;" alt="tanushrigoel"/>
-                    <br />
-                    <sub><b>tanushrigoel</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/Soumya03007">
                     <img src="https://avatars.githubusercontent.com/u/164558135?v=4" width="100;" alt="Soumya03007"/>
                     <br />
@@ -817,14 +810,12 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/KGupta2601">
-                    <img src="https://avatars.githubusercontent.com/u/184351568?v=4" width="100;" alt="KGupta2601"/>
+                <a href="https://github.com/tanushrigoel">
+                    <img src="https://avatars.githubusercontent.com/u/115028578?v=4" width="100;" alt="tanushrigoel"/>
                     <br />
-                    <sub><b>Kashika</b></sub>
+                    <sub><b>tanushrigoel</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/770navyasharma">
                     <img src="https://avatars.githubusercontent.com/u/115488727?v=4" width="100;" alt="770navyasharma"/>
@@ -832,6 +823,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Navya Sharma</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/smog-root">
                     <img src="https://avatars.githubusercontent.com/u/181578777?v=4" width="100;" alt="smog-root"/>
@@ -867,8 +860,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Ronin</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/meghanakn473">
                     <img src="https://avatars.githubusercontent.com/u/165137755?v=4" width="100;" alt="meghanakn473"/>
@@ -876,6 +867,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>K N Meghana</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Grandhi-Harshitha">
                     <img src="https://avatars.githubusercontent.com/u/120390344?v=4" width="100;" alt="Grandhi-Harshitha"/>
@@ -898,6 +891,13 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/Khushi-51">
+                    <img src="https://avatars.githubusercontent.com/u/139145505?v=4" width="100;" alt="Khushi-51"/>
+                    <br />
+                    <sub><b>Khushi</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/1-SubhamSingh">
                     <img src="https://avatars.githubusercontent.com/u/125077858?v=4" width="100;" alt="1-SubhamSingh"/>
                     <br />
@@ -905,21 +905,14 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Khushi-51">
-                    <img src="https://avatars.githubusercontent.com/u/139145505?v=4" width="100;" alt="Khushi-51"/>
-                    <br />
-                    <sub><b>Khushi</b></sub>
-                </a>
-            </td>
-		</tr>
-		<tr>
-            <td align="center">
                 <a href="https://github.com/shalini-bhandari">
                     <img src="https://avatars.githubusercontent.com/u/76897566?v=4" width="100;" alt="shalini-bhandari"/>
                     <br />
                     <sub><b>Shalini Bhandari</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/Uvesh99">
                     <img src="https://avatars.githubusercontent.com/u/140742468?v=4" width="100;" alt="Uvesh99"/>
@@ -955,8 +948,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Rhea</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/CygnusST3RN">
                     <img src="https://avatars.githubusercontent.com/u/102274145?v=4" width="100;" alt="CygnusST3RN"/>
@@ -964,6 +955,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Rahul</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/PRASHANTSWAROOP001">
                     <img src="https://avatars.githubusercontent.com/u/56585080?v=4" width="100;" alt="PRASHANTSWAROOP001"/>
@@ -999,13 +992,20 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Jashwanth Bavandlapalli</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/madhavi-peddireddy">
                     <img src="https://avatars.githubusercontent.com/u/98088562?v=4" width="100;" alt="madhavi-peddireddy"/>
                     <br />
                     <sub><b>PEDDIREDDY MADHAVI</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/Aasthaa10">
+                    <img src="https://avatars.githubusercontent.com/u/170360041?v=4" width="100;" alt="Aasthaa10"/>
+                    <br />
+                    <sub><b>Aastha kumari</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -1104,13 +1104,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Aasthaa10">
-                    <img src="https://avatars.githubusercontent.com/u/170360041?v=4" width="100;" alt="Aasthaa10"/>
-                    <br />
-                    <sub><b>Aastha kumari</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/Aditijainnn">
                     <img src="https://avatars.githubusercontent.com/u/144632601?v=4" width="100;" alt="Aditijainnn"/>
                     <br />
@@ -1131,8 +1124,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Anantesh G</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/Ananya-vastare">
                     <img src="https://avatars.githubusercontent.com/u/116643029?v=4" width="100;" alt="Ananya-vastare"/>
@@ -1140,6 +1131,8 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Ananya Ravikiran Vastare</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/ChetanSingh14">
                     <img src="https://avatars.githubusercontent.com/u/153702696?v=4" width="100;" alt="ChetanSingh14"/>
@@ -1159,6 +1152,13 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <img src="https://avatars.githubusercontent.com/u/172406754?v=4" width="100;" alt="meghanakn22"/>
                     <br />
                     <sub><b>meghanakn22</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/KGupta2601">
+                    <img src="https://avatars.githubusercontent.com/u/184351568?v=4" width="100;" alt="KGupta2601"/>
+                    <br />
+                    <sub><b>Kashika</b></sub>
                 </a>
             </td>
             <td align="center">
