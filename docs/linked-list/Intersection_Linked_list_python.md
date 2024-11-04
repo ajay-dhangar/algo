@@ -1,5 +1,5 @@
 ---
-id: Intersection_Linked_lists_python
+id: intersection-linked-lists-python
 sidebar_position: 1
 title: "Find the Intersection Point of Two Linked Lists in Python using hash set"
 description: "This tutorial explains how to find the intersection point of two singly linked lists using Python."
@@ -17,8 +17,8 @@ In a linked list, the intersection of two lists occurs when two linked lists sha
 
 Consider the following two linked lists:
 
-- **List A**: 1 -> 2 -> 3
-- **List B**: 4 -> 5
+- **List A**: `1 -> 2 -> 3`
+- **List B**: `4 -> 5`
 - Both lists intersect at the node with value `3`.
 
 The expected output in this case is:
@@ -94,3 +94,4 @@ if __name__ == "__main__":
         print(f"Intersection at node with value: {intersection.val}")
     else:
         print("No intersection")
+```        
