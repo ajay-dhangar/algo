@@ -28,13 +28,9 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             {/* Center the button */}
             <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+               <a href="https://hacktoberfest.com/" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
@@ -47,14 +43,10 @@ const GetInvolvedSection: React.FC = () => {
               Join our workshops to learn about the latest technologies and best
               practices in software development.
             </p>
-            <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+             <div className="flex justify-center">
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
@@ -67,14 +59,10 @@ const GetInvolvedSection: React.FC = () => {
               Connect with fellow contributors and share ideas at our regular
               community meetups.
             </p>
-            <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+             <div className="flex justify-center">
+               <a href="https://www.linkedin.com/in/ajay-dhangar/" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
@@ -88,13 +76,9 @@ const GetInvolvedSection: React.FC = () => {
               experienced developers in the industry.
             </p>
             <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
@@ -109,13 +93,9 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             {/* Center the button */}
             <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
@@ -129,13 +109,9 @@ const GetInvolvedSection: React.FC = () => {
               making a positive impact!
             </p>
             <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+               <a href="https://github.com/ajay-dhangar/algo" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
         </div>
