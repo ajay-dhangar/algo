@@ -2527,322 +2527,217 @@ class Solution:
           `,
         },
     },
-    longestIncreasingSubsequence: {
-        title: "45. Longest Increasing Subsequence",
-        description:
-          "Given an array arr[] of size N, find the length of the longest subsequence of the array which is strictly increasing.",
-        examples: [
-          {
-            input: "N = 6, arr = [5, 8, 3, 7, 9, 1]",
-            output: "3",
-            explanation: "The longest increasing subsequence is [5, 7, 9], so the length is 3.",
-          },
-          {
-            input: "N = 4, arr = [3, 10, 2, 1, 20]",
-            output: "3",
-            explanation: "The longest increasing subsequence is [3, 10, 20], so the length is 3.",
-          },
-        ],
-        solution: {
-          cpp: `
-      #include<bits/stdc++.h>
-      using namespace std;
-    
-      class Solution {
-      public:
-          int longestIncreasingSubsequence(int n, vector<int>& arr) {
-              vector<int> lis(n, 1);
-    
-              for (int i = 1; i < n; i++) {
-                  for (int j = 0; j < i; j++) {
-                      if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
-                          lis[i] = lis[j] + 1;
-                      }
-                  }
-              }
-    
-              return *max_element(lis.begin(), lis.end());
-          }
-      };`,
-    
-          java: `
-      import java.util.*;
-    
-      class Solution {
-          public int longestIncreasingSubsequence(int n, int[] arr) {
-              int[] lis = new int[n];
-              Arrays.fill(lis, 1);
-    
-              for (int i = 1; i < n; i++) {
-                  for (int j = 0; j < i; j++) {
-                      if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
-                          lis[i] = lis[j] + 1;
-                      }
-                  }
-              }
-    
-              int max = 0;
-              for (int length : lis) {
-                  max = Math.max(max, length);
-              }
-              return max;
-          }
-      };`,
-    
-          python: `
-      from typing import List
-    
-      class Solution:
-          def longestIncreasingSubsequence(self, n: int, arr: List[int]) -> int:
-              lis = [1] * n
-    
-              for i in range(1, n):
-                  for j in range(i):
-                      if arr[i] > arr[j]:
-                          lis[i] = max(lis[i], lis[j] + 1)
-    
-              return max(lis)
-              `,
-        },
+{
+  longestIncreasingSubsequence: {
+    title: "45. Longest Increasing Subsequence",
+    description:
+      "Given an array arr[] of size N, find the length of the longest subsequence of the array which is strictly increasing.",
+    examples: [
+      {
+        input: "N = 6, arr = [5, 8, 3, 7, 9, 1]",
+        output: "3",
+        explanation: "The longest increasing subsequence is [5, 7, 9], so the length is 3.",
       },
-    
-      intersectionOfTwoLinkedLists: {
-        title: "46. Intersection of Two Linked Lists",
-        description:
-          "Given the heads of two singly linked lists, headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection, return null.",
-        examples: [
-          {
-            input: "headA = [4,1,8,4,5], headB = [5,6,1,8,4,5]",
-            output: "Intersected at '8'",
-            explanation:
-              "The two linked lists intersect at node '8'.",
-          },
-          {
-            input: "headA = [1,9,1,2,4], headB = [3,2,4]",
-            output: "Intersected at '2'",
-            explanation:
-              "The two linked lists intersect at node '2'.",
-          },
-          {
-            input: "headA = [2,6,4], headB = [1,5]",
-            output: "null",
-            explanation:
-              "The two linked lists do not intersect, so the output is null.",
-          },
-        ],
-        solution: {
-          cpp: `
-      #include<bits/stdc++.h>
-      using namespace std;
-    
-      struct ListNode {
-          int val;
-          ListNode *next;
-          ListNode(int x) : val(x), next(NULL) {}
-      };
-    
-      class Solution {
-      public:
-          ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-              if (!headA || !headB) return NULL;
-    
-              ListNode *a = headA;
-              ListNode *b = headB;
-    
-              while (a != b) {
-                  a = a ? a->next : headB;
-                  b = b ? b->next : headA;
+      {
+        input: "N = 4, arr = [3, 10, 2, 1, 20]",
+        output: "3",
+        explanation: "The longest increasing subsequence is [3, 10, 20], so the length is 3.",
+      },
+    ],
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
+
+  class Solution {
+  public:
+      int longestIncreasingSubsequence(int n, vector<int>& arr) {
+          vector<int> lis(n, 1);
+
+          for (int i = 1; i < n; i++) {
+              for (int j = 0; j < i; j++) {
+                  if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+                      lis[i] = lis[j] + 1;
+                  }
               }
-    
-              return a;
           }
-      };`,
-    
-          java: `
-      public class ListNode {
-          int val;
-          ListNode next;
-          ListNode(int x) {
-              val = x;
-              next = null;
-          }
+
+          return *max_element(lis.begin(), lis.end());
       }
-    
-      public class Solution {
-          public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-              if (headA == null || headB == null) return null;
-    
-              ListNode a = headA;
-              ListNode b = headB;
-    
-              while (a != b) {
-                  a = (a != null) ? a.next : headB;
-                  b = (b != null) ? b.next : headA;
-              }
-    
-              return a;
-          }
-      };`,
-    
-          python: `
-      class ListNode:
-          def __init__(self, x):
-              self.val = x
-              self.next = None
-    
-      class Solution:
-          def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
-              if not headA or not headB:
-                  return None
-    
-              a, b = headA, headB
-    
-              while a != b:
-                  a = a.next if a else headB
-                  b = b.next if b else headA
-    
-              return a
-              `,
-        },
-      },
-    
-      coinChange: {
-        title: "47. Coin Change",
-        description:
-          "Given an integer array 'coins' representing different coin denominations and an integer 'amount' representing a total amount of money, return the fewest number of coins that you need to make up that amount. If that amount cannot be made up by any combination of the coins, return -1.",
-        examples: [
-          {
-            input: "coins = [1, 2, 5], amount = 11",
-            output: "3",
-            explanation:
-              "The fewest number of coins needed is 3: 11 = 5 + 5 + 1.",
-          },
-          {
-            input: "coins = [2], amount = 3",
-            output: "-1",
-            explanation:
-              "It is not possible to make up the amount 3 with only coin of denomination 2.",
-          },
-          {
-            input: "coins = [1], amount = 0",
-            output: "0",
-            explanation:
-              "The amount is already 0, so no coins are needed.",
-          },
-        ],
-        solution: {
-          cpp: `
-      #include<bits/stdc++.h>
-      using namespace std;
-      
-      class Solution {
-      public:
-          int coinChange(vector<int>& coins, int amount) {
-              vector<int> dp(amount + 1, amount + 1);
-              dp[0] = 0;
-      
-              for (int i = 1; i <= amount; i++) {
-                  for (int coin : coins) {
-                      if (i - coin >= 0) {
-                          dp[i] = min(dp[i], 1 + dp[i - coin]);
-                      }
+  };`,
+
+      java: `
+  import java.util.*;
+
+  class Solution {
+      public int longestIncreasingSubsequence(int n, int[] arr) {
+          int[] lis = new int[n];
+          Arrays.fill(lis, 1);
+
+          for (int i = 1; i < n; i++) {
+              for (int j = 0; j < i; j++) {
+                  if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+                      lis[i] = lis[j] + 1;
                   }
               }
-      
-              return dp[amount] == amount + 1 ? -1 : dp[amount];
           }
-      };`,
-      
-          java: `
-      import java.util.Arrays;
-      
-      public class Solution {
-          public int coinChange(int[] coins, int amount) {
-              int[] dp = new int[amount + 1];
-              Arrays.fill(dp, amount + 1);
-              dp[0] = 0;
-      
-              for (int i = 1; i <= amount; i++) {
-                  for (int coin : coins) {
-                      if (i - coin >= 0) {
-                          dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
-                      }
-                  }
-              }
-      
-              return dp[amount] == amount + 1 ? -1 : dp[amount];
+
+          int max = 0;
+          for (int length : lis) {
+              max = Math.max(max, length);
           }
-      };`,
-      
-          python: `
-      class Solution:
-          def coinChange(self, coins: List[int], amount: int) -> int:
-              dp = [float('inf')] * (amount + 1)
-              dp[0] = 0
-      
-              for i in range(1, amount + 1):
-                  for coin in coins:
-                      if i - coin >= 0:
-                          dp[i] = min(dp[i], 1 + dp[i - coin])
-      
-              return dp[amount] if dp[amount] != float('inf') else -1
-              `,
-        },
+          return max;
+      }
+  };`,
+
+      python: `
+  from typing import List
+
+  class Solution:
+      def longestIncreasingSubsequence(self, n: int, arr: List[int]) -> int:
+          lis = [1] * n
+
+          for i in range(1, n):
+              for j in range(i):
+                  if arr[i] > arr[j]:
+                      lis[i] = max(lis[i], lis[j] + 1)
+
+          return max(lis)
+          `,
+    },
+  },
+
+  intersectionOfTwoLinkedLists: {
+    title: "46. Intersection of Two Linked Lists",
+    description:
+      "Given the heads of two singly linked lists, headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection, return null.",
+    examples: [
+      {
+        input: "headA = [4,1,8,4,5], headB = [5,6,1,8,4,5]",
+        output: "Intersected at '8'",
+        explanation:
+          "The two linked lists intersect at node '8'.",
       },
-      
-      quickSortAndMergeSort: {
-        title: "48. QuickSort and MergeSort",
-        description:
-          "Implement the QuickSort and MergeSort algorithms to sort an array of integers. QuickSort is a divide-and-conquer algorithm that selects a 'pivot' element and partitions the other elements into two sub-arrays according to whether they are less than or greater than the pivot. MergeSort also uses divide-and-conquer by dividing the array into halves, sorting each half, and merging them back together.",
-        examples: [
-          {
-            input: "array = [3, 6, 8, 10, 1, 2, 1]",
-            output: "[1, 1, 2, 3, 6, 8, 10]",
-            explanation:
-              "The array is sorted in ascending order using either QuickSort or MergeSort.",
-          },
-          {
-            input: "array = [5, 2, 9, 1, 5, 6]",
-            output: "[1, 2, 5, 5, 6, 9]",
-            explanation:
-              "Both sorting algorithms yield the same sorted array.",
-          },
-          {
-            input: "array = []",
-            output: "[]",
-            explanation:
-              "An empty array remains empty after sorting.",
-          },
-        ],
-        solution: {
-          cpp: `
-    #include <vector>
-    using namespace std;
-    
-    // QuickSort
-    void quickSort(vector<int>& nums, int low, int high) {
+      {
+        input: "headA = [1,9,1,2,4], headB = [3,2,4]",
+        output: "Intersected at '2'",
+        explanation:
+          "The two linked lists intersect at node '2'.",
+      },
+      {
+        input: "headA = [2,6,4], headB = [1,5]",
+        output: "null",
+        explanation:
+          "The two linked lists do not intersect, so the output is null.",
+      },
+    ],
+    solution: {
+      cpp: `
+  #include<bits/stdc++.h>
+  using namespace std;
+
+  struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
+
+  class Solution {
+  public:
+      ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+          if (!headA || !headB) return NULL;
+
+          ListNode *a = headA;
+          ListNode *b = headB;
+
+          while (a != b) {
+              a = a ? a->next : headB;
+              b = b ? b->next : headA;
+          }
+
+          return a;
+      }
+  };`,
+
+      java: `
+  public class ListNode {
+      int val;
+      ListNode next;
+      ListNode(int x) {
+          val = x;
+          next = null;
+      }
+  }
+
+  public class Solution {
+      public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+          if (headA == null || headB == null) return null;
+
+          ListNode a = headA;
+          ListNode b = headB;
+
+          while (a != b) {
+              a = (a != null) ? a.next : headB;
+              b = (b != null) ? b.next : headA;
+          }
+
+          return a;
+      }
+  };`,
+
+      python: `
+  class ListNode:
+      def __init__(self, x):
+          self.val = x
+          self.next = None
+
+  class Solution:
+      def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+          if not headA or not headB:
+              return None
+
+          a, b = headA, headB
+
+          while a != b:
+              a = a.next if a else headB
+              b = b.next if b else headA
+
+          return a
+          `,
+    },
+  },
+
+  // The rest of the entries (coinChange, quickSortAndMergeSort, etc.) can continue here...
+}
+
         if (low < high) {
             int pivot = partition(nums, low, high);
             quickSort(nums, low, pivot - 1);
             quickSort(nums, pivot + 1, high);
         }
     }
-    
-    int partition(vector<int>& nums, int low, int high) {
+
+    private int partition(int[] nums, int low, int high) {
         int pivot = nums[high];
-        int i = low - 1;
+        int i = (low - 1);
         for (int j = low; j < high; j++) {
             if (nums[j] < pivot) {
                 i++;
-                swap(nums[i], nums[j]);
+                swap(nums, i, j);
             }
         }
-        swap(nums[i + 1], nums[high]);
+        swap(nums, i + 1, high);
         return i + 1;
     }
-    
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
     // MergeSort
-    void mergeSort(vector<int>& nums, int left, int right) {
+    public void mergeSort(int[] nums, int left, int right) {
         if (left < right) {
             int mid = left + (right - left) / 2;
             mergeSort(nums, left, mid);
@@ -2850,11 +2745,12 @@ class Solution:
             merge(nums, left, mid, right);
         }
     }
-    
-    void merge(vector<int>& nums, int left, int mid, int right) {
+
+    private void merge(int[] nums, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
-        vector<int> L(n1), R(n2);
+        int[] L = new int[n1];
+        int[] R = new int[n2];
         for (int i = 0; i < n1; i++) L[i] = nums[left + i];
         for (int j = 0; j < n2; j++) R[j] = nums[mid + 1 + j];
         int i = 0, j = 0, k = left;
@@ -2865,394 +2761,313 @@ class Solution:
         while (i < n1) nums[k++] = L[i++];
         while (j < n2) nums[k++] = R[j++];
     }
-    `,
-    
-          java: `
-    import java.util.Arrays;
-    
-    public class Solution {
-        // QuickSort
-        public void quickSort(int[] nums, int low, int high) {
-            if (low < high) {
-                int pivot = partition(nums, low, high);
-                quickSort(nums, low, pivot - 1);
-                quickSort(nums, pivot + 1, high);
-            }
-        }
-    
-        private int partition(int[] nums, int low, int high) {
-            int pivot = nums[high];
-            int i = (low - 1);
-            for (int j = low; j < high; j++) {
-                if (nums[j] < pivot) {
-                    i++;
-                    swap(nums, i, j);
-                }
-            }
-            swap(nums, i + 1, high);
-            return i + 1;
-        }
-    
-        private void swap(int[] nums, int i, int j) {
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-        }
-    
-        // MergeSort
-        public void mergeSort(int[] nums, int left, int right) {
-            if (left < right) {
-                int mid = left + (right - left) / 2;
-                mergeSort(nums, left, mid);
-                mergeSort(nums, mid + 1, right);
-                merge(nums, left, mid, right);
-            }
-        }
-    
-        private void merge(int[] nums, int left, int mid, int right) {
-            int n1 = mid - left + 1;
-            int n2 = right - mid;
-            int[] L = new int[n1];
-            int[] R = new int[n2];
-            for (int i = 0; i < n1; i++) L[i] = nums[left + i];
-            for (int j = 0; j < n2; j++) R[j] = nums[mid + 1 + j];
-            int i = 0, j = 0, k = left;
-            while (i < n1 && j < n2) {
-                if (L[i] <= R[j]) nums[k++] = L[i++];
-                else nums[k++] = R[j++];
-            }
-            while (i < n1) nums[k++] = L[i++];
-            while (j < n2) nums[k++] = R[j++];
+public class Solution {
+    // QuickSort
+    public void quickSort(int[] nums, int low, int high) {
+        if (low < high) {
+            int pivot = partition(nums, low, high);
+            quickSort(nums, low, pivot - 1);
+            quickSort(nums, pivot + 1, high);
         }
     }
-    `,
-    
-          python: `
-    class Solution:
-        # QuickSort
-        def quickSort(self, nums: List[int], low: int, high: int) -> None:
-            if low < high:
-                pivot = self.partition(nums, low, high)
-                self.quickSort(nums, low, pivot - 1)
-                self.quickSort(nums, pivot + 1, high)
-    
-        def partition(self, nums: List[int], low: int, high: int) -> int:
-            pivot = nums[high]
-            i = low - 1
-            for j in range(low, high):
-                if nums[j] < pivot:
-                    i += 1
-                    nums[i], nums[j] = nums[j], nums[i]
-            nums[i + 1], nums[high] = nums[high], nums[i + 1]
-            return i + 1
-    
-        # MergeSort
-        def mergeSort(self, nums: List[int], left: int, right: int) -> None:
-            if left < right:
-                mid = left + (right - left) // 2
-                self.mergeSort(nums, left, mid)
-                self.mergeSort(nums, mid + 1, right)
-                self.merge(nums, left, mid, right)
-    
-        def merge(self, nums: List[int], left: int, mid: int, right: int) -> None:
-            n1 = mid - left + 1
-            n2 = right - mid
-            L = nums[left:left + n1]
-            R = nums[mid + 1:mid + 1 + n2]
-            i = j = 0
-            k = left
-            while i < n1 and j < n2:
-                if L[i] <= R[j]:
-                    nums[k] = L[i]
-                    i += 1
-                else:
-                    nums[k] = R[j]
-                    j += 1
-                k += 1
-            while i < n1:
-                nums[k] = L[i]
-                i += 1
-                k += 1
-            while j < n2:
-                nums[k] = R[j]
-                j += 1
-                k += 1
-    `,
-        },
-    },
-    
-    countInversions: {
-        title: "49. Count Inversions in an Array",
-        description:
-          "Implement a function to count the number of inversions in an array. An inversion is defined as a pair of indices (i, j) such that i < j and arr[i] > arr[j]. This can be achieved efficiently using a modified MergeSort algorithm, which counts inversions while merging.",
-        examples: [
-          {
-            input: "array = [2, 4, 1, 3, 5]",
-            output: "3",
-            explanation:
-              "The inversions are (2, 1), (4, 1), and (4, 3).",
-          },
-          {
-            input: "array = [1, 20, 6, 4, 5]",
-            output: "5",
-            explanation:
-              "The inversions are (1, 6), (1, 4), (1, 5), (20, 6), and (20, 4).",
-          },
-          {
-            input: "array = [1, 2, 3, 4, 5]",
-            output: "0",
-            explanation:
-              "There are no inversions in a sorted array.",
-          },
-        ],
-        solution: {
-          cpp: `
-    #include <vector>
-    using namespace std;
-    
-    int mergeAndCount(vector<int>& arr, int left, int mid, int right) {
-        int i = left; 
-        int j = mid + 1; 
-        int k = 0; 
-        int inv_count = 0; 
-        vector<int> temp(right - left + 1);
-    
+
+    private int partition(int[] nums, int low, int high) {
+        int pivot = nums[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (nums[j] < pivot) {
+                i++;
+                swap(nums, i, j);
+            }
+        }
+        swap(nums, i + 1, high);
+        return i + 1;
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    // MergeSort
+    public void mergeSort(int[] nums, int left, int right) {
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            mergeSort(nums, left, mid);
+            mergeSort(nums, mid + 1, right);
+            merge(nums, left, mid, right);
+        }
+    }
+
+    private void merge(int[] nums, int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+        for (int i = 0; i < n1; i++) L[i] = nums[left + i];
+        for (int j = 0; j < n2; j++) R[j] = nums[mid + 1 + j];
+        int i = 0, j = 0, k = left;
+        while (i < n1 && j < n2) {
+            if (L[i] <= R[j]) nums[k++] = L[i++];
+            else nums[k++] = R[j++];
+        }
+        while (i < n1) nums[k++] = L[i++];
+        while (j < n2) nums[k++] = R[j++];
+    }
+
+    // Count Inversions
+    public int mergeAndCount(int[] arr, int left, int mid, int right) {
+        int i = left;
+        int j = mid + 1;
+        int k = 0;
+        int invCount = 0;
+        int[] temp = new int[right - left + 1];
+
         while (i <= mid && j <= right) {
             if (arr[i] <= arr[j]) {
                 temp[k++] = arr[i++];
             } else {
                 temp[k++] = arr[j++];
-                inv_count += (mid - i + 1); // Count inversions
+                invCount += (mid - i + 1); // Count inversions
             }
         }
-    
+
         while (i <= mid) temp[k++] = arr[i++];
         while (j <= right) temp[k++] = arr[j++];
-    
-        for (int i = left; i <= right; i++) arr[i] = temp[i - left];
-    
-        return inv_count;
+
+        System.arraycopy(temp, 0, arr, left, temp.length);
+        return invCount;
     }
-    
-    int mergeSortAndCount(vector<int>& arr, int left, int right) {
-        int inv_count = 0;
+
+    public int mergeSortAndCount(int[] arr, int left, int right) {
+        int invCount = 0;
         if (left < right) {
             int mid = left + (right - left) / 2;
-            inv_count += mergeSortAndCount(arr, left, mid);
-            inv_count += mergeSortAndCount(arr, mid + 1, right);
-            inv_count += mergeAndCount(arr, left, mid, right);
+            invCount += mergeSortAndCount(arr, left, mid);
+            invCount += mergeSortAndCount(arr, mid + 1, right);
+            invCount += mergeAndCount(arr, left, mid, right);
         }
-        return inv_count;
+        return invCount;
     }
-    
-    int countInversions(vector<int>& arr) {
-        return mergeSortAndCount(arr, 0, arr.size() - 1);
+
+    public int countInversions(int[] arr) {
+        return mergeSortAndCount(arr, 0, arr.length - 1);
     }
-    `,
-    
-          java: `
-    public class Solution {
-        public int mergeAndCount(int[] arr, int left, int mid, int right) {
-            int i = left;
-            int j = mid + 1;
-            int k = 0;
-            int invCount = 0;
-            int[] temp = new int[right - left + 1];
-    
-            while (i <= mid && j <= right) {
-                if (arr[i] <= arr[j]) {
-                    temp[k++] = arr[i++];
-                } else {
-                    temp[k++] = arr[j++];
-                    invCount += (mid - i + 1);
-                }
+}
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+                invCount += (mid - i + 1);
             }
-    
-            while (i <= mid) temp[k++] = arr[i++];
-            while (j <= right) temp[k++] = arr[j++];
-    
-            for (int m = left; m <= right; m++) arr[m] = temp[m - left];
-    
-            return invCount;
         }
-    
-        public int mergeSortAndCount(int[] arr, int left, int right) {
-            int invCount = 0;
-            if (left < right) {
-                int mid = left + (right - left) / 2;
-                invCount += mergeSortAndCount(arr, left, mid);
-                invCount += mergeSortAndCount(arr, mid + 1, right);
-                invCount += mergeAndCount(arr, left, mid, right);
-            }
-            return invCount;
-        }
-    
-        public int countInversions(int[] arr) {
-            return mergeSortAndCount(arr, 0, arr.length - 1);
-        }
+
+        while (i <= mid) temp[k++] = arr[i++];
+        while (j <= right) temp[k++] = arr[j++];
+
+        for (int m = left; m <= right; m++) arr[m] = temp[m - left];
+
+        return invCount;
     }
-    `,
-    
-          python: `
-    class Solution:
-        def mergeAndCount(self, arr, left, mid, right):
-            i = left
-            j = mid + 1
-            k = 0
-            inv_count = 0
-            temp = []
-    
-            while i <= mid and j <= right:
-                if arr[i] <= arr[j]:
-                    temp.append(arr[i])
-                    i += 1
-                else:
-                    temp.append(arr[j])
-                    inv_count += (mid - i + 1)
-                    j += 1
-    
-            while i <= mid:
+
+    public int mergeSortAndCount(int[] arr, int left, int right) {
+        int invCount = 0;
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            invCount += mergeSortAndCount(arr, left, mid);
+            invCount += mergeSortAndCount(arr, mid + 1, right);
+            invCount += mergeAndCount(arr, left, mid, right);
+        }
+        return invCount;
+    }
+
+    public int countInversions(int[] arr) {
+        return mergeSortAndCount(arr, 0, arr.length - 1);
+    }
+}
+`,
+
+      python: `
+class Solution:
+    def mergeAndCount(self, arr, left, mid, right):
+        i = left
+        j = mid + 1
+        k = 0
+        inv_count = 0
+        temp = []
+
+        while i <= mid and j <= right:
+            if arr[i] <= arr[j]:
                 temp.append(arr[i])
                 i += 1
-            while j <= right:
+            else:
                 temp.append(arr[j])
+                inv_count += (mid - i + 1)
                 j += 1
-    
-            for m in range(len(temp)):
-                arr[left + m] = temp[m]
-    
-            return inv_count
-    
-        def mergeSortAndCount(self, arr, left, right):
-            inv_count = 0
-            if left < right:
-                mid = left + (right - left) // 2
-                inv_count += self.mergeSortAndCount(arr, left, mid)
-                inv_count += self.mergeSortAndCount(arr, mid + 1, right)
-                inv_count += self.mergeAndCount(arr, left, mid, right)
-            return inv_count
-    
-        def countInversions(self, arr):
-            return self.mergeSortAndCount(arr, 0, len(arr) - 1)
-    `,
-        },
+
+        while i <= mid:
+            temp.append(arr[i])
+            i += 1
+        while j <= right:
+            temp.append(arr[j])
+            j += 1
+
+        for m in range(len(temp)):
+            arr[left + m] = temp[m]
+
+        return inv_count
+
+    def mergeSortAndCount(self, arr, left, right):
+        inv_count = 0
+        if left < right:
+            mid = left + (right - left) // 2
+            inv_count += self.mergeSortAndCount(arr, left, mid)
+            inv_count += self.mergeSortAndCount(arr, mid + 1, right)
+            inv_count += self.mergeAndCount(arr, left, mid, right)
+        return inv_count
+
+    def countInversions(self, arr):
+        return self.mergeSortAndCount(arr, 0, len(arr) - 1)
+`,
     },
-    
-    sortArray012: {
-        title: "50. Sort an Array of 0s, 1s, and 2s",
-        description:
-          "Implement a function to sort an array containing only 0s, 1s, and 2s. The task can be efficiently accomplished using the Dutch National Flag algorithm, which categorizes the elements in a single pass through the array.",
-        examples: [
-          {
-            input: "array = [2, 0, 1, 2, 0, 1, 1]",
-            output: "[0, 0, 1, 1, 1, 2, 2]",
-            explanation:
-              "The array is sorted in ascending order with all 0s followed by 1s and then 2s.",
-          },
-          {
-            input: "array = [1, 2, 0, 0, 1, 2]",
-            output: "[0, 0, 1, 1, 2, 2]",
-            explanation:
-              "After sorting, the array contains all 0s first, followed by 1s and then 2s.",
-          },
-          {
-            input: "array = []",
-            output: "[]",
-            explanation:
-              "An empty array remains empty after sorting.",
-          },
-        ],
-        solution: {
-          cpp: `
-    #include <vector>
-    using namespace std;
-    
-    void sortColors(vector<int>& nums) {
-        int low = 0, mid = 0, high = nums.size() - 1;
+},
+
+sortArray012: {
+    title: "50. Sort an Array of 0s, 1s, and 2s",
+    description:
+      "Implement a function to sort an array containing only 0s, 1s, and 2s. The task can be efficiently accomplished using the Dutch National Flag algorithm, which categorizes the elements in a single pass through the array.",
+    examples: [
+      {
+        input: "array = [2, 0, 1, 2, 0, 1, 1]",
+        output: "[0, 0, 1, 1, 1, 2, 2]",
+        explanation:
+          "The array is sorted in ascending order with all 0s followed by 1s and then 2s.",
+      },
+      {
+        input: "array = [1, 2, 0, 0, 1, 2]",
+        output: "[0, 0, 1, 1, 2, 2]",
+        explanation:
+          "After sorting, the array contains all 0s first, followed by 1s and then 2s.",
+      },
+      {
+        input: "array = []",
+        output: "[]",
+        explanation:
+          "An empty array remains empty after sorting.",
+      },
+    ],
+    solution: {
+      cpp: `
+#include <vector>
+using namespace std;
+
+void sortColors(vector<int>& nums) {
+    int low = 0, mid = 0, high = nums.size() - 1;
+    while (mid <= high) {
+        if (nums[mid] == 0) {
+            swap(nums[low++], nums[mid++]);
+        } else if (nums[mid] == 1) {
+            mid++;
+        } else {
+            swap(nums[mid], nums[high--]);
+        }
+    }
+}
+`,
+
+      java: `
+public class Solution {
+    public void sortColors(int[] nums) {
+        int low = 0, mid = 0, high = nums.length - 1;
         while (mid <= high) {
             if (nums[mid] == 0) {
-                swap(nums[low++], nums[mid++]);
+                swap(nums, low++, mid++);
             } else if (nums[mid] == 1) {
                 mid++;
             } else {
-                swap(nums[mid], nums[high--]);
+                swap(nums, mid, high--);
             }
         }
     }
-    `,
-    
-          java: `
-    public class Solution {
-        public void sortColors(int[] nums) {
-            int low = 0, mid = 0, high = nums.length - 1;
-            while (mid <= high) {
-                if (nums[mid] == 0) {
-                    swap(nums, low++, mid++);
-                } else if (nums[mid] == 1) {
-                    mid++;
-                } else {
-                    swap(nums, mid, high--);
-                }
-            }
-        }
-    
-        private void swap(int[] nums, int i, int j) {
-            int temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-        }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
-    `,
-    
-          python: `
-    class Solution:
-        def sortColors(self, nums: List[int]) -> None:
-            low, mid, high = 0, 0, len(nums) - 1
-            while mid <= high:
-                if nums[mid] == 0:
-                    nums[low], nums[mid] = nums[mid], nums[low]
-                    low += 1
-                    mid += 1
-                elif nums[mid] == 1:
-                    mid += 1
-                else:
-                    nums[mid], nums[high] = nums[high], nums[mid]
-                    high -= 1
-    `,
-        },
+}
+`,
+
+      python: `
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        low, mid, high = 0, 0, len(nums) - 1
+        while mid <= high:
+            if nums[mid] == 0:
+                nums[low], nums[mid] = nums[mid], nums[low]
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                nums[mid], nums[high] = nums[high], nums[mid]
+                high -= 1
+`,
     },
-    
-    searchInNearlySortedArray: {
-        title: "51. Perform a Search in a Nearly Sorted Array",
-        description:
-          "Implement a function to search for a target element in a nearly sorted array. In a nearly sorted array, each element is at most one position away from its original position. This allows for an efficient search using a modified binary search algorithm.",
-        examples: [
-          {
-            input: "array = [10, 3, 40, 20, 50, 80, 70], target = 20",
-            output: "3",
-            explanation:
-              "The target element 20 is found at index 3 in the array.",
-          },
-          {
-            input: "array = [10, 3, 40, 20, 50, 80, 70], target = 90",
-            output: "-1",
-            explanation:
-              "The target element 90 is not present in the array, so the output is -1.",
-          },
-          {
-            input: "array = [1], target = 1",
-            output: "0",
-            explanation:
-              "The array contains only one element, which is the target; thus, it is found at index 0.",
-          },
-        ],
-        solution: {
-          cpp: `
-    #include <vector>
-    using namespace std;
-    
-    int searchInNearlySortedArray(vector<int>& arr, int target) {
-        int n = arr.size();
+},
+
+searchInNearlySortedArray: {
+    title: "51. Perform a Search in a Nearly Sorted Array",
+    description:
+      "Implement a function to search for a target element in a nearly sorted array. In a nearly sorted array, each element is at most one position away from its original position. This allows for an efficient search using a modified binary search algorithm.",
+    examples: [
+      {
+        input: "array = [10, 3, 40, 20, 50, 80, 70], target = 20",
+        output: "3",
+        explanation:
+          "The target element 20 is found at index 3 in the array.",
+      },
+      {
+        input: "array = [10, 3, 40, 20, 50, 80, 70], target = 90",
+        output: "-1",
+        explanation:
+          "The target element 90 is not present in the array, so the output is -1.",
+      },
+      {
+        input: "array = [1], target = 1",
+        output: "0",
+        explanation:
+          "The array contains only one element, which is the target; thus, it is found at index 0.",
+      },
+    ],
+    solution: {
+      cpp: `
+#include <vector>
+using namespace std;
+
+int searchInNearlySortedArray(vector<int>& arr, int target) {
+    int n = arr.size();
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+        if (i > 0 && arr[i - 1] == target) {
+            return i - 1;
+        }
+        if (i < n - 1 && arr[i + 1] == target) {
+            return i + 1;
+        }
+    }
+    return -1;
+}
+`,
+
+      java: `
+public class Solution {
+    public int searchInNearlySortedArray(int[] arr, int target) {
+        int n = arr.length;
         for (int i = 0; i < n; i++) {
             if (arr[i] == target) {
                 return i;
@@ -3266,43 +3081,24 @@ class Solution:
         }
         return -1;
     }
-    `,
-    
-          java: `
-    public class Solution {
-        public int searchInNearlySortedArray(int[] arr, int target) {
-            int n = arr.length;
-            for (int i = 0; i < n; i++) {
-                if (arr[i] == target) {
-                    return i;
-                }
-                if (i > 0 && arr[i - 1] == target) {
-                    return i - 1;
-                }
-                if (i < n - 1 && arr[i + 1] == target) {
-                    return i + 1;
-                }
-            }
-            return -1;
-        }
-    }
-    `,
-    
-          python: `
-    class Solution:
-        def searchInNearlySortedArray(self, arr: List[int], target: int) -> int:
-            n = len(arr)
-            for i in range(n):
-                if arr[i] == target:
-                    return i
-                if i > 0 and arr[i - 1] == target:
-                    return i - 1
-                if i < n - 1 and arr[i + 1] == target:
-                    return i + 1
-            return -1
-    `,
-        },
+}
+`,
+
+      python: `
+class Solution:
+    def searchInNearlySortedArray(self, arr: List[int], target: int) -> int:
+        n = len(arr)
+        for i in range(n):
+            if arr[i] == target:
+                return i
+            if i > 0 and arr[i - 1] == target:
+                return i - 1
+            if i < n - 1 and arr[i + 1] == target:
+                return i + 1
+        return -1
+`,
     },
+},
     flattenMultilevelDoublyLinkedList: {
         title: "52. Flatten a Multilevel Doubly Linked List",
         description:
@@ -3431,7 +3227,7 @@ class Solution:
           `,
         },
     },
-    findAllAnagramsInString: {
+  findAllAnagramsInString: {
         title: "53. Find All Anagrams in a String",
         description:
           "Given a string s and a non-empty string p, find all the start indices of p's anagrams in s. Strings consist of lowercase English letters, and the order of output does not matter. An anagram of p is a permutation of p, and the function should return an array of starting indices where anagrams of p begin in s.",
@@ -3594,139 +3390,7 @@ class Solution:
               return second
           `,
         },
-      },    
-      minimumWindowSubstring: {
-        title: "55. Minimum Window Substring",
-        description:
-          "Given two strings s and t, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string \"\". The answer is guaranteed to be unique.",
-        examples: [
-          {
-            input: "s = 'ADOBECODEBANC', t = 'ABC'",
-            output: "'BANC'",
-            explanation: "The smallest substring containing all characters of t is 'BANC'.",
-          },
-          {
-            input: "s = 'a', t = 'a'",
-            output: "'a'",
-            explanation: "The entire string is the minimum window substring.",
-          },
-          {
-            input: "s = 'a', t = 'aa'",
-            output: "''",
-            explanation: "There is no valid substring since t contains more 'a's than s.",
-          },
-        ],
-        solution: {
-          cpp: `
-      #include<bits/stdc++.h>
-      using namespace std;
-    
-      class Solution {
-      public:
-          string minWindow(string s, string t) {
-              unordered_map<char, int> t_count, s_count;
-              for (char c : t) t_count[c]++;
-              int required = t_count.size();
-              int formed = 0;
-              int l = 0, r = 0, min_length = INT_MAX, start = 0;
-    
-              while (r < s.length()) {
-                  char c = s[r];
-                  s_count[c]++;
-                  if (t_count.count(c) && s_count[c] == t_count[c]) formed++;
-    
-                  while (l <= r && formed == required) {
-                      c = s[l];
-                      if (r - l + 1 < min_length) {
-                          min_length = r - l + 1;
-                          start = l;
-                      }
-                      s_count[c]--;
-                      if (t_count.count(c) && s_count[c] < t_count[c]) formed--;
-                      l++;
-                  }
-                  r++;
-              }
-              return min_length == INT_MAX ? "" : s.substr(start, min_length);
-          }
-      };`,
-    
-          java: `
-      import java.util.*;
-    
-      class Solution {
-          public String minWindow(String s, String t) {
-              Map<Character, Integer> t_count = new HashMap<>();
-              for (char c : t.toCharArray()) t_count.put(c, t_count.getOrDefault(c, 0) + 1);
-              int required = t_count.size();
-              int formed = 0;
-              int l = 0, r = 0, min_length = Integer.MAX_VALUE, start = 0;
-    
-              Map<Character, Integer> s_count = new HashMap<>();
-              while (r < s.length()) {
-                  char c = s.charAt(r);
-                  s_count.put(c, s_count.getOrDefault(c, 0) + 1);
-                  if (t_count.containsKey(c) && s_count.get(c).intValue() == t_count.get(c).intValue()) formed++;
-    
-                  while (l <= r && formed == required) {
-                      c = s.charAt(l);
-                      if (r - l + 1 < min_length) {
-                          min_length = r - l + 1;
-                          start = l;
-                      }
-                      s_count.put(c, s_count.get(c) - 1);
-                      if (t_count.containsKey(c) && s_count.get(c).intValue() < t_count.get(c).intValue()) formed--;
-                      l++;
-                  }
-                  r++;
-              }
-              return min_length == Integer.MAX_VALUE ? "" : s.substring(start, start + min_length);
-          }
-      };`,
-    
-          python: `
-      from collections import Counter, defaultdict
-    
-      class Solution:
-          def minWindow(self, s: str, t: str) -> str:
-              if not t or not s:
-                  return ""
-    
-              dict_t = Counter(t)
-              required = len(dict_t)
-    
-              l, r = 0, 0
-              formed = 0
-              window_counts = defaultdict(int)
-    
-              min_length = float("inf")
-              start = 0
-    
-              while r < len(s):
-                  character = s[r]
-                  window_counts[character] += 1
-    
-                  if character in dict_t and window_counts[character] == dict_t[character]:
-                      formed += 1
-    
-                  while l <= r and formed == required:
-                      character = s[l]
-    
-                      if r - l + 1 < min_length:
-                          min_length = r - l + 1
-                          start = l
-    
-                      window_counts[character] -= 1
-                      if character in dict_t and window_counts[character] < dict_t[character]:
-                          formed -= 1
-                      l += 1
-    
-                  r += 1
-    
-              return "" if min_length == float("inf") else s[start:start + min_length]
-          `,
-        },
-      },        
+      }, 
 };
 
 export default problemsData;
