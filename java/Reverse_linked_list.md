@@ -7,8 +7,6 @@ description: "This document explains reversing a linked list in java."
 tags: [java, data structures, linked list]
 ---
 
-# *Reversing a Linked List*
-
 ## *Description*
 
 Given a singly linked list, reverse the order of its nodes.
@@ -91,10 +89,9 @@ Reversed List:
 5 4 3 2 1 
 ```
 
-
 - *Time Complexity*: O(n), where n is the number of nodes.
 
 - *Space Complexity*: O(1), as only a constant amount of space is used.
 
-# *Conclusion*
+## Conclusion
 In this article, we learned about reversing a linked list and implemented it in Java.
