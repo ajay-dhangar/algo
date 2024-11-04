@@ -3533,7 +3533,68 @@ class Solution:
               return result
           `,
         },
-      },    
+      },
+      climbingStairs: {
+        title: "54. Climbing Stairs",
+        description:
+          "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
+        examples: [
+          {
+            input: "n = 2",
+            output: "2",
+            explanation: "There are two ways to climb to the top: 1 step + 1 step or 2 steps.",
+          },
+          {
+            input: "n = 3",
+            output: "3",
+            explanation: "There are three ways to climb to the top: 1 step + 1 step + 1 step, 1 step + 2 steps, or 2 steps + 1 step.",
+          },
+        ],
+        solution: {
+          cpp: `
+      #include<bits/stdc++.h>
+      using namespace std;
+    
+      class Solution {
+      public:
+          int climbStairs(int n) {
+              if (n <= 1) return 1;
+              int first = 1, second = 2;
+              for (int i = 3; i <= n; i++) {
+                  int temp = second;
+                  second += first;
+                  first = temp;
+              }
+              return second;
+          }
+      };`,
+    
+          java: `
+      class Solution {
+          public int climbStairs(int n) {
+              if (n <= 1) return 1;
+              int first = 1, second = 2;
+              for (int i = 3; i <= n; i++) {
+                  int temp = second;
+                  second += first;
+                  first = temp;
+              }
+              return second;
+          }
+      };`,
+    
+          python: `
+      class Solution:
+          def climbStairs(self, n: int) -> int:
+              if n <= 1:
+                  return 1
+              first, second = 1, 2
+              for i in range(3, n + 1):
+                  first, second = second, first + second
+              return second
+          `,
+        },
+      }, 
 };
 
 export default problemsData;
