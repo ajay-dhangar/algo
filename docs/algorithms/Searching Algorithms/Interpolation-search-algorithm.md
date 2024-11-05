@@ -1,10 +1,13 @@
 
 ---
+
 id: Interpolation-Searc-Algorithm
 sidebar_position: 5
 title: Interpolation Search Algorithm
 sidebar_label: Interpolation Search 
+
 ---
+
 
 ## Definition 📖
 
