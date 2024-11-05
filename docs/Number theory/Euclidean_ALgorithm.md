@@ -1,4 +1,5 @@
---- 
+---
+id:"Euclidean Algorithm"
 title: "Extended Euclidean Algorithm" 
 sidebar_label: "Extended Euclidean" 
 sidebar_position: 8
@@ -10,45 +11,44 @@ tags: [extended euclidean, number theory, competitive programming]
 
 ## What is the Extended Euclidean Algorithm?
 
-The Extended Euclidean Algorithm is a method used to find the **Greatest Common Divisor (GCD)** of two integers, \(a\) and \(b\). But it does more than just that—it also finds two coefficients, \(x\) and \(y\), that satisfy the equation:
+The Extended Euclidean Algorithm is a method used to find the **Greatest Common Divisor (GCD)** of two integers, $a$ and $b$. But it does more than just that—it also finds two coefficients, $x$ and $y$, that satisfy the equation:
 
-\[
+$$
 ax + by = \text{gcd}(a, b)
-\]
+$$
 
-This equation is known as **Bézout's identity**. The values of \(x\) and \(y\) can be very useful in solving equations where you need whole number solutions, such as linear Diophantine equations.
+This equation is known as **Bézout's identity**. The values of $x$ and $y$ can be very useful in solving equations where you need whole number solutions, such as linear Diophantine equations.
 
 ## How Does It Work?
 
 The Extended Euclidean Algorithm builds on the simpler **Euclidean Algorithm**, which finds the GCD by repeatedly applying the formula:
 
-\[
+$$
 \text{gcd}(a, b) = \text{gcd}(b, a \mod b)
-\]
+$$
 
-While finding the GCD, the Extended Euclidean Algorithm keeps track of the coefficients \(x\) and \(y\). Here's how it works:
+While finding the GCD, the Extended Euclidean Algorithm keeps track of the coefficients $x$ and $y$. Here's how it works:
 
 ### Steps of the Extended Euclidean Algorithm:
 
-1. **Base Case**: If \(b = 0\), then:
-   \[
+1. **Base Case**: If $b = 0$, then:
+   $$
    \text{gcd}(a, b) = a \quad \text{and} \quad x = 1, \quad y = 0
-   \]
+   $$
    This means that if one number is zero, the other number is the GCD, and the coefficients are easy to find.
 
-2. **Recursive Step**: If \(b \neq 0\):
-   - Calculate the GCD of \(b\) and \(a \mod b\).
+2. **Recursive Step**: If $b \neq 0$:
+   - Calculate the GCD of $b$ and $a \mod b$.
    - Update the coefficients using:
-     \[
+     $$
      g = \text{gcd}(b, a \mod b)
-     \]
-     \[
+     $$
+     $$
      x' = y
-     \]
-     \[
+     $$
+     $$
      y' = x - \left\lfloor \frac{a}{b} \right\rfloor y
-     \]
-
+     $$
 ## Code Implementations
 
 Here's how you can implement the Extended Euclidean Algorithm in different programming languages.
@@ -70,9 +70,10 @@ a = 30
 b = 21
 gcd, x, y = extended_gcd(a, b)
 print(f"The GCD of {a} and {b} is {gcd}, with coefficients x = {x} and y = {y}")
+
 ```
 
-### C++
+### C++ Implementation
 
 ```cpp
 #include <iostream>
@@ -95,9 +96,10 @@ int main() {
     cout << "The GCD of " << a << " and " << b << " is " << gcd << ", with coefficients x = " << x << " and y = " << y << endl;
     return 0;
 }
+
 ```
 
-### Java
+### Java Implementation
 
 ```java
 public class ExtendedEuclideanAlgorithm {
@@ -120,49 +122,46 @@ public class ExtendedEuclideanAlgorithm {
         System.out.println("The GCD of " + a + " and " + b + " is " + result[0] + ", with coefficients x = " + result[1] + " and y = " + result[2]);
     }
 }
+
 ```
 
 ## Understanding the Code
 
 In each implementation:
 - The function `extended_gcd` calculates the GCD of two numbers using recursion.
-- It also computes the coefficients \(x\) and \(y\) that satisfy Bézout's identity.
+- It also computes the coefficients $x$ and $y$ that satisfy Bézout's identity.
 
 ### Example Usage
 
-For the numbers \(a = 30\) and \(b = 21\), the output will be:
+For the numbers $a = 30$ and $b = 21$, the output will be:
 
-```
-The GCD of 30 and 21 is 3, with coefficients x = -1 and y = 2
-```
+The GCD of 30 and 21 is 3, with coefficients $x = -1$ and $y = 2$.
 
 ## Applications in Competitive Programming
 
 The Extended Euclidean Algorithm is useful in various scenarios, such as:
-- **Solving Linear Diophantine Equations**: It can find integer solutions for equations like \(ax + by = c\).
-- **Finding Modular Inverses**: It helps to find the modular inverse of a number \(a\) under modulo \(m\). This is useful in cryptography.
+- **Solving Linear Diophantine Equations**: It can find integer solutions for equations like $ax + by = c$.
+- **Finding Modular Inverses**: It helps to find the modular inverse of a number $a$ under modulo $m$. This is useful in cryptography.
 - **Cryptography**: It is used in algorithms like RSA for key generation and digital signatures.
 
 ### Example Problem
 
-Given two integers \(a = 30\) and \(b = 21\):
-- **Result**: GCD(30, 21) = 3, with coefficients \(x = -1\) and \(y = 2\).
+Given two integers $a = 30$ and $b = 21$:
+- **Result**: GCD(30, 21) = 3, with coefficients $x = -1$ and $y = 2$.
 
 ## Time Complexity
 
 The time complexity of the Extended Euclidean Algorithm is:
 
-\[
+$$
 O(\log(\min(a, b)))
-\]
+$$
 
 This means it runs efficiently, even for large numbers.
 
 ## Conclusion
 
 The Extended Euclidean Algorithm is a valuable tool in number theory. It not only computes the GCD but also provides the coefficients that relate two numbers. Its applications span various fields, including cryptography and competitive programming, making it an essential algorithm to understand.
-
----
 
 ### Summary of Improvements:
 - **Simplified Explanations**: Provided clearer explanations for beginners.
