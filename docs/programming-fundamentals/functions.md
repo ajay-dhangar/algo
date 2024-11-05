@@ -1,14 +1,12 @@
 ---
-id: Functions
+id: functions
 title: Introduction to functions fundamentals
-sidebar_label: Programming fundamentals
+sidebar_label: Functions
 sidebar_position: 4
-description: "Information About functions in progamming"
-tags: [functions,fundamentals]
+description: "Information About functions in programming"
+tags: [functions, fundamentals]
 ---
 
-
-# Functions in C
 
 ## What are Functions?
 Functions in C are self-contained blocks of code that perform a specific task. They allow for code reuse, modular programming, and improve the clarity of the code.
