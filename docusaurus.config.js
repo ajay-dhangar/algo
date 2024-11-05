@@ -99,11 +99,6 @@ const config = {
             label: "FAQ",
             position: "left",
           },
-           {
-            to: "dsa-interview", 
-            label: "Top DSA Interview Questions",
-            position: "left",
-          },
           {
             to: "dsa-roadmap",
             label: "Pick Topic For Contribution",
@@ -118,7 +113,12 @@ const config = {
             type: "dropdown",
             label: "More",
             position: "right",
-            items: [
+            items: [              
+              {
+                to: "dsa-interview", 
+                label: "Top DSA Interview Questions",
+                position: "left",
+              },
               {
                 to: "roadmap",
                 label: "Roadmap",
@@ -137,7 +137,7 @@ const config = {
               },
               {
                 to: "quiz-solutions",
-                label: "Quizes Solutions",
+                label: "Quizzes Solutions",
               },
               {
                 to: "leaderboard",
