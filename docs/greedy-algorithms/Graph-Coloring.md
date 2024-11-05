@@ -141,5 +141,88 @@ int main() {
 
 ```
 
+### Java Implementation:
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class GraphColoring {
+
+    // Function to perform greedy graph coloring
+    public static void greedyGraphColoring(List<List<Integer>> graph, int V) {
+        // Array to store the color assigned to each vertex
+        int[] result = new int[V];
+        Arrays.fill(result, -1);
+
+        // Assign the first color to the first vertex
+        result[0] = 0;
+
+        // Temporary array to keep track of available colors for vertices
+        boolean[] available = new boolean[V];
+
+        // Assign colors to remaining vertices
+        for (int u = 1; u < V; u++) {
+            // Mark colors of adjacent vertices as unavailable
+            for (int adjacent : graph.get(u)) {
+                if (result[adjacent] != -1) {
+                    available[result[adjacent]] = true;
+                }
+            }
+
+            // Find the first available color
+            int cr;
+            for (cr = 0; cr < V; cr++) {
+                if (!available[cr]) {
+                    break;
+                }
+            }
+
+            // Assign the found color to vertex u
+            result[u] = cr;
+
+            // Reset the available array for the next iteration
+            for (int adjacent : graph.get(u)) {
+                if (result[adjacent] != -1) {
+                    available[result[adjacent]] = false;
+                }
+            }
+        }
+
+        // Print the result
+        System.out.println("Vertex\tColor");
+        for (int u = 0; u < V; u++) {
+            System.out.println(u + "\t" + result[u]);
+        }
+    }
+
+    public static void main(String[] args) {
+        // Number of vertices
+        int V = 4;
+
+        // Adjacency list representing the graph
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            graph.add(new ArrayList<>());
+        }
+
+        // Define the edges of the graph
+        graph.get(0).add(1); // Edge A-B
+        graph.get(0).add(2); // Edge A-C
+        graph.get(1).add(0); // Edge B-A
+        graph.get(1).add(3); // Edge B-D
+        graph.get(2).add(0); // Edge C-A
+        graph.get(2).add(3); // Edge C-D
+        graph.get(3).add(1); // Edge D-B
+        graph.get(3).add(2); // Edge D-C
+
+        // Call the greedy coloring function
+        greedyGraphColoring(graph, V);
+    }
+}
+
+
+```
+
 ### Summary:
 Graph coloring is the process of assigning colors to vertices of a graph such that no two adjacent vertices share the same color. It has practical applications in areas like scheduling, register allocation, and map coloring. The problem is NP-complete, meaning there is no known efficient algorithm for finding the minimum number of colors. However, the greedy algorithm offers an approximation by assigning colors sequentially to each vertex while avoiding conflicts. Though it doesn't guarantee the minimum number of colors, it ensures an upper bound of `d+1` colors, where `d` is the maximum degree of any vertex in the graph.
