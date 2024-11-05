@@ -116,8 +116,7 @@ const config = {
             items: [              
               {
                 to: "dsa-interview", 
-                label: "Top DSA Interview Questions",
-                position: "left",
+                label: "Top DSA Questions",
               },
               {
                 to: "roadmap",
