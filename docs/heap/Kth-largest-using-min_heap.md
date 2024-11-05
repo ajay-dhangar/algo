@@ -1,10 +1,12 @@
 ---
-id: Kth-Largest-Element-MinHeap
-title: Kth Largest Element using Min Heap
-sidebar_label: Kth Largest Element
-sidebar_position: 3
-description: Finding the Kth largest element in an array using a min heap data structure, commonly used in streaming and top-K problems.
-tags: [Heap, Priority Queue, Top-K, Streaming]
+
+id: kth-largest-element-min-heap  
+title: Kth Largest Element using Min Heap  
+sidebar_label: Kth Largest Element  
+sidebar_position: 3  
+description: Finding the Kth largest element in an array using a min heap data structure, commonly used in streaming and top-K problems.  
+tags: [Heap, Priority Queue, Top-K, Streaming]  
+
 ---
 
 # Kth Largest Element Using Min Heap
@@ -26,9 +28,9 @@ The key idea is to maintain a min heap of size K, where the smallest element (ro
 
 1. Create a min heap to store the K largest elements
 2. Process elements one by one:
-   - If heap size < K: Insert the element
+   - If heap size &lt; K: Insert the element
    - If heap size = K: Compare with root (smallest element)
-     - If current element > root: Remove root and insert current element
+     - If current element &gt; root: Remove root and insert current element
      - Otherwise: Skip the element
 3. After processing all elements, the root contains the Kth largest element
 
@@ -86,16 +88,16 @@ public:
 ## Time and Space Complexity
 
 - **Time Complexity**: 
-  - Build Heap: O(n * log k)
-  - Get Kth largest: O(1)
-- **Space Complexity**: O(k)
+  - Build Heap: $O(n \cdot \log k)$
+  - Get Kth largest: $O(1)$
+- **Space Complexity**: $O(k)$
 
 ## Advantages and Disadvantages
 
 ### Advantages
 - Efficient for streaming data
-- Memory efficient (O(k) space)
-- Good for large datasets where k << n
+- Memory efficient ($O(k)$ space)
+- Good for large datasets where $k \ll n$
 - Maintains running K largest elements
 
 ### Disadvantages
