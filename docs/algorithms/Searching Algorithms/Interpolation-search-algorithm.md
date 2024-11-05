@@ -1,10 +1,9 @@
-
 ---
 
-id: Interpolation-Searc-Algorithm
-sidebar_position: 5
-title: Interpolation Search Algorithm
-sidebar_label: Interpolation Search 
+id: Interpolation algorithm 
+sidebar_position: 5  
+title: Interpolation search
+sidebar_label: Interpolation search algorithm 
 
 ---
 
