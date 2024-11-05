@@ -451,6 +451,13 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/PavanTeja2005">
+                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
+                    <br />
+                    <sub><b>PavanTeja2005</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/tanishqkolhatkar93">
                     <img src="https://avatars.githubusercontent.com/u/91214235?v=4" width="100;" alt="tanishqkolhatkar93"/>
                     <br />
@@ -464,13 +471,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>riddhi</b></sub>
                 </a>
             </td>
-            <td align="center">
-                <a href="https://github.com/PavanTeja2005">
-                    <img src="https://avatars.githubusercontent.com/u/98730339?v=4" width="100;" alt="PavanTeja2005"/>
-                    <br />
-                    <sub><b>PavanTeja2005</b></sub>
-                </a>
-            </td>
 		</tr>
 		<tr>
             <td align="center">
@@ -481,17 +481,17 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Mansi07sharma">
-                    <img src="https://avatars.githubusercontent.com/u/142892607?v=4" width="100;" alt="Mansi07sharma"/>
-                    <br />
-                    <sub><b>Mansi07sharma</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/jainaryan04">
                     <img src="https://avatars.githubusercontent.com/u/138214350?v=4" width="100;" alt="jainaryan04"/>
                     <br />
                     <sub><b>Aryan Ramesh Jain</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Mansi07sharma">
+                    <img src="https://avatars.githubusercontent.com/u/142892607?v=4" width="100;" alt="Mansi07sharma"/>
+                    <br />
+                    <sub><b>Mansi07sharma</b></sub>
                 </a>
             </td>
             <td align="center">
