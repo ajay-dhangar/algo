@@ -132,7 +132,7 @@ print(f"Longest substring with {k} distinct characters: {longest_substring_k_dis
 ```
 
 
-### Python Code Implementation:
+### Java Code Implementation:
 ```java
 import java.util.HashMap;
 

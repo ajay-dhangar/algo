@@ -92,7 +92,7 @@ int main() {
 }
 ```
 
-### C++ Code Implementation:
+### Java Code Implementation:
 
 ```cpp
 import java.util.*;
