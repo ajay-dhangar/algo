@@ -80,3 +80,41 @@ int main() {
     return 0;
 }
 ```
+
+
+### Java Code Implementation:
+```java
+import java.util.HashMap;
+
+public class CharacterReplacement {
+
+    public static int characterReplacement(String s, int k) {
+        HashMap<Character, Integer> count = new HashMap<>();
+        int left = 0, maxCount = 0, maxLength = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            char rightChar = s.charAt(right);
+            count.put(rightChar, count.getOrDefault(rightChar, 0) + 1);
+            maxCount = Math.max(maxCount, count.get(rightChar));
+
+            while (right - left + 1 - maxCount > k) {
+                char leftChar = s.charAt(left);
+                count.put(leftChar, count.get(leftChar) - 1);
+                left++;
+            }
+
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+        String s = "AABABBA";
+        int k = 1;
+
+        int result = characterReplacement(s, k);
+        System.out.println("The length of the longest substring is: " + result);
+    }
+}
+```
