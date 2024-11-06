@@ -3595,6 +3595,63 @@ class Solution:
           `,
         },
       }, 
+    hammingDistance: {
+    title: "461. Hamming Distance",
+    description:
+      "The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, return the Hamming distance between them.",
+    examples: [
+      {
+        input: "x = 1, y = 4",
+        output: "2",
+        explanation: "1 in binary is 0001, and 4 in binary is 0100. They differ at two positions (2nd and 3rd from the right).",
+      },
+      {
+        input: "x = 3, y = 1",
+        output: "1",
+        explanation: "3 in binary is 0011, and 1 in binary is 0001. They differ at one position (2nd from the right).",
+      },
+    ],
+    solution: {
+      cpp: `
+      #include<bits/stdc++.h>
+      using namespace std;
+
+      class Solution {
+      public:
+          int hammingDistance(int x, int y) {
+              int xorVal = x ^ y, distance = 0;
+              while (xorVal > 0) {
+                  distance += xorVal & 1;
+                  xorVal >>= 1;
+              }
+              return distance;
+          }
+      };`,
+
+      java: `
+      class Solution {
+          public int hammingDistance(int x, int y) {
+              int xorVal = x ^ y, distance = 0;
+              while (xorVal > 0) {
+                  distance += (xorVal & 1);
+                  xorVal >>= 1;
+              }
+              return distance;
+          }
+      };`,
+
+      python: `
+      class Solution:
+          def hammingDistance(self, x: int, y: int) -> int:
+              xor_val = x ^ y
+              distance = 0
+              while xor_val > 0:
+                  distance += xor_val & 1
+                  xor_val >>= 1
+              return distance
+      `,
+    },
+  },
 };
 
 export default problemsData;
