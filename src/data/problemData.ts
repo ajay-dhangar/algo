@@ -3613,7 +3613,7 @@ class Solution:
     ],
     solution: {
       cpp: `
-      #include <bits/stdc++.h>
+      #include<bits/stdc++.h>
       using namespace std;
 
       class Solution {
@@ -3662,22 +3662,13 @@ class Solution:
 
       python: `
       class Solution:
-          def evalRPN(self, tokens: list[str]) -> int:
-              stack = []
-              for token in tokens:
-                  if token in {"+", "-", "*", "/"}:
-                      b, a = stack.pop(), stack.pop()
-                      if token == "+":
-                          stack.append(a + b)
-                      elif token == "-":
-                          stack.append(a - b)
-                      elif token == "*":
-                          stack.append(a * b)
-                      elif token == "/":
-                          stack.append(int(a / b))  # Integer division truncates toward zero
-                  else:
-                      stack.append(int(token))
-              return stack[-1]
+          def hammingDistance(self, x: int, y: int) -> int:
+              xor_val = x ^ y
+              distance = 0
+              while xor_val > 0:
+                  distance += xor_val & 1
+                  xor_val >>= 1
+              return distance
       `,
     },
   },
