@@ -71,7 +71,7 @@ int main() {
 ```
 ## Approach and code explanation
 **Using a Set for Uniqueness:**
-- A set data structure inherently stores unique values. In C++, we use an unordered_set for this purpose, which allows us to:
+- A set data structure inherently stores unique values. In C++, we used an unordered_set for this purpose, which allows us to:
 Insert elements in O(1) average time.
 Check if an element exists (lookup) in O(1) average time.
 
