@@ -3595,6 +3595,164 @@ class Solution:
           `,
         },
       }, 
+    huffmanEncoding: {
+    title: "57. Huffman Encoding",
+    description:
+      "Implement Huffman Encoding for data compression. Given a string, build a binary tree where characters with higher frequencies have shorter codes. Return the encoded string and the mapping of each character to its binary code.",
+    examples: [
+      {
+        input: 'text = "aaabbc"',
+        output: '{ "a": "0", "b": "10", "c": "11" }, encoded = "000101011"',
+        explanation: "Characters with higher frequency have shorter binary codes. 'a' appears 3 times, so it's encoded as '0'; 'b' and 'c' are encoded as '10' and '11' respectively.",
+      },
+      {
+        input: 'text = "abcd"',
+        output: '{ "a": "00", "b": "01", "c": "10", "d": "11" }, encoded = "00011011"',
+        explanation: "Each character appears once, so they get equal-length codes. Encoding results in a balanced binary representation.",
+      },
+    ],
+    solution: {
+      cpp: `
+      #include <bits/stdc++.h>
+      using namespace std;
+
+      struct Node {
+          char ch;
+          int freq;
+          Node *left, *right;
+          Node(char c, int f) : ch(c), freq(f), left(NULL), right(NULL) {}
+      };
+
+      struct compare {
+          bool operator()(Node* l, Node* r) {
+              return l->freq > r->freq;
+          }
+      };
+
+      void buildCode(Node* root, string str, unordered_map<char, string>& huffmanCode) {
+          if (!root) return;
+          if (!root->left && !root->right) huffmanCode[root->ch] = str;
+          buildCode(root->left, str + "0", huffmanCode);
+          buildCode(root->right, str + "1", huffmanCode);
+      }
+
+      class Solution {
+      public:
+          pair<string, unordered_map<char, string>> huffmanEncoding(string text) {
+              unordered_map<char, int> freq;
+              for (char ch : text) freq[ch]++;
+
+              priority_queue<Node*, vector<Node*>, compare> pq;
+              for (auto pair : freq) pq.push(new Node(pair.first, pair.second));
+
+              while (pq.size() > 1) {
+                  Node *left = pq.top(); pq.pop();
+                  Node *right = pq.top(); pq.pop();
+                  int sum = left->freq + right->freq;
+                  pq.push(new Node('\0', sum, left, right));
+              }
+
+              Node* root = pq.top();
+              unordered_map<char, string> huffmanCode;
+              buildCode(root, "", huffmanCode);
+
+              string encoded = "";
+              for (char ch : text) encoded += huffmanCode[ch];
+              return {encoded, huffmanCode};
+          }
+      };`,
+
+      java: `
+      import java.util.*;
+
+      class Node {
+          char ch;
+          int freq;
+          Node left, right;
+          Node(char ch, int freq) {
+              this.ch = ch;
+              this.freq = freq;
+          }
+      }
+
+      class Solution {
+          public Map<Character, String> huffmanEncoding(String text) {
+              Map<Character, Integer> freq = new HashMap<>();
+              for (char ch : text.toCharArray()) freq.put(ch, freq.getOrDefault(ch, 0) + 1);
+
+              PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.freq));
+              for (var entry : freq.entrySet()) pq.add(new Node(entry.getKey(), entry.getValue()));
+
+              while (pq.size() > 1) {
+                  Node left = pq.poll(), right = pq.poll();
+                  Node parent = new Node('\0', left.freq + right.freq);
+                  parent.left = left;
+                  parent.right = right;
+                  pq.add(parent);
+              }
+
+              Map<Character, String> huffmanCode = new HashMap<>();
+              buildCode(pq.peek(), "", huffmanCode);
+
+              StringBuilder encoded = new StringBuilder();
+              for (char ch : text.toCharArray()) encoded.append(huffmanCode.get(ch));
+              return Map.of("encoded", encoded.toString(), "codeMap", huffmanCode);
+          }
+
+          private void buildCode(Node root, String str, Map<Character, String> huffmanCode) {
+              if (root == null) return;
+              if (root.left == null && root.right == null) huffmanCode.put(root.ch, str);
+              buildCode(root.left, str + "0", huffmanCode);
+              buildCode(root.right, str + "1", huffmanCode);
+          }
+      };`,
+
+      python: `
+      import heapq
+      from collections import defaultdict
+
+      class Node:
+          def __init__(self, ch, freq):
+              self.ch = ch
+              self.freq = freq
+              self.left = None
+              self.right = None
+          def __lt__(self, other):
+              return self.freq < other.freq
+
+      def build_code(root, code, huffman_code):
+          if root is None:
+              return
+          if not root.left and not root.right:
+              huffman_code[root.ch] = code
+          build_code(root.left, code + "0", huffman_code)
+          build_code(root.right, code + "1", huffman_code)
+
+      class Solution:
+          def huffmanEncoding(self, text):
+              freq = defaultdict(int)
+              for ch in text:
+                  freq[ch] += 1
+
+              heap = [Node(ch, freq) for ch, freq in freq.items()]
+              heapq.heapify(heap)
+
+              while len(heap) > 1:
+                  left = heapq.heappop(heap)
+                  right = heapq.heappop(heap)
+                  parent = Node(None, left.freq + right.freq)
+                  parent.left = left
+                  parent.right = right
+                  heapq.heappush(heap, parent)
+
+              huffman_code = {}
+              build_code(heap[0], "", huffman_code)
+
+              encoded = ''.join(huffman_code[ch] for ch in text)
+              return {"encoded": encoded, "codeMap": huffman_code}
+      `,
+    },
+  },
 };
 
 export default problemsData;
