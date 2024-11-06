@@ -3,19 +3,14 @@ id: size-of-largest-bst-in-binary-tree
 title: Size of Largest BST in Binary Tree
 sidebar_label: GFG
 tags: [GFG , Binary Tree , BST]
-description: A Tree is BST if following is true for every root node x.
-
-The largest value in left subtree (of x) is smaller than value of x.
-The smallest value in right subtree (of x) is greater than value of x.
-
-We will traverse the tree in a bottom-up manner. For every traversed node, we return the maximum and minimum values in the subtree rooted at that node. The idea is to determine whether the subtree rooted at each node is a Binary Search Tree (BST) (for subtree to be bst conditions mentioned above). If any node follows the properties of a BST and has the maximum size, we update the size of the largest BST.
+description: Determine whether the subtree rooted at each node is a Binary Search Tree (BST). Find the size of the largest BST.
 ---
 
 # Size of Largest BST in Binary Tree (GFG)
 
 ## Description
 
-The **Size of Largest BST in Binary Tree** problem is based on determining whether the subtree rooted at each node is a Binary Search Tree (BST) (for subtree to be bst conditions mentioned above). If any node follows the properties of a BST and has the maximum size, we update the size of the largest BST.
+The **Size of Largest BST in Binary Tree** problem is based on determining whether the subtree rooted at each node is a Binary Search Tree (BST). If any node follows the properties of a BST and has the maximum size, we update the size of the largest BST.
 
 ### Problem Definition
 
