@@ -1,5 +1,10 @@
-# Rabin-Karp Algorithm
+---
 
+id: Rabin-Karp-algorithm 
+sidebar_position: 5 
+title: Rabin-Karp algorithm
+sidebar_label: Rabin-Karp algorithm
+---
 ## Definition 📖
 
 **Rabin-Karp algorithm** is a string-searching algorithm that utilizes hashing to find a pattern within a text. This algorithm is particularly efficient for finding multiple patterns within the same text by comparing hash values, reducing the need for repeated character comparisons.
