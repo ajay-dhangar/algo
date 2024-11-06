@@ -94,7 +94,7 @@ int main() {
 
 ### Java Code Implementation:
 
-```cpp
+```java
 import java.util.*;
 
 public class CharacterReplacement {
