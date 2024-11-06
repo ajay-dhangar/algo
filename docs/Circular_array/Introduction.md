@@ -1,5 +1,5 @@
 ---
-id: Circular Array introduction
+id: circular-array-introduction
 sidebar_position: 1
 title: Introduction of Circular
 sidebar_label: Introduction
