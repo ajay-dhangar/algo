@@ -1,5 +1,5 @@
 ---
-id: SQL-JSON-Data
+id: sql-json-data
 sidebar_position: 25
 title: "JSON Data in SQL"
 sidebar_label: "JSON Data in SQL"
