@@ -3595,6 +3595,92 @@ class Solution:
           `,
         },
       }, 
+    evaluateReversePolishNotation: {
+    title: "56. Evaluate Reverse Polish Notation",
+    description:
+      "Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, and /. Each operand may be an integer or another expression. Note that division between two integers should truncate toward zero.",
+    examples: [
+      {
+        input: 'tokens = ["2", "1", "+", "3", "*"]',
+        output: "9",
+        explanation: "((2 + 1) * 3) = 9",
+      },
+      {
+        input: 'tokens = ["4", "13", "5", "/", "+"]',
+        output: "6",
+        explanation: "(4 + (13 / 5)) = 6",
+      },
+    ],
+    solution: {
+      cpp: `
+      #include <bits/stdc++.h>
+      using namespace std;
+
+      class Solution {
+      public:
+          int evalRPN(vector<string>& tokens) {
+              stack<int> s;
+              for (string& token : tokens) {
+                  if (token == "+" || token == "-" || token == "*" || token == "/") {
+                      int b = s.top(); s.pop();
+                      int a = s.top(); s.pop();
+                      if (token == "+") s.push(a + b);
+                      else if (token == "-") s.push(a - b);
+                      else if (token == "*") s.push(a * b);
+                      else if (token == "/") s.push(a / b);
+                  } else {
+                      s.push(stoi(token));
+                  }
+              }
+              return s.top();
+          }
+      };`,
+
+      java: `
+      import java.util.Stack;
+
+      class Solution {
+          public int evalRPN(String[] tokens) {
+              Stack<Integer> stack = new Stack<>();
+              for (String token : tokens) {
+                  if ("+-*/".contains(token)) {
+                      int b = stack.pop();
+                      int a = stack.pop();
+                      switch (token) {
+                          case "+" -> stack.push(a + b);
+                          case "-" -> stack.push(a - b);
+                          case "*" -> stack.push(a * b);
+                          case "/" -> stack.push(a / b);
+                      }
+                  } else {
+                      stack.push(Integer.parseInt(token));
+                  }
+              }
+              return stack.pop();
+          }
+      };`,
+
+      python: `
+      class Solution:
+          def evalRPN(self, tokens: list[str]) -> int:
+              stack = []
+              for token in tokens:
+                  if token in {"+", "-", "*", "/"}:
+                      b, a = stack.pop(), stack.pop()
+                      if token == "+":
+                          stack.append(a + b)
+                      elif token == "-":
+                          stack.append(a - b)
+                      elif token == "*":
+                          stack.append(a * b)
+                      elif token == "/":
+                          stack.append(int(a / b))  # Integer division truncates toward zero
+                  else:
+                      stack.append(int(token))
+              return stack[-1]
+      `,
+    },
+  },
 };
 
 export default problemsData;
