@@ -78,12 +78,12 @@ Enter the neighbour 1 of node 4: 3
 
 ### Sample Output:
 
-The adjacency list is given by:                     
+The adjacency list is given by:        ```       
 0-->1-->2                  
 1-->0-->3                      
 2-->0-->3                      
 3-->2-->1-->4                   
-4-->3                                          
+4-->3                                  ```   
 
 ### Diagrammatic Representataion of the code sample:
 ```
