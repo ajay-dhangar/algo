@@ -162,9 +162,3 @@ This means it runs efficiently, even for large numbers.
 ## Conclusion
 
 The Extended Euclidean Algorithm is a valuable tool in number theory. It not only computes the GCD but also provides the coefficients that relate two numbers. Its applications span various fields, including cryptography and competitive programming, making it an essential algorithm to understand.
-
-### Summary of Improvements:
-- **Simplified Explanations**: Provided clearer explanations for beginners.
-- **Structured Format**: Organized the content into distinct sections for better flow.
-- **Code Comments**: Added comments to clarify the purpose of each part of the code.
-- **Real-world Context**: Explained applications in a straightforward manner to relate to real-world problems.
