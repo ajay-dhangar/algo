@@ -1,6 +1,6 @@
 ---
 
-id: Tiling-Problem-Domino-Tiling
+id:  tiling-problem-domino-tiling
 sidebar_position: 6
 title: Tiling-problem 
 sidebar_label: Tiling Problem
