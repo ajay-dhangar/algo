@@ -1,5 +1,5 @@
 ---
-id: Heap-data-Structure-4
+id: heap-data-structure-4
 title: heap data structure
 sidebar_label: Merge k Sorted Lists
 sidebar_position: 11
