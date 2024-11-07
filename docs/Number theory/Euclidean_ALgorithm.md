@@ -1,5 +1,5 @@
 ---
-id:"Euclidean Algorithm"
+id:"Euclidean-algorithm"
 title: "Extended Euclidean Algorithm" 
 sidebar_label: "Extended Euclidean" 
 sidebar_position: 8
