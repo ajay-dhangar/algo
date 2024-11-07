@@ -1,7 +1,7 @@
 ---
 id: legendre-algo
 title: Finding Power of Factorial Divisor
-sidebar_label: Legendre's Formula
+sidebar_label: "Legendre's Formula"
 ---
 
 # Deep Dive into Finding the Power of a Factorial Divisor
@@ -58,8 +58,8 @@ We need to find the highest power x such that 2^x divides 3628800.
 2. **Step-by-Step Divisor Counting for Powers of k :**
 
 
-   - **First Power k :** Every k-th number (i.e., every multiple of k) in the product from 1 to n contributes a factor of k . There are $$\left\lfloor \frac{n}{k} \right\rfloor$$ such numbers.
-   - **Second Power k^2:** Every k^2 -th number contributes an additional factor of k, so there are $$\left\lfloor \frac{n}{k^2} \right\rfloor $$ such numbers.
+   - **First Power k :** Every k-th number (i.e., every multiple of k) in the product from 1 to n contributes a factor of k . There are $\left\lfloor \frac{n}{k} \right\rfloor$ such numbers.
+   - **Second Power k^2:** Every k^2 -th number contributes an additional factor of k, so there are $\left\lfloor \frac{n}{k^2} \right\rfloor $ such numbers.
    - **Continuing for Higher Powers:** This pattern continues until $$ k^i > n $$.
 
 
@@ -74,7 +74,7 @@ $$
 $$
 
 
-4. **Example Calculation \( k = 2 \):**
+4. **Example Calculation $k = 2$:**
 
 
    Let's compute this for n = 10 and k = 2 .
@@ -85,9 +85,9 @@ $$
    $$
 
 
-   - $$\left\lfloor \frac{10}{2} \right\rfloor = 5 $$
-   - $$\left\lfloor \frac{10}{4} \right\rfloor = 2 $$
-   - $$\left\lfloor \frac{10}{8} \right\rfloor = 1 $$
+   - $\left\lfloor \frac{10}{2} \right\rfloor = 5 $
+   - $\left\lfloor \frac{10}{4} \right\rfloor = 2 $
+   - $\left\lfloor \frac{10}{8} \right\rfloor = 1 $
 
 
    Thus, $$ x = 5 + 2 + 1 = 8 $$. So, $$ 2^8 $$ is the largest power of 2 that divides 10!.
@@ -132,10 +132,10 @@ When k is composite, we need to factorize k and determine how many times each pr
 #### Example Problem: Power of Composite Divisor Dividing $$n! $$
 
 
-Suppose n = 10 and k = 12. We want to find the largest power $$x$$ such that $$12^x$$ divides 10!.
+Suppose n = 10 and k = 12. We want to find the largest power $x$ such that $12^x$ divides 10!.
 
 
-1. **Factorize $$k = 12 $$:**
+1. **Factorize $k = 12 $:**
 
 
    $$
@@ -149,8 +149,8 @@ Suppose n = 10 and k = 12. We want to find the largest power $$x$$ such that $$1
 2. **Apply Legendre's Formula to Each Prime Factor:**
 
 
-   - For $$ k_1 = 2 $$, we previously found that the power of $$2 in 10! $$ is $$8$$.
-   - For $$k_2 = 3$$, using the formula, we get:
+   - For $ k_1 = 2 $, we previously found that the power of $2 in 10! $ is $8$.
+   - For $k_2 = 3$, using the formula, we get:
 
 $$
      
@@ -164,14 +164,14 @@ $$
 3. **Calculate the Minimum Power Dividing $$k$$:**
 
 
-   - For $$ 2^2 $$, we need $$ \frac{8}{2} = 4 $$.
-   - For $$ 3^1 $$, we need $$\frac{4}{1} = 4$$ .
+   - For $ 2^2 $, we need $ \frac{8}{2} = 4 $.
+   - For $ 3^1 $, we need $\frac{4}{1} = 4$ .
 
 
    The minimum of these two values is 4 , so 12^4 is the largest power of 12 that divides 10!.
 
 
-#### Code Implementation for Composite $$k$$
+#### Code Implementation for Composite $k$
 
 
 To implement this approach, we first factorize k and then use Legendre's formula for each factor.
