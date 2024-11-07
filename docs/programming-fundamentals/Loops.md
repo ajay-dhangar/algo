@@ -1,7 +1,7 @@
 ---
 id: Loops
 title: Introduction to loops fundamentals
-sidebar_label: Programming fundamentals
+sidebar_label: Loops
 sidebar_position: 5
 description: "Information About loops in progamming"
 tags: [loops,fundamentals]

@@ -99,3 +99,16 @@ Harshitha-Grandhi:
   socials:
     linkedin: https://www.linkedin.com/in/harshitha-grandhi-0a0890308/
     github: https://github.com/Grandhi-Harshitha
+
+Aryan-Jain:
+  name: Aryan Jain
+  title: B.Tech (CSE) Student
+  url: https://github.com/jainaryan04
+  image_url: https://avatars.githubusercontent.com/u/138214350?v=4
+  email: aryanrameshjain@gmail.com
+  page: true # Turns the feature on
+  description: >
+    full stack developer
+  socials:
+    linkedin: https://www.linkedin.com/in/jainaryan04/
+    github: https://github.com/jainaryan04

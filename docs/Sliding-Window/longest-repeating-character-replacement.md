@@ -91,6 +91,51 @@ int main() {
     return 0;
 }
 ```
+
+
+### Java Code Implementation:
+
+```java
+import java.util.*;
+
+public class CharacterReplacement {
+
+    public static int characterReplacement(String s, int k) {
+        int maxLen = 0;  // Tracks the length of the longest valid substring
+        int maxFreq = 0;  // Tracks the frequency of the most common character in the window
+        int[] charCount = new int[26];  // Frequency count for each character
+        int left = 0;  // Left pointer for the sliding window
+
+        for (int right = 0; right < s.length(); ++right) {
+            // Update the frequency of the current character
+            charCount[s.charAt(right) - 'A']++;
+            maxFreq = Math.max(maxFreq, charCount[s.charAt(right) - 'A']);  // Update maxFreq
+
+            // Check if the current window is valid
+            int windowSize = right - left + 1;
+            if (windowSize - maxFreq > k) {
+                // If the window is not valid, shrink the window from the left
+                charCount[s.charAt(left) - 'A']--;
+                left++;
+            }
+
+            // Update the maximum valid window size
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+
+        return maxLen;
+    }
+
+    public static void main(String[] args) {
+        String s = "AABABBA";
+        int k = 1;
+        
+        int result = characterReplacement(s, k);
+        System.out.println("The length of the longest repeating character substring is: " + result);
+    }
+}
+```
+
 ## Explanation:
 Sliding Window:
 We maintain a sliding window using two pointers, left and right, to explore the string and check valid substrings. As we move the right pointer, we add the new character to our frequency count and adjust the window size to find the longest valid substring.
