@@ -1,5 +1,5 @@
 ---
-id: Lowest-Common-Ancestor
+id: lowest-common-ancestor
 title: Lowest Common Ancestor
 sidebar_label: Lowest Common Ancestor
 sidebar_position: 12
