@@ -1,0 +1,36 @@
+.insertion-sort-visualization {
+  padding: 20px;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+}
+
+.insertion-sort-visualization button {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 0.5;
+  cursor: pointer;
+}
+
+.insertion-sort-visualization button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.insertion-sort-visualization .array-bar {
+  width: 15px;
+  margin: 0 2px;
+  background-color: #4caf50; 
+  display: inline-block;
+  transition: background-color 0.3s ease-in-out;
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+}
+
+.insertion-sort-visualization .array-bar.current-index {
+  background-color: #2196f3;
+}
+
+.insertion-sort-visualization .array-bar.min-index {
+  background-color: #ffeb3b;
+}
