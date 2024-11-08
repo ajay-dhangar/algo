@@ -3,9 +3,9 @@ import Layout from "@theme/Layout";
 import { motion } from "framer-motion";
 
 const resources = [
-  { id: 1, title: "Introduction to Algorithms by CLRS", type: "Book", description: "One of the most comprehensive algorithm books.", link: "#" },
-  { id: 2, title: "LeetCode", type: "Website", description: "A platform for practicing algorithms with real problems.", link: "#" },
-  { id: 3, title: "Coursera: Algorithmic Toolbox", type: "Course", description: "An introductory course for algorithms.", link: "#" },
+  { id: 1, title: "Introduction to Algorithms by CLRS", type: "Book", description: "One of the most comprehensive algorithm books.", link: "https://drive.google.com/file/d/0B3RHrbxFb7PfYjk4ZG01Z3lrbnc/view?resourcekey=0-aHyhqxUeXCNvRK3_QfNurg" },
+  { id: 2, title: "LeetCode", type: "Website", description: "A platform for practicing algorithms with real problems.", link: "https://leetcode.com" },
+  { id: 3, title: "Coursera: Algorithmic Toolbox", type: "Course", description: "An introductory course for algorithms.", link: "https://www.coursera.org/learn/algorithms-part1" },
   // Add more resources
 ];
 

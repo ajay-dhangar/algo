@@ -1,7 +1,7 @@
 ---
 id: Arrays
 title: Introduction to Arrays fundamentals
-sidebar_label: Programming fundamentals
+sidebar_label: Arrays
 sidebar_position: 1
 description: "Information About Arrays in progamming"
 tags: [arrays,fundamentals]

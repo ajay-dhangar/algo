@@ -72,7 +72,7 @@ const PopularAlgorithmsSection: React.FC = () => {
               <div className="flex justify-center mt-auto">
                 <Link
                   to={algorithm.link}
-                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition-colors duration-300 group-hover:bg-white group-hover:text-blue-700"
+                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition-colors"
                 >
                   Learn More
                 </Link>

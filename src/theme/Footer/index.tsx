@@ -32,15 +32,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
           <div className="md:col-span-1">
             <div className="mb-6">
-              <img
-                src="/algo/logo/logo.png"
-                alt="Algo Logo"
-                className="w-16 h-16"
-              />
+              <Link
+              to="/">
+                <img
+                  src="/algo/logo/logo.png"
+                  alt="Algo Logo"
+                  className="w-16 h-16"
+                />
 
-              <span className="relative top-[-25px] text-3xl text-bold font-semibold ml-2 gradient-text">
-                Algo
-              </span>
+                <span className="relative top-[-25px] text-3xl text-bold font-semibold ml-2 gradient-text">
+                  Algo
+                </span>
+              </Link>
 
               <div>
                 {/* <h2 className="text-xl font-semibold text-white">Algo</h2> */}
