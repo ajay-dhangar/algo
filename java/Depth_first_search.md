@@ -1,5 +1,5 @@
 ---
-id: DFS
+id: depth-first-search
 sidebar_position: 3
 title: Depth-First Search
 sidebar_label: DFS
@@ -7,11 +7,11 @@ description: DFS algorithm implementation in Java.
 tags: [java, searching, graph traversal]
 ---
 
-##*Description*
+## *Description*
 
 Depth-First Search (DFS) is a graph traversal algorithm that explores nodes in a depthward motion. It starts at a selected node (root) and explores as far as possible along each branch before backtracking.
 
-##*Java implementation*
+## *Java implementation*
 
 ```
 public class DFS {
@@ -38,18 +38,18 @@ public class DFS {
 }
 ```
 
-#*Complexity*
+# *Complexity*
 
 - Time Complexity: O(V + E), where V is vertices and E is edges.
 - Space Complexity: O(V), for visited array and recursive stack.
 
-#*Use Cases for example*
+# *Use Cases for example*
 
 - Traversing social networks.
 - Web crawlers.
 - Finding connected components.
 
-#*Variants of this algorithm include:*
+# *Variants of this algorithm include:*
 
 - Pre-order DFS (current node before neighbors).
 - Post-order DFS (current node after neighbors).
