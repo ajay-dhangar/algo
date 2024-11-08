@@ -1,12 +1,9 @@
 ---
-
-id:  tiling-problem-domino-tiling
+id: tiling-problem-domino-tiling
 sidebar_position: 6
 title: Tiling-problem 
 sidebar_label: Tiling Problem
-
 ---
-## Definition 📖
 
 The **Tiling Problem** involves determining the number of ways to tile a given grid using dominoes (or similar tiles) of a fixed size. Specifically, in the **Domino Tiling** problem, the goal is to tile a `2 x n` grid using `1 x 2` dominoes. The dominoes can be placed either horizontally or vertically.
 
