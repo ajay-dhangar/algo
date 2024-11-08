@@ -370,12 +370,21 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/aditiverma-21">
+                    <img src="https://avatars.githubusercontent.com/u/180853305?v=4" width="100;" alt="aditiverma-21"/>
+                    <br />
+                    <sub><b>Aditi Verma</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/shriyadindi">
                     <img src="https://avatars.githubusercontent.com/u/126611334?v=4" width="100;" alt="shriyadindi"/>
                     <br />
                     <sub><b>Shriya Dindi</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/J-B-Mugundh">
                     <img src="https://avatars.githubusercontent.com/u/98593517?v=4" width="100;" alt="J-B-Mugundh"/>
@@ -383,8 +392,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <sub><b>Mugundh J B</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/pratheekv39">
                     <img src="https://avatars.githubusercontent.com/u/165366548?v=4" width="100;" alt="pratheekv39"/>
@@ -397,13 +404,6 @@ Thanks to these amazing people who have contributed to the **Algo** project:
                     <img src="https://avatars.githubusercontent.com/u/125813798?v=4" width="100;" alt="monishkumardvs"/>
                     <br />
                     <sub><b>Dvs monish kumar</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/aditiverma-21">
-                    <img src="https://avatars.githubusercontent.com/u/180853305?v=4" width="100;" alt="aditiverma-21"/>
-                    <br />
-                    <sub><b>Aditi Verma</b></sub>
                 </a>
             </td>
             <td align="center">
