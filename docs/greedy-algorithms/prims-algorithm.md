@@ -1,7 +1,7 @@
 ---
 id: prims-algorithm  
-title: Prim's Algorithm  
-sidebar_label: Prim's Algorithm 
+title:"Prim's Algorithm" 
+sidebar_label: "Prim's Algorithm"
 description: "Explore Prim's algorithm, a minimum spanning tree algorithm that starts with a single vertex and expands the MST one edge at a time."
 tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 ---
@@ -116,8 +116,8 @@ int main() {
     primMST(graph, V);
 
     return 0;
-}
-import java.util.*;
+}```
+```import java.util.*;
 
 public class PrimAlgorithm {
 
@@ -176,4 +176,4 @@ public class PrimAlgorithm {
 
         primMST(graph, V);
     }
-}
+}```
