@@ -1,14 +1,13 @@
-
 ---
-id: principal-component-analysis  
-title: "Principal Component Analysis (PCA)"  
-sidebar_label: PCA  
-description: "In this post, we’ll explore Principal Component Analysis (PCA), a fundamental technique in unsupervised learning used for dimensionality reduction and data visualization."  
+id: principal-component-analysis
+title: "Principal Component Analysis (PCA)"
+sidebar_label: PCA
+description: "In this post, we’ll explore Principal Component Analysis, a fundamental technique in unsupervised learning used for dimensionality reduction and data visualization."
 tags: [machine learning, algorithms, unsupervised learning, PCA]
 ---
 
 ### Definition:
-**Principal Component Analysis (PCA)** is an unsupervised learning algorithm used for dimensionality reduction. It transforms data into a new coordinate system where the greatest variance by any projection lies on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on.
+**Principal Component Analysis (PCA)** is an unsupervised learning algorithm for dimensionality reduction. It transforms data into a new coordinate system where the greatest variance by any projection lies on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on.
 
 <AdsComponent />
 
@@ -51,7 +50,7 @@ Given a high-dimensional dataset, PCA aims to reduce its dimensionality while pr
   A direction in which a particular transformation acts; in PCA, it represents a principal component.
 
 - **Explained Variance Ratio**:  
-  The proportion of variance explained by each principal component, useful for determining how many components to retain.
+  The proportion of variance explained by each principal component, is useful for determining how many components to retain.
 
 <AdsComponent />
 
@@ -60,14 +59,14 @@ PCA does not involve splitting data like supervised learning; instead, it focuse
 
 ### Time Complexity:
 - **Training Complexity**:  
-  Computing PCA typically involves matrix operations that can have a time complexity of \( O(n^2 \cdot p) \), where \( n \) is the number of samples and \( p \) is the number of features.
+  Computing PCA typically involves matrix operations that can have a time complexity of $O(n^2 \cdot p)$, where $n$ is the number of samples and $p$ is the number of features.
   
 - **Prediction Complexity**:  
-  The complexity for projecting new data points is \( O(k \cdot p) \), where \( k \) is the number of principal components retained.
+  The complexity for projecting new data points is $O(k \cdot p)$, where $k$ is the number of principal components retained.
 
 ### Space Complexity:
 - **Space Complexity**:  
-  The space complexity primarily depends on storing covariance matrices and eigenvectors, which can be \( O(p^2) \).
+  The space complexity primarily depends on storing covariance matrices and eigenvectors, which can be $O(p^2)$.
 
 ### Example:
 Consider a scenario where we want to reduce features from a dataset containing measurements of different attributes of flowers (e.g., sepal length, sepal width, petal length, petal width).
@@ -129,4 +128,3 @@ plt.ylabel('Principal Component 2')
 plt.colorbar()
 plt.show()
 ```
-
