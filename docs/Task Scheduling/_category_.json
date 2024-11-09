@@ -1,0 +1,8 @@
+{
+    "label": "Task Scheduling",
+    "position": 9,
+    "link": {
+        "type": "generated-index",
+        "description": "Task Scheduling involves arranging tasks in a sequence based on dependencies, ensuring that all prerequisite tasks are completed before a dependent task begins. It uses algorithms like Topological Sorting to determine feasible schedules for tasks in a Directed Acyclic Graph (DAG)."
+    }
+}
