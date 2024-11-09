@@ -1,12 +1,11 @@
-
 ---
 
-id: Priority search algorithm  
-sidebar_position: 6  
-title: Priority search  
-sidebar_label: Priority search algorithm  
+id: Priority-search-algorithm
+sidebar_position: 5 
+title: Priority Search algorithm
+sidebar_label: Priority Search algorithm
 
----  
+---
 
 ## Definition 📖
 
@@ -91,15 +90,23 @@ int main() {
 }
 ```
 ## Applications of Priority Search 🌐
-**Geographical Information Systems (GIS):**
-  - Used to find the closest feature (like a region or building) in a GIS, given a point location.
-**Computer Graphics:**
-  - In graphics applications, priority search can be useful for collision detection or determining the nearest object in a 2D plane.
-**Database Management:**
-  - Priority search is used in databases to efficiently query for spatial data that is organized by priority or weight.
-**Computer-Aided Design (CAD):**
-  - Used in CAD tools to find the nearest object or region that meets certain conditions (such as priority).
 
+**Geographical Information Systems (GIS):**
+
+  - Used to find the closest feature (like a region or building) in a GIS, given a point location.
+
+**Computer Graphics:**
+
+  - In graphics applications, priority search can be useful for collision detection or determining the nearest object in a 2D plane.
+
+**Database Management:**
+
+  - Priority search is used in databases to efficiently query for spatial data that is organized by priority or weight.
+    
+**Computer-Aided Design (CAD):**
+
+  - Used in CAD tools to find the nearest object or region that meets certain conditions (such as priority).
+    
 ## Advantages and Disadvantages
 ### Advantages: ✅
 
@@ -119,3 +126,8 @@ int main() {
 
 **Limited to 2D Search:**
   - Priority search is primarily designed for 2D spatial queries and may not be suitable for higher-dimensional data without modification.
+
+## Summary
+Priority Search is an algorithm used for efficiently finding the closest rectangle to a query point in a 2D plane, where each rectangle is associated with a priority value. It sorts the rectangles by priority and searches for the one that contains the query point.
+
+
