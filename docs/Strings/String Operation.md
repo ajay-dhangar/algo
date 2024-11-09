@@ -1,5 +1,5 @@
 ---
-id: String-operations
+id: string-operations
 title: String Operations
 sidebar_label: operation
 sidebar_position: 2
