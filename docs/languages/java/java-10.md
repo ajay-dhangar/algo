@@ -1,5 +1,5 @@
 ---
-id:memory-management
+id: memory-management
 sidebar_position: 10
 title: "Memory management in Java"
 sidebar_label: "Memory management"
