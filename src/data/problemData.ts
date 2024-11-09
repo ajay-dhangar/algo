@@ -3595,20 +3595,20 @@ class Solution:
           `,
         },
       }, 
-    hammingDistance: {
-    title: "461. Hamming Distance",
+    evaluateReversePolishNotation: {
+    title: "56. Evaluate Reverse Polish Notation",
     description:
-      "The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, return the Hamming distance between them.",
+      "Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, and /. Each operand may be an integer or another expression. Note that division between two integers should truncate toward zero.",
     examples: [
       {
-        input: "x = 1, y = 4",
-        output: "2",
-        explanation: "1 in binary is 0001, and 4 in binary is 0100. They differ at two positions (2nd and 3rd from the right).",
+        input: 'tokens = ["2", "1", "+", "3", "*"]',
+        output: "9",
+        explanation: "((2 + 1) * 3) = 9",
       },
       {
-        input: "x = 3, y = 1",
-        output: "1",
-        explanation: "3 in binary is 0011, and 1 in binary is 0001. They differ at one position (2nd from the right).",
+        input: 'tokens = ["4", "13", "5", "/", "+"]',
+        output: "6",
+        explanation: "(4 + (13 / 5)) = 6",
       },
     ],
     solution: {
@@ -3618,25 +3618,45 @@ class Solution:
 
       class Solution {
       public:
-          int hammingDistance(int x, int y) {
-              int xorVal = x ^ y, distance = 0;
-              while (xorVal > 0) {
-                  distance += xorVal & 1;
-                  xorVal >>= 1;
+          int evalRPN(vector<string>& tokens) {
+              stack<int> s;
+              for (string& token : tokens) {
+                  if (token == "+" || token == "-" || token == "*" || token == "/") {
+                      int b = s.top(); s.pop();
+                      int a = s.top(); s.pop();
+                      if (token == "+") s.push(a + b);
+                      else if (token == "-") s.push(a - b);
+                      else if (token == "*") s.push(a * b);
+                      else if (token == "/") s.push(a / b);
+                  } else {
+                      s.push(stoi(token));
+                  }
               }
-              return distance;
+              return s.top();
           }
       };`,
 
       java: `
+      import java.util.Stack;
+
       class Solution {
-          public int hammingDistance(int x, int y) {
-              int xorVal = x ^ y, distance = 0;
-              while (xorVal > 0) {
-                  distance += (xorVal & 1);
-                  xorVal >>= 1;
+          public int evalRPN(String[] tokens) {
+              Stack<Integer> stack = new Stack<>();
+              for (String token : tokens) {
+                  if ("+-*/".contains(token)) {
+                      int b = stack.pop();
+                      int a = stack.pop();
+                      switch (token) {
+                          case "+" -> stack.push(a + b);
+                          case "-" -> stack.push(a - b);
+                          case "*" -> stack.push(a * b);
+                          case "/" -> stack.push(a / b);
+                      }
+                  } else {
+                      stack.push(Integer.parseInt(token));
+                  }
               }
-              return distance;
+              return stack.pop();
           }
       };`,
 
