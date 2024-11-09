@@ -1,7 +1,7 @@
 ---
 id: kruskals-algorithm  
-title: Kruskal's Algorithm  
-sidebar_label: Kruskal's Algorithm 
+title: "Kruskal's Algorithm" 
+sidebar_label: "Kruskal's Algorithm" 
 description: "Learn about Kruskal's algorithm, a minimum spanning tree algorithm that works by sorting the edges and adding them one by one if they don't form a cycle."
 tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 ---
@@ -136,9 +136,10 @@ int main() {
     kruskalMST(V, edges);
 
     return 0;
-}
+}```
 
-import java.util.*;
+
+```import java.util.*;
 
 public class KruskalAlgorithm {
 
@@ -217,4 +218,4 @@ public class KruskalAlgorithm {
 
         kruskalMST(edges, V);
     }
-}
+}```
