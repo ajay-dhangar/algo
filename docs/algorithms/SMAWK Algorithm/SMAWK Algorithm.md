@@ -1,6 +1,6 @@
 ---
 
-id: SMAWK-Algorithm  
+id: smawk-algorithm  
 sidebar_position: 19  
 title: "SMAWK Algorithm"  
 sidebar_label: SMAWK Algorithm  
@@ -20,12 +20,13 @@ The **SMAWK Algorithm** is a specialized algorithm for efficiently finding row m
 
 ### Time Complexity
 
-- **Average Case**: \( O(n \log n) \), where \( n \) is the number of rows in the matrix.
-- **Worst Case**: \( O(n m) \), where \( m \) is the number of columns in the matrix.
+- **Average Case**: $O(n \log n)$, where $n$ is the number of rows in the matrix.
+- **Worst Case**: $O(n \cdot m)$, where $m$ is the number of columns in the matrix.
+
 
 ### Space Complexity
 
-- **Space Complexity**: \( O(n) \), since only a few vectors (of size \( n \)) are used to store the row minima and the active set.
+- **Space Complexity**: $O(n)$, since only a few vectors (of size $n$) are used to store the row minima and the active set.
 
 ### Approach
 
