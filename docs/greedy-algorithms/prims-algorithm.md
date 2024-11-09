@@ -6,20 +6,23 @@ description: "Explore Prim's algorithm, a minimum spanning tree algorithm that s
 tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 ---
 
-### Definition:
 Prim's algorithm is a greedy algorithm that constructs a Minimum Spanning Tree (MST) for a weighted, connected, undirected graph. It starts with a single vertex and iteratively adds the lowest-cost edge that expands the MST without forming a cycle.
+
+<Ads />
 
 ### Characteristics:
 - **Greedy Approach**:  
   Prim's algorithm builds the MST by selecting the minimum-weight edge that connects a vertex in the MST to a vertex outside it.
 
 - **Optimal for MSTs**:  
-  Unlike the greedy algorithm in graph coloring, Prim's algorithm guarantees the minimum weight for the MST.
+  Unlike the greedy algorithm in graph colouring, Prim's algorithm guarantees the minimum weight for the MST.
 
 ### Steps Involved:
 1. **Initialize the MST with an arbitrary starting vertex**.
 2. **Select the smallest weight edge that connects a vertex in the MST to a vertex outside**.
 3. **Repeat** this process until all vertices are included in the MST.
+
+<Ads />
 
 ### Problem Statement:
 Given a connected, undirected, weighted graph with `n` vertices, find a subset of the edges that forms a tree including all vertices, where the total weight of the edges is minimized.
@@ -32,6 +35,8 @@ Given a connected, undirected, weighted graph with `n` vertices, find a subset o
 ### Space Complexity:
 - **Space Complexity: $O(V + E)$**  
   This is due to storing vertices, edges, and auxiliary data structures for MST construction.
+
+<Ads />
 
 ### Example:
 Consider the following Graph:
@@ -48,6 +53,7 @@ Step-by-Step Execution:
 Total Minimum Weight: `9`
 
 ### C++ Implementation:
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -116,8 +122,13 @@ int main() {
     primMST(graph, V);
 
     return 0;
-}```
-```import java.util.*;
+}
+```
+
+### Java
+
+```java
+import java.util.*;
 
 public class PrimAlgorithm {
 
@@ -176,4 +187,5 @@ public class PrimAlgorithm {
 
         primMST(graph, V);
     }
-}```
+}
+```
