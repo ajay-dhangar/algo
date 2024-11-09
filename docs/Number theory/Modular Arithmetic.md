@@ -1,5 +1,5 @@
 ---
-id: Modular Arithmetic
+id: modular-arithmetic
 title: "Modular Arithmetic"
 sidebar_label: "Number theory"
 sidebar_position: 10
