@@ -1,7 +1,7 @@
 ---
 id: dijkstra-algo
-title: Dijkstra's Algorithm
-sidebar_label: Dijkstra's Algorithm
+title: "Dijkstra's Algorithm"
+sidebar_label: "Dijkstra's Algorithm"
 description: "In this blog post, we'll explore Dijkstra's Algorithm, an efficient method to find the shortest path from a source to all other nodes in a graph."
 tags: [dsa, algorithms, shortest path]
 ---
