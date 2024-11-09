@@ -1,6 +1,6 @@
 ---
 
-id: Dancing-Links  
+id: dancing-links  
 sidebar_position: 20  
 title: "Dancing Links (DLX)"  
 sidebar_label: Dancing Links  
@@ -25,7 +25,8 @@ The **Dancing Links (DLX)** algorithm is a highly efficient implementation of th
 
 ### Space Complexity
 
-- **Space Complexity**: \( O(n + m) \), where \( n \) is the number of rows and \( m \) is the number of columns in the matrix. The space is primarily used to store the linked list nodes for the matrix representation.
+- **Space Complexity**: $O(n + m)$, where $n$ is the number of rows and $m$ is the number of columns in the matrix. The space is primarily used to store the linked list nodes for the matrix representation.
+
 
 ### Approach
 
