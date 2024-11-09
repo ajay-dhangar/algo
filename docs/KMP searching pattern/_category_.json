@@ -1,0 +1,8 @@
+{
+    "label": "KMP searching pattern",
+    "position": 5,
+    "link": {
+        "type": "generated-index",
+        "description": "The KMP algorithm is a string searching algorithm that uses a prefix table to skip over unnecessary comparisons when searching for a pattern in a text."
+    }
+}

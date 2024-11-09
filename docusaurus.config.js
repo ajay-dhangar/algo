@@ -69,6 +69,13 @@ const config = {
         backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
       },
 
+      algolia: {
+        apiKey: "865d7bd9906f532b1d8cb5cc0f02b383",
+        indexName: "ajay-dhangario",
+        appId: "T0I3F584D5",
+        contextualSearch: false,
+      },
+
       navbar: {
         title: "Algo",
         logo: {
@@ -92,11 +99,6 @@ const config = {
             label: "FAQ",
             position: "left",
           },
-           {
-            to: "dsa-interview", 
-            label: "Top DSA Interview Questions",
-            position: "left",
-          },
           {
             to: "dsa-roadmap",
             label: "Pick Topic For Contribution",
@@ -111,7 +113,11 @@ const config = {
             type: "dropdown",
             label: "More",
             position: "right",
-            items: [
+            items: [              
+              {
+                to: "dsa-interview", 
+                label: "Top DSA Questions",
+              },
               {
                 to: "roadmap",
                 label: "Roadmap",
@@ -130,7 +136,7 @@ const config = {
               },
               {
                 to: "quiz-solutions",
-                label: "Quizes Solutions",
+                label: "Quizzes Solutions",
               },
               {
                 to: "leaderboard",
@@ -153,6 +159,10 @@ const config = {
           {
             href: "https://github.com/ajay-dhangar/algo",
             label: "GitHub",
+            position: "right",
+          },
+          {
+            type: "search",
             position: "right",
           },
         ],

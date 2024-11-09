@@ -19,7 +19,7 @@ const GetInvolvedSection: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
 
-          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6]  group transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-white mb-2">
               Hackathons
             </h3>
@@ -28,18 +28,14 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             {/* Center the button */}
             <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+               <a href="https://hacktoberfest.com/" className="inline-block bg-blue-600 text-white px-4 py-2 cursor-pointer rounded shadow transition hover:bg-blue-700 pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
 
-          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
             <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Workshops
             </h3>
@@ -47,19 +43,15 @@ const GetInvolvedSection: React.FC = () => {
               Join our workshops to learn about the latest technologies and best
               practices in software development.
             </p>
-            <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+             <div className="flex justify-center">
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
           {/* Event 3 */}
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
             <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Community Meetups
             </h3>
@@ -67,19 +59,15 @@ const GetInvolvedSection: React.FC = () => {
               Connect with fellow contributors and share ideas at our regular
               community meetups.
             </p>
-            <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+             <div className="flex justify-center">
+               <a href="https://www.linkedin.com/in/ajay-dhangar/" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
           {/* Event 4 */}
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
             <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Mentorship Programs
             </h3>
@@ -88,19 +76,12 @@ const GetInvolvedSection: React.FC = () => {
               experienced developers in the industry.
             </p>
             <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
-
-          {/* Event 5 */}
-          {/* Event 5 */}
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
             <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Online Courses
             </h3>
@@ -109,18 +90,14 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             {/* Center the button */}
             <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
 
-          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group transform hover:scale-105 duration-300">
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
             <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Open Source Contributions
             </h3>
@@ -129,13 +106,9 @@ const GetInvolvedSection: React.FC = () => {
               making a positive impact!
             </p>
             <div className="flex justify-center">
-              <Link
-                to="#"
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition group-hover:bg-white group-hover:text-blue-700"
-              >
-                Learn More
-              </Link>
-            </div>
+               <a href="https://github.com/ajay-dhangar/algo" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
         </div>

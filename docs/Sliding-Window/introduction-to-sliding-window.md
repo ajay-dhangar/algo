@@ -116,6 +116,45 @@ result = max_sum_subarray(arr, k)
 print(f"Maximum sum of subarray of size {k}: {result}")
 ```
 
+### Java Code Implementation
+
+```java
+public class MaxSumSubarray {
+
+    public static int maxSumSubarray(int[] arr, int k) {
+        int n = arr.length;
+        if (n < k) {
+            System.out.println("Invalid input, array size is smaller than k.");
+            return -1;
+        }
+
+        int maxSum = -1;  // Set max sum
+        int currentSum = 0;
+
+        // Compute the sum of the first window
+        for (int i = 0; i < k; i++) {
+            currentSum += arr[i];
+        }
+        maxSum = currentSum;
+
+        // Slide the window across the array
+        for (int i = k; i < n; i++) {
+            currentSum += arr[i] - arr[i - k];  // Slide the window
+            maxSum = Math.max(maxSum, currentSum);  // Update max sum
+        }
+
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 1, 5, 1, 3, 2};
+        int k = 3;
+        int result = maxSumSubarray(arr, k);
+        System.out.println("Maximum sum of subarray of size " + k + ": " + result);
+    }
+}
+```
+
 ### Explanation:
 The first `for` loop calculates the sum of the first subarray (window) of size `k`.  
 The second `for` loop slides the window one element at a time, adjusting the sum by adding the new element and removing the element that is no longer in the window.  

@@ -36,6 +36,26 @@ hash_table = HashTable()
 hash_table.table = {'apple': 10, 'banana': 20}
 print(hash_table.search('apple'))  # Output: 10
 ```
+### Example Code (JavaScript)
+
+```javascript
+class HashTable {
+    constructor() {
+        this.table = {};
+    }
+
+    // Method to search for a key in the hash table
+    search(key) {
+        return this.table.hasOwnProperty(key) ? this.table[key] : null;
+    }
+}
+
+// Example usage
+const hashTable = new HashTable();
+hashTable.table = { apple: 10, banana: 20 };
+console.log(hashTable.search('apple'));  // Output: 10
+```
+
 
 ### Conclusion
 

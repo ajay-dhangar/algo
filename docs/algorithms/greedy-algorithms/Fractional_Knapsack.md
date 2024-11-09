@@ -1,7 +1,6 @@
-
 ---
-id: fractional-knapsack  
-title: Fractional Knapsack Problem  
+id: fractional-knapsack-1
+title: Fractional Knapsack Problem  1
 sidebar_label: Fractional Knapsack  
 description: "In this post, we'll explore the Fractional Knapsack Problem, a greedy algorithm used to maximize the value of items that can be fit into a knapsack with a weight limit."  
 tags: [dsa, algorithms, greedy algorithms, optimization problems]
