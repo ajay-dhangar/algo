@@ -3873,6 +3873,110 @@ class Solution:
     `,
   },
 },
+    bestMeetingPoint: {
+  title: "Best Meeting Point",
+  description:
+    "Given a grid where each cell represents a location in a city, find the best meeting point for all people. The best meeting point is the location that minimizes the total distance to all other people in the grid. The distance between two points is calculated using the Manhattan distance.",
+  examples: [
+    {
+      input: "grid = [[1,0,0],[0,1,0],[0,0,1]]",
+      output: "2",
+      explanation:
+        "The best meeting point is at location (1, 1), which minimizes the sum of Manhattan distances to all people (1 + 1 + 1 = 3).",
+    },
+    {
+      input: "grid = [[0,0,0],[0,1,0],[0,0,0]]",
+      output: "2",
+      explanation:
+        "The best meeting point is at (1, 1), which minimizes the sum of Manhattan distances to all other people in the grid.",
+    },
+  ],
+  solution: {
+    cpp: `
+    #include <vector>
+    #include <cmath>
+    using namespace std;
+
+    class Solution {
+    public:
+        int minTotalDistance(vector<vector<int>>& grid) {
+            int m = grid.size(), n = grid[0].size();
+            vector<int> row, col;
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (grid[i][j] == 1) {
+                        row.push_back(i);
+                        col.push_back(j);
+                    }
+                }
+            }
+
+            sort(row.begin(), row.end());
+            sort(col.begin(), col.end());
+
+            int medianRow = row[row.size() / 2], medianCol = col[col.size() / 2];
+            int distance = 0;
+            for (int i = 0; i < row.size(); i++) {
+                distance += abs(row[i] - medianRow) + abs(col[i] - medianCol);
+            }
+
+            return distance;
+        }
+    };`,
+
+    java: `
+    import java.util.*;
+
+    class Solution {
+        public int minTotalDistance(int[][] grid) {
+            List<Integer> row = new ArrayList<>();
+            List<Integer> col = new ArrayList<>();
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[0].length; j++) {
+                    if (grid[i][j] == 1) {
+                        row.add(i);
+                        col.add(j);
+                    }
+                }
+            }
+
+            Collections.sort(row);
+            Collections.sort(col);
+
+            int medianRow = row.get(row.size() / 2), medianCol = col.get(col.size() / 2);
+            int distance = 0;
+            for (int i = 0; i < row.size(); i++) {
+                distance += Math.abs(row.get(i) - medianRow) + Math.abs(col.get(i) - medianCol);
+            }
+
+            return distance;
+        }
+    };`,
+
+    python: `
+    class Solution:
+        def minTotalDistance(self, grid: list[list[int]]) -> int:
+            row, col = [], []
+            for i in range(len(grid)):
+                for j in range(len(grid[0])):
+                    if grid[i][j] == 1:
+                        row.append(i)
+                        col.append(j)
+
+            row.sort()
+            col.sort()
+
+            medianRow = row[len(row) // 2]
+            medianCol = col[len(col) // 2]
+
+            distance = 0
+            for i in range(len(row)):
+                distance += abs(row[i] - medianRow) + abs(col[i] - medianCol)
+
+            return distance
+    `,
+  },
+},
 };
 
 export default problemsData;
