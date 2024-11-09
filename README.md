@@ -35,7 +35,9 @@ Welcome to **Algo**, an open-source project that provides developers with algori
 </div>
 <br>
 
-## 🚀Featured In
+## Algo Events
+
+**We are actively participating in the following events:**
 
 <table>
 
