@@ -6,7 +6,8 @@ description: "Learn about Shell Sort, an in-place comparison-based sorting algor
 tags: [dsa, algorithms, sorting]
 ---
 
-### Definition:
+<Ads />
+
 Shell Sort is an in-place comparison-based sorting algorithm that generalizes insertion sort to allow the exchange of items that are far apart. It works by initially sorting elements far apart from each other and progressively reducing the gap between elements to be compared. This approach helps to move elements more efficiently compared to a simple insertion sort.
 
 ### Characteristics:
@@ -32,6 +33,8 @@ Shell Sort is an in-place comparison-based sorting algorithm that generalizes in
 4. **Final Insertion Sort**:  
    When the gap becomes 1, the algorithm essentially performs an insertion sort, with the list nearly sorted from the previous passes.
 
+<Ads />
+
 ### Time Complexity:
 - **Best Case**: $O(n \log n)$, depending on the gap sequence.
 - **Average Case**: $O(n^{3/2})$ or $O(n \log^2 n)$, depending on the gap sequence used.
@@ -56,6 +59,7 @@ Step-by-step execution with gap sequence `[3, 1]`:
    - Array after second pass: `[1, 2, 5, 5, 6, 9]`.
 
 ### C++ Implementation:
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -94,7 +98,11 @@ int main() {
 
     return 0;
 }
+```
 
+### Java
+
+```java
 import java.util.*;
 
 public class ShellSort {
@@ -126,3 +134,4 @@ public class ShellSort {
         System.out.println("Sorted array: " + Arrays.toString(arr));
     }
 }
+```
