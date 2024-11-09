@@ -1,5 +1,5 @@
 ---
-id: String-basics
+id: string-basics
 title: String Basics
 sidebar_label: Basics
 sidebar_position: 2
