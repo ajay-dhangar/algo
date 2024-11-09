@@ -137,6 +137,61 @@ result = minimize_max_of_two_arrays(A, B)
 print(f"The minimum maximum value is: {result}")
 ```
 
+### Java Code Implementation:
+
+```java
+import java.util.Arrays;
+
+public class MinimizeMaxOfTwoArrays {
+
+    // Helper function to check if x can be the minimum maximum
+    private static boolean canMinimize(int x, int[] A, int[] B) {
+        int idxA = bisectRight(A, x);
+        int idxB = bisectRight(B, x);
+        return idxA > 0 && idxB > 0;  // There exists elements <= x in both arrays
+    }
+
+    // Custom binary search helper to find the first element greater than x
+    private static int bisectRight(int[] array, int x) {
+        int low = 0, high = array.length;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (array[mid] <= x) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low;
+    }
+
+    public static int minimizeMaxOfTwoArrays(int[] A, int[] B) {
+        int low = Math.min(A[0], B[0]);  // Lower bound of the search space
+        int high = Math.max(A[A.length - 1], B[B.length - 1]);  // Upper bound of the search space
+        int result = high;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (canMinimize(mid, A, B)) {
+                result = mid;  // mid can be a candidate for the minimum maximum
+                high = mid - 1;  // Try to minimize further
+            } else {
+                low = mid + 1;  // Increase the lower bound
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] A = {1, 4, 6};
+        int[] B = {2, 5, 8};
+        int result = minimizeMaxOfTwoArrays(A, B);
+        System.out.println("The minimum maximum value is: " + result);
+    }
+}
+```
+
 
 ## Explanation:
 Binary Search on Maximum Value:

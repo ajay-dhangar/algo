@@ -159,6 +159,35 @@ print(result)  # Output: [24, 12, 8, 6]
 
 ```
 
+
+### JavaScript Code Implementation
+
+```javascript
+function productExceptSelf(arr) {
+    const n = arr.length;
+    const ans = new Array(n).fill(1); // Initialize ans array with 1's.
+
+    // Calculate prefix products
+    for (let i = 1; i < n; i++) {
+        ans[i] = ans[i - 1] * arr[i - 1]; // ans[i] is the product of all elements before arr[i].
+    }
+
+    let suffix = 1; // Initialize suffix product.
+    // Calculate suffix products and multiply with prefix products
+    for (let i = n - 2; i >= 0; i--) {
+        suffix *= arr[i + 1]; // Update suffix to be the product of elements after arr[i].
+        ans[i] *= suffix;     // Multiply the current ans[i] (prefix product) by the suffix product.
+    }
+    
+    return ans;
+}
+
+// Example usage
+const arr = [1, 2, 3, 4];
+const res = productExceptSelf(arr); // calling function
+console.log(res.join(" ")); // Output the result
+```
+
 ## Complexity
 
 - **Time Complexity**: O(n)

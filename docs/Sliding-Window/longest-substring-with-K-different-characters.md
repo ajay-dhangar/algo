@@ -132,6 +132,52 @@ print(f"Longest substring with {k} distinct characters: {longest_substring_k_dis
 ```
 
 
+### Java Code Implementation:
+```java
+import java.util.HashMap;
+
+public class LongestSubstringKDistinct {
+
+    public static int longestSubstringKDistinct(String s, int k) {
+        if (s == null || k == 0) {
+            return 0;
+        }
+
+        HashMap<Character, Integer> charFreq = new HashMap<>();
+        int maxLength = 0;
+        int left = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            char rightChar = s.charAt(right);
+            charFreq.put(rightChar, charFreq.getOrDefault(rightChar, 0) + 1);
+
+            // Shrink the window if we have more than 'k' distinct characters
+            while (charFreq.size() > k) {
+                char leftChar = s.charAt(left);
+                charFreq.put(leftChar, charFreq.get(leftChar) - 1);
+
+                if (charFreq.get(leftChar) == 0) {
+                    charFreq.remove(leftChar);  // Remove from map if frequency becomes 0
+                }
+                left++;  // Move the left pointer
+            }
+
+            // Update the maximum length of the valid window
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+
+    public static void main(String[] args) {
+        String s = "araaci";
+        int k = 2;
+        System.out.println("Longest substring with " + k + " distinct characters: " + longestSubstringKDistinct(s, k));
+    }
+}
+```
+
+
 ## Explanation:
 We use a sliding window that moves over the string by adjusting the right pointer to include more characters.
 The charFreq map keeps track of the frequency of characters in the window.

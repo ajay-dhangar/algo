@@ -14,7 +14,7 @@ Here are some resources that may be helpful as you contribute to Algo:
 
 ## How to Contribute
 
-### 1. Fork the Repository ([Video 1](https://www.loom.com/share/4c5f309a28c444caa4e70557669979f6?sid=88202acf-3ab8-4321-bcf2-3ced94215994))
+### 1. Fork the Repository 
 Start by forking the repository to your GitHub account. This creates a copy of the repository under your account.
 
 ### 2. Clone Your Fork
@@ -24,14 +24,14 @@ Clone the repository to your local machine using:
 $ git clone https://github.com/<your-username>/algo.git
 ```
 
-### 3. Create a New Branch ([Video 2](https://www.loom.com/share/74493008c617419ea1a1f69755124dd8?sid=28379156-ff84-4e57-90a9-234b4ba15160))
+### 3. Create a New Branch 
 Create a branch for your contribution:
 
 ```bash
 $ git checkout -b <branch-name>
 ```
 
-### 4. Make Your Changes ([Video 3](https://www.loom.com/share/ea1a931b8f9a492a8994ca3d006a4526?sid=0b889369-23a4-42c7-a61e-7e7de1474494), [Video 4](https://www.loom.com/share/55b170e45b7d4cbdb4fa443b84d03a3c?sid=7a4c1db8-ae74-4a05-815c-ca6f30f8c5c4))
+### 4. Make Your Changes 
 Make your changes, which could include:
 - Adding new algorithms
 - Improving existing documentation
@@ -43,10 +43,14 @@ If your contribution involves documentation, here’s how to write effective con
 
 #### a. Markdown & MDX
 - Documentation should be written in Markdown (`.md`) or MDX (`.mdx`), which supports JSX syntax.
-- MDX allows you to use React components inside Markdown files. This is helpful for adding interactive elements or custom components.
+- MDX allows you to use React components inside Markdown files. This helps add interactive elements or custom components.
 
 #### b. Content Structure
-Each documentation file should start with a front matter section for Docusaurus to recognize the page:
+
+![image](https://github.com/user-attachments/assets/a3567a71-6ca5-4f78-b736-59f2109440f5)
+
+Each documentation file should start with a front-matter section for Docusaurus to recognize the page:
+
 ```md
 ---
 id: <unique-id>
@@ -59,7 +63,7 @@ tags: [<tag1>, <tag2>]
 ```
 - **id**: A unique identifier for the page.
 - **title**: The page title.
-- **sidebar_label**: The label displayed in the sidebar.
+- **sidebar_label**: The label is displayed in the sidebar.
 - **sidebar_position**: Order of the page in the sidebar.
 - **description**: A short description of the page content.
 - **tags**: Tags for categorizing content.
@@ -117,7 +121,7 @@ tags: [<tag1>, <tag2>]
     <MyComponent />
     ```
 
-### 6. Commit Your Changes ([Video 5](https://www.loom.com/share/47d2ba8e35fd4382979899fe21c29974?sid=8b5a3af6-5a80-4025-b045-76e64ff9a839))
+### 6. Commit Your Changes 
 Commit your changes with a descriptive message:
 
 ```bash
@@ -146,4 +150,4 @@ Go to the original repository and create a Pull Request (PR). Provide a clear de
 
 ---
 
-Thank you for contributing! Let's build Algo together and create an amazing learning platform for mastering Data Structures and Algorithms. ✨
+Thank you for contributing! Let's build Algo and create an amazing learning platform for mastering Data Structures and Algorithms. ✨

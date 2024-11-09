@@ -86,3 +86,29 @@ LOKESH-BIJARNIYA:
     leetcode: https://leetcode.com/u/Lokesh_Bijarniya_/
     portfolio: https://lokesh-bijarniya-portfolio.vercel.app/
 
+
+Harshitha-Grandhi:
+  name: Grandhi Harshitha
+  title: B.Tech (IT) Student
+  url: https://github.com/Grandhi-Harshitha
+  image_url: https://avatars.githubusercontent.com/u/120390344?v=4
+  email: 22wh1a1295@bvrithyderabad.edu.in
+  page: true # Turns the feature on
+  description: >
+    a passionate software developer with an interest in developing innovative programs.
+  socials:
+    linkedin: https://www.linkedin.com/in/harshitha-grandhi-0a0890308/
+    github: https://github.com/Grandhi-Harshitha
+
+Aryan-Jain:
+  name: Aryan Jain
+  title: B.Tech (CSE) Student
+  url: https://github.com/jainaryan04
+  image_url: https://avatars.githubusercontent.com/u/138214350?v=4
+  email: aryanrameshjain@gmail.com
+  page: true # Turns the feature on
+  description: >
+    full stack developer
+  socials:
+    linkedin: https://www.linkedin.com/in/jainaryan04/
+    github: https://github.com/jainaryan04
