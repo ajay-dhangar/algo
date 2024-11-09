@@ -1,6 +1,6 @@
 ---
 
-id: Buchbergers-Algorithm  
+id: buchbergers-algorithm  
 sidebar_position: 18  
 title: "Buchberger's Algorithm"  
 sidebar_label: Buchberger's Algorithm  
@@ -21,11 +21,12 @@ sidebar_label: Buchberger's Algorithm
 ### Time Complexity
 
 - **Average Case**: The complexity depends on the degree of the polynomials and the number of terms. The algorithm can have exponential time complexity in the worst case.
-- **Worst Case**: \( O(n^3) \) or more, depending on the implementation and the number of polynomials involved.
+- **Worst Case**: $O(n^3)$ or more, depending on the implementation and the number of polynomials involved.
+
 
 ### Space Complexity
 
-- **Space Complexity**: \( O(n) \), where \( n \) is the number of polynomials. The space is required to store the polynomials and their intermediate results.
+- **Space Complexity**: $O(n)$, where $n$ is the number of polynomials. The space is required to store the polynomials and their intermediate results.
 
 ### Approach
 
