@@ -1,5 +1,5 @@
 ---
-id: Divisibility-and-Prime-Numbers
+id: divisibility-and-prime-numbers
 title: "Divisibility and Prime Numbers"
 sidebar_label: "Divisibility and Prime Numbers"
 sidebar_position: 10
@@ -60,7 +60,7 @@ A **prime number** is a natural number greater than 1 that has no divisors other
 ### Prime Number Theorems
 
 1. **Prime Density**: The density of prime numbers decreases as numbers get larger.
-2. **Approximation**: The Prime Number Theorem approximates the number of primes less than a given number \( n \) as \( n / \ln(n) \).
+2. **Approximation**: The Prime Number Theorem approximates the number of primes less than a given number $n$ as $n \ln(n) $.
 
 ## Practice Problems
 
