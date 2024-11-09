@@ -3873,6 +3873,88 @@ class Solution:
     `,
   },
 },
+maximumRectangle: {
+  title: "Maximum Rectangle in a Histogram (Stack)",
+  description:
+    "Given an array representing the heights of bars in a histogram, find the largest rectangular area that can be formed by a set of contiguous bars.",
+  examples: [
+    {
+      input: "heights = [2, 1, 5, 6, 2, 3]",
+      output: "10",
+      explanation:
+        "The largest rectangle is formed between the third and fourth bars (height 5 and 6), giving an area of 10.",
+    },
+    {
+      input: "heights = [2, 4]",
+      output: "4",
+      explanation:
+        "The largest rectangle is formed between the two bars, both of height 2, giving an area of 4.",
+    },
+  ],
+  solution: {
+    cpp: `
+    #include <vector>
+    #include <stack>
+    using namespace std;
+
+    class Solution {
+    public:
+        int largestRectangleArea(vector<int>& heights) {
+            stack<int> st;
+            int maxArea = 0;
+            heights.push_back(0); // Add a zero to flush out remaining bars in stack
+            
+            for (int i = 0; i < heights.size(); i++) {
+                while (!st.empty() && heights[st.top()] > heights[i]) {
+                    int height = heights[st.top()];
+                    st.pop();
+                    int width = st.empty() ? i : i - st.top() - 1;
+                    maxArea = max(maxArea, height * width);
+                }
+                st.push(i);
+            }
+            return maxArea;
+        }
+    };`,
+
+    java: `
+    import java.util.Stack;
+
+    class Solution {
+        public int largestRectangleArea(int[] heights) {
+            Stack<Integer> stack = new Stack<>();
+            int maxArea = 0;
+            for (int i = 0; i <= heights.length; i++) {
+                int h = (i == heights.length) ? 0 : heights[i];
+                while (!stack.isEmpty() && heights[stack.peek()] > h) {
+                    int height = heights[stack.pop()];
+                    int width = stack.isEmpty() ? i : i - stack.peek() - 1;
+                    maxArea = Math.max(maxArea, height * width);
+                }
+                stack.push(i);
+            }
+            return maxArea;
+        }
+    };`,
+
+    python: `
+    class Solution:
+        def largestRectangleArea(self, heights: list[int]) -> int:
+            stack = []
+            max_area = 0
+            heights.append(0)  # Add a 0 to flush out remaining bars
+            
+            for i, h in enumerate(heights):
+                while stack and heights[stack[-1]] > h:
+                    height = heights[stack.pop()]
+                    width = i if not stack else i - stack[-1] - 1
+                    max_area = max(max_area, height * width)
+                stack.append(i)
+                
+            return max_area
+    `,
+  },
+},
 };
 
 export default problemsData;
