@@ -52,6 +52,12 @@ Welcome to **Algo**, an open-source project that provides developers with algori
        <td>Active</td>
    </tr>
     <tr>
+      <td><img src="postman.png" width="200" height="auto" loading="lazy" alt="Postman Challenge"/></td>
+      <td>Postman Challenge in GSSoC</td>
+      <td>The Postman Challenge in collaboration with GSSoC is an initiative to promote API development and open-source contributions. Participants complete challenges using Postman and are rewarded with certificates and goodies.</td>
+       <td>Active</td>
+   </tr>
+    <tr>
       <td><img src="festhack.jpg" width="200" height="auto" loading="lazy" alt="Hacktoberfest 2024"/></td>
       <td>Hacktoberfest 2024</td>
       <td>Hacktoberfest is a month-long celebration of open source software run by DigitalOcean, GitHub, and Twilio. It encourages contributions to open source projects and promotes a global community of developers.</td>
