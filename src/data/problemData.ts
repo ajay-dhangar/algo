@@ -3728,6 +3728,151 @@ class Solution:
       `,
     },
   },
+    alienDictionary: {
+  title: "Alien Dictionary",
+  description:
+    "In an alien language, each word is sorted lexicographically based on unknown alphabetical order. Given a list of words sorted in this alien language, determine the order of the characters. If the order is valid, return a string of characters in the correct order. If no valid ordering exists, return an empty string.",
+  examples: [
+    {
+      input: "words = [\"wrt\", \"wrf\", \"er\", \"ett\", \"rftt\"]",
+      output: "\"wertf\"",
+      explanation:
+        "From the given list, we can infer that 'w' comes before 'e', 'r' comes before 't', 't' comes before 'f'. A possible order is 'wertf'.",
+    },
+    {
+      input: "words = [\"z\", \"x\", \"z\"]",
+      output: "\"\"",
+      explanation:
+        "The given words form a cycle ('z' -> 'x' -> 'z'), so no valid ordering is possible, and we return an empty string.",
+    },
+  ],
+  solution: {
+    cpp: `
+    #include<bits/stdc++.h>
+    using namespace std;
+
+    class Solution {
+    public:
+        string alienOrder(vector<string>& words) {
+            unordered_map<char, set<char>> adj;
+            unordered_map<char, int> indegree;
+            for (string word : words)
+                for (char c : word)
+                    indegree[c] = 0;
+
+            for (int i = 0; i < words.size() - 1; i++) {
+                string w1 = words[i], w2 = words[i + 1];
+                int len = min(w1.size(), w2.size());
+                if (w1.substr(0, len) == w2.substr(0, len) && w1.size() > w2.size())
+                    return "";
+
+                for (int j = 0; j < len; j++) {
+                    if (w1[j] != w2[j]) {
+                        if (adj[w1[j]].insert(w2[j]).second)
+                            indegree[w2[j]]++;
+                        break;
+                    }
+                }
+            }
+
+            queue<char> q;
+            for (auto& [c, count] : indegree)
+                if (count == 0) q.push(c);
+
+            string order;
+            while (!q.empty()) {
+                char c = q.front();
+                q.pop();
+                order += c;
+                for (char neighbor : adj[c])
+                    if (--indegree[neighbor] == 0)
+                        q.push(neighbor);
+            }
+            return order.size() == indegree.size() ? order : "";
+        }
+    };`,
+
+    java: `
+    import java.util.*;
+
+    class Solution {
+        public String alienOrder(String[] words) {
+            Map<Character, Set<Character>> adj = new HashMap<>();
+            Map<Character, Integer> indegree = new HashMap<>();
+            for (String word : words)
+                for (char c : word)
+                    indegree.put(c, 0);
+
+            for (int i = 0; i < words.length - 1; i++) {
+                String w1 = words[i], w2 = words[i + 1];
+                int len = Math.min(w1.length(), w2.length());
+                if (w1.startsWith(w2) && w1.length() > w2.length())
+                    return "";
+
+                for (int j = 0; j < len; j++) {
+                    if (w1.charAt(j) != w2.charAt(j)) {
+                        adj.computeIfAbsent(w1.charAt(j), k -> new HashSet<>());
+                        if (adj.get(w1.charAt(j)).add(w2.charAt(j)))
+                            indegree.put(w2.charAt(j), indegree.get(w2.charAt(j)) + 1);
+                        break;
+                    }
+                }
+            }
+
+            Queue<Character> queue = new LinkedList<>();
+            for (Map.Entry<Character, Integer> entry : indegree.entrySet())
+                if (entry.getValue() == 0)
+                    queue.offer(entry.getKey());
+
+            StringBuilder order = new StringBuilder();
+            while (!queue.isEmpty()) {
+                char c = queue.poll();
+                order.append(c);
+                if (adj.containsKey(c)) {
+                    for (char neighbor : adj.get(c))
+                        if (indegree.put(neighbor, indegree.get(neighbor) - 1) == 1)
+                            queue.offer(neighbor);
+                }
+            }
+            return order.length() == indegree.size() ? order.toString() : "";
+        }
+    };`,
+
+    python: `
+    from collections import defaultdict, deque
+
+    class Solution:
+        def alienOrder(self, words: list[str]) -> str:
+            adj = defaultdict(set)
+            indegree = {char: 0 for word in words for char in word}
+
+            for i in range(len(words) - 1):
+                w1, w2 = words[i], words[i + 1]
+                min_len = min(len(w1), len(w2))
+                if w1[:min_len] == w2[:min_len] and len(w1) > len(w2):
+                    return ""
+
+                for j in range(min_len):
+                    if w1[j] != w2[j]:
+                        if w2[j] not in adj[w1[j]]:
+                            adj[w1[j]].add(w2[j])
+                            indegree[w2[j]] += 1
+                        break
+
+            queue = deque([c for c in indegree if indegree[c] == 0])
+            order = []
+            while queue:
+                c = queue.popleft()
+                order.append(c)
+                for neighbor in adj[c]:
+                    indegree[neighbor] -= 1
+                    if indegree[neighbor] == 0:
+                        queue.append(neighbor)
+
+            return "".join(order) if len(order) == len(indegree) else ""
+    `,
+  },
+},
 };
 
 export default problemsData;
