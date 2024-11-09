@@ -3,6 +3,7 @@ const problemsData = {
         title: "1. Two Sum",
         description:
             "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
+        leetcodeUrl:"https://leetcode.com/problems/two-sum/description/",
         examples: [
             { input: "[2,7,11,15], target = 9", output: "[0,1]" },
             { input: "[3,2,4], target = 6", output: "[1,2]" },
@@ -65,6 +66,7 @@ const problemsData = {
         title: "2. Container With Most Water",
         description:
             "Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). Find two lines that form a container with the maximum area of water.",
+            leetcodeUrl:"https://leetcode.com/problems/container-with-most-water/description/",
         examples: [
             { input: "[1,8,6,2,5,4,8,3,7]", output: "49" },
             { input: "[1,1]", output: "1" },
@@ -130,7 +132,8 @@ class Solution:
         title: "3. 3Sum",
         description:
             "Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.",
-        examples: [
+            leetcodeUrl:"https://leetcode.com/problems/3sum/description/",
+            examples: [
             { input: "[-1,0,1,2,-1,-4]", output: "[[-1,-1,2],[-1,0,1]]" },
             { input: "[]", output: "[]" },
             { input: "[0]", output: "[]" },
@@ -216,7 +219,8 @@ class Solution:
         title: "4. Valid Parentheses",
         description:
             "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
-        examples: [
+            leetcodeUrl:"https://leetcode.com/problems/valid-parentheses/description/",
+            examples: [
             { input: "(){}", output: "true" },
             { input: "()[]{}", output: "true" },
             { input: "(]", output: "false" },
@@ -274,7 +278,8 @@ class Solution:
         title: "5. Merge Two Sorted Lists",
         description:
             "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
-        examples: [
+            leetcodeUrl:"https://leetcode.com/problems/merge-two-sorted-lists/description/",
+            examples: [
             { input: "[1,2,4], [1,3,4]", output: "[1,1,2,3,4,4]" },
             { input: "[], []", output: "[]" },
             { input: "[], [0]", output: "[0]" },
@@ -329,6 +334,7 @@ class Solution:
         title: "6. Next Permutation",
         description:
             "Implement next permutation which rearranges numbers into the lexicographically next greater permutation of numbers.",
+            leetcodeUrl:"https://leetcode.com/problems/next-permutation/description/",
         examples: [
             { input: "[1,2,3]", output: "[1,3,2]" },
             { input: "[3,2,1]", output: "[1,2,3]" },
@@ -388,7 +394,8 @@ class Solution:
         title: "7. Search Insert Position",
         description:
             "Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. You must write an algorithm with O(log n) runtime complexity.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/search-insert-position?envType=problem-list-v2&envId=binary-search&difficulty=EASY",
+            examples: [
             { input: "[1,3,5,6], target=5", output: "2" },
             { input: "[1,3], target=0", output: "0" },
             { input: "[3], target=4", output: "1" },
@@ -441,7 +448,8 @@ class Solution:
         title: "8. Valid Sudoku",
         description:
             "Determine if a 9 x 9 Sudoku board is valid by checking that each row, column, and 3 x 3 sub-box contains the digits 1-9 without repetition. The board may be partially filled, with empty cells represented by the character '.'. A board is considered valid if it adheres to these rules.",
-        examples: [
+            leetcodeUrl:"https://leetcode.com/problems/valid-sudoku/description/",
+            examples: [
             {
                 input: `[['5','3','.','.','7','.','.','.','.'],['6','.','.','1','9','5','.','.','.'],['.','9','8','.','.','.','.','6','.'],['8','.','.','.','6','.','.','.','3'],['4','.','.','8','.','3','.','.','1'],['7','.','.','.','2','.','.','.','6'],['.','6','.','.','.','.','2','8','.'],['.','.' ,'.' ,'4' ,'1' ,'9' ,'.' ,'.' ,'5'],['.' ,'.' ,'.' ,'.' ,'8' ,'.' ,'.' ,'7' ,'9']]`,
                 output: "true",
@@ -507,7 +515,8 @@ class Solution:
         title: "9. First Missing Positive",
         description:
             "Given an unsorted integer array nums, return the smallest missing positive integer.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/first-missing-positive/description/",
+            examples: [
             { input: "[1,2,0]", output: "3" },
             { input: "[3,4,-1,1]", output: "2" },
             { input: "[7,8,9,11,12]", output: "1" },
@@ -560,6 +569,7 @@ class Solution:
         title: "10. Maximum Subarray",
         description:
             "Given an integer array nums, find the contiguous subarray which has the largest sum and return its sum.",
+        leetcodeUrl:"https://leetcode.com/problems/maximum-subarray/description/",
         examples: [
             { input: "[-2,1,-3,4,-1,2,1,-5,4]", output: "6" },
             { input: "[1]", output: "1" },
@@ -604,6 +614,7 @@ class Solution:
         title: "11. Sqrt(x)",
         description:
             "Given a non-negative integer x, compute and return the square root of x.",
+        leetcodeUrl:"https://leetcode.com/problems/sqrtx/description/",
         examples: [
             { input: "4", output: "2" },
             { input: "8", output: "2" },
@@ -663,6 +674,7 @@ class Solution:
         title: "12. Search a 2D Matrix",
         description:
             "Write an efficient algorithm that searches for a value in an m x n matrix.",
+        leetcodeUrl:"https://leetcode.com/problems/search-a-2d-matrix?envType=problem-list-v2&envId=binary-search&difficulty=MEDIUM",
         examples: [
             {
                 input: "[[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3",
@@ -720,6 +732,7 @@ class Solution:
         title: "13. Remove Duplicates from Sorted List",
         description:
             "Given the head of a sorted linked list, delete all duplicates such that each element appears only once.",
+        leetcodeUrl:"https://leetcode.com/problems/remove-duplicates-from-sorted-list/",
         examples: [
             { input: "[1,1,2]", output: "[1,2]" },
             { input: "[1,1,2,3,3]", output: "[1,2,3]" },
@@ -770,7 +783,8 @@ class Solution:
         title: "14. Merge Two Sorted Lists",
         description:
             "You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Merge nums1 and nums2 into a single array sorted in non-decreasing order.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/merge-two-sorted-lists/description/",
+            examples: [
             {
                 input: "[1,2,4,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
                 output: "[1,2,2,3,5,6]",
@@ -817,6 +831,7 @@ class Solution:
         title: "15. Binary Tree Inorder Traversal",
         description:
             "Given the root of a binary tree, return the inorder traversal of its nodes' values.",
+        leetcodeUrl:"https://leetcode.com/problems/binary-tree-inorder-traversal/description/",
         examples: [
             { input: "[1,null,2,3]", output: "[1,3,2]" },
             { input: "[]", output: "[]" },
@@ -868,6 +883,7 @@ class Solution:
         title: "16. Symmetric Tree",
         description:
             "Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
+        leetcodeUrl:"https://leetcode.com/problems/symmetric-tree/description/",
         examples: [
             { input: "[1,2,2,3,4,4,3]", output: "true" },
             { input: "[1,2,2,null,3,null,3]", output: "false" },
@@ -918,6 +934,7 @@ class Solution:
         title: "17. Binary Tree Level Order Traversal",
         description:
             "Given the root of a binary tree, return the level order traversal of its nodes' values.",
+        leetcodeUrl:"https://leetcode.com/problems/binary-tree-level-order-traversal/",
         examples: [
             { input: "[3,9,20,null,null,15,7]", output: "[[3],[9,20],[15,7]]" },
             { input: "[1]", output: "[[1]]" },
@@ -993,6 +1010,7 @@ class Solution:
     maxDepthBinaryTree: {
         title: "18. Maximum Depth of Binary Tree",
         description: "Given the root of a binary tree, return its maximum depth.",
+        leetcodeUrl:"https://leetcode.com/problems/maximum-depth-of-binary-tree/",
         examples: [
             { input: "[3,9,20,null,null,15,7]", output: "3" },
             { input: "[1,null,2]", output: "2" },
@@ -1032,7 +1050,8 @@ class Solution:
         title: "19. Path Sum",
         description:
             "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum. A leaf is a node with no children.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/path-sum/description/",
+            examples: [
             { input: "[5,4,8,11,null,13,4], targetSum = 22", output: "true" },
             { input: "[1], targetSum = 5", output: "false" },
         ],
@@ -1080,7 +1099,8 @@ class Solution:
         title: "20. Pascal's Triangle",
         description:
             "Given an integer numRows, return a string that concatenates the elements of the first numRows of Pascal's triangle in a single line.",
-        examples: [
+            leetcodeUrl:"https://leetcode.com/problems/pascals-triangle/",
+            examples: [
             { input: "5", output: [[1], [1, 1], [1, 2, 1], [1, 3, 3], [1, 4, 6]] },
             { input: "1", output: [[1]] },
         ],
@@ -1140,7 +1160,8 @@ class Solution:
         title: "21. Best Time to Buy and Sell Stock",
         description:
             "You are given an array prices where prices[i] represents the price of a given stock on the i-th day.You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.Return the maximum profit you can achieve from this transaction. If no profit can be made, return 0.",
-        examples: [
+            leetcodeUrl:"https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+            examples: [
             { input: "[7,1,5,3,6,4]", output: "5" },
             { input: "[7,6,4,3,1]", output: "0" },
         ],
@@ -1191,6 +1212,7 @@ class Solution:
         title: "22. Linked List Cycle",
         description:
             "Given the head of a linked list, determine if the linked list has a cycle in it.",
+        leetcodeUrl:"https://leetcode.com/problems/linked-list-cycle/description/",
         examples: [
             { input: "[3,2,0,-4], pos=1", output: "true" },
             { input: "[1,2], pos=0", output: "true" },
@@ -1262,6 +1284,7 @@ class Solution:
         title: "23. Binary Tree Preorder Traversal",
         description:
             "Given the root of a binary tree, return the preorder traversal of its nodes' values.",
+            leetcodeUrl:"https://leetcode.com/problems/binary-tree-preorder-traversal/description/",
         examples: [
             { input: "[1,null,2,3]", output: "[1,2,3]" },
             { input: "[]", output: "[]" },
@@ -1325,6 +1348,7 @@ class Solution:
         title: "24. Binary Tree Postorder Traversal",
         description:
             "Given the root of a binary tree, return the postorder traversal of its nodes' values.",
+        leetcodeUrl:"https://leetcode.com/problems/binary-tree-postorder-traversal/",
         examples: [
             { input: "[1,null,2,3]", output: "[3,2,1]" },
             { input: "[]", output: "[]" },
@@ -1388,7 +1412,8 @@ class Solution:
         title: "25. Remove Linked List Elements",
         description:
             "Given the head of a linked list and an integer val, remove all the nodes of the linked list that have Node.val equal to val, and return the new head.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/remove-linked-list-elements/",
+            examples: [
             { input: "[1,2,6,3,4,5,6], val=6", output: "[1,2,3,4,5]" },
             { input: "[], val=1", output: "[]" },
             { input: "[7,7,7,7], val=7", output: "[]" },
@@ -1434,7 +1459,8 @@ class Solution:
         title: "26. Reverse Linked List",
         description:
             "Given the head of a singly linked list, reverse the list, and return the reversed list.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/reverse-linked-list/",
+            examples: [
             { input: "[1,2,3,4,5]", output: "[5,4,3,2,1]" },
             { input: "[1,2]", output: "[2,1]" },
             { input: "[]", output: "[]" },
@@ -1503,7 +1529,8 @@ class Solution:
         title: "27. Kth Largest Element in an Array",
         description:
             "Given an integer array nums and an integer k, return the kth largest element in the array.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/kth-largest-element-in-an-array/",
+            examples: [
             { input: "[3,2,1,5,6,4], k = 2", output: "5" },
             { input: "[3,2,3,1,2,4,5,5,6], k = 4", output: "4" },
         ],
@@ -1540,7 +1567,8 @@ class Solution:
         title: "28. Contains Duplicate",
         description:
             "Given an integer array nums, return true if any value appears at least twice in the array.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/contains-duplicate/",
+            examples: [
             { input: "[1,2,3,1]", output: "true" },
             { input: "[1,2,3,4]", output: "false" },
             { input: "[1,1,1,3,3,4,3,2,4,2]", output: "true" },
@@ -1579,6 +1607,7 @@ class Solution:
         title: "29. Invert Binary Tree",
         description:
             "Given the root of a binary tree, invert the tree and return its root.",
+        leetcodeUrl:"https://leetcode.com/problems/invert-binary-tree/",
         examples: [
             { input: "[4,2,7,1,3,6,9]", output: "[4,7,2,9,6,3,1]" },
             { input: "[2,1,3]", output: "[2,3,1]" },
@@ -1625,6 +1654,7 @@ class Solution:
         title: "30. Implement Queue using Stacks",
         description:
             "Implement a first-in-first-out (FIFO) queue using only two stacks.",
+        leetcodeUrl:"https://leetcode.com/problems/implement-queue-using-stacks/",
         examples: [
             {
                 input: `["MyQueue", "push", "push", "peek", "pop", "empty"]`,
@@ -1731,6 +1761,7 @@ class Solution:
         title: "31. Valid Anagram",
         description:
             "Given two strings s and t, return true if t is an anagram of s, and false otherwise.",
+        leetcodeUrl:"https://leetcode.com/problems/valid-anagram/",
         examples: [
             { input: "anagram, nagaram", output: "true" },
             { input: "rat, car", output: "false" },
@@ -1791,7 +1822,8 @@ class Solution:
         title: "32. Missing Number",
         description:
             "Given an array nums containing n distinct numbers in the range [0,n], return the only number in the range that is missing from the array.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/missing-number/",
+            examples: [
             { input: "[3, 0, 1]", output: "2" },
             { input: "[0, 1]", output: "2" },
         ],
@@ -1835,7 +1867,8 @@ class Solution:
         title: "33. Guess Number Higher or Lower",
         description:
             "You are playing a Guess Game where you have to guess a number between 1 and n. Each time you guess wrong, the system will tell you whether the actual number is higher or lower.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/guess-number-higher-or-lower/",
+            examples: [
             { input: "n=10, pick=6", output: "6" },
             { input: "n=1, pick=1", output: "1" },
             { input: "n=2, pick=2", output: "2" },
@@ -1901,7 +1934,8 @@ class Solution:
         title: "34. Intersection of Two Arrays II",
         description:
             "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays, and you may return the result in any order.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/intersection-of-two-arrays-ii/",
+            examples: [
             { input: "[1, 2, 2, 1], [2, 2]", output: "[2, 2]" },
             { input: "[4, 9, 5], [9, 4, 9, 8, 4]", output: "[4, 9]" },
         ],
@@ -1981,6 +2015,7 @@ class Solution:
     runningSum: {
         title: "35. Running Sum of 1d Array",
         description: "Given an array nums, return the running sum of nums.",
+        leetcodeUrl:"https://leetcode.com/problems/running-sum-of-1d-array/",
         examples: [
             { input: "[1, 2, 3, 4]", output: "[1, 3, 6, 10]" },
             { input: "[5]", output: "[5]" },
@@ -2021,7 +2056,8 @@ class Solution:
         title: "36. Shuffle String",
         description:
             "Given a string s and an integer array indices of the same length as s, shuffle the string according to the indices array.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/shuffle-string/",
+            examples: [
             {
                 input: `"codeleet", indices = [4, 5, 6, 7, 0, 2, 1, 3]`,
                 output: `"leetcode"`,
@@ -2066,6 +2102,7 @@ class Solution:
         title: "37. Maximum Level Sum of a Binary Tree",
         description:
             "Given the root of a binary tree, return the level with the maximum sum.",
+        leetcodeUrl:"https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/",
         examples: [{ input: "[1, 7, 0, 7, -8, null, null]", output: "2" }],
         solution: {
             cpp: `
@@ -2172,6 +2209,8 @@ class Solution:
         title: "38. First Alphabet of Each Word",
         description:
             "Given a string S, return a string containing the first letter of each word in the string.",
+        leetcodeUrl:"https://www.geeksforgeeks.org/problems/print-first-letter-of-every-word-in-the-string3632/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card",
+
         examples: [
             { input: `"geeks for geeks"`, output: `"gfg"` },
             { input: `"bad is good"`, output: `"big"` },
@@ -2224,6 +2263,7 @@ class Solution:
     countLeaves: {
         title: "39. Count Leaves in a Binary Tree",
         description: "Given a Binary Tree, count the number of leaf nodes.",
+        leetcodeUrl:"https://www.geeksforgeeks.org/problems/count-leaves-in-binary-tree/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card",
         examples: [
             { input: "[4, 8, 10, 7, 3, null, 5, null, null, null]", output: "3" },
         ],
@@ -2266,6 +2306,7 @@ class Solution:
         title: "40. Generate Binary Numbers from 1 to N",
         description:
             "Given a number N, generate and print all binary numbers with decimal values from 1 to N.",
+        leetcodeUrl:"https://www.geeksforgeeks.org/problems/generate-binary-numbers-1587115620/1",
         examples: [
             { input: "N = 2", output: "1 10" },
             { input: "N = 5", output: "1 10 11 100 101" },
@@ -2326,6 +2367,7 @@ class Solution:
         title: "41. Minimum Difference Between Any Pair",
         description:
             "Given an unsorted array, find the minimum difference between any pair in the given array.",
+        leetcodeUrl:"https://www.geeksforgeeks.org/find-minimum-difference-pair/",
         examples: [
             { input: "[2, 4, 5, 9, 7]", output: "1" },
             { input: "[3, 10, 8, 6]", output: "2" },
@@ -2377,6 +2419,7 @@ class Solution:
         title: "42. Halve N, M-1 Times",
         description:
             "Given two values N and M, return the value when N is halved M-1 times.",
+        leetcodeUrl:"https://www.geeksforgeeks.org/problems/geek-and-coffee-shop5721/0",
         examples: [
             { input: "N = 100, M = 4", output: "12" },
             { input: "N = 10, M = 5", output: "0" },
@@ -2409,6 +2452,7 @@ class Solution:
         title: "43. Remove Characters from First String",
         description:
             "Given two strings string1 and string2, remove those characters from string1 which are present in string2.",
+        leetcodeUrl:"https://www.geeksforgeeks.org/problems/remove-character3815/1",
         examples: [
             { input: 'string1 = "computer", string2 = "cat"', output: '"ompuer"' },
             { input: 'string1 = "occurrence", string2 = "car"', output: '"ouene"' },
@@ -2468,6 +2512,8 @@ class Solution:
         title: "44. Rotate Array by D Elements",
         description:
             "Given an unsorted array arr[] of size N, rotate it by D elements (clockwise).",
+        leetcodeUrl:"https://www.geeksforgeeks.org/problems/rotate-array-by-n-elements-1587115621/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card",
+
         examples: [
             {
                 input: "N = 5, D = 2, arr = [1, 2, 3, 4, 5]",
@@ -2531,6 +2577,7 @@ class Solution:
     title: "45. Longest Increasing Subsequence",
     description:
       "Given an array arr[] of size N, find the length of the longest subsequence of the array which is strictly increasing.",
+    leetcodeUrl:"https://leetcode.com/problems/longest-increasing-subsequence/",
     examples: [
       {
         input: "N = 6, arr = [5, 8, 3, 7, 9, 1]",
@@ -2610,6 +2657,7 @@ class Solution:
     title: "46. Intersection of Two Linked Lists",
     description:
       "Given the heads of two singly linked lists, headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection, return null.",
+    leetcodeUrl:"https://leetcode.com/problems/intersection-of-two-linked-lists/",
     examples: [
       {
         input: "headA = [4,1,8,4,5], headB = [5,6,1,8,4,5]",
@@ -2710,7 +2758,8 @@ class Solution:
     title: "47. Coin Change",
     description:
       "Given an integer array 'coins' representing different coin denominations and an integer 'amount' representing a total amount of money, return the fewest number of coins that you need to make up that amount. If that amount cannot be made up by any combination of the coins, return -1.",
-    examples: [
+    leetcodeUrl:"https://leetcode.com/problems/coin-change/",
+      examples: [
       {
         input: "coins = [1, 2, 5], amount = 11",
         output: "3",
@@ -2794,6 +2843,7 @@ class Solution:
     title: "48. QuickSort and MergeSort",
     description:
       "Implement the QuickSort and MergeSort algorithms to sort an array of integers. QuickSort is a divide-and-conquer algorithm that selects a 'pivot' element and partitions the other elements into two sub-arrays according to whether they are less than or greater than the pivot. MergeSort also uses divide-and-conquer by dividing the array into halves, sorting each half, and merging them back together.",
+    leetcodeUrl:"https://leetcode.com/problems/sort-an-array/description/",
     examples: [
       {
         input: "array = [3, 6, 8, 10, 1, 2, 1]",
@@ -2985,7 +3035,8 @@ countInversions: {
     title: "49. Count Inversions in an Array",
     description:
       "Implement a function to count the number of inversions in an array. An inversion is defined as a pair of indices (i, j) such that i < j and arr[i] > arr[j]. This can be achieved efficiently using a modified MergeSort algorithm, which counts inversions while merging.",
-    examples: [
+   leetcodeUrl:"https://www.geeksforgeeks.org/problems/inversion-of-array-1587115620/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card",
+      examples: [
       {
         input: "array = [2, 4, 1, 3, 5]",
         output: "3",
@@ -3142,7 +3193,8 @@ sortArray012: {
     title: "50. Sort an Array of 0s, 1s, and 2s",
     description:
       "Implement a function to sort an array containing only 0s, 1s, and 2s. The task can be efficiently accomplished using the Dutch National Flag algorithm, which categorizes the elements in a single pass through the array.",
-    examples: [
+    leetcodeUrl:"https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card",
+      examples: [
       {
         input: "array = [2, 0, 1, 2, 0, 1, 1]",
         output: "[0, 0, 1, 1, 1, 2, 2]",
@@ -3226,7 +3278,8 @@ searchInNearlySortedArray: {
     title: "51. Perform a Search in a Nearly Sorted Array",
     description:
       "Implement a function to search for a target element in a nearly sorted array. In a nearly sorted array, each element is at most one position away from its original position. This allows for an efficient search using a modified binary search algorithm.",
-    examples: [
+    leetcodeUrl:"https://www.geeksforgeeks.org/problems/search-in-an-almost-sorted-array/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card",
+      examples: [
       {
         input: "array = [10, 3, 40, 20, 50, 80, 70], target = 20",
         output: "3",
@@ -3307,7 +3360,8 @@ class Solution:
         title: "52. Flatten a Multilevel Doubly Linked List",
         description:
             "You are given a doubly linked list, where each node contains a next pointer, a prev pointer, and an additional child pointer that may or may not point to a separate doubly linked list. These child lists may have one or more children of their own, and so on, to produce a multilevel data structure. Flatten the list so that all the nodes appear in a single-level, doubly linked list. Preserve the order of nodes in the list, and return the head of the flattened list.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/",
+            examples: [
             {
                 input: "head = [1, 2, 3, 4, 5, 6] (with 3->7->8->9->10 and 8->11->12)",
                 output: "[1, 2, 3, 7, 8, 11, 12, 9, 10, 4, 5, 6]",
@@ -3435,7 +3489,8 @@ class Solution:
         title: "53. Find All Anagrams in a String",
         description:
           "Given a string s and a non-empty string p, find all the start indices of p's anagrams in s. Strings consist of lowercase English letters, and the order of output does not matter. An anagram of p is a permutation of p, and the function should return an array of starting indices where anagrams of p begin in s.",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/find-all-anagrams-in-a-string/",
+          examples: [
           {
             input: "s = 'cbaebabacd', p = 'abc'",
             output: "[0, 6]",
@@ -3538,7 +3593,8 @@ class Solution:
         title: "54. Climbing Stairs",
         description:
           "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
-        examples: [
+        leetcodeUrl:"https://leetcode.com/problems/climbing-stairs/",
+          examples: [
           {
             input: "n = 2",
             output: "2",
@@ -3595,20 +3651,20 @@ class Solution:
           `,
         },
       }, 
-    hammingDistance: {
-    title: "461. Hamming Distance",
+    evaluateReversePolishNotation: {
+    title: "56. Evaluate Reverse Polish Notation",
     description:
-      "The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, return the Hamming distance between them.",
+      "Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, and /. Each operand may be an integer or another expression. Note that division between two integers should truncate toward zero.",
     examples: [
       {
-        input: "x = 1, y = 4",
-        output: "2",
-        explanation: "1 in binary is 0001, and 4 in binary is 0100. They differ at two positions (2nd and 3rd from the right).",
+        input: 'tokens = ["2", "1", "+", "3", "*"]',
+        output: "9",
+        explanation: "((2 + 1) * 3) = 9",
       },
       {
-        input: "x = 3, y = 1",
-        output: "1",
-        explanation: "3 in binary is 0011, and 1 in binary is 0001. They differ at one position (2nd from the right).",
+        input: 'tokens = ["4", "13", "5", "/", "+"]',
+        output: "6",
+        explanation: "(4 + (13 / 5)) = 6",
       },
     ],
     solution: {
@@ -3618,25 +3674,45 @@ class Solution:
 
       class Solution {
       public:
-          int hammingDistance(int x, int y) {
-              int xorVal = x ^ y, distance = 0;
-              while (xorVal > 0) {
-                  distance += xorVal & 1;
-                  xorVal >>= 1;
+          int evalRPN(vector<string>& tokens) {
+              stack<int> s;
+              for (string& token : tokens) {
+                  if (token == "+" || token == "-" || token == "*" || token == "/") {
+                      int b = s.top(); s.pop();
+                      int a = s.top(); s.pop();
+                      if (token == "+") s.push(a + b);
+                      else if (token == "-") s.push(a - b);
+                      else if (token == "*") s.push(a * b);
+                      else if (token == "/") s.push(a / b);
+                  } else {
+                      s.push(stoi(token));
+                  }
               }
-              return distance;
+              return s.top();
           }
       };`,
 
       java: `
+      import java.util.Stack;
+
       class Solution {
-          public int hammingDistance(int x, int y) {
-              int xorVal = x ^ y, distance = 0;
-              while (xorVal > 0) {
-                  distance += (xorVal & 1);
-                  xorVal >>= 1;
+          public int evalRPN(String[] tokens) {
+              Stack<Integer> stack = new Stack<>();
+              for (String token : tokens) {
+                  if ("+-*/".contains(token)) {
+                      int b = stack.pop();
+                      int a = stack.pop();
+                      switch (token) {
+                          case "+" -> stack.push(a + b);
+                          case "-" -> stack.push(a - b);
+                          case "*" -> stack.push(a * b);
+                          case "/" -> stack.push(a / b);
+                      }
+                  } else {
+                      stack.push(Integer.parseInt(token));
+                  }
               }
-              return distance;
+              return stack.pop();
           }
       };`,
 
@@ -3652,6 +3728,151 @@ class Solution:
       `,
     },
   },
+    alienDictionary: {
+  title: "Alien Dictionary",
+  description:
+    "In an alien language, each word is sorted lexicographically based on unknown alphabetical order. Given a list of words sorted in this alien language, determine the order of the characters. If the order is valid, return a string of characters in the correct order. If no valid ordering exists, return an empty string.",
+  examples: [
+    {
+      input: "words = [\"wrt\", \"wrf\", \"er\", \"ett\", \"rftt\"]",
+      output: "\"wertf\"",
+      explanation:
+        "From the given list, we can infer that 'w' comes before 'e', 'r' comes before 't', 't' comes before 'f'. A possible order is 'wertf'.",
+    },
+    {
+      input: "words = [\"z\", \"x\", \"z\"]",
+      output: "\"\"",
+      explanation:
+        "The given words form a cycle ('z' -> 'x' -> 'z'), so no valid ordering is possible, and we return an empty string.",
+    },
+  ],
+  solution: {
+    cpp: `
+    #include<bits/stdc++.h>
+    using namespace std;
+
+    class Solution {
+    public:
+        string alienOrder(vector<string>& words) {
+            unordered_map<char, set<char>> adj;
+            unordered_map<char, int> indegree;
+            for (string word : words)
+                for (char c : word)
+                    indegree[c] = 0;
+
+            for (int i = 0; i < words.size() - 1; i++) {
+                string w1 = words[i], w2 = words[i + 1];
+                int len = min(w1.size(), w2.size());
+                if (w1.substr(0, len) == w2.substr(0, len) && w1.size() > w2.size())
+                    return "";
+
+                for (int j = 0; j < len; j++) {
+                    if (w1[j] != w2[j]) {
+                        if (adj[w1[j]].insert(w2[j]).second)
+                            indegree[w2[j]]++;
+                        break;
+                    }
+                }
+            }
+
+            queue<char> q;
+            for (auto& [c, count] : indegree)
+                if (count == 0) q.push(c);
+
+            string order;
+            while (!q.empty()) {
+                char c = q.front();
+                q.pop();
+                order += c;
+                for (char neighbor : adj[c])
+                    if (--indegree[neighbor] == 0)
+                        q.push(neighbor);
+            }
+            return order.size() == indegree.size() ? order : "";
+        }
+    };`,
+
+    java: `
+    import java.util.*;
+
+    class Solution {
+        public String alienOrder(String[] words) {
+            Map<Character, Set<Character>> adj = new HashMap<>();
+            Map<Character, Integer> indegree = new HashMap<>();
+            for (String word : words)
+                for (char c : word)
+                    indegree.put(c, 0);
+
+            for (int i = 0; i < words.length - 1; i++) {
+                String w1 = words[i], w2 = words[i + 1];
+                int len = Math.min(w1.length(), w2.length());
+                if (w1.startsWith(w2) && w1.length() > w2.length())
+                    return "";
+
+                for (int j = 0; j < len; j++) {
+                    if (w1.charAt(j) != w2.charAt(j)) {
+                        adj.computeIfAbsent(w1.charAt(j), k -> new HashSet<>());
+                        if (adj.get(w1.charAt(j)).add(w2.charAt(j)))
+                            indegree.put(w2.charAt(j), indegree.get(w2.charAt(j)) + 1);
+                        break;
+                    }
+                }
+            }
+
+            Queue<Character> queue = new LinkedList<>();
+            for (Map.Entry<Character, Integer> entry : indegree.entrySet())
+                if (entry.getValue() == 0)
+                    queue.offer(entry.getKey());
+
+            StringBuilder order = new StringBuilder();
+            while (!queue.isEmpty()) {
+                char c = queue.poll();
+                order.append(c);
+                if (adj.containsKey(c)) {
+                    for (char neighbor : adj.get(c))
+                        if (indegree.put(neighbor, indegree.get(neighbor) - 1) == 1)
+                            queue.offer(neighbor);
+                }
+            }
+            return order.length() == indegree.size() ? order.toString() : "";
+        }
+    };`,
+
+    python: `
+    from collections import defaultdict, deque
+
+    class Solution:
+        def alienOrder(self, words: list[str]) -> str:
+            adj = defaultdict(set)
+            indegree = {char: 0 for word in words for char in word}
+
+            for i in range(len(words) - 1):
+                w1, w2 = words[i], words[i + 1]
+                min_len = min(len(w1), len(w2))
+                if w1[:min_len] == w2[:min_len] and len(w1) > len(w2):
+                    return ""
+
+                for j in range(min_len):
+                    if w1[j] != w2[j]:
+                        if w2[j] not in adj[w1[j]]:
+                            adj[w1[j]].add(w2[j])
+                            indegree[w2[j]] += 1
+                        break
+
+            queue = deque([c for c in indegree if indegree[c] == 0])
+            order = []
+            while queue:
+                c = queue.popleft()
+                order.append(c)
+                for neighbor in adj[c]:
+                    indegree[neighbor] -= 1
+                    if indegree[neighbor] == 0:
+                        queue.append(neighbor)
+
+            return "".join(order) if len(order) == len(indegree) else ""
+    `,
+  },
+},
 };
 
 export default problemsData;
