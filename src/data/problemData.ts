@@ -3873,6 +3873,146 @@ class Solution:
     `,
   },
 },
+    criticalConnections: {
+  title: "Critical Connections in a Network (Tarjan's Algorithm)",
+  description:
+    "Given a network of servers represented as an undirected graph, find all critical connections (also known as bridges) in the network. A critical connection is an edge that, if removed, would increase the number of connected components in the graph.",
+  examples: [
+    {
+      input: "n = 4, connections = [[0,1],[1,2],[2,0],[1,3]]",
+      output: "[[1, 3]]",
+      explanation:
+        "Removing the connection [1, 3] would disconnect the network, so it is a critical connection.",
+    },
+    {
+      input: "n = 6, connections = [[0,1],[1,2],[2,0],[1,3],[3,4],[4,5]]",
+      output: "[[3, 4], [4, 5]]",
+      explanation:
+        "The connections [3, 4] and [4, 5] are critical because removing them would disconnect parts of the network.",
+    },
+  ],
+  solution: {
+    cpp: `
+    #include <vector>
+    #include <algorithm>
+    using namespace std;
+
+    class Solution {
+    public:
+        vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
+            vector<vector<int>> adj(n);
+            for (auto& conn : connections) {
+                adj[conn[0]].push_back(conn[1]);
+                adj[conn[1]].push_back(conn[0]);
+            }
+
+            vector<vector<int>> result;
+            vector<int> disc(n, -1), low(n, -1), parent(n, -1);
+            int time = 0;
+            
+            function<void(int)> dfs = [&](int u) {
+                disc[u] = low[u] = time++;
+                for (int v : adj[u]) {
+                    if (disc[v] == -1) {
+                        parent[v] = u;
+                        dfs(v);
+                        low[u] = min(low[u], low[v]);
+                        if (low[v] > disc[u]) 
+                            result.push_back({u, v});
+                    } else if (v != parent[u]) {
+                        low[u] = min(low[u], disc[v]);
+                    }
+                }
+            };
+
+            for (int i = 0; i < n; i++) {
+                if (disc[i] == -1)
+                    dfs(i);
+            }
+            return result;
+        }
+    };`,
+
+    java: `
+    import java.util.*;
+
+    class Solution {
+        public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
+            List<List<Integer>> adj = new ArrayList<>();
+            for (int i = 0; i < n; i++) adj.add(new ArrayList<>());
+            for (List<Integer> conn : connections) {
+                adj.get(conn.get(0)).add(conn.get(1));
+                adj.get(conn.get(1)).add(conn.get(0));
+            }
+
+            List<List<Integer>> result = new ArrayList<>();
+            int[] disc = new int[n], low = new int[n], parent = new int[n];
+            Arrays.fill(disc, -1);
+            Arrays.fill(parent, -1);
+            int time = 0;
+
+            for (int i = 0; i < n; i++) {
+                if (disc[i] == -1)
+                    dfs(i, adj, disc, low, parent, time, result);
+            }
+            return result;
+        }
+
+        private void dfs(int u, List<List<Integer>> adj, int[] disc, int[] low, int[] parent, int time, List<List<Integer>> result) {
+            disc[u] = low[u] = time++;
+            for (int v : adj.get(u)) {
+                if (disc[v] == -1) {
+                    parent[v] = u;
+                    dfs(v, adj, disc, low, parent, time, result);
+                    low[u] = Math.min(low[u], low[v]);
+                    if (low[v] > disc[u]) {
+                        result.add(Arrays.asList(u, v));
+                    }
+                } else if (v != parent[u]) {
+                    low[u] = Math.min(low[u], disc[v]);
+                }
+            }
+        }
+    };`,
+
+    python: `
+    from collections import defaultdict
+
+    class Solution:
+        def criticalConnections(self, n: int, connections: list[list[int]]) -> list[list[int]]:
+            adj = defaultdict(list)
+            for u, v in connections:
+                adj[u].append(v)
+                adj[v].append(u)
+
+            result = []
+            disc = [-1] * n
+            low = [-1] * n
+            parent = [-1] * n
+            time = 0
+
+            def dfs(u):
+                nonlocal time
+                disc[u] = low[u] = time
+                time += 1
+                for v in adj[u]:
+                    if disc[v] == -1:
+                        parent[v] = u
+                        dfs(v)
+                        low[u] = min(low[u], low[v])
+                        if low[v] > disc[u]:
+                            result.append([u, v])
+                    elif v != parent[u]:
+                        low[u] = min(low[u], disc[v])
+
+            for i in range(n):
+                if disc[i] == -1:
+                    dfs(i)
+
+            return result
+    `,
+  },
+},
 };
 
 export default problemsData;
