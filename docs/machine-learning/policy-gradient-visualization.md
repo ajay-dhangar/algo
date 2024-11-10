@@ -1,15 +1,16 @@
 ---
-
-id: policy-gradient-visualization  
-title: Policy Gradient Methods Algorithm  
-sidebar_label: Policy Gradient Methods  
-description: "An introduction to policy gradient methods in reinforcement learning, including their role in optimizing policies directly for better performance in continuous action spaces."  
-tags: [machine learning, reinforcement learning, policy gradient, algorithms, visualization]  
-
+id: policy-gradient-visualization
+title: Policy Gradient Methods Algorithm
+sidebar_label: Policy Gradient Methods
+description: "An introduction to policy gradient methods in reinforcement learning, including their role in optimizing policies directly for better performance in continuous action spaces."
+tags: [machine learning, reinforcement learning, policy gradient, algorithms, visualization]
 ---
 
+<Ads />
+
 ### Definition:
-**Policy Gradient Methods** are a class of algorithms in reinforcement learning that optimize the policy directly by updating its parameters to maximize the expected cumulative reward. Unlike value-based methods that learn a value function, policy gradient approaches adjust the policy itself, making them suitable for environments with continuous action spaces.
+
+**Policy Gradient Methods** are a class of reinforcement learning algorithms that optimize the policy directly by updating its parameters to maximize the expected cumulative reward. Unlike value-based methods that learn a value function, policy gradient approaches adjust the policy itself, making them suitable for environments with continuous action spaces.
 
 ### Characteristics:
 - **Direct Policy Optimization**:  
@@ -21,11 +22,11 @@ tags: [machine learning, reinforcement learning, policy gradient, algorithms, vi
 ### How It Works:
 Policy gradient methods operate by adjusting the policy parameters $\theta$ in the direction that increases the expected return $J(\theta)$. The update step typically follows this rule:
 
-\[
+$$
 \theta \leftarrow \theta + \alpha \nabla_\theta J(\theta)
-\]
+$$
 
-where $\alpha$ is the learning rate and $\nabla_\theta J(\theta)$ represents the gradient of the expected reward with respect to the policy parameters.
+where $\alpha$ is the learning rate and $\nabla_\theta J(\theta)$ represents the gradient of the expected reward to the policy parameters.
 
 ### Problem Statement:
 Implement policy gradient algorithms as part of a reinforcement learning framework to enhance support for continuous action spaces and enable users to visualize policy updates and improvements over time.
@@ -37,9 +38,9 @@ Implement policy gradient algorithms as part of a reinforcement learning framewo
 - **Score Function**:  
   The gradient estimation used is known as the **likelihood ratio gradient** or **REINFORCE** algorithm, computed by:
 
-\[
+$$
 \nabla_\theta J(\theta) \approx \sum_{t=1}^{T} \nabla_\theta \log \pi_\theta(a_t | s_t) G_t
-\]
+$$
 
 where $G_t$ is the discounted return after time step $t$.
 
@@ -54,7 +55,7 @@ where $G_t$ is the discounted return after time step $t$.
    Combine policy gradient methods (actor) with a value function estimator (critic) to improve learning efficiency by using TD (Temporal-Difference) updates.
    
 3. **Proximal Policy Optimization (PPO)**:  
-   A popular policy gradient approach that prevents large updates to the policy by using a clipped objective function, enhancing stability.
+   A popular policy gradient approach prevents large updates to the policy by using a clipped objective function, enhancing stability.
 
 ### Steps Involved:
 1. **Initialize Policy Parameters**:  
@@ -138,5 +139,3 @@ Implementing visualizations can help observe how the policy changes over time, w
 
 ### Conclusion:
 Policy gradient methods provide a robust framework for training reinforcement learning agents in complex environments, especially those involving continuous actions. By directly optimizing the policy, they offer a path to enhanced performance in various real-world applications.
-
----
