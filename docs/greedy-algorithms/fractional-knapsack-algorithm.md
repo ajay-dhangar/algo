@@ -42,8 +42,8 @@ Space is required to store item information and ratios.
 **Example:**
 Consider a knapsack with a weight limit of W = 50 and the following items:
 
-Items: {(value: 60, weight: 10), (value: 100, weight: 20), (value: 120, weight: 30)}
-Sorted by ratio: {(value: 60, weight: 10), (value: 100, weight: 20), (value: 120, weight: 30)}
+Items: `{(value: 60, weight: 10), (value: 100, weight: 20), (value: 120, weight: 30)}`
+Sorted by ratio: `{(value: 60, weight: 10), (value: 100, weight: 20), (value: 120, weight: 30)}`
 Step-by-Step Execution:
 
 Add item with weight 10 (value-to-weight ratio 6):
