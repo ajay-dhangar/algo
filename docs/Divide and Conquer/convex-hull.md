@@ -2,13 +2,11 @@
 id: convex-hull
 title: "Convex Hull Problem"
 sidebar_label: "Convex Hull"
-
 description: "This document provides an overview of the Convex Hull problem using the divide-and-conquer approach."
-
 tags: [divide-and-conquer, computational-geometry, algorithms]
 ---
 
-# Convex Hull Problem
+<Ads />
 
 ## Overview
 
@@ -29,6 +27,8 @@ The divide-and-conquer method for solving the Convex Hull problem is efficient f
 3. **Combine**: Merge the two convex hulls into a single hull. This step involves finding the upper and lower tangents that connect the two hulls while maintaining the convexity property.
 
 This approach has a time complexity of **O(n log n)**, making it efficient for large datasets.
+
+<Ads />
 
 ### Algorithm Steps
 
@@ -71,6 +71,8 @@ MERGE_HULLS(left_hull, right_hull):
     combined_hull = points along upper and lower tangents
     return combined_hull
 ```
+
+<Ads />
 
 ## Code
 
@@ -148,6 +150,8 @@ int main() {
 }
 ```
 
+<Ads />
+
 ## Applications
 
 - **Geographic Information Systems (GIS)**: Used for mapping out territories or enclosing regions in spatial data.
@@ -167,6 +171,8 @@ Original Points:                    Convex Hull:
                                         *-----*
 ```
 
+<Ads />
+
 ## Complexity Analysis
 
 - **Time Complexity**: O(n log n) due to sorting and recursive merging steps.
@@ -176,5 +182,3 @@ Original Points:                    Convex Hull:
 
 - [Computational Geometry: Algorithms and Applications](https://computational-geometry.org/) - A comprehensive guide on computational geometry techniques.
 - [Convex Hull on Wikipedia](https://en.wikipedia.org/wiki/Convex_hull) - Detailed background and applications of Convex Hull.
-
----
