@@ -1,6 +1,6 @@
 ---
 id: rnn-ml-algorithm
-title: Recurrent Neural Network (RNN) ML Algorithm
+title: "Recurrent Neural Network (RNN) ML Algorithm"
 sidebar_label: RNN ML Algorithm
 sidebar_position: 16
 description: "Recurrent Neural Networks (RNNs) are a type of neural network designed to recognize patterns in sequences of data, including time-series data, language processing, and other sequence-related tasks."
