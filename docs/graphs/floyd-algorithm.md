@@ -3,7 +3,7 @@ id: flyod-algo
 title: Floyd's-Algorithm
 sidebar_label: Floyd's-Algorithm
 description: "In this blog post, we'll explore the Floyd's-Algorithm, an efficient method to implement all pair shortest paths"
-tags: [dsa, algorithms,all pair shortest paths]
+tags: [dsa, algorithms, all pair shortest paths]
 ---
 
 # Floyd's Algorithm (Floyd-Warshall Algorithm)
@@ -13,16 +13,16 @@ Floyd's algorithm, also known as the **Floyd-Warshall algorithm**, is a dynamic 
 The algorithm iteratively improves the solution by checking if a path between two vertices can be improved by going through an intermediate vertex. It uses a 2D matrix to store the shortest path distances between every pair of vertices.
 
 ## Key Features:
+
 - **Time Complexity**: O(V³), where V is the number of vertices.
 - **Space Complexity**: O(V²), as it stores the distances in a 2D array.
 - Suitable for dense graphs due to its cubic time complexity.
 
 ## Applications:
+
 - Shortest path discovery in road networks.
 - Network routing algorithms.
 - Solving the transitive closure of a graph.
-
-
 
 # Code in C
 
@@ -33,7 +33,7 @@ int min(int v1, int v2) {
  return (v1 >= v2) ? v2 : v1;
      }
 
-int main() 
+int main()
 {
  int W[10][10], D[10][10], n, i, j, k;
  printf("Enter the number of Vertices: ");
@@ -61,5 +61,58 @@ int main()
  printf("\n");
  }
  return 0;
-} 
+}
+```
+
+# Code in Java
+
+```Java
+import java.util.Scanner;
+
+public class FloydWarshall {
+
+    // Method to find the minimum of two values
+    public static int min(int v1, int v2) {
+        return (v1 >= v2) ? v2 : v1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[][] W = new int[10][10];
+        int[][] D = new int[10][10];
+        int n;
+
+        System.out.print("Enter the number of Vertices: ");
+        n = sc.nextInt();
+
+        System.out.println("Enter the Weight matrix of the given graph row-wise:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                W[i][j] = sc.nextInt();
+                D[i][j] = W[i][j];
+            }
+        }
+
+        // Applying Floyd's Algorithm
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    D[i][j] = min(D[i][j], D[i][k] + D[k][j]);
+                }
+            }
+        }
+
+        // Displaying the distance matrix
+        System.out.println("Solution to All Pairs Shortest Distance Problem");
+        System.out.println("Using Floyd's Algorithm - Distance Matrix of the given graph is:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(D[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
+
 ```

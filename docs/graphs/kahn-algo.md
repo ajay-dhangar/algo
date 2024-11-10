@@ -14,17 +14,20 @@ Kahn's Algorithm is an efficient method for performing topological sorting on a 
 
 Kahn's Algorithm operates based on the concept of in-degrees of vertices in a directed graph. The in-degree of a vertex is the number of edges directed towards it. The algorithm follows these steps:
 
-1. **Calculate In-Degrees**: 
-   - Initialize an array `inDegree` to keep track of the in-degrees of all vertices. 
+1. **Calculate In-Degrees**:
+
+   - Initialize an array `inDegree` to keep track of the in-degrees of all vertices.
    - Traverse the graph and populate the `inDegree` array.
 
-2. **Initialize the Queue**: 
+2. **Initialize the Queue**:
+
    - Create a queue to hold all vertices with an in-degree of 0 (i.e., vertices that have no dependencies).
 
 3. **Process the Queue**:
+
    - While the queue is not empty, perform the following:
      - Dequeue a vertex \( u \) and append it to the topological ordering.
-     - For each outgoing edge from \( u \) to vertex \( v \), reduce the in-degree of \( v \) by 1. 
+     - For each outgoing edge from \( u \) to vertex \( v \), reduce the in-degree of \( v \) by 1.
      - If the in-degree of \( v \) becomes 0, enqueue \( v \).
 
 4. **Check for Cycles**:
@@ -115,23 +118,117 @@ int main() {
 
 
 ```
+
+### 🖥️ Java Implementation
+
+Here’s how Kahn's Algorithm can be implemented in Java:
+
+```java
+
+import java.util.*;
+
+public class Main {
+
+    public static ArrayList<Integer> kahnTopologicalSort(int V, ArrayList<ArrayList<Integer>> adj) {
+
+	    int[] inDegree = new int[V];
+	    for(int i=0; i<V; i++)
+	    {
+		    for(int node : adj.get(i))
+			    inDegree[node]++;
+        }
+
+		Queue<Integer> q = new LinkedList<>();
+		ArrayList<Integer> topologicalOrder = new ArrayList<>();
+
+		for(int i=0; i<V; i++)
+		{
+			if(inDegree[i] == 0)
+			{
+				q.offer(i);
+				topologicalOrder.add(i);
+			}
+		}
+
+		while(!q.isEmpty())
+		{
+			int node = q.poll();
+
+			for(int adjN : adj.get(node))
+			{
+				inDegree[adjN]--;
+				if(inDegree[adjN] == 0)
+				{
+					q.offer(adjN);
+					topologicalOrder.add(adjN);
+				}
+			}
+		}
+
+		if(topologicalOrder.size() != V)
+			return new ArrayList<Integer>();
+
+		return topologicalOrder;
+
+    }
+
+    public static void main(String args[]) {
+
+	    int V = 6;
+	    ArrayList<ArrayList<Integer>> adj = new ArrayList<>(V);
+
+        for(int i=0; i<V; i++)
+            adj.add(new ArrayList<>());
+
+	    adj.get(5).add(2);
+	    adj.get(5).add(0);
+	    adj.get(4).add(0);
+	    adj.get(4).add(1);
+	    adj.get(2).add(3);
+	    adj.get(3).add(1);
+       // adj.get(3).add(5); // add this node. it will create cycic graph
+
+	    ArrayList<Integer> result = kahnTopologicalSort(V, adj);
+
+	    if(result.size() == 0)
+		    System.out.println("Graph has a cycle, topological sort not possible.");
+	    else
+	    {
+		    System.out.println("Topological Sort: ");
+		    for(int u : result)
+		    System.out.print(u + " ");
+	    }
+    }
+}
+
+```
+
+#### Output
+
+```java
+Topological Sort:
+4 5 2 0 3 1
+```
+
 ### 🔍 Applications of Kahn's Algorithm
+
 Task Scheduling: Used in scenarios where certain tasks must be completed before others.
 Build Systems: Helps manage dependencies between files and targets.
 Course Scheduling: Useful in academic settings to manage prerequisite courses.
 Version Control Systems: Resolves dependencies in source code versioning.
 
 ### ⚖️ Advantages and Limitations
+
 Advantages:
 Provides a clear and efficient method for topological sorting.
-Handles large graphs effectively with 
+Handles large graphs effectively with
 O(V+E) time complexity.
 
 ### Limitations:
+
 Only applicable to Directed Acyclic Graphs (DAGs);
 Cannot be used for graphs with cycles.
 
-
-
 ### 📝 Conclusion
+
 Kahn's Algorithm is a powerful tool for performing topological sorting in directed acyclic graphs. Its efficiency and straightforward implementation make it a preferred choice in many applications requiring task management based on dependencies. Understanding this algorithm can significantly aid in solving various computational problems involving directed graphs.

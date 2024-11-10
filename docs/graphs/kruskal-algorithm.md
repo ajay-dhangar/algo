@@ -6,7 +6,6 @@ description: "In this blog post, we'll explore Kruskal's Algorithm, a greedy alg
 tags: [dsa, algorithms, minimum spanning tree]
 ---
 
-
 ### Definition:
 
 Kruskal's algorithm is a **greedy algorithm** used to find the Minimum Spanning Tree (MST) of a graph. The MST is a subset of the edges of a connected, weighted, and undirected graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight.
@@ -14,12 +13,15 @@ Kruskal's algorithm is a **greedy algorithm** used to find the Minimum Spanning 
 ### Characteristics:
 
 - **Greedy Approach**:
+
   - Kruskal's algorithm works by selecting the smallest edge and ensuring that no cycles are formed in the process. It greedily adds edges in increasing order of weight.
 
 - **Disjoint Set Data Structure**:
+
   - The algorithm uses a **Disjoint Set Union (DSU)** or **Union-Find** data structure to efficiently determine whether adding an edge will form a cycle in the growing spanning tree.
 
 - **Edge-Based Algorithm**:
+
   - Kruskal's algorithm focuses on edges rather than vertices, sorting them by weight and picking the smallest ones that do not create a cycle.
 
 - **Applicable to Sparse Graphs**:
@@ -101,6 +103,114 @@ int main() {
 
     return 0;
 }
+```
+
+### Java Implementation:
+
+```java
+import java.util.*;
+
+class Edge{
+
+    int u;
+    int v;
+    int weight;
+
+    Edge(int u, int v, int weight)
+    {
+        this.u = u;
+        this.v = v;
+        this.weight = weight;
+    }
+}
+
+class DisjointSet{
+
+    ArrayList<Integer> parent = new ArrayList<>();
+    ArrayList<Integer> rank = new ArrayList<>();
+    int V;
+
+    public DisjointSet(int V)
+    {
+        for(int i=0; i<V; i++)
+        {
+            parent.add(i);
+            rank.add(0);
+        }
+    }
+
+    int find(int v)
+    {
+        if(v == parent.get(v)) return v;
+
+        int par = find(parent.get(v));
+        parent.set(v, par);
+        return par;
+    }
+
+    void unite(int a, int b)
+    {
+        a = find(a);
+        b = find(b);
+
+        if(a == b) return;
+
+        if(rank.get(a) < rank.get(b))
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+
+        parent.set(b,a);
+        if(rank.get(a) == rank.get(b))
+        rank.set(a, rank.get(a)+1);
+
+    }
+
+    int kruskal(int n, ArrayList<Edge> edges)
+    {
+        Collections.sort(edges, (a,b)->a.weight - b.weight);
+
+        int mst_weight = 0;
+        for(Edge e : edges)
+        {
+            if(find(e.u) != find(e.v))
+            {
+                mst_weight += e.weight;
+                unite(e.u, e.v);
+            }
+
+        }
+
+        return mst_weight;
+    }
+
+}
+
+public class Main {
+    public static void main(String args[]) {
+
+        int n = 4; //number of vertices
+        ArrayList<Edge> edges = new ArrayList<>();
+        edges.add(new Edge(0, 1, 10));
+        edges.add(new Edge(0, 2, 6));
+        edges.add(new Edge(0, 3, 5));
+        edges.add(new Edge(1, 3, 15));
+        edges.add(new Edge(2, 3, 4));
+
+        DisjointSet ds = new DisjointSet(4);
+        int mst_weight = ds.kruskal(n, edges);
+        System.out.println("Weight of the Minimum Spanning Tree: " + mst_weight);
+
+    }
+}
+```
+
+#### Output
+
+```java
+Weight of the Minimum Spanning Tree: 19
 ```
 
 ### Summary:
