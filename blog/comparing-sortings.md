@@ -1,7 +1,7 @@
 ---
 slug: comparing-sorting-algorithms
 title: Comparing the different Sorting Algorithms
-authors: [ARYAN-JAIN]
+authors: [Aryan-Jain]
 tags: [ARYAN-JAIN, algo, dsa, algorithms, sorting, time-complexity]
 ---
 
