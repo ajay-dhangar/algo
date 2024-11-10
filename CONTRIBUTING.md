@@ -24,12 +24,30 @@ Clone the repository to your local machine using:
 $ git clone https://github.com/<your-username>/algo.git
 ```
 
-### 3. Create a New Branch 
-Create a branch for your contribution:
-
+### 3. 📂 Change the working directory: 
 ```bash
-$ git checkout -b <branch-name>
-```
+   cd algo
+   ```
+
+### 4. 🔗 Add a reference to the original repository.
+```bash
+   git remote add upstream https://github.com/ajay-dhangar/algo.git
+   ```
+
+### 5. 🔍 Check the remotes for this repository.
+```bash
+   git remote -v
+   ```
+
+### 6. ⬇️ Always take a pull from the upstream repository to your main branch to keep it up-to-date with the main project (updated repository).
+```bash
+   git pull upstream main
+   ```
+
+### 7. 🌿 Create a new branch. 
+```bash
+   git checkout -b <your-branch-name>
+   ```
 
 ### 4. Make Your Changes 
 Make your changes, which could include:
