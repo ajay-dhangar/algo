@@ -391,12 +391,13 @@ class JohnsonsAlgorithm {
 ### Example:
 #### Input:
 - Graph vertices: 4
-- Edges:  
+- Edges:
+```
   - (0 -> 1, weight=3)  
   - (0 -> 2, weight=8)  
   - (1 -> 3, weight=-2)  
   - (2 -> 1, weight=4)  
-
+```
 #### Output:
 ```
 Shortest path distances between all pairs:
