@@ -3873,85 +3873,107 @@ class Solution:
     `,
   },
 },
-maximumRectangle: {
-  title: "Maximum Rectangle in a Histogram (Stack)",
+    bestMeetingPoint: {
+  title: "Best Meeting Point",
   description:
-    "Given an array representing the heights of bars in a histogram, find the largest rectangular area that can be formed by a set of contiguous bars.",
+    "Given a grid where each cell represents a location in a city, find the best meeting point for all people. The best meeting point is the location that minimizes the total distance to all other people in the grid. The distance between two points is calculated using the Manhattan distance.",
   examples: [
     {
-      input: "heights = [2, 1, 5, 6, 2, 3]",
-      output: "10",
+      input: "grid = [[1,0,0],[0,1,0],[0,0,1]]",
+      output: "2",
       explanation:
-        "The largest rectangle is formed between the third and fourth bars (height 5 and 6), giving an area of 10.",
+        "The best meeting point is at location (1, 1), which minimizes the sum of Manhattan distances to all people (1 + 1 + 1 = 3).",
     },
     {
-      input: "heights = [2, 4]",
-      output: "4",
+      input: "grid = [[0,0,0],[0,1,0],[0,0,0]]",
+      output: "2",
       explanation:
-        "The largest rectangle is formed between the two bars, both of height 2, giving an area of 4.",
+        "The best meeting point is at (1, 1), which minimizes the sum of Manhattan distances to all other people in the grid.",
     },
   ],
   solution: {
     cpp: `
     #include <vector>
-    #include <stack>
+    #include <cmath>
     using namespace std;
 
     class Solution {
     public:
-        int largestRectangleArea(vector<int>& heights) {
-            stack<int> st;
-            int maxArea = 0;
-            heights.push_back(0); // Add a zero to flush out remaining bars in stack
-            
-            for (int i = 0; i < heights.size(); i++) {
-                while (!st.empty() && heights[st.top()] > heights[i]) {
-                    int height = heights[st.top()];
-                    st.pop();
-                    int width = st.empty() ? i : i - st.top() - 1;
-                    maxArea = max(maxArea, height * width);
+        int minTotalDistance(vector<vector<int>>& grid) {
+            int m = grid.size(), n = grid[0].size();
+            vector<int> row, col;
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (grid[i][j] == 1) {
+                        row.push_back(i);
+                        col.push_back(j);
+                    }
                 }
-                st.push(i);
             }
-            return maxArea;
+
+            sort(row.begin(), row.end());
+            sort(col.begin(), col.end());
+
+            int medianRow = row[row.size() / 2], medianCol = col[col.size() / 2];
+            int distance = 0;
+            for (int i = 0; i < row.size(); i++) {
+                distance += abs(row[i] - medianRow) + abs(col[i] - medianCol);
+            }
+
+            return distance;
         }
     };`,
 
     java: `
-    import java.util.Stack;
+    import java.util.*;
 
     class Solution {
-        public int largestRectangleArea(int[] heights) {
-            Stack<Integer> stack = new Stack<>();
-            int maxArea = 0;
-            for (int i = 0; i <= heights.length; i++) {
-                int h = (i == heights.length) ? 0 : heights[i];
-                while (!stack.isEmpty() && heights[stack.peek()] > h) {
-                    int height = heights[stack.pop()];
-                    int width = stack.isEmpty() ? i : i - stack.peek() - 1;
-                    maxArea = Math.max(maxArea, height * width);
+        public int minTotalDistance(int[][] grid) {
+            List<Integer> row = new ArrayList<>();
+            List<Integer> col = new ArrayList<>();
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[0].length; j++) {
+                    if (grid[i][j] == 1) {
+                        row.add(i);
+                        col.add(j);
+                    }
                 }
-                stack.push(i);
             }
-            return maxArea;
+
+            Collections.sort(row);
+            Collections.sort(col);
+
+            int medianRow = row.get(row.size() / 2), medianCol = col.get(col.size() / 2);
+            int distance = 0;
+            for (int i = 0; i < row.size(); i++) {
+                distance += Math.abs(row.get(i) - medianRow) + Math.abs(col.get(i) - medianCol);
+            }
+
+            return distance;
         }
     };`,
 
     python: `
     class Solution:
-        def largestRectangleArea(self, heights: list[int]) -> int:
-            stack = []
-            max_area = 0
-            heights.append(0)  # Add a 0 to flush out remaining bars
-            
-            for i, h in enumerate(heights):
-                while stack and heights[stack[-1]] > h:
-                    height = heights[stack.pop()]
-                    width = i if not stack else i - stack[-1] - 1
-                    max_area = max(max_area, height * width)
-                stack.append(i)
-                
-            return max_area
+        def minTotalDistance(self, grid: list[list[int]]) -> int:
+            row, col = [], []
+            for i in range(len(grid)):
+                for j in range(len(grid[0])):
+                    if grid[i][j] == 1:
+                        row.append(i)
+                        col.append(j)
+
+            row.sort()
+            col.sort()
+
+            medianRow = row[len(row) // 2]
+            medianCol = col[len(col) // 2]
+
+            distance = 0
+            for i in range(len(row)):
+                distance += abs(row[i] - medianRow) + abs(col[i] - medianCol)
+
+            return distance
     `,
   },
 },

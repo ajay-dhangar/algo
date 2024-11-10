@@ -123,4 +123,3 @@ In Java, object allocation is typically done through the `new` keyword. When an 
 Memory management in Java is a complex and critical aspect of JVM internals. By understanding the JVM's memory architecture, including the heap, stack, and various memory regions, as well as how garbage collection works, developers can write more efficient and scalable applications. Awareness of memory leaks and the tools available to mitigate them is also key to maintaining optimal performance.
 
 By selecting the right garbage collector, optimizing object allocation, and monitoring memory usage, Java applications can achieve efficient memory utilization and maintain stability during runtime.
-
