@@ -13,12 +13,15 @@ Kosaraju's Algorithm is an efficient **depth-first search (DFS)-based** algorith
 ### Characteristics:
 
 - **Strongly Connected Components (SCCs)**:
+
   - A **strongly connected component (SCC)** is a subset of vertices such that every vertex is reachable from any other vertex within that subset.
 
 - **Two Pass DFS**:
+
   - Kosaraju's algorithm performs **two depth-first searches** (DFS) on the graph. The first DFS is used to determine the finishing order of vertices. The second DFS is done on the transpose (reversed) graph to find SCCs in the order of decreasing finish times.
 
 - **Transpose Graph**:
+
   - The **transpose of a directed graph** is a graph in which all the edges are reversed.
 
 - **Linear Time Complexity**:
@@ -37,11 +40,13 @@ Kosaraju's Algorithm is an efficient **depth-first search (DFS)-based** algorith
 ### Steps of Kosaraju's Algorithm:
 
 1. **First DFS on the Original Graph**:
+
    - Perform a DFS on the original graph, keeping track of the **finishing times** of each vertex. This information is used to order vertices for the second DFS.
-  
+
 2. **Transpose the Graph**:
+
    - Reverse the direction of all edges in the graph to create the **transpose graph**.
-  
+
 3. **Second DFS on the Transpose Graph**:
    - Perform a DFS on the transpose graph, processing vertices in decreasing order of their finishing times from the first DFS. Each DFS tree formed in this step corresponds to a **strongly connected component**.
 
@@ -137,4 +142,118 @@ int main() {
 
     return 0;
 }
+```
+
+### Java Implementation:
+
+```java
+import java.util.*;
+
+class Graph{
+
+    int V; // Number of vertices
+    ArrayList<ArrayList<Integer>> adj = new ArrayList<>(); // Adjacency list
+
+    public Graph(int V){
+        this.V = V;
+        for(int i=0; i<V; i++)
+            adj.add(new ArrayList<>());
+    }
+
+    // Add edge to the graph
+    public void addEdge(int u, int v){
+        adj.get(u).add(v);
+    }
+
+    // First DFS to fill stack with vertices based on finish times
+    void DFS(int v, boolean[] visited, Stack<Integer> stc)
+    {
+        visited[v] = true;
+
+        for(int i : adj.get(v))
+        {
+            if(!visited[i])
+                DFS(i, visited, stc);
+        }
+        stc.push(v);
+    }
+
+    // DFS on transpose graph to find SCCs
+    void DFSUtil(int v, boolean[] visited){
+        visited[v] = true;
+        System.out.print(v + " ");
+        for(int i : adj.get(v))
+            if(!visited[i])
+                DFSUtil(i, visited);
+    }
+
+    //Function to get the transpose of the graph
+    Graph getTranspose(){
+        Graph gT = new Graph(V);
+        for(int v=0; v<V; v++)
+        {
+            for(int i : adj.get(v))
+                gT.adj.get(i).add(v);
+        }
+
+        return gT;
+    }
+
+    // Function to find and print all SCCs
+    void findSCCs() {
+        Stack<Integer> stc = new Stack<>();
+
+        // Step 1: Fill the stack with vertices according to their finishing times
+        boolean[] visited = new boolean[V];
+        Arrays.fill(visited, false);
+
+        for(int i=0; i<V; i++)
+            if(!visited[i])
+                DFS(i, visited, stc);
+
+        // Step 2: Transpose the graph
+        Graph gT = getTranspose();
+
+        // Step 3: Process all vertices in the order of their finishing times
+        Arrays.fill(visited,false); // Reset visited array
+        while(!stc.isEmpty())
+        {
+            int v = stc.pop();
+
+            if(!visited[v])
+            {
+                gT.DFSUtil(v, visited);
+                System.out.println();
+            }
+        }
+
+    }
+}
+
+public class Main {
+    public static void main(String args[]) {
+
+        Graph g = new Graph(5);
+
+        g.addEdge(1, 0);
+        g.addEdge(0, 2);
+        g.addEdge(2, 1);
+        g.addEdge(0, 3);
+        g.addEdge(3, 4);
+
+        System.out.println("Strongly Connected Components (SCC) are :");
+        g.findSCCs();
+
+    }
+}
+
+```
+
+#### Output
+
+```java
+Strongly Connected Components (SCC) are :
+0 1 2
+3
+4
 ```

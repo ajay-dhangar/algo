@@ -1,13 +1,11 @@
 ---
-id: minimum-spanning-tree  
-title: Minimum Spanning Tree Algorithms  
-sidebar_label: Minimum Spanning Tree  
-description: "In this blog post, we'll explore Minimum Spanning Tree (MST) algorithms, specifically Prim's and Kruskal's algorithms, which are used to find the minimum cost spanning tree in a weighted graph."  
+
+id: minimum-spanning-tree
+title: Minimum Spanning Tree Algorithms
+sidebar_label: Minimum Spanning Tree
+description: "In this blog post, we'll explore Minimum Spanning Tree (MST) algorithms, specifically Prim's and Kruskal's algorithms, which are used to find the minimum cost spanning tree in a weighted graph."
 tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
-
----
-
-A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tree that has the smallest possible total edge weight among all spanning trees. An MST connects all vertices in the graph without cycles and with the minimum sum of edge weights.
+---A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tree that has the smallest possible total edge weight among all spanning trees. An MST connects all vertices in the graph without cycles and with the minimum sum of edge weights.
 
 <AdsComponent />
 
@@ -67,14 +65,16 @@ Consider the following graph with vertices and weighted edges:
 ### Prim's Algorithm:
 
 1. **Initialization**:  
-   Start from vertex A and add edges to the priority queue:  
+   Start from vertex A and add edges to the priority queue:
+
    - Edges: `{(A, B, 1), (A, C, 3)}`
 
-2. **Edge Selection**:  
+2. **Edge Selection**:
+
    - Select edge `(A, B, 1)`, MST: `{(A, B)}`.
    - Add edges from B: `{(B, C, 4), (B, D, 2)}`.
 
-3. **Repeat**:  
+3. **Repeat**:
    - Select edge `(B, D, 2)`, MST: `{(A, B), (B, D)}`.
    - Add edges from D: `{(D, C, 5)}`.
    - Select edge `(A, C, 3)`, MST: `{(A, B), (B, D), (A, C)}`.
@@ -86,14 +86,16 @@ The final MST contains edges: `{(A, B), (B, D), (A, C)}` with a total weight of 
 1. **Edge Sorting**:  
    Sorted edges: `{(A, B, 1), (B, D, 2), (A, C, 3), (B, C, 4), (D, C, 5)}`.
 
-2. **Edge Selection**:  
+2. **Edge Selection**:
    - Select `(A, B, 1)`, MST: `{(A, B)}`.
    - Select `(B, D, 2)`, MST: `{(A, B), (B, D)}`.
    - Select `(A, C, 3)`, MST: `{(A, B), (B, D), (A, C)}`.
 
 The final MST contains edges: `{(A, B), (B, D), (A, C)}` with a total weight of `1 + 2 + 3 = 6`.
 
-## C++ Implementation of Prim's Algorithm:
+## Prim's Algorithm
+
+### C++ Implementation:
 
 ```cpp
 #include <iostream>
@@ -155,7 +157,114 @@ int main() {
 }
 ```
 
-## C++ Implementation of Kruskal Algorithm:
+### Java Implementation:
+
+```java
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+class Graph {
+    int V; // Number of vertices
+    ArrayList<ArrayList<Pair>> graph; // Adjacency list for storing {vertex, weight} pairs
+
+    // Constructor
+    Graph(int V) {
+        this.V = V;
+        graph = new ArrayList<>(V);
+        for (int i = 0; i < V; i++) {
+            graph.add(new ArrayList<>());
+        }
+    }
+
+    // Add edge to the graph
+    void addEdge(int u, int v, int weight) {
+        graph.get(u).add(new Pair(v, weight));
+        graph.get(v).add(new Pair(u, weight));
+    }
+
+    // Prim's MST Algorithm
+    void primMST() {
+        int[] key = new int[V];
+        boolean[] inMST = new boolean[V];
+        PriorityQueue<Pair> pq = new PriorityQueue<>(Comparator.comparingInt(pair -> pair.weight));
+
+        // Initialize all keys as INFINITE
+        for (int i = 0; i < V; i++) {
+            key[i] = Integer.MAX_VALUE;
+        }
+
+        // Start from the first vertex
+        key[0] = 0;
+        pq.add(new Pair(0, 0)); // {weight, vertex}
+
+        while (!pq.isEmpty()) {
+            int u = pq.poll().vertex;
+            inMST[u] = true;
+
+            // Traverse all adjacent vertices of u
+            for (Pair neighbor : graph.get(u)) {
+                int v = neighbor.vertex;
+                int weight = neighbor.weight;
+
+                // If v is not in MST and weight of (u, v) is smaller than the current key[v]
+                if (!inMST[v] && weight < key[v]) {
+                    key[v] = weight;
+                    pq.add(new Pair(v, key[v]));
+                }
+            }
+        }
+
+        // Print the result
+        System.out.println("Minimum Spanning Tree weights:");
+        for (int i = 1; i < V; i++) {
+            System.out.println("Vertex " + i + " has key value: " + key[i]);
+        }
+    }
+
+    // Pair class for vertex and weight
+    static class Pair {
+        int vertex;
+        int weight;
+
+        Pair(int vertex, int weight) {
+            this.vertex = vertex;
+            this.weight = weight;
+        }
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        int V = 5;
+        Graph g = new Graph(V);
+
+        // Add edges (u, v, weight)
+        g.addEdge(0, 1, 1);
+        g.addEdge(1, 3, 2);
+        g.addEdge(3, 4, 5);
+        g.addEdge(0, 2, 3);
+        g.addEdge(1, 2, 4);
+
+        g.primMST();
+    }
+}
+```
+
+#### Output
+
+```java
+Minimum Spanning Tree weights:
+Vertex 1 has key value: 1
+Vertex 2 has key value: 3
+Vertex 3 has key value: 2
+Vertex 4 has key value: 5
+```
+
+## Kruskal Algorithm
+
+### C++ Implementation:
 
 ```cpp
 
@@ -235,6 +344,118 @@ int main() {
     kruskalMST(edges, V);
     return 0;
 }
+```
+
+### Java Implementation:
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class DisjointSet {
+    private int[] parent, rank;
+
+    // Constructor to initialize the disjoint set with `n` elements
+    public DisjointSet(int n) {
+        parent = new int[n];
+        rank = new int[n];
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+            rank[i] = 0;
+        }
+    }
+
+    // Find function with path compression
+    public int find(int u) {
+        if (u != parent[u]) {
+            parent[u] = find(parent[u]); // Path compression
+        }
+        return parent[u];
+    }
+
+    // Union function with union by rank
+    public void unionSets(int u, int v) {
+        int rootU = find(u);
+        int rootV = find(v);
+
+        if (rootU != rootV) {
+            if (rank[rootU] > rank[rootV]) {
+                parent[rootV] = rootU;
+            } else if (rank[rootU] < rank[rootV]) {
+                parent[rootU] = rootV;
+            } else {
+                parent[rootV] = rootU;
+                rank[rootU]++;
+            }
+        }
+    }
+}
+
+// Edge class to store each edge with its weight, source, and destination
+class Edge {
+    int weight, u, v;
+
+    Edge(int weight, int u, int v) {
+        this.weight = weight;
+        this.u = u;
+        this.v = v;
+    }
+}
+
+public class Main {
+
+    // Kruskal's Algorithm to find the Minimum Spanning Tree
+    public static void kruskalMST(List<Edge> edges, int V) {
+        // Sort edges based on weight
+        Collections.sort(edges, Comparator.comparingInt(edge -> edge.weight));
+
+        DisjointSet ds = new DisjointSet(V);
+        List<Edge> mstEdges = new ArrayList<>();
+
+        for (Edge edge : edges) {
+            int u = edge.u;
+            int v = edge.v;
+
+            // If u and v are in different sets, include this edge in the MST
+            if (ds.find(u) != ds.find(v)) {
+                ds.unionSets(u, v);
+                mstEdges.add(edge);
+            }
+        }
+
+        // Print the result
+        System.out.println("Edges in Minimum Spanning Tree:");
+        for (Edge edge : mstEdges) {
+            System.out.println(edge.u + " -- " + edge.v + " == " + edge.weight);
+        }
+    }
+
+    public static void main(String[] args) {
+        int V = 5; // Number of vertices
+        List<Edge> edges = new ArrayList<>();
+
+        // Adding edges to the graph
+        edges.add(new Edge(1, 0, 1));
+        edges.add(new Edge(2, 1, 3));
+        edges.add(new Edge(3, 0, 2));
+        edges.add(new Edge(4, 1, 2));
+        edges.add(new Edge(5, 3, 4));
+
+        kruskalMST(edges, V);
+    }
+}
+```
+
+#### Output
+
+```
+Edges in Minimum Spanning Tree:
+0 -- 1 == 1
+1 -- 3 == 2
+0 -- 2 == 3
+3 -- 4 == 5
 ```
 
 <Ads />

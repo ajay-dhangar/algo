@@ -5,6 +5,7 @@ sidebar_label: Flood Fill Algorithm
 description: "In this blog post, we'll explore the Flood Fill Algorithm, a popular technique used in computer graphics for determining connected regions, such as filling areas in images and solving puzzles like the paint bucket tool in graphics editing software."
 tags: [dsa, algorithms, graphics, connected components]
 ---
+
 # Flood Fill Algorithm
 
 ## Introduction
@@ -13,7 +14,7 @@ The **Flood Fill Algorithm** is a method used in computer graphics to determine 
 
 ## How Flood Fill Works
 
-Flood fill operates by exploring adjacent pixels (or nodes) that share the same color or value as the starting pixel. The process can be performed using either a **recursive** or **iterative** approach. 
+Flood fill operates by exploring adjacent pixels (or nodes) that share the same color or value as the starting pixel. The process can be performed using either a **recursive** or **iterative** approach.
 
 ### Steps of the Algorithm:
 
@@ -128,10 +129,13 @@ int main() {
     return 0;
 }
 ```
+
 ### 2. Iterative Flood Fill
+
 The iterative version uses a queue (or stack) to keep track of the pixels that need to be processed. This approach is more memory-efficient for larger areas as it avoids deep recursion.
 
 ### Iterative Implementation in C++:
+
 ```cpp
 
 void floodFillIterative(int x, int y, int targetColor, int newColor, vector<vector<int>>& image) {
@@ -155,7 +159,162 @@ void floodFillIterative(int x, int y, int targetColor, int newColor, vector<vect
     }
 }
 ```
-###  Applications of Flood Fill
+
+### Java Implementation
+
+```Java
+import java.util.*;
+
+class Pair{
+	int X;
+	int Y;
+
+	Pair(int X, int Y)
+	{
+		this.X = X;
+		this.Y = Y;
+	}
+}
+
+public class Main {
+
+	// dfs
+	public static void floodFillRecursive(int x, int y, int targetColor, int newColor, int[][] image)
+	{
+    	// Out of bounds check
+    	if (x < 0 || x >= image.length || y < 0 || y >= image[0].length) return;
+    	// Color doesn't match
+    	if (image[x][y] != targetColor) return;
+
+    	image[x][y] = newColor; // Fill the color
+
+		// Recursively fill the neighboring pixels
+		// row-1,col (up) | row,col+1 (right) | row+1,col (down) | row,col-1(left)
+		int[] r = {-1, 0, 1, 0};
+	    int[] c = { 0, 1, 0, -1};
+
+		for(int i=0; i<4; i++)
+			floodFillRecursive(x+r[i], y+c[i], targetColor, newColor, image);
+	}
+
+    //bfs
+	public static void floodFillIterative(int x, int y, int targetColor, int newColor, int[][] image)
+	{
+		if(image[x][y] != targetColor) return;
+
+		int rows = image.length;
+		int cols = image[0].length;
+
+		Queue<Pair> q = new LinkedList<>();
+		q.offer(new Pair(x,y));
+
+		while(!q.isEmpty())
+		{
+			Pair p = q.poll();
+			int curX = p.X;
+			int curY = p.Y;
+
+			image[curX][curY] = newColor; // Fill the color
+
+			// Explore neighbors
+			// row-1,col (up) | row,col+1 (right) | row+1,col (down) | row,col-1(left)
+			int[] r = {-1, 0, 1, 0};
+	    		int[] c = { 0, 1, 0, -1};
+
+			for(int i=0; i<4; i++)
+			{
+			  int adjX = curX+r[i], adjY = curY+c[i];
+			  if(adjX >= 0 && adjX < rows && adjY >= 0 && adjY < cols && image[adjX][adjY] == targetColor)
+				q.offer(new Pair(adjX, adjY));
+			}
+		}
+
+	}
+
+	// Function to print the image
+	public static void printImage(int[][] image)
+    {
+        for(int[] img : image)
+        {
+            for(int ele : img)
+            System.out.print(ele + " ");
+            System.out.println();
+        }
+
+    }
+
+	public static void main(String args[]){
+
+		int V = 5;
+		int[][] image = {{1, 1, 1, 1, 0},
+        		         {1, 1, 0, 1, 1},
+        		         {1, 1, 1, 1, 0},
+        		         {0, 0, 0, 0, 1},
+        		         {1, 1, 1, 1, 1}
+    			        };
+
+    	int x = 1, y = 1; // Starting point
+    	int newColor = 2; // New color to fill
+    	int targetColor = image[x][y]; // Color to replace
+
+   		System.out.println("Original Image:");
+    	printImage(image);
+
+   		// Using Recursive Flood Fill
+		System.out.println("\n--- Via Depth First Search ---");
+    	floodFillRecursive(x, y, targetColor, newColor, image);
+    	System.out.println("\nImage after Recursive Flood Fill:");
+    	printImage(image);
+
+		image = new int[][]{
+                 {1, 1, 1, 1, 0},
+        		 {1, 1, 0, 1, 1},
+        		 {1, 1, 1, 1, 0},
+        		 {0, 0, 0, 0, 1},
+        		 {1, 1, 1, 1, 1}
+    			};
+
+   		// Using Recursive Flood Fill
+		System.out.println("\n--- Via Breadth First Search ---");
+    	floodFillIterative(x, y, targetColor, newColor, image);
+    	System.out.println("\nImage after Iterative Flood Fill:");
+    	printImage(image);
+
+	}
+}
+```
+
+#### Output
+
+```
+Original Image:
+1 1 1 1 0
+1 1 0 1 1
+1 1 1 1 0
+0 0 0 0 1
+1 1 1 1 1
+
+--- Via Depth First Search ---
+
+Image after Recursive Flood Fill:
+2 2 2 2 0
+2 2 0 2 2
+2 2 2 2 0
+0 0 0 0 1
+1 1 1 1 1
+
+--- Via Breadth First Search ---
+
+Image after Iterative Flood Fill:
+2 2 2 2 0
+2 2 0 2 2
+2 2 2 2 0
+0 0 0 0 1
+1 1 1 1 1
+```
+
+### Applications of Flood Fill
+
 Image Editing: Filling contiguous areas with color, as seen in paint applications.
 Game Development: Used for detecting and filling areas of influence or terrain.
 Pathfinding: Determining reachable areas in grid-based maps.
@@ -164,9 +323,12 @@ Geographical Mapping: Filling regions in geographical information systems (GIS).
 ### Complexity Analysis
 
 ### Time Complexity: O(N), where N is the number of pixels in the area to be filled. Each pixel is visited once.
+
 ### Space Complexity:
+
 Recursive: O(H), where H is the maximum height of the recursion stack.
 Iterative: O(N) in the worst case, if all pixels are connected.
 
 ### Conclusion
+
 The Flood Fill Algorithm is a fundamental technique in computer graphics and various other fields. Understanding its implementation and applications allows developers to efficiently solve problems related to connected regions, making it a valuable tool in both graphics programming and algorithm design.
