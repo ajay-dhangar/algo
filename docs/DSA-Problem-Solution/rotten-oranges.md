@@ -1,25 +1,26 @@
-
+---
 id: rotten-oranges
 title: "Rotten Oranges Algorithm"
 sidebar_label: "RottenOranges algorithm"
 tags: [Leetcode, BFS, Graph, DSA, Rotten Oranges]
-description: Solve the Rotten Oranges problem using Breadth-First Search (BFS) to determine the minimum time required for all fresh oranges to rot.
-Rotten Oranges Algorithm
-Description
+description: "Solve the Rotten Oranges problem using Breadth-First Search (BFS) to determine the minimum time required for all fresh oranges to rot."
+---
+
 The Rotten Oranges problem is a grid-based problem that involves determining the minimum time required for all fresh oranges to rot given an initial configuration of fresh and rotten oranges.
 
-Problem Definition
-Given:
+<Ads />
 
-A 2D grid where each cell can have one of three values:
+## Problem Definition
+
+**Given:** A 2D grid where each cell can have one of three values:
 0: an empty cell
 1: a fresh orange
 2: a rotten orange
-Objective:
 
-Return the minimum number of minutes needed for all fresh oranges to become rotten. If it’s impossible for all oranges to rot, return -1.
+**Objective:** Return the minimum number of minutes needed for all fresh oranges to become rotten. If all oranges can’t rot, return -1.
 Algorithm Overview
-Breadth-First Search (BFS) Approach:
+
+**Breadth-First Search (BFS) Approach:**
 
 Use BFS to simulate the spread of rotting from each rotten orange to adjacent fresh oranges. Each level of BFS represents one minute.
 Initialization:
@@ -29,8 +30,10 @@ Track the minutes taken for all oranges to rot.
 Processing BFS Levels:
 
 For each rotten orange, attempt to rot adjacent fresh oranges (up, down, left, right).
-Add newly rotten oranges to the queue and decrement the count of fresh oranges.
+Add newly rotten oranges to the queue and decrease the count of fresh oranges.
 Result Evaluation:
+
+<Ads />
 
 If there are no remaining fresh oranges after BFS, return the minutes taken. If fresh oranges remain, return -1.
 Time Complexity
@@ -94,9 +97,3 @@ int orangesRotting(vector<vector<int>>& grid) {
 }
 ```
 This algorithm efficiently uses BFS to simulate the spread of rot across the grid, ensuring that all reachable fresh oranges rot in the minimum time or determining that it's impossible.
-
-
-
-
-
-
