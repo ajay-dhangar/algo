@@ -1,0 +1,8 @@
+{
+  "label": "C#",
+  "position": 4,
+  "link": {
+      "type": "generated-index",
+      "description": "C# is a modern, high-level programming language developed by Microsoft as part of the .NET framework. First released in 2002, C# is known for its strong typing, garbage collection, and support for object-oriented programming, making it popular for a variety of applications including web, desktop, and mobile development. With cross-platform support through .NET Core, C# allows developers to create versatile and performant software solutions across different environments."
+  }
+}

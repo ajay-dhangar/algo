@@ -102,7 +102,8 @@ div[class^="announcementBar_"] .clean-btn {
 }
 
 [data-theme="dark"] #__docusaurus_skipToContent_fallback {
-  background: linear-gradient(rgba(15, 23, 42, 0.796), rgba(15, 23, 42, 0.23));
+/*   background: linear-gradient(rgba(15, 23, 42, 0.796), rgba(15, 23, 42, 0.23)); */
+  background: #0d1117;
 }
 
 a:hover {

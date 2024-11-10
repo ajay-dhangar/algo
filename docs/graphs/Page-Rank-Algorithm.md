@@ -13,12 +13,15 @@ The **PageRank algorithm** is a **link analysis algorithm** developed by Larry P
 ### Characteristics:
 
 - **Graph-Based Algorithm**:
-  - The PageRank algorithm treats the web as a directed graph where nodes represent web pages and directed edges represent hyperlinks between them. 
+
+  - The PageRank algorithm treats the web as a directed graph where nodes represent web pages and directed edges represent hyperlinks between them.
 
 - **Random Surfer Model**:
+
   - The algorithm is based on the concept of a random surfer who randomly clicks on links. The likelihood of landing on a page is influenced by the number and quality of inbound links to that page.
 
 - **Damping Factor**:
+
   - A damping factor (usually set to around 0.85) is used to model the probability that a user continues clicking on links, with a chance of jumping to a random page. This prevents the score from being skewed by a small number of highly connected pages.
 
 - **Iterative Calculation**:
@@ -26,8 +29,8 @@ The **PageRank algorithm** is a **link analysis algorithm** developed by Larry P
 
 ### Time Complexity:
 
-- **Time Complexity: O(N * I)**
-  The time complexity of the PageRank algorithm is O(N * I), where N is the number of nodes (pages) and I is the number of iterations until convergence.
+- **Time Complexity: O(N \* I)**
+  The time complexity of the PageRank algorithm is O(N \* I), where N is the number of nodes (pages) and I is the number of iterations until convergence.
 
 ### Space Complexity:
 
@@ -100,6 +103,123 @@ def main():
 
 if __name__ == "__main__":
     main()
+```
+
+### Java Implementation:
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+class Node {
+    int name; // Unique identifier for the node
+    ArrayList<Integer> inbound_nodes = new ArrayList<>(); // Links coming to this node
+    ArrayList<Integer> outbound_nodes = new ArrayList<>(); // Links going from this node
+
+    public Node(int name) {
+        this.name = name; // Node name
+    }
+
+    public void add_inbound(int node) {
+        inbound_nodes.add(node);
+    }
+
+    public void add_outbound(int node) {
+        outbound_nodes.add(node);
+    }
+
+    @Override
+    public String toString() {
+        return "Node{name=" + name + ", inbound_nodes=" + inbound_nodes + ", outbound_nodes=" + outbound_nodes + "}";
+    }
+}
+
+public class Main {
+
+    // PageRank calculation function
+    public static void pageRank(ArrayList<Node> nodes, int iterations, double dampingFactor) {
+        // Initialize ranks: all nodes start with rank 1
+        Map<Integer, Double> ranks = new HashMap<>();
+        for (Node node : nodes) {
+            ranks.put(node.name, 1.0);
+        }
+
+        // Count of outbound links for each node
+        Map<Integer, Integer> outboundCount = new HashMap<>();
+        for (Node node : nodes) {
+            outboundCount.put(node.name, node.outbound_nodes.size());
+        }
+
+        for (int i = 0; i < iterations; i++) {
+            System.out.println("======= Iteration " + (i + 1) + " =======");
+            Map<Integer, Double> newRanks = new HashMap<>();
+
+            for (Node node : nodes) {
+                double rankSum = 0.0;
+
+                for (int inboundNodeName : node.inbound_nodes) {
+                    if (outboundCount.get(inboundNodeName) != 0) {
+                        rankSum += ranks.get(inboundNodeName) / outboundCount.get(inboundNodeName);
+                    }
+                }
+
+                double newRank = (1 - dampingFactor) + dampingFactor * rankSum;
+                newRanks.put(node.name, newRank);
+            }
+
+            ranks = newRanks;
+            System.out.println("Current Ranks: " + ranks);
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<ArrayList<Integer>> adjacencyMatrix = new ArrayList<>();
+        adjacencyMatrix.add(new ArrayList<>(Arrays.asList(0, 1, 1)));
+        adjacencyMatrix.add(new ArrayList<>(Arrays.asList(0, 0, 1)));
+        adjacencyMatrix.add(new ArrayList<>(Arrays.asList(1, 0, 0)));
+
+        // Initialize nodes
+        ArrayList<Node> nodes = new ArrayList<>();
+        for (int i = 0; i < adjacencyMatrix.size(); i++) {
+            nodes.add(new Node(i));
+        }
+
+        // Populate inbound and outbound links based on the adjacency matrix
+        for (int rowIndex = 0; rowIndex < adjacencyMatrix.size(); rowIndex++) {
+            for (int colIndex = 0; colIndex < adjacencyMatrix.get(rowIndex).size(); colIndex++) {
+                if (adjacencyMatrix.get(rowIndex).get(colIndex) == 1) {
+                    nodes.get(rowIndex).add_outbound(colIndex);
+                    nodes.get(colIndex).add_inbound(rowIndex);
+                }
+            }
+        }
+
+        System.out.println("======= Nodes =======");
+        for (Node node : nodes) {
+            System.out.println(node);
+        }
+
+        // Calculate and display PageRank values
+        pageRank(nodes, 3, 0.85);
+    }
+}
+```
+
+#### Output:
+
+```Output
+======= Nodes =======
+Node{name=0, inbound_nodes=[2], outbound_nodes=[1, 2]}
+Node{name=1, inbound_nodes=[0], outbound_nodes=[2]}
+Node{name=2, inbound_nodes=[0, 1], outbound_nodes=[0]}
+======= Iteration 1 =======
+Current Ranks: {0=1.0, 1=0.575, 2=1.4249999999999998}
+======= Iteration 2 =======
+Current Ranks: {0=1.3612499999999996, 1=0.575, 2=1.06375}
+======= Iteration 3 =======
+Current Ranks: {0=1.0541874999999998, 1=0.7285312499999999, 2=1.2172812499999996}
 ```
 
 ### Summary:

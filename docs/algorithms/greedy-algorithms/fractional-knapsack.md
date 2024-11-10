@@ -1,9 +1,9 @@
 ---
-id: fractional-knapsack
-title: Fractional Knapsack Problem 
+id: fractional-knapsack-2
+title: Fractional Knapsack Problem 2
 sidebar_label: Fractional Knapsack 
 description: "In this blog post, we'll explore the Fractional Knapsack Problem, a greedy algorithm used to maximize the value of items that can be carried in a knapsack with a weight limit." 
-tags: [dsa, algorithms, greedy algorithms, knapsack problem]
+tags: [dsa, algorithms, greedy algorithms, knapsack problem, javascript, c++]
 ---
 
 
@@ -122,6 +122,56 @@ int main() {
 
     return 0;
 }
+```
+
+### JavaScript Implementation
+```js
+class Item {
+    constructor(value, weight) {
+        this.value = value;
+        this.weight = weight;
+    }
+}
+
+// Comparison function to sort items based on value/weight ratio
+function compare(a, b) {
+    let r1 = a.value / a.weight;
+    let r2 = b.value / b.weight;
+    return r1 > r2 ? -1 : 1;
+}
+
+// Function to calculate the maximum value we can obtain in the fractional knapsack problem
+function fractionalKnapsack(W, items) {
+    items.sort(compare); // Sort items by value/weight ratio
+
+    let currentWeight = 0;
+    let totalValue = 0.0;
+
+    for (let item of items) {
+        if (currentWeight + item.weight <= W) {
+            currentWeight += item.weight;
+            totalValue += item.value;
+        } else {
+            let remainingWeight = W - currentWeight;
+            totalValue += item.value * (remainingWeight / item.weight);
+            break;
+        }
+    }
+
+    return totalValue;
+}
+
+// Example Usage
+let W = 50; // Capacity of the knapsack
+let items = [
+    new Item(60, 10),
+    new Item(100, 20),
+    new Item(120, 30)
+];
+
+let maxValue = fractionalKnapsack(W, items);
+console.log("Maximum value we can obtain: " + maxValue);
+
 ```
 
 ### Summary:

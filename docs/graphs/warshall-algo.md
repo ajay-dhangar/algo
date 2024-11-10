@@ -3,7 +3,7 @@ id: warshall-algo
 title: Warshall's-Algorithm
 sidebar_label: Warshall's-Algorithm
 description: "In this blog post, we'll explore the Warshall's-Algorithm, an efficient method to Compute the transitive closure of a given directed graph"
-tags: [dsa, algorithms,transitive closure]
+tags: [dsa, algorithms, transitive closure]
 ---
 
 # Warshall's Algorithm
@@ -13,16 +13,16 @@ Warshall's algorithm is a graph-based algorithm used to compute the **transitive
 Unlike shortest-path algorithms, Warshall's algorithm is concerned only with reachability, not the distance between vertices.
 
 ## Key Features:
+
 - **Time Complexity**: O(V³), where V is the number of vertices.
 - **Space Complexity**: O(V²), as it stores the reachability information in a matrix.
 - Suitable for determining reachability in directed graphs.
 
 ## Applications:
+
 - Finding reachability in network analysis.
 - Identifying connected components in a graph.
 - Transitive closure in databases.
-
-
 
 # Code in C
 
@@ -41,7 +41,7 @@ int main()
                 scanf("%d", &A[i][j]);
                 T[i][j] = A[i][j];
             }
-        }      
+        }
                 for (k = 0; k < n; k++) {
                     for (i = 0; i < n; i++) {
                         for (j = 0; j < n; j++) {
@@ -57,5 +57,53 @@ int main()
                     printf("\n");
                     }
                 return 0;
+}
+```
+
+# Code in Java
+
+```java
+import java.util.Scanner;
+
+public class TransitiveClosure {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+
+        System.out.print("Enter the number of Vertices: ");
+        n = sc.nextInt();
+
+        int[][] A = new int[n][n];
+        int[][] T = new int[n][n];
+
+        System.out.println("Enter the adjacency matrix of the given graph row-wise:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                A[i][j] = sc.nextInt();
+                T[i][j] = A[i][j];
+            }
+        }
+
+        // Applying Floyd-Warshall algorithm for transitive closure
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    T[i][j] = T[i][j] | (T[i][k] & T[k][j]);
+                }
+            }
+        }
+
+        // Print the transitive closure
+        System.out.println("Transitive Closure of the given graph is:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(T[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
 }
 ```

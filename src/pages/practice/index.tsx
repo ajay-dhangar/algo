@@ -200,6 +200,23 @@ const Practice: React.FC = () => {
         <span>Start Solving</span>
       </button>
     </motion.div>
+
+    <motion.div
+  className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+  whileHover={{ scale: 1.05 }}
+  transition={{ type: 'spring', stiffness: 200 }}
+>
+  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
+    Problem 11: Rotate List
+  </h3>
+  <p className="text-gray-500 dark:text-gray-400 mt-2">
+    Given the head of a linked list and an integer k, rotate the list to the right by k places.
+  </p>
+  <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none">
+    <FaPlayCircle className="w-5 h-5" />
+    <span>Start Solving</span>
+  </button>
+</motion.div>
           
         </div>
       </div>

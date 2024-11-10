@@ -86,6 +86,70 @@ int main() {
     return 0;
 }
 ```
+### Python Code Implementation:
+```python
+def max_sum_subarray(arr, k):
+    n = len(arr)
+    if n < k:
+        print("Invalid input, array size is smaller than k.")
+        return -1
+
+    max_sum = float('-inf')
+    current_sum = sum(arr[:k])  # Compute the sum of the first window
+
+    max_sum = current_sum
+
+    # Slide the window across the array
+    for i in range(k, n):
+        current_sum += arr[i] - arr[i - k]  # Slide the window
+        max_sum = max(max_sum, current_sum)  # Update max sum
+
+    return max_sum
+
+# Test the function
+arr = [2, 1, 5, 1, 3, 2]
+k = 3
+result = max_sum_subarray(arr, k)
+print(f"Maximum sum of subarray of size {k}: {result}")
+```
+
+### Java Code Implementation:
+```java
+public class MaxSumSubarray {
+
+    public static int maxSumSubarray(int[] arr, int k) {
+        int n = arr.length;
+        if (n < k) {
+            System.out.println("Invalid input, array size is smaller than k.");
+            return -1;
+        }
+
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0;
+
+        // Compute the sum of the first window
+        for (int i = 0; i < k; i++) {
+            currentSum += arr[i];
+        }
+        maxSum = currentSum;
+
+        // Slide the window across the array
+        for (int i = k; i < n; i++) {
+            currentSum += arr[i] - arr[i - k];  // Slide the window
+            maxSum = Math.max(maxSum, currentSum);  // Update max sum
+        }
+
+        return maxSum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 1, 5, 1, 3, 2};
+        int k = 3;
+        int result = maxSumSubarray(arr, k);
+        System.out.println("Maximum sum of subarray of size " + k + ": " + result);
+    }
+}
+```
 
  ## Explanation:
 Initialize the window:
