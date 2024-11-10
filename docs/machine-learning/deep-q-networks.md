@@ -1,12 +1,12 @@
 ---
-
-id: deep-q-networks  
-title: Deep Q-Networks (DQN) Algorithm  
-sidebar_label: Deep Q-Networks  
-description: "An introduction to Deep Q-Networks, a reinforcement learning technique that combines Q-Learning with deep neural networks to handle complex, high-dimensional state spaces."  
-tags: [machine learning, reinforcement learning, DQN, deep learning, algorithms]  
-
+id: deep-q-networks
+title: Deep Q-Networks (DQN) Algorithm
+sidebar_label: Deep Q-Networks
+description: "An introduction to Deep Q-Networks, a reinforcement learning technique that combines Q-Learning with deep neural networks to handle complex, high-dimensional state spaces."
+tags: [machine learning, reinforcement learning, DQN, deep learning, algorithms]
 ---
+
+<Ads />
 
 ### Definition:
 **Deep Q-Networks (DQN)** is a reinforcement learning algorithm that extends Q-Learning by using deep neural networks to approximate the Q-function. This allows DQN to handle high-dimensional state spaces that are not feasible with traditional tabular Q-Learning. The approach was popularized by DeepMind's success in applying DQN to play Atari games at a superhuman level.
@@ -21,20 +21,22 @@ tags: [machine learning, reinforcement learning, DQN, deep learning, algorithms]
 - **Fixed Target Network**:  
   DQN uses a separate target network to provide stable Q-value updates. This network is periodically updated with the weights of the main Q-network, preventing harmful feedback loops during training.
 
+<Ads />
+
 ### How It Works:
-DQN follows the same principles as Q-Learning but uses a deep neural network \( Q(s, a; \theta) \) parameterized by weights \( \theta \) to approximate Q-values. The network is trained to minimize the loss function:
+DQN follows the same principles as Q-Learning but uses a deep neural network $ Q(s, a; \theta) $ parameterized by weights $ \theta $ to approximate Q-values. The network is trained to minimize the loss function:
 
-\[
+$$
 L(\theta) = \mathbb{E}_{(s, a, r, s') \sim \text{ReplayBuffer}} \left[ \left( r + \gamma \max_{a'} Q(s', a'; \theta^-) - Q(s, a; \theta) \right)^2 \right]
-\]
+$$
 
-- **\( \theta \)**: Weights of the current Q-network
-- **\( \theta^- \)**: Weights of the target network (held fixed for stability)
-- **\( \gamma \)**: Discount factor for future rewards
+- **$ \theta $**: Weights of the current Q-network
+- **$ \theta^- $**: Weights of the target network (held fixed for stability)
+- **$ \gamma $**: Discount factor for future rewards
 
 ### Steps Involved:
 1. **Initialize Replay Buffer and Networks**:  
-   Initialize the replay buffer, the Q-network with weights \( \theta \), and the target network with weights \( \theta^- \) (set \( \theta^- = \theta \)).
+   Initialize the replay buffer, the Q-network with weights $ \theta $, and the target network with weights $ \theta^- $ (set $ \theta^- = \theta $).
 
 2. **Choose an Action**:  
    Select an action using an epsilon-greedy policy based on the Q-values predicted by the Q-network.
@@ -46,10 +48,12 @@ L(\theta) = \mathbb{E}_{(s, a, r, s') \sim \text{ReplayBuffer}} \left[ \left( r 
    Randomly sample a mini-batch of experiences from the replay buffer for training.
 
 5. **Compute Target and Update Weights**:  
-   Compute the target Q-value and update the Q-network weights \( \theta \) by minimizing the loss function.
+   Compute the target Q-value and update the Q-network weights $ \theta $ by minimizing the loss function.
 
 6. **Update Target Network**:  
-   Periodically update the target network weights \( \theta^- \) to match the Q-network weights \( \theta \).
+   Periodically update the target network weights $ \theta^- $ to match the Q-network weights $ \theta $.
+
+<Ads />
 
 ### Problem Statement:
 Develop a DQN agent capable of learning policies in environments where the state space is large or continuous, such as video games or robotics.
@@ -62,7 +66,7 @@ Develop a DQN agent capable of learning policies in environments where the state
   Stores past experiences to break the temporal correlations between consecutive training samples and improve training efficiency.
   
 - **Epsilon-Greedy Strategy**:  
-  Balances exploration and exploitation by selecting random actions with probability \( \epsilon \) and greedy actions based on the Q-network with probability \( 1 - \epsilon \).
+  Balances exploration and exploitation by selecting random actions with probability $ \epsilon $ and greedy actions based on the Q-network with probability $ 1 - \epsilon $.
 
 ### Example:
 Consider an agent learning to play a simple game with pixel-based input:
@@ -70,6 +74,8 @@ Consider an agent learning to play a simple game with pixel-based input:
 - **States**: Raw pixel data from the game screen.
 - **Actions**: Available moves (e.g., left, right, jump).
 - **Rewards**: +1 for progressing in the game, -1 for losing a life.
+
+<Ads />
 
 **Training Steps**:
 1. Preprocess the state (e.g., resize, grayscale).
@@ -156,5 +162,3 @@ print("DQN training completed.")
 
 ### Conclusion:
 DQN has significantly advanced the capabilities of reinforcement learning, making it practical to apply RL algorithms in complex environments with large state spaces. By leveraging deep neural networks, DQN has paved the way for applications ranging from gaming to real-world tasks like robotics.
-
----
