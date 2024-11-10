@@ -1,6 +1,6 @@
 ---
 id: generative-adversarial-networks
-title: Generative Adversarial Networks (GANs) - An Overview
+title: "Generative Adversarial Networks (GANs) - An Overview"
 sidebar_label: Generative Adversarial Networks
 sidebar_position: 18
 description: "Generative Adversarial Networks (GANs) are a deep learning model that generate new data samples by training two neural networks in opposition. They are widely used in tasks such as image generation, style transfer, and data augmentation."
