@@ -1,40 +1,45 @@
-
+---
 id: fractional-knapsack
 title: "Fractional Knapsack Algorithm"
 sidebar_label: "Fractional Knapsack"
 description: "In this blog post, we'll explore the Fractional Knapsack problem, a greedy algorithm-based approach to maximize the value of items within a weight limit by taking fractions of items."
 tags: [dsa, algorithms, greedy algorithms]
+---
 
-Definition:
 The Fractional Knapsack problem is an optimization problem where, given a set of items with specified weights and values, the goal is to maximize the total value within a weight limit by taking fractions of items. The greedy algorithm for this problem prioritizes items based on their value-to-weight ratio, allowing partial items to be selected if they maximize the overall value.
 
-Characteristics:
-Greedy Approach:
+<Ads />
+
+## Characteristics:
+
+### Greedy Approach:
 The algorithm selects items based on the highest value-to-weight ratio first. This ensures that the item providing the most value per unit weight is prioritized.
 
-Optimal Solution:
+### Optimal Solution:
 The greedy approach is optimal for the fractional knapsack problem, as allowing fractional parts of items enables us to maximize the value without exceeding the weight limit.
 
-Steps Involved:
+### Steps Involved:
 Calculate Value-to-Weight Ratio:
 For each item, calculate the ratio of value to weight. This ratio will be used to prioritize item selection.
 
-Sort Items by Ratio:
+### Sort Items by Ratio:
 Sort all items in descending order of their value-to-weight ratios to ensure the item providing the most value per unit weight is selected first.
 
-Select Items Based on Weight Capacity:
+### Select Items Based on Weight Capacity:
 Traverse the sorted items, adding them fully if their weight doesn't exceed the remaining capacity. If an item’s weight is too large, take only a fraction of it to fill the remaining capacity.
 
-Problem Statement:
-Given a knapsack with a weight limit W and a list of items, each with a value vi and weight wi, maximize the total value by selecting items (or fractions thereof) without exceeding W.
+## Problem Statement:
+Given a knapsack with a weight limit of W and a list of items, each with a value vi and weight wi, maximize the total value by selecting items (or fractions thereof) without exceeding W.
 
-Time Complexity:
+## Time Complexity:
 Best, Average, and Worst Case: $O(n \log n)$
 Where n is the number of items. Sorting items by their value-to-weight ratio takes O(n \log n) time.
-Space Complexity:
+
+## Space Complexity:
 Space Complexity: $O(n)$
 Space is required to store item information and ratios.
-Example:
+
+**Example:**
 Consider a knapsack with a weight limit of W = 50 and the following items:
 
 Items: {(value: 60, weight: 10), (value: 100, weight: 20), (value: 120, weight: 30)}
@@ -52,7 +57,10 @@ Total weight = 50, total value = 240.
 
 Total Value: 240
 
-C++ Implementation:
+<Ads />
+
+**C++ Implementation:**
+
 ```
 cpp
 
@@ -105,7 +113,11 @@ int main() {
     return 0;
 }
 ```
-Java Implementation:
+
+<Ads />
+
+**Java Implementation:**
+
 ```
 java
 
@@ -167,11 +179,6 @@ public class FractionalKnapsack {
     }
 }
 ```
-Summary:
+
+**Summary:**
 The Fractional Knapsack algorithm maximizes the total value of items in a knapsack with a weight limit by selecting items (or fractions of them) based on their value-to-weight ratio. This approach is widely applicable in resource allocation, inventory management, and financial investments. While the 0/1 knapsack problem is NP-complete, the fractional variant is solvable in polynomial time, making it efficient and optimal. The greedy algorithm ensures the maximum possible value within the given constraints.
-
-
-
-
-
-
