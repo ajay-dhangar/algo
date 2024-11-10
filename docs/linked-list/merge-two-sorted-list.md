@@ -80,3 +80,42 @@ public:
     }
 };
 ```
+## Code Implementation
+
+Here’s the JAVA code for merging two sorted linked lists:
+
+```java
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
+
+class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode dummy = new ListNode(0); // Dummy node to start the merged list
+        ListNode tail = dummy;
+
+        // Merge the lists by comparing nodes
+        while (list1 != null && list2 != null) {
+            if (list1.val < list2.val) {
+                tail.next = list1;
+                list1 = list1.next;
+            } else {
+                tail.next = list2;
+                list2 = list2.next;
+            }
+            tail = tail.next;
+        }
+
+        // Attach the remaining nodes, if any
+        tail.next = (list1 != null) ? list1 : list2;
+
+        return dummy.next; // Return the head of the merged list
+    }
+}
+
+```
