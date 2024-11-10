@@ -118,3 +118,78 @@ int main() {
     return 0;
 }
 ```
+## Code Implementation
+
+Here’s the JAVA code for removing duplicates from a sorted linked list:
+```java
+import java.util.*;
+
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
+
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) return null; // If list is empty, return null
+        
+        ListNode current = head; // Start with the head of the list
+
+        // Traverse the list
+        while (current != null && current.next != null) {
+            if (current.val == current.next.val) {
+                // Skip the duplicate node
+                current.next = current.next.next;
+            } else {
+                // Move to the next distinct element
+                current = current.next;
+            }
+        }
+        
+        return head; // Return the modified list without duplicates
+    }
+}
+
+// Helper function to create a linked list from an array
+public class LinkedListUtils {
+    public static ListNode createLinkedList(int[] values) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        for (int value : values) {
+            current.next = new ListNode(value);
+            current = current.next;
+        }
+        return dummy.next;
+    }
+
+    // Helper function to print a linked list
+    public static void printLinkedList(ListNode head) {
+        ListNode current = head;
+        while (current != null) {
+            System.out.print(current.val);
+            if (current.next != null) System.out.print(" -> ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int[] listValues = {1, 1, 2};
+        ListNode head = createLinkedList(listValues);
+
+        System.out.print("Original List: ");
+        printLinkedList(head);
+
+        Solution solution = new Solution();
+        ListNode modifiedHead = solution.deleteDuplicates(head);
+
+        System.out.print("List after removing duplicates: ");
+        printLinkedList(modifiedHead);
+    }
+}
+
+```
