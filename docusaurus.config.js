@@ -217,6 +217,20 @@ const config = {
 
   plugins: [
     [
+      "@docusaurus/plugin-content-docs",
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      {
+        id: "dsa-interview",
+        path: "dsa-interview",
+        routeBasePath: "dsa-interview",
+        sidebarPath: require.resolve("./dsa-interview-sidebars.js"),
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+    [
       path.join(__dirname, "/plugins/my-plugin",),
       {
         settings: "Some20settings",

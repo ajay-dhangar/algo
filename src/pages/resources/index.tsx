@@ -12,7 +12,7 @@ const resources = [
 const Resources: React.FC = () => {
   return (
     <Layout title="Resources" description="Access resources to learn algorithms and data structures">
-    <section className="bg-gray-100 dark:bg-gray-900 py-12 px-8">
+    <section className="noise-bg py-12 px-8">
       <div className="container mx-auto">
         <motion.h1
           className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-8"

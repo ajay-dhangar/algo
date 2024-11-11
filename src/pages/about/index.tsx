@@ -11,9 +11,9 @@ const About: React.FC = () => {
       description="Learn more about our mission and team members."
     >
       <div className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-        <section className="container mx-auto py-12 px-6 md:px-12 text-center">
+        <section className="noise-bg py-16 text-center">
           <motion.h1
-            className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 dark:text-white"
+            className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 dark:text-white mt-8 mb-4"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -21,15 +21,30 @@ const About: React.FC = () => {
             About <span className="text-blue-600 dark:text-yellow-400">Us</span>
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10"
+            className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-16 mb-10 px-2 space-y-4 md:px-8 md:space-y-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            We are a community-driven platform focused on learning,
-            collaboration, and innovation in the field of algorithms and
-            open-source projects.
+            Algo is an open-source platform that enables developers to explore
+            algorithms, solve problems, and contribute to open-source projects.
+            Our mission is to make algorithms accessible to everyone by
+            providing a collaborative environment to learn, create, and share.
+            We believe in the power of community-driven projects and the impact
+            they can have on the world. Join us in our mission to build a global
+            platform that enables people to learn from each other and grow
+            together.
           </motion.p>
+
+          <motion.button
+            className="bg-blue-600 dark:bg-yellow-400 text-white dark:text-gray-900 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition duration-200"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+          >
+            Get Started Now
+          </motion.button>
+        
         </section>
 
         <section className="container mx-auto py-12 px-6 md:px-12 text-center">
@@ -69,7 +84,8 @@ const About: React.FC = () => {
 
         <section className="container mx-auto py-12 px-6 md:px-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-8">
-            Meet Our <span className="text-blue-600 dark:text-yellow-400">Team</span>
+            Meet Our{" "}
+            <span className="text-blue-600 dark:text-yellow-400">Team</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">
             Our team is a diverse group of individuals who are passionate about

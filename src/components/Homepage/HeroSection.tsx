@@ -5,7 +5,7 @@ import { default as Link } from "@docusaurus/Link"; // Fixed import statement fo
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gray-100 dark:bg-gray-900 min-h-screen flex items-center justify-center py-16 px-8">
+    <section className="relative min-h-screen flex items-center justify-center py-16 px-8 noise-bg">
       <div className="max-w-4xl text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
           Data Structures & Algorithms

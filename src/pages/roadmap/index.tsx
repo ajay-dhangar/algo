@@ -57,11 +57,10 @@ const Roadmap: React.FC = () => {
 
   return (
     <Layout title="Roadmap" description="Discover the future plans and upcoming features for Algo.">
-    <div className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
-      {/* Header Section */}
-      <section className="container mx-auto py-12 px-6 md:px-12 text-center">
+    <div className="noise-bg text-gray-800 dark:text-gray-200">
+      <section className="px-2 md:px-4 text-center">
         <motion.h1
-          className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 dark:text-white"
+          className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 dark:text-white py-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -74,7 +73,7 @@ const Roadmap: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Discover the future plans and upcoming features for Algo.
+          Discover the future plans and upcoming features for Algo. We are committed to continuous improvement and innovation. Our roadmap outlines the key milestones and initiatives that we are working on. Stay tuned for exciting updates!          
         </motion.p>
       </section>
 
@@ -93,7 +92,7 @@ const Roadmap: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="mr-6">
+              <div className="m-6">
                 <span
                   className={`text-3xl font-bold ${getStatusColor(
                     milestone.status

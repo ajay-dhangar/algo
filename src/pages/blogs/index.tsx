@@ -163,8 +163,8 @@ Graph theory provides a powerful framework for solving a wide variety of problem
 
   return (
     <Layout title="Blogs" description="Read the latest blog posts on various topics.">
-      <section className="bg-gray-100 dark:bg-gray-900 py-12 px-8">
-        <div className="container mx-auto">
+      <section className="bg-gray-100 dark:bg-gray-900">
+        <div className="noise-bg py-12">
           <motion.h1
             className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-8"
             initial={{ opacity: 0, y: -20 }}
@@ -208,7 +208,7 @@ Graph theory provides a powerful framework for solving a wide variety of problem
 
           {/* Blog Posts List */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
