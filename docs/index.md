@@ -4,7 +4,7 @@ title: Welcome to Algo - Gateway to DSA Mastery!
 sidebar_label: Welcome to Algo
 sidebar_position: 1
 slug: /
-description: Algo is your gateway to mastering Data Structures and Algorithms (DSA). Whether you're a coding enthusiast, a student, or a professional looking to enhance your programming skills, Algo is here to guide you through the intricate world of DSA.
+description: "Algo is your gateway to mastering Data Structures and Algorithms (DSA). Whether you're a coding enthusiast, a student, or a professional looking to enhance your programming skills, Algo is here to guide you through the intricate world of DSA."
 tags: [dsa, data structures, algorithms]
 ---
 

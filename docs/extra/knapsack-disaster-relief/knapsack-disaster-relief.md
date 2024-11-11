@@ -2,7 +2,6 @@
 id: knapsack-disaster-relief
 title: "Optimizing Disaster Relief Supply Packing"
 sidebar_label: "Knapsack for Disaster Relief"
-sidebar_position: 1
 description: "Solving the 0/1 Knapsack problem to optimize the packing of supplies for disaster relief missions."
 tags: [Knapsack, Dynamic Programming, Disaster Relief, Algorithms]
 ---
