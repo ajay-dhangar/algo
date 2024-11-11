@@ -5,9 +5,9 @@ authors: [Aryan-Jain]
 tags: [ARYAN-JAIN, algo, dsa, algorithms, sorting, time-complexity]
 ---
 
-# Comparison of Sorting Algorithms
-
 Sorting algorithms are essential for organizing data, making it easier to analyze, search, and manipulate. Here’s an overview of some commonly used sorting algorithms, comparing their time complexity, efficiency, and applications.
+
+<!-- truncate -->
 
 ## 1. Bubble Sort
 **Description**: Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if needed until the list is sorted.

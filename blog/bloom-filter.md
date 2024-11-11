@@ -5,12 +5,9 @@ authors: [Aryan-Jain]
 tags: [bloom-filter, data-structures, algorithms, C++, java, python]
 ---
 
-# Understanding Bloom Filters in DSA: Space-Efficient Membership Testing
-
-## Introduction
 A **Bloom Filter** is a probabilistic data structure that offers a space-efficient way to test if an element is part of a set. Bloom Filters are widely used in systems where space constraints are essential and occasional false positives are acceptable, but false negatives are not. In this article, we’ll explore how Bloom Filters work, their advantages and limitations, and the use cases where they shine.
 
----
+<!-- truncate -->
 
 ## What is a Bloom Filter?
 
