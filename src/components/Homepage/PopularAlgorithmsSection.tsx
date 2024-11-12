@@ -1,38 +1,38 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "@docusaurus/Link"; // Importing Docusaurus Link
+import Link from "@docusaurus/Link";
 
 const PopularAlgorithmsSection: React.FC = () => {
   const algorithms = [
     {
       title: "Binary Search",
       description: "Efficient searching in a sorted array",
-      link: "/docs/binary-search/iterative-binary-search-DSA", 
+      link: "#", 
     },
     {
       title: "Merge Sort",
       description: "Divide and conquer sorting algorithm",
-      link: "/docs/algorithms/sorting-algorithms/merge-sort-algo", 
+      link: "#", 
     },
     {
       title: "Dijkstra's Algorithm",
       description: "Shortest path in weighted graphs",
-      link: "/docs/graphs/shortest-path-algorithms/dijkstra", 
+      link: "#", 
     },
     {
       title: "Quick Sort",
       description: "Efficient in-place sorting algorithm",
-      link: "/docs/algorithms/sorting-algorithms/quick-sort-algo", 
+      link: "#", 
     },
     {
       title: "Linked Lists",
       description: "Nodes linked in sequence",
-      link: "/docs/category/linked-list", 
+      link: "#", 
     },
     {
       title: "Recursion",
       description: "Function calls itself for solutions",
-      link: "/docs/Recursion/", 
+      link: "#", 
     },
   ];
   
