@@ -172,6 +172,7 @@ graph LR;
   D -->|Index 3| E[Orange];
 ```
 
+
 <br />
 
 This representation shows how each element in an array can be accessed by its index.
