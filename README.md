@@ -70,34 +70,9 @@ Welcome to **Algo**, an open-source project that provides developers with algori
 
 <br />
 
-
 ## 🌐 Demo Links
 
 - [Demo](https://ajay-dhangar.github.io/algo/)
-
-
-## Table of Contents
-
-- [Algo - Open Source Algorithm Repository](#algo---open-source-algorithm-repository)
-  - [introduction](#introduction)
-  - [🚀Featured In](#featured-in)
-  - [Table of Contents](#table-of-contents)
-  - [Project Overview](#project-overview)
-    - [Pick up Topics](#pick-up-topics)
-  - [Features](#features)
-  - [Website](#website)
-  - [Installation](#installation)
-  - [Local Development](#local-development)
-  - [Build](#build)
-  - [Deployment](#deployment)
-    - [Using SSH:](#using-ssh)
-    - [Not using SSH:](#not-using-ssh)
-  - [Contributing](#contributing)
-  - [Contributors ✨](#contributors-)
-  - [Stargazers](#stargazers)
-  - [Forkers](#forkers)
-  - [Resources for Guidance](#resources-for-guidance)
-
 
 ## Project Overview
 
