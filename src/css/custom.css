@@ -142,24 +142,21 @@ html[data-theme='dark'] .noise-bg {
       rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 0.6)
     ),
-    url('/banner/banner-13.jpg');
-  background-position: center;
+    url('/landing/grid-light.svg');
   padding: 2rem 1rem;
   margin-bottom: 2rem;
   border-bottom: 1px solid var(--ifm-color-primary-lightest);
-  background-size: cover;
-  background-repeat: no-repeat;
   border-radius: 0.5rem;
+  color: var(--ifm-color-primary);
 }
 
 html[data-theme='dark'] .theme-doc-markdown header {
-  /* background-image: url('/banner/banner-1.png'); */
-  background-image: url('/banner/banner-10.jpg');
+  background-image: url('/landing/grid-dark.svg');
 }
 
 
 .footer {
-  background-color: #001;
+  background-color: #000;
 }
 
 /* .theme-doc-sidebar-item-category .theme-doc-sidebar-item-link .menu__link--active::before {

@@ -8,7 +8,7 @@ const path = require("path");
 const config = {
   title: "Algo",
   tagline: "Algo Mastery for Every Learner",
-  favicon: "logo/algo-3.png",
+  favicon: "logo/logo.png",
 
   url: "https://ajay-dhangar.github.io",
   baseUrl: "/algo/",
@@ -27,7 +27,7 @@ const config = {
         docs: {
           sidebarPath: "./sidebars.js",
           editUrl:
-            "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/ajay-dhangar/algo/tree/main/templates/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           showLastUpdateAuthor: true,
@@ -36,7 +36,7 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl:
-            "https://github.com/ajay-dhangar/algo/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/ajay-dhangar/algo/tree/main/templates/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -80,7 +80,7 @@ const config = {
         title: "Algo",
         logo: {
           alt: "Algo Logo",
-          src: "logo/algo.png",
+          src: "logo/logo.png",
         },
         items: [
           {

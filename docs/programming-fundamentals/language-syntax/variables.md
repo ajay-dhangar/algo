@@ -34,7 +34,7 @@ const age = 25; // Constant variable, cannot be reassigned
 var isStudent = true; // Function-scoped (use is discouraged)
 ```
 
-:::note
+:::note Modern JavaScript
 Use `let` and `const` for modern JavaScript as they offer better scoping and avoid potential pitfalls.
 :::
 
