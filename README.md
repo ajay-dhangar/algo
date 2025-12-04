@@ -144,12 +144,6 @@ We welcome contributions from developers of all experience levels. For guideline
 
 Thanks to these amazing people who have contributed to the **Algo** project:
 
-<!-- readme: contributors -start -->
-<p align="center">
-    <img src="https://api.vaunt.dev/v1/github/entities/ajay-dhangar/repositories/algo/contributors?format=svg&limit=54" width="1000" />
-</p>
-<!-- readme: contributors -end -->
-
 <br>
 
 ## Stargazers
