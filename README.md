@@ -70,9 +70,9 @@ Welcome to **Algo**, an open-source project that provides developers with algori
 
 <br />
 
-## 🌐 Demo Links
+## 🌐 Links
 
-- [Demo](https://ajay-dhangar.github.io/algo/)
+- [Algo](https://ajay-dhangar.github.io/algo/)
 
 ## Project Overview
 
@@ -96,7 +96,7 @@ We aim to:
 
 ## Website
 
-This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ## Installation
 
