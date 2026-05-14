@@ -14,49 +14,71 @@ Here are some resources that may be helpful as you contribute to Algo:
 
 ## How to Contribute
 
-### 1. Fork the Repository 
-Start by forking the repository to your GitHub account. This creates a copy of the repository under your account.
+### 1. Issue Assignment
 
-### 2. Clone Your Fork
-Clone the repository to your local machine using:
+* **Browse Issues:** Look for issues labeled gssoc26 or good first issue.
+* **Request Assignment:** Comment on the issue to express interest. As your Project Admin, I will aim to respond within 24 hours.
+* **Wait for Confirmation:** Do not start work until the issue is officially assigned to you.
 
-```bash
-$ git clone https://github.com/<your-username>/algo.git
-```
+### 2. Setting Up Locally
+1. Fork the Repository to your GitHub account. (*Start by forking the repository to your GitHub account. This creates a copy of the repository under your account.*)
+2. Clone Your Fork (*Clone the repository to your local machine using:*)
 
-### 3. 📂 Change the working directory: 
-```bash
+   ```bash
+   $ git clone https://github.com/<your-username>/algo.git
+   ```
+3. Change the working directory:
+
+   ```bash
    cd algo
    ```
 
-### 4. 🔗 Add a reference to the original repository.
-```bash
+4. Add Upstream Remote (*Add a reference to the original repository.*)
+
+   ```bash
    git remote add upstream https://github.com/ajay-dhangar/algo.git
    ```
 
-### 5. 🔍 Check the remotes for this repository.
-```bash
+5. Check the remotes for this repository.
+
+   ```bash
    git remote -v
    ```
 
-### 6. ⬇️ Always take a pull from the upstream repository to your main branch to keep it up-to-date with the main project (updated repository).
-```bash
+6. Always take a pull from the upstream repository to your main branch to keep it up-to-date with the main project (updated repository).
+
+   ```bash
    git pull upstream main
    ```
 
-### 7. 🌿 Create a new branch. 
-```bash
+7. Create a new branch. 
+
+   ```bash
    git checkout -b <your-branch-name>
    ```
 
-### 4. Make Your Changes 
-Make your changes, which could include:
-- Adding new algorithms
-- Improving existing documentation
-- Creating new documentation pages
-- Fixing bugs
+8. Install Dependencies:
 
-### 5. Writing Documentation for Algo
+   ```bash
+   npm install
+   ```
+   
+9. Run Locally:
+
+```bash
+npm start
+```
+
+### 3. Making Changes
+Make your changes, which could include:
+* Create a new branch: `git checkout -b feature/your-feature-name`.
+* Ensure your changes follow the [Docusaurus structure](#b-content-structure) (Front-matter is required for all `.md` or `.mdx` files):
+* Adding new algorithms
+* Improving existing documentation
+* Creating new documentation pages
+* Fixing bugs
+
+### 4. Writing Documentation for Algo
 If your contribution involves documentation, here’s how to write effective content using Docusaurus:
 
 #### a. Markdown & MDX
@@ -139,21 +161,21 @@ tags: [<tag1>, <tag2>]
     <MyComponent />
     ```
 
-### 6. Commit Your Changes 
+### 5. Commit Your Changes 
 Commit your changes with a descriptive message:
 
 ```bash
 $ git commit -m "Added algorithm for [algorithm-name]"
 ```
 
-### 7. Push to Your Fork
+### 6. Push to Your Fork
 Push your changes to the forked repository:
 
 ```bash
 $ git push origin <branch-name>
 ```
 
-### 8. Create a Pull Request
+### 7. Create a Pull Request
 Go to the original repository and create a Pull Request (PR). Provide a clear description of what was added or changed and why. Reference any related issues in your PR description.
 
 ## Code Style and Quality
