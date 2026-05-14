@@ -65,9 +65,9 @@ Here are some resources that may be helpful as you contribute to Algo:
    
 9. Run Locally:
 
-```bash
-npm start
-```
+   ```bash
+   npm start
+   ```
 
 ### 3. Making Changes
 Make your changes, which could include:
