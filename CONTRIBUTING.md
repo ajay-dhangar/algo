@@ -25,7 +25,7 @@ Here are some resources that may be helpful as you contribute to Algo:
 2. Clone Your Fork (*Clone the repository to your local machine using:*)
 
    ```bash
-   $ git clone https://github.com/<your-username>/algo.git
+   git clone https://github.com/<your-username>/algo.git
    ```
 3. Change the working directory:
 
