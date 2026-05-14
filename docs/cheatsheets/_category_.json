@@ -1,0 +1,9 @@
+{
+  "label": "Cheatsheets",
+  "position": 3.5,
+  "link": {
+    "type": "generated-index",
+    "description": "Quick reference guides for popular programming languages used in DSA and competitive programming."
+  }
+}
+
