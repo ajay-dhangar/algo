@@ -47,8 +47,7 @@ Welcome to Algo, an open-source educational platform built with Docusaurus (Reac
       <th>Status</th>       
    </tr>
    <tr>
-      <td><img src="https://github.com/user-attachments/assets/23a0cae9-97e2-4458-8151-1dba98ae910" />
-" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td><img src="gssoc-algo-banner.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
       <td>GSSoC '26</td>
       <td>GirlScript Summer of Code (GSSoC) is an awesome 3-month open-source program that's all about getting people into software development.</td>
        <td>Active</td>
