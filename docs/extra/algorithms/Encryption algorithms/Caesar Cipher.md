@@ -39,7 +39,17 @@ The Caesar Cipher is a type of substitution cipher where each letter in the plai
 4. Return the encrypted string.
 
 ## Time Complexity
-- **O(n)** where `n` is the length of the input string. Each character in the string is processed once.
+- Best Case: O(n)
+- Average Case: O(n)
+- Worst Case: O(n)
+where `n` is the length of the input string. Each character in the string is processed exactly once.
+
+## Space Complexity
+- O(n)
+where `n` is the length of the string, since a new string is created to store the encrypted result.
+
+## Explanation
+The Caesar Cipher shifts each character individually, meaning the time required is proportional to the number of characters in the string `O(n)`. The space complexity is also `O(n)` because the algorithm constructs a new string to store the encrypted text. If modifying a mutable string array in place, the space complexity would be `O(1)`.
 
 ## C++ Implementation
 

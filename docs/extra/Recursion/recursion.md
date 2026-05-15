@@ -104,3 +104,21 @@ int sumOfNaturalNumbers(int n) {
 
 ## Conclusion
 Recursion is a powerful tool in programming that can simplify complex problems by breaking them into sub-problems. However, it requires careful handling of base cases and optimization (like tail recursion) to avoid issues like stack overflow.
+
+## Time and Space Complexity (General Recursion Analysis)
+
+### Time Complexity
+Depends on the specific recursive algorithm:
+- **Simple linear recursion** (like factorial): $O(n)$ - where $n$ is the recursion depth.
+- **Divide and conquer** (like Fibonacci): Can range from $O(n)$ to $O(2^n)$ depending on structure.
+- **Binary recursion** (tree traversal): $O(n)$ - where $n$ is the number of nodes.
+
+The key factor is how many times each recursive call branches and how deep the recursion goes.
+
+### Space Complexity
+- $O(h)$ - where $h$ is the height (recursion depth) of the call stack.
+- For linear recursion: $O(n)$ in the worst case.
+- For tail-recursive functions: Can be optimized by compilers to $O(1)$ space.
+
+## Explanation
+Recursion trades time efficiency for code simplicity. Each recursive call uses stack memory, and if the recursion depth is too large, it can cause stack overflow. Memoization and tail recursion optimization are techniques to improve recursive solution efficiency. The choice between recursion and iteration should be based on the problem's nature and performance requirements.

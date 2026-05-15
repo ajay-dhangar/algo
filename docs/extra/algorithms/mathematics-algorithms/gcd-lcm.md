@@ -26,10 +26,6 @@ The **Euclidean algorithm** is the most efficient method for computing the GCD. 
    - If $b$ = 0, then $GCD(a, b)$ = a
    - Otherwise, $GCD(a, b)$ = $GCD(b,a \  mod \ b ).$
 
-### Time Complexity
-
-- The time complexity of the Euclidean algorithm is $( O(log(min(a, b)))).$
-
 ## Least Common Multiple (LCM)
 
 ### Definition
@@ -41,10 +37,6 @@ The **LCM** of two integers is the smallest positive integer that is divisible b
 The LCM can be calculated using the GCD with the following formula:
 
 $LCM(a, b)$ = $\dfrac{a \times b}{\text{GCD}(a, b)}$.
-
-### Time Complexity
-
-- The time complexity for calculating the LCM is $O(log(min(a, b)))$ due to the GCD calculation.
 
 ## Implementations
 
@@ -124,5 +116,19 @@ function gcd(a, b):
 function lcm(a, b):
     return (a / gcd(a, b)) * b
 ```
+
+## Time Complexity
+- Best Case: O(1)
+- Average Case: O(log(min(a, b)))
+- Worst Case: O(log(min(a, b)))
+where `a` and `b` are the two integers.
+
+## Space Complexity
+- O(1)
+for the iterative implementations since they only require a few variables for computation.
+
+## Explanation
+The Euclidean algorithm effectively computes the Greatest Common Divisor in logarithmic time `O(log(min(a, b)))` by continually replacing the larger number by the remainder of the two numbers. The Least Common Multiple relies directly on the GCD and takes the same time. The space complexity is constant `O(1)` because the iterative version uses minimal auxiliary memory.
+
 ### Conclusion
 The Greatest Common Divisor (GCD) and Least Common Multiple (LCM) are essential algorithms in number theory that help in understanding the divisibility of integers. Their efficient computation using the Euclidean algorithm and the relationship between GCD and LCM makes them powerful tools in both theoretical and practical applications.

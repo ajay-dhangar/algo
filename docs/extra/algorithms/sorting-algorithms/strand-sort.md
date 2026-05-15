@@ -88,95 +88,17 @@ The sorted list is:
 
 
 
-## Time Complexity Analysis
+## Time Complexity
+- Best Case: O(n) (When the array is already sorted, only one strand is extracted and no merging is needed)
+- Average Case: O(n^2)
+- Worst Case: O(n^2) (When the array is sorted in reverse order, extracting `n` strands of length 1)
 
-### Best Case:
+## Space Complexity
+- O(n)
+where `n` is the number of elements. Space is required for the strands and the resulting sorted list (or the recursive call stack if implemented recursively).
 
-- **Time Complexity: O(n log n)**  
-  In the best case, each strand extracted is already sorted, meaning the extracted strand contains multiple elements. This scenario reduces the number of merges required and results in an efficient merge process similar to merge sort.
-
-- **Example (Best Case)**:  
-  If the input list is nearly sorted or already sorted, the strands will be long, minimizing the total number of merges.
-  
-  Example List:  
-  `[1, 2, 3, 4, 5, 6, 7, 8, 9]`  
-  - The first strand extracted will be the entire list: `[1, 2, 3, 4, 5, 6, 7, 8, 9]`.
-  - No further extraction or merging is required.
-
-- **Number of strands**: Only one large strand.
-- **Merge steps**: None.
-  
-  This minimizes both the number of strands extracted and merge operations, resulting in O(n log n).
-
-### Worst Case:
-
-- **Time Complexity: O(n²)**  
-  In the worst case, each extracted strand contains only one element, meaning the strands are as short as possible. This leads to the maximum number of merge operations.
-
-- **Example (Worst Case)**:  
-  If the input list is in reverse order, each element must be extracted individually, as each element will be smaller than the previous one.
-
-  Example List:  
-  `[9, 8, 7, 6, 5, 4, 3, 2, 1]`
-  - The first strand extracted is `[9]`.
-  - The next extracted strand is `[8]`, and so on.
-  - This requires many merging operations, with each strand consisting of just one element.
-
-- **Number of strands**: n (where each strand contains only one element).
-- **Merge steps**: Each strand (single element) must be merged one-by-one into the sorted list.
-
-  This results in O(n²) due to excessive merging operations.
-
----
-
-## Example for Worst Case:
-
-Consider the reverse sorted list:
-
-`[9, 8, 7, 6, 5, 4, 3, 2, 1]`
-
-1. Extract strands:
-   - First strand: `[9]`
-   - Second strand: `[8]`
-   - Third strand: `[7]`
-   - (Continue extracting single elements until the list is empty)
-
-2. Merge process:
-   - Merge `[9]` with `[8]` → `[8, 9]`
-   - Merge `[8, 9]` with `[7]` → `[7, 8, 9]`
-   - Continue merging each extracted strand (one element) with the sorted list.
-
-3. Since each strand consists of only one element, the number of merging steps grows quadratically as we repeatedly merge single-element strands into an ever-growing sorted list.
-
-This results in a time complexity of **O(n²)**.
-
----
-
-## Example for Best Case:
-
-Consider a sorted list:
-
-`[1, 2, 3, 4, 5, 6, 7, 8, 9]`
-
-1. Extract strands:
-   - The first strand will be `[1, 2, 3, 4, 5, 6, 7, 8, 9]`.
-
-2. Merge process:
-   - Since the entire list was extracted as a single strand, no further merging steps are required.
-
-This leads to the best-case time complexity of **O(n log n)**.
-
----
-
-## Summary of Time Complexity
-
-- **Best Case**: O(n log n) — Occurs when the list is already sorted or nearly sorted, reducing the number of strands and merge operations.
-- **Worst Case**: O(n²) — Occurs when each strand contains only one element (e.g., reverse sorted list), leading to many merge operations.
-- **Average Case**: Typically between O(n log n) and O(n²), depending on the structure of the input list.
-
-
-
-
+## Explanation
+Strand sort extracts ascending sublists ("strands") and merges them into a sorted list. If the list is already sorted, it extracts one strand in `O(n)` time and completes. In the worst case (reverse sorted), it has to extract `n` strands of length 1, and the merging process takes quadratic time overall. Because it creates sublists to hold the strands and the merged result, it inherently requires `O(n)` auxiliary space.
 ## Advantages:
 1. **Simple to understand**: The process of extracting sorted strands and merging is conceptually easy.
 2. **Works well with linked lists**: As strand sort can efficiently handle linked lists, it avoids the overhead of frequent element shifting like in arrays.

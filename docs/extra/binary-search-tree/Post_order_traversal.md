@@ -78,3 +78,16 @@ Post-order Traversal: 5 15 10 35 30 20
 First, the left subtree (5, 15, 10) is traversed.
 Next, the right subtree (35, 30) is traversed.
 Finally, the root node (20) is processed.
+
+## Time and Space Complexity
+
+### Time Complexity
+- $O(n)$ - Where $n$ is the number of nodes in the tree. Every node must be visited exactly once during the traversal.
+
+### Space Complexity
+- $O(h)$ - Where $h$ is the height of the tree. The recursion stack stores at most $h$ function calls. 
+- $O(\log n)$ - For a balanced tree (average case).
+- $O(n)$ - For a completely skewed tree (worst case).
+
+## Explanation
+Post-order traversal visits all nodes exactly once, making the time complexity linear. The space complexity depends on the recursion call stack depth, which corresponds to the tree height. In a balanced tree, this is logarithmic. In a skewed tree, it becomes linear. Post-order traversal is useful for operations like deleting a tree or computing expression trees.
