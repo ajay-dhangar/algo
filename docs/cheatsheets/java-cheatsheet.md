@@ -13,7 +13,7 @@ This page is a quick reference for Java patterns that show up constantly in DSA 
 
 ### Data Types
 
-```java
+```java title="Basic data type syntax in Java"
 int a = 1;               // 32-bit integer
 long b = 1_000_000_000L; // 64-bit integer
 double d = 3.14;         // 64-bit decimal
@@ -24,7 +24,7 @@ String s = "hello";      // Sequence of characters
 
 ### Operators and Control Flow
 
-```java
+```java title="Control flow syntax in Java"
 // if,else if and else 
 if (a > 0) {
   // ...
@@ -40,7 +40,7 @@ while (n-- > 0) {} // Value of n -> n,n-1,n-2,...1
 
 ### Arrays
 
-```java
+```java title="Array syntax in Java"
 int[] arr = new int[n]; // 1D Primitive Integer Array of size n
 int[][] grid = new int[r][c]; // 2D Primitive Integer Array/Grid of r - rows, c - columns
 Arrays.fill(arr, -1); // Fills the entire array with -1 instead of 0
@@ -48,7 +48,7 @@ Arrays.fill(arr, -1); // Fills the entire array with -1 instead of 0
 
 ## Strings and `StringBuilder`
 
-```java
+```java title="String and StringBuilder syntax in Java"
 String s = "abc";
 char ch = s.charAt(1); //Returns character at index 1, i.e ch = 'b'
 int len = s.length(); //Returns Length of the string s, i.e len = 3
@@ -62,13 +62,13 @@ String out = sb.toString(); // out = "abca123"
 
 ## Collections 
 
-```java
+```java title="Java collections import"
 import java.util.*; // Considered the protaganist of beginner Java code, has most data structures.
 ```
 
 ### List
 
-```java
+```java title="List syntax in Java"
 List<Integer> a = new ArrayList<>(); // Dynamic array, O(1) random access, best for most use cases
 List<Integer> b = new LinkedList<>(); // Doubly linked list, O(1) insert/delete at ends, O(n) random access
 a.add(10); // Appends 10 to the end of the list
@@ -77,7 +77,7 @@ int x = a.get(0); // Returns element at index 0, i.e x = 10
 
 ### Map / Set
 
-```java
+```java title="Map and Set syntax in Java"
 Map<String, Integer> hm = new HashMap<>(); // Key-Value pairs, O(1) average get/put, unordered
 Set<Integer> hs = new HashSet<>(); // Unique elements only, O(1) average add/contains, unordered
 
@@ -91,7 +91,7 @@ boolean exists = hs.contains(5); // exists = true
 
 ### Ordered (TreeMap / TreeSet)
 
-```java
+```java title="TreeMap and TreeSet syntax in Java"
 TreeMap<Integer, String> tm = new TreeMap<>(); // Key-Value pairs, sorted by key in ascending order, O(log n) get/put
 TreeSet<Integer> ts = new TreeSet<>(); // Unique elements, sorted in ascending order, O(log n) add/contains
 tm.put(2, "b"); // tm = {2 -> "b"}
@@ -101,7 +101,7 @@ int firstKey = tm.firstKey(); // Returns the smallest key, i.e firstKey = 1
 
 ### Stack / Queue / Deque
 
-```java
+```java title="Stack Queue and Deque syntax in Java"
 Stack<Integer> stack = new Stack<>(); // LIFO — Last In First Out
 stack.push(1); // stack = [1]
 int top = stack.peek(); // Returns top without removing, i.e top = 1
@@ -123,7 +123,7 @@ dq.pollLast();  // Removes back, dq = [1]
 
 ### PriorityQueue/Heap
 #### Default -> Min-Heap
-```java
+```java title="PriorityQueue or Heap syntax in Java"
 PriorityQueue<Integer> pq = new PriorityQueue<>(); // Min-heap: smallest element always at front
 pq.add(5); // pq = [5]
 pq.add(1); // pq = [1, 5] — heap reorders internally
@@ -137,7 +137,7 @@ PriorityQueue<Integer> maxpq = new PriorityQueue<>(Collections.reverseOrder()); 
 
 ### Sorting
 
-```java
+```java title="Sorting syntax in Java"
 int[] arr = {3, 1, 2};
 Arrays.sort(arr); // arr = [1, 2, 3], in-place ascending sort
 
@@ -153,13 +153,13 @@ pairs.sort((p1, p2) -> {
 
 ### Searching
 
-```java
+```java title="Binary search syntax in Java"
 int idx = Arrays.binarySearch(arr, target); // Returns index of target in sorted array, negative if not found
 ```
 
 ### Iterating
 
-```java
+```java title="Iteration syntax in Java"
 for (int x : arr) {} // Enhanced for-loop over array elements
 
 // Method 1: Iterate over key-value pairs
@@ -181,7 +181,7 @@ for (int v : hm.values()) {
 
 ### Streams (Quick Patterns)
 
-```java
+```java title="Stream syntax in Java"
 int sum = Arrays.stream(arr).sum(); // Returns sum of all elements in arr
 int[] sorted = Arrays.stream(arr).sorted().toArray(); // Returns a new sorted array, original unchanged
 ```
@@ -190,7 +190,7 @@ int[] sorted = Arrays.stream(arr).sorted().toArray(); // Returns a new sorted ar
 
 ### Classes and Interfaces
 
-```java
+```java title="Class and interface syntax in Java"
 class Point {
   int x, y;
   Point(int x, int y) { this.x = x; this.y = y; } // Constructor — initializes x and y
@@ -206,7 +206,7 @@ interface Solver {
 
 ### Inheritance and Abstract Classes
 
-```java
+```java title="Inheritance and abstract class syntax in Java"
 abstract class Shape {
   abstract double area(); // Subclasses must implement area()
 }
@@ -223,7 +223,7 @@ double a = c.area(); // Calls the overridden area(), i.e a = 78.53...
 
 ### Enums
 
-```java
+```java title="Enum syntax in Java"
 enum Dir { UP, DOWN, LEFT, RIGHT } // Fixed set of named constants
 
 Dir d = Dir.UP; // Access enum constant
@@ -231,7 +231,7 @@ Dir d = Dir.UP; // Access enum constant
 
 ## Exception Handling
 
-```java
+```java title="Exception handling syntax in Java"
 try {
   int x = Integer.parseInt("42"); // Parses string to int, throws NumberFormatException if invalid
 } catch (NumberFormatException e) {
@@ -243,7 +243,7 @@ try {
 
 ### Custom Exceptions
 
-```java
+```java title="Custom exception syntax in Java"
 class BadInputException extends RuntimeException {
   BadInputException(String msg) { super(msg); } // Passes message to RuntimeException
 }
@@ -255,7 +255,7 @@ throw new BadInputException("Invalid input"); // Throw the custom exception
 
 ### Singleton
 
-```java
+```java title="Singleton pattern in Java"
 class Singleton {
   private static final Singleton INSTANCE = new Singleton(); // Single instance created at class load
   private Singleton() {} // Private constructor prevents external instantiation
@@ -267,7 +267,7 @@ Singleton s = Singleton.getInstance(); // Retrieve the single instance
 
 ### Builder
 
-```java
+```java title="Builder pattern in Java"
 class User {
   final String name;
   final int age;
@@ -288,7 +288,7 @@ String name = u.name; // Access field, i.e name = "Harish"
 
 ### Factory
 
-```java
+```java title="Factory pattern in Java"
 interface Shape {
   double area();
 }
