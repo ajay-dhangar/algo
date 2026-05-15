@@ -312,3 +312,9 @@ class ShapeFactory {
 Shape sq = ShapeFactory.square(4.0); // Create a Square via factory
 double area = sq.area(); // i.e area = 16.0
 ```
+
+## References
+
+- [Oracle Java Tutorials](https://docs.oracle.com/javase/tutorial/)
+- [Java SE API Documentation](https://docs.oracle.com/en/java/javase/21/docs/api/index.html)
+- [Java Collections Framework](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/package-summary.html)

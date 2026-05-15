@@ -279,3 +279,9 @@ e2 = Edge(0, 1, 5) # e2.u=0, e2.v=1, e2.w=5
 if (n := len(nums)) > 0:  # Assigns len(nums) to n and checks if > 0 in one step
     avg = sum(nums) / n   # Reuses n without calling len() again
 ```
+
+## References
+
+- [Python Documentation](https://docs.python.org/3/)
+- [Python Tutorial](https://docs.python.org/3/tutorial/)
+- [Python Standard Library](https://docs.python.org/3/library/)
