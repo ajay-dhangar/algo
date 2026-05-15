@@ -7,7 +7,7 @@ description: "A fast, practical Python reference for DSA and competitive program
 tags: [python, cheatsheet, dsa]
 ---
 
-This page is a quick reference for Python patterns that show up constantly in DSA and competitive programming.
+This page is a quick reference for Python concepts and methods that show up constantly in DSA and competitive programming. If you're just starting out, don't worry, every snippet here is explained line by line 😊
 
 ## Core Syntax
 
