@@ -25,7 +25,6 @@ Using `IS NULL` and `IS NOT NULL`:
 SELECT column_name
 FROM table_name
 WHERE column_name IS NULL;
-```
 ```sql
 SELECT column_name
 FROM table_name

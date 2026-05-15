@@ -21,7 +21,6 @@ tags: [dsa, data-structures, Evaluation , C language]
         return(0);
     }
 
-```
 ```text
     //evaluation function
     void EvalPo(char postfix[])

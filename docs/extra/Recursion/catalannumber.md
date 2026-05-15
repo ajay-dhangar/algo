@@ -50,7 +50,6 @@ Using this formula with precomputed binomial coefficients can provide a faster, 
 Enter a value for n: 3
 Catalan number C_3 is 5
 ```
-```
 Enter a value for n: 5
 Catalan number C_5 is 42
 ```

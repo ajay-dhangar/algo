@@ -30,7 +30,6 @@ Node* insert(Node* root, int val) {
     return root;
 }
 ```
-```
 Inserting E at the right of B
 
        A                          A
@@ -120,7 +119,6 @@ Node* delete_node(Node* root, int key) {
     return root;
 }
 ```
-```
 Case # 01: Deleting A (Root Node Removal)
 
        A                          G
@@ -176,7 +174,6 @@ void preOrder(Node* root) {
     preOrder(root->right);      // Traverse the right subtree
 }
 ```
-```
        A                
      /   \                     
     B     C       
@@ -198,7 +195,6 @@ void inOrder(Node* root) {
     inOrder(root->right);     // Traverse the right subtree
 }
 ```
-```
        A                
      /   \                     
     B     C       
@@ -218,7 +214,6 @@ void postOrder(Node* root) {
     postOrder(root->right);    // Traverse the right subtree
     cout << root->data << " "; // Visit the root node
 }
-```
 ```
        A                
      /   \                     

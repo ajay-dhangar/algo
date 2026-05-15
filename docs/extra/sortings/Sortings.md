@@ -576,7 +576,6 @@ void display(int a[],int n)
   for(i=0;i<n;i++) 
   printf("%d\t",a[i]); 
 }
-```
 ```text
 //main funcion
 void main() 

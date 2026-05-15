@@ -74,7 +74,6 @@ int main() {
     return 0;
 }
 ```
-```
 Heap after insertions: 60 50 20 10 40 
 Max element: 60
 ```

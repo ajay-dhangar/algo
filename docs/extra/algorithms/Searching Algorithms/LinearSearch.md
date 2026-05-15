@@ -86,7 +86,6 @@ int main() {
 
     return 0;
 }
-```
 ```python
 def linearSearchIterative(array, size, target):
     for i in range(len(array)):
@@ -138,7 +137,6 @@ int main() {
 
     return 0;
 }
-```
 ```python
 def linear_search_recursive(arr, size, target):
     if size == 0:

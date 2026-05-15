@@ -96,7 +96,6 @@ int main() {
 
     return 0;
 }
-```
 ```python
 def binary_search_iterative(arr, target):
     low = 0
@@ -165,7 +164,6 @@ int main() {
 
     return 0;
 }
-```
 ```python
 def binary_search_recursive(arr, low, high, target):
     if low <= high:

@@ -42,7 +42,6 @@ Concatenation is the process of joining two or more strings together to form a s
 first = "Hello"
 second = "World"
 result = first + " " + second  # Output: "Hello World"
-```
 ```Javascript
 let first = "Hello";
 let second = "World";

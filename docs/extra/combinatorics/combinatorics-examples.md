@@ -37,7 +37,6 @@ int main() {
     return 0;
 }
 ```
-```
 ABC
 ACB
 BAC
@@ -77,7 +76,6 @@ int main() {
     
     return 0;
 }
-```
 ```
 1 2
 1 3
