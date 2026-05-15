@@ -7,9 +7,9 @@ description: "Data Structures and Algorithms (DSA) form the backbone of computer
 tags: [dsa, data structures, algorithms, what is dsa]
 ---
 
-Data Structures and Algorithms (DSA) are fundamental concepts in computer science and programming. They provide a systematic way to organize and store data efficiently, as well as develop algorithms to solve complex problems. Understanding DSA is crucial for any aspiring programmer or software developer, as it forms the backbone of various applications and systems.
+import ShareButtons from '@site/src/components/ShareButtons';
 
-<AdsComponent />
+Data Structures and Algorithms (DSA) are fundamental concepts in computer science and programming. They provide a systematic way to organize and store data efficiently, as well as develop algorithms to solve complex problems. Understanding DSA is crucial for any aspiring programmer or software developer, as it forms the backbone of various applications and systems.
 
 ## What Are Data Structures?
 
@@ -28,8 +28,6 @@ Data structures are specialized formats for organizing, storing, and managing da
 - **Tries**: Tree-like data structures used for efficient string searching and storage.
 - **Sets**: Data structures that store unique elements without duplicates.
 - **Maps**: Data structures that store key-value pairs with unique keys.
-
-<Ads />
 
 ## What Are Algorithms?
 
@@ -55,8 +53,6 @@ Algorithms are step-by-step procedures or instructions for solving problems and 
 - **String Matching Algorithms**: Algorithms that find occurrences of a pattern within a text (e.g., Knuth-Morris-Pratt algorithm, Rabin-Karp algorithm).
 - **Geometric Algorithms**: Algorithms that solve geometric problems (e.g., convex hull, closest pair of points).
 
-<AdsComponent />
-
 ## Why Are Data Structures and Algorithms Important?
 
 Data Structures and Algorithms are essential components of computer science and programming for the following reasons:
@@ -77,8 +73,6 @@ Data Structures and Algorithms are essential components of computer science and 
 14. **Innovation and Creativity**: Mastering data structures and algorithms empowers programmers to innovate, create new solutions, and address real-world challenges with computational thinking and problem-solving skills.
 15. **Community Support**: DSA communities, forums, and resources provide programmers with opportunities to learn, share, and collaborate on data structures and algorithms, fostering a culture of continuous improvement and knowledge sharing.
 
-<Ads />
-
 ## How Can Data Structures and Algorithms Enhance Your Coding Skills?
 
 Learning data structures and algorithms can enhance your coding skills in the following ways:
@@ -93,8 +87,16 @@ Learning data structures and algorithms can enhance your coding skills in the fo
 8. **Collaborative Learning**: DSA communities, study groups, and coding platforms provide opportunities for collaborative learning, mentorship, and peer support, helping you grow as a programmer and expand your knowledge base.
 9. **Continuous Improvement**: DSA learning is a continuous process that allows you to refine your coding skills, explore new algorithms, and stay updated with the latest trends and developments in the field of computer science.
 
-<AdsComponent />
-
 ## Conclusion
 
 Data Structures and Algorithms are essential components of computer science and programming that enable efficient data management, problem-solving, and code optimization. By mastering DSA concepts, you can enhance your coding skills, prepare for technical interviews, participate in coding competitions, and advance your career in the tech industry. Whether you are a beginner or an experienced programmer, learning data structures and algorithms is a valuable investment that can open up new opportunities, expand your knowledge base, and empower you to tackle complex challenges with confidence and creativity.
+
+<div style={{ display: 'flex', gap: '12px', marginTop: '30px', marginBottom: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+  <button onClick={() => window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=Check%20out%20this%20algorithm%20on%20Algo', '_blank')} style={{ background: '#1DA1F2', color: 'white', border: 'none', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '14px' }}>Twitter</button>
+  
+  <button onClick={() => window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')} style={{ background: '#0077B5', color: 'white', border: 'none', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '14px' }}>LinkedIn</button>
+  
+  <button onClick={() => window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank')} style={{ background: '#4267B2', color: 'white', border: 'none', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '14px' }}>Facebook</button>
+  
+  <button onClick={() => { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }} style={{ background: '#6c757d', color: 'white', border: 'none', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '14px' }}>Copy Link</button>
+</div>
