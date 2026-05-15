@@ -89,9 +89,11 @@ const FeaturesSection: React.FC = () => {
       className="
         group relative overflow-hidden
         flex flex-col items-center text-center
-        bg-white/80 dark:bg-brown-900/70
+        bg-white/80 
+        dark:bg-gray-900/70
         backdrop-blur-lg
-        border border-gray-200 dark:border-brown-700
+        border border-gray-200 
+        dark:border-brown-700
         p-8 rounded-2xl
         shadow-md
         transition-all duration-500 ease-out
