@@ -1,5 +1,8 @@
 # [Algo](https://ajay-dhangar.github.io/algo/) - Open Source Algorithm Repository
 
+<img width="1024" height="434" alt="image" src="https://github.com/user-attachments/assets/38eb4aed-766b-49f3-add3-e3eb37890a37" />
+
+
 ## introduction
 
 Welcome to Algo, an open-source educational platform built with Docusaurus (React + MDX). We provide developers with comprehensive algorithmic solutions and resources. Whether you're a beginner or an expert, you can contribute, learn, and help us build the world's top educational documentation.
