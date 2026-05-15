@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "@docusaurus/Link";
 
 const PopularAlgorithmsSection: React.FC = () => {
   const algorithms = [
@@ -70,12 +69,12 @@ const PopularAlgorithmsSection: React.FC = () => {
                 </p>
               </div>
               <div className="flex justify-center mt-auto">
-                <Link
-                  to={algorithm.link}
-                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition-colors"
+                <a
+                  href={algorithm.link}
+                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
                 >
                   Learn More
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>
