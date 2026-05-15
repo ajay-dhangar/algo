@@ -1,9 +1,11 @@
 # [Algo](https://ajay-dhangar.github.io/algo/) - Open Source Algorithm Repository
 
-<img src="https://profile-counter.glitch.me/ajay-dhangar/count.svg" alt="hit counter" align="center">
+<img width="1024" height="434" alt="image" src="https://github.com/user-attachments/assets/38eb4aed-766b-49f3-add3-e3eb37890a37" />
+
 
 ## introduction
-Welcome to **Algo**, an open-source project that provides developers with algorithmic solutions and resources. Whether you're a beginner or an experienced coder, you can contribute, learn, and grow with us! 🚀
+
+Welcome to Algo, an open-source educational platform built with Docusaurus (React + MDX). We provide developers with comprehensive algorithmic solutions and resources. Whether you're a beginner or an expert, you can contribute, learn, and help us build the world's top educational documentation.
 
 <div align = "center">
 <br>
@@ -46,6 +48,12 @@ Welcome to **Algo**, an open-source project that provides developers with algori
       <th>Event Name</th>
       <th>Event Description</th>
       <th>Status</th>       
+   </tr>
+   <tr>
+      <td><img src="gssoc-algo-banner.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td>GSSoC '26</td>
+      <td>GirlScript Summer of Code (GSSoC) is an awesome 3-month open-source program that's all about getting people into software development.</td>
+       <td>Active</td>
    </tr>
    <tr>
       <td><img src="girlscript.jpg" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
@@ -136,9 +144,15 @@ This command generates static content into the `build` directory, which can be s
 
 If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
 
-## Contributing
+## 🤝 Contributing
 
-We welcome contributions from developers of all experience levels. For guidelines, please see the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+As a Project Admin, I ensure a structured workflow to maintain high code quality.
+
+* **Respond within 24 hours:** I aim to assign issues quickly.
+* **Quality Checks:** CI/CD checks must pass before merging.
+* **Guidelines:** Please read our [CONTRIBUTING.md](./CONTRIBUTING.md) before starting.
+
+We welcome contributions from developers of all experience levels.
 
 ## Contributors ✨
 
