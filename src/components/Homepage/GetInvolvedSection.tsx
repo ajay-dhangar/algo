@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "@docusaurus/Link";
+// import Link from "@docusaurus/Link";
 
 const GetInvolvedSection: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const GetInvolvedSection: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-
+          {/* Event 1 */}
           <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6]  group transform hover:scale-105 duration-300">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-white mb-2">
               Hackathons
@@ -28,13 +28,13 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             {/* Center the button */}
             <div className="flex justify-center">
-               <a href="https://hacktoberfest.com/" className="inline-block bg-blue-600 text-white px-4 py-2 cursor-pointer rounded shadow transition hover:bg-blue-700 pointer-events-auto z-10"
+               <a href="https://hacktoberfest.com/" className="inline-block bg-blue-600 text-white px-4 py-2 cursor-pointer rounded shadow transition hover:bg-blue-700  hover:text-white pointer-events-auto z-10"
                   target="_blank" rel="noopener noreferrer">Learn More</a>
            </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
-
+          {/* Event 2 */}
           <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
             <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Workshops
@@ -43,10 +43,10 @@ const GetInvolvedSection: React.FC = () => {
               Join our workshops to learn about the latest technologies and best
               practices in software development.
             </p>
-             <div className="flex justify-center">
-               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
-                  target="_blank" rel="noopener noreferrer">Learn More</a>
-           </div>
+           <div className="flex justify-center">
+              <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
+                target="_blank" rel="noopener noreferrer"> Learn More </a>
+            </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
@@ -60,7 +60,7 @@ const GetInvolvedSection: React.FC = () => {
               community meetups.
             </p>
              <div className="flex justify-center">
-               <a href="https://www.linkedin.com/in/ajay-dhangar/" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+               <a href="https://www.linkedin.com/in/ajay-dhangar/" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
                   target="_blank" rel="noopener noreferrer">Learn More</a>
            </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
@@ -76,11 +76,13 @@ const GetInvolvedSection: React.FC = () => {
               experienced developers in the industry.
             </p>
             <div className="flex justify-center">
-               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
                   target="_blank" rel="noopener noreferrer">Learn More</a>
            </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
+
+          {/* Event 5 */}
           <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
             <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Online Courses
@@ -90,13 +92,13 @@ const GetInvolvedSection: React.FC = () => {
             </p>
             {/* Center the button */}
             <div className="flex justify-center">
-               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
                   target="_blank" rel="noopener noreferrer">Learn More</a>
            </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
           </div>
 
-
+          {/* Event 6 */}
           <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
             <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
               Open Source Contributions
@@ -106,7 +108,7 @@ const GetInvolvedSection: React.FC = () => {
               making a positive impact!
             </p>
             <div className="flex justify-center">
-               <a href="https://github.com/ajay-dhangar/algo" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 cursor-pointer pointer-events-auto z-10"
+               <a href="https://github.com/ajay-dhangar/algo" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
                   target="_blank" rel="noopener noreferrer">Learn More</a>
            </div>
             <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
