@@ -86,14 +86,12 @@ void circularSort(vector<int>& arr) {
 
 int main() {
     vector<int> arr = {10, 7, 8, 9, 1, 5};
-    
     circularSort(arr);
-
     cout << "Sorted array is: ";
     for (int i = 0; i < arr.size(); i++) {
         cout << arr[i] << " ";
     }
     cout << endl;
-
     return 0;
 }
+```
