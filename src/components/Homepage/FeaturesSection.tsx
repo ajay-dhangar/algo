@@ -71,29 +71,64 @@ const features: Feature[] = [
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
+    <section className="py-16 bg-blue-50 dark:bg-gray-900">
       <div className="container mx-auto px-2">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
-            Why Choose <span className="text-indigo-500 dark:text-yellow-400">Algo?</span>
+          <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
+            Why Choose <span className="text-indigo-400 dark:text-yellow-400">Algo?</span>
           </h2>
           <p className="mt-4 text-gray-600 dark:text-gray-400">
             Explore the key features that make our algorithm library the best resource for learners and developers.
           </p>
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl cursor-pointer"
-            >
-              <div className="mb-6">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
-            </div>
-          ))}
-        </div>
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      {features.map((feature, index) => (
+       <div
+        key={index}
+      className="
+        group relative overflow-hidden
+        flex flex-col items-center text-center
+        bg-white/80 dark:bg-brown-900/70
+        backdrop-blur-lg
+        border border-gray-200 dark:border-brown-700
+        p-8 rounded-2xl
+        shadow-md
+        transition-all duration-500 ease-out
+        hover:-translate-y-3
+        hover:shadow-2xl
+        hover:border-blue-500/40
+        cursor-pointer
+      ">
+      <div
+        className="
+          relative z-10 mb-6
+          text-5xl
+          transition-all duration-500
+          group-hover:scale-110
+          group-hover:rotate-6
+        "
+      >
+        {feature.icon}
+      </div>
+      <h3
+        className="relative z-10 text-xl 
+        font-bold text-gray-800 
+        dark:text-white mb-4 
+        transition-colors duration-300 
+        group-hover:text-blue-500">
+        {feature.title}
+      </h3>
+      <p
+        className="relative z-10 text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">
+        {feature.description}
+      </p>
+      <div
+         className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 group-hover:w-full"
+         />
+         </div>
+        ))}
+       </div>
       </div>
     </section>
   );
