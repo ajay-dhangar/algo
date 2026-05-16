@@ -84,81 +84,34 @@ const PopularAlgorithmsSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {algorithms.map((algorithm, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="
-                group relative overflow-hidden
-                rounded-3xl
-                border border-white/10
-                bg-white/70 dark:bg-white/5
-                backdrop-blur-xl
-                p-8
-                shadow-lg shadow-black/5
-                transition-all duration-500
-                hover:shadow-2xl hover:shadow-blue-500/20
-                hover:border-blue-400/40
-                flex flex-col justify-between
-              "
-            >
-              <motion.div
-                className="absolute inset-0 rounded-3xl border border-transparent"
-                whileHover={{
-                  borderColor: "rgba(59,130,246,0.4)",
-                }}
-                transition={{ duration: 0.3 }}
-              />
-
-              <div className="relative z-10 flex flex-col h-full">
-                <div>
-                  <h3
-                    className="
-                    text-2xl font-bold mb-4
-                    text-gray-900 dark:text-white
-                    group-hover:text-blue-500
-                    transition-colors duration-300
-                  "
-                  >
-                    {algorithm.title}
-                  </h3>
-
-                  <p
-                    className="
-                    text-gray-600 dark:text-gray-300
-                    leading-relaxed
-                    mb-8
-                  "
-                  >
-                    {algorithm.description}
-                  </p>
-                </div>
-
-                <div className="flex justify-center mt-auto">
-                  <Link
-                    to={algorithm.link}
-                    className="
-                    inline-flex items-center justify-center
-                    px-5 py-3
-                    rounded-xl
-                    font-medium
-                    text-white
-                    bg-gradient-to-r
-                    from-blue-600
-                    to-cyan-500
-                    shadow-lg shadow-blue-500/20
-                    transition-all duration-300
-                    hover:scale-105
-                    hover:shadow-blue-500/40
-                    hover:from-blue-500
-                    hover:to-cyan-400 hover:text-gray-100
-                  "
-                  >
-                    Learn More
-                  </Link>
-                </div>
+            key={index}
+            className="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-2xl hover:bg-[#3b82f6] cursor-pointer group flex flex-col justify-between h-full"
+            initial={{ scale: 1 }}
+            whileHover={{ scale: 1.05 }} // Scale on hover
+            whileTap={{ scale: 0.95 }} // Scale down on tap
+          >
+            <motion.div
+              className="absolute inset-0 border-2 border-transparent rounded-lg"
+              initial={{ borderColor: "transparent" }}
+              whileHover={{ borderColor: "#3b82f6" }} // Add blue border on hover
+              transition={{ duration: 0.3 }}
+            />
+            <div className="relative z-10 flex flex-col justify-between h-full">
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-800 dark:text-white group-hover:text-white mb-4">
+                  {algorithm.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 group-hover:text-slate-50">
+                  {algorithm.description}
+                </p>
+              </div>
+              <div className="flex justify-center mt-auto">
+                <a
+                  href={algorithm.link}
+                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
+                >
+                  Learn More
+                </a>
               </div>
             </motion.div>
           ))}

@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "@docusaurus/Link";
+// import Link from "@docusaurus/Link";
 
 const GetInvolvedSection: React.FC = () => {
   const cards = [
@@ -114,42 +114,101 @@ const GetInvolvedSection: React.FC = () => {
                   {card.title}
                 </h3>
 
-                <p
-                  className="text-gray-600 dark:text-gray-300
-                  leading-relaxed mb-8 flex-grow"
-                >
-                  {card.description}
-                </p>
+          {/* Event 1 */}
+          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6]  group transform hover:scale-105 duration-300">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-white mb-2">
+              Hackathons
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Participate in our hackathons to showcase your skills and win exciting prizes!
+            </p>
+            {/* Center the button */}
+            <div className="flex justify-center">
+               <a href="https://hacktoberfest.com/" className="inline-block bg-blue-600 text-white px-4 py-2 cursor-pointer rounded shadow transition hover:bg-blue-700  hover:text-white pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+          </div>
 
-                <div className="flex justify-center">
-                  <a
-                    href={card.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative inline-flex items-center justify-center
-                      px-5 py-3 rounded-xl font-medium
-                      text-white bg-gradient-to-r
-                      from-blue-600 to-cyan-500 shadow-lg shadow-blue-500/20
-                      transition-all duration-300
-                      hover:scale-105 hover:shadow-blue-500/40
-                      hover:from-blue-500 hover:to-cyan-400 hover:text-gray-100"
-                  > Learn More
-                  </a>
-                </div>
-              </div>
+          {/* Event 2 */}
+          <div className=" flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Workshops
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Join our workshops to learn about the latest technologies and best
+              practices in software development.
+            </p>
+           <div className="flex justify-center">
+              <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
+                target="_blank" rel="noopener noreferrer"> Learn More </a>
             </div>
-          ))}
-        </div>
-        <div className="mt-20 text-center">
-          <Link to="/community"
-            className="inline-flex items-center gap-2 px-8 py-4
-              rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-black
-              font-semibold shadow-lg
-              transition-all duration-300 hover:scale-105
-              hover:shadow-2xl hover:text-gray-100"
-          >
-            Join Our Community
-          </Link>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+          </div>
+
+          {/* Event 3 */}
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Community Meetups
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Connect with fellow contributors and share ideas at our regular
+              community meetups.
+            </p>
+             <div className="flex justify-center">
+               <a href="https://www.linkedin.com/in/ajay-dhangar/" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+          </div>
+
+          {/* Event 4 */}
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Mentorship Programs
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Sign up for our mentorship programs to get guidance from
+              experienced developers in the industry.
+            </p>
+            <div className="flex justify-center">
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+          </div>
+
+          {/* Event 5 */}
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Online Courses
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Enroll in our online courses to gain valuable skills and certifications.
+            </p>
+            {/* Center the button */}
+            <div className="flex justify-center">
+               <a href="#" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+          </div>
+
+          {/* Event 6 */}
+          <div className="flex flex-col justify-between relative bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg transition-transform hover:shadow-2xl hover:bg-[#3b82f6] group transform hover:scale-105 duration-300">
+            <h3 className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Open Source Contributions
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:text-slate-50">
+              Contribute to our project and enhance your coding skills while
+              making a positive impact!
+            </p>
+            <div className="flex justify-center">
+               <a href="https://github.com/ajay-dhangar/algo" className="inline-block bg-blue-600 text-white px-4 py-2 rounded shadow transition hover:bg-blue-700 hover:text-white cursor-pointer pointer-events-auto z-10"
+                  target="_blank" rel="noopener noreferrer">Learn More</a>
+           </div>
+            <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+          </div>
         </div>
       </div>
     </section>
