@@ -119,7 +119,7 @@ const PopularAlgorithmsSection: React.FC = () => {
         </div>
         <div className="mt-20 text-center">
           <Link
-            to="/algorithms"
+            to="#"
             className="
               inline-flex items-center gap-2
               px-8 py-4

@@ -1,5 +1,5 @@
 import React from "react";
-// import Link from "@docusaurus/Link";
+import Link from "@docusaurus/Link";
 
 const GetInvolvedSection: React.FC = () => {
   const cards = [
