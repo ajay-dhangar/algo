@@ -6,6 +6,7 @@ import Homepage from "../components/Homepage";
 import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop.tsx";
 import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom.tsx";
 import ChatbotIframe from "../components/chatbot.jsx";
+import DSAHelper from "../components/DSAHelper";
 
 
 export default function Home() {
@@ -50,8 +51,10 @@ export default function Home() {
           src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
         ></script>
       </Head>
+      
       <main>
         <Homepage />
+          <DSAHelper />
          <ChatbotIframe />
         <BottomToTop />
         <TopToBottom />
