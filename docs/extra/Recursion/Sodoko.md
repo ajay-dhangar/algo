@@ -89,3 +89,17 @@ int main() {
     return 0;
 }
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Worst Case:** $O(9^{m})$ - Where $m$ is the number of empty cells. In the worst case (nearly empty board), the algorithm might try up to 9 values for each empty cell.
+- **Best Case:** $O(1)$ - If the board is already solved.
+- **Average Case:** Significantly better than worst case due to constraint pruning (the `isValid` function eliminates many invalid choices early).
+
+### Space Complexity
+- $O(m)$ - Where $m$ is the number of empty cells. The recursion stack depth is proportional to the number of empty cells (maximum 81 for a 9x9 grid). The space is used for the recursion call stack.
+- Additional auxiliary space: $O(1)$ - The algorithm uses constant extra space (only flags and counters).
+
+## Explanation
+The Sudoku solver uses backtracking with constraint validation. For each empty cell, it tries digits 1-9, checking validity against row, column, and 3x3 box constraints. The `isValid` function prunes the search space significantly by rejecting invalid choices immediately. If a number works, the algorithm recursively solves the rest. If no valid digit exists for a cell, it backtracks and tries different values for the previous cell. This constraint-satisfaction approach is much more efficient than brute force.

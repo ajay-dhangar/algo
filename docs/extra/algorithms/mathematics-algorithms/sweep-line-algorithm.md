@@ -258,6 +258,19 @@ public class SweepLineAlgorithm {
 
 </Tabs>
 
+## Time Complexity
+- Best Case: O(N log N) (when there are no intersections)
+- Average Case: O((N + K) log N)
+- Worst Case: O((N + K) log N)
+where `N` is the number of line segments and `K` is the number of intersection points. Note: The provided naive implementations check all active segments in `O(A^2)` where `A` is the number of active segments, making them `O(N^2)` in the worst case. An optimal implementation uses a balanced Binary Search Tree to maintain active segments, achieving `O((N + K) log N)`.
+
+## Space Complexity
+- O(N)
+where `N` is the number of line segments. The event queue holds up to `2N` events, and the active set holds at most `N` segments at any given time.
+
+## Explanation
+The Sweep Line algorithm optimizes processing by sorting spatial events (like the start and end of segments) from left to right, which takes `O(N log N)` time. It then maintains an active set of elements that currently intersect the sweep line. By finding intersections only among adjacent segments in the active set (usually maintained with a balanced BST), it avoids checking every possible pair, dramatically reducing runtime compared to a brute-force approach.
+
 ### Applications in Competitive Programming:
 
 1. Finding Segment Intersections: Used to detect where line segments cross, which is important in geometry-based problems.

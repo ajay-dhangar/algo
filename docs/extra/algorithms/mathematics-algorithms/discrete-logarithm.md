@@ -103,6 +103,20 @@ public class DiscreteLogarithm {
     }
 }
 ```
+
+## Time Complexity
+- Best Case: O(1) (When the solution `x` is found very early)
+- Average Case: O(p)
+- Worst Case: O(p)
+where `p` is the modulus, as the brute-force approach may need to check all values up to `p-1`.
+
+## Space Complexity
+- O(1)
+as it only uses a few variables to keep track of the loop and exponentiation result.
+
+## Explanation
+The given naive algorithm evaluates `a^x mod p` for each `x` from `0` to `p-1`. Consequently, its time complexity is linearly proportional to the size of `p` `O(p)`. The space complexity is constant `O(1)` as no dynamic memory or large data structures are allocated. This brute-force approach is highly inefficient for large values of `p`, which makes the Discrete Logarithm problem computationally hard and suitable for cryptography. More efficient algorithms like Baby-step Giant-step or Pollard's Rho exist but still require exponential time relative to the bit-length of `p`.
+
 ### Explanation of the Code:
 **discrete_logarithm** : This function brute-forces the solution by checking all possible values of 
 $x$ until it finds one that satisfies 

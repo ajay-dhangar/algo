@@ -96,6 +96,18 @@ graph TD;
     D --> G[End];
 ```
 
+## Time Complexity
+- Best Case: O(1) (When `b` divides `a` evenly right away)
+- Average Case: O(log(min(a, b)))
+- Worst Case: O(log(min(a, b)))
+
+## Space Complexity
+- O(1)
+as it only uses a few variables to hold the integers and their remainders.
+
+## Explanation
+The Euclidean Algorithm reduces the numbers `a` and `b` extremely fast. In the worst case (when the numbers are consecutive Fibonacci numbers), the number of steps is proportional to the number of digits in the smaller number, leading to a logarithmic time complexity of `O(log(min(a, b)))`. Space complexity is `O(1)` for the iterative approach, though a recursive implementation would use `O(log(min(a, b)))` auxiliary space for the call stack.
+
 ## Conclusion
 The Euclidean Algorithm is a fundamental technique in number theory for efficiently finding the Greatest Common Divisor (GCD) of two integers. By repeatedly applying the division and remainder operation, it significantly reduces the problem size, making it an optimal solution for GCD calculations. 
 

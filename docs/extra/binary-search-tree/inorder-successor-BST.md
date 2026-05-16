@@ -97,4 +97,18 @@ int main() {
 
     return 0;
 }
-``` 
+```
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Best Case:** $O(1)$ - When the successor is the parent or when the node has only a small right subtree.
+- **Average Case:** $O(\log n)$ - For a reasonably balanced tree, finding the minimum in a subtree takes logarithmic time.
+- **Worst Case:** $O(n)$ - When traversing the entire height of a completely skewed tree.
+
+### Space Complexity
+- $O(1)$ - The iterative approach uses constant space.
+- $O(h)$ - If implemented recursively, where $h$ is the height of the tree (at most $n$ for a skewed tree).
+
+## Explanation
+Finding the inorder successor uses the BST property: if a node has a right subtree, the successor is the minimum node in that subtree. If not, we traverse upward until finding an ancestor where the current path came from the left. The algorithm is efficient on balanced trees but can degrade on skewed structures. 

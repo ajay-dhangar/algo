@@ -73,3 +73,16 @@ function contains(item):
 3. **Check Membership** of `"apple"`:
    - Use the hash functions to compute indices for `"apple"` again.
    - If all the indices are set to `1`, then `"apple"` is likely in the set. If any index is `0`, `"apple"` is definitely not in the set.
+
+## Time Complexity
+- Best Case: O(k)
+- Average Case: O(k)
+- Worst Case: O(k)
+where `k` is the number of hash functions used.
+
+## Space Complexity
+- O(m)
+where `m` is the number of bits in the array.
+
+## Explanation
+A Bloom filter achieves fast lookups and insertions in O(k) time, as it only requires applying `k` hash functions and checking or setting bits at those indices. Its space efficiency is remarkable, taking only O(m) space without storing the actual elements, though this comes at the cost of potential false positives.

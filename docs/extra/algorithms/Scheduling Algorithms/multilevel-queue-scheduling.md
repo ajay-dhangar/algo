@@ -33,53 +33,18 @@ Consider a system with three queues:
 
 If there are no system processes, the CPU schedules processes from the interactive queue. If no interactive processes are present, it schedules batch processes.
 
-## Time Complexity Analysis
+## Time Complexity
+- Best Case: O(1) per process
+- Average Case: O(k + n)
+- Worst Case: O(k * n)
+where `k` is the number of queues and `n` is the total number of processes.
 
-### Best Case Scenario:
-In the best case, all processes are in the highest-priority queue, which allows the CPU to execute them without needing to check other queues. For example:
+## Space Complexity
+- O(n)
+where `n` is the number of processes, as space is required to store the process details across the queues.
 
-#### Example:
-Let's say there are 3 queues:
-- **Queue 1**: 5 high-priority processes (using FIFO)
-- **Queue 2**: 3 medium-priority processes (using Round Robin)
-- **Queue 3**: 2 low-priority processes (using Round Robin)
-
-If all processes are in **Queue 1**, the CPU only needs to execute the processes in that queue without checking the other queues.
-
-- **Time Complexity (Best Case):** `O(1)` for each process, because the scheduler simply picks the next process in **Queue 1** (using FIFO). 
-- For **n** processes in the highest-priority queue, the complexity is `O(n)`.
-
-### Worst Case Scenario:
-In the worst case, the CPU has to check multiple queues and switch between different scheduling algorithms.
-
-#### Example:
-Let's consider the same three queues:
-- **Queue 1**: Empty
-- **Queue 2**: 3 medium-priority processes (Round Robin)
-- **Queue 3**: 2 low-priority processes (Round Robin)
-
-Here, the CPU first checks **Queue 1**, finds it empty, and then moves to **Queue 2**. After executing a process in **Queue 2**, it may have to perform a context switch and check **Queue 3** if all processes in **Queue 2** have finished. This adds overhead.
-
-- **Time Complexity (Worst Case):** 
-    - The worst-case complexity arises from checking multiple queues and handling context switches between different queues and scheduling algorithms. This can be **O(n)** per queue.
-    - For **k** queues with **n** processes spread across them, the worst-case time complexity could be **O(k × n)**.
-
-#### Detailed Worst Case Example:
-- **Queue 1**: Empty
-- **Queue 2**: 3 processes with Round Robin scheduling.
-- **Queue 3**: 2 processes with Round Robin scheduling.
-
-At each step:
-1. CPU checks **Queue 1** → Empty (Time: O(1))
-2. CPU checks **Queue 2** → Executes a process (Time: O(1))
-3. CPU checks **Queue 3** → Executes a process (Time: O(1))
-
-Total checks across **k** queues with **n** processes lead to **O(k × n)**, where **k** is the number of queues.
-
-
-
-
-## Advantages
+## Explanation
+In Multilevel Queue Scheduling, the overall time complexity largely depends on the specific scheduling algorithm used in each individual queue. In the simplest implementation, selecting a process to execute takes `O(1)` time if the highest priority queue has ready processes. In the worst case, checking empty queues and managing context switches introduces overhead proportional to the number of queues `k`. The space complexity is `O(n)` to maintain the queues containing the different processes.## Advantages
 - **Separation of Processes:** Processes with different requirements can be separated and handled by different scheduling algorithms.
 - **Efficient for Real-Time Systems:** High-priority tasks can be executed immediately.
 - **Customizability:** Each queue can have its own scheduling algorithm.

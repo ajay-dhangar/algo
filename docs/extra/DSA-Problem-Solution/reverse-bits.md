@@ -86,6 +86,17 @@ public class Solution {
   
   > **Close Scanner:** Ensures the Scanner is closed after usage.
 
+## Time and Space Complexity
+
+### Time Complexity
+- $O(1)$ - The `Integer.reverse()` method in Java performs a fixed number of bit operations (at most 32 operations for a 32-bit integer). Since the input size is fixed, the algorithm runs in constant time.
+
+### Space Complexity
+- $O(1)$ - The algorithm uses only a constant amount of extra space, regardless of input size. It operates directly on the bit representation without requiring additional data structures.
+
+## Explanation
+Reversing bits of a 32-bit integer is fundamentally a fixed-size operation. Java's `Integer.reverse()` efficiently reverses the bit sequence by performing bitwise operations. The algorithm swaps bits from both ends moving toward the center. Since we're dealing with a fixed 32-bit representation, both time and space complexity are constant.
+
 ## Submission details:
 
 ![Submission img](https://github.com/user-attachments/assets/2183e57d-213f-435d-a51d-5c84fc8f4e7a)
