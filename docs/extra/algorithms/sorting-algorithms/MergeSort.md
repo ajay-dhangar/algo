@@ -197,3 +197,22 @@ int main() {
 ### Summary:
 
 Merge sort is an efficient and reliable sorting algorithm, particularly for large datasets. It works by recursively dividing the array into smaller subarrays and merging them in the correct order. Despite its additional space complexity, its consistent time complexity of O(n log n) makes it a popular choice for sorting algorithms. The recursive approach is more intuitive, but the iterative version can be useful in cases where recursion depth could be a concern.
+
+## Real-World Applications
+
+- Used in external sorting for huge datasets
+- Used in database systems
+- Used in divide-and-conquer applications
+- Used in stable sorting requirements
+
+## Advantages
+
+- Stable sorting algorithm
+- Efficient for large datasets
+- Guaranteed O(n log n) performance
+
+## Beginner-Friendly Example
+
+Imagine dividing a deck of cards into smaller groups,
+sorting each group separately, and then merging them together in order.
+This is similar to merge sort.
