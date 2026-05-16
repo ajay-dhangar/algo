@@ -1,7 +1,7 @@
 ---
 id: kd-tree
 title: K-D Tree
-sidebar_label: K-D Tree
+sidebar_label: 🟠 K-D Tree
 sidebar_position: 3
 description: "A K-D Tree is a space-partitioning data structure for organizing points in a k-dimensional space."
 tags: [Data Structures, K-D Tree, Algorithms]

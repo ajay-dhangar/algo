@@ -3,7 +3,7 @@
 id: quick-sort-algo  
 sidebar_position: 5  
 title: Quick Sort  
-sidebar_label: Quick Sort  
+sidebar_label: 🟢 Quick Sort
 
 ---
 

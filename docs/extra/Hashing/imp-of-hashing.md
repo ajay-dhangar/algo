@@ -2,7 +2,7 @@
 id: imp-of-hashing
 sidebar_position: 2
 title: Importance of Hashing
-sidebar_label: Importance of Hashing
+sidebar_label: 🟢 Importance of Hashing
 description: "Hashing is an essential technique in data structures and algorithms used to optimize data retrieval, storage, and management through efficient key-value mapping."
 tags: [algorithms, hashing, data structures]
 ---

@@ -1,7 +1,7 @@
 ---
 id: aho-corasick-algorithm
 title: "Aho-Corasick Algorithm"
-sidebar_label: "Aho-Corasick"
+sidebar_label: "🟢 Aho-Corasick"
 sidebar_position: 9
 description: "An efficient algorithm for multiple pattern matching using a trie and failure links."
 tags: [pattern matching, string algorithms, Aho-Corasick, trie, competitive programming]

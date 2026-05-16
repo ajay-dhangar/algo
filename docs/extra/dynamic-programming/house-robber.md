@@ -1,7 +1,7 @@
 ---
 id: house-robber
 title: House Robber
-sidebar_label: "House Robber"
+sidebar_label: "🔴 House Robber"
 sidebar_position: 5
 description: In this blog post, we explore the House Robber problem, a classic dynamic programming challenge that determines the maximum amount of money you can rob from a series of houses arranged in a line.
 tags: [DP, House Robber]

@@ -1,7 +1,7 @@
 ---
 id: arrays-heapsort
 title: Arrays - Heap Sort
-sidebar_label: Heap Sort
+sidebar_label: 🟠 Heap Sort
 sidebar_position: 4
 description: "Heap Sort is an efficient comparison-based sorting algorithm based on a binary heap data structure. It sorts by building a max-heap from the data and repeatedly extracting the maximum element."
 tags: [dsa, arrays, sorting, heap-sort, algorithm of heap-sort, pseudocode of heap-sort, complexity of heap-sort, example of heap-sort, explanation of heap-sort]

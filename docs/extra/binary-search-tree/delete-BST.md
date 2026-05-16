@@ -2,7 +2,7 @@
 id: delete-binary-search-tree
 sidebar_position: 15
 title: Delete in a Binary Search Tree
-sidebar_label: Delete in BST
+sidebar_label: 🟠 Delete in BST
 description: "This blog post covers how to delete a value from a Binary Search Tree (BST) in C++, along with explanations and code examples."
 tags: [dsa, binary trees, delete, c++]
 ---

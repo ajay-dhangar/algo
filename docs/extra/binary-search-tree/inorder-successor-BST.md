@@ -2,7 +2,7 @@
 id: inorder-successor-binary-search-tree
 sidebar_position: 17
 title: Inorder Successor in a Binary Search Tree
-sidebar_label: Inorder Successor in BST
+sidebar_label: 🟠 Inorder Successor in BST
 description: "This post explains how to find the Inorder Successor of a node in a Binary Search Tree (BST) in C++, with code examples and detailed explanations."
 tags: [dsa, binary trees, inorder, successor, c++]
 ---

@@ -1,7 +1,7 @@
 ---
 id: introduction-to-DoublyLinkedList
 title: Doubly Linked List Data Structure
-sidebar_label: Introduction to Doubly Linked List
+sidebar_label: 🟢 Introduction to Doubly Linked List
 sidebar_position: 4
 description: 'A Doubly Linked List (DLL) is a type of linked data structure that consists of nodes. Each node contains three fields: data, a pointer to the next node, and a pointer to the previous node. This structure allows traversal in both directions—forward and backward.'
 tags: [dsa, data-structures, Doubly LinkedList]

@@ -1,7 +1,7 @@
 ---
 id: Kth-Largest-Element-Heap
 title: Kth Largest Element in an Array using Heap
-sidebar_label: Kth Largest Element
+sidebar_label: 🟠 Kth Largest Element
 sidebar_position: 11
 description: Find the Kth largest element in an array using a heap data structure.
 tags: [Heap, Competitive Programming, Priority Queue, top-K]

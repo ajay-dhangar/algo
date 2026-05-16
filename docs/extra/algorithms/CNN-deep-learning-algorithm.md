@@ -1,7 +1,7 @@
 ---
 id: cnn-deep-learning-algorithm
 title: CNN Deep Learning Algorithm
-sidebar_label: CNN Deep Learning Algorithm
+sidebar_label: 🟠 CNN Deep Learning Algorithm
 sidebar_position: 16
 description: "Convolutional Neural Networks (CNNs) are specialized deep learning architectures that are particularly effective for image processing tasks due to their ability to capture spatial hierarchies in data."
 tags: [Deep Learning, Convolutional Neural Networks, CNN, Image Processing]

@@ -1,7 +1,7 @@
 ---
 id: bucket-sort
 title: Bucket sort
-sidebar_label: Bucket sort
+sidebar_label: 🟢 Bucket sort
 tags:
   - DSA
   - Python

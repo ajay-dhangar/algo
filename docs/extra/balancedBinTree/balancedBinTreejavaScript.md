@@ -1,6 +1,7 @@
 ---
 id: balanced-binary-tree-checker-js
 title: Balanced Binary Tree Javascript
+sidebar_label: 🟠 Balanced Binary Tree Javascript
 description: Learn how to implement a balanced binary tree checker in JavaScript, with explanations of the algorithm and time complexity analysis.
 tags: [tree, binary-tree, depth-first-search, javascript, leetcode]
 ---

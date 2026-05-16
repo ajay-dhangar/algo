@@ -1,7 +1,7 @@
 ---
 id: Practice-Problems-on-greedy-algorithms
 title: Practice Problems
-sidebar_label: Practice Problems
+sidebar_label: 🟠 Practice Problems
 sidebar_position: 2
 description: Practice problems for Greedy Algorithms, categorized by difficulty and topic. These problems help in understanding the practical application of greedy strategies in solving algorithmic challenges.
 tags: [DSA, algorithms, greedy]

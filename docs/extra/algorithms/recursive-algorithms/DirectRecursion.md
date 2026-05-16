@@ -2,7 +2,7 @@
 id: direct-recursion-algo
 sidebar_position: 1
 title: Direct Recursion
-sidebar_label: Direct Recursion
+sidebar_label: 🟠 Direct Recursion
 ---
 
 ### Definition:

@@ -1,7 +1,7 @@
 ---
 id: recursion-applications
 title: Applications of Recursion
-sidebar_label: Applications of Recursion
+sidebar_label: 🟠 Applications of Recursion
 sidebar_position: 17
 description: "Applications of Recursion in various fields, including algorithm design, problem-solving, and real-world use cases."
 tags: [Algorithm, Recursion, Applications, Programming]

@@ -1,7 +1,7 @@
 ---
 id: euclidean-algorithm
 title: Euclidean Algorithm in Number Theory
-sidebar_label: Euclidean Algorithm
+sidebar_label: 🟢 Euclidean Algorithm
 sidebar_position: 1
 description: Explanation and implementation of the Euclidean Algorithm to find the GCD of two numbers.
 tags: [number-theory, gcd, algorithms]

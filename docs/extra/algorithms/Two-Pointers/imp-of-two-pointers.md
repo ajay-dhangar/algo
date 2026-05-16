@@ -2,7 +2,7 @@
 id: importance-of-two-pointers
 sidebar_position: 2
 title: Importance of Two Pointers Technique
-sidebar_label: Importance of Two Pointers
+sidebar_label: 🟠 Importance of Two Pointers
 description: "The Two Pointers technique is an efficient algorithmic strategy used to solve various problems involving arrays or lists by utilizing two indices."
 tags: [Algorithms, Two Pointers, Competitive Programming]
 ---

@@ -3,7 +3,7 @@
 id: advanced-encryption-standard  
 sidebar_position: 4  
 title: Advanced Encryption Standard (AES)  
-sidebar_label: Advanced Encryption Standard  
+sidebar_label: 🔴 Advanced Encryption Standard
 
 ---
 

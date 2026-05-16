@@ -1,7 +1,7 @@
 ---
 id: Priority-Scheduling
 title: Priority Scheduling
-sidebar_label: "Priority Scheduling"
+sidebar_label: "🟠 Priority Scheduling"
 sidebar_position: 6
 description: An overview of Priority Scheduling and its applications in programming.
 tags: [CPU Scheduling, algorithms, programming, priority]

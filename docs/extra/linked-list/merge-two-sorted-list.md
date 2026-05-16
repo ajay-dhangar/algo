@@ -3,7 +3,7 @@ id: merge-two-sorted-list
 sidebar_position: 1
 title: "Merge Two Sorted Linked Lists"
 description: "This tutorial explains how to merge two sorted list using Cpp."
-sidebar_label: "Linked List Intersection"
+sidebar_label: "🟢 Linked List Intersection"
 tags: [dsa, linked-lists, merge,cpp]
 ---
 # Merge Two Sorted Linked Lists

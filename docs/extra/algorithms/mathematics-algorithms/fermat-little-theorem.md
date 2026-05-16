@@ -1,7 +1,7 @@
 ---
 id: fermat-little-theorem
 title: "Fermat's Little Theorem"
-sidebar_label: "Fermat's Little Theorem MMI"
+sidebar_label: "🟢 Fermat's Little Theorem MMI"
 sidebar_position: 5
 description: "A comprehensive guide to calculating the modular multiplicative inverse using Fermat's Little Theorem."
 tags: [number theory, modular arithmetic, cryptography,competitive progrmaing]

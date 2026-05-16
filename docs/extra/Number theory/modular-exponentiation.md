@@ -1,7 +1,7 @@
 ---
 id: modular-exponentiation
 title: "Modular Exponentiation"
-sidebar_label: "Efficient Power Calculation"
+sidebar_label: "🟢 Efficient Power Calculation"
 sidebar_position: 15
 description: "A comprehensive guide on Modular Exponentiation for fast computation of large powers in modular arithmetic."
 tags: [Modular Exponentiation, number theory, cryptography, efficient algorithms]

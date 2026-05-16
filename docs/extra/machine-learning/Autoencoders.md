@@ -2,7 +2,7 @@
 
 id: autoencoders  
 title: Autoencoders  
-sidebar_label: Autoencoders  
+sidebar_label: 🔴 Autoencoders
 description: "In this post, we will explore Autoencoders, a type of artificial neural network used for unsupervised learning that focuses on efficiently encoding input data and reconstructing it."  
 tags: [machine learning, deep learning, autoencoders, neural networks, unsupervised learning]  
 

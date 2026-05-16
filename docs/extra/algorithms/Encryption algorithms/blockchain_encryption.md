@@ -3,7 +3,7 @@
 id: blockchain-cryptography-algo  
 sidebar_position: 8
 title: Blockchain Cryptography  
-sidebar_label: Blockchain Cryptography  
+sidebar_label: 🟠 Blockchain Cryptography
 
 ---
 

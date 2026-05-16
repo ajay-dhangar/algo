@@ -1,7 +1,7 @@
 ---
 id: minimize-the-maximum-of-two-arrays
 title: Minimize the Maximum of Two Arrays
-sidebar_label: Minimize the Maximum of Two Arrays
+sidebar_label: 🟠 Minimize the Maximum of Two Arrays
 sidebar_position: 3
 description: "In this blog post, we'll explore how to solve the problem of minimizing the maximum value between two arrays using binary search and mathematical reasoning."
 tags: [dsa, algorithms, binary search, arrays]

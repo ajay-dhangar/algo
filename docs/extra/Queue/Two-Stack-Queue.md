@@ -1,7 +1,7 @@
 ---
 id: two-stack-queue
 title: Two-Stack Queue Implementation
-sidebar_label: Two-Stack Queue
+sidebar_label: 🟢 Two-Stack Queue
 sidebar_position: 10
 description: A guide to implementing a queue using two stacks with a lazy transfer approach for efficient operations.
 tags: [data structure, queue, stack]

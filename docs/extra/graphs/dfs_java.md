@@ -1,7 +1,7 @@
 ---
 id: javadfs
 title: Depth-First Search (DFS) Using Java
-sidebar_label: Depth-First Search (DFS) Using Java
+sidebar_label: 🔴 Depth-First Search (DFS) Using Java
 description: "In this blog post, we'll explore Depth-First Search (DFS) using Java, a graph traversal algorithm used to explore vertices and edges by going as deep as possible before backtracking."
 tags: [dsa, algorithms, graph, traversal]
 ---

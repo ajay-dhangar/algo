@@ -1,7 +1,7 @@
 ---
 id: ackerman-function 
 title: Ackerman Function Using Recursion
-sidebar_label: Generate Ackerman Function value 
+sidebar_label: 🟠 Generate Ackerman Function value
 description: "The Ackermann function is a recursive function that grows incredibly fast and is often used to demonstrate the power and limitations of recursion. Defined with two arguments,m and n, it exhibits rapid growth even for small inputs, making it a classic example in theoretical computer science. Unlike simpler recursive functions, it is non-primitive recursive, meaning it cannot be expressed using basic loops. This function challenges computational limits, often exceeding recursion stack sizes in practical programming environments. Its main use is in studying recursion, computability, and the limits of algorithms."
 tags: [Ackerman , recursion, dsa]
 ---

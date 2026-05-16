@@ -1,7 +1,7 @@
 ---
 id: power-of-two-check
 title: Bit Manipulation Technique
-sidebar_label: Power of Two Check
+sidebar_label: 🟢 Power of Two Check
 sidebar_position: 3
 Description: The Power of Two Check is a simple bit manipulation technique to determine if a given integer is a power of two. This method is highly efficient, leveraging the property that powers of two have only one set bit in their binary representation, making it a widely-used approach in applications involving binary calculations, data storage, and efficient algorithm design.
 

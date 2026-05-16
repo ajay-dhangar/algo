@@ -1,7 +1,7 @@
 ---
 id: minimum-spanning-tree
 title: Minimum Spanning Tree Algorithms
-sidebar_label: Minimum Spanning Tree
+sidebar_label: 🔴 Minimum Spanning Tree
 description: "In this blog post, we'll explore Minimum Spanning Tree (MST) algorithms, specifically Prim's and Kruskal's algorithms, which are used to find the minimum cost spanning tree in a weighted graph."
 tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 ---

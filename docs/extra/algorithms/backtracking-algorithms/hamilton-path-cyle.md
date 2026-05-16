@@ -2,7 +2,7 @@
 id: hamiltonian-path-cycle
 sidebar_position: 2
 title: Hamiltonian Path and Cycle
-sidebar_label: Hamiltonian Path and Cycle
+sidebar_label: 🔴 Hamiltonian Path and Cycle
 description: "Hamiltonian Path and Cycle problems are a classic graph theory problem where the task is to find a path or cycle that visits every vertex exactly once. These problems are NP-complete and are widely used in various applications such as route planning, logistics, and genome sequencing."
 tags: [graph-theory, hamiltonian-cycle, backtracking]
 ---

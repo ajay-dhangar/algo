@@ -2,7 +2,7 @@
 id: binary-search-rotated-sorted-array
 sidebar_position: 5
 title: Binary Search Rotated sort array
-sidebar_label: Binary Search
+sidebar_label: 🟠 Binary Search
 description: "In this blog post, we'll dive into the rotated array approach with binary search algorithm, a fundamental technique in computer science for efficiently finding an element in a sorted array."
 tags: [dsa, algorithms, binary search]
 ---

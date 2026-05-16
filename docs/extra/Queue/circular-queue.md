@@ -1,7 +1,7 @@
 ---
 id: circular-queue-in-dsa
 title: Circular Queue Data Structure
-sidebar_label: Circular Queue
+sidebar_label: 🟢 Circular Queue
 sidebar_position: 3
 description: "A circular queue is a linear data structure that operates on the First In First Out (FIFO) principle but utilizes a circular arrangement for its storage. This allows for efficient use of space and reduces the overhead associated with traditional linear queues."
 tags: [dsa, data-structures, CircularQueue]

@@ -3,7 +3,7 @@
 id: pigeonhole-sort-algo  
 sidebar_position: 14  
 title: Pigeonhole Sort  
-sidebar_label: Pigeonhole Sort  
+sidebar_label: 🟢 Pigeonhole Sort
 
 ---
 

@@ -3,7 +3,7 @@ id: swap-kth-nodes
 sidebar_position: 1
 title: "Swap kth Node from Beginning and End"
 description: "This tutorial explains how to swap the kth node from the beginning and kth node from the end of a linked list."
-sidebar_label: "Linked List Swapping"
+sidebar_label: "🟢 Linked List Swapping"
 tags: [dsa, linked-lists]
 ---
 

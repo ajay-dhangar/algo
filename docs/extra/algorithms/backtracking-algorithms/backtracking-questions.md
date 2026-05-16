@@ -2,7 +2,7 @@
 id: backtracking-dsa
 sidebar_position: 11
 title: Backtracking
-sidebar_label: Backtracking
+sidebar_label: 🔴 Backtracking
 description: "In this blog post, we'll explore the backtracking algorithm, a powerful technique for solving combinatorial problems by building solutions incrementally."
 tags: [dsa, algorithms, backtracking]
 ---

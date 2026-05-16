@@ -1,7 +1,7 @@
 ---
 id: blocked-queue-in-dsa
 title: Blocked Queue Data Structure
-sidebar_label: Blocked Queue
+sidebar_label: 🟢 Blocked Queue
 sidebar_position: 1
 description: "A blocked queue is a linear data structure that operates on the First In First Out (FIFO) principle but includes mechanisms to block and unblock threads when the queue is empty or full. This is particularly useful in concurrent programming."
 tags: [dsa, data-structures, BlockedQueue]

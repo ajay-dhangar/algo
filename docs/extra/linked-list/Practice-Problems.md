@@ -1,7 +1,7 @@
 ---
 id: practice-problems-on-linked-list
 title: Practice Problems
-sidebar_label: Practice Problems
+sidebar_label: 🟢 Practice Problems
 sidebar_position: 16
 Description: Here are some practice problems for Linked List data structure divided into topic-wise and difficulty wise.
 tags: [DSA, algorithms,linked list, dsa]

@@ -1,7 +1,7 @@
 ---
 id: topological-sorting-algorithm
 title: Topological Sorting Algorithm
-sidebar_label: Topological Sorting Algorithm
+sidebar_label: 🟢 Topological Sorting Algorithm
 sidebar_position: 16
 description: "Topological Sorting is a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge u -> v, vertex u comes before v."
 tags: [Graph Theory, Topological Sorting, DAG, Sorting Algorithms, Graph Algorithms]

@@ -3,7 +3,7 @@
 id: apostolico-giancarlo-algo  
 sidebar_position: 1  
 title: Apostolico–Giancarlo Algorithm  
-sidebar_label: Apostolico–Giancarlo Algorithm  
+sidebar_label: 🟢 Apostolico–Giancarlo Algorithm
 
 ---
 

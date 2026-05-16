@@ -2,7 +2,7 @@
 
 id: priority-scheduling
 title: Priority Scheduling Algorithm
-sidebar_label: "Priority Scheduling"
+sidebar_label: "🟠 Priority Scheduling"
 sidebar_position: 7
 description: Priority Scheduling is a scheduling algorithm that selects processes based on priority. Higher priority processes are executed before lower priority ones.
 tags: [Scheduling, Priority]

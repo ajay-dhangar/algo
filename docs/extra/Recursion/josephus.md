@@ -1,7 +1,7 @@
 ---
 id: Josephus-problem-dsa
 title: Josephus Problem Recursion
-sidebar_label: Josephus Problem
+sidebar_label: 🟠 Josephus Problem
 sidebar_position: 7
 description: "The Josephus problem is a theoretical problem related to a certain elimination game. It is often solved using recursion, where the goal is to determine the safe position in a group of people standing in a circle, eliminating every k-th person."
 tags: [josephus, recursion, dsa]

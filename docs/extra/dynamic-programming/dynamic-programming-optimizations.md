@@ -1,7 +1,7 @@
 ---
 id: dynamic-programming-optimizations
 title: Dynamic Programming Optimizations
-sidebar_label: Dynamic Programming
+sidebar_label: 🔴 Dynamic Programming
 sidebar_position: 1
 description: "In this blog post, we'll explore Dynamic Programming (DP) Optimizations, a powerful technique used in algorithmic problem-solving. We'll cover optimizations such as Memoization, Tabulation, and State Space Reduction, and discuss their applications in solving complex problems efficiently. We'll also tackle classic DP problems like the Knapsack Problem, Longest Increasing Subsequence, and Matrix Chain Multiplication, providing Python code examples along the way. By the end, you'll understand how to implement DP solutions effectively and enhance their performance."
 tags: [dsa, dynamic programming, optimizations]

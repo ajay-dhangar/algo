@@ -2,7 +2,7 @@
 id: b-tree-introduction
 sidebar_position: 1
 title: Introduction of B-Tree
-sidebar_label: Introduction of B-Tree
+sidebar_label: 🔴 Introduction of B-Tree
 description: "A B-tree is a self-balancing tree data structure that maintains sorted data for efficient insertion, deletion, and search operations."
 tags: [b-tree, algorithms, problem-solving, DSA, data structure]
 ---

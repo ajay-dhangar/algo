@@ -1,7 +1,7 @@
 ---
 id: monotonic-stack
 title: Monotonic Stack
-sidebar_label: Monotonic Stack
+sidebar_label: 🟢 Monotonic Stack
 sidebar_position: 4
 description: 'Monotonic Stack is a data structure technique used to maintain elements in a particular order, typically increasing or decreasing, and is commonly used for solving problems involving range queries, such as finding the next greater element.'
 tags: [dsa, algorithms, stack, monotonic-stack]

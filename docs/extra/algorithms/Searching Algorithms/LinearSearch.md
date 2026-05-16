@@ -3,7 +3,7 @@
 id: linear-search-algo  
 sidebar_position: 1  
 title: Linear Search  
-sidebar_label: Linear Search  
+sidebar_label: 🟠 Linear Search
 
 ---
 

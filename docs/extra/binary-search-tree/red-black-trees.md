@@ -2,7 +2,7 @@
 id: rbt-intro  
 sidebar_position: 17 
 title: Red-Black Trees  
-sidebar_label: Red-Black Trees  
+sidebar_label: 🟠 Red-Black Trees
 description: "In this blog post, we'll explore Red-Black trees, a type of self-balancing binary search tree that guarantees logarithmic time complexity for search, insertion, and deletion operations."  
 tags: [dsa, data structures, rbt]
 ---

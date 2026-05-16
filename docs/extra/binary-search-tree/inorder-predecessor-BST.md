@@ -2,7 +2,7 @@
 id: inorder-predecessor-binary-search-tree
 sidebar_position: 16
 title: Inorder Predecessor in a Binary Search Tree
-sidebar_label: Inorder Predecessor in BST
+sidebar_label: 🟠 Inorder Predecessor in BST
 description: "This post explains how to find the Inorder Predecessor of a node in a Binary Search Tree (BST) in C++, with code examples and detailed explanations."
 tags: [dsa, binary trees, inorder, predecessor, c++]
 ---

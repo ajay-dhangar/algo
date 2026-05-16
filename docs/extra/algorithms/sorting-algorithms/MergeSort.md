@@ -3,7 +3,7 @@
 id: merge-sort-algo  
 sidebar_position: 4  
 title: Merge Sort  
-sidebar_label: Merge Sort  
+sidebar_label: 🟢 Merge Sort
 
 ---
 

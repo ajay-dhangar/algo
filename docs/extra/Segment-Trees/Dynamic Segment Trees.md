@@ -2,7 +2,7 @@
 id: dynamic-segment-tree
 sidebar_position: 13
 title: Dynamic Segment Tree
-sidebar_label: Dynamic Segment Tree
+sidebar_label: 🔴 Dynamic Segment Tree
 description: "This post covers dynamic segment trees, their use-cases, code examples, and how they differ from regular segment trees."
 tags: [dsa, segment tree, range queries, recursion, c++]
 ---

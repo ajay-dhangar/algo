@@ -1,7 +1,7 @@
 ---
 id: expression tree
 title: Postfix to Infix conversion
-sidebar_label: expression tree
+sidebar_label: 🟠 expression tree
 description: "Given a postfix expression construct a tree that stores operator as internal nodes and the opernads as leaves. On inorder traversal it gives the infix expression of the postfix."
 tags: [dsa, binary trees, recursion, c++]
 ---

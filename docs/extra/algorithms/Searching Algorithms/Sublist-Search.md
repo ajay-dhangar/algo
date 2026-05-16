@@ -2,7 +2,7 @@
 id: sublist-search  
 sidebar_position: 3  
 title: Sublist Search  
-sidebar_label: Sublist  
+sidebar_label: 🟠 Sublist
 ---
 
 ### Definition:

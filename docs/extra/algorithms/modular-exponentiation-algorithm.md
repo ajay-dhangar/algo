@@ -1,7 +1,7 @@
 ---
 id: modular-exponentiation-algorithm
 title: Modular Exponentiation Algorithm
-sidebar_label: Modular Exponentiation
+sidebar_label: 🟠 Modular Exponentiation
 sidebar_position: 10
 description: "Modular Exponentiation is an algorithm used to efficiently compute large powers modulo a number, using a technique called exponentiation by squaring."
 tags: [Modular Arithmetic, Exponentiation, Algorithms, Number Theory, Recursion]

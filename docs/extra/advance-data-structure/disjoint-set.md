@@ -2,7 +2,7 @@
 id: disjoint-set-union
 sidebar_position: 1
 title: Disjoint Set Union (Union-Find)
-sidebar_label: Disjoint Set Union
+sidebar_label: 🔴 Disjoint Set Union
 description: "Disjoint Set Union (Union-Find) is an efficient data structure to track the union of disjoint sets."
 tags: [union-find, advance data structures, disjoint set]
 ---

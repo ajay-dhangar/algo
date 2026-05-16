@@ -2,7 +2,7 @@
 id: fence-painting
 sidebar_position: 12
 title: Fence Painting Problem
-sidebar_label: Fence Painting
+sidebar_label: 🔴 Fence Painting
 description: "In this blog post, we'll explore the fence painting problem and calculate the number of ways to paint the fence using dynamic programming."
 tags: [dsa, dynamic programming, algorithms]
 ---

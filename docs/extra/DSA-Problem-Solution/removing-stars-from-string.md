@@ -2,7 +2,7 @@
 id: removing-stars-from-string
 sidebar_position: 1
 title: Removing Stars From a String
-sidebar_label: Removing Stars From a String
+sidebar_label: 🟢 Removing Stars From a String
 description: "This document explains the Removing Stars From a String problem, including its description, approach, and implementation."
 tags: [dsa, algorithms, problem-solving]
 ---

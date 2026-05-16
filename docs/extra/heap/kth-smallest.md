@@ -1,7 +1,7 @@
 ---
 id: Heap-data-Structure-3
 title: heap data structure
-sidebar_label: Kth smallest Element
+sidebar_label: 🟠 Kth smallest Element
 sidebar_position: 10
 description: Heaps are commonly used to implement priority queues and ensure efficient retrieval of the minimum or maximum element.
 tags: [Competitive Programming,top-K,priority queue]

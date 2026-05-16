@@ -3,7 +3,7 @@
 id: homomorphic-encryption-algo  
 sidebar_position: 6 
 title: Homomorphic Encryption  
-sidebar_label: Homomorphic Encryption  
+sidebar_label: 🟠 Homomorphic Encryption
 
 ---
 

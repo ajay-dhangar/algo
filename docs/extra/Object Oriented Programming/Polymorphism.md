@@ -1,7 +1,7 @@
 ---
 id: Polymorphism
 title: "Polymorphism in Object-Oriented Programming"
-sidebar_label: "Generate Details about Polymorphism"
+sidebar_label: "🟠 Generate Details about Polymorphism"
 description: "
 Polymorphism is a core concept in object-oriented programming that allows objects of different classes to be treated as instances of the same class through a shared interface"
 tags: [Polymorphism, OOPS, Java]

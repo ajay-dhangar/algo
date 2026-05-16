@@ -3,7 +3,7 @@
 id: ternary-search-algo  
 sidebar_position: 3  
 title: Ternary Search  
-sidebar_label: Ternary Search  
+sidebar_label: 🟠 Ternary Search
 
 ---
 

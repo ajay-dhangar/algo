@@ -3,7 +3,7 @@
 id: zhu-takaoka-algorithm
 sidebar_position: 10
 title: Zhu-Takaoka Algorithm
-sidebar_label: Zhu-Takaoka Algorithm
+sidebar_label: 🟢 Zhu-Takaoka Algorithm
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: non-tail-recursion
 title: Non-Tail Recursion
-sidebar_label: "Non-Tail Recursion"
+sidebar_label: "🟠 Non-Tail Recursion"
 sidebar_position: 2
 description: An overview of Non-Tail Recursion and its applications in programming.
 tags: [recursion, algorithms, programming]

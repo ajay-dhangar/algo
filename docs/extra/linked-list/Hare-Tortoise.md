@@ -1,7 +1,7 @@
 ---
 id: introduction-to-LinkedList
 title: Hare and Tortoise Algorithm
-sidebar_label: Introduction to Hare and Tortoise Algorithm
+sidebar_label: 🟢 Introduction to Hare and Tortoise Algorithm
 sidebar_position: 11
 description: The Hare and Tortoise Algorithm, also known as Floyd's Cycle Detection Algorithm, is a method used to detect cycles in a linked list. It employs two pointers that move at different speeds to identify whether a cycle exists.
 

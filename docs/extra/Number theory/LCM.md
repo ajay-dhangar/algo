@@ -1,7 +1,7 @@
 ---
 id: LCM
 title: "LCM Algorithm"
-sidebar_label: "LCM"
+sidebar_label: "🟢 LCM"
 sidebar_position: 10
 description: "A detailed guide to understanding and implementing the LCM (Least Common Multiple) Algorithm in Number Theory."
 tags: [lcm, number theory, competitive programming]

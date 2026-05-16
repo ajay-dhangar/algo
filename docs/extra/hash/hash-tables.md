@@ -2,7 +2,7 @@
 id: hash-tables-dsa
 sidebar_position: 1
 title: Hash tables
-sidebar_label: Hash tables
+sidebar_label: 🟢 Hash tables
 description: "In this blog post, we'll dive into the Hash tables and implementations of hash table, a fundamental topic in Data Structures"
 tags: [dsa, Hashtables, Hashmaps]
 ---

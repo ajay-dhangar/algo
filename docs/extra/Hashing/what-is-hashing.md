@@ -2,7 +2,7 @@
 id: what-is-hashing
 sidebar_position: 1
 title: What is Hashing and Hash Maps?
-sidebar_label: What is Hashing and Hash Maps?
+sidebar_label: 🟢 What is Hashing and Hash Maps?
 description: "Hashing is a technique used to uniquely identify a specific object from a group of similar objects. Hash maps are data structures that implement this technique."
 tags: [data structures, algorithms, hashing, hash maps]
 ---

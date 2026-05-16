@@ -3,7 +3,7 @@
 id: bndm-algo  
 sidebar_position: 2  
 title: BNDM Algorithm  
-sidebar_label: BNDM Algorithm  
+sidebar_label: 🟢 BNDM Algorithm
 
 ---
 

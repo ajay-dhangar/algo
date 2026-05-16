@@ -1,7 +1,7 @@
 ---
 id: reversing-a-string
 title: "How to reverse the string?"
-sidebar_label: "Reversing a string"
+sidebar_label: "🟢 Reversing a string"
 sidebar_position: 4
 description: "Reversing a string is the process of rearranging the characters in a string so that they appear in the opposite order."
 tags: [String, reverse, inbuilt function, StringBuilder, Java, C++, Python, JavaScript]

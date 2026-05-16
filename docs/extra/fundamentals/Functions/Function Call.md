@@ -1,7 +1,7 @@
 ---
 id: function-call
 title: Function Call
-sidebar_label: Function Call
+sidebar_label: 🟢 Function Call
 sidebar_position: 2
 description: Learn how to invoke functions in various programming languages.
 tags: [functions, programming, programming fundamental, syntax]

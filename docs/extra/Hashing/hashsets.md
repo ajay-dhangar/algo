@@ -2,7 +2,7 @@
 id: what-is-hashset
 sidebar_position: 3
 title: What is a HashSet?
-sidebar_label: What is a HashSet?
+sidebar_label: 🟢 What is a HashSet?
 description: "A HashSet is a data structure used to store unique elements and provides efficient insertion, deletion, and search operations."
 tags: [data structures, algorithms, hashset, sets, hashing, C++]
 ---

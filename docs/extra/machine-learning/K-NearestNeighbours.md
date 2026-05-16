@@ -1,7 +1,7 @@
 ---
 id: k-nearest-neighbors  
 title: k-Nearest Neighbors Algorithm  
-sidebar_label: k-Nearest Neighbors  
+sidebar_label: 🔴 k-Nearest Neighbors
 description: "In this post, we'll explore the k-Nearest Neighbors (k-NN) Algorithm, one of the simplest and most intuitive algorithms in machine learning."  
 tags: [machine learning, algorithms, classification, regression, k-NN]
 ---

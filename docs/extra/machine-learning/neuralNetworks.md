@@ -2,7 +2,7 @@
 
 id: neural-networks-visualizations  
 title: Neural Networks Visualizations  
-sidebar_label: Neural Networks  
+sidebar_label: 🔴 Neural Networks
 description: "Build and visualize neural networks with support for feedforward, convolutional, and recurrent architectures. Explore how these models learn from data using backpropagation and gradient descent."  
 tags: [machine learning, neural networks, deep learning, data visualization, feedforward networks, CNN, RNN]  
 

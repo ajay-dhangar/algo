@@ -3,7 +3,7 @@
 id: ukkonens-algorithm
 sidebar_position: 7
 title: Ukkonen's Algorithm
-sidebar_label: Ukkonen's Algorithm
+sidebar_label: 🟢 Ukkonen's Algorithm
 
 ---
 

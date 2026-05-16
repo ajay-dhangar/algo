@@ -1,7 +1,7 @@
 ---
 id: computer-vision-algorithm
 title: "Computer Vision (CV) - An Overview"
-sidebar_label: Computer Vision Algorithm
+sidebar_label: 🟠 Computer Vision Algorithm
 sidebar_position: 17
 description: "Computer Vision (CV) enables machines to interpret and understand visual data from the world. It is widely applied in tasks such as object detection, image classification, and facial recognition."
 tags: [Computer Vision, Deep Learning, Image Processing, Object Detection, Image Classification]

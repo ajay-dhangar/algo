@@ -1,7 +1,7 @@
 ---
 id: yolo-object-detection-ml-algorithm
 title: YOLO Object Detection ML Algorithm
-sidebar_label: YOLO Object Detection ML Algorithm
+sidebar_label: 🟠 YOLO Object Detection ML Algorithm
 sidebar_position: 15
 description: "YOLO (You Only Look Once) is a popular deep learning algorithm for real-time object detection that divides images into grid cells and predicts bounding boxes and class probabilities for each cell."
 tags: [Computer Vision, Object Detection, Deep Learning, YOLO, CNN]

@@ -1,7 +1,7 @@
 ---
 id: practice-problems-for-bitmanipulation
 title: Practice Problems for Bit Manipulation
-sidebar_label: Practice Problems
+sidebar_label: 🟢 Practice Problems
 sidebar_position: 1
 description: Practice problems for Bit Manipulation to help you understand the concepts better.
 tags: [Bit Manipulation, Practice Problems, Bitwise Operators, XOR, AND, OR, Shifting, Masking]

@@ -2,7 +2,7 @@
 id: gcd-lcm
 sidebar_position: 4
 title: Greatest Common Divisor (GCD) and Least Common Multiple (LCM)
-sidebar_label: GCD and LCM
+sidebar_label: 🟢 GCD and LCM
 description: "Greatest Common Divisor (GCD) and Least Common Multiple (LCM) are fundamental algorithms for divisibility."
 tags: [gcd, lcm, number theory, algorithms]
 ---

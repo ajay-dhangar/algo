@@ -2,7 +2,7 @@
 id: search-binary-search-tree
 sidebar_position: 13
 title: Search in a Binary Search Tree
-sidebar_label: Search in BST
+sidebar_label: 🟠 Search in BST
 description: "This blog post covers how to search for a value in a Binary Search Tree (BST) in C++, along with explanations and code examples."
 tags: [dsa, binary trees, search, c++]
 ---

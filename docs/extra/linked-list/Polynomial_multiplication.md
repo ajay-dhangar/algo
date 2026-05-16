@@ -1,7 +1,7 @@
 ---
 id: polynomial-multiplication-linked-list
 title: "Polynomial Multiplication using Singly Linked Lists in C++"
-sidebar_label: Polynomial Multiplication
+sidebar_label: 🟢 Polynomial Multiplication
 sidebar_position: 1
 description: "A C++ program that multiplies two polynomials represented as linked lists, showcasing linked list operations and polynomial arithmetic."
 tags: [C++, Linked Lists, Polynomial Multiplication]

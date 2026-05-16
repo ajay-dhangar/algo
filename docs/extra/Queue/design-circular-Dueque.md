@@ -1,7 +1,7 @@
 ---
 id: circular-deque-dsa 
 title: Circular Deque Data Structure 
-sidebar_label: Circular Deque 
+sidebar_label: 🟢 Circular Deque
 sidebar_position: 6 
 description: "A circular deque is a double-ended queue data structure that connects the rear and front ends to form a circular structure, allowing insertion and deletion from both ends. This structure is ideal for scenarios requiring dynamic insertion and deletion at both ends." 
 tags: [dsa, data-structures, Circular Deque]

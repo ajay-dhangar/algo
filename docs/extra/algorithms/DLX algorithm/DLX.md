@@ -3,7 +3,7 @@
 id: dancing-links  
 sidebar_position: 20  
 title: "Dancing Links (DLX)"  
-sidebar_label: Dancing Links  
+sidebar_label: 🟠 Dancing Links
 
 ---
 

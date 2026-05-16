@@ -2,7 +2,7 @@
 id: boyer-moore-search  
 sidebar_position: 5  
 title: Boyer-Moore Search  
-sidebar_label: Boyer-Moore  
+sidebar_label: 🔴 Boyer-Moore
 ---
 
 ### Definition:

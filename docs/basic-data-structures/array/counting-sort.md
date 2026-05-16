@@ -1,7 +1,7 @@
 ---
 id: counting-sort
 title: Counting Sort Algorithm
-sidebar_label: Counting sort
+sidebar_label: 🟢 Counting sort
 description: "Counting Sort is an efficient sorting algorithm used for sorting a collection of integers when the range of the integers (k) is not significantly greater than the number of integers (n) in the collection. It works well when the integers are within a known, fixed range."
 tags: [counting-sort]
 ---

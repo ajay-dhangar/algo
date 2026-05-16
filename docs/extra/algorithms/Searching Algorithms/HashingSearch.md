@@ -3,7 +3,7 @@
 id: hashing-search-algo  
 sidebar_position: 5  
 title: Hashing Search  
-sidebar_label: Hashing Search  
+sidebar_label: 🟢 Hashing Search
 
 ---
 

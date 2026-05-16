@@ -2,7 +2,7 @@
 id: Bentley-Ottmann-Algorithm
 sidebar_position: 17
 title: "Bentley-Ottmann Algorithm"
-sidebar_label: Bentley-Ottmann Algorithm
+sidebar_label: 🟠 Bentley-Ottmann Algorithm
 ---
 ### Definition
 

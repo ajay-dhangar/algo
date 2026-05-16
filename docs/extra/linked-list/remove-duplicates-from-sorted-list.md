@@ -3,7 +3,7 @@ id: remove-duplicates-from-sorted-list
 sidebar_position: 1
 title: "Remove Duplicates from Sorted Linked Lists"
 description: "This tutorial explains how to remove duplicates from sorted list using Cpp."
-sidebar_label: "Linked List Intersection"
+sidebar_label: "🟢 Linked List Intersection"
 tags: [dsa, linked-lists,cpp]
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: kadane
 title: Kadane's Algorithm
-sidebar_label: Kadane's Algorithm
+sidebar_label: 🟢 Kadane's Algorithm
 description: "In this blog post, we'll explore Kadane's Algorithm, a dynamic programming algorithm used to find the Maximum Sum Subarray in an array."
 tags: [dsa, algorithms, dynamic programming, subarray]
 ---

@@ -1,7 +1,7 @@
 ---
 id: recursion-depth-performance
 title: Recursion Depth and Performance
-sidebar_label: Performance Considerations
+sidebar_label: 🟠 Performance Considerations
 sidebar_position: 4
 description: Understanding how recursion depth affects algorithm performance.
 tags: [performance, recursion, optimization]

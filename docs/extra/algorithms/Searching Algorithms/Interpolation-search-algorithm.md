@@ -3,7 +3,7 @@
 id: Interpolation algorithm 
 sidebar_position: 5  
 title: Interpolation search
-sidebar_label: Interpolation search algorithm 
+sidebar_label: 🟠 Interpolation search algorithm
 
 ---
 

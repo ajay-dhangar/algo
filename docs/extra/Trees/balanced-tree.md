@@ -1,7 +1,7 @@
 ---
 id: balanced-tree
 title: Balanced Tree
-sidebar_label: Balanced Tree
+sidebar_label: 🟠 Balanced Tree
 sidebar_position: 2
 description: "A Balanced Tree is a data structure that maintains a balanced height to ensure efficient operations."
 tags: [Data Structures, Balanced Tree, Algorithms]

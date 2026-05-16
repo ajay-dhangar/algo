@@ -1,7 +1,7 @@
 ---
 id: modular-arithmetic
 title: "Modular Arithmetic"
-sidebar_label: "Number theory"
+sidebar_label: "🟢 Number theory"
 sidebar_position: 10
 description: "A detailed guide to understanding and implementing the Modular Arithmetic in Number Theory."
 tags: [Modular Arithmetic, number theory, competitive programming]

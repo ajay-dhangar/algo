@@ -1,7 +1,7 @@
 ---
 id: job-scheduling  
 title: Job Scheduling with Deadline  
-sidebar_label: Job-Scheduling  
+sidebar_label: 🟠 Job-Scheduling
 description: "The problem aims to maximize total profit by scheduling a set of jobs, each with a deadline and profit, ensuring selected jobs are completed within their deadlines."  
 tags: [dsa, algorithms, greedy algorithms]
 ---

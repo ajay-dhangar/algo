@@ -1,7 +1,7 @@
 ---
 id: string-basics
 title: String Basics
-sidebar_label: Basics
+sidebar_label: 🟢 Basics
 sidebar_position: 2
 description: Basics of String Data Structure
 tags: [DSA, algorithms, strings]

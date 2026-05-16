@@ -1,7 +1,7 @@
 ---
 id: kruskals-algorithm  
 title: "Kruskal's Algorithm" 
-sidebar_label: "Kruskal's Algorithm" 
+sidebar_label: "🟠 Kruskal's Algorithm"
 description: "Learn about Kruskal's algorithm, a minimum spanning tree algorithm that works by sorting the edges and adding them one by one if they don't form a cycle."
 tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 ---

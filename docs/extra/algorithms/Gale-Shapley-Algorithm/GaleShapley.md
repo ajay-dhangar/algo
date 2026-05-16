@@ -2,7 +2,7 @@
 id: gale-shapley-algorithm  
 sidebar_position: 15  
 title: Gale-Shapley Algorithm  
-sidebar_label: Gale-Shapley Algorithm  
+sidebar_label: 🟠 Gale-Shapley Algorithm
 ---
 
 ## Overview:

@@ -3,7 +3,7 @@
 id: radix-sort-algo 
 sidebar_position: 7  
 title: Radix Sort  
-sidebar_label: Radix Sort  
+sidebar_label: 🟢 Radix Sort
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: ulam-sequence 
 title: Ulam Sequence Generation Via Recursion 
-sidebar_label: Generate Ulam Sequence  
+sidebar_label: 🟠 Generate Ulam Sequence
 description: "The Recursive Ulam Sequence Generator is a feature that generates the Ulam sequence—a unique integer sequence—using a recursive algorithm. The Ulam sequence starts with two predefined numbers, 1 and 2, and each subsequent number is the smallest integer that can be expressed as the sum of two distinct earlier numbers in exactly one way. This feature provides a recursive approach to find Ulam numbers up to a given integer, maxN."
 tags: [UlamSequence, recursion, dsa]
 ---

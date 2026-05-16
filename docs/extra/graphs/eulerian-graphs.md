@@ -1,7 +1,7 @@
 ---
 id: eulerian-graphs
 title: Eulerian Graphs
-sidebar_label: Eulerian Graphs
+sidebar_label: 🔴 Eulerian Graphs
 description: "This post explores Eulerian graphs, their properties, and algorithms for detecting and constructing Eulerian paths and circuits."
 tags: [dsa, graph-theory, algorithms, eulerian-graphs]
 ---

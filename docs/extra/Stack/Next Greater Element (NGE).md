@@ -1,7 +1,7 @@
 ---
 id: next-greater-element
 title: Next Greater Element Algorithm
-sidebar_label: Next Greater Element
+sidebar_label: 🟢 Next Greater Element
 sidebar_position: 2
 description: Documentation for the Next Greater Element algorithm using a stack-based approach in C++
 tags: [algorithm, stack, C++]

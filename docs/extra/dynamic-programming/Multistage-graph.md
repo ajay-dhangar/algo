@@ -1,7 +1,7 @@
 ---
 id: multistage-graph
 title: MULTISTAGE GRAPH
-sidebar_label: SHORTEST PATH IN MULTISTAGE GRAPH
+sidebar_label: 🔴 SHORTEST PATH IN MULTISTAGE GRAPH
 tags: [Dynamic Programming,Graph, DSA]
 description: The multistage graph problem is finding the path with minimum cost from source to sink.
 ---

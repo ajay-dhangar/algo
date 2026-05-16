@@ -2,7 +2,7 @@
 
 id: tsne-dimensionality-reduction  
 title: t-SNE Dimensionality Reduction Algorithm  
-sidebar_label: t-SNE  
+sidebar_label: 🔴 t-SNE
 description: "This post explores t-SNE (t-distributed Stochastic Neighbor Embedding), a popular dimensionality reduction technique used to visualize high-dimensional data in a low-dimensional space."  
 tags: [dimensionality reduction, data visualization, machine learning, tsne, high-dimensional data]
 

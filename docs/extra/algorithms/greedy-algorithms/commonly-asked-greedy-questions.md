@@ -1,7 +1,7 @@
 ---
 id: commonly-asked-greedy-questions
 title: Commonly asked Greedy questions
-sidebar_label: Commonly asked Greedy questions
+sidebar_label: 🟠 Commonly asked Greedy questions
 description: "This document explores various commonly greedy algorithm patterns, highlighting their definitions, characteristics, and common applications."
 tags: [dsa, faq, algorithms, greedy algorithms]
 ---

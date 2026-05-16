@@ -1,7 +1,7 @@
 ---
 id: introduction-to-linkedList
 title: Linked List Data Structure
-sidebar_label: Introduction to Linked List
+sidebar_label: 🟢 Introduction to Linked List
 sidebar_position: 1
 description: 'A Linked List is a linear data structure in which elements are stored in nodes, and each node points to the next node, forming a chain. Unlike arrays, linked lists do not store elements in contiguous memory locations. Instead, each node holds two main components: data and a reference (or pointer) to the next node in the sequence. This structure allows for dynamic memory allocation, meaning the list can grow or shrink as needed without reallocating or resizing.'
 tags: [dsa, data-structures, LinkedList]

@@ -1,7 +1,7 @@
 ---
 id: jump-search
 title: Jump Search Algorithm
-sidebar_label: Jump Search
+sidebar_label: 🟠 Jump Search
 description: "This post explores the use of Jump Search Algorithm. We'll provide code implementations C++."
 tags: [searching, algorithms]
 ---

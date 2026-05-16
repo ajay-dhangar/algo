@@ -2,7 +2,7 @@
 
 id: inheritance
 title: "Types of Inheritance in OOP"
-sidebar_label: Types of Inheritance
+sidebar_label: 🟠 Types of Inheritance
 sidebar_position: 3
 description: "Inheritance is a mechanism in OOP that allows one class to inherit the properties and behaviors of another class, promoting code reusability."
 tags: [oops, inheritance, classes]

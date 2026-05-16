@@ -3,7 +3,7 @@
 id: sentinel-search-algo  
 sidebar_position: 3  
 title: Sentinel Search  
-sidebar_label: Sentinel Search  
+sidebar_label: 🟠 Sentinel Search
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: maximum-sum-subarray-of-size-k
 title: Maximum Sum Subarray of Size K
-sidebar_label: Maximum Sum Subarray of Size K
+sidebar_label: 🟠 Maximum Sum Subarray of Size K
 sidebar_position: 2
 description: "In this blog post, we'll explore how to find the maximum sum of any subarray of size K using the Sliding Window Algorithm."
 tags: [dsa, algorithms, sliding window, arrays]

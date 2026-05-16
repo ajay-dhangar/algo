@@ -2,7 +2,7 @@
 id: circular-array-introduction
 sidebar_position: 1
 title: Introduction of Circular
-sidebar_label: Introduction
+sidebar_label: 🟢 Introduction
 description: "A B-tree is a self-balancing tree data structure that maintains sorted data for efficient insertion, deletion, and search operations."
 tags: [b-tree, algorithms, problem-solving, DSA, data structure]
 ---

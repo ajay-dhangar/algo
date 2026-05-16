@@ -3,7 +3,7 @@
 id: quick-search-algorithm
 sidebar_position: 26
 title: Quick Search Algorithm
-sidebar_label: Quick Search Algorithm
+sidebar_label: 🟢 Quick Search Algorithm
 
 ---
 

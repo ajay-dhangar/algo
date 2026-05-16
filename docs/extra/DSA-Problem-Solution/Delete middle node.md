@@ -1,7 +1,7 @@
 ---
 id: delete-middle-node-of-a-linked-list
 title: "Deleting middle node of linked list."
-sidebar_label: "Deleting middle node of linked list."
+sidebar_label: "🟠 Deleting middle node of linked list."
 sidebar_position: 9
 description: " This document explains the 'Deleting the middle element of a linked list' problem, including its description, approach, and implementation."
 tags: [DSA,problem-solving,linked list]

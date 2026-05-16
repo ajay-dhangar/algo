@@ -1,7 +1,7 @@
 ---
 id: sieve-of-eratosthenes
 title: "Sieve of Eratosthenes"
-sidebar_label: "Sieve of Eratosthenes"
+sidebar_label: "🟢 Sieve of Eratosthenes"
 sidebar_position: 11
 description: "A complete guide to understanding and implementing the Sieve of Eratosthenes for finding prime numbers."
 tags: [prime numbers, number theory, sieve, competitive programming]

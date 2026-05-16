@@ -2,7 +2,7 @@
 id: b-tree-delete
 sidebar_position: 3
 title: Delete Operation in B-Tree
-sidebar_label: Delete Operation in B-Tree
+sidebar_label: 🔴 Delete Operation in B-Tree
 description: "Removing a key from a B-tree while maintaining balance"
 tags: [b-tree, algorithms, problem-solving, DSA, data structure]
 ---

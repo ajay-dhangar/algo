@@ -1,7 +1,7 @@
 ---
 id: Heap-Operations-Time-Complexity
 title: Detailed Time Complexity of Heap Operations
-sidebar_label: Heap Time Complexity
+sidebar_label: 🟠 Heap Time Complexity
 sidebar_position: 3
 description: A comprehensive guide covering the time complexity of various operations associated with binary heaps, including rationale and examples.
 tags: [DSA, algorithms, heaps, time complexity]

@@ -1,7 +1,7 @@
 ---
 id: sum-tree
 title: Sum-tree 
-sidebar_label: Sum-tree 
+sidebar_label: 🟠 Sum-tree
 description: "A Sum Tree is a binary tree where each node's value is equal to the sum of the values of its left and right children, with the property holding true for all nodes in the tree."  
 tags: [dsa, algorithms, tree]
 ---

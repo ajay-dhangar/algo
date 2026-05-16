@@ -3,7 +3,7 @@
 id: colussi-algorithm
 sidebar_position: 27
 title: Colussi Algorithm
-sidebar_label: Colussi Algorithm
+sidebar_label: 🟢 Colussi Algorithm
 
 ---
 

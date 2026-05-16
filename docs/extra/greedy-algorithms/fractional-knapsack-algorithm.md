@@ -1,7 +1,7 @@
 ---
 id: fractional-knapsack
 title: "Fractional Knapsack Algorithm"
-sidebar_label: "Fractional Knapsack"
+sidebar_label: "🟠 Fractional Knapsack"
 description: "In this blog post, we'll explore the Fractional Knapsack problem, a greedy algorithm-based approach to maximize the value of items within a weight limit by taking fractions of items."
 tags: [dsa, algorithms, greedy algorithms]
 ---

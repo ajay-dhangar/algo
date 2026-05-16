@@ -1,7 +1,7 @@
 ---
 id: arrays-circularsort
 title: "Arrays - Circular Sort"
-sidebar_label: Circular Sort
+sidebar_label: 🟢 Circular Sort
 description: "Circular Sort (often called Cycle Sort) is an in-place sorting algorithm that minimizes memory writes by placing elements in their exact positions."
 tags: [dsa, arrays, sorting, circularsort, sorting-algorithms]
 ---

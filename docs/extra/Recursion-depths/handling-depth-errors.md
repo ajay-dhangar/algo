@@ -1,7 +1,7 @@
 ---
 id: recursion-depth-errors
 title: Handling Recursion Depth Errors
-sidebar_label: Depth Errors
+sidebar_label: 🟠 Depth Errors
 sidebar_position: 3
 description: Handling stack overflow and other errors due to high recursion depth.
 tags: [errors, recursion, stack-overflow]

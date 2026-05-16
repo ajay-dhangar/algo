@@ -1,7 +1,7 @@
 ---
 id: combinatorics-example
 title: combinatorics in  data structure
-sidebar_label: Combinatorics Examples
+sidebar_label: 🟠 Combinatorics Examples
 sidebar_position: 2
 description: Combinatorics is a branch of mathematics dealing with combinations, arrangements, and counting of objects.
 tags: [Competitive Programming,math,counting]

@@ -3,7 +3,7 @@ id: intersection-linked-lists
 sidebar_position: 1
 title: "Find the Intersection Point of Two Linked Lists in C++"
 description: "This tutorial explains how to find the intersection point of two singly linked lists using C++."
-sidebar_label: "Linked List Intersection"
+sidebar_label: "🟢 Linked List Intersection"
 tags: [dsa, linked-lists, intersection]
 ---
 

@@ -3,7 +3,7 @@
 id: commentz-walter-algo  
 sidebar_position: 4  
 title: Commentz-Walter Algorithm  
-sidebar_label: Commentz-Walter Algorithm  
+sidebar_label: 🟢 Commentz-Walter Algorithm
 
 ---
 

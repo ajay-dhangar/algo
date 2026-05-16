@@ -1,7 +1,7 @@
 ---
 id: circular-queue-dsa
 title: Circular Queue Data Structure
-sidebar_label: Circular Queue
+sidebar_label: 🟢 Circular Queue
 sidebar_position: 5
 description: "A circular queue is a linear data structure that connects the rear and front ends to form a circular structure. This makes it efficient for resource management and suitable for scenarios where data needs to be processed in a round-robin fashion."
 tags: [dsa, data-structures, Circular Queue]

@@ -1,7 +1,7 @@
 ---
 id: adjacency-list
 title: Adjacency List
-sidebar_label: Adjacency List
+sidebar_label: 🔴 Adjacency List
 description: "Adjacency list is used to represent a graph using array and linked list"  
 tags: [dsa, algorithms, graph]
 ---

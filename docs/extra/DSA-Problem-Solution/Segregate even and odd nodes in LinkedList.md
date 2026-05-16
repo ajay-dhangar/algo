@@ -1,7 +1,7 @@
 ---
 id: segregate-even-odd-nodes
 title: "Segregate even and odd nodes in a linked list"
-sidebar_label: "Segregate"
+sidebar_label: "🟠 Segregate"
 sidebar_position: 8
 description: "In a linked list, the goal is to rearrange the nodes such that all even-valued nodes appear before all odd-valued nodes.  "
 tags: [linked list]

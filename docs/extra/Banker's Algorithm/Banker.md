@@ -1,7 +1,7 @@
 ---
 id: banker's-algorithm
 title: Banker's Algorithm
-sidebar_label: Banker's Algorithm
+sidebar_label: 🟠 Banker's Algorithm
 description: "It is a method used to avoid deadlocks in a system by checking if there exists a safe sequence of resource allocation for processes using safety checks based on available resources."
 tags: [operating systems, algorithms, deadlock prevention]
 ---

@@ -1,7 +1,7 @@
 ---
 id: stack-reversal
 title: Stack Reversal
-sidebar_label: Stack Reversal
+sidebar_label: 🟢 Stack Reversal
 description: "Reversing a stack involves changing the order of elements so that the bottom becomes the top and vice versa."
 tags: [dsa, algorithms, stack]
 ---

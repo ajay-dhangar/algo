@@ -1,7 +1,7 @@
 ---
 id: highest-frequency-letter
 title: "Finding letter with highest frequency in a string."
-sidebar_label: "Highest frequency letter"
+sidebar_label: "🟢 Highest frequency letter"
 sidebar_position: 5
 description: "The frequency of a letter in a string refers to the number of times that particular letter appears within the string.In this blog we will learn how to find letter that appears largest number of times"
 tags: [String, frequecy, Hashmap]

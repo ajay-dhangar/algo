@@ -1,7 +1,7 @@
 ---
 id: flyod-algo
 title: Floyd's-Algorithm
-sidebar_label: Floyd's-Algorithm
+sidebar_label: 🔴 Floyd's-Algorithm
 description: "In this blog post, we'll explore the Floyd's-Algorithm, an efficient method to implement all pair shortest paths"
 tags: [dsa, algorithms, all pair shortest paths]
 ---

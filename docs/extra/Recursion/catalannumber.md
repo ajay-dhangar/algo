@@ -1,7 +1,7 @@
 ---
 id: catalan-number 
 title: Catalan Number Using Recursion
-sidebar_label: Generate Catalan Number 
+sidebar_label: 🟠 Generate Catalan Number
 description: "The Catalan number sequence is a cornerstone in combinatorics, often arising in problems like counting valid parentheses expressions, binary search trees, and polygon triangulations."
 tags: [CatalanNumber, recursion, dsa]
 ---

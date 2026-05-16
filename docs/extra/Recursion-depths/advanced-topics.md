@@ -1,7 +1,7 @@
 ---
 id: recursion-depth-advanced
 title: Advanced Recursion Depth Topics
-sidebar_label: Advanced Topics
+sidebar_label: 🔴 Advanced Topics
 sidebar_position: 1
 description: Advanced concepts related to recursion depth, including dynamic programming and backtracking.
 tags: [advanced, recursion, algorithms]

@@ -2,7 +2,7 @@
 id: minimum-depth-binary-tree
 sidebar_position: 12
 title: Minimum Depth of a Binary Tree
-sidebar_label: Minimum Depth
+sidebar_label: 🟠 Minimum Depth
 description: "This blog post covers how to find the minimum depth (or height) of a binary tree in C++, along with explanations and code examples."
 tags: [dsa, binary trees, recursion, c++]
 ---

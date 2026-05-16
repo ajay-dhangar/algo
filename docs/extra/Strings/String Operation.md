@@ -1,7 +1,7 @@
 ---
 id: string-operations
 title: String Operations
-sidebar_label: operation
+sidebar_label: 🟢 operation
 sidebar_position: 2
 description: Operations in String
 tags: [DSA, algorithms, strings]

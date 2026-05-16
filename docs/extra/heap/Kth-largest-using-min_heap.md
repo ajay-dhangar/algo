@@ -2,7 +2,7 @@
 
 id: kth-largest-element-min-heap  
 title: Kth Largest Element using Min Heap  
-sidebar_label: Kth Largest Element  
+sidebar_label: 🟠 Kth Largest Element
 sidebar_position: 3  
 description: Finding the Kth largest element in an array using a min heap data structure, commonly used in streaming and top-K problems.  
 tags: [Heap, Priority Queue, Top-K, Streaming]  

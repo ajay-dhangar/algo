@@ -1,7 +1,7 @@
 ---
 id: z-algorithm
 title: "Z Algorithm"
-sidebar_label: "Z Algorithm"
+sidebar_label: "🟢 Z Algorithm"
 sidebar_position: 6
 description: "A comprehensive guide to using the Z-Algorithm for efficient pattern matching."
 tags: [pattern matching, string algorithms, competitive programming]

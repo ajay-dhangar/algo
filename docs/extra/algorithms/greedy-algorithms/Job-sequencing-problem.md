@@ -2,7 +2,7 @@
 
 id: job-sequencing  
 title: Job Sequencing Algorithm  
-sidebar_label: Job Sequencing  
+sidebar_label: 🟠 Job Sequencing
 description: "In this blog post, we'll explore the Job Sequencing problem, a classical greedy algorithm that schedules jobs within their deadlines to maximize profit."  
 tags: [dsa, algorithms, greedy algorithms, scheduling]
 

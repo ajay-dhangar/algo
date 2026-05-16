@@ -2,7 +2,7 @@
 id: tree-sort-algo  
 sidebar_position: 15  
 title: Tree Sort  
-sidebar_label: Tree Sort  
+sidebar_label: 🟠 Tree Sort
 ---
 
 ### Definition:

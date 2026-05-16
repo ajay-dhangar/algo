@@ -3,7 +3,7 @@
 id: suffix-array-algorithm
 sidebar_position: 17
 title: Suffix Array Algorithm
-sidebar_label: Suffix Array Algorithm
+sidebar_label: 🟢 Suffix Array Algorithm
 
 ---
 

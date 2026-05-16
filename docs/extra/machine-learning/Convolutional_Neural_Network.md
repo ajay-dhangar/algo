@@ -2,7 +2,7 @@
 
 id: convolutional-neural-networks  
 title: Convolutional Neural Networks (CNN)  
-sidebar_label: CNNs  
+sidebar_label: 🔴 CNNs
 description: "This post explores Convolutional Neural Networks (CNN), a specialized neural network architecture widely used for tasks involving image processing and computer vision."  
 tags: [machine learning, deep learning, cnn, neural networks, computer vision]
 

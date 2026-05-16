@@ -1,7 +1,7 @@
 ---
 id: function-overloading
 title: Function Overloading
-sidebar_label: Function Overloading
+sidebar_label: 🟢 Function Overloading
 sidebar_position: 6
 description: Understand the concept of function overloading in various programming languages.
 tags: [functions, fundamental, programming fundamentals, overloading]

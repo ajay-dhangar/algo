@@ -1,7 +1,7 @@
 ---
 id: maximum-minimum
 title: Maximum-minimum
-sidebar_label: Maximum-minimum
+sidebar_label: 🟠 Maximum-minimum
 description: "Maximum minimum finding using divide and conquer approach to reduce the number of comparisions."  
 tags: [dsa, algorithms, divide and conquer]
 ---

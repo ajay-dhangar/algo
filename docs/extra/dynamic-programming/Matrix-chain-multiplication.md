@@ -1,7 +1,7 @@
 ---
 id: matrix-chain-multiplication
 title: Matrix-chain-multiplication
-sidebar_label: Matrix-chain-multiplication
+sidebar_label: 🔴 Matrix-chain-multiplication
 description: The program finds the optimal multiplication order for a matrix chain, minimizing scalar multiplications using dynamic programming for efficiency.
 tags: [Dynamic Programming,Algorithm, DSA]
 ---

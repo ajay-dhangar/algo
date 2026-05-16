@@ -1,7 +1,7 @@
 ---
 id: unwinding-in-recursion
 title: Unwinding in Recursion
-sidebar_label: Unwinding in recursion
+sidebar_label: 🟠 Unwinding in recursion
 sidebar_position: 3
 description: "Unwinding in recursion is the phase where recursive calls return back up the call stack, resolving each call step by step in reverse order"
 tags: [recursion, algorithms, dsa,unwinding]

@@ -1,7 +1,7 @@
 ---
 id: kmp-algorithm
 title: "Knuth-Morris-Pratt (KMP) Algorithm"
-sidebar_label: "KMP Algorithm"
+sidebar_label: "🔴 KMP Algorithm"
 sidebar_position: 4
 description: "The KMP algorithm is an efficient method for substring searching in a string."
 tags: [String Matching, kmp-algorithm, Substring Search, Algorithm, Pattern Matching]

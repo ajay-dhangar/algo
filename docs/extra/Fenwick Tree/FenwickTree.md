@@ -1,7 +1,7 @@
 ---
 id: fenwick-tree
 title: "Introduction to Fenwick Tree (Binary Indexed Tree)"
-sidebar_label: "Fenwick Tree"
+sidebar_label: "🔴 Fenwick Tree"
 sidebar_position: 1
 description: "Information on Fenwick Tree (Binary Indexed Tree) Algorithm"
 tags: [Algorithm, Fenwick Tree, Binary Indexed Tree]

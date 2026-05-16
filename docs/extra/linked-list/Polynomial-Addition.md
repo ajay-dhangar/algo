@@ -1,7 +1,7 @@
 ---
 id: polynomial-addition 
 title: Polynomial-addition 
-sidebar_label: Polynomial-addition  
+sidebar_label: 🟢 Polynomial-addition
 description: "Addition of two polynomials represented as linked lists and displays the resulting polynomial"  
 tags: [dsa, algorithms, linked-list]
 ---

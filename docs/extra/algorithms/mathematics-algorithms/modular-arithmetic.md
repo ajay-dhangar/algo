@@ -2,7 +2,7 @@
 id: modular-arithmetic
 sidebar_position: 7
 title: Modular Arithmetic
-sidebar_label: Modular Arithmetic
+sidebar_label: 🟢 Modular Arithmetic
 description: "Modular arithmetic is a fundamental concept in mathematics, essential for cryptography and number theory."
 tags: [modular arithmetic, cryptography, number theory, algorithms]
 ---

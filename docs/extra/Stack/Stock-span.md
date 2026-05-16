@@ -1,7 +1,7 @@
 ---
 id: stock-span 
 title: Stock Span Problem 
-sidebar_label: Stock Span Problem 
+sidebar_label: 🟢 Stock Span Problem
 description: "The Stock Span Problem is a financial problem that calculates the span of stock's price on a given day."  
 tags: [dsa, algorithms, stack]
 ---

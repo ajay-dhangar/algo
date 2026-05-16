@@ -1,7 +1,7 @@
 ---
 id: prims-algorithm
 title:  "Prim's Algorithm"
-sidebar_label:  "Prim's Algorithm"
+sidebar_label: "🔴 Prim's Algorithm"
 sidebar_position: 2
 description: "Prim's algorithm is a greedy algorithm that finds the Minimum Spanning Tree (MST)"
 tags: [Graph Theory, prims-algorithm, Minimum Spanning Tree, Greedy Algorithms, Optimization]

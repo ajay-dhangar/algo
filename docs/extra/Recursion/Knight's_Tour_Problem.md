@@ -1,7 +1,7 @@
 ---
 id: Knights-Tour-problem-dsa
 title: Knight's Tour Recursion
-sidebar_label: Knight's Tour
+sidebar_label: 🟠 Knight's Tour
 sidebar_position: 3
 description: "The Knight's Tour problem is a classic backtracking problem where the goal is to move a knight across an n×n chessboard such that it visits every square exactly once. The problem is often solved using backtracking and recursion."
 tags: [knights-tour, backtracking, recursion, dsa]

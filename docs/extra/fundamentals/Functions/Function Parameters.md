@@ -1,7 +1,7 @@
 ---
 id: function-parameters
 title: Function Parameters
-sidebar_label: Function Parameters
+sidebar_label: 🟢 Function Parameters
 sidebar_position: 3
 description: Learn about how function parameters work in various programming languages.
 tags: [functions, fundamentals, programming fundamentals, parameters]

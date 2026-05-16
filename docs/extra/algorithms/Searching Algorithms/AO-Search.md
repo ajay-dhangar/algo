@@ -2,7 +2,7 @@
 id: ao-star-search  
 sidebar_position: 2  
 title: AO* Search  
-sidebar_label: AO*  
+sidebar_label: 🟠 AO*
 ---
 
 ### Definition:

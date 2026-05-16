@@ -1,7 +1,7 @@
 ---
 id: convex-hull
 title: "Convex Hull Problem"
-sidebar_label: "Convex Hull"
+sidebar_label: "🟠 Convex Hull"
 description: "This document provides an overview of the Convex Hull problem using the divide-and-conquer approach."
 tags: [divide-and-conquer, computational-geometry, algorithms]
 ---

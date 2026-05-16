@@ -3,7 +3,7 @@
 id: symmetric-encryption-algo  
 sidebar_position: 1  
 title: Symmetric Encryption  
-sidebar_label: Symmetric Encryption  
+sidebar_label: 🟠 Symmetric Encryption
 
 ---
 

@@ -3,7 +3,7 @@
 id: smawk-algorithm  
 sidebar_position: 19  
 title: "SMAWK Algorithm"  
-sidebar_label: SMAWK Algorithm  
+sidebar_label: 🟠 SMAWK Algorithm
 
 ---
 

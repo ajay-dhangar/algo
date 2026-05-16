@@ -3,7 +3,7 @@
 id: cycle-sort-algo  
 sidebar_position: 12  
 title: Cycle Sort  
-sidebar_label: Cycle Sort  
+sidebar_label: 🟢 Cycle Sort
 
 ---
 

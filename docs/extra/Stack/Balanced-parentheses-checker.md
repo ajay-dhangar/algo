@@ -1,7 +1,7 @@
 ---
 id: balanced-parentheses-checker
 title: Balanced-parentheses-checker 
-sidebar_label: Balanced-parentheses-checker 
+sidebar_label: 🟢 Balanced-parentheses-checker
 description: "This algorithm checks if the parentheses in a given expression are balanced using a stack to ensure each opening parentheses has a corresponding closing one."  
 tags: [dsa, algorithms, stack]
 ---

@@ -1,7 +1,7 @@
 ---
 id: merkle-tree-algorithm
 title: Merkle Tree Algorithm
-sidebar_label: Merkle Tree Algorithm
+sidebar_label: 🟠 Merkle Tree Algorithm
 sidebar_position: 1
 description: "The Merkle Tree is a cryptographic structure used for efficient and secure data verification in distributed systems."
 tags: [Cryptography, merkle-tree-algorithm, Data Integrity, Distributed Systems, Blockchain]

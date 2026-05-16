@@ -3,7 +3,7 @@
 id: fibonacci-search-algo  
 sidebar_position: 5  
 title: Fibonacci Search  
-sidebar_label: Fibonacci Search  
+sidebar_label: 🟠 Fibonacci Search
 
 ---
 

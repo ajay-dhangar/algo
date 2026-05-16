@@ -2,7 +2,7 @@
 id: moores-voting-algorithm  
 sidebar_position: 15  
 title: "Moore's Voting Algorithm"
-sidebar_label: Voting Algorithm
+sidebar_label: 🟠 Voting Algorithm
 ---
 
 ### Definition:

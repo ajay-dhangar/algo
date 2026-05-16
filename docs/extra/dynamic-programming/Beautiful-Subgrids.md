@@ -1,7 +1,7 @@
 ---
 id: beautiful-subgrids
 title: Beautiful Subgrids Problem - Efficient Detection
-sidebar_label: Beautiful Subgrids
+sidebar_label: 🔴 Beautiful Subgrids
 sidebar_position: 3
 description: "In this post, we'll explore the Beautiful Subgrids problem, an algorithmic challenge that focuses on efficiently detecting subgrids in a matrix that meet specific criteria. We'll delve into the problem's constraints, discuss the approach for finding beautiful subgrids, and provide solutions in multiple languages such as C++, Java, Python, JavaScript, and Go. By the end, you'll understand how to count beautiful subgrids in a grid efficiently."
 tags: [dsa, dp, grid problems, matrix]

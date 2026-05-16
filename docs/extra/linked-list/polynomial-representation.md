@@ -3,7 +3,7 @@ id: polynomial-representation-linked-list
 sidebar_position: 1
 title: "Polynomial Representation of a Linked List in C++"
 description: "This tutorial explains how to represent and manipulate a polynomial using a linked list in C++."
-sidebar_label: "Polynomial Representation of Linked List"
+sidebar_label: "🟢 Polynomial Representation of Linked List"
 tags: [dsa, linked-lists, polynomial representation]
 ---
 

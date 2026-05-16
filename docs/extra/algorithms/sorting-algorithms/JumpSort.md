@@ -2,7 +2,7 @@
 id: jump-sort-algo  
 sidebar_position: 2  
 title: Jump Sort  
-sidebar_label: Jump Sort  
+sidebar_label: 🟢 Jump Sort
 ---
 
 ### Definition:

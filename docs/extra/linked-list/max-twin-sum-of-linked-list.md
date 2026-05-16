@@ -3,7 +3,7 @@ id: max-twin-sum
 sidebar_position: 1
 title: "Maximum Twin Sum of Linked List"
 description: "This tutorial explains how to find the maximum twin sum in a linked list using C."
-sidebar_label: "Max Twin Sum"
+sidebar_label: "🟢 Max Twin Sum"
 tags: [dsa, linked-lists, c]
 ---
 

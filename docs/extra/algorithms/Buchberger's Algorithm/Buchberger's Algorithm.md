@@ -3,7 +3,7 @@
 id: buchbergers-algorithm  
 sidebar_position: 18  
 title: "Buchberger's Algorithm"  
-sidebar_label: Buchberger's Algorithm  
+sidebar_label: 🟠 Buchberger's Algorithm
 
 ---
 

@@ -2,7 +2,7 @@
 
 id: catboost
 title: CatBoost Algorithm
-sidebar_label: CatBoost
+sidebar_label: 🔴 CatBoost
 description: "CatBoost is an efficient gradient boosting algorithm that handles categorical features well, making it a powerful tool for classification and regression problems."
 tags: [machine learning, algorithms, catboost, classification, regression, boosting]
 

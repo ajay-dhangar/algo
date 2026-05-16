@@ -1,7 +1,7 @@
 ---
 id: bloom-filter-algorithm
 title: Algorithm for Bloom Filters
-sidebar_label: Algorithm for Bloom Filters
+sidebar_label: 🟠 Algorithm for Bloom Filters
 sidebar_position: 21
 description: "Bloom Filters are probabilistic data structures used in applications where space efficiency is crucial, and approximate answers are acceptable, like database caching and network filtering."
 tags: [Data Structures, Algorithms, Bloom Filter, Probabilistic Data Structures, Space Efficiency, Membership Testing, False Positives, Hashing, Big Data, Caching, Network Security, Database Optimization, Data Science, Computer Science]

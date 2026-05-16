@@ -3,7 +3,7 @@
 id: bitap-algo  
 sidebar_position: 3  
 title: Bitap Algorithm  
-sidebar_label: Bitap Algorithm  
+sidebar_label: 🟢 Bitap Algorithm
 
 ---
 

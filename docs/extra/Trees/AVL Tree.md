@@ -1,7 +1,7 @@
 ---
 id: avl-trees
 title: AVL Trees
-sidebar_label: AVL Trees
+sidebar_label: 🟠 AVL Trees
 sidebar_position: 2
 description: An overview of AVL trees, their properties, and operations.
 tags: [data structures, trees, algorithms]

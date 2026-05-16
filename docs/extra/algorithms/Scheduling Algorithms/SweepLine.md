@@ -2,7 +2,7 @@
 id: sweep-line-algorithm
 sidebar_position: 3
 title: Sweep Line Algorithm
-sidebar_label: Sweep Line Algorithm
+sidebar_label: 🟠 Sweep Line Algorithm
 description: "This document explains the Merge Intervals problem using the Sweep Line Algorithm, including its description, approach, and implementation in C++."
 tags: [leetcode, algorithms, problem-solving, sweep-line-algo]
 ---

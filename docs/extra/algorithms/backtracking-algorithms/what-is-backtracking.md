@@ -2,7 +2,7 @@
 id: what-is-Backtracking
 sidebar_position: 1
 title: What is Backtracking Algorithms?
-sidebar_label: What is Backtracking?
+sidebar_label: 🔴 What is Backtracking?
 description: "Backtracking is a systematic algorithmic method for solving problems where you need to explore all possible configurations (solution candidates) and discard those that fail to satisfy the given constraints. It is widely used to solve constraint satisfaction problems such as puzzles, combinatorial optimization problems, and decision problems."
 tags: [backtracking, memoisation, pruning]
 ---

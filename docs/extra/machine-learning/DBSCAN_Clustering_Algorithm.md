@@ -2,7 +2,7 @@
 
 id: dbscan-clustering  
 title: DBSCAN Clustering Algorithm  
-sidebar_label: DBSCAN Clustering  
+sidebar_label: 🔴 DBSCAN Clustering
 description: "In this post, we'll explore DBSCAN, a density-based clustering algorithm used to identify clusters of arbitrary shape and noise in datasets."  
 tags: [clustering, machine learning, DBSCAN, density-based]
 

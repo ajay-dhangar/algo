@@ -1,7 +1,7 @@
 ---
 id: odd-even-sorting  
 title: Odd Even Sorting  
-sidebar_label: Odd Even Sorting Algorithm  
+sidebar_label: 🟢 Odd Even Sorting Algorithm
 sidebar_position: 17  
 description: "Odd-Even Sort is a simple comparison-based sorting algorithm, also known as Brick Sort."  
 tags: [Sorting Algorithms, odd-even-sort, brick-sort]  

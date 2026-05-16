@@ -1,7 +1,7 @@
 ---
 id: flood-fill
 title: Flood Fill Algorithm
-sidebar_label: Flood Fill Algorithm
+sidebar_label: 🔴 Flood Fill Algorithm
 description: "In this blog post, we'll explore the Flood Fill Algorithm, a popular technique used in computer graphics for determining connected regions, such as filling areas in images and solving puzzles like the paint bucket tool in graphics editing software."
 tags: [dsa, algorithms, graphics, connected components]
 ---

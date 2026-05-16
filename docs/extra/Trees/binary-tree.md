@@ -1,7 +1,7 @@
 ---
 id: binary-tree-algorithm
 title: Binary Tree Algorithm
-sidebar_label: Binary Tree Algorithm
+sidebar_label: 🟠 Binary Tree Algorithm
 sidebar_position: 3
 description: "A Binary Tree is a data structure in which each node has at most two children."
 tags: [Data Structures, binary-tree-algorithm, Algorithms]

@@ -2,7 +2,7 @@
 id: search-in-hash-table
 sidebar_position: 3
 title: Search in Hash Table
-sidebar_label: Search in Hash Table
+sidebar_label: 🟢 Search in Hash Table
 description: "Search involves retrieving the value associated with a given key in the hash table."
 tags: [hashing, data structures, search]
 ---

@@ -3,7 +3,7 @@
 id: bogo-sort-algo  
 sidebar_position: 13
 title: Bogo Sort  
-sidebar_label: Bogo Sort  
+sidebar_label: 🟢 Bogo Sort
 
 ---
 

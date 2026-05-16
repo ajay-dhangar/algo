@@ -3,7 +3,7 @@
 id: sunday-algorithm
 sidebar_position: 14
 title: Sunday Algorithm
-sidebar_label: Sunday Algorithm
+sidebar_label: 🟢 Sunday Algorithm
 
 ---
 

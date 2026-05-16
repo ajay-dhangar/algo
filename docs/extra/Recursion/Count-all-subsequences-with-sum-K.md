@@ -1,7 +1,7 @@
 ---
 id: count-all-subsequences-with-sum-k-problem-dsa
 title: Perfect sum
-sidebar_label: Perfect sum
+sidebar_label: 🟠 Perfect sum
 description: "The Perfect Sum problem involves finding all subsets of an array that sum up to a given target sum. The solution uses recursion and dynamic programming to efficiently count subsets with a specified sum while handling large values using modulo."
 tags: [perfect-sum, recursion, dynamic-programming, dsa]
 ---

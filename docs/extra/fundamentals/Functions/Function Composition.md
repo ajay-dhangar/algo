@@ -1,7 +1,7 @@
 ---
 id: function-composition
 title: Function Composition
-sidebar_label: Function Composition
+sidebar_label: 🟢 Function Composition
 sidebar_position: 10
 description: Learn about function composition and how to combine multiple functions into one in C++ and Python.
 tags: [functions, fundamental, programming fundamentals, composition, c++, python]

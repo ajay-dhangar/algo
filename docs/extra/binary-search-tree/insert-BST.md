@@ -2,7 +2,7 @@
 id: insert-binary-search-tree
 sidebar_position: 14
 title: Insert in a Binary Search Tree
-sidebar_label: Insert in BST
+sidebar_label: 🟠 Insert in BST
 description: "This blog post covers how to insert a value in a Binary Search Tree (BST) in C++, along with explanations and code examples."
 tags: [dsa, binary trees, insert, c++]
 ---

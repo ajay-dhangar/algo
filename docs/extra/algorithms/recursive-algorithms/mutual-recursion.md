@@ -1,7 +1,7 @@
 ---
 id: mutual-recursion
 title: Mutual Recursion
-sidebar_label: "Mutual Recursion"
+sidebar_label: "🟠 Mutual Recursion"
 sidebar_position: 1
 description: An overview of mutual recursion and its applications in programming.
 tags: [recursion, algorithms, programming]

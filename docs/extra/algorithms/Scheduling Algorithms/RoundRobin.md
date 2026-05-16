@@ -1,7 +1,7 @@
 ---
 id: round-robin-scheduling
 title: Round Robin Scheduling Algorithm
-sidebar_label: "Round Robin Scheduling"
+sidebar_label: "🟠 Round Robin Scheduling"
 sidebar_position: 6
 description: Round Robin (RR) is a preemptive scheduling algorithm where each process is assigned a fixed time slice in a cyclic order.
 tags: [Scheduling, Round Robin]

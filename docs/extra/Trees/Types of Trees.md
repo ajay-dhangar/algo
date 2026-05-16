@@ -1,7 +1,7 @@
 ---
 id: types-of-trees
 title: Types of Trees
-sidebar_label: Types of Trees
+sidebar_label: 🟠 Types of Trees
 
 description: "This document provides an overview of various types of trees in computer science. Understanding these tree types is essential for selecting the right data structure for your specific needs."
 

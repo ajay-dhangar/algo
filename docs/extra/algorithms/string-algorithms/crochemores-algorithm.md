@@ -3,7 +3,7 @@
 id: crochemores-algorithm
 sidebar_position: 9
 title: Crochemore's Algorithm
-sidebar_label: Crochemore's Algorithm
+sidebar_label: 🟢 Crochemore's Algorithm
 
 ---
 

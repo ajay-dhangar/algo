@@ -1,7 +1,7 @@
 ---
 id: contains-duplicate-leetcode-217
 title: Contains Duplicate
-sidebar_label: Leetcode 217
+sidebar_label: 🟠 Leetcode 217
 tags: [Leetcode, Array, DSA, Contains duplicate]
 description: Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 ---

@@ -2,7 +2,7 @@
 id: circular-array-application
 sidebar_position: 2
 title: Applications of Circular Arrays
-sidebar_label: Applications of Circular Arrays
+sidebar_label: 🟢 Applications of Circular Arrays
 description: "Circular arrays are used in various real-world applications for efficient memory usage and continuous data management."
 tags: [circular array, applications, data structure, DSA, programming]
 ---

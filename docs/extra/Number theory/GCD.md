@@ -1,7 +1,7 @@
 ---
 id: GCD
 title: "GCD Algorithm"
-sidebar_label: "GCD"
+sidebar_label: "🟢 GCD"
 sidebar_position: 9
 description: "A detailed guide to understanding and implementing the GCD (Greatest Common Divisor) Algorithm in Number Theory."
 tags: [gcd, number theory, competitive programming]

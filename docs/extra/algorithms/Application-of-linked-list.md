@@ -1,7 +1,7 @@
 ---
 id: linked-list-applications
 title: Applications of Linked List
-sidebar_label: Applications of Linked List
+sidebar_label: 🟢 Applications of Linked List
 sidebar_position: 16
 description: "Applications of Linked List in various fields including data structures, operating systems, and dynamic memory allocation."
 tags: [Data Structure, Linked List, Applications, Programming]

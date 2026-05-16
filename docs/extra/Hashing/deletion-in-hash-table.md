@@ -2,7 +2,7 @@
 id: deletion-in-hash-table
 sidebar_position: 2
 title: Deletion in Hash Table
-sidebar_label: Deletion in Hash Table
+sidebar_label: 🟢 Deletion in Hash Table
 description: "Deletion involves removing a key-value pair from the hash table using the key."
 tags: [hashing, data structures, deletion]
 ---

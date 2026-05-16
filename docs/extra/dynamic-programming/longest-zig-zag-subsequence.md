@@ -1,7 +1,7 @@
 ---
 id: longest-zig-zag-subsequence
 title: "Longest Zig-Zag Subsequence - Dynamic Programming"
-sidebar_label: "Longest Zig-Zag Subsequence"
+sidebar_label: "🔴 Longest Zig-Zag Subsequence"
 description: "In this post, we'll explore the Longest Zig-Zag-Subsequence problem, which aims to find the longest subsequence where elements alternate between increasing and decreasing."
 tags: [dsa, dynammic programming]
 ---

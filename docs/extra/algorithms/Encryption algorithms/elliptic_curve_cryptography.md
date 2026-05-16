@@ -3,7 +3,7 @@
 id: elliptic-curve-cryptography  
 sidebar_position: 3  
 title: Elliptic Curve Cryptography (ECC)  
-sidebar_label: Elliptic Curve Cryptography  
+sidebar_label: 🔴 Elliptic Curve Cryptography
 
 ---
 

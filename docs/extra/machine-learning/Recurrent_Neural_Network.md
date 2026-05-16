@@ -2,7 +2,7 @@
 
 id: recurrent-neural-networks  
 title: Recurrent Neural Networks (RNN)  
-sidebar_label: RNNs  
+sidebar_label: 🔴 RNNs
 description: "This post explores Recurrent Neural Networks (RNN), a class of neural networks designed to handle sequential data and time-series information, commonly used for tasks involving natural language processing, speech recognition, and more."  
 tags: [machine learning, deep learning, rnn, neural networks, time series, NLP]
 

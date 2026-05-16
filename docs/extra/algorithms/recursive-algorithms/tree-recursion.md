@@ -1,7 +1,7 @@
 ---
 id: tree-recursion
 title: Tree Recursion
-sidebar_label: "Tree Recursion"
+sidebar_label: "🟠 Tree Recursion"
 sidebar_position: 4
 description: An overview of Tree Recursion and its applications in programming.
 tags: [recursion, algorithms, programming]

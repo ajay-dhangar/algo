@@ -1,7 +1,7 @@
 ---
 id: shell-sort  
 title: Shell Sort  
-sidebar_label: Shell Sort  
+sidebar_label: 🟢 Shell Sort
 description: "Learn about Shell Sort, an in-place comparison-based sorting algorithm that generalizes insertion sort to allow the exchange of items that are far apart."
 tags: [dsa, algorithms, sorting]
 ---

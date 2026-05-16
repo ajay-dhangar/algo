@@ -1,7 +1,7 @@
 ---
 id: Gray Code Generation
 title: Gray Code Generation Using Recursion
-sidebar_label: Generate Gray Code
+sidebar_label: 🟠 Generate Gray Code
 description: "Gray code generation is a process of creating a sequence of binary numbers in which two successive values differ in only one bit. This unique property is useful in various applications, such as minimizing errors in digital communication and ensuring smooth transitions in analog-to-digital converters. The generation can be efficiently achieved using a recursive algorithm, which constructs Gray codes for 𝑛 by leveraging the codes generated for 𝑛−1 bits. The resulting Gray code sequences maintain a structured format, making them ideal for error detection and correction in digital systems"
 tags: [Gray-Code, recursion, dsa]
 ---

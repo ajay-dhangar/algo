@@ -3,7 +3,7 @@
 id: two-way-string-matching
 sidebar_position: 8
 title: Two-Way String-Matching Algorithm
-sidebar_label: Two-Way String-Matching Algorithm
+sidebar_label: 🟢 Two-Way String-Matching Algorithm
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: function-return
 title: Function Return
-sidebar_label: Function Return
+sidebar_label: 🟢 Function Return
 sidebar_position: 4
 description: Learn about how functions return values in various programming languages.
 tags: [functions, fundamentals, programming fundamentals, return_values]

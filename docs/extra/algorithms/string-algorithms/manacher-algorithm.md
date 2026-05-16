@@ -3,7 +3,7 @@
 id: manachers-algorithm
 sidebar_position: 15
 title: Manacher's Algorithm
-sidebar_label: Manacher's Algorithm
+sidebar_label: 🟢 Manacher's Algorithm
 
 ---
 

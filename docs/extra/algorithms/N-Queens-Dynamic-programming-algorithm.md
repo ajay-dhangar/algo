@@ -1,7 +1,7 @@
 ---
 id: n-queens-problem
 title: N-Queens Problem
-sidebar_label: N-Queens Problem
+sidebar_label: 🔴 N-Queens Problem
 sidebar_position: 9
 description: "The N-Queens problem is a classic backtracking problem where the objective is to place N queens on an N×N chessboard such that no two queens threaten each other."
 tags: [Backtracking, N-Queens, Algorithms, Recursion, Combinatorics]

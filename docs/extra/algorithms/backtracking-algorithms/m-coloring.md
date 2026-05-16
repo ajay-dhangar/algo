@@ -2,7 +2,7 @@
 id: m-coloring-problem
 sidebar_position: 1
 title: M-Coloring Problem
-sidebar_label: M-Coloring Problem
+sidebar_label: 🔴 M-Coloring Problem
 description: "The M-Coloring problem is a backtracking algorithm where the task is to assign colors to vertices of a graph so that no two adjacent vertices share the same color. The goal is to find if it is possible to color the graph using at most M colors."
 tags: [backtracking, graph-coloring, constraint satisfaction]
 ---

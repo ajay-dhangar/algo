@@ -1,7 +1,7 @@
 ---
 id: time-vs-space-complexity
 title: Time vs Space Complexity
-sidebar_label: Time vs Space Complexity
+sidebar_label: 🟢 Time vs Space Complexity
 sidebar_position: 3
 description: "Time and space complexity are two important concepts in computer science. Time complexity is the amount of time an algorithm takes to run, while space complexity is the amount of memory an algorithm uses. Both are important to consider when analyzing the efficiency of an algorithm."
 tags: [time-complexity, space-complexity, time vs space complexity]

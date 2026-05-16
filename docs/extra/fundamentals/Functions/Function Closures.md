@@ -1,7 +1,7 @@
 ---
 id: function-closures
 title: Function Closures
-sidebar_label: Function Closures
+sidebar_label: 🟢 Function Closures
 sidebar_position: 8
 description: Understand the concept of closures in programming and their usage.
 tags: [functions, fundamental, programming fundamentals, closures]

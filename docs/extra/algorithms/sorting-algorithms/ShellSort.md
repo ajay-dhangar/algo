@@ -3,7 +3,7 @@
 id: shell-sort-algo  
 sidebar_position: 11  
 title: Shell Sort  
-sidebar_label: Shell Sort  
+sidebar_label: 🟢 Shell Sort
 
 ---
 

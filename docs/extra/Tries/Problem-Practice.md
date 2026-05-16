@@ -1,7 +1,7 @@
 ---
 id: Practice-Problems-on-tries
 title: Practice Problems
-sidebar_label: Practice Problems
+sidebar_label: 🟠 Practice Problems
 sidebar_position: 2
 description: Here are some practice problems for tries
 tags: [DSA, algorithms, tries]

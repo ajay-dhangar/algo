@@ -1,7 +1,7 @@
 ---
 id: longest-substring-k-distinct-characters
 title: Longest Substring with K Distinct Characters
-sidebar_label: Longest Substring with K Distinct Characters
+sidebar_label: 🟠 Longest Substring with K Distinct Characters
 sidebar_position: 4
 description: "In this blog post, we will explore how to find the longest substring containing exactly K distinct characters using the sliding window technique."
 tags: [dsa, algorithms, sliding window, strings]

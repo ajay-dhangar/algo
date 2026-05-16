@@ -3,7 +3,7 @@
 id: optimal-mismatch-algorithm
 sidebar_position: 25
 title: Optimal Mismatch Algorithm
-sidebar_label: Optimal Mismatch Algorithm
+sidebar_label: 🟢 Optimal Mismatch Algorithm
 
 ---
 

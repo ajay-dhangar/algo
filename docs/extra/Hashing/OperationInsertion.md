@@ -2,7 +2,7 @@
 id: insertion-in-hash-table
 sidebar_position: 1
 title: Insertion in Hash Table
-sidebar_label: Insertion in Hash Table
+sidebar_label: 🟢 Insertion in Hash Table
 description: "Insertion involves adding a key-value pair to the hash table. If the key already exists, it may update the existing value."
 tags: [hashing, data structures, insertion]
 ---

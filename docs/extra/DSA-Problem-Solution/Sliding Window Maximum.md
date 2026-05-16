@@ -1,7 +1,7 @@
 ---
 id: sliding-window-maximum
 title: Sliding Window Maximum
-sidebar_label: LeetCode 239
+sidebar_label: 🟠 LeetCode 239
 tags: [LeetCode , Arrays, Queue , Sliding Window , Heap (Priority Queue) , Monotonic Queue]
 description: "Given array of integers nums , with sliding window of size k which is moving from the very left of the array to the very right.Return the max for each sliding window."
 ---

@@ -1,7 +1,7 @@
 ---
 id: first-come-first-served-scheduling
 title: First Come First Served Scheduling Algorithm
-sidebar_label: "First Come First Served Scheduling"
+sidebar_label: "🟠 First Come First Served Scheduling"
 sidebar_position: 5
 description: First Come First Served (FCFS) is a simple scheduling algorithm where processes are handled in the order they arrive, without priority.
 tags: [Scheduling, FCFS]

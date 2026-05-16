@@ -2,7 +2,7 @@
 
 id: least-recently-used
 title: Least Recently Used (LRU) Algorithm
-sidebar_label: "Least Recently Used"
+sidebar_label: "🟠 Least Recently Used"
 sidebar_position: 8
 description: The Least Recently Used (LRU) algorithm is a cache replacement policy that evicts the least recently used items first.
 tags: [Cache, LRU, Algorithms]

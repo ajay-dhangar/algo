@@ -1,7 +1,7 @@
 ---
 id: identifying-dynamic-programming-problem
 title: Identifying a Dynamic Programming Problem
-sidebar_label: Identifying a Dynamic Programming Problem 
+sidebar_label: 🔴 Identifying a Dynamic Programming Problem
 description: "In this blog post, we'll explore how to identify problems that can be effectively solved using Dynamic Programming (DP) techniques, focusing on the key properties of optimal substructure and overlapping subproblems."
 tags: [dsa, algorithms, dynamic programming]
 ---

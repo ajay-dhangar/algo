@@ -2,7 +2,7 @@
 id: matrix-data-structure
 sidebar_position: 1
 title: matrix-ds
-sidebar_label: Matrix Data Structure
+sidebar_label: 🟢 Matrix Data Structure
 description: "One more of the basic Data Structure is Matrix Data structure and we'll know more about it."
 tags: [dsa, Matrix, DataStructure]
 ---

@@ -1,7 +1,7 @@
 ---
 id: function-memoization
 title: Function Memoization
-sidebar_label: Function Memoization
+sidebar_label: 🟢 Function Memoization
 sidebar_position: 11
 description: Learn about function memoization, a technique to optimize performance by caching results of expensive function calls.
 tags: [functions, fundamental, programming fundamentals, optimization, caching]

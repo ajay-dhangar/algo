@@ -3,7 +3,7 @@
 id: longest-common-subsequence-algorithm
 sidebar_position: 16
 title: Longest Common Subsequence (LCS) Algorithm
-sidebar_label: LCS Algorithm
+sidebar_label: 🟢 LCS Algorithm
 
 ---
 

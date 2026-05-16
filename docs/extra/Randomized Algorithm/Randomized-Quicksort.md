@@ -1,7 +1,7 @@
 ---
 id: randomized-quicksort
 title: Randomized Quick Sort
-sidebar_label: Randomized Quick Sort
+sidebar_label: 🟠 Randomized Quick Sort
 description: "Randomized quicksort is a sorting algorithm that is an extension of quicksort, but with a random pivot selection"  
 tags: [dsa, algorithms, sorting]
 ---

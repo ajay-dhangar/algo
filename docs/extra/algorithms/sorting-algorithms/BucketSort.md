@@ -3,7 +3,7 @@
 id: bucket-sort-algo  
 sidebar_position: 9  
 title: Bucket Sort  
-sidebar_label: Bucket Sort  
+sidebar_label: 🟢 Bucket Sort
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: strassens-matrix-mutiplication
 title: Strassen's-Matrix-Mutiplication
-sidebar_label: Strassen's-Matrix-Mutiplication 
+sidebar_label: 🟠 Strassen's-Matrix-Mutiplication
 description: "Strassen's matrix multiplication is an efficient algorithm that reduces the time complexity of multiplying two matrices."  
 tags: [dsa, algorithms, divide and conquer]
 ---

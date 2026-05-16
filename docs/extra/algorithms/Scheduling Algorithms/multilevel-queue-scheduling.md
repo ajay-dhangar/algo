@@ -1,7 +1,7 @@
 ---
 id: multilevel-queue-scheduling
 title:  Multilevel Queue Scheduling Algorithm
-sidebar_label:  "Multilevel Queue Scheduling Algorithm"
+sidebar_label: "🟢 Multilevel Queue Scheduling Algorithm"
 sidebar_position: 7
 description: An overview of  the Multilevel Queue Scheduling Algorithm and its applications in programming.
 tags: [CPU Scheduling, algorithms, programming, queue]

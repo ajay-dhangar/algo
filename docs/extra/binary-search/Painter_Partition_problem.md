@@ -1,7 +1,7 @@
 ---
 id: painter-partition-problem
 title: Painter Partition Problem (C++)
-sidebar_label: Painter Partition
+sidebar_label: 🟠 Painter Partition
 sidebar_position: 1
 description: Solve the Painter Partition problem using Binary Search and Greedy approaches.
 tags: [binary search, greedy, algorithms, c++]

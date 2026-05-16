@@ -1,7 +1,7 @@
 ---
 id: function-scope
 title: Function Scope
-sidebar_label: Function Scope
+sidebar_label: 🟢 Function Scope
 sidebar_position: 5
 description: Learn about variable scope within functions and how it affects accessibility.
 tags: [functions, fundamental, programming fundamentals, scope, variables]

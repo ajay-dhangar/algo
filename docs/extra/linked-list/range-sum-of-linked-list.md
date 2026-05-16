@@ -1,7 +1,7 @@
 ---
 id: range-sum-of-linked-list
 title: Range Sum of Linked List
-sidebar_label: Range Sum of Linked List
+sidebar_label: 🟢 Range Sum of Linked List
 description: 'Calculate the sum of node values within this range.'
 tags: [dsa, data-structures, LinkedList]
 ---

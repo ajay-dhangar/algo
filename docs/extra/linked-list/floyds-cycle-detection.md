@@ -1,7 +1,7 @@
 ---
 id: floyds-cycle-detection
 title: Floyd's Cycle Detection Algorithm
-sidebar_label: Floyd's Cycle Detection
+sidebar_label: 🟢 Floyd's Cycle Detection
 sidebar_position: 3
 description: 'Floyd’s Cycle Detection Algorithm, also called the Tortoise and Hare Algorithm, is a method used to detect cycles in a linked list. It uses two pointers that move at different speeds through the list to determine if a cycle exists.'
 tags: [dsa, algorithms, cycle-detection, linkedList]

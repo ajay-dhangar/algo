@@ -3,7 +3,7 @@
 id: priority-search-algorithm
 sidebar_position: 5 
 title: Priority Search algorithm
-sidebar_label: Priority Search algorithm
+sidebar_label: 🟠 Priority Search algorithm
 
 ---
 

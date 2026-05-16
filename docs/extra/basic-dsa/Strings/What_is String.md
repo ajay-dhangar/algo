@@ -1,7 +1,7 @@
 ---
 id: What-is-String
 title: "Strings"
-sidebar_label: "What is Strings"
+sidebar_label: "🟢 What is Strings"
 sidebar_position: 4
 description: "The KMP algorithm is an efficient method for substring searching in a string."
 tags: [String Matching, kmp-algorithm, Substring Search, Algorithm, Pattern Matching]

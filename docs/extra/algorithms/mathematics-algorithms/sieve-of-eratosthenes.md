@@ -2,7 +2,7 @@
 id: sieve-of-eratosthenes
 sidebar_position: 3
 title: Sieve of Eratosthenes
-sidebar_label: Sieve of Eratosthenes
+sidebar_label: 🟢 Sieve of Eratosthenes
 description: "The Sieve of Eratosthenes is an efficient algorithm to find all prime numbers up to a given limit."
 tags: [sieve of eratosthenes, prime numbers, algorithms, number theory]
 ---

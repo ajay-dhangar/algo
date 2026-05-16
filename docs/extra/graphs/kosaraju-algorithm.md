@@ -1,7 +1,7 @@
 ---
 id: kosaraju
 title: Kosaraju's Algorithm
-sidebar_label: Kosaraju's Algorithm
+sidebar_label: 🔴 Kosaraju's Algorithm
 description: "In this blog post, we'll explore Kosaraju's Algorithm, an efficient algorithm used to find all Strongly Connected Components (SCCs) in a directed graph."
 tags: [dsa, algorithms, strongly connected components]
 ---

@@ -1,7 +1,7 @@
 ---
 id: check-palindrome-using-deque
 title: "Check Palindrome Using Deque"
-sidebar_label: "Palindrome Check with Deque"
+sidebar_label: "🟢 Palindrome Check with Deque"
 sidebar_position: 9
 description: "A guide to checking if a string is a palindrome using a deque data structure for efficient operations."
 tags: [data structure, deque, palindrome]

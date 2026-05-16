@@ -1,7 +1,7 @@
 ---
 id: linked-list-approaches-dsa  
 title: Linked List Approaches  
-sidebar_label: Different Approaches in Linked List 
+sidebar_label: 🟢 Different Approaches in Linked List
 sidebar_position: 6  
 description: "Linked lists are dynamic data structures, and various approaches can be used to solve problems involving linked lists. This file outlines iterative and recursive approaches used to implement and manipulate linked lists."  
 tags: [linked-list, data-structures, approaches, dsa]  

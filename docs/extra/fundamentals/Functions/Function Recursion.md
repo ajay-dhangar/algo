@@ -1,7 +1,7 @@
 ---
 id: function-recursion
 title: Function Recursion
-sidebar_label: Function Recursion
+sidebar_label: 🟠 Function Recursion
 sidebar_position: 7
 description: Understand the concept of recursion in programming functions.
 tags: [functions, fundamental, programming fundamentals, function-recursion]

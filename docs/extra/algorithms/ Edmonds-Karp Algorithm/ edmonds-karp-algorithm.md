@@ -2,7 +2,7 @@
 id: Edmonds-Karp-Algorithm
 sidebar_position: 4
 title: Edmonds-Karp Algorithm
-sidebar_label: Edmonds-Karp Algorithm
+sidebar_label: 🟠 Edmonds-Karp Algorithm
 description: "The Edmonds-Karp algorithm is a flow network algorithm used to compute the maximum flow between a source and a sink in a flow network. It is an implementation of the Ford-Fulkerson method that uses breadth-first search (BFS) to find augmenting paths."
 tags: [graph-theory, edmonds-karp, maximum-flow, ford-fulkerson, bfs, network-flow, algorithm]
 ---

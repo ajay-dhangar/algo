@@ -1,7 +1,7 @@
 ---
 id: kruskal
 title: Kruskal's Algorithm
-sidebar_label: Kruskal's Algorithm
+sidebar_label: 🔴 Kruskal's Algorithm
 description: "In this blog post, we'll explore Kruskal's Algorithm, a greedy algorithm used to find the Minimum Spanning Tree in a graph."
 tags: [dsa, algorithms, minimum spanning tree]
 ---

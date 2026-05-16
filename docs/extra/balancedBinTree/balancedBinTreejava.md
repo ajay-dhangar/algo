@@ -1,7 +1,7 @@
 ---
 id: balanced-binary-tree-checker
 title: Balanced Binary Tree Checker
-sidebar_label: Balanced Binary Tree
+sidebar_label: 🟠 Balanced Binary Tree
 sidebar_position: 110
 description: Learn how to implement a balanced binary tree checker in Java, with explanations of the algorithm and time complexity analysis.
 tags: [tree, binary-tree, depth-first-search, java, leetcode]

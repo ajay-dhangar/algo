@@ -2,7 +2,7 @@
 id: update-in-hash-table
 sidebar_position: 4
 title: Update in Hash Table
-sidebar_label: Update in Hash Table
+sidebar_label: 🟢 Update in Hash Table
 description: "Update involves modifying the value associated with an existing key in the hash table."
 tags: [hashing, data structures, update]
 ---

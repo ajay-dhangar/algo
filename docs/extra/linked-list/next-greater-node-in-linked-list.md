@@ -3,7 +3,7 @@ id: next-greater-node-in-linked-list
 sidebar_position: 1
 title: "Next Greater Node in Linked List"
 description: "This tutorial explains how to find the next greater node in a linked list using C++."
-sidebar_label: "Next Greater Node"
+sidebar_label: "🟢 Next Greater Node"
 tags: [dsa, linked-lists, cpp]
 ---
 

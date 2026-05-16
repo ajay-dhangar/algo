@@ -1,7 +1,7 @@
 ---
 id: Practice-Problems-on-binary-search
 title: Practice Problems
-sidebar_label: Practice Problems
+sidebar_label: 🟠 Practice Problems
 sidebar_position: 2
 description: Here are some practice problems for Binary Search, divided into topic-wise and difficulty-wise categories.
 tags: [DSA, algorithms, binary search]

@@ -1,7 +1,7 @@
 ---
 id: pancake-sorting-algorithm
 title: Pancake Sorting Algorithm
-sidebar_label: Pancake Sorting Algorithm
+sidebar_label: 🟢 Pancake Sorting Algorithm
 sidebar_position: 12
 description: "Pancake sorting is a sorting algorithm in which the only allowed operation is to reverse the elements of a prefix of the array."
 tags: [Sorting Algorithms, pancake-sorting-algorithm, Algorithm]

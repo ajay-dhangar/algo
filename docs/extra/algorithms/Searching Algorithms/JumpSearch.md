@@ -3,7 +3,7 @@
 id: jump-search-algo  
 sidebar_position: 5  
 title: Jump Search  
-sidebar_label: Jump Search  
+sidebar_label: 🟠 Jump Search
 
 ---
 

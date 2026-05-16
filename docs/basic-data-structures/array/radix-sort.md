@@ -1,7 +1,7 @@
 ---
 id: radix-sort
 title: Radix sort
-sidebar_label: Radix Sort
+sidebar_label: 🟢 Radix Sort
 tags:
   - DSA
   - Python

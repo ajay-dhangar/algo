@@ -1,7 +1,7 @@
 ---
 id: dynamic-programming-approaches
 title: Approaches in Dynamic Programming
-sidebar_label: Approaches in Dynamic Programming
+sidebar_label: 🔴 Approaches in Dynamic Programming
 description: "In this blog post, we'll explore the approaches used in Dynamic Programming (DP), a powerful technique for solving complex problems by breaking them down into simpler subproblems. You'll learn about the two main approaches—Top-Down and Bottom-Up—how they work, their pros and cons, and examples to illustrate their application."
 tags: [dsa, algorithms, dynamic-programming]
 ---

@@ -1,7 +1,7 @@
 ---
 id: function-currying
 title: Function Currying
-sidebar_label: Function Currying
+sidebar_label: 🟢 Function Currying
 sidebar_position: 9
 description: Learn about function currying and how it enables the transformation of functions for better modularity and reusability.
 tags: [functions, fundamental, programming fundamentals, currying]

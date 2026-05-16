@@ -3,7 +3,7 @@
 id: not-so-naive-algorithm
 sidebar_position: 24
 title: Not So Naive Algorithm
-sidebar_label: Not So Naive Algorithm
+sidebar_label: 🟢 Not So Naive Algorithm
 
 ---
 

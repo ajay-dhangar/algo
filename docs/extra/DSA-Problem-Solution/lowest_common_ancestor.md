@@ -1,7 +1,7 @@
 ---
 id: lowest-common-ancestor
 title: Lowest Common Ancestor
-sidebar_label: Lowest Common Ancestor
+sidebar_label: 🟠 Lowest Common Ancestor
 sidebar_position: 12
 description: A detailed 
 tags: [lowest common ancestor, lca, dsa, prolem solving]

@@ -1,7 +1,7 @@
 ---
 id: heap-data-structure-5
 title: heap data structure
-sidebar_label: Find Median of a Stream
+sidebar_label: 🟠 Find Median of a Stream
 sidebar_position: 12
 description: Heaps provide an efficient way to manage and retrieve median values from a stream of data by balancing two heaps.
 tags: [Competitive Programming,heap,stream,median]

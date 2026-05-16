@@ -3,7 +3,7 @@
 id: levenshtein-distance-algorithm
 sidebar_position: 19
 title: Levenshtein Distance Algorithm
-sidebar_label: Levenshtein Distance Algorithm
+sidebar_label: 🟢 Levenshtein Distance Algorithm
 
 ---
 

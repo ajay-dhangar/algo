@@ -3,7 +3,7 @@
 id: reverse-factor-algorithm
 sidebar_position: 28
 title: Reverse Factor Algorithm
-sidebar_label: Reverse Factor Algorithm
+sidebar_label: 🟢 Reverse Factor Algorithm
 
 ---
 

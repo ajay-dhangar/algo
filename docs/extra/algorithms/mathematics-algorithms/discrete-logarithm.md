@@ -1,7 +1,7 @@
 ---
 id: discrete-logarithm
 title: "Discrete Logarithm"
-sidebar_label: "Discrete Logarithm Problem"
+sidebar_label: "🟢 Discrete Logarithm Problem"
 sidebar_position: 6
 description: "An overview of the Discrete Logarithm problem and its applications in cryptography."
 tags: [number theory, modular arithmetic, cryptography, competitive programming]

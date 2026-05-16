@@ -3,7 +3,7 @@
 id: simon-algorithm
 sidebar_position: 18
 title: Simon Algorithm
-sidebar_label: Simon Algorithm
+sidebar_label: 🟢 Simon Algorithm
 
 ---
 

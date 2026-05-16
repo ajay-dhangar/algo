@@ -1,7 +1,7 @@
 ---
 id: random-forest  
 title: Random Forest Algorithm  
-sidebar_label: Random Forest  
+sidebar_label: 🔴 Random Forest
 description: "In this post, we’ll dive into the Random Forest Algorithm, an ensemble learning model used for classification and regression tasks, known for its robustness and versatility."  
 tags: [machine learning, algorithms, random forest, classification, regression]  
 ---

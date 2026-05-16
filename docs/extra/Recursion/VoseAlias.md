@@ -1,7 +1,7 @@
 ---
 id: vose-alias 
 title: Vose Alias Method  
-sidebar_label: Generate Vose Alias Method Via Recursion 
+sidebar_label: 🟠 Generate Vose Alias Method Via Recursion
 description: "The Recursive Vose's Alias Method is an efficient algorithm for fast random sampling from discrete probability distributions. With O(n) preprocessing and O(1) sampling, it's ideal for non-uniform distributions, widely used in areas like computer graphics, machine learning, and simulations. Perfect for applications needing quick, reliable sampling."
 tags: [VoseAlias, recursion, dsa]
 ---

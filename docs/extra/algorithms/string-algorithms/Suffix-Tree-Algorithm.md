@@ -1,7 +1,7 @@
 ---
 id: suffix-tree-algorithm
 title: Suffix Tree Algorithm
-sidebar_label: Suffix Tree
+sidebar_label: 🟠 Suffix Tree
 tags: [String Matching, DSA, Suffix Tree, Tree]
 description: Construct and search a Suffix Tree efficiently to represent all suffixes of a string for substring searching and pattern matching.
 ---

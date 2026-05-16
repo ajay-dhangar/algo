@@ -2,7 +2,7 @@
 id: cocktail-shaker-sort-algo  
 sidebar_position: 18  
 title: Cocktail Shaker Sort  
-sidebar_label: Cocktail Shaker Sort  
+sidebar_label: 🟢 Cocktail Shaker Sort
 ---
 
 ### Definition:

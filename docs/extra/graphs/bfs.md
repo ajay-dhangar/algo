@@ -1,7 +1,7 @@
 ---
 id: bfs
 title: Breadth-First Search (BFS)
-sidebar_label: Breadth-First Search
+sidebar_label: 🔴 Breadth-First Search
 description: "In this blog post, we'll explore Breadth-First Search (BFS), a graph traversal algorithm used to explore vertices and edges level by level in a graph."
 tags: [dsa, algorithms, graph, traversal]
 ---

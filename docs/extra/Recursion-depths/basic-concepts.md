@@ -1,7 +1,7 @@
 ---
 id: recursion-depth-basic-concepts
 title: Basic Concepts of Recursion Depth
-sidebar_label: Basic Concepts
+sidebar_label: 🟠 Basic Concepts
 sidebar_position: 2
 description: Introduction to recursion and understanding recursion depth.
 tags: [recursion, depth, basics]

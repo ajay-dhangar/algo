@@ -2,7 +2,7 @@
 id: avl-tree-intro
 sidebar_position: 16
 title: AVL Trees
-sidebar_label: AVL Trees
+sidebar_label: 🟠 AVL Trees
 description: "In this blog post, we'll explore AVL trees, a type of self-balancing binary search tree that ensures efficient searching, insertion, and deletion operations."
 tags: [dsa, data structures, avl]
 ---

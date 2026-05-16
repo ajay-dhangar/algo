@@ -1,7 +1,7 @@
 ---
 id: top-K-frequent-elements
 title: Top K Frequent Elements Using Hash Map and Heap
-sidebar_label: Top K Frequent Elements
+sidebar_label: 🟠 Top K Frequent Elements
 sidebar_position: 12
 description: Find the top K most frequent elements in an array using a hash map and a heap.
 tags: [Hash Map, Heap, Priority Queue, Frequency Counting, top-K]

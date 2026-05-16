@@ -1,7 +1,7 @@
 ---
 id: sweep-line-algorithm
 title: "Sweep Line Algorithm"
-sidebar_label: "Sweep Line Algorithm"
+sidebar_label: "🟢 Sweep Line Algorithm"
 sidebar_position: 6
 description: "A comprehensive guide to understanding and implementing the sweep line algorithm for computational geometry."
 tags: [computational geometry, algorithms, competitive programming]

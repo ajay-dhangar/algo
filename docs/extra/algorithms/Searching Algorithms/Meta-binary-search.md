@@ -3,7 +3,7 @@
 id: Meta-binary-search-algo  
 sidebar_position: 1  
 title: Meta binary search
-sidebar_label: Meta binary search
+sidebar_label: 🟠 Meta binary search
 ---
 
 ### Definition:

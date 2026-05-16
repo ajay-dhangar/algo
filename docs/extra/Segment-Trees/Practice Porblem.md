@@ -2,7 +2,7 @@
 id: segment-tree-practice-problems
 sidebar_position: 12
 title: Segment Tree Practice Problems
-sidebar_label: Segment Tree Problems
+sidebar_label: 🔴 Segment Tree Problems
 description: "A curated list of practice problems to enhance your understanding and skills in using segment trees."
 tags: [dsa, segment trees, practice problems]
 ---

@@ -2,7 +2,7 @@
 id: collision-handling-in-hashing
 sidebar_position: 5
 title: Collision Handling in Hashing
-sidebar_label: Collision Handling in Hashing
+sidebar_label: 🟢 Collision Handling in Hashing
 tags: [hashing, data structures]
 ---
 

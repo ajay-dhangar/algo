@@ -2,7 +2,7 @@
 id: fenwick-tree
 sidebar_position: 3
 title: Fenwick Tree (Binary Indexed Tree)
-sidebar_label: Fenwick Tree
+sidebar_label: 🔴 Fenwick Tree
 description: "Fenwick Tree (Binary Indexed Tree) is a more space-efficient data structure for cumulative frequency tables."
 tags: [fenwick tree, binary indexed tree, advance data structures]
 ---

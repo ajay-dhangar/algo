@@ -3,7 +3,7 @@
 id: bubble-sort-algo  
 sidebar_position: 1  
 title: Bubble Sort  
-sidebar_label: Bubble Sort  
+sidebar_label: 🟢 Bubble Sort
 
 ---
 

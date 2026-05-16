@@ -3,7 +3,7 @@
 id: exponential-search-algo  
 sidebar_position: 4  
 title: Exponential Search  
-sidebar_label: Exponential Search  
+sidebar_label: 🟠 Exponential Search
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: trapping-rain-water
 title: Trapping Rain Water
-sidebar_label: Trapping Rain Water
+sidebar_label: 🟢 Trapping Rain Water
 sidebar_position: 1
 description: Documentation for the Trapping Rain Water algorithm to calculate water trapped between bars of varying heights.
 tags: [algorithm, water-trapping, stack]

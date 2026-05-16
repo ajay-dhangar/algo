@@ -2,7 +2,7 @@
 
 id: hidden-markov-model  
 title: Hidden Markov Models (HMM) Algorithm  
-sidebar_label: Hidden Markov Models  
+sidebar_label: 🔴 Hidden Markov Models
 description: "In this post, we'll explore Hidden Markov Models (HMMs), a statistical model that represents systems with hidden and observable states, commonly used for sequence data in various domains."  
 tags: [machine learning, hidden markov model, HMM, sequence modeling]
 

@@ -1,7 +1,7 @@
 ---
 id: counting-divisors
 title: "Counting Divisors"
-sidebar_label: "Number theory"
+sidebar_label: "🟢 Number theory"
 sidebar_position: 11
 description: "An algorithm to compute the total number of divisors of a given integer n."
 tags: [Counting Divisors, number theory, factorization, divisors]

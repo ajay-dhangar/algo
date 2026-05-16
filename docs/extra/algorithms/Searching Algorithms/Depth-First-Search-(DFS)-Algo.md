@@ -2,7 +2,7 @@
 id: dfs-algo  
 sidebar_position: 7
 title: Depth-First Search  
-sidebar_label: DFS 
+sidebar_label: 🟠 DFS
 ---
 
 ### Definition:

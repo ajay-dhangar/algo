@@ -1,7 +1,7 @@
 ---
 id: how-to-calculate-complexity
 title: How to Calculate Time and Space Complexity
-sidebar_label: How to Calculate Time and Space Complexity
+sidebar_label: 🟢 How to Calculate Time and Space Complexity
 sidebar_position: 4
 description: "Calculating time and space complexity is an essential skill for analyzing the efficiency of algorithms. By understanding how to determine the time and space complexity of an algorithm, you can evaluate its performance and make informed decisions when designing and optimizing algorithms."
 tags: [time-complexity, space-complexity, algorithm-analysis, big-o-notation, how-to-calculate-complexity]

@@ -3,7 +3,7 @@
 id: splay-intro  
 sidebar_position: 2  
 title: Splay Trees  
-sidebar_label: Splay Trees  
+sidebar_label: 🟠 Splay Trees
 description: "In this blog post, we'll explore Splay Trees, a type of self-adjusting binary search tree that provides amortized logarithmic time complexity for search, insertion, and deletion operations."  
 tags: [dsa, data structures, splay-trees]  
 

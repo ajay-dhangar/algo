@@ -1,7 +1,7 @@
 ---
 id: bit-manipulation-technique
 title: Bit Manipulation Technique
-sidebar_label: Bit Manipulation introduction
+sidebar_label: 🟢 Bit Manipulation introduction
 sidebar_position: 2
 description: 'Bit manipulation involves operating directly on binary digits or bits, which are the most basic units of data in computing. Bit manipulation is used in low-level programming tasks where performance and memory efficiency are crucial. This documentation covers key concepts, operations, and techniques in bit manipulation.'
 tags: [dsa, Bit-Manipulation, technique]

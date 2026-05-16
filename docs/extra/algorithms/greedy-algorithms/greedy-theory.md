@@ -1,7 +1,7 @@
 ---
 id: greedy-algorithms-2
 title:  greedy Algorithms
-sidebar_label:  Greedy Algorithms
+sidebar_label: 🟠 Greedy Algorithms
 sidebar_position: 1
 description: Greedy algorithms are a class of algorithms that make the optimal choice at each step with the hope of finding the global optimum
 tags: [Competitive Programming,greedy approach,optimization]

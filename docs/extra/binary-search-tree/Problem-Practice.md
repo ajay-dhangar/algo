@@ -1,7 +1,7 @@
 ---
 id: Practice-Problems-on-binary-search-tree
 title: Practice Problems
-sidebar_label: Practice Problems
+sidebar_label: 🟠 Practice Problems
 sidebar_position: 2
 description: Practice problems for Binary Search Tree (BST), categorized by difficulty and topic. These problems help in understanding the structure and operations of BSTs.
 tags: [DSA, algorithms, binary search tree]

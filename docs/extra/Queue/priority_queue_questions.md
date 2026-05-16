@@ -1,7 +1,7 @@
 ---
 id: priority-queue-questions-in-dsa
 title: Priority Queue Questions
-sidebar_label: Priority Queue Practice Questions
+sidebar_label: 🟢 Priority Queue Practice Questions
 sidebar_position: 2
 description: "A priority queue is an abstract data type similar to a regular queue or stack data structure, but with an added feature that allows each element to have a priority. In a priority queue, elements are served based on their priority rather than their order in the queue."
 tags: [dsa, data-structures, PriorityQueue]

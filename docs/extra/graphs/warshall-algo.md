@@ -1,7 +1,7 @@
 ---
 id: warshall-algo
 title: Warshall's-Algorithm
-sidebar_label: Warshall's-Algorithm
+sidebar_label: 🔴 Warshall's-Algorithm
 description: "In this blog post, we'll explore the Warshall's-Algorithm, an efficient method to Compute the transitive closure of a given directed graph"
 tags: [dsa, algorithms, transitive closure]
 ---

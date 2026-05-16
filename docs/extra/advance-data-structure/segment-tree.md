@@ -2,7 +2,7 @@
 id: segment-trees
 sidebar_position: 2
 title: Segment Trees
-sidebar_label: Segment Trees
+sidebar_label: 🔴 Segment Trees
 description: "Segment Trees are used for efficient range queries."
 tags: [segment trees, advance data structures, trees, range queries]
 ---

@@ -3,7 +3,7 @@
 id: berry-ravindran-algorithm
 sidebar_position: 23
 title: Berry-Ravindran Algorithm
-sidebar_label: Berry-Ravindran Algorithm
+sidebar_label: 🟢 Berry-Ravindran Algorithm
 
 ---
 

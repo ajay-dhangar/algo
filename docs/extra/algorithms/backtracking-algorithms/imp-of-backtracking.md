@@ -2,7 +2,7 @@
 id: importance-of-backtracking
 sidebar_position: 2
 title: Importance of Backtracking
-sidebar_label: Importance of Backtracking
+sidebar_label: 🔴 Importance of Backtracking
 description: "Backtracking is a systematic algorithmic method for solving problems where you need to explore all possible configurations (solution candidates) and discard those that fail to satisfy the given constraints. It is widely used to solve constraint satisfaction problems such as puzzles, combinatorial optimization problems, and decision problems."
 tags: [CSPs, Optimization]
 ---

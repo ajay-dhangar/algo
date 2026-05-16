@@ -1,7 +1,7 @@
 ---
 id: programming-fundamentals
 title:  References and Pointers in C++
-sidebar_label: Introduction to  References and Pointers
+sidebar_label: 🟢 Introduction to  References and Pointers
 sidebar_position: 2
 description: 'Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming'
 tags: [dsa, data-structures,  Pointers]

@@ -3,7 +3,7 @@
 id: steganography-algo  
 sidebar_position: 9 
 title: Steganography  
-sidebar_label: Steganography  
+sidebar_label: 🔴 Steganography
 
 ---
 

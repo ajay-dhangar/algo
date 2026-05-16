@@ -1,7 +1,7 @@
 ---
 id: binary-search-tree
 title: Binary Search Tree
-sidebar_label: Binary Search Tree
+sidebar_label: 🟠 Binary Search Tree
 sidebar_position: 4
 description: "A Binary Search Tree (BST) is a data structure that facilitates efficient searching, insertion, and deletion operations."
 tags: [Data Structures, Binary Search Tree, Algorithms]

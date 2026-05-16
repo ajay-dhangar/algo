@@ -1,7 +1,7 @@
 ---
 id: two-city-scheduling-dp
 title: Two City Scheduling Problem - 3D Dynamic Programming
-sidebar_label: Two City Scheduling
+sidebar_label: 🔴 Two City Scheduling
 sidebar_position: 2
 description: "In this post, we'll explore the Two City Scheduling problem, a classic algorithmic challenge that can be solved efficiently using 3D Dynamic Programming. We'll delve into the problem's constraints, discuss the dynamic programming approach, and provide solutions in multiple languages such as C++, Java, Python, JavaScript, and Go. By the end, you'll understand how to use DP to minimize the total travel costs for sending an equal number of people to two different cities."
 tags: [dsa, dynamic programming, scheduling]

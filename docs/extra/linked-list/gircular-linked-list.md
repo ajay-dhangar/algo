@@ -1,7 +1,7 @@
 ---
 id: introduction-to-CircularLinkedList
 title: Circular Linked List Data Structure
-sidebar_label: Introduction to Circular Linked List
+sidebar_label: 🟢 Introduction to Circular Linked List
 sidebar_position: 2
 description: 'A Circular Linked List is a linked data structure where the last node points back to the first node, forming a circle. This structure allows for efficient traversal and can be either singly or doubly linked. '
 tags: [dsa, data-structures, Circular LinkedList]

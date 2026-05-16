@@ -1,7 +1,7 @@
 ---
 id: character-replacement
 title: Character Replacement
-sidebar_label: Character Replacement
+sidebar_label: 🟠 Character Replacement
 sidebar_position: 4
 description: "In this blog post, we'll explore how to solve the character replacement problem using the sliding window technique."
 tags: [dsa, algorithms, sliding window, strings]

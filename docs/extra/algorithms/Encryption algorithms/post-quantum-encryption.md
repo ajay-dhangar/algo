@@ -2,7 +2,7 @@
 id: post-quantum-encryption-algo  
 sidebar_position: 7
 title: Post-Quantum Encryption  
-sidebar_label: Post-Quantum Encryption
+sidebar_label: 🟠 Post-Quantum Encryption
 ---
 
 ### Definition:

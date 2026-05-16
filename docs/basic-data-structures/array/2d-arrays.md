@@ -1,7 +1,7 @@
 ---
 id: two-dimensional-arrays-DSA
 title: Two-Dimensional Arrays
-sidebar_label: Two-Dimensional Arrays
+sidebar_label: 🟢 Two-Dimensional Arrays
 description: "In this blog post, we'll delve into the world of two-dimensional arrays, a vital data structure in programming. You'll learn what 2D arrays are, how to initialize and traverse them, and their common uses in real-world applications like matrix operations, image processing, and game boards. We'll also tackle classic algorithmic challenges involving 2D arrays, such as rotating a matrix and finding the largest sum subgrid. By the end, you'll have a solid understanding of how to effectively use 2D arrays to solve complex problems in your programming projects."
 tags: [dsa, arrays, 2d arrays]
 ---

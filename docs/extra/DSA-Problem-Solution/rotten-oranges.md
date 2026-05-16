@@ -1,7 +1,7 @@
 ---
 id: rotten-oranges
 title: "Rotten Oranges Algorithm"
-sidebar_label: "RottenOranges algorithm"
+sidebar_label: "🟠 RottenOranges algorithm"
 tags: [Leetcode, BFS, Graph, DSA, Rotten Oranges]
 description: "Solve the Rotten Oranges problem using Breadth-First Search (BFS) to determine the minimum time required for all fresh oranges to rot."
 ---

@@ -1,7 +1,7 @@
 ---
 id: balanced-binary-tree-checker-python
 title: Balanced Binary Tree Checker in Python
-sidebar_label: Balanced Binary Tree (Python)
+sidebar_label: 🟠 Balanced Binary Tree (Python)
 sidebar_position: 4
 description: Implement a solution to check if a binary tree is balanced using Python
 tags: [python, binary-tree, tree-traversal, recursion, depth-first-search]

@@ -2,7 +2,7 @@
 id: odd-even-sort-algo  
 sidebar_position: 19  
 title: Odd-Even Sort  
-sidebar_label: Odd-Even Sort  
+sidebar_label: 🟢 Odd-Even Sort
 ---
 
 ### Definition:

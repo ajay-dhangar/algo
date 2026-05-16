@@ -1,7 +1,7 @@
 ---
 id: introduction-to-Arrays
 title: Kadane's Algorithm
-sidebar_label: Introduction to Kadane's Algorithm
+sidebar_label: 🟢 Introduction to Kadane's Algorithm
 sidebar_position: 1
 description: Kadane's Algorithm is an efficient technique used to find the maximum sum of a contiguous subarray within a one-dimensional array of integers. It is particularly useful in scenarios where the input array may contain both positive and negative numbers. By leveraging a dynamic programming approach, Kadane's Algorithm can identify the maximum sum in linear time, making it optimal for large datasets.
 

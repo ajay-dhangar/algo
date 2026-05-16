@@ -1,7 +1,7 @@
 ---
 id: supervised-learning-algorithm  
 title: Supervised Learning Algorithm  
-sidebar_label: Supervised Learning  
+sidebar_label: 🔴 Supervised Learning
 description: "In this post, we’ll explore the concept of supervised learning, a fundamental approach in machine learning where models are trained using labeled data."  
 tags: [machine learning, algorithms, supervised learning]
 ---

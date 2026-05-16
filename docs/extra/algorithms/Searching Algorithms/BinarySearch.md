@@ -3,7 +3,7 @@
 id: binary-search-algo  
 sidebar_position: 2  
 title: Binary Search  
-sidebar_label: Binary Search  
+sidebar_label: 🟠 Binary Search
 
 ---
 

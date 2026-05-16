@@ -1,7 +1,7 @@
 ---
 id: arrays-quicksort
 title: Arrays - Quick Sort
-sidebar_label: Quick Sort
+sidebar_label: 🟢 Quick Sort
 description: "Quick Sort is a highly efficient and commonly used sorting algorithm that employs a divide-and-conquer strategy. It is well-suited for large datasets and typically outperforms other algorithms like insertion sort and bubble sort."
 tags: [dsa, arrays, sorting, quicksort, sorting-algorithms]
 ---

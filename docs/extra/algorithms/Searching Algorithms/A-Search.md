@@ -2,7 +2,7 @@
 id: a-*-search  
 sidebar_position: 1  
 title: A* Search  
-sidebar_label: A*  
+sidebar_label: 🟠 A*
 ---
 
 ### Definition:

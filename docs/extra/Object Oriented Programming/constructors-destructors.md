@@ -1,7 +1,7 @@
 ---
 id: constructors-and-destructors
 title: Constructors and Destructors in OOP
-sidebar_label: Constructors and Destructors
+sidebar_label: 🟠 Constructors and Destructors
 sidebar_position: 3
 description: "Constructors and destructors are special methods in OOP that handle object initialization and cleanup. Constructors set up the initial state, while destructors handle object destruction and resource management."
 tags: [oops, constructors, destructors]

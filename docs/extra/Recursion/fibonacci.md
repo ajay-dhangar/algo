@@ -1,7 +1,7 @@
 ---
 id: fibonacci-recursion
 title: Generate Fibonacci Sequence with Recursion
-sidebar_label: Fibonacci Recursion
+sidebar_label: 🟠 Fibonacci Recursion
 sidebar_position: 2
 description: "This post explores generating the Fibonacci sequence using recursion. We'll delve into the recursive approach and provide code implementations in multiple languages, including C++, Java, Python, JavaScript, and Go."
 tags: [recursion, fibonacci, algorithms]

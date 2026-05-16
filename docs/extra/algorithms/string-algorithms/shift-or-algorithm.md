@@ -3,7 +3,7 @@
 id: shift-or-algo  
 sidebar_position: 5  
 title: Shift-Or Algorithm  
-sidebar_label: Shift-Or Algorithm  
+sidebar_label: 🟢 Shift-Or Algorithm
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 id: segment-tree-intro 
 title: Segment Trees
-sidebar_label: Segment Trees
+sidebar_label: 🔴 Segment Trees
 description: "In this blog post, we'll explore Segment Trees, a powerful data structure for efficiently solving range query problems."
 tags: [dsa, data structures, segment trees]
 ---

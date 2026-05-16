@@ -2,7 +2,7 @@
 id: b-tree-insert
 sidebar_position: 2
 title: Insert Operation in B-Tree
-sidebar_label: Insert Operation in B-Tree
+sidebar_label: 🔴 Insert Operation in B-Tree
 description: "Inserting a key into a B-tree while maintaining its properties."
 tags: [b-tree, algorithms, problem-solving, DSA, data structure]
 ---

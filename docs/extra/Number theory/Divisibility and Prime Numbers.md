@@ -1,7 +1,7 @@
 ---
 id: divisibility-and-prime-numbers
 title: "Divisibility and Prime Numbers"
-sidebar_label: "Divisibility and Prime Numbers"
+sidebar_label: "🟢 Divisibility and Prime Numbers"
 sidebar_position: 10
 description: "A detailed guide to understanding and implementing the Divisibility and Prime Numbers."
 tags: [Divisibility, Prime Numbers, number theory, competitive programming]

@@ -1,7 +1,7 @@
 ---
 id: advanced-string
 title: "Advanced Strings"
-sidebar_label: "Adv Strings"
+sidebar_label: "🔴 Adv Strings"
 sidebar_position: 4
 description: "StringBuilder is a mutable character sequence in Java that enables efficient modifications of strings without creating new objects, improving performance for dynamic string manipulation."
 tags: [String Manipulation, StringBuilder, Java, Mutable Strings, Performance Optimization, Dynamic Text, Programming Concepts]

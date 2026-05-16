@@ -3,7 +3,7 @@
 id: smith-waterman-algorithm
 sidebar_position: 21
 title: Smith-Waterman Algorithm
-sidebar_label: Smith-Waterman Algorithm
+sidebar_label: 🟢 Smith-Waterman Algorithm
 
 ---
 

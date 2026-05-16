@@ -2,7 +2,7 @@
 
 id: generative-adversarial-networks  
 title: Generative Adversarial Networks (GAN)  
-sidebar_label: GANs  
+sidebar_label: 🔴 GANs
 description: "In this post, we'll explore Generative Adversarial Networks (GAN), a powerful class of neural networks used for generating new data based on learned distributions."  
 tags: [deep learning, neural networks, GANs, generative models]
 

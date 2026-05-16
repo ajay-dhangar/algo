@@ -2,7 +2,7 @@
 id: maximum-depth-binary-tree
 sidebar_position: 11
 title: Maximum Depth of a Binary Tree
-sidebar_label: Maximum Depth
+sidebar_label: 🟠 Maximum Depth
 description: "This blog post covers how to find the maximum depth (or height) of a binary tree in C++, along with explanations and code examples."
 tags: [dsa, binary trees, recursion, c++]
 ---

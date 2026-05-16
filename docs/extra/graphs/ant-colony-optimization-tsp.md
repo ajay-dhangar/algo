@@ -1,7 +1,7 @@
 ---
 id: ant-colony-optimization-tsp
 title: Ant Colony Optimization for TSP
-sidebar_label: Ant Colony Optimization
+sidebar_label: 🔴 Ant Colony Optimization
 description: "In this post, we'll explore the Ant Colony Optimization (ACO) algorithm, applied to solving the Travelling Salesman Problem (TSP) using a probabilistic and pheromone-based approach."
 tags: [dsa, algorithms, TSP, ant colony, graphs]
 ---

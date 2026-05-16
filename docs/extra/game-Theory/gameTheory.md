@@ -1,7 +1,7 @@
 ---
 id: Game-Theory-theory  
 title: Game theory  
-sidebar_label: Game Theory  
+sidebar_label: 🔴 Game Theory
 description: "is a mathematical framework used to study decision-making in situations where multiple players interact."
 tags: [dsa, algorithms, game theory algorithms]
 ---

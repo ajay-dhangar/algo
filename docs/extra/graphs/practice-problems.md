@@ -1,7 +1,7 @@
 ---
 id: practice-problems-for-graphs
 title: Practice Problems for Graphs
-sidebar_label: Practice Problems
+sidebar_label: 🔴 Practice Problems
 sidebar_position: 1
 description: Practice problems for Graphs to help you understand the concepts better.
 tags: [Graph, Practice Problems, BFS, DFS, Connected Components, Dijkstra's, Union Find, Minimum Spanning Tree, Topological Sort, Floyd-Warshall, Bellman-Ford]

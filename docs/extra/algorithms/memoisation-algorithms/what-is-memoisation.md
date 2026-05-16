@@ -2,7 +2,7 @@
 id: memoization-algorithms
 sidebar_position: 1
 title: What is Memoization?
-sidebar_label: What is Memoization?
+sidebar_label: 🟠 What is Memoization?
 description: "Memoization is an optimization technique used primarily to speed up recursive algorithms by caching previously computed results."
 tags: [dsa, algorithms, memoization, dynamic programming]
 ---

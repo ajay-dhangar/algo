@@ -1,7 +1,7 @@
 ---
 id: disjoint-set-union
 title: Disjoint Set Union (DSU)
-sidebar_label: Introduction to Disjoint Set Union
+sidebar_label: 🔴 Introduction to Disjoint Set Union
 description: 'The Disjoint Set Union (DSU) algorithm efficiently manages dynamic connectivity and union-find operations.'
 tags: [dsa, data-structures, DSU, C language]
 ---

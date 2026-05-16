@@ -2,7 +2,7 @@
 id: odd-even-linked-list
 sidebar_position: 4
 title: Odd Even Linked List
-sidebar_label: Odd Even Linked List
+sidebar_label: 🟢 Odd Even Linked List
 description: "This document explains the Odd Even Linked List problem, including its description, approach, and implementation."
 tags: [dsa, algorithms, problem-solving]
 ---

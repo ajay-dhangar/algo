@@ -1,7 +1,7 @@
 ---
 id: heap-tree-algorithm
 title: Heap Tree Algorithm
-sidebar_label: Heap Tree Algorithm
+sidebar_label: 🟠 Heap Tree Algorithm
 sidebar_position: 2
 description: "The Heap Tree is a specialized binary tree used for efficient priority queue operations and sorting."
 tags: [Data Structures, heap-tree-algorithm, Priority Queue, Sorting, Algorithms]

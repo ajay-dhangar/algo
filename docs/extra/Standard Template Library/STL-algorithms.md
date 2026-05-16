@@ -1,7 +1,7 @@
 ---
 id: introduction-to-STL-algorithms
 title: STL Algorithms
-sidebar_label: STL Algorithms
+sidebar_label: 🟢 STL Algorithms
 sidebar_position: 7
 description: "STL provides a wide variety of tools that allow C++ developers to write code that is both efficient and reusable. It abstracts away many of the complexities of data structure management and algorithm implementation, making it an essential part of modern C++ programming."
 tags: [STL, data-structures, libraries]

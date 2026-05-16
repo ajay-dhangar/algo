@@ -3,7 +3,7 @@
 id: needleman-wunsch-algorithm
 sidebar_position: 22
 title: Needleman-Wunsch Algorithm
-sidebar_label: Needleman-Wunsch Algorithm
+sidebar_label: 🟢 Needleman-Wunsch Algorithm
 
 ---
 

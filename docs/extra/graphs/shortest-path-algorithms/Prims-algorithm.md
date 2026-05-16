@@ -1,7 +1,7 @@
 ---
 id: Prims
 title: "Prim's Algorithm"
-sidebar_label: "Prim's Algorithm"
+sidebar_label: "🔴 Prim's Algorithm"
 description: "In this blog post, we'll explore Prim's Algorithm, a greedy algorithm used to find the Minimum Spanning Tree in a graph."
 tags: [dsa, algorithms, minimum spanning tree]
 ---

@@ -2,7 +2,7 @@
 
 id: hierarchical-clustering  
 title: Hierarchical Clustering Algorithm  
-sidebar_label: Hierarchical Clustering  
+sidebar_label: 🔴 Hierarchical Clustering
 description: "Hierarchical clustering is a method of grouping similar data points into clusters based on their relative distances, creating a hierarchy that can be visualized as a dendrogram."  
 tags: [Machine Learning, Clustering]
 

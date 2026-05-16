@@ -1,7 +1,7 @@
 ---
 id: kmp-algorithm
 title: "KMP Algorithm"
-sidebar_label: "KMP"
+sidebar_label: "🔴 KMP"
 sidebar_position: 8
 description: "A comprehensive guide to using the KMP Algorithm for efficient pattern matching."
 tags: [pattern matching, string algorithms, competitive programming]

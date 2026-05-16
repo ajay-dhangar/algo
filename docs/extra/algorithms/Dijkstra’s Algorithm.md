@@ -2,7 +2,7 @@
 id: dijkstra-algorithm
 sidebar_position: 14 
 title: Dijkstra's Algorithm
-sidebar_label: Dijkstra's Algorithm 
+sidebar_label: 🟠 Dijkstra's Algorithm
 description: "This post covers Dijkstra's Algorithm for finding the shortest paths in a graph, with code examples and explanations." 
 tags: [dsa, graph, dijkstra, shortest path, c++]
 ---

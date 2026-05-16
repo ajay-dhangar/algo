@@ -3,7 +3,7 @@
 id: finite-state-automaton
 sidebar_position: 6
 title: Finite State Automaton Algorithm
-sidebar_label: Finite State Automaton Algorithm
+sidebar_label: 🟢 Finite State Automaton Algorithm
 
 ---
 

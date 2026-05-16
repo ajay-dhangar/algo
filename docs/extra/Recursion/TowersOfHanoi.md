@@ -1,7 +1,7 @@
 ---
 id: Towers-of-Hanoi-dsa
 title: Towers of Hanoi Recursion
-sidebar_label: Towers of Hanoi
+sidebar_label: 🟠 Towers of Hanoi
 sidebar_position: 7
 description: "The Towers of Hanoi problem involves moving a stack of n disks from one rod to another, following specific rules. The problem is often solved using backtracking, a form of recursion."
 tags: [towers-of-hanoi, recursion, dsa]

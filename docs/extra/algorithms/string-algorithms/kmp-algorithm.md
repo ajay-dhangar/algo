@@ -3,7 +3,7 @@
 id: knuth-morris-pratt-algorithm
 sidebar_position: 11
 title: Knuth-Morris-Pratt Algorithm
-sidebar_label: Knuth-Morris-Pratt Algorithm
+sidebar_label: 🔴 Knuth-Morris-Pratt Algorithm
 
 ---
 

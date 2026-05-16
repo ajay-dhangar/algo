@@ -2,7 +2,7 @@
 id: gnome-sort-algo  
 sidebar_position: 16  
 title: Gnome Sort  
-sidebar_label: Gnome Sort  
+sidebar_label: 🟢 Gnome Sort
 ---
 
 ### Definition:

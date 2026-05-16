@@ -1,7 +1,7 @@
 ---
 id: boyer-moore
 title: "Boyer-Moore String Matching Algorithm"
-sidebar_label: "Boyer-Moore Algorithm"
+sidebar_label: "🔴 Boyer-Moore Algorithm"
 sidebar_position: 1
 description: "Efficient pattern matching with the Boyer-Moore algorithm, using advanced heuristics for optimal performance."
 tags: [Algorithm, Boyer-Moore, Pattern Matching, String Searching]

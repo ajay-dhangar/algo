@@ -1,7 +1,7 @@
 ---
 id: tree-data-structures
 title: Tree Data Structures
-sidebar_label: Tree Data Structures
+sidebar_label: 🟠 Tree Data Structures
 description: "An in-depth guide to tree data structures, covering types of trees, traversal methods, balancing, and algorithms with implementations."
 tags: [dsa, trees, algorithms, binary-trees]
 ---

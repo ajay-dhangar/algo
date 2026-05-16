@@ -1,7 +1,7 @@
 ---
 id: josephus-queries
 title: Josephus Queries Problem
-sidebar_label: Josephus Queries
+sidebar_label: 🟠 Josephus Queries
 sidebar_position: 1
 description: "In this post, we'll explore the Josephus Queries problem, where children are removed from a circle in a specific order. We will discuss the recursive approach to find out which child is removed at a given position and provide solutions in multiple languages such as C++, Java, Python, JavaScript, and Go. By the end, you'll understand how to efficiently determine the order of removals."
 tags: [dsa, recursion, josephus]

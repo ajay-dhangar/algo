@@ -1,7 +1,7 @@
 ---
 id: hashing-algorithm
 title: Hashing Algorithm
-sidebar_label: Hashing Algorithm
+sidebar_label: 🟢 Hashing Algorithm
 sidebar_position: 8
 description: "Hashing is a technique used to uniquely identify a specific object from a group of similar objects. It involves mapping large data to fixed-size values."
 tags: [Data Structures, Hashing, Hash Functions, Hash Tables, Algorithms]

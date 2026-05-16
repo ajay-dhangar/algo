@@ -1,7 +1,7 @@
 ---
 id: toggle-bit-at-position
 title: Toggle a Bit at a Given Position
-sidebar_label: Bit Toggle Operation
+sidebar_label: 🟢 Bit Toggle Operation
 sidebar_position: 4
 Description: The Bit Toggle Operation is a bit manipulation technique to flip a specific bit at a given position in the binary representation of an integer. This is useful in applications where selective bit modification is required, such as graphics, cryptography, and low-level hardware operations.
 

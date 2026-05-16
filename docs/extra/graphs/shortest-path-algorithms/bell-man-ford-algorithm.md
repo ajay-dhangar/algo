@@ -1,7 +1,7 @@
 ---
 id: bellman-ford
 title: Bellman-Ford Algorithm
-sidebar_label: Bellman-Ford Algorithm
+sidebar_label: 🔴 Bellman-Ford Algorithm
 description: "In this blog post, we'll dive into the Bellman-Ford Algorithm, a fundamental graph algorithm used to find the shortest path between nodes in a graph, even with negative weights."
 tags: [dsa, algorithms, shortest path]
 ---

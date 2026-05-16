@@ -1,7 +1,7 @@
 ---
 id: longest-repeating-character-replacement
 title: Longest Repeating Character Replacement
-sidebar_label: Longest Repeating Character Replacement
+sidebar_label: 🟠 Longest Repeating Character Replacement
 sidebar_position: 4
 description: "In this blog post, we will explore an efficient solution to the Longest Repeating Character Replacement problem using sliding window and frequency count."
 tags: [dsa, algorithms, sliding window, strings]

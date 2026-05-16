@@ -2,7 +2,7 @@
 
 id: huffman-coding  
 title: Huffman Coding Algorithm  
-sidebar_label: Huffman Coding  
+sidebar_label: 🟠 Huffman Coding
 description: "In this blog post, we'll explore Huffman Coding, a popular lossless data compression algorithm that assigns variable-length codes to input characters based on their frequencies."  
 tags: [dsa, algorithms, greedy algorithms, compression]
 

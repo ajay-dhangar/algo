@@ -1,7 +1,7 @@
 ---
 id: rabin-karp-algorithm
 title: "Rabin-Karp Algorithm for Pattern Searching"
-sidebar_label: "Rabin-Karp Algorithm"
+sidebar_label: "🔴 Rabin-Karp Algorithm"
 sidebar_position: 1
 description: "Detailed explanation and implementation of the Rabin-Karp algorithm for pattern searching in strings."
 tags: [Algorithm, Rabin-Karp, Pattern Matching, String Searching]

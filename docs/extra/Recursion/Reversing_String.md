@@ -1,7 +1,7 @@
 ---
 id: reverse-string-recursion
 title: Reverse String Using Recursion
-sidebar_label: Reverse String
+sidebar_label: 🟠 Reverse String
 description: "The Reverse String problem involves reversing a given string using a recursive function. The solution efficiently utilizes recursion to achieve the desired result without using any iterative constructs."
 tags: [reverse-string, recursion, dsa]
 ---

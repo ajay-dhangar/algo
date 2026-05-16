@@ -1,7 +1,7 @@
 ---
 id: count-set-bits
 title: Counting Set Bits
-sidebar_label: Count Set Bits
+sidebar_label: 🟢 Count Set Bits
 sidebar_position: 5
 Description: This algorithm counts the number of set bits (1s) in the binary representation of a number. Utilizing bit manipulation, it efficiently clears the rightmost set bit repeatedly to quickly calculate the total number of 1s in the binary form, commonly used in applications requiring binary analysis.
 

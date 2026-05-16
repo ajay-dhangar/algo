@@ -3,7 +3,7 @@
 id: tim-sort-algo  
 sidebar_position: 11  
 title: Tim Sort  
-sidebar_label: Tim Sort  
+sidebar_label: 🟢 Tim Sort
 
 ---
 

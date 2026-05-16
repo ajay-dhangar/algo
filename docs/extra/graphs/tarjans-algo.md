@@ -1,7 +1,7 @@
 ---
 id: tarjans-algorithm
 title: "Tarjan's Algorithm"
-sidebar_label: "Tarjan's Algorithm"
+sidebar_label: "🔴 Tarjan's Algorithm"
 sidebar_position: 3
 description: "Tarjan's algorithm is an efficient method for finding strongly connected components in a directed graph."
 tags: [Graph Theory, tarjans-algorithm, Strongly Connected Components, Depth-First Search]

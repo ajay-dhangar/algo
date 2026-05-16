@@ -1,7 +1,7 @@
 ---
 id: approximation-algorithm
 title: "Introduction to Approximation Algorithms"
-sidebar_label: "Approximation Algorithm"
+sidebar_label: "🟠 Approximation Algorithm"
 sidebar_position: 1
 description: "Overview and applications of Approximation Algorithms in computational problems."
 tags: [Algorithm, Approximation Algorithm, Optimization]

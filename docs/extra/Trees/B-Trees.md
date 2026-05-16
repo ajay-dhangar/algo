@@ -1,7 +1,7 @@
 ---
 id: b-tree
 title: B-Tree
-sidebar_label: B-Tree
+sidebar_label: 🔴 B-Tree
 sidebar_position: 3
 description: "A B-Tree is a self-balancing tree data structure that maintains sorted data and allows for efficient insertion, deletion, and search operations."
 tags: [Data Structures, B-Tree, Algorithms]

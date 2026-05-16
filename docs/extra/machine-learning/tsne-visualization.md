@@ -2,7 +2,7 @@
 
 id: tsne-visualization  
 title: t-Distributed Stochastic Neighbor Embedding (t-SNE) Algorithm  
-sidebar_label: t-SNE Visualization  
+sidebar_label: 🔴 t-SNE Visualization
 description: "An overview of t-SNE, a popular technique for visualizing high-dimensional data in two or three dimensions."  
 tags: [machine learning, data visualization, dimensionality reduction, t-SNE, algorithms]  
 

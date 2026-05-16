@@ -1,7 +1,7 @@
 ---
 id: intro-to-oops
 title: Introduction to Object-Oriented Programming (OOP)
-sidebar_label: Introduction to OOP
+sidebar_label: 🟢 Introduction to OOP
 sidebar_position: 1
 description: "Object-Oriented Programming (OOP) is a programming paradigm based on the concept of objects, which can contain data and code to manipulate that data. It promotes concepts like encapsulation, inheritance, and polymorphism."
 tags: [oops, object-oriented-programming]

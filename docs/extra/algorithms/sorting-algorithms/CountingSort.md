@@ -3,7 +3,7 @@
 id: counting-sort-algo  
 sidebar_position: 8  
 title: Counting Sort  
-sidebar_label: Counting Sort  
+sidebar_label: 🟢 Counting Sort
 
 ---
 

@@ -3,7 +3,7 @@
 id: hashing  
 sidebar_position: 5  
 title: Hashing  
-sidebar_label: Hashing  
+sidebar_label: 🟢 Hashing
 
 ---
 

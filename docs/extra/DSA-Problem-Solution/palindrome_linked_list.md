@@ -2,7 +2,7 @@
 id: palindrome-linked-list-problem
 sidebar_position: 5
 title: Palindrome Linked List
-sidebar_label: Palindrome Linked List
+sidebar_label: 🟠 Palindrome Linked List
 description: "This document explains the Palindrome Linked List problem, including its description, approach, and implementation."
 tags: [dsa, algorithms, problem-solving]
 ---

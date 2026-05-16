@@ -1,7 +1,7 @@
 ---
 id: n-queens
 title: N-Queens Algorithm using Backtracking
-sidebar_label: N-Queens
+sidebar_label: 🔴 N-Queens
 sidebar_position: 1
 description: Overview and implementation of the N-Queens problem using a backtracking algorithm.
 tags: [backtracking, algorithms]

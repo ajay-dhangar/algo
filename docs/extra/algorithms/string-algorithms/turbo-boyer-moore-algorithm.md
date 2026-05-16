@@ -3,7 +3,7 @@
 id: turbo-boyer-moore-algorithm
 sidebar_position: 20
 title: Turbo Boyer-Moore Algorithm
-sidebar_label: Turbo Boyer-Moore Algorithm
+sidebar_label: 🔴 Turbo Boyer-Moore Algorithm
 
 ---
 

@@ -2,7 +2,7 @@
 
 id: applicationsofoops
 title: "Applications of OOP in Real-Time Software"
-sidebar_label: Applications of OOP
+sidebar_label: 🟢 Applications of OOP
 sidebar_position: 1
 description: "This document explains how to use Object-Oriented Programming (OOP) concepts to build real-time software applications, focusing on an Online Banking System."
 tags: [oops, applications, software]

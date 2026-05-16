@@ -1,7 +1,7 @@
 ---
 id: naive-search-algorithm
 title: "Naive Search Algorithm"
-sidebar_label: "Naive Search"
+sidebar_label: "🟢 Naive Search"
 sidebar_position: 8
 description: "A basic string-search algorithm that checks every position in the text for a match with the pattern."
 tags: [pattern matching, string algorithms, brute-force search, naive search, competitive programming]

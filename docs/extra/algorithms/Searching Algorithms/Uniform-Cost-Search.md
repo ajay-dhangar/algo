@@ -2,7 +2,7 @@
 id: uniform-cost-search  
 sidebar_position: 4  
 title: Uniform-Cost Search  
-sidebar_label: Uniform-Cost  
+sidebar_label: 🟠 Uniform-Cost
 ---
 
 ### Definition:

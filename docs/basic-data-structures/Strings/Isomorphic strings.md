@@ -1,7 +1,7 @@
 ---
 id: isomorphic-strings
 title: "What are isomorphic strings."
-sidebar_label: "Isomorphic strings"
+sidebar_label: "🟢 Isomorphic strings"
 sidebar_position: 6
 description: "Isomorphic strings are two strings that can be transformed into each other by a consistent mapping of characters. "
 tags: [String,isomorphic strings]

@@ -1,7 +1,7 @@
 ---
 id: parity-partition-sort
 title: Parity Partition Sort
-sidebar_label: "Strand Sort"
+sidebar_label: "🟢 Strand Sort"
 sidebar_position: 9
 description: Overview and examples of Parity Partition Sort.
 tags: [sorting, dsa, algorithms, programming, parity sort, partition sort, parity partition sort]

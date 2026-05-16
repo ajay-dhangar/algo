@@ -1,7 +1,7 @@
 ---
 id: shortest-job-remaining-first-scheduling
 title: Shortest Job Remaining First Scheduling Algorithm
-sidebar_label: "Shortest Job Remaining First Scheduling"
+sidebar_label: "🟠 Shortest Job Remaining First Scheduling"
 sidebar_position: 6
 description: Shortest Job Remaining First (SJR) is a preemptive scheduling algorithm that selects the process with the smallest remaining time to execute next.
 tags: [Scheduling, SJR]

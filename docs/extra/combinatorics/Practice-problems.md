@@ -1,7 +1,7 @@
 ---
 id: Practice-Problems-on-Combinatorics
 title: Practice Problems in Combinatorics
-sidebar_label: Combinatorics Practice Problems
+sidebar_label: 🟠 Combinatorics Practice Problems
 sidebar_position: 4
 description: A comprehensive list of practice problems focused on combinatorics, covering various topics and concepts.
 tags: [DSA, algorithms, combinatorics, practice problems]

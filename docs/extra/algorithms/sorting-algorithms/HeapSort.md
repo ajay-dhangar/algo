@@ -2,7 +2,7 @@
 id: heap-sort-algo
 sidebar_position: 6  
 title: Heap Sort  
-sidebar_label: Heap Sort  
+sidebar_label: 🟠 Heap Sort
 description: A detailed guide on the Heap Sort algorithm with C++ implementation examples.
 tags: [heap sort, algorithms, sorting algorithms]
 ---

@@ -2,7 +2,7 @@
 
 id: earliest-deadline-first
 title: Earliest Deadline First Scheduling Algorithm
-sidebar_label: "Earliest Deadline First"
+sidebar_label: "🟠 Earliest Deadline First"
 sidebar_position: 9
 description: Earliest Deadline First (EDF) is a dynamic priority scheduling algorithm where processes are scheduled according to their deadlines. The process with the nearest deadline is executed first.
 tags: [Scheduling, EDF]

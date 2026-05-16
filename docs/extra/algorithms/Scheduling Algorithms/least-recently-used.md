@@ -1,7 +1,7 @@
 ---
 id: least-recently-used-scheduling
 title: Least Recently used Scheduling
-sidebar_label: "Least Recently used Scheduling"
+sidebar_label: "🟠 Least Recently used Scheduling"
 sidebar_position: 6
 description: An overview of Least Recently Used Scheduling and its applications in programming.
 tags: [CPU Scheduling, algorithms, programming, LRU]

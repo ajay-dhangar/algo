@@ -1,7 +1,7 @@
 ---
 id: conversions-using-stack
 title: Conversions
-sidebar_label: Introduction to conversions in Infix, Postfix and Prefix
+sidebar_label: 🟢 Introduction to conversions in Infix, Postfix and Prefix
 description: 'Converting between infix, postfix, and prefix notations involves understanding how operators and operands are organized.'
 tags: [dsa, data-structures, Conversions , C language]
 ---

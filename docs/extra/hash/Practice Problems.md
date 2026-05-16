@@ -1,7 +1,7 @@
 ---
 id: practice-problems-on-hash-tables
 title: Practice Problems
-sidebar_label: Practice Problems
+sidebar_label: 🟢 Practice Problems
 sidebar_position: 16
 Description: Here are some practice problems for Hash Table divided into topic-wise and difficulty wise.
 tags: [DSA, algorithms,hash-table, dsa]
