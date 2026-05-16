@@ -131,7 +131,7 @@ const config = {
                 label: "Practice",
               },
               {
-                to: "Quizzes",
+                to: "quizzes",
                 label: "Quizzes",
               },
               {
