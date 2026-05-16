@@ -38,7 +38,7 @@ const GetInvolvedSection: React.FC = () => {
       description:
         "Contribute to our project and enhance your coding skills while making a positive impact!",
       link: "https://github.com/ajay-dhangar/algo",
-    },
+    }
   ];
 
   return (

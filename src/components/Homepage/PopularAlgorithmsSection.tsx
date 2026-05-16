@@ -33,7 +33,7 @@ const PopularAlgorithmsSection: React.FC = () => {
       title: "Recursion",
       description: "Function calls itself for solutions",
       link: "#",
-    },
+    }
   ];
 
   return (
