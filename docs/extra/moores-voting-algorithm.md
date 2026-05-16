@@ -1,5 +1,5 @@
 ---
-id: Moore's Voting Algoritm
+id: moores-voting-algorithm
 title: "Moore's Voting Algorithm"
 sidebar_label: "Moore's Voting Algorithm"
 sidebar_position: 1
@@ -9,7 +9,7 @@ tags: [Algorithm, Moore, Majority element]
 
 # Moore's Voting Algorithm
 ## Overview
-**Moore's Voting Algorithm** is a highly efficient algorithm used to find the **"majority element"** in a sequence or dataset - an element that appears strictly more than \(n/2\) times.
+**Moore's Voting Algorithm** is a highly efficient algorithm used to find the **"majority element"** in a sequence or dataset - an element that appears strictly more than $(n/2)$ times.
 
 ## Use Cases
 - **Practical Use CasesData Stream Analytics**: Identifying the most frequent user action in massive real-time streams without storing all data.
@@ -19,13 +19,13 @@ tags: [Algorithm, Moore, Majority element]
 
 ## Algorithm Details
 ### Algorithm Complexity
-- **Time Complexity**: \(O(N)\) because it requires exactly two passes through the data.
-    - **Best Case**: \(O(N)\).
-    - **Worst Case**: \(O(N)\), where \(N\) is the number of elements.
+- **Time Complexity**: $O(N)$ because it requires exactly two passes through the data.
+    - **Best Case**: $O(N)$.
+    - **Worst Case**: $O(N)$, where $N$ is the number of elements.
 
-- **Space Complexity**: \(O(1)\) because it only ever stores two variables (the candidate and the count), regardless of data size.
+- **Space Complexity**: $O(1)$ because it only ever stores two variables (the candidate and the count), regardless of data size.
 
-- **Requirement**: It only works if a majority (\(> 50\%\)) exists.
+- **Requirement**: It only works if a majority ($> 50\%$) exists.
 
 ### Real - Life Analogy
 - Think of a battlefield where soldiers from different armies arrive one by one:
