@@ -182,3 +182,15 @@ graphColoring(graph, m);
 
 4. **Example Graph**: The adjacency matrix defines a graph with 4 vertices, and the program attempts to color it using up to 3 colors.
 
+## Time Complexity
+- Best Case: O(V) (When the graph can be trivially colored with the first color tried at each step)
+- Average Case: O(M^V)
+- Worst Case: O(M^V)
+where `V` is the number of vertices and `M` is the number of colors.
+
+## Space Complexity
+- O(V)
+where `V` is the number of vertices. The space is used for storing the `color` array and the call stack during recursion.
+
+## Explanation
+The backtracking approach tries up to `M` colors for each of the `V` vertices. In the worst case, this leads to an exponential time complexity of `O(M^V)`. The algorithm is highly dependent on the graph's structure and the order in which colors are tried, so practically it can be much faster than the worst case. The space complexity is linear with respect to the number of vertices due to the recursion depth and color state storage.

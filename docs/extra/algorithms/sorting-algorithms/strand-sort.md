@@ -177,8 +177,17 @@ This leads to the best-case time complexity of **O(n log n)**.
 - **Average Case**: Typically between O(n log n) and O(n²), depending on the structure of the input list.
 
 
+## Time Complexity
+- Best Case: O(n) (When the array is already sorted, only one strand is extracted and no merging is needed)
+- Average Case: O(n^2)
+- Worst Case: O(n^2) (When the array is sorted in reverse order, extracting `n` strands of length 1)
 
+## Space Complexity
+- O(n)
+where `n` is the number of elements. Space is required for the strands and the resulting sorted list (or the recursive call stack if implemented recursively).
 
+## Explanation
+Strand sort extracts ascending sublists ("strands") and merges them into a sorted list. If the list is already sorted, it extracts one strand in `O(n)` time and completes. In the worst case (reverse sorted), it has to extract `n` strands of length 1, and the merging process takes quadratic time overall. Because it creates sublists to hold the strands and the merged result, it inherently requires `O(n)` auxiliary space.
 ## Advantages:
 1. **Simple to understand**: The process of extracting sorted strands and merging is conceptually easy.
 2. **Works well with linked lists**: As strand sort can efficiently handle linked lists, it avoids the overhead of frequent element shifting like in arrays.

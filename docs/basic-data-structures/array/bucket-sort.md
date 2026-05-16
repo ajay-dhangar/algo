@@ -23,6 +23,19 @@ Bucket sort is a comparison sorting algorithm that distributes elements into a n
 3. **Sort Buckets**: Sort each bucket individually.
 4. **Concatenate Buckets**: Concatenate all sorted buckets to form the final sorted array.
 
+## Time and Space Complexity
+
+### Time Complexity
+- **Best Case:** $O(n + k)$ - When elements are uniformly distributed across buckets.
+- **Average Case:** $O(n + k)$ - Under normal conditions with even distribution.
+- **Worst Case:** $O(n^2)$ - When all elements fall into a single bucket and need to be sorted.
+
+### Space Complexity
+- $O(n + k)$ - Where $n$ is the number of elements and $k$ is the number of buckets.
+
+## Explanation
+Bucket sort's performance depends on the distribution of input data. When data is uniformly distributed, each bucket contains approximately $n/k$ elements, resulting in linear time complexity. However, if distribution is poor, the algorithm may degrade to $O(n^2)$. The space complexity includes storage for both the input elements and the bucket structure.
+
 ### Pseudocode
 
 ```text
