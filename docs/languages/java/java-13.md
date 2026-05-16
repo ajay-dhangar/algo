@@ -4,7 +4,7 @@ sidebar_position: 13
 title: "I/O and Serialization in Java"
 sidebar_label: "I/O and Serialization in Java"
 description: "In Java, reading from and writing to external sources (like files, network connections, or the console) is handled via I/O Streams. An I/O Stream represents an input source or an output destination. And Serialization helps you to store the state of an object into a byte stream."
-tags: [java, Serialization, File Handling, I/O Streams],
+tags: [java, Serialization, File Handling, I/O Streams]
 ---
 
 ## I/O Streams
