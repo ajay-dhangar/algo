@@ -41,3 +41,57 @@ Ready to dive into the world of Data Structures and Algorithms for technical int
 <h2 className="text-center">Feedback and Support</h2>
 
 <GiscusComponent />
+
+---
+
+## 🌳 Graph Algorithms – Time & Space Complexity
+
+This section provides a simple revision of important graph algorithms for interviews.
+
+---
+
+### 🔹 Breadth First Search (BFS)
+
+Time Complexity: O(V + E)  
+Space Complexity: O(V)
+
+BFS explores nodes level by level using a queue.  
+Each node and edge is visited once.
+
+---
+
+### 🔹 Depth First Search (DFS)
+
+Time Complexity: O(V + E)  
+Space Complexity: O(V)
+
+DFS explores as deep as possible using recursion or stack before backtracking.
+
+---
+
+### 🔹 Dijkstra’s Algorithm
+
+Time Complexity: O((V + E) log V)  
+Space Complexity: O(V)
+
+Finds shortest path from a source node using a priority queue (min-heap).
+
+---
+
+### 🔹 A* Algorithm
+
+Time Complexity: O(E) (depends on heuristic)  
+Space Complexity: O(V)
+
+Uses heuristics to guide search and is usually faster than Dijkstra.
+
+---
+
+### 🚀 Quick Summary
+
+- BFS → Level order traversal  
+- DFS → Depth traversal  
+- Dijkstra → Shortest path  
+- A* → Heuristic-based shortest path  
+
+---
