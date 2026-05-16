@@ -104,7 +104,6 @@ Binary search : O(log n)
 - Used in search engines to quickly find information
 - Used in databases for fast searching
 - Used in dictionary and contact search
-- Used in competitive programming problems
 
 ## Advantages
 
