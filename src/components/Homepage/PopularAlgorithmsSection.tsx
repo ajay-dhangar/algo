@@ -113,6 +113,7 @@ const PopularAlgorithmsSection: React.FC = () => {
                   Learn More
                 </a>
               </div>
+              </div>
             </motion.div>
           ))}
         </div>
