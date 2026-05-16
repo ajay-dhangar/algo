@@ -26,13 +26,13 @@ Symmetric encryption is a type of encryption where the same key is used for both
   - Well-known symmetric encryption algorithms include Advanced Encryption Standard (AES), Data Encryption Standard (DES), and Triple DES (3DES).
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Encryption/Decryption Time**: $O(n)$  
   The time complexity for symmetric encryption and decryption is generally linear, dependent on the length of the data being processed. However, it may vary based on the algorithm and implementation.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity $O(1)$  
   Symmetric encryption typically requires a constant amount of additional space, as the same key is used for both encryption and decryption, and the input data is transformed into ciphertext in place.

@@ -15,9 +15,9 @@ Jump Search is a searching algorithm used to find an element in a sorted array. 
 
 ## Complexity:
 ## Time Complexity
-O(...) O(n)
+$O(...)$ O(n)
 ## Space Complexity
-O(...) O(1)
+$O(...)$ O(1)
 
 ## Steps:
 1) Choose a block size (commonly step=array sizestep=array size).

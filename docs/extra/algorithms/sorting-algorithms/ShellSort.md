@@ -26,7 +26,7 @@ Shell sort is an extension of insertion sort that allows the exchange of far-apa
   - The choice of gap sequence is crucial to the performance of Shell sort. Common sequences include the original gap sequence (n/2, n/4, ..., 1), Hibbard's sequence, and Sedgewick's sequence, among others.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: O(n log n)**  
   With an optimal gap sequence, Shell sort can approach O(n log n) in the best case.
@@ -38,10 +38,10 @@ O(...)
   In the worst case, with poor gap choices, Shell sort can degrade to quadratic time complexity.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(1)**  
+$O(...)$ O(1)**  
   Shell sort is an in-place sorting algorithm, meaning it requires a constant amount of extra memory.
 
 ### C++ Implementation:

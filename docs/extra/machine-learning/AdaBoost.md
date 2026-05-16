@@ -121,7 +121,7 @@ plt.show()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   Training complexity is approximately $O(n \cdot m \cdot t)$, where $n$ is the number of samples, $m$ is the number of features, and $t$ is the number of weak learners.
 

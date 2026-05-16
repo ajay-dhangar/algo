@@ -34,7 +34,7 @@ def sum_numbers(n):
 If \(n = 0\), it will return immediately.
 
 **## Time Complexity
-O(...)**  
+$O(...)$**  
 \( **O(1)** \)
 
 ### Worst Case
@@ -53,8 +53,8 @@ def fibonacci(n):
 For n=5, the function makes multiple calls, leading to a binary tree structure of calls.
 
 ## Time Complexity
-O(...)
-\( O(2^n) \)
+$O(...)$
+\( O($2^N$) \)
 ## Example Using Tree Recursion
 
 ### Problem: Generate All Permutations of a List

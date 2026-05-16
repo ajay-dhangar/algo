@@ -24,16 +24,16 @@ The Activity Selection Problem is about selecting the maximum number of activiti
 You are given `N` activities, each with a start time `s_i` and finish time `f_i`. Your task is to select the maximum number of activities that can be performed by a single person or machine.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best, Average, and Worst Case: $O(N \log N)$**  
   The dominant operation is sorting the activities based on their finish times.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(1)$**  
+$O(...)$ $O(1)$**  
   Only a constant amount of extra space is required.
 
 ### Example:

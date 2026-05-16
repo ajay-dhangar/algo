@@ -16,7 +16,7 @@ In computer science, the **Aho-Corasick Algorithm** is a string searching algori
 The **Aho-Corasick Algorithm** is a classical string matching algorithm used for efficiently finding multiple patterns within a given text. It constructs a finite-state machine in the form of a trie (prefix tree) with failure links, which allows it to search for all patterns simultaneously in linear time.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Construction Time:** O(m), where `m` is the total number of characters in all patterns.
 - **Search Time:** O(n), where `n` is the length of the text.
 
@@ -247,7 +247,7 @@ int main() {
 
 - **Multiple Pattern Search:** Efficiently searches for multiple patterns in a single pass through the text.
 - **Linear ## Time Complexity
-O(...)** After preprocessing the patterns, the search runs in linear time relative to the length of the text.
+$O(...)$** After preprocessing the patterns, the search runs in linear time relative to the length of the text.
 - **Failure Links:** These allow the algorithm to efficiently backtrack and reuse previously computed results when mismatches occur.
 
 ## Applications

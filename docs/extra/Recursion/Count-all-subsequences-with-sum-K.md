@@ -18,7 +18,7 @@ tags: [perfect-sum, recursion, dynamic-programming, dsa]
 ```
 
 - Expected ## Time Complexity
-O(...) 𝑂(𝑛×sum)
+$O(...)$ 𝑂(𝑛×sum)
 
 - Expected Auxiliary Space: 𝑂(𝑛×sum)
 

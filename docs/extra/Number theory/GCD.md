@@ -203,7 +203,7 @@ GCD(56, 98) = 14
 ```
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 The time complexity of the Euclidean algorithm is `O(log(min(a, b)))`, making it highly efficient for computing GCD even for large numbers.
 

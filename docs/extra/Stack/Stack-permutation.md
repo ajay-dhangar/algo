@@ -42,7 +42,7 @@ Given two integer arrays, `input` and `output`, each containing unique elements 
 
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - The time complexity of this solution is `O(n)`, where `n` is the number of elements in the input (or output) array. This is because we iterate through each element in the input array once, pushing each onto the stack. Each element can only be popped from the stack once when it matches the next element in the output array, so the number of push and pop operations is limited to
 `2n` (one push and one pop per element at most). Thus, the algorithm efficiently completes the check in linear time.
 

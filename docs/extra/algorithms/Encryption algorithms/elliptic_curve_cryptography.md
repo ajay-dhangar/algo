@@ -26,13 +26,13 @@ Elliptic Curve Cryptography (ECC) is a form of public-key cryptography based on 
   - ECC can be used for creating digital signatures through algorithms like ECDSA (Elliptic Curve Digital Signature Algorithm), which is widely used in various security protocols.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Encryption/Decryption Time**: $O(n)$  
   The time complexity for ECC operations can vary based on the implementation and the curve used. Generally, ECC operations are more efficient than those of RSA for equivalent security levels.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity $O(n)$  
   ECC requires space for storing the private key, public key, and the elliptic curve parameters, typically proportional to the key size.

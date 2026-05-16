@@ -29,13 +29,13 @@ sidebar_label: BFS
 5. **Repeat** the process until the queue is empty.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - ## ## Time Complexity $O(V + E)$  
   Where `V` is the number of vertices and `E` is the number of edges in the graph.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity $O(V)$
   BFS uses space proportional to the number of vertices due to the queue and visited list.

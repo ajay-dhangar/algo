@@ -32,14 +32,14 @@ Traverse the sorted items, adding them fully if their weight doesn't exceed the 
 Given a knapsack with a weight limit of W and a list of items, each with a value vi and weight wi, maximize the total value by selecting items (or fractions thereof) without exceeding W.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 Best, Average, and Worst Case: $O(n \log n)$
 Where n is the number of items. Sorting items by their value-to-weight ratio takes O(n \log n) time.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 ## Space Complexity
-O(...) $O(n)$
+$O(...)$ $O(n)$
 Space is required to store item information and ratios.
 
 **Example:**

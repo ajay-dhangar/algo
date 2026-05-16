@@ -26,7 +26,7 @@ Comb sort is an improvement over bubble sort. It compares elements that are fart
   - By addressing "turtles" early, comb sort can improve upon the O(n²) performance of bubble sort, making it faster for larger datasets.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: O(n log n)**  
   In the best case, where the array is already nearly sorted, comb sort runs in O(n log n) time due to the logarithmic reduction of the gap size.
@@ -38,10 +38,10 @@ O(...)
   In the worst case, comb sort behaves similarly to bubble sort, with a time complexity of O(n²), though it performs faster in practice.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(1)**  
+$O(...)$ O(1)**  
   Comb sort is an in-place sorting algorithm, requiring only a constant amount of additional memory.
 
 ### C++ Implementation:

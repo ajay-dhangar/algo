@@ -130,7 +130,7 @@ plt.show()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   The dominant factor is the eigen decomposition, which typically runs in $O(n^3)$, where $n$ is the number of features.
 

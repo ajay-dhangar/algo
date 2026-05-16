@@ -34,7 +34,7 @@ The Two-Way String-Matching Algorithm, developed by Crochemore and Perrin, is an
   - Prepares shift tables for both directions
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Preprocessing: $O(m)$**
   - Where m is the length of the pattern
@@ -47,7 +47,7 @@ O(...)
   - Sublinear on average
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(m)$**
   - Where m is the pattern length

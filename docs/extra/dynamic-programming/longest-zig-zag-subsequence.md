@@ -97,10 +97,10 @@ Finally, `max(max(up), max(down))` gives the length of the longest zigzag subseq
 
 ## Complexity Analysis
 - **## Time Complexity
-O(...)** $𝑂(𝑛^2)$ due to the nested loops over i and j.
+$O(...)$** $𝑂(𝑛^2)$ due to the nested loops over i and j.
 
 - **## Space Complexity
-O(...)** $𝑂(𝑛)$ for storing the up and down arrays.
+$O(...)$** $𝑂(𝑛)$ for storing the up and down arrays.
 
 ## Conclusion
 The Longest Zigzag Subsequence problem is a classic example of a dynamic programming problem. It requires us to identify the longest subsequence in which elements alternate between increasing and decreasing. By leveraging two dynamic programming arrays, up and down, we efficiently track the length of valid zigzag patterns as we progress through the array.

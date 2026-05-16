@@ -29,7 +29,7 @@ Blockchain cryptography refers to the cryptographic algorithms and techniques us
   - Algorithms like SHA-256 (used in Bitcoin), ECDSA (Elliptic Curve Digital Signature Algorithm), and other cryptographic techniques are commonly used in blockchain systems to secure data and transactions.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Hashing Time**: $O(n)$  
   The time complexity of hashing in blockchain is linear in relation to the size of the data being hashed. SHA-256, for example, processes blocks of data in constant time per block.
@@ -38,7 +38,7 @@ O(...)
   Verifying digital signatures or hashes is generally constant-time, making it efficient for validating transactions and data integrity in blockchain systems.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity $O(n)$  
   Blockchain systems store hashed data, transaction signatures, and block information. The space complexity is proportional to the number of blocks, transactions, and data stored.

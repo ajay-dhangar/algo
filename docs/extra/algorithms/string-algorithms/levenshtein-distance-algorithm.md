@@ -34,7 +34,7 @@ The Levenshtein Distance Algorithm, also known as Edit Distance, calculates the 
   - Distance normalization
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Standard Version: $O(m \times n)$**
   - Where m, n are string lengths
@@ -47,7 +47,7 @@ O(...)
   - Constant space per row
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Standard Version: $O(m \times n)$**
   - Full matrix storage

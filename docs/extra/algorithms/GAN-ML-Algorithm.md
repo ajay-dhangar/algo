@@ -80,7 +80,7 @@ print(disc_output)
 GANs require intensive computations due to the adversarial training of two networks.
 
 - **## Time Complexity
-O(...)** O(N * L * D * K^2)  
+$O(...)$** O(N * L * D * K^2)  
   Where:
   - **N** = Number of training samples
   - **L** = Number of layers in each network
@@ -91,7 +91,7 @@ O(...)** O(N * L * D * K^2)
 The memory requirement grows with the depth and size of both the Generator and Discriminator networks.
 
 - **## Space Complexity
-O(...)** O(N * L * D * W * H)  
+$O(...)$** O(N * L * D * W * H)  
   Where:
   - **N** = Batch size
   - **L** = Number of layers

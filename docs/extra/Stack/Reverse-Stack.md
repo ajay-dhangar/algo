@@ -37,7 +37,7 @@ Given a stack of integers, the task is to reverse the stack using recursion. The
 3. **Main Function:** The main function initializes the stack, calls `reverseStack`, and displays the reversed stack.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - The time complexity of this solution is `O(n)`, where `n` is the number of elements in the stack. This is because each element is processed a constant number of times (popped and inserted).
 
 ### Sample Input:

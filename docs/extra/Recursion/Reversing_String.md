@@ -12,7 +12,7 @@ tags: [reverse-string, recursion, dsa]
 
 
 - Expected ## Time Complexity
-O(...) 𝑂(𝑛)
+$O(...)$ 𝑂(𝑛)
 
 - Expected Auxiliary Space: 𝑂(𝑛)
 

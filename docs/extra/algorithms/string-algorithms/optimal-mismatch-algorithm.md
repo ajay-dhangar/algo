@@ -34,7 +34,7 @@ The Optimal Mismatch Algorithm is a pattern matching algorithm that optimizes th
   - Optimal sequence determination
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Preprocessing: $O(m \times log m)$**
   - Where m is pattern length
@@ -47,7 +47,7 @@ O(...)
   - Pattern-dependent performance
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(m)$**
   - Comparison order storage

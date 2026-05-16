@@ -28,15 +28,15 @@ Prim's algorithm is a greedy algorithm that constructs a Minimum Spanning Tree (
 Given a connected, undirected, weighted graph with `n` vertices, find a subset of the edges that forms a tree including all vertices, where the total weight of the edges is minimized.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Using Adjacency Matrix with Min-Heap: $O(V^2)$**
 - **Using Adjacency List with Min-Heap: $O(E \log V)$**
   Where `V` is the number of vertices and `E` is the number of edges.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **## Space Complexity
-O(...) $O(V + E)$**  
+$O(...)$ $O(V + E)$**  
   This is due to storing vertices, edges, and auxiliary data structures for MST construction.
 
 <Ads />

@@ -23,12 +23,12 @@ sidebar_label: AO*
 4. **Repeat**: Continue until reaching a terminal node or completing all AND-conditions.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - ## ## Time Complexity Variable, based on graph complexity and heuristic.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity \(O(n)\)
 

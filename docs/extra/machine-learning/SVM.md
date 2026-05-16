@@ -151,7 +151,7 @@ plt.show()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   The time complexity of SVM varies:
   - **Linear SVM**: Approximately $O(n \cdot d)$, where $n$ is the number of samples and $d$ is the number of features.

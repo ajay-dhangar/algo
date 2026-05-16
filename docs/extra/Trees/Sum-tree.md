@@ -22,11 +22,11 @@ The approach to checking if a binary tree is a Sum Tree involves recursively tra
 6. If the root’s check passes, return `true` ; if any node fails, return `false`.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - The time complexity of checking if a binary tree is a Sum Tree is `O(n)`, where `n` is the number of nodes in the tree. This is because the algorithm visits each node exactly once to compute sums and check the Sum Tree property, resulting in linear traversal.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - The space complexity of the algorithm for checking if a binary tree is a Sum Tree is `O(h)`, where `h` is the height of the tree, due to the recursive call stack. In the worst case, this can be `O(n)` for a skewed tree, while for a balanced tree, it is `O(log n)`.
 
 ### Sample Input:

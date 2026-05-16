@@ -88,7 +88,7 @@ function fibonacci(n, memo = {}) {
   return memo[n];
 }
 ```
-This optimized version reduces the time complexity from $O(2^n)$ to $O(n)$.
+This optimized version reduces the time complexity from $O($2^N$)$ to $O(n)$.
 
 ### 2. **Tail Recursion**:
 Tail recursion is a specific form of recursion where the recursive call is the last thing executed by the function. Tail-recursive functions can be optimized by some compilers or interpreters to prevent stack overflow.

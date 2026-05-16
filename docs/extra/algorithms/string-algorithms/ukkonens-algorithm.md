@@ -34,7 +34,7 @@ Ukkonen's Algorithm is an online algorithm for constructing suffix trees in line
   - Efficiently handles repeated patterns
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Construction: $O(n)$**
   - Where n is the length of the input string
@@ -42,7 +42,7 @@ O(...)
   - Each phase processes one character in amortized constant time
 
 - **## Space Complexity
-O(...) $O(n)$**
+$O(...)$ $O(n)$**
   - Storage for nodes and edges
   - Additional space for suffix links
   - Path compression keeps space requirement linear

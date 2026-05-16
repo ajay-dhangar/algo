@@ -34,7 +34,7 @@ Crochemore's Algorithm is a string matching algorithm developed by Maxime Croche
   - Balanced preprocessing and searching phases
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Preprocessing: $O(m)$**
   - Where m is the pattern length
@@ -47,7 +47,7 @@ O(...)
   - Optimal for single pattern matching
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(m)$**
   - Constant extra space beyond pattern storage

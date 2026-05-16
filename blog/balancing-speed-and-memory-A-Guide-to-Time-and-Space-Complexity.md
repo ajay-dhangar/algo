@@ -9,8 +9,8 @@ At its core, an algorithm is a step-by-step procedure or formula for solving a p
 In this blog, we’ll cover:
 
 - **Why Algorithms are Important**
-- ## Time Complexity
-- ## Space Complexity
+- * Time Complexity
+* Space Complexity
 - **The Time-Space Trade-off**
 - **Conclusion**
 
@@ -28,9 +28,9 @@ Let’s imagine you’re searching for a book in a library. You could:
 
 The second approach is more efficient and resembles an algorithm designed to optimize search time. This demonstrates how algorithms allow you to perform tasks in an optimized and structured way.
 
-When evaluating algorithms, two key metrics come into play: ## Time Complexity and ## Space Complexity. These determine how efficient an algorithm is in terms of speed and memory usage.
+When evaluating algorithms, two key metrics come into play: * Time Complexity and * Space Complexity. These determine how efficient an algorithm is in terms of speed and memory usage.
 
-## Time Complexity
+* Time Complexity
 
 Time complexity refers to how an algorithm’s runtime scales as the input size grows. It is expressed using Big O notation. Common examples include:
 
@@ -40,7 +40,7 @@ Time complexity refers to how an algorithm’s runtime scales as the input size 
 
 For example, if you’re sorting a list, algorithms with **O(n log n)** (like Merge Sort) are more efficient than **O(n²)** (like Bubble Sort) for large datasets.
 
-## Space Complexity
+* Space Complexity
 
 Space complexity measures how much memory an algorithm uses as the input size increases. Some algorithms might be fast but require extra memory, while others might be slower but use less memory. Common space complexities include:
 

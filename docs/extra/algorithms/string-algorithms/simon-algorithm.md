@@ -34,7 +34,7 @@ While the Simon Algorithm is historically a quantum computing algorithm, this im
   - Error tolerance
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Preprocessing: $O(m + σ)$**
   - Where m is pattern length
@@ -47,7 +47,7 @@ O(...)
   - Bit-parallel efficiency
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(σ)$**
   - Character mask storage

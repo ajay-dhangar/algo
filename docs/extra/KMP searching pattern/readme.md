@@ -15,9 +15,9 @@ The Knuth-Morris-Pratt (KMP) algorithm is an efficient string-matching algorithm
 ## ⭐ Key Features
 
 - 🚀 ## Time Complexity
-O(...) O(n + m) where n is text length and m is pattern length
+$O(...)$ O(n + m) where n is text length and m is pattern length
 - 💾 ## Space Complexity
-O(...) O(m) for pattern preprocessing
+$O(...)$ O(m) for pattern preprocessing
 - 🎯 Efficient for patterns with repeating characters
 - 🔄 No backtracking in the main text string
 

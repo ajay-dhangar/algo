@@ -21,7 +21,7 @@ Gnome Sort is a simple comparison-based sorting algorithm that sorts an array by
   Gnome Sort is stable, meaning it preserves the relative order of equal elements.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: O(n)**  
   Occurs when the array is already sorted or nearly sorted, requiring minimal swaps.
@@ -33,10 +33,10 @@ O(...)
   This happens when the array is sorted in reverse order, leading to the maximum number of swaps.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(1)**  
+$O(...)$ O(1)**  
   As it sorts the array in place, the space requirement is constant.
 
 ### Java Implementation:

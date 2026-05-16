@@ -44,7 +44,7 @@ sidebar_label: Interpolation search algorithm
 ## Space Complexity 💾
 
 - **## Space Complexity
-O(...) `O(1)`**  
+$O(...)$ `O(1)`**  
   Interpolation search operates in constant space, as it only requires a few extra variables for the calculations.
 
 ## C++ Implementation 💻

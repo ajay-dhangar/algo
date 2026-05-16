@@ -21,7 +21,7 @@ Odd-Even Sort is a simple comparison-based sorting algorithm, also known as Bric
   - Odd-Even Sort is easy to implement and can be parallelized since adjacent element comparisons are independent.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: O(n)**  
   If the array is already sorted, Odd-Even Sort only requires one pass through the array.
@@ -33,10 +33,10 @@ O(...)
   In the worst case, such as a reverse-sorted array, Odd-Even Sort also degrades to O(n²).
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(1)**  
+$O(...)$ O(1)**  
   Like Shell Sort, Odd-Even Sort is an in-place sorting algorithm, requiring constant additional memory.
 
 ### C++ Implementation:

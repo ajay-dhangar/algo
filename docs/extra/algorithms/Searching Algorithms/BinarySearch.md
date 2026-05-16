@@ -26,7 +26,7 @@ Binary search is an efficient algorithm for finding an element in a **sorted arr
   - Binary search does not adjust to find elements more quickly when there are patterns or duplicate elements in the array, unlike some adaptive algorithms.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: $O(1)$**  
   In the best case, the middle element of the array is the target value, found after just one comparison.
@@ -38,7 +38,7 @@ O(...)
   In the worst case, the target element is not present in the array or is located at the extreme ends, requiring `log n` comparisons.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Iterative: $O(1)$**  
   The iterative version of binary search requires a constant amount of memory for variables like the low and high indices.

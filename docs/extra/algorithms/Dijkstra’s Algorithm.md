@@ -120,7 +120,7 @@ This is because, in the simplest implementation using an array, each vertex is c
 ## Space Complexity
 
 ## Space Complexity
-O(...) (O(V)), where V is the number of vertices.
+$O(...)$ (O(V)), where V is the number of vertices.
 The program uses an array to store the shortest distances from the source vertex to all other vertices.
 
 ### Assumptions

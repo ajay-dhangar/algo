@@ -62,6 +62,6 @@ class Solution:
         return True
 ```
 ## Time Complexity
-O(...) O(n) <br /> 
+$O(...)$ O(n) <br /> 
 ## Space Complexity
-O(...) O(1)    
+$O(...)$ O(1)    

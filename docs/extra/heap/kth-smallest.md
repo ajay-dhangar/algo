@@ -27,7 +27,7 @@ Iterate through the array, adding elements to the heap.
 If the heap size exceeds K, remove the smallest element from the heap.
 The top element of the heap will be the Kth largest when the iteration is complete.
 ## Time Complexity
-O(...) O(n log K), where n is the number of elements in the array.
+$O(...)$ O(n log K), where n is the number of elements in the array.
 
 ```cpp
 #include <iostream>

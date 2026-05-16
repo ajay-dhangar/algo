@@ -42,6 +42,6 @@ class Solution:
             num_map[num] = i
 ```
 ## Time Complexity
-O(...) O(n) <br /> 
+$O(...)$ O(n) <br /> 
 ## Space Complexity
-O(...) O(n)    
+$O(...)$ O(n)    

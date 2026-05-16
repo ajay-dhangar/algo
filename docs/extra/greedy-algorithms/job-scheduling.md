@@ -38,7 +38,7 @@ The algorithm uses a greedy approach where jobs are sorted in decreasing order o
 
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - Sorting the jobs: Sorting n jobs based on their profit takes `O(n log n)` time.
   Scheduling the jobs: For each job, we try to find an available slot in `O(n)` time. Therefore, the total time complexity for scheduling is O(n^2).
   Thus, the overall time complexity is `O(n log n + n^2)`, where n is the number of jobs.

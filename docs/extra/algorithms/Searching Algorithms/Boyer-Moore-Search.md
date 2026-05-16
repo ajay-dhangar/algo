@@ -23,13 +23,13 @@ sidebar_label: Boyer-Moore
 4. **Repeat**: Continue until the pattern is found or text is exhausted.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case**: \(O(n/m)\), where `n` is the length of the text and `m` is the length of the pattern.
 - **Worst Case**: \(O(n \times m)\)
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity \(O(m)\) for storing pattern rules.
 

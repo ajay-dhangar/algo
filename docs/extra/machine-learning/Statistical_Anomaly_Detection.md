@@ -177,7 +177,7 @@ plt.show()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   The time complexity depends on the statistical method used. For example, calculating the Z-score has a linear time complexity of $O(n)$ for n data points.
 

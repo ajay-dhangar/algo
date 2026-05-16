@@ -39,7 +39,7 @@ sidebar_label: Priority Search algorithm
 ## Space Complexity 💾
 
 - **## Space Complexity
-O(...) `O(n)`**  
+$O(...)$ `O(n)`**  
   Priority search typically requires space for storing the rectangles and their associated priority values, along with any auxiliary data structures (such as a tree or heap) used for efficient querying.
 
 ## C++ Implementation 💻

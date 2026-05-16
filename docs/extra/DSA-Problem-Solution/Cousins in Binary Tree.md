@@ -190,6 +190,6 @@ class Solution:
 
 
 ## ## Time Complexity
-O(...) O(n) 
+$O(...)$ O(n) 
 ## ## Space Complexity
-O(...) O(n)
+$O(...)$ O(n)

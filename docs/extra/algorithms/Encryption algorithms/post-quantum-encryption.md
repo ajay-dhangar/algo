@@ -24,13 +24,13 @@ Post-quantum encryption (PQE) refers to cryptographic algorithms designed to wit
   - Algorithms like lattice-based cryptography (e.g., NTRU, Kyber), code-based cryptography (e.g., McEliece), and hash-based cryptography (e.g., SPHINCS+) are popular candidates for post-quantum encryption.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - *Encryption/Decryption Time*: $O(n^k)$  
   The time complexity for post-quantum encryption can vary depending on the algorithm used. Most post-quantum algorithms have a higher time complexity compared to classical algorithms due to the need for complex operations and larger key sizes.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - *Space Complexity*: $O(n)$ to $O(n^2)$  
   Post-quantum encryption requires more storage due to larger key sizes and ciphertexts. Some algorithms, especially lattice-based ones, can significantly increase space requirements compared to traditional cryptography.

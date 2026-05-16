@@ -34,7 +34,7 @@ The Turbo Boyer-Moore Algorithm is an enhanced version of the classic Boyer-Moor
   - Match factorization
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Preprocessing: $O(m + σ)$**
   - Where m is pattern length
@@ -47,7 +47,7 @@ O(...)
   - Better than original Boyer-Moore
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(m + σ)$**
   - Pattern storage

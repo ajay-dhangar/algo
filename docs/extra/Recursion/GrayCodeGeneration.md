@@ -18,7 +18,7 @@ tags: [Gray-Code, recursion, dsa]
 
 **Output:**
 
-- A list of 2^n Gray codes, each represented as a binary string of length n.
+- A list of $2^N$ Gray codes, each represented as a binary string of length n.
 
 **Constraints:**
 

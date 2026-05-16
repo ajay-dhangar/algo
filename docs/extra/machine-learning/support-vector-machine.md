@@ -74,15 +74,15 @@ Given a dataset with features and target labels, the objective of SVM is to find
   $$K(x, y) = \exp(-\gamma ||x - y||^2)$$
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Training ## Time Complexity
-O(...) $O(n^2)$ to $O(n^3)$**  
+$O(...)$ $O(n^2)$ to $O(n^3)$**  
   Training an SVM can be computationally expensive, especially for large datasets, due to the quadratic or cubic time complexity with respect to the number of samples (n).
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **## Space Complexity
-O(...) $O(n)$**  
+$O(...)$ $O(n)$**  
   The space complexity depends on the number of support vectors, which are usually a subset of the data points.
 
 ### Example:

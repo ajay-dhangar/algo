@@ -63,14 +63,14 @@ Where:
 - $\Omega(f_k)$ is the regularization term penalizing the complexity of the model.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Best, Average, and Worst Case: $O(n \log n)$**  
   CatBoost optimizes tree construction with a greedy algorithm, achieving logarithmic time complexity for each tree based on the number of training instances `n`.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **## Space Complexity
-O(...) $O(n)$**  
+$O(...)$ $O(n)$**  
   The memory footprint grows with the number of data points, as CatBoost needs to store gradient and Hessian information for each instance during training.
 
 ### Python Implementation:

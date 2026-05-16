@@ -77,14 +77,14 @@ if __name__ == "__main__":
 ```
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **## Time Complexity
-O(...) O(N)**
+$O(...)$ O(N)**
 The algorithm iterates through the heights array twice to fill the left and right maximum arrays and then once more to calculate the trapped water.
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **## Space Complexity
-O(...) O(N)**
+$O(...)$ O(N)**
 The space complexity is O(N) due to the additional arrays storing the left and right maximum heights for each bar.
   
 ### Summary:

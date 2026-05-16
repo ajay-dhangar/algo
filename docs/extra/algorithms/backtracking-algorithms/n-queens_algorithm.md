@@ -96,9 +96,9 @@ n_queens(n)
   
 ### Complexity
 - **## Time Complexity
-O(...)** The time complexity is O(N!) due to the combinatorial nature of queen placements.
+$O(...)$** The time complexity is O(N!) due to the combinatorial nature of queen placements.
 - **## Space Complexity
-O(...)** The space complexity is 𝑂(N<sup>2</sup>) because an n×n board is used to store the board configuration.
+$O(...)$** The space complexity is 𝑂(N<sup>2</sup>) because an n×n board is used to store the board configuration.
 
 ### Example Walkthrough
 For a 4x4 board, the algorithm would place the queens row by row, backtracking as necessary until it finds a valid solution:

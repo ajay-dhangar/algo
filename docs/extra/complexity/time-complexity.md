@@ -57,7 +57,7 @@ Here are some examples of time complexity for different algorithms:
 - **Linear Time (O(n)):** An algorithm that takes time proportional to the size of the input.
 - **Logarithmic Time (O(log n)):** An algorithm that takes time proportional to the logarithm of the size of the input.
 - **Quadratic Time (O(n^2)):** An algorithm that takes time proportional to the square of the size of the input.
-- **Exponential Time (O(2^n)):** An algorithm that takes time proportional to an exponential function of the size of the input.
+- **Exponential Time (O($2^N$)):** An algorithm that takes time proportional to an exponential function of the size of the input.
 - **Factorial Time (O(n!)):** An algorithm that takes time proportional to the factorial of the size of the input.
 - **Polynomial Time (O(n^k)):** An algorithm that takes time proportional to a polynomial function of the size of the input.
 - **Sublinear Time (O(log log n)):** An algorithm that takes time proportional to the logarithm of the logarithm of the size of the input.
@@ -66,10 +66,10 @@ Here are some examples of time complexity for different algorithms:
 - **Superpolynomial Time (O(n^k)):** An algorithm that takes time proportional to a function that grows faster than any polynomial function of the size of the input.
 - **Subexponential Time (O(2^poly(n))):** An algorithm that takes time proportional to a function that grows slower than any exponential function of the size of the input.
 - **Log Factorial Time (O(log n!)):** An algorithm that takes time proportional to the logarithm of the factorial of the size of the input.
-- **Exponential Factorial Time (O(2^n!)):** An algorithm that takes time proportional to an exponential function of the factorial of the size of the input.
-- **Exponential Exponential Time (O(2^2^n)):** An algorithm that takes time proportional to an exponential function of an exponential function of the size of the input.
-- **Exponential Factorial Exponential Time (O(2^n!^2^n)):** An algorithm that takes time proportional to an exponential function of the factorial of an exponential function of the size of the input.
-- **Exponential Exponential Factorial Time (O(2^2^n!)):** An algorithm that takes time proportional to an exponential function of an exponential function of the factorial of the size of the input.
+- **Exponential Factorial Time (O($2^N$!)):** An algorithm that takes time proportional to an exponential function of the factorial of the size of the input.
+- **Exponential Exponential Time (O(2^$2^N$)):** An algorithm that takes time proportional to an exponential function of an exponential function of the size of the input.
+- **Exponential Factorial Exponential Time (O($2^N$!^$2^N$)):** An algorithm that takes time proportional to an exponential function of the factorial of an exponential function of the size of the input.
+- **Exponential Exponential Factorial Time (O(2^$2^N$!)):** An algorithm that takes time proportional to an exponential function of an exponential function of the factorial of the size of the input.
 
 <Ads />
 
@@ -80,7 +80,7 @@ To analyze the time complexity of an algorithm, we can follow these steps:
 1. **Count the Operations:** Count the number of elementary operations performed by the algorithm.
 2. **Identify the Dominant Term:** Identify the term that grows the fastest as the size of the input grows.
 3. **Express the ## Time Complexity
-O(...)** Express the time complexity using the Big O notation.
+$O(...)$** Express the time complexity using the Big O notation.
 4. **Compare with Other Algorithms:** Compare the time complexity with other algorithms to choose the most efficient one.
 5. **Analyze the Best, Worst, and Average Cases:** Analyze the best-case, worst-case, and average-case time complexity of the algorithm.
 6. **Optimize the Algorithm:** Optimize the algorithm to improve its time complexity if possible.

@@ -127,7 +127,7 @@ It is widely used for finding substrings within large text data, especially in a
 ## Advantages
 
 - **Linear ## Time Complexity
-O(...)** The algorithm has an average-case time complexity of O(n + m), where `n` is the length of the text and `m` is the length of the pattern.
+$O(...)$** The algorithm has an average-case time complexity of O(n + m), where `n` is the length of the text and `m` is the length of the pattern.
 - **Multiple Pattern Search:** It can search for multiple patterns in a single pass through the text.
 - **Rolling Hash:** The rolling hash technique allows for efficient updates of hash values in constant time.
 - **Space Efficiency:** The algorithm uses a constant amount of space for storing hash values and indices.

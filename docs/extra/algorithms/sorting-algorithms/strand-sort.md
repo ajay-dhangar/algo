@@ -93,7 +93,7 @@ The sorted list is:
 ### Best Case:
 
 - **## Time Complexity
-O(...) O(n log n)**  
+$O(...)$ O(n log n)**  
   In the best case, each strand extracted is already sorted, meaning the extracted strand contains multiple elements. This scenario reduces the number of merges required and results in an efficient merge process similar to merge sort.
 
 - **Example (Best Case)**:  
@@ -112,7 +112,7 @@ O(...) O(n log n)**
 ### Worst Case:
 
 - **## Time Complexity
-O(...) O(n²)**  
+$O(...)$ O(n²)**  
   In the worst case, each extracted strand contains only one element, meaning the strands are as short as possible. This leads to the maximum number of merge operations.
 
 - **Example (Worst Case)**:  

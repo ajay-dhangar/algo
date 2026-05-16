@@ -26,7 +26,7 @@ Tim Sort is a hybrid, stable sorting algorithm derived from merge sort and inser
   - Designed to work well on real-world data sets, which often contain sequences of ordered elements, and thus performs better than many traditional algorithms in practice.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: O(n)**  
   In the best-case scenario, if the array is already nearly sorted, Tim Sort can achieve linear time complexity by taking advantage of the order in the data.
@@ -38,10 +38,10 @@ O(...)
   Even in the worst case, where the array is entirely unsorted, Tim Sort maintains an O(n log n) time complexity due to its use of merge sort for larger portions of the data.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(n)**  
+$O(...)$ O(n)**  
   Tim Sort requires O(n) additional space for the merging process, which is similar to merge sort.
 
 ### Steps in Tim Sort:

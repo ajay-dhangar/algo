@@ -49,7 +49,7 @@ tags: [dsa, algorithms, linked-list]
    - Return 0 to indicate successful execution.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - The time complexity of this program is `O(max(n, m))` , where `n` and `m` are the number of terms in the two polynomials being added. The `addPolynomials` function processes each term from both polynomials once, resulting in linear time complexity relative to the larger polynomial. The `insertTerm` function performs insertions in constant time, and displaying the polynomials has a linear complexity as well, but it is dominated by the addition process.
 
 ### Sample Input:

@@ -114,7 +114,7 @@ plt.show()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   The time complexity is generally $O(n^3)$ for the basic implementation, but more efficient methods exist.
 

@@ -100,8 +100,8 @@ int main() {
 ```
 ### Time and Space Complexity
 - ## Time Complexity
-O(...) $O(n)$
+$O(...)$ $O(n)$
 In the worst case, both pointers will traverse the entire list once.
 - ## Space Complexity
-O(...) $O(1)$
+$O(...)$ $O(1)$
 This algorithm only uses a constant amount of extra memory, regardless of the size of the input.

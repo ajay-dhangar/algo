@@ -102,14 +102,14 @@ Another approach to finding the best-fit line is **gradient descent**, which ite
   The parameters are updated in each iteration to reduce the error.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Best, Average, and Worst Case: $O(n)$**  
   The time complexity for training a linear regression model is linear with respect to the number of samples \( n \) and features \( p \), making it efficient for large datasets.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **## Space Complexity
-O(...) $O(p)$**  
+$O(...)$ $O(p)$**  
   The space complexity is proportional to the number of features \( p \), as the model stores one coefficient per feature, plus the intercept.
 
 ### Example:

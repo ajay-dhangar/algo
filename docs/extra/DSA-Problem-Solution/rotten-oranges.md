@@ -38,9 +38,9 @@ Result Evaluation:
 If there are no remaining fresh oranges after BFS, return the minutes taken. If fresh oranges remain, return -1.
 Time Complexity
 ## Time Complexity
-O(...) O(n * m), where n is the number of rows and m is the number of columns, as each cell is processed at most once.
+$O(...)$ O(n * m), where n is the number of rows and m is the number of columns, as each cell is processed at most once.
 ## Space Complexity
-O(...) O(n * m) for the BFS queue.
+$O(...)$ O(n * m) for the BFS queue.
 C++ Implementation
 ```
 cpp

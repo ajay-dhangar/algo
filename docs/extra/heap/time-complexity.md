@@ -14,7 +14,7 @@ A **binary heap** is a complete binary tree often used to implement priority que
 ### 1. Insertion (Insert a New Element)
 
 - **## Time Complexity
-O(...)** **O(log n)**
+$O(...)$** **O(log n)**
 - **Explanation:**  
   Inserting an element into a heap involves two steps:
 
@@ -52,7 +52,7 @@ O(...)** **O(log n)**
 ### 2. Deletion (Extracting the Root)
 
 - **## Time Complexity
-O(...)** **O(log n)**
+$O(...)$** **O(log n)**
 - **Explanation:**  
   Deleting the root (the smallest or largest element in a min-heap or max-heap) is one of the key operations. It involves:
 
@@ -90,7 +90,7 @@ O(...)** **O(log n)**
 ### 3. Heapify (Building a Heap from an Array)
 
 - **## Time Complexity
-O(...)** **O(n)**
+$O(...)$** **O(n)**
 - **Explanation:**  
   Heapifying an unsorted array to form a valid heap is done in linear time, although it may seem like `O(n log n)`. This is because, during heap construction, the number of operations decreases significantly for elements at lower levels of the tree. Elements closer to the root require more comparisons, but there are fewer such elements.
 
@@ -107,7 +107,7 @@ O(...)** **O(n)**
 ### 4. Peek (Getting the Root)
 
 - **## Time Complexity
-O(...)** **O(1)**
+$O(...)$** **O(1)**
 - **Explanation:**  
   The root of the heap (either the minimum or maximum element) can be accessed in constant time because it is always at the top of the heap.
 
@@ -125,7 +125,7 @@ O(...)** **O(1)**
 ### 5. Decrease Key (For Priority Queues)
 
 - **## Time Complexity
-O(...)** **O(log n)**
+$O(...)$** **O(log n)**
 - **Explanation:**  
   In priority queues, we may need to decrease the key value of a particular element. This involves:
 
@@ -147,7 +147,7 @@ O(...)** **O(log n)**
 ### 6. Delete a Key (Removing an Arbitrary Element)
 
 - **## Time Complexity
-O(...)** **O(log n)**
+$O(...)$** **O(log n)**
 - **Explanation:**  
   To delete a specific element from the heap:
 

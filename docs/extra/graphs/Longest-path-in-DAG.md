@@ -32,7 +32,7 @@ Given a weighted directed acyclic graph (DAG) and a source vertex, find the cost
    Print the longest distance to each vertex from the source. If a vertex's distance remains `-∞`, it means the vertex is unreachable from the source.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - The time complexity of this program is `O(V + E)`, where `V` is the number of vertices and `E` is the number of edges. This is achieved by first performing a topological sort using Depth-First Search (DFS), which takes `O(V + E)` time, and then processing each vertex in topological order to update the distances of its adjacent vertices, also in `O(V + E)` time.
 
 ## Example

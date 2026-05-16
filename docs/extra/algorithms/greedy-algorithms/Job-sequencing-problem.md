@@ -31,16 +31,16 @@ Job Sequencing is a problem in which we aim to schedule a set of jobs, each with
 Given `N` jobs, where each job has a profit and a deadline, the goal is to schedule as many jobs as possible such that each job is finished before its deadline and the total profit is maximized.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best, Average, and Worst Case: $O(N \log N)$**  
   Sorting the jobs by profit takes $O(N \log N)$. Assigning each job to a slot takes $O(N)$ in the worst case, making the overall time complexity $O(N \log N)$.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(N)$**  
+$O(...)$ $O(N)$**  
   The space complexity is $O(N)$ due to the storage needed for tracking available slots and storing the job sequence.
 
 ### Example:

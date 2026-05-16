@@ -29,7 +29,7 @@ Using a Min Heap:
 - Continue this process until all elements are merged.
 
 ## Time Complexity
-O(...) O(n log k), where `n` is the total number of elements and `k` is the number of lists.
+$O(...)$ O(n log k), where `n` is the total number of elements and `k` is the number of lists.
 
 ### C++ Code:
 

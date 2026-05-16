@@ -140,7 +140,7 @@ plt.show()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   The time complexity of t-SNE is approximately $O(n^2)$, where $n$ is the number of data points. This makes it slow for large datasets.
 

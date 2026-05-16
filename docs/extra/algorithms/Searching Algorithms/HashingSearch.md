@@ -26,7 +26,7 @@ sidebar_label: Hashing Search
   - Hash tables often resize when they reach a certain load factor to maintain efficient performance, typically doubling the size of the table and rehashing existing keys.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: $O(1)$**  
   In the best-case scenario, where there are no collisions, searching for a key takes constant time.
@@ -38,10 +38,10 @@ O(...)
   In the worst-case scenario, if all keys hash to the same index (e.g., poor hash function), the search may degrade to linear time complexity as it has to traverse through all entries in that bucket.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(n)$**  
+$O(...)$ $O(n)$**  
   The space required is proportional to the number of keys stored, plus additional space for handling collisions, depending on the chosen collision resolution method.
 
 ### Hash Functions:

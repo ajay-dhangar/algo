@@ -240,9 +240,9 @@ Let's go through each pattern one by one.
   - Versatile: Can be used to solve a variety of problems, including generating power sets, combinations, and permutations.
 - **Cons**:
   - ## Time Complexity
-O(...) Can lead to exponential time complexity, as the number of subsets of a set is 2^N.
+$O(...)$ Can lead to exponential time complexity, as the number of subsets of a set is $2^N$.
   - ## Space Complexity
-O(...) Requires additional space to store all the subsets.
+$O(...)$ Requires additional space to store all the subsets.
 
 **Example Problems from Grokking the Coding Interview**:
 - Subsets: Given a set with distinct elements, find all of its distinct subsets.

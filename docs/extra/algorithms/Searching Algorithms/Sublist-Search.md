@@ -23,12 +23,12 @@ sidebar_label: Sublist
 4. **Repeat**: Continue until the sublist is found or the main list is exhausted.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - ## ## Time Complexity \(O(n \times m)\) where `n` is the length of the main list and `m` is the length of the sublist.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity \(O(1)\)
 

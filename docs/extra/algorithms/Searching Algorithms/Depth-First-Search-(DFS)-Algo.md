@@ -37,13 +37,13 @@ sidebar_label: DFS
 5. **Repeat** the process for other nodes if necessary.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - ## ## Time Complexity $O(V + E)$  
   Where `V` is the number of vertices and `E` is the number of edges in the graph.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity $O(V)$  
   DFS uses space proportional to the number of vertices due to the recursion stack or explicit stack.

@@ -160,7 +160,7 @@ plt.show()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   Training time is roughly $O(m \cdot d \cdot n \cdot \log(n))$, where $m$ is the number of iterations, $d$ is the average depth of the trees, and $n$ is the number of data points.
 

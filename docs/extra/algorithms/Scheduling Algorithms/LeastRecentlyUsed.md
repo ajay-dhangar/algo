@@ -94,9 +94,9 @@ Cache after request 5 (evict 3): [1: A, 4: D, 5: E]
 
 ## Time and Space Complexity
     - ## Time Complexity
-O(...) O(1) for both get and put operations on average.
+$O(...)$ O(1) for both get and put operations on average.
     - ## Space Complexity
-O(...) O(n) where n is the capacity of the cache, due to storage of cached pages.
+$O(...)$ O(n) where n is the capacity of the cache, due to storage of cached pages.
 
 ## Conclusion
 The Least Recently Used (LRU) algorithm is an effective cache replacement strategy that helps maintain the most frequently accessed data while efficiently managing limited cache resources. This method significantly reduces the chances of cache misses and improves the performance of applications reliant on fast data retrieval.

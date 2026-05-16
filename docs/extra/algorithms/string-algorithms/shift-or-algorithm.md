@@ -26,7 +26,7 @@ The Shift-Or algorithm, also known as the **Bitap algorithm for exact matching**
   - The algorithm processes the input text linearly, making it highly efficient for exact matching tasks, particularly when the pattern length is small compared to the text length.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: $O\left(\frac{n}{w}\right)$**  
   In the best case, where `w` is the word size of the machine, the algorithm processes multiple characters in parallel, leading to a faster search in practice.
@@ -38,10 +38,10 @@ O(...)
   Even in the worst-case scenario, the Shift-Or algorithm maintains linear time complexity since it processes each character of the text once.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(m)$**  
+$O(...)$ $O(m)$**  
   The algorithm requires space proportional to the pattern length `m` to store bitmasks, making it space-efficient for small patterns.
 
 ### C++ Implementation:

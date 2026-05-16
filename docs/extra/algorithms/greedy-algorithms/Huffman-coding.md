@@ -34,16 +34,16 @@ Huffman Coding is a lossless data compression algorithm used to compress data in
 Given a set of characters and their corresponding frequencies, the task is to build a Huffman tree and generate a binary code for each character such that the total length of the encoded data is minimized. The objective is to compress the input data by replacing each character with its Huffman code.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best, Average, and Worst Case: $O(N \log N)$**  
   The time complexity is dominated by the operations on the priority queue (heap), which requires $O(\log N)$ for insertion and extraction. Since there are N nodes to process, the overall complexity is $O(N \log N)$.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(N)$**  
+$O(...)$ $O(N)$**  
   The space complexity is $O(N)$ due to the storage requirements for the priority queue, the Huffman tree, and the encoded character map.
 
 ### Example:

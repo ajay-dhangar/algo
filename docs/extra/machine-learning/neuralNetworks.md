@@ -163,7 +163,7 @@ model.summary()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   Forward and backward propagation in a neural network is roughly $O(d \cdot n \cdot k)$, where $d$ is the number of layers, $n$ is the number of neurons per layer, and $k$ is the number of training samples.
 

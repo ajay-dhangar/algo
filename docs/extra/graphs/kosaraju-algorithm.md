@@ -28,16 +28,16 @@ Kosaraju's Algorithm is an efficient **depth-first search (DFS)-based** algorith
   - Kosaraju's algorithm works in **O(V + E)** time, where `V` is the number of vertices and `E` is the number of edges. This makes it an efficient algorithm for large graphs.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best, Average, and Worst Case: O(V + E)**  
   The algorithm performs two depth-first searches and a graph reversal, all of which run in linear time with respect to the number of vertices and edges.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(V + E)**  
+$O(...)$ O(V + E)**  
   The algorithm requires space for storing the graph, its transpose, and auxiliary structures like the visited array and stack. This results in O(V + E) space complexity.
 
 ### Steps of Kosaraju's Algorithm:

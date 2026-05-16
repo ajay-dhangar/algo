@@ -26,7 +26,7 @@ Quick sort is a **divide-and-conquer** sorting algorithm that works by selecting
   - Quick sort is one of the fastest sorting algorithms in practice, especially for large datasets, and has excellent cache performance.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: O(n log n)**  
   In the best case, the pivot divides the array into two nearly equal subarrays, leading to a logarithmic number of comparisons across each recursive call.
@@ -38,10 +38,10 @@ O(...)
   The worst-case scenario occurs when the pivot chosen is consistently the smallest or largest element, leading to unbalanced partitions and quadratic time complexity. This can be mitigated by using strategies like randomized pivots or choosing the median of three elements as the pivot.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(log n)**  
+$O(...)$ O(log n)**  
   Quick sort requires O(log n) space for recursive calls when the partitioning is balanced. In the worst case (highly unbalanced partitioning), it requires O(n) space for recursion.
 
 ### C++ Implementation:

@@ -26,7 +26,7 @@ The Commentz-Walter algorithm is an efficient string matching algorithm that com
   - The algorithm uses an automaton (like in Aho-Corasick) to quickly match prefixes of the patterns and applies the Boyer-Moore heuristic to skip sections of the text, resulting in a powerful combination.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: $O\left(\frac{n}{m}\right)$**  
   In the best case, the algorithm achieves sublinear performance due to the pattern skipping mechanism, where `n` is the text length and `m` is the minimum length of the patterns.
@@ -38,10 +38,10 @@ O(...)
   The worst-case complexity occurs when the text and patterns have poor alignment, leading to more comparisons and resulting in quadratic time complexity.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(m)$**  
+$O(...)$ $O(m)$**  
   The space complexity is linear with respect to the total length of the patterns, as the algorithm stores shift tables and automata structures for efficient pattern matching.
 
 ### C++ Implementation:

@@ -125,13 +125,13 @@ def computeLPSArray(pattern):
 ### Advantages of KMP Algorithm
 
 Optimal ## Time Complexity
-O(...) The KMP algorithm efficiently handles pattern searching in linear time.
+$O(...)$ The KMP algorithm efficiently handles pattern searching in linear time.
 No Redundant Comparisons: Avoids unnecessary re-evaluation of characters in the text.
 Flexible: Can be applied to various string processing applications.
 
 ### Limitations
 ## Space Complexity
-O(...) Requires additional space for the LPS array, which may not be suitable for memory-constrained environments.
+$O(...)$ Requires additional space for the LPS array, which may not be suitable for memory-constrained environments.
 Preprocessing Overhead: The preprocessing step adds a minor overhead, which may not be beneficial for very short patterns or texts.
 
 ### Conclusion

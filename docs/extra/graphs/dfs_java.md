@@ -22,16 +22,16 @@ Depth-First Search (DFS) is a graph traversal algorithm used to explore vertices
   - DFS naturally involves backtracking. After fully exploring all paths from the current node, DFS backtracks to previously visited nodes to explore any remaining unvisited neighbors.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best, Average, and Worst Case: $O(V + E)$**
 Here, V represents the number of vertices, and E represents the number of edges. The algorithm visits each vertex and edge exactly once in the worst-case scenario.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(V)$**  
+$O(...)$ $O(V)$**  
   In the worst case, DFS may use space proportional to the number of vertices due to either the recursion stack or an explicit stack used during traversal.
 
 ### Java Implementation:

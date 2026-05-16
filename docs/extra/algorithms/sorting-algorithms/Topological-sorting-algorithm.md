@@ -52,7 +52,7 @@ A -→ B -→ C -→ D → E -→ F
 
 ## Time Complexity
 **## Time Complexity
-O(...)** O(V + E), where:
+$O(...)$** O(V + E), where:
 - `V` is the number of vertices.
 - `E` is the number of edges.
 

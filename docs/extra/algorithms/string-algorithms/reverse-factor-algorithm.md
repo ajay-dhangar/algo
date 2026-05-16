@@ -34,7 +34,7 @@ The Reverse Factor Algorithm is a string matching algorithm that utilizes suffix
   - Match detection
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Preprocessing: $O(m)$**
   - Where m is pattern length
@@ -47,7 +47,7 @@ O(...)
   - State transitions
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(m|Σ|)$**
   - Where |Σ| is alphabet size

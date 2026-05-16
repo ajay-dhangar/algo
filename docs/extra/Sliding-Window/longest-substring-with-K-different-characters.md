@@ -44,11 +44,11 @@ To solve this problem efficiently, we can use the **Sliding Window** technique c
    Keep track of the maximum length of the valid window that contains exactly `k` distinct characters.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **O(n)**, where `n` is the length of the string. Each character is added to and removed from the sliding window at most once.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **O(k)**, where `k` is the number of distinct characters, because the hash map will contain up to `k` characters.
 
 ### C++ Code Implementation:

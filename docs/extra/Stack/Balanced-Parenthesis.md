@@ -30,11 +30,11 @@ Given a string `s` consisting of parentheses (i.e., `(`, `)`, `{`, `}`, `[`, `]`
    - `isValid(s: str) -> bool:` Checks if the parentheses in the string are balanced.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - The time complexity of the `isValid` function is `O(n)`, where `n` is the length of the string. This is because we scan through the string once, and each push/pop operation on the stack takes constant time.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - The space complexity is `O(n)` in the worst case, where all characters in the string are opening brackets, and they are stored in the stack.
 
 ### Sample Input:

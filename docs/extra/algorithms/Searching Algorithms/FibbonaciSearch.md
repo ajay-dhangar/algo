@@ -34,7 +34,7 @@ sidebar_label: Fibonacci Search
   Like binary search, Fibonacci search operates in logarithmic time. However, the divisions occur at positions determined by Fibonacci numbers, which may lead to fewer comparisons in certain scenarios.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity $O(1)$  
   Fibonacci search requires only a few variables to keep track of the Fibonacci numbers and the current index, leading to constant space complexity.

@@ -23,12 +23,12 @@ sidebar_label: A*
 4. **Repeat**: Continue until reaching the goal node or the open list is empty.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - ## ## Time Complexity \(O(b^d)\), where `b` is the branching factor and `d` is the depth of the solution.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity \(O(b^d)\)
 

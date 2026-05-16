@@ -26,13 +26,13 @@ Asymmetric encryption, also known as public-key cryptography, is a type of encry
   - Asymmetric algorithms are generally slower than symmetric algorithms, making them less suitable for encrypting large amounts of data. They are often used to encrypt a symmetric key, which is then used for bulk encryption.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Encryption/Decryption Time**: $O(n²)$    
   The time complexity for asymmetric encryption and decryption can vary significantly based on the algorithm and the key size. Generally, it is slower than symmetric encryption.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity $O(n)$  
   Asymmetric encryption requires additional space for storing both keys (public and private), which can be proportional to the size of the data being encrypted.

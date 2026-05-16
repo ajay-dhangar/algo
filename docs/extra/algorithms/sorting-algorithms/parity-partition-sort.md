@@ -61,7 +61,7 @@ public class ParityPartitionSort {
 * **Merging:** O(n)
 
 **Overall ## Time Complexity
-O(...)** O(n log n)
+$O(...)$** O(n log n)
 
 **## Space Complexity
-O(...)** O(n) for the temporary array.
+$O(...)$** O(n) for the temporary array.

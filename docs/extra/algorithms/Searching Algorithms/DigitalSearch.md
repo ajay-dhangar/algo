@@ -54,7 +54,7 @@ A **digital search** algorithm is one that operates on the individual digits or 
   Hashing provides constant time search on average, although the worst-case complexity can degrade to O(n) if many keys hash to the same index (collisions).
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Trie Search: $O(m * n)$**  
   Tries can consume significant memory because each node represents a single character or digit, and the space grows with the number of keys (n) and the length of keys (m).

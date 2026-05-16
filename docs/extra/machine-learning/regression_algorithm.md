@@ -88,7 +88,7 @@ Given a labeled dataset with multiple features and corresponding continuous targ
 Regression algorithms typically split data based on minimizing prediction error or maximizing explained variance in predictions.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Training Complexity**:  
   Varies by algorithm; can range from linear time complexity for simple models like Linear Regression to polynomial time complexity for more complex models.
   
@@ -96,7 +96,7 @@ O(...)
 Also varies by algorithm; some algorithms allow for faster predictions after training (e.g., linear models).
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Space Complexity  
 Depends on how much information about the training set needs to be stored (e.g., decision trees may require more space than linear models).
 

@@ -30,7 +30,7 @@ Using Two Heaps:
 - If both heaps have the same size, the median is the average of the tops of both heaps. If the heaps differ in size, the median is the top of the larger heap.
 
 ## Time Complexity
-O(...) O(log n) for each insertion, and O(1) for finding the median.
+$O(...)$ O(log n) for each insertion, and O(1) for finding the median.
 
 ### C++ Code:
 

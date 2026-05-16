@@ -53,9 +53,9 @@ class Solution:
         return prev
 ```
 ## Time Complexity
-O(...) O(n) <br />
+$O(...)$ O(n) <br />
 ## Space Complexity
-O(...) O(1)        
+$O(...)$ O(1)        
 
 
 ## C++ Implementation [Recursive Way]
@@ -84,9 +84,9 @@ public:
 };
 ```
 ## Time Complexity
-O(...) O(n) <br />
+$O(...)$ O(n) <br />
 ## Space Complexity
-O(...) O(1)        
+$O(...)$ O(1)        
 
 
 ## C++ Implementation [Iterative Way]
@@ -120,6 +120,6 @@ public:
 };
 ```
 ## Time Complexity
-O(...) O(n) <br />
+$O(...)$ O(n) <br />
 ## Space Complexity
-O(...) O(1)        
+$O(...)$ O(1)        

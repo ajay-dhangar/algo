@@ -215,7 +215,7 @@ LCM(12, 18) = 36
 ```
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 The time complexity of the LCM algorithm depends on the GCD computation, which is `O(log(min(a, b)))`. Thus, the LCM algorithm has a time complexity of `O(log(min(a, b)))`, making it very efficient even for large numbers.
 

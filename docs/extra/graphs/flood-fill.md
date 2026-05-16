@@ -323,10 +323,10 @@ Geographical Mapping: Filling regions in geographical information systems (GIS).
 ### Complexity Analysis
 
 ## ## Time Complexity
-O(...) O(N), where N is the number of pixels in the area to be filled. Each pixel is visited once.
+$O(...)$ O(N), where N is the number of pixels in the area to be filled. Each pixel is visited once.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 Recursive: O(H), where H is the maximum height of the recursion stack.
 Iterative: O(N) in the worst case, if all pixels are connected.

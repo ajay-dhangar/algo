@@ -63,7 +63,7 @@ Given a dataset with features and target values, the goal is to build a random f
   For regression tasks, the mean squared error is used to find the optimal splits that minimize the variance between predicted and actual values.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Training Complexity**:  
   For a random forest of `T` trees, each trained on `n` samples and with `d` features, the time complexity for training is approximately $O(T \cdot n \cdot d \cdot \log n)$.
   
@@ -71,7 +71,7 @@ O(...)
   For making predictions, each tree in the forest contributes, so the complexity is $O(T \cdot \log n)$ for a forest with `T` trees and `n` data points.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Space Complexity  
   The space complexity is $O(T \cdot n \cdot d)$ due to the storage of `T` trees, each with `n` samples and `d` features.
 

@@ -51,7 +51,7 @@ A **comparison search** algorithm is one that relies on comparing elements to de
   Ternary search divides the search space into three parts, but the extra comparisons in each iteration make it slower in practice compared to binary search. The time complexity is logarithmic, but the constant factors are higher.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Linear Search: $O(1)$**  
   Linear search operates in constant space since it does not require any additional data structures.

@@ -56,9 +56,9 @@ The minimum total cost will be found in `dp[2 * N][N][N]`.
 
 ### Time and Space Complexity
 - **## Time Complexity
-O(...)** O(N³), where N is half the size of the costs array.
+$O(...)$** O(N³), where N is half the size of the costs array.
 - **## Space Complexity
-O(...)** O(N³) due to the 3D DP array.
+$O(...)$** O(N³) due to the 3D DP array.
 
 ### Code Implementation
 

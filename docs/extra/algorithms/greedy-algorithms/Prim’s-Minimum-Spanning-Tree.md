@@ -33,14 +33,14 @@ Prim's Minimum Spanning Tree (MST) is a greedy algorithm that finds the Minimum 
 Given a connected weighted graph, find the Minimum Spanning Tree (MST) using Prim's algorithm. The objective is to minimize the sum of the edge weights in the spanning tree while ensuring that all vertices are included and no cycles are formed.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Best, Average, and Worst Case: $O(E \log V)$**  
   The time complexity depends on the priority queue operations for retrieving and updating the minimum edge, where $E$ is the number of edges, and $V$ is the number of vertices. Using a binary heap, the complexity is $O(E \log V)$.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **## Space Complexity
-O(...) $O(V)$**  
+$O(...)$ $O(V)$**  
   The space complexity is dominated by the storage of the graph's adjacency list and the auxiliary arrays for tracking the MST.
 
 ### Example:

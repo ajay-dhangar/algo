@@ -28,7 +28,7 @@ After processing all elements, the top of the heap will contain the Kth largest 
 
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 O(n log K), where n is the number of elements in the array. This is because each insertion and removal operation on the heap takes O(log K) time.
 
 ```cpp

@@ -37,7 +37,7 @@ sidebar_label: Rabin-Karp algorithm
 ## Space Complexity 💾
 
 - **## Space Complexity
-O(...) `O(1)`**  
+$O(...)$ `O(1)`**  
   Requires constant space for the hash values and other variables, making it memory-efficient.
 
 ## C++ Implementation 💻

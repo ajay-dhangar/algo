@@ -118,7 +118,7 @@ plt.show()
 ```
 
 ### Time and ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity  
   The time complexity is approximately $O(n \cdot k \cdot i)$, where $n$ is the number of data points, $k$ is the number of clusters, and $i$ is the number of iterations.
 

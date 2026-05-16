@@ -97,14 +97,14 @@ Where:
 - \( n \) is the total number of samples
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Best, Average, and Worst Case: $O(n)$**  
   The time complexity for training logistic regression is linear with respect to the number of samples \( n \) and features \( p \), making it efficient for large datasets.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **## Space Complexity
-O(...) $O(p)$**  
+$O(...)$ $O(p)$**  
   The space complexity depends on the number of features, as the model needs to store a weight for each feature plus a bias term.
 
 ### Example:

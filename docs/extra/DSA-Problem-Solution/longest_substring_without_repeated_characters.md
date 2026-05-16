@@ -49,8 +49,8 @@ class Solution:
 
 ```
 ## Time Complexity
-O(...) O(n) <br /> 
+$O(...)$ O(n) <br /> 
 ## Space Complexity
-O(...) O(min(n, m)) (where m is the size of the character set)
+$O(...)$ O(min(n, m)) (where m is the size of the character set)
 
     

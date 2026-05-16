@@ -53,6 +53,6 @@ class Solution:
 
 ```
 ## Time Complexity
-O(...) O(n log n) <br /> 
+$O(...)$ O(n log n) <br /> 
 ## Space Complexity
-O(...) O(n)    
+$O(...)$ O(n)    

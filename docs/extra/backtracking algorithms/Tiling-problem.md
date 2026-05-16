@@ -35,7 +35,7 @@ The **Tiling Problem** involves determining the number of ways to tile a given g
 ## Space Complexity 💾
 
 - **## Space Complexity
-O(...) `O(n)`**  
+$O(...)$ `O(n)`**  
   Requires linear space to store the solutions for subproblems in the dynamic programming table.
 
 ## C++ Implementation 💻

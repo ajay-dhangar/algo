@@ -103,13 +103,13 @@ int main() {
 
 ## Complexity Analysis
 ## ## Time Complexity
-O(...)
+$O(...)$
 Enqueue: $O(1)$
 Dequeue: $O(1)$
 PeekFront and PeekRear: $O(1)$
 isEmpty and isFull: $O(1)$
 ## Space Complexity
-O(...) $O(n)$, where $n$ is the maximum number of elements in the queue.
+$O(...)$ $O(n)$, where $n$ is the maximum number of elements in the queue.
 
 ## Conclusion
 A circular queue is an efficient and space-optimized data structure useful for managing resources in a round-robin fashion, such as in task scheduling, memory buffering, and real-time data handling. Its circular design enables effective memory usage, making it a preferred choice in resource-constrained environments.

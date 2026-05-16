@@ -153,7 +153,7 @@ Sum in range [3, 8]: 10
 - **Update Operation:** `O(log N)` in the average case.  
 - **Query Operation:** `O(log N)` in the average case.  
 - **## Space Complexity
-O(...)** Depends on the number of nodes created, which is proportional to the number of updates.
+$O(...)$** Depends on the number of nodes created, which is proportional to the number of updates.
 
 ---
 

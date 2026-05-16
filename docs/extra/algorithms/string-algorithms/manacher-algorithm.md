@@ -34,7 +34,7 @@ Manacher's Algorithm is a linear-time algorithm developed by Glenn K. Manacher i
   - Optimizes palindrome detection
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Overall: $O(n)$**
   - Linear time processing
@@ -42,7 +42,7 @@ O(...)
   - Optimal complexity
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(n)$**
   - LPS array storage

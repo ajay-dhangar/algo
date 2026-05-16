@@ -34,7 +34,7 @@ The Zhu-Takaoka Algorithm is a string matching algorithm developed by R.F. Zhu a
   - Maintains Boyer-Moore efficiency
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Preprocessing: $O(m + σ²)$**
   - Where m is pattern length
@@ -47,7 +47,7 @@ O(...)
   - Sublinear on average
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(m + σ²)$**
   - Two-character bad character table

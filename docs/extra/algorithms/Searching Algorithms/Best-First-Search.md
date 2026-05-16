@@ -25,11 +25,11 @@ sidebar_label: BFS
 4. **Repeat:**
    Repeat the process until the goal node is reached or all reachable nodes have been visited.
 ## ## Time Complexity
-O(...)
+$O(...)$
 - ## ## Time Complexity O(V + E log V)  
   Where `V` is the number of vertices and `E` is the number of edges. The additional log factor comes from using the priority queue.
 ## ## Space Complexity
-O(...)
+$O(...)$
 - ## ## Space Complexity O(V)  
   The space complexity is proportional to the number of vertices, as the priority queue will store each node once.
 ### Advantages of BFS:

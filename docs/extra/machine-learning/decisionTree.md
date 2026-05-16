@@ -77,14 +77,14 @@ Given a dataset with features and target values, the goal is to build a decision
   Measures the variance between the predicted and actual values at each node.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - **Best, Average, and Worst Case: $O(n \log n)$**  
   The time complexity depends on sorting the dataset at each node. For `n` data points, the overall complexity is logarithmic in depth with respect to the size of the dataset.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 - **## Space Complexity
-O(...) $O(n)$**  
+$O(...)$ $O(n)$**  
   The space complexity arises from storing the tree structure and the data used for training.
 
 ### Example:

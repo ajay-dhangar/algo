@@ -22,16 +22,16 @@ Depth-First Search (DFS) is a **graph traversal algorithm** that explores as far
   - DFS backtracks when it reaches a node with no unvisited neighbors. It then returns to previous nodes to explore unvisited paths.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best, Average, and Worst Case: $O(V + E)$**  
   Where `V` is the number of vertices and `E` is the number of edges. DFS explores every vertex and edge exactly once.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(V)$**  
+$O(...)$ $O(V)$**  
   In the worst case, DFS requires space proportional to the number of vertices, either due to the recursion stack or an explicit stack used for the traversal.
 
 ### C++ Implementation:

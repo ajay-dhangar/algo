@@ -34,7 +34,7 @@ The Colussi Algorithm is an improvement over the Knuth-Morris-Pratt (KMP) algori
   - Quick mismatch detection
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Preprocessing: $O(m)$**
   - Where m is pattern length
@@ -47,7 +47,7 @@ O(...)
   - Linear scan
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **Space Usage: $O(m)$**
   - Position tables

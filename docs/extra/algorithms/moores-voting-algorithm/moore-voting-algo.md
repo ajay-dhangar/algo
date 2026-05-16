@@ -24,7 +24,7 @@ Moore's Voting Algorithm is an efficient algorithm to find the majority element 
   It only requires a few extra variables, resulting in $O(1)$ space complexity.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: $O(N)$**  
   The algorithm processes each element once during both passes.
@@ -36,10 +36,10 @@ O(...)
   Regardless of the input distribution, the time complexity remains linear.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(1)$**  
+$O(...)$ $O(1)$**  
   The algorithm uses a constant amount of extra space.
 
 ### Approach:

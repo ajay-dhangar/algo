@@ -26,7 +26,7 @@ Bubble sort is a simple comparison-based sorting algorithm that repeatedly steps
   - Bubble sort is easy to implement but not very efficient for large datasets. It's mainly used for educational purposes.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: O(n)**  
   In the best-case scenario, where the array is already sorted, bubble sort only makes a single pass through the array without making any swaps.
@@ -38,10 +38,10 @@ O(...)
   In the worst-case scenario, where the array is sorted in reverse order, the algorithm must compare and swap every element, making n-1 comparisons and swaps in each pass.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(1)**  
+$O(...)$ O(1)**  
   Bubble sort is an in-place algorithm, meaning it requires only a constant amount of extra memory, regardless of the input size.
 
 ### C++ Implementation:

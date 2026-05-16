@@ -48,6 +48,6 @@ class Solution:
         return ''.join(stack)
 ```
 ## Time Complexity
-O(...) O(n) <br />
+$O(...)$ O(n) <br />
 ## Space Complexity
-O(...) O(n)
+$O(...)$ O(n)

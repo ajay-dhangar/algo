@@ -32,16 +32,16 @@ The Fractional Knapsack Problem is a variation of the classic knapsack problem w
 You are given `N` items, each with a given weight `w_i` and value `v_i`, and a knapsack with a maximum capacity `W`. The objective is to maximize the total value of the items placed in the knapsack. However, in the Fractional Knapsack Problem, you are allowed to take fractions of an item. Your goal is to find the optimal way to fill the knapsack to maximize the total value without exceeding the capacity `W`.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best, Average, and Worst Case: $O(N log N)$**  
 The dominant operation is sorting the items based on their value-to-weight ratio, which takes $O(N log N)$, where N is the number of items.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) $O(N)$**  
+$O(...)$ $O(N)$**  
 Space is required for the list of items and auxiliary data structures for sorting, resulting in $O(N)$ space complexity.
 
 ### Example:

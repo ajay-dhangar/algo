@@ -107,7 +107,7 @@ Code in C++
 ```
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 Floyd-Warshall Algorithm: O(V³), where V is the number of vertices.
 
 ## Points to Remember:

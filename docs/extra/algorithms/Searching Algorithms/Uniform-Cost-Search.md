@@ -23,12 +23,12 @@ sidebar_label: Uniform-Cost
 4. **Repeat**: Continue until reaching the goal or emptying the priority queue.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - ## ## Time Complexity \(O(b^d)\) where `b` is the branching factor and `d` is the depth of the goal.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - ## ## Space Complexity \(O(b^d)\)
 

@@ -28,7 +28,7 @@ Heap sort is a **comparison-based** sorting algorithm that uses a binary heap da
   - Unlike recursive algorithms like merge sort, heap sort uses an iterative approach to build the heap and extract elements.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 
 - **Best Case: O(n log n)**  
   Heap sort involves building the heap $(O(n))$ and extracting elements from it $(O(n log n))$, so even in the best case, it requires $O(n log n)$ time.
@@ -40,10 +40,10 @@ O(...)
   The worst case also results in $O(n log n)$, as heapifying and extracting the largest elements are bound by logarithmic comparisons.
 
 ## ## Space Complexity
-O(...)
+$O(...)$
 
 - **## Space Complexity
-O(...) O(1)**  
+$O(...)$ O(1)**  
   Heap sort is an in-place algorithm, meaning it does not need additional memory to store subarrays or temporary structures, aside from the input array.
 
 ### C++ Implementation:

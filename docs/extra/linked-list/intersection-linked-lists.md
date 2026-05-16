@@ -153,13 +153,13 @@ The output would be:
 ```
 The intersection point is 15
 ## Time Complexity
-O(...)
+$O(...)$
 
 ## Time Complexity
-O(...) O(m + n), where m and n are the lengths of the two linked lists.
+$O(...)$ O(m + n), where m and n are the lengths of the two linked lists.
 
 ## Space Complexity
-O(...) O(1), since no additional space is required.
+$O(...)$ O(1), since no additional space is required.
 
 
 Applications:

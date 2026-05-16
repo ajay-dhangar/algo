@@ -40,7 +40,7 @@ The span of the stock price is defined as the number of consecutive days (includ
 5. **Return the `span[]`:** After processing all prices, return the computed spans.
 
 ## ## Time Complexity
-O(...)
+$O(...)$
 - The time complexity of this solution is `O(n)`, where `n` is the number of stock prices. Each price is pushed and popped from the stack at most once.
 
 ### Sample Input:
