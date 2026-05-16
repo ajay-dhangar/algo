@@ -7,7 +7,7 @@ description: "Data Structures and Algorithms (DSA) form the backbone of computer
 tags: [dsa, data structures, algorithms, what is dsa]
 ---
 
-import ShareButtons from '@site/src/components/ShareButtons';
+
 
 Data Structures and Algorithms (DSA) are fundamental concepts in computer science and programming. They provide a systematic way to organize and store data efficiently, as well as develop algorithms to solve complex problems. Understanding DSA is crucial for any aspiring programmer or software developer, as it forms the backbone of various applications and systems.
 
@@ -91,12 +91,3 @@ Learning data structures and algorithms can enhance your coding skills in the fo
 
 Data Structures and Algorithms are essential components of computer science and programming that enable efficient data management, problem-solving, and code optimization. By mastering DSA concepts, you can enhance your coding skills, prepare for technical interviews, participate in coding competitions, and advance your career in the tech industry. Whether you are a beginner or an experienced programmer, learning data structures and algorithms is a valuable investment that can open up new opportunities, expand your knowledge base, and empower you to tackle complex challenges with confidence and creativity.
 
-<div style={{ display: 'flex', gap: '12px', marginTop: '30px', marginBottom: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-  <button onClick={() => window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=Check%20out%20this%20algorithm%20on%20Algo', '_blank')} style={{ background: '#1DA1F2', color: 'white', border: 'none', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '14px' }}>Twitter</button>
-  
-  <button onClick={() => window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')} style={{ background: '#0077B5', color: 'white', border: 'none', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '14px' }}>LinkedIn</button>
-  
-  <button onClick={() => window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank')} style={{ background: '#4267B2', color: 'white', border: 'none', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '14px' }}>Facebook</button>
-  
-  <button onClick={() => { navigator.clipboard.writeText(window.location.href); alert('Link copied!'); }} style={{ background: '#6c757d', color: 'white', border: 'none', borderRadius: '8px', padding: '8px 14px', cursor: 'pointer', fontSize: '14px' }}>Copy Link</button>
-</div>
