@@ -345,7 +345,7 @@ const DataStructuresQuiz = () => {
       description="Test your knowledge of data structures with this quiz."
     >
       <div className="bg-blue-100 text-sky-800 max-w-2xl mx-auto rounded-2xl my-10 rounded-3xl p-10">
-        <h2 className="text-center text-blue-600">Data Structures Challenge-1</h2>
+        <h2 className="text-center text-blue-600">Advanced Data Structures</h2>
         {showResult ? (
           <div>
             <h2>
