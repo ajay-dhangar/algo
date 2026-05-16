@@ -123,8 +123,8 @@ Target found at index 3
 
 Binary Search reduces the search space by half in every iteration, making it much faster than Linear Search for large sorted arrays.
 
-- Time Complexity: O(log n)
-- Space Complexity: O(1)
+* Time Complexity: $O(log n)$
+* Space Complexity: $O(1)$
 
 ## Advantages of Binary Search
 
@@ -143,8 +143,8 @@ Binary Search reduces the search space by half in every iteration, making it muc
 
 ## Time complexity:
 
-Linear/Sequential search: O(n)<br />
-Binary search : O(log n)
+Linear/Sequential search: $O(n)$<br />
+Binary search : $O(log n)$
 
 ## Points to Remember:
 
