@@ -41,7 +41,7 @@ def hash_function(key, table_size):
 
 Hashing provides efficient time complexity for common operations on average. However, the complexity can vary based on the collision handling method and the distribution of hash values.
 
-### Time Complexity Overview
+## Time Complexity Overview
 - **Search, Insert, Delete (Average Case)**: O(1)
     - Hashing provides constant-time operations for inserting, searching, and deleting elements in a hash table due to direct indexing.
 - **Search, Insert, Delete (Worst Case)**: O(n)
@@ -57,7 +57,7 @@ Hashing provides efficient time complexity for common operations on average. How
    - **Average Case**: O(1) for search, insert, and delete.
    - **Worst Case**: O(n), where the table is nearly full, and many collisions occur, requiring multiple probes to find an empty slot.
 
-### Space Complexity
+## Space Complexity
 - The space complexity of a hash table is O(n), where `n` is the number of elements stored.
 - Additional space may be required for collision handling:
   - **Chaining**: Requires extra space for linked lists.

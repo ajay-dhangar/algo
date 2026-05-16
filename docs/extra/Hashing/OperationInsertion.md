@@ -17,7 +17,7 @@ The insertion operation in a hash table involves adding a key-value pair. Hashin
 2. **Insert at the Computed Index**: Place the key-value pair at the index. If there's already data, resolve collisions via methods like chaining or open addressing.
 3. **Update Value (if Key Exists)**: If the key already exists, update the associated value.
 
-### Time Complexity
+## Time Complexity
 - **Average Case**: $O(1)$
 - **Worst Case**: $O(n)$ (if many collisions occur)
 

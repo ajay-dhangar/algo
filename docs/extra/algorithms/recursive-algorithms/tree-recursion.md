@@ -33,7 +33,8 @@ def sum_numbers(n):
 
 If \(n = 0\), it will return immediately.
 
-**Time Complexity:**  
+**## Time Complexity
+O(...)**  
 \( **O(1)** \)
 
 ### Worst Case
@@ -51,7 +52,8 @@ def fibonacci(n):
 
 For n=5, the function makes multiple calls, leading to a binary tree structure of calls.
 
-Time Complexity:
+## Time Complexity
+O(...)
 \( O(2^n) \)
 ## Example Using Tree Recursion
 
@@ -77,7 +79,7 @@ For the list `[1, 2]`, the recursive process would look like this:
 
 1. **High Time Complexity**: Tree recursion can lead to exponential time complexity, especially in problems like the Fibonacci sequence, where the same subproblems are solved multiple times.
 
-2. **Space Complexity**: The recursive calls can consume a significant amount of stack space, potentially leading to stack overflow for large inputs.
+2. ## ## Space Complexity The recursive calls can consume a significant amount of stack space, potentially leading to stack overflow for large inputs.
 
 3. **Inefficiency**: Due to the overlapping subproblems, many tree recursive algorithms can be inefficient. Memoization or dynamic programming is often preferred in such cases to optimize performance.
 

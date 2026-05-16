@@ -15,13 +15,15 @@ This algorithm is widely applied in real-world scenarios such as college admissi
 - **Deferred Acceptance**: Matching is based on proposals made by one side (e.g., men proposing to women) and acceptance is deferred until a stable match is found.
 - **Two-sided Matching**: Matches two distinct sets of participants (e.g., applicants and schools).
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 - **O(n²)**  
   The time complexity of the Gale-Shapley algorithm is O(n²), where n is the number of participants on either side of the matching. This is because in the worst case, each participant can be rejected by every member of the opposite set before a stable match is found.
 
 
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 - **O(n)**  
   The space complexity is linear because the algorithm only needs to store the current matches and the free participants, which takes up space proportional to the number of participants, `n`.
 

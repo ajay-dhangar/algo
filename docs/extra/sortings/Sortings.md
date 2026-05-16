@@ -131,11 +131,11 @@ function main() {
 main();
 ```
 
-**Time Complexity**
+## Time Complexity
     - **Worst Case**: O(n²) – when the array is sorted in reverse order.
     - **Best Case**: O(n) – when the array is already sorted.
     
-**Space Complexity**
+## Space Complexity
    - O(1) – sorts the list in place without extra space.
 
 **Stability**
@@ -217,11 +217,11 @@ public class Main{
 }
 ```
 
-**Time Complexity**
+## Time Complexity
     - **Worst Case**: O(n²) – as it performs n comparisons for each element.
     - **Best Case**: O(n) – when the array is already sorted.
     
-**Space Complexity**
+## Space Complexity
     - O(1) – in-place sorting.
 
 **Stability**
@@ -297,11 +297,11 @@ public class Main{
 	}
 }
 ```
-**Time Complexity**
+## Time Complexity
     - **Worst Case**: O(n²) – when the array is sorted in reverse order.
     - **Best Case**: O(n) – when the array is already sorted.
     
-**Space Complexity**
+## Space Complexity
     - O(1) – in-place sorting.
 
 **Stability**
@@ -439,10 +439,10 @@ public class Main{
 	}
 }
 ```
-**Time Complexity**
+## Time Complexity
     - O(n log n) – consistently for all cases (worst, average, and best).
     
-**Space Complexity**
+## Space Complexity
     - O(n) – requires additional space for temporary arrays during the merge process.
 
 **Stability**
@@ -554,10 +554,10 @@ public class Main{
 	}
 }
 ```
-**Time Complexity**
+## Time Complexity
     - **Worst Case**:O(n²) – occurs when the pivot is poorly chosen, such as when the array is already sorted.
     
-**Space Complexity**
+## Space Complexity
     - O(log n) – due to recursive calls, but in-place sorting.
 
 **Stability**
@@ -664,10 +664,10 @@ void swap(int* a, int* b) {
 }
 ```
 
-**Time Complexity**
+## Time Complexity
 O(n log n) – consistently for all cases.
 
-**Space Complexity**
+## Space Complexity
 O(1) – in-place sorting, no extra space required.
 
 **Stability**

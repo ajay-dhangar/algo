@@ -27,12 +27,14 @@ The algorithm uses a constant amount of space (O(1)), making it very efficient.
 -**Applicable to Linked Lists**:
 - It is specifically designed to work with linked lists, where the next node is accessed through pointers.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best, Average, and Worst Case: O(N)**  
  - In the worst case, both pointers traverse the entire list, leading to linear time complexity, where n is the number of nodes in the linked list.
 
-- **Space Complexity: O(1)**  
+- **## Space Complexity
+O(...) O(1)**  
 - The algorithm only uses two pointers regardless of the input size, resulting in constant space complexity.
 
 ### C++ Implementation:

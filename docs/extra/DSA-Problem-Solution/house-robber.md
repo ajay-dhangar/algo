@@ -34,10 +34,10 @@ Objective:
 
 2. **Return** `dp[n]`, the maximum amount that can be robbed.
 
-### Time Complexity
+## Time Complexity
 
-- **Time Complexity**: O(n), where n is the number of houses.
-- **Space Complexity**: O(n) for the DP array.
+- ## ## Time Complexity O(n), where n is the number of houses.
+- ## ## Space Complexity O(n) for the DP array.
 
 ### C++ Implementation
 

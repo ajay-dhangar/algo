@@ -33,10 +33,10 @@ Objective:
 
 2. **Return** `result`, which is the final sorted array after merging k sorted arrays.
 
-### Time Complexity
+## Time Complexity
 
-- **Time Complexity**: $O(K^2\* log(K))$, where insertion and deletion in a Min Heap requires log K time and for all $K^2$ elements it takes $(K^2 \* log(K))$ time
-- **Space Complexity**: $O(K)$ for the result array.
+- ## ## Time Complexity $O(K^2\* log(K))$, where insertion and deletion in a Min Heap requires log K time and for all $K^2$ elements it takes $(K^2 \* log(K))$ time
+- ## ## Space Complexity $O(K)$ for the result array.
 
 ### C++ Implementation
 

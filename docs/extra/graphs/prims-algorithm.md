@@ -100,7 +100,7 @@ The final MST includes edges **(A-D)**, **(A-B)**, **(B-E)**, and **(A-C)** with
 | **Data Structure Used**| Adjacency list, priority queue (min-heap)              | Union-Find/Disjoint Set data structure                                   |
 | **Graph Type**         | Dense graphs (many edges)                              | Sparse graphs (few edges)                                                |
 | **Starting Point**     | Requires a starting vertex                             | No starting vertex, works directly with edges                            |
-| **Time Complexity**    | $O(E log V)$ using binary heap and adjacency list        | $O(E log E)$ due to sorting edges                                          |
+| ## Time Complexity    | $O(E log V)$ using binary heap and adjacency list        | $O(E log E)$ due to sorting edges                                          |
 
 Both algorithms can effectively find the MST, but the choice between them depends on the graph's density and specific use cases.
 

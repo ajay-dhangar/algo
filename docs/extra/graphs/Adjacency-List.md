@@ -47,7 +47,8 @@ An adjacency list is a way to represent a graph using an array of linked lists. 
    After the graph is no longer needed, the function deallocates the memory used by each linked list to prevent memory leaks. It iterates through each node’s linked list, deleting each node one by one and setting the corresponding adjacency list to `nullptr`.
 
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 - The time complexity of the program is `O(V + E)`, where `V` is the number of vertices and `E` is the number of edges. This is because each vertex and its edges are processed once in the `createGraph`, `displayGraph`, and `deleteGraph` functions.
 
 ## Example:

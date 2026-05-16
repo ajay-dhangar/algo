@@ -60,15 +60,17 @@ Given a dataset with features and target values, the goal is to build an ensembl
   
 - **Gini Impurity** or **Entropy** for classification and **Mean Squared Error (MSE)** for regression tasks can still be used to evaluate the quality of the random splits after they are made.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   For `T` trees trained on `n` samples with `d` features, the time complexity is approximately $O(T \cdot n \cdot \log n)$, as splits are selected randomly without the need to evaluate all possible splits. This makes the algorithm faster than random forests.
   
 - **Prediction Complexity**:  
   Like random forests, prediction complexity is $O(T \cdot \log n)$, where `T` is the number of trees and `n` is the number of samples.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   The space complexity is $O(T \cdot n \cdot d)$ due to the need to store `T` trees, each containing `n` samples and `d` features.
 
 ### Example:

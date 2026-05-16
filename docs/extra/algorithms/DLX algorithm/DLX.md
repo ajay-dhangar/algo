@@ -18,14 +18,14 @@ The **Dancing Links (DLX)** algorithm is a highly efficient implementation of th
 - **Data Structures**: A doubly linked list for the matrix and additional links to maintain column and row covers.
 - **Output**: Provides a solution to the exact cover problem, representing the rows that make up the exact cover.
 
-### Time Complexity
+## Time Complexity
 
 - **Average Case**: The time complexity depends on the size of the matrix and the specific problem being solved but is generally more efficient than brute force methods.
 - **Worst Case**: The worst-case complexity can be exponential in the number of rows and columns, but the algorithm is highly optimized for sparse matrices.
 
-### Space Complexity
+## Space Complexity
 
-- **Space Complexity**: $O(n + m)$, where $n$ is the number of rows and $m$ is the number of columns in the matrix. The space is primarily used to store the linked list nodes for the matrix representation.
+- ## ## Space Complexity $O(n + m)$, where $n$ is the number of rows and $m$ is the number of columns in the matrix. The space is primarily used to store the linked list nodes for the matrix representation.
 
 
 ### Approach

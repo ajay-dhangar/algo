@@ -25,7 +25,8 @@ Bogo Sort (also known as permutation sort, stupid sort, or slow sort) is a highl
 - **Not Stable**:
   - Since elements are randomly shuffled, Bogo sort does not preserve the relative order of equal elements, making it inherently unstable.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n)**  
   In the best-case scenario, the array is already sorted on the first check, so only one permutation is generated.
@@ -36,9 +37,11 @@ Bogo Sort (also known as permutation sort, stupid sort, or slow sort) is a highl
 - **Worst Case: Unbounded**  
   In the worst-case scenario, Bogo sort could theoretically never find a sorted permutation, making the time to complete unbounded.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(1)**  
+- **## Space Complexity
+O(...) O(1)**  
   Bogo sort requires no additional space other than the input array, as it works in-place by shuffling the array.
 
 ### C++ Implementation:

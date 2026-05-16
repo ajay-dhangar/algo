@@ -18,15 +18,15 @@ The **SMAWK Algorithm** is a specialized algorithm for efficiently finding row m
 - **Data Structures**: A vector to store the minimum values and another to track the active set of columns.
 - **Output**: A vector containing the minimum value of each row in the matrix.
 
-### Time Complexity
+## Time Complexity
 
 - **Average Case**: $O(n \log n)$, where $n$ is the number of rows in the matrix.
 - **Worst Case**: $O(n \cdot m)$, where $m$ is the number of columns in the matrix.
 
 
-### Space Complexity
+## Space Complexity
 
-- **Space Complexity**: $O(n)$, since only a few vectors (of size $n$) are used to store the row minima and the active set.
+- ## ## Space Complexity $O(n)$, since only a few vectors (of size $n$) are used to store the row minima and the active set.
 
 ### Approach
 

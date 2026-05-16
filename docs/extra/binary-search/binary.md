@@ -95,7 +95,8 @@ int main() {
 
 In this algorithm, the searching interval of the array is divided into half at every iteration until the target is found. This results in lesser comparisions and decreases the time required.
 
-## Time complexity:
+## ## Time Complexity
+O(...)
 
 Linear/Sequential search: O(n)<br />
 Binary search : O(log n)

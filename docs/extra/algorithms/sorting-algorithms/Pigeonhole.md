@@ -25,7 +25,8 @@ Pigeonhole Sort is a non-comparison sorting algorithm based on the pigeonhole pr
 - **Stable**:
   - Pigeonhole sort can be implemented in a stable manner, meaning it preserves the relative order of equal elements.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n + k)**  
   In the best case, when the input values are well-distributed, the algorithm performs efficiently.
@@ -36,9 +37,11 @@ The average-case complexity remains linear with respect to the number of element
 - **Worst Case: O(n + k)**  
 The worst-case scenario still yields linear time complexity as it processes all values in the range.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(k)**  
+- **## Space Complexity
+O(...) O(k)**  
 The space complexity is linear relative to the range of input values, which may lead to inefficiency when the range is much larger than \( n \).
 
 ### Java Implementation:

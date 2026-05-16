@@ -36,14 +36,16 @@ sidebar_label: DFS
 4. **Backtrack** when no further neighbors are found.
 5. **Repeat** the process for other nodes if necessary.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
-- **Time Complexity**: $O(V + E)$  
+- ## ## Time Complexity $O(V + E)$  
   Where `V` is the number of vertices and `E` is the number of edges in the graph.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: $O(V)$  
+- ## ## Space Complexity $O(V)$  
   DFS uses space proportional to the number of vertices due to the recursion stack or explicit stack.
 
 ### Advantages of DFS:

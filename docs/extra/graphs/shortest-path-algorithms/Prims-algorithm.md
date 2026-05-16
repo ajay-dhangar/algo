@@ -25,14 +25,17 @@ Prim's algorithm is a **greedy algorithm** used to find the Minimum Spanning Tre
 - **Applicable to Dense Graphs**:
   -Prim's algorithm is preferred for dense graphs where the number of edges is large relative to the number of vertices.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best, Average, and Worst Case: O(E log V)**
   Using a priority queue, Prim's algorithm achieves a time complexity of O(E log V), where E is the number of edges and V is the number of vertices.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(V + E)**
+- **## Space Complexity
+O(...) O(V + E)**
   The algorithm requires additional space for the priority queue and arrays tracking visited vertices and minimum weights, resulting in a space complexity of O(V + E).
 
 ### C++ Implementation:

@@ -65,13 +65,13 @@ for solution in solutions:
 
 The time complexity of the N-Queens problem depends on the size of the board (N), as the algorithm explores different possible configurations of queens.
 
-### Time Complexity Overview
+## Time Complexity Overview
 - **Worst Case**: O(N!) (factorial time complexity)
   - The algorithm needs to explore all possible placements of queens on the board, and in the worst case, it examines all permutations of queen placements.
   - Although backtracking helps prune invalid configurations, the worst case is still factorial in nature.
 
 ## Space Complexity
-- **Space Complexity**: O(N)
+- ## ## Space Complexity O(N)
   - The space complexity is linear because we only need to store the position of N queens on the board, as well as auxiliary information for backtracking (e.g., current row and column states).
 
 ## Applications

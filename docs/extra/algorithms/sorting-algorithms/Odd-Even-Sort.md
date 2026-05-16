@@ -20,7 +20,8 @@ Odd-Even Sort is a simple parallel sorting algorithm that works by repeatedly pe
 - **Not Stable**:  
   Odd-Even Sort is not stable, meaning that the relative order of equal elements may not be preserved.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n)**  
   When the array is already sorted, the algorithm only requires one pass.
@@ -31,9 +32,11 @@ The average time complexity is quadratic, similar to other simple sorting algori
 - **Worst Case: O(n²)**  
 The worst-case scenario occurs when the array is in reverse order.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(1)**  
+- **## Space Complexity
+O(...) O(1)**  
 The algorithm operates in constant space, only using a few variables for swapping.
 
 ### Java Implementation:

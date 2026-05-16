@@ -34,7 +34,8 @@ The approach to check if a graph is bipartite involves using BFS or DFS to color
 5. **Completion**: If all vertices are processed without conflicts, return true (the graph is bipartite).
 
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 - The bipartite graph checking algorithm has a time complexity of `O(V^2)` with an adjacency matrix, where `V` is the number of vertices. If an adjacency list is used, the complexity is `O(V + E)`, with `E` being the number of edges.
 
 ## Example:

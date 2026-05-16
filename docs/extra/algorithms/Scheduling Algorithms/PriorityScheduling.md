@@ -125,8 +125,8 @@ Average turnaround time = 9.75
 ```
 
 ## Time and Space Complexity
-- **Time Complexity**: The time complexity is O(n log n) due to the sorting of processes, where n is the number of processes.
-- **Space Complexity**: The space complexity is O(n) due to the storage of waiting times and turnaround times.
+- ## ## Time Complexity The time complexity is O(n log n) due to the sorting of processes, where n is the number of processes.
+- ## ## Space Complexity The space complexity is O(n) due to the storage of waiting times and turnaround times.
 
 ## Conclusion
 The Priority Scheduling algorithm is effective for ensuring that high-priority processes are executed first. However, it can lead to the "starvation" of lower-priority processes if higher-priority processes continue to arrive.

@@ -64,11 +64,11 @@ Row 2: Column 0
 
 #### Complexity :
 
-### Time Complexity
+## Time Complexity
 
 The SMAWK algorithm has a time complexity of  **O(m+n)**, where m is the number of rows and n is the number of columns in the matrix. This efficiency is achieved because the algorithm processes each row and column in a single pass, effectively discarding columns that do not contribute to the minima.
 
-### Space Complexity
+## Space Complexity
 
 Regarding space complexity, SMAWK also requires **O(m+n)** additional space. This space is used for storing row and column indices, the reduced set of columns during processing, and result vectors that hold the minima for each row.
 

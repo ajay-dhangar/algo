@@ -33,7 +33,7 @@ Key components of a Segment Tree:
 ## Properties
 - **Efficient Range Queries**: Segment trees can answer range queries in **O(log n)** time.
 - **Dynamic Updates**: They allow for efficient updates to elements in the array, also in **O(log n)** time.
-- **Space Complexity**: A Segment Tree requires **O(n)** space, where **n** is the size of the input array.
+- ## ## Space Complexity A Segment Tree requires **O(n)** space, where **n** is the size of the input array.
 
 ## Types of Segment Trees
 1. **Standard Segment Tree**: Used for range queries where the operation is additive or multiplicative.
@@ -140,7 +140,7 @@ int main() {
   
 - **Flexible Range Queries**: Segment trees can be customized to handle various types of queries beyond basic range queries, including lazy propagation for efficient range updates.
   
-- **Space Complexity**: Although segment trees require **O(n)** space, they efficiently use space compared to other data structures when considering the additional features they provide.
+- ## ## Space Complexity Although segment trees require **O(n)** space, they efficiently use space compared to other data structures when considering the additional features they provide.
 
 ## Applications of Segment Trees
 

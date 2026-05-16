@@ -17,7 +17,7 @@ The update operation involves modifying the value associated with an existing ke
 2. **Update the Value**: Modify the value associated with the key if it exists.
 3. **Handle Key Absence**: If the key does not exist, you can choose to insert it instead.
 
-### Time Complexity
+## Time Complexity
 - **Average Case**: $O(1)$
 - **Worst Case**: $O(n)$
 

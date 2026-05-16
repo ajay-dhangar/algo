@@ -22,7 +22,8 @@ Stooge sort is a **recursive sorting algorithm** that operates by comparing the 
 - **Rarely Used in Practice**:
   - Due to its poor performance, Stooge sort is rarely used in real-world applications, but it remains a useful algorithm for theoretical study.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(n^{2.7095})$ 
   Even in the best case, Stooge sort requires recursive calls that make its performance slower than more efficient algorithms like merge sort or quicksort.
@@ -33,9 +34,11 @@ Stooge sort is a **recursive sorting algorithm** that operates by comparing the 
 - **Worst Case: $O(n^{2.7095})$
   Stooge sort's worst-case performance is similar to its average and best-case complexities.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(n)$
+- **## Space Complexity
+O(...) $O(n)$
   The space complexity of Stooge sort is linear due to the recursive calls storing subarrays on the stack.
 
 ### Python Implementation:

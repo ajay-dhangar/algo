@@ -26,7 +26,7 @@ The **Euclidean algorithm** is the most efficient method for computing the GCD. 
    - If $b$ = 0, then $GCD(a, b)$ = a
    - Otherwise, $GCD(a, b)$ = $GCD(b,a \  mod \ b ).$
 
-### Time Complexity
+## Time Complexity
 
 - The time complexity of the Euclidean algorithm is $( O(log(min(a, b)))).$
 
@@ -42,7 +42,7 @@ The LCM can be calculated using the GCD with the following formula:
 
 $LCM(a, b)$ = $\dfrac{a \times b}{\text{GCD}(a, b)}$.
 
-### Time Complexity
+## Time Complexity
 
 - The time complexity for calculating the LCM is $O(log(min(a, b)))$ due to the GCD calculation.
 

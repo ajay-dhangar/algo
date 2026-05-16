@@ -28,7 +28,8 @@ Push elements into a min heap based on their frequency.
 If the heap size exceeds K, remove the element with the lowest frequency.
 3. Extract the Results: After processing all elements, the heap contains the K most frequent elements.
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 O(n) for counting frequencies, where n is the number of elements in the array.
 O(n log K) for heap operations, as each element may be inserted and possibly removed once.
 

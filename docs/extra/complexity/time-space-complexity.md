@@ -15,7 +15,7 @@ Time and space complexity are two important concepts in computer science. Time c
 
 When analyzing the efficiency of an algorithm, we often consider two key factors: time complexity and space complexity. These metrics help us understand how an algorithm performs in terms of time and memory usage, respectively.
 
-| **No.** | **Parameter** | **Time Complexity** | **Space Complexity** |
+| **No.** | **Parameter** | ## Time Complexity | ## Space Complexity |
 |---------|---------------|---------------------|----------------------|
 | 1.      | Definition    | The amount of time an algorithm takes to run. | The amount of memory an algorithm uses. |
 | 2.      | Notation      | Typically denoted using Big O notation. | Also denoted using Big O notation. |
@@ -24,7 +24,7 @@ When analyzing the efficiency of an algorithm, we often consider two key factors
 | 5.      | Analysis      | Analyzed by counting the number of operations an algorithm performs. | Analyzed by counting the memory used by an algorithm. |
 | 6.      | Examples      | Sorting algorithms, searching algorithms, etc. | Data structures like arrays, linked lists, etc. |
 
-### Time Complexity
+## Time Complexity
 
 Time complexity refers to the amount of time an algorithm takes to run as a function of the length of the input. It helps us understand how an algorithm scales with input size and provides insights into its efficiency.
 
@@ -34,7 +34,7 @@ Analyzing time complexity involves counting the number of operations an algorith
 
 <Ads />
 
-### Space Complexity
+## Space Complexity
 
 Space complexity refers to the amount of memory an algorithm uses as a function of the input size. It helps us understand how much memory an algorithm requires to perform its operations.
 

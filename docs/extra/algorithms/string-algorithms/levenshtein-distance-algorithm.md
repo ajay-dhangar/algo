@@ -33,7 +33,8 @@ The Levenshtein Distance Algorithm, also known as Edit Distance, calculates the 
   - Fuzzy matching
   - Distance normalization
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Standard Version: $O(m \times n)$**
   - Where m, n are string lengths
@@ -45,7 +46,8 @@ The Levenshtein Distance Algorithm, also known as Edit Distance, calculates the 
   - Rolling array technique
   - Constant space per row
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Standard Version: $O(m \times n)$**
   - Full matrix storage

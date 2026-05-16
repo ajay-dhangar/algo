@@ -113,11 +113,12 @@ plt.ylabel('Distance')
 plt.show()
 ```
 
-### Time and Space Complexity:
-- **Time Complexity**:  
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity  
   The time complexity is generally $O(n^3)$ for the basic implementation, but more efficient methods exist.
 
-- **Space Complexity**:  
+- ## ## Space Complexity  
   The space required is $O(n^2)$ for storing distance matrices.
 
 ### Summary & Applications:

@@ -181,11 +181,13 @@ primes = sieve_of_eratosthenes_optimized(n)
 print(f"Optimized prime numbers up to {n}: {primes}")
 ```
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 
 The time complexity of the **Sieve of Eratosthenes** is `O(n log log n)`, which is very efficient for generating prime numbers up to a large limit. This is due to the fact that each prime number marks its multiples only once.
 
-## Space Complexity:
+## ## Space Complexity
+O(...)
 
 The space complexity of the algorithm is `O(n)` because it requires an array of size `n + 1` to store whether each number is prime or not.
 

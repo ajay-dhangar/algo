@@ -150,13 +150,14 @@ plt.ylabel('Feature 2')
 plt.show()
 ```
 
-### Time and Space Complexity:
-- **Time Complexity**:  
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity  
   The time complexity of SVM varies:
   - **Linear SVM**: Approximately $O(n \cdot d)$, where $n$ is the number of samples and $d$ is the number of features.
   - **Non-linear SVM**: Approximately $O(n^2)$ for training due to the quadratic programming involved.
 
-- **Space Complexity**:  
+- ## ## Space Complexity  
   The space complexity is $O(n^2)$ due to the storage of pairwise similarities between support vectors.
 
 ### Summary & Applications:

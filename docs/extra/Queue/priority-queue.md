@@ -308,7 +308,7 @@ public class PriorityQueue {
 
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - Insert: $O(n \log n)$ (due to sorting)
   - Remove: $O(n)$ (removing the first element)
@@ -316,7 +316,7 @@ public class PriorityQueue {
   - isEmpty: $O(1)$
   - Size: $O(1)$
 
-- **Space Complexity**: $O(n)$, where $n$ is the number of elements in the priority queue.
+- ## ## Space Complexity $O(n)$, where $n$ is the number of elements in the priority queue.
 
 ### Example
 

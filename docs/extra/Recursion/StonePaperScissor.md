@@ -59,7 +59,7 @@ The **Stone-Paper-Scissors Game** is a simple yet engaging hand game that challe
 
 The complexity analysis of the **Stone-Paper-Scissors Game** involves examining both the time complexity and space complexity of the implementation. This analysis helps to understand the efficiency of the game in terms of performance and resource usage.
 
-#### Time Complexity
+## Time Complexity
 
 **User Input** :
 
@@ -77,7 +77,7 @@ The complexity analysis of the **Stone-Paper-Scissors Game** involves examining 
 
 * If the game is played for **n** rounds, the total time complexity is  **O(n)** , where each round takes constant time to process.
 
-#### Space Complexity
+## Space Complexity
 
 **Storage for Scores** :
 

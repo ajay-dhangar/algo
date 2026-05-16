@@ -22,13 +22,15 @@ sidebar_label: Sublist
 3. **Continue Matching**: For each matching start, check consecutive elements.
 4. **Repeat**: Continue until the sublist is found or the main list is exhausted.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
-- **Time Complexity**: \(O(n \times m)\) where `n` is the length of the main list and `m` is the length of the sublist.
+- ## ## Time Complexity \(O(n \times m)\) where `n` is the length of the main list and `m` is the length of the sublist.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: \(O(1)\)
+- ## ## Space Complexity \(O(1)\)
 
 ### Advantages of Sublist Search:
 

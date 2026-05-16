@@ -50,7 +50,7 @@ The brilliance of Kadane's Algorithm lies in its simplicity. It processes the ar
    - `currentSum = max(arr[i], currentSum + arr[i])`
    - `maxSum = max(maxSum, currentSum)`
 
-### Time Complexity
+## Time Complexity
 
 Kadane’s Algorithm runs in O(n) time, where `n` is the number of elements in the array. This makes it highly efficient compared to brute force methods, which would require O(n²) time.
 

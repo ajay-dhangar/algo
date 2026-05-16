@@ -27,7 +27,8 @@ For the remaining elements, if the current element is greater than the top eleme
 After processing all elements, the top of the heap will contain the Kth largest element.
 
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 O(n log K), where n is the number of elements in the array. This is because each insertion and removal operation on the heap takes O(log K) time.
 
 ```cpp

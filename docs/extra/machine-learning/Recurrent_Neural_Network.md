@@ -92,15 +92,17 @@ Given a sequential dataset (e.g., a sentence for language modeling or a time-ser
 ### Split Criteria:
 RNNs handle sequential data where each input depends on the previous elements. The network processes the data one time step at a time, updating the hidden state with each new input.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   The time complexity of training an RNN depends on the number of time steps $T$, the size of the input $n$, and the number of hidden units $h$. It is roughly $O(T \cdot n \cdot h^2)$.
 
 - **Prediction Complexity**:  
   For inference, the time complexity is also dependent on the sequence length, as each time step requires an update to the hidden state.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   The space complexity depends on the number of hidden units and time steps. Since RNNs store the hidden state at each time step, they require memory proportional to $O(T \cdot h)$, where $T$ is the number of time steps and $h$ is the size of the hidden state.
 
 ### Example:

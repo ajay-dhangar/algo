@@ -43,10 +43,10 @@ Each node represents an element (operator or operand) in the expression:
     - Constructs the tree using `constructExpressionTree()`.
     - Executes `inorderTraversal()` to display the infix expression.
 
-### Time Complexity
+## Time Complexity
 - Each function runs in `O(n)` time, where `n` is the number of characters in the postfix expression. Building the tree and performing inorder traversal both require visiting each node once.
 
-### Space Complexity
+## Space Complexity
 - The space complexity is `O(n)` due to the expression tree nodes and the stack used during construction.
 
 ### Sample Input:

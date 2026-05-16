@@ -96,10 +96,10 @@ For expression2 = "|(f,f,f,t)", output is true.
 For expression3 = "!(|(f,t))", output is false.
 ```
 
-### Time Complexity
+## Time Complexity
 - $O(n)$, where n is the length of the expression, as each character is processed once.
 
-### Space Complexity
+## Space Complexity
 - $O(n)$, due to the stack usage for storing characters and intermediate results.
 
 ## Conclusion

@@ -124,12 +124,12 @@ int main() {
 ```
 ## Code Analysis
 
-### Time Complexity
+## Time Complexity
 - **Constructing the Expression Tree**: **O(n)**, where **n** is the number of characters in the postfix expression.
 - **Inorder Traversal**: **O(n)**.
 - **Overall**: **O(n)**.
 
-### Space Complexity
+## Space Complexity
 - **Stack and Tree Storage**: **O(n)** for both the stack and the expression tree.
 
 ## Summary

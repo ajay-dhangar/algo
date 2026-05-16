@@ -120,8 +120,10 @@ int main() {
 
 ## Time and Space Complexity
 
--   **Time Complexity:** The time complexity is $O(m \times n)$ because we fill up a table of size `(m + 1) x (n + 1)` in nested loops.
--   **Space Complexity:** The space complexity is also $O(m \times n)$ due to the 2D table used for storing intermediate results.
+-   **## Time Complexity
+O(...)** The time complexity is $O(m \times n)$ because we fill up a table of size `(m + 1) x (n + 1)` in nested loops.
+-   **## Space Complexity
+O(...)** The space complexity is also $O(m \times n)$ due to the 2D table used for storing intermediate results.
 
 ## Conclusion
 

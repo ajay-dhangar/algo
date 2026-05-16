@@ -54,12 +54,14 @@ public class ParityPartitionSort {
 }
 ```
 
-**Time Complexity**
+## Time Complexity
 
 * **Partitioning:** O(n)
 * **Sorting:** O(n log n) for each partition
 * **Merging:** O(n)
 
-**Overall Time Complexity:** O(n log n)
+**Overall ## Time Complexity
+O(...)** O(n log n)
 
-**Space Complexity:** O(n) for the temporary array.
+**## Space Complexity
+O(...)** O(n) for the temporary array.

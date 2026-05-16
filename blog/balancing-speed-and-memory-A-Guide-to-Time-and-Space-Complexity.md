@@ -9,8 +9,8 @@ At its core, an algorithm is a step-by-step procedure or formula for solving a p
 In this blog, we’ll cover:
 
 - **Why Algorithms are Important**
-- **Time Complexity**
-- **Space Complexity**
+- ## Time Complexity
+- ## Space Complexity
 - **The Time-Space Trade-off**
 - **Conclusion**
 
@@ -28,7 +28,7 @@ Let’s imagine you’re searching for a book in a library. You could:
 
 The second approach is more efficient and resembles an algorithm designed to optimize search time. This demonstrates how algorithms allow you to perform tasks in an optimized and structured way.
 
-When evaluating algorithms, two key metrics come into play: **time complexity** and **space complexity**. These determine how efficient an algorithm is in terms of speed and memory usage.
+When evaluating algorithms, two key metrics come into play: ## Time Complexity and ## Space Complexity. These determine how efficient an algorithm is in terms of speed and memory usage.
 
 ## Time Complexity
 

@@ -20,7 +20,8 @@ Let us see how to implement binary search in a 2D matrix in Java:
 
 We are given an `m x n` matrix where each row is sorted in ascending order from left to right, and the first integer of each row is greater than the last integer of the previous row. The goal is to search for a target value in this matrix.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
     Linear/Sequential search: O(m * n) where m is the number of rows and n is the number of columns.
     Binary search in a matrix: O(log(m * n)), because we are effectively performing a binary search over the entire matrix treated as a single sorted array.

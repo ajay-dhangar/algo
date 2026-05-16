@@ -51,7 +51,7 @@ This program calculates the shortest path from a given source node to a target n
    If a valid path exists, the function prints the shortest distance from the source to the target.
    It then traces the path from the source to the target using the `path[]` array and prints each node in the order they are visited.
 
-### Time Complexity
+## Time Complexity
 - O(n^2) - where `n` is the total number of nodes in the multistage graph
 
 ### C++ Implementation

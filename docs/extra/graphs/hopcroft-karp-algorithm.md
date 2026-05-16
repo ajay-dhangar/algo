@@ -21,14 +21,16 @@ The **Hopcroft-Karp algorithm** is an efficient algorithm used to find the maxim
 - **Efficiency**: 
   - The algorithm has a time complexity of `O(E √V)`, where `E` is the number of edges and `V` is the number of vertices.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
-- **Time Complexity**: `O(E √V)`  
+- ## ## Time Complexity `O(E √V)`  
   The algorithm repeatedly finds augmenting paths and adjusts the matching, leading to efficient performance even for larger graphs.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: `O(V + E)`  
+- ## ## Space Complexity `O(V + E)`  
   The algorithm requires space for the adjacency list of the graph and additional space for storing the matching and visited nodes.
 
 ### Algorithm Steps:

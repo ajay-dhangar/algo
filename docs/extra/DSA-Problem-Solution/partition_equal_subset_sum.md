@@ -32,10 +32,10 @@ Objective:
 
 2. **Return** `dp[target]`, which indicates if the target sum can be formed.
 
-### Time Complexity
+## Time Complexity
 
-- **Time Complexity**: O(n * target), where n is the number of elements in `nums`.
-- **Space Complexity**: O(target) for the DP array.
+- ## ## Time Complexity O(n * target), where n is the number of elements in `nums`.
+- ## ## Space Complexity O(target) for the DP array.
 
 ### C++ Implementation
 

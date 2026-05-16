@@ -133,8 +133,8 @@ Average turnaround time = 8.67
 
 ### Time and Space Complexity
 
-- **Time Complexity**: The time complexity is O(n) where n is the number of processes. Each function iterates through the process list.
-- **Space Complexity**: The space complexity is O(n) due to the storage of waiting times and turnaround times.
+- ## ## Time Complexity The time complexity is O(n) where n is the number of processes. Each function iterates through the process list.
+- ## ## Space Complexity The space complexity is O(n) due to the storage of waiting times and turnaround times.
 
 ### Conclusion
 

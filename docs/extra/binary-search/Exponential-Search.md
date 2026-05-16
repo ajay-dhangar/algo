@@ -19,7 +19,8 @@ The algorithm works in two main phases:
 ## Implementation
 
 Let us see how to implement Exponential Search in Java:
-## Time Complexity:
+## ## Time Complexity
+O(...)
 Linear search: O(n)<br />
 Exponential search: O(log n)
 

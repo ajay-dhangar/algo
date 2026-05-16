@@ -395,14 +395,14 @@ public class Main {
 
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - Insertion : $O(1)$
   - Deletion: $O(1)$
   - Search: $O(n)$	
   - Traversal: $O(n)$
 
-- **Space Complexity**: $O(1)$
+- ## ## Space Complexity $O(1)$
 
 
 ### Conclusion

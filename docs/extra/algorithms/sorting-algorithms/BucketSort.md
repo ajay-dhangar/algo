@@ -25,7 +25,8 @@ Bucket sort is a comparison-based sorting algorithm that works by distributing e
 - **Stable**:
   - Bucket sort is stable when the underlying sorting algorithm used within each bucket is stable.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n + k)**  
   In the best case, where the elements are evenly distributed across the buckets, and each bucket contains only a few elements, the overall time complexity is linear.
@@ -36,9 +37,11 @@ Bucket sort is a comparison-based sorting algorithm that works by distributing e
 - **Worst Case: O(n²)**  
   The worst-case scenario occurs when all elements are placed in the same bucket, reducing bucket sort to a slower sorting algorithm (like insertion sort), leading to quadratic time complexity.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(n + k)**  
+- **## Space Complexity
+O(...) O(n + k)**  
   Bucket sort requires extra space for the buckets and the array storing the final result, leading to a space complexity of O(n + k).
 
 ### C++ Implementation:

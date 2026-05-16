@@ -92,11 +92,11 @@ console.log(bubbleSort(arr)); // [ 11, 12, 22, 25, 34, 64, 90 ]
 
 ## Complexity
 
-- **Time Complexity**: O(n<sup>2</sup>) 
+- ## ## Time Complexity O(n<sup>2</sup>) 
   - Best Case: O(n)
   - Average Case: O(n<sup>2</sup>)
   - Worst Case: O(n<sup>2</sup>)
-- **Space Complexity**: O(1) 
+- ## ## Space Complexity O(1) 
 - **Stable**: Yes 
 
 ## Live Example

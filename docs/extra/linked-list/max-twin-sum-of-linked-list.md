@@ -44,9 +44,10 @@ To solve this problem efficiently:
 3. **Return Maximum Twin Sum**:
    - Finally, after traversing all pairs, return the maximum twin sum.
 
-### Time and Space Complexity:
-- **Time Complexity**: `O(n)`, where `n` is the number of nodes in the list. We traverse the list twice: once for finding the middle and reversing the second half, and once for calculating the twin sums.
-- **Space Complexity**: `O(1)`, as we modify the list in place and do not use any extra data structures.
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity `O(n)`, where `n` is the number of nodes in the list. We traverse the list twice: once for finding the middle and reversing the second half, and once for calculating the twin sums.
+- ## ## Space Complexity `O(1)`, as we modify the list in place and do not use any extra data structures.
 
 ## Code Implementation
 

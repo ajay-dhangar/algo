@@ -351,7 +351,7 @@ public class Deque {
 
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - InsertFront: $O(1)$
   - InsertRear: $O(1)$
@@ -362,7 +362,7 @@ public class Deque {
   - isEmpty: $O(1)$
   - isFull: $O(1)$
 
-- **Space Complexity**: $O(n)$, where $n$ is the number of elements that can be stored in the deque.
+- ## ## Space Complexity $O(n)$, where $n$ is the number of elements that can be stored in the deque.
 
 ### Example
 

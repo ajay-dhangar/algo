@@ -19,8 +19,8 @@ A rotated sorted array is an array that was originally sorted in ascending order
 - After rotation at index 3: `[4, 5, 6, 7, 1, 2, 3]`
 
 ## Time Complexity
-- **Time Complexity**: O(log n)
-- **Space Complexity**: O(1)
+- ## ## Time Complexity O(log n)
+- ## ## Space Complexity O(1)
 
 ## Algorithm Overview
 

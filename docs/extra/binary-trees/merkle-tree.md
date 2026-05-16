@@ -102,7 +102,7 @@ graph TB
 |-----------------|---------------------------------------------------------------------------|------------------------------------------------------------|
 | **Data Storage** | Stores hashes in non-leaf nodes and data in leaf nodes                   | Stores actual data in both leaf and non-leaf nodes          |
 | **Verification** | Efficient cryptographic verification using hash paths                    | Does not provide cryptographic verification                 |
-| **Time Complexity** | O(log n) for verification                                              | O(n) for searching or traversing the tree                   |
+| ## Time Complexity | O(log n) for verification                                              | O(n) for searching or traversing the tree                   |
 | **Use Case**     | Used for verifying data integrity in large datasets                      | Used for general data storage and searching tasks           |
 
 ## Conclusion

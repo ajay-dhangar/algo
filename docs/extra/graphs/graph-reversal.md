@@ -31,7 +31,8 @@ The approach to transposing a directed graph involves creating a new structure t
    - Return the `ans` list, which now represents the transposed graph.
 
 These steps succinctly outline the algorithm's approach to transforming the directed graph into its transpose.
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - The time complexity of the program is `O(V + E)`, where `V` is the number of vertices and `E` is the number of edges, as it processes each vertex and edge once.
 
 ### Sample Input:

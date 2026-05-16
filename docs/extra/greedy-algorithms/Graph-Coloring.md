@@ -30,12 +30,15 @@ Graph coloring is the process of assigning colors to the vertices of a graph suc
 ### Problem Statement:
  Given a graph with `n` vertices, assign colors to the vertices such that no two adjacent vertices share the same color, while using the fewest number of colors.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Best, Average, and Worst Case: $O(n + m)$**  
   Where `n` is the number of vertices and `m` is the number of edges. This is dominated by traversing vertices and their adjacent edges
 
-### Space Complexity:
-- **Space Complexity: $O(n)$**  
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) $O(n)$**  
   Space is required to store the colors assigned to each vertex.
 
 ### Example:

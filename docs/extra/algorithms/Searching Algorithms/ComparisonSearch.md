@@ -26,20 +26,20 @@ A **comparison search** algorithm is one that relies on comparing elements to de
 
 #### 1. **Linear Search**:
    - **Definition**: Linear search is a basic comparison search that checks each element one by one until the target is found or the array is exhausted.
-   - **Time Complexity**: $O(n)$ for both best, worst, and average cases.
+   - ## ## Time Complexity $O(n)$ for both best, worst, and average cases.
    - **When to Use**: Linear search is used for unsorted datasets or small arrays where other algorithms are not worth the overhead.
 
 #### 2. **Binary Search**:
    - **Definition**: Binary search is a divide-and-conquer algorithm that works on sorted data. It repeatedly divides the search space in half and compares the middle element with the target.
-   - **Time Complexity**: $O(log n)$ in the average and worst case.
+   - ## ## Time Complexity $O(log n)$ in the average and worst case.
    - **When to Use**: Best suited for large, sorted arrays or data structures with random access like arrays.
 
 #### 3. **Ternary Search**:
    - **Definition**: Ternary search is similar to binary search but divides the array into three parts instead of two. It checks two midpoints in each iteration.
-   - **Time Complexity**: $O(log3 n)$, which is still logarithmic but often slower than binary search in practice due to the additional comparisons.
+   - ## ## Time Complexity $O(log3 n)$, which is still logarithmic but often slower than binary search in practice due to the additional comparisons.
    - **When to Use**: Useful in unimodal functions where there's a single peak, making ternary search more applicable.
 
-### Time Complexity of Comparison-Based Searches:
+## Time Complexity of Comparison-Based Searches:
 
 - **Linear Search: $O(n)$**  
   Linear search scans through each element until the target is found. Its time complexity grows linearly with the input size, making it inefficient for large datasets.
@@ -50,7 +50,8 @@ A **comparison search** algorithm is one that relies on comparing elements to de
 - **Ternary Search: $O(log3 n)$**  
   Ternary search divides the search space into three parts, but the extra comparisons in each iteration make it slower in practice compared to binary search. The time complexity is logarithmic, but the constant factors are higher.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Linear Search: $O(1)$**  
   Linear search operates in constant space since it does not require any additional data structures.

@@ -176,9 +176,10 @@ plt.title("Anomaly Detection using Z-Score")
 plt.show()
 ```
 
-### Time and Space Complexity:
-- **Time Complexity**:  
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity  
   The time complexity depends on the statistical method used. For example, calculating the Z-score has a linear time complexity of $O(n)$ for n data points.
 
-- **Space Complexity**:  
+- ## ## Space Complexity  
   Space complexity is typically linear, $O(n)$, as the data points need to be stored and

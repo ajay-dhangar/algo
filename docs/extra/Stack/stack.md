@@ -127,8 +127,10 @@ public class NextGreaterElement {
 }
 ```
 
-### Time Complexity
-- Time Complexity: $O(n)$
+## Time Complexity
+- ## Time Complexity
+O(...) $O(n)$
 Each element is pushed and popped from the stack at most once, making the overall time complexity linear.
-- Space Complexity: $O(n)$
+- ## Space Complexity
+O(...) $O(n)$
 The stack requires space proportional to the number of elements in the input array.

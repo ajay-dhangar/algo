@@ -15,7 +15,7 @@ The deletion operation in a hash table involves removing a key-value pair using 
 2. **Remove the Key-Value Pair**: Delete the key-value pair from the index if the key exists.
 3. **Handle Collision**: Ensure proper handling of collisions if the table uses chaining or open addressing.
 
-### Time Complexity
+## Time Complexity
 - **Average Case**: $O(1)$
 - **Worst Case**: $O(n)$
 

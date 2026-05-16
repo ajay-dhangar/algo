@@ -149,7 +149,8 @@ Code in C++
 ```
 
 
-## Time complexity:
+## ## Time Complexity
+O(...)
 
 Bellman-Ford Algorithm: O(V * E), where V is the number of vertices, and E is the number of edges.
 

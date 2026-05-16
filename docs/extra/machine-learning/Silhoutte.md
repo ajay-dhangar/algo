@@ -58,12 +58,15 @@ Where:
 - `a` is the average intra-cluster distance for the data point.
 - `b` is the average distance from the data point to the points in the nearest cluster.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Best, Average, and Worst Case: $O(n^2)$**  
   Calculating the silhouette score involves computing pairwise distances between all data points, which requires $O(n^2)$ time complexity. If clustering is already performed, the silhouette score calculation is dominated by this pairwise distance step.
 
-### Space Complexity:
-- **Space Complexity: $O(n^2)$**  
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) $O(n^2)$**  
  The space complexity is driven by the need to store pairwise distance matrices for all data points, which requires $O(n^2)$ space. Additionally, storing cluster labels requires $O(n)$ space.
 
 ### Python Implementation:

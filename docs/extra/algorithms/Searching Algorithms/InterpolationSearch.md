@@ -24,7 +24,7 @@ Interpolation search is an optimized variant of binary search that works based o
 - **Stable Search**:  
   It preserves the relative order of equal elements during the search process.
 
-### Time Complexity
+## Time Complexity
 
 - **Best Case: $O(1)$**  
   In the best scenario, the target is found in the estimated position after one comparison.
@@ -35,7 +35,7 @@ Interpolation search is an optimized variant of binary search that works based o
 - **Worst Case: $O(n)$**  
   For non-uniformly distributed data, the algorithm’s performance may degrade to $O(n)$, similar to linear search.
 
-### Space Complexity
+## Space Complexity
 
 - **Iterative Approach: $O(1)$**  
   The iterative version only needs constant space for the `low`, `high`, and `pos` variables.

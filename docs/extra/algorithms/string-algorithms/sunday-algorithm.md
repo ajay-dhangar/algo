@@ -33,7 +33,8 @@ The Sunday Algorithm is a string matching algorithm developed by Daniel M. Sunda
   - Uses preprocessed shift values
   - Efficient character skipping
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m + σ)$**
   - Where m is pattern length
@@ -45,7 +46,8 @@ The Sunday Algorithm is a string matching algorithm developed by Daniel M. Sunda
   - Best case: O(n/m)
   - Average case: sublinear
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(σ)$**
   - Shift table storage

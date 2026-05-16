@@ -129,11 +129,12 @@ plt.grid()
 plt.show()
 ```
 
-### Time and Space Complexity:
-- **Time Complexity**:  
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity  
   The dominant factor is the eigen decomposition, which typically runs in $O(n^3)$, where $n$ is the number of features.
 
-- **Space Complexity**:  
+- ## ## Space Complexity  
   The space required is $O(n^2)$ for storing the covariance matrix and eigenvectors.
 
 ### Summary & Applications:

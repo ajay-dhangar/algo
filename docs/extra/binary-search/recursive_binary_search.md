@@ -56,7 +56,7 @@ Comparison:
 5. If the middle element is greater than the target, discard the right half by setting high to mid - 1.
 6. Repeat: Repeat steps 2 and 3 until the target is found or the low pointer exceeds the high pointer.
 
-### Time Complexity
+## Time Complexity
 
 The time complexity of iterative binary search is $𝑂(log𝑛)$. 
 

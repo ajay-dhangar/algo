@@ -24,7 +24,7 @@ The Fenwick Tree, also known as a Binary Indexed Tree (BIT), is a data structure
    - **Update**: Modify the value of a specific element.
    - **Query**: Compute the cumulative sum up to a specific index.
 
-### Time Complexity
+## Time Complexity
 - Both update and query operations are `O(log N)` where `N` is the number of elements, due to the logarithmic depth of the tree.
 
 ## Pseudocode

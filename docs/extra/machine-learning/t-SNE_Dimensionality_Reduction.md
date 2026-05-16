@@ -139,11 +139,12 @@ plt.title("t-SNE Visualization of Digits Dataset")
 plt.show()
 ```
 
-### Time and Space Complexity:
-- **Time Complexity**:  
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity  
   The time complexity of t-SNE is approximately $O(n^2)$, where $n$ is the number of data points. This makes it slow for large datasets.
 
-- **Space Complexity**:  
+- ## ## Space Complexity  
   The space complexity of t-SNE is also $O(n^2)$ due to the storage requirements for pairwise similarities.
 
 ### Summary & Applications:

@@ -33,7 +33,8 @@ Crochemore's Algorithm is a string matching algorithm developed by Maxime Croche
   - Efficient for both periodic and non-periodic patterns
   - Balanced preprocessing and searching phases
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m)$**
   - Where m is the pattern length
@@ -45,7 +46,8 @@ Crochemore's Algorithm is a string matching algorithm developed by Maxime Croche
   - Linear time worst-case complexity
   - Optimal for single pattern matching
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(m)$**
   - Constant extra space beyond pattern storage

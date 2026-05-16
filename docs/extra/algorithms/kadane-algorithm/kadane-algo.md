@@ -19,7 +19,8 @@ Kadane's Algorithm is an efficient algorithm to find the maximum sum of a contig
 - **Constant Space Complexity**:  
   It only requires a few extra variables, resulting in O(1) space complexity.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(N)$**  
   The algorithm processes each element once during the traversal.
@@ -28,9 +29,11 @@ Kadane's Algorithm is an efficient algorithm to find the maximum sum of a contig
 - **Worst Case: $O(N)$**  
   Regardless of the input distribution, the time complexity remains linear.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(1)$**  
+- **## Space Complexity
+O(...) $O(1)$**  
   The algorithm uses a constant amount of extra space.
 
 ### Approach:

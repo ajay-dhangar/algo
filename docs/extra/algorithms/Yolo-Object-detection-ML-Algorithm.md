@@ -70,11 +70,11 @@ print(boxes, labels, scores)  # Bounding boxes, labels, confidence scores
 ## Time Complexity
 YOLO performs real-time detection by processing the image in a single forward pass.
 
-- **Time Complexity**: O(S²)  
+- ## ## Time Complexity O(S²)  
   Each grid cell processes detections in constant time, and the number of cells scales with the grid size `S x S`.
 
 ## Space Complexity
-- **Space Complexity**: O(S² * B * C)  
+- ## ## Space Complexity O(S² * B * C)  
   The space complexity depends on the number of cells (`S x S`), bounding boxes per cell (`B`), and classes (`C`), which are fixed parameters in the YOLO model.
 
 ## Applications

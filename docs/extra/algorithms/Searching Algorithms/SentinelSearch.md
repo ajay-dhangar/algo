@@ -20,7 +20,8 @@ sidebar_label: Sentinel Search
 - **Single Pass**:
   - The sentinel search performs the search in a single pass through the array, leading to a simplified control structure and fewer checks.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(1)$**
   In the best-case scenario, the target element is the first element in the array.
@@ -29,7 +30,8 @@ sidebar_label: Sentinel Search
 - **Worst Case: $O(n)$**
   In the worst case, the target element is not present in the array, resulting in $n$ comparisons.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **$O(1)$**
   The sentinel search requires a constant amount of additional space to store the sentinel value, making it space-efficient.

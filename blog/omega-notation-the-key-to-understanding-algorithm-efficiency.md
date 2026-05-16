@@ -10,16 +10,16 @@ When working with algorithms, understanding their performance is crucial, especi
 In this blog, we’ll cover:
 
 - **Why Omega Notation is Important**
-- **Time Complexity**
-- **Space Complexity**
+- ## Time Complexity
+- ## Space Complexity
 - **The Omega-Time Trade-off**
 
 ## What is Omega Notation?
 
 At its core, Omega Notation describes the best-case scenario for the growth of an algorithm’s runtime or memory usage. It focuses on two main aspects:
 
-- **Time Complexity**: The minimum time an algorithm takes to complete.
-- **Space Complexity**: The minimum memory an algorithm requires.
+- ## ## Time Complexity The minimum time an algorithm takes to complete.
+- ## ## Space Complexity The minimum memory an algorithm requires.
 
 ### Important Points:
 

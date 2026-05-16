@@ -23,7 +23,8 @@ Tree Sort is a sorting algorithm that builds a Binary Search Tree (BST) from the
 - **Stable**:
   - Tree Sort can be stable if implemented carefully by ensuring that equal elements are inserted in a way that maintains their relative order.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n log n)**  
   When the tree remains balanced, insertion and traversal operations are logarithmic, resulting in an overall complexity of O(n log n).
@@ -34,9 +35,11 @@ Tree Sort is a sorting algorithm that builds a Binary Search Tree (BST) from the
 - **Worst Case: O(n²)**  
   In the worst case, such as when inserting elements that are already sorted, the tree can become skewed, and the algorithm may take O(n²) time.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(n)**  
+- **## Space Complexity
+O(...) O(n)**  
   The algorithm uses extra space for the tree structure, proportional to the number of elements in the input array.
 
 ### Java Implementation:

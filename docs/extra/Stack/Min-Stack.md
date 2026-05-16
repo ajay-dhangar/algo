@@ -38,10 +38,12 @@ Design a Data Structure MinStack that supports all the stack operations like pus
 
   - Demonstrates the stack by pushing values, printing the minimum, popping elements, and checking the top.               
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - The time complexity of the `MinStack` implementation is as follows: `push()`, `pop()`, and `getmin()` operations all run in `O(1)` time, as they perform a constant number of operations regardless of the stack size. The `peek()` operation also executes in `O(1)` time since it only accesses the top element of the stack. The `isEmpty()` and `isFull()` functions similarly operate in `O(1)` time by checking the state of the stack. Overall, all operations in this stack implementation are efficient, with a consistent time complexity of `O(1)` for each operation.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 - The space complexity of the MinStack implementation is `O(n)`, where `n` is the number of elements stored in the stack. This is due to the need to store each element in the underlying stack data structure, while only a few additional variables (like minElement) are used, which do not contribute significantly to the space usage.
 
 ### Sample Input:

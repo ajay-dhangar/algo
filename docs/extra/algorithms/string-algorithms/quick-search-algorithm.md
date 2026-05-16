@@ -33,7 +33,8 @@ The Quick Search Algorithm is a string matching algorithm that extends the Boyer
   - Straightforward logic
   - Easy maintenance
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m + σ)$**
   - Where m is pattern length
@@ -45,7 +46,8 @@ The Quick Search Algorithm is a string matching algorithm that extends the Boyer
   - Better average case
   - Pattern-dependent performance
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(σ)$**
   - Shift table storage

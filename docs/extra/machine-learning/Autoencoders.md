@@ -89,15 +89,17 @@ Given a set of unlabeled data, the goal is to train an autoencoder to efficientl
 ### Split Criteria:
 Autoencoders are trained to minimize the reconstruction loss between the input and the output, so the criteria are not based on splitting but on reconstructing the input accurately.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   The time complexity depends on the number of layers and neurons in the encoder and decoder. For an autoencoder with $l$ layers and $n$ neurons per layer, the complexity is $O(n \cdot l)$.
   
 - **Prediction Complexity**:  
   The prediction or encoding complexity is also proportional to the number of layers and neurons, as the data passes through each layer of the network.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   The space complexity depends on the number of neurons and weights in the encoder and decoder, as well as the size of the latent space.
 
 ### Example:

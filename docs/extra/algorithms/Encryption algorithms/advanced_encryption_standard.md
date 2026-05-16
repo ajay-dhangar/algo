@@ -25,14 +25,16 @@ The Advanced Encryption Standard (AES) is a symmetric encryption algorithm estab
 - **Strong Security**:
   - AES is considered secure against all known practical attacks, including brute force, making it a standard choice for sensitive data encryption.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Encryption/Decryption Time**: $O(n)$  
   The time complexity for AES operations is linear in relation to the number of blocks being processed.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: $O(n)$  
+- ## ## Space Complexity $O(n)$  
   AES requires space proportional to the block size (128 bits) and additional space for key management, depending on the implementation.
 
 ### AES Modes of Operation:

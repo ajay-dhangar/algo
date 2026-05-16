@@ -33,7 +33,8 @@ The Longest Common Subsequence (LCS) Algorithm finds the longest subsequence tha
   - Combines local solutions
   - Ensures global optimality
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Basic Version: $O(m \times n)$**
   - Where m, n are sequence lengths
@@ -45,7 +46,8 @@ The Longest Common Subsequence (LCS) Algorithm finds the longest subsequence tha
   - Maintains only necessary rows
   - Optional backtracking support
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Basic Version: $O(m \times n)$**
   - Dynamic programming table

@@ -76,12 +76,15 @@ Given a dataset with features and target values, the goal is to build a decision
 - **Mean Squared Error (MSE)** (for regression):  
   Measures the variance between the predicted and actual values at each node.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Best, Average, and Worst Case: $O(n \log n)$**  
   The time complexity depends on sorting the dataset at each node. For `n` data points, the overall complexity is logarithmic in depth with respect to the size of the dataset.
 
-### Space Complexity:
-- **Space Complexity: $O(n)$**  
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) $O(n)$**  
   The space complexity arises from storing the tree structure and the data used for training.
 
 ### Example:

@@ -33,7 +33,7 @@ A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tre
 
 ## Time Complexity of Prim's Algorithm:
 
-- **Time Complexity**: $O(E \log V)$  
+- ## ## Time Complexity $O(E \log V)$  
   The complexity arises from maintaining the priority queue for the edges, where E is the number of edges and V is the number of vertices.
 
 ### Kruskal's Algorithm:
@@ -52,7 +52,7 @@ A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tre
 
 ## Time Complexity of Kruskal's Algorithm:
 
-- **Time Complexity**: $O(E \log E + E \log V)$  
+- ## ## Time Complexity $O(E \log E + E \log V)$  
   The complexity comes from sorting the edges and performing union-find operations.
 
 ## Example:

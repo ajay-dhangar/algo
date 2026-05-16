@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
 ## Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
   - **Enqueue**: \(O(1)\)
   - **Dequeue**: \(O(1)\)
   - **Peek**: \(O(1)\)
@@ -95,7 +95,7 @@ if __name__ == "__main__":
   - **isFull**: \(O(1)\)
   - **Size**: \(O(1)\)
 
-- **Space Complexity**: \(O(n)\), where \(n\) is the maximum number of elements that can be stored in the queue.
+- ## ## Space Complexity \(O(n)\), where \(n\) is the maximum number of elements that can be stored in the queue.
 
 ## Conclusion
 

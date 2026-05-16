@@ -23,7 +23,8 @@ The **Dutch National Flag Algorithm** is a highly efficient technique to sort an
 - **Optimized for Specific Data**:  
   Designed specifically for arrays with three distinct elements (0, 1, and 2), the algorithm runs in linear time, making it optimal for such cases.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(N)$**  
   The array is traversed once using the `mid` pointer, providing a linear runtime.
@@ -34,7 +35,8 @@ The **Dutch National Flag Algorithm** is a highly efficient technique to sort an
 - **Worst Case: $O(N)$**  
   Although multiple swaps may be needed, the time complexity remains linear at $O(N)$, where $N$ is the array length.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Efficiency: $O(1)$**  
   The algorithm uses constant extra space as it sorts the array in-place without requiring any auxiliary data structures.

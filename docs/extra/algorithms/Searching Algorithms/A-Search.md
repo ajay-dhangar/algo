@@ -22,13 +22,15 @@ sidebar_label: A*
 3. **Explore Neighbors**: For each unvisited neighbor, calculate the cost, update if lower.
 4. **Repeat**: Continue until reaching the goal node or the open list is empty.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
-- **Time Complexity**: \(O(b^d)\), where `b` is the branching factor and `d` is the depth of the solution.
+- ## ## Time Complexity \(O(b^d)\), where `b` is the branching factor and `d` is the depth of the solution.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: \(O(b^d)\)
+- ## ## Space Complexity \(O(b^d)\)
 
 ### Advantages of A*:
 

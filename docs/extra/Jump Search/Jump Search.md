@@ -14,8 +14,10 @@ Jump Search is a searching algorithm used to find an element in a sorted array. 
 3) Linear Search in Interval: Once the jump overshoots or reaches the interval where the target could lie, it performs a linear search in this smaller interval.
 
 ## Complexity:
-Time Complexity: O(n)
-Space Complexity: O(1)
+## Time Complexity
+O(...) O(n)
+## Space Complexity
+O(...) O(1)
 
 ## Steps:
 1) Choose a block size (commonly step=array sizestep=array size).

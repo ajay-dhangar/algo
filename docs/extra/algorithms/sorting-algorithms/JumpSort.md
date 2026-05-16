@@ -23,7 +23,8 @@ Jump Sort is a simple comparison-based sorting algorithm that sorts elements by 
 - **Simplicity**:
   - The algorithm is straightforward and easy to implement, although it may not be as efficient as other algorithms for large datasets.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n)**  
   In the best-case scenario, where the array is already sorted, Jump Sort can traverse the array with minimal comparisons.
@@ -34,9 +35,11 @@ On average, Jump Sort will perform a number of comparisons proportional to the n
 - **Worst Case: O(n√n)**  
 In the worst case, where the elements are in reverse order, Jump Sort will require a full traversal of the blocks, resulting in quadratic time complexity.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(1)**  
+- **## Space Complexity
+O(...) O(1)**  
 Jump Sort is an in-place algorithm, so it requires only a constant amount of extra memory, regardless of the input size.
 
 ### C++ Implementation:

@@ -65,11 +65,13 @@ int main() {
 }
 ```
 ## Complexity
-### Time Complexity:
+## ## Time Complexity
+O(...)
 is_palindrome: 
 𝑂(𝑛)
 O(n), where 𝑛 is the length of the string (since each character is dequeued once from both ends).
-### Space Complexity: 𝑂(𝑛)
+## ## Space Complexity
+O(...) 𝑂(𝑛)
 O(n), where 𝑛 is the number of characters in the deque.
 
 ## Explanation of Code

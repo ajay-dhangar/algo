@@ -19,7 +19,8 @@ Exponential search is an algorithm that searches for a target element in a **sor
 - **Binary Search in Identified Range**:
   - Once the range is identified, a binary search is applied within that range to find the target element.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(1)$**  
   If the target element is at the first position, it is found in constant time.
@@ -27,7 +28,8 @@ Exponential search is an algorithm that searches for a target element in a **sor
 - **Average and Worst Case: $O(log n)$**  
   The exponential growth phase takes $O(log i)$, where `i` is the position where the range is identified. The binary search within the range also takes $O(log i)$.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Iterative: $O(1)$**  
   The iterative approach requires only a few variables for managing indices.

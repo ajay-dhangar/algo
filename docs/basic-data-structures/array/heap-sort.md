@@ -21,11 +21,11 @@ tags: [dsa, arrays, sorting, heap-sort, algorithm of heap-sort, pseudocode of he
 3. **Final Sorted Array**: The array will be sorted in ascending order as a result.
 
 ## Complexity
-- **Time Complexity**:
+- ## ## Time Complexity
   - **Best Case:** $O(n \log n)$
   - **Average Case:** $O(n \log n)$
   - **Worst Case:** $O(n \log n)$
-- **Space Complexity**: $O(1)$, as Heap Sort is an in-place algorithm.
+- ## ## Space Complexity $O(1)$, as Heap Sort is an in-place algorithm.
 - **Stability**: Heap Sort is not a stable sort (it does not preserve the relative order of equal elements).
 
 ## Pseudocode

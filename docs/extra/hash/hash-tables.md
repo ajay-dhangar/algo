@@ -114,9 +114,9 @@ struct DataItem* deleteItem(struct DataItem* item) {
     return NULL;
 }
 ```
-### Time Complexity
+## Time Complexity
 For lookup, insertion, and deletion operations, hash tables have an average-case time complexity of O(1). However, these operations may, in the worst case, require O(n) time, where n is the number of elements in the table.
-### Space Complexity
+## Space Complexity
 The space complexity of a hash table is O(n), where n is the number of elements in the
 table. This is because each element is stored in a separate cell in the array.
 

@@ -25,7 +25,8 @@ The BNDM (Backward Nondeterministic Dawg Matching) algorithm is an efficient str
 - **Extension of BDM**:
   - It improves upon the BDM algorithm by handling more general cases and providing better performance for non-trivial patterns.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O\left(\frac{n}{w}\right)$**  
   In the best-case scenario, where `w` is the word size of the machine, the algorithm takes advantage of the word-level parallelism and makes few character comparisons.
@@ -36,9 +37,11 @@ The BNDM (Backward Nondeterministic Dawg Matching) algorithm is an efficient str
 - **Worst Case: $O(n \times m)$**  
   In the worst case, when the text and pattern have poor alignment, BNDM may require multiple full scans of the text, leading to quadratic complexity, where `n` is the text length and `m` is the pattern length.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(m)$**  
+- **## Space Complexity
+O(...) $O(m)$**  
   The space complexity of BNDM is linear with respect to the pattern length, as the algorithm stores bitmasks and tables based on the pattern.
 
 ### C++ Implementation:

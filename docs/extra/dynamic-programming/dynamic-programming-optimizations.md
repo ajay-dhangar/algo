@@ -39,8 +39,8 @@ Determine the optimal order for multiplying a chain of matrices to minimize the 
 
 ## 4. Performance Analysis
 
-- **Time Complexity**: Generally O(n^2) or O(n \* m) based on the problem and optimization used.
-- **Space Complexity**: Can often be reduced to O(n) or even O(1) using state space reduction.
+- ## ## Time Complexity Generally O(n^2) or O(n \* m) based on the problem and optimization used.
+- ## ## Space Complexity Can often be reduced to O(n) or even O(1) using state space reduction.
 
 ## 5. Advanced Variations
 

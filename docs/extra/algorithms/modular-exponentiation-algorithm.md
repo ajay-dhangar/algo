@@ -65,12 +65,12 @@ print(result)  # Output: 24
 ## Time Complexity
 The time complexity of the modular exponentiation algorithm is significantly reduced by the exponentiation by squaring technique.
 
-### Time Complexity Overview
-- **Time Complexity**: O(log(exp))  
+## Time Complexity Overview
+- ## ## Time Complexity O(log(exp))  
   The algorithm reduces the exponent by half in each iteration, leading to a logarithmic number of steps relative to the size of the exponent. Each step involves constant-time operations like multiplication and modulo, so the overall time complexity is logarithmic.
 
 ## Space Complexity
-- **Space Complexity**: O(1)  
+- ## ## Space Complexity O(1)  
   The space complexity is constant because only a few variables (such as `base`, `exp`, and `result`) are required to perform the computation.
 
 ## Applications

@@ -63,13 +63,13 @@ Thus, A(2,2)=7.
 
 #### Complexity :
 
-### Time Complexity
+## Time Complexity
 
-The **time complexity** of the Ackermann function is extremely high and difficult to express in standard notation due to its deeply recursive nature. It is considered  **non-primitive recursive** , growing faster than any primitive recursive function. As mm**m** and nn**n** increase, the number of recursive calls expands exponentially. For small values, the function may seem manageable, but for values like A(4,n), the time required for computation escalates rapidly, leading to an impractical number of operations. While it doesn't fit neatly into Big-O notation, it exemplifies super-exponential growth, illustrating its theoretical limits in computation.
+The ## Time Complexity of the Ackermann function is extremely high and difficult to express in standard notation due to its deeply recursive nature. It is considered  **non-primitive recursive** , growing faster than any primitive recursive function. As mm**m** and nn**n** increase, the number of recursive calls expands exponentially. For small values, the function may seem manageable, but for values like A(4,n), the time required for computation escalates rapidly, leading to an impractical number of operations. While it doesn't fit neatly into Big-O notation, it exemplifies super-exponential growth, illustrating its theoretical limits in computation.
 
-### Space Complexity
+## Space Complexity
 
-The **space complexity** of the Ackermann function is determined by the maximum depth of the recursion stack, which can be expressed as  **O(m + n)** . Each recursive call adds a new frame to the stack, and as the function makes multiple nested calls, the memory usage increases significantly. This rapid expansion can lead to stack overflow errors, especially when handling larger inputs. As a result, the function demands substantial memory resources, making it impractical for high values without careful control of recursion depth. Overall, both time and space complexities highlight the Ackermann function's role in understanding the limits of recursion in computational theory
+The ## Space Complexity of the Ackermann function is determined by the maximum depth of the recursion stack, which can be expressed as  **O(m + n)** . Each recursive call adds a new frame to the stack, and as the function makes multiple nested calls, the memory usage increases significantly. This rapid expansion can lead to stack overflow errors, especially when handling larger inputs. As a result, the function demands substantial memory resources, making it impractical for high values without careful control of recursion depth. Overall, both time and space complexities highlight the Ackermann function's role in understanding the limits of recursion in computational theory
 
 ### Limitations and Considerations
 

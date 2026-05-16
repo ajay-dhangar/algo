@@ -20,14 +20,18 @@ Indirect recursion occurs when a function calls another function, and eventually
 - **Multiple Functions:**
   - Indirect recursion involves more than one function. A function calls another, which in turn calls the first one back.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
-- **Time Complexity: O(n)**
+- **## Time Complexity
+O(...) O(n)**
   - The time complexity of indirect recursion depends on the number of recursive calls. For simple problems, it is typically linear `O(n)`.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(n)**
+- **## Space Complexity
+O(...) O(n)**
   - Each recursive call uses stack space, leading to a space complexity proportional to the depth of the recursion.
 
 ### Example Problems:

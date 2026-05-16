@@ -25,7 +25,8 @@ The Bitap algorithm, also known as the **Shift-Or**, **Shift-And**, or **Bitap f
 - **Linear Search with Errors**:
   - The algorithm scans the text linearly, and the number of allowed errors (insertions, deletions, substitutions) is parameterized, allowing for flexible search criteria.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O\left(\frac{n}{w}\right)$**  
   The best-case complexity is linear, as the algorithm processes `w` characters in parallel per word size `w` of the machine.
@@ -36,9 +37,11 @@ The Bitap algorithm, also known as the **Shift-Or**, **Shift-And**, or **Bitap f
 - **Worst Case: $O(n \times m)$**  
   In the worst case, if the pattern is large or if there are many errors allowed, the time complexity can degrade to quadratic, where `m` is the pattern length.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(m)$**  
+- **## Space Complexity
+O(...) $O(m)$**  
   The algorithm requires space proportional to the pattern length `m` for storing bitmasks, making it efficient in terms of memory usage.
 
 ### C++ Implementation:

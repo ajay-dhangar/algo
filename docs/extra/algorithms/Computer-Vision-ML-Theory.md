@@ -64,13 +64,13 @@ print(output)
 ## Time Complexity
 Computer Vision models, especially Convolutional Neural Networks (CNNs), require substantial computation for processing large images and multi-layer feature extraction.
 
-- **Time Complexity**: `O(W * H * D * K^2)`
+- ## ## Time Complexity `O(W * H * D * K^2)`
   - Where `W` and `H` are the width and height of the input image, `D` is the depth (channels), and `K` is the kernel size.
 
 ## Space Complexity
 Space requirements grow with the number of features extracted and the depth of the network layers.
 
-- **Space Complexity**: `O(N * W * H * D)`
+- ## ## Space Complexity `O(N * W * H * D)`
   - Where `N` is the number of images, `W` and `H` are the width and height, and `D` is the depth of the features stored at each layer.
 
 ## Applications

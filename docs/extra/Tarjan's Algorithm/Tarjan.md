@@ -27,7 +27,7 @@ Tarjan's Algorithm is an efficient DFS-based algorithm used to find all Strongly
 3. Nodes are pushed to a stack upon their initial discovery and are considered part of an SCC until all reachable nodes are processed.
 4. After visiting all nodes from a given node, if the node is the root of an SCC (where its discovery time equals its low-link value), all nodes in the SCC are popped from the stack.
 
-**Time Complexity**
+## Time Complexity
 - O(V + E) where V is the number of vertices and E is the number of edges. This efficiency arises because each node and edge is visited only once.
 
 ![Graph Diagram](./algorithm.png "Example of Graph for Tarjan's Algorithm")

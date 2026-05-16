@@ -25,13 +25,15 @@ Meta Binary Search is an optimized version of the traditional binary search that
 - **Sorted Data Requirement:**:
   - Meta binary search, like traditional binary search, requires the array or dataset to be sorted before searching for the target element.
 
-- **Logarithmic Time Complexity:**:
+- **Logarithmic ## Time Complexity
+O(...)**:
   - The time complexity remains (logn), similar to the traditional binary search. However, due to the use of bitwise operations, the constant factors involved in execution time might be slightly reduced.
 
 - **Lower-level Optimization:**:
 - It is often used in system-level applications or cases where performance optimization is crucial. It provides a slight optimization over binary search by minimizing overhead from division operations.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(1)$**  
   Scenario: The best case occurs when the target element is found at the middle index on the very first comparison.
@@ -46,9 +48,11 @@ Complexity: Since we reduce the search space by half after each iteration, the n
   Scenario: The worst case happens when the target element is either not present in the array or is found at one of the last comparisons (e.g., at the last position).
 Complexity: Similar to binary search, the worst case would require halving the search space until a single element remains, resulting in O(logn).
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(1)$**  
+- **## Space Complexity
+O(...) $O(1)$**  
   Iterative Meta Binary Search requires a constant amount of additional memory, regardless of the size of the array, making it a space-efficient algorithm. and Recursive Meta Binary Search it O(logn).
 
 ### When to Use Linear Search:

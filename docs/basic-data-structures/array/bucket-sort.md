@@ -250,13 +250,13 @@ console.log(data); // Output: [32, 33, 37, 42, 47, 51, 52]
 
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - Best Case: $O(n + k)$, where $n$ is the number of elements and $k$ is the number of buckets.
   - Average Case: $O(n + k + n \log(\frac{n}{k}))$
   - Worst Case: $O(n^2)$, when all elements are placed in one bucket and a slow sorting algorithm (like bubble sort) is used within buckets.
 
-- **Space Complexity**: $O(n + k)$, for the input array and the buckets.
+- ## ## Space Complexity $O(n + k)$, for the input array and the buckets.
 
 ### Conclusion
 

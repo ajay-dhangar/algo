@@ -21,14 +21,17 @@ Kadane's algorithm is a **dynamic programming algorithm** used to find the maxim
 - **Handles Negative Numbers**:
   - Kadane’s algorithm can handle arrays with both positive and negative numbers, and it efficiently skips over negative subarrays that reduce the overall sum.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best, Average, and Worst Case: $O(n)$**  
   Kadane's algorithm processes each element exactly once, making its time complexity linear.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(1)$**  
+- **## Space Complexity
+O(...) $O(1)$**  
   The algorithm only requires constant space, using variables to store the current maximum and the global maximum sums.
 
 ### C++ Implementation:

@@ -46,12 +46,14 @@ graph TD
 4. Repeat the process for the remaining unsorted pancakes until all are sorted.
 
 ## Time Complexity
-- **Time Complexity:** O(n²) where `n` is the number of pancakes. This is because:
+- **## Time Complexity
+O(...)** O(n²) where `n` is the number of pancakes. This is because:
 - Finding the largest pancake takes linear time (O(n)).
 - Flipping the stack also takes linear time.
 - These operations are repeated for each unsorted pancake.
 
-- **Space Complexity:** O(1) as the algorithm works in-place without requiring additional memory.
+- **## Space Complexity
+O(...)** O(1) as the algorithm works in-place without requiring additional memory.
 
 ## Applications
 - **Theoretical Significance:** Pancake sorting is primarily of theoretical interest and is not used in practical applications due to its inefficiency compared to other sorting algorithms.

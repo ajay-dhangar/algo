@@ -239,8 +239,10 @@ Let's go through each pattern one by one.
   - Comprehensive: Ensures that you consider all possible combinations of elements.
   - Versatile: Can be used to solve a variety of problems, including generating power sets, combinations, and permutations.
 - **Cons**:
-  - Time Complexity: Can lead to exponential time complexity, as the number of subsets of a set is 2^N.
-  - Space Complexity: Requires additional space to store all the subsets.
+  - ## Time Complexity
+O(...) Can lead to exponential time complexity, as the number of subsets of a set is 2^N.
+  - ## Space Complexity
+O(...) Requires additional space to store all the subsets.
 
 **Example Problems from Grokking the Coding Interview**:
 - Subsets: Given a set with distinct elements, find all of its distinct subsets.
@@ -372,7 +374,7 @@ Let's go through each pattern one by one.
   - **Completeness**  Ensures that the entire solution space is explored, guaranteeing that the optimal solution will be found if it exists.
   - **Space Efficiency** Uses less memory as it only needs to store the current state and the decision stack.
 - **Cons** 
-  - **Time Complexity** Can lead to exponential time complexity, as it explores all possible configurations.
+  - ## Time Complexity Can lead to exponential time complexity, as it explores all possible configurations.
   - **Space Efficiency** May require additional optimizations like pruning to be practical for larger instances.
 **Example Problems from Grokking the Coding Interview**:
  - **Subsets** Given a set of numbers, find all of its subsets.

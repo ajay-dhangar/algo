@@ -128,10 +128,10 @@ int main() {
 ```
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
     - **Enqueue**: $O(1)$
     - **Dequeue**: Amortized $O(1)$
-- **Space Complexity**: $O(n)$, where $n$ is the number of elements in the queue.
+- ## ## Space Complexity $O(n)$, where $n$ is the number of elements in the queue.
 
 ### Example
 

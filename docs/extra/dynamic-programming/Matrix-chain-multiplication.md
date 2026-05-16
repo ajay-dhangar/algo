@@ -22,7 +22,7 @@ The Matrix Chain Multiplication program uses dynamic programming to determine th
 - **Output**:
   - Minimum number of multiplications required for the matrices multiplication is `4750`                     
                                
-### Time Complexity
+## Time Complexity
 - The time complexity of the Matrix Chain Multiplication algorithm is O(n^3) , where `n` is the number of matrices. This results from calculating the minimum multiplication cost for each possible subchain of matrices `O(n^2)` and evaluating each split point within these subchains `O(n)` leading to `O(n)xO(n^2)=O(n^3)`.
 ### C++ Implementation
 ```cpp

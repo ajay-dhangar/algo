@@ -33,7 +33,7 @@ Odd-Even Sort, also known as **Brick Sort**, is a simple comparison-based sortin
 
 ## Space Complexity
 
-- **Space Complexity**: $O(1)$ since the sorting is performed in-place.
+- ## ## Space Complexity $O(1)$ since the sorting is performed in-place.
 
 ---
 

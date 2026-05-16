@@ -22,7 +22,8 @@ Ternary search is a **divide-and-conquer** algorithm similar to binary search, b
 - **Works on Sorted Data**:
   - Like binary search, ternary search requires the array to be sorted.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(1)$**  
   In the best case, the target element is found at one of the midpoints after just one comparison.
@@ -30,7 +31,8 @@ Ternary search is a **divide-and-conquer** algorithm similar to binary search, b
 - **Average and Worst Case: $O(log_3 n)$**  
   Since the array is divided into three parts, ternary search runs in logarithmic time, specifically $log_3 n$, where `n` is the number of elements.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Iterative: $O(1)$**  
   The iterative version requires constant memory for storing low, mid1, mid2, and high indices.

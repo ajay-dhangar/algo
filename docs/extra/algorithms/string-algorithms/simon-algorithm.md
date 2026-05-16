@@ -33,7 +33,8 @@ While the Simon Algorithm is historically a quantum computing algorithm, this im
   - Approximate matching
   - Error tolerance
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m + σ)$**
   - Where m is pattern length
@@ -45,7 +46,8 @@ While the Simon Algorithm is historically a quantum computing algorithm, this im
   - Constant-time operations
   - Bit-parallel efficiency
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(σ)$**
   - Character mask storage

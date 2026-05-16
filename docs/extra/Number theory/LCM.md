@@ -214,7 +214,8 @@ Given two integers `a = 12` and `b = 18`, compute their LCM using the LCM-GCD re
 LCM(12, 18) = 36
 ```
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 
 The time complexity of the LCM algorithm depends on the GCD computation, which is `O(log(min(a, b)))`. Thus, the LCM algorithm has a time complexity of `O(log(min(a, b)))`, making it very efficient even for large numbers.
 

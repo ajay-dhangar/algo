@@ -25,7 +25,8 @@ The Apostolico–Giancarlo algorithm is an advanced string matching algorithm de
 - **Suboptimal on Small Patterns**:
   - While efficient for longer patterns, its performance may not be as significant for smaller ones compared to simpler algorithms like Knuth-Morris-Pratt (KMP).
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O\left(\frac{n}{m}\right)$**  
   In the best-case scenario, the algorithm performs optimally, making only a fraction of comparisons proportional to the length of the text divided by the length of the pattern.
@@ -36,9 +37,11 @@ The Apostolico–Giancarlo algorithm is an advanced string matching algorithm de
 - **Worst Case: $O(n \times m)$**  
   In the worst case, if the pattern has repeated sections that align poorly with the text, the algorithm could degrade to quadratic time complexity, where `n` is the text length and `m` is the pattern length.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(m + n)$**  
+- **## Space Complexity
+O(...) $O(m + n)$**  
   The algorithm requires additional space for storing suffix and shift tables, but the space overhead is linear with respect to both the pattern and the text size.
 
 ### C++ Implementation:

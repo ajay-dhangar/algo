@@ -41,8 +41,8 @@ To solve the problem:
    - Return the result array where each position `i` contains the next greater node for the node `i`, or 0 if no greater value exists.
 
 ### Complexity
-- **Time Complexity**: `O(n)`, where `n` is the number of nodes, as each node is processed once.
-- **Space Complexity**: `O(n)`, for storing values in the array and using the stack.
+- ## ## Time Complexity `O(n)`, where `n` is the number of nodes, as each node is processed once.
+- ## ## Space Complexity `O(n)`, for storing values in the array and using the stack.
 
 ## Code Implementation
 

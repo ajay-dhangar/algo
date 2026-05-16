@@ -31,11 +31,11 @@ The **Naive String Matching Algorithm** is a straightforward method for finding 
 4. **Continue Searching**: Repeat the process for the next starting position in the text.
 5. **Termination**: Continue until the end of the text is reached.
 
-### Time Complexity
+## Time Complexity
 
 - The worst-case time complexity is `O(n * m)`, where `n` is the length of the text and `m` is the length of the pattern. This can occur when every character of the text needs to be compared with every character of the pattern (e.g., when the text and pattern are similar).
 
-### Space Complexity
+## Space Complexity
 
 - The space complexity is `O(1)` since the algorithm uses a constant amount of space regardless of the input size.
 

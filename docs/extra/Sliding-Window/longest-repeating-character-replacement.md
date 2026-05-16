@@ -41,10 +41,12 @@ To solve this problem efficiently, we use the **sliding window** technique along
 4. **Maximize the Window Length**:  
    Keep track of the maximum valid window length during the entire process.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **O(n)**, where `n` is the length of the string. Each character is processed once by the sliding window, and the character count is updated in constant time.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 - **O(1)**, since the frequency count array size is fixed (for 26 possible characters).
 
 ### C++ Code Implementation:
@@ -151,5 +153,6 @@ Window [1, 4] → "ABAB" has 1 replacement and max frequency 2 → valid.
 Window [2, 5] → "BABB" has 1 replacement and max frequency 2 → valid.
 The maximum length is 4, as achieved by the window "AABA".
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 The sliding window ensures that we only traverse each character of the string once, making the solution linear in time.

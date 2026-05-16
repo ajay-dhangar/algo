@@ -33,7 +33,8 @@ The Turbo Boyer-Moore Algorithm is an enhanced version of the classic Boyer-Moor
   - Skip character technique
   - Match factorization
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m + σ)$**
   - Where m is pattern length
@@ -45,7 +46,8 @@ The Turbo Boyer-Moore Algorithm is an enhanced version of the classic Boyer-Moor
   - Sublinear in practice
   - Better than original Boyer-Moore
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(m + σ)$**
   - Pattern storage

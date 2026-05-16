@@ -25,7 +25,8 @@ Counting sort is a non-comparative sorting algorithm that sorts elements by coun
 - **Not In-Place**:
   - Counting sort requires extra space proportional to the range of the input data, making it not an in-place algorithm.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n + k)**  
   Counting sort achieves linear time when the range of the input data (k) is not significantly larger than the number of elements (n).
@@ -36,9 +37,11 @@ Counting sort is a non-comparative sorting algorithm that sorts elements by coun
 - **Worst Case: O(n + k)**  
   The worst-case time complexity occurs when the range of input values is large, resulting in extra space and time for the counting array.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(n + k)**  
+- **## Space Complexity
+O(...) O(n + k)**  
   Counting sort requires an extra counting array and an output array, resulting in a space complexity of O(n + k), where `k` is the range of the input values.
 
 ### C++ Implementation:

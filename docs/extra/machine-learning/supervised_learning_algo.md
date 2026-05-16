@@ -75,15 +75,17 @@ Given a labeled dataset with multiple features and corresponding target labels, 
 ### Split Criteria:
 Supervised learning algorithms typically split data based on minimizing prediction error or maximizing classification accuracy.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   Varies by algorithm; can range from linear to polynomial time complexity depending on data size and algorithm choice.
   
 - **Prediction Complexity**:  
   Also varies by algorithm; some algorithms allow for faster predictions after training (e.g., k-NN can be slower during prediction).
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   Depends on how much information about the training set needs to be stored (e.g., decision trees may require more space than linear models).
 
 ### Example:

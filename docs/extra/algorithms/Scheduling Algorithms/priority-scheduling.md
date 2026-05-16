@@ -49,7 +49,8 @@ There are two types of Priority Scheduling:
 
 ## Time Complexity Analysis
 
-### Best Case Time Complexity: **O(n log n)**
+### Best Case ## Time Complexity
+O(...) **O(n log n)**
 
 - Sorting the processes based on priority will take **O(n log n)**.
 - In the best case, if no new higher-priority processes arrive during execution, we only need to sort and then execute sequentially.
@@ -57,7 +58,8 @@ There are two types of Priority Scheduling:
 **Best Case Example**:
 If all processes arrive at the same time and are already sorted by priority.
 
-### Worst Case Time Complexity: **O(n²)**
+### Worst Case ## Time Complexity
+O(...) **O(n²)**
 
 - In the worst case (especially for preemptive scheduling), a new process with a higher priority arrives just before the current process finishes. This requires frequent preemption, and the process list must be updated multiple times, resulting in **O(n²)**.
 

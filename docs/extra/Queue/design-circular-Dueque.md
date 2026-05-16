@@ -130,7 +130,8 @@ int main() {
 ```
 ## Complexity Analysis
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 InsertFront: $O(1)$
 InsertRear: $O(1)$
@@ -139,5 +140,6 @@ DeleteRear: $O(1)$
 PeekFront and PeekRear: $O(1)$
 isEmpty and isFull: $O(1)$
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 $O(n)$, where $n$ is the maximum number of elements in the deque (capacity).

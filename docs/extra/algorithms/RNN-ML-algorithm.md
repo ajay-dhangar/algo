@@ -57,16 +57,16 @@ print(output)
 
 ## Complexity Analysis
 
-### Time Complexity
+## Time Complexity
 RNNs process data sequentially, making them computationally intensive for long sequences.
 
-- **Time Complexity**: `O(T)`  
+- ## ## Time Complexity `O(T)`  
   Each step in a sequence of length `T` requires constant time to process.
 
-### Space Complexity
+## Space Complexity
 RNNs maintain a hidden state for each step in the sequence.
 
-- **Space Complexity**: `O(T * H)`  
+- ## ## Space Complexity `O(T * H)`  
   Where `T` is the sequence length and `H` is the hidden size.
 
 ## Applications

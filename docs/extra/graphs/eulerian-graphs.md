@@ -33,11 +33,11 @@ An **Eulerian Graph** is a graph in which we can traverse every edge exactly onc
 - **Non-Eulerian**:
   - If more than two vertices have an odd degree, the graph cannot have an Eulerian path or circuit.
 
-### Time Complexity
+## Time Complexity
 
 The complexity of finding an Eulerian path or circuit is `O(E)` where `E` is the number of edges in the graph, assuming the graph is represented using an adjacency list.
 
-### Space Complexity
+## Space Complexity
 
 The space complexity is `O(V + E)` where `V` is the number of vertices and `E` is the number of edges.
 

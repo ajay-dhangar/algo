@@ -35,13 +35,16 @@ Shell Sort is an in-place comparison-based sorting algorithm that generalizes in
 
 <Ads />
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Best Case**: $O(n \log n)$, depending on the gap sequence.
 - **Average Case**: $O(n^{3/2})$ or $O(n \log^2 n)$, depending on the gap sequence used.
 - **Worst Case**: $O(n^2)$, using the original gap sequence.
 
-### Space Complexity:
-- **Space Complexity: $O(1)$**  
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) $O(1)$**  
   Shell Sort is an in-place algorithm, requiring only a constant amount of extra space.
 
 ### Example:

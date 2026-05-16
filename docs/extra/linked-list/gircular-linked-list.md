@@ -618,7 +618,7 @@ class CircularLinkedList {
 
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - Insertion at the Beginning: $O(n)$
   - Insertion at the End: $O(n)$
@@ -629,7 +629,7 @@ class CircularLinkedList {
   - Search: $O(n)$	
   - Traversal: $O(n)$
 
-- **Space Complexity**: 
+- ## ## Space Complexity 
 
 - Operations typically use $O(1) $ extra space as they only involve manipulating existing nodes.
 - In Python's display method, storing node data in a list requires O(n) space.

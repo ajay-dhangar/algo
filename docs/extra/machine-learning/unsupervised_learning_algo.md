@@ -79,15 +79,17 @@ Given an unlabeled dataset with multiple features, the objective is to identify 
 ### Split Criteria:
 Unsupervised learning algorithms typically split data based on inherent structures or distances between points rather than minimizing prediction error.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   Varies by algorithm; can range from linear time complexity for simple clustering methods to polynomial time complexity for more complex algorithms.
   
 - **Prediction Complexity**:  
 Also varies by algorithm; some algorithms allow for faster predictions after training (e.g., K-Means can be efficient during prediction).
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
 Depends on how much information about the training set needs to be stored (e.g., clustering algorithms may require more space than dimensionality reduction techniques).
 
 ### Example:

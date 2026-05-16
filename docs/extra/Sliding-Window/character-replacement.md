@@ -37,10 +37,12 @@ To solve this problem efficiently, we can use the **sliding window technique**. 
 4. **Update the Maximum Length**:  
    During the process, keep track of the maximum length of valid substrings found.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **O(n)**, where `n` is the length of the string, since each character is processed at most twice (once by the right pointer and once by the left pointer).
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 - **O(1)**, since we only need a fixed amount of space for the character count (26 for uppercase letters).
 
 ### C++ Code Implementation:

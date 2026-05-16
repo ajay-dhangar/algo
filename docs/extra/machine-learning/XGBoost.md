@@ -59,12 +59,15 @@ Where:
 - $L(y_i, \hat{y}_i)$ is the loss function measuring the difference between true values ($y_i$) and predicted values \($\hat{y}_i$).
 - $\Omega(f_k)$ is the regularization term penalizing the complexity of the model.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Best, Average, and Worst Case: $O(n \log n)$**  
   XGBoost optimizes tree construction with a greedy algorithm, achieving logarithmic time complexity for each tree based on the number of training instances `n`.
 
-### Space Complexity:
-- **Space Complexity: $O(n)$**  
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) $O(n)$**  
   The memory footprint grows with the number of data points, as XGBoost needs to store gradient and Hessian information for each instance during training.
 
 ### Python Implementation:

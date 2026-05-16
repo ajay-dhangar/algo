@@ -317,11 +317,11 @@ console.log(arr.join(" ")); // Output: 2 24 45 66 75 90 170 802
 
 ### Complexity of Radix Sort
 
-- **Time Complexity**: $O(d⋅(n+k))$
+- ## ## Time Complexity $O(d⋅(n+k))$
   - $d$ : Number of digits in the largest number.
   - $n$ : Number of elements in the array.
   - $k$ : Range of the digits for decimal system, $k = 10.$
-- **Space Complexity**: $O(n + k)$
+- ## ## Space Complexity $O(n + k)$
     - $n$ : Number of elements in the array.
     - $k$ : Range of the digits for decimal system, $k = 10.$
 

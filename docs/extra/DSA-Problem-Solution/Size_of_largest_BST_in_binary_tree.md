@@ -35,10 +35,10 @@ Objective:
 
 2. **Return** `size`, which indicates the size of the largest BST found.
 
-### Time Complexity
+## Time Complexity
 
-- **Time Complexity**: O(N) as we have to traverse throughout the tree consisting of N nodes.
-- **Space Complexity**: O(N) for auxiliary stack space storing all the recursive calls.
+- ## ## Time Complexity O(N) as we have to traverse throughout the tree consisting of N nodes.
+- ## ## Space Complexity O(N) for auxiliary stack space storing all the recursive calls.
 
 ### C++ Implementation
 

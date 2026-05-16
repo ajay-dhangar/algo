@@ -25,7 +25,8 @@ Merge sort is a **divide-and-conquer** sorting algorithm that splits the array i
 - **Requires Additional Space**:
   - Unlike in-place sorting algorithms, merge sort requires additional memory to store the subarrays during the merging process.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n log n)**  
   Even in the best case (when the array is already sorted), merge sort divides the array into smaller parts and performs a merging process, resulting in a time complexity of O(n log n).
@@ -36,9 +37,11 @@ Merge sort is a **divide-and-conquer** sorting algorithm that splits the array i
 - **Worst Case: O(n log n)**  
   In the worst case (reverse-sorted array), merge sort must still divide and merge the array in logarithmic time with n comparisons.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(n)**  
+- **## Space Complexity
+O(...) O(n)**  
   Merge sort requires additional space to store the temporary subarrays created during the merging process. This leads to a space complexity of O(n) due to the auxiliary arrays used for merging.
 
 ### C++ Implementation:

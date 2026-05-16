@@ -22,13 +22,15 @@ sidebar_label: AO*
 3. **Select Optimal Paths**: Choose paths with minimum costs, backtracking if needed.
 4. **Repeat**: Continue until reaching a terminal node or completing all AND-conditions.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
-- **Time Complexity**: Variable, based on graph complexity and heuristic.
+- ## ## Time Complexity Variable, based on graph complexity and heuristic.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: \(O(n)\)
+- ## ## Space Complexity \(O(n)\)
 
 ### Advantages of AO*:
 

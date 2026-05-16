@@ -25,7 +25,8 @@ Steganography is the practice of hiding secret data within a non-secret file or 
 - **Common Techniques**:
   - Popular methods of steganography include Least Significant Bit (LSB) embedding in images, where the secret data is embedded into the least important bits of each pixel.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Embedding Time**: $O(n)$  
   Embedding data into a medium takes linear time with respect to the size of the data being embedded and the cover medium.
@@ -33,9 +34,10 @@ Steganography is the practice of hiding secret data within a non-secret file or 
 - **Extraction Time**: $O(n)$  
   The time to extract hidden information is also linear, depending on the size of the medium and the hidden data.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: $O(n)$  
+- ## ## Space Complexity $O(n)$  
   The space complexity is dependent on the cover medium, as the hidden data is stored within the existing space, usually with minimal increase in file size.
 
 ### Common Steganography Techniques:

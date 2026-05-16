@@ -420,7 +420,7 @@ class LinkedList {
 
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - Insertion at the Beginning: $O(1)$
   - Insertion at the End: $O(n)$
@@ -428,7 +428,7 @@ class LinkedList {
   - Search for a Node by Value: $O(n)$
   - Traversal (Print the List): $O(n)$
 
-- **Space Complexity**: $O(n)$, where $n$ is the number of nodes.
+- ## ## Space Complexity $O(n)$, where $n$ is the number of nodes.
 
 ### Example
 

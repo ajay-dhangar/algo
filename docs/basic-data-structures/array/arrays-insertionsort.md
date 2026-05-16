@@ -27,11 +27,13 @@ The insertion sort algorithm takes value at a time from the unsorted part and pl
 
 :::info Key Points
 - **Type:** Sorting Algorithm
-- **Time Complexity:**
+- **## Time Complexity
+O(...)**
   - **Best Case:** $O(n)$
   - **Average Case:** $O(n^2)$
   - **Worst Case:** $O(n^2)$
-- **Space Complexity:** $O(1)$
+- **## Space Complexity
+O(...)** $O(1)$
 - **Stable:** Yes
 - **In-Place:** Yes
 - **Online:** Yes

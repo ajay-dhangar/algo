@@ -255,9 +255,9 @@ int main() {
 
 ```
 ## Complexity Analysis
-- **Time Complexity**:
+- ## ## Time Complexity
   - **Enqueue/Dequeue**: $O(1)$ for insertion and deletion.
-- **Space Complexity**: $O(n)$, where $n$ is the fixed size of the circular array.
+- ## ## Space Complexity $O(n)$, where $n$ is the fixed size of the circular array.
 
 ## Potential Issues and Solutions
 - **Overflow**: Can occur if elements are added without checking if the array is full.

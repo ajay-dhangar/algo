@@ -91,15 +91,17 @@ Given a dataset with multiple features and corresponding class labels, the objec
 ### Split Criteria:
 Naive Bayes splits data based on the **highest posterior probability** for each class, assigning the class label that maximizes this probability.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   Training involves calculating probabilities for each feature and class, resulting in a time complexity of $ O(n \cdot k) $, where $ n $ is the number of features and $ k $ is the number of classes.
   
 - **Prediction Complexity**:  
   For predicting the class of a new data point, the time complexity is $ O(n \cdot k) $, as it requires computing the posterior probability for each class.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   The space complexity is mainly determined by storing the calculated probabilities, which depends on the number of features, classes, and their possible values.
 
 ### Example:

@@ -67,7 +67,7 @@ The adjacency matrix is:
       v5	0	0	0	1	0
        
 
-### Time Complexity
+## Time Complexity
 - The time complexity of the code is `O(V^2)` for both creating and displaying the graph, where  `V` is the number of nodes.
   
 ### C++ Implementation

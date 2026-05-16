@@ -49,7 +49,8 @@ Given an array X[] of size n, write a program to find the maximum and minimum el
 
 7. **Edge Case:** If the array has only one element, that element is both the minimum and maximum.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - The time complexity of this algorithm is `O(n)` because each level of recursion processes a smaller subset of elements in parallel. The total number of comparisons is minimized to approximately `O(3n/2)` in the worst case, making this approach more efficient than a straightforward solution.   
 
 ### Sample Input:

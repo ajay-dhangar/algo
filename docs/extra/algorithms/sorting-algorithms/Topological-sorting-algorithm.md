@@ -51,7 +51,8 @@ Topological Sorting helps in sorting vertices in a Directed Acyclic Graph (DAG) 
 A -→ B -→ C -→ D → E -→ F
 
 ## Time Complexity
-**Time Complexity:** O(V + E), where:
+**## Time Complexity
+O(...)** O(V + E), where:
 - `V` is the number of vertices.
 - `E` is the number of edges.
 

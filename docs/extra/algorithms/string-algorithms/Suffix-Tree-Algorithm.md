@@ -33,12 +33,12 @@ A **suffix tree** is a compressed tries of all the suffixes of a given string. I
 2. **Searching**:
    - Traverse the suffix tree to search for patterns and substrings efficiently.
 
-### Time Complexity
+## Time Complexity
 
 - Construction: `O(n)` (for efficient algorithms like Ukkonen's).
 - Search: `O(m)` for a pattern of length `m`.
 
-### Space Complexity
+## Space Complexity
 
 - `O(n)` for storing the suffix tree.
 

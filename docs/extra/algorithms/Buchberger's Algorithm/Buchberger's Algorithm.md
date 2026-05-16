@@ -18,15 +18,15 @@ sidebar_label: Buchberger's Algorithm
 - **Data Structures**: A vector of polynomials is maintained during the computation.
 - **Output**: A Gröbner Basis for the input polynomials.
 
-### Time Complexity
+## Time Complexity
 
 - **Average Case**: The complexity depends on the degree of the polynomials and the number of terms. The algorithm can have exponential time complexity in the worst case.
 - **Worst Case**: $O(n^3)$ or more, depending on the implementation and the number of polynomials involved.
 
 
-### Space Complexity
+## Space Complexity
 
-- **Space Complexity**: $O(n)$, where $n$ is the number of polynomials. The space is required to store the polynomials and their intermediate results.
+- ## ## Space Complexity $O(n)$, where $n$ is the number of polynomials. The space is required to store the polynomials and their intermediate results.
 
 ### Approach
 

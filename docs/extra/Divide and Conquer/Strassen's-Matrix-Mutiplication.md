@@ -41,10 +41,12 @@ Given 2 matrix, multiply them such that the time complexity of the calculation i
 
 7. **Output**: Return the resulting matrix `C` .
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - The time complexity of Strassen's algorithm for matrix multiplication is  `O(n^2.81)`. This is an improvement over the conventional matrix multiplication's. Strassen's algorithm reduces the number of multiplicative operations by recursively dividing matrices into smaller submatrices, making it more efficient for large matrices, though it may incur overhead from additional additions and subtractions.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 - The space complexity of Strassen's matrix multiplication algorithm is `O(n)`, where `n` is the dimension of the matrices. This complexity arises from the additional space needed to store the temporary matrices used in the recursive calculations. While Strassen's algorithm requires fewer multiplicative operations, it still utilizes linear space to hold the intermediate results, making it more space-efficient than traditional methods, which typically require `O(n^2)` space for the resulting matrix.
 
 ### Sample Input:

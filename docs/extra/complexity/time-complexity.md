@@ -79,7 +79,8 @@ To analyze the time complexity of an algorithm, we can follow these steps:
 
 1. **Count the Operations:** Count the number of elementary operations performed by the algorithm.
 2. **Identify the Dominant Term:** Identify the term that grows the fastest as the size of the input grows.
-3. **Express the Time Complexity:** Express the time complexity using the Big O notation.
+3. **Express the ## Time Complexity
+O(...)** Express the time complexity using the Big O notation.
 4. **Compare with Other Algorithms:** Compare the time complexity with other algorithms to choose the most efficient one.
 5. **Analyze the Best, Worst, and Average Cases:** Analyze the best-case, worst-case, and average-case time complexity of the algorithm.
 6. **Optimize the Algorithm:** Optimize the algorithm to improve its time complexity if possible.

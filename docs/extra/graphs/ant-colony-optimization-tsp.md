@@ -160,12 +160,16 @@ if __name__ == "__main__":
 
 ```
 
-### Time Complexity:
-- **Time Complexity: O(N * ants_num * iterations_num)**  
+## ## Time Complexity
+O(...)
+- **## Time Complexity
+O(...) O(N * ants_num * iterations_num)**  
   The time complexity depends on the number of cities (N), the number of ants (ants_num), and the number of iterations (iterations_num). 
 
-### Space Complexity:
-- **Space Complexity: O(N^2)**
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) O(N^2)**
   The algorithm requires storage for pheromone levels on all paths, resulting in a space complexity of O(N^2) for a fully connected graph.
   
 ### Summary:

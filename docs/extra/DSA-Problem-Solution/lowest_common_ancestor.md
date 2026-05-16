@@ -92,12 +92,14 @@ class Solution:
 
 ---
 
-### Time Complexity: `O(N)`
+## ## Time Complexity
+O(...) `O(N)`
 
 - `N` is the number of nodes in the binary tree.
 - We traverse each node of the binary tree only once.
 
-### Space Complexity: `O(H)`
+## ## Space Complexity
+O(...) `O(H)`
 
 - `H` is the height of the tree, which represents the space used by the recursion stack.
 - In the worst case (a skewed tree), `H` can be `O(N)`. In a balanced tree, `H` is `O(log N)`.
@@ -149,12 +151,14 @@ def lowestCommonAncestor(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
     return q
 ```
 
-### Time Complexity: `O(N)`
+## ## Time Complexity
+O(...) `O(N)`
 
 - Traversing the tree to fill the parent pointers takes `O(N)` time.
 - Tracing back the ancestors of `p` and `q` also takes `O(N)` time.
 
-### Space Complexity: `O(N)`
+## ## Space Complexity
+O(...) `O(N)`
 
 - The hash map and ancestor set both use `O(N)` space.
 

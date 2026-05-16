@@ -189,8 +189,8 @@ console.log(res.join(" ")); // Output the result
 
 ## Complexity
 
-- **Time Complexity**: O(n)
-- **Space Complexity**: O(1) if we use the output array directly for left and right products (optimized version).
+- ## ## Time Complexity O(n)
+- ## ## Space Complexity O(1) if we use the output array directly for left and right products (optimized version).
 
 > **Note**: The above implementation uses O(n) space for the output array.
 

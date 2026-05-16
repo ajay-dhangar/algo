@@ -28,7 +28,8 @@ Linear search, also known as sequential search, is the simplest searching algori
 - **Works with All Data Types**:
   - Linear search can be applied to any data type that supports comparison, making it universally applicable.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(1)$**  
   In the best case, the target element is found at the very beginning of the array, requiring only a single comparison.
@@ -39,9 +40,11 @@ Linear search, also known as sequential search, is the simplest searching algori
 - **Worst Case: $O(n)$**  
   In the worst case, the target element is located at the end of the array, or it may not be present at all, requiring a full traversal of the array.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(1)$**  
+- **## Space Complexity
+O(...) $O(1)$**  
   Linear search requires a constant amount of additional memory, regardless of the size of the array, making it a space-efficient algorithm.
 
 ### When to Use Linear Search:

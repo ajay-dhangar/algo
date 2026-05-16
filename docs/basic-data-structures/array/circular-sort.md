@@ -15,11 +15,11 @@ tags: [dsa, arrays, sorting, circularsort, sorting-algorithms]
 4. **Iterate**: Move to the next index and repeat the process for any elements not yet sorted.
 
 ## Key Characteristics
-- **Time Complexity**: 
+- ## ## Time Complexity 
   - *Best Case:* $O(n^2)$ 
   - *Average Case:* $O(n^2)$
   - *Worst Case:* $O(n^2)$
-- **Space Complexity**: $O(1)$
+- ## ## Space Complexity $O(1)$
 - **Memory Writes**: $O(n)$
 
 ## C++ Implementation

@@ -120,11 +120,12 @@ plt.grid()
 plt.show()
 ```
 
-### Time and Space Complexity:
-- **Time Complexity**:  
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity  
   Training complexity is approximately $O(n \cdot m \cdot t)$, where $n$ is the number of samples, $m$ is the number of features, and $t$ is the number of weak learners.
 
-- **Space Complexity**:  
+- ## ## Space Complexity  
   The space required is $O(t)$ for storing the weak classifiers and their weights.
 
 ### Summary & Applications:

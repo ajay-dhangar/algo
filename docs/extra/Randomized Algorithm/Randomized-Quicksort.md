@@ -31,10 +31,11 @@ This program sorts an array of integers in ascending order using the randomized 
    - Prompts the user to input the number of elements and the elements themselves.
    - Displays the original array, calls `quicksort` to sort the array, and then prints the sorted array.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - The randomized QuickSort has an average time complexity of `O(n log n)` due to balanced splits, with `O(n^2)` as the worst case for highly unbalanced partitions. Randomizing the pivot reduces the likelihood of worst-case splits, keeping performance near `O(n log n)`.
 
-### Space Complexity
+## Space Complexity
 - The space complexity of randomized QuickSort is `O(log n)` on average due to the recursion stack depth, as balanced partitions limit the number of recursive calls. In the worst case, where partitions are highly unbalanced, the space complexity can increase to `O(n)`.
 
 ### Sample Input:

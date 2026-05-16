@@ -95,15 +95,17 @@ Given sequential data such as time-series, text, or audio, the goal of an LSTM i
 ### Split Criteria:
 LSTMs process data in sequential order, using the previous hidden state and cell state at each time step to inform the current step’s calculations. They are particularly useful for tasks where maintaining information over long sequences is critical.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   The time complexity of training an LSTM is proportional to the sequence length $T$, the size of the input $n$, and the number of hidden units $h$, and is approximately $O(T \cdot n \cdot h^2)$.
 
 - **Prediction Complexity**:  
   For inference, the complexity depends on the sequence length, as LSTMs must process each time step sequentially.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   LSTMs need memory proportional to the sequence length $T$ and the number of hidden units $h$, resulting in a space complexity of $O(T \cdot h)$.
 
 ### Example:

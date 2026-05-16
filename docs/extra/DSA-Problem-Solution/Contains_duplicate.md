@@ -93,8 +93,10 @@ Insert into the set: If not found, add the number to the set.
 Final Result: If the loop completes without finding any duplicates, return false.
 
 ## complexcity
-## Time Complexity:
+## ## Time Complexity
+O(...)
 Time complexity- O(n), where n is the size of the input array.
 
-## Space complexity:
+## ## Space Complexity
+O(...)
 -O(n), as we are using an unordered_set to store up to n unique elements.

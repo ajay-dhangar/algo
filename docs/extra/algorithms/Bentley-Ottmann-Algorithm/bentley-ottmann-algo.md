@@ -16,15 +16,15 @@ The **Bentley-Ottmann Algorithm** is a sweep line algorithm designed to detect a
 - **Data Structures**: Priority queue (for event management) and a balanced binary search tree (for active segment management).
 - **Output**: Reports all intersection points in the input set of line segments.
 
-### Time Complexity
+## Time Complexity
 
 - **Average Case**: \( O((n + k) \log n) \), where \( n \) is the number of line segments and \( k \) is the number of intersections found.
 - **Worst Case**: \( O(n^2 \log n) \) if \( k \) approaches \( n^2 \) (as in the case of nearly all segments intersecting each other).
 
 
-### Space Complexity
+## Space Complexity
 
-- **Space Complexity**: \( O(n + k) \), due to storage for the event queue and the active segments.
+- ## ## Space Complexity \( O(n + k) \), due to storage for the event queue and the active segments.
 
 
 ### Approach

@@ -39,8 +39,8 @@ To remove duplicates from the sorted linked list:
    - This algorithm modifies the list in place without additional data structures.
 
 ### Complexity
-- **Time Complexity**: `O(n)`, where `n` is the number of nodes in the linked list, as we traverse each node once.
-- **Space Complexity**: `O(1)`, as it operates in constant space by modifying the list in place.
+- ## ## Time Complexity `O(n)`, where `n` is the number of nodes in the linked list, as we traverse each node once.
+- ## ## Space Complexity `O(1)`, as it operates in constant space by modifying the list in place.
 
 ## Code Implementation
 

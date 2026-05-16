@@ -30,8 +30,8 @@ To solve the Beautiful Subgrids problem, we can use a straightforward approach t
 
 ## Complexity Analysis
 
-- **Time Complexity**: The worst-case time complexity is $O(m^2 . n^2)$, where $\rightarrow$ $m$ is the number of rows and $\rightarrow$ $n$ is the number of columns in the grid.
-- **Space Complexity**: The space complexity is $\rightarrow$ $O(1)$ for auxiliary storage, but this could increase if storing subgrids is necessary.
+- ## ## Time Complexity The worst-case time complexity is $O(m^2 . n^2)$, where $\rightarrow$ $m$ is the number of rows and $\rightarrow$ $n$ is the number of columns in the grid.
+- ## ## Space Complexity The space complexity is $\rightarrow$ $O(1)$ for auxiliary storage, but this could increase if storing subgrids is necessary.
 
 ## Code Implementations
 

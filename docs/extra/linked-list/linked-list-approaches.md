@@ -100,14 +100,22 @@ Node* reverseRecursive(Node* head) {
 
 ## Time and Space Complexities
 ### Iterative Approach
-- Time Complexity: O(n) for most operations, where n is the number of nodes.
-- Space Complexity: O(1) (no additional memory used).
+- ## Time Complexity
+O(...) O(n) for most operations, where n is the number of nodes.
+- ## Space Complexity
+O(...) O(1) (no additional memory used).
 ### Recursive Approach
-- Time Complexity: O(n) for most operations.
-- Space Complexity: O(n) due to recursive stack space.
+- ## Time Complexity
+O(...) O(n) for most operations.
+- ## Space Complexity
+O(...) O(n) due to recursive stack space.
 ### Two Pointer Approach
-- Time Complexity: O(n) for cycle detection and finding the middle.
-- Space Complexity: O(1).
+- ## Time Complexity
+O(...) O(n) for cycle detection and finding the middle.
+- ## Space Complexity
+O(...) O(1).
 ### Recursive Reversal
-- Time Complexity: O(n).
-- Space Complexity: O(n) due to recursion.
+- ## Time Complexity
+O(...) O(n).
+- ## Space Complexity
+O(...) O(n) due to recursion.

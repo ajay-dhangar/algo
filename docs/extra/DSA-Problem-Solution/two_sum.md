@@ -41,5 +41,7 @@ class Solution:
                 return [num_map[complement], i]
             num_map[num] = i
 ```
-Time Complexity: O(n) <br /> 
-Space Complexity: O(n)    
+## Time Complexity
+O(...) O(n) <br /> 
+## Space Complexity
+O(...) O(n)    

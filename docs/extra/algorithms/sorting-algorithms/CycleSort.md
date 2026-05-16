@@ -25,7 +25,8 @@ Cycle sort is a comparison-based, in-place sorting algorithm known for its optim
 - **Efficient in Write-Heavy Environments**:
   - While not the most efficient in terms of time complexity, its ability to minimize write operations makes it useful in environments where writing to memory is expensive.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n²)**  
   Even in the best case, cycle sort has a time complexity of O(n²), as it requires traversing each cycle of elements in the array.
@@ -36,9 +37,11 @@ Cycle sort is a comparison-based, in-place sorting algorithm known for its optim
 - **Worst Case: O(n²)**  
   In the worst case, the time complexity remains O(n²), similar to algorithms like selection sort and bubble sort.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(1)**  
+- **## Space Complexity
+O(...) O(1)**  
   Cycle sort is an in-place algorithm, requiring no additional memory besides the input array.
 
 ### C++ Implementation:

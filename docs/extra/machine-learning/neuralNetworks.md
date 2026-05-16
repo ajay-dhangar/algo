@@ -162,11 +162,12 @@ model.fit(X_train, y_train, epochs=10, batch_size=8)
 model.summary()
 ```
 
-### Time and Space Complexity:
-- **Time Complexity**:  
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity  
   Forward and backward propagation in a neural network is roughly $O(d \cdot n \cdot k)$, where $d$ is the number of layers, $n$ is the number of neurons per layer, and $k$ is the number of training samples.
 
-- **Space Complexity**:  
+- ## ## Space Complexity  
   The memory required is $O(d \cdot n)$ for storing weights, biases, and intermediate activations.
 
 ### Summary & Applications:

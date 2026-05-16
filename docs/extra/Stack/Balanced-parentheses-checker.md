@@ -40,10 +40,10 @@ Scan the expression:
          - Check if the popped character matches the corresponding opening parenthesis for the current closing parenthesis:
          - If it does not match, return `false` (mismatched parentheses).         
 
-### Time Complexity
+## Time Complexity
 For each character in the expression, insertion and deletion operations (push and pop) on the stack take constant time `O(1)`. The algorithm scans through the expression once, making the time complexity `O(n)`, where `n` is the length of the expression.
 
-### Space Complexity
+## Space Complexity
 The stack can hold at most `n` characters in the worst case (when all characters are opening parentheses), so the space complexity is `O(n)`.
 
 ### Sample Input

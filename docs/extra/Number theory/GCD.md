@@ -202,7 +202,8 @@ Given two integers `a = 56` and `b = 98`, compute their GCD using Euclid's algor
 GCD(56, 98) = 14
 ```
 
-## Time Complexity:
+## ## Time Complexity
+O(...)
 
 The time complexity of the Euclidean algorithm is `O(log(min(a, b)))`, making it highly efficient for computing GCD even for large numbers.
 

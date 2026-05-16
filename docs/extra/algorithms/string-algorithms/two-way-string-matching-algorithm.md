@@ -33,7 +33,8 @@ The Two-Way String-Matching Algorithm, developed by Crochemore and Perrin, is an
   - Computes critical factorization points
   - Prepares shift tables for both directions
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m)$**
   - Where m is the length of the pattern
@@ -45,7 +46,8 @@ The Two-Way String-Matching Algorithm, developed by Crochemore and Perrin, is an
   - Best case performance of O(n/m)
   - Sublinear on average
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(m)$**
   - Where m is the pattern length

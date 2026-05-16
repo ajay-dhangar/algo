@@ -33,7 +33,8 @@ The Berry-Ravindran Algorithm is an efficient pattern matching algorithm that co
   - Pair-based shifting
   - Optimized jumps
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m + σ²)$**
   - Where m is pattern length
@@ -45,7 +46,8 @@ The Berry-Ravindran Algorithm is an efficient pattern matching algorithm that co
   - Sublinear in practice
   - Better average case
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(σ²)$**
   - Shift table storage

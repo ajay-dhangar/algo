@@ -143,15 +143,20 @@ Given a dataset with labelled examples (for classification) or continuous target
 - **Averaging**:  
   For regression, the predicted value is the average of the k nearest neighbour's target values.
 
-### Time Complexity:
-- **Training Time Complexity: $O(1)$**  
+## ## Time Complexity
+O(...)
+- **Training ## Time Complexity
+O(...) $O(1)$**  
   k-NN doesn’t require a training phase, so it takes constant time.
   
-- **Prediction Time Complexity: $O(n \cdot d)$**  
+- **Prediction ## Time Complexity
+O(...) $O(n \cdot d)$**  
   Predicting the class or value for a new data point requires computing the distance between the new point and all n training points, each of which has d dimensions.
 
-### Space Complexity:
-- **Space Complexity: $O(n \cdot d)$**  
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) $O(n \cdot d)$**  
   The algorithm stores the entire dataset, which consists of n points in d dimensions.
 
 ### Example:

@@ -11,8 +11,8 @@ tags: [dsa, algorithms, shortest path]
 Dijkstra's Algorithm is used to find the shortest path from a source node to all other nodes in a weighted graph, where all edge weights are non-negative. It is widely used in network routing and GPS applications.
 
 ## Key Features:
-- **Time Complexity**: O(V²) for a simple implementation with an adjacency matrix, or O(E log V) using a priority queue (min-heap).
-- **Space Complexity**: O(V), where V is the number of vertices.
+- ## ## Time Complexity O(V²) for a simple implementation with an adjacency matrix, or O(E log V) using a priority queue (min-heap).
+- ## ## Space Complexity O(V), where V is the number of vertices.
 - Suitable for graphs with non-negative edge weights.
 
 ## Applications:

@@ -33,8 +33,8 @@ To swap the kth node from the beginning with the kth node from the end:
    - Swap the `val` fields of the two nodes.
 
 ### Complexity
-- **Time Complexity**: `O(n)`, where `n` is the number of nodes in the list, as we traverse the list twice.
-- **Space Complexity**: `O(1)`, as we use only a few extra pointers for the operation.
+- ## ## Time Complexity `O(n)`, where `n` is the number of nodes in the list, as we traverse the list twice.
+- ## ## Space Complexity `O(1)`, as we use only a few extra pointers for the operation.
 
 ## Code Implementation
 

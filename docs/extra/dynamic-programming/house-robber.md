@@ -114,8 +114,10 @@ int main() {
 
 ## Time and Space Complexity
 
--   **Time Complexity:** The time complexity is $O(n)$ since we iterate through the list of houses once.
--   **Space Complexity:** The space complexity is $O(n)$ due to the `dp` array used for storing intermediate results.
+-   **## Time Complexity
+O(...)** The time complexity is $O(n)$ since we iterate through the list of houses once.
+-   **## Space Complexity
+O(...)** The space complexity is $O(n)$ due to the `dp` array used for storing intermediate results.
 
 ## Conclusion
 

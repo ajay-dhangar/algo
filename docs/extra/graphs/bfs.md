@@ -21,14 +21,17 @@ Breadth-First Search (BFS) is a **graph traversal algorithm** that explores vert
 - **Shortest Path in Unweighted Graphs**:
   - BFS can find the shortest path between two nodes in an unweighted graph. Since BFS explores paths in increasing order of their lengths, the first time a node is reached is through the shortest path.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best, Average, and Worst Case: $O(V + E)$**  
   Where `V` is the number of vertices and `E` is the number of edges in the graph. BFS explores each vertex and edge exactly once.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(V)$**  
+- **## Space Complexity
+O(...) $O(V)$**  
   BFS requires space to store the visited vertices, the queue for traversal, and the adjacency list for the graph.
 
 ### C++ Implementation:

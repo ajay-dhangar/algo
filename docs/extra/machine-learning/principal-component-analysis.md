@@ -57,15 +57,17 @@ Given a high-dimensional dataset, PCA aims to reduce its dimensionality while pr
 ### Split Criteria:
 PCA does not involve splitting data like supervised learning; instead, it focuses on transforming all available data into a lower-dimensional space based on variance maximization.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   Computing PCA typically involves matrix operations that can have a time complexity of $O(n^2 \cdot p)$, where $n$ is the number of samples and $p$ is the number of features.
   
 - **Prediction Complexity**:  
   The complexity for projecting new data points is $O(k \cdot p)$, where $k$ is the number of principal components retained.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   The space complexity primarily depends on storing covariance matrices and eigenvectors, which can be $O(p^2)$.
 
 ### Example:

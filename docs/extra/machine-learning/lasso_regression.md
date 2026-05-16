@@ -67,15 +67,17 @@ Given a labeled dataset with multiple features and corresponding continuous targ
 ### Split Criteria:
 Lasso Regression typically splits data based on minimizing prediction error while incorporating regularization effects in coefficient estimation.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   Varies by algorithm; for Lasso Regression, it can be more computationally intensive than standard linear regression due to optimization with regularization.
   
 - **Prediction Complexity**:  
 Similar to linear regression; once trained, predictions are generally quick.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
 Depends on how much information about the training set needs to be stored; typically lower than tree-based models because it maintains fewer parameters.
 
 ### Example:

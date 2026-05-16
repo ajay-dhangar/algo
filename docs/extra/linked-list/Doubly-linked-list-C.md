@@ -181,13 +181,13 @@ In **C**, doubly linked lists are implemented using structs and pointers. Each n
    ```
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - Traversal: $O(n)$
   - Insertion : $O(1)$
   - Deletion: $O(1)$
 
-- **Space Complexity**: $O(1)$
+- ## ## Space Complexity $O(1)$
 
 ### Advantages:
 

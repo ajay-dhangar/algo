@@ -24,11 +24,13 @@ sidebar_label: BFS
    For each neighbor of the current node, assign a heuristic value and add it to the priority queue if it hasn’t been visited yet.
 4. **Repeat:**
    Repeat the process until the goal node is reached or all reachable nodes have been visited.
-### Time Complexity:
-- **Time Complexity**: O(V + E log V)  
+## ## Time Complexity
+O(...)
+- ## ## Time Complexity O(V + E log V)  
   Where `V` is the number of vertices and `E` is the number of edges. The additional log factor comes from using the priority queue.
-### Space Complexity:
-- **Space Complexity**: O(V)  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity O(V)  
   The space complexity is proportional to the number of vertices, as the priority queue will store each node once.
 ### Advantages of BFS:
 - **Efficient for Shortest Paths:**

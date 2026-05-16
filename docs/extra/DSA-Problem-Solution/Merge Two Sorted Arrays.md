@@ -31,7 +31,7 @@ To merge the two sorted arrays efficiently, we can use the following approach:
 3. **Handle Remaining Elements**: Once one of the arrays is completely traversed, append any remaining elements from the other array to the merged array.
 4. **Return the Merged Array**: The final output will be a single sorted array containing all elements from both input arrays.
 
-### Time Complexity
+## Time Complexity
 The time complexity for this approach is \(O(n + m)\), where \(n\) and \(m\) are the lengths of the two input arrays.
 
 ## Implementation

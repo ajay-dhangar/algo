@@ -119,7 +119,8 @@ Let’s see how Dijkstra's Algorithm can be implemented in C++:
 In this algorithm, we use a greedy approach where we always pick the unvisited node with the minimum distance from the source node and update the distances to its neighbors.
 
 
-## Time complexity:
+## ## Time Complexity
+O(...)
 
 Dijkstra's Algorithm: O(V²) (with an adjacency matrix, where V is the number of vertices)<br/>
 With Priority Queue: O((V + E) log V), where E is the number of edges

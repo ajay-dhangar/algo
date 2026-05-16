@@ -33,10 +33,12 @@ The **Two Pointers** technique is a widely used algorithmic pattern that utilize
 - **Merging two sorted arrays**.
 - **Finding the longest substring with at most K distinct characters**.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **O(n)**, where n is the size of the array or string. The two pointers ensure that we traverse the data structure only once.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 - **O(1)**, as the approach typically uses a constant amount of extra space regardless of the input size.
 
 ### C++ Implementation (Finding a Pair with a Given Sum):

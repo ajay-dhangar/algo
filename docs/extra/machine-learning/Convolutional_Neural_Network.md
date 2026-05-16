@@ -107,15 +107,17 @@ Given an image dataset, the goal of a CNN is to classify the images into differe
 ### Split Criteria:
 CNNs split data by progressively extracting features at different layers, with lower layers detecting simple patterns (e.g., edges) and higher layers capturing complex features (e.g., objects).
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   The time complexity depends on the number of filters, kernel size, and input dimensions. For an image of size $n \times n$ with $k$ filters of size $f \times f$, the time complexity of a convolutional layer is $O(n^2 \cdot f^2 \cdot k)$.
 
 - **Prediction Complexity**:  
   For inference, the time complexity depends on the depth of the network and the number of layers.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   The space complexity is proportional to the number of filters, input dimensions, and kernel size, as well as the storage for feature maps and weights.
 
 ### Example:

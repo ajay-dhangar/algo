@@ -37,8 +37,8 @@ To merge the two sorted linked lists:
    - The merged list starts from `dummy.next` since `dummy` is just a placeholder.
 
 ### Complexity
-- **Time Complexity**: `O(n + m)`, where `n` and `m` are the lengths of the two input lists.
-- **Space Complexity**: `O(1)` (in-place merging without additional data structures).
+- ## ## Time Complexity `O(n + m)`, where `n` and `m` are the lengths of the two input lists.
+- ## ## Space Complexity `O(1)` (in-place merging without additional data structures).
 
 ## Code Implementation
 

@@ -29,20 +29,20 @@ A **digital search** algorithm is one that operates on the individual digits or 
 
 #### 1. **Trie Search**:
    - **Definition**: A trie (pronounced "try") is a tree-like data structure used for storing strings where each node represents a character. Searching in a trie involves traversing the tree, character by character.
-   - **Time Complexity**: $O(m)$ where *m* is the length of the key being searched. This is independent of the number of keys stored in the trie, making it fast for fixed-length keys.
+   - ## ## Time Complexity $O(m)$ where *m* is the length of the key being searched. This is independent of the number of keys stored in the trie, making it fast for fixed-length keys.
    - **Applications**: Used in applications like auto-completion, dictionary search, and IP routing tables.
 
 #### 2. **Radix Search**:
    - **Definition**: Radix search uses the idea of processing keys digit by digit from the most significant digit to the least significant one. It can be implemented using a **radix tree** or **radix sort**.
-   - **Time Complexity**: $O(k)$ for searching, where *k* is the number of digits or characters in the key.
+   - ## ## Time Complexity $O(k)$ for searching, where *k* is the number of digits or characters in the key.
    - **Applications**: Useful in scenarios like sorting strings or numbers with fixed lengths.
 
 #### 3. **Hashing**:
    - **Definition**: Hashing is a form of digital search that uses a **hash function** to transform the search key into an index within a hash table. Searching involves hashing the key and accessing the corresponding bucket.
-   - **Time Complexity**: $O(1)$ for average-case search (constant time), though $O(n)$ in the worst case when hash collisions occur.
+   - ## ## Time Complexity $O(1)$ for average-case search (constant time), though $O(n)$ in the worst case when hash collisions occur.
    - **Applications**: Widely used in databases, caches, and associative arrays.
 
-### Time Complexity of Digital Search Algorithms:
+## Time Complexity of Digital Search Algorithms:
 
 - **Trie Search: $O(m)$**  
   Searching for a string in a trie has linear time complexity relative to the length of the key, but it is independent of the number of stored keys.
@@ -53,7 +53,8 @@ A **digital search** algorithm is one that operates on the individual digits or 
 - **Hashing: $O(1)$**  
   Hashing provides constant time search on average, although the worst-case complexity can degrade to O(n) if many keys hash to the same index (collisions).
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Trie Search: $O(m * n)$**  
   Tries can consume significant memory because each node represents a single character or digit, and the space grows with the number of keys (n) and the length of keys (m).

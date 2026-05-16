@@ -19,7 +19,8 @@ Jump search is a **search algorithm** for **sorted arrays**. It works by jumping
 - **Linear Search in Identified Block**:
   - Once the target block is identified, a linear search is performed within that block.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(1)$**  
   If the target element is at the start of the array or the block.
@@ -27,7 +28,8 @@ Jump search is a **search algorithm** for **sorted arrays**. It works by jumping
 - **Average and Worst Case: $O(\sqrt{n})$**  
   The optimal block size for jump search is $\sqrt{n}$, making its time complexity $O(\sqrt{n})$.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Iterative: $O(1)$**  
   Jump search uses a constant amount of space for the variables that store block indices.

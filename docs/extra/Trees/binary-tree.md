@@ -110,7 +110,7 @@ graph TB
 | **Structure**        | Each node has at most two children                   | Each node follows the binary search property        |
 | **Insertion**        | Can be arbitrary                                     | Follows specific rules based on key comparison      |
 | **Traversal**        | Supports various traversal methods                   | Supports all binary tree traversal methods           |
-| **Time Complexity**  | O(n) for unbalanced trees; O(log n) for balanced trees | O(log n) for search, insertion, and deletion (balanced) |
+| ## Time Complexity  | O(n) for unbalanced trees; O(log n) for balanced trees | O(log n) for search, insertion, and deletion (balanced) |
 | **Use Case**         | General representation of data                       | Efficient searching and sorted data operations       |
 
 ## Conclusion

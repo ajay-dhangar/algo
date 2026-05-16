@@ -40,7 +40,8 @@ The space complexity is  **O(m)** , where `m` is the number of Ulam numbers stor
 
 ### Limitations and Considerations
 
-* **Time Complexity:**
+* **## Time Complexity
+O(...)**
   * The recursive Ulam Sequence generation, while conceptually elegant, has a high time complexity, especially for large values of `maxN`. As each candidate number needs to be checked against all previously generated Ulam numbers, this can lead to quadratic time complexity. For large sequences, this results in slower performance and makes the algorithm inefficient compared to iterative or optimized approaches.
 * **Memory Usage:**
   * The algorithm requires storing the Ulam numbers generated up to `maxN` for future use in the recursive calls. This can lead to high memory consumption for larger sequences as every Ulam number up to the limit needs to be kept in memory, contributing to space complexity concerns.

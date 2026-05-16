@@ -29,7 +29,8 @@ The Finite State Automaton (FSA) algorithm is a string matching technique that c
   - Once the automaton is constructed, text processing requires minimal additional memory.
   - Each character is processed exactly once without backtracking.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m|Σ|)$**
   - Where m is the pattern length and |Σ| is the size of the alphabet.
@@ -39,9 +40,11 @@ The Finite State Automaton (FSA) algorithm is a string matching technique that c
   - Where n is the text length.
   - Linear time processing of the text, examining each character exactly once.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(m|Σ|)$**
+- **## Space Complexity
+O(...) $O(m|Σ|)$**
   - Storage required for the transition table, where m is the pattern length and |Σ| is the alphabet size.
   - Each state needs transitions defined for every possible character.
 

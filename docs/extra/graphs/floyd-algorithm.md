@@ -14,8 +14,8 @@ The algorithm iteratively improves the solution by checking if a path between tw
 
 ## Key Features:
 
-- **Time Complexity**: O(V³), where V is the number of vertices.
-- **Space Complexity**: O(V²), as it stores the distances in a 2D array.
+- ## ## Time Complexity O(V³), where V is the number of vertices.
+- ## ## Space Complexity O(V²), as it stores the distances in a 2D array.
 - Suitable for dense graphs due to its cubic time complexity.
 
 ## Applications:

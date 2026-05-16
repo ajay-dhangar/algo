@@ -17,7 +17,8 @@ tags: [perfect-sum, recursion, dynamic-programming, dsa]
 - Explanation: The subsets that sum to 10 are {5, 2, 3}, {2, 8}, and {10}.
 ```
 
-- Expected Time Complexity: 𝑂(𝑛×sum)
+- Expected ## Time Complexity
+O(...) 𝑂(𝑛×sum)
 
 - Expected Auxiliary Space: 𝑂(𝑛×sum)
 

@@ -34,15 +34,19 @@ Kruskal's algorithm is a greedy algorithm used to find the Minimum Spanning Tree
 ### Problem Statement:
 Given a connected, undirected graph with `n` vertices and `m` edges, find a subset of edges that forms a tree including all vertices, where the total weight of the edges is minimized.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Sorting Edges**: $O(m \log m)$  
   Where `m` is the number of edges.
 - **Union-Find Operations**: $O(\alpha(V))$ for each edge, where `α` is the inverse Ackermann function (almost constant time).
 
-Overall time complexity: $O(m \log m)$
+Overall ## Time Complexity
+O(...) $O(m \log m)$
 
-### Space Complexity:
-- **Space Complexity: $O(V + E)$**  
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) $O(V + E)$**  
   This is due to storing the edges, vertices, and auxiliary data structures for Union-Find.
 
 ### Example:

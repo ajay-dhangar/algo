@@ -48,7 +48,9 @@ class Solution:
         return max_length
 
 ```
-Time Complexity: O(n) <br /> 
-Space Complexity: O(min(n, m)) (where m is the size of the character set)
+## Time Complexity
+O(...) O(n) <br /> 
+## Space Complexity
+O(...) O(min(n, m)) (where m is the size of the character set)
 
     

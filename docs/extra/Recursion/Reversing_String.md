@@ -11,7 +11,8 @@ tags: [reverse-string, recursion, dsa]
 - Problem Statement: Given a string str, the task is to reverse the string using a recursive function. The function should return the reversed string as the output.
 
 
-- Expected Time Complexity: 𝑂(𝑛)
+- Expected ## Time Complexity
+O(...) 𝑂(𝑛)
 
 - Expected Auxiliary Space: 𝑂(𝑛)
 

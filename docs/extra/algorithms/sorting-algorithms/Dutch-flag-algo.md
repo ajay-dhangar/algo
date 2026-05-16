@@ -24,7 +24,8 @@ The Dutch National Flag Algorithm is an efficient sorting algorithm that sorts a
 - **Efficient for Specific Inputs**:  
   The algorithm is optimized for arrays with only three distinct values (0, 1, and 2), achieving linear time complexity.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: $O(N)$**  
   The array is traversed only once using the `mid` pointer, resulting in linear time complexity.
@@ -35,9 +36,11 @@ The Dutch National Flag Algorithm is an efficient sorting algorithm that sorts a
 - **Worst Case: $O(N)$**  
   In the worst case, the array may require multiple swaps, but the time complexity remains O(N), where N is the size of the array.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: $O(1)$**  
+- **## Space Complexity
+O(...) $O(1)$**  
   The algorithm uses constant extra space since no additional arrays or data structures are required.
 
 ### Approach:

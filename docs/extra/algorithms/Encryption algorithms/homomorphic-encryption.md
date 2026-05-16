@@ -25,7 +25,8 @@ Homomorphic encryption is an encryption scheme that allows computations to be pe
 - **Common Algorithms**:
   - Popular homomorphic encryption schemes include Paillier encryption (supporting additive homomorphism) and the Brakerski-Gentry-Vaikuntanathan (BGV) scheme (supporting both addition and multiplication).
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Encryption/Decryption Time**: $O(n^2)$  
   The time complexity for homomorphic encryption depends on the specific algorithm and the complexity of the homomorphic operations, often quadratic or higher.
@@ -33,9 +34,10 @@ Homomorphic encryption is an encryption scheme that allows computations to be pe
 - **Computation Time**: $O(n^2)$ or higher  
   The time required to perform operations on ciphertexts is typically more complex than plaintext operations due to the need for special encryption techniques.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: $O(n)$ to $O(n^2)$  
+- ## ## Space Complexity $O(n)$ to $O(n^2)$  
   Homomorphic encryption schemes often require larger ciphertexts, leading to greater space complexity than standard encryption methods.
 
 ### Types of Homomorphic Encryption:

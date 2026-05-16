@@ -36,7 +36,7 @@ An adjacency matrix is a 2D array where each cell at position (i, j) indicates w
 
 ### Characteristics:
 
-- **Space Complexity**: O(V²), where V is the number of vertices.
+- ## ## Space Complexity O(V²), where V is the number of vertices.
 - **Direct Access**: Allows O(1) time complexity for checking if an edge exists between two vertices.
 - **Memory Inefficiency**: Less efficient for sparse graphs (graphs with few edges compared to the number of vertices).
 
@@ -76,7 +76,7 @@ g_matrix.display()
 An adjacency list is a collection of lists or arrays where each list corresponds to a vertex and contains a list of adjacent vertices. It is more space-efficient for sparse graphs.
 
 ### Characteristics:
--**Space Complexity**: O(V + E), where E is the number of edges.
+-## ## Space Complexity O(V + E), where E is the number of edges.
 -**Memory Efficiency**: More efficient for sparse graphs, as it only stores existing edges.
 -**Traversal**: It may take longer to check if an edge exists between two vertices (O(V) in the worst case).
 

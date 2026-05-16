@@ -150,10 +150,13 @@ The insertTerm() function places each term in the polynomial list, maintaining a
 ## Step 3: **Display the Polynomial**
 The displayPolynomial() function outputs the polynomial in human-readable form.
 
-Time Complexity:
+## Time Complexity
+O(...)
 
-- Time Complexity: O(m + n), where m and n are the number of terms in each polynomial. Each term is processed once.
-- Space Complexity: O(m + n), due to the space required for the result polynomial.
+- ## Time Complexity
+O(...) O(m + n), where m and n are the number of terms in each polynomial. Each term is processed once.
+- ## Space Complexity
+O(...) O(m + n), due to the space required for the result polynomial.
   
 ### Applications:
 This method is useful in various contexts:

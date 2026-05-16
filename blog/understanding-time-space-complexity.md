@@ -13,7 +13,7 @@ In this blog, we'll break down:
 
 - **Big O Notation**: The mathematical notation used to describe the performance of an algorithm.
 - **Common time complexities** like $O(1)$, $O(n)$, and $O(log n)$.
-- **Space complexity** and its impact on algorithm design.
+- ## Space Complexity and its impact on algorithm design.
   
 ---
 
@@ -57,7 +57,8 @@ The time complexity of this operation is **$O(n)$** because the algorithm's runt
 
 Space complexity refers to the amount of memory an algorithm needs to execute relative to the input size. It includes both the space required for the input data and any additional variables or data structures the algorithm uses.
 
-### Example of Space Complexity:
+### Example of ## Space Complexity
+O(...)
 
 If an algorithm uses a constant amount of extra space, its space complexity is **$O(1)$**. On the other hand, if the algorithm requires a data structure proportional to the input size (like an extra array of size `n`), the space complexity is **$O(n)$**.
 

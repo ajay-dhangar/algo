@@ -361,7 +361,7 @@ int main() {
 ```
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - Enqueue: $O(1)$
   - Dequeue: $O(1)$
@@ -370,7 +370,7 @@ int main() {
   - isFull: $O(1)$
   - Size: $O(1)$
 
-- **Space Complexity**: $O(n)$, where $n$ is the number of elements that can be stored in the circular queue.
+- ## ## Space Complexity $O(n)$, where $n$ is the number of elements that can be stored in the circular queue.
 
 ### Example
 

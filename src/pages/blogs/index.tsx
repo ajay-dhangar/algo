@@ -54,27 +54,32 @@ const Blogs: React.FC = () => {
       Sorting is a fundamental operation in computer science and programming, crucial for efficiently organizing and retrieving data. Here are the top 5 sorting algorithms you should know about:
 
 1. Bubble Sort
-Time Complexity: O(n²)
+## Time Complexity
+O(...) O(n²)
 How It Works: Bubble Sort repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. This process is repeated until the list is sorted.
 Use Case: Though simple, it's inefficient for large datasets. Best used when the input list is small or nearly sorted.
 
 2. Selection Sort
-Time Complexity: O(n²)
+## Time Complexity
+O(...) O(n²)
 How It Works: Selection Sort divides the list into a sorted and unsorted section. It repeatedly selects the smallest (or largest) element from the unsorted section and moves it to the end of the sorted section.
 Use Case: Good for small lists, but inefficient for larger datasets due to its quadratic time complexity.
 
 3. Insertion Sort
-Time Complexity: O(n²) in the worst case, but O(n) when nearly sorted
+## Time Complexity
+O(...) O(n²) in the worst case, but O(n) when nearly sorted
 How It Works: Insertion Sort builds the sorted list one element at a time. It takes each element and inserts it into its correct position within the sorted part of the array.
 Use Case: Best used when the dataset is small or mostly sorted. It performs well for real-time applications like sorting cards by hand.
 
 4. Merge Sort
-Time Complexity: O(n log n)
+## Time Complexity
+O(...) O(n log n)
 How It Works: Merge Sort is a divide-and-conquer algorithm. It splits the list into smaller sublists, sorts them, and then merges them back together. It guarantees a consistent time complexity of O(n log n).
 Use Case: Great for large datasets and when stability (preserving the relative order of equal elements) is important.
 
 5. Quick Sort
-Time Complexity: O(n log n) on average, but O(n²) in the worst case
+## Time Complexity
+O(...) O(n log n) on average, but O(n²) in the worst case
 How It Works: Quick Sort also follows a divide-and-conquer approach. It selects a pivot element and partitions the array into two sub-arrays—elements smaller than the pivot go to the left, and those greater go to the right. It recursively sorts the sub-arrays.
 Use Case: Quick Sort is widely used because of its efficiency on average, making it one of the fastest sorting algorithms. It’s not stable but is highly efficient for large datasets.
 
@@ -108,21 +113,25 @@ Cyclic vs Acyclic Graph: A cyclic graph contains cycles (a path where the starti
 Breadth-First Search (BFS):
 Explores the graph level by level, starting from a given node.
 Used to find the shortest path in an unweighted graph.
-Time Complexity: O(V + E), where V is the number of vertices and E is the number of edges.
+## Time Complexity
+O(...) O(V + E), where V is the number of vertices and E is the number of edges.
 
 Depth-First Search (DFS):
 Explores as far as possible along a branch before backtracking.
 Useful for detecting cycles, finding connected components, and topological sorting in a DAG.
-Time Complexity: O(V + E).
+## Time Complexity
+O(...) O(V + E).
 
 Dijkstra's Algorithm:
 A shortest path algorithm for weighted graphs.
 It finds the shortest path from a single source to all other vertices.
-Time Complexity: O(V²) for the basic version and O((V + E) log V) for an optimized version using a priority queue.
+## Time Complexity
+O(...) O(V²) for the basic version and O((V + E) log V) for an optimized version using a priority queue.
 
 Kruskal’s and Prim’s Algorithms:
 These are algorithms for finding the Minimum Spanning Tree (MST), which connects all vertices in the graph with the minimum total edge weight.
-Time Complexity: O(E log V).
+## Time Complexity
+O(...) O(E log V).
 
 4. Applications of Graphs
 Social Networks: Modeling relationships and interactions between users.

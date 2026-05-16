@@ -117,11 +117,12 @@ plt.grid()
 plt.show()
 ```
 
-### Time and Space Complexity:
-- **Time Complexity**:  
+### Time and ## Space Complexity
+O(...)
+- ## ## Time Complexity  
   The time complexity is approximately $O(n \cdot k \cdot i)$, where $n$ is the number of data points, $k$ is the number of clusters, and $i$ is the number of iterations.
 
-- **Space Complexity**:  
+- ## ## Space Complexity  
   The space required is $O(n)$ for storing the data points and cluster assignments.
 
 ### Summary & Applications:

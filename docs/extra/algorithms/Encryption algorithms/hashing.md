@@ -42,14 +42,16 @@ Hashing is a process that transforms input data (or a message) into a fixed-size
 4. **bcrypt**:
    - A hashing function designed specifically for hashing passwords, incorporating a salt to protect against rainbow table attacks.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Hash Computation Time**: $O(n)$   
   The time complexity for computing a hash value depends on the input size, with most hashing algorithms running in linear time relative to the input length.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: $O(1)$  
+- ## ## Space Complexity $O(1)$  
   The output size of a hash function is constant (fixed size), independent of the input size, leading to constant space complexity for storing hash values.
 
 ### C++ Implementation of Hashing (Using SHA-256):

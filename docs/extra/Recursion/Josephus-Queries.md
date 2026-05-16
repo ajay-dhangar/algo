@@ -63,8 +63,10 @@ $$
 Since our function will return a 0-based index, we will need to add $1$ to convert it back to a $1$-based index.
 
 ## Time and Space Complexity
-- **Time Complexity:** $O(n)$, where $n$ is the number of children.
-- **Space Complexity:** $O(n)$ due to the recursive stack space.
+- **## Time Complexity
+O(...)** $O(n)$, where $n$ is the number of children.
+- **## Space Complexity
+O(...)** $O(n)$ due to the recursive stack space.
 
 ## Code Implementation
 

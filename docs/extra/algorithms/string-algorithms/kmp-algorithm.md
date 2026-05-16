@@ -191,7 +191,8 @@ By using the failure function for shifts, KMP avoids redundant comparisons, resu
   - Uses failure function for mismatches
   - Maintains linear time complexity
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m)$**
   - Where m is pattern length
@@ -203,7 +204,8 @@ By using the failure function for shifts, KMP avoids redundant comparisons, resu
   - Linear time guaranteed
   - No backtracking in text
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(m)$**
   - Failure function array

@@ -34,10 +34,12 @@ This technique reduces the time complexity significantly for problems that invol
 - **Finding an anagram of one string within another string**.
 - **Finding a subarray with a sum equal to a target**.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **O(n)**, where n is the size of the array or string. The sliding window ensures that we traverse the array/string only once.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 - **O(1)** for most problems if we're just calculating sums or counts.
 - **O(k)** for problems where additional space is required to store intermediate results, like distinct elements in the window.
 

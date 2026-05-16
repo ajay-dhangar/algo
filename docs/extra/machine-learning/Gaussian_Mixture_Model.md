@@ -141,14 +141,16 @@ print("Covariances:", gmm.covariances_)
 - **Image Segmentation**:  
   GMMs can be used for segmenting images into regions by modeling pixel intensities as a mixture of Gaussians.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Training Complexity**:  
   The time complexity of fitting a GMM with EM is generally $O(n \cdot d^2 \cdot k \cdot t)$, where $n$ is the number of data points, $d$ is the dimensionality, $k$ is the number of components, and $t$ is the number of iterations until convergence.
 
 - **Prediction Complexity**:  
   For inference, the complexity is $O(n \cdot d^2 \cdot k)$, where $n$ is the number of data points, $d$ is the dimensionality, and $k$ is the number of Gaussian components.
 
-### Space Complexity:
-- **Space Complexity**:  
+## ## Space Complexity
+O(...)
+- ## ## Space Complexity  
   GMM space complexity depends on the number of components $k$, dimensionality $d$, and the number of data points $n$, typically $O(k \cdot d^2)$ for storing the parameters.
 

@@ -28,14 +28,15 @@ sidebar_label: Fibonacci Search
 2. **Reduce the search range** by eliminating sections of the array based on Fibonacci steps.
 3. Continue comparing and narrowing the search space until the target element is found or the search space is exhausted.
 
-### Time Complexity of Fibonacci Search:
+## Time Complexity of Fibonacci Search:
 
-- **Time Complexity**: $O(\log n)$  
+- ## ## Time Complexity $O(\log n)$  
   Like binary search, Fibonacci search operates in logarithmic time. However, the divisions occur at positions determined by Fibonacci numbers, which may lead to fewer comparisons in certain scenarios.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: $O(1)$  
+- ## ## Space Complexity $O(1)$  
   Fibonacci search requires only a few variables to keep track of the Fibonacci numbers and the current index, leading to constant space complexity.
 
 ### Advantages of Fibonacci Search:

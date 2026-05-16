@@ -17,7 +17,7 @@ The search operation involves retrieving the value associated with a key in a ha
 2. **Check for Key**: If the key exists at the computed index, return the corresponding value.
 3. **Handle Collision**: Properly handle cases where multiple keys map to the same index.
 
-### Time Complexity
+## Time Complexity
 - **Average Case**: $O(1)$
 - **Worst Case**: $O(n)$
 

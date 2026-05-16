@@ -87,10 +87,10 @@ public:
 
 ## Time and Space Complexity
 
-- **Time Complexity**: 
+- ## ## Time Complexity 
   - Build Heap: $O(n \cdot \log k)$
   - Get Kth largest: $O(1)$
-- **Space Complexity**: $O(k)$
+- ## ## Space Complexity $O(k)$
 
 ## Advantages and Disadvantages
 

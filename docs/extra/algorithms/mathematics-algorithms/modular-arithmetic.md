@@ -40,7 +40,7 @@ tags: [modular arithmetic, cryptography, number theory, algorithms]
    def modular_add(a, b, m):
     return (a + b) % m
    ```
-   #### **Time Complexity**: $O(1)$
+   #### ## ## Time Complexity $O(1)$
 2. **Subtraction** :  $(a - b) \mod m$    
    Example: $(3 − 4) \mod 5 = 4$
 
@@ -63,7 +63,7 @@ tags: [modular arithmetic, cryptography, number theory, algorithms]
    def modular_sub(a, b, m):
     return (a - b + m) % m  # ensure non-negative result
    ```
-   #### **Time Complexity**: $O(1)$
+   #### ## ## Time Complexity $O(1)$
 3. **Multiplication:**:
    $(a \times b) \mod m$    
    Example: $(4 \times 3) \mod 5 = 2$
@@ -88,7 +88,7 @@ tags: [modular arithmetic, cryptography, number theory, algorithms]
    def modular_mul(a, b, m):
     return (a * b) % m
    ```
-   #### **Time Complexity**: $O(1)$
+   #### ## ## Time Complexity $O(1)$
 4. **Exponentiation:** 
    $(a^b) \mod m$   
    Example: $(2^3) \mod 5 = 3$
@@ -143,7 +143,7 @@ tags: [modular arithmetic, cryptography, number theory, algorithms]
     return result
 
    ```
-   #### **Time Complexity**: $O( log \ b)$
+   #### ## ## Time Complexity $O( log \ b)$
 
 ### Conclusion
 Modular arithmetic is a powerful tool in mathematics with significant applications in cryptography, computer science, and number theory. Understanding its core operations and properties is essential for working with modern cryptographic systems and algorithms.

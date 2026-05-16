@@ -275,7 +275,7 @@ public class Stack {
 
 ### Complexity
 
-- **Time Complexity**:
+- ## ## Time Complexity
 
   - Push: $O(1)$
   - Pop: $O(1)$
@@ -284,7 +284,7 @@ public class Stack {
   - isFull: $O(1)$
   - Size: $O(1)$
 
-- **Space Complexity**: $O(n)$, where $n$ is the number of elements that can be stored in the stack.
+- ## ## Space Complexity $O(n)$, where $n$ is the number of elements that can be stored in the stack.
 
 ### Example
 

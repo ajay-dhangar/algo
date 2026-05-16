@@ -76,20 +76,22 @@ print(disc_output)
 ```
 ## Complexity Analysis
 
-### Time Complexity
+## Time Complexity
 GANs require intensive computations due to the adversarial training of two networks.
 
-- **Time Complexity:** O(N * L * D * K^2)  
+- **## Time Complexity
+O(...)** O(N * L * D * K^2)  
   Where:
   - **N** = Number of training samples
   - **L** = Number of layers in each network
   - **D** = Depth (channels)
   - **K** = Kernel size in convolutional GAN architectures
 
-### Space Complexity
+## Space Complexity
 The memory requirement grows with the depth and size of both the Generator and Discriminator networks.
 
-- **Space Complexity:** O(N * L * D * W * H)  
+- **## Space Complexity
+O(...)** O(N * L * D * W * H)  
   Where:
   - **N** = Batch size
   - **L** = Number of layers

@@ -33,14 +33,16 @@ The Smith-Waterman Algorithm is a dynamic programming algorithm for local sequen
   - Maximum score tracking
   - Alignment visualization
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Matrix Computation: $O(m \times n)$**
   - Where m, n are sequence lengths
   - Full matrix calculation
   - Traceback included
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Standard Version: $O(m \times n)$**
   - Scoring matrix

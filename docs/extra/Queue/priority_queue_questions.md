@@ -59,8 +59,8 @@ This problem can be efficiently solved using a priority queue. We can insert the
 - This approach ensures that we are always merging the smallest elements from each list first.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(N log k), where N is the total number of elements across all lists and k is the number of linked lists. Each insertion and extraction operation on the heap takes O(log k) time.
-- **Space Complexity**: O(k), since we are storing at most k elements in the heap.
+- ## ## Time Complexity O(N log k), where N is the total number of elements across all lists and k is the number of linked lists. Each insertion and extraction operation on the heap takes O(log k) time.
+- ## ## Space Complexity O(k), since we are storing at most k elements in the heap.
 
 ---
 
@@ -79,8 +79,8 @@ We can solve this problem using a priority queue by leveraging a min-heap.
 - Finally, the heap will contain the k most frequent elements.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(N log k), where N is the number of elements in the input array. Counting the frequencies takes O(N), and maintaining the heap takes O(log k) for each of the unique elements.
-- **Space Complexity**: O(N) for the frequency map, plus O(k) for the heap.
+- ## ## Time Complexity O(N log k), where N is the number of elements in the input array. Counting the frequencies takes O(N), and maintaining the heap takes O(log k) for each of the unique elements.
+- ## ## Space Complexity O(N) for the frequency map, plus O(k) for the heap.
 
 ---
 
@@ -99,8 +99,8 @@ We can use a priority queue to ensure that we always try to place the most frequ
 - If at any point the heap is empty and we still have characters left to place, return an empty string.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(N log k), where N is the length of the string and k is the number of unique characters.
-- **Space Complexity**: O(k) for the frequency map and the heap.
+- ## ## Time Complexity O(N log k), where N is the length of the string and k is the number of unique characters.
+- ## ## Space Complexity O(k) for the frequency map and the heap.
 
 ---
 
@@ -121,8 +121,8 @@ By maintaining this balance:
 - If the total number of elements is even, the median is the average of the roots of both heaps.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(log n) for `add_num` due to heap insertion and balancing, O(1) for `find_median`.
-- **Space Complexity**: O(n) to store all the elements.
+- ## ## Time Complexity O(log n) for `add_num` due to heap insertion and balancing, O(1) for `find_median`.
+- ## ## Space Complexity O(n) to store all the elements.
 
 ---
 
@@ -141,8 +141,8 @@ At each insertion, we rebalance the heaps to ensure that the difference in sizes
 - If one heap has more elements, the median is the root of that heap.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(log n) for each insertion due to heap operations.
-- **Space Complexity**: O(n) for storing all elements in the heaps.
+- ## ## Time Complexity O(log n) for each insertion due to heap operations.
+- ## ## Space Complexity O(n) for storing all elements in the heaps.
 
 ---
 
@@ -162,8 +162,8 @@ At each time unit:
 - Repeat until all tasks are executed, and track the time.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(n log k) where n is the total number of tasks, and k is the number of unique tasks.
-- **Space Complexity**: O(k) for the heap and queue.
+- ## ## Time Complexity O(n log k) where n is the total number of tasks, and k is the number of unique tasks.
+- ## ## Space Complexity O(k) for the heap and queue.
 
 ---
 
@@ -184,8 +184,8 @@ To minimize the cost, use a min-heap:
 The sum of all combination costs will be the minimum cost.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(n log n) due to heap operations.
-- **Space Complexity**: O(n) for the heap.
+- ## ## Time Complexity O(n log n) due to heap operations.
+- ## ## Space Complexity O(n) for the heap.
 
 ---
 
@@ -202,8 +202,8 @@ We can use a max-heap to keep track of the k closest points:
 - At the end, the heap will contain the k closest points.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(n log k) for maintaining the heap.
-- **Space Complexity**: O(k) for the heap.
+- ## ## Time Complexity O(n log k) for maintaining the heap.
+- ## ## Space Complexity O(k) for the heap.
 
 ---
 
@@ -219,7 +219,7 @@ To solve this, use a priority queue to maintain active building heights as we sw
 - Record changes in the maximum height, which forms the critical points of the skyline.
 
 ### Complexity Analysis:
-- **Time Complexity**: O(n log n) due to sorting and heap operations.
-- **Space Complexity**: O(n) for the heap.
+- ## ## Time Complexity O(n log n) due to sorting and heap operations.
+- ## ## Space Complexity O(n) for the heap.
 
 ---

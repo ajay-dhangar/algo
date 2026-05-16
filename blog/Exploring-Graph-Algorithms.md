@@ -40,7 +40,7 @@ BFS explores the graph level by level, starting from a source node and visiting 
 2. **Visit Nodes**: Dequeue a node, mark it as visited, and enqueue its unvisited neighbors.
 3. **Repeat**: Continue until there are no more nodes to visit.
 
-### Time Complexity
+## Time Complexity
 
 BFS runs in O(V + E) time, where `V` is the number of vertices and `E` is the number of edges.
 
@@ -54,7 +54,7 @@ DFS explores as far as possible along each branch before backtracking. It can be
 2. **Visit Nodes**: Pop a node, mark it as visited, and push its unvisited neighbors onto the stack.
 3. **Repeat**: Continue until the stack is empty.
 
-### Time Complexity
+## Time Complexity
 
 DFS also runs in O(V + E) time.
 

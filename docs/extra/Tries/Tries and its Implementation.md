@@ -34,7 +34,7 @@ Key components of a Trie node:
 ## Properties
 - **Prefix-based Search**: Tries excel in finding all words that share a common prefix.
 - **Space Efficiency**: Although tries can be space-heavy in some cases, they eliminate the need to store redundant prefixes, making them more space-efficient for large datasets of similar strings.
-- **Time Complexity**: Trie operations such as insertion, search, and deletion have a time complexity of **O(m)**, where **m** is the length of the word or prefix being processed.
+- ## ## Time Complexity Trie operations such as insertion, search, and deletion have a time complexity of **O(m)**, where **m** is the length of the word or prefix being processed.
 
 ## Types of Tries
 1. **Standard Trie**: Every node has 26 possible children (if dealing with lowercase alphabets), and each child represents one of the letters of the alphabet.

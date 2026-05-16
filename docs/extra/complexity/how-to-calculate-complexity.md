@@ -35,7 +35,8 @@ Calculating the time complexity of an algorithm involves analyzing the number of
 
 1. Identify the input size: Determine the parameter that defines the size of the input to the algorithm. This could be the length of an array, the number of nodes in a graph, or any other relevant metric.
 2. Count the number of operations: Analyze the algorithm to determine the number of basic operations it performs for a given input size. This could involve counting loops, recursive calls, comparisons, assignments, and other fundamental operations.
-3. Express the time complexity: Use Big O notation to express the time complexity of the algorithm in terms of the input size. This provides an upper bound on the running time of the algorithm and helps compare its efficiency with other algorithms.
+3. Express the ## Time Complexity
+O(...) Use Big O notation to express the time complexity of the algorithm in terms of the input size. This provides an upper bound on the running time of the algorithm and helps compare its efficiency with other algorithms.
 4. Analyze the worst-case scenario: Consider the worst-case scenario when calculating time complexity, as it provides a conservative estimate of the algorithm's performance. This ensures that the algorithm performs efficiently even in challenging situations.
 5. Compare with other algorithms: Once you have calculated the time complexity of an algorithm, compare it with other algorithms that solve the same problem. This comparison helps you identify the most efficient algorithm for a given problem.
 6. Optimize if necessary: If the time complexity of an algorithm is higher than desired, consider optimizing the algorithm by redesigning its logic, reducing redundant operations, or using more efficient data structures.
@@ -52,7 +53,8 @@ Calculating the space complexity of an algorithm involves analyzing the amount o
 
 1. Identify the memory usage: Determine the variables, data structures, and resources used by the algorithm that contribute to its memory usage. This could include arrays, lists, maps, counters, and other memory-intensive components.
 2. Analyze the memory requirements: Count the memory used by the algorithm for a given input size, including the space required for variables, data structures, and other resources. Consider both static memory usage (e.g., fixed-size arrays) and dynamic memory usage (e.g., dynamically allocated memory).
-3. Express the space complexity: Use Big O notation to express the space complexity of the algorithm in terms of the input size. This provides an upper bound on the memory usage of the algorithm and helps compare its efficiency with other algorithms.
+3. Express the ## Space Complexity
+O(...) Use Big O notation to express the space complexity of the algorithm in terms of the input size. This provides an upper bound on the memory usage of the algorithm and helps compare its efficiency with other algorithms.
 4. Analyze the worst-case scenario: Consider the worst-case scenario when calculating space complexity, as it provides a conservative estimate of the algorithm's memory requirements. This ensures that the algorithm uses memory efficiently even in challenging situations.
 5. Compare with other algorithms: Once you have calculated the space complexity of an algorithm, compare it with other algorithms that solve the same problem. This comparison helps you identify the most memory-efficient algorithm for a given problem.
 6. Optimize if necessary: If the space complexity of an algorithm is higher than desired, consider optimizing the algorithm by reducing memory usage, using more efficient data structures, or implementing memory-saving techniques.

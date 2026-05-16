@@ -33,10 +33,10 @@ Objective:
 
 2. **Return** `result`, which is the final array containing max of each sliding window of size k.
 
-### Time Complexity
+## Time Complexity
 
-- **Time Complexity**: O(N) time
-- **Space Complexity**: O(K) for the deque.
+- ## ## Time Complexity O(N) time
+- ## ## Space Complexity O(K) for the deque.
 
 ### C++ Implementation
 

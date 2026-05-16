@@ -55,8 +55,10 @@ In the worst case, when adding an item to a full cache, the LRU algorithm must r
 - **Worst Case:** Adding a new element to a full cache, followed by removing the least recently used element, still results in `O(1)` operations using an efficient combination of hash map and linked list.
 
 ### Summary of Time Complexities:
-- **Best Case Time Complexity:** `O(1)` for accessing or updating an existing element.
-- **Worst Case Time Complexity:** `O(1)` for removing the least recently used item and adding a new item in an efficiently implemented cache.
+- **Best Case ## Time Complexity
+O(...)** `O(1)` for accessing or updating an existing element.
+- **Worst Case ## Time Complexity
+O(...)** `O(1)` for removing the least recently used item and adding a new item in an efficiently implemented cache.
 
 ## Advantages
 - **Efficient for Cache Replacement:** Quickly identifies and removes the least recently used items.

@@ -33,7 +33,8 @@ The Not So Naive Algorithm is an improvement over the naive string matching algo
   - Constant space overhead
   - Simple implementation
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Preprocessing: $O(m)$**
   - Where m is pattern length
@@ -45,7 +46,8 @@ The Not So Naive Algorithm is an improvement over the naive string matching algo
   - Better average case
   - Optimized comparisons
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
 - **Space Usage: $O(1)$**
   - Constant extra space

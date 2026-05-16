@@ -29,12 +29,15 @@ The Fractional Knapsack Problem is an optimization problem that aims to maximize
 ### Problem Statement:
 Given `n` items, each with a weight and value, determine the maximum value that can be obtained by filling a knapsack with a capacity of `W` using the fractional approach.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 - **Best, Average, and Worst Case: $O(n \log n)$**  
   The time complexity is dominated by the sorting step, where `n` is the number of items.
 
-### Space Complexity:
-- **Space Complexity: $O(n)$**  
+## ## Space Complexity
+O(...)
+- **## Space Complexity
+O(...) $O(n)$**  
   The space complexity arises from storing the weights, values, and fractions of the items.
 
 ### Example:

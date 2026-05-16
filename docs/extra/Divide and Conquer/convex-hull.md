@@ -175,8 +175,8 @@ Original Points:                    Convex Hull:
 
 ## Complexity Analysis
 
-- **Time Complexity**: O(n log n) due to sorting and recursive merging steps.
-- **Space Complexity**: O(n) for storing the points and intermediate results.
+- ## ## Time Complexity O(n log n) due to sorting and recursive merging steps.
+- ## ## Space Complexity O(n) for storing the points and intermediate results.
 
 ## Further Reading
 

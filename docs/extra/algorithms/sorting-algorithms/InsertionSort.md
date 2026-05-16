@@ -25,7 +25,8 @@ Insertion sort is a simple and efficient comparison-based sorting algorithm that
 - **Online Algorithm**:
   - Insertion sort is an online algorithm, meaning it can sort a list as it receives elements one by one.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n)**  
   The best case occurs when the array is already sorted, so the algorithm only needs to iterate through the list once without making any swaps or shifts.
@@ -36,9 +37,11 @@ Insertion sort is a simple and efficient comparison-based sorting algorithm that
 - **Worst Case: O(n²)**  
   The worst-case scenario occurs when the array is sorted in reverse order, requiring the algorithm to make the maximum number of comparisons and shifts.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(1)**  
+- **## Space Complexity
+O(...) O(1)**  
   Insertion sort is an in-place algorithm that requires a constant amount of extra memory for variables such as the current element being inserted.
 
 ### C++ Implementation:

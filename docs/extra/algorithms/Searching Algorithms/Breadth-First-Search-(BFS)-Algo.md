@@ -28,14 +28,16 @@ sidebar_label: BFS
 4. **Mark each neighbor as visited** and enqueue them.
 5. **Repeat** the process until the queue is empty.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
-- **Time Complexity**: $O(V + E)$  
+- ## ## Time Complexity $O(V + E)$  
   Where `V` is the number of vertices and `E` is the number of edges in the graph.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity**: $O(V)$
+- ## ## Space Complexity $O(V)$
   BFS uses space proportional to the number of vertices due to the queue and visited list.
 
 ### Advantages of BFS:

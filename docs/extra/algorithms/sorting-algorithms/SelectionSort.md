@@ -25,7 +25,8 @@ Selection sort is a simple comparison-based sorting algorithm that repeatedly se
 - **Inefficient for Large Datasets**:
   - Although the algorithm is simple, it is not efficient for large datasets as it requires many comparisons and swaps.
 
-### Time Complexity:
+## ## Time Complexity
+O(...)
 
 - **Best Case: O(n²)**  
   Even in the best case where the array is already sorted, the algorithm must make n²/2 comparisons because it systematically searches for the smallest element in the unsorted portion.
@@ -36,9 +37,11 @@ Selection sort is a simple comparison-based sorting algorithm that repeatedly se
 - **Worst Case: O(n²)**  
   In the worst-case scenario (reverse sorted array), selection sort must still make the same number of comparisons as in the average case.
 
-### Space Complexity:
+## ## Space Complexity
+O(...)
 
-- **Space Complexity: O(1)**  
+- **## Space Complexity
+O(...) O(1)**  
   Selection sort is an in-place algorithm and requires only a constant amount of extra memory for swapping elements.
 
 ### C++ Implementation:

@@ -20,11 +20,11 @@ tags: [dsa, arrays, sorting, quicksort, sorting-algorithms]
 4. **Base Case**: The recursion ends when the array is reduced to a single element or an empty sub-array.
 
 ## Key Characteristics
-- **Time Complexity**:
+- ## ## Time Complexity
   - **Best Case:** $O(n \log n)$
   - **Average Case:** $O(n \log n)$
   - **Worst Case:** $O(n^2)$ (occurs when the pivot is the smallest or largest element)
-- **Space Complexity**: $O(\log n)$ due to the recursion stack.
+- ## ## Space Complexity $O(\log n)$ due to the recursion stack.
 - **Stability**: Quick Sort is not a stable sort (it does not preserve the relative order of equal elements).
 - **In-place Sort**: It requires constant space, excluding the recursion stack.
 
