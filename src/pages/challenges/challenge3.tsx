@@ -375,6 +375,7 @@ const DataStructuresQuiz = () => {
             <h3 className="text-center text-rose-900">Time Left: {formatTime(timeLeft)}</h3>{" "}
             {/* Show running timer */}
             <div className="bg-gray-100 text-neutral-800 rounded-2xl p-4">
+              <p className="text-center text-gray-600 mb-2">Question {currentQuestionIndex + 1} of {questions.length}</p>
               <h3>{questions[currentQuestionIndex].question}</h3>
               <div>
                 {questions[currentQuestionIndex].options.map(
