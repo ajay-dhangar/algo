@@ -79,11 +79,11 @@ const HowItWorksSection: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
             How{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="text-[var(--ifm-color-primary)]">
               It Works
             </span>
           </h2>
-         <p className="mt-5 text-var(--ifm-color-primary) max-w-2xl mx-auto text-lg">
+         <p className="mt-5 max-w-2xl mx-auto text-lg">
             Follow these three simple steps to start learning,
             implementing, and contributing.
           </p>
@@ -116,7 +116,7 @@ const HowItWorksSection: React.FC = () => {
                 {step.title}
               </h3>
               <p
-                className="relative z-10 text-var(--ifm-color-primary) leading-relaxed
+                className="relative z-10 leading-relaxed
                   transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300"
               >
                 {step.description}
