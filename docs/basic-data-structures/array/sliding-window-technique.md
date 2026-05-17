@@ -6,8 +6,6 @@ description: "An optimization technique used to reduce time complexity from O(NÂ
 tags: [arrays, sliding-window, dsa, optimization]
 ---
 
-# Sliding Window Technique
-
 The **Sliding Window Technique** is a powerful algorithmic optimization used to perform required operations on a specific window size of a linear data structure (like an array, list, or string) without recalculating the entire overlapping region from scratch. 
 
 By maintaining a running state between two pointers (left and right), this approach converts inefficient brute-force $O(N^2)$ solutions into highly optimized $O(N)$ linear-time solutions.
