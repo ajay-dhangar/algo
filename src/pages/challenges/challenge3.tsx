@@ -273,7 +273,7 @@ const DataStructuresQuiz = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(3600); // 60 minutes in seconds
   const [timerId, setTimerId] = useState(null);
   const [timeSpent, setTimeSpent] = useState(0); // To store the time spent on solving the quiz
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
@@ -313,7 +313,7 @@ const DataStructuresQuiz = () => {
   // Function to finish the quiz
   const handleFinishQuiz = () => {
     clearInterval(timerId); // Stop the timer when the quiz is finished
-    setTimeSpent(1800 - timeLeft); // Calculate time spent
+    setTimeSpent(3600 - timeLeft); // Calculate time spent
     setShowResult(true);
   };
 
