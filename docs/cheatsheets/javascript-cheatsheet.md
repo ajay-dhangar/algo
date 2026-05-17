@@ -1,7 +1,7 @@
 ---
 id: javascript-cheatsheet
-title: JavaScript Cheatsheet
-sidebar_label: JavaScript Cheatsheet
+title: "JavaScript Cheatsheet"
+sidebar_label: "JavaScript Cheatsheet"
 sidebar_position: 4
 description: "A fast, practical JavaScript reference for DSA and competitive programming."
 tags: [javascript, cheatsheet, dsa]

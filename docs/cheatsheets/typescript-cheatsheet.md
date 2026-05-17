@@ -1,7 +1,7 @@
 ---
 id: typescript-cheatsheet
-title: TypeScript Cheatsheet
-sidebar_label: TypeScript Cheatsheet
+title: "TypeScript Cheatsheet"
+sidebar_label: "TypeScript Cheatsheet"
 sidebar_position: 5
 description: "A fast, practical TypeScript reference for DSA and competitive programming."
 tags: [typescript, cheatsheet, dsa]

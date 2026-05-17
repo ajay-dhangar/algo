@@ -1,7 +1,7 @@
 ---
 id: cpp-cheatsheet
-title: C++ Cheatsheet
-sidebar_label: C++ Cheatsheet
+title: "C++ Cheatsheet"
+sidebar_label: "C++ Cheatsheet"
 sidebar_position: 3
 description: "A fast, practical C++ reference for DSA and competitive programming."
 tags: [cpp, cheatsheet, dsa]
