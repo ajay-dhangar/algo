@@ -35,7 +35,7 @@ const ContributeSection: React.FC = () => {
           </span>
         </h2>
 
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-14 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg text-var(--ifm-color-primary) mb-14 max-w-3xl mx-auto leading-relaxed">
           Join us in building an amazing open-source project. Whether you're a
           seasoned developer or a beginner, we welcome all contributions.
           Here's how you can get involved.
@@ -64,7 +64,7 @@ const ContributeSection: React.FC = () => {
                   {item.title}
                 </h3>
                 <p
-                  className="relative z-10 text-gray-600 dark:text-gray-400 leading-relaxed
+                  className="relative z-10 text-var(--ifm-color-primary) leading-relaxed
                     transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300"
                 >
                   {item.description}

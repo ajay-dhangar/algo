@@ -85,7 +85,7 @@ const GetInvolvedSection: React.FC = () => {
             className="
             max-w-3xl mx-auto
             text-lg leading-relaxed
-            text-gray-600 dark:text-gray-400
+            text-var(--ifm-color-primary)
           "
           >
             Join our vibrant community and participate in events, workshops,

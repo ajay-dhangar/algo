@@ -72,7 +72,7 @@ const PopularAlgorithmsSection: React.FC = () => {
             className="
             max-w-3xl mx-auto
             text-lg leading-relaxed
-            text-gray-600 dark:text-gray-400
+            text-var(--ifm-color-primary)
           "
           >
             Explore the most essential algorithms and data structures

@@ -77,7 +77,7 @@ const FeaturesSection: React.FC = () => {
           <h2 className="text-4xl font-bold text-gray-800 dark:text-white">
             Why Choose <span className="text-indigo-400 dark:text-yellow-400">Algo?</span>
           </h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">
+          <p className="mt-4 text-var(--ifm-color-primary)">
             Explore the key features that make our algorithm library the best resource for learners and developers.
           </p>
         </div>
@@ -122,7 +122,7 @@ const FeaturesSection: React.FC = () => {
         {feature.title}
       </h3>
       <p
-        className="relative z-10 text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">
+        className="relative z-10 text-var(--ifm-color-primary) leading-relaxed transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300">
         {feature.description}
       </p>
       <div

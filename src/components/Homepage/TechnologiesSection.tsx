@@ -79,7 +79,7 @@ const TechnologiesSection: React.FC = () => {
       </span>
     </h2>
 
-    <p className="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400 mb-16 leading-relaxed">
+    <p className="max-w-3xl mx-auto text-lg text-var(--ifm-color-primary) mb-16 leading-relaxed">
       Our project is powered by modern technologies focused on speed,
       scalability, performance, and developer experience.
     </p>

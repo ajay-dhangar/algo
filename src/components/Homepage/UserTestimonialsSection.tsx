@@ -50,7 +50,7 @@ const UserTestimonialsSection: React.FC = () => {
           spaceBetween={30}
           slidesPerView={1}
           loop={true}
-          centeredSlides={true}
+          centeredSlides={false}
           autoplay={{
             delay: 3500,
             disableOnInteraction: false,
@@ -59,17 +59,23 @@ const UserTestimonialsSection: React.FC = () => {
             clickable: true,
           }}
           breakpoints={{
-            768: {
+            0: {
+              slidesPerView: 1,
+            },
+            640: {
               slidesPerView: 2,
             },
             1024: {
               slidesPerView: 3,
             },
           }}
-          className="pb-14"
+          className="!pb-16"
         >
           {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide
+              key={index}
+              className="!h-auto flex"
+            >
               <motion.div
                 custom={index}
                 initial="hidden"
@@ -77,39 +83,45 @@ const UserTestimonialsSection: React.FC = () => {
                 viewport={{ once: true }}
                 variants={fadeInUp}
                 whileHover={{
-                  y: -12,
-                  scale: 1.03,
+                  y: -10,
+                  scale: 1.02,
                 }}
-                className="group relative h-full rounded-3xl border border-white/20 bg-white/70 dark:bg-gray-800/70 backdrop-blur-lg p-8 shadow-xl transition-all duration-500 hover:shadow-2xl overflow-hidden"
+                className="group relative flex flex-col justify-between w-full min-h-[420px] rounded-3xl border border-white/20 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg p-8 shadow-lg transition-all duration-500 hover:shadow-2xl overflow-hidden"
               >
+                {/* Decorative Gradient */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-500/5 to-cyan-400/10" />
+
                 {/* Quote Icon */}
-                <div className="absolute top-5 right-5 text-6xl font-bold text-blue-100 dark:text-gray-700">
+                <div className="absolute top-5 right-6 text-6xl font-bold text-blue-100 dark:text-gray-700">
                   ”
                 </div>
 
-                {/* Avatar */}
-                <div className="flex justify-center mb-5 relative z-10">
-                  <div className="p-1 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400">
-                    <img
-                      src={testimonial.avatar}
-                      alt={`${testimonial.name} avatar`}
-                      className="w-24 h-24 rounded-full object-cover border-4 border-white dark:border-gray-900 shadow-lg"
-                    />
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  {/* Avatar */}
+                  <div className="mb-6">
+                    <div className="p-[3px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 shadow-lg">
+                      <img
+                        src={testimonial.avatar}
+                        alt={`${testimonial.name} avatar`}
+                        className="w-24 h-24 rounded-full object-cover border-4 border-white dark:border-gray-900"
+                      />
+                    </div>
                   </div>
+
+                  {/* Feedback */}
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg italic mb-8">
+                    “{testimonial.feedback}”
+                  </p>
                 </div>
 
-                {/* Feedback */}
-                <p className="relative z-10 text-gray-700 dark:text-gray-300 text-center leading-relaxed text-lg italic mb-6">
-                  “{testimonial.feedback}”
-                </p>
-
                 {/* User Info */}
-                <div className="relative z-10 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                <div className="relative z-10 text-center mt-auto">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                     {testimonial.name}
                   </h3>
 
-                  <p className="text-sm text-blue-600 dark:text-cyan-400 font-medium mt-1">
+                  <p className="text-sm text-blue-600 dark:text-cyan-400 font-semibold mt-2">
                     {testimonial.role}
                   </p>
                 </div>

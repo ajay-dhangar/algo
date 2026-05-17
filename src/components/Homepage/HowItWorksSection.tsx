@@ -83,7 +83,7 @@ const HowItWorksSection: React.FC = () => {
               It Works
             </span>
           </h2>
-         <p className="mt-5 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+         <p className="mt-5 text-var(--ifm-color-primary) max-w-2xl mx-auto text-lg">
             Follow these three simple steps to start learning,
             implementing, and contributing.
           </p>
@@ -116,7 +116,7 @@ const HowItWorksSection: React.FC = () => {
                 {step.title}
               </h3>
               <p
-                className="relative z-10 text-gray-600 dark:text-gray-400 leading-relaxed
+                className="relative z-10 text-var(--ifm-color-primary) leading-relaxed
                   transition-colors duration-300 group-hover:text-gray-700 dark:group-hover:text-gray-300"
               >
                 {step.description}
