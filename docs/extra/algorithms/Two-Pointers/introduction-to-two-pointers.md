@@ -89,3 +89,77 @@ This ensures that we check each pair only once, resulting in an overall time com
 
 ### Summary:
 The Two Pointers technique is a versatile approach that optimizes many problems involving arrays and strings. By leveraging two pointers, we can reduce the time complexity from **O(n²)** (for nested loops) to **O(n)**, making our solutions more efficient and scalable.
+
+## Dry Run Example
+
+Consider the following sorted array:
+
+```text
+arr = [1, 2, 3, 4, 6]
+target = 6
+```
+
+We will use the Two Pointer Technique to check whether a pair exists whose sum equals the target value.
+
+### Iteration 1
+- left = 0 → arr[left] = 1
+- right = 4 → arr[right] = 6
+
+Current sum:
+
+```text
+1 + 6 = 7
+```
+
+Since the sum is greater than the target, move the right pointer one step left.
+
+---
+
+### Iteration 2
+- left = 0 → arr[left] = 1
+- right = 3 → arr[right] = 4
+
+Current sum:
+
+```text
+1 + 4 = 5
+```
+
+Since the sum is smaller than the target, move the left pointer one step right.
+
+---
+
+### Iteration 3
+- left = 1 → arr[left] = 2
+- right = 3 → arr[right] = 4
+
+Current sum:
+
+```text
+2 + 4 = 6
+```
+
+Target achieved.
+
+### Final Output
+
+```text
+Pair Found: (2, 4)
+```
+
+## Advantages of Two Pointer Technique
+
+- Reduces unnecessary iterations
+- More efficient than brute force solutions
+- Helps optimize time complexity
+- Widely used in array and string problems
+- Easy to implement and understand
+
+## Real-World Applications
+
+- Pair sum problems
+- Removing duplicates from sorted arrays
+- Palindrome checking
+- Merging sorted arrays
+- Sliding window optimizations
+- Competitive programming problems
