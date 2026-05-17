@@ -4,6 +4,9 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
 
+// Only show git history in production builds
+const showGitHistory = process.env.NODE_ENV === "production";
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Algo",
@@ -30,8 +33,8 @@ const config = {
             "https://github.com/ajay-dhangar/algo/tree/main/templates/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: showGitHistory,
+          showLastUpdateTime: showGitHistory,
         },
         blog: {
           showReadingTime: true,
@@ -226,8 +229,8 @@ const config = {
         sidebarPath: require.resolve("./dsa-interview-sidebars.js"),
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
+        showLastUpdateAuthor: showGitHistory,
+        showLastUpdateTime: showGitHistory,
       },
     ],
     [
