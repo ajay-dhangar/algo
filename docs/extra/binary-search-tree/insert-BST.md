@@ -74,3 +74,17 @@ int main() {
     return 0;
 }
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Best Case:** $O(\log n)$ - When the tree is balanced, each insertion requires traversal from root to leaf.
+- **Average Case:** $O(\log n)$ - For a reasonably balanced BST.
+- **Worst Case:** $O(n)$ - When the tree is skewed (all nodes on one side), insertion degrades to a linear search.
+
+### Space Complexity
+- $O(\log n)$ - For the recursion stack in a balanced tree.
+- $O(n)$ - In the worst case when the tree is completely skewed.
+
+## Explanation
+Insertion in a BST leverages the ordering property where left subtree values are smaller and right subtree values are larger. The algorithm recursively finds the correct position by comparing values. In balanced trees, this achieves logarithmic complexity. However, repeated insertions in sorted order can create a skewed tree, degrading performance to linear time. To maintain efficiency, self-balancing variants like AVL trees or Red-Black trees are often used.

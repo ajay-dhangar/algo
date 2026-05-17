@@ -141,6 +141,20 @@ public class FermatsLittleTheorem {
     }
 }
 ```
+
+## Time Complexity
+- Best Case: O(log p)
+- Average Case: O(log p)
+- Worst Case: O(log p)
+where `p` is the exponent (in this case, the prime modulus).
+
+## Space Complexity
+- O(1)
+as the iterative algorithm for modular exponentiation uses only a few variables.
+
+## Explanation
+Fermat's Little Theorem computes the modular inverse by evaluating `a^(p-2) mod p`. Using the repeated squaring algorithm (binary exponentiation), the power is halved at each step. This means the algorithm loops `O(log p)` times, making it extremely efficient for large primes. The space complexity is constant `O(1)` as variables are updated iteratively without requiring any recursive call stacks or external memory arrays.
+
 Explanation of the Code:
 
 modular_exponentiation: This function efficiently calculates the modular exponentiation of base^exponent mod mod using the repeated squaring algorithm.

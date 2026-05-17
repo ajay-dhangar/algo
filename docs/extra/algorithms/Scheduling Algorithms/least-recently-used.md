@@ -30,33 +30,18 @@ Consider a cache with a capacity of 3:
 - **Access 1:** Cache becomes `[1, 3, 2]` (1 is most recently used)
 - **Access 4:** Cache becomes `[4, 1, 3]` (2 is evicted)
 
-## Time Complexity Analysis
+## Time Complexity
+- Best Case: O(1)
+- Average Case: O(1)
+- Worst Case: O(1)
+for access and update operations when implemented efficiently using a Hash Map and a Doubly Linked List. (Note: A naive array or list-based approach would be `O(n)`).
 
-### Best Case Scenario:
-In the best case, when accessing or adding an item that is already in the cache, the LRU algorithm only needs to reorder the items.
+## Space Complexity
+- O(N)
+where `N` is the capacity of the cache. The hash map stores `N` key-node pairs, and the doubly linked list stores `N` nodes.
 
-#### Example:
-- Cache: `[3, 2, 1]`
-- Accessing `3` (already in cache), simply move `3` to the front.
-
-- **Time Complexity (Best Case):** `O(1)` for access and reorder operations, assuming the use of a data structure like a hash map with a doubly linked list.
-
-### Worst Case Scenario:
-In the worst case, when adding an item to a full cache, the LRU algorithm must remove the least recently used item and add the new item to the cache.
-
-#### Example:
-- Cache: `[3, 2, 1]` (full)
-- Accessing `4` (not in cache), remove `1`, add `4`, and reorder the list.
-
-- **Time Complexity (Worst Case):** `O(1)` for removing and adding operations (with a hash map and linked list), but if not implemented efficiently, it can be `O(n)` where `n` is the size of the cache (for searching and removing).
-
-### Detailed Best and Worst Case Analysis:
-- **Best Case:** Accessing or updating an existing element is `O(1)` when using a hash map for fast lookups and a doubly linked list to maintain the access order.
-- **Worst Case:** Adding a new element to a full cache, followed by removing the least recently used element, still results in `O(1)` operations using an efficient combination of hash map and linked list.
-
-### Summary of Time Complexities:
-- **Best Case Time Complexity:** `O(1)` for accessing or updating an existing element.
-- **Worst Case Time Complexity:** `O(1)` for removing the least recently used item and adding a new item in an efficiently implemented cache.
+## Explanation
+An efficient LRU Cache utilizes a Hash Map to locate elements in `O(1)` time and a Doubly Linked List to maintain the usage order and execute fast `O(1)` inserts and deletes at the boundaries. Accessing an element involves a hash map lookup followed by moving the corresponding list node to the head. Evicting an item drops the tail node of the list and deletes the corresponding key from the hash map. Both operations execute in constant time, while using space directly proportional to the cache capacity.
 
 ## Advantages
 - **Efficient for Cache Replacement:** Quickly identifies and removes the least recently used items.

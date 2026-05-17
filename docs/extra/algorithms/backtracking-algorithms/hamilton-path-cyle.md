@@ -120,3 +120,16 @@ int main() {
 }
 
 ```
+
+## Time Complexity
+- Best Case: O(N^2) (When the graph strongly favors finding a path early)
+- Average Case: O(N!)
+- Worst Case: O(N!) (In complete graphs or when examining all permutations)
+where `N` is the number of vertices.
+
+## Space Complexity
+- O(N)
+where `N` is the number of vertices (for the recursion call stack and the `path` array).
+
+## Explanation
+The backtracking algorithm systematically explores possible paths vertex by vertex. In the worst case, it might need to explore all permutations of the vertices, leading to a factorial time complexity `O(N!)`. The space complexity is linear `O(N)` because the maximum depth of the recursion tree is `N`, and we only store the current path of length `N`.

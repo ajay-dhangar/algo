@@ -130,3 +130,17 @@ public class BinarySearchTree {
 }
 
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Best Case:** $O(\log n)$ - When the tree is balanced, each comparison halves the search space.
+- **Average Case:** $O(\log n)$ - For a reasonably balanced BST.
+- **Worst Case:** $O(n)$ - When the tree is completely skewed (all nodes on one side), resembling a linked list.
+
+### Space Complexity
+- $O(\log n)$ - For the recursion stack in a balanced tree.
+- $O(n)$ - In the worst case for a skewed tree.
+
+## Explanation
+BST search leverages the ordering property where the left subtree contains smaller values and the right subtree contains larger values. Starting from the root, each comparison eliminates half the remaining nodes in a balanced tree. This efficient pruning makes BST search logarithmic on average. However, the search degrades to linear time in a skewed tree. Self-balancing trees (AVL, Red-Black) maintain logarithmic search time regardless of insertion order.

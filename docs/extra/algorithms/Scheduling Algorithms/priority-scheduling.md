@@ -47,24 +47,18 @@ There are two types of Priority Scheduling:
 
 ---
 
-## Time Complexity Analysis
+## Time Complexity
+- Best Case: O(n log n)
+- Average Case: O(n log n)
+- Worst Case: O(n^2)
+where `n` is the number of processes.
 
-### Best Case Time Complexity: **O(n log n)**
+## Space Complexity
+- O(n)
+where `n` is the number of processes, as space is required to store the process details and schedule order.
 
-- Sorting the processes based on priority will take **O(n log n)**.
-- In the best case, if no new higher-priority processes arrive during execution, we only need to sort and then execute sequentially.
-
-**Best Case Example**:
-If all processes arrive at the same time and are already sorted by priority.
-
-### Worst Case Time Complexity: **O(n²)**
-
-- In the worst case (especially for preemptive scheduling), a new process with a higher priority arrives just before the current process finishes. This requires frequent preemption, and the process list must be updated multiple times, resulting in **O(n²)**.
-
-**Worst Case Example**:
-Each time a process is about to finish, a higher-priority process arrives, causing frequent preemption.
-
----
+## Explanation
+The priority scheduling algorithm requires keeping the processes sorted by their priority value. When all processes are available at time 0, sorting them takes `O(n log n)`. In preemptive priority scheduling, a new arrival triggers an insertion or resorting, which can lead to a worst-case `O(n^2)` time complexity if managed with a naive array. Using a priority queue (heap) can optimize preemptive updates to `O(log n)` per arrival. The space complexity is `O(n)` to store the metadata of the processes.
 
 ## Advantages of Priority Scheduling
 1. **Efficient Handling of Critical Tasks**: Higher-priority tasks (e.g., system-critical processes) get CPU time first.

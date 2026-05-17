@@ -122,3 +122,15 @@ for (let i = 0; i < n; i++) {
   console.log(fibonacci(i));
 }
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Worst Case:** $O(2^n)$ - The recursive approach recalculates the same Fibonacci numbers multiple times. Each call branches into two additional calls, creating an exponential call tree.
+- **Best Case:** $O(2^n)$ - Even for small inputs, the algorithm exhibits exponential growth.
+
+### Space Complexity
+- $O(n)$ - The recursion stack grows to a maximum depth of $n$ when calculating the $n$th Fibonacci number.
+
+## Explanation
+The naive recursive approach to Fibonacci is elegant but inefficient. Each call to `fibonacci(n)` makes two recursive calls: `fibonacci(n-1)` and `fibonacci(n-2)`. This results in significant redundant calculations. For example, `fibonacci(3)` is computed multiple times in the tree. While this approach demonstrates recursion elegantly, it's impractical for larger values of $n$. **Note:** Memoization or dynamic programming approaches can reduce this to $O(n)$ time complexity.

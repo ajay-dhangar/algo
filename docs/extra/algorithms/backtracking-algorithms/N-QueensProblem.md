@@ -36,9 +36,17 @@ The **backtracking** approach is used to solve the N-Queens problem. The idea is
 3. **printSolution()**: Displays a valid chessboard configuration.
 
 ## Time Complexity
+- Best Case: O(1) (When the board is 1x1, or for very small cases where it trivially fails or succeeds immediately)
+- Average Case: O(N!)
+- Worst Case: O(N!)
+where `N` is the number of queens and the dimension of the board.
 
-The time complexity for solving the N-Queens problem using backtracking is `O(N!)`, since we try placing a queen in every column of each row and backtrack if needed.
+## Space Complexity
+- O(N^2)
+where `N` is the dimension of the board. The space is used for the board array `board[N][N]` and the call stack.
 
+## Explanation
+The backtracking algorithm tries to place a queen in every row of a given column and checks if it's safe. Since we check up to N spots for the first queen, N-1 for the second, etc., the worst-case number of checks is factorial in nature `O(N!)`. The space complexity is `O(N^2)` primarily due to the 2D matrix used to represent the chessboard, plus the linear space `O(N)` for the recursion stack.
 ## Program: 
 ```c
 #include <stdio.h>
