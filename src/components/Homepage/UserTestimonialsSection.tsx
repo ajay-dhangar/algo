@@ -34,7 +34,7 @@ const UserTestimonialsSection: React.FC = () => {
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
             What Our{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="text-[var(--ifm-color-primary)]">
               Users Say
             </span>
           </h2>
