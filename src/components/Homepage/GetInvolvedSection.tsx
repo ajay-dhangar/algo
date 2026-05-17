@@ -69,13 +69,7 @@ const GetInvolvedSection: React.FC = () => {
           >
             Get Involved{" "}
             <span
-              className="
-              bg-gradient-to-r
-              from-blue-500
-              to-cyan-400
-              bg-clip-text
-              text-transparent
-            "
+              className="text-[var(--ifm-color-primary)]"
             >
               Today
             </span>
@@ -85,7 +79,6 @@ const GetInvolvedSection: React.FC = () => {
             className="
             max-w-3xl mx-auto
             text-lg leading-relaxed
-            text-var(--ifm-color-primary)
           "
           >
             Join our vibrant community and participate in events, workshops,
