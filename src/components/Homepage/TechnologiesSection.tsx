@@ -74,12 +74,12 @@ const TechnologiesSection: React.FC = () => {
     
     <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-6">
       Technologies{" "}
-      <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+      <span className="text-[var(--ifm-color-primary)]">
         We Use
       </span>
     </h2>
 
-    <p className="max-w-3xl mx-auto text-lg text-var(--ifm-color-primary) mb-16 leading-relaxed">
+    <p className="max-w-3xl mx-auto text-lg mb-16 leading-relaxed">
       Our project is powered by modern technologies focused on speed,
       scalability, performance, and developer experience.
     </p>
