@@ -99,11 +99,12 @@ arr = [1, 2, 3, 4, 6]
 target = 6
 ```
 
-We will use the Two Pointer Technique to check whether a pair exists whose sum equals the target value.
+We will use the Two Pointer Technique to determine whether there exists a pair whose sum equals the target value.
 
 ### Iteration 1
-- left = 0 → arr[left] = 1
-- right = 4 → arr[right] = 6
+
+* left = 0 → arr[left] = 1
+* right = 4 → arr[right] = 6
 
 Current sum:
 
@@ -111,13 +112,14 @@ Current sum:
 1 + 6 = 7
 ```
 
-Since the sum is greater than the target, move the right pointer one step left.
+Since the current sum is greater than the target value, move the right pointer one position to the left in order to reduce the sum.
 
 ---
 
 ### Iteration 2
-- left = 0 → arr[left] = 1
-- right = 3 → arr[right] = 4
+
+* left = 0 → arr[left] = 1
+* right = 3 → arr[right] = 4
 
 Current sum:
 
@@ -125,13 +127,14 @@ Current sum:
 1 + 4 = 5
 ```
 
-Since the sum is smaller than the target, move the left pointer one step right.
+Since the current sum is smaller than the target value, move the left pointer one position to the right in order to increase the sum.
 
 ---
 
 ### Iteration 3
-- left = 1 → arr[left] = 2
-- right = 3 → arr[right] = 4
+
+* left = 1 → arr[left] = 2
+* right = 3 → arr[right] = 4
 
 Current sum:
 
@@ -139,7 +142,7 @@ Current sum:
 2 + 4 = 6
 ```
 
-Target achieved.
+The required target sum has been found successfully.
 
 ### Final Output
 
@@ -149,17 +152,17 @@ Pair Found: (2, 4)
 
 ## Advantages of Two Pointer Technique
 
-- Reduces unnecessary iterations
-- More efficient than brute force solutions
-- Helps optimize time complexity
-- Widely used in array and string problems
-- Easy to implement and understand
+* Significantly reduces unnecessary iterations and improves overall efficiency
+* Converts many brute-force solutions into optimized linear-time approaches
+* Simple to implement and easy for beginners to understand
+* Frequently used in array, string, and searching-related problems
+* Helps solve problems using minimal additional memory space
 
 ## Real-World Applications
 
-- Pair sum problems
-- Removing duplicates from sorted arrays
-- Palindrome checking
-- Merging sorted arrays
-- Sliding window optimizations
-- Competitive programming problems
+* Finding pairs with a specific target sum in sorted datasets
+* Removing duplicate elements from sorted arrays efficiently
+* Checking whether a string or phrase is a palindrome
+* Efficiently merging two sorted arrays
+* Solving sliding window and substring-related optimization problems
+* Widely used in coding interviews and competitive programming challenges
