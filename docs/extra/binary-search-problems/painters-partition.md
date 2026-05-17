@@ -6,7 +6,7 @@ sidebar_position: 2
 description: "Solving the Painter's Partition Problem using Binary Search on the answer space."
 tags: [Algorithm, Problem, Binary Search]
 ---
-# Description
+
 ## Problem - Statement
 - You are given an array of N boards, where each element represents the length of a board.
 - You have M painters available to paint these boards.

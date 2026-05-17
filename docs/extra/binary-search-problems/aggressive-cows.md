@@ -6,7 +6,7 @@ sidebar_position: 1
 description: "Applying Binary Search on Aggressive Cows Problem."
 tags: [Algorithm, Problem, Binary Search]
 ---
-# Description
+
 ## Problem - Statement
 - You are given an array of **N** integers, representing the positions of stalls on a straight line. You also have **C** cows that are aggressive and need to be placed in these stalls.
 🎯 **The Goal**
