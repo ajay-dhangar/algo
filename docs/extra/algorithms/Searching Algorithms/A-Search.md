@@ -1,13 +1,13 @@
 ---
-id: a-*-search  
-sidebar_position: 1  
-title: A* Search  
-sidebar_label: A*  
+id: a-star-search
+sidebar_position: 1
+title: A* Search
+sidebar_label: A*
 ---
 
 ### Definition:
 
-**A* Search** is a pathfinding and graph traversal algorithm used to find the shortest path from a starting point to a goal. It combines the actual cost from the starting point and a heuristic estimate of the cost to reach the goal, making it both efficient and effective in scenarios where an optimal path is needed.
+**A\* Search** is a pathfinding and graph traversal algorithm used to find the shortest path from a starting point to a goal. It combines the actual cost from the starting point and a heuristic estimate of the cost to reach the goal, making it both efficient and effective in scenarios where an optimal path is needed.
 
 ### Characteristics:
 
@@ -15,7 +15,7 @@ sidebar_label: A*
 - **Optimal**: Finds the shortest path if the heuristic is admissible.
 - **Complete**: Ensures a solution is found if one exists.
 
-### How A* Works:
+### How A\* Works:
 
 1. **Initialize**: Start with the initial node in the open list.
 2. **Expand**: Select the node with the lowest estimated total cost.
@@ -32,17 +32,17 @@ $O(...)$
 
 - ## ## Space Complexity \(O(b^d)\)
 
-### Advantages of A*:
+### Advantages of A\*:
 
 - **Optimal Path**: Finds the shortest path in a graph.
 - **Efficient Exploration**: Heuristic allows focusing on promising paths.
 
-### Disadvantages of A*:
+### Disadvantages of A\*:
 
 - **Memory Usage**: Can require high memory for large graphs.
 - **Dependence on Heuristic**: Performance relies on the quality of the heuristic.
 
-### A* Algorithm (Java Implementation):
+### A\* Algorithm (Java Implementation):
 
 ```java
 import java.util.*;
@@ -97,9 +97,13 @@ class AStarAlgorithm {
     private static int calculateHeuristic(Node current, Node goal) { return Math.abs(current.x - goal.x) + Math.abs(current.y - goal.y); }
 }
 ```
-### Applications of A*:
+
+### Applications of A\*:
+
 Pathfinding: Used in games, robotics, and network routing.
 AI for Games: Determines optimal paths in dynamic environments.
 Robotics: Helps in navigating obstacles effectively.
+
 ### Summary:
-A* Search is an optimal, heuristic-based search algorithm with broad applications in AI, robotics, and pathfinding. Its focus on efficient pathfinding while guaranteeing optimality makes it a key algorithm in many fields.
+
+A\* Search is an optimal, heuristic-based search algorithm with broad applications in AI, robotics, and pathfinding. Its focus on efficient pathfinding while guaranteeing optimality makes it a key algorithm in many fields.

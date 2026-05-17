@@ -7,8 +7,6 @@ description: "In this blog post, we'll dive into the binary search algorithm, a 
 tags: [dsa, algorithms, binary search]
 ---
 
-
-## Introduction
 Binary search is a searching algorithm, used to search for an element in an array. It follows a unique approach which reduces the time complexity as compared to linear search. However, to use binary search, the array must be sorted. 
 
 ## Implementation
@@ -86,11 +84,11 @@ binarySearch(arr, target);
 
 In this algorithm, the searching interval of the array is divided into half at every iteration until the target is found. This results in lesser comparisions and decreases the time required.
 
-## ## Time Complexity
+## Time Complexity
 $O(...)$
 
-Linear/Sequential search: O(n)<br />
-Binary search : O(log n)
+Linear/Sequential search: $O(n)$ <br />
+Binary search : $O(log n)$
 
 ## Points to Remember:
 
