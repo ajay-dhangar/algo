@@ -56,13 +56,7 @@ const PopularAlgorithmsSection: React.FC = () => {
           >
             Popular{" "}
             <span
-              className="
-              bg-gradient-to-r
-              from-blue-500
-              to-cyan-400
-              bg-clip-text
-              text-transparent
-            "
+              className="text-[var(--ifm-color-primary)]"
             >
               Algorithms
             </span>
@@ -72,7 +66,6 @@ const PopularAlgorithmsSection: React.FC = () => {
             className="
             max-w-3xl mx-auto
             text-lg leading-relaxed
-            text-var(--ifm-color-primary)
           "
           >
             Explore the most essential algorithms and data structures
