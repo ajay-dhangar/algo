@@ -260,7 +260,7 @@ const DataStructuresQuiz = () => {
       description="Test your knowledge of data structures with this quiz."
     >
       <div className="bg-blue-100 text-sky-800 max-w-2xl mx-auto rounded-2xl my-10 rounded-3xl p-10">
-        <h2 className="text-center text-blue-600">Data Structures Challenge-1</h2>
+        <h2 className="text-center text-blue-600">Data Structures Challenge-2</h2>
         {showResult ? (
           <div>
             <h2>
@@ -290,6 +290,7 @@ const DataStructuresQuiz = () => {
             <h3 className="text-center text-rose-900">Time Left: {formatTime(timeLeft)}</h3>{" "}
             {/* Show running timer */}
             <div className="bg-gray-100 text-neutral-800 rounded-2xl p-4">
+              <p className="text-center text-gray-600 mb-2">Question {currentQuestionIndex + 1} of {questions.length}</p>
               <h3>{questions[currentQuestionIndex].question}</h3>
               <div>
                 {questions[currentQuestionIndex].options.map(
