@@ -3,9 +3,9 @@ id: introduction-to-rust
 sidebar_position: 1
 title: Introduction to Rust
 sidebar_label: Introduction to Rust
+tags: ["programming language", "systems programming"]
+description: "Learn about Rust, a modern systems programming language emphasizing speed, memory safety, and concurrency."
 ---
-
-# Introduction to Rust
 
 Rust is a modern systems programming language focused on speed, memory safety, and concurrency.
 

@@ -3,9 +3,9 @@ id: variables-in-rust
 sidebar_position: 2
 title: Variables in Rust
 sidebar_label: Variables in Rust
+tags: ["Rust", "variables", "mut", "immutable", "let"]
+description: "This document provides a concise overview of variables in Rust, focusing on immutability by default, the 'mut' keyword for mutable variables, and variable shadowing."
 ---
-
-# Variables in Rust
 
 Variables are used to store data in memory.
 
