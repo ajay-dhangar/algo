@@ -1,5 +1,5 @@
 ---
-id: binary-search-dsa
+id: binary
 sidebar_position: 1
 title: Binary Search
 sidebar_label: Binary Search
