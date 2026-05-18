@@ -273,7 +273,7 @@ const DataStructuresQuiz = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(3600); // 60 minutes in seconds
   const [timerId, setTimerId] = useState(null);
   const [timeSpent, setTimeSpent] = useState(0); // To store the time spent on solving the quiz
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
@@ -313,7 +313,7 @@ const DataStructuresQuiz = () => {
   // Function to finish the quiz
   const handleFinishQuiz = () => {
     clearInterval(timerId); // Stop the timer when the quiz is finished
-    setTimeSpent(1800 - timeLeft); // Calculate time spent
+    setTimeSpent(3600 - timeLeft); // Calculate time spent
     setShowResult(true);
   };
 
@@ -345,7 +345,7 @@ const DataStructuresQuiz = () => {
       description="Test your knowledge of data structures with this quiz."
     >
       <div className="bg-blue-100 text-sky-800 max-w-2xl mx-auto rounded-2xl my-10 rounded-3xl p-10">
-        <h2 className="text-center text-blue-600">Data Structures Challenge-1</h2>
+        <h2 className="text-center text-blue-600">Advanced Data Structures</h2>
         {showResult ? (
           <div>
             <h2>
@@ -375,6 +375,7 @@ const DataStructuresQuiz = () => {
             <h3 className="text-center text-rose-900">Time Left: {formatTime(timeLeft)}</h3>{" "}
             {/* Show running timer */}
             <div className="bg-gray-100 text-neutral-800 rounded-2xl p-4">
+              <p className="text-center text-gray-600 mb-2">Question {currentQuestionIndex + 1} of {questions.length}</p>
               <h3>{questions[currentQuestionIndex].question}</h3>
               <div>
                 {questions[currentQuestionIndex].options.map(
