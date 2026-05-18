@@ -41,7 +41,7 @@ const Quizes: React.FC = () => {
               </p>
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-                onClick={() => window.location.href = "/algo/quizes/arrays"}
+                onClick={() => window.location.href = "/algo/quizzes/arrays"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
@@ -62,7 +62,7 @@ const Quizes: React.FC = () => {
               </p>
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-                onClick={() => window.location.href = "/algo/quizes/stack"}
+                onClick={() => window.location.href = "/algo/quizzes/stack"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
@@ -84,7 +84,7 @@ const Quizes: React.FC = () => {
 
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-                onClick={() => window.location.href = "/algo/quizes/queues"}
+                onClick={() => window.location.href = "/algo/quizzes/queues"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
@@ -105,7 +105,7 @@ const Quizes: React.FC = () => {
               </p>
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-                onClick={() => window.location.href = "/algo/quizes/binary-tree"}>
+                onClick={() => window.location.href = "/algo/quizzes/binary-tree"}>
 
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
@@ -126,7 +126,7 @@ const Quizes: React.FC = () => {
               </p>
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-                onClick={() => window.location.href = "/algo/quizes/binary-search-tree"}>
+                onClick={() => window.location.href = "/algo/quizzes/binary-search-tree"}>
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
               </button>
@@ -146,7 +146,7 @@ const Quizes: React.FC = () => {
               </p>
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-                onClick={() => window.location.href = "/algo/quizes/avl-tree"}
+                onClick={() => window.location.href = "/algo/quizzes/avl-tree"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
@@ -167,7 +167,7 @@ const Quizes: React.FC = () => {
               </p>
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-                onClick={() => window.location.href = "/algo/quizes/red-black-tree"}>
+                onClick={() => window.location.href = "/algo/quizzes/red-black-tree"}>
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
               </button>
@@ -187,7 +187,7 @@ const Quizes: React.FC = () => {
               </p>
               <button
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
-                onClick={() => window.location.href = "/algo/quizes/b-tree"}>
+                onClick={() => window.location.href = "/algo/quizzes/b-tree"}>
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
               </button>
