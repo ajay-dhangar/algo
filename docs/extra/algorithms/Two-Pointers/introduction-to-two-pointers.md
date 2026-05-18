@@ -185,9 +185,8 @@ If you want to get comfortable with this pattern, these are worth working throug
 | Sort Colors | LeetCode #75 | Medium | Three pointers — a good extension |
 | Merge Sorted Array | LeetCode #88 | Easy | Merging from the back |
  
-:::tip Where to start
-Do **#167** and **#125** first — they're short and will make the pattern click. Then move to **#15 (3Sum)**, which is where most interviews actually go with this technique.
-:::
+> [!TIP]
+> Do **#167** and **#125** first — they're short and will make the pattern click. Then move to **#15 (3Sum)**, which is where most interviews actually go with this technique.
  
 ---
  
