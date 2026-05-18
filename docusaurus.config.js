@@ -3,9 +3,29 @@ import { themes as prismThemes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
+const fs = require("fs");
+const { execSync } = require("child_process");
 
-// Only show git history in production builds
-const showGitHistory = process.env.NODE_ENV === "production";
+// Only show git history when git metadata is actually available.
+// Can be explicitly overridden with DOCUSAURUS_ENABLE_GIT_HISTORY=true|false.
+const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
+const showGitHistory =
+  gitHistoryOverride === "true"
+    ? true
+    : gitHistoryOverride === "false"
+      ? false
+      : (() => {
+          try {
+            if (!fs.existsSync(path.join(__dirname, ".git"))) {
+              return false;
+            }
+
+            execSync("git rev-parse --is-inside-work-tree", { stdio: "ignore" });
+            return true;
+          } catch {
+            return false;
+          }
+        })();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
