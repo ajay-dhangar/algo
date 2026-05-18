@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import Translate from "@docusaurus/Translate";
 import {
   FaFolderOpen,
   FaFolder,
   FaFileAlt,
   FaChevronDown,
-  FaChevronRight,
   FaMapSigns,
   FaCheckDouble,
   FaCompressAlt,
@@ -59,10 +59,10 @@ const DSARoadmap: React.FC = () => {
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 flex items-center justify-center gap-4 text-gray-900 dark:text-white">
               <FaMapSigns className="text-[var(--ifm-color-primary)]" />
-              DSA Roadmap
+              <Translate>DSA Roadmap</Translate>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              A comprehensive, step-by-step interactive learning path to master Data Structures, Algorithms, and Problem Solving.
+              <Translate>A comprehensive, step-by-step interactive learning path to master Data Structures, Algorithms, and Problem Solving.</Translate>
             </p>
          
             <div className="flex justify-center gap-4 mt-6">
@@ -85,14 +85,28 @@ const DSARoadmap: React.FC = () => {
           <div className="relative border-l-4 border-gray-300 dark:border-gray-700 ml-4 md:ml-12 pb-8">
             {topics.map((topic, tIdx) => (
               <div key={tIdx} className="mb-10 ml-8 relative">
+
+                <div 
+                  className={`absolute -left-[2.65rem] top-[21px] h-8 w-8 rounded-full border-4 border-gray-50 dark:border-[#1b1b1d] shadow-sm flex items-center justify-center z-10 transition-colors duration-300 ${
+                    expandedTopics[tIdx] ? "bg-[var(--ifm-color-primary)]" : "bg-gray-300 dark:bg-gray-600"
+                  }`}
+                ></div>
       
                 <div
+                  role="button"
+                  tabIndex={0}
                   className={`cursor-pointer p-5 rounded-xl border shadow-sm transition-all duration-200 flex justify-between items-center ${
                     expandedTopics[tIdx] 
                       ? "bg-white dark:bg-gray-800 border-[var(--ifm-color-primary)]" 
                       : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 hover:border-gray-400"
                   }`}
                   onClick={() => toggleTopic(tIdx)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggleTopic(tIdx);
+                    }
+                  }}
                 >
                   <h2 className={`text-2xl font-bold m-0 transition-colors duration-200 ${expandedTopics[tIdx] ? 'text-[var(--ifm-color-primary)]' : 'text-gray-800 dark:text-gray-200'}`}>
                     <span className="text-gray-400 dark:text-gray-500 mr-2 text-xl font-normal">{(tIdx + 1).toString().padStart(2, '0')}</span> 
@@ -119,8 +133,16 @@ const DSARoadmap: React.FC = () => {
                             className="bg-white dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-hidden h-fit"
                           >
                             <div
+                              role="button"
+                              tabIndex={0}
                               className="flex items-center justify-between cursor-pointer p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
                               onClick={() => toggleFolder(tIdx, fIdx)}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault();
+                                  toggleFolder(tIdx, fIdx);
+                                }
+                              }}
                             >
                               <div className="flex items-center gap-3 text-lg font-semibold text-gray-800 dark:text-gray-200">
                                 {isFolderExpanded ? (
