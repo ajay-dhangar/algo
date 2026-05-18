@@ -191,7 +191,10 @@ button {
   cursor: pointer;
   border: 1px solid var(--ifm-color-primary);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> fce8eab (synced fork with updated root repository, removed changes made from package-lock.json and added active state styling for sidebar links to fix #2113 in custom.css as per PR Review Request)
 /* CHANGED: added active state styling for navbar links to fix #2113 */
 .navbar a.navbar__link--active {
   color: var(--ifm-color-primary);
@@ -211,4 +214,8 @@ button {
 [data-theme="dark"] .menu__link--active {
   color: var(--ifm-color-primary-lightest);
   border-left: 4px solid var(--ifm-color-primary-lightest);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fce8eab (synced fork with updated root repository, removed changes made from package-lock.json and added active state styling for sidebar links to fix #2113 in custom.css as per PR Review Request)
