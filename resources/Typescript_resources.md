@@ -1,13 +1,13 @@
-# Javascript Resources for DSA & Competitive Programming
+# TypeScript Resources for DSA & Competitive Programming
 
 **Description**
-This guide contains important javascript concepts, DSA patterns, commonly used libraries, complexity referneces, and codinf resources frequently used in coding interviews and competitive programming.
+This guide contains important typescript concepts, DSA patterns, commonly used libraries, complexity referneces, and codinf resources frequently used in coding interviews and competitive programming.
 
 The goal is to keep everything concise, practical  and beginner-firendly while covering the most important concepts needs for problem solving. 
 
 ## Imports You Will Use Everywhere
 
-```javascript
+```typescript
 import { Stack, AVLTree, binarySearch } from 'dsa-toolbox'';
 import { Stack, Queue } from '@m3rashid/dsa-js';
 import { Stack, Queue, HashMap } from 'dsa-x';
