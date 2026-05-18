@@ -2,9 +2,14 @@ import React from "react";
 import { testimonials } from "../../data/testimonialsData";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
+
+// @ts-ignore
 import "swiper/css";
+// @ts-ignore
 import "swiper/css/autoplay";
+// @ts-ignore
+import "swiper/css/navigation";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -23,7 +28,9 @@ const UserTestimonialsSection: React.FC = () => {
           variants={fadeInUp}
         >
           What Our{" "}
-          <span className="text-blue-600 dark:text-yellow-400">Users Say</span>
+          <span className="text-blue-600 dark:text-yellow-400">
+            Users Say
+          </span>
         </motion.h2>
 
         <motion.p
@@ -39,11 +46,13 @@ const UserTestimonialsSection: React.FC = () => {
           spaceBetween={30}
           slidesPerView={1}
           loop={true}
+          navigation={true}
           autoplay={{
-            delay: 3000,
+            delay: 7000,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay]}
+          modules={[Autoplay, Navigation]}
+          className="pb-10"
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
