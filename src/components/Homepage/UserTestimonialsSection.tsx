@@ -4,11 +4,9 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
-// @ts-ignore
+
 import "swiper/css";
-// @ts-ignore
 import "swiper/css/autoplay";
-// @ts-ignore
 import "swiper/css/navigation";
 
 const fadeInUp = {
