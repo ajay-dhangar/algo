@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import QuizProgress from "./QuizProgress";
 
 const ArrayQuiz: React.FC = () => {
   const questions = [
-    {
-      question: (
-        <>
-          1. What will the output of the below code?
-          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
-            {`#include <iostream>
+  {
+    question: (
+      <>
+        1. What will the output of the below code?
+        <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+{`#include <iostream>
 using namespace std;
 
 int main()
@@ -17,18 +18,19 @@ int main()
     cout << 0[arr] << ", " << 1[arr] << endl;
     return 0;
 }`}
-          </pre>
-        </>
-      ),
-      options: ["A) 1, 2", "B) Syntax error", "C) Run time error", "D) None"],
-      answer: "A) 1, 2",
-    },
-    {
-      question: (
-        <>
-          2. What will the output of the below code?
-          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
-            {`#include <iostream>
+        </pre>
+      </>
+    ),
+    options: ["A) 1, 2", "B) Syntax error", "C) Run time error", "D) None"],
+    answer: "A) 1, 2",
+    explanation: "Array indexing works as *(arr + index), so 0[arr] is valid.",
+  },
+  {
+    question: (
+      <>
+        2. What will the output of the below code?
+        <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+{`#include <iostream>
 using namespace std;
 
 int main()
@@ -37,18 +39,19 @@ int main()
     cout << arr[5] << endl;
     return 0;
 }`}
-          </pre>
-        </>
-      ),
-      options: ["A) 5", "B) 0", "C) Garbage value", "D) None"],
-      answer: "C) Garbage value",
-    },
-    {
-      question: (
-        <>
-          3. What will the output of the below code?
-          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
-            {`#include <iostream>
+        </pre>
+      </>
+    ),
+    options: ["A) 5", "B) 0", "C) Garbage value", "D) None"],
+    answer: "C) Garbage value",
+    explanation: "arr[5] accesses memory outside the array boundary.",
+  },
+  {
+    question: (
+      <>
+        3. What will the output of the below code?
+        <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+{`#include <iostream>
 using namespace std;
 
 int main()
@@ -57,18 +60,19 @@ int main()
     cout << arr[4] << endl;
     return 0;
 }`}
-          </pre>
-        </>
-      ),
-      options: ["A) 5", "B) 0", "C) 4", "D) None"],
-      answer: "A) 5",
-    },
-    {
-      question: (
-        <>
-          4. What will the output of the below code?
-          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
-            {`#include <iostream>
+        </pre>
+      </>
+    ),
+    options: ["A) 5", "B) 0", "C) 4", "D) None"],
+    answer: "A) 5",
+    explanation: "Array indexing starts from 0, so arr[4] is 5.",
+  },
+  {
+    question: (
+      <>
+        4. What will the output of the below code?
+        <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+{`#include <iostream>
 using namespace std;
 
 int main()
@@ -77,51 +81,55 @@ int main()
     cout << arr[0] << endl;
     return 0;
 }`}
-          </pre>
-        </>
-      ),
-      options: ["A) 1", "B) 0", "C) 5", "D) None"],
-      answer: "A) 1",
-    },
-    {
-      question: (
-        <>
-          5. What is the time complexity of accessing an element in an array by
-          its index?
-        </>
-      ),
-      options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
-      answer: "A) O(1)",
-    },
-    {
-      question: (
-        <>6. Which of the following statements is true about arrays in C++?</>
-      ),
-      options: [
-        "A) The elements of an array are stored in contiguous memory locations",
-        "B) The elements of an array are stored in non-contiguous memory locations",
-        "C) The elements of an array are stored in random memory locations",
-        "D) None of the above",
-      ],
-      answer:
-        "A) The elements of an array are stored in contiguous memory locations",
-    },
-    {
-      question: (
-        <>
-          7. In C++, if an array is declared as int arr[5];, what will be the
-          default value of its elements?
-        </>
-      ),
-      options: ["A) 0", "B) 1", "C) Random value", "D) None"],
-      answer: "A) 0",
-    },
-    {
-      question: (
-        <>
-          8. What will be the output of the below code?
-          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
-            {`#include <iostream>
+        </pre>
+      </>
+    ),
+    options: ["A) 1", "B) 0", "C) 5", "D) None"],
+    answer: "A) 1",
+    explanation: "arr[0] accesses the first element of the array.",
+  },
+  {
+    question: (
+      <>
+        5. What is the time complexity of accessing an element in an array by
+        its index?
+      </>
+    ),
+    options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
+    answer: "A) O(1)",
+    explanation: "Array elements can be accessed directly using index.",
+  },
+  {
+    question: (
+      <>6. Which of the following statements is true about arrays in C++?</>
+    ),
+    options: [
+      "A) The elements of an array are stored in contiguous memory locations",
+      "B) The elements of an array are stored in non-contiguous memory locations",
+      "C) The elements of an array are stored in random memory locations",
+      "D) None of the above",
+    ],
+    answer:
+      "A) The elements of an array are stored in contiguous memory locations",
+    explanation: "Array elements are stored next to each other in memory.",
+  },
+  {
+    question: (
+      <>
+        7. In C++, if an array is declared as int arr[5];, what will be the
+        default value of its elements?
+      </>
+    ),
+    options: ["A) 0", "B) 1", "C) Random value", "D) None"],
+    answer: "A) 0",
+    explanation: "Arrays are commonly initialized with default zero values.",
+  },
+  {
+    question: (
+      <>
+        8. What will be the output of the below code?
+        <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+{`#include <iostream>
 using namespace std;
 
 int main()
@@ -130,18 +138,19 @@ int main()
     cout << arr[0] << endl;
     return 0;
 }`}
-          </pre>
-        </>
-      ),
-      options: ["A) 0", "B) 1", "C) Random value", "D) None"],
-      answer: "A) 0",
-    },
-    {
-      question: (
-        <>
-          9. What will be the output of the below code?
-          <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
-            {`#include <iostream>
+        </pre>
+      </>
+    ),
+    options: ["A) 0", "B) 1", "C) Random value", "D) None"],
+    answer: "A) 0",
+    explanation: "The first element is treated as initialized to 0 here.",
+  },
+  {
+    question: (
+      <>
+        9. What will be the output of the below code?
+        <pre className="bg-gray-800 text-white p-4 rounded-lg mt-2 dark:bg-gray-900">
+{`#include <iostream>
 using namespace std;
 
 int main()
@@ -150,13 +159,14 @@ int main()
     cout << arr << endl;
     return 0;
 }`}
-          </pre>
-        </>
-      ),
-      options: ["A) Address of the first element", "B) 1", "C) 2", "D) None"],
-      answer: "A) Address of the first element",
-    },
-  ];
+        </pre>
+      </>
+    ),
+    options: ["A) Address of the first element", "B) 1", "C) 2", "D) None"],
+    answer: "A) Address of the first element",
+    explanation: "Printing an array name displays the base memory address.",
+  },
+];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -165,10 +175,11 @@ int main()
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
+    if (selectedOption !== null) return;
     setSelectedOption(selected);
     setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
   };
 
@@ -185,7 +196,8 @@ int main()
     <Layout title="Arrays Quiz" description="Test your knowledge on array operations and algorithms.">
       <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Arrays</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Quiz on Arrays</h2>
+          {!showResult && <QuizProgress current={currentQuestion} total={questions.length} />}
           {showResult ? (
             <div>
               <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">

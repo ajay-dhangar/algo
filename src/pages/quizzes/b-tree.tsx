@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import QuizProgress from "./QuizProgress";
 
 const BTree: React.FC = () => {
   const questions = [
@@ -13,6 +14,7 @@ const BTree: React.FC = () => {
       ],
       answer:
         "B) A tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.",
+      explanation: "B-Trees store sorted data and support efficient operations.",
     },
     {
       question: "2. What is the minimum degree of a B-Tree?",
@@ -23,12 +25,14 @@ const BTree: React.FC = () => {
         "D) The number of levels in the tree.",
       ],
       answer: "A) The minimum number of keys a node can contain.",
+      explanation: "Minimum degree defines the minimum number of keys.",
     },
     {
       question:
         "3. In a B-Tree, each node can have a maximum of how many children?",
       options: ["A) 2", "B) 3", "C) 2t", "D) t"],
       answer: "C) 2t",
+      explanation: "A B-Tree node can have at most 2t children.",
     },
     {
       question:
@@ -40,6 +44,7 @@ const BTree: React.FC = () => {
         "D) Simplicity of implementation.",
       ],
       answer: "C) Better balance and reduced height.",
+      explanation: "B-Trees reduce height and stay balanced.",
     },
     {
       question:
@@ -51,6 +56,7 @@ const BTree: React.FC = () => {
         "D) No action is taken.",
       ],
       answer: "C) The node is split into two nodes.",
+      explanation: "Overflow nodes are split to maintain balance.",
     },
     {
       question: "6. What does it mean for a B-Tree to be balanced?",
@@ -61,6 +67,7 @@ const BTree: React.FC = () => {
         "D) The tree is a complete binary tree.",
       ],
       answer: "A) All leaves are at the same depth.",
+      explanation: "All leaf nodes exist at the same level.",
     },
     {
       question: "7. How is deletion handled in a B-Tree?",
@@ -72,6 +79,7 @@ const BTree: React.FC = () => {
       ],
       answer:
         "C) It may require borrowing a key from a sibling or merging nodes.",
+      explanation: "Deletion may involve borrowing or merging nodes.",
     },
     {
       question: "8. Which of the following properties is NOT true for B-Trees?",
@@ -82,6 +90,7 @@ const BTree: React.FC = () => {
         "D) Every node can have an arbitrary number of children.",
       ],
       answer: "D) Every node can have an arbitrary number of children.",
+      explanation: "The number of children depends on the tree order.",
     },
     {
       question: "9. In which applications are B-Trees commonly used?",
@@ -92,6 +101,7 @@ const BTree: React.FC = () => {
         "D) Small data storage.",
       ],
       answer: "B) File systems and databases.",
+      explanation: "B-Trees are widely used in databases and file systems.",
     },
     {
       question:
@@ -103,6 +113,7 @@ const BTree: React.FC = () => {
         "D) The height and order are always equal.",
       ],
       answer: "B) The height decreases as the order increases.",
+      explanation: "Higher order reduces the height of the tree.",
     },
   ];
 
@@ -113,10 +124,11 @@ const BTree: React.FC = () => {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
+    if (selectedOption !== null) return;
     setSelectedOption(selected);
     setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
   };
 
@@ -136,7 +148,8 @@ const BTree: React.FC = () => {
     >
       <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on B-Trees</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Quiz on B-Trees</h2>
+          {!showResult && <QuizProgress current={currentQuestion} total={questions.length} />}
           {showResult ? (
             <div>
               <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">

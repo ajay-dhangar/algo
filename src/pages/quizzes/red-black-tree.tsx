@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import QuizProgress from "./QuizProgress";
 
 const RedBlackTreeQuiz: React.FC = () => {
   const questions = [
@@ -17,6 +18,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) A tree with no duplicate values.",
       ],
       answer: "A) A binary search tree with additional color properties.",
+      explanation: "A Red-Black Tree is a self-balancing binary search tree using colors.",
     },
     {
       question: (
@@ -31,6 +33,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) Green and Yellow",
       ],
       answer: "C) Red and Black",
+      explanation: "Red-Black Trees use red and black colors for balancing.",
     },
     {
       question: (
@@ -45,7 +48,9 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) O(sqrt(n))",
       ],
       answer: "B) O(log n)",
+      explanation: "The tree remains balanced with logarithmic height.",
     },
+
     // Average Questions
     {
       question: (
@@ -60,6 +65,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) Every path from a node to its leaves must have the same number of red nodes.",
       ],
       answer: "B) Red nodes cannot have red children.",
+      explanation: "Two consecutive red nodes are not allowed.",
     },
     {
       question: (
@@ -74,6 +80,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) To traverse the tree.",
       ],
       answer: "B) To maintain the balance of the tree.",
+      explanation: "Rotations help keep the tree balanced after updates.",
     },
     {
       question: (
@@ -88,7 +95,9 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) Green",
       ],
       answer: "A) Red",
+      explanation: "New nodes are inserted as red nodes initially.",
     },
+
     // Difficult Questions
     {
       question: (
@@ -103,6 +112,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) By increasing the tree's depth.",
       ],
       answer: "A) By performing rotations and recoloring nodes.",
+      explanation: "Balancing is done using rotations and recoloring.",
     },
     {
       question: (
@@ -117,6 +127,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) Inserting a black node.",
       ],
       answer: "A) Inserting a red node in the left subtree of a left child.",
+      explanation: "A left-left imbalance is fixed using right rotation.",
     },
     {
       question: (
@@ -131,6 +142,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) No action is taken.",
       ],
       answer: "B) The tree is rebalanced.",
+      explanation: "The tree automatically rebalances to maintain properties.",
     },
     {
       question: (
@@ -145,6 +157,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         "D) It allows for faster traversals.",
       ],
       answer: "B) It guarantees O(log n) time complexity for insertions, deletions, and searches.",
+      explanation: "Balancing ensures efficient operations in logarithmic time.",
     },
   ];
 
@@ -155,10 +168,11 @@ const RedBlackTreeQuiz: React.FC = () => {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
+    if (selectedOption !== null) return;
     setSelectedOption(selected);
     setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
   };
 
@@ -175,7 +189,8 @@ const RedBlackTreeQuiz: React.FC = () => {
     <Layout title="Quiz on Red-Black Trees" description="Challenge your understanding of the properties and algorithms of Red-Black Trees.">
       <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Red-Black Trees</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Quiz on Red-Black Trees</h2>
+          {!showResult && <QuizProgress current={currentQuestion} total={questions.length} />}
           {showResult ? (
             <div>
               <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">

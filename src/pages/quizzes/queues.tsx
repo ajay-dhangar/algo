@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import QuizProgress from "./QuizProgress";
 
 const QueueQuiz: React.FC = () => {
   const questions = [
@@ -8,18 +9,20 @@ const QueueQuiz: React.FC = () => {
       question: "1. What will happen if you try to dequeue an item from an empty queue?",
       options: ["A) Returns null", "B) Throws an error", "C) Returns undefined", "D) No operation"],
       answer: "B) Throws an error",
+      explanation: "Dequeuing from an empty queue causes underflow.",
     },
     {
       question: "2. In a circular queue, what is the primary benefit compared to a linear queue?",
       options: ["A) More memory usage", "B) Faster access time", "C) Efficient use of space", "D) Simpler implementation"],
       answer: "C) Efficient use of space",
+      explanation: "Circular queues reuse empty spaces efficiently.",
     },
     {
       question: (
         <>
           3. Consider the following operations on a queue:
           <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`enqueue(1);
+{`enqueue(1);
 enqueue(2);
 enqueue(3);
 dequeue();
@@ -31,29 +34,33 @@ dequeue();`}
       ),
       options: ["A) 1, 2", "B) 1, 3", "C) 2, 4", "D) 3, 4"],
       answer: "A) 1, 2",
+      explanation: "Queue follows FIFO order.",
     },
-    // Average Questions
     {
       question: "4. Which data structure is commonly used to implement a queue?",
       options: ["A) Array", "B) Linked List", "C) Stack", "D) Both A and B"],
       answer: "D) Both A and B",
+      explanation: "Queues can use arrays or linked lists.",
     },
+    // Average Questions
     {
       question: "5. What is the time complexity of enqueue and dequeue operations in a linked list-based queue?",
       options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
       answer: "A) O(1)",
+      explanation: "Both operations take constant time.",
     },
     {
       question: "6. In a queue, which operation is used to remove an element from the front?",
       options: ["A) push", "B) pop", "C) enqueue", "D) dequeue"],
       answer: "D) dequeue",
+      explanation: "Dequeue removes the front element.",
     },
     {
       question: (
         <>
           7. Given the following pseudocode for a queue operation:
           <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`if (front == -1) {
+{`if (front == -1) {
     front = 0;
 }
 rear++;
@@ -69,19 +76,21 @@ queue[rear] = value;`}
         "D) IsEmpty operation",
       ],
       answer: "A) Enqueue operation",
+      explanation: "The code inserts an element into the queue.",
     },
-    // Difficult QuestionsclassName="options"
+    // Difficult Questions
     {
       question: "8. Which of the following is not a type of queue?",
       options: ["A) Simple Queue", "B) Circular Queue", "C) Double-ended Queue", "D) Random Queue"],
       answer: "D) Random Queue",
+      explanation: "Random Queue is not a standard queue type.",
     },
     {
       question: (
         <>
           9. In a priority queue, elements are dequeued based on:
           <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`1. Their position in the queue
+{`1. Their position in the queue
 2. Their priority level`}
           </pre>
           Which statement is correct?
@@ -94,13 +103,14 @@ queue[rear] = value;`}
         "D) Neither",
       ],
       answer: "B) Only by priority level",
+      explanation: "Priority queues remove higher-priority elements first.",
     },
     {
       question: (
         <>
           10. What will be the output of the following queue operations if the initial queue is empty?
           <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`enqueue(10);
+{`enqueue(10);
 enqueue(20);
 dequeue();
 enqueue(30);`}
@@ -109,7 +119,8 @@ enqueue(30);`}
         </>
       ),
       options: ["A) 10", "B) 20", "C) 30", "D) Queue is empty"],
-      answer: "C) 30",
+      answer: "B) 20",
+      explanation: "10 is removed, so 20 becomes the front.",
     },
   ];
 
@@ -120,10 +131,11 @@ enqueue(30);`}
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
+    if (selectedOption !== null) return;
     setSelectedOption(selected);
     setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
   };
 
@@ -140,7 +152,8 @@ enqueue(30);`}
     <Layout title="Queues Quiz" description="Challenge your knowledge on queue implementations and their use cases.">
       <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Queues</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Quiz on Queues</h2>
+          {!showResult && <QuizProgress current={currentQuestion} total={questions.length} />}
           {showResult ? (
             <div>
               <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import QuizProgress from "./QuizProgress";
 
 const BinaryTreeQuiz: React.FC = () => {
   const questions = [
@@ -8,6 +9,7 @@ const BinaryTreeQuiz: React.FC = () => {
       question: "1. What is the height of a binary tree with a single node?",
       options: ["A) 0", "B) 1", "C) 2", "D) Depends on the tree"],
       answer: "B) 1",
+      explanation: "A single-node tree has height 1.",
     },
     {
       question:
@@ -19,19 +21,23 @@ const BinaryTreeQuiz: React.FC = () => {
         "D) Level-order",
       ],
       answer: "B) In-order",
+      explanation: "In-order traversal follows left, root, right order.",
     },
     {
       question:
         "3. In a binary tree, what is the maximum number of nodes at depth 'd'?",
       options: ["A) 2^d", "B) 2^(d+1) - 1", "C) 2d", "D) d^2"],
       answer: "A) 2^d",
+      explanation: "Each level can contain at most 2^d nodes.",
     },
+
     // Average Questions
     {
       question:
         "4. What is the time complexity of searching for an element in a balanced binary search tree?",
       options: ["A) O(n)", "B) O(log n)", "C) O(n log n)", "D) O(1)"],
       answer: "B) O(log n)",
+      explanation: "Balanced BSTs allow logarithmic search time.",
     },
     {
       question:
@@ -43,6 +49,7 @@ const BinaryTreeQuiz: React.FC = () => {
         "D) None of the above.",
       ],
       answer: "C) Both A and B.",
+      explanation: "BSTs maintain ordered left and right subtrees.",
     },
     {
       question:
@@ -54,12 +61,15 @@ const BinaryTreeQuiz: React.FC = () => {
         "D) A and B.",
       ],
       answer: "D) A and B.",
+      explanation: "Complete binary trees fill levels from left to right.",
     },
+
     // Difficult Questions
     {
       question: "7. What is the maximum depth of a binary tree with 'n' nodes?",
       options: ["A) n", "B) log n", "C) n/2", "D) n - 1"],
       answer: "A) n",
+      explanation: "A skewed binary tree can have depth equal to n.",
     },
     {
       question:
@@ -71,6 +81,7 @@ const BinaryTreeQuiz: React.FC = () => {
         "D) None of the above",
       ],
       answer: "C) Both A and B",
+      explanation: "Both recursive and iterative methods can find LCA.",
     },
     {
       question:
@@ -82,12 +93,14 @@ const BinaryTreeQuiz: React.FC = () => {
         "D) Reverse in-order traversal",
       ],
       answer: "D) Reverse in-order traversal",
+      explanation: "Reverse in-order gives nodes in descending order.",
     },
     {
       question:
         "10. What is the worst-case time complexity for inserting an element in a binary search tree?",
       options: ["A) O(log n)", "B) O(n)", "C) O(n log n)", "D) O(1)"],
       answer: "B) O(n)",
+      explanation: "Worst case occurs when the BST becomes skewed.",
     },
   ];
 
@@ -98,10 +111,11 @@ const BinaryTreeQuiz: React.FC = () => {
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
+    if (selectedOption !== null) return;
     setSelectedOption(selected);
     setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
   };
 
@@ -121,7 +135,8 @@ const BinaryTreeQuiz: React.FC = () => {
     >
       <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Binary Tree</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Quiz on Binary Tree</h2>
+          {!showResult && <QuizProgress current={currentQuestion} total={questions.length} />}
           {showResult ? (
             <div>
               <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">

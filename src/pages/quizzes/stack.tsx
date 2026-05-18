@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import QuizProgress from "./QuizProgress";
 
 const StackQuiz: React.FC = () => {
   const questions = [
@@ -32,6 +33,7 @@ const StackQuiz: React.FC = () => {
         "D) Prints the value of Logn in reverse order",
       ],
       answer: "A) Prints binary representation of n in reverse order",
+      explanation: "The stack stores binary digits and prints them in reverse order.",
     },
     {
       question: (
@@ -60,6 +62,7 @@ while (the stack is not empty)
         "D) ziuqskeegziuqskeeg",
       ],
       answer: "B) ziuqskeeg",
+      explanation: "Stacks reverse the order of characters.",
     },
     {
       question: (
@@ -89,7 +92,9 @@ print "balanced"`}
         "D) (()))()",
       ],
       answer: "D) (()))()",
+      explanation: "The algorithm misses checking leftover opening brackets.",
     },
+
     // Average Questions
     {
       question: (
@@ -108,6 +113,7 @@ print "balanced"`}
         "D) 1, 5",
       ],
       answer: "A) 6, 1",
+      explanation: "Postfix evaluation uses stack operations step by step.",
     },
     {
       question: (
@@ -122,6 +128,7 @@ print "balanced"`}
         "D) top1= top2 -1",
       ],
       answer: "B) top1 + top2 + 1 = MAXSIZE",
+      explanation: "The stacks are full when both tops meet.",
     },
     {
       question: (
@@ -136,7 +143,9 @@ print "balanced"`}
         "D) - + a × bc ^ ^ def",
       ],
       answer: "A) abc × + def ^ ^ -",
+      explanation: "Operator precedence and associativity determine postfix order.",
     },
+
     // Difficult Questions
     {
       question: (
@@ -150,7 +159,8 @@ print "balanced"`}
         "C) 142",
         "D) 71",
       ],
-      answer: "C) 142", // Removed answer
+      answer: "C) 142",
+      explanation: "Postfix expressions are evaluated using stack operations.",
     },
     {
       question: (
@@ -166,6 +176,7 @@ print "balanced"`}
         "D) 2",
       ],
       answer: "A) 6",
+      explanation: "The function value is computed recursively using stack values.",
     },
     {
       question: (
@@ -180,6 +191,7 @@ print "balanced"`}
         "D) strictly decreasing order",
       ],
       answer: "C) strictly increasing order",
+      explanation: "Increasing keys ensure latest elements are removed first.",
     },
     {
       question: (
@@ -194,6 +206,7 @@ print "balanced"`}
         "D) 2,1,2,2,2",
       ],
       answer: "C) 2,1,2,2,1",
+      explanation: "Stacks follow Last In First Out (LIFO) order.",
     },
   ];
 
@@ -204,10 +217,11 @@ print "balanced"`}
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   const handleAnswer = (selected: string) => {
+    if (selectedOption !== null) return;
     setSelectedOption(selected);
     setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
     if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
   };
 
@@ -224,7 +238,8 @@ print "balanced"`}
     <Layout title="Stack Quiz" description="Evaluate your understanding of stack operations and applications.">
       <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Stack</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Quiz on Stack</h2>
+          {!showResult && <QuizProgress current={currentQuestion} total={questions.length} />}
           {showResult ? (
             <div>
               <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
