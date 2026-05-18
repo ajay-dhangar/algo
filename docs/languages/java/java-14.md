@@ -7,36 +7,9 @@ description: "Java Collections Framework & Stream API complete reference — Arr
 tags: [java, Collections, Streams, ArrayList, LinkedList, HashSet, LinkedHashSet, HashMap, LinkedHashMap, TreeMap, PriorityQueue, Set, List, Queue, Deque, Stack, Map, Stream API]
 ---
 
-## Java Collections Framework & Stream API — Complete Reference
-
-> **Who is this for?** Absolute beginners who want a single, deep-dive document covering every common data structure and stream operation used in real Java code and DSA problems. Every section includes *what it is*, *when to use it*, *how to create it*, *all key methods with examples*, and *gotchas to avoid*.
-
----
-
-### Table of Contents
-
-1. [Collections Framework Overview](#1-collections-framework-overview)
-2. [ArrayList](#2-arraylist)
-3. [LinkedList](#3-linkedlist)
-4. [Stack](#4-stack)
-5. [Queue & Deque (ArrayDeque)](#5-queue--deque-arraydeque)
-6. [PriorityQueue (Heap)](#6-priorityqueue-heap)
-7. [HashMap](#7-hashmap)
-8. [LinkedHashMap](#8-linkedhashmap)
-9. [TreeMap](#9-treemap)
-10. [HashSet](#10-hashset)
-11. [LinkedHashSet](#11-linkedhashset)
-12. [TreeSet](#12-treeset)
-13. [Collections Utility Class](#13-collections-utility-class)
-14. [Stream API Overview](#14-stream-api-overview)
-15. [Creating Streams](#15-creating-streams)
-16. [Intermediate Operations](#16-intermediate-operations)
-17. [Terminal Operations](#17-terminal-operations)
-18. [Collectors](#18-collectors)
-19. [Optional](#19-optional)
-20. [Primitive Streams](#20-primitive-streams)
-21. [Parallel Streams](#21-parallel-streams)
-22. [Chaining — Real-world Examples](#22-chaining--real-world-examples)
+:::info Who is this for?
+Absolute beginners who want a single, deep-dive document covering every common data structure and stream operation used in real Java code and DSA problems. Every section includes *what it is*, *when to use it*, *how to create it*, *all key methods with examples*, and *gotchas to avoid*.
+:::
 
 ---
 
