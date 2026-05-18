@@ -1,20 +1,19 @@
 ---
 id: two-pointers
-title: Two Pointers Algorithm
-sidebar_label: What is Two Pointers Algorithm?
+title: "Two Pointers Algorithm"
+sidebar_label: "What is Two Pointers Algorithm?"
 sidebar_position: 1
 description: "In this blog post, we'll explore the Two Pointers Algorithm, an efficient technique for solving problems related to arrays or strings."
 tags: [dsa, algorithms, two pointers]
 ---
 
-## Two Pointers Algorithm
-
 ![alt text](IntroductionToTwoPointers.png)
 
-### Definition:
+## Definition:
+
 The **Two Pointers** technique is a widely used algorithmic pattern that utilizes two pointers (or indices) to traverse a data structure, usually an array or a string. This approach is particularly useful for problems that require searching, comparing, or modifying elements based on specific conditions.
 
-### Characteristics:
+## Characteristics:
 
 - **Pointer Definition**:
   - Two pointers can start at different positions in the data structure and move towards each other (or in the same direction) based on the problem requirements.
@@ -26,7 +25,7 @@ The **Two Pointers** technique is a widely used algorithmic pattern that utilize
   - **Moving Inward**: Both pointers move towards each other (e.g., finding a pair that sums to a target).
   - **Moving Outward**: Both pointers move in the same direction (e.g., finding subarrays or substrings).
 
-### Common Use Cases:
+## Common Use Cases:
 
 - **Finding pairs in an array that sum to a target**.
 - **Reversing a string**.
@@ -34,10 +33,10 @@ The **Two Pointers** technique is a widely used algorithmic pattern that utilize
 - **Finding the longest substring with at most K distinct characters**.
 
 ### Time Complexity:
-- **O(n)**, where n is the size of the array or string. The two pointers ensure that we traverse the data structure only once.
+- **$O(n)$**, where $n$ is the size of the array or string. The two pointers ensure that we traverse the data structure only once.
 
 ### Space Complexity:
-- **O(1)**, as the approach typically uses a constant amount of extra space regardless of the input size.
+- **$O(1)$**, as the approach typically uses a constant amount of extra space regardless of the input size.
 
 ### C++ Implementation (Finding a Pair with a Given Sum):
 
@@ -82,13 +81,11 @@ int main() {
 }
 ``` 
 
-### Explanation:
+## Explanation:
+
 In this example, the `while` loop continues until the two pointers meet.  
 The sum of the elements at the two pointers is compared to the target. If they match, the pair is returned. If the current sum is less than the target, the left pointer is moved to the right to increase the sum. If the current sum is greater than the target, the right pointer is moved to the left to decrease the sum.  
-This ensures that we check each pair only once, resulting in an overall time complexity of **O(n)**.
-
-### Summary:
-The Two Pointers technique is a versatile approach that optimizes many problems involving arrays and strings. By leveraging two pointers, we can reduce the time complexity from **O(n²)** (for nested loops) to **O(n)**, making our solutions more efficient and scalable.
+This ensures that we check each pair only once, resulting in an overall time complexity of **$O(n)$**.
 
 ## Dry Run Example
 
@@ -114,8 +111,6 @@ Current sum:
 
 Since the current sum is greater than the target value, move the right pointer one position to the left in order to reduce the sum.
 
----
-
 ### Iteration 2
 
 * left = 0 → arr[left] = 1
@@ -128,8 +123,6 @@ Current sum:
 ```
 
 Since the current sum is smaller than the target value, move the left pointer one position to the right in order to increase the sum.
-
----
 
 ### Iteration 3
 
@@ -163,6 +156,10 @@ Pair Found: (2, 4)
 * Finding pairs with a specific target sum in sorted datasets
 * Removing duplicate elements from sorted arrays efficiently
 * Checking whether a string or phrase is a palindrome
-* Efficiently merging two sorted arrays
+* Efficient
+
+## Summary:
+The Two Pointers technique is a versatile approach that optimizes many problems involving arrays and strings. By leveraging two pointers, we can reduce the time complexity from **O(n²)** (for nested loops) to **O(n)**, making our solutions more efficient and scalable.
+ly merging two sorted arrays
 * Solving sliding window and substring-related optimization problems
 * Widely used in coding interviews and competitive programming challenges
