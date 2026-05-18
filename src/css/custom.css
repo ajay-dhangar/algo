@@ -199,12 +199,6 @@ button {
   border-bottom: 2px solid var(--ifm-color-primary);
 }
 
-/* CHANGED: added dark mode active state styling for navbar links to fix #2113 */
-[data-theme="dark"] .navbar a.navbar__link--active {
-  color: var(--ifm-color-primary-lightest);
-  border-bottom: 2px solid var(--ifm-color-primary-lightest);
-}
-
 /* CHANGED: added active state styling for sidebar links to fix #2113 */
 .menu__link--active {
   color: var(--ifm-color-primary);
