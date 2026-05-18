@@ -79,7 +79,7 @@ int main() {
 
     return 0;
 }
-``` 
+```
 
 ## Explanation:
 
@@ -160,6 +160,3 @@ Pair Found: (2, 4)
 
 ## Summary:
 The Two Pointers technique is a versatile approach that optimizes many problems involving arrays and strings. By leveraging two pointers, we can reduce the time complexity from **O(n²)** (for nested loops) to **O(n)**, making our solutions more efficient and scalable.
-ly merging two sorted arrays
-* Solving sliding window and substring-related optimization problems
-* Widely used in coding interviews and competitive programming challenges
