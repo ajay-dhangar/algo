@@ -73,7 +73,7 @@ const steps: Step[] = [
 ];
 
 const HowItWorksSection: React.FC = () => {
-  const [activeStep, setActiveStep] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
