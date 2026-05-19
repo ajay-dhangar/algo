@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import LoginModal from "./LoginModal";
 
 const CallToActionSection: React.FC = () => {
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   return (
     <section className="relative overflow-hidden py-24 bg-gradient-to-br from-blue-700 via-indigo-700 to-cyan-600 dark:from-gray-950 dark:via-blue-950 dark:to-cyan-950">
       {/* Background Glow Effects */}
@@ -54,8 +56,10 @@ const CallToActionSection: React.FC = () => {
             whileTap={{ scale: 0.96 }}
             className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl px-10 py-4 font-semibold text-lg text-blue-700 bg-white shadow-2xl transition-all duration-300"
           >
-            <span className="relative z-10">Get Started</span>
-
+            <span className="relative z-10"
+              onClick={() => setIsLoginOpen(true)}
+            >
+              Get Started</span>
        
           </motion.a>
           <motion.a
@@ -71,6 +75,10 @@ const CallToActionSection: React.FC = () => {
           </motion.a>
         </motion.div>
       </div>
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={() => setIsLoginOpen(false)}
+      />
     </section>
   );
 };
