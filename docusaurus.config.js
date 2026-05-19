@@ -3,6 +3,29 @@ import { themes as prismThemes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
+const fs = require("fs");
+const { execSync } = require("child_process");
+
+// Only show git history when git metadata is actually available.
+// Can be explicitly overridden with DOCUSAURUS_ENABLE_GIT_HISTORY=true|false.
+const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
+const showGitHistory =
+  gitHistoryOverride === "true"
+    ? true
+    : gitHistoryOverride === "false"
+      ? false
+      : (() => {
+          try {
+            if (!fs.existsSync(path.join(__dirname, ".git"))) {
+              return false;
+            }
+
+            execSync("git rev-parse --is-inside-work-tree", { stdio: "ignore" });
+            return true;
+          } catch {
+            return false;
+          }
+        })();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -30,8 +53,8 @@ const config = {
             "https://github.com/ajay-dhangar/algo/tree/main/templates/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: showGitHistory,
+          showLastUpdateTime: showGitHistory,
         },
         blog: {
           showReadingTime: true,
@@ -131,8 +154,8 @@ const config = {
                 label: "Practice",
               },
               {
-                to: "quizes",
-                label: "Quizes",
+                to: "quizzes",
+                label: "Quizzes",
               },
               {
                 to: "quiz-solutions",
@@ -226,8 +249,8 @@ const config = {
         sidebarPath: require.resolve("./dsa-interview-sidebars.js"),
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
+        showLastUpdateAuthor: showGitHistory,
+        showLastUpdateTime: showGitHistory,
       },
     ],
     [
