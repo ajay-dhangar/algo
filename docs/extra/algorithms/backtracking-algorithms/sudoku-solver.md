@@ -132,7 +132,7 @@ def is_valid(board, row, col, num):
         return False
 
     # Check column
-    if num in [board[i][col] for i in range(9)]:
+    if any(board[i][col] == num for i in range(9)):
         return False
 
     # Check 3x3 sub-box
