@@ -208,7 +208,7 @@ Merge sort is an efficient and reliable sorting algorithm, particularly for larg
 
 ## Common Mistakes
 
-- Beginners often use this algorithm without understanding its limitations.
-- Incorrect loop conditions may cause infinite loops or wrong output.
-- Forgetting edge cases can lead to unexpected behavior.
-- Using the algorithm on unsuitable datasets reduces performance.
+- Forgetting that Merge Sort is not in-place and requires O(n) extra space
+- Incorrectly calculating the midpoint, potentially leading to infinite recursion
+- Not handling the base case (array size 0 or 1) correctly
+- Overlooking that Merge Sort is stable when stability is required
