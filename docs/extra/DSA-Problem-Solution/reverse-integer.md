@@ -36,20 +36,24 @@ To reverse an integer, we can repeatedly extract the last digit using the modulo
 ```java
 class Solution {
     public int reverse(int x) {
-        int reversed_num = 0;
+        int reversedNum = 0;
         
         while (x != 0) {
             int digit = x % 10;
             x /= 10;
             
             // Check for integer overflow before multiplying by 10
-            if (reversed_num > Integer.MAX_VALUE / 10 || (reversed_num == Integer.MAX_VALUE / 10 && digit > 7)) return 0;
-            if (reversed_num < Integer.MIN_VALUE / 10 || (reversed_num == Integer.MIN_VALUE / 10 && digit < -8)) return 0;
+            if (reversedNum > Integer.MAX_VALUE / 10 || (reversedNum == Integer.MAX_VALUE / 10 && digit > 7)) {
+                return 0;
+            }
+            if (reversedNum < Integer.MIN_VALUE / 10 || (reversedNum == Integer.MIN_VALUE / 10 && digit < -8)) {
+                return 0;
+            }
             
-            reversed_num = reversed_num * 10 + digit;
+            reversedNum = reversedNum * 10 + digit;
         }
         
-        return reversed_num;
+        return reversedNum;
     }
 }
 ```
