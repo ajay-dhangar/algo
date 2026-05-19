@@ -176,7 +176,7 @@ export default function DocSidebarItemCategory({
               ? (e) => {
                   onItemClick?.(item);
                   if (href) {
-                    updateCollapsed(); // <-- THIS IS THE FIX! The "false" was removed from here.
+                    updateCollapsed();
                   } else {
                     e.preventDefault();
                     updateCollapsed();
