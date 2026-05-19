@@ -163,9 +163,10 @@ function AlgorithmUseCases() {
             key={algo}
             onClick={() => setSelected(algo)}
 <<<<<<< Updated upstream
-=======
+          <button
+            key={algo}
+            onClick={() => setSelected(algo)}
             aria-pressed={selected === algo}
->>>>>>> Stashed changes
             style={{
               padding: "12px 20px",
               border: "none",
