@@ -79,5 +79,56 @@ class Solution:
         return reversed_num
 ```
 
+## C++ Implementation
+
+```cpp
+class Solution {
+public:
+    int reverse(int x) {
+        int reversed_num = 0;
+        while (x != 0) {
+            int digit = x % 10;
+            x /= 10;
+            if (reversed_num > INT_MAX / 10 || (reversed_num == INT_MAX / 10 && digit > 7)) return 0;
+            if (reversed_num < INT_MIN / 10 || (reversed_num == INT_MIN / 10 && digit < -8)) return 0;
+            reversed_num = reversed_num * 10 + digit;
+        }
+        return reversed_num;
+    }
+};
+```
+
+## JavaScript Implementation
+
+```javascript
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var reverse = function(x) {
+    const INT_MIN = -Math.pow(2, 31);
+    const INT_MAX = Math.pow(2, 31) - 1;
+    
+    let reversed_num = 0;
+    let sign = x < 0 ? -1 : 1;
+    x = Math.abs(x);
+    
+    while (x !== 0) {
+        let digit = x % 10;
+        x = Math.floor(x / 10);
+        
+        reversed_num = reversed_num * 10 + digit;
+    }
+    
+    reversed_num *= sign;
+    
+    if (reversed_num < INT_MIN || reversed_num > INT_MAX) {
+        return 0;
+    }
+    
+    return reversed_num;
+};
+```
+
 Time Complexity: $O(log(x))$ <br /> 
-Space Complexity: $O(1)   
+Space Complexity: $O(1)$
