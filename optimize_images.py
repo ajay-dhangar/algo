@@ -7,7 +7,7 @@ Addresses issue #2121.
 
 from PIL import Image
 import os
-import sys
+
 
 # CHANGED: List of images to optimize as mentioned in issue #2121
 IMAGES_TO_OPTIMIZE = [
@@ -39,20 +39,12 @@ def optimize_image(image_path, quality=85):
         # CHANGED: Open image and optimize
         img = Image.open(image_path)
         
-        # CHANGED: Convert RGBA to RGB if necessary (for JPEG compatibility)
-        if img.mode in ("RGBA", "LA", "P"):
-            background = Image.new("RGB", img.size, (255, 255, 255))
-            background.paste(img, mask=img.split()[-1] if img.mode == "RGBA" else None)
-            img = background
         
-        # CHANGED: Optimize and save as both PNG (optimized) and WebP (modern format)
+         # CHANGED: Optimize and save as both PNG (optimized) and WebP (modern format)
         base_name = os.path.splitext(image_path)[0]
-        
-        # Save optimized PNG
-        png_path = image_path
-        img.save(png_path, "PNG", optimize=True, quality=quality)
-        
-        # Save WebP version
+        # Save optimized PNG (lossless, transparency preserved)
+        img.save(image_path, "PNG", optimize=True)
+        # Save WebP version (supports transparency and lossy compression)
         webp_path = f"{base_name}.webp"
         img.save(webp_path, "WebP", quality=quality)
         

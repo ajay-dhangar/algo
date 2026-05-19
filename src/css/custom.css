@@ -191,24 +191,3 @@ button {
   cursor: pointer;
   border: 1px solid var(--ifm-color-primary);
 }
-/* CHANGED: added active state styling for navbar links to fix #2113 */
-
-.navbar a.navbar__link--active {
-  color: var(--ifm-color-primary);
-  font-weight: bold;
-  border-bottom: 2px solid var(--ifm-color-primary);
-}
-
-/* CHANGED: added active state styling for sidebar links to fix #2113 */
-.menu__link--active {
-  color: var(--ifm-color-primary);
-  font-weight: bold;
-  background-color: var(--docusaurus-highlighted-code-line-bg);
-  border-left: 4px solid var(--ifm-color-primary);
-}
-
-/* CHANGED: added dark mode active state styling for sidebar links to fix #2113 */
-[data-theme="dark"] .menu__link--active {
-  color: var(--ifm-color-primary-lightest);
-  border-left: 4px solid var(--ifm-color-primary-lightest);
-}
