@@ -78,8 +78,7 @@ const HowItWorksSection: React.FC = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        (entries, observer) => {
+      (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fade-in");
