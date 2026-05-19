@@ -110,9 +110,15 @@ const config = {
             position: "left",
           },
           {
+<<<<<<< Updated upstream
             to: '/applications',
             label: 'Applications',
              position: 'left',
+=======
+            to: "applications",
+            label: "Applications",
+            position: "left",
+>>>>>>> Stashed changes
           },
           {
             type: "dropdown",

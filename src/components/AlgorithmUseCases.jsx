@@ -130,6 +130,10 @@ function AlgorithmUseCases() {
     <div
       style={{
         display: "flex",
+<<<<<<< Updated upstream
+=======
+        flexWrap: "wrap",
+>>>>>>> Stashed changes
         gap: "30px",
         padding: "30px",
         margin: "40px auto",
@@ -143,6 +147,10 @@ function AlgorithmUseCases() {
       <div
         style={{
           display: "flex",
+<<<<<<< Updated upstream
+=======
+          flexWrap: "wrap",
+>>>>>>> Stashed changes
           flexDirection: "column",
           gap: "15px",
           maxHeight: "500px",
@@ -154,6 +162,10 @@ function AlgorithmUseCases() {
           <button
             key={algo}
             onClick={() => setSelected(algo)}
+<<<<<<< Updated upstream
+=======
+            aria-pressed={selected === algo}
+>>>>>>> Stashed changes
             style={{
               padding: "12px 20px",
               border: "none",
