@@ -24,6 +24,10 @@ const AlgorithmOfTheDaySection: React.FC = () => {
 
   if (!algo || !now) return null;
 
+   const badgeClass =
+    categoryColors[algo.category] ||
+    "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300";
+
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4">
