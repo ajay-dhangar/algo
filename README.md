@@ -160,6 +160,19 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 
 <br>
 
+## Manually invoke Gemini Code Assist
+
+Gemini Code Assist listens to comments from any pull request contributor, and decides whether it should respond.
+
+To manually invoke Gemini Code Assist, you can use the following commands in the main comments page on the pull request as an issue comment.
+
+| Command | Description
+|:---|:---|
+|`/gemini summary` | Posts a summary of the changes in the pull request |
+|`/gemini review` |Posts a code review of the changes in the pull request |
+|`/gemini`| Manually invokes Gemini Code Assist in comments |
+|`/gemini help` | Overview of the available commands |
+
 ## Stargazers
 
 [![Stargazers repo roster for @ajay-dhangar/algo](https://reporoster.com/stars/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/stargazers)
