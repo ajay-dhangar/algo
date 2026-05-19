@@ -111,9 +111,9 @@ const config = {
           },
           {
 <<<<<<< Updated upstream
-            to: '/applications',
-            label: 'Applications',
-             position: 'left',
+            to: "applications",
+            label: "Applications",
+            position: "left",
 =======
             to: "applications",
             label: "Applications",
