@@ -130,6 +130,7 @@ function AlgorithmUseCases() {
     <div
       style={{
         display: "flex",
+        flexWrap: "wrap",
 <<<<<<< Updated upstream
 =======
         flexWrap: "wrap",
