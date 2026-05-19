@@ -293,7 +293,7 @@ const DataStructuresQuiz = () => {
 
   // Handle option selection
   const handleOptionSelect = (option: string) => {
-    if (userAnswers[currentQuestionIndex] !== undefined) return;
+    if (userAnswers[currentQuestionIndex] !== undefined || selectedOption) return;
 
     setSelectedOption(option);
     if (option === questions[currentQuestionIndex].answer) {
