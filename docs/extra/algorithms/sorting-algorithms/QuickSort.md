@@ -170,7 +170,7 @@ Quick sort is a highly efficient and widely used sorting algorithm that works we
 
 ## Common Mistakes
 
-- Beginners often use this algorithm without understanding its limitations.
-- Incorrect loop conditions may cause infinite loops or wrong output.
-- Forgetting edge cases can lead to unexpected behavior.
-- Using the algorithm on unsuitable datasets reduces performance.
+- Choosing a poor pivot (e.g., first/last element) on sorted data, leading to O(n²) complexity
+- Forgetting that Quick Sort is an unstable sorting algorithm
+- Not handling duplicate elements efficiently during the partitioning step
+- Potential stack overflow due to deep recursion on large, unbalanced datasets
