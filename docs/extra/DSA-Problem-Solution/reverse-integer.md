@@ -7,8 +7,6 @@ description: "This document explains the Reverse Integer problem, including its 
 tags: [dsa, algorithms, problem-solving, math]
 ---
 
-# Reverse Integer
-
 ## Problem Statement
 Given a signed 32-bit integer `x`, return `x` with its digits reversed. If reversing `x` causes the value to go outside the signed 32-bit integer range `[-2^31, 2^31 - 1]`, then return `0`.
 
@@ -81,5 +79,5 @@ class Solution:
         return reversed_num
 ```
 
-Time Complexity: O(log(x)) <br /> 
-Space Complexity: O(1)    
+Time Complexity: $O(log(x))$ <br /> 
+Space Complexity: $O(1)   
