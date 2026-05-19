@@ -84,4 +84,4 @@ class Solution:
 ```
 
 Time Complexity: $O(log(x))$ <br /> 
-Space Complexity: $O(1)   
+Space Complexity: $O(1)$
