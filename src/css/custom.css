@@ -191,6 +191,7 @@ button {
   cursor: pointer;
   border: 1px solid var(--ifm-color-primary);
 }
+/* CHANGED: added active state styling for navbar links to fix #2113 */
 
 .navbar a.navbar__link--active {
   color: var(--ifm-color-primary);
