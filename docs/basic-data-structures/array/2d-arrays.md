@@ -553,10 +553,12 @@ for row in result:
 using namespace std;
 
 vector<vector<int>> matrixMultiplication(vector<vector<int>>& A, vector<vector<int>>& B) {
+    if (A.empty() || A[0].empty() || B.empty() || B[0].empty()) return {};
     int m = A.size();
     int n = A[0].size();
     int p = B[0].size();
-    
+    if (n != (int)B.size()) return {};
+
     vector<vector<int>> C(m, vector<int>(p, 0));
     
     for (int i = 0; i < m; i++) {
