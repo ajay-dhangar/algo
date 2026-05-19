@@ -310,7 +310,7 @@ using namespace std;
 
 vector<int> spiralOrder(vector<vector<int>>& matrix) {
     vector<int> result;
-    if (matrix.empty()) return result;
+    if (matrix.empty() || matrix[0].empty()) return result;
     
     int top = 0, bottom = matrix.size() - 1;
     int left = 0, right = matrix[0].size() - 1;
