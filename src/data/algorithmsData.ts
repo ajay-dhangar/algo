@@ -78,7 +78,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Determines the most valuable subset of items that fit within a given weight capacity.",
     timeComplexity: { best: "O(nW)", average: "O(nW)", worst: "O(nW)" },
     spaceComplexity: "O(nW)",
-    docLink: "/docs/dynamic-programming/",
+    docLink: "/docs/dynamic-programming/knapsack-problem",
   },
   {
     name: "Linear Search",
@@ -126,6 +126,6 @@ export const algorithmsData: Algorithm[] = [
     description: "Finds the longest subsequence present in both sequences using a DP table.",
     timeComplexity: { best: "O(mn)", average: "O(mn)", worst: "O(mn)" },
     spaceComplexity: "O(mn)",
-    docLink: "/docs/dynamic-programming/",
+    docLink: "/docs/dynamic-programming/longest-common-subsequence",
   },
-];
+];  

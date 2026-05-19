@@ -2,24 +2,27 @@ import React from "react";
 import { algorithmsData } from "../../data/algorithmsData";
 import Link from "@docusaurus/Link";
 
+const categoryColors: Record<string, string> = {
+  Sorting: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300",
+  Searching: "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300",
+  Graph: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300",
+  "Dynamic Programming": "bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300",
+};
+
 const AlgorithmOfTheDaySection: React.FC = () => {
-  const now = new Date();
-  const start = new Date(now.getFullYear(), 0, 0);
-  const diff = now.getTime() - start.getTime();
-  const oneDay = 1000 * 60 * 60 * 24;
-  const dayOfYear = Math.floor(diff / oneDay);
-  const algo = algorithmsData[dayOfYear % algorithmsData.length];
+  const [algo, setAlgo] = React.useState<typeof algorithmsData[0] | null>(null);
+  const [now, setNow] = React.useState<Date | null>(null);
 
-  const categoryColors: Record<string, string> = {
-    Sorting: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300",
-    Searching: "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300",
-    Graph: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300",
-    "Dynamic Programming": "bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300",
-  };
+  React.useEffect(() => {
+    const date = new Date();
+    setNow(date);
+    const start = new Date(date.getFullYear(), 0, 0);
+    const diff = date.getTime() - start.getTime();
+    const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+    setAlgo(algorithmsData[dayOfYear % algorithmsData.length]);
+  }, []);
 
-  const badgeClass =
-    categoryColors[algo.category] ||
-    "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300";
+  if (!algo || !now) return null;
 
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-800">
