@@ -225,7 +225,7 @@ const HowItWorksSection: React.FC = () => {
           <p className="text-gray-600 dark:text-gray-400 mb-6 text-lg">
             Ready to master algorithms?
           </p>
-          <button className="px-8 py-4 rounded-full font-semibold transition-all duration-300 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-yellow-400 dark:to-yellow-500 text-white dark:text-gray-900 hover:shadow-xl hover:scale-105 active:scale-95">
+          <button type="button" className="px-8 py-4 rounded-full font-semibold transition-all duration-300 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-yellow-400 dark:to-yellow-500 text-white dark:text-gray-900 hover:shadow-xl hover:scale-105 active:scale-95">
             Start Learning Now
           </button>
         </div>
