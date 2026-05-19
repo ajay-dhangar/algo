@@ -206,7 +206,9 @@ const DataStructuresQuiz = () => {
   }, [timeLeft]);
 
   // Handle option selection
-  const handleOptionSelect = (option:string) => {
+  const handleOptionSelect = (option: string) => {
+    if (userAnswers[currentQuestionIndex] !== undefined) return;
+
     setSelectedOption(option);
     if (option === questions[currentQuestionIndex].answer) {
       setCorrectAnswers(correctAnswers + 1);
