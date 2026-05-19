@@ -172,17 +172,19 @@ void delete(Q){
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
-    if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
-    }
   };
 
   const nextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null); // Reset selected option for the next question
-    } else {
-      setShowResult(true);
+    if (selectedOption !== null) {
+      if (selectedOption === questions[currentQuestion].answer) {
+        setScore(score + 1);
+      }
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+        setSelectedOption(null); // Reset selected option for the next question
+      } else {
+        setShowResult(true);
+      }
     }
   };
 
