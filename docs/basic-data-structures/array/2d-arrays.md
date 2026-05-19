@@ -510,6 +510,8 @@ def matrixMultiplication(A, B):
     Multiply two matrices A (m x n) and B (n x p).
     Returns a matrix C of dimensions m x p.
     """
+    if not A or not A[0] or not B or not B[0]:
+        return []
     m, n = len(A), len(A[0])
     n2, p = len(B), len(B[0])
     
