@@ -102,6 +102,6 @@ Binary search : O(log n)
 ## Common Mistakes
 
 - Using Binary Search on unsorted arrays
-- Wrong middle index calculation
+- Integer overflow in middle index calculation: use low + (high - low) / 2 instead of (low + high) / 2
 - Infinite loops due to incorrect conditions
 - Ignoring edge cases
