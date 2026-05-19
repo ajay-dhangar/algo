@@ -68,6 +68,7 @@ bool dfs(vector<vector<char>>& board, string& word, int i, int j, int idx) {
 }
 
 bool exist(vector<vector<char>>& board, string word) {
+    if (board.empty() || board[0].empty()) return false;
     int m = board.size(), n = board[0].size();
 
     for (int i = 0; i < m; i++) {
