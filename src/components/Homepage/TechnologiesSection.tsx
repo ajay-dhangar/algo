@@ -69,33 +69,53 @@ const technologies = [
 
 const TechnologiesSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gray-900">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-          Technologies{" "}
-          <span className="text-indigo-500 dark:text-yellow-400">We Use</span>
-        </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
-          Our project is built using a variety of cutting-edge technologies and
-          tools. These help ensure high performance, scalability, and
-          maintainability.
-        </p>
+    <section className="py-20 bg-blue-100 dark:bg-gray-950 overflow-hidden">
+  <div className="container mx-auto px-4 text-center">
+    
+    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-6">
+      Technologies{" "}
+      <span className="text-[var(--ifm-color-primary)]">
+        We Use
+      </span>
+    </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {technologies.map((tech, index) => (
+    <p className="max-w-3xl mx-auto text-lg mb-16 leading-relaxed">
+      Our project is powered by modern technologies focused on speed,
+      scalability, performance, and developer experience.
+    </p>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {technologies.map((tech, index) => (
+        <div
+          key={index}
+          className="group relative bg-white/70 dark:bg-gray-800/60
+            backdrop-blur-lg border border-gray-200 dark:border-gray-700 rounded-2xl p-8
+            overflow-hidden cursor-pointer transition-all duration-500 ease-out
+            hover:-translate-y-3 hover:rotate-1 hover:shadow-[0_20px_50px_rgba(99,102,241,0.35)]"
+        >
+          <div className="relative z-10 flex flex-col items-center">
+            
             <div
-              key={index}
-              className="flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer transition transform hover:scale-105 hover:shadow-xl"
+              className={`text-6xl mb-5 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12
+                ${tech.color}`}
             >
-              <div className={`text-6xl ${tech.color} mb-4`}>{tech.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
-                {tech.name}
-              </h3>
+              {tech.icon}
             </div>
-          ))}
+
+            <h3 className="
+              text-xl font-bold
+              text-gray-800 dark:text-white
+              transition duration-300
+              group-hover:text-indigo-500 dark:group-hover:text-yellow-400
+            ">
+              {tech.name}
+            </h3>
+          </div>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
   );
 };
 

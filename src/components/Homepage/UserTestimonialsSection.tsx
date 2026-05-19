@@ -2,77 +2,101 @@ import React from "react";
 import { testimonials } from "../../data/testimonialsData";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/autoplay";
+import "swiper/css/navigation";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
 };
 
 const UserTestimonialsSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Title */}
-        <motion.h2
-          className="text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center"
-          initial="initial"
-          animate="animate"
+    <section className="relative py-24 bg-gray-100 dark:bg-gray-900 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6">
+        {/* Heading */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
           variants={fadeInUp}
+          className="text-center mb-14"
         >
-          What Our{" "}
-          <span className="text-blue-600 dark:text-yellow-400">Users Say</span>
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+            What Our{" "}
+            <span className="text-blue-600 dark:text-yellow-400">
+              Users Say
+            </span>
+          </h2>
 
-        <motion.p
-          className="text-gray-600 dark:text-gray-300 text-center mb-12"
-          initial="initial"
-          animate="animate"
-          variants={fadeInUp}
-        >
-          Here are some testimonials from our users who have used our services.
-        </motion.p>
+          <p className="mt-4 text-gray-600 dark:text-gray-300 text-lg">
+            Trusted by users who love our platform experience.
+          </p>
+        </motion.div>
 
+        {/* Swiper */}
         <Swiper
-          spaceBetween={30}
+          modules={[Autoplay, Navigation]}
           slidesPerView={1}
+          spaceBetween={30}
           loop={true}
+          navigation={true}
           autoplay={{
-            delay: 3000,
+            delay: 6000,
             disableOnInteraction: false,
           }}
-          modules={[Autoplay]}
+          className="pb-12"
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
               <motion.div
-                className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4"
-                initial="initial"
-                animate="animate"
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
                 variants={fadeInUp}
+                whileHover={{
+                  scale: 1.02,
+                }}
+                className="relative bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-xl border border-gray-200 dark:border-gray-700 text-center max-w-3xl mx-auto"
               >
+                {/* Quote */}
+                <div className="absolute top-5 right-8 text-6xl text-blue-100 dark:text-gray-700 font-bold">
+                  ”
+                </div>
+
                 {/* Avatar */}
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-6">
                   <img
-                    className="w-20 h-20 rounded-full object-cover shadow-md"
                     src={testimonial.avatar}
                     alt={`${testimonial.name} avatar`}
+                    className="w-24 h-24 rounded-full object-cover border-4 border-blue-500 shadow-lg"
                   />
                 </div>
 
                 {/* Feedback */}
-                <p className="text-gray-600 dark:text-gray-300 text-lg text-center mb-4">
-                  "{testimonial.feedback}"
+                <p className="text-lg italic text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                  “{testimonial.feedback}”
                 </p>
 
                 {/* User Info */}
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                     {testimonial.name}
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-400">
+
+                  <p className="text-blue-600 dark:text-yellow-400 font-medium mt-2">
                     {testimonial.role}
                   </p>
                 </div>
