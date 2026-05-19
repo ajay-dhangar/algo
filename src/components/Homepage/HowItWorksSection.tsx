@@ -98,7 +98,7 @@ const HowItWorksSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 relative overflow-hidden"
+      className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 relative overflow-hidden opacity-0"
     >
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-100 dark:bg-indigo-900/20 rounded-full blur-3xl -z-10 opacity-40" />
