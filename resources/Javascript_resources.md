@@ -469,7 +469,7 @@ Dynamic Programming optimizes recursive solution by storing previously computed 
 
 **Time  Complexity**
 -O(N)(1D)
--O(N^2)(@D)
+-O(N^2)(2D)
 **Space Complexity**
  -O(1)
  -O(M)
