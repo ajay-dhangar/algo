@@ -219,7 +219,9 @@ const algorithmData = {
 };
 
 function AlgorithmUseCases() {
-  const [selected, setSelected] = useState("Binary Search");
+  const [selected, setSelected] = useState(
+  Object.keys(algorithmData)[0]
+);
 
   return (
     <div
@@ -253,7 +255,9 @@ function AlgorithmUseCases() {
               border: "none",
               borderRadius: "12px",
               background:
-                selected === algo ? "#1d4ed8" : "#2563eb",
+  selected === algo
+    ? "var(--ifm-color-primary-dark)"
+    : "var(--ifm-color-primary)",
               color: "white",
               cursor: "pointer",
               fontWeight: "bold",
