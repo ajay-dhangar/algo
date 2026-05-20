@@ -112,7 +112,7 @@ const algorithms = [
         </div>
         <div className="mt-20 text-center">
           <Link
-            to="#"
+            to="/algo/docs/category/algorithms"
             className="
               inline-flex items-center gap-2
               px-8 py-4
