@@ -23,6 +23,8 @@ Bucket sort is a comparison sorting algorithm that distributes elements into a n
 3. **Sort Buckets**: Sort each bucket individually.
 4. **Concatenate Buckets**: Concatenate all sorted buckets to form the final sorted array.
 
+<BucketSortVisualization />
+
 ## Time and Space Complexity
 
 ### Time Complexity

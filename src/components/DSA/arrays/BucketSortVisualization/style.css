@@ -1,0 +1,151 @@
+.bucket-sort-visualization {
+  padding: 20px;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+.bucket-sort-visualization button {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+.bucket-sort-visualization button:hover:not(:disabled) {
+  background-color: #e2e6ea;
+  border-color: #adb5bd;
+}
+
+.bucket-sort-visualization button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bucket-sort-visualization .array-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 220px;
+  padding: 10px;
+  background-color: #fdfdfd;
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.bucket-sort-visualization .array-bar {
+  width: 15px;
+  margin: 0 2px;
+  background-color: #4caf50; 
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bucket-sort-visualization .array-bar.current-index {
+  background-color: #2196f3;
+}
+
+.bucket-sort-visualization .array-bar.min-index {
+  background-color: #ffeb3b;
+}
+
+.bucket-sort-visualization .array-bar.faded {
+  opacity: 0.15;
+}
+
+/* Buckets Layout styling */
+.bucket-sort-visualization .buckets-outer-container {
+  margin-top: 20px;
+}
+
+.bucket-sort-visualization .buckets-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.bucket-sort-visualization .buckets-container {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.bucket-sort-visualization .bucket-column {
+  flex: 1;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  background-color: #fafafa;
+  padding: 10px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.bucket-sort-visualization .bucket-column.active-bucket {
+  border-color: #2196f3;
+  background-color: #e3f2fd;
+}
+
+.bucket-sort-visualization .bucket-header {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.bucket-sort-visualization .bucket-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+}
+
+.bucket-sort-visualization .bucket-item-bar {
+  width: 12px;
+  background-color: #4caf50;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.bucket-sort-visualization .bucket-item-bar.sorting {
+  background-color: #ffeb3b; /* Highlight yellow during sorting */
+}
+
+.bucket-sort-visualization .bucket-item-bar.sorted {
+  background-color: #8bc34a; /* Light green when sorted */
+}
+
+.bucket-sort-visualization .bucket-item-bar.highlight {
+  background-color: #2196f3; /* Highlight blue when being active */
+}
+
+/* Informative description */
+.bucket-sort-visualization .status-text {
+  font-weight: 500;
+  color: #333;
+  margin: 10px 0;
+  min-height: 24px;
+}

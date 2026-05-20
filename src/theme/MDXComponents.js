@@ -4,6 +4,7 @@ import AdsComponent from "@site/src/components/AdsComponent";
 import ArrayVisualizations from "@site/src/components/DSA/arrays/ArrayVisualizations";
 import BubbleSortVisualization from "@site/src/components/DSA/arrays/BubbleSortVisualization";
 import InsertionSortVisualization from "@site/src/components/DSA/arrays/InsertionSortVisualization";
+import BucketSortVisualization from "@site/src/components/DSA/arrays/BucketSortVisualization";
 import QuickSortVisualization from "@site/src/components/DSA/arrays/QuickSortVisualization";
 import HeapSortVisualization from "@site/src/components/DSA/arrays/HeapSortVisualization";
 import SelectionSortVisualization from "@site/src/components/DSA/arrays/SelectionSortVisualization";
@@ -33,6 +34,7 @@ export default {
   DijkstraVisuzalizations,
   FloydWarshallVisualizations,
   InsertionSortVisualization,
+  BucketSortVisualization,
   QuickSortVisualization,
   HeapSortVisualization,
 //   Image,
