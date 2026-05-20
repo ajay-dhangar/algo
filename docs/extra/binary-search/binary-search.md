@@ -294,8 +294,7 @@ high = mid - 1;
 This eliminates half of the remaining array in every iteration.
 
 <RelatedTopics
-  topics={[
-    "extra/Divide%20and%20Conquer/maximum-minimum",
+    "extra/Divide%20and%20Conquer/maximum-minimum"
   ]}
 />
 
