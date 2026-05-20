@@ -292,9 +292,3 @@ high = mid - 1;
 
 
 This eliminates half of the remaining array in every iteration.
-
-<RelatedTopics
-    "extra/Divide%20and%20Conquer/maximum-minimum"
-  ]}
-/>
-
