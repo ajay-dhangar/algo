@@ -132,6 +132,10 @@ const config = {
             label: "Contributors",
             position: "left",
           },
+         { to: "applications",
+          label: "Applications",
+          position: "left"
+        },
           {
             type: "dropdown",
             label: "More",
