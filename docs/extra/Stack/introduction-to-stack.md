@@ -7,6 +7,8 @@ description: 'A stack is a linear data structure that follows the Last In First 
 tags: [dsa, data-structures, Stack]
 ---
 
+import RelatedTopics from '@site/src/components/RelatedTopics';
+
 ### Introduction to Stack
 
 A **stack** is a linear data structure that follows the Last In First Out (LIFO) principle. This means that the last element added to the stack will be the first one to be removed. Think of a stack of plates; you add plates to the top and also remove plates from the top.
