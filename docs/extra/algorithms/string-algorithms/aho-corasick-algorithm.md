@@ -240,7 +240,7 @@ int main() {
 }
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Advantages
 

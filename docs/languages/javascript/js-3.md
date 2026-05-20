@@ -53,7 +53,7 @@ The modulus operator returns the remainder of the division operation.
 let remainder = 15 % 4; // remainder = 3
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 2. **Assignment Operators:**
 
@@ -131,7 +131,7 @@ The less than operator checks if the left operand is less than the right operand
 let isLessThan = 5 < 10; // isLessThan = true
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 4. **Logical Operators:**
 
@@ -204,7 +204,7 @@ count++; // count = 6
 count--; // count = 5
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 8. **Bitwise Operators:**
 
