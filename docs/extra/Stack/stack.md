@@ -1,5 +1,5 @@
 ---
-id: monotonic-stack
+id: stack
 title: Monotonic Stack
 sidebar_label: Monotonic Stack
 sidebar_position: 4
