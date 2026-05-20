@@ -2,6 +2,7 @@ import React from "react";
 import { LayoutGroup, motion } from "framer-motion";
 import { FaPlayCircle } from "react-icons/fa";
 import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
 
 const Quizes: React.FC = () => {
   return (
@@ -39,13 +40,14 @@ const Quizes: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Test your knowledge on array operations and algorithms.
               </p>
-              <button
+              <Link
+                to="/algo/quizzes/arrays"
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/quizzes/arrays"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
-              </button>
+              </Link>
             </motion.div>
 
             {/* Stack Quiz Card */}
@@ -60,13 +62,14 @@ const Quizes: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Evaluate your understanding of stack operations and applications.
               </p>
-              <button
+              <Link
+                to="/algo/quizzes/stack"
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/quizzes/stack"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
-              </button>
+              </Link>
             </motion.div>
 
             {/* Queue Quiz Card */}
@@ -82,13 +85,14 @@ const Quizes: React.FC = () => {
                 Challenge your knowledge on queue implementations and their use cases.
               </p>
 
-              <button
+              <Link
+                to="/algo/quizzes/queues"
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/quizzes/queues"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
-              </button>
+              </Link>
             </motion.div>
 
             {/* Binary Tree Quiz Card */}
@@ -103,13 +107,14 @@ const Quizes: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Test your understanding of Binary Tree structures and traversals.
               </p>
-              <button
+              <Link
+                to="/algo/quizzes/binary-tree"
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/quizzes/binary-tree"}>
 
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
-              </button>
+              </Link>
             </motion.div>
 
             {/* Binary Search Tree Quiz Card */}
@@ -124,12 +129,13 @@ const Quizes: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Evaluate your knowledge of Binary Search Tree properties and operations.
               </p>
-              <button
+              <Link
+                to="/algo/quizzes/binary-search-tree"
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/quizzes/binary-search-tree"}>
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
-              </button>
+              </Link>
             </motion.div>
 
             {/* AVL Tree Quiz Card */}
@@ -144,13 +150,14 @@ const Quizes: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Test your skills on the balancing properties of AVL Trees.
               </p>
-              <button
+              <Link
+                to="/algo/quizzes/avl-tree"
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/quizzes/avl-tree"}
               >
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
-              </button>
+              </Link>
             </motion.div>
 
             {/* Red-Black Tree Quiz Card */}
@@ -165,12 +172,13 @@ const Quizes: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Challenge your understanding of the properties and algorithms of Red-Black Trees.
               </p>
-              <button
+              <Link
+                to="/algo/quizzes/red-black-tree"
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/quizzes/red-black-tree"}>
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
-              </button>
+              </Link>
             </motion.div>
 
             {/* B-Tree Quiz Card */}
@@ -185,12 +193,13 @@ const Quizes: React.FC = () => {
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Test your understanding of B-Tree properties and their applications.
               </p>
-              <button
+              <Link
+                to="/algo/quizzes/b-tree"
                 className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition duration-300 border-none"
                 onClick={() => window.location.href = "/algo/quizzes/b-tree"}>
                 <FaPlayCircle className="w-5 h-5" />
                 <span>Start Quiz</span>
-              </button>
+              </Link>
             </motion.div>
           </div>
         </div>

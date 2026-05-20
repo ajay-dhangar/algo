@@ -19,7 +19,7 @@ keywords:
 
 The `switch` statement is a control structure in programming that allows you to execute different blocks of code based on the value of an expression. It provides an alternative to using multiple `if-else` statements when you need to evaluate multiple conditions.
 
-<Ads />
+<AdsComponent />
 
 ## What is a Switch Statement?
 
@@ -43,7 +43,7 @@ switch (expression) {
 
 The `expression` is evaluated once and compared with the values of the `case` labels. If a match is found, the corresponding block of code is executed. The `break` statement is used to exit the `switch` statement after a match is found. If no match is found, the `default` block is executed (if present).
 
-<Ads />
+<AdsComponent />
 
 ## Using Switch Statements
 
@@ -181,7 +181,7 @@ The `switch` statement is an alternative to using multiple `if-else` statements 
 
 When deciding between a `switch` statement and an `if-else` statement, consider the complexity of the conditions, readability, and performance requirements of your code.
 
-<Ads />
+<AdsComponent />
 
 ## Best Practices for Using Switch Statements
 
@@ -196,7 +196,7 @@ Here are some best practices to keep in mind when using `switch` statements in y
 
 By following these best practices, you can effectively use `switch` statements in your code to handle multiple conditions and improve the readability of your programs.
 
-<Ads />
+<AdsComponent />
 
 ## Conclusion
 

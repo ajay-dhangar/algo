@@ -231,10 +231,6 @@ const RedBlackTreeQuiz: React.FC = () => {
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
-    setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
-    if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
-    }
   };
 
   const nextQuestion = () => {

@@ -7,6 +7,7 @@ description: "In this blog post, we'll dive into the binary search algorithm, a 
 tags: [dsa, algorithms, binary search]
 ---
 
+import RelatedTopics from '@site/src/components/RelatedTopics';
 
 ## Introduction
 Binary search is a searching algorithm, used to search for an element in an array. It follows a unique approach which reduces the time complexity as compared to linear search. However, to use binary search, the array must be sorted. 
@@ -150,7 +151,7 @@ Binary search : $O(log n)$
 
 - Binary search requires a sorted array.
 - Works for 1 dimensional arrays.
-- Faster and complex than sequential search.
+- Faster and more efficient than sequential search.
 - Uses the divide and conquer approach.
 - Best if arrays are too long (large datasets).
 

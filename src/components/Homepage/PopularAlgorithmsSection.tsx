@@ -3,38 +3,38 @@ import { motion } from "framer-motion";
 import Link from "@docusaurus/Link";
 
 const PopularAlgorithmsSection: React.FC = () => {
-  const algorithms = [
-    {
-      title: "Binary Search",
-      description: "Efficient searching in a sorted array",
-      link: "#",
-    },
-    {
-      title: "Merge Sort",
-      description: "Divide and conquer sorting algorithm",
-      link: "#",
-    },
-    {
-      title: "Dijkstra's Algorithm",
-      description: "Shortest path in weighted graphs",
-      link: "#",
-    },
-    {
-      title: "Quick Sort",
-      description: "Efficient in-place sorting algorithm",
-      link: "#",
-    },
-    {
-      title: "Linked Lists",
-      description: "Nodes linked in sequence",
-      link: "#",
-    },
-    {
-      title: "Recursion",
-      description: "Function calls itself for solutions",
-      link: "#",
-    }
-  ];
+const algorithms = [
+  {
+    title: "Binary Search",
+    description: "Efficient searching in a sorted array",
+    link: "/algo/docs/extra/binary-search/", 
+  },
+  {
+    title: "Merge Sort",
+    description: "Divide and conquer sorting algorithm",
+    link: "/algo/docs/extra/algorithms/sorting-algorithms/merge-sort-algo", 
+  },
+  {
+    title: "Dijkstra's Algorithm",
+    description: "Shortest path in weighted graphs",
+    link: "/algo/docs/extra/algorithms/dijkstra-algorithm", 
+  },
+  {
+    title: "Quick Sort",
+    description: "Efficient in-place sorting algorithm",
+    link: "/algo/docs/extra/algorithms/sorting-algorithms/quick-sort-algo", 
+  },
+  {
+    title: "Linked Lists",
+    description: "Nodes linked in sequence",
+    link: "/algo/docs/category/linked-list", 
+  },
+  {
+    title: "Recursion",
+    description: "Function calls itself for solutions",
+    link: "/algo/docs/category/recursive-algorithms", 
+  }
+];
 
   return (
     <section
@@ -112,7 +112,7 @@ const PopularAlgorithmsSection: React.FC = () => {
         </div>
         <div className="mt-20 text-center">
           <Link
-            to="#"
+            to="/algo/docs/category/algorithms"
             className="
               inline-flex items-center gap-2
               px-8 py-4

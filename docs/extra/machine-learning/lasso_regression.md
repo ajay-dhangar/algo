@@ -62,7 +62,7 @@ Given a labeled dataset with multiple features and corresponding continuous targ
 - **Overfitting and Underfitting**:  
   Overfitting occurs when a model learns noise in the training data rather than general patterns. Underfitting occurs when a model is too simple to capture underlying trends.
 
-<Ads />
+<AdsComponent />
 
 ### Split Criteria:
 Lasso Regression typically splits data based on minimizing prediction error while incorporating regularization effects in coefficient estimation.

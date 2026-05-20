@@ -9,7 +9,7 @@ tags: [operators, programming, syntax, js, java, python, cpp]
 
 Operators are symbols or keywords used to perform operations on variables and values. Understanding the different types of operators and their precedence is crucial for writing efficient code.
 
-<Ads />
+<AdsComponent />
 
 ## Types of Operators
 
