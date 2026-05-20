@@ -209,7 +209,7 @@ const BucketSortVisualization: React.FC = () => {
   };
 
   return (
-    <div className="bucket-sort-visualization">
+    <div className="bucket-sort-visualization" style={{ '--move-duration': delay + "ms" } as React.CSSProperties}>
       <div className="status-text">{statusText}</div>
       <p>
         Speed:{' '}
