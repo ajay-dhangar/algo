@@ -312,7 +312,8 @@ if (arr == NULL) { /* handle allocation failure */ }
 int *zeros = (int *)calloc(n, sizeof(int)); // n integers, all set to 0
 
 // realloc — resize existing allocation
-arr = (int *)realloc(arr, 2 * n * sizeof(int)); // Double the size
+int *tmp = (int *)realloc(arr, 2 * n * sizeof(int)); // Double the size
+if (tmp) arr = tmp;                              // Only update if realloc succeeded
 
 // free — release allocated memory (always!)
 free(arr);
@@ -331,7 +332,8 @@ arr[size++] = value;
 // Grow when full
 if (size == capacity) {
   capacity *= 2;
-  arr = (int *)realloc(arr, capacity * sizeof(int));
+  int *tmp = (int *)realloc(arr, capacity * sizeof(int));
+  if (tmp) arr = tmp;                            // Only update if realloc succeeded
 }
 
 free(arr); // Clean up at end
@@ -524,7 +526,8 @@ int  isEmpty()        { return front == back; }   // Check if empty
 
 // Comparator for qsort — ascending order
 int cmp(const void *a, const void *b) {
-  return (*(int *)a - *(int *)b);   // Positive = swap, so ascending
+  int va = *(const int *)a, vb = *(const int *)b;
+  return (va > vb) - (va < vb);    // Safe: no overflow risk unlike subtraction
 }
 
 int arr[] = {5, 2, 8, 1};
@@ -532,13 +535,15 @@ qsort(arr, 4, sizeof(int), cmp);  // arr = [1, 2, 5, 8]
 
 // Descending order comparator
 int cmpDesc(const void *a, const void *b) {
-  return (*(int *)b - *(int *)a);
+  int va = *(const int *)a, vb = *(const int *)b;
+  return (vb > va) - (vb < va);    // Reversed for descending order
 }
 
 // Sort array of structs by field
 typedef struct { int val, idx; } Pair;
 int cmpPair(const void *a, const void *b) {
-  return ((Pair *)a)->val - ((Pair *)b)->val;  // Sort by val ascending
+  int va = ((const Pair *)a)->val, vb = ((const Pair *)b)->val;
+  return (va > vb) - (va < vb);    // Sort by val ascending, overflow-safe
 }
 ```
 
