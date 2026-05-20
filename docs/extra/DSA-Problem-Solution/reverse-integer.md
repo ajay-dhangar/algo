@@ -86,6 +86,8 @@ class Solution:
 ## C++ Implementation
 
 ```cpp
+#include <climits>
+
 class Solution {
 public:
     int reverse(int x) {
