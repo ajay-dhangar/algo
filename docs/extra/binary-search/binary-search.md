@@ -98,3 +98,9 @@ Binary search : O(log n)
 - Faster and complex than sequential search.
 - Uses the divide and conquer approach.
 - Best if arrays are too long (large datasets).
+
+## Common Mistakes
+
+- Using Binary Search on unsorted arrays
+- Forgetting to update left and right pointers correctly
+- Incorrect midpoint calculation causing infinite loops
