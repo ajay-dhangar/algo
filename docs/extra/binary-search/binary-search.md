@@ -151,7 +151,7 @@ Binary search : $O(log n)$
 
 - Binary search requires a sorted array.
 - Works for 1 dimensional arrays.
-- Faster and complex than sequential search.
+- Faster and more efficient than sequential search.
 - Uses the divide and conquer approach.
 - Best if arrays are too long (large datasets).
 
@@ -296,6 +296,6 @@ This eliminates half of the remaining array in every iteration.
 <RelatedTopics
   topics={[
     "extra/Divide%20and%20Conquer/maximum-minimum",
-    
   ]}
 />
+

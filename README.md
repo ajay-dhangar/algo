@@ -50,7 +50,7 @@ Welcome to Algo, an open-source educational platform built with Docusaurus (Reac
       <th>Status</th>       
    </tr>
    <tr>
-      <td><img src="gssoc-algo-banner.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td><picture><source srcset="gssoc-algo-banner.webp" type="image/webp"/><img src="gssoc-algo-banner.png" width="200" height="auto" loading="lazy" alt="GSSoC 26"/></picture></td>
       <td>GSSoC '26</td>
       <td>GirlScript Summer of Code (GSSoC) is an awesome 3-month open-source program that's all about getting people into software development.</td>
        <td>Active</td>
@@ -159,6 +159,19 @@ We welcome contributions from developers of all experience levels.
 Thanks to these amazing people who have contributed to the **Algo** project:
 
 <br>
+
+## Manually invoke Gemini Code Assist
+
+Gemini Code Assist listens to comments from any pull request contributor, and decides whether it should respond.
+
+To manually invoke Gemini Code Assist, you can use the following commands in the main comments page on the pull request as an issue comment.
+
+| Command | Description
+|:---|:---|
+|`/gemini summary` | Posts a summary of the changes in the pull request |
+|`/gemini review` |Posts a code review of the changes in the pull request |
+|`/gemini`| Manually invokes Gemini Code Assist in comments |
+|`/gemini help` | Overview of the available commands |
 
 ## Stargazers
 

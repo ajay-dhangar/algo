@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
+import QuizProgress from "./QuizProgress";
 
 const BinaryTreeQuiz: React.FC = () => {
   const questions = [
@@ -99,18 +100,20 @@ const BinaryTreeQuiz: React.FC = () => {
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
-    setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
-    if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
-    }
   };
 
   const nextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null);
-    } else {
-      setShowResult(true);
+    if (selectedOption !== null) {
+      setUserAnswers((prevAnswers) => [...prevAnswers, selectedOption]);
+      if (selectedOption === questions[currentQuestion].answer) {
+        setScore(score + 1);
+      }
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+        setSelectedOption(null);
+      } else {
+        setShowResult(true);
+      }
     }
   };
 
@@ -122,6 +125,7 @@ const BinaryTreeQuiz: React.FC = () => {
       <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on Binary Tree</h2>
+          {!showResult && <QuizProgress current={currentQuestion} total={questions.length} />}
           {showResult ? (
             <div>
               <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
@@ -173,7 +177,11 @@ const BinaryTreeQuiz: React.FC = () => {
               </div>
               <button
                 onClick={nextQuestion}
-                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none"
+                disabled={selectedOption === null}
+                className={`mt-6 py-2 px-4 text-white rounded-lg w-full transition-colors duration-300 border-none ${selectedOption === null
+                    ? "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
+                    : "bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400"
+                  }`}
               >
                 Next Question
               </button>
