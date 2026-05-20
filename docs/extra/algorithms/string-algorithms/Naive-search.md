@@ -39,7 +39,7 @@ For the text `text = "abcabcabc"` and pattern `pattern = "abc"`, the naive searc
 
 Thus, matches are found at indices 0 and 3.
 
-<Ads />
+<AdsComponent />
 
 ## Code Implementation
 

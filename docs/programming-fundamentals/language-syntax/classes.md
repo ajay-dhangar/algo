@@ -9,7 +9,7 @@ tags: [classes, object-oriented programming, programming, syntax, js, java, pyth
 
 Classes are fundamental to object-oriented programming (OOP). They provide a blueprint for creating objects that encapsulate data and behavior. This guide covers the basics and key aspects of classes in JavaScript, Java, Python, and C++ with practical examples.
 
-<Ads />
+<AdsComponent />
 
 ## What is a Class?
 

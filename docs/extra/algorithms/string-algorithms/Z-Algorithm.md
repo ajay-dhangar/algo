@@ -19,7 +19,7 @@ The Z-Algorithm computes an array Z for a string S such that Z[i] contains the l
 
 Given a string S of length n, the Z-array is computed where Z[i] is the length of the longest substring starting from S[i] that matches the prefix of S. The algorithm runs in O(n) time and is used in various string matching applications.
 
-<Ads />
+<AdsComponent />
 
 ## Code Implementation
 

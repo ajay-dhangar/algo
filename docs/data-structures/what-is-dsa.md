@@ -29,7 +29,7 @@ Data structures are specialized formats for organizing, storing, and managing da
 - **Sets**: Data structures that store unique elements without duplicates.
 - **Maps**: Data structures that store key-value pairs with unique keys.
 
-<Ads />
+<AdsComponent />
 
 ## What Are Algorithms?
 
@@ -77,7 +77,7 @@ Data Structures and Algorithms are essential components of computer science and 
 14. **Innovation and Creativity**: Mastering data structures and algorithms empowers programmers to innovate, create new solutions, and address real-world challenges with computational thinking and problem-solving skills.
 15. **Community Support**: DSA communities, forums, and resources provide programmers with opportunities to learn, share, and collaborate on data structures and algorithms, fostering a culture of continuous improvement and knowledge sharing.
 
-<Ads />
+<AdsComponent />
 
 ## How Can Data Structures and Algorithms Enhance Your Coding Skills?
 

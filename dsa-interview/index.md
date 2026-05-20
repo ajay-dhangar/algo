@@ -10,7 +10,7 @@ tags: [dsa, data structures, algorithms, interview-preparation]
 
 DSA Interview Preparation is your gateway to mastering Data Structures and Algorithms (DSA) for technical interviews. Whether you're a coding enthusiast, a student, or a professional looking to enhance your programming skills, DSA Interview Preparation is here to guide you through the intricate world of DSA.
 
-<Ads />
+<AdsComponent />
 
 ## What Sets DSA Interview Preparation Apart?
 
@@ -22,7 +22,7 @@ DSA Interview Preparation provides carefully curated learning pathways designed 
 
 Learning by doing is at the heart of DSA Interview Preparation. Engage in hands-on coding challenges that reinforce your understanding of key concepts. Our interactive platform allows you to apply what you've learned in a practical and engaging manner.
 
-<Ads />
+<AdsComponent />
 
 ### Supportive Community
 
