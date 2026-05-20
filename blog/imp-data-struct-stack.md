@@ -1,6 +1,6 @@
 ---
 slug: stack-in-data-structures
-title: 'An Important Data Structure i.e. Stack'
+title: 'Introduction to the Stack Data Structure'
 authors: [Riya-Sharma]
 tags: [stack, algorithms, dsa, java, python, cpp, data-structures]
 ---
