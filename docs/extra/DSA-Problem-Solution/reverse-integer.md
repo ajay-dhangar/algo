@@ -137,8 +137,4 @@ var reverse = function(x) {
 ```
 
 Time Complexity: $O(log(x))$ <br /> 
-<<<<<<< HEAD
 Space Complexity: $O(1)$
-=======
-Space Complexity: $O(1)$
->>>>>>> 370bf4be16e964ef4337f257cc9ea7f4f13f3250
