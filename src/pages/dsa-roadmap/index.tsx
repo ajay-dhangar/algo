@@ -10,6 +10,7 @@ import {
   FaCheckDouble,
   FaCompressAlt,
 } from "react-icons/fa";
+import Link from "@docusaurus/Link";
 import { topics } from "../../data/topics";
 
 const DSARoadmap: React.FC = () => {
@@ -165,15 +166,41 @@ const DSARoadmap: React.FC = () => {
                               <div className="overflow-hidden">
                                 <div className="px-4 pb-4 pt-1 bg-gray-50 dark:bg-gray-800/40 border-t border-gray-100 dark:border-gray-700">
                                   <ul className="ml-2 border-l-2 border-gray-200 dark:border-gray-600 pl-4 space-y-3 mt-3">
-                                    {folder.files.map((file, fileIdx) => (
-                                      <li 
-                                        key={fileIdx} 
-                                        className="flex items-center text-[15px] text-gray-600 dark:text-gray-300 hover:text-[var(--ifm-color-primary)] dark:hover:text-[var(--ifm-color-primary)] transition-colors cursor-pointer group"
-                                      >
-                                        <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500 group-hover:text-[var(--ifm-color-primary)] transition-colors" />
-                                        {file}
-                                      </li>
-                                    ))}
+                                    {folder.files.map((file, fileIdx) => {
+                                      // Only generate links for Java folder
+                                      if (folder.name.toLowerCase() === "java") {
+                                        const slug = file
+                                          .toLowerCase()
+                                          .replace(/[^a-z0-9\s-]/g, "")
+                                          .trim()
+                                          .replace(/\s+/g, "-");
+
+                                        const href = `/algo/dsa-roadmap/pick-a-language/java/${slug}`;
+
+                                        return (
+                                          <li key={fileIdx}>
+                                            <Link
+                                              to={href}
+                                              className="flex items-center text-[15px] text-gray-600 dark:text-gray-300 hover:text-[var(--ifm-color-primary)] dark:hover:text-[var(--ifm-color-primary)] transition-colors"
+                                            >
+                                              <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500 transition-colors" />
+                                              <span>{file}</span>
+                                            </Link>
+                                          </li>
+                                        );
+                                      }
+
+                                      // For other folders, render plain text (no link)
+                                      return (
+                                        <li 
+                                          key={fileIdx} 
+                                          className="flex items-center text-[15px] text-gray-600 dark:text-gray-300 hover:text-[var(--ifm-color-primary)] dark:hover:text-[var(--ifm-color-primary)] transition-colors cursor-pointer group"
+                                        >
+                                          <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500 group-hover:text-[var(--ifm-color-primary)] transition-colors" />
+                                          {file}
+                                        </li>
+                                      );
+                                    })}
                                   </ul>
                                 </div>
                               </div>
