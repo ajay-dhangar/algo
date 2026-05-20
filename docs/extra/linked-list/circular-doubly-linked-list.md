@@ -7,6 +7,8 @@ description: 'A Circular Doubly Linked List is a variation of a doubly linked li
 tags: [dsa, data-structures, Circular Doubly Linked List]
 ---
 
+
+
 ### Introduction to Circular Doubly Linked List
 
 A **Circular Doubly Linked List** is a variation of a doubly linked list in which the last node points back to the first node, and the first node points to the last node. Each node contains three parts:
@@ -514,3 +516,4 @@ class CircularDoublyLinkedList {
 ### Conclusion
 
 The Circular Doubly Linked List (CDLL) is a versatile data structure that combines the advantages of both doubly linked lists and circular linked lists. By allowing traversal in both forward and backward directions, CDLLs facilitate efficient data manipulation and navigation.
+
