@@ -14,7 +14,7 @@ const Footer = () => {
     document.body.appendChild(script);
 
     // Set GTranslate settings
-    window.gtranslateSettings = {
+    (window as any).gtranslateSettings = {
       default_language: "en",
       detect_browser_language: true,
       wrapper_selector: ".gtranslate_wrapper",

@@ -94,7 +94,7 @@ const DSARoadmap: React.FC = () => {
 
    // bubble sort
 async function bubble() {
-    const ele = document.querySelectorAll(".bar");
+    const ele = document.querySelectorAll(".bar") as NodeListOf<HTMLElement>;
     for (let i = 0; i < ele.length - 1; i++) {
       for (let j = 0; j < ele.length - i - 1; j++) {
         console.log("In jth loop");
@@ -125,7 +125,7 @@ async function bubble() {
   
 // insertion sort
 async function insertion() {
-    const ele = document.querySelectorAll(".bar");
+    const ele = document.querySelectorAll(".bar") as NodeListOf<HTMLElement>;
     ele[0].style.background = "green";
     for (let i = 1; i < ele.length; i++) {
       let j = i - 1;
@@ -225,7 +225,7 @@ async function insertion() {
       const mergeSortBtn = document.querySelector(".mergeSort");
       
       mergeSortBtn.addEventListener("click", async function () {
-        let barsElements = document.querySelectorAll(".bar");
+        let barsElements = document.querySelectorAll(".bar") as NodeListOf<HTMLElement>;
         
         disableSortingBtn();
         
@@ -273,7 +273,7 @@ async function partitionLomuto(e, t, a) {
   }
   const quickSortbtn = document.querySelector(".quickSort");
   quickSortbtn.addEventListener("click", async function () {
-    let e = document.querySelectorAll(".bar"),
+    let e = document.querySelectorAll(".bar") as NodeListOf<HTMLElement>,
       t = e.length - 1;
     disableSortingBtn(),
       disableSizeSlider(),
@@ -286,7 +286,7 @@ async function partitionLomuto(e, t, a) {
 
 // selection sort
 async function selection() {
-    const e = document.querySelectorAll(".bar");
+    const e = document.querySelectorAll(".bar") as NodeListOf<HTMLElement>;
     for (let t = 0; t < e.length; t++) {
       let n = t;
       e[t].style.background = "blue";

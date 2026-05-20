@@ -11,7 +11,7 @@ const DijkstraVisualizations: React.FC = () => {
   const [priorityQueue, setPriorityQueue] = useState<Array<[number, number, number]>>([]);
   const [distances, setDistances] = useState<number[][]>([]);
   const [visited, setVisited] = useState<boolean[][]>([]);
-  const [previous, setPrevious] = useState<Array<[number, number] | null>>([]);
+  const [previous, setPrevious] = useState<Array<Array<[number, number] | null>>>([]);
   const [currentStep, setCurrentStep] = useState<[number, number] | null>(null);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ const DijkstraVisualizations: React.FC = () => {
   };
 
   const reconstructPath = (
-    previous: Array<[number, number] | null>,
+    previous: Array<Array<[number, number] | null>>,
     startNode: [number, number],
     endNode: [number, number]
   ) => {

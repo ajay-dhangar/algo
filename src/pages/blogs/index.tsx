@@ -187,7 +187,7 @@ Graph theory provides a powerful framework for solving a wide variety of problem
                 placeholder="Search Blog Posts..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-400"
+                className="pl-10 p-3 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-400"
               />
             </div>
             <div className="relative">
@@ -195,7 +195,7 @@ Graph theory provides a powerful framework for solving a wide variety of problem
               <select
                 value={selectedTag}
                 onChange={(e) => setSelectedTag(e.target.value)}
-                className="pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-400"
+                className="pl-10 p-3 border border-gray-300 rounded-lg dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:placeholder-gray-400"
               >
                 {tags.map((tag, index) => (
                   <option key={index} value={tag}>

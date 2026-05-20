@@ -27,9 +27,9 @@ const InsertionSortVisualization: React.FC = () => {
 
   // Function to update the transition duration for CSS animations
   const updateMoveDuration = () => {
-    const stylesheets = document.styleSheets;
+    const stylesheets = Array.from(document.styleSheets);
     for (const stylesheet of stylesheets) {
-      const rules = (stylesheet as CSSStyleSheet).cssRules;
+      const rules = Array.from((stylesheet as CSSStyleSheet).cssRules);
       for (const rule of rules) {
         if ((rule as CSSStyleRule).selectorText === '.v-move') {
           (rule as CSSStyleRule).style.transitionDuration = `${delay}ms`;

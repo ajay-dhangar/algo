@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
           pattern="[a-zA-Z ]+" 
            onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Please enter a valid name without numbers or special characters')}
            onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
-          className="mt-1 block w-full px-4 py-3 rounded-md text-gray-800 dark:text-gray-300 border border-blue-900 focus:ring-2 focus:ring-blue-500 outline-none"
+          className="mt-1 block w-full px-4 py-3 rounded-md text-gray-800 dark:text-gray-300 border border-blue-900"
         />
         {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
       </div>
@@ -126,7 +126,7 @@ const Contact: React.FC = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="mt-1 block w-full px-4 py-3 rounded-md text-gray-800 dark:text-gray-300 border border-blue-900 focus:ring-2 focus:ring-blue-500 outline-none"
+          className="mt-1 block w-full px-4 py-3 rounded-md text-gray-800 dark:text-gray-300 border border-blue-900"
         />
         {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
       </div>
@@ -140,7 +140,7 @@ const Contact: React.FC = () => {
           rows={6}
           value={formData.message}
           onChange={handleChange}
-          className="mt-1 block w-full px-4 py-2 rounded-md text-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+          className="mt-1 block w-full px-4 py-2 rounded-md text-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-900"
         ></textarea>
         {errors.message && <p className="text-sm text-red-600">{errors.message}</p>}
       </div>
@@ -148,7 +148,7 @@ const Contact: React.FC = () => {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-md shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition duration-300"
+        className="w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-md shadow-lg transition duration-300"
         type="submit"
       >
         Send Message

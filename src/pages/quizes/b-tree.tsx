@@ -161,7 +161,7 @@ const BTree: React.FC = () => {
                       <span className="font-bold">Correct Answer:</span> {q.answer}
                     </p>
                     <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
-                      <span className="font-bold">Explanation:</span> {q.explanation}
+                      <span className="font-bold">Explanation:</span> {(q as any).explanation}
                     </p>
                   </div>
                 ))}
