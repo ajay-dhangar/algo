@@ -6,6 +6,7 @@ sidebar_label: What is DSA?
 description: "Data Structures and Algorithms (DSA) form the backbone of computer science and programming. Learn what DSA is, why it's important, and how it can enhance your coding skills."
 tags: [dsa, data structures, algorithms, what is dsa]
 ---
+import RelatedTopics from '@site/src/components/RelatedTopics';
 
 Data Structures and Algorithms (DSA) are fundamental concepts in computer science and programming. They provide a systematic way to organize and store data efficiently, as well as develop algorithms to solve complex problems. Understanding DSA is crucial for any aspiring programmer or software developer, as it forms the backbone of various applications and systems.
 
@@ -98,3 +99,11 @@ Learning data structures and algorithms can enhance your coding skills in the fo
 ## Conclusion
 
 Data Structures and Algorithms are essential components of computer science and programming that enable efficient data management, problem-solving, and code optimization. By mastering DSA concepts, you can enhance your coding skills, prepare for technical interviews, participate in coding competitions, and advance your career in the tech industry. Whether you are a beginner or an experienced programmer, learning data structures and algorithms is a valuable investment that can open up new opportunities, expand your knowledge base, and empower you to tackle complex challenges with confidence and creativity.
+
+<RelatedTopics
+  topics={[
+    "category/arrays",
+    "category/linked-list",
+    "category/stacks",
+  ]}
+/>

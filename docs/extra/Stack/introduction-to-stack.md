@@ -309,3 +309,11 @@ Consider a stack with the following operations:
 ### Conclusion
 
 A stack is a fundamental data structure that is simple yet powerful, enabling efficient management of data with its LIFO behavior. It plays a critical role in various computing scenarios, such as managing function calls, parsing expressions, and implementing undo mechanisms. Understanding and implementing stacks is essential for solving a wide range of algorithmic problems and building efficient software systems.
+
+<RelatedTopics
+  topics={[
+    "category/queue",
+    "extra/graphs/bfs/#definition",
+    "category/recursion/",
+  ]}
+/>

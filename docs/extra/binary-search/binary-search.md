@@ -7,6 +7,7 @@ description: "In this blog post, we'll dive into the binary search algorithm, a 
 tags: [dsa, algorithms, binary search]
 ---
 
+import RelatedTopics from '@site/src/components/RelatedTopics';
 
 ## Introduction
 Binary search is a searching algorithm, used to search for an element in an array. It follows a unique approach which reduces the time complexity as compared to linear search. However, to use binary search, the array must be sorted. 
@@ -291,3 +292,10 @@ high = mid - 1;
 
 
 This eliminates half of the remaining array in every iteration.
+
+<RelatedTopics
+  topics={[
+    "extra/Divide%20and%20Conquer/maximum-minimum",
+    
+  ]}
+/>
