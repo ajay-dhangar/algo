@@ -6,7 +6,7 @@ description: "An introduction to policy gradient methods in reinforcement learni
 tags: [machine learning, reinforcement learning, policy gradient, algorithms, visualization]
 ---
 
-<Ads />
+<AdsComponent />
 
 ### Definition:
 

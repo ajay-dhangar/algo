@@ -1,48 +1,78 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "@docusaurus/Link";
 
 const PopularAlgorithmsSection: React.FC = () => {
-  const algorithms = [
-    {
-      title: "Binary Search",
-      description: "Efficient searching in a sorted array",
-      link: "#", 
-    },
-    {
-      title: "Merge Sort",
-      description: "Divide and conquer sorting algorithm",
-      link: "#", 
-    },
-    {
-      title: "Dijkstra's Algorithm",
-      description: "Shortest path in weighted graphs",
-      link: "#", 
-    },
-    {
-      title: "Quick Sort",
-      description: "Efficient in-place sorting algorithm",
-      link: "#", 
-    },
-    {
-      title: "Linked Lists",
-      description: "Nodes linked in sequence",
-      link: "#", 
-    },
-    {
-      title: "Recursion",
-      description: "Function calls itself for solutions",
-      link: "#", 
-    },
-  ];
-  
+const algorithms = [
+  {
+    title: "Binary Search",
+    description: "Efficient searching in a sorted array",
+    link: "/algo/docs/extra/binary-search/", 
+  },
+  {
+    title: "Merge Sort",
+    description: "Divide and conquer sorting algorithm",
+    link: "/algo/docs/extra/algorithms/sorting-algorithms/merge-sort-algo", 
+  },
+  {
+    title: "Dijkstra's Algorithm",
+    description: "Shortest path in weighted graphs",
+    link: "/algo/docs/extra/algorithms/dijkstra-algorithm", 
+  },
+  {
+    title: "Quick Sort",
+    description: "Efficient in-place sorting algorithm",
+    link: "/algo/docs/extra/algorithms/sorting-algorithms/quick-sort-algo", 
+  },
+  {
+    title: "Linked Lists",
+    description: "Nodes linked in sequence",
+    link: "/algo/docs/category/linked-list", 
+  },
+  {
+    title: "Recursion",
+    description: "Function calls itself for solutions",
+    link: "/algo/docs/category/recursive-algorithms", 
+  }
+];
 
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-          Popular{" "}
-          <span className="text-blue-600 dark:text-yellow-400">Algorithms</span>
-        </h2>
+    <section
+      className="
+      relative overflow-hidden
+      py-24 px-6 bg-blue-100 
+      dark:bg-gray-950"
+    >
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2
+            className="
+            text-4xl md:text-5xl
+            font-extrabold
+            tracking-tight
+            text-gray-900 dark:text-white
+            mb-6
+          "
+          >
+            Popular{" "}
+            <span
+              className="text-[var(--ifm-color-primary)]"
+            >
+              Algorithms
+            </span>
+          </h2>
+
+          <p
+            className="
+            max-w-3xl mx-auto
+            text-lg leading-relaxed
+          "
+          >
+            Explore the most essential algorithms and data structures
+            every developer should master for coding interviews,
+            competitive programming, and real-world applications.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {algorithms.map((algorithm, index) => (
@@ -76,10 +106,28 @@ const PopularAlgorithmsSection: React.FC = () => {
                   Learn More
                 </a>
               </div>
-            </div>
-          </motion.div>
-          
+              </div>
+            </motion.div>
           ))}
+        </div>
+        <div className="mt-20 text-center">
+          <Link
+            to="/algo/docs/category/algorithms"
+            className="
+              inline-flex items-center gap-2
+              px-8 py-4
+              rounded-2xl
+              bg-gray-900 dark:bg-white
+              text-white dark:text-black
+              font-semibold
+              shadow-lg
+              transition-all duration-300
+              hover:scale-105
+              hover:shadow-2xl hover : text-gray-100
+            "
+          >
+            Explore All Algorithms
+          </Link>
         </div>
       </div>
     </section>

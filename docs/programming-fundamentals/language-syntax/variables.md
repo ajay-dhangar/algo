@@ -13,7 +13,7 @@ Variables are fundamental components in programming. They act as containers for 
 
 A variable is a symbolic name associated with a value and whose associated value can change. Think of a variable as a labeled box that can hold data. The label (variable name) helps you retrieve and manipulate the data.
 
-<Ads />
+<AdsComponent />
 
 ## Variables by Language
 

@@ -6,7 +6,7 @@ description: "This document provides an overview of the Convex Hull problem usin
 tags: [divide-and-conquer, computational-geometry, algorithms]
 ---
 
-<Ads />
+<AdsComponent />
 
 ## Overview
 
@@ -28,7 +28,7 @@ The divide-and-conquer method for solving the Convex Hull problem is efficient f
 
 This approach has a time complexity of **O(n log n)**, making it efficient for large datasets.
 
-<Ads />
+<AdsComponent />
 
 ### Algorithm Steps
 
@@ -72,7 +72,7 @@ MERGE_HULLS(left_hull, right_hull):
     return combined_hull
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Code
 
@@ -150,7 +150,7 @@ int main() {
 }
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Applications
 
@@ -171,7 +171,7 @@ Original Points:                    Convex Hull:
                                         *-----*
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Complexity Analysis
 
