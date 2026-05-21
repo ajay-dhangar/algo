@@ -75,7 +75,7 @@ The child class gives its own implementation of that method.
 
 It is called runtime polymorphism because Java decides at runtime which method should run.
 
-like:
+For example:
 
 Parent class method → sound()
 
