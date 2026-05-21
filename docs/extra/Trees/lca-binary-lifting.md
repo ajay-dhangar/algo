@@ -87,12 +87,11 @@ import TabItem from '@theme/TabItem';
     private:
         int n;
         int l;
-        int timer;
         vector<vector<int>> adj;
-        vector<int> tin, tout, depth;
+        vector<int> depth;
         vector<vector<int>> up;
 
-        // DFS to record entrance/exit times, depth, and immediate parent
+        // DFS to record depth and immediate parent
         void dfs(int v, int p, int d) {
             depth[v] = d;
             up[v][0] = p;
