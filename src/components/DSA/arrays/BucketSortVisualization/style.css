@@ -127,7 +127,7 @@
   background-color: #4caf50;
   border-top-left-radius: 0.1rem;
   border-top-right-radius: 0.1rem;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--move-duration, 300ms) ease-in-out;
 }
 
 .bucket-sort-visualization .bucket-item-bar.sorting {
