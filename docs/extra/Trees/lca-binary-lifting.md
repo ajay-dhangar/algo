@@ -200,7 +200,8 @@ import TabItem from '@theme/TabItem';
             self.up = [[0] * (self.l + 1) for _ in range(n)]
             
             # Start DFS from root (node 0) with parent 0
-            self._dfs(0, 0, 0)
+            if n > 0:
+                self._dfs(0, 0, 0)
 
         def _dfs(self, v, p, d):
             self.depth[v] = d
