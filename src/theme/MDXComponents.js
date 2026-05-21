@@ -38,7 +38,7 @@ export default {
   QuickSortVisualization,
   HeapSortVisualization,
   MergeSortVisualization,
-  ShellSortVisualisation,
+  ShellSortVisualization,
 //   Image,
   LiteYouTubeEmbed,
 //   LinearSearchVisualizer,
