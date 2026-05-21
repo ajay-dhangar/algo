@@ -24,7 +24,7 @@ The method performs similar tasks in different ways depending on the number or t
 
 It is called compile-time polymorphism because the compiler decides which method to call during compilation.
 
-like:
+For example:
 
 add(int a, int b)
 
