@@ -113,7 +113,7 @@ import TabItem from '@theme/TabItem';
         TreeLCA(int nodes, const vector<vector<int>>& adjList) {
             n = nodes;
             adj = adjList;
-            l = ceil(log2(n));
+            l = n > 0 ? ceil(log2(n)) : 0;
             depth.resize(n);
             up.assign(n, vector<int>(l + 1));
             
@@ -194,7 +194,7 @@ import TabItem from '@theme/TabItem';
         def __init__(self, n, adj):
             self.n = n
             self.adj = adj
-            self.l = math.ceil(math.log2(n)) if n > 1 else 1
+            self.l = math.ceil(math.log2(n)) if n > 0 else 0
             
             self.depth = [0] * n
             self.up = [[0] * (self.l + 1) for _ in range(n)]
