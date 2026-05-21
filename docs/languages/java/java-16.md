@@ -1,3 +1,10 @@
+---
+id: encapsulation-in-java
+sidebar_position: 14
+title: "Encapsulation in Java"
+sidebar_label: "Encapsulation"
+---
+
 # Encapsulation in Java
 
 Encapsulation is one of the most important concepts of Object-Oriented Programming (OOP).
