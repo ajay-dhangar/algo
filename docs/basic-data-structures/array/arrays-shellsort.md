@@ -10,7 +10,7 @@ tags: [dsa, arrays, sorting, shell-sort, algorithm of shell-sort, pseudocode of 
 
 **Shell Sort** is a generalization of insertion sort that allows the exchange of elements that are far apart from each other. It starts with a large gap between compared elements and progressively reduces the gap, eventually performing a standard insertion sort when the gap is 1. This approach significantly improves the efficiency of insertion sort, especially for larger datasets, making it a practical choice for moderate-sized arrays.
 
-<ShellSortVisualisation />
+<ShellSortVisualization />
 
 ## Algorithm
 
