@@ -205,6 +205,12 @@ Merge sort is an efficient and reliable sorting algorithm, particularly for larg
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
 
+## Common Mistakes
+
+- Forgetting that Merge Sort requires extra memory for merging
+- Incorrectly dividing the array causing recursion issues
+- Not handling base conditions properly
+
 ## Algorithm Tip
 
 Merge Sort is useful when stable sorting is required.
