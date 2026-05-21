@@ -5,9 +5,6 @@ import rehypeKatex from "rehype-katex";
 const path = require("path");
 const fs = require("fs");
 const { execSync } = require("child_process");
-
-// Only show git history when git metadata is actually available.
-// Can be explicitly overridden with DOCUSAURUS_ENABLE_GIT_HISTORY=true|false.
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
 const showGitHistory =
   gitHistoryOverride === "true"
@@ -112,6 +109,7 @@ const config = {
             position: "left",
             label: "Tutorial",
           },
+
           {
             to: "blog",
             label: "Blog",
