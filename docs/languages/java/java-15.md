@@ -1,5 +1,5 @@
 ---
-id : polymorphism-in-java
+id: polymorphism-in-java
 sidebar_position: 13
 title: "Polymorphism in Java"
 sidebar_label: "Polymorphism"
