@@ -117,7 +117,7 @@ import TabItem from '@theme/TabItem';
             up.assign(n, vector<int>(l + 1));
             
             // Precompute starting from root (node 0)
-            dfs(0, 0, 0);
+            if (n > 0) dfs(0, 0, 0);
         }
 
         // Lift a node 'v' up by 'k' levels
