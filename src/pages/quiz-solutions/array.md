@@ -32,7 +32,7 @@ int main()
   In C++, array subscripting works in both ways. `arr[0]` is the same as `0[arr]`. Hence, `0[arr]` gives the first element of the array (1), and `1[arr]` gives the second element (2). Therefore, the output is 1, 2.
 </details>
 
-<Ads />
+<AdsComponent />
 
 ### 2. The minimum number of comparisons required to determine if an integer appears more than n/2 times in a sorted array of n integers is
 - **Options:**
@@ -62,7 +62,7 @@ int main()
   Min-heaps are optimal for algorithms that require frequent insertion, deletion, and decrease-key operations. A min-heap supports insertions in O(log N) time and is efficient for find-minimum and delete-minimum operations, making it ideal for this problem.
 </details>
 
-<Ads />
+<AdsComponent />
 
 ### 4. Consider a two-dimensional array consisting of –ve and +ve numbers. What would be the worst-case time complexity of an algorithm to segregate the numbers having the same sign altogether?
 - **Options:**
@@ -92,7 +92,7 @@ int main()
   An inversion occurs when two elements are out of order. In a worst-case scenario (a completely reverse sorted array), the number of inversions is n(n-1)/2, which is the maximum number of comparisons needed to sort the array.
 </details>
 
-<Ads />
+<AdsComponent />
 
 <h2 className="text-center text-gray-800 dark:text-gray-200">
 Now, let's Discuss!

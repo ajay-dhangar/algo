@@ -8,7 +8,7 @@ description: "Solve the Rotten Oranges problem using Breadth-First Search (BFS) 
 
 The Rotten Oranges problem is a grid-based problem that involves determining the minimum time required for all fresh oranges to rot given an initial configuration of fresh and rotten oranges.
 
-<Ads />
+<AdsComponent />
 
 ## Problem Definition
 
@@ -33,7 +33,7 @@ For each rotten orange, attempt to rot adjacent fresh oranges (up, down, left, r
 Add newly rotten oranges to the queue and decrease the count of fresh oranges.
 Result Evaluation:
 
-<Ads />
+<AdsComponent />
 
 If there are no remaining fresh oranges after BFS, return the minutes taken. If fresh oranges remain, return -1.
 Time Complexity

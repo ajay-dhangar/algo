@@ -29,7 +29,7 @@ A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tre
 3. **Repeat**:  
    Repeat the process until all vertices are included in the MST.
 
-<Ads />
+<AdsComponent />
 
 ## Time Complexity of Prim's Algorithm:
 
@@ -459,7 +459,7 @@ Edges in Minimum Spanning Tree:
 3 -- 4 == 5
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Conclusion:
 

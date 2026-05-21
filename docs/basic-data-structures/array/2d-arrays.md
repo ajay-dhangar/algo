@@ -6,6 +6,8 @@ description: "In this blog post, we'll delve into the world of two-dimensional a
 tags: [dsa, arrays, 2d arrays]
 ---
 
+import RelatedTopics from '@site/src/components/RelatedTopics';
+
 A two-dimensional (2D) array is an array of arrays, where each element of the main array is another array. It's often visualized as a table or matrix with rows and columns. Two-dimensional arrays are essential in various algorithmic problems, particularly when handling matrices, grids, and dynamic programming solutions.
 
 In this guide, we will cover the fundamentals of two-dimensional arrays, their applications, and common operations used in data structures and algorithms (DSA).
@@ -172,3 +174,12 @@ Write a program to multiply two matrices of dimensions `m x n` and `n x p`.
 ## Conclusion
 
 Two-dimensional arrays are a foundational data structure in computer science, used in a variety of real-world applications, including graph theory, dynamic programming, and game development. By understanding how to declare, traverse, and manipulate 2D arrays, you can effectively solve complex problems in DSA.
+
+
+<RelatedTopics
+  topics={[
+    "category/linked-list",
+    "category/stacks",
+    "category/queue"
+  ]}
+/>

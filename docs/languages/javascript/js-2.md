@@ -113,7 +113,7 @@ let person = {
 };
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 3. **Special Data Types:**
 

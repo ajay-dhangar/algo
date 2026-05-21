@@ -38,7 +38,7 @@ tags: [machine learning, algorithms, unsupervised learning]
    A method for discovering interesting relations between variables in large databases. An example is:
    - **Apriori Algorithm**: Used for mining frequent itemsets and relevant association rules.
 
-<Ads />
+<AdsComponent />
 
 ### Steps Involved:
 1. **Input the Data**:  
@@ -74,7 +74,7 @@ Given an unlabeled dataset with multiple features, the objective is to identify 
 - **Association Rules**:  
   Rules that describe how items are associated with each other in transactional datasets.
 
-<Ads />
+<AdsComponent />
 
 ### Split Criteria:
 Unsupervised learning algorithms typically split data based on inherent structures or distances between points rather than minimizing prediction error.

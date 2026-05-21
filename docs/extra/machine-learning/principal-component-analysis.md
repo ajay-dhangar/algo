@@ -37,7 +37,7 @@ tags: [machine learning, algorithms, unsupervised learning, PCA]
 5. **Transform the Data**:  
    Project the original data onto the new feature space defined by the selected eigenvectors.
 
-<Ads />
+<AdsComponent />
 
 ### Problem Statement:
 Given a high-dimensional dataset, PCA aims to reduce its dimensionality while preserving as much information (variance) as possible. This is particularly useful for visualization and reducing computational costs in subsequent analyses.

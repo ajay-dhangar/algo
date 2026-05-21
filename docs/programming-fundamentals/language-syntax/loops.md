@@ -9,7 +9,7 @@ tags: [loops, programming, syntax, js, java, python, cpp]
 
 Loops are used in programming to repeat a block of code until a certain condition is met. This can simplify complex tasks that require repetitive actions, making code more efficient and easier to maintain.
 
-<Ads />
+<AdsComponent />
 
 ## Types of Loops
 

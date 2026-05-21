@@ -7,6 +7,8 @@ description: "A blocked queue is a linear data structure that operates on the Fi
 tags: [dsa, data-structures, BlockedQueue]
 ---
 
+import RelatedTopics from '@site/src/components/RelatedTopics';
+
 ### Introduction to Blocked Queue
 
 A **blocked queue** is a linear data structure that follows the First In First Out (FIFO) principle, similar to a regular queue. However, it includes mechanisms to block and unblock threads when the queue is empty or full. This is particularly useful in concurrent programming where multiple threads may need to access the queue simultaneously.
@@ -341,3 +343,11 @@ Consider a blocked queue with the following operations:
 ### Conclusion
 
 A blocked queue is an efficient data structure that improves the utilization of space and provides thread safety in concurrent programming scenarios. It is widely used in applications such as producer-consumer problems, task scheduling, and resource management. Understanding and implementing a blocked queue can significantly enhance performance and synchronization in multi-threaded environments.
+
+<RelatedTopics
+  topics={[
+    "category/stacks",
+    "extra/graphs/bfs/#definition",
+    "category/linked-list",
+  ]}
+/>
