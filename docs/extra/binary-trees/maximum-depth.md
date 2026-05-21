@@ -99,4 +99,4 @@ In the `main` function:
 
 ## Time Complexity
 
-The time complexity of this approach is **O(N)**, where `N` is the number of nodes in the binary tree. This is because the function visits each node exactly once during the recursive traversal.
+The time complexity of this approach is **$O(N)$**, where `N` is the number of nodes in the binary tree. This is because the function visits each node exactly once during the recursive traversal.

@@ -105,13 +105,13 @@ public class DiscreteLogarithm {
 ```
 
 ## Time Complexity
-- Best Case: O(1) (When the solution `x` is found very early)
-- Average Case: O(p)
-- Worst Case: O(p)
+- Best Case: $O(1)$ (When the solution `x` is found very early)
+- Average Case: $O(p)$
+- Worst Case: $O(p)$
 where `p` is the modulus, as the brute-force approach may need to check all values up to `p-1`.
 
 ## Space Complexity
-- O(1)
+- $O(1)$
 as it only uses a few variables to keep track of the loop and exponentiation result.
 
 ## Explanation

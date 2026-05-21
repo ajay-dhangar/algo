@@ -82,9 +82,9 @@ graph TB
    - Bubble down to maintain the heap property.
 
 ## Time Complexity
-- Insertion: **O(log n)** due to the bubbling up process.
-- Deletion: **O(log n)** due to the bubbling down process.
-- Building a Heap: **O(n)** using the bottom-up approach.
+- Insertion: **$O(log n)$** due to the bubbling up process.
+- Deletion: **$O(log n)$** due to the bubbling down process.
+- Building a Heap: **$O(n)$** using the bottom-up approach.
 
 ## Applications
 - **Priority Queues**: Efficiently manage and retrieve elements based on priority.
@@ -119,7 +119,7 @@ graph TB
 |-----------------|-------------------------------------------------------------------------|-----------------------------------------------------------|
 | **Data Storage** | Stores elements to satisfy the heap property                           | Stores elements to satisfy the binary search property      |
 | **Priority Operations** | Efficient insertion, deletion, and retrieval of priority elements | Efficient search, insertion, and deletion of arbitrary elements |
-| **Time Complexity** | O(log n) for insertion and deletion                                  | O(log n) for search, insertion, and deletion (balanced)    |
+| **Time Complexity** | $O(log n)$ for insertion and deletion                                  | $O(log n)$ for search, insertion, and deletion (balanced)    |
 | **Use Case**     | Used for priority queues and heap sort                                 | Used for dynamic set operations and searching              |
 
 ## Conclusion

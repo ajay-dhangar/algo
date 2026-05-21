@@ -34,7 +34,7 @@ def sum_tail(n, acc=0):
     else:
         return sum_tail(n - 1, acc + n)
 ```
-**Time Complexity (Best Case):** **O(1)** — constant time when n = 1 or the recursion depth is minimal.The recursion stops after one step !
+**Time Complexity (Best Case):** **$O(1)$** — constant time when n = 1 or the recursion depth is minimal.The recursion stops after one step !
 
 ## Worst Case Scenario:
 The **worst case** happens when the recursion depth is maximum, requiring many recursive calls.
@@ -42,7 +42,7 @@ The **worst case** happens when the recursion depth is maximum, requiring many r
 ### Example:
 For n = 1000, the function will call itself 1000 times, each time reducing n by 1.
 
-**Time Complexity (Worst Case):** **O(n)** — linear time proportional to n, where n is the depth of recursion.
+**Time Complexity (Worst Case):** **$O(n)$** — linear time proportional to n, where n is the depth of recursion.
 
 ## Example: Tail Recursive Factorial Calculation
 Tail Recursion for Factorial

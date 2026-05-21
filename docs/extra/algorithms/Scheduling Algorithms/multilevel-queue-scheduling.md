@@ -34,13 +34,13 @@ Consider a system with three queues:
 If there are no system processes, the CPU schedules processes from the interactive queue. If no interactive processes are present, it schedules batch processes.
 
 ## Time Complexity
-- Best Case: O(1) per process
-- Average Case: O(k + n)
-- Worst Case: O(k * n)
+- Best Case: $O(1)$ per process
+- Average Case: $O(k + n)$
+- Worst Case: $O(k * n)$
 where `k` is the number of queues and `n` is the total number of processes.
 
 ## Space Complexity
-- O(n)
+- $O(n)$
 where `n` is the number of processes, as space is required to store the process details across the queues.
 
 ## Explanation

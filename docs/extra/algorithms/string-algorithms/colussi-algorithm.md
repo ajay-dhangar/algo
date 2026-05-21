@@ -332,7 +332,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n/m) comparisons
+   - $O(n/m)$ comparisons
    - Quick pattern detection
    - Efficient skipping
 
@@ -342,7 +342,7 @@ int main() {
    - Efficient processing
 
 3. **Worst Case**:
-   - O(n) comparisons
+   - $O(n)$ comparisons
    - Linear time guarantee
    - Optimal performance
 

@@ -35,8 +35,8 @@ Objective:
 
 ### Time Complexity
 
-- **Time Complexity**: O(N) time
-- **Space Complexity**: O(K) for the deque.
+- **Time Complexity**: $O(N)$ time
+- **Space Complexity**: $O(K)$ for the deque.
 
 ### C++ Implementation
 

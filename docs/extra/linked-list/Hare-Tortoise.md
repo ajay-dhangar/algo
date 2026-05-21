@@ -22,17 +22,17 @@ The Hare and Tortoise Algorithm, also known as Floyd's Cycle Detection Algorithm
 - If the linked list contains a cycle, the fast-moving hare will eventually meet the slow-moving tortoise.
 
 -**Space Efficiency**:
-The algorithm uses a constant amount of space (O(1)), making it very efficient.
+The algorithm uses a constant amount of space ($O(1)$), making it very efficient.
 
 -**Applicable to Linked Lists**:
 - It is specifically designed to work with linked lists, where the next node is accessed through pointers.
 
 ### Time Complexity:
 
-- **Best, Average, and Worst Case: O(N)**  
+- **Best, Average, and Worst Case: $O(N)$**  
  - In the worst case, both pointers traverse the entire list, leading to linear time complexity, where n is the number of nodes in the linked list.
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
 - The algorithm only uses two pointers regardless of the input size, resulting in constant space complexity.
 
 ### C++ Implementation:

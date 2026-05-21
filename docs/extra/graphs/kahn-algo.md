@@ -35,7 +35,7 @@ Kahn's Algorithm operates based on the concept of in-degrees of vertices in a di
 
 ### 🛠️ Time Complexity
 
-The time complexity of Kahn's Algorithm is \( O(V + E) \), where \( V \) is the number of vertices and \( E \) is the number of edges in the graph. This efficiency makes Kahn's Algorithm suitable for large graphs.
+The time complexity of Kahn's Algorithm is \( $O(V + E)$ \), where \( V \) is the number of vertices and \( E \) is the number of edges in the graph. This efficiency makes Kahn's Algorithm suitable for large graphs.
 
 ### 🖥️ C++ Implementation
 
@@ -222,7 +222,7 @@ Version Control Systems: Resolves dependencies in source code versioning.
 Advantages:
 Provides a clear and efficient method for topological sorting.
 Handles large graphs effectively with
-O(V+E) time complexity.
+$O(V+E)$ time complexity.
 
 ### Limitations:
 

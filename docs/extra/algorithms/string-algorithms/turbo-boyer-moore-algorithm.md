@@ -288,7 +288,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n/m) comparisons
+   - $O(n/m)$ comparisons
    - Optimal shifting
    - Maximum skip
 
@@ -298,7 +298,7 @@ int main() {
    - Better than basic Boyer-Moore
 
 3. **Worst Case**:
-   - O(n) guaranteed
+   - $O(n)$ guaranteed
    - Linear scan
    - Pattern dependent
 

@@ -3,7 +3,7 @@ id: arrays-product-of-array-except-self
 title: Arrays - Product of Array Except Self
 sidebar_label: Product of Array Except Self
 sidebar_position: 3
-description: "The Product of Array Except Self problem requires calculating the product of all elements in an array except for the element at the current index. The challenge is to perform this without using division and in O(n) time complexity."
+description: "The Product of Array Except Self problem requires calculating the product of all elements in an array except for the element at the current index. The challenge is to perform this without using division and in $O(n)$ time complexity."
 tags: [dsa, arrays, product-of-array, pseudocode, Implementation, explanation, conclusion]
 ---
 
@@ -18,7 +18,7 @@ The **Product of Array Except Self** problem involves computing an output array 
 Given an array `nums` of length `n`, return an array `output` of the same length where `output[i]` is equal to the product of all the numbers in the input array except `nums[i]`.
 
 ### Constraints
-- You must solve it in O(n) time complexity.
+- You must solve it in $O(n)$ time complexity.
 - You cannot use the division operation.
 
 <BubbleSortVisualization />
@@ -190,10 +190,10 @@ console.log(res.join(" ")); // Output the result
 
 ## Complexity
 
-- **Time Complexity**: O(n)
-- **Space Complexity**: O(1) if we use the output array directly for left and right products (optimized version).
+- **Time Complexity**: $O(n)$
+- **Space Complexity**: $O(1)$ if we use the output array directly for left and right products (optimized version).
 
-> **Note**: The above implementation uses O(n) space for the output array.
+> **Note**: The above implementation uses $O(n)$ space for the output array.
 
 ## Explanation
 
@@ -269,9 +269,9 @@ The **Product of Array Except Self** problem showcases a fundamental approach in
 
 ### Key Takeaways:
 
-1. **Efficiency**: The algorithm operates in O(n) time complexity, making it highly efficient even for larger datasets. The use of a single pass to compute both prefix and suffix products illustrates how to leverage iterative techniques to minimize computational overhead.
+1. **Efficiency**: The algorithm operates in $O(n)$ time complexity, making it highly efficient even for larger datasets. The use of a single pass to compute both prefix and suffix products illustrates how to leverage iterative techniques to minimize computational overhead.
 
-2. **Space Optimization**: While the naive approach might suggest using additional arrays for prefix and suffix products, this solution elegantly maintains a single output array, thereby achieving O(1) space complexity in terms of auxiliary space. This is crucial in scenarios where memory usage is a concern.
+2. **Space Optimization**: While the naive approach might suggest using additional arrays for prefix and suffix products, this solution elegantly maintains a single output array, thereby achieving $O(1)$ space complexity in terms of auxiliary space. This is crucial in scenarios where memory usage is a concern.
 
 3. **Versatility**: This problem serves as a great illustration of how array manipulation can be utilized in various applications, from statistical calculations to financial analyses. Understanding this algorithm equips developers with the ability to tackle a range of similar challenges effectively.
 

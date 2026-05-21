@@ -347,17 +347,17 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(min(m,n)) for identical strings
+   - $O(min(m,n))$ for identical strings
    - Early termination possible
    - Optimal substructure
 
 2. **Average Case**:
-   - O(mn) operations
+   - $O(mn)$ operations
    - Predictable performance
    - Consistent behavior
 
 3. **Worst Case**:
-   - O(mn) operations required
+   - $O(mn)$ operations required
    - Full matrix computation
    - Maximum path length
 

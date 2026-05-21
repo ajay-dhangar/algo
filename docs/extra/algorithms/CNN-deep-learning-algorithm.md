@@ -74,11 +74,11 @@ for images, labels in train_loader:
 ## Time Complexity
 The complexity of a CNN is determined by the size of the input image, the number of filters, and the number of layers.
 
-- **Time Complexity**: O(N × K × F × F)  
+- **Time Complexity**: $O(N × K × F × F)$  
   where `N` is the number of images, `K` is the number of filters, and `F` is the filter size. The convolutional and fully connected layers contribute to the overall complexity.
 
 ## Space Complexity
-- **Space Complexity**: O(N × D × D × K)  
+- **Space Complexity**: $O(N × D × D × K)$  
   where `N` is the number of images, `D` is the spatial dimension of the image, and `K` is the number of filters. CNNs require storage for the learned filter weights and feature maps at each layer.
 
 ## Applications

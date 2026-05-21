@@ -320,7 +320,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n) operations
+   - $O(n)$ operations
    - Efficient state transitions
    - Quick pattern detection
 
@@ -330,7 +330,7 @@ int main() {
    - State-based optimization
 
 3. **Worst Case**:
-   - O(n) comparisons
+   - $O(n)$ comparisons
    - Linear scan guarantee
    - Predictable performance
 

@@ -27,18 +27,18 @@ Bubble sort is a simple comparison-based sorting algorithm that repeatedly steps
 
 ### Time Complexity:
 
-- **Best Case: O(n)**  
+- **Best Case: $O(n)$**  
   In the best-case scenario, where the array is already sorted, bubble sort only makes a single pass through the array without making any swaps.
 
-- **Average Case: O(n²)**  
+- **Average Case: $O(n²)$**  
   On average, bubble sort compares and swaps elements multiple times, leading to quadratic time complexity.
 
-- **Worst Case: O(n²)**  
+- **Worst Case: $O(n²)$**  
   In the worst-case scenario, where the array is sorted in reverse order, the algorithm must compare and swap every element, making n-1 comparisons and swaps in each pass.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   Bubble sort is an in-place algorithm, meaning it requires only a constant amount of extra memory, regardless of the input size.
 
 ### C++ Implementation:
@@ -126,13 +126,13 @@ int main() {
 
 ### Summary:
 
-Bubble sort is one of the simplest sorting algorithms. While it is inefficient for large datasets due to its O(n²) time complexity, it provides an easy-to-understand introduction to sorting. Both the iterative and recursive versions of bubble sort are straightforward to implement, with the iterative version being more commonly used due to its simplicity.
+Bubble sort is one of the simplest sorting algorithms. While it is inefficient for large datasets due to its $O(n²)$ time complexity, it provides an easy-to-understand introduction to sorting. Both the iterative and recursive versions of bubble sort are straightforward to implement, with the iterative version being more commonly used due to its simplicity.
 
 
 ## Complexity Comparison Table
 
 | Algorithm | Best Case | Average Case | Worst Case | Space Complexity |
 |---|---|---|---|---|
-| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
-| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
-| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+| Bubble Sort | $O(n)$ | $O(n²)$ | $O(n²)$ | $O(1)$ |
+| Merge Sort | $O(n log n)$ | $O(n log n)$ | $O(n log n)$ | $O(n)$ |
+| Quick Sort | $O(n log n)$ | $O(n log n)$ | $O(n²)$ | $O(log n)$ |

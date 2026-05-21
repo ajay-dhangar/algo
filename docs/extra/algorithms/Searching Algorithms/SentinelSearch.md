@@ -121,4 +121,4 @@ int main() {
 
 ### Summary:
 
-Sentinel search is an optimized linear search technique that enhances efficiency by using a sentinel value at the end of the array. While it operates in O(n) time complexity in the average and worst cases, it simplifies the search process and reduces the number of comparisons needed. This makes sentinel search particularly effective for unsorted datasets, providing a practical solution for applications requiring fast and efficient searching.
+Sentinel search is an optimized linear search technique that enhances efficiency by using a sentinel value at the end of the array. While it operates in $O(n)$ time complexity in the average and worst cases, it simplifies the search process and reduces the number of comparisons needed. This makes sentinel search particularly effective for unsorted datasets, providing a practical solution for applications requiring fast and efficient searching.

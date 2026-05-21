@@ -95,7 +95,7 @@ n_queens(n)
 - `n_queens(n)`: Initializes the board and starts the recursive process by calling solve_n_queens. If a solution is found, it prints the board configuration; otherwise, it outputs that no solution exists.
   
 ### Complexity
-- **Time Complexity:** The time complexity is O(N!) due to the combinatorial nature of queen placements.
+- **Time Complexity:** The time complexity is $O(N!)$ due to the combinatorial nature of queen placements.
 - **Space Complexity:** The space complexity is 𝑂(N<sup>2</sup>) because an n×n board is used to store the board configuration.
 
 ### Example Walkthrough

@@ -57,7 +57,7 @@ graph TB
 The final MST includes edges **(A-D)**, **(A-B)**, **(B-E)**, and **(A-C)** with a total weight of **10**.
 
 ## Time Complexity
-- The time complexity of Prim's Algorithm is **O(E log V)** when using a priority queue (min-heap), where **E** is the number of edges and **V** is the number of vertices. With an adjacency matrix, it can be reduced to **O(V^2)**.
+- The time complexity of Prim's Algorithm is **$O(E log V)$** when using a priority queue (min-heap), where **E** is the number of edges and **V** is the number of vertices. With an adjacency matrix, it can be reduced to **$O(V^2)$**.
 
 ## Applications
 - **Network Design:** Used in designing computer and telecommunications networks for optimal connectivity.

@@ -7,7 +7,7 @@ description: "A comprehensive guide to using the Rabin-Karp Algorithm for effici
 tags: [pattern matching, string algorithms, competitive programming]
 ---
 
-Robins-Karp Algorithm is a string-searching algorithm that uses hashing to find an exact match of a pattern in a text. By comparing hash values of the pattern with the hash values of substrings of the text, it achieves an average time complexity of O(n + m), where `n` is the length of the text and `m` is the length of the pattern.
+Robins-Karp Algorithm is a string-searching algorithm that uses hashing to find an exact match of a pattern in a text. By comparing hash values of the pattern with the hash values of substrings of the text, it achieves an average time complexity of $O(n + m)$, where `n` is the length of the text and `m` is the length of the pattern.
 
 <AdsComponent />
 
@@ -126,7 +126,7 @@ It is widely used for finding substrings within large text data, especially in a
 
 ## Advantages
 
-- **Linear Time Complexity:** The algorithm has an average-case time complexity of O(n + m), where `n` is the length of the text and `m` is the length of the pattern.
+- **Linear Time Complexity:** The algorithm has an average-case time complexity of $O(n + m)$, where `n` is the length of the text and `m` is the length of the pattern.
 - **Multiple Pattern Search:** It can search for multiple patterns in a single pass through the text.
 - **Rolling Hash:** The rolling hash technique allows for efficient updates of hash values in constant time.
 - **Space Efficiency:** The algorithm uses a constant amount of space for storing hash values and indices.

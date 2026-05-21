@@ -161,12 +161,12 @@ if __name__ == "__main__":
 ```
 
 ### Time Complexity:
-- **Time Complexity: O(N * ants_num * iterations_num)**  
+- **Time Complexity: $O(N * ants_num * iterations_num)$**  
   The time complexity depends on the number of cities (N), the number of ants (ants_num), and the number of iterations (iterations_num). 
 
 ### Space Complexity:
-- **Space Complexity: O(N^2)**
-  The algorithm requires storage for pheromone levels on all paths, resulting in a space complexity of O(N^2) for a fully connected graph.
+- **Space Complexity: $O(N^2)$**
+  The algorithm requires storage for pheromone levels on all paths, resulting in a space complexity of $O(N^2)$ for a fully connected graph.
   
 ### Summary:
 The Ant Colony Optimization (ACO) algorithm effectively tackles the Travelling Salesman Problem by simulating ant behavior with pheromone trails to find the shortest path. By balancing pheromone influence and heuristic distance measures, the algorithm iteratively improves routes, offering a practical solution for complex optimization challenges. This approach is highly valuable in network routing, scheduling, and various other optimization domains.

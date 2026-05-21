@@ -29,13 +29,13 @@ The **PageRank algorithm** is a **link analysis algorithm** developed by Larry P
 
 ### Time Complexity:
 
-- **Time Complexity: O(N \* I)**
-  The time complexity of the PageRank algorithm is O(N \* I), where N is the number of nodes (pages) and I is the number of iterations until convergence.
+- **Time Complexity: $O(N \* I)$**
+  The time complexity of the PageRank algorithm is $O(N \* I)$, where N is the number of nodes (pages) and I is the number of iterations until convergence.
 
 ### Space Complexity:
 
-- **Space Complexity: O(N)**
-  The algorithm requires additional space for storing PageRank scores and adjacency information, leading to a space complexity of O(N).
+- **Space Complexity: $O(N)$**
+  The algorithm requires additional space for storing PageRank scores and adjacency information, leading to a space complexity of $O(N)$.
 
 ### Python Implementation:
 

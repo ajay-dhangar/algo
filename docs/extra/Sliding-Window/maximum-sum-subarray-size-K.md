@@ -38,10 +38,10 @@ This problem can be efficiently solved using the **Sliding Window** technique. I
 4. **Return the maximum sum** after sliding through the entire array.
 
 ### Time Complexity:
-- **O(n)**, where `n` is the size of the array. Each element is processed once when entering the window and once when leaving it.
+- **$O(n)$**, where `n` is the size of the array. Each element is processed once when entering the window and once when leaving it.
   
 ### Space Complexity:
-- **O(1)**, since we only need a few variables to keep track of the current sum and the maximum sum.
+- **$O(1)$**, since we only need a few variables to keep track of the current sum and the maximum sum.
 
 ### C++ Code Implementation:
 

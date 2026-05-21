@@ -16,7 +16,7 @@ In computer science, the **Naive Search Algorithm** (also known as brute-force s
 The **Naive Search Algorithm** (also known as brute-force search) is a basic string matching technique that checks every possible position in the text for the occurrence of a given pattern. Although simple to implement, it is inefficient for large texts and patterns as it performs comparisons one by one without any optimization.
 
 ### Time Complexity:
-- **Worst Case:** O(n * m)  
+- **Worst Case:** $O(n * m)$  
 Where:
 - `n` is the length of the text.
 - `m` is the length of the pattern.
@@ -122,7 +122,7 @@ int main() {
 
 ## Limitations
 
-- **Efficiency:** The algorithm performs O(n * m) comparisons in the worst case, which is inefficient for large texts and patterns.
+- **Efficiency:** The algorithm performs $O(n * m)$ comparisons in the worst case, which is inefficient for large texts and patterns.
 - **No Optimization:** Unlike more advanced algorithms like Rabin-Karp or Knuth-Morris-Pratt, the naive search algorithm does not use any hashing or preprocessing to improve search times.
 
 ## Applications

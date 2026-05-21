@@ -165,11 +165,11 @@ List<Integer> mutable = new ArrayList<>(Arrays.asList(1, 2, 3));
 
 | Operation | Time |
 |-----------|------|
-| `get(i)` | O(1) |
-| `add(e)` at end | O(1) amortized |
-| `add(i, e)` in middle | O(n) |
-| `remove(i)` | O(n) |
-| `contains(e)` | O(n) |
+| `get(i)` | $O(1)$ |
+| `add(e)` at end | $O(1)$ amortized |
+| `add(i, e)` in middle | $O(n)$ |
+| `remove(i)` | $O(n)$ |
+| `contains(e)` | $O(n)$ |
 
 #### Common Gotchas
 
@@ -485,11 +485,11 @@ for (int key : freq.keySet()) {
 
 | Operation | Time |
 |-----------|------|
-| `offer` / `add` | O(log n) |
-| `peek` | O(1) |
-| `poll` | O(log n) |
-| `contains` | O(n) |
-| `remove(Object)` | O(n) |
+| `offer` / `add` | $O(log n)$ |
+| `peek` | $O(1)$ |
+| `poll` | $O(log n)$ |
+| `contains` | $O(n)$ |
+| `remove(Object)` | $O(n)$ |
 
 ---
 
@@ -503,7 +503,7 @@ A **key-value store** backed by a hash table. Keys are hashed to bucket indices.
 - Two-sum type problems
 - Caching/memoization
 - Grouping/anagram detection
-- Any O(1) average key lookup
+- Any $O(1)$ average key lookup
 
 #### How to create
 
@@ -626,12 +626,12 @@ for (String s : arr) {
 
 | Operation | Average | Worst Case |
 |-----------|---------|------------|
-| `put` | O(1) | O(n) |
-| `get` | O(1) | O(n) |
-| `remove` | O(1) | O(n) |
-| `containsKey` | O(1) | O(n) |
+| `put` | $O(1)$ | $O(n)$ |
+| `get` | $O(1)$ | $O(n)$ |
+| `remove` | $O(1)$ | $O(n)$ |
+| `containsKey` | $O(1)$ | $O(n)$ |
 
-> Worst case `O(n)` occurs with hash collisions. In practice with good hash functions, it's O(1).
+> Worst case `O(n)` occurs with hash collisions. In practice with good hash functions, it's $O(1)$.
 
 ---
 
@@ -1725,7 +1725,7 @@ pair.ifPresent(p -> System.out.println(Arrays.toString(p))); // [2, 7]
 | FIFO queue | `ArrayDeque` (use `offer`/`poll`) |
 | Double-ended queue | `ArrayDeque` |
 | Min/max heap | `PriorityQueue` |
-| Key-value, O(1) ops | `HashMap` |
+| Key-value, $O(1)$ ops | `HashMap` |
 | Key-value, insertion order | `LinkedHashMap` |
 | Key-value, sorted keys | `TreeMap` |
 | Unique elements, fast lookup | `HashSet` |

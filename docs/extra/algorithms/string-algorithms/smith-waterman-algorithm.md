@@ -297,17 +297,17 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(mn) operations
+   - $O(mn)$ operations
    - Complete alignment
    - Optimal solution
 
 2. **Average Case**:
-   - O(mn) operations
+   - $O(mn)$ operations
    - Consistent performance
    - Predictable behavior
 
 3. **Worst Case**:
-   - O(mn) operations
+   - $O(mn)$ operations
    - Full matrix computation
    - Space-time trade-off
 

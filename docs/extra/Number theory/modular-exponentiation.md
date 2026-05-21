@@ -9,7 +9,7 @@ tags: [Modular Exponentiation, number theory, cryptography, efficient algorithms
 
 # Modular Exponentiation
 
-Modular exponentiation is an efficient method for computing large powers modulo some integer, commonly used in cryptography and other fields involving large number computations. This technique significantly reduces the time complexity from \(O(b)\) to \(O(\log b)\), making it feasible to compute large powers quickly.
+Modular exponentiation is an efficient method for computing large powers modulo some integer, commonly used in cryptography and other fields involving large number computations. This technique significantly reduces the time complexity from \($O(b)$\) to \($O(\log b)$\), making it feasible to compute large powers quickly.
 
 ## Basics of Modular Exponentiation
 
@@ -125,4 +125,4 @@ Modular exponentiation has applications in areas where fast computation of power
 
 # Time Complexity
 The time complexity of modular exponentiation, both in the recursive and iterative versions, is 
-O(logb), where b is the exponent.
+$O(logb)$, where b is the exponent.

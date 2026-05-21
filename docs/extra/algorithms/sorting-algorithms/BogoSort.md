@@ -27,10 +27,10 @@ Bogo Sort (also known as permutation sort, stupid sort, or slow sort) is a highl
 
 ### Time Complexity:
 
-- **Best Case: O(n)**  
+- **Best Case: $O(n)$**  
   In the best-case scenario, the array is already sorted on the first check, so only one permutation is generated.
 
-- **Average Case: O((n+1)!)**  
+- **Average Case: $O((n+1)!)$**  
   On average, Bogo sort requires generating and checking all possible permutations, leading to factorial time complexity.
 
 - **Worst Case: Unbounded**  
@@ -38,7 +38,7 @@ Bogo Sort (also known as permutation sort, stupid sort, or slow sort) is a highl
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   Bogo sort requires no additional space other than the input array, as it works in-place by shuffling the array.
 
 ### C++ Implementation:

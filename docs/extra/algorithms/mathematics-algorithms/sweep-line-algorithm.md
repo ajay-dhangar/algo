@@ -259,13 +259,13 @@ public class SweepLineAlgorithm {
 </Tabs>
 
 ## Time Complexity
-- Best Case: O(N log N) (when there are no intersections)
-- Average Case: O((N + K) log N)
-- Worst Case: O((N + K) log N)
+- Best Case: $O(N log N)$ (when there are no intersections)
+- Average Case: $O((N + K) log N)$
+- Worst Case: $O((N + K) log N)$
 where `N` is the number of line segments and `K` is the number of intersection points. Note: The provided naive implementations check all active segments in `O(A^2)` where `A` is the number of active segments, making them `O(N^2)` in the worst case. An optimal implementation uses a balanced Binary Search Tree to maintain active segments, achieving `O((N + K) log N)`.
 
 ## Space Complexity
-- O(N)
+- $O(N)$
 where `N` is the number of line segments. The event queue holds up to `2N` events, and the active set holds at most `N` segments at any given time.
 
 ## Explanation

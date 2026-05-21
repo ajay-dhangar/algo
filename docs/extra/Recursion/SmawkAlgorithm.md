@@ -2,7 +2,7 @@
 id: smawk-algorithm 
 title: Smawk Algorithm Using Recursion
 sidebar_label: Generating Minima in matrix row  
-description: "The SMAWK algorithm is an efficient method for finding row minima in totally monotone matrices, a specific type of matrix where entries decrease or stay constant along each row and column. Developed for optimizing complex search operations, this algorithm leverages a unique recursive approach, reducing computation time to O(m+n) for an m×n matrix, making it ideal for applications in computational geometry, dynamic programming, and machine learning. With SMAWK, developers gain a powerful tool for solving matrix-based problems more effectively, significantly improving the performance of algorithms that depend on finding minimum values in large, structured datasets"
+description: "The SMAWK algorithm is an efficient method for finding row minima in totally monotone matrices, a specific type of matrix where entries decrease or stay constant along each row and column. Developed for optimizing complex search operations, this algorithm leverages a unique recursive approach, reducing computation time to $O(m+n)$ for an m×n matrix, making it ideal for applications in computational geometry, dynamic programming, and machine learning. With SMAWK, developers gain a powerful tool for solving matrix-based problems more effectively, significantly improving the performance of algorithms that depend on finding minimum values in large, structured datasets"
 tags: [Smawk , recursion, dsa]
 ---
 ## Smawk Algorithm Via Recursion
@@ -17,7 +17,7 @@ Given an m×n matrix that meets the total monotonicity property, the objective i
 2. **Resource Allocation** : Optimizing tasks in operations research where minimizing costs or distances is crucial.
 3. **Graph Algorithms** : Enhancing performance in dynamic programming solutions reliant on matrix representations.
 
-The SMAWK algorithm's efficient approach, with a time complexity of  **O(m + n)** , makes it a powerful tool for developers and researchers needing to perform minimum value searches in structured datasets. The solution will provide a comprehensive implementation that adheres to best practices in computational efficiency and usability.
+The SMAWK algorithm's efficient approach, with a time complexity of  **$O(m + n)$** , makes it a powerful tool for developers and researchers needing to perform minimum value searches in structured datasets. The solution will provide a comprehensive implementation that adheres to best practices in computational efficiency and usability.
 
 #### Explanation:
 
@@ -27,7 +27,7 @@ The **SMAWK algorithm** is a powerful and efficient technique for locating row m
 
 **Time Efficiency** :
 
-* The SMAWK algorithm operates with a time complexity of  **O(m + n)** , where m is the number of rows and n is the number of columns. This efficiency makes it particularly suitable for large matrices, surpassing the traditional O(m⋅n) complexity of naive approaches.
+* The SMAWK algorithm operates with a time complexity of  **$O(m + n)$** , where m is the number of rows and n is the number of columns. This efficiency makes it particularly suitable for large matrices, surpassing the traditional $O(m⋅n)$ complexity of naive approaches.
 
 **Recursive Approach** :
 
@@ -66,11 +66,11 @@ Row 2: Column 0
 
 ### Time Complexity
 
-The SMAWK algorithm has a time complexity of  **O(m+n)**, where m is the number of rows and n is the number of columns in the matrix. This efficiency is achieved because the algorithm processes each row and column in a single pass, effectively discarding columns that do not contribute to the minima.
+The SMAWK algorithm has a time complexity of  **$O(m+n)$**, where m is the number of rows and n is the number of columns in the matrix. This efficiency is achieved because the algorithm processes each row and column in a single pass, effectively discarding columns that do not contribute to the minima.
 
 ### Space Complexity
 
-Regarding space complexity, SMAWK also requires **O(m+n)** additional space. This space is used for storing row and column indices, the reduced set of columns during processing, and result vectors that hold the minima for each row.
+Regarding space complexity, SMAWK also requires **$O(m+n)$** additional space. This space is used for storing row and column indices, the reduced set of columns during processing, and result vectors that hold the minima for each row.
 
 Overall, the efficient time and space complexities make the SMAWK algorithm particularly well-suited for working with large matrices that have a totally monotonic property, enabling quick and effective results while minimizing computational overhead.
 
@@ -96,7 +96,7 @@ The SMAWK algorithm, while efficient for certain types of problems, comes with i
 
 **Memory Usage** :
 
-* The space complexity of  **O(m+n)O(m + n)**O**(**m**+**n**)** , while efficient compared to other algorithms, can still be a concern with very large matrices. In situations where memory is limited, other strategies may need to be considered.
+* The space complexity of  **$O(m+n)$$O(m + n)$**O**(**m**+**n**)** , while efficient compared to other algorithms, can still be a concern with very large matrices. In situations where memory is limited, other strategies may need to be considered.
 
 **Scalability** :
 

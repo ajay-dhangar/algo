@@ -22,12 +22,12 @@ Direct recursion is when a function calls itself directly. The function keeps ca
 
 ### Time Complexity:
 
-- **Time Complexity: O(n)**
+- **Time Complexity: $O(n)$**
   The time complexity of direct recursion depends on the problem. For simple problems like calculating a factorial, it usually takes linear time `O(n)` where `n` is the input size.
 
 ### Space Complexity:
 
-- **Space Complexity: O(n)**
+- **Space Complexity: $O(n)$**
   Each recursive call takes up space on the call stack, leading to a space complexity proportional to the depth of the recursion.
 
 ### Example Problems:

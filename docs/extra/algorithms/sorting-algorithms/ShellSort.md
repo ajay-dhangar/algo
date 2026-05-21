@@ -27,18 +27,18 @@ Shell sort is an extension of insertion sort that allows the exchange of far-apa
 
 ### Time Complexity:
 
-- **Best Case: O(n log n)**  
-  With an optimal gap sequence, Shell sort can approach O(n log n) in the best case.
+- **Best Case: $O(n log n)$**  
+  With an optimal gap sequence, Shell sort can approach $O(n log n)$ in the best case.
 
-- **Average Case: O(n log² n)**  
+- **Average Case: $O(n log² n)$**  
   The average-case complexity of Shell sort is better than that of many simple quadratic sorting algorithms like insertion sort or bubble sort, but it depends heavily on the gap sequence.
 
-- **Worst Case: O(n²)**  
+- **Worst Case: $O(n²)$**  
   In the worst case, with poor gap choices, Shell sort can degrade to quadratic time complexity.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   Shell sort is an in-place sorting algorithm, meaning it requires a constant amount of extra memory.
 
 ### C++ Implementation:
@@ -99,4 +99,4 @@ int main() {
 
 ### Summary:
 
-Shell sort is a highly efficient general-purpose comparison-based sorting algorithm that improves upon insertion sort by first comparing elements far apart. By reducing the gap over iterations, it minimizes the number of comparisons and swaps required. With its average-case time complexity of O(n log² n), Shell sort performs significantly better than simple quadratic algorithms like bubble or insertion sort, making it suitable for moderate-sized datasets. However, the performance depends heavily on the choice of the gap sequence.
+Shell sort is a highly efficient general-purpose comparison-based sorting algorithm that improves upon insertion sort by first comparing elements far apart. By reducing the gap over iterations, it minimizes the number of comparisons and swaps required. With its average-case time complexity of $O(n log² n)$, Shell sort performs significantly better than simple quadratic algorithms like bubble or insertion sort, making it suitable for moderate-sized datasets. However, the performance depends heavily on the choice of the gap sequence.

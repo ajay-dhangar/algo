@@ -22,18 +22,18 @@ Odd-Even Sort is a simple parallel sorting algorithm that works by repeatedly pe
 
 ### Time Complexity:
 
-- **Best Case: O(n)**  
+- **Best Case: $O(n)$**  
   When the array is already sorted, the algorithm only requires one pass.
 
-- **Average Case: O(n²)**  
+- **Average Case: $O(n²)$**  
 The average time complexity is quadratic, similar to other simple sorting algorithms.
 
-- **Worst Case: O(n²)**  
+- **Worst Case: $O(n²)$**  
 The worst-case scenario occurs when the array is in reverse order.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
 The algorithm operates in constant space, only using a few variables for swapping.
 
 ### Java Implementation:
@@ -86,4 +86,4 @@ public class OddEvenSort {
 ```
 
 ### Summary:
-Odd-Even Sort is a straightforward sorting algorithm that alternates between odd and even phases to sort an array. While it can be implemented efficiently in parallel computing environments, its average and worst-case time complexities of O(n2) make it less efficient compared to more advanced algorithms like Quick Sort or Merge Sort.
+Odd-Even Sort is a straightforward sorting algorithm that alternates between odd and even phases to sort an array. While it can be implemented efficiently in parallel computing environments, its average and worst-case time complexities of $O(n2)$ make it less efficient compared to more advanced algorithms like Quick Sort or Merge Sort.

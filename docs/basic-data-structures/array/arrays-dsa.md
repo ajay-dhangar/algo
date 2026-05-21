@@ -532,8 +532,8 @@ The maximum and minimum elements in an array can be found by iterating through t
 </Tabs>
 
 :::info 📝 Info
-- The time complexity of finding the maximum and minimum elements in an array is O(n).
-- The space complexity of finding the maximum and minimum elements in an array is O(1).
+- The time complexity of finding the maximum and minimum elements in an array is $O(n)$.
+- The space complexity of finding the maximum and minimum elements in an array is $O(1)$.
 :::
 
 

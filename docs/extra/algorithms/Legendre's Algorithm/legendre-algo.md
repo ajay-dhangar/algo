@@ -115,13 +115,13 @@ int fact_pow(int n, int k) {
 
 
 ## Time Complexity
-- Best Case: O(log_k n) for prime k. O(sqrt(k) + log n) for composite k.
-- Average Case: O(log_k n) for prime k. O(sqrt(k) + log n) for composite k.
-- Worst Case: O(log_k n) for prime k. O(sqrt(k) + log n) for composite k.
+- Best Case: $O(log_k n)$ for prime k. $O(sqrt(k) + log n)$ for composite k.
+- Average Case: $O(log_k n)$ for prime k. $O(sqrt(k) + log n)$ for composite k.
+- Worst Case: $O(log_k n)$ for prime k. $O(sqrt(k) + log n)$ for composite k.
 
 ## Space Complexity
-- O(1) for prime k.
-- O(log k) for composite k (to store the prime factors).
+- $O(1)$ for prime k.
+- $O(log k)$ for composite k (to store the prime factors).
 
 ## Explanation
 For a prime `k`, Legendre's formula requires repeatedly dividing `n` by `k`, resulting in `O(log_k n)` time and `O(1)` space. For a composite `k`, the algorithm first factorizes `k` in `O(sqrt(k))` time and stores up to `O(log k)` prime factors. Then, it applies Legendre's formula for each prime factor, yielding an overall time complexity of `O(sqrt(k) + log n)` and space complexity of `O(log k)`.

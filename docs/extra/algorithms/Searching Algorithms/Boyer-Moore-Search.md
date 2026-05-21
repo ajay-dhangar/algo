@@ -24,12 +24,12 @@ sidebar_label: Boyer-Moore
 
 ### Time Complexity:
 
-- **Best Case**: \(O(n/m)\), where `n` is the length of the text and `m` is the length of the pattern.
-- **Worst Case**: \(O(n \times m)\)
+- **Best Case**: \($O(n/m)$\), where `n` is the length of the text and `m` is the length of the pattern.
+- **Worst Case**: \($O(n \times m)$\)
 
 ### Space Complexity:
 
-- **Space Complexity**: \(O(m)\) for storing pattern rules.
+- **Space Complexity**: \($O(m)$\) for storing pattern rules.
 
 ### Advantages of Boyer-Moore:
 

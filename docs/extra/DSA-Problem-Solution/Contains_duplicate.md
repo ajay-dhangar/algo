@@ -72,8 +72,8 @@ int main() {
 ## Approach and code explanation
 **Using a Set for Uniqueness:**
 - A set data structure inherently stores unique values. In C++, we used an unordered_set for this purpose, which allows us to:
-Insert elements in O(1) average time.
-Check if an element exists (lookup) in O(1) average time.
+Insert elements in $O(1)$ average time.
+Check if an element exists (lookup) in $O(1)$ average time.
 
 **Iterating Through the Array:**
 - The algorithm iterates through each element of the array.
@@ -94,7 +94,7 @@ Final Result: If the loop completes without finding any duplicates, return false
 
 ## complexcity
 ## Time Complexity:
-Time complexity- O(n), where n is the size of the input array.
+Time complexity- $O(n)$, where n is the size of the input array.
 
 ## Space complexity:
--O(n), as we are using an unordered_set to store up to n unique elements.
+-$O(n)$, as we are using an unordered_set to store up to n unique elements.

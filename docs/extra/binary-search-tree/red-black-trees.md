@@ -7,7 +7,7 @@ description: "In this blog post, we'll explore Red-Black trees, a type of self-b
 tags: [dsa, data structures, rbt]
 ---
 
-A **Red-Black Tree (RBT)** is a self-balancing binary search tree (BST) that ensures the tree remains approximately balanced after insertions and deletions. The primary goal of a Red-Black Tree is to keep the height of the tree O(log n), ensuring efficient operations.
+A **Red-Black Tree (RBT)** is a self-balancing binary search tree (BST) that ensures the tree remains approximately balanced after insertions and deletions. The primary goal of a Red-Black Tree is to keep the height of the tree $O(log n)$, ensuring efficient operations.
 
 Each node in a Red-Black Tree has an additional property: a color, which is either **red** or **black**. The tree follows specific rules regarding the colors, which ensures that it remains balanced.
 
@@ -19,7 +19,7 @@ Each node in a Red-Black Tree has an additional property: a color, which is eith
 4. **Red nodes cannot have red children** (no two red nodes appear consecutively along a path).
 5. **Every path from a node to its descendant leaves has the same number of black nodes**.
 
-These properties ensure that the longest path from the root to a leaf is no more than twice as long as the shortest path, guaranteeing O(log n) height.
+These properties ensure that the longest path from the root to a leaf is no more than twice as long as the shortest path, guaranteeing $O(log n)$ height.
 
 ## Definition and Structure
 
@@ -81,7 +81,7 @@ Node* insert(Node* root, int key) {
 
 ### 2. Searching
 
-The searching operation in a Red-Black Tree is identical to that of a standard BST. Due to the self-balancing properties of RBTs, the time complexity is guaranteed to be O(log n).
+The searching operation in a Red-Black Tree is identical to that of a standard BST. Due to the self-balancing properties of RBTs, the time complexity is guaranteed to be $O(log n)$.
 
 ### Code Example (C++)
 
@@ -139,7 +139,7 @@ Node* deleteNode(Node* root, int key) {
 ## Advantages and Disadvantages
 
 ### Advantages:
-- Guarantees O(log n) time complexity for search, insertion, and deletion.
+- Guarantees $O(log n)$ time complexity for search, insertion, and deletion.
 - Self-balancing, preventing the tree from becoming skewed.
 - Simpler than AVL trees in terms of rebalancing operations.
 

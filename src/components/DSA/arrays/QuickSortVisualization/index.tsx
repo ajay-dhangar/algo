@@ -25,16 +25,21 @@ const QuickSortVisualization: React.FC = () => {
   };
 
   const updateMoveDuration = () => {
-    const stylesheets = document.styleSheets;
-    for (const stylesheet of stylesheets) {
-      const rules = (stylesheet as CSSStyleSheet).cssRules;
-      for (const rule of rules) {
-        if ((rule as CSSStyleRule).selectorText === '.v-move') {
-          (rule as CSSStyleRule).style.transitionDuration = `${delay}ms`;
-          break;
+    try {
+      const stylesheets = document.styleSheets;
+      for (const stylesheet of stylesheets) {
+        const rules = (stylesheet as CSSStyleSheet).cssRules;
+        for (const rule of rules) {
+          if ((rule as CSSStyleRule).selectorText === '.v-move') {
+            (rule as CSSStyleRule).style.transitionDuration = `${delay}ms`;
+            return;
+          }
         }
       }
+    } catch {
+      // Safari throws SecurityError on cross-origin stylesheets (e.g. Google Fonts CDN)
     }
+    document.documentElement.style.setProperty('--move-duration', `${delay}ms`);
   };
 
   const delayFunction = (ms: number) => {
@@ -108,7 +113,7 @@ const QuickSortVisualization: React.FC = () => {
               index === pivotIndex ? 'pivot-index' : 
               comparingIndices?.includes(index) ? 'comparing-index' : ''
             }`}
-            style={{ height: `${value * 3}px`, transitionDelay: `${delay / 2}ms` }}
+            style={{ height: `${value * 3}px`, transitionDelay: `${delay / 2}ms`, transitionDuration: `${delay}ms` }}
           />
         ))}
       </div>

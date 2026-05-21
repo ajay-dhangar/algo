@@ -121,8 +121,8 @@ In this algorithm, we use a greedy approach where we always pick the unvisited n
 
 ## Time complexity:
 
-Dijkstra's Algorithm: O(V²) (with an adjacency matrix, where V is the number of vertices)<br/>
-With Priority Queue: O((V + E) log V), where E is the number of edges
+Dijkstra's Algorithm: $O(V²)$ (with an adjacency matrix, where V is the number of vertices)<br/>
+With Priority Queue: $O((V + E) log V)$, where E is the number of edges
 
 ## Points to Remember:
 

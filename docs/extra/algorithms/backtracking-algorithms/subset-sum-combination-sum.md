@@ -35,7 +35,7 @@ At each element, make a **binary decision**: include it or exclude it. This gene
 
 | Metric | Complexity |
 |--------|-----------|
-| Time | `O(n × 2^n)` — 2^n subsets, each takes O(n) to copy |
+| Time | `O(n × 2^n)` — 2^n subsets, each takes $O(n)$ to copy |
 | Space | `O(n)` recursion depth |
 
 ### C++ Implementation 💻

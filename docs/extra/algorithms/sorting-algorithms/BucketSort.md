@@ -27,19 +27,19 @@ Bucket sort is a comparison-based sorting algorithm that works by distributing e
 
 ### Time Complexity:
 
-- **Best Case: O(n + k)**  
+- **Best Case: $O(n + k)$**  
   In the best case, where the elements are evenly distributed across the buckets, and each bucket contains only a few elements, the overall time complexity is linear.
 
-- **Average Case: O(n + k)**  
-  On average, bucket sort performs well when the elements are uniformly distributed. The average-case complexity is O(n + k), where `n` is the number of elements and `k` is the number of buckets.
+- **Average Case: $O(n + k)$**  
+  On average, bucket sort performs well when the elements are uniformly distributed. The average-case complexity is $O(n + k)$, where `n` is the number of elements and `k` is the number of buckets.
 
-- **Worst Case: O(n²)**  
+- **Worst Case: $O(n²)$**  
   The worst-case scenario occurs when all elements are placed in the same bucket, reducing bucket sort to a slower sorting algorithm (like insertion sort), leading to quadratic time complexity.
 
 ### Space Complexity:
 
-- **Space Complexity: O(n + k)**  
-  Bucket sort requires extra space for the buckets and the array storing the final result, leading to a space complexity of O(n + k).
+- **Space Complexity: $O(n + k)$**  
+  Bucket sort requires extra space for the buckets and the array storing the final result, leading to a space complexity of $O(n + k)$.
 
 ### C++ Implementation:
 
@@ -92,4 +92,4 @@ int main() {
 
 ### Summary:
 
-Bucket sort is an efficient algorithm for sorting data that is uniformly distributed over a range. By dividing the data into smaller buckets and sorting them individually, bucket sort can achieve linear time complexity in the best and average cases. However, if the data is not evenly distributed, its worst-case time complexity can degrade to O(n²). Bucket sort is often used in conjunction with other algorithms and performs well when the number of buckets is proportional to the input size. Its primary trade-off is its need for additional space.
+Bucket sort is an efficient algorithm for sorting data that is uniformly distributed over a range. By dividing the data into smaller buckets and sorting them individually, bucket sort can achieve linear time complexity in the best and average cases. However, if the data is not evenly distributed, its worst-case time complexity can degrade to $O(n²)$. Bucket sort is often used in conjunction with other algorithms and performs well when the number of buckets is proportional to the input size. Its primary trade-off is its need for additional space.

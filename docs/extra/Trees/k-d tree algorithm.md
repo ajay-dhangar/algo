@@ -181,12 +181,12 @@ Nearest neighbor: (8, 1)
 
 | Operation            | Average Time | Worst Case Time |
 |----------------------|--------------|-----------------|
-| **Search**           | O(log n)     | O(n)            |
-| **Insertion**        | O(log n)     | O(n)            |
-| **Deletion**         | O(log n)     | O(n)            |
-| **Nearest Neighbor** | O(log n)     | O(n)            |
+| **Search**           | $O(log n)$     | $O(n)$            |
+| **Insertion**        | $O(log n)$     | $O(n)$            |
+| **Deletion**         | $O(log n)$     | $O(n)$            |
+| **Nearest Neighbor** | $O(log n)$     | $O(n)$            |
 
-> **Note**: The worst-case time complexity arises in unbalanced cases; balanced K-D Trees maintain an average of O(log n) for most operations.
+> **Note**: The worst-case time complexity arises in unbalanced cases; balanced K-D Trees maintain an average of $O(log n)$ for most operations.
 
 ## Conclusion
 K-D Trees are powerful data structures for organizing and searching points in multi-dimensional spaces. They are essential for applications that require efficient spatial searches and nearest neighbor queries.

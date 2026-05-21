@@ -305,17 +305,17 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(mn) operations
+   - $O(mn)$ operations
    - Full table required
    - Complete solution
 
 2. **Average Case**:
-   - O(mn) operations
+   - $O(mn)$ operations
    - Consistent performance
    - Predictable behavior
 
 3. **Worst Case**:
-   - O(mn) operations
+   - $O(mn)$ operations
    - Space complexity trade-offs
    - Backtracking considerations
 

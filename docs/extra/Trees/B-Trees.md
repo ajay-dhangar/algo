@@ -10,7 +10,7 @@ tags: [Data Structures, B-Tree, Algorithms]
 # B-Tree
 
 ## Overview
-A **B-Tree** is a self-balancing tree data structure that maintains sorted data and allows for efficient operations such as insertion, deletion, and search. B-Trees are particularly well-suited for systems that read and write large blocks of data, such as databases and filesystems. They ensure that the tree remains balanced, allowing for operations to be performed in **O(log n)** time.
+A **B-Tree** is a self-balancing tree data structure that maintains sorted data and allows for efficient operations such as insertion, deletion, and search. B-Trees are particularly well-suited for systems that read and write large blocks of data, such as databases and filesystems. They ensure that the tree remains balanced, allowing for operations to be performed in **$O(log n)$** time.
 
 ## Features
 - **Balanced Structure**: All leaf nodes are at the same level, ensuring that the tree remains balanced.
@@ -260,7 +260,7 @@ Traversal of the constructed tree is  5 6 7 10 12 17 20 30
 | **Traversal**| O(n)         | O(n)            |
 ```
 
-> **Note**: The worst-case time complexity arises in unbalanced cases; however, B-Trees are designed to remain balanced, maintaining an average of O(log n) for most operations.
+> **Note**: The worst-case time complexity arises in unbalanced cases; however, B-Trees are designed to remain balanced, maintaining an average of $O(log n)$ for most operations.
 
 ## Conclusion
 ```

@@ -90,7 +90,7 @@ int main() {
 ```
 
 ## Time and Space Complexity
-- **Time Complexity**:O(n log n), where n is the number of intervals. Sorting the events takes O(n log n), and the sweeping phase takes O(n).
-- **Space Complexity**: O(n) due to the space used for storing events and the output merged intervals.
+- **Time Complexity**:$O(n log n)$, where n is the number of intervals. Sorting the events takes $O(n log n)$, and the sweeping phase takes $O(n)$.
+- **Space Complexity**: $O(n)$ due to the space used for storing events and the output merged intervals.
 
 

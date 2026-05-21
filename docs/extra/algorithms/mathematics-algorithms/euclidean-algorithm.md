@@ -97,12 +97,12 @@ graph TD;
 ```
 
 ## Time Complexity
-- Best Case: O(1) (When `b` divides `a` evenly right away)
+- Best Case: $O(1)$ (When `b` divides `a` evenly right away)
 - Average Case: O(log(min(a, b)))
 - Worst Case: O(log(min(a, b)))
 
 ## Space Complexity
-- O(1)
+- $O(1)$
 as it only uses a few variables to hold the integers and their remainders.
 
 ## Explanation

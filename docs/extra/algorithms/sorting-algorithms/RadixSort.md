@@ -28,18 +28,18 @@ Radix sort is a non-comparative sorting algorithm that sorts numbers by processi
 
 ### Time Complexity:
 
-- **Best Case: O(nk)**  
+- **Best Case: $O(nk)$**  
   When the input elements are uniformly distributed across a small range, radix sort runs in linear time, where `n` is the number of elements, and `k` is the number of digits in the largest number.
 
-- **Average Case: O(nk)**  
+- **Average Case: $O(nk)$**  
   Radix sort performs consistently well, especially when the number of digits (k) is small compared to the number of elements (n).
 
-- **Worst Case: O(nk)**  
-  The worst-case scenario is also O(nk), making radix sort more predictable in performance compared to algorithms with O(n²) worst cases.
+- **Worst Case: $O(nk)$**  
+  The worst-case scenario is also $O(nk)$, making radix sort more predictable in performance compared to algorithms with $O(n²)$ worst cases.
 
 ### Space Complexity:
 
-- **Space Complexity: O(n + k)**  
+- **Space Complexity: $O(n + k)$**  
   Radix sort requires additional space for the counting array or buckets used during intermediate sorting, where `n` is the number of elements, and `k` is the number of digits.
 
 ### C++ Implementation:

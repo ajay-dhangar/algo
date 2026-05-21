@@ -14,8 +14,8 @@ Unlike shortest-path algorithms, Warshall's algorithm is concerned only with rea
 
 ## Key Features:
 
-- **Time Complexity**: O(V³), where V is the number of vertices.
-- **Space Complexity**: O(V²), as it stores the reachability information in a matrix.
+- **Time Complexity**: $O(V³)$, where V is the number of vertices.
+- **Space Complexity**: $O(V²)$, as it stores the reachability information in a matrix.
 - Suitable for determining reachability in directed graphs.
 
 ## Applications:

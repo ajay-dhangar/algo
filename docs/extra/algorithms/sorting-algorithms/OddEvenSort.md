@@ -22,18 +22,18 @@ Odd-Even Sort is a simple comparison-based sorting algorithm, also known as Bric
 
 ### Time Complexity:
 
-- **Best Case: O(n)**  
+- **Best Case: $O(n)$**  
   If the array is already sorted, Odd-Even Sort only requires one pass through the array.
 
-- **Average Case: O(n²)**  
+- **Average Case: $O(n²)$**  
   In the average case, Odd-Even Sort takes quadratic time, as it may require multiple passes over the array.
 
-- **Worst Case: O(n²)**  
-  In the worst case, such as a reverse-sorted array, Odd-Even Sort also degrades to O(n²).
+- **Worst Case: $O(n²)$**  
+  In the worst case, such as a reverse-sorted array, Odd-Even Sort also degrades to $O(n²)$.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   Like Shell Sort, Odd-Even Sort is an in-place sorting algorithm, requiring constant additional memory.
 
 ### C++ Implementation:
@@ -96,4 +96,4 @@ int main() {
 
 ### Summary:
 
-Odd-Even Sort is a simple comparison-based algorithm that repeatedly compares and swaps adjacent elements based on their odd or even positions. Despite its simplicity, it is not particularly efficient for large datasets, as its average and worst-case time complexity is O(n²). However, its simplicity and parallelization potential make it an attractive choice for certain applications where simpler algorithms suffice or where parallel computation can be leveraged.
+Odd-Even Sort is a simple comparison-based algorithm that repeatedly compares and swaps adjacent elements based on their odd or even positions. Despite its simplicity, it is not particularly efficient for large datasets, as its average and worst-case time complexity is $O(n²)$. However, its simplicity and parallelization potential make it an attractive choice for certain applications where simpler algorithms suffice or where parallel computation can be leveraged.

@@ -32,7 +32,7 @@ Given an array of **distinct** integers, return all possible permutations.
 
 | Metric | Complexity |
 |--------|-----------|
-| Time | `O(n × n!)` — n! permutations, each takes O(n) to copy |
+| Time | `O(n × n!)` — n! permutations, each takes $O(n)$ to copy |
 | Space | `O(n)` recursion stack + `O(n × n!)` output |
 
 ### C++ Implementation — Permutations 💻
@@ -173,7 +173,7 @@ Given two integers `n` and `k`, return all possible combinations of `k` numbers 
 
 | Metric | Complexity |
 |--------|-----------|
-| Time | `O(C(n,k) × k)` — C(n,k) combinations, each takes O(k) to copy |
+| Time | `O(C(n,k) × k)` — C(n,k) combinations, each takes $O(k)$ to copy |
 | Space | `O(k)` recursion depth |
 
 ### C++ Implementation — Combinations 💻

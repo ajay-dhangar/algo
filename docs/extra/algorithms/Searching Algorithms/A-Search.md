@@ -24,11 +24,11 @@ sidebar_label: A*
 
 ### Time Complexity:
 
-- **Time Complexity**: \(O(b^d)\), where `b` is the branching factor and `d` is the depth of the solution.
+- **Time Complexity**: \($O(b^d)$\), where `b` is the branching factor and `d` is the depth of the solution.
 
 ### Space Complexity:
 
-- **Space Complexity**: \(O(b^d)\)
+- **Space Complexity**: \($O(b^d)$\)
 
 ### Advantages of A\*:
 

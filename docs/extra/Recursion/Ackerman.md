@@ -69,7 +69,7 @@ The **time complexity** of the Ackermann function is extremely high and difficul
 
 ### Space Complexity
 
-The **space complexity** of the Ackermann function is determined by the maximum depth of the recursion stack, which can be expressed as  **O(m + n)** . Each recursive call adds a new frame to the stack, and as the function makes multiple nested calls, the memory usage increases significantly. This rapid expansion can lead to stack overflow errors, especially when handling larger inputs. As a result, the function demands substantial memory resources, making it impractical for high values without careful control of recursion depth. Overall, both time and space complexities highlight the Ackermann function's role in understanding the limits of recursion in computational theory
+The **space complexity** of the Ackermann function is determined by the maximum depth of the recursion stack, which can be expressed as  **$O(m + n)$** . Each recursive call adds a new frame to the stack, and as the function makes multiple nested calls, the memory usage increases significantly. This rapid expansion can lead to stack overflow errors, especially when handling larger inputs. As a result, the function demands substantial memory resources, making it impractical for high values without careful control of recursion depth. Overall, both time and space complexities highlight the Ackermann function's role in understanding the limits of recursion in computational theory
 
 ### Limitations and Considerations
 
@@ -89,7 +89,7 @@ The Ackermann function, while a fascinating theoretical construct, presents seve
 
 **Memory Consumption** :
 
-* The space complexity of the function, which can reach  **O(m + n)** , means that it can consume significant amounts of memory for large inputs. The growth of the recursion stack can strain system resources, especially in environments with limited memory availability.
+* The space complexity of the function, which can reach  **$O(m + n)$** , means that it can consume significant amounts of memory for large inputs. The growth of the recursion stack can strain system resources, especially in environments with limited memory availability.
 
 **Practical Applicability** :
 

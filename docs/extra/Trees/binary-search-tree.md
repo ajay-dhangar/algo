@@ -15,11 +15,11 @@ A **Binary Search Tree (BST)** is a binary tree where each node follows the bina
 - The right subtree of a node contains only nodes with values greater than the node's key.
 - Both left and right subtrees must also be binary search trees.
 
-BSTs are commonly used for searching, insertion, and deletion operations, all of which can be performed efficiently with an average time complexity of **O(log n)** for balanced trees.
+BSTs are commonly used for searching, insertion, and deletion operations, all of which can be performed efficiently with an average time complexity of **$O(log n)$** for balanced trees.
 
 ## Features
-- **Efficient Search**: Lookup operations are performed in **O(log n)** time.
-- **Insertion**: New elements are added in the correct position in **O(log n)** time.
+- **Efficient Search**: Lookup operations are performed in **$O(log n)$** time.
+- **Insertion**: New elements are added in the correct position in **$O(log n)$** time.
 - **Deletion**: Nodes can be removed while maintaining the binary search property.
 - **Traversal**: In-order, pre-order, and post-order traversals are supported to explore tree elements.
 - **Balanced Tree Variants**: Variants like AVL and Red-Black trees ensure balancing to maintain performance.
@@ -141,12 +141,12 @@ Inorder traversal:
 
 | Operation    | Average Time | Worst Case Time (Unbalanced) |
 |--------------|--------------|-----------------------------|
-| **Search**   | O(log n)     | O(n)                        |
-| **Insertion**| O(log n)     | O(n)                        |
-| **Deletion** | O(log n)     | O(n)                        |
-| **Traversal**| O(n)         | O(n)                        |
+| **Search**   | $O(log n)$     | $O(n)$                        |
+| **Insertion**| $O(log n)$     | $O(n)$                        |
+| **Deletion** | $O(log n)$     | $O(n)$                        |
+| **Traversal**| $O(n)$         | $O(n)$                        |
 
-> **Note**: In a balanced BST (like AVL or Red-Black Tree), all operations maintain an O(log n) time complexity. In an unbalanced BST, the time complexity can degrade to O(n) in the worst case (degenerating into a linked list).
+> **Note**: In a balanced BST (like AVL or Red-Black Tree), all operations maintain an $O(log n)$ time complexity. In an unbalanced BST, the time complexity can degrade to $O(n)$ in the worst case (degenerating into a linked list).
 
 ## Conclusion
 A Binary Search Tree is an essential data structure for efficient data management, offering quick search, insertion, and deletion operations. Understanding its structure and algorithms is crucial for optimizing tasks that involve dynamic sets of data.

@@ -25,8 +25,8 @@ The algorithm's main advantage is its use of a **rolling hash function**, which 
 3. **Collision Handling**: To address hash collisions, the algorithm performs an additional string comparison when hashes match.
 
 ### Algorithm Complexity
-- **Average Time Complexity**: \(O(n + m)\), where \(n\) is the length of the text and \(m\) is the length of the pattern.
-- **Worst-Case Complexity**: \(O(n \times m)\) in cases of frequent hash collisions.
+- **Average Time Complexity**: \($O(n + m)$\), where \(n\) is the length of the text and \(m\) is the length of the pattern.
+- **Worst-Case Complexity**: \($O(n \times m)$\) in cases of frequent hash collisions.
 
 ## Example Pseudocode
 ### Rabin-Karp Pattern Search

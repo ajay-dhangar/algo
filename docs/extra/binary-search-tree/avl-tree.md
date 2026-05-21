@@ -21,7 +21,7 @@ The AVL tree maintains this balance factor throughout all operations, ensuring t
 
 ## Properties
 Some important properties of AVL trees include:
-- **Height:** The height of an AVL tree with `n` nodes is guaranteed to be O(log n).
+- **Height:** The height of an AVL tree with `n` nodes is guaranteed to be $O(log n)$.
 - **Balance Factor:** For any node, the balance factor must be -1, 0, or +1.
 - **Rotations:** To maintain balance during insertions and deletions, AVL trees utilize rotations (single and double) to rebalance the tree.
 
@@ -156,7 +156,7 @@ Node* deleteNode(Node* root, int key) {
 
 ## Advantages and Disadvantages
 ### Advantages:
-- Ensures O(log n) time complexity for search, insertion, and deletion due to strict balancing.
+- Ensures $O(log n)$ time complexity for search, insertion, and deletion due to strict balancing.
 - Self-balancing eliminates the possibility of degradation into a linked list structure.
 
 ### Disadvantages:

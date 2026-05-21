@@ -29,7 +29,7 @@ The time complexity of the Bron-Kerbosch algorithm varies depending on the imple
 
 ## Space Complexity
 
-The space complexity is **O(n + E)**, where \(n\) is the number of vertices and \(E\) is the number of edges. This is primarily due to storing the adjacency list or matrix and maintaining three sets (R, P, and X) in each recursive call.
+The space complexity is **$O(n + E)$**, where \(n\) is the number of vertices and \(E\) is the number of edges. This is primarily due to storing the adjacency list or matrix and maintaining three sets (R, P, and X) in each recursive call.
 
 ## Approach
 

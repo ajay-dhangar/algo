@@ -2,7 +2,7 @@
 id: sliding-window-technique
 title: "Sliding Window Technique"
 sidebar_label: Sliding Window
-description: "An optimization technique used to reduce time complexity from O(N²) to O(N) for array or string subarrays."
+description: "An optimization technique used to reduce time complexity from $O(N²)$ to $O(N)$ for array or string subarrays."
 tags: [arrays, sliding-window, dsa, optimization]
 ---
 

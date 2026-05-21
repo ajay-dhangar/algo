@@ -42,10 +42,10 @@ To solve this problem efficiently, we use the **sliding window** technique along
    Keep track of the maximum valid window length during the entire process.
 
 ### Time Complexity:
-- **O(n)**, where `n` is the length of the string. Each character is processed once by the sliding window, and the character count is updated in constant time.
+- **$O(n)$**, where `n` is the length of the string. Each character is processed once by the sliding window, and the character count is updated in constant time.
 
 ### Space Complexity:
-- **O(1)**, since the frequency count array size is fixed (for 26 possible characters).
+- **$O(1)$**, since the frequency count array size is fixed (for 26 possible characters).
 
 ### C++ Code Implementation:
 

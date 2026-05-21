@@ -7,10 +7,10 @@ tags: [dsa, algorithms, stack]
 ---
 
 ### Definition:
-A MinStack is a specialized stack data structure that supports standard stack operations (push, pop, top) while also providing the ability to retrieve the minimum element in constant time O(1). It achieves this by maintaining an additional mechanism that tracks the minimum value, ensuring efficient access to both the stack's top element and the minimum element at any point.
+A MinStack is a specialized stack data structure that supports standard stack operations (push, pop, top) while also providing the ability to retrieve the minimum element in constant time $O(1)$. It achieves this by maintaining an additional mechanism that tracks the minimum value, ensuring efficient access to both the stack's top element and the minimum element at any point.
 
 ### Problem Statement:
-Design a Data Structure MinStack that supports all the stack operations like push(), pop(), isEmpty(), isFull() and an additional operation getmin() which should return minimum element from the MinStack. All these operations of MinStack must have a time complexity of O(1)
+Design a Data Structure MinStack that supports all the stack operations like push(), pop(), isEmpty(), isFull() and an additional operation getmin() which should return minimum element from the MinStack. All these operations of MinStack must have a time complexity of $O(1)$
 
 ### Algorithm Steps:
 

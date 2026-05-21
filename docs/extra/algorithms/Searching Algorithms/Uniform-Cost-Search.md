@@ -24,11 +24,11 @@ sidebar_label: Uniform-Cost
 
 ### Time Complexity:
 
-- **Time Complexity**: \(O(b^d)\) where `b` is the branching factor and `d` is the depth of the goal.
+- **Time Complexity**: \($O(b^d)$\) where `b` is the branching factor and `d` is the depth of the goal.
 
 ### Space Complexity:
 
-- **Space Complexity**: \(O(b^d)\)
+- **Space Complexity**: \($O(b^d)$\)
 
 ### Advantages of Uniform-Cost Search:
 

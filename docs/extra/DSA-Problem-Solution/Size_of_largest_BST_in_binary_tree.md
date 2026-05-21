@@ -37,8 +37,8 @@ Objective:
 
 ### Time Complexity
 
-- **Time Complexity**: O(N) as we have to traverse throughout the tree consisting of N nodes.
-- **Space Complexity**: O(N) for auxiliary stack space storing all the recursive calls.
+- **Time Complexity**: $O(N)$ as we have to traverse throughout the tree consisting of N nodes.
+- **Space Complexity**: $O(N)$ for auxiliary stack space storing all the recursive calls.
 
 ### C++ Implementation
 

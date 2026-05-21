@@ -39,13 +39,13 @@ The Caesar Cipher is a type of substitution cipher where each letter in the plai
 4. Return the encrypted string.
 
 ## Time Complexity
-- Best Case: O(n)
-- Average Case: O(n)
-- Worst Case: O(n)
+- Best Case: $O(n)$
+- Average Case: $O(n)$
+- Worst Case: $O(n)$
 where `n` is the length of the input string. Each character in the string is processed exactly once.
 
 ## Space Complexity
-- O(n)
+- $O(n)$
 where `n` is the length of the string, since a new string is created to store the encrypted result.
 
 ## Explanation

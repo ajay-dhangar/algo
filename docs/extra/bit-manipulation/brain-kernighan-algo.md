@@ -67,7 +67,7 @@ int countSetBits(int n) {
 }
 ```
 ### Time Complexity
-The time complexity of Brian Kernighan’s Algorithm is O(k), where k is the number of set bits in the number. The algorithm runs in proportion to the number of set bits, making it more efficient than iterating through all bits (which would take O(log n) or O(b) for b bits).
+The time complexity of Brian Kernighan’s Algorithm is $O(k)$, where k is the number of set bits in the number. The algorithm runs in proportion to the number of set bits, making it more efficient than iterating through all bits (which would take $O(log n)$ or $O(b)$ for b bits).
 
 ### Why It's Efficient
 Unlike a naive approach that examines each bit in the number (which would involve shifting and counting), Brian Kernighan’s Algorithm only iterates once for each set bit. This makes it especially efficient when the number has relatively few set bits.

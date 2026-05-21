@@ -66,8 +66,8 @@ graph TB
    - `MerkleRoot = Hash(P1 + P2)`
 
 ## Time Complexity
-- Constructing a Merkle Tree: **O(n)**, where **n** is the number of leaf nodes (data blocks).
-- Verifying the inclusion of a block: **O(log n)** comparisons due to the binary structure.
+- Constructing a Merkle Tree: **$O(n)$**, where **n** is the number of leaf nodes (data blocks).
+- Verifying the inclusion of a block: **$O(log n)$** comparisons due to the binary structure.
 
 ## Applications
 - **Blockchain Technology**: Ensures transaction integrity.
@@ -102,7 +102,7 @@ graph TB
 |-----------------|---------------------------------------------------------------------------|------------------------------------------------------------|
 | **Data Storage** | Stores hashes in non-leaf nodes and data in leaf nodes                   | Stores actual data in both leaf and non-leaf nodes          |
 | **Verification** | Efficient cryptographic verification using hash paths                    | Does not provide cryptographic verification                 |
-| **Time Complexity** | O(log n) for verification                                              | O(n) for searching or traversing the tree                   |
+| **Time Complexity** | $O(log n)$ for verification                                              | $O(n)$ for searching or traversing the tree                   |
 | **Use Case**     | Used for verifying data integrity in large datasets                      | Used for general data storage and searching tasks           |
 
 ## Conclusion

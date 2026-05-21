@@ -42,7 +42,7 @@ The Two-Way String-Matching Algorithm, developed by Crochemore and Perrin, is an
 
 - **Searching: $O(n)$**
   - Where n is the length of the text
-  - Best case performance of O(n/m)
+  - Best case performance of $O(n/m)$
   - Sublinear on average
 
 ### Space Complexity:

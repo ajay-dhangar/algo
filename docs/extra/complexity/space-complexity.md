@@ -31,7 +31,7 @@ function sumOfN(n) {
 }
 ```
 
-In the above example, the space complexity of the algorithm is O(1) because the algorithm uses a constant amount of memory space.
+In the above example, the space complexity of the algorithm is $O(1)$ because the algorithm uses a constant amount of memory space.
 
 <AdsComponent />
 
@@ -178,9 +178,9 @@ In the above example, the space complexity of the algorithm is O(1) because the 
 
 </Tabs>
 
-In the above example, the space complexity of the algorithm is O(1) because the algorithm uses a constant amount of memory space.
+In the above example, the space complexity of the algorithm is $O(1)$ because the algorithm uses a constant amount of memory space.
 
-**Explanation:** In the above example, we are finding the maximum and minimum element in an array. We are using two variables `max` and `min` to store the maximum and minimum element in the array. We are using a constant amount of memory space to store the maximum and minimum element in the array. Therefore, the space complexity of the algorithm is O(1).
+**Explanation:** In the above example, we are finding the maximum and minimum element in an array. We are using two variables `max` and `min` to store the maximum and minimum element in the array. We are using a constant amount of memory space to store the maximum and minimum element in the array. Therefore, the space complexity of the algorithm is $O(1)$.
 
 :::info Complexity Analysis
 **Farmula to calculate Space Complexity**

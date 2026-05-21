@@ -93,10 +93,10 @@ Naive Bayes splits data based on the **highest posterior probability** for each 
 
 ### Time Complexity:
 - **Training Complexity**:  
-  Training involves calculating probabilities for each feature and class, resulting in a time complexity of $ O(n \cdot k) $, where $ n $ is the number of features and $ k $ is the number of classes.
+  Training involves calculating probabilities for each feature and class, resulting in a time complexity of $ $O(n \cdot k)$ $, where $ n $ is the number of features and $ k $ is the number of classes.
   
 - **Prediction Complexity**:  
-  For predicting the class of a new data point, the time complexity is $ O(n \cdot k) $, as it requires computing the posterior probability for each class.
+  For predicting the class of a new data point, the time complexity is $ $O(n \cdot k)$ $, as it requires computing the posterior probability for each class.
 
 ### Space Complexity:
 - **Space Complexity**:  

@@ -28,7 +28,7 @@ Using a Min Heap:
 - Extract the minimum element from the heap, and if that element has a next node, insert it into the heap.
 - Continue this process until all elements are merged.
 
-Time Complexity: O(n log k), where `n` is the total number of elements and `k` is the number of lists.
+Time Complexity: $O(n log k)$, where `n` is the total number of elements and `k` is the number of lists.
 
 ### C++ Code:
 

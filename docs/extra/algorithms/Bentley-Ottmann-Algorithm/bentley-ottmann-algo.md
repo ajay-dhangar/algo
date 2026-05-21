@@ -6,7 +6,7 @@ sidebar_label: Bentley-Ottmann Algorithm
 ---
 ### Definition
 
-The **Bentley-Ottmann Algorithm** is a sweep line algorithm designed to detect all intersections within a set of line segments in 2D space. By maintaining a global event-driven structure, it optimally processes line segments to efficiently find intersections in \( O((n + k) \log n) \) time, where \( n \) is the number of line segments and \( k \) is the number of intersections.
+The **Bentley-Ottmann Algorithm** is a sweep line algorithm designed to detect all intersections within a set of line segments in 2D space. By maintaining a global event-driven structure, it optimally processes line segments to efficiently find intersections in \( $O((n + k) \log n)$ \) time, where \( n \) is the number of line segments and \( k \) is the number of intersections.
 
 
 ### Characteristics
@@ -18,13 +18,13 @@ The **Bentley-Ottmann Algorithm** is a sweep line algorithm designed to detect a
 
 ### Time Complexity
 
-- **Average Case**: \( O((n + k) \log n) \), where \( n \) is the number of line segments and \( k \) is the number of intersections found.
-- **Worst Case**: \( O(n^2 \log n) \) if \( k \) approaches \( n^2 \) (as in the case of nearly all segments intersecting each other).
+- **Average Case**: \( $O((n + k) \log n)$ \), where \( n \) is the number of line segments and \( k \) is the number of intersections found.
+- **Worst Case**: \( $O(n^2 \log n)$ \) if \( k \) approaches \( n^2 \) (as in the case of nearly all segments intersecting each other).
 
 
 ### Space Complexity
 
-- **Space Complexity**: \( O(n + k) \), due to storage for the event queue and the active segments.
+- **Space Complexity**: \( $O(n + k)$ \), due to storage for the event queue and the active segments.
 
 
 ### Approach

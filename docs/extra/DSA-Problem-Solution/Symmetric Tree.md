@@ -150,9 +150,9 @@ class Solution:
 ```
 
 ## Time Complexity
-Time Complexity : O(n)
+Time Complexity : $O(n)$
 
-The time complexity is O(n) since we traverse each node in the binary tree once.
+The time complexity is $O(n)$ since we traverse each node in the binary tree once.
 ## Space  Complexity
-Space Complexity: O(h)
-The space complexity is O(h), where h is the height of the tree. This space is used by the recursive stack. In the worst case (unbalanced tree), it can go up to O(n).
+Space Complexity: $O(h)$
+The space complexity is $O(h)$, where h is the height of the tree. This space is used by the recursive stack. In the worst case (unbalanced tree), it can go up to $O(n)$.

@@ -35,11 +35,11 @@ This technique reduces the time complexity significantly for problems that invol
 - **Finding a subarray with a sum equal to a target**.
 
 ### Time Complexity:
-- **O(n)**, where n is the size of the array or string. The sliding window ensures that we traverse the array/string only once.
+- **$O(n)$**, where n is the size of the array or string. The sliding window ensures that we traverse the array/string only once.
 
 ### Space Complexity:
-- **O(1)** for most problems if we're just calculating sums or counts.
-- **O(k)** for problems where additional space is required to store intermediate results, like distinct elements in the window.
+- **$O(1)$** for most problems if we're just calculating sums or counts.
+- **$O(k)$** for problems where additional space is required to store intermediate results, like distinct elements in the window.
 
 ### C++ Implementation (Fixed Window Example):
 
@@ -158,7 +158,7 @@ public class MaxSumSubarray {
 ### Explanation:
 The first `for` loop calculates the sum of the first subarray (window) of size `k`.  
 The second `for` loop slides the window one element at a time, adjusting the sum by adding the new element and removing the element that is no longer in the window.  
-This ensures the sum of each subarray of size `k` is calculated in **O(1)** time after the initial window, resulting in an overall time complexity of **O(n)**.
+This ensures the sum of each subarray of size `k` is calculated in **$O(1)$** time after the initial window, resulting in an overall time complexity of **$O(n)$**.
 
 ### Summary:
-The Sliding Window technique is a powerful optimization method for problems where subarray or substring operations are frequent. It reduces the brute-force time complexity from **O(n * k)** to **O(n)** by keeping track of changes incrementally.
+The Sliding Window technique is a powerful optimization method for problems where subarray or substring operations are frequent. It reduces the brute-force time complexity from **$O(n * k)$** to **$O(n)$** by keeping track of changes incrementally.

@@ -115,10 +115,10 @@ int main() {
 ```
 
 ### Time Complexity:
-- **Time Complexity: O(P * R)**, where `P` is the number of processes and `R` is the number of resources. Each process is checked with respect to each resource during the safety check.
+- **Time Complexity: $O(P * R)$**, where `P` is the number of processes and `R` is the number of resources. Each process is checked with respect to each resource during the safety check.
 
 ### Space Complexity:
-- **Space Complexity: O(P + R)** due to arrays storing resource availability, allocation, and the safe sequence.
+- **Space Complexity: $O(P + R)$** due to arrays storing resource availability, allocation, and the safe sequence.
 
 ### Summary:
 The Banker's Algorithm is crucial for systems requiring deadlock avoidance in resource allocation. By dynamically checking if resources can be safely allocated without risking deadlock, it helps maintain system stability, making it widely used in operating system designs.

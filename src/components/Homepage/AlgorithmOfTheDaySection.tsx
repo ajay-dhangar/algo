@@ -1,6 +1,7 @@
 import React from "react";
 import { algorithmsData } from "../../data/algorithmsData";
 import Link from "@docusaurus/Link";
+import Complexity from "../Complexity";
 
 const categoryColors: Record<string, string> = {
   Sorting: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300",
@@ -77,26 +78,26 @@ const AlgorithmOfTheDaySection: React.FC = () => {
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div>
                 <span className="text-gray-500 dark:text-gray-400">Best Case</span>
-                <p className="font-mono font-semibold text-indigo-600 dark:text-yellow-400">
-                  {algo.timeComplexity.best}
+                <p>
+                  <Complexity value={algo.timeComplexity.best} />
                 </p>
               </div>
               <div>
                 <span className="text-gray-500 dark:text-gray-400">Average Case</span>
-                <p className="font-mono font-semibold text-indigo-600 dark:text-yellow-400">
-                  {algo.timeComplexity.average}
+                <p>
+                  <Complexity value={algo.timeComplexity.average} />
                 </p>
               </div>
               <div>
                 <span className="text-gray-500 dark:text-gray-400">Worst Case</span>
-                <p className="font-mono font-semibold text-indigo-600 dark:text-yellow-400">
-                  {algo.timeComplexity.worst}
+                <p>
+                  <Complexity value={algo.timeComplexity.worst} />
                 </p>
               </div>
               <div>
                 <span className="text-gray-500 dark:text-gray-400">Space</span>
-                <p className="font-mono font-semibold text-indigo-600 dark:text-yellow-400">
-                  {algo.spaceComplexity}
+                <p>
+                  <Complexity value={algo.spaceComplexity} />
                 </p>
               </div>
             </div>

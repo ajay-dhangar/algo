@@ -83,7 +83,7 @@ print(f"Number after toggling bit at position {pos}: {toggled}")
 ```
 
 # Time Complexity
-The time complexity of this operation is O(1) since it involves a single bitwise operation.
+The time complexity of this operation is $O(1)$ since it involves a single bitwise operation.
 
 # Why It's Efficient
 Toggling a bit using XOR is highly efficient because it allows us to change the bit state without needing conditional checks or additional operations. This method is commonly used in scenarios where quick bit modification is required.

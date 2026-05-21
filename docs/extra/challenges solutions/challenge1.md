@@ -3,13 +3,13 @@
 ## Question 1
 **What is the time complexity of accessing an element in an array?**  
 **Options:**  
-A) O(1)  
-B) O(n)  
-C) O(log n)  
-D) O(n²)  
+A) $O(1)$  
+B) $O(n)$  
+C) $O(log n)$  
+D) $O(n²)$  
 
-**Answer:** A) O(1)  
-**Explanation:** Accessing an element in an array is done using its index, which allows for constant time complexity, O(1).
+**Answer:** A) $O(1)$  
+**Explanation:** Accessing an element in an array is done using its index, which allows for constant time complexity, $O(1)$.
 
 ---
 
@@ -107,12 +107,12 @@ D) All of the above
 ## Question 9
 **What is the height of a balanced binary tree with n nodes?**  
 **Options:**  
-A) O(1)  
-B) O(log n)  
-C) O(n)  
-D) O(n log n)  
+A) $O(1)$  
+B) $O(log n)$  
+C) $O(n)$  
+D) $O(n log n)$  
 
-**Answer:** B) O(log n)  
+**Answer:** B) $O(log n)$  
 **Explanation:** In a balanced binary tree, the height is logarithmic relative to the number of nodes.
 
 ---
@@ -189,12 +189,12 @@ D) Full: (REAR + 1) mod n == FRONT, empty: (FRONT + 1) mod n == REAR
 ## Question 15
 **The average depth of a binary search tree is:**  
 **Options:**  
-A) O(n^0.5)  
-B) O(n)  
-C) O(log n)  
-D) O(n log n)  
+A) $O(n^0.5)$  
+B) $O(n)$  
+C) $O(log n)$  
+D) $O(n log n)$  
 
-**Answer:** C) O(log n)  
+**Answer:** C) $O(log n)$  
 **Explanation:** The average depth is logarithmic in relation to the number of nodes in a balanced binary search tree.
 
 ---
@@ -241,12 +241,12 @@ D) Stack
 ## Question 19
 **What is the time complexity for inserting an element in a binary heap?**  
 **Options:**  
-A) O(log n)  
-B) O(n)  
-C) O(1)  
-D) O(n log n)  
+A) $O(log n)$  
+B) $O(n)$  
+C) $O(1)$  
+D) $O(n log n)$  
 
-**Answer:** A) O(log n)  
+**Answer:** A) $O(log n)$  
 **Explanation:** Insertion in a binary heap takes logarithmic time due to the need to maintain the heap property.
 
 ---

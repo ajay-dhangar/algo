@@ -26,18 +26,18 @@ Bitonic sort is a **parallel sorting algorithm** that can sort a sequence of num
 
 ### Time Complexity:
 
-- **Best Case: O(log^2 n)**  
+- **Best Case: $O(log^2 n)$**  
   Bitonic sort divides the sequence into subarrays and sorts them in parallel, resulting in logarithmic operations at each level of recursion.
 
-- **Average Case: O(log^2 n)**  
+- **Average Case: $O(log^2 n)$**  
   Even in average cases, bitonic sort maintains its logarithmic time complexity.
 
-- **Worst Case: O(log^2 n)**  
+- **Worst Case: $O(log^2 n)$**  
   The worst case for bitonic sort is also $O(log^2 n)$ due to the structured recursion and parallel sorting capabilities.
 
 ### Space Complexity:
 
-- **Space Complexity: O(n)**  
+- **Space Complexity: $O(n)$**  
   Bitonic sort uses additional memory to store subarrays during the sorting process, but the overall space complexity is linear relative to the input size.
 
 ### Python Implementation:

@@ -88,7 +88,7 @@ A LinkedList typically supports the following operations:
 
 - **No Random Access**: Unlike arrays, linked lists do not provide direct access to elements via index, requiring traversal from the head.
 - **Memory Overhead**: Each node requires extra memory for storing a pointer to the next node.
-- **Slow Lookups**: Finding an element requires linear time (O(n)) as the list must be traversed.
+- **Slow Lookups**: Finding an element requires linear time ($O(n)$) as the list must be traversed.
 
 ### Applications of Linked Lists
 

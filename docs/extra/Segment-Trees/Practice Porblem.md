@@ -26,7 +26,7 @@ Below is a collection of problems that can be effectively solved using segment t
 - [Generate Original Permutation from Given Array of Inversions](https://www.geeksforgeeks.org/generate-original-permutation-given-array-inversions/)
 - [Maximum of All Subarrays of Size K Using Segment Tree](https://www.geeksforgeeks.org/maximum-of-all-subarrays-of-size-k-using-segment-tree/)
 - [Length of Longest Subarray with Same Elements in At Most K Increments](https://www.geeksforgeeks.org/length-longest-subarray-same-elements-least-k-increments/)
-- [Count Number of Increasing Sub-Sequences: O(NlogN)](https://www.geeksforgeeks.org/count-number-increasing-sub-sequences-o-nlogn/)
+- [Count Number of Increasing Sub-Sequences: $O(NlogN)$](https://www.geeksforgeeks.org/count-number-increasing-sub-sequences-o-nlogn/)
 - [Calculate the Sum of GCD Over All Subarrays](https://www.geeksforgeeks.org/calculate-sum-gcd-subarrays/)
 - [Kth Largest Element in an Array - LeetCode](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 - [Find K Closest Elements - LeetCode](https://leetcode.com/problems/find-k-closest-elements/)

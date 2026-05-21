@@ -2,7 +2,7 @@
 id: arrays-cyclic-sort
 title: "Arrays - Cyclic Sort"
 sidebar_label: Cyclic Sort
-description: "Cyclic Sort is an O(n) in-place sorting algorithm specifically designed for arrays containing numbers in a given continuous range (e.g., 1 to N)."
+description: "Cyclic Sort is an $O(n)$ in-place sorting algorithm specifically designed for arrays containing numbers in a given continuous range (e.g., 1 to N)."
 tags: [dsa, arrays, sorting, cyclicsort, sorting-algorithms]
 ---
 

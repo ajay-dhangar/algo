@@ -26,7 +26,7 @@ The divide-and-conquer method for solving the Convex Hull problem is efficient f
   
 3. **Combine**: Merge the two convex hulls into a single hull. This step involves finding the upper and lower tangents that connect the two hulls while maintaining the convexity property.
 
-This approach has a time complexity of **O(n log n)**, making it efficient for large datasets.
+This approach has a time complexity of **$O(n log n)$**, making it efficient for large datasets.
 
 <AdsComponent />
 
@@ -175,8 +175,8 @@ Original Points:                    Convex Hull:
 
 ## Complexity Analysis
 
-- **Time Complexity**: O(n log n) due to sorting and recursive merging steps.
-- **Space Complexity**: O(n) for storing the points and intermediate results.
+- **Time Complexity**: $O(n log n)$ due to sorting and recursive merging steps.
+- **Space Complexity**: $O(n)$ for storing the points and intermediate results.
 
 ## Further Reading
 

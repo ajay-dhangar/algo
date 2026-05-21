@@ -23,8 +23,8 @@ The Boyer-Moore algorithm is one of the most efficient string-searching algorith
 3. **Optimal Skipping**: These heuristics enable large skips, making the Boyer-Moore algorithm efficient for longer texts.
 
 ### Algorithm Complexity
-- **Best Case**: \(O(n/m)\), where \(n\) is the length of the text and \(m\) is the length of the pattern.
-- **Worst Case**: \(O(n \times m)\), though this occurs rarely due to effective skipping.
+- **Best Case**: \($O(n/m)$\), where \(n\) is the length of the text and \(m\) is the length of the pattern.
+- **Worst Case**: \($O(n \times m)$\), though this occurs rarely due to effective skipping.
 
 ## Example Pseudocode
 ### Boyer-Moore Pattern Search

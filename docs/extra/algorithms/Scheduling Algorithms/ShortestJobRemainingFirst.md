@@ -149,8 +149,8 @@ The output will display the waiting and turnaround times, as well as the average
 
 ## Time and Space Complexity
 
-- **Time Complexity**: The time complexity is O(n²) due to the nested loops for finding the shortest job remaining.
-- **Space Complexity**: The space complexity is O(n) for storing waiting times and turnaround times.
+- **Time Complexity**: The time complexity is $O(n²)$ due to the nested loops for finding the shortest job remaining.
+- **Space Complexity**: The space complexity is $O(n)$ for storing waiting times and turnaround times.
 
 ## Conclusion
 

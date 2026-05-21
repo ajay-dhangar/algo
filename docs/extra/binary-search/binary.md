@@ -97,8 +97,8 @@ In this algorithm, the searching interval of the array is divided into half at e
 
 ## Time complexity:
 
-Linear/Sequential search: O(n)<br />
-Binary search : O(log n)
+Linear/Sequential search: $O(n)$<br />
+Binary search : $O(log n)$
 
 ## Points to Remember:
 

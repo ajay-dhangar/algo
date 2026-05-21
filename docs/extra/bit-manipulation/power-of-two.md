@@ -115,7 +115,7 @@ for num in numbers:
 ```
 
 # Time Complexity
-The time complexity of this check is O(1) since it uses a single bitwise operation.
+The time complexity of this check is $O(1)$ since it uses a single bitwise operation.
 
 # Why It's Efficient
 The Power of Two Check avoids looping or recursive calculations. Instead, it relies on a simple bitwise operation, making it extremely fast and suitable for performance-sensitive applications.

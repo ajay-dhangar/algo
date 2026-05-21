@@ -29,18 +29,18 @@ Heap sort is a **comparison-based** sorting algorithm that uses a binary heap da
 
 ### Time Complexity:
 
-- **Best Case: O(n log n)**  
-  Heap sort involves building the heap $(O(n))$ and extracting elements from it $(O(n log n))$, so even in the best case, it requires $O(n log n)$ time.
+- **Best Case: $O(n log n)$**  
+  Heap sort involves building the heap $($O(n)$)$ and extracting elements from it $($O(n log n)$)$, so even in the best case, it requires $O(n log n)$ time.
 
-- **Average Case: O(n log n)**  
+- **Average Case: $O(n log n)$**  
   Heap sort's time complexity remains $O(n log n)$ across average cases since the heap operations are logarithmic in nature.
 
-- **Worst Case: O(n log n)**  
+- **Worst Case: $O(n log n)$**  
   The worst case also results in $O(n log n)$, as heapifying and extracting the largest elements are bound by logarithmic comparisons.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   Heap sort is an in-place algorithm, meaning it does not need additional memory to store subarrays or temporary structures, aside from the input array.
 
 ### C++ Implementation:
@@ -109,4 +109,4 @@ int main() {
 
 ### Summary:
 
-Heap sort is an efficient, in-place sorting algorithm that works by building a max heap from the input array and then repeatedly extracting the largest element. Its consistent time complexity of O(n log n) makes it useful for many applications, although its non-stability and in-place nature make it less ideal for sorting data that requires maintaining the relative order of equal elements.
+Heap sort is an efficient, in-place sorting algorithm that works by building a max heap from the input array and then repeatedly extracting the largest element. Its consistent time complexity of $O(n log n)$ makes it useful for many applications, although its non-stability and in-place nature make it less ideal for sorting data that requires maintaining the relative order of equal elements.

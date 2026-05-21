@@ -34,11 +34,11 @@ factorial(n) {
 ## Best Case
 In the best case, the function will stop as soon as the base condition is met (n == 0). This happens in constant time:
 
-**Best-case complexity: O(1).**
+**Best-case complexity: $O(1)$.**
 ## Worst Case
 In the worst case, the function will recurse n times, leading to:
 
-**Worst-case complexity: O(n).**
+**Worst-case complexity: $O(n)$.**
 
 ## Example of Non-Tail Recursion: Factorial Calculation
 

@@ -63,4 +63,4 @@ int main() {
 
 ### Summary:
 
-Kadane's algorithm provides an efficient solution to the maximum sum subarray problem using dynamic programming. By keeping track of the current subarray sum and adjusting it dynamically, it guarantees finding the maximum sum with a time complexity of O(n). This algorithm is widely used in problems related to subarray sums and optimization in financial and data analysis tasks.
+Kadane's algorithm provides an efficient solution to the maximum sum subarray problem using dynamic programming. By keeping track of the current subarray sum and adjusting it dynamically, it guarantees finding the maximum sum with a time complexity of $O(n)$. This algorithm is widely used in problems related to subarray sums and optimization in financial and data analysis tasks.

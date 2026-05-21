@@ -143,7 +143,7 @@ public class TarjanAlgorithm {
 
 ```
 ## Time Complexity
-The time complexity of Tarjan's Algorithm is O(V + E), where V is the number of vertices and E is the number of edges, as it performs a single DFS traversal of the graph.
+The time complexity of Tarjan's Algorithm is $O(V + E)$, where V is the number of vertices and E is the number of edges, as it performs a single DFS traversal of the graph.
 
 
 ## Applications

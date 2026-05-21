@@ -122,13 +122,13 @@ int main() {
 ```
 
 ## Time Complexity
-- Best Case: O(N^2) (When the graph strongly favors finding a path early)
-- Average Case: O(N!)
-- Worst Case: O(N!) (In complete graphs or when examining all permutations)
+- Best Case: $O(N^2)$ (When the graph strongly favors finding a path early)
+- Average Case: $O(N!)$
+- Worst Case: $O(N!)$ (In complete graphs or when examining all permutations)
 where `N` is the number of vertices.
 
 ## Space Complexity
-- O(N)
+- $O(N)$
 where `N` is the number of vertices (for the recursion call stack and the `path` array).
 
 ## Explanation

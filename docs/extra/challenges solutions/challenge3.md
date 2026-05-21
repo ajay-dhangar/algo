@@ -311,7 +311,7 @@ d) treap
 
 **Answer:** c) 2-3 tree
 
-**Explanation:**The average case time for lookup in a binary search tree, treap and 2-3 tree is O(log n) and in unordered lists it is O(n). But in the worst case, only the 2-3 trees perform lookup efficiently as it takes O(log n), while others take O(n).
+**Explanation:**The average case time for lookup in a binary search tree, treap and 2-3 tree is $O(log n)$ and in unordered lists it is $O(n)$. But in the worst case, only the 2-3 trees perform lookup efficiently as it takes $O(log n)$, while others take $O(n)$.
 
 ---
 

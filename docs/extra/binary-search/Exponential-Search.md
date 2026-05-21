@@ -14,14 +14,14 @@ The algorithm works in two main phases:
 
 1.Finding the Range: In the first phase, Exponential Search aims to identify a range in which the target element may exist. It starts by checking the first element of the array. If the target is not found there, the algorithm begins to double the index at each step (e.g., checking the element at index 1, then index 2, then index 4, and so on) until it either finds an element larger than the target or reaches the end of the array. This phase ensures that the algorithm can quickly pinpoint the potential range of the search without needing to know the total length of the array.
 
-2.Binary Search: Once the appropriate range is determined, Exponential Search transitions to binary search within that range. The binary search efficiently narrows down the position of the target element by repeatedly dividing the search interval in half. This combination allows Exponential Search to achieve a time complexity of O(log n) for the actual search phase, making it particularly effective for large datasets..
+2.Binary Search: Once the appropriate range is determined, Exponential Search transitions to binary search within that range. The binary search efficiently narrows down the position of the target element by repeatedly dividing the search interval in half. This combination allows Exponential Search to achieve a time complexity of $O(log n)$ for the actual search phase, making it particularly effective for large datasets..
 
 ## Implementation
 
 Let us see how to implement Exponential Search in Java:
 ## Time Complexity:
-Linear search: O(n)<br />
-Exponential search: O(log n)
+Linear search: $O(n)$<br />
+Exponential search: $O(log n)$
 
 ## Points to Remember:
  Exponential Search is effective when the size of the array is unknown.

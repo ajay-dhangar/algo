@@ -14,7 +14,7 @@ Manacher's Algorithm is a linear-time algorithm developed by Glenn K. Manacher i
 ### Characteristics:
 
 - **Linear Time Processing**:
-  - Finds all palindromes in O(n) time
+  - Finds all palindromes in $O(n)$ time
   - Avoids redundant comparisons
   - Utilizes symmetry properties
 
@@ -258,17 +258,17 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n) operations
+   - $O(n)$ operations
    - Linear scanning
    - Optimal performance
 
 2. **Average Case**:
-   - O(n) operations
+   - $O(n)$ operations
    - Consistent performance
    - Predictable behavior
 
 3. **Worst Case**:
-   - O(n) operations
+   - $O(n)$ operations
    - Guaranteed performance
    - No degradation
 

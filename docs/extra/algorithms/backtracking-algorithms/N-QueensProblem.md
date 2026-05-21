@@ -36,13 +36,13 @@ The **backtracking** approach is used to solve the N-Queens problem. The idea is
 3. **printSolution()**: Displays a valid chessboard configuration.
 
 ## Time Complexity
-- Best Case: O(1) (When the board is 1x1, or for very small cases where it trivially fails or succeeds immediately)
-- Average Case: O(N!)
-- Worst Case: O(N!)
+- Best Case: $O(1)$ (When the board is 1x1, or for very small cases where it trivially fails or succeeds immediately)
+- Average Case: $O(N!)$
+- Worst Case: $O(N!)$
 where `N` is the number of queens and the dimension of the board.
 
 ## Space Complexity
-- O(N^2)
+- $O(N^2)$
 where `N` is the dimension of the board. The space is used for the board array `board[N][N]` and the call stack.
 
 ## Explanation

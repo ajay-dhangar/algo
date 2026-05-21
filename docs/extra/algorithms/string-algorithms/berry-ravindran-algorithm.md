@@ -251,7 +251,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n/m) comparisons
+   - $O(n/m)$ comparisons
    - Large shifts
    - Efficient skipping
 
@@ -261,7 +261,7 @@ int main() {
    - Efficient for large alphabets
 
 3. **Worst Case**:
-   - O(mn) comparisons
+   - $O(mn)$ comparisons
    - Pattern dependent
    - Rare in practice
 

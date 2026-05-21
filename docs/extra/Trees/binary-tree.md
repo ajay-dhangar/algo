@@ -72,9 +72,9 @@ graph TB
    - Identify the node to be deleted and adjust pointers accordingly.
 
 ## Time Complexity
-- Insertion: **O(log n)** for balanced trees (like BST), **O(n)** for skewed trees.
-- Traversal: **O(n)** for all types of traversals since each node is visited once.
-- Deletion: **O(log n)** for balanced trees, **O(n)** for skewed trees.
+- Insertion: **$O(log n)$** for balanced trees (like BST), **$O(n)$** for skewed trees.
+- Traversal: **$O(n)$** for all types of traversals since each node is visited once.
+- Deletion: **$O(log n)$** for balanced trees, **$O(n)$** for skewed trees.
 
 ## Applications
 - **Binary Search Trees (BST)**: Efficiently manage dynamic datasets for searching, insertion, and deletion.
@@ -100,7 +100,7 @@ graph TB
 - **Versatile Traversal**: Multiple traversal methods allow flexibility in data access.
 
 ## Limitations
-- **Not Always Balanced**: Unbalanced trees can lead to inefficient operations (O(n)).
+- **Not Always Balanced**: Unbalanced trees can lead to inefficient operations ($O(n)$).
 - **Memory Overhead**: Each node requires additional memory for pointers to children.
 
 # Binary Tree vs. Binary Search Tree
@@ -110,7 +110,7 @@ graph TB
 | **Structure**        | Each node has at most two children                   | Each node follows the binary search property        |
 | **Insertion**        | Can be arbitrary                                     | Follows specific rules based on key comparison      |
 | **Traversal**        | Supports various traversal methods                   | Supports all binary tree traversal methods           |
-| **Time Complexity**  | O(n) for unbalanced trees; O(log n) for balanced trees | O(log n) for search, insertion, and deletion (balanced) |
+| **Time Complexity**  | $O(n)$ for unbalanced trees; $O(log n)$ for balanced trees | $O(log n)$ for search, insertion, and deletion (balanced) |
 | **Use Case**         | General representation of data                       | Efficient searching and sorted data operations       |
 
 ## Conclusion

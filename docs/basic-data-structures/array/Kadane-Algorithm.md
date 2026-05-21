@@ -28,10 +28,10 @@ The solution to the problem can be constructed efficiently from solutions to sub
 
 ### Time Complexity:
 
-- **Best, Average, and Worst Case: O(N)**  
+- **Best, Average, and Worst Case: $O(N)$**  
  - Kadane's algorithm processes each element of the array once, resulting in a linear time complexity, where n is the number of elements in the array.
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
 - The algorithm uses a constant amount of space to store a few variables, making it highly space-efficient.
 
 

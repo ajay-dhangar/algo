@@ -106,7 +106,7 @@ int main() {
 
 ### Disadvantages:
 - **Less Efficient than Binary Search**:
-  - Ternary search has a time complexity of O(log3 n), which is generally slower than the O(log2 n) time complexity of binary search.
+  - Ternary search has a time complexity of $O(log3 n)$, which is generally slower than the $O(log2 n)$ time complexity of binary search.
 
 - **Increased Comparisons**:
   - Each iteration requires two comparisons instead of one, which can lead to higher overhead in some cases.

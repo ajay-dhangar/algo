@@ -29,13 +29,13 @@ Kruskal's algorithm is a **greedy algorithm** used to find the Minimum Spanning 
 
 ### Time Complexity:
 
-- **Best, Average, and Worst Case: O(E log E)**  
-  Kruskal's algorithm sorts all the edges in ascending order of their weights, and the most time-consuming operation is sorting, which takes O(E log E), where E is the number of edges.
+- **Best, Average, and Worst Case: $O(E log E)$**  
+  Kruskal's algorithm sorts all the edges in ascending order of their weights, and the most time-consuming operation is sorting, which takes $O(E log E)$, where E is the number of edges.
 
 ### Space Complexity:
 
-- **Space Complexity: O(V + E)**  
-  The algorithm requires extra space for the parent and rank arrays used by the Union-Find data structure, resulting in O(V + E) space, where V is the number of vertices and E is the number of edges.
+- **Space Complexity: $O(V + E)$**  
+  The algorithm requires extra space for the parent and rank arrays used by the Union-Find data structure, resulting in $O(V + E)$ space, where V is the number of vertices and E is the number of edges.
 
 ### C++ Implementation:
 

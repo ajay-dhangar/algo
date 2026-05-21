@@ -32,7 +32,7 @@ To merge the two sorted arrays efficiently, we can use the following approach:
 4. **Return the Merged Array**: The final output will be a single sorted array containing all elements from both input arrays.
 
 ### Time Complexity
-The time complexity for this approach is \(O(n + m)\), where \(n\) and \(m\) are the lengths of the two input arrays.
+The time complexity for this approach is \($O(n + m)$\), where \(n\) and \(m\) are the lengths of the two input arrays.
 
 ## Implementation
 

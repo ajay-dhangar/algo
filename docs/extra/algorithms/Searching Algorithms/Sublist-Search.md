@@ -24,11 +24,11 @@ sidebar_label: Sublist
 
 ### Time Complexity:
 
-- **Time Complexity**: \(O(n \times m)\) where `n` is the length of the main list and `m` is the length of the sublist.
+- **Time Complexity**: \($O(n \times m)$\) where `n` is the length of the main list and `m` is the length of the sublist.
 
 ### Space Complexity:
 
-- **Space Complexity**: \(O(1)\)
+- **Space Complexity**: \($O(1)$\)
 
 ### Advantages of Sublist Search:
 

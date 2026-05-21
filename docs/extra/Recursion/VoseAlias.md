@@ -2,7 +2,7 @@
 id: vose-alias 
 title: Vose Alias Method  
 sidebar_label: Generate Vose Alias Method Via Recursion 
-description: "The Recursive Vose's Alias Method is an efficient algorithm for fast random sampling from discrete probability distributions. With O(n) preprocessing and O(1) sampling, it's ideal for non-uniform distributions, widely used in areas like computer graphics, machine learning, and simulations. Perfect for applications needing quick, reliable sampling."
+description: "The Recursive Vose's Alias Method is an efficient algorithm for fast random sampling from discrete probability distributions. With $O(n)$ preprocessing and $O(1)$ sampling, it's ideal for non-uniform distributions, widely used in areas like computer graphics, machine learning, and simulations. Perfect for applications needing quick, reliable sampling."
 tags: [VoseAlias, recursion, dsa]
 ---
 ## Vose Alias Via Recursion
@@ -15,7 +15,7 @@ The challenge is to develop an efficient algorithm that allows for quick samplin
 
 1. Accept a set of probabilities that sum to 1, ensuring that they form a valid discrete probability distribution.
 2. Build a data structure that allows for fast sampling of outcomes based on their respective probabilities.
-3. Achieve a preprocessing time that scales linearly with the number of outcomes (O(n)), followed by constant-time (O(1)) sampling operations.
+3. Achieve a preprocessing time that scales linearly with the number of outcomes ($O(n)$), followed by constant-time ($O(1)$) sampling operations.
 4. Handle edge cases, such as invalid probability inputs (e.g., probabilities not summing to 1) and extreme values (e.g., very small or very large probabilities).
 
 The goal is to create the  **Recursive Vose's Alias Method** , which meets these requirements, allowing for efficient and accurate random sampling from arbitrary discrete probability distributions. This method will be particularly useful in scenarios such as computer graphics, machine learning, and simulations, where the need for rapid and reliable sampling is paramount.
@@ -58,8 +58,8 @@ The **Recursive Vose's Alias Method** is an advanced algorithm for efficient sam
 
 #### 6.  **Efficiency** :
 
-* The preprocessing step takes **O(n)** time to construct the alias and probability tables, making it scalable for large datasets.
-* The actual sampling operation is performed in **O(1)** time, allowing for rapid selection of outcomes, which is crucial in applications that require numerous samples in a short time.
+* The preprocessing step takes **$O(n)$** time to construct the alias and probability tables, making it scalable for large datasets.
+* The actual sampling operation is performed in **$O(1)$** time, allowing for rapid selection of outcomes, which is crucial in applications that require numerous samples in a short time.
 
 #### 7.  **Applications** :
 
@@ -93,7 +93,7 @@ The **Recursive Vose's Alias Method** is an advanced algorithm for efficient sam
 
 #### Complexity :
 
-The **Recursive Vose's Alias Method** boasts a highly efficient complexity profile, making it an attractive choice for random sampling from discrete probability distributions. The preprocessing phase of the algorithm operates in **O(n)** time, where **n** is the number of outcomes. This efficiency stems from the linear time required to construct the alias and probability tables, which involves categorizing the probabilities into small and large lists and then systematically pairing them. Once the preprocessing is complete, the sampling operation is performed in **O(1)** time, allowing for rapid selection of outcomes based on their probabilities. This combination of linear preprocessing and constant-time sampling ensures that the method is well-suited for scenarios requiring frequent and fast random sampling, particularly in applications like computer graphics, machine learning, and simulations. Overall, the Recursive Vose's Alias Method effectively balances computational efficiency with ease of implementation, making it a valuable tool for efficiently sampling from complex probability distributions.
+The **Recursive Vose's Alias Method** boasts a highly efficient complexity profile, making it an attractive choice for random sampling from discrete probability distributions. The preprocessing phase of the algorithm operates in **$O(n)$** time, where **n** is the number of outcomes. This efficiency stems from the linear time required to construct the alias and probability tables, which involves categorizing the probabilities into small and large lists and then systematically pairing them. Once the preprocessing is complete, the sampling operation is performed in **$O(1)$** time, allowing for rapid selection of outcomes based on their probabilities. This combination of linear preprocessing and constant-time sampling ensures that the method is well-suited for scenarios requiring frequent and fast random sampling, particularly in applications like computer graphics, machine learning, and simulations. Overall, the Recursive Vose's Alias Method effectively balances computational efficiency with ease of implementation, making it a valuable tool for efficiently sampling from complex probability distributions.
 
 ### Limitations and Considerations
 
@@ -109,7 +109,7 @@ While the Recursive Vose's Alias Method is a powerful tool for efficient samplin
 
 **Memory Usage** :
 
-* The alias method requires additional memory for the alias and probability tables, which can be a concern in memory-constrained environments or when dealing with a very large number of outcomes. The space complexity is  **O(n)** , which, while efficient, may still be significant for large datasets.
+* The alias method requires additional memory for the alias and probability tables, which can be a concern in memory-constrained environments or when dealing with a very large number of outcomes. The space complexity is  **$O(n)$** , which, while efficient, may still be significant for large datasets.
 
 **Numerical Stability** :
 

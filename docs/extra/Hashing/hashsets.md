@@ -15,7 +15,7 @@ A **HashSet** is a data structure that stores a collection of unique elements, e
 
 1. **Unique Elements**: The main purpose of a **HashSet** is to ensure all elements are unique. If you try to add a duplicate element, the set will reject it.
 
-2. **Fast Lookup, Insert, and Delete**: HashSets offer average-case constant time complexity \(O(1)\) for insertion, deletion, and search operations due to the underlying hash table implementation.
+2. **Fast Lookup, Insert, and Delete**: HashSets offer average-case constant time complexity \($O(1)$\) for insertion, deletion, and search operations due to the underlying hash table implementation.
 
 3. **Memory Efficiency**: Since a **HashSet** only stores unique elements and uses hashing to place items in a table, it optimizes memory and performance.
 

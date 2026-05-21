@@ -35,21 +35,21 @@ Meta Binary Search is an optimized version of the traditional binary search that
 
 - **Best Case: $O(1)$**  
   Scenario: The best case occurs when the target element is found at the middle index on the very first comparison.
-Complexity: Only one comparison is needed in this case, so the time complexity is O(1).
+Complexity: Only one comparison is needed in this case, so the time complexity is $O(1)$.
 
 - **Average Case: $O(logn)$**  
   Scenario: On average, we have to halve the search space multiple times until the target is found.
-Complexity: Since we reduce the search space by half after each iteration, the number of iterations required is logarithmic in the size of the input, leading to O(logn).
+Complexity: Since we reduce the search space by half after each iteration, the number of iterations required is logarithmic in the size of the input, leading to $O(logn)$.
 
 
 - **Worst Case: $O(logn)$**  
   Scenario: The worst case happens when the target element is either not present in the array or is found at one of the last comparisons (e.g., at the last position).
-Complexity: Similar to binary search, the worst case would require halving the search space until a single element remains, resulting in O(logn).
+Complexity: Similar to binary search, the worst case would require halving the search space until a single element remains, resulting in $O(logn)$.
 
 ### Space Complexity:
 
 - **Space Complexity: $O(1)$**  
-  Iterative Meta Binary Search requires a constant amount of additional memory, regardless of the size of the array, making it a space-efficient algorithm. and Recursive Meta Binary Search it O(logn).
+  Iterative Meta Binary Search requires a constant amount of additional memory, regardless of the size of the array, making it a space-efficient algorithm. and Recursive Meta Binary Search it $O(logn)$.
 
 ### When to Use Linear Search:
 

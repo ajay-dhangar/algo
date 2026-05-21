@@ -13,7 +13,7 @@ A **binary heap** is a complete binary tree often used to implement priority que
 
 ### 1. Insertion (Insert a New Element)
 
-- **Time Complexity:** **O(log n)**
+- **Time Complexity:** **$O(log n)$**
 - **Explanation:**  
   Inserting an element into a heap involves two steps:
 
@@ -50,7 +50,7 @@ A **binary heap** is a complete binary tree often used to implement priority que
 
 ### 2. Deletion (Extracting the Root)
 
-- **Time Complexity:** **O(log n)**
+- **Time Complexity:** **$O(log n)$**
 - **Explanation:**  
   Deleting the root (the smallest or largest element in a min-heap or max-heap) is one of the key operations. It involves:
 
@@ -87,7 +87,7 @@ A **binary heap** is a complete binary tree often used to implement priority que
 
 ### 3. Heapify (Building a Heap from an Array)
 
-- **Time Complexity:** **O(n)**
+- **Time Complexity:** **$O(n)$**
 - **Explanation:**  
   Heapifying an unsorted array to form a valid heap is done in linear time, although it may seem like `O(n log n)`. This is because, during heap construction, the number of operations decreases significantly for elements at lower levels of the tree. Elements closer to the root require more comparisons, but there are fewer such elements.
 
@@ -103,7 +103,7 @@ A **binary heap** is a complete binary tree often used to implement priority que
 
 ### 4. Peek (Getting the Root)
 
-- **Time Complexity:** **O(1)**
+- **Time Complexity:** **$O(1)$**
 - **Explanation:**  
   The root of the heap (either the minimum or maximum element) can be accessed in constant time because it is always at the top of the heap.
 
@@ -120,7 +120,7 @@ A **binary heap** is a complete binary tree often used to implement priority que
 
 ### 5. Decrease Key (For Priority Queues)
 
-- **Time Complexity:** **O(log n)**
+- **Time Complexity:** **$O(log n)$**
 - **Explanation:**  
   In priority queues, we may need to decrease the key value of a particular element. This involves:
 
@@ -141,7 +141,7 @@ A **binary heap** is a complete binary tree often used to implement priority que
 
 ### 6. Delete a Key (Removing an Arbitrary Element)
 
-- **Time Complexity:** **O(log n)**
+- **Time Complexity:** **$O(log n)$**
 - **Explanation:**  
   To delete a specific element from the heap:
 
@@ -179,18 +179,18 @@ A **binary heap** is a complete binary tree often used to implement priority que
 
 | Operation               | Time Complexity |
 | ----------------------- | --------------- |
-| Insertion               | O(log n)        |
-| Deletion (Extract Root) | O(log n)        |
-| Heapify (Build a Heap)  | O(n)            |
-| Peek (Get Root)         | O(1)            |
-| Decrease Key            | O(log n)        |
-| Delete a Key            | O(log n)        |
+| Insertion               | $O(log n)$        |
+| Deletion (Extract Root) | $O(log n)$        |
+| Heapify (Build a Heap)  | $O(n)$            |
+| Peek (Get Root)         | $O(1)$            |
+| Decrease Key            | $O(log n)$        |
+| Delete a Key            | $O(log n)$        |
 
 ---
 
 ## Explanation of Time Complexities
 
-### Why is Heapify O(n)?
+### Why is Heapify $O(n)$?
 
 Heapify has a time complexity of `O(n)` because elements at the lowest levels of the tree require fewer comparisons. If you think about the number of operations needed for nodes at different levels of the tree:
 
@@ -200,7 +200,7 @@ Heapify has a time complexity of `O(n)` because elements at the lowest levels of
 
 The sum of these operations across the entire tree results in a linear time complexity of `O(n)`.
 
-### Why is Insertion and Deletion O(log n)?
+### Why is Insertion and Deletion $O(log n)$?
 
 Both insertion and deletion involve restructuring the heap by bubbling elements up or down. Since the heap is a complete binary tree, its height is `log n`, meaning that in the worst case, you only need to perform `log n` swaps.
 

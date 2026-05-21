@@ -37,13 +37,13 @@ The Suffix Array Algorithm is a space-efficient data structure that stores all s
 
 - **Construction: $O(n \times log n)$**
   - Using standard sorting
-  - Can be O(n) with specialized algorithms
+  - Can be $O(n)$ with specialized algorithms
   - Includes LCP array construction
 
 - **Pattern Matching: $O(m \times log n)$**
   - Where m is pattern length
   - Uses binary search
-  - Additional O(m) for verification
+  - Additional $O(m)$ for verification
 
 ### Space Complexity:
 
@@ -324,8 +324,8 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n log n) construction
-   - O(m log n) pattern matching
+   - $O(n log n)$ construction
+   - $O(m log n)$ pattern matching
    - Linear space usage
 
 2. **Average Case**:
@@ -334,8 +334,8 @@ int main() {
    - Predictable behavior
 
 3. **Worst Case**:
-   - O(n log n) construction
-   - O(m + log n) pattern matching
+   - $O(n log n)$ construction
+   - $O(m + log n)$ pattern matching
    - Linear space requirement
 
 ### Summary:

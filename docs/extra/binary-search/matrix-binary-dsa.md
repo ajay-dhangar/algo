@@ -22,8 +22,8 @@ We are given an `m x n` matrix where each row is sorted in ascending order from 
 
 ### Time Complexity:
 
-    Linear/Sequential search: O(m * n) where m is the number of rows and n is the number of columns.
-    Binary search in a matrix: O(log(m * n)), because we are effectively performing a binary search over the entire matrix treated as a single sorted array.
+    Linear/Sequential search: $O(m * n)$ where m is the number of rows and n is the number of columns.
+    Binary search in a matrix: $O(log(m * n))$, because we are effectively performing a binary search over the entire matrix treated as a single sorted array.
 
 ### Points to Remember:
     Binary search requires that the matrix is sorted both row-wise and column-wise.

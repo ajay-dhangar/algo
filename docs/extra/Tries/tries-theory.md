@@ -55,9 +55,9 @@ In this Trie:
 
 ## Time Complexity
 
-- **Insert**: O(m) where *m* is the length of the word being inserted.
-- **Search**: O(m) where *m* is the length of the word being searched.
-- **Prefix Search**: O(m + k) where *m* is the length of the prefix and *k* is the number of characters in the words that match the prefix.
+- **Insert**: $O(m)$ where *m* is the length of the word being inserted.
+- **Search**: $O(m)$ where *m* is the length of the word being searched.
+- **Prefix Search**: $O(m + k)$ where *m* is the length of the prefix and *k* is the number of characters in the words that match the prefix.
 
 ## Advantages of Trie
 

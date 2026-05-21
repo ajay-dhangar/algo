@@ -42,7 +42,7 @@ Binary search is an efficient algorithm for finding an element in a **sorted arr
   The iterative version of binary search requires a constant amount of memory for variables like the low and high indices.
 
 - **Recursive: $O(log n)$**  
-  The recursive version of binary search uses additional space due to recursive function calls, leading to an O(log n) space complexity for storing stack frames.
+  The recursive version of binary search uses additional space due to recursive function calls, leading to an $O(log n)$ space complexity for storing stack frames.
 
 ### When to Use Binary Search:
 
@@ -220,10 +220,10 @@ if __name__ == "__main__":
   - Binary search drastically reduces the number of comparisons needed to find an element, making it ideal for large, sorted arrays.
 
 - **Logarithmic Time Complexity**:
-  - The O(log n) time complexity makes binary search much faster than linear search for large datasets.
+  - The $O(log n)$ time complexity makes binary search much faster than linear search for large datasets.
 
 - **Low Memory Usage**:
-  - The iterative version of binary search has a constant space complexity of O(1), making it memory efficient.
+  - The iterative version of binary search has a constant space complexity of $O(1)$, making it memory efficient.
 
 #### Disadvantages:
 - **Requires Sorted Data**:
@@ -245,4 +245,4 @@ if __name__ == "__main__":
 
 ### Summary:
 
-Binary search is an efficient and widely-used algorithm for searching through large, sorted datasets. It operates in O(log n) time complexity, making it far superior to linear search for large arrays. Binary search is well-suited for scenarios where the dataset is static or sorted in advance, such as in databases or ordered lists. While it is not suitable for unsorted data or linked lists, its power in sorted datasets makes it a fundamental algorithm in computer science.
+Binary search is an efficient and widely-used algorithm for searching through large, sorted datasets. It operates in $O(log n)$ time complexity, making it far superior to linear search for large arrays. Binary search is well-suited for scenarios where the dataset is static or sorted in advance, such as in databases or ordered lists. While it is not suitable for unsorted data or linked lists, its power in sorted datasets makes it a fundamental algorithm in computer science.

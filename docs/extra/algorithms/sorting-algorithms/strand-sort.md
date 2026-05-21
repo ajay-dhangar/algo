@@ -89,12 +89,12 @@ The sorted list is:
 
 
 ## Time Complexity
-- Best Case: O(n) (When the array is already sorted, only one strand is extracted and no merging is needed)
-- Average Case: O(n^2)
-- Worst Case: O(n^2) (When the array is sorted in reverse order, extracting `n` strands of length 1)
+- Best Case: $O(n)$ (When the array is already sorted, only one strand is extracted and no merging is needed)
+- Average Case: $O(n^2)$
+- Worst Case: $O(n^2)$ (When the array is sorted in reverse order, extracting `n` strands of length 1)
 
 ## Space Complexity
-- O(n)
+- $O(n)$
 where `n` is the number of elements. Space is required for the strands and the resulting sorted list (or the recursive call stack if implemented recursively).
 
 ## Explanation
@@ -105,7 +105,7 @@ Strand sort extracts ascending sublists ("strands") and merges them into a sorte
 3. **Stable sort**: Strand sort maintains the relative order of equal elements.
 
 ## Disadvantages:
-1. **Not efficient for large datasets**: The worst-case time complexity is O(n²), which makes it inefficient for large lists.
+1. **Not efficient for large datasets**: The worst-case time complexity is $O(n²)$, which makes it inefficient for large lists.
 2. **Recursive nature**: Its recursive design can lead to high memory usage and potential stack overflow issues for deep recursion.
 3. **Limited use cases**: Due to its inefficiency with arrays and larger datasets, it's not commonly used in practice.
 

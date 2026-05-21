@@ -7,7 +7,7 @@ tags: [dsa, algorithms, divide and conquer]
 ---
 
 ### Problem Statement:
-Given 2 matrix, multiply them such that the time complexity of the calculation is O(n^2.81). You can use divide and conquer approach to achieve the time complexity.
+Given 2 matrix, multiply them such that the time complexity of the calculation is $O(n^2.81)$. You can use divide and conquer approach to achieve the time complexity.
 
 ## Algorithm Steps
 

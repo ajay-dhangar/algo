@@ -34,9 +34,9 @@ For an input of `maxN = 20`, the output should be:
 
 The time complexity of the recursive Ulam Sequence generation is primarily influenced by the need to evaluate each number up to `maxN` and check whether it can be represented as the sum of two distinct Ulam numbers in exactly one way. For each candidate number, the algorithm must iterate over all pairs of previously generated Ulam numbers to count how many distinct pairs sum to the candidate.
 
-In the worst case, this results in checking **O**(**n**2**)** pairs for each of the numbers up to `maxN`. Thus, for generating `m` Ulam numbers, where `m` is the number of valid Ulam numbers up to `maxN`, the overall time complexity becomes approximately  **O(m * n^2)** , where `n` is the current number being evaluated. However, depending on the implementation details, such as using optimized data structures to store sums or checking distinct pairs, the complexity may be slightly improved, but it remains quadratic in nature due to the pair-checking process.
+In the worst case, this results in checking **O**(**n**2**)** pairs for each of the numbers up to `maxN`. Thus, for generating `m` Ulam numbers, where `m` is the number of valid Ulam numbers up to `maxN`, the overall time complexity becomes approximately  **$O(m * n^2)$** , where `n` is the current number being evaluated. However, depending on the implementation details, such as using optimized data structures to store sums or checking distinct pairs, the complexity may be slightly improved, but it remains quadratic in nature due to the pair-checking process.
 
-The space complexity is  **O(m)** , where `m` is the number of Ulam numbers stored, as the sequence must be stored to check future sums.
+The space complexity is  **$O(m)$** , where `m` is the number of Ulam numbers stored, as the sequence must be stored to check future sums.
 
 ### Limitations and Considerations
 

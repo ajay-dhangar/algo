@@ -159,4 +159,4 @@ Pair Found: (2, 4)
 * Efficient
 
 ## Summary:
-The Two Pointers technique is a versatile approach that optimizes many problems involving arrays and strings. By leveraging two pointers, we can reduce the time complexity from **O(n²)** (for nested loops) to **O(n)**, making our solutions more efficient and scalable.
+The Two Pointers technique is a versatile approach that optimizes many problems involving arrays and strings. By leveraging two pointers, we can reduce the time complexity from **$O(n²)$** (for nested loops) to **$O(n)$**, making our solutions more efficient and scalable.

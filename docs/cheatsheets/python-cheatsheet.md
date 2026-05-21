@@ -94,7 +94,7 @@ freq = Counter("banana")   # Counts occurrences: {'a':3, 'n':2, 'b':1}
 top = freq.most_common(2)  # Returns top 2 most frequent: [('a', 3), ('n', 2)]
 ```
 
-### `deque` (O(1) pops from both ends)
+### `deque` ($O(1)$ pops from both ends)
 
 ```py title="deque in Python"
 q = deque([1, 2, 3]) # deque = [1, 2, 3]

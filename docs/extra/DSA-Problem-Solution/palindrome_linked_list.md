@@ -61,5 +61,5 @@ class Solution:
 
         return True
 ```
-Time Complexity: O(n) <br /> 
-Space Complexity: O(1)    
+Time Complexity: $O(n)$ <br /> 
+Space Complexity: $O(1)$    

@@ -288,7 +288,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n/m) comparisons
+   - $O(n/m)$ comparisons
    - Efficient character skipping
    - Quick pattern detection
 
@@ -298,7 +298,7 @@ int main() {
    - Efficient for short patterns
 
 3. **Worst Case**:
-   - O(mn) comparisons
+   - $O(mn)$ comparisons
    - Pattern dependent
    - Still maintains efficiency
 

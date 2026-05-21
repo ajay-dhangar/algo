@@ -41,7 +41,7 @@ Some important properties of binary search trees include:
     ```
 
 ## Types of Binary Search Trees
-1. **Unbalanced BST:** A BST that has nodes unevenly distributed, which can degrade performance to O(n) in the worst case.
+1. **Unbalanced BST:** A BST that has nodes unevenly distributed, which can degrade performance to $O(n)$ in the worst case.
     ```
          1
           \
@@ -218,12 +218,12 @@ If the node to be deleted has two children, replace it with its **inorder predec
 ## Advantages and Disadvantages
 ### Advantages:
 
-- Provides efficient search, insertion, and deletion (O(log n) on average).
+- Provides efficient search, insertion, and deletion ($O(log n)$ on average).
 
 - Maintains data in a sorted manner, allowing for in-order traversal.
 ### Disadvantages:
 
-- Can become unbalanced, leading to O(n) worst-case time complexity.
+- Can become unbalanced, leading to $O(n)$ worst-case time complexity.
 - Extra memory required for storing pointers to left and right children.
 ## Applications of Binary Search Trees
 - **Searching and Sorting:** Efficient for performing binary search and organizing data.

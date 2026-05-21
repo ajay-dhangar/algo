@@ -63,33 +63,33 @@ The complexity analysis of the **Stone-Paper-Scissors Game** involves examining 
 
 **User Input** :
 
-* The time taken for user input can be considered constant,  **O(1)** , as the user makes a choice without any looping or iterative processes involved.
+* The time taken for user input can be considered constant,  **$O(1)$** , as the user makes a choice without any looping or iterative processes involved.
 
 **Computer Selection** :
 
-* The computer randomly selects a move (Stone, Paper, or Scissors) using a random number generator, which is also a constant-time operation,  **O(1)** .
+* The computer randomly selects a move (Stone, Paper, or Scissors) using a random number generator, which is also a constant-time operation,  **$O(1)$** .
 
 **Determining the Winner** :
 
-* Evaluating the winner based on user and computer choices involves a series of conditional checks. Regardless of the number of rounds played, determining the winner for each round requires a fixed number of operations, resulting in a time complexity of **O(1)** for each round.
+* Evaluating the winner based on user and computer choices involves a series of conditional checks. Regardless of the number of rounds played, determining the winner for each round requires a fixed number of operations, resulting in a time complexity of **$O(1)$** for each round.
 
 **Total Time Complexity** :
 
-* If the game is played for **n** rounds, the total time complexity is  **O(n)** , where each round takes constant time to process.
+* If the game is played for **n** rounds, the total time complexity is  **$O(n)$** , where each round takes constant time to process.
 
 #### Space Complexity
 
 **Storage for Scores** :
 
-* The game requires variables to store the scores of the user and the computer. These are a fixed number of integer variables, resulting in **O(1)** space complexity.
+* The game requires variables to store the scores of the user and the computer. These are a fixed number of integer variables, resulting in **$O(1)$** space complexity.
 
 **Input and Output** :
 
-* Space is also needed for storing user input and the output displayed on the screen, but this does not grow with the size of the input; hence it remains  **O(1)** .
+* Space is also needed for storing user input and the output displayed on the screen, but this does not grow with the size of the input; hence it remains  **$O(1)$** .
 
 **Total Space Complexity** :
 
-* Overall, the space complexity of the Stone-Paper-Scissors game is  **O(1)** , as it only uses a constant amount of space regardless of the number of rounds played.
+* Overall, the space complexity of the Stone-Paper-Scissors game is  **$O(1)$** , as it only uses a constant amount of space regardless of the number of rounds played.
 
 ### Limitations and Considerations
 

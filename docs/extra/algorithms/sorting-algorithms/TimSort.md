@@ -27,19 +27,19 @@ Tim Sort is a hybrid, stable sorting algorithm derived from merge sort and inser
 
 ### Time Complexity:
 
-- **Best Case: O(n)**  
+- **Best Case: $O(n)$**  
   In the best-case scenario, if the array is already nearly sorted, Tim Sort can achieve linear time complexity by taking advantage of the order in the data.
 
-- **Average Case: O(n log n)**  
-  On average, Tim Sort performs merges in logarithmic time while the insertion sort handles small runs, resulting in O(n log n) time complexity.
+- **Average Case: $O(n log n)$**  
+  On average, Tim Sort performs merges in logarithmic time while the insertion sort handles small runs, resulting in $O(n log n)$ time complexity.
 
-- **Worst Case: O(n log n)**  
-  Even in the worst case, where the array is entirely unsorted, Tim Sort maintains an O(n log n) time complexity due to its use of merge sort for larger portions of the data.
+- **Worst Case: $O(n log n)$**  
+  Even in the worst case, where the array is entirely unsorted, Tim Sort maintains an $O(n log n)$ time complexity due to its use of merge sort for larger portions of the data.
 
 ### Space Complexity:
 
-- **Space Complexity: O(n)**  
-  Tim Sort requires O(n) additional space for the merging process, which is similar to merge sort.
+- **Space Complexity: $O(n)$**  
+  Tim Sort requires $O(n)$ additional space for the merging process, which is similar to merge sort.
 
 ### Steps in Tim Sort:
 
@@ -148,11 +148,11 @@ int main() {
    - The array is broken into smaller chunks called "runs," and insertion sort is applied to each run. Insertion sort is highly efficient for small, nearly sorted arrays.
 
 2. **Merge Process**:
-   - Once the runs are sorted, the algorithm merges them using a process similar to merge sort. The merging happens in logarithmic time, ensuring that the overall time complexity remains O(n log n).
+   - Once the runs are sorted, the algorithm merges them using a process similar to merge sort. The merging happens in logarithmic time, ensuring that the overall time complexity remains $O(n log n)$.
 
 3. **Adaptive Behavior**:
    - Tim Sort adapts to existing order in the data, using insertion sort for smaller runs and merge sort for the rest. This allows it to perform very efficiently on real-world data.
 
 ### Summary:
 
-Tim Sort is a highly efficient sorting algorithm used in practical applications, particularly in standard libraries like Python and Java. It combines the best aspects of merge sort and insertion sort, making it adaptive, stable, and well-suited for sorting real-world datasets with existing order. Although its worst-case time complexity is O(n log n), its ability to adapt to partially sorted data often gives it a performance edge in practice.
+Tim Sort is a highly efficient sorting algorithm used in practical applications, particularly in standard libraries like Python and Java. It combines the best aspects of merge sort and insertion sort, making it adaptive, stable, and well-suited for sorting real-world datasets with existing order. Although its worst-case time complexity is $O(n log n)$, its ability to adapt to partially sorted data often gives it a performance edge in practice.

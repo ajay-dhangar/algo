@@ -28,7 +28,7 @@ Given a binary matrix, the goal is to find the minimum number of flips required 
 3. Return the total number of flips required.
 
 ## Time Complexity
-- O(m*n) - where `m` is the number of rows and `n` is the number of columns in the matrix.
+- $O(m*n)$ - where `m` is the number of rows and `n` is the number of columns in the matrix.
 
 ## C++ Implementation
 

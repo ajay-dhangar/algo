@@ -27,13 +27,13 @@ Prim's algorithm is a **greedy algorithm** used to find the Minimum Spanning Tre
 
 ### Time Complexity:
 
-- **Best, Average, and Worst Case: O(E log V)**
-  Using a priority queue, Prim's algorithm achieves a time complexity of O(E log V), where E is the number of edges and V is the number of vertices.
+- **Best, Average, and Worst Case: $O(E log V)$**
+  Using a priority queue, Prim's algorithm achieves a time complexity of $O(E log V)$, where E is the number of edges and V is the number of vertices.
 
 ### Space Complexity:
 
-- **Space Complexity: O(V + E)**
-  The algorithm requires additional space for the priority queue and arrays tracking visited vertices and minimum weights, resulting in a space complexity of O(V + E).
+- **Space Complexity: $O(V + E)$**
+  The algorithm requires additional space for the priority queue and arrays tracking visited vertices and minimum weights, resulting in a space complexity of $O(V + E)$.
 
 ### C++ Implementation:
 

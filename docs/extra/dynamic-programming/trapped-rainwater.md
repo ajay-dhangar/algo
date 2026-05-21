@@ -17,7 +17,7 @@ The **Trapped Rainwater problem** involves finding the amount of water that can 
   - Two arrays are used to store the left and right maximum heights up to each bar, helping to find the trapped water at each position by calculating the minimum of these heights minus the bar's height.
 
 - **Efficient Calculation**:
-  - The algorithm runs in **O(N)** time complexity and uses **O(N)** additional space for the left and right maximum arrays, making it efficient for large input sizes.
+  - The algorithm runs in **$O(N)$** time complexity and uses **$O(N)$** additional space for the left and right maximum arrays, making it efficient for large input sizes.
 
 ### Python Implementation:
 ```python
@@ -77,11 +77,11 @@ if __name__ == "__main__":
 ```
 
 ### Time Complexity:
-- **Time Complexity: O(N)**
+- **Time Complexity: $O(N)$**
 The algorithm iterates through the heights array twice to fill the left and right maximum arrays and then once more to calculate the trapped water.
 ### Space Complexity:
-- **Space Complexity: O(N)**
-The space complexity is O(N) due to the additional arrays storing the left and right maximum heights for each bar.
+- **Space Complexity: $O(N)$**
+The space complexity is $O(N)$ due to the additional arrays storing the left and right maximum heights for each bar.
   
 ### Summary:
 The Trapped Rainwater solution efficiently calculates the amount of water that can be trapped between bars using dynamic programming. By precomputing the maximum heights on both sides for each bar, the algorithm quickly determines the trapped water at each position. This approach is optimal for large data sets and commonly used in data structure and algorithm problems.

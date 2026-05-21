@@ -23,22 +23,22 @@ Comb sort is an improvement over bubble sort. It compares elements that are fart
   - Comb sort is an unstable sorting algorithm, meaning that equal elements may not retain their relative order.
 
 - **Improvement over Bubble Sort**:
-  - By addressing "turtles" early, comb sort can improve upon the O(n²) performance of bubble sort, making it faster for larger datasets.
+  - By addressing "turtles" early, comb sort can improve upon the $O(n²)$ performance of bubble sort, making it faster for larger datasets.
 
 ### Time Complexity:
 
-- **Best Case: O(n log n)**  
-  In the best case, where the array is already nearly sorted, comb sort runs in O(n log n) time due to the logarithmic reduction of the gap size.
+- **Best Case: $O(n log n)$**  
+  In the best case, where the array is already nearly sorted, comb sort runs in $O(n log n)$ time due to the logarithmic reduction of the gap size.
 
-- **Average Case: O(n²/2ᵏ)**  
+- **Average Case: $O(n²/2ᵏ)$**  
   The average case is better than bubble sort, though the exact complexity depends on the shrink factor used.
 
-- **Worst Case: O(n²)**  
-  In the worst case, comb sort behaves similarly to bubble sort, with a time complexity of O(n²), though it performs faster in practice.
+- **Worst Case: $O(n²)$**  
+  In the worst case, comb sort behaves similarly to bubble sort, with a time complexity of $O(n²)$, though it performs faster in practice.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   Comb sort is an in-place sorting algorithm, requiring only a constant amount of additional memory.
 
 ### C++ Implementation:
@@ -104,4 +104,4 @@ int main() {
 
 ### Summary:
 
-Comb sort is an efficient improvement over bubble sort, with a time complexity that typically performs better on larger datasets. By comparing elements that are far apart and gradually reducing the gap size, it can handle "turtles" (small elements at the end) early in the process. While it has a worst-case time complexity of O(n²), its practical performance is much better, often approaching O(n log n). It's simple to implement, in-place, and better suited for real-world use than bubble sort.
+Comb sort is an efficient improvement over bubble sort, with a time complexity that typically performs better on larger datasets. By comparing elements that are far apart and gradually reducing the gap size, it can handle "turtles" (small elements at the end) early in the process. While it has a worst-case time complexity of $O(n²)$, its practical performance is much better, often approaching $O(n log n)$. It's simple to implement, in-place, and better suited for real-world use than bubble sort.

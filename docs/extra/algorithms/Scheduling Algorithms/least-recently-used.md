@@ -31,13 +31,13 @@ Consider a cache with a capacity of 3:
 - **Access 4:** Cache becomes `[4, 1, 3]` (2 is evicted)
 
 ## Time Complexity
-- Best Case: O(1)
-- Average Case: O(1)
-- Worst Case: O(1)
+- Best Case: $O(1)$
+- Average Case: $O(1)$
+- Worst Case: $O(1)$
 for access and update operations when implemented efficiently using a Hash Map and a Doubly Linked List. (Note: A naive array or list-based approach would be `O(n)`).
 
 ## Space Complexity
-- O(N)
+- $O(N)$
 where `N` is the capacity of the cache. The hash map stores `N` key-node pairs, and the doubly linked list stores `N` nodes.
 
 ## Explanation

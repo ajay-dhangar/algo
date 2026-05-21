@@ -25,15 +25,15 @@ The Edmonds-Karp algorithm finds the maximum flow in a flow network by using the
 
 ## Time Complexity
 
-The time complexity of the Edmonds-Karp algorithm is **O(V * E²)**, where:
+The time complexity of the Edmonds-Karp algorithm is **$O(V * E²)$**, where:
 - **V** is the number of vertices (nodes) in the graph.
 - **E** is the number of edges.
 
-This complexity arises from the BFS operation used to find paths, which takes **O(E)** time, and each augmenting path increases the flow, resulting in at most **O(V * E)** augmenting paths being processed.
+This complexity arises from the BFS operation used to find paths, which takes **$O(E)$** time, and each augmenting path increases the flow, resulting in at most **$O(V * E)$** augmenting paths being processed.
 
 ## Space Complexity
 
-The space complexity of the Edmonds-Karp algorithm is **O(V + E)**, where:
+The space complexity of the Edmonds-Karp algorithm is **$O(V + E)$**, where:
 - **V** is the number of vertices (nodes).
 - **E** is the number of edges.
 

@@ -28,7 +28,7 @@ The problem is to determine if a given string can be partitioned into substrings
 3. If the total changes exceed `k`, return false; otherwise, return true.
 
 ### Time Complexity
-- O(n^2) - where `n` is the length of the string.
+- $O(n^2)$ - where `n` is the length of the string.
 
 ### C++ Implementation
 

@@ -19,8 +19,8 @@ tags: [dsa, arrays, sorting, selection-sort, algorithm of selection-sort, pseudo
 4. In every iteration of selection sort, the minimum element from the unsorted subarray is picked and moved to the sorted subarray.
 5. The array is sorted.
 6. Exit.
-7. The time complexity of the selection sort is O(n^2).
-8. The space complexity of the selection sort is O(1).
+7. The time complexity of the selection sort is $O(n^2)$.
+8. The space complexity of the selection sort is $O(1)$.
 
 ## Pseudocode
 
@@ -44,7 +44,7 @@ end procedure
 
 ## Complexity
 
-The time complexity of the selection sort is O(n^2). The space complexity of the selection sort is O(1).
+The time complexity of the selection sort is $O(n^2)$. The space complexity of the selection sort is $O(1)$.
 
 ## Example
 
@@ -80,32 +80,32 @@ console.log(selectionSort(arr)); // [11, 12, 22, 25, 64]
 ## Quiz
 
 1. What is the time complexity of the selection sort?
-   - A) O(n)
-   - B) O(n^2)
-   - C) O(n log n)
-   - D) O(1)
+   - A) $O(n)$
+   - B) $O(n^2)$
+   - C) $O(n log n)$
+   - D) $O(1)$
  - Correct Answer: B
 
 2. What is the space complexity of the selection sort?
-   - A) O(n)
-   - B) O(n^2)
-   - C) O(n log n)
-   - D) O(1)
+   - A) $O(n)$
+   - B) $O(n^2)$
+   - C) $O(n log n)$
+   - D) $O(1)$
  - Correct Answer: D
-- Explanation: The space complexity of the selection sort is O(1).
+- Explanation: The space complexity of the selection sort is $O(1)$.
 
 3. What is the best-case time complexity of the selection sort?
-   - A) O(n)
-   - B) O(n^2)
-   - C) O(n log n)
-   - D) O(1)
+   - A) $O(n)$
+   - B) $O(n^2)$
+   - C) $O(n log n)$
+   - D) $O(1)$
  - Correct Answer: B
 
 4. What is the worst-case time complexity of the selection sort?
-   - A) O(n)
-   - B) O(n^2)
-   - C) O(n log n)
-   - D) O(1)
+   - A) $O(n)$
+   - B) $O(n^2)$
+   - C) $O(n log n)$
+   - D) $O(1)$
    - Correct Answer: B
 
 5. Is the selection sort stable?
@@ -143,10 +143,10 @@ function selectionSort() {
 }
 ```     
 
-In the above example, we have an array of numbers `[64, 25, 12, 22, 11]`. We are using the selection sort algorithm to sort the array in ascending order. The selection sort algorithm divides the input list into two parts: the sublist of items already sorted and the sublist of items remaining to be sorted. It repeatedly finds the minimum element from the unsorted part and puts it at the beginning of the unsorted part. The algorithm maintains two subarrays in a given array. The subarray which is already sorted and the remaining subarray which is unsorted. In every iteration of selection sort, the minimum element from the unsorted subarray is picked and moved to the sorted subarray. The sorted array is `[11, 12, 22, 25, 64]`. The time complexity of the selection sort is O(n^2) and the space complexity is O(1).
+In the above example, we have an array of numbers `[64, 25, 12, 22, 11]`. We are using the selection sort algorithm to sort the array in ascending order. The selection sort algorithm divides the input list into two parts: the sublist of items already sorted and the sublist of items remaining to be sorted. It repeatedly finds the minimum element from the unsorted part and puts it at the beginning of the unsorted part. The algorithm maintains two subarrays in a given array. The subarray which is already sorted and the remaining subarray which is unsorted. In every iteration of selection sort, the minimum element from the unsorted subarray is picked and moved to the sorted subarray. The sorted array is `[11, 12, 22, 25, 64]`. The time complexity of the selection sort is $O(n^2)$ and the space complexity is $O(1)$.
 
 :::
 
 ## Conclusion 
 
-In this article, we learned about the selection sort algorithm. Selection sort is an in-place comparison sorting algorithm that divides the input list into two parts: the sublist of items already sorted and the sublist of items remaining to be sorted. It repeatedly finds the minimum element from the unsorted part and puts it at the beginning of the unsorted part. The algorithm maintains two subarrays in a given array. The subarray which is already sorted and the remaining subarray which is unsorted. In every iteration of selection sort, the minimum element from the unsorted subarray is picked and moved to the sorted subarray. The time complexity of the selection sort is O(n^2) and the space complexity is O(1). Selection sort is a stable sorting algorithm.   
+In this article, we learned about the selection sort algorithm. Selection sort is an in-place comparison sorting algorithm that divides the input list into two parts: the sublist of items already sorted and the sublist of items remaining to be sorted. It repeatedly finds the minimum element from the unsorted part and puts it at the beginning of the unsorted part. The algorithm maintains two subarrays in a given array. The subarray which is already sorted and the remaining subarray which is unsorted. In every iteration of selection sort, the minimum element from the unsorted subarray is picked and moved to the sorted subarray. The time complexity of the selection sort is $O(n^2)$ and the space complexity is $O(1)$. Selection sort is a stable sorting algorithm.   

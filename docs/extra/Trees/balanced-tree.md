@@ -10,7 +10,7 @@ tags: [Data Structures, Balanced Tree, Algorithms]
 # Balanced Tree
 
 ## Overview
-A **Balanced Tree** is a data structure that automatically keeps its height (depth) small in comparison to the number of nodes. This ensures that operations such as insertion, deletion, and search can be performed efficiently, typically in **O(log n)** time. Common types of balanced trees include **AVL trees**, **Red-Black trees**, and **B-trees**.
+A **Balanced Tree** is a data structure that automatically keeps its height (depth) small in comparison to the number of nodes. This ensures that operations such as insertion, deletion, and search can be performed efficiently, typically in **$O(log n)$** time. Common types of balanced trees include **AVL trees**, **Red-Black trees**, and **B-trees**.
 
 ## Features
 - **Height-Balancing**: Maintains a balanced height to ensure operations remain efficient.
@@ -171,12 +171,12 @@ Inorder traversal:
 
 | Operation    | Average Time | Worst Case Time |
 |--------------|--------------|-----------------|
-| **Search**   | O(log n)     | O(n)            |
-| **Insertion**| O(log n)     | O(n)            |
-| **Deletion** | O(log n)     | O(n)            |
-| **Traversal**| O(n)         | O(n)            |
+| **Search**   | $O(log n)$     | $O(n)$            |
+| **Insertion**| $O(log n)$     | $O(n)$            |
+| **Deletion** | $O(log n)$     | $O(n)$            |
+| **Traversal**| $O(n)$         | $O(n)$            |
 
-> **Note**: The worst-case time complexity arises in unbalanced cases; balanced trees maintain an average of O(log n) for most operations.
+> **Note**: The worst-case time complexity arises in unbalanced cases; balanced trees maintain an average of $O(log n)$ for most operations.
 
 ## Conclusion
 Balanced trees are crucial data structures for efficient data management, allowing for fast search, insertion, and deletion operations. They are essential for applications that require maintaining dynamic datasets.

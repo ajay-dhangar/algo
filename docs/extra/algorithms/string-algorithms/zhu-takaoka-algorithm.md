@@ -42,7 +42,7 @@ The Zhu-Takaoka Algorithm is a string matching algorithm developed by R.F. Zhu a
 
 - **Searching: $O(n)$**
   - Where n is text length
-  - Best case: O(n/m)
+  - Best case: $O(n/m)$
   - Sublinear on average
 
 ### Space Complexity:
@@ -272,7 +272,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n/m) comparisons
+   - $O(n/m)$ comparisons
    - Occurs with non-matching characters
    - Benefits from two-character shifts
 
@@ -282,7 +282,7 @@ int main() {
    - Efficient for large alphabets
 
 3. **Worst Case**:
-   - O(nm) theoretical bound
+   - $O(nm)$ theoretical bound
    - Rare in practice
    - Still maintains practical efficiency
 

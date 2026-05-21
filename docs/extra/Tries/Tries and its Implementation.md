@@ -34,7 +34,7 @@ Key components of a Trie node:
 ## Properties
 - **Prefix-based Search**: Tries excel in finding all words that share a common prefix.
 - **Space Efficiency**: Although tries can be space-heavy in some cases, they eliminate the need to store redundant prefixes, making them more space-efficient for large datasets of similar strings.
-- **Time Complexity**: Trie operations such as insertion, search, and deletion have a time complexity of **O(m)**, where **m** is the length of the word or prefix being processed.
+- **Time Complexity**: Trie operations such as insertion, search, and deletion have a time complexity of **$O(m)$**, where **m** is the length of the word or prefix being processed.
 
 ## Types of Tries
 1. **Standard Trie**: Every node has 26 possible children (if dealing with lowercase alphabets), and each child represents one of the letters of the alphabet.
@@ -148,7 +148,7 @@ int main() {
 **Advantages:**
 - **Prefix Search**: Tries enable fast lookups for words or prefixes, making them ideal for autocomplete functionality.
 - **Efficient Storage**: Common prefixes are stored once, reducing redundancy.
-- **Fast Insertions and Searches**: Operations on a Trie (insertion, search, and deletion) are fast with a time complexity of **O(m)**, where **m** is the length of the word.
+- **Fast Insertions and Searches**: Operations on a Trie (insertion, search, and deletion) are fast with a time complexity of **$O(m)$**, where **m** is the length of the word.
 - **No Hash Collisions**: Unlike hash tables, tries do not suffer from hash collisions, ensuring consistent performance for string operations.
 
 **Disadvantages:**

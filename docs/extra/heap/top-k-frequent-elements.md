@@ -29,8 +29,8 @@ If the heap size exceeds K, remove the element with the lowest frequency.
 3. Extract the Results: After processing all elements, the heap contains the K most frequent elements.
 
 ## Time Complexity:
-O(n) for counting frequencies, where n is the number of elements in the array.
-O(n log K) for heap operations, as each element may be inserted and possibly removed once.
+$O(n)$ for counting frequencies, where n is the number of elements in the array.
+$O(n log K)$ for heap operations, as each element may be inserted and possibly removed once.
 
 # C++ Implementation:
 ```cpp

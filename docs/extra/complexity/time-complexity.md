@@ -53,23 +53,23 @@ The Theta Notation is written as `Θ(f(n))`, where `f(n)` is a function that rep
 
 Here are some examples of time complexity for different algorithms:
 
-- **Constant Time (O(1)):** An algorithm that takes the same amount of time to run, regardless of the size of the input.
-- **Linear Time (O(n)):** An algorithm that takes time proportional to the size of the input.
-- **Logarithmic Time (O(log n)):** An algorithm that takes time proportional to the logarithm of the size of the input.
-- **Quadratic Time (O(n^2)):** An algorithm that takes time proportional to the square of the size of the input.
-- **Exponential Time (O(2^n)):** An algorithm that takes time proportional to an exponential function of the size of the input.
-- **Factorial Time (O(n!)):** An algorithm that takes time proportional to the factorial of the size of the input.
-- **Polynomial Time (O(n^k)):** An algorithm that takes time proportional to a polynomial function of the size of the input.
-- **Sublinear Time (O(log log n)):** An algorithm that takes time proportional to the logarithm of the logarithm of the size of the input.
-- **Linearithmic Time (O(n log n)):** An algorithm that takes time proportional to the product of the size of the input and the logarithm of the size of the input.
-- **Quasilinear Time (O(n log^k n)):** An algorithm that takes time proportional to the product of the size of the input and the logarithm of the size of the input raised to the power of k.
-- **Superpolynomial Time (O(n^k)):** An algorithm that takes time proportional to a function that grows faster than any polynomial function of the size of the input.
-- **Subexponential Time (O(2^poly(n))):** An algorithm that takes time proportional to a function that grows slower than any exponential function of the size of the input.
-- **Log Factorial Time (O(log n!)):** An algorithm that takes time proportional to the logarithm of the factorial of the size of the input.
-- **Exponential Factorial Time (O(2^n!)):** An algorithm that takes time proportional to an exponential function of the factorial of the size of the input.
-- **Exponential Exponential Time (O(2^2^n)):** An algorithm that takes time proportional to an exponential function of an exponential function of the size of the input.
-- **Exponential Factorial Exponential Time (O(2^n!^2^n)):** An algorithm that takes time proportional to an exponential function of the factorial of an exponential function of the size of the input.
-- **Exponential Exponential Factorial Time (O(2^2^n!)):** An algorithm that takes time proportional to an exponential function of an exponential function of the factorial of the size of the input.
+- **Constant Time ($O(1)$):** An algorithm that takes the same amount of time to run, regardless of the size of the input.
+- **Linear Time ($O(n)$):** An algorithm that takes time proportional to the size of the input.
+- **Logarithmic Time ($O(log n)$):** An algorithm that takes time proportional to the logarithm of the size of the input.
+- **Quadratic Time ($O(n^2)$):** An algorithm that takes time proportional to the square of the size of the input.
+- **Exponential Time ($O(2^n)$):** An algorithm that takes time proportional to an exponential function of the size of the input.
+- **Factorial Time ($O(n!)$):** An algorithm that takes time proportional to the factorial of the size of the input.
+- **Polynomial Time ($O(n^k)$):** An algorithm that takes time proportional to a polynomial function of the size of the input.
+- **Sublinear Time ($O(log log n)$):** An algorithm that takes time proportional to the logarithm of the logarithm of the size of the input.
+- **Linearithmic Time ($O(n log n)$):** An algorithm that takes time proportional to the product of the size of the input and the logarithm of the size of the input.
+- **Quasilinear Time ($O(n log^k n)$):** An algorithm that takes time proportional to the product of the size of the input and the logarithm of the size of the input raised to the power of k.
+- **Superpolynomial Time ($O(n^k)$):** An algorithm that takes time proportional to a function that grows faster than any polynomial function of the size of the input.
+- **Subexponential Time ($O(2^poly(n))$):** An algorithm that takes time proportional to a function that grows slower than any exponential function of the size of the input.
+- **Log Factorial Time ($O(log n!)$):** An algorithm that takes time proportional to the logarithm of the factorial of the size of the input.
+- **Exponential Factorial Time ($O(2^n!)$):** An algorithm that takes time proportional to an exponential function of the factorial of the size of the input.
+- **Exponential Exponential Time ($O(2^2^n)$):** An algorithm that takes time proportional to an exponential function of an exponential function of the size of the input.
+- **Exponential Factorial Exponential Time ($O(2^n!^2^n)$):** An algorithm that takes time proportional to an exponential function of the factorial of an exponential function of the size of the input.
+- **Exponential Exponential Factorial Time ($O(2^2^n!)$):** An algorithm that takes time proportional to an exponential function of an exponential function of the factorial of the size of the input.
 
 <AdsComponent />
 

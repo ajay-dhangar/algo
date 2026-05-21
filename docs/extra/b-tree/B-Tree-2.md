@@ -538,5 +538,5 @@ The delete operation is also complex. Deleting a key can cause a node to have to
 ## Advantages of B-Trees
 
 - **Higher Fanout:** B-trees have a higher fanout than binary search trees, resulting in fewer disk accesses when searching for a key.
-- **Balanced Structure:** All operations have a worst-case time complexity of \(O(\log n)\).
+- **Balanced Structure:** All operations have a worst-case time complexity of \($O(\log n)$\).
 - **Self-Adjusting:** B-trees can adapt to changes in the dataset without requiring expensive rebalancing operations.

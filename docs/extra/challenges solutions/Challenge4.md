@@ -116,7 +116,7 @@ D) any position
 ---
 
 ## Question 10
-**O(n) means computing time is**  
+**$O(n)$ means computing time is**  
 **Options:**  
 A) Constant
 B) Quadratic
@@ -146,13 +146,13 @@ D) To search in an unordered list
 ## Question 12
 **Which of the following cases does not exist in complexity theory?**  
 **Options:**  
-A) O(0)  
-B) O(log n)  
-C) O(n)  
-D) O(n log n)  
+A) $O(0)$  
+B) $O(log n)$  
+C) $O(n)$  
+D) $O(n log n)$  
 
-**Answer:** A) O(0)  
-**Explanation:** A) O(0) is not any time complexity
+**Answer:** A) $O(0)$  
+**Explanation:** A) $O(0)$ is not any time complexity
 
 ---
 
@@ -229,12 +229,12 @@ D) Ordinary queue
 ## Question 18
 **The time complexity of the dequeue operation in a queue is:**  
 **Options:**  
-A) O(1)  
-B) O(n)  
-C) O(n log n)  
-D) O(log n)  
+A) $O(1)$  
+B) $O(n)$  
+C) $O(n log n)$  
+D) $O(log n)$  
 
-**Answer:** 1) O(1)  
+**Answer:** 1) $O(1)$  
 **Explanation:** The dequeue operation involves removing the front element and updating the front pointer.
 
 ---
@@ -267,12 +267,12 @@ D) Level-order
 ## Question 21
 **What would be the time complexity to find an element in the linked list?**  
 **Options:**  
-A) O(1)
-B)  O(n)
-C)  O(n^2)
-D) O(n^4)  
+A) $O(1)$
+B)  $O(n)$
+C)  $O(n^2)$
+D) $O(n^4)$  
 
-**Answer:** B)  O(n) 
+**Answer:** B)  $O(n)$ 
 **Explanation:**  If the element is at the end of the linked list, we have to traverse through all the linked list elements.
 
 ---
@@ -293,13 +293,13 @@ D) l
 ## Question 23
 **What is the time complexity of searching for an element in a balanced binary search tree?**  
 **Options:**  
-A) O(1)  
-B) O(log n)  
-C) O(n)  
-D) O(n log n)  
+A) $O(1)$  
+B) $O(log n)$  
+C) $O(n)$  
+D) $O(n log n)$  
 
-**Answer:** B) O(log n)  
-**Explanation:** Searching in a balanced binary search tree is efficient, with a time complexity of O(log n).
+**Answer:** B) $O(log n)$  
+**Explanation:** Searching in a balanced binary search tree is efficient, with a time complexity of $O(log n)$.
 
 ---
 

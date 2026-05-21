@@ -74,7 +74,7 @@ print(f"Number of divisors of {n} is: {count_divisors(n)}")
 ```
 
 # Time Complexity
-The time complexity of this algorithm is O(√n), as we iterate only up to the square root of n.
+The time complexity of this algorithm is $O(√n)$, as we iterate only up to the square root of n.
 
 # Applications of Counting Divisors
 Counting divisors is widely used in various fields:

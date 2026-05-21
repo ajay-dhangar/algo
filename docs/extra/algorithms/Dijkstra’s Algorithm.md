@@ -114,12 +114,12 @@ Distance from 0 to 4 is 5
 
 ### Time Complexity
 
-Worst Case: (O(V^2)), where V is the number of vertices in the graph.
+Worst Case: ($O(V^2)$), where V is the number of vertices in the graph.
 This is because, in the simplest implementation using an array, each vertex is checked against all others to find the minimum distance.
 
 ### Space Complexity
 
-Space Complexity: (O(V)), where V is the number of vertices.
+Space Complexity: ($O(V)$), where V is the number of vertices.
 The program uses an array to store the shortest distances from the source vertex to all other vertices.
 
 ### Assumptions

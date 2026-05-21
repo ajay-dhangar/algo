@@ -277,7 +277,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n) operations
+   - $O(n)$ operations
    - Constant-time updates
    - Efficient bit parallel
 
@@ -287,7 +287,7 @@ int main() {
    - Consistent speed
 
 3. **Worst Case**:
-   - O(n) guaranteed
+   - $O(n)$ guaranteed
    - Pattern length bounded
    - Stable performance
 

@@ -632,9 +632,9 @@ class CircularLinkedList {
 - **Space Complexity**: 
 
 - Operations typically use $O(1) $ extra space as they only involve manipulating existing nodes.
-- In Python's display method, storing node data in a list requires O(n) space.
+- In Python's display method, storing node data in a list requires $O(n)$ space.
 
 
 ### Conclusion
 
-Circular Linked Lists are versatile data structures that allow for efficient cyclic traversals. While most operations have a time complexity of O(n) due to the need to traverse the list, they offer the advantage of not having a null reference at the end, which can be beneficial in certain applications like implementing round-robin schedulers or circular queues.
+Circular Linked Lists are versatile data structures that allow for efficient cyclic traversals. While most operations have a time complexity of $O(n)$ due to the need to traverse the list, they offer the advantage of not having a null reference at the end, which can be beneficial in certain applications like implementing round-robin schedulers or circular queues.

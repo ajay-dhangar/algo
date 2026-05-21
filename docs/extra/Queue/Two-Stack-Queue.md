@@ -9,7 +9,7 @@ tags: [data structure, queue, stack]
 
 # Two-Stack Queue Implementation
 
-This project implements a queue data structure using two stacks with a lazy transfer approach. The implementation provides O(1) amortized time complexity for both enqueue and dequeue operations.
+This project implements a queue data structure using two stacks with a lazy transfer approach. The implementation provides $O(1)$ amortized time complexity for both enqueue and dequeue operations.
 
 ## Algorithm Overview
 
@@ -19,11 +19,11 @@ The implementation uses two stacks:
 
 ### Key Operations
 
-1. **Enqueue**: Push elements directly onto `inStack` - O(1)
+1. **Enqueue**: Push elements directly onto `inStack` - $O(1)$
 2. **Dequeue**: 
     - If `outStack` is empty, transfer all elements from `inStack` to `outStack`
     - Pop and return the top element from `outStack`
-    - Amortized O(1)
+    - Amortized $O(1)$
 
 ## Implementation
 

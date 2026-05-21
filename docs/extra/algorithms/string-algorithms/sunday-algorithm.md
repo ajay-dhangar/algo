@@ -42,7 +42,7 @@ The Sunday Algorithm is a string matching algorithm developed by Daniel M. Sunda
 
 - **Searching: $O(m \times n)$**
   - Where n is text length
-  - Best case: O(n/m)
+  - Best case: $O(n/m)$
   - Average case: sublinear
 
 ### Space Complexity:
@@ -222,7 +222,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n/m) comparisons
+   - $O(n/m)$ comparisons
    - Maximum character skips
    - Optimal shifting
 
@@ -232,7 +232,7 @@ int main() {
    - Good practical speed
 
 3. **Worst Case**:
-   - O(mn) theoretical bound
+   - $O(mn)$ theoretical bound
    - Rare in practice
    - Still maintains efficiency
 

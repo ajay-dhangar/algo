@@ -54,10 +54,10 @@ To solve this problem efficiently, we can use **binary search** combined with pr
    If the mid-point is valid, continue searching on the lower half. Otherwise, adjust the search towards the higher half of the range.
 
 ### Time Complexity:
-- **O(log(maxRange - minRange))**, where `maxRange` and `minRange` represent the search space.
+- **$O(log(maxRange - minRange))$**, where `maxRange` and `minRange` represent the search space.
   
 ### Space Complexity:
-- **O(1)**, since we are only using constant space for variables during binary search.
+- **$O(1)$**, since we are only using constant space for variables during binary search.
 
 ### C++ Code Implementation:
 

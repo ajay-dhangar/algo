@@ -377,17 +377,17 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n) comparisons
+   - $O(n)$ comparisons
    - Linear scanning
    - Immediate mismatches
 
 2. **Average Case**:
-   - O(n) performance
+   - $O(n)$ performance
    - Consistent behavior
    - Pattern-independent
 
 3. **Worst Case**:
-   - O(n) guaranteed
+   - $O(n)$ guaranteed
    - No performance degradation
    - Stable behavior
 

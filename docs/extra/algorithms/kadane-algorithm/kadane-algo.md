@@ -15,9 +15,9 @@ Kadane's Algorithm is an efficient algorithm to find the maximum sum of a contig
   The algorithm processes the array in a single pass:
   - It iteratively updates the maximum sum of the subarray ending at each position.
 - **Linear Time Complexity**:  
-  The algorithm runs in O(N) time, where N is the number of elements in the array.
+  The algorithm runs in $O(N)$ time, where N is the number of elements in the array.
 - **Constant Space Complexity**:  
-  It only requires a few extra variables, resulting in O(1) space complexity.
+  It only requires a few extra variables, resulting in $O(1)$ space complexity.
 
 ### Time Complexity:
 

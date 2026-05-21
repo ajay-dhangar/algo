@@ -39,16 +39,21 @@ const BubbleSortVisualization: React.FC = () => {
    * Updates the CSS transition duration for the sorting visualization.
    */
   const updateMoveDuration = () => {
-    const stylesheets = document.styleSheets;
-    for (let i = 0; i < stylesheets.length; i++) {
-      const rules = (stylesheets[i] as CSSStyleSheet).cssRules || (stylesheets[i] as CSSStyleSheet).rules;
-      for (let j = 0; j < rules.length; j++) {
-        if ((rules[j] as CSSStyleRule).selectorText === '.v-move') {
-          (rules[j] as CSSStyleRule).style.transitionDuration = `${delay}ms`;
-          break;
+    try {
+      const stylesheets = document.styleSheets;
+      for (let i = 0; i < stylesheets.length; i++) {
+        const rules = (stylesheets[i] as CSSStyleSheet).cssRules || (stylesheets[i] as CSSStyleSheet).rules;
+        for (let j = 0; j < rules.length; j++) {
+          if ((rules[j] as CSSStyleRule).selectorText === '.v-move') {
+            (rules[j] as CSSStyleRule).style.transitionDuration = `${delay}ms`;
+            return;
+          }
         }
       }
+    } catch {
+      // Safari throws SecurityError on cross-origin stylesheets (e.g. Google Fonts CDN)
     }
+    document.documentElement.style.setProperty('--move-duration', `${delay}ms`);
   };
 
   /**
@@ -90,7 +95,7 @@ const BubbleSortVisualization: React.FC = () => {
           <div
             key={index}
             className={`array-bar ${comparingIndices.includes(index) ? 'comparing' : ''}`}
-            style={{ height: `${value * 3}px` }}
+            style={{ height: `${value * 3}px`, transitionDuration: `${delay}ms` }}
           />
         ))}
       </div>

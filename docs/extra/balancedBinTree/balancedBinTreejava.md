@@ -55,11 +55,11 @@ We'll implement a depth-first search (DFS) approach to check if the binary tree 
 
 ## Time Complexity
 
-The time complexity of this solution is O(n), where n is the number of nodes in the binary tree. We visit each node once during the depth-first search.
+The time complexity of this solution is $O(n)$, where n is the number of nodes in the binary tree. We visit each node once during the depth-first search.
 
 ## Space Complexity
 
-The space complexity is O(h), where h is the height of the tree. This space is used by the recursion stack. In the worst case of a skewed tree, this could be O(n), but for a balanced tree, it would be O(log n).
+The space complexity is $O(h)$, where h is the height of the tree. This space is used by the recursion stack. In the worst case of a skewed tree, this could be $O(n)$, but for a balanced tree, it would be $O(log n)$.
 
 ## Example Usage
 

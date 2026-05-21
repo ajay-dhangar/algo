@@ -11,11 +11,11 @@ The Knuth-Morris-Pratt (KMP) algorithm is an efficient string-matching algorithm
 
 ## Introduction
 
-In traditional substring search algorithms, such as the naive approach, the time complexity can be as high as **O(n * m)**, where **n** is the length of the text and **m** is the length of the pattern. The KMP algorithm optimizes this by preprocessing the pattern to determine the longest prefix which is also a suffix, allowing it to skip unnecessary comparisons.
+In traditional substring search algorithms, such as the naive approach, the time complexity can be as high as **$O(n * m)$**, where **n** is the length of the text and **m** is the length of the pattern. The KMP algorithm optimizes this by preprocessing the pattern to determine the longest prefix which is also a suffix, allowing it to skip unnecessary comparisons.
 
 ## Characteristics of KMP Algorithm
 
-1. **Efficiency**: The KMP algorithm runs in **O(n + m)** time, making it much more efficient for longer texts and patterns.
+1. **Efficiency**: The KMP algorithm runs in **$O(n + m)$** time, making it much more efficient for longer texts and patterns.
 2. **Preprocessing**: It preprocesses the pattern to create a longest prefix suffix (LPS) array, which guides the search process.
 3. **No Backtracking**: Unlike naive algorithms, KMP does not backtrack the text pointer, ensuring a linear scan.
 
@@ -71,7 +71,7 @@ Repeat the comparison until the end of the text.
 
 ## Time Complexity
 
-- The KMP algorithm runs in **O(n + m)** time, where **n** is the length of the text and **m** is the length of the pattern. This efficiency is achieved due to the preprocessing step and the avoidance of backtracking.
+- The KMP algorithm runs in **$O(n + m)$** time, where **n** is the length of the text and **m** is the length of the pattern. This efficiency is achieved due to the preprocessing step and the avoidance of backtracking.
 
 ## Applications
 

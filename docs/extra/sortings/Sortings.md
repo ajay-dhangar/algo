@@ -132,11 +132,11 @@ main();
 ```
 
 **Time Complexity**
-    - **Worst Case**: O(n²) – when the array is sorted in reverse order.
-    - **Best Case**: O(n) – when the array is already sorted.
+    - **Worst Case**: $O(n²)$ – when the array is sorted in reverse order.
+    - **Best Case**: $O(n)$ – when the array is already sorted.
     
 **Space Complexity**
-   - O(1) – sorts the list in place without extra space.
+   - $O(1)$ – sorts the list in place without extra space.
 
 **Stability**
    - Stable – equal elements remain in the same relative order after sorting.
@@ -218,11 +218,11 @@ public class Main{
 ```
 
 **Time Complexity**
-    - **Worst Case**: O(n²) – as it performs n comparisons for each element.
-    - **Best Case**: O(n) – when the array is already sorted.
+    - **Worst Case**: $O(n²)$ – as it performs n comparisons for each element.
+    - **Best Case**: $O(n)$ – when the array is already sorted.
     
 **Space Complexity**
-    - O(1) – in-place sorting.
+    - $O(1)$ – in-place sorting.
 
 **Stability**
     - Unstable – equal elements may be swapped, changing their relative order.
@@ -298,11 +298,11 @@ public class Main{
 }
 ```
 **Time Complexity**
-    - **Worst Case**: O(n²) – when the array is sorted in reverse order.
-    - **Best Case**: O(n) – when the array is already sorted.
+    - **Worst Case**: $O(n²)$ – when the array is sorted in reverse order.
+    - **Best Case**: $O(n)$ – when the array is already sorted.
     
 **Space Complexity**
-    - O(1) – in-place sorting.
+    - $O(1)$ – in-place sorting.
 
 **Stability**
     - Stable – maintains the relative order of equal elements.
@@ -440,10 +440,10 @@ public class Main{
 }
 ```
 **Time Complexity**
-    - O(n log n) – consistently for all cases (worst, average, and best).
+    - $O(n log n)$ – consistently for all cases (worst, average, and best).
     
 **Space Complexity**
-    - O(n) – requires additional space for temporary arrays during the merge process.
+    - $O(n)$ – requires additional space for temporary arrays during the merge process.
 
 **Stability**
     - Stable – equal elements maintain their relative order.
@@ -555,10 +555,10 @@ public class Main{
 }
 ```
 **Time Complexity**
-    - **Worst Case**:O(n²) – occurs when the pivot is poorly chosen, such as when the array is already sorted.
+    - **Worst Case**:$O(n²)$ – occurs when the pivot is poorly chosen, such as when the array is already sorted.
     
 **Space Complexity**
-    - O(log n) – due to recursive calls, but in-place sorting.
+    - $O(log n)$ – due to recursive calls, but in-place sorting.
 
 **Stability**
     - Unstable – the relative order of equal elements may change.
@@ -665,16 +665,16 @@ void swap(int* a, int* b) {
 ```
 
 **Time Complexity**
-O(n log n) – consistently for all cases.
+$O(n log n)$ – consistently for all cases.
 
 **Space Complexity**
-O(1) – in-place sorting, no extra space required.
+$O(1)$ – in-place sorting, no extra space required.
 
 **Stability**
 Unstable – the relative order of equal elements may change.
 
 **Usage**
-Used in applications where a guarantee of O(n log n) time is necessary and space is limited.
+Used in applications where a guarantee of $O(n log n)$ time is necessary and space is limited.
 
 ### Conclusion
 

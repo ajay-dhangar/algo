@@ -33,7 +33,7 @@ Given a knapsack with a weight limit of W and a list of items, each with a value
 
 ## Time Complexity:
 Best, Average, and Worst Case: $O(n \log n)$
-Where n is the number of items. Sorting items by their value-to-weight ratio takes O(n \log n) time.
+Where n is the number of items. Sorting items by their value-to-weight ratio takes $O(n \log n)$ time.
 
 ## Space Complexity:
 Space Complexity: $O(n)$

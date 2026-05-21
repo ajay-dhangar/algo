@@ -51,7 +51,7 @@ A **digital search** algorithm is one that operates on the individual digits or 
   In radix search, the complexity depends on the number of digits or characters processed, but it is often much faster than comparison-based searches for long or fixed-length keys.
 
 - **Hashing: $O(1)$**  
-  Hashing provides constant time search on average, although the worst-case complexity can degrade to O(n) if many keys hash to the same index (collisions).
+  Hashing provides constant time search on average, although the worst-case complexity can degrade to $O(n)$ if many keys hash to the same index (collisions).
 
 ### Space Complexity:
 

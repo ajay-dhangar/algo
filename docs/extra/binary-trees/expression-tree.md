@@ -125,12 +125,12 @@ int main() {
 ## Code Analysis
 
 ### Time Complexity
-- **Constructing the Expression Tree**: **O(n)**, where **n** is the number of characters in the postfix expression.
-- **Inorder Traversal**: **O(n)**.
-- **Overall**: **O(n)**.
+- **Constructing the Expression Tree**: **$O(n)$**, where **n** is the number of characters in the postfix expression.
+- **Inorder Traversal**: **$O(n)$**.
+- **Overall**: **$O(n)$**.
 
 ### Space Complexity
-- **Stack and Tree Storage**: **O(n)** for both the stack and the expression tree.
+- **Stack and Tree Storage**: **$O(n)$** for both the stack and the expression tree.
 
 ## Summary
 The implementation effectively constructs an expression tree from a postfix expression and outputs the corresponding infix expression, with efficient time and space complexities, and a clear, maintainable structure.

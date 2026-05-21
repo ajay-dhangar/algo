@@ -51,7 +51,7 @@ Topological Sorting helps in sorting vertices in a Directed Acyclic Graph (DAG) 
 A -→ B -→ C -→ D → E -→ F
 
 ## Time Complexity
-**Time Complexity:** O(V + E), where:
+**Time Complexity:** $O(V + E)$, where:
 - `V` is the number of vertices.
 - `E` is the number of edges.
 
@@ -84,7 +84,7 @@ Each vertex and edge is visited exactly once, making the algorithm linear.
 ## Advantages of Topological Sorting
 - **Efficient Task Ordering**: Helps in scheduling tasks with dependencies.
 - **Cycle Detection**: If a cycle exists in the graph, the algorithm will detect it and stop.
-- **Linear Time**: The algorithm works in linear time O(V + E) for DAGs.
+- **Linear Time**: The algorithm works in linear time $O(V + E)$ for DAGs.
 
 ## Limitations
 - **Applicable Only to DAGs**: Topological sorting works only for Directed Acyclic Graphs. It cannot be applied to cyclic graphs.

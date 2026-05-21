@@ -11,7 +11,7 @@ tags: [dsa, data structures, splay-trees]
 
 ## Introduction
 
-A **Splay Tree** is a self-adjusting binary search tree (BST) that performs basic operations such as search, insertion, and deletion in amortized O(log n) time. The tree self-adjusts by moving the most recently accessed element to the root through a process called **splaying**. This ensures that frequently accessed elements are quick to reach in future operations.
+A **Splay Tree** is a self-adjusting binary search tree (BST) that performs basic operations such as search, insertion, and deletion in amortized $O(log n)$ time. The tree self-adjusts by moving the most recently accessed element to the root through a process called **splaying**. This ensures that frequently accessed elements are quick to reach in future operations.
 
 Splay trees are particularly effective when access patterns exhibit locality of reference, meaning that recently accessed elements are likely to be accessed again soon.
 
@@ -19,7 +19,7 @@ Splay trees are particularly effective when access patterns exhibit locality of 
 
 1. **Self-adjusting**: The most recently accessed node is moved to the root of the tree.
 2. **Binary Search Tree**: Maintains the basic properties of a BST, where for any node `x`, the left subtree contains nodes with keys less than `x` and the right subtree contains nodes with keys greater than `x`.
-3. **Amortized Complexity**: Although individual operations can take O(n) in the worst case, the amortized time complexity of operations is O(log n).
+3. **Amortized Complexity**: Although individual operations can take $O(n)$ in the worst case, the amortized time complexity of operations is $O(log n)$.
 
 ## Definition and Structure
 
@@ -136,12 +136,12 @@ Node* deleteNode(Node* root, int key) {
 ## Advantages and Disadvantages
 
 ### Advantages:
-- **Amortized O(log n)** time complexity for search, insertion, and deletion.
+- **Amortized $O(log n)$** time complexity for search, insertion, and deletion.
 - Frequently accessed elements are fast to access, making the tree ideal for caches and other data structures with locality of reference.
 - Simpler than AVL or Red-Black trees since no explicit balancing is required after every operation.
 
 ### Disadvantages:
-- **Worst-case O(n)** time complexity for individual operations, though this is rare with random access patterns.
+- **Worst-case $O(n)$** time complexity for individual operations, though this is rare with random access patterns.
 - Not as strictly balanced as other self-balancing trees like AVL or Red-Black Trees.
 - Performance can degrade if access patterns are highly unbalanced.
 

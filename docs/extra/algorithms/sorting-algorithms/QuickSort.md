@@ -27,19 +27,19 @@ Quick sort is a **divide-and-conquer** sorting algorithm that works by selecting
 
 ### Time Complexity:
 
-- **Best Case: O(n log n)**  
+- **Best Case: $O(n log n)$**  
   In the best case, the pivot divides the array into two nearly equal subarrays, leading to a logarithmic number of comparisons across each recursive call.
 
-- **Average Case: O(n log n)**  
-  On average, quick sort partitions the array into balanced subarrays, leading to an O(n log n) time complexity.
+- **Average Case: $O(n log n)$**  
+  On average, quick sort partitions the array into balanced subarrays, leading to an $O(n log n)$ time complexity.
 
-- **Worst Case: O(n²)**  
+- **Worst Case: $O(n²)$**  
   The worst-case scenario occurs when the pivot chosen is consistently the smallest or largest element, leading to unbalanced partitions and quadratic time complexity. This can be mitigated by using strategies like randomized pivots or choosing the median of three elements as the pivot.
 
 ### Space Complexity:
 
-- **Space Complexity: O(log n)**  
-  Quick sort requires O(log n) space for recursive calls when the partitioning is balanced. In the worst case (highly unbalanced partitioning), it requires O(n) space for recursion.
+- **Space Complexity: $O(log n)$**  
+  Quick sort requires $O(log n)$ space for recursive calls when the partitioning is balanced. In the worst case (highly unbalanced partitioning), it requires $O(n)$ space for recursion.
 
 ### C++ Implementation:
 
@@ -158,13 +158,13 @@ int main() {
 
 ### Summary:
 
-Quick sort is a highly efficient and widely used sorting algorithm that works well for large datasets. It employs the divide-and-conquer approach, partitioning the array around a pivot and sorting the subarrays recursively. Although its worst-case time complexity is O(n²), this can often be avoided by choosing an appropriate pivot (like the median of three). In practice, quick sort is often faster than other O(n log n) algorithms like merge sort due to its in-place sorting nature and better cache performance.
+Quick sort is a highly efficient and widely used sorting algorithm that works well for large datasets. It employs the divide-and-conquer approach, partitioning the array around a pivot and sorting the subarrays recursively. Although its worst-case time complexity is $O(n²)$, this can often be avoided by choosing an appropriate pivot (like the median of three). In practice, quick sort is often faster than other $O(n log n)$ algorithms like merge sort due to its in-place sorting nature and better cache performance.
 
 
 ## Complexity Comparison Table
 
 | Algorithm | Best Case | Average Case | Worst Case | Space Complexity |
 |---|---|---|---|---|
-| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
-| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
-| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+| Bubble Sort | $O(n)$ | $O(n²)$ | $O(n²)$ | $O(1)$ |
+| Merge Sort | $O(n log n)$ | $O(n log n)$ | $O(n log n)$ | $O(n)$ |
+| Quick Sort | $O(n log n)$ | $O(n log n)$ | $O(n²)$ | $O(log n)$ |

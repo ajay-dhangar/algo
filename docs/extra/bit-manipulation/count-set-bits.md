@@ -85,7 +85,7 @@ print(f"Number of set bits in {n} is {count_set_bits(n)}")
 ```
 
 # Time Complexity
-This algorithm runs in O(k), where k is the number of set bits, making it efficient compared to simple bit counting methods.
+This algorithm runs in $O(k)$, where k is the number of set bits, making it efficient compared to simple bit counting methods.
 
 # Why It's Efficient
 The algorithm focuses only on set bits, skipping zero bits entirely, which significantly reduces the number of operations.

@@ -28,7 +28,7 @@ sidebar_label: AO*
 
 ### Space Complexity:
 
-- **Space Complexity**: \(O(n)\)
+- **Space Complexity**: \($O(n)$\)
 
 ### Advantages of AO*:
 

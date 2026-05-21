@@ -27,19 +27,19 @@ Counting sort is a non-comparative sorting algorithm that sorts elements by coun
 
 ### Time Complexity:
 
-- **Best Case: O(n + k)**  
+- **Best Case: $O(n + k)$**  
   Counting sort achieves linear time when the range of the input data (k) is not significantly larger than the number of elements (n).
 
-- **Average Case: O(n + k)**  
+- **Average Case: $O(n + k)$**  
   The time complexity remains linear in most cases, provided that the range `k` is reasonably small compared to `n`.
 
-- **Worst Case: O(n + k)**  
+- **Worst Case: $O(n + k)$**  
   The worst-case time complexity occurs when the range of input values is large, resulting in extra space and time for the counting array.
 
 ### Space Complexity:
 
-- **Space Complexity: O(n + k)**  
-  Counting sort requires an extra counting array and an output array, resulting in a space complexity of O(n + k), where `k` is the range of the input values.
+- **Space Complexity: $O(n + k)$**  
+  Counting sort requires an extra counting array and an output array, resulting in a space complexity of $O(n + k)$, where `k` is the range of the input values.
 
 ### C++ Implementation:
 
@@ -102,5 +102,5 @@ int main() {
 
 ### Summary:
 
-Counting sort is a highly efficient algorithm for sorting integers within a limited range. It performs in linear time, O(n + k), making it faster than comparison-based algorithms like quicksort or mergesort in certain situations. However, the space complexity, O(n + k), means it requires significant extra memory, making it less suitable for large datasets with a wide range of input values. Counting sort is often used as a subroutine in more advanced algorithms like radix sort, and it works best when the range of input data is small relative to the dataset size.
+Counting sort is a highly efficient algorithm for sorting integers within a limited range. It performs in linear time, $O(n + k)$, making it faster than comparison-based algorithms like quicksort or mergesort in certain situations. However, the space complexity, $O(n + k)$, means it requires significant extra memory, making it less suitable for large datasets with a wide range of input values. Counting sort is often used as a subroutine in more advanced algorithms like radix sort, and it works best when the range of input data is small relative to the dataset size.
 

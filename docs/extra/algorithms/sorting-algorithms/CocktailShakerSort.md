@@ -22,18 +22,18 @@ Cocktail Shaker Sort, also known as Bidirectional Bubble Sort, is a variation of
 
 ### Time Complexity:
 
-- **Best Case: O(n)**  
+- **Best Case: $O(n)$**  
   When the array is already sorted, the algorithm makes a single pass.
 
-- **Average Case: O(n²)**  
+- **Average Case: $O(n²)$**  
   In most scenarios, the algorithm's performance resembles that of Bubble Sort.
 
-- **Worst Case: O(n²)**  
+- **Worst Case: $O(n²)$**  
   Similar to Bubble Sort, the worst-case scenario occurs with a reversed array.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   The algorithm operates in constant space since it only requires a few variables for swapping and indexing.
 
 ### Java Implementation:

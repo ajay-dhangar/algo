@@ -39,7 +39,7 @@ def is_odd(n):
 If $ n = 0 $, the function returns immediately.
 
 **Time Complexity:**  
-$ O(1) $
+$ $O(1)$ $
 
 ### Worst Case
 The worst case occurs when the mutual recursion continues to call each other before reaching a base case.
@@ -47,7 +47,7 @@ The worst case occurs when the mutual recursion continues to call each other bef
 **Example:** Using the same alternating function: For $ n = 5 $, the function makes multiple calls, alternating between `is_even` and `is_odd`.
 
 **Time Complexity:**  
-$ O(n) $
+$ $O(n)$ $
 
 ## Example Using Mutual Recursion
 

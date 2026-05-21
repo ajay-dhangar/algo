@@ -166,4 +166,4 @@ print(dsu.find(1))  # Output: 0 (due to union)
 
 
 
-All three implementations support efficient find and union operations with a time complexity of nearly O(1) due to path compression and union by rank.
+All three implementations support efficient find and union operations with a time complexity of nearly $O(1)$ due to path compression and union by rank.

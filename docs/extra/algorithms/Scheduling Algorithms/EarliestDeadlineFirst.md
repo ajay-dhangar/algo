@@ -119,8 +119,8 @@ Average turnaround time = 4.33
 ```
 
 ## Time and Space Complexity
-    - Time Complexity: The time complexity is O(n log n) due to the sorting of processes, where n is the number of processes.
-    - Space Complexity: The space complexity is O(n) due to the storage of waiting times and turnaround times.
+    - Time Complexity: The time complexity is $O(n log n)$ due to the sorting of processes, where n is the number of processes.
+    - Space Complexity: The space complexity is $O(n)$ due to the storage of waiting times and turnaround times.
 
 ## Conclusion
 The Earliest Deadline First scheduling algorithm is an effective approach for real-time systems, ensuring that time-critical tasks are executed before their deadlines. However, it can lead to challenges such as deadline misses if the system is overloaded.

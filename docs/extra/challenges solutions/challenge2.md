@@ -94,12 +94,12 @@ D) Quadruple linked list
 ## Question 8
 **What is the height of a balanced binary tree with n nodes?**  
 **Options:**  
-A) O(1)  
-B) O(log n)  
-C) O(n)  
-D) O(n log n)  
+A) $O(1)$  
+B) $O(log n)$  
+C) $O(n)$  
+D) $O(n log n)$  
 
-**Answer:** B) O(log n)  
+**Answer:** B) $O(log n)$  
 **Explanation:** In a balanced binary tree, the height is logarithmic relative to the number of nodes, allowing for efficient search operations.
 
 ---
@@ -146,13 +146,13 @@ D) Stack
 ## Question 12
 **What is the time complexity of accessing an element in a hash table?**  
 **Options:**  
-A) O(1)  
-B) O(log n)  
-C) O(n)  
-D) O(n log n)  
+A) $O(1)$  
+B) $O(log n)$  
+C) $O(n)$  
+D) $O(n log n)$  
 
-**Answer:** A) O(1)  
-**Explanation:** Accessing an element in a hash table is generally O(1) on average, thanks to direct indexing based on the hash value.
+**Answer:** A) $O(1)$  
+**Explanation:** Accessing an element in a hash table is generally $O(1)$ on average, thanks to direct indexing based on the hash value.
 
 ---
 
@@ -211,12 +211,12 @@ D) Creating binary trees
 ## Question 17
 **What is the average time complexity for insertion in a balanced binary search tree?**  
 **Options:**  
-A) O(1)  
-B) O(log n)  
-C) O(n)  
-D) O(n log n)  
+A) $O(1)$  
+B) $O(log n)$  
+C) $O(n)$  
+D) $O(n log n)$  
 
-**Answer:** B) O(log n)  
+**Answer:** B) $O(log n)$  
 **Explanation:** In a balanced binary search tree, insertion is performed in logarithmic time, making it efficient for dynamic data sets.
 
 ---
@@ -224,12 +224,12 @@ D) O(n log n)
 ## Question 18
 **What is the space complexity of a linked list?**  
 **Options:**  
-A) O(1)  
-B) O(n)  
-C) O(n log n)  
-D) O(log n)  
+A) $O(1)$  
+B) $O(n)$  
+C) $O(n log n)$  
+D) $O(log n)$  
 
-**Answer:** B) O(n)  
+**Answer:** B) $O(n)$  
 **Explanation:** A linked list requires space for each node, leading to linear space complexity proportional to the number of elements.
 
 ---
@@ -289,13 +289,13 @@ D) l
 ## Question 23
 **What is the time complexity of searching for an element in a balanced binary search tree?**  
 **Options:**  
-A) O(1)  
-B) O(log n)  
-C) O(n)  
-D) O(n log n)  
+A) $O(1)$  
+B) $O(log n)$  
+C) $O(n)$  
+D) $O(n log n)$  
 
-**Answer:** B) O(log n)  
-**Explanation:** Searching in a balanced binary search tree is efficient, with a time complexity of O(log n).
+**Answer:** B) $O(log n)$  
+**Explanation:** Searching in a balanced binary search tree is efficient, with a time complexity of $O(log n)$.
 
 ---
 

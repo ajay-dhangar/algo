@@ -47,5 +47,5 @@ class Solution:
         
         return ''.join(stack)
 ```
-Time Complexity: O(n) <br />
-Space Complexity: O(n)
+Time Complexity: $O(n)$ <br />
+Space Complexity: $O(n)$

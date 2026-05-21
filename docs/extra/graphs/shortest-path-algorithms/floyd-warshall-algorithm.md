@@ -107,7 +107,7 @@ Code in C++
 ```
 
 ## Time complexity:
-Floyd-Warshall Algorithm: O(V³), where V is the number of vertices.
+Floyd-Warshall Algorithm: $O(V³)$, where V is the number of vertices.
 
 ## Points to Remember:
 - The Floyd-Warshall algorithm finds the shortest paths between all pairs of vertices.

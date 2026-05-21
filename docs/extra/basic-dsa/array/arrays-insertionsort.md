@@ -87,8 +87,8 @@ Consider an array `arr = [12, 11, 13, 5, 6]` that we want to sort in ascending o
 
 3. **Final Sorted Array:** `[5, 6, 11, 12, 13]`
 4. The array is now sorted in ascending order using the Insertion Sort algorithm.
-5. The time complexity of the Insertion Sort algorithm is ***O(n<sup>2</sup>)*** in the worst-case scenario.
-6. The space complexity of the Insertion Sort algorithm is ***O(1)***.
+5. The time complexity of the Insertion Sort algorithm is ***$O(n<sup>2</sup>)$*** in the worst-case scenario.
+6. The space complexity of the Insertion Sort algorithm is ***$O(1)$***.
 7. The Insertion Sort algorithm is efficient for small data sets and partially sorted data sets.
 
 ## Visualization
@@ -111,8 +111,8 @@ The insertion sort algorithm works as follows:
 4. Move to the next element and repeat the process.
 5. Continue this process until the entire array is sorted.
 6. The array is now sorted.
-7. The time complexity of the insertion sort algorithm is ***O(n<sup>2</sup>)*** in the worst-case scenario.
-8. The space complexity of the insertion sort algorithm is ***O(1)***.
+7. The time complexity of the insertion sort algorithm is ***$O(n<sup>2</sup>)$*** in the worst-case scenario.
+8. The space complexity of the insertion sort algorithm is ***$O(1)$***.
 
 ## Pseudocode
 
@@ -151,9 +151,9 @@ console.log(insertionSort(arr)); // Output: [5, 6, 11, 12, 13]
 
 ## Complexity Analysis
 
-The time complexity of the Insertion Sort algorithm is ***O(n<sup>2</sup>)*** in the worst-case scenario when the array is sorted in reverse order. The best-case time complexity is ***O(n)*** when the array is already sorted.
+The time complexity of the Insertion Sort algorithm is ***$O(n<sup>2</sup>)$*** in the worst-case scenario when the array is sorted in reverse order. The best-case time complexity is ***$O(n)$*** when the array is already sorted.
 
-The space complexity of the Insertion Sort algorithm is ***O(1)*** since it requires only a constant amount of additional memory space.
+The space complexity of the Insertion Sort algorithm is ***$O(1)$*** since it requires only a constant amount of additional memory space.
 
 ## References
 

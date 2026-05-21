@@ -36,8 +36,8 @@ Objective:
 
 ### Time Complexity
 
-- **Time Complexity**: O(n), where n is the number of houses.
-- **Space Complexity**: O(n) for the DP array.
+- **Time Complexity**: $O(n)$, where n is the number of houses.
+- **Space Complexity**: $O(n)$ for the DP array.
 
 ### C++ Implementation
 

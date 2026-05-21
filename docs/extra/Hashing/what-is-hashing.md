@@ -13,7 +13,7 @@ Hashing is a technique used in computer science to uniquely identify a specific 
 
 ### Importance of Hashing
 
-1. **Fast Data Retrieval**: Hashing allows for quick data retrieval, enabling average-case constant time complexity \(O(1)\) for search, insert, and delete operations.
+1. **Fast Data Retrieval**: Hashing allows for quick data retrieval, enabling average-case constant time complexity \($O(1)$\) for search, insert, and delete operations.
 
 2. **Efficient Memory Usage**: Hash tables can store a large amount of data with minimal wasted memory due to their fixed size.
 

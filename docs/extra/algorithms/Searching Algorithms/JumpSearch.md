@@ -91,7 +91,7 @@ int main() {
 
 ### Disadvantages:
 - **Not as Fast as Binary Search**:
-  - With a time complexity of O(√n), jump search is generally slower than binary search’s O(log n) performance for large datasets.
+  - With a time complexity of $O(√n)$, jump search is generally slower than binary search’s $O(log n)$ performance for large datasets.
 
 - **Requires Sorted Data**:
   - Jump search is only applicable to sorted arrays, limiting its use in unsorted datasets.
@@ -103,4 +103,4 @@ int main() {
 
 ## Summary:
 
-Jump search is an efficient algorithm for searching in large, sorted arrays by combining the benefits of linear and binary search. It operates in O(√n) time complexity, making it a viable alternative for specific scenarios where the size of the dataset is known, and comparisons are costly. While it does not outperform binary search in terms of speed, its unique approach provides a useful tool in certain applications.
+Jump search is an efficient algorithm for searching in large, sorted arrays by combining the benefits of linear and binary search. It operates in $O(√n)$ time complexity, making it a viable alternative for specific scenarios where the size of the dataset is known, and comparisons are costly. While it does not outperform binary search in terms of speed, its unique approach provides a useful tool in certain applications.

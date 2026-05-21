@@ -153,12 +153,12 @@ bool search(Node* root, int val) {
 
 | OPERATION  | BEST CASE | AVERAGE CASE | WORST CASE |
 |------------|------------|--------------|------------|
-| Insertion  | O(logN)    | O(N^0.5)     | O(N)       |
-| Search     | O(1)       | O(N^0.5)     | O(N)       |
-| Deletion   | O(logN)    | O(N^0.5)     | O(N)       |
+| Insertion  | $O(logN)$    | $O(N^0.5)$     | $O(N)$       |
+| Search     | $O(1)$       | $O(N^0.5)$     | $O(N)$       |
+| Deletion   | $O(logN)$    | $O(N^0.5)$     | $O(N)$       |
 
 ### 2. Space Complexity
-The space complexity of the Binary Tree for all operations is O(N).
+The space complexity of the Binary Tree for all operations is $O(N)$.
 
 
 ## Binary Tree Traversals

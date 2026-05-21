@@ -11,15 +11,15 @@ The limitations of traditional binary search trees can be frustrating. Meet the 
 
 Unlike traditional binary search trees, B-Trees are characterized by the large number of keys that they can store in a single node, which is why they are also known as “large key” trees. Each node in a B-Tree can contain multiple keys, which allows the tree to have a larger branching factor and thus a shallower height. This shallow height leads to less disk I/O, which results in faster search and insertion operations. B-Trees are particularly well suited for storage systems that have slow, bulky data access such as hard drives, flash memory, and CD-ROMs.
 
-B-Trees maintain balance by ensuring that each node has a minimum number of keys, so the tree is always balanced. This balance guarantees that the time complexity for operations such as insertion, deletion, and searching is always **O(log n)**, regardless of the initial shape of the tree.
+B-Trees maintain balance by ensuring that each node has a minimum number of keys, so the tree is always balanced. This balance guarantees that the time complexity for operations such as insertion, deletion, and searching is always **$O(log n)$**, regardless of the initial shape of the tree.
 
 ## Time Complexity of B-Tree: 
 
 | Sr. No. | Algorithm | Time Complexity |
 |---------|------------|-----------------|
-| 1.      | Search     | O(log n)        |
-| 2.      | Insert     | O(log n)        |
-| 3.      | Delete     | O(log n)        |
+| 1.      | Search     | $O(log n)$        |
+| 2.      | Insert     | $O(log n)$        |
+| 3.      | Delete     | $O(log n)$        |
 
 **Note:** `n` is the total number of elements in the B-tree.
 
@@ -32,7 +32,7 @@ B-Trees maintain balance by ensuring that each node has a minimum number of keys
 *   Number of children of a node is equal to the number of keys in it plus **1**.
 *   All keys of a node are sorted in increasing order. The child between two keys **k<sub>1</sub>** and **k<sub>2</sub>** contains all keys in the range from **k<sub>1</sub>** to **k<sub>2</sub>**.
 *   B-Tree grows and shrinks from the root, unlike Binary Search Tree. Binary Search Trees grow downward and also shrink from downward.
-*   Like other balanced Binary Search Trees, the time complexity to search, insert, and delete is **O(log n)**.
+*   Like other balanced Binary Search Trees, the time complexity to search, insert, and delete is **$O(log n)$**.
 *   Insertion of a node in B-Tree happens only at the leaf node.
 
 Following is an example of a B-Tree of minimum order 5:  
@@ -425,7 +425,7 @@ if __name__ == "__main__":
 
 ## Advantages of B-Trees
 
--   Guaranteed time complexity of O(log n) for basic operations like insertion, deletion, and searching, making them suitable for large datasets and real-time applications.
+-   Guaranteed time complexity of $O(log n)$ for basic operations like insertion, deletion, and searching, making them suitable for large datasets and real-time applications.
 -   B-Trees are self-balancing.
 -   High concurrency and high throughput.
 -   Efficient storage utilization.

@@ -71,8 +71,8 @@ For the input `{11, 13, 21, 3}`, the output will be:
 ```
 
 ## Complexity
-- **Time Complexity**: O(n), where n is the number of elements in the array.
-- **Space Complexity**: O(n) for the stack.
+- **Time Complexity**: $O(n)$, where n is the number of elements in the array.
+- **Space Complexity**: $O(n)$ for the stack.
 
 ## Diagrams and Visuals with Mermaid
 To visualize the process, consider the following stack transitions:

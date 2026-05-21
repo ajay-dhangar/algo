@@ -292,7 +292,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n) comparisons
+   - $O(n)$ comparisons
    - Early mismatch detection
    - Efficient skipping
 
@@ -302,7 +302,7 @@ int main() {
    - Practical efficiency
 
 3. **Worst Case**:
-   - O(nm) comparisons
+   - $O(nm)$ comparisons
    - Pattern dependent
    - Still better than naive
 

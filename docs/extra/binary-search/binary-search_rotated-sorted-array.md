@@ -19,8 +19,8 @@ A rotated sorted array is an array that was originally sorted in ascending order
 - After rotation at index 3: `[4, 5, 6, 7, 1, 2, 3]`
 
 ## Time Complexity
-- **Time Complexity**: O(log n)
-- **Space Complexity**: O(1)
+- **Time Complexity**: $O(log n)$
+- **Space Complexity**: $O(1)$
 
 ## Algorithm Overview
 
@@ -254,7 +254,7 @@ def searchRange(nums, target):
 
 2. **For Duplicate Elements**:
    - Skip duplicate elements at boundaries
-   - Consider worst-case time complexity becomes O(n)
+   - Consider worst-case time complexity becomes $O(n)$
    - Handle edge cases where all elements are same
 
 3. **For Finding Ranges**:

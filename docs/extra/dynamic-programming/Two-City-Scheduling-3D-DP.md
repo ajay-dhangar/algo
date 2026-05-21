@@ -55,8 +55,8 @@ For each person, we can choose to send them to either city `A` or city `B`, upda
 The minimum total cost will be found in `dp[2 * N][N][N]`.
 
 ### Time and Space Complexity
-- **Time Complexity:** O(N³), where N is half the size of the costs array.
-- **Space Complexity:** O(N³) due to the 3D DP array.
+- **Time Complexity:** $O(N³)$, where N is half the size of the costs array.
+- **Space Complexity:** $O(N³)$ due to the 3D DP array.
 
 ### Code Implementation
 

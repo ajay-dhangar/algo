@@ -16,7 +16,7 @@ tags: [Data Structures, Hashing, Hash Functions, Hash Tables, Algorithms]
 At the core of hashing is the **hash function**, which transforms input data into a hash value. This value corresponds to a location in a **hash table** where the actual data is stored. Hashing is efficient for operations such as **lookup**, **insert**, and **delete**, making it crucial in areas like databases, caches, and cryptography.
 
 ## Characteristics of Hashing Theory
-- **Efficiency**: Provides constant-time complexity, O(1), for data retrieval, insertion, and deletion in an average-case scenario.
+- **Efficiency**: Provides constant-time complexity, $O(1)$, for data retrieval, insertion, and deletion in an average-case scenario.
 - **Collision Handling**: When two distinct inputs produce the same hash value, collisions occur, which are handled using techniques such as **chaining** and **open addressing**.
 - **Deterministic**: The same input will always yield the same hash value for a given hash function.
 
@@ -42,23 +42,23 @@ def hash_function(key, table_size):
 Hashing provides efficient time complexity for common operations on average. However, the complexity can vary based on the collision handling method and the distribution of hash values.
 
 ### Time Complexity Overview
-- **Search, Insert, Delete (Average Case)**: O(1)
+- **Search, Insert, Delete (Average Case)**: $O(1)$
     - Hashing provides constant-time operations for inserting, searching, and deleting elements in a hash table due to direct indexing.
-- **Search, Insert, Delete (Worst Case)**: O(n)
-    - In the worst case, where there are many collisions (e.g., all elements hash to the same index), the hash table can degrade into a linked list or chain, and the time complexity becomes O(n), where `n` is the number of elements.
+- **Search, Insert, Delete (Worst Case)**: $O(n)$
+    - In the worst case, where there are many collisions (e.g., all elements hash to the same index), the hash table can degrade into a linked list or chain, and the time complexity becomes $O(n)$, where `n` is the number of elements.
 
 ### Collision Handling Methods and Complexity
 
 1. **Chaining**:
-   - **Average Case**: O(1) for search, insert, and delete operations, assuming the hash function distributes elements evenly.
-   - **Worst Case**: O(n), where all elements are placed in the same linked list due to collisions.
+   - **Average Case**: $O(1)$ for search, insert, and delete operations, assuming the hash function distributes elements evenly.
+   - **Worst Case**: $O(n)$, where all elements are placed in the same linked list due to collisions.
    
 2. **Open Addressing (Linear Probing, Quadratic Probing, Double Hashing)**:
-   - **Average Case**: O(1) for search, insert, and delete.
-   - **Worst Case**: O(n), where the table is nearly full, and many collisions occur, requiring multiple probes to find an empty slot.
+   - **Average Case**: $O(1)$ for search, insert, and delete.
+   - **Worst Case**: $O(n)$, where the table is nearly full, and many collisions occur, requiring multiple probes to find an empty slot.
 
 ### Space Complexity
-- The space complexity of a hash table is O(n), where `n` is the number of elements stored.
+- The space complexity of a hash table is $O(n)$, where `n` is the number of elements stored.
 - Additional space may be required for collision handling:
   - **Chaining**: Requires extra space for linked lists.
   - **Open Addressing**: No additional space is required, but the load factor of the hash table must be managed to prevent excessive collisions.

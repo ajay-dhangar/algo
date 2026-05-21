@@ -25,18 +25,18 @@ Tree Sort is a sorting algorithm that builds a Binary Search Tree (BST) from the
 
 ### Time Complexity:
 
-- **Best Case: O(n log n)**  
-  When the tree remains balanced, insertion and traversal operations are logarithmic, resulting in an overall complexity of O(n log n).
+- **Best Case: $O(n log n)$**  
+  When the tree remains balanced, insertion and traversal operations are logarithmic, resulting in an overall complexity of $O(n log n)$.
 
-- **Average Case: O(n log n)**  
+- **Average Case: $O(n log n)$**  
   For random input, the tree usually remains balanced.
 
-- **Worst Case: O(n²)**  
-  In the worst case, such as when inserting elements that are already sorted, the tree can become skewed, and the algorithm may take O(n²) time.
+- **Worst Case: $O(n²)$**  
+  In the worst case, such as when inserting elements that are already sorted, the tree can become skewed, and the algorithm may take $O(n²)$ time.
 
 ### Space Complexity:
 
-- **Space Complexity: O(n)**  
+- **Space Complexity: $O(n)$**  
   The algorithm uses extra space for the tree structure, proportional to the number of elements in the input array.
 
 ### Java Implementation:
@@ -103,4 +103,4 @@ public class TreeSort {
 ```
 
 ### Summary:
-Tree Sort is an intuitive and simple sorting algorithm that leverages the properties of Binary Search Trees to sort an array. While its average-case time complexity is 𝑂(𝑛log𝑛) O(nlogn), it can degrade to 𝑂(𝑛2) O(n2) in the worst case, making it less suitable for practical use in many scenarios compared to other algorithms like QuickSort or MergeSort.
+Tree Sort is an intuitive and simple sorting algorithm that leverages the properties of Binary Search Trees to sort an array. While its average-case time complexity is 𝑂(𝑛log𝑛) $O(nlogn)$, it can degrade to 𝑂(𝑛2) $O(n2)$ in the worst case, making it less suitable for practical use in many scenarios compared to other algorithms like QuickSort or MergeSort.

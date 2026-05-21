@@ -22,18 +22,18 @@ Gnome Sort is a simple comparison-based sorting algorithm that sorts an array by
 
 ### Time Complexity:
 
-- **Best Case: O(n)**  
+- **Best Case: $O(n)$**  
   Occurs when the array is already sorted or nearly sorted, requiring minimal swaps.
 
-- **Average Case: O(n²)**  
+- **Average Case: $O(n²)$**  
   Similar to Bubble Sort, it performs poorly with larger datasets due to its quadratic time complexity.
 
-- **Worst Case: O(n²)**  
+- **Worst Case: $O(n²)$**  
   This happens when the array is sorted in reverse order, leading to the maximum number of swaps.
 
 ### Space Complexity:
 
-- **Space Complexity: O(1)**  
+- **Space Complexity: $O(1)$**  
   As it sorts the array in place, the space requirement is constant.
 
 ### Java Implementation:
@@ -72,4 +72,4 @@ public class GnomeSort {
 ```
 
 ### Summary:
-Gnome Sort is a straightforward algorithm that can be easily implemented but is inefficient for larger datasets due to its O(n²) average and worst-case time complexities. It is primarily of theoretical interest and is not commonly used in practice compared to more efficient algorithms like Quick Sort or Merge Sort.
+Gnome Sort is a straightforward algorithm that can be easily implemented but is inefficient for larger datasets due to its $O(n²)$ average and worst-case time complexities. It is primarily of theoretical interest and is not commonly used in practice compared to more efficient algorithms like Quick Sort or Merge Sort.

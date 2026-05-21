@@ -143,13 +143,13 @@ public class FermatsLittleTheorem {
 ```
 
 ## Time Complexity
-- Best Case: O(log p)
-- Average Case: O(log p)
-- Worst Case: O(log p)
+- Best Case: $O(log p)$
+- Average Case: $O(log p)$
+- Worst Case: $O(log p)$
 where `p` is the exponent (in this case, the prime modulus).
 
 ## Space Complexity
-- O(1)
+- $O(1)$
 as the iterative algorithm for modular exponentiation uses only a few variables.
 
 ## Explanation

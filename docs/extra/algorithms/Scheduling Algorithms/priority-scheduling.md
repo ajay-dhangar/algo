@@ -48,13 +48,13 @@ There are two types of Priority Scheduling:
 ---
 
 ## Time Complexity
-- Best Case: O(n log n)
-- Average Case: O(n log n)
-- Worst Case: O(n^2)
+- Best Case: $O(n log n)$
+- Average Case: $O(n log n)$
+- Worst Case: $O(n^2)$
 where `n` is the number of processes.
 
 ## Space Complexity
-- O(n)
+- $O(n)$
 where `n` is the number of processes, as space is required to store the process details and schedule order.
 
 ## Explanation

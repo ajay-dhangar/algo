@@ -118,13 +118,13 @@ function lcm(a, b):
 ```
 
 ## Time Complexity
-- Best Case: O(1)
+- Best Case: $O(1)$
 - Average Case: O(log(min(a, b)))
 - Worst Case: O(log(min(a, b)))
 where `a` and `b` are the two integers.
 
 ## Space Complexity
-- O(1)
+- $O(1)$
 for the iterative implementations since they only require a few variables for computation.
 
 ## Explanation

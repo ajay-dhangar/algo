@@ -312,7 +312,7 @@ int main() {
 ### Performance Characteristics:
 
 1. **Best Case**:
-   - O(n/m) comparisons
+   - $O(n/m)$ comparisons
    - Early mismatch detection
    - Optimal ordering benefit
 
@@ -322,7 +322,7 @@ int main() {
    - Pattern-dependent performance
 
 3. **Worst Case**:
-   - O(nm) comparisons
+   - $O(nm)$ comparisons
    - Pattern dependent
    - Still maintains optimization
 

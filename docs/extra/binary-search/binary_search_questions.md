@@ -14,13 +14,13 @@ Welcome to this in-depth exploration of binary search patterns! This guide is de
 
 ## Introduction to Binary Search
 
-Binary search is a fundamental algorithm in computer science that efficiently locates an element in a sorted array. By repeatedly dividing the search interval in half, binary search achieves a time complexity of O(log n), making it significantly faster than linear search for large datasets.
+Binary search is a fundamental algorithm in computer science that efficiently locates an element in a sorted array. By repeatedly dividing the search interval in half, binary search achieves a time complexity of $O(log n)$, making it significantly faster than linear search for large datasets.
 
 ## Why Master Binary Search?
 
 Understanding binary search is crucial for several reasons:
 
-1. **Efficiency**: Binary search reduces time complexity from O(n) to O(log n), essential for working with large datasets.
+1. **Efficiency**: Binary search reduces time complexity from $O(n)$ to $O(log n)$, essential for working with large datasets.
 2. **Versatility**: The core concept of dividing the search space applies to various problem types, from simple searches to complex optimization problems.
 3. **Problem-Solving Skills**: Mastering binary search enhances your ability to think algorithmically and approach problems systematically.
 4. **Interview Preparation**: Binary search is a popular topic in technical interviews, appearing in questions from leading tech companies.
