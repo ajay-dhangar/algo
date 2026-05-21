@@ -204,3 +204,7 @@ Merge sort is an efficient and reliable sorting algorithm, particularly for larg
 | Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+
+## Algorithm Tip
+
+Merge Sort is useful when stable sorting is required.
