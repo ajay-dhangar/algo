@@ -43,7 +43,7 @@
   margin: 0 2px;
   background-color: #4caf50; 
   display: inline-block;
-  transition: all 0.3s ease-in-out;
+  transition: all var(--move-duration, 300ms) ease-in-out;
   border-top-left-radius: 0.2rem;
   border-top-right-radius: 0.2rem;
   position: relative;
