@@ -9,7 +9,7 @@ sidebar_label: "Encapsulation"
 
 Encapsulation is one of the most important concepts of Object-Oriented Programming (OOP).
 
-Encapsulation means wrapping data (variables) and methods (functions) together into a single unit called a class.
+Encapsulation means wrapping data (variables) and methods together into a single unit called a class.
 
 It is mainly used to protect data from direct access and improve security.
 
