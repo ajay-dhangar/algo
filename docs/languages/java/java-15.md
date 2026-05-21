@@ -18,8 +18,19 @@ Java supports two main types of polymorphism:
 
 # Method Overloading
 
-Method Overloading happens when multiple methods have the same name but different parameters in the same class.
+Method Overloading means creating multiple methods with the same name in the same class but with different parameters.
 
+The method performs similar tasks in different ways depending on the number or type of arguments passed.
+
+It is called compile-time polymorphism because the compiler decides which method to call during compilation.
+
+like:
+
+add(int a, int b)
+
+add(int a, int b, int c)
+
+Both methods have the same name but different parameters.
 It is an example of compile-time polymorphism.
 
 ## Example
@@ -58,8 +69,19 @@ public class Main {
 
 # Method Overriding
 
-Method Overriding happens when a child class provides its own implementation of a method already present in the parent class.
+Method Overriding happens when a child class defines the same method that already exists in the parent class.
 
+The child class gives its own implementation of that method.
+
+It is called runtime polymorphism because Java decides at runtime which method should run.
+
+like:
+
+Parent class method → sound()
+
+Child class method → sound()
+
+The child class method overrides the parent class method.
 It is an example of runtime polymorphism.
 
 ## Example
@@ -99,7 +121,24 @@ Dog barks
 
 # Dynamic Method Dispatch
 
-Dynamic Method Dispatch is a process where a parent class reference points to a child class object, and the overridden method is called at runtime.
+Dynamic Method Dispatch is the process where a parent class reference points to a child class object.
+
+When an overridden method is called, Java decides at runtime which version of the method should execute.
+
+It helps achieve runtime polymorphism.
+
+like:
+
+Animal obj = new Dog();
+
+obj.sound();
+
+Here:
+
+obj is parent class reference
+Dog() is child class object
+
+Java will call the Dog class method at runtime.
 
 ## Example
 
