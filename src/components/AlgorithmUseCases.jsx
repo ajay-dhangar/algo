@@ -126,20 +126,20 @@ const algorithmData = {
 function AlgorithmUseCases() {
   const [selected, setSelected] = useState("Binary Search");
 
-  return (
+return (
     <div
       style={{
         display: "flex",
+        flexWrap: "wrap", 
         gap: "30px",
         padding: "30px",
         margin: "40px auto",
         maxWidth: "1200px",
         borderRadius: "20px",
-        background: "#f8fafc",
+        background: "var(--ifm-background-surface)", 
         boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
       }}
     >
-
       <div
         style={{
           display: "flex",
@@ -147,7 +147,7 @@ function AlgorithmUseCases() {
           gap: "15px",
           maxHeight: "500px",
           overflowY: "auto",
-          minWidth: "250px",
+          flex: "1 1 250px", 
         }}
       >
         {Object.keys(algorithmData).map((algo) => (
@@ -159,8 +159,7 @@ function AlgorithmUseCases() {
               padding: "12px 20px",
               border: "none",
               borderRadius: "12px",
-              background:
-                selected === algo ? "#1d4ed8" : "#2563eb",
+              background: selected === algo ? "#1d4ed8" : "#2563eb",
               color: "white",
               cursor: "pointer",
               fontWeight: "bold",
@@ -172,51 +171,46 @@ function AlgorithmUseCases() {
         ))}
       </div>
 
-
-      
       <motion.div
-  key={selected}
-  initial={{ opacity: 0, x: 30 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.4 }}
-  style={{ flex: 1 }}
->
-  <h1 style={{ marginBottom: "20px" }}>
-    {selected}
-  </h1>
-
-  <h3>Real-World Applications</h3>
-
-  <ul style={{ marginTop: "15px" }}>
-    {algorithmData[selected].uses.map((item, index) => (
-      <li
-        key={index}
-        style={{
-          marginBottom: "12px",
-          fontSize: "16px",
+        key={selected}
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4 }}
+        style={{ 
+          flex: "3 1 300px" 
         }}
       >
-        {item}
-      </li>
-    ))}
-  </ul>
+        <h1 style={{ marginBottom: "20px" }}>{selected}</h1>
 
-  <h3 style={{ marginTop: "30px" }}>
-    Real-Time Explanation
-  </h3>
+        <h3>Real-World Applications</h3>
+        <ul style={{ marginTop: "15px" }}>
+          {algorithmData[selected].uses.map((item, index) => (
+            <li
+              key={index}
+              style={{
+                marginBottom: "12px",
+                fontSize: "16px",
+              }}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
 
-  <p
-    style={{
-      marginTop: "15px",
-      lineHeight: "1.9",
-      color: "#333",
-      fontSize: "16px",
-    }}
-  >
-    {algorithmData[selected].description}
-  </p>
-</motion.div>
-</div>
+        <h3 style={{ marginTop: "30px" }}>Real-Time Explanation</h3>
+        <p
+          style={{
+            marginTop: "15px",
+            lineHeight: "1.9",
+            color: "var(--ifm-font-color-base)", 
+            fontSize: "16px",
+          }}
+        >
+          {algorithmData[selected].description}
+        </p>
+      </motion.div>
+    </div>
   );
 }
-export default AlgorithmUseCases;
+
+  export default AlgorithmUseCases;
