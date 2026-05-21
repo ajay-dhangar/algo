@@ -127,11 +127,11 @@ When an overridden method is called, Java decides at runtime which version of th
 
 It helps achieve runtime polymorphism.
 
-like:
+For example:
 
-Animal obj = new Dog();
+`Animal obj = new Dog();` 
 
-obj.sound();
+`obj.sound();` 
 
 Here:
 
