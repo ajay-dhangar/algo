@@ -97,7 +97,6 @@ async function bubble() {
     const ele = document.querySelectorAll(".bar");
     for (let i = 0; i < ele.length - 1; i++) {
       for (let j = 0; j < ele.length - i - 1; j++) {
-        console.log("In jth loop");
         ele[j].style.background = "blue";
         ele[j + 1].style.background = "blue";
         if (parseInt(ele[j].style.height) > parseInt(ele[j + 1].style.height)) {
@@ -243,8 +242,7 @@ async function partitionLomuto(e, t, a) {
       (e[r].style.background = "yellow"),
         await waitforme(delay),
         parseInt(e[r].style.height) < parseInt(e[a].style.height)
-          ? (console.log("In partitionLomuto for j if"),
-            n++,
+          ? (n++,
             swap(e[n], e[r]),
             (e[n].style.background = "orange"),
             n != r && (e[r].style.background = "orange"),
