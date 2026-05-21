@@ -29,7 +29,7 @@ tags: [dsa, arrays, sorting, merge-sort, algorithm of merge-sort, pseudocode of 
 ```plaintext title="Merge Sort"
 procedure mergeSort(arr, left, right)
     if left < right then
-        mid = (left + right) / 2
+        mid = left + floor((right - left) / 2)
         mergeSort(arr, left, mid)
         mergeSort(arr, mid + 1, right)
         merge(arr, left, mid, right)
