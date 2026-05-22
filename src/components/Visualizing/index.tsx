@@ -236,15 +236,23 @@ async function insertion() {
   
 
      // quick sort
-async function partitionLomuto(e, t, a) {
+async function medianOfThree(e, t, a) {
+    let r = t + Math.floor((a - t) / 2);
+    let n = (i) => parseInt(e[i].style.height);
+    if (n(t) > n(r)) swap(e[t], e[r]);
+    if (n(t) > n(a)) swap(e[t], e[a]);
+    if (n(r) > n(a)) swap(e[r], e[a]);
+    swap(e[r], e[a]);
+  }
+  async function partitionLomuto(e, t, a) {
+    await medianOfThree(e, t, a);
     let n = t - 1;
     e[a].style.background = "red";
     for (let r = t; r <= a - 1; r++)
       (e[r].style.background = "yellow"),
         await waitforme(delay),
         parseInt(e[r].style.height) < parseInt(e[a].style.height)
-          ? (console.log("In partitionLomuto for j if"),
-            n++,
+          ? (n++,
             swap(e[n], e[r]),
             (e[n].style.background = "orange"),
             n != r && (e[r].style.background = "orange"),
@@ -261,15 +269,18 @@ async function partitionLomuto(e, t, a) {
     return n;
   }
   async function quickSort(e, t, a) {
-    if (t < a) {
+    while (t < a) {
       let n = await partitionLomuto(e, t, a);
-      await quickSort(e, t, n - 1), await quickSort(e, n + 1, a);
-    } else
-      t >= 0 &&
-        a >= 0 &&
-        t < e.length &&
-        a < e.length &&
-        ((e[a].style.background = "green"), (e[t].style.background = "green"));
+      if (n - t < a - n) {
+        await quickSort(e, t, n - 1);
+        t = n + 1;
+      } else {
+        await quickSort(e, n + 1, a);
+        a = n - 1;
+      }
+    }
+    if (t >= 0 && t < e.length) e[t].style.background = "green";
+    if (a >= 0 && a < e.length) e[a].style.background = "green";
   }
   const quickSortbtn = document.querySelector(".quickSort");
   quickSortbtn.addEventListener("click", async function () {
