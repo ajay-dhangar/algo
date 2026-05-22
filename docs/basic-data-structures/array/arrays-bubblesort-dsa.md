@@ -21,7 +21,7 @@ tags: [dsa, arrays, sorting, bubble-sort, algorithm of bubble-sort, pseudocode o
 4. Repeat steps 1-3 until the array is sorted.
 5. The array is sorted.
 6. Exit.
-7. The time complexity of the bubble sort is $O(n<sup>2</sup>)$. 
+7. The time complexity of the bubble sort is $O(n^2)$. 
 8. The space complexity of the bubble sort is $O(1)$.
 
 ## Pseudocode
