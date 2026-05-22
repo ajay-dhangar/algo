@@ -47,7 +47,7 @@ def add(a, b):
 c = add(3, 4)
 print(c)     # output: 7
 ```
-This function will take two numbers: a and b and return value of (a+b)
+This function takes two numbers, a and b, and returns their sum.
 
 
 ### In C
