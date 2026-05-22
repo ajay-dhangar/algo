@@ -80,7 +80,7 @@ JavaScript is everywhere! From simple web pages to complex applications, here ar
 JavaScript is used in front-end development to make websites interactive and responsive. Popular frameworks like React, Vue, and Angular help developers build modern web applications.
 
 4.2. Back-End Web Development:
-JavaScript is not limited to web browsers. With Node.js, developers can use JavaScript on servers to handle user requests, manage databases, and build full-stack web applications using a single language!.
+JavaScript is not limited to web browsers. With Node.js, developers can use JavaScript on servers to handle user requests, manage databases, and build full-stack web applications using a single language!
 
 4.3. Mobile and Desktop Apps :
 Frameworks like React Native (for mobile) and Electron (for desktop) allow developers to build apps for multiple platforms using JavaScript.
