@@ -172,7 +172,15 @@ Quick sort is a highly efficient and widely used sorting algorithm that works we
 
 - Choosing poor pivot elements leading to worst-case performance
 - Incorrect partition logic causing unsorted output
+<<<<<<< Updated upstream
 
 ## Algorithm Tip
 
 - Choosing a good pivot improves Quick Sort performance significantly.
+=======
+- Deep recursion causing stack overflow for large datasets
+
+## Algorithm Tip
+
+Choosing a balanced pivot improves Quick Sort performance and helps avoid worst-case complexity.
+>>>>>>> Stashed changes
