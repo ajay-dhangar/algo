@@ -105,7 +105,3 @@ Binary search : O(log n)
 - Using Binary Search on unsorted arrays
 - Forgetting to update left and right pointers correctly
 - Incorrect midpoint calculation causing infinite loops
-
-## Algorithm Tip
-
-Binary Search works only on sorted data, so always sort the array before applying it.
