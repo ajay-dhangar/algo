@@ -71,7 +71,7 @@ import java.util.*; // Considered the protaganist of beginner Java code, has mos
 ```java title="List syntax in Java"
 List<Integer> a = new ArrayList<>(); // Dynamic array, O(1) random access, best for most use cases
 List<Integer> b = new LinkedList<>(); // Doubly linked list, O(1) insert/delete at ends, O(n) random access
-a.add(10); // Appends 10 to the end of the list
+a.add(10); // Appends 10 to the end of the list — O(1) amortized
 int x = a.get(0); // Returns element at index 0, i.e x = 10
 ```
 
@@ -102,7 +102,7 @@ int firstKey = tm.firstKey(); // Returns the smallest key, i.e firstKey = 1
 ### Stack / Queue / Deque
 
 ```java title="Stack Queue and Deque syntax in Java"
-Stack<Integer> stack = new Stack<>(); // LIFO — Last In First Out
+Deque<Integer> stack = new ArrayDeque<>(); // LIFO — use ArrayDeque instead of Stack class (preferred)
 stack.push(1); // stack = [1]
 int top = stack.peek(); // Returns top without removing, i.e top = 1
 stack.pop(); // Removes top, stack = []
@@ -154,7 +154,7 @@ pairs.sort((p1, p2) -> {
 ### Searching
 
 ```java title="Binary search syntax in Java"
-int idx = Arrays.binarySearch(arr, target); // Returns index of target in sorted array, negative if not found
+int idx = Arrays.binarySearch(arr, target); // Returns index of target in sorted array, returns -(insertion point) - 1 if not found
 ```
 
 ### Iterating
