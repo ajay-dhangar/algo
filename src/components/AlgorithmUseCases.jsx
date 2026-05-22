@@ -1,142 +1,239 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 
 const algorithmData = {
   "Binary Search": {
-    uses: [
+    applications: [
       "Search engines",
       "Database indexing",
       "Dictionary search",
     ],
+
     description:
-      "Binary Search is used to quickly find elements in sorted data. Companies use this algorithm in search engines, databases, and applications where fast searching is important. For example, when you search for a contact in a sorted phonebook or look up a word in a dictionary, Binary Search helps reduce the search time significantly.",
+      "Binary Search is used to quickly find elements in sorted data. It reduces search time by repeatedly dividing the search space into halves.",
+
+    steps: [
+      "Find the middle element",
+      "Compare target with middle value",
+      "Move left or right accordingly",
+      "Repeat until element is found",
+    ],
   },
 
   "Merge Sort": {
-    uses: [
+    applications: [
       "Big data processing",
       "External sorting",
       "Stable sorting systems",
     ],
+
     description:
-      "Merge Sort is commonly used in systems that process huge amounts of data. It is useful in big data applications, external storage sorting, and stable sorting systems where maintaining the original order of equal elements is important. Companies handling large datasets often prefer Merge Sort because of its consistent performance.",
+      "Merge Sort is commonly used in large-scale data processing because of its stable and consistent performance on large datasets.",
+
+    steps: [
+      "Divide array into smaller halves",
+      "Recursively sort both halves",
+      "Merge sorted halves together",
+      "Repeat until fully sorted",
+    ],
   },
 
   "Bubble Sort": {
-    uses: [
+    applications: [
       "Educational purposes",
       "Small datasets",
       "Beginner learning",
     ],
+
     description:
-      "Bubble Sort is mainly used for teaching sorting concepts because of its simplicity and easy implementation. Although it is not efficient for large datasets, it helps beginners understand how sorting algorithms work step by step.",
+      "Bubble Sort is mainly used for learning sorting concepts because of its simple implementation and easy visualization.",
+
+    steps: [
+      "Compare adjacent elements",
+      "Swap if elements are in wrong order",
+      "Move largest element to the end",
+      "Repeat until array becomes sorted",
+    ],
   },
 
   "Quick Sort": {
-    uses: [
+    applications: [
       "Fast in-memory sorting",
       "Programming libraries",
       "Competitive programming",
     ],
+
     description:
-      "Quick Sort is one of the fastest sorting algorithms used in real-world software systems and programming libraries. It is widely used in competitive programming and applications where quick data sorting is required.",
+      "Quick Sort is widely used because of its fast average performance and efficient divide-and-conquer approach.",
+
+    steps: [
+      "Choose a pivot element",
+      "Partition elements around pivot",
+      "Recursively sort left side",
+      "Recursively sort right side",
+    ],
   },
 
   DFS: {
-    uses: [
+    applications: [
       "Maze solving",
       "Path finding",
       "Graph traversal",
     ],
+
     description:
-      "Depth First Search (DFS) is used in graph traversal and path-finding applications. It is commonly used in maze solving, game development, and exploring connected systems such as social networks or websites.",
+      "Depth First Search explores nodes deeply before backtracking and is useful in graph traversal and path exploration.",
+
+    steps: [
+      "Start from root node",
+      "Visit adjacent unvisited node",
+      "Move deeper recursively",
+      "Backtrack when needed",
+    ],
   },
 
   BFS: {
-    uses: [
+    applications: [
       "Shortest path in graphs",
       "Social network connections",
       "Web crawling",
     ],
+
     description:
-      "Breadth First Search (BFS) is used to find the shortest path in unweighted graphs. Social media platforms use BFS to suggest mutual friends, and search engines use it for web crawling and indexing pages.",
+      "Breadth First Search explores level by level and helps find shortest paths in unweighted graphs.",
+
+    steps: [
+      "Start from source node",
+      "Visit all neighboring nodes",
+      "Add neighbors into queue",
+      "Repeat level-by-level",
+    ],
   },
 
   "Dijkstra Algorithm": {
-    uses: [
+    applications: [
       "Google Maps",
       "GPS navigation",
       "Network routing",
     ],
+
     description:
-      "Dijkstra’s Algorithm is widely used in navigation systems like Google Maps and GPS applications to calculate the shortest possible route between locations. It is also used in computer networks for routing data efficiently.",
+      "Dijkstra Algorithm is used to calculate shortest paths efficiently in weighted graphs.",
+
+    steps: [
+      "Start from source node",
+      "Assign shortest tentative distance",
+      "Visit nearest unvisited node",
+      "Update neighboring distances",
+    ],
   },
 
   Stack: {
-    uses: [
+    applications: [
       "Undo feature",
       "Expression evaluation",
       "Browser history",
     ],
+
     description:
-      "Stacks are used in applications that require last-in-first-out operations. Examples include undo and redo features in editors, browser history navigation, and expression evaluation in compilers.",
+      "Stack follows LIFO order and is commonly used in recursion, browser history, and undo operations.",
+
+    steps: [
+      "Push elements into stack",
+      "Access top element",
+      "Pop top element when needed",
+      "Repeat operations in LIFO order",
+    ],
   },
 
   Queue: {
-    uses: [
+    applications: [
       "CPU scheduling",
       "Printer queue",
       "Task processing",
     ],
+
     description:
-      "Queues are used in systems where tasks are processed in the order they arrive. Real-world examples include printer queues, CPU task scheduling, customer support systems, and ticket booking systems.",
+      "Queue follows FIFO order and is widely used in scheduling and resource-sharing systems.",
+
+    steps: [
+      "Insert element at rear",
+      "Process front element",
+      "Remove processed element",
+      "Continue in FIFO order",
+    ],
   },
 
   "Linked List": {
-    uses: [
+    applications: [
       "Music playlists",
       "Memory management",
       "Dynamic data storage",
     ],
+
     description:
-      "Linked Lists are useful when data needs dynamic memory allocation and flexible insertion or deletion. Applications include music playlists, browser navigation systems, and memory management in operating systems.",
+      "Linked Lists allow dynamic memory allocation and flexible insertion or deletion of elements.",
+
+    steps: [
+      "Create nodes dynamically",
+      "Connect nodes using pointers",
+      "Traverse node-by-node",
+      "Insert or delete efficiently",
+    ],
   },
 
   Recursion: {
-    uses: [
+    applications: [
       "Tree traversal",
       "Backtracking problems",
       "Divide and conquer algorithms",
     ],
+
     description:
-      "Recursion is widely used in algorithms that solve problems by dividing them into smaller subproblems. It is used in tree traversal, backtracking problems like Sudoku solving, and divide-and-conquer algorithms such as Merge Sort.",
+      "Recursion solves problems by repeatedly calling the same function with smaller inputs.",
+
+    steps: [
+      "Define base condition",
+      "Call function recursively",
+      "Reduce problem size",
+      "Return result after base case",
+    ],
   },
 
   "Dynamic Programming": {
-    uses: [
+    applications: [
       "Optimization problems",
       "Game development",
       "Resource management",
     ],
+
     description:
-      "Dynamic Programming is used to solve complex optimization problems efficiently. It is commonly used in game development, resource management systems, shortest path problems, and AI-based decision-making systems.",
+      "Dynamic Programming stores previously computed results to optimize complex recursive problems.",
+
+    steps: [
+      "Break problem into subproblems",
+      "Store computed results",
+      "Reuse stored values",
+      "Build final optimized solution",
+    ],
   },
 };
 
 function AlgorithmUseCases() {
-  const [selected, setSelected] = useState("Binary Search");
+  const [selected, setSelected] = useState(
+  Object.keys(algorithmData)[0]
+);
 
-return (
+  return (
     <div
       style={{
         display: "flex",
-        flexWrap: "wrap", 
+        flexWrap: "wrap",
         gap: "30px",
         padding: "30px",
         margin: "40px auto",
         maxWidth: "1200px",
         borderRadius: "20px",
-        background: "var(--ifm-background-surface)", 
+        background: "#f8fafc",
         boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
       }}
     >
@@ -145,9 +242,7 @@ return (
           display: "flex",
           flexDirection: "column",
           gap: "15px",
-          maxHeight: "500px",
-          overflowY: "auto",
-          flex: "1 1 250px", 
+          minWidth: "220px",
         }}
       >
         {Object.keys(algorithmData).map((algo) => (
@@ -159,7 +254,10 @@ return (
               padding: "12px 20px",
               border: "none",
               borderRadius: "12px",
-              background: selected === algo ? "#1d4ed8" : "#2563eb",
+              background:
+  selected === algo
+    ? "var(--ifm-color-primary-dark)"
+    : "var(--ifm-color-primary)",
               color: "white",
               cursor: "pointer",
               fontWeight: "bold",
@@ -171,46 +269,59 @@ return (
         ))}
       </div>
 
-      <motion.div
-        key={selected}
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4 }}
-        style={{ 
-          flex: "3 1 300px" 
-        }}
-      >
-        <h1 style={{ marginBottom: "20px" }}>{selected}</h1>
+      <div style={{ flex: 1, minWidth: "300px" }}>
+        <h1>{selected}</h1>
 
         <h3>Real-World Applications</h3>
-        <ul style={{ marginTop: "15px" }}>
-          {algorithmData[selected].uses.map((item, index) => (
-            <li
-              key={index}
-              style={{
-                marginBottom: "12px",
-                fontSize: "16px",
-              }}
-            >
-              {item}
-            </li>
-          ))}
+
+        <ul>
+          {algorithmData[selected].applications.map(
+            (item, index) => (
+              <li
+                key={index}
+                style={{
+                  marginBottom: "10px",
+                  lineHeight: "1.7",
+                }}
+              >
+                {item}
+              </li>
+            )
+          )}
         </ul>
 
-        <h3 style={{ marginTop: "30px" }}>Real-Time Explanation</h3>
         <p
           style={{
-            marginTop: "15px",
-            lineHeight: "1.9",
-            color: "var(--ifm-font-color-base)", 
-            fontSize: "16px",
+            marginTop: "20px",
+            lineHeight: "1.8",
+            color: "#444",
           }}
         >
           {algorithmData[selected].description}
         </p>
-      </motion.div>
+
+        <h3 style={{ marginTop: "30px" }}>
+          Step-by-Step Explanation
+        </h3>
+
+        <ol>
+          {algorithmData[selected].steps.map(
+            (step, index) => (
+              <li
+                key={index}
+                style={{
+                  marginBottom: "12px",
+                  lineHeight: "1.7",
+                }}
+              >
+                {step}
+              </li>
+            )
+          )}
+        </ol>
+      </div>
     </div>
   );
 }
 
-  export default AlgorithmUseCases;
+export default AlgorithmUseCases;
