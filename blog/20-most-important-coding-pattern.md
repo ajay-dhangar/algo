@@ -239,7 +239,7 @@ Let's go through each pattern one by one.
   - Comprehensive: Ensures that you consider all possible combinations of elements.
   - Versatile: Can be used to solve a variety of problems, including generating power sets, combinations, and permutations.
 - **Cons**:
-  - Time Complexity: Can lead to exponential time complexity, as the number of subsets of a set is 2^N.
+  - Time Complexity: Can lead to exponential time complexity, as the number of subsets of a set is $2^N$.
   - Space Complexity: Requires additional space to store all the subsets.
 
 **Example Problems from Grokking the Coding Interview**:

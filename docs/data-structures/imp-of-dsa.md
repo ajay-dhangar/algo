@@ -49,7 +49,7 @@ Data Structures and Algorithms are important for the following reasons:
 32. **Software Engineering Principles**: DSA is important for software engineering principles. It helps in designing efficient algorithms and data structures for building robust and scalable software systems.
 33. **Computer Science Fundamentals**: DSA is essential for computer science fundamentals. It helps in understanding the core concepts of programming, problem-solving, and algorithm design.
 
-<Ads />
+<AdsComponent />
 
 ## Conclusion
 

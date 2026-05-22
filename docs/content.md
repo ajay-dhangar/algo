@@ -108,7 +108,7 @@ Let's delve into the world of Data Structures and Algorithms (DSA) with Algo's c
   </TabItem>
 </Tabs>
 
-<Ads />
+<AdsComponent />
 
 ## What Sets Algo Apart?
 

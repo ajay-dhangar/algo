@@ -222,6 +222,10 @@ function AlgorithmUseCases() {
 const [selected, setSelected] = useState(
   Object.keys(algorithmData)[0]
 );
+  const [selected, setSelected] = useState(
+  Object.keys(algorithmData)[0]
+);
+
   return (
     <div
       style={{
@@ -256,6 +260,10 @@ const [selected, setSelected] = useState(
               background:selected === algo
                 ? "var(--ifm-color-primary-dark)"
                 : "var(--ifm-color-primary)",
+              background:
+  selected === algo
+    ? "var(--ifm-color-primary-dark)"
+    : "var(--ifm-color-primary)",
               color: "white",
               cursor: "pointer",
               fontWeight: "bold",

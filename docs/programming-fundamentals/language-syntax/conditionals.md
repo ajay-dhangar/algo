@@ -9,7 +9,7 @@ tags: [conditionals, if-else, switch, programming, syntax, js, java, python, cpp
 
 Conditionals allow you to execute different blocks of code based on certain conditions. They are essential for decision-making in programming. This guide will cover the common types of conditional statements and provide detailed examples across multiple languages.
 
-<Ads />
+<AdsComponent />
 
 ## Types of Conditional Statements
 

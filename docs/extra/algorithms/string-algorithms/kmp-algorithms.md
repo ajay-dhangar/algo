@@ -23,7 +23,7 @@ Given a pattern and a text, the KMP algorithm precomputes the LPS array, which s
 
 The LPS array helps in determining how much the pattern should be shifted without re-evaluating characters that have already been matched. For every mismatch during the search, the LPS array tells how many characters can be skipped.
 
-<Ads />
+<AdsComponent />
 
 ## Code
 

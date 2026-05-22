@@ -30,7 +30,7 @@ console.log(fruits[2]);  // Output: 'cherry'
 ```
 In this example, the array `fruits` contains three string elements, and we access the first and third items using their indices.
 
-<Ads />
+<AdsComponent />
 
 ## Visual representation:
 

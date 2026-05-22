@@ -28,7 +28,7 @@ tags: [machine learning, algorithms, supervised learning]
 2. **Classification Algorithms**:  
    Used when the output variable is categorical. Examples include Logistic Regression, Decision Trees, and Support Vector Machines (SVM).
 
-<Ads />
+<AdsComponent />
 
 ### Steps Involved:
 1. **Input the Data**:  
@@ -70,7 +70,7 @@ Given a labeled dataset with multiple features and corresponding target labels, 
 - **Evaluation Metrics**:  
   Metrics used to assess model performance include accuracy for classification tasks and mean squared error for regression tasks.
 
-<Ads />
+<AdsComponent />
 
 ### Split Criteria:
 Supervised learning algorithms typically split data based on minimizing prediction error or maximizing classification accuracy.

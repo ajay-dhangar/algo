@@ -184,7 +184,9 @@ const DataStructuresQuiz: React.FC = () => {
   }, [timeLeft]);
 
   // Handle option selection
-  const handleOptionSelect = (option:string) => {
+  const handleOptionSelect = (option: string) => {
+    if (userAnswers[currentQuestionIndex] !== undefined || selectedOption) return;
+
     setSelectedOption(option);
     if (option === questions[currentQuestionIndex].answer) {
       setCorrectAnswers(correctAnswers + 1);
@@ -268,6 +270,7 @@ const DataStructuresQuiz: React.FC = () => {
             <h3 className="text-center text-rose-900">Time Left: {formatTime(timeLeft)}</h3>{" "}
             {/* Show running timer */}
             <div className="rounded-2xl p-4">
+              <p className="text-center text-gray-600 mb-2">Question {currentQuestionIndex + 1} of {questions.length}</p>
               <h3>{questions[currentQuestionIndex].question}</h3>
               <div>
                 {questions[currentQuestionIndex].options.map(
