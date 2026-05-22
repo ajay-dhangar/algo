@@ -176,4 +176,4 @@ Quick sort is a highly efficient and widely used sorting algorithm that works we
 
 ## Algorithm Tip
 
-Choosing a good pivot improves Quick Sort performance significantly.
+- Choosing a good pivot improves Quick Sort performance significantly.

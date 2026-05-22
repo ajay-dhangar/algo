@@ -144,4 +144,4 @@ Bubble sort is one of the simplest sorting algorithms. While it is inefficient f
 
 ## Algorithm Tip
 
-Bubble Sort is best suited for learning sorting concepts and very small datasets.
+- Bubble Sort is best suited for learning sorting concepts and very small datasets.

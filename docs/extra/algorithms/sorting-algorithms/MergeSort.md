@@ -213,4 +213,4 @@ Merge sort is an efficient and reliable sorting algorithm, particularly for larg
 
 ## Algorithm Tip
 
-Merge Sort is useful when stable sorting is required.
+- Merge Sort is useful when stable sorting is required.
