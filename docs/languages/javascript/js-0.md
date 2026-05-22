@@ -66,10 +66,10 @@ Let’s see how JavaScript makes a webpage interactive. In this example, clickin
 ```
 In this example:
 
-- "The `<h1>` tag displays the text “Welcome!” on the webpage."
-- "The button listens for a click using the onclick event."
-- "When the user clicks the button, the changeGreeting() function runs."
-- "JavaScript then finds the heading using getElementById() and changes its text to “Hello, JavaScript!”."
+- The `<h1>` tag displays the text `Welcome!` on the webpage.
+- The button listens for a click using the `onclick` event.
+- When the user clicks the button, the `changeGreeting()` function runs.
+- JavaScript then finds the heading using `getElementById()` and changes its text to `Hello, JavaScript!`.
 
 <AdsComponent />
 
