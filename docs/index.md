@@ -22,7 +22,7 @@ Algo provides carefully curated learning pathways designed to take you from a DS
 
 Learning by doing is at the heart of Algo. Engage in hands-on coding challenges that reinforce your understanding of key concepts. Our interactive platform allows you to apply what you've learned in a practical and engaging manner.
 
-<Ads />
+<AdsComponent />
 
 ### Supportive Community
 

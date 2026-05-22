@@ -112,3 +112,16 @@ Aryan-Jain:
   socials:
     linkedin: https://www.linkedin.com/in/jainaryan04/
     github: https://github.com/jainaryan04
+
+Riya-Sharma:
+  name: Riya Sharma 
+  title: B.Tech (IT) Student
+  url: https://github.com/Riya010107
+  image_url: https://avatars.githubusercontent.com/u/180824024?v=4
+  email: riyasjan01@gmail.community
+  page: true # Turns the feature on
+  description: >
+    full stack developer
+  socials:
+    linkedin: https://www.linkedin.com/in/riya-sharma-5905b9333/
+    github: https://github.com/Riya010107

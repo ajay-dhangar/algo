@@ -9,7 +9,7 @@ tags: [functions, programming, syntax, js, java, python, cpp]
 
 Functions are blocks of code that perform specific tasks and can be reused throughout a program. They help in organizing code, making it modular, and reducing redundancy.
 
-<Ads />
+<AdsComponent />
 
 ## What is a Function?
 

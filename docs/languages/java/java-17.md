@@ -1,6 +1,6 @@
 ---
 id: exception-handling-in-java
-sidebar_position: 13
+sidebar_position: 17
 title: "Exception Handling in Java"
 sidebar_label: "Exception Handling in Java"
 ---
