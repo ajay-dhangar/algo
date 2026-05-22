@@ -96,7 +96,7 @@ const CallToActionSection: React.FC = () => {
 
             {/* Secondary Action Button */}
             <Link
-              to="/docs/features"
+              to="#"
               className="
                 group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 
                 px-8 py-4 rounded-2xl font-semibold text-base md:text-lg text-white 
