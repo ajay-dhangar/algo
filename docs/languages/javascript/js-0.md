@@ -76,7 +76,7 @@ In this example:
 ## 4. Where is JavaScript Used?
 JavaScript is everywhere! From simple web pages to complex applications, here are some areas where it's commonly used:
 
-4.1. Front-End Web Development :
+4.1. Front-End Web Development:
 JavaScript is used in front-end development to make websites interactive and responsive. Popular frameworks like React, Vue, and Angular help developers build modern web applications.
 
 4.2. Back-End Web Development :
