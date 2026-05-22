@@ -85,7 +85,7 @@ JavaScript is not limited to web browsers. With Node.js, developers can use Java
 4.3. Mobile and Desktop Apps:
 Frameworks like React Native (for mobile) and Electron (for desktop) allow developers to build apps for multiple platforms using JavaScript.
 
-4.4. Game Development :
+4.4. Game Development:
 JavaScript is used in game development to create interactive 2D and 3D games that run directly in the browser. Libraries like Phaser and Three.js help developers build games with animations, graphics, and real-time interactions.
 
 ## 5. Adding JavaScript to Your Web Page
