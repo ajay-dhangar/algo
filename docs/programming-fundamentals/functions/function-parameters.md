@@ -93,7 +93,7 @@ C++ provides a rich parameter-passing system that gives you fine-grained control
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------|
 | Pass by Value             | `void f(int x)`         |For small, cheap-to-copy types (int, char, etc.). A copy is made; the original is safe.          |
 | Pass by Reference         | `void f(int &x)`        |When you need to modify the original argument. No copy is made—acts as an alias.                 |     
-| Pass by cont Reference    | `void f(const int &x)`  |For large objects that you don't want to copy and don't need to modify. Efficient and safe.      |
+| Pass by const Reference    | `void f(const int &x)`  |For large objects that you don't want to copy and don't need to modify. Efficient and safe.      |
 | Pass by pointer           | `void f(int *p)`        |Similar to references, but can be nullptr. Often used for optional parameters or C-compatibility.|
 
 **Syntax:**
