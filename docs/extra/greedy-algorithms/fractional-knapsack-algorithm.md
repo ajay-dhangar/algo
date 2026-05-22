@@ -8,7 +8,7 @@ tags: [dsa, algorithms, greedy algorithms]
 
 The Fractional Knapsack problem is an optimization problem where, given a set of items with specified weights and values, the goal is to maximize the total value within a weight limit by taking fractions of items. The greedy algorithm for this problem prioritizes items based on their value-to-weight ratio, allowing partial items to be selected if they maximize the overall value.
 
-<Ads />
+<AdsComponent />
 
 ## Characteristics:
 
@@ -57,7 +57,7 @@ Total weight = 50, total value = 240.
 
 Total Value: 240
 
-<Ads />
+<AdsComponent />
 
 **C++ Implementation:**
 
@@ -114,7 +114,7 @@ int main() {
 }
 ```
 
-<Ads />
+<AdsComponent />
 
 **Java Implementation:**
 

@@ -1,0 +1,7 @@
+{
+    "label": "Rust",
+    "position": 6,
+    "link": {
+      "type": "generated-index",
+      "description": "Welcome to the world of Rust! In this guide, we'll explore the fundamentals of Rust, a modern systems programming language focused on speed, memory safety, and concurrency. Let's get started!"}
+  }

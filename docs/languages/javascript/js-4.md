@@ -25,7 +25,7 @@ if (num > 0) {                           // Check if 'num' is greater than 0
 }  
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 2. If-Else Statements
 

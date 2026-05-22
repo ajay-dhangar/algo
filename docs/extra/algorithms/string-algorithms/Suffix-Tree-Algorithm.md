@@ -22,7 +22,7 @@ A **suffix tree** is a compressed tries of all the suffixes of a given string. I
 - **Output**:
   - A suffix tree representing all suffixes of `S`.
 
-<Ads />
+<AdsComponent />
 
 ### Algorithm Overview
 
@@ -101,7 +101,7 @@ int main() {
 }
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Conclusion
 

@@ -9,7 +9,7 @@ tags: [strings, data structures, programming, syntax, js, java, python, cpp]
 
 Strings are a sequence of characters used to represent text. They are an essential data type in all programming languages and are often used for storing and manipulating text data. This guide covers how to work with strings in JavaScript, Java, Python, and C++ with practical examples and best practices.
 
-<Ads />
+<AdsComponent />
 
 ## What is a String?
 

@@ -8,6 +8,7 @@ import GetInvolvedSection from "./GetInvolvedSection";
 import PopularAlgorithmsSection from "./PopularAlgorithmsSection";
 import UserTestimonialsSection from "./UserTestimonialsSection";
 import CallToActionSection from "./CallToActionSection";
+import AlgorithmOfTheDaySection from "./AlgorithmOfTheDaySection";
 
 const Homepage: React.FC = () => {
 
@@ -15,6 +16,7 @@ const Homepage: React.FC = () => {
     <div>
       <HeroSection />
       <FeaturesSection />
+      <AlgorithmOfTheDaySection />
       <HowItWorksSection />
       <ContributeSection />
       <TechnologiesSection />
