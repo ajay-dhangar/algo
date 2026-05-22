@@ -120,7 +120,7 @@ int add(int a, int b){
 int main(){
     int a = 3, b = 4, c;
     c =  add(a, b);
-    cout<<c;
+    cout << c << endl;
 
     return 0;   // output: 7
 }
