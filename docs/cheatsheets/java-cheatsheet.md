@@ -23,7 +23,7 @@ Common Time Complexities
 
 ---
 
-Basic Syntax
+## Basic Syntax
 
 Data Types
 
