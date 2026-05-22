@@ -41,17 +41,19 @@ const QuickSortVisualization: React.FC = () => {
     return new Promise(resolve => setTimeout(resolve, ms));
   };
 
-  const medianOfThree = (arr: number[], low: number, high: number) => {
+  const medianOfThree = async (arr: number[], low: number, high: number) => {
     const mid = low + Math.floor((high - low) / 2);
     if (arr[low] > arr[mid]) [arr[low], arr[mid]] = [arr[mid], arr[low]];
     if (arr[low] > arr[high]) [arr[low], arr[high]] = [arr[high], arr[low]];
     if (arr[mid] > arr[high]) [arr[mid], arr[high]] = [arr[high], arr[mid]];
     [arr[mid], arr[high]] = [arr[high], arr[mid]];
+    setArray([...arr]);
+    await delayFunction(delay);
     return arr[high];
   };
 
   const partition = async (arr: number[], low: number, high: number) => {
-    const pivot = medianOfThree(arr, low, high);
+    const pivot = await medianOfThree(arr, low, high);
     setPivotIndex(high);
     let i = low - 1;
 
@@ -73,15 +75,15 @@ const QuickSortVisualization: React.FC = () => {
   };
 
   const quickSortHelper = async (arr: number[], low: number, high: number) => {
-    if (low < high) {
+    while (low < high) {
       const pi = await partition(arr, low, high);
       // Tail recursion optimization: sort smaller partition first
       if (pi - low < high - pi) {
         await quickSortHelper(arr, low, pi - 1);
-        await quickSortHelper(arr, pi + 1, high);
+        low = pi + 1;
       } else {
         await quickSortHelper(arr, pi + 1, high);
-        await quickSortHelper(arr, low, pi - 1);
+        high = pi - 1;
       }
     }
   };
