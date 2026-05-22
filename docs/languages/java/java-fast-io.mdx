@@ -1,0 +1,93 @@
+---
+id: java-fast-io
+title: Java Fast I/O for Competitive Programming
+sidebar_label: Fast I/O (BufferedReader)
+sidebar_position: 5
+description: Learn how to prevent TLE (Time Limit Exceeded) errors by using BufferedReader instead of Scanner in Java.
+tags: [java, dsa, competitive-programming, fast-io, optimization]
+---
+
+# Java Fast I/O for Competitive Programming
+
+When solving Data Structures and Algorithms (DSA) problems in Java, beginners often face **Time Limit Exceeded (TLE)** errors even when their algorithm logic is perfectly optimal. 
+
+The most common culprit? Using `java.util.Scanner` to read large input streams.
+
+## The Problem with `Scanner`
+`Scanner` is heavily loaded with built-in regex parsing, locale checks, and a relatively small buffer size (1KB). When a problem requires reading hundreds of thousands of integers or strings (e.g., an array of size $10^5$), `Scanner` simply cannot process the stream fast enough, resulting in a TLE.
+
+## The Solution: `BufferedReader` + `StringTokenizer`
+To achieve maximum I/O performance in Java, competitive programmers use a combination of `BufferedReader` and `StringTokenizer`.
+
+* **`BufferedReader`**: Reads text from a character-input stream, buffering characters for efficient reading. It has a significantly larger default buffer size (8KB) and reads raw data without regex overhead.
+* **`StringTokenizer`**: Breaks the input string into tokens much faster than `String.split()` or `Scanner.nextInt()`.
+
+## The `FastReader` Template
+Below is a highly optimized, reusable `FastReader` utility class. You can copy and paste this inside your main Java class during interviews or competitive programming contests.
+
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+    
+    // FastReader Utility Class
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                if (st.hasMoreTokens()) {
+                    str = st.nextToken("\n");
+                } else {
+                    str = br.readLine();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Usage example
+        FastReader sc = new FastReader();
+        
+        // Reading inputs is exactly like using Scanner
+        int n = sc.nextInt();
+        long k = sc.nextLong();
+        
+        System.out.println("Read inputs: " + n + ", " + k);
+    }
+}
