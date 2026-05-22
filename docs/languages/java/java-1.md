@@ -1,8 +1,8 @@
 ---
 id: datatypes-in-java
 sidebar_position: 1
-title: "Datatypes in Java"
-sidebar_label: "Datatypes in Java"
+title: "Data Types in Java"
+sidebar_label: "Data Types in Java"
 ---
 
 Hey there! In this guide, we'll explore the different data types available in Java. Understanding data types is crucial for writing efficient and clear Java code. Let's dive in!
@@ -37,7 +37,8 @@ char grade = 'A';
 *   Holds whole numbers, both positive and negative.
 
 ```java
-int x = 10; byte y = 20;     // Range: -128 to 127
+int x = 10;
+byte y = 20;     // Range: -128 to 127
 short z = 30000; // Range: -32,768 to 32,767
 long w = 123456789L; // Suffix 'L' for long literals
 ```
@@ -93,7 +94,9 @@ void myMethod() {
 ### b. Global Variable Example:
 
 ```java
-class MyClass {     int globalVar = 20;  // Accessible throughout the MyClass
+class MyClass {
+    int globalVar = 20;  // Accessible throughout the MyClass
+
     void myMethod() {
             globalVar = 30;   // Modifying globalVar
         } }
