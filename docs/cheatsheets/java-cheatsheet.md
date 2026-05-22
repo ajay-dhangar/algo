@@ -110,13 +110,13 @@ import java.util.*;
 
 Java Collection Complexities
 
-Data Structure	Access	Search	Insert	Delete
-
-ArrayList	O(1)	O(n)	O(1)* (end)	O(n)
-LinkedList	O(n)	O(n)	O(1)	O(1)**
-HashMap	-	O(1)	O(1)	O(1)
-TreeMap	-	O(log n)	O(log n)	O(log n)
-PriorityQueue	-	O(n)	O(log n)	O(log n)
+| Data Structure | Access | Search | Insert | Delete |
+| :--- | :--- | :--- | :--- | :--- |
+| ArrayList | O(1) | O(n) | O(1)* (end) | O(n) |
+| LinkedList | O(n) | O(n) | O(1) | O(1)** |
+| HashMap | - | O(1) | O(1) | O(1) |
+| TreeMap | - | O(log n) | O(log n) | O(log n) |
+| PriorityQueue | - | O(n) | O(log n) | O(log n) |
 
 
 * = Amortized, end insertion only. Inserting at a specific index is O(n).
