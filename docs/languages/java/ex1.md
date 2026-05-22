@@ -85,7 +85,7 @@ public static void main(String[] args) {
     // code inside here will run
 }
 ```
--The `main()` method is written as public static void main(String[] args):
+- The `main()` method is written as public static void main(String[] args):
 - **public:** This means the method can be called from outside the class.
 - **static:** This means the method belongs to the class itself, not instances of the class.
 - **void:** This means the method does not return a value.
@@ -99,7 +99,7 @@ public static void main(String[] args) {
 }
 ```
 
-### Note :
+### Note:
 - The curly braces `{}` marks the beginning and the end of a block of code.
 - System is a built-in Java class that contains useful members, such as out, which is short for "output".
 - The `println()` method, short for "print line", is used to print a value to the screen (or a file).
