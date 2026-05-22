@@ -82,7 +82,7 @@ JavaScript is used in front-end development to make websites interactive and res
 4.2. Back-End Web Development:
 JavaScript is not limited to web browsers. With Node.js, developers can use JavaScript on servers to handle user requests, manage databases, and build full-stack web applications using a single language!
 
-4.3. Mobile and Desktop Apps :
+4.3. Mobile and Desktop Apps:
 Frameworks like React Native (for mobile) and Electron (for desktop) allow developers to build apps for multiple platforms using JavaScript.
 
 4.4. Game Development :
