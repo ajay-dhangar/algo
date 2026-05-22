@@ -9,7 +9,7 @@ tags: [java, cheatsheet, dsa]
 
 This page is a quick reference for Java patterns that show up constantly in DSA and competitive programming. If you're just starting out, don't worry — every snippet here is explained line by line 😊
 
-Common Time Complexities
+## Common Time Complexities
 
 | Complexity | Meaning | Example |
 | :--- | :--- | :--- |
