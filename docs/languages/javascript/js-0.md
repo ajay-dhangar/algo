@@ -90,7 +90,7 @@ JavaScript is used in game development to create interactive 2D and 3D games tha
 
 ## 5. Adding JavaScript to Your Web Page
 
-To include JavaScript in a web page, you can embed it directly within the HTML using the tag.
+To include JavaScript in a web page, you can embed it directly within the HTML using the `<script>` tag.
 
 ### 5.1. Inline JavaScript
 You can add JavaScript code directly inside your HTML:
