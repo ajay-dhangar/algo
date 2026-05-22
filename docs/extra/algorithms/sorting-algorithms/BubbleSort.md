@@ -140,7 +140,6 @@ Bubble sort is one of the simplest sorting algorithms. While it is inefficient f
 
 - Using Bubble Sort for large datasets where performance becomes very slow
 - Forgetting to stop early when the array is already sorted
-- Incorrect swapping of adjacent elements
 
 ## Algorithm Tip
 

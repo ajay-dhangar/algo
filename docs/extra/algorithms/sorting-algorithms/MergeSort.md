@@ -209,7 +209,6 @@ Merge sort is an efficient and reliable sorting algorithm, particularly for larg
 
 - Forgetting that Merge Sort requires extra memory for merging
 - Incorrectly dividing the array causing recursion issues
-- Not handling base conditions properly
 
 ## Algorithm Tip
 
