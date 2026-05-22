@@ -1,10 +1,10 @@
 ---
 id: greedy-algorithms-2
-title:  greedy Algorithms
-sidebar_label:  Greedy Algorithms
+title: greedy Algorithms
+sidebar_label: Greedy Algorithms
 sidebar_position: 1
 description: Greedy algorithms are a class of algorithms that make the optimal choice at each step with the hope of finding the global optimum
-tags: [Competitive Programming,greedy approach,optimization]
+tags: [Competitive Programming, greedy approach, optimization]
 ---
 # Greedy Algorithms - Theory
 
@@ -13,6 +13,20 @@ tags: [Competitive Programming,greedy approach,optimization]
 Greedy algorithms are a paradigm for solving optimization problems. The main idea behind a greedy algorithm is to make a sequence of choices, each of which looks the best at the moment. It chooses the optimal solution at every step with the hope that these local optimal choices will lead to a global optimal solution.
 
 Unlike dynamic programming, where you solve every subproblem and then combine the solutions to form the optimal solution for the entire problem, greedy algorithms directly pick what seems to be the best option at each decision point.
+
+### Beginner-Friendly Explanation
+
+A Greedy Algorithm solves a problem step by step.  
+At every step, it chooses the option that looks best at that moment.
+
+The main goal is to find an optimal solution quickly by making local best choices.
+
+### Real-Life Example
+
+Imagine you have limited money and want to buy the maximum number of chocolates.
+
+A greedy approach would pick the cheapest chocolate first, then the next cheapest, and so on.  
+This strategy tries to maximize the total number of chocolates you can buy.
 
 ### Characteristics of Greedy Algorithms
 
@@ -37,6 +51,41 @@ Greedy algorithms are applied to a variety of problems, especially in optimizati
 3. **Kruskal's and Prim's Algorithm**: Used to find the Minimum Spanning Tree (MST) in a graph.
 4. **Dijkstra's Algorithm**: Used to find the shortest path from one source to all other vertices in a graph.
 
+### Dry Run Example
+
+#### Problem:
+Select the maximum number of non-overlapping activities.
+
+| Activity | Start Time | End Time |
+|----------|------------|----------|
+| A | 1 | 3 |
+| B | 2 | 5 |
+| C | 4 | 6 |
+| D | 6 | 8 |
+
+#### Greedy Approach:
+1. Select the activity that finishes earliest.
+2. Choose the next activity whose start time is greater than or equal to the previously selected activity's end time.
+
+#### Step-by-Step Selection:
+- Select A (1,3)
+- Skip B because it overlaps with A
+- Select C (4,6)
+- Select D (6,8)
+
+#### Final Answer:
+Selected Activities → A, C, D
+
+### Time and Space Complexity
+
+| Operation | Complexity |
+|-----------|------------|
+| Sorting | O(n log n) |
+| Selection Process | O(n) |
+| Overall Time Complexity | O(n log n) |
+| Space Complexity | O(1) |
+
+
 ### Advantages of Greedy Algorithms
 
 1. **Simple to Implement**: Greedy algorithms are generally easier to code and understand because they follow a straightforward approach.
@@ -56,6 +105,21 @@ Greedy algorithms are applied to a variety of problems, especially in optimizati
 | **Structure**             | No overlapping subproblems                    | Overlapping subproblems are recomputed.           |
 | **Use**                   | Simple and efficient for specific problems    | Used for complex problems where greedy fails.     |
 | **Examples**              | Kruskal's MST, Huffman Coding, Dijkstra's     | Longest Common Subsequence, Matrix Chain Multiplication |
+
+### When Greedy Algorithms Fail
+
+Greedy algorithms do not always produce the optimal solution.
+
+For example, in the Coin Change problem, a greedy approach may fail for certain coin systems.
+
+Suppose the available coins are:
+1, 3, and 4
+
+To make the value 6:
+- Greedy choice: 4 + 1 + 1 = 3 coins
+- Optimal solution: 3 + 3 = 2 coins
+
+This shows that choosing the locally best option does not always lead to the globally best solution.
 
 ### Conclusion
 
