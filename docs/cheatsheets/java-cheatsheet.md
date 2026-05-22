@@ -11,13 +11,13 @@ This page is a quick reference for Java patterns that show up constantly in DSA 
 
 Common Time Complexities
 
-Complexity	Meaning	Example
-
-O(1)	Constant Time	Array access
-O(log n)	Logarithmic Time	Binary Search
-O(n)	Linear Time	Array traversal
-O(n log n)	Efficient sorting	Merge Sort
-O(n²)	Quadratic Time	Nested loops
+| Complexity | Meaning | Example |
+| :--- | :--- | :--- |
+| O(1) | Constant Time | Array access |
+| O(log n) | Logarithmic Time | Binary Search |
+| O(n) | Linear Time | Array traversal |
+| O(n log n) | Efficient sorting | Merge Sort |
+| O(n²) | Quadratic Time | Nested loops |
 
 
 
