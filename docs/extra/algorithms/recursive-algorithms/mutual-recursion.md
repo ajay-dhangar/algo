@@ -39,7 +39,7 @@ def is_odd(n):
 If $ n = 0 $, the function returns immediately.
 
 **Time Complexity:**  
-$ $O(1)$ $
+$O(1)$ 
 
 ### Worst Case
 The worst case occurs when the mutual recursion continues to call each other before reaching a base case.
