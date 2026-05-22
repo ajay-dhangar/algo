@@ -5,6 +5,27 @@ sidebar_label: Introduction to  References and Pointers
 sidebar_position: 2
 description: 'Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming'
 tags: [dsa, data-structures,  Pointers]
+
+---
+
+---
+
+## Learning Information
+
+| Category | Details |
+|----------|----------|
+| Difficulty | Intermediate |
+| Estimated Reading Time | 18 minutes |
+| Prerequisites | Variables, Functions, Memory Basics, Arrays in C++ |
+| Recommended Learning Path | Variables → Arrays → Functions → Pointers → Dynamic Memory Allocation |
+
+## Progress Tracker
+
+- [ ] Understood references in C++
+- [ ] Learned pointer declaration and dereferencing
+- [ ] Compared references and pointers
+- [ ] Practiced pointer-based functions
+
 ---
 
 

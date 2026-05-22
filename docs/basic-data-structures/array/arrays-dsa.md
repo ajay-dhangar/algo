@@ -10,6 +10,26 @@ tags: [dsa, data-structures, arrays, array, array-data-structure, array-in-dsa, 
 
 An array is a collection of items stored at contiguous memory locations. It is a data structure that stores a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.
 
+---
+
+## Learning Information
+
+| Category | Details |
+|----------|----------|
+| Difficulty | Beginner |
+| Estimated Reading Time | 20 minutes |
+| Prerequisites | Variables, Loops, Basic Programming Concepts |
+| Recommended Learning Path | Variables → Loops → Arrays → Searching → Sorting |
+
+## Progress Tracker
+
+- [ ] Understood array fundamentals
+- [ ] Practiced array traversal
+- [ ] Implemented array operations
+- [ ] Solved basic array problems
+
+---
+
 ## Visualizations of Arrays in Data Structures and Algorithms (DSA)
 
 <ArrayVisualizations />
