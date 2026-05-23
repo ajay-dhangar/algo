@@ -7,6 +7,8 @@ description: 'A Linked List is a linear data structure in which elements are sto
 tags: [dsa, data-structures, LinkedList]
 ---
 
+import RelatedTopics from '@site/src/components/RelatedTopics';
+
 ### Introduction to Linked List
 
 A **LinkedList** is a linear data structure in which elements are stored in nodes, and each node points to the next node, forming a chain. Imagine a train where each car is connected to the next car, but you can only move forward through the train. Each car contains passengers (data) and has a coupling (pointer) that connects it to the next car.
@@ -454,3 +456,12 @@ Consider that you start with an empty list of student IDs and perform the follow
 ### Conclusion
 
 Singly Linked Lists (SLLs) offer dynamic memory management. They grow or shrink in size as needed, avoiding the limitations of static data structures like arrays. SLLs are excellent for applications that involve frequent insertions and deletions (especially at the beginning or middle), such as in stacks, queues, or other dynamic datasets. A singly linked list can be slower in terms of searching compared to arrays, since every search requires linear time.
+
+<RelatedTopics
+  topics={[
+    "category/arrays",
+    "category/stacks",
+    "category/queue"
+    
+  ]}
+/>

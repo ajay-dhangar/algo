@@ -27,7 +27,7 @@ Similar to time complexity, space complexity is also denoted using Big O notatio
 
 Analyzing space complexity involves counting the memory used by an algorithm, including variables, data structures, and other resources. Understanding the space complexity of an algorithm is crucial, especially when dealing with limited memory resources.
 
-<Ads />
+<AdsComponent />
 
 ## How to Calculate Time Complexity
 
@@ -63,7 +63,7 @@ Calculating the space complexity of an algorithm involves analyzing the amount o
 
 By following these steps, you can calculate the space complexity of an algorithm and evaluate its memory usage, efficiency, and performance characteristics.
 
-<Ads />
+<AdsComponent />
 
 ## Conclusion
 

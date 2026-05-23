@@ -33,7 +33,7 @@ function sumOfN(n) {
 
 In the above example, the space complexity of the algorithm is O(1) because the algorithm uses a constant amount of memory space.
 
-<Ads />
+<AdsComponent />
 
 ## Example of Space Complexity
 
@@ -211,7 +211,7 @@ In the above example, the space complexity of the algorithm is `O(1) + O(n) = O(
 
 :::
 
-<Ads />
+<AdsComponent />
 
 ## Conclusion
 

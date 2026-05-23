@@ -32,7 +32,7 @@ for (let key in person) {                  // Iterate over each property in the 
 }  
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 3. For-Of Loop
 
@@ -103,7 +103,7 @@ for (let i = 1; i <= 3; i++) {            // Outer loop from 1 to 3
 }  
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 9. Loop Control Statements
 

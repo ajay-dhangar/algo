@@ -184,7 +184,9 @@ const DataStructuresQuiz: React.FC = () => {
   }, [timeLeft]);
 
   // Handle option selection
-  const handleOptionSelect = (option:string) => {
+  const handleOptionSelect = (option: string) => {
+    if (userAnswers[currentQuestionIndex] !== undefined || selectedOption) return;
+
     setSelectedOption(option);
     if (option === questions[currentQuestionIndex].answer) {
       setCorrectAnswers(correctAnswers + 1);

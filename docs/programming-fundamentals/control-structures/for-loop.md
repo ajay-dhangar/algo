@@ -34,7 +34,7 @@ for (initialization; condition; update) {
 
 The `initialization` part is executed once at the beginning of the loop and is typically used to initialize a loop variable. The `condition` is evaluated before each iteration, and if it is `true`, the code block inside the loop is executed. The `update` part is executed after each iteration and is used to update the loop variable.
 
-<Ads />
+<AdsComponent />
 
 ## Using For Loops
 
@@ -110,7 +110,7 @@ Let's look at an example to understand how `for` loops work in practice. Suppose
 
 By using a `for` loop, you can easily iterate over a sequence of elements and perform operations on each element. This makes it a powerful tool for working with collections, arrays, and other data structures in programming.
 
-<Ads />
+<AdsComponent />
 
 ## Best Practices for Using For Loops
 
@@ -128,7 +128,7 @@ When using `for` loops, consider the following best practices to write efficient
 
 By following these best practices, you can write clean, efficient, and maintainable code when using `for` loops in your programs.
 
-<Ads />
+<AdsComponent />
 
 ## Conclusion
 

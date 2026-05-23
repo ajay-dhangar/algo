@@ -30,7 +30,7 @@ function factorial(n) {
 console.log(factorial(5)); // Output: 120
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Visualizing Recursion
 
