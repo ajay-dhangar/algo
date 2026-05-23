@@ -31,14 +31,15 @@ Because the array is **sorted**, we do not need to use a HashMap or check every 
 
 ### The Java Solution
 
-```java
+~~~java
 public class TwoSumIISolution {
     public int[] twoSum(int[] numbers, int target) {
         int left = 0;
         int right = numbers.length - 1;
         
         while (left < right) {
-            int currentSum = numbers[left] + numbers[right];
+            // Use 'long' to prevent integer overflow when adding two large numbers
+            long currentSum = (long) numbers[left] + numbers[right];
             
             if (currentSum == target) {
                 // The problem typically asks for 1-indexed array return
@@ -52,7 +53,7 @@ public class TwoSumIISolution {
         return new int[] {-1, -1}; // No solution found
     }
 }
-```
+~~~
 
 ### Complexity
 * **Time Complexity:** $O(N)$ because each element is visited at most once by the pointers.
@@ -69,12 +70,12 @@ The brute force way to solve 3Sum is to use three nested loops, which takes $O(N
 
 1. **Sort the array:** This is mandatory. Sorting allows us to use pointers and makes it trivial to skip duplicate numbers.
 2. **The Anchor:** Iterate through the array with a standard `for` loop. The current number `nums[i]` acts as our "anchor". 
-3. **Two Pointers:** Since we need `nums[i] + left + right == 0`, we can reframe the logic. We are essentially looking for two numbers that add up to `-nums[i]`. This turns the rest of the array into a standard "Two Sum II" problem!
+3. **Two Pointers:** Since we need `nums[i] + nums[left] + nums[right] == 0`, we can reframe the logic. We are essentially looking for two numbers that add up to `-nums[i]`. This turns the rest of the array into a standard "Two Sum II" problem!
 4. **Skipping Duplicates:** To ensure we don't return duplicate triplets, we must write `while` loop conditions that skip over identical adjacent numbers whenever we find a valid triplet.
 
 ### The Java Solution
 
-```java
+~~~java
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -87,6 +88,9 @@ public class ThreeSumSolution {
         Arrays.sort(nums); 
         
         for (int i = 0; i < nums.length - 2; i++) {
+            // Optimization: If the anchor is positive, the sum can never equal zero
+            if (nums[i] > 0) break;
+            
             // Skip duplicate elements for the anchor number
             if (i > 0 && nums[i] == nums[i - 1]) continue;
             
@@ -116,7 +120,7 @@ public class ThreeSumSolution {
         return result;
     }
 }
-```
+~~~
 
 ### Complexity
 * **Time Complexity:** $O(N^2)$. Sorting the array takes $O(N \log N)$, and the nested two-pointer while-loop takes $O(N^2)$.
