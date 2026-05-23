@@ -217,7 +217,6 @@ const algorithmData = {
     ],
   },
 };
-
 function AlgorithmUseCases() {
 const [selected, setSelected] = useState(
   Object.keys(algorithmData)[0]
