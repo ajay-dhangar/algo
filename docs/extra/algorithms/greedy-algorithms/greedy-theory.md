@@ -76,7 +76,7 @@ Select the maximum number of non-overlapping activities.
 #### Final Answer:
 Selected Activities → A, C, D
 
-### Time and Space Complexity
+### Time and Space Complexity (Activity Selection)
 
 | Operation | Complexity |
 |-----------|------------|
