@@ -12,6 +12,26 @@ A two-dimensional (2D) array is an array of arrays, where each element of the ma
 
 In this guide, we will cover the fundamentals of two-dimensional arrays, their applications, and common operations used in data structures and algorithms (DSA).
 
+---
+
+## Learning Information
+
+| Category | Details |
+|----------|----------|
+| Difficulty | Beginner |
+| Estimated Reading Time | 15 minutes |
+| Prerequisites | Arrays, Nested Loops, Basic Matrix Concepts |
+| Recommended Learning Path | Arrays → Two-Dimensional Arrays → Matrix Operations → Dynamic Programming |
+
+## Progress Tracker
+
+- [ ] Understood 2D array structure
+- [ ] Practiced traversal techniques
+- [ ] Implemented matrix operations
+- [ ] Solved matrix-based problems
+
+---
+
 ## 1. What is a Two-Dimensional Array?
 
 A two-dimensional array is an array that consists of a collection of elements arranged in rows and columns. Each element can be accessed using two indices – one representing the row and the other representing the column.

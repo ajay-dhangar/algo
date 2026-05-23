@@ -7,6 +7,24 @@ description: 'Both references and pointers are powerful features in C++ that all
 tags: [dsa, data-structures,  Pointers]
 ---
 
+## Learning Information
+
+| Category | Details |
+|----------|----------|
+| Difficulty | Intermediate |
+| Estimated Reading Time | 18 minutes |
+| Prerequisites | Variables, Functions, Memory Basics, Arrays in C++ |
+| Recommended Learning Path | Variables → Arrays → Functions → Pointers → Dynamic Memory Allocation |
+
+## Progress Tracker
+
+- [ ] Understood references in C++
+- [ ] Learned pointer declaration and dereferencing
+- [ ] Compared references and pointers
+- [ ] Practiced pointer-based functions
+
+---
+
 
 ## 1. What are References and Pointers in C++?
 
