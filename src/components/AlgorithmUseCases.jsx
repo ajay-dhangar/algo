@@ -221,6 +221,13 @@ function AlgorithmUseCases() {
 const [selected, setSelected] = useState(
   Object.keys(algorithmData)[0]
 );
+
+
+function AlgorithmUseCases() {
+  const [selected, setSelected] = useState(
+  Object.keys(algorithmData)[0]
+);
+
   return (
     <div
       style={{

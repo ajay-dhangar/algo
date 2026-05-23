@@ -156,9 +156,10 @@ int main() {
 }
 ```
 
-### Summary:
+### Summary
 
 Quick sort is a highly efficient and widely used sorting algorithm that works well for large datasets. It employs the divide-and-conquer approach, partitioning the array around a pivot and sorting the subarrays recursively. Although its worst-case time complexity is O(n²), this can often be avoided by choosing an appropriate pivot (like the median of three). In practice, quick sort is often faster than other O(n log n) algorithms like merge sort due to its in-place sorting nature and better cache performance.
+
 ## Complexity Comparison Table
 
 | Algorithm | Best Case | Average Case | Worst Case | Space Complexity |
@@ -183,4 +184,3 @@ Quick Sort is useful:
 - For fast in-memory sorting
 - In competitive programming
 - When average-case performance is important
-

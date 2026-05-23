@@ -29,7 +29,7 @@ type arrayName[arraySize];
 int numbers[5]; // Declares an array of 5 integers
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 3. Initializing an Array
 
@@ -103,7 +103,7 @@ Element 3 is: 4
 Element 4 is: 5
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 6. Multi-dimensional Arrays
 
@@ -138,7 +138,7 @@ int main() {
 4 5 6
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 7. Array of Strings
 
@@ -169,7 +169,7 @@ Banana
 Cherry
 ```
 
-<Ads />
+<AdsComponent />
 
 ## 8. Array Limitations
 

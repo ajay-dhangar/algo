@@ -36,7 +36,7 @@ if (condition) {
 
 The `condition` is an expression that evaluates to either `true` or `false`. If the condition is `true`, the code block inside the `if` block is executed. Otherwise, the code block inside the `else` block is executed.
 
-<Ads />
+<AdsComponent />
 
 ## Using If-Else Statements
 
@@ -209,7 +209,7 @@ The Python code snippet assigns a grade to the student based on their score.
   </TabItem>
 </Tabs>
 
-<Ads />
+<AdsComponent />
 
 ## Conclusion
 

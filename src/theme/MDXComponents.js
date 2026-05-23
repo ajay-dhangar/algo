@@ -6,6 +6,8 @@ import BubbleSortVisualization from "@site/src/components/DSA/arrays/BubbleSortV
 import InsertionSortVisualization from "@site/src/components/DSA/arrays/InsertionSortVisualization";
 import QuickSortVisualization from "@site/src/components/DSA/arrays/QuickSortVisualization";
 import HeapSortVisualization from "@site/src/components/DSA/arrays/HeapSortVisualization";
+import MergeSortVisualization from "@site/src/components/DSA/arrays/MergeSortVisualization";
+import ShellSortVisualization from "@site/src/components/DSA/arrays/ShellSortVisualization";
 import SelectionSortVisualization from "@site/src/components/DSA/arrays/SelectionSortVisualization";
 import DijkstraVisuzalizations from "@site/src/components/DSA/graphs/DijkstraVisualizations";
 import FloydWarshallVisualizations from "@site/src/components/DSA/graphs/FloydWarshallVisualizations";
@@ -35,6 +37,8 @@ export default {
   InsertionSortVisualization,
   QuickSortVisualization,
   HeapSortVisualization,
+  MergeSortVisualization,
+  ShellSortVisualization,
 //   Image,
   LiteYouTubeEmbed,
 //   LinearSearchVisualizer,

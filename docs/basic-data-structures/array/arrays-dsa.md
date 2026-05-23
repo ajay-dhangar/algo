@@ -6,6 +6,8 @@ description: "An array is a collection of items stored at contiguous memory loca
 tags: [dsa, data-structures, arrays, array, array-data-structure, array-in-dsa, array-in-data-structure, array-in-algorithm, array-in-dsa-example, array-in-dsa-explanation, array-in-dsa-conclusion, array-in-dsa-importance, array-in-dsa-syntax, array-in-dsa-declaration, array-in-dsa-access, array-in-dsa-update, array-in-dsa-length, array-in-dsa-iterate, array-in-dsa-max-min, array-in-dsa-program, array-in-dsa-code, array-in-dsa-js, array-in-dsa-java, array-in-dsa-python, array-in-dsa-c, array-in-dsa-cpp, array-in-dsa-ts]
 ---
 
+
+
 An array is a collection of items stored at contiguous memory locations. It is a data structure that stores a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type.
 
 ## Visualizations of Arrays in Data Structures and Algorithms (DSA)
@@ -540,3 +542,4 @@ The maximum and minimum elements in an array can be found by iterating through t
 ## Conclusion
 
 In this tutorial, we learned about arrays in data structures and algorithms. We learned how to declare an array, access an array, update an array, find the length of an array, iterate through an array, and find the maximum and minimum elements in an array. Arrays are an important data structure that is used in many algorithms and data structures.
+

@@ -9,88 +9,78 @@ import {
   FaCss3Alt,
 } from "react-icons/fa";
 
-const technologies = [
-  { name: "React", icon: <FaReact />, color: "text-blue-500" },
-  { name: "Node.js", icon: <FaNodeJs />, color: "text-green-500" },
-  {
-    name: "GitHub",
-    icon: <FaGithub />,
-    color: "text-gray-600 dark:text-gray-300",
-  },
-  { name: "MongoDB", icon: <FaDatabase />, color: "text-green-600" },
-  { name: "JavaScript", icon: <FaJs />, color: "text-yellow-500" },
-  { name: "HTML5", icon: <FaHtml5 />, color: "text-red-500" },
-  { name: "CSS3", icon: <FaCss3Alt />, color: "text-blue-600" },
-  {
-    name: "Tailwind CSS",
-    icon: (
-      <img
-        src="https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg"
-        alt="Tailwind CSS"
-        className="h-12 w-12"
-      />
-    ),
-    color: "text-blue-500",
-  },
-  {
-    name: "TypeScript",
-    icon: (
-      <img
-        src="https://cdn.worldvectorlogo.com/logos/typescript.svg"
-        alt="TypeScript"
-        className="h-12 w-12"
-      />
-    ),
-    color: "text-blue-500",
-  },
-  {
-    name: "Docusaurus",
-    icon: (
-      <img
-        src="https://docusaurus.io/img/docusaurus_keytar.svg"
-        alt="Docusaurus"
-        className="h-12 w-12"
-      />
-    ),
-    color: "text-blue-500",
-  },
-  {
-    name: "Markdown",
-    icon: (
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/5/57/Markdown-mark-purple.svg"
-        alt="Markdown"
-        className="h-12 w-12"
-      />
-    ),
-    color: "text-blue-500",
-  },
+interface Technology {
+  name: string;
+  // Type as ReactNode to fluidly accept both React Icons elements and raw Img tags
+  icon: React.ReactNode;
+  brandColorClass: string;
+}
+
+const technologies: Technology[] = [
+  { name: "React", icon: <FaReact />, brandColorClass: "text-[#61DAFB]" },
+  { name: "Node.js", icon: <FaNodeJs />, brandColorClass: "text-[#339933]" },
+  { name: "GitHub", icon: <FaGithub />, brandColorClass: "text-slate-900 dark:text-slate-100" },
+  { name: "MongoDB", icon: <FaDatabase />, brandColorClass: "text-[#47A248]" },
+  { name: "JavaScript", icon: <FaJs />, brandColorClass: "text-[#F7DF1E]" },
+  { name: "TypeScript", icon: <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" alt="TypeScript" className="h-full w-full object-contain" />, brandColorClass: "text-blue-500" },
+  { name: "HTML5", icon: <FaHtml5 />, brandColorClass: "text-[#E34F26]" },
+  { name: "CSS3", icon: <FaCss3Alt />, brandColorClass: "text-[#1572B6]" },
+  { name: "Tailwind CSS", icon: <img src="https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" alt="Tailwind CSS" className="h-full w-full object-contain" />, brandColorClass: "text-sky-400" },
+  { name: "Docusaurus", icon: <img src="https://docusaurus.io/img/docusaurus_keytar.svg" alt="Docusaurus" className="h-full w-full object-contain" />, brandColorClass: "text-emerald-500" },
+  { name: "Markdown", icon: <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Markdown-mark-purple.svg" alt="Markdown" className="h-full w-full object-contain" />, brandColorClass: "text-purple-500" },
 ];
 
 const TechnologiesSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gray-900">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">
-          Technologies{" "}
-          <span className="text-indigo-500 dark:text-yellow-400">We Use</span>
-        </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
-          Our project is built using a variety of cutting-edge technologies and
-          tools. These help ensure high performance, scalability, and
-          maintainability.
-        </p>
+    <section className="relative overflow-hidden py-24 bg-gradient-to-b from-slate-50 to-blue-50/30 dark:from-gray-950 dark:to-gray-900">
+      {/* Background Subtle Ambience Orbs */}
+      <div className="absolute top-1/2 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--ifm-color-primary)]/5 blur-[140px]" />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Section Typography Header */}
+        <div className="mx-auto max-w-3xl text-center mb-16">
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl md:text-5xl">
+            Technologies <span className="text-[var(--ifm-color-primary)] bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 bg-clip-text text-transparent">We Use</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            Our ecosystem runs on modern software engineering standards designed for speed, low-overhead maintenance, and optimal compilation.
+          </p>
+        </div>
+
+        {/* Flexible Multi-Device Micro Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 items-stretch justify-center">
           {technologies.map((tech, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer transition transform hover:scale-105 hover:shadow-xl"
+              className="
+                group relative flex flex-col items-center justify-center text-center
+                bg-white dark:bg-gray-900/40
+                backdrop-blur-md
+                border border-slate-200/60 dark:border-slate-800/80
+                p-6 rounded-2xl
+                shadow-sm hover:shadow-md
+                transition-all duration-300 ease-out
+                hover:-translate-y-1.5
+                cursor-default
+              "
             >
-              <div className={`text-6xl ${tech.color} mb-4`}>{tech.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+              {/* Dynamic Focus Border Accent using Docusaurus Core Variable */}
+              <div className="absolute inset-0 border border-transparent group-hover:border-[var(--ifm-color-primary)]/30 rounded-2xl transition-colors duration-300" />
+              
+              {/* Standardized Rigid Icon Container Capsule */}
+              <div className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/60 shadow-inner mb-4 transition-transform duration-300 ease-out group-hover:scale-110">
+                <div className={`w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-4xl sm:text-5xl transition-colors duration-300 ${tech.brandColorClass}`}>
+                  {tech.icon}
+                </div>
+              </div>
+
+              {/* Technology Label Text */}
+              <h3 className="relative text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 tracking-tight transition-colors duration-200 group-hover:text-[var(--ifm-color-primary)]">
                 {tech.name}
               </h3>
+
+              {/* Sleek bottom micro indicator dot */}
+              <div className="w-1 h-1 rounded-full bg-[var(--ifm-color-primary)] opacity-0 scale-50 transition-all duration-300 mt-1.5 group-hover:opacity-100 group-hover:scale-100" />
             </div>
           ))}
         </div>

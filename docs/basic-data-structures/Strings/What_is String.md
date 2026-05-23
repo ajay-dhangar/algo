@@ -6,6 +6,9 @@ sidebar_position: 4
 description: "The KMP algorithm is an efficient method for substring searching in a string."
 tags: [String Matching, kmp-algorithm, Substring Search, Algorithm, Pattern Matching]
 ---
+
+import RelatedTopics from '@site/src/components/RelatedTopics';
+
 # Strings in Programming
 
 ## What is a String?
@@ -136,3 +139,11 @@ UTF-8 is a more modern encoding that can represent a large variety of characters
 ### Conclusion
 
 Strings are fundamental to programming, providing a way to handle textual data. Understanding how to manipulate strings efficiently, especially when working with large datasets or performance-critical applications, is essential for developers.
+
+<RelatedTopics
+  topics={[
+    "category/linked-list",
+    "category/stacks",
+    "category/queue"
+  ]}
+/>

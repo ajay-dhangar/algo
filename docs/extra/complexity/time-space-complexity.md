@@ -32,7 +32,7 @@ Time complexity is typically denoted using Big O notation, which describes the u
 
 Analyzing time complexity involves counting the number of operations an algorithm performs as a function of the input size. This analysis helps us compare different algorithms and determine which one is more efficient for a given problem.
 
-<Ads />
+<AdsComponent />
 
 ### Space Complexity
 
