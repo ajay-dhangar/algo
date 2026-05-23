@@ -321,5 +321,4 @@ const [selected, setSelected] = useState(
     </div>
   );
 }
-
 export default AlgorithmUseCases;
