@@ -122,7 +122,7 @@ int main() {
 ```java
 public class FloydWarshall {
 
-    static final int INF = 999999;
+    static final int INF = 1000000000;
 
     public static void floydWarshall(int[][] dist, int V) {
 
