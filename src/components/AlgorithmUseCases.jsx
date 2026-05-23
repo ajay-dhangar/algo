@@ -252,9 +252,6 @@ const [selected, setSelected] = useState(
               padding: "12px 20px",
               border: "none",
               borderRadius: "12px",
-              background:selected === algo
-                ? "var(--ifm-color-primary-dark)"
-                : "var(--ifm-color-primary)",
               background:
   selected === algo
     ? "var(--ifm-color-primary-dark)"
