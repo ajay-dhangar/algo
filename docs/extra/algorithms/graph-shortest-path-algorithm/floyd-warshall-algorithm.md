@@ -58,7 +58,8 @@ Where:
 # Implementation in C++
 
 ```cpp
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 #define INF 1e9
