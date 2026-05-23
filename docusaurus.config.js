@@ -146,7 +146,8 @@ const config = {
          { to: "applications",
           label: "Applications",
           position: "left"
-        },          {
+        },
+          {
             type: "dropdown",
             label: "More",
             position: "right",
@@ -277,4 +278,5 @@ const config = {
     ],
   ],
 };
+
 export default config;
