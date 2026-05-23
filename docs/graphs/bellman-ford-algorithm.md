@@ -15,7 +15,7 @@ How It Works
 The algorithm is based on the principle of edge relaxation. It repeatedly relaxes all edges V - 1 times (where V is the number of vertices).
 Relaxation Formula
 For every edge (u, v) with weight w:
-d[v]=min⁡(d[v], d[u]+w(u,v))d[v] = \min(d[v],\ d[u] + w(u, v))d[v]=min(d[v], d[u]+w(u,v))
+$$d[v] = \min(d[v], d[u] + w(u, v))$$
 Steps
 
 Initialize distance of source to 0, all others to ∞
