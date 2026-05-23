@@ -45,7 +45,7 @@ We can create a 2D table `dp` of size `m x n`. We initialize the first row and t
 class Solution {
 public:
     int uniquePaths(int m, int n) {
-        vector<vector<int>> dp(m, vector<int>(n, 1));
+        std::vector<std::vector<int>> dp(m, std::vector<int>(n, 1));
         
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
