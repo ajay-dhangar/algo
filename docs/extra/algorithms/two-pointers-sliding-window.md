@@ -122,11 +122,11 @@ public class SlidingWindow {
         if (n < k) return -1;
 
         // Step 1: Build first window
-        int windowSum = 0;
+        long windowSum = 0;
         for (int i = 0; i < k; i++) {
             windowSum += arr[i];
         }
-        int maxSum = windowSum;
+        long maxSum = windowSum;
 
         // Step 2: Slide the window
         for (int i = k; i < n; i++) {
@@ -152,16 +152,16 @@ public class SlidingWindow {
 #include <bits/stdc++.h>
 using namespace std;
 
-int maxSumSubarray(vector<int>& arr, int k) {
+long long maxSumSubarray(vector<int>& arr, int k) {
     int n = arr.size();
     if (n < k) return -1;
 
     // Step 1: Build first window
-    int windowSum = 0;
+    long long windowSum = 0;
     for (int i = 0; i < k; i++) {
         windowSum += arr[i];
     }
-    int maxSum = windowSum;
+    long long maxSum = windowSum;
 
     // Step 2: Slide the window
     for (int i = k; i < n; i++) {
@@ -281,8 +281,9 @@ public class SlidingWindow {
             char c = s.charAt(right);
 
             // If char is already in window, shrink from left
-            if (charMap.containsKey(c) && charMap.get(c) >= left) {
-                left = charMap.get(c) + 1;
+            Integer lastSeen = charMap.get(c);
+            if (lastSeen != null && lastSeen >= left) {
+                left = lastSeen + 1;
             }
 
             // Update last seen position
@@ -313,11 +314,12 @@ int lengthOfLongestSubstring(string s) {
     int left = 0;
     int maxLength = 0;
 
-    for (int right = 0; right < s.size(); right++) {
-        // If char is already in window, shrink from left
-        if (charMap.count(s[right]) && charMap[s[right]] >= left) {
-            left = charMap[s[right]] + 1;
-        }
+    int n = s.size();
+    for (int right = 0; right < n; right++) {
+        auto it = charMap.find(s[right]);
+        if (it != charMap.end() && it->second >= left) {
+           left = it->second + 1;
+       }
 
         // Update last seen position
         charMap[s[right]] = right;
