@@ -7,24 +7,25 @@ description: "A quick introduction to function parameters."
 tags: [functions, parameters, basics]
 ---
 
-# Function Parameters
 
-## Introduction
+## 1. Introduction
 
 A **function parameter** (also called a *formal parameter*) is a variable listed in a function’s declaration or definition that receives a value when the function is called. The value passed during the call is known as an **argument** (or *actual parameter*).
 
 Parameters allow functions to operate on different data each time they are invoked, making code reusable and modular. They define the interface between the caller and the function: the caller provides arguments, and the function uses its parameters to process them.
 
-> **Parameter vs. Argument:**  
-> A parameter is the variable in the function signature; an argument is the concrete value passed by the caller.
->
-> *Example* – In `def add(a, b): ...` and `add(3, 5)`, `a` and `b` are **parameters**, while `3` and `5` are **arguments**.
+:::note Parameter vs. Argument
 
----
+A parameter is the variable in the function signature; an argument is the concrete value passed by the caller.
 
-## Basics: Syntax, Examples, and Explanation
+*Example* – In `def add(a, b): ...` and `add(3, 5)`, `a` and `b` are **parameters**, while `3` and `5` are **arguments**.
 
-### In Python
+:::
+
+
+## 2. Basics: Syntax, Examples, and Explanation
+
+### 2.1 In Python
 
 In Python, parameters are declared inside the parentheses of a function definition. Python is dynamically typed, so parameter types are not specified explicitly (though type hints can optionally be used). Arguments are passed **by object reference** (often described as “pass by assignment”): the function receives a reference to the object; mutable objects can be modified inside the function, but reassigning the parameter does not affect the caller’s variable.
 
@@ -50,7 +51,7 @@ print(c)     # output: 7
 This function takes two numbers, a and b, and returns their sum.
 
 
-### In C
+### 2.2 In C
 
 C is a statically typed language. Every parameter must have an explicit type. Arguments are passed by value: the function receives a copy of the argument. Changes to the parameter inside the function do not affect the original argument. To modify the caller’s variable, a pointer to it must be passed.
 
@@ -85,7 +86,7 @@ int main(){
 ```
 
 
-### In C++
+### 2.3 In C++
 
 C++ provides a rich parameter-passing system that gives you fine-grained control over performance and mutability. Parameters must have explicit types. C++ offers four main ways to pass arguments:
 
@@ -93,7 +94,7 @@ C++ provides a rich parameter-passing system that gives you fine-grained control
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------|
 | Pass by Value             | `void f(int x)`         |For small, cheap-to-copy types (int, char, etc.). A copy is made; the original is safe.          |
 | Pass by Reference         | `void f(int &x)`        |When you need to modify the original argument. No copy is made—acts as an alias.                 |     
-| Pass by const Reference    | `void f(const int &x)`  |For large objects that you don't want to copy and don't need to modify. Efficient and safe.      |
+| Pass by const Reference   | `void f(const int &x)`  |For large objects that you don't want to copy and don't need to modify. Efficient and safe.      |
 | Pass by pointer           | `void f(int *p)`        |Similar to references, but can be nullptr. Often used for optional parameters or C-compatibility.|
 
 **Syntax:**
@@ -181,13 +182,13 @@ int main() {
 ```
 
 
-## Default Parameters
+## 3. Default Parameters
 
 A default parameter allows a function parameter to have a pre‑defined value that is used when the caller does not supply an argument for that parameter. This makes functions more flexible and reduces the need for multiple overloaded definitions.
 - Default parameters must always appear after (to the right of) any non-default parameters during function declaration.
 - They are declared using the `=` operator in the parameter list of a function
 
-### In Python
+### 3.1 In Python
 
 **Example:**
 
@@ -203,11 +204,11 @@ addition(1)           # output: Error
 
 ```
 
-### In C
+### 3.2 In C
 
-Default parameters are not directly supported in C
+Default parameters are not directly supported in C. However, similar behavior can be achieved using function overloading alternatives such as conditional statements or wrapper functions.
 
-### In C++
+### 3.3 In C++
 
 **Example:**
 
@@ -230,11 +231,3 @@ int main() {
     return 0;
 }
 ```
-
-
-
-
-
-
-
-
