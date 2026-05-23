@@ -4,7 +4,7 @@ sidebar_label: Bellman-Ford Algorithm
 sidebar_position: 2
 description: A complete guide to the Bellman-Ford Algorithm with explanations, dry run, negative cycle detection, implementations in Python, Java, C++, and JavaScript, and related LeetCode problems.
 tags: [graph, shortest-path, dynamic-programming, negative-weights, bellman-ford, dsa]
-Bellman-Ford Algorithm
+# Bellman-Ford Algorithm
 Overview
 The Bellman-Ford Algorithm finds the shortest path from a single source vertex to all other vertices in a weighted graph. Unlike Dijkstra's Algorithm, Bellman-Ford works correctly even when the graph contains negative edge weights, making it more versatile for real-world problems.
 :::info Key Difference from Dijkstra
