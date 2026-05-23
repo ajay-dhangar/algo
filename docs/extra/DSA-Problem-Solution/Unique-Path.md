@@ -128,7 +128,7 @@ public:
         long long res = 1;
         // We want to calculate C(m+n-2, m-1). 
         // Swap m and n if n is smaller to minimize the loop iterations.
-        if (m > n) swap(m, n);
+        if (m > n) std::swap(m, n);
         
         for (int i = 1; i <= m - 1; ++i) {
             res = res * (n - 1 + i) / i;
