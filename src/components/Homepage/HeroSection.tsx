@@ -1,17 +1,25 @@
 import React from "react";
 import { FaGithub, FaArrowRight } from "react-icons/fa";
+import { FiCode } from "react-icons/fi";
 import { default as Link } from "@docusaurus/Link"; // Fixed import statement for Link
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center py-16 px-8 noise-bg">
       <div className="max-w-4xl text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-slate-600 dark:text-gray-400 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
+          <FiCode className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400" />
+          <span>v2.0 Architecture</span>
+          <span className="h-3 w-[1px] bg-slate-200 dark:bg-gray-800" />
+          <span className="text-blue-600 dark:text-blue-400">Open Source</span>
+        </div>
+
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
           Data Structures & Algorithms
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
-          Learn, Implement, and Contribute to Open Source Algorithms. Build your
-          understanding from the basics to advanced topics.
+        <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
+          Learn, implement, and contribute to production-grade data structures and algorithms. 
+          Accelerate your computer science proficiency from fundamental roots to production execution.
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
@@ -39,6 +47,7 @@ const HeroSection = () => {
           </Link>
 
         </div>
+        
       </div>
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-20 -left-10 w-72 h-72 bg-blue-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
