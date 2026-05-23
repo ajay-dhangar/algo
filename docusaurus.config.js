@@ -48,7 +48,7 @@ const config = {
   presets: [
     [
       "classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
+      /** @type deimport('@docusaurus/preset-classic').Options} */
       ({
         debug: true,
         docs: {
@@ -134,10 +134,7 @@ const config = {
             label: "Contributors",
             position: "left",
           },
-         { to: "applications",
-          label: "Applications",
-          position: "left"
-        },
+        { to: "applications", label: "Applications", position: "left" },
           {
             type: "dropdown",
             label: "More",
