@@ -182,7 +182,7 @@ var uniquePaths = function(m, n) {
     }
     
     for (let i = 1; i <= m - 1; i++) {
-        res = res * (n - 1 + i) / i;
+        res = Math.round(res * (n - 1 + i) / i);
     }
     
     return res;
