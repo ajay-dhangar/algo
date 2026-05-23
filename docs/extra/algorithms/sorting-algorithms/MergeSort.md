@@ -214,7 +214,6 @@ int main() {
 
 - Merge Sort is useful when stable sorting is required.
 - Not handling base conditions properly
-- Not handling base conditions properly
 
 
 ## Summary:
