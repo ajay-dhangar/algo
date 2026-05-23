@@ -146,19 +146,7 @@ const config = {
          { to: "applications",
           label: "Applications",
           position: "left"
-        },
-          {
-              to: "/applications",
-              label: "Applications",
-              position: "left",
-            },
-          {
-            to: "/applications",
-            label: "Applications",
-            position: "left",
-          },
-          { to: "applications", label: "Applications", position: "left" },
-          {
+        },          {
             type: "dropdown",
             label: "More",
             position: "right",
