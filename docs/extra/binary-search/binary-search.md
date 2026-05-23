@@ -157,12 +157,12 @@ Binary search : $O(log n)$
 - Uses the divide and conquer approach.
 - Best if arrays are too long (large datasets).
 
-## Algorithm Tip
-
-- Always ensure the array is sorted before using Binary Search for accurate results.
-
 ## Common Mistakes
 
 - Using Binary Search on unsorted arrays
 - Forgetting to update left and right pointers correctly
 - Incorrect midpoint calculation causing infinite loops
+
+## Algorithm Tip
+
+- Always ensure the array is sorted before using Binary Search for accurate results.
