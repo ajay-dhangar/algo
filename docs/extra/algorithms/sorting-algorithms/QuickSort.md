@@ -166,3 +166,21 @@ Quick sort is a highly efficient and widely used sorting algorithm that works we
 | Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+
+## Common Mistakes
+
+- Choosing poor pivot elements leading to worst-case performance
+- Incorrect partition logic causing unsorted output
+
+## Algorithm Tip
+
+- Choosing a good pivot improves Quick Sort performance significantly.
+- Deep recursion causing stack overflow for large datasets
+
+## When to Use This Algorithm
+
+Quick Sort is useful:
+- For fast in-memory sorting
+- In competitive programming
+- When average-case performance is important
+
