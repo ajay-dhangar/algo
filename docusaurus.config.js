@@ -48,7 +48,7 @@ const config = {
   presets: [
     [
       "classic",
-      /** @type deimport('@docusaurus/preset-classic').Options} */
+      /** @type import('@docusaurus/preset-classic').Options} */
       ({
         debug: true,
         docs: {
