@@ -62,7 +62,7 @@ Where:
 #include <vector>
 using namespace std;
 
-#define INF 1e9
+const int INF = 1000000000;
 
 void floydWarshall(vector<vector<int>>& dist, int V) {
 
