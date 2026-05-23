@@ -9,7 +9,7 @@ tags: [machine learning, reinforcement learning, q-learning, algorithms, model-f
 ### Definition:
 The **Q-Learning Algorithm** is a model-free reinforcement learning algorithm used to find the optimal action-selection policy for any given finite Markov Decision Process (MDP). It works by learning the value of actions in specific states without needing a model of the environment and aims to optimize long-term rewards.
 
-<Ads />
+<AdsComponent />
 
 ### Characteristics:
 - **Model-Free**:  
@@ -51,7 +51,7 @@ $$
 5. **Repeat**:  
    Continue until the learning converges or a stopping condition is met.
 
-<Ads />
+<AdsComponent />
    
 ### Problem Statement:
 Given an environment defined by states and actions with unknown dynamics, the goal is to learn the optimal Q-function that allows an agent to make decisions maximizing cumulative rewards over time.

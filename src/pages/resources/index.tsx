@@ -6,7 +6,46 @@ const resources = [
   { id: 1, title: "Introduction to Algorithms by CLRS", type: "Book", description: "One of the most comprehensive algorithm books.", link: "https://drive.google.com/file/d/0B3RHrbxFb7PfYjk4ZG01Z3lrbnc/view?resourcekey=0-aHyhqxUeXCNvRK3_QfNurg" },
   { id: 2, title: "LeetCode", type: "Website", description: "A platform for practicing algorithms with real problems.", link: "https://leetcode.com" },
   { id: 3, title: "Coursera: Algorithmic Toolbox", type: "Course", description: "An introductory course for algorithms.", link: "https://www.coursera.org/learn/algorithms-part1" },
-  // Add more resources
+
+  {
+  id: 4,
+  title: "Striver A2Z DSA Sheet",
+  type: "Roadmap",
+  description: "Structured DSA roadmap with practice problems and video explanations.",
+  link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z"
+  },
+
+  {
+  id: 5,
+  title: "NeetCode 150",
+  type: "Practice",
+  description: "Curated interview preparation set with 150 coding problems.",
+  link: "https://neetcode.io/practice/practice"
+  },
+
+  {
+  id: 6,
+  title: "VisuAlgo",
+  type: "Website",
+  description: "Interactive visualizations for algorithms and data structures.",
+  link: "https://visualgo.net/en"
+  },
+
+  {
+  id: 7,
+  title: "Blind 75",
+  type: "Interview Prep",
+  description: "Curated list of essential coding interview problems.",
+  link: "https://www.techinterviewhandbook.org/best-practice-questions/"
+},
+
+{
+  id: 8,
+  title: "DSA YouTube Playlists",
+  type: "Video Resources",
+  description: "YouTube playlists covering DSA concepts and interview preparation.",
+  link: "https://drive.google.com/file/d/17RKMqk5KT-1hf4O8wM4VssV_WrG4L7RX/view"
+},
 ];
 
 const Resources: React.FC = () => {

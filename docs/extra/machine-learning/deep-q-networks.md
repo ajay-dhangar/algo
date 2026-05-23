@@ -6,7 +6,7 @@ description: "An introduction to Deep Q-Networks, a reinforcement learning techn
 tags: [machine learning, reinforcement learning, DQN, deep learning, algorithms]
 ---
 
-<Ads />
+<AdsComponent />
 
 ### Definition:
 **Deep Q-Networks (DQN)** is a reinforcement learning algorithm that extends Q-Learning by using deep neural networks to approximate the Q-function. This allows DQN to handle high-dimensional state spaces that are not feasible with traditional tabular Q-Learning. The approach was popularized by DeepMind's success in applying DQN to play Atari games at a superhuman level.
@@ -21,7 +21,7 @@ tags: [machine learning, reinforcement learning, DQN, deep learning, algorithms]
 - **Fixed Target Network**:  
   DQN uses a separate target network to provide stable Q-value updates. This network is periodically updated with the weights of the main Q-network, preventing harmful feedback loops during training.
 
-<Ads />
+<AdsComponent />
 
 ### How It Works:
 DQN follows the same principles as Q-Learning but uses a deep neural network $ Q(s, a; \theta) $ parameterized by weights $ \theta $ to approximate Q-values. The network is trained to minimize the loss function:
@@ -53,7 +53,7 @@ $$
 6. **Update Target Network**:  
    Periodically update the target network weights $ \theta^- $ to match the Q-network weights $ \theta $.
 
-<Ads />
+<AdsComponent />
 
 ### Problem Statement:
 Develop a DQN agent capable of learning policies in environments where the state space is large or continuous, such as video games or robotics.
@@ -75,7 +75,7 @@ Consider an agent learning to play a simple game with pixel-based input:
 - **Actions**: Available moves (e.g., left, right, jump).
 - **Rewards**: +1 for progressing in the game, -1 for losing a life.
 
-<Ads />
+<AdsComponent />
 
 **Training Steps**:
 1. Preprocess the state (e.g., resize, grayscale).

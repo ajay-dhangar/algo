@@ -9,7 +9,7 @@ tags: [dsa, algorithms, graph]
 ### Problem Statement:
 Suppose we have a directed graph, we have to find its reverse so if an edge goes from i to j, it now goes from j to i. Here input will be an adjacency list, and if there are n nodes, the nodes will be (0, 1, ..., n-1).
 
-<Ads />
+<AdsComponent />
 
 ### Approach:
 The approach to transposing a directed graph involves creating a new structure to hold reversed edges. For each vertex, the algorithm iterates through its outgoing edges and appends the vertex to the list of the target vertex in the new structure. This efficiently constructs the transposed graph in linear time relative to the number of vertices and edges.
@@ -45,7 +45,7 @@ These steps succinctly outline the algorithm's approach to transforming the dire
     [[], [0, 3], [0, 3], [4], [1, 2]]
 ```
 
-<Ads />
+<AdsComponent />
 
 ### Explanation of Sample:
 
@@ -70,7 +70,7 @@ These steps succinctly outline the algorithm's approach to transforming the dire
 ### Diagrammatic Representation of the output:
 ![directed_graph1](https://github.com/user-attachments/assets/7cb03236-3f1a-49cc-b2ce-6ef73aac7fa4)
 
-<Ads />
+<AdsComponent />
 
 ### C++ Implementation:
 

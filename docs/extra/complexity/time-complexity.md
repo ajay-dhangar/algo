@@ -23,7 +23,7 @@ The most common notations used to represent the time complexity of an algorithm 
 - **Omega Notation (Ω):** It represents the lower bound of the time complexity of an algorithm. It gives the best-case time complexity of an algorithm.
 - **Theta Notation (Θ):** It represents the average-case time complexity of an algorithm. It gives the tight bound of the time complexity of an algorithm.
 
-<Ads />
+<AdsComponent />
 
 ### Big O Notation (O)
 
@@ -71,7 +71,7 @@ Here are some examples of time complexity for different algorithms:
 - **Exponential Factorial Exponential Time (O(2^n!^2^n)):** An algorithm that takes time proportional to an exponential function of the factorial of an exponential function of the size of the input.
 - **Exponential Exponential Factorial Time (O(2^2^n!)):** An algorithm that takes time proportional to an exponential function of an exponential function of the factorial of the size of the input.
 
-<Ads />
+<AdsComponent />
 
 ## Analyzing Time Complexity
 
