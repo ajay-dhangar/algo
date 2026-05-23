@@ -22,7 +22,7 @@ function printName(name) {
 
 In the example above, the function ```printName``` takes one parameter called ```name```. The function body consist of one statement that returns the name.
 
-<Ads />
+<AdsComponent />
 
 ## **Function Expressions**
 

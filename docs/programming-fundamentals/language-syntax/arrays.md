@@ -9,7 +9,7 @@ tags: [arrays, data structures, programming, syntax, js, java, python, cpp]
 
 Arrays are one of the most fundamental data structures in programming. They are used to store multiple values in a single variable, allowing for efficient data manipulation and access. This guide will cover how to declare, initialize, and work with arrays in JavaScript, Java, Python, and C++.
 
-<Ads />
+<AdsComponent />
 
 ## What is an Array?
 

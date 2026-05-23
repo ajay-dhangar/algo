@@ -40,7 +40,7 @@ Consider a scenario where the truck's weight limit is **50 kg**, and the availab
 
 You cannot pack all three supplies because their combined weight (10 + 20 + 30 = 60 kg) exceeds the truck's capacity. The optimal choice would be to pack supplies 2 and 3, resulting in a total weight of 50 kg and a maximum priority score of **220**.
 
-<Ads />
+<AdsComponent />
 
 ## Algorithm and Solution
 

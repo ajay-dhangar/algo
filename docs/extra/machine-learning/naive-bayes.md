@@ -31,7 +31,7 @@ The **Naive Bayes** algorithm is a probabilistic classifier based on **Bayes' Th
 3. **Bernoulli Naive Bayes**:  
    Applied to binary data, where the features take on binary values (e.g., presence or absence of a word in text classification).
 
-<Ads />
+<AdsComponent />
 
 ### Steps Involved:
 1. **Input the Data**:  
@@ -86,7 +86,7 @@ Given a dataset with multiple features and corresponding class labels, the objec
 - **Naive Assumption**:  
   Naive Bayes assumes that all features are independent given the class, simplifying the probability calculations. This assumption, although unrealistic in many cases, allows for efficient computation and often leads to good results.
 
-<Ads />
+<AdsComponent />
 
 ### Split Criteria:
 Naive Bayes splits data based on the **highest posterior probability** for each class, assigning the class label that maximizes this probability.

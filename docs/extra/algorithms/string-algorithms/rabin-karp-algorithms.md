@@ -94,7 +94,7 @@ The algorithm works by computing a hash value for the pattern and each substring
 
 </Tabs>
 
-<Ads />
+<AdsComponent />
 
 ## Explanation of the Code:
 
@@ -122,7 +122,7 @@ The rolling hash function allows efficient recomputation of hash values, making 
 ### Substring Search:
 It is widely used for finding substrings within large text data, especially in applications like word processors, search engines, and databases.
 
-<Ads />
+<AdsComponent />
 
 ## Advantages
 

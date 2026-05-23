@@ -40,7 +40,7 @@ tags: [machine learning, algorithms, supervised learning, regression]
 6. **Random Forest Regression**:  
    An ensemble method that combines multiple decision trees to improve prediction accuracy and control overfitting.
 
-<Ads />
+<AdsComponent />
 
 ### Steps Involved:
 1. **Input the Data**:  
@@ -82,7 +82,7 @@ Given a labeled dataset with multiple features and corresponding continuous targ
 - **Evaluation Metrics**:  
   Metrics used to assess model performance include MSE for regression tasks and R² score for measuring explained variance.
 
-<Ads />
+<AdsComponent />
 
 ### Split Criteria:
 Regression algorithms typically split data based on minimizing prediction error or maximizing explained variance in predictions.
