@@ -141,7 +141,6 @@ Bubble sort is one of the simplest sorting algorithms. While it is inefficient f
 
 ## Algorithm Tip
 - Bubble Sort is mainly useful for learning sorting concepts and understanding how swapping works internally.
-
 ## When to Use This Algorithm
 
 Bubble Sort is useful:
