@@ -9,23 +9,11 @@ const { execSync } = require("child_process");
 // Only show git history when git metadata is actually available.
 // Can be explicitly overridden with DOCUSAURUS_ENABLE_GIT_HISTORY=true|false.
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
+
 const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-      ? false
-      : (() => {
-          try {
-            if (!fs.existsSync(path.join(__dirname, ".git"))) {
-              return false;
-            }
-
-            execSync("git rev-parse --is-inside-work-tree", { stdio: "ignore" });
-            return true;
-          } catch {
-            return false;
-          }
-        })();
     ? false
     : (() => {
         try {
@@ -33,7 +21,10 @@ const showGitHistory =
             return false;
           }
 
-          execSync("git rev-parse --is-inside-work-tree", { stdio: "ignore" });
+          execSync("git rev-parse --is-inside-work-tree", {
+            stdio: "ignore",
+          });
+
           return true;
         } catch {
           return false;
