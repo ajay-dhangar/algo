@@ -4,13 +4,16 @@ sidebar_position: 17
 title: "Exception Handling in Java"
 sidebar_label: "Exception Handling in Java"
 ---
-In this guide, we'll discuss exception handling in Java. Exception handling helps manage runtime errors and prevents abnormal termination of programs.
 
+# Exception Handling in Java
+
+Hey there! In this guide, we'll explore exception handling in Java. Exception handling helps manage runtime errors and prevents abrupt termination of programs, making applications more reliable and easier to debug.
 
 ---
+
 ## 1. What is Exception Handling?
 
-Exception handling is a mechanism used to handle runtime errors so that normal execution of the program can continue.
+Exception handling is a mechanism used to handle runtime errors so that the normal execution of the program can continue.
 
 Java uses the following keywords:
 
@@ -20,11 +23,13 @@ Java uses the following keywords:
 - `throws`
 - `finally`
 
+---
+
 ## 2. The `try` Block
 
 The `try` block contains code that may generate an exception.
 
-**Syntax:**
+#### Syntax:
 
 ```java
 try {
@@ -32,7 +37,7 @@ try {
 }
 ```
 
-**Example:**
+#### Example:
 
 ```java
 try {
@@ -40,13 +45,13 @@ try {
 }
 ```
 
-
+---
 
 ## 3. The `catch` Block
 
 The `catch` block handles exceptions generated inside the `try` block.
 
-**Syntax:**
+#### Syntax:
 
 ```java
 catch(ExceptionType e) {
@@ -54,7 +59,7 @@ catch(ExceptionType e) {
 }
 ```
 
-**Example:**
+#### Example:
 
 ```java
 catch(ArithmeticException e) {
@@ -62,7 +67,11 @@ catch(ArithmeticException e) {
 }
 ```
 
-## 4. Complete Example
+---
+
+## 4. Complete Example of Exception Handling
+
+#### Example:
 
 ```java
 public class Main {
@@ -78,19 +87,19 @@ public class Main {
 }
 ```
 
-**Output:**
+#### Output:
 
 ```text
 Division by zero is not allowed
 ```
 
-
+---
 
 ## 5. Multiple Catch Blocks
 
-Java allows multiple `catch` blocks for different exception types.
+Java allows multiple `catch` blocks to handle different exception types.
 
-**Example:**
+#### Example:
 
 ```java
 public class Main {
@@ -109,25 +118,25 @@ public class Main {
 }
 ```
 
-**Output:**
+#### Output:
 
 ```text
 Null Pointer Exception
 ```
 
-
+---
 
 ## 6. Multi Catch Handler
 
 Java supports handling multiple exceptions using a single `catch` block.
 
-**Syntax:**
+#### Syntax:
 
 ```java
 catch(Exception1 | Exception2 e)
 ```
 
-**Example:**
+#### Example:
 
 ```java
 public class Main {
@@ -143,55 +152,63 @@ public class Main {
 }
 ```
 
-**Output:**
+#### Output:
 
 ```text
 Exception Handled
 ```
 
+---
+
 ## 7. The `throw` Keyword
 
-The `throw` keyword explicitly throws an exception.
+The `throw` keyword is used to explicitly generate exceptions.
 
-**Example:**
+#### Example:
 
 ```java
 public class Main {
     public static void main(String[] args) {
         int age = 15;
+
         if(age < 18) {
-            throw new ArithmeticException("Not eligible");
+            throw new IllegalArgumentException("Not eligible");
         }
     }
 }
 ```
 
-
+---
 
 ## 8. The `throws` Keyword
 
 The `throws` keyword declares exceptions that may occur in a method.
 
-**Example:**
+#### Example:
 
 ```java
 import java.io.*;
 
 public class Main {
     static void readFile() throws IOException {
-        FileReader file = new FileReader("abc.txt");
+        try(FileReader file = new FileReader("abc.txt")){
+            //Logic to read from the file
+        }
     }
+
     public static void main(String[] args) {
         System.out.println("Program Running");
     }
 }
 ```
 
+---
+
 ## 9. The `finally` Block
 
 The `finally` block executes regardless of whether an exception occurs.
 
-**Example:**
+#### Example:
 
 ```java
 public class Main {
@@ -209,7 +226,7 @@ public class Main {
 }
 ```
 
-**Output:**
+#### Output:
 
 ```text
 Exception Occurred
@@ -217,11 +234,12 @@ Finally Block Executed
 ```
 
 ---
+
 ## 10. User Defined Exception
 
 Java allows programmers to create custom exceptions.
 
-**Example:**
+#### Example:
 
 ```java
 class MyException extends Exception {
@@ -242,28 +260,40 @@ public class Main {
 }
 ```
 
-**Output:**
+#### Output:
 
 ```text
 Custom Exception
 ```
 
 ---
+
 ## 11. Advantages of Exception Handling
 
-- Prevents abrupt termination
+Exception handling provides several benefits:
+
+- Prevents abrupt program termination
 - Improves readability
 - Separates error handling logic
 - Helps debugging
-- Makes programs more reliable
+- Improves program reliability
+
+---
 
 ## 12. Limitations of Exception Handling
 
-- Excessive use may reduce readability
+Although useful, exception handling also has some limitations:
+
+- Excessive usage may reduce readability
 - Improper handling may hide errors
-- Slight performance overhead exists
+- Slight performance overhead may occur
 
 ---
-## Final Thoughts
 
-Exception handling in Java uses the keywords `try`, `catch`, `throw`, `throws`, and `finally`, allowing developers to handle and use exceptions for robust coding. Happy Learning!.
+## 13. Final Thoughts
+
+Exception handling is an important concept in Java that helps create robust and reliable applications.
+
+By using `try`, `catch`, `throw`, `throws`, and `finally`, developers can efficiently handle errors and improve program stability.
+
+Happy coding!
