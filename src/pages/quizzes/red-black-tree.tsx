@@ -153,7 +153,7 @@ const RedBlackTreeQuiz: React.FC = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [userAnswers, setUserAnswers] = useState<string[]>([]);
+  const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
 
   // Custom states for persistence, timer, and history
   const [usernameInput, setUsernameInput] = useState("");
@@ -234,12 +234,18 @@ const RedBlackTreeQuiz: React.FC = () => {
   };
 
   const nextQuestion = () => {
+    setUserAnswers((prev) => [...prev, selectedOption]);
+
+    if (selectedOption === questions[currentQuestion].answer) {
+      setScore((prev) => prev + 1);
+    }
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers];
+      const finalAnswers = [...userAnswers, selectedOption];
       submitAttempt(finalAnswers);
     }
   };

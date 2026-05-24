@@ -163,8 +163,8 @@ int main()
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [userAnswers, setUserAnswers] = useState<string[]>([]);
-  
+  const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
+
   // Custom states for persistence, timer, and history
   const [usernameInput, setUsernameInput] = useState("");
   const [userId, setUserId] = useState<string | null>(null);
@@ -244,12 +244,19 @@ int main()
   };
 
   const nextQuestion = () => {
+    setUserAnswers((prev) => [...prev, selectedOption]);
+
+    if (selectedOption === questions[currentQuestion].answer) {
+      setScore((prev) => prev + 1);
+    }
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers];
+
+      const finalAnswers = [...userAnswers, selectedOption];
       submitAttempt(finalAnswers);
     }
   };
@@ -290,7 +297,7 @@ int main()
     <Layout title="Arrays Quiz" description="Test your knowledge on array operations and algorithms.">
       <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex flex-col items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
-          
+
           <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 mb-4 bg-gray-100 dark:bg-gray-700/50 px-4 py-2 rounded-lg">
             <span>Logged in as: <strong className="text-gray-900 dark:text-white">{username}</strong></span>
             <button onClick={handleLogout} className="text-red-500 hover:underline border-none bg-transparent cursor-pointer">Change User</button>
@@ -345,8 +352,8 @@ int main()
                     key={index}
                     onClick={() => handleAnswer(option)}
                     className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
-                        ? "bg-blue-600 text-white dark:bg-blue-500"
-                        : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+                      ? "bg-blue-600 text-white dark:bg-blue-500"
+                      : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
                       }`}
                   >
                     {option}
