@@ -252,7 +252,9 @@ int main() {
 ### C++
 
 ```cpp
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <climits>
 using namespace std;
 
 struct Edge {
