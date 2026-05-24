@@ -3,12 +3,14 @@ import KeyboardShortcutsModal from "../components/KeyboardShortcutsModal";
 import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
 
 export default function Root({ children }) {
+  const onOpenHelp = useCallback(() => setShowKeyboardModal(true), []);
+  const onCloseHelp = useCallback(() => setShowKeyboardModal(false), []);
   const [showKeyboardModal, setShowKeyboardModal] =
     useState(false);
 
   useKeyboardShortcuts({
-    onOpenHelp: () => setShowKeyboardModal(true),
-    onCloseHelp: () => setShowKeyboardModal(false),
+    onOpenHelp,
+    onCloseHelp,
   });
 
   return (
