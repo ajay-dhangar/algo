@@ -344,7 +344,7 @@ int main() {
 
 **Time Complexity**
     - **Worst Case**: O(n²) – as it performs n comparisons for each element.
-    - **Best Case**: O(n) – when the array is already sorted.
+    - **Best Case**: O(n²) – as it performs the same number of comparisons regardless of the array's initial order.
     
 **Space Complexity**
     - O(1) – in-place sorting.
