@@ -149,7 +149,7 @@ Car is driving.
 **Ambiguity**
 - Ambiguity can happen when two base classes have member functions with the same name.
 - In such a case, if that function is called, it can be confusing as to which of the two functions is called.
-- Can be resolved using scope resolution (Base::function()).
+- Can be resolved using scope resolution (`Base::function()`).
 
 
 ## 4. Multilevel Inheritance
