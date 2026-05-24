@@ -17,7 +17,7 @@ export default function Root({ children }) {
 
       <KeyboardShortcutsModal
         isOpen={showKeyboardModal}
-        onClose={() => setShowKeyboardModal(false)}
+        onClose={onCloseHelp}
       />
     </>
   );
