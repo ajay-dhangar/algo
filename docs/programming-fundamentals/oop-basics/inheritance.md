@@ -324,12 +324,17 @@ I am working.
 ## 7. Diamond Problem
 The Diamond Problem occurs when two classes (say `B` and `C`) inherit from a common base class `A`, and a class `D` inherits from both `B` and `C`. This creates an ambiguous diamond‑shaped hierarchy:
 
-```text
-      A
-     / \
-    B   C
-     \ /
-      D
+```mermaid
+graph TD
+    A[Class A]
+    B[Class B]
+    C[Class C]
+    D[Class D]
+    
+    B --> A
+    C --> A
+    D --> B
+    D --> C
 ```
 
 **Example:**
