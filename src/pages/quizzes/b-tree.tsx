@@ -111,7 +111,7 @@ const BTree: React.FC = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [userAnswers, setUserAnswers] = useState<string[]>([]);
+  const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
 
   // Custom states for persistence, timer, and history
   const [usernameInput, setUsernameInput] = useState("");
