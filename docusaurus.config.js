@@ -110,6 +110,11 @@ const config = {
             position: "left",
           },
           {
+            to: "application",
+            label: "Application",
+            position: "left",
+          },
+          {
             type: "dropdown",
             label: "More",
             position: "right",
