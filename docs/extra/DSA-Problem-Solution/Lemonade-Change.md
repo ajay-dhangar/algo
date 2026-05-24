@@ -48,7 +48,7 @@ There are three scenarios based on the bill received:
    
    > **Greedy Strategy:** Always prefer Option A. A `$5` bill is much more valuable/flexible than a `$10` bill because a `$5` bill can help give change for both `$10` and `$20` transactions, whereas a `$10` bill can only help with `$20` transactions. 
 
-* **Time Complexity:** $O(n)$ because we iterate through every cell in the grid once.
+* **Time Complexity:** $O(n)$ because we iterate through the bills array once.
 * **Space Complexity:** $O(1)$ because we only use a few variables for the calculation, taking constant extra space.
 
 #### Greedy Solutions:
