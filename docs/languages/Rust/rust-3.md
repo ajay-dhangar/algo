@@ -56,6 +56,10 @@ Rust supports both signed and unsigned integers.
 | u32 | 32-bit | 500 |
 | i64 | 64-bit | -9000 |
 | u64 | 64-bit | 9000 |
+| i128 | 128-bit | -100000 |
+| u128 | 128-bit | 100000 |
+| isize | arch-dependent | -1 |
+| usize | arch-dependent | 1 |
 
 `i32` is the default integer type in Rust.
 
