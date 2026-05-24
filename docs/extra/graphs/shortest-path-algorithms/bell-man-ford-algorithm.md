@@ -265,10 +265,14 @@ void bellmanFord(int V, int E, vector<Edge>& edges, int src) {
 
     // Step 2: Relax all edges V-1 times
     for (int i = 1; i <= V - 1; i++) {
+        bool updated = false;
         for (auto& e : edges) {
-            if (dist[e.src] != INT_MAX && dist[e.src] + e.weight < dist[e.dest])
+            if (dist[e.src] != INT_MAX && dist[e.src] + e.weight < dist[e.dest]) {
                 dist[e.dest] = dist[e.src] + e.weight;
+                updated = true;
+            }
         }
+        if (!updated) break;
     }
 
     // Step 3: Detect negative weight cycles
