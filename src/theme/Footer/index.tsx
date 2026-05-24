@@ -91,7 +91,7 @@ const Footer = () => {
                 </svg>
               </Link>
               <Link
-                to="https://github.com/ajay-dhangar/algo/discussions"
+                to="https://discord.gg/f8dHD5Hv8Q"
                 target="_blank"
                 aria-label="GitHub Discussions"
                 rel="noopener noreferrer"
@@ -139,7 +139,7 @@ const Footer = () => {
             <ul className="space-y-3 pl-0">
               <li className="list-none">
                 <Link
-                  to="https://github.com/ajay-dhangar/algo/discussions"
+                  to="https://discord.gg/f8dHD5Hv8Q"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
                   GitHub Discussions
