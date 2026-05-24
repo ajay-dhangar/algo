@@ -134,3 +134,12 @@ Bubble sort is one of the simplest sorting algorithms. While it is inefficient f
 | Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+
+## Algorithm Tip
+Bubble Sort is best for learning basic sorting concepts and works well for very small datasets.
+
+## When to Use This Algorithm
+Use Bubble Sort when:
+- The dataset is very small
+- Simplicity is more important than performance
+- You are learning how sorting algorithms work

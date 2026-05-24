@@ -98,3 +98,13 @@ Binary search : O(log n)
 - Faster and complex than sequential search.
 - Uses the divide and conquer approach.
 - Best if arrays are too long (large datasets).
+
+## Algorithm Tip
+Binary Search provides very fast searching but requires the array to be sorted first.
+
+## When to Use This Algorithm
+Use Binary Search when:
+- The data is already sorted
+- Fast searching is required
+- Working with large datasets
+- Repeated searches are performed on the same dataset
