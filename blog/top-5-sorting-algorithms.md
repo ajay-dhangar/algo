@@ -1,7 +1,7 @@
 ---
 slug: top-5-sorting-algorithms
 title: 'Top 5 Sorting Algorithms'
-authors: [AswaniBolisetti]
+authors: [Aswani-Bolisetti]
 tags: [sorting, algorithms, dsa, bubble-sort, merge-sort, quick-sort]
 ---
 

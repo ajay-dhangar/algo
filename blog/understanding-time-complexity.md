@@ -1,7 +1,7 @@
 ---
 slug: understanding-time-complexity
 title: 'Understanding Time Complexity'
-authors: [AswaniBolisetti]
+authors: [Aswani-Bolisetti]
 tags: [algorithms, theory, big-o, time-complexity]
 ---
 

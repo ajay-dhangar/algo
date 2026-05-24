@@ -1,7 +1,7 @@
 ---
 slug: graph-theory-basics
 title: 'Graph Theory Basics'
-authors: [AswaniBolisetti]
+authors: [Aswani-Bolisetti]
 tags: [graphs, algorithms, dsa, bfs, dfs, dijkstra]
 ---
 
