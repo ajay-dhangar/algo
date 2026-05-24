@@ -695,7 +695,7 @@ Used in applications where a guarantee of O(n log n) time is necessary and space
 - Essential for many optimization problems
 - Used in ranking, scheduling, and reporting systems
 
-## Real-World Applications of Sorting
+### Real-World Applications of Sorting
 
 - Database indexing and searching
 - E-commerce product filtering
