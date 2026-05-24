@@ -93,7 +93,7 @@ const Footer = () => {
               <Link
                 to="https://github.com/ajay-dhangar/algo/discussions"
                 target="_blank"
-                aria-label="Discord"
+                aria-label="GitHub Discussions"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
               >
