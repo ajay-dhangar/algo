@@ -199,6 +199,7 @@ typedef struct {
 } Edge;
 
 void bellmanFord(int V, int E, Edge edges[], int src) {
+    if (V > MAX_VERTICES) return;
     int dist[MAX_VERTICES];
 
     // Step 1: Initialize all distances to infinity
