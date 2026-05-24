@@ -93,7 +93,7 @@ const Footer = () => {
               <Link
                 to="https://discord.gg/f8dHD5Hv8Q"
                 target="_blank"
-                aria-label="GitHub Discussions"
+                aria-label="Join Discord"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
               >
@@ -142,7 +142,7 @@ const Footer = () => {
                   to="https://discord.gg/f8dHD5Hv8Q"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
-                  GitHub Discussions
+                  Join Discord
                 </Link>
               </li>
               <li className="list-none">
