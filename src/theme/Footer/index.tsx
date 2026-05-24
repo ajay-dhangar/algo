@@ -142,7 +142,7 @@ const Footer = () => {
                   to="https://github.com/ajay-dhangar/algo/discussions"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
-                  Join Discord
+                  GitHub Discussions
                 </Link>
               </li>
               <li className="list-none">
