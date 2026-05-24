@@ -35,6 +35,17 @@ const HeroSection = () => {
           </Link>
 
           <Link
+            to="/algo/practice"
+            className="group relative overflow-hidden flex items-center px-6 py-3 text-lg font-medium text-green-600 dark:text-white border-2 border-green-600 dark:border-green-400 rounded-lg transition-all duration-300 ease-in-out hover:scale-110 hover:text-gray-200 hover:shadow-xl hover:shadow-green-500/40 active:scale-95"
+          >
+            <span className="absolute inset-0 bg-green-600 dark:bg-green-500 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+            <span className="relative z-10 flex items-center group-hover:text-white transition-colors duration-300">
+              Start Practicing
+              <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-2" />
+            </span>
+          </Link>
+
+          <Link
             to="https://github.com/ajay-dhangar/algo"
             className="group relative overflow-hidden flex items-center px-6 py-3 text-lg font-medium text-blue-600 dark:text-white border-2 border-blue-600 dark:border-white rounded-lg transition-all duration-300 ease-in-out hover:scale-110 hover:text-gray-200 hover:shadow-xl hover:shadow-gray-500/40 active:scale-95"
           >
