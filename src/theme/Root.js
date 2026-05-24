@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import KeyboardShortcutsModal from "../components/KeyboardShortcutsModal";
 import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
 
