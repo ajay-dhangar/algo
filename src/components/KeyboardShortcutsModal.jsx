@@ -56,6 +56,8 @@ export default function KeyboardShortcutsModal({
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
         style={{
           background: "#ffffff",
           color: "#111827",
@@ -98,6 +100,7 @@ export default function KeyboardShortcutsModal({
 
           <button
             onClick={onClose}
+            aria-label="Close"
             style={{
               border: "none",
               background: "#f3f4f6",
