@@ -7,8 +7,6 @@ description: "Optimized Java solutions and theory for classic Two-Pointer proble
 tags: [java, dsa, two-pointers, algorithms, interview-preparation]
 ---
 
-# Two-Pointer Pattern: Java Solutions
-
 The **Two-Pointer technique** is a highly efficient algorithmic pattern used to solve problems involving arrays, strings, or linked lists. Instead of using nested loops (which often result in slow $O(N^2)$ or $O(N^3)$ time complexities), we use two integer variables (pointers) to traverse the data structure simultaneously. 
 
 When dealing with sorted arrays, these pointers typically start at opposite ends and move towards each other based on specific conditions.
@@ -31,7 +29,7 @@ Because the array is **sorted**, we do not need to use a HashMap or check every 
 
 ### The Java Solution
 
-~~~java
+```java
 public class TwoSumIISolution {
     public int[] twoSum(int[] numbers, int target) {
         int left = 0;
@@ -53,7 +51,7 @@ public class TwoSumIISolution {
         return new int[] {-1, -1}; // No solution found
     }
 }
-~~~
+```
 
 ### Complexity
 * **Time Complexity:** $O(N)$ because each element is visited at most once by the pointers.
@@ -75,7 +73,7 @@ The brute force way to solve 3Sum is to use three nested loops, which takes $O(N
 
 ### The Java Solution
 
-~~~java
+```java
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -120,7 +118,7 @@ public class ThreeSumSolution {
         return result;
     }
 }
-~~~
+```
 
 ### Complexity
 * **Time Complexity:** $O(N^2)$. Sorting the array takes $O(N \log N)$, and the nested two-pointer while-loop takes $O(N^2)$.
