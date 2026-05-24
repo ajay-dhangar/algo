@@ -149,6 +149,10 @@ const config = {
                 label: "Challenges",
               },
               {
+                to: "practice",
+                label: "Practice",
+              },
+              {
                 to: "playground",
                 label: "Playground",
               },
