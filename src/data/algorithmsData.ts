@@ -14,7 +14,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Repeatedly swaps adjacent elements that are in the wrong order until the list is sorted.",
     timeComplexity: { best: "O(n)", average: "O(n²)", worst: "O(n²)" },
     spaceComplexity: "O(1)",
-    docLink: "/docs/sorting-algorithms/bubble-sort",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Binary Search",
@@ -22,7 +22,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Finds a target value in a sorted array by repeatedly halving the search interval.",
     timeComplexity: { best: "O(1)", average: "O(log n)", worst: "O(log n)" },
     spaceComplexity: "O(1)",
-    docLink: "/docs/searching-algorithms/binary-search",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Merge Sort",
@@ -30,7 +30,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Divides the array into halves, recursively sorts them, then merges the sorted halves.",
     timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
     spaceComplexity: "O(n)",
-    docLink: "/docs/sorting-algorithms/merge-sort",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Dijkstra's Algorithm",
@@ -38,7 +38,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Finds the shortest path from a source node to all other nodes in a weighted graph.",
     timeComplexity: { best: "O(V²)", average: "O(V²)", worst: "O(V²)" },
     spaceComplexity: "O(V)",
-    docLink: "/docs/graph-algorithms/dijkstra-algorithm",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Depth First Search",
@@ -46,7 +46,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Traverses a graph by exploring as far as possible along each branch before backtracking.",
     timeComplexity: { best: "O(V+E)", average: "O(V+E)", worst: "O(V+E)" },
     spaceComplexity: "O(V)",
-    docLink: "/docs/graph-algorithms/depth-first-search",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Breadth First Search",
@@ -54,7 +54,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Traverses a graph level by level, visiting all neighbors of a node before going deeper.",
     timeComplexity: { best: "O(V+E)", average: "O(V+E)", worst: "O(V+E)" },
     spaceComplexity: "O(V)",
-    docLink: "/docs/graph-algorithms/breadth-first-search",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Quick Sort",
@@ -62,7 +62,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Picks a pivot element and partitions the array around it, then recursively sorts each part.",
     timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n²)" },
     spaceComplexity: "O(log n)",
-    docLink: "/docs/sorting-algorithms/quick-sort",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Fibonacci (Dynamic Programming)",
@@ -70,7 +70,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Computes Fibonacci numbers efficiently using memoization to avoid redundant calculations.",
     timeComplexity: { best: "O(n)", average: "O(n)", worst: "O(n)" },
     spaceComplexity: "O(n)",
-    docLink: "/docs/dynamic-programming/fibonacci-series",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Knapsack Problem",
@@ -78,7 +78,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Determines the most valuable subset of items that fit within a given weight capacity.",
     timeComplexity: { best: "O(nW)", average: "O(nW)", worst: "O(nW)" },
     spaceComplexity: "O(nW)",
-    docLink: "/docs/dynamic-programming/knapsack-problem",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Linear Search",
@@ -86,7 +86,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Scans each element one by one until the target is found or the list ends.",
     timeComplexity: { best: "O(1)", average: "O(n)", worst: "O(n)" },
     spaceComplexity: "O(1)",
-    docLink: "/docs/searching-algorithms/linear-search",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Insertion Sort",
@@ -94,7 +94,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Builds the sorted array one element at a time by inserting each into its correct position.",
     timeComplexity: { best: "O(n)", average: "O(n²)", worst: "O(n²)" },
     spaceComplexity: "O(1)",
-    docLink: "/docs/sorting-algorithms/insertion-sort",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Selection Sort",
@@ -102,7 +102,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Repeatedly finds the minimum element from the unsorted part and moves it to the front.",
     timeComplexity: { best: "O(n²)", average: "O(n²)", worst: "O(n²)" },
     spaceComplexity: "O(1)",
-    docLink: "/docs/sorting-algorithms/selection-sort",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Heap Sort",
@@ -110,7 +110,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Converts the array into a max-heap, then repeatedly extracts the maximum to sort it.",
     timeComplexity: { best: "O(n log n)", average: "O(n log n)", worst: "O(n log n)" },
     spaceComplexity: "O(1)",
-    docLink: "/docs/sorting-algorithms/heap-sort",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Floyd-Warshall",
@@ -118,7 +118,7 @@ export const algorithmsData: Algorithm[] = [
     description: "Finds shortest paths between all pairs of nodes in a weighted graph using dynamic programming.",
     timeComplexity: { best: "O(V³)", average: "O(V³)", worst: "O(V³)" },
     spaceComplexity: "O(V²)",
-    docLink: "/docs/graph-algorithms/floyd-warshall-algorithm",
+    docLink: "/docs/category/algorithms",
   },
   {
     name: "Longest Common Subsequence",
@@ -126,6 +126,6 @@ export const algorithmsData: Algorithm[] = [
     description: "Finds the longest subsequence present in both sequences using a DP table.",
     timeComplexity: { best: "O(mn)", average: "O(mn)", worst: "O(mn)" },
     spaceComplexity: "O(mn)",
-    docLink: "/docs/dynamic-programming/longest-common-subsequence",
+    docLink: "/docs/extra/dynamic-programming/longest-common-subsequence/",
   },
 ];  

@@ -52,8 +52,6 @@ export default function Home() {
       </Head>
       <main>
         <Homepage />
-      
-         <ChatbotIframe />
         <BottomToTop />
         <TopToBottom />
       </main>

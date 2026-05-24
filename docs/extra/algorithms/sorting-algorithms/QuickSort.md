@@ -109,34 +109,57 @@ int main() {
 }
 ```
 
-**Recursive Approach**
+**Recursive Approach (with median-of-three and tail recursion)**
 ```cpp
 #include <iostream>
 using namespace std;
 
+// Swap helper
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// Median-of-three pivot selection to avoid worst-case behavior
+int medianOfThree(int arr[], int low, int high) {
+    int mid = low + (high - low) / 2;
+    if (arr[low] > arr[mid]) swap(arr[low], arr[mid]);
+    if (arr[low] > arr[high]) swap(arr[low], arr[high]);
+    if (arr[mid] > arr[high]) swap(arr[mid], arr[high]);
+    // Place median at the end for Lomuto partition
+    swap(arr[mid], arr[high]);
+    return arr[high];
+}
+
 // Partition function to place the pivot element in the correct position
 int partition(int arr[], int low, int high) {
-    int pivot = arr[high]; // Pivot is taken as the last element
-    int i = (low - 1); // Index of the smaller element
+    int pivot = medianOfThree(arr, low, high);
+    int i = low - 1;
 
     for (int j = low; j < high; j++) {
         if (arr[j] <= pivot) {
-            i++; // Increment index of smaller element
-            swap(arr[i], arr[j]); // Swap current element with the smaller element
+            i++;
+            swap(arr[i], arr[j]);
         }
     }
-    swap(arr[i + 1], arr[high]); // Place the pivot element in the correct position
-    return (i + 1);
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
 }
 
-// Recursive quick sort function
+// Optimized quick sort with tail recursion elimination
 void quickSortRecursive(int arr[], int low, int high) {
-    if (low < high) {
+    while (low < high) {
         int pi = partition(arr, low, high);
 
-        // Recursively sort elements before and after partition
-        quickSortRecursive(arr, low, pi - 1);
-        quickSortRecursive(arr, pi + 1, high);
+        // Recurse on smaller partition, iterate on larger (tail recursion)
+        if (pi - low < high - pi) {
+            quickSortRecursive(arr, low, pi - 1);
+            low = pi + 1;
+        } else {
+            quickSortRecursive(arr, pi + 1, high);
+            high = pi - 1;
+        }
     }
 }
 
@@ -156,10 +179,9 @@ int main() {
 }
 ```
 
-### Summary:
+### Summary
 
-Quick sort is a highly efficient and widely used sorting algorithm that works well for large datasets. It employs the divide-and-conquer approach, partitioning the array around a pivot and sorting the subarrays recursively. Although its worst-case time complexity is O(n²), this can often be avoided by choosing an appropriate pivot (like the median of three). In practice, quick sort is often faster than other O(n log n) algorithms like merge sort due to its in-place sorting nature and better cache performance.
-
+Quick sort is a highly efficient and widely used sorting algorithm that works well for large datasets. It employs the divide-and-conquer approach, partitioning the array around a pivot and sorting the subarrays recursively. Although its worst-case time complexity is O(n²), this can be avoided by choosing an appropriate pivot (like the median of three) and using tail recursion elimination. In practice, quick sort is often faster than other O(n log n) algorithms like merge sort due to its in-place sorting nature and better cache performance.
 
 ## Complexity Comparison Table
 
@@ -168,3 +190,10 @@ Quick sort is a highly efficient and widely used sorting algorithm that works we
 | Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+
+## Common Mistakes & Mitigations
+
+- Choosing poor pivot elements leading to worst-case performance → use **median-of-three** or randomized pivot
+- Incorrect partition logic causing unsorted output → verify Lomuto/Hoare boundary conditions
+- Deep recursion causing stack overflow for large datasets → apply **tail recursion elimination** (recurse on smaller partition only)
+- Not handling duplicate values efficiently → consider 3-way partition for duplicate-heavy data
