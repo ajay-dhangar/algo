@@ -55,11 +55,34 @@ Where:
 
 ---
 
+## Floyd-Warshall Workflow
+
+```mermaid
+graph TD;
+    A[Start Algorithm] --> B[Initialize Distance Matrix]
+    B --> C[Set dist[i][i] = 0]
+    C --> D[Set unreachable paths = INF]
+    D --> E[Choose Intermediate Vertex k]
+    E --> F[Traverse Source Vertex i]
+    F --> G[Traverse Destination Vertex j]
+    G --> H{dist[i][k] + dist[k][j] < dist[i][j]?}
+    H -- Yes --> I[Update dist[i][j]]
+    H -- No --> J[Keep Existing Distance]
+    I --> K[Continue Iteration]
+    J --> K
+    K --> L{More Vertices Left?}
+    L -- Yes --> E
+    L -- No --> M[Final Shortest Path Matrix]
+```
+
+---
+
 # Implementation in C++
 
 ```cpp
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 const int INF = 1000000000;
@@ -182,6 +205,7 @@ public class FloydWarshall {
 ---
 
 ## Example
+
 ### Input Graph
 
 ```mermaid
@@ -205,6 +229,8 @@ graph LR;
 3     2   INF  INF   0
 ```
 
+---
+
 ## Output
 
 ```text
@@ -212,6 +238,24 @@ graph LR;
 5 0 2 3
 3 6 0 1
 2 5 7 0
+```
+
+---
+
+## DP Transition Visualization
+
+```mermaid
+graph LR;
+    A[Vertex i] --> B[Intermediate Vertex k]
+    B --> C[Vertex j]
+
+    D[Current Distance dist[i][j]]
+    E[New Distance dist[i][k] + dist[k][j]]
+
+    D --> F{Take Minimum}
+    E --> F
+
+    F --> G[Updated dist[i][j]]
 ```
 
 ---
@@ -294,3 +338,14 @@ O(V^2)
 The Floyd-Warshall Algorithm is one of the most important graph algorithms for solving the All-Pairs Shortest Path problem.
 
 It demonstrates matrix-based Dynamic Programming and provides a powerful approach for optimizing shortest paths incrementally using intermediate vertices.
+
+
+
+
+      
+  
+
+
+
+
+
