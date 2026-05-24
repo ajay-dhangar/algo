@@ -91,7 +91,7 @@ const Footer = () => {
                 </svg>
               </Link>
               <Link
-                to="#"
+                to="https://github.com/ajay-dhangar/algo/discussions"
                 target="_blank"
                 aria-label="Discord"
                 rel="noopener noreferrer"
@@ -139,7 +139,7 @@ const Footer = () => {
             <ul className="space-y-3 pl-0">
               <li className="list-none">
                 <Link
-                  to="#"
+                  to="https://github.com/ajay-dhangar/algo/discussions"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
                   Join Discord
@@ -155,7 +155,7 @@ const Footer = () => {
               </li>
               <li className="list-none">
                 <Link
-                  to="#"
+                  to="/coming-soon"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
                   Events
@@ -170,7 +170,7 @@ const Footer = () => {
           <ul className="flex flex-nowrap justify-center items-center pl-0 md:justify-start space-x-4 mb-4 md:mb-0 text-xs md:text-sm text-gray-400">
             <li className="list-none">
               <Link
-                to="#"
+                to="/docs/category/algorithms"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 Features
@@ -194,7 +194,7 @@ const Footer = () => {
             </li>
             <li className="list-none">
               <Link
-                to="#"
+                to="/coming-soon"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 Privacy Policy
