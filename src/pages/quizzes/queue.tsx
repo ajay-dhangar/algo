@@ -248,19 +248,21 @@ void delete(Q){
 
   const handleAnswer = (selected: string) => {
     setSelectedOption(selected);
-    setUserAnswers((prevAnswers) => [...prevAnswers, selected]);
-    if (selected === questions[currentQuestion].answer) {
-      setScore(score + 1);
-    }
   };
 
   const nextQuestion = () => {
+    setUserAnswers((prev) => [...prev, selectedOption]);
+
+    if (selectedOption === questions[currentQuestion].answer) {
+      setScore((prev) => prev + 1);
+    }
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers];
+      const finalAnswers = [...userAnswers, selectedOption];
       submitAttempt(finalAnswers);
     }
   };

@@ -234,12 +234,18 @@ const RedBlackTreeQuiz: React.FC = () => {
   };
 
   const nextQuestion = () => {
+    setUserAnswers((prev) => [...prev, selectedOption]);
+
+    if (selectedOption === questions[currentQuestion].answer) {
+      setScore((prev) => prev + 1);
+    }
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers];
+      const finalAnswers = [...userAnswers, selectedOption];
       submitAttempt(finalAnswers);
     }
   };
