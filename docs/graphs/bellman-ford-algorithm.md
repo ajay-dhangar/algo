@@ -7,7 +7,6 @@ description: "A complete guide to the Bellman-Ford Algorithm with explanations, 
 tags: [graph, shortest-path, dynamic-programming, negative-weights, bellman-ford, dsa]
 ---
 
-
 ## Overview
 
 The **Bellman-Ford Algorithm** finds the **shortest path from a single source vertex to all other vertices** in a weighted graph. Unlike Dijkstra's Algorithm, Bellman-Ford works correctly even when the graph contains **negative edge weights**, making it more versatile for real-world problems.
