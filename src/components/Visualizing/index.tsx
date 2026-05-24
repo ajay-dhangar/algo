@@ -91,6 +91,7 @@ const DSARoadmap: React.FC = () => {
         enableSortingBtn();
         createNewArray(parseInt(arraySize.value));
       });
+    }
 
    // bubble sort
   async function bubble(): Promise<void> {
@@ -142,6 +143,7 @@ const DSARoadmap: React.FC = () => {
         for (let k = i; k >= 0; k--) {
           (ele[k] as HTMLElement).style.background = "green";
         }
+        ele[ele.length - 1 - i].style.background = "green";
       }
       (ele[j + 1] as HTMLElement).style.height = key;
       (ele[i] as HTMLElement).style.background = "green";
@@ -179,39 +181,66 @@ const DSARoadmap: React.FC = () => {
         }
   
         await waitforme(delay);
-  
-        let i = 0, j = 0, k = left;
-  
-        while (i < n1 && j < n2) {
+        while (j >= 0 && parseInt(ele[j].style.height) > parseInt(key)) {
+          ele[j].style.background = "blue";
+          ele[j + 1].style.height = ele[j].style.height;
+          j--;
           await waitforme(delay);
-  
-          if (parseInt(leftArr[i]) <= parseInt(rightArr[j])) {
-            (arr[k] as HTMLElement).style.height = leftArr[i];
-            (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
-            i++;
-          } else {
-            (arr[k] as HTMLElement).style.height = rightArr[j];
-            (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
-            j++;
+          for (let k = i; k >= 0; k--) {
+            ele[k].style.background = "green";
           }
-          k++;
         }
-  
-        while (i < n1) {
-          await waitforme(delay);
+        ele[j + 1].style.height = key;
+        ele[i].style.background = "green";
+      }
+    }
+    const inSortbtn = document.querySelector(".insertionSort");
+    inSortbtn.addEventListener("click", async function () {
+      disableSortingBtn();
+      disableSizeSlider();
+      disableNewArrayBtn();
+      await insertion();
+      enableSortingBtn();
+      enableSizeSlider();
+      enableNewArrayBtn();
+    });
+    // Merge Sort
+    async function merge(arr: NodeListOf<Element>, left: number, mid: number, right: number) {
+      const n1 = mid - left + 1; // Length of left subarray
+      const n2 = right - mid; // Length of right subarray
+
+      let leftArr: string[] = [];
+      let rightArr: string[] = [];
+
+      for (let i = 0; i < n1; i++) {
+        await waitforme(delay);
+        (arr[left + i] as HTMLElement).style.backgroundColor = "orange";
+        leftArr[i] = (arr[left + i] as HTMLElement).style.height;
+      }
+
+      for (let j = 0; j < n2; j++) {
+        await waitforme(delay);
+        (arr[mid + 1 + j] as HTMLElement).style.backgroundColor = "yellow";
+        rightArr[j] = (arr[mid + 1 + j] as HTMLElement).style.height;
+      }
+
+      await waitforme(delay);
+
+      let i = 0, j = 0, k = left;
+
+      while (i < n1 && j < n2) {
+        await waitforme(delay);
+
+        if (parseInt(leftArr[i]) <= parseInt(rightArr[j])) {
           (arr[k] as HTMLElement).style.height = leftArr[i];
           (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
           i++;
-          k++;
-        }
-  
-        while (j < n2) {
-          await waitforme(delay);
+        } else {
           (arr[k] as HTMLElement).style.height = rightArr[j];
           (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
           j++;
-          k++;
         }
+        k++;
       }
   
       async function mergeSort(arr: NodeListOf<Element>, left: number, right: number): Promise<void> {

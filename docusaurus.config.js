@@ -176,10 +176,6 @@ const config = {
                 to: "resources",
                 label: "Resources",
               },
-              {
-                to: "blogs",
-                label: "Blogs",
-              },
             ],
           },
           {

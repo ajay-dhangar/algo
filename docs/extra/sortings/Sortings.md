@@ -507,55 +507,65 @@ Quick sort is a divide-and-conquer algorithm. It selects a **pivot (IN THIS IT I
     }
   ```
 
-### Solution in Java
+ ### Solution in Java
 ```java
 public class Main{
+	private static void swap(int[] arr, int i, int j){
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+	
+	private static int medianOfThree(int[] arr, int low, int high){
+		int mid = low + (high - low) / 2;
+		if(arr[low] > arr[mid]) swap(arr, low, mid);
+		if(arr[low] > arr[high]) swap(arr, low, high);
+		if(arr[mid] > arr[high]) swap(arr, mid, high);
+		swap(arr, mid, high);
+		return arr[high];
+	}
+	
 	public static int partition(int[] arr, int low, int high){
-		int pivot = arr[high];
-		int i = low - 1; // track spaces for smaller elements
+		int pivot = medianOfThree(arr, low, high);
+		int i = low - 1;
 		
 		for(int j=low; j<high; j++){
-			if(arr[j] < pivot){
+			if(arr[j] <= pivot){
 				i++;
-				// swap
-				int temp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = temp;
+				swap(arr, i, j);
 			}
 		}
 		
-		i++;
-		int temp = arr[i];
-		arr[i] = pivot;
-		pivot = temp;
-		return i; // pivot index
+		swap(arr, i + 1, high);
+		return i + 1;
 	}
 	
 	public static void quickSort(int[] arr, int low, int high){
-		if(low < high){
+		while(low < high){
 			int pivotIndex = partition(arr, low, high);
-			
-			quickSort(arr, low, pivotIndex-1);
-			quickSort(arr, pivotIndex+1, high);
+			if(pivotIndex - low < high - pivotIndex){
+				quickSort(arr, low, pivotIndex - 1);
+				low = pivotIndex + 1;
+			} else {
+				quickSort(arr, pivotIndex + 1, high);
+				high = pivotIndex - 1;
+			}
 		}
 	}
 	
 	public static void main(String[] args){
 		int[] arr = {6, 3, 9, 5, 2, 8};
-		int n = arr.length;
+		quickSort(arr, 0, arr.length - 1);
 		
-		quickSort(arr, 0, n-1);
-		
-		// print array
-		for(int i=0; i<n; i++){
-			System.out.print(arr[i]+" ");
+		for(int i=0; i<arr.length; i++){
+			System.out.print(arr[i] + " ");
 		}
 		System.out.println();
 	}
 }
 ```
 **Time Complexity**
-    - **Worst Case**:O(n²) – occurs when the pivot is poorly chosen, such as when the array is already sorted.
+    - **Worst Case**: O(n²) – mitigated by median-of-three pivot and tail recursion optimization.
     
 **Space Complexity**
     - O(log n) – due to recursive calls, but in-place sorting.
@@ -675,6 +685,34 @@ Unstable – the relative order of equal elements may change.
 
 **Usage**
 Used in applications where a guarantee of O(n log n) time is necessary and space is limited.
+
+### Comparison of Sorting Algorithms
+
+| Algorithm      | Best Time Complexity | Average Time Complexity | Worst Time Complexity | Space Complexity | Stable |
+|----------------|----------------------|--------------------------|------------------------|------------------|---------|
+| Bubble Sort    | O(n)                 | O(n²)                    | O(n²)                  | O(1)             | Yes     |
+| Selection Sort | O(n²)                | O(n²)                    | O(n²)                  | O(1)             | No      |
+| Insertion Sort | O(n)                 | O(n²)                    | O(n²)                  | O(1)             | Yes     |
+| Merge Sort     | O(n log n)           | O(n log n)               | O(n log n)             | O(n)             | Yes     |
+| Quick Sort     | O(n log n)           | O(n log n)               | O(n²)                  | O(log n)         | No      |
+| Heap Sort      | O(n log n)           | O(n log n)               | O(n log n)             | O(1)             | No      |
+
+### Advantages of Sorting Algorithms
+
+- Improves searching efficiency
+- Helps organize data systematically
+- Widely used in databases and data analysis
+- Essential for many optimization problems
+- Used in ranking, scheduling, and reporting systems
+
+### Real-World Applications of Sorting
+
+- Database indexing and searching
+- E-commerce product filtering
+- Student ranking systems
+- Organizing files and folders
+- Search engine result ordering
+- Data analytics and reporting systems
 
 ### Conclusion
 
