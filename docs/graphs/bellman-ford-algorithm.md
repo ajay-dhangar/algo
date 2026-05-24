@@ -1,13 +1,12 @@
 ---
 id: bellman-ford-algorithm
-title: Bellman-Ford Algorithm
-sidebar_label: Bellman-Ford Algorithm
+title: "Bellman-Ford Algorithm"
+sidebar_label: "Bellman-Ford Algorithm"
 sidebar_position: 2
-description: A complete guide to the Bellman-Ford Algorithm with explanations, dry run, negative cycle detection, implementations in Python, Java, C++, and JavaScript, and related LeetCode problems.
+description: "A complete guide to the Bellman-Ford Algorithm with explanations, dry run, negative cycle detection, implementations in Python, Java, C++, and JavaScript, and related LeetCode problems."
 tags: [graph, shortest-path, dynamic-programming, negative-weights, bellman-ford, dsa]
 ---
 
-# Bellman-Ford Algorithm
 
 ## Overview
 
