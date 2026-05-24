@@ -687,7 +687,7 @@ Used in applications where a guarantee of O(n log n) time is necessary and space
 | Quick Sort     | O(n log n)           | O(n log n)               | O(n²)                  | O(log n)         | No      |
 | Heap Sort      | O(n log n)           | O(n log n)               | O(n log n)             | O(1)             | No      |
 
-## Advantages of Sorting Algorithms
+### Advantages of Sorting Algorithms
 
 - Improves searching efficiency
 - Helps organize data systematically
