@@ -675,7 +675,8 @@ Unstable – the relative order of equal elements may change.
 
 **Usage**
 Used in applications where a guarantee of O(n log n) time is necessary and space is limited.
-## Comparison of Sorting Algorithms
+
+### Comparison of Sorting Algorithms
 
 | Algorithm      | Best Time Complexity | Average Time Complexity | Worst Time Complexity | Space Complexity | Stable |
 |----------------|----------------------|--------------------------|------------------------|------------------|---------|
