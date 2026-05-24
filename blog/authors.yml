@@ -125,3 +125,12 @@ Riya-Sharma:
   socials:
     linkedin: https://www.linkedin.com/in/riya-sharma-5905b9333/
     github: https://github.com/Riya010107
+
+Aswani-Bolisetti:
+  name: Aswani Bolisetti
+  title: Contributor
+  url: https://github.com/AswaniBolisetti
+  image_url: https://github.com/AswaniBolisetti.png
+  page: true # Turns the feature on
+  socials:
+    github: AswaniBolisetti

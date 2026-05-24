@@ -686,6 +686,34 @@ Unstable – the relative order of equal elements may change.
 **Usage**
 Used in applications where a guarantee of O(n log n) time is necessary and space is limited.
 
+### Comparison of Sorting Algorithms
+
+| Algorithm      | Best Time Complexity | Average Time Complexity | Worst Time Complexity | Space Complexity | Stable |
+|----------------|----------------------|--------------------------|------------------------|------------------|---------|
+| Bubble Sort    | O(n)                 | O(n²)                    | O(n²)                  | O(1)             | Yes     |
+| Selection Sort | O(n²)                | O(n²)                    | O(n²)                  | O(1)             | No      |
+| Insertion Sort | O(n)                 | O(n²)                    | O(n²)                  | O(1)             | Yes     |
+| Merge Sort     | O(n log n)           | O(n log n)               | O(n log n)             | O(n)             | Yes     |
+| Quick Sort     | O(n log n)           | O(n log n)               | O(n²)                  | O(log n)         | No      |
+| Heap Sort      | O(n log n)           | O(n log n)               | O(n log n)             | O(1)             | No      |
+
+### Advantages of Sorting Algorithms
+
+- Improves searching efficiency
+- Helps organize data systematically
+- Widely used in databases and data analysis
+- Essential for many optimization problems
+- Used in ranking, scheduling, and reporting systems
+
+### Real-World Applications of Sorting
+
+- Database indexing and searching
+- E-commerce product filtering
+- Student ranking systems
+- Organizing files and folders
+- Search engine result ordering
+- Data analytics and reporting systems
+
 ### Conclusion
 
 Choosing the right sorting algorithm ensures optimal performance, especially in applications involving large datasets or time-sensitive operations. Understanding these techniques allows developers to make informed decisions and write efficient code for a variety of sorting tasks.
