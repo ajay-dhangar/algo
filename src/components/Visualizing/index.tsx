@@ -140,10 +140,10 @@ const DSARoadmap: React.FC = () => {
         (ele[j + 1] as HTMLElement).style.height = (ele[j] as HTMLElement).style.height;
         j--;
         await waitforme(delay);
-        for (let k = i; k >= 0; k--) {
-          (ele[k] as HTMLElement).style.background = "green";
-        }
-        ele[ele.length - 1 - i].style.background = "green";
+      }
+      (ele[j + 1] as HTMLElement).style.height = key;
+      for (let k = i; k >= 0; k--) {
+        (ele[k] as HTMLElement).style.background = "green";
       }
       (ele[j + 1] as HTMLElement).style.height = key;
       (ele[i] as HTMLElement).style.background = "green";
