@@ -51,6 +51,8 @@ using namespace std;
 // Abstract Base Class
 class Shape {
 public:
+    virtual ~Shape() {} // Virtual destructor for proper cleanup
+
     // Pure virtual function
     virtual void draw() = 0;
     
