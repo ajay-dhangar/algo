@@ -390,7 +390,7 @@ const PlaygroundContent: React.FC = () => {
             </div>
 
             {/* Console Output Panel */}
-            <div ref={consolePanelRef} className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
+            <div className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
               <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex items-center justify-between">
                 <span className="text-xs font-bold text-gray-400 font-mono flex items-center gap-2">
                   <FaTerminal className="text-gray-500" /> CONSOLE TERMINAL
