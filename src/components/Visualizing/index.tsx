@@ -11,11 +11,11 @@ const DSARoadmap: React.FC = () => {
       }
   
       function disableSortingBtn() {
-        (document.querySelector(".bubbleSort") as HTMLButtonElement).disabled = true;
-        (document.querySelector(".insertionSort") as HTMLButtonElement).disabled = true;
-        (document.querySelector(".mergeSort") as HTMLButtonElement).disabled = true;
-        (document.querySelector(".quickSort") as HTMLButtonElement).disabled = true;
-        (document.querySelector(".selectionSort") as HTMLButtonElement).disabled = true;
+        document.querySelector<HTMLButtonElement>(".bubbleSort")!.disabled = true;
+        document.querySelector<HTMLButtonElement>(".insertionSort")!.disabled = true;
+        document.querySelector<HTMLButtonElement>(".mergeSort")!.disabled = true;
+        document.querySelector<HTMLButtonElement>(".quickSort")!.disabled = true;
+        document.querySelector<HTMLButtonElement>(".selectionSort")!.disabled = true;
       }
   
       function disableSizeSlider() {
