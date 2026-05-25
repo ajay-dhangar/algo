@@ -127,7 +127,7 @@ const PopularAlgorithmsSection: React.FC = () => {
 
         <div className="mt-16 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            to="/category/algorithms"
+            to="/algo/docs/category/algorithms"
             className="
               w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               px-8 py-4 rounded-xl
