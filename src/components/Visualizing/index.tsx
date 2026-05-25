@@ -320,7 +320,7 @@ const DSARoadmap: React.FC = () => {
   }
   const quickSortbtn = document.querySelector(".quickSort") as HTMLButtonElement;
   quickSortbtn.addEventListener("click", async function () {
-    const bars = document.querySelectorAll(".bar");
+    const bars = document.querySelectorAll<HTMLElement>(".bar");
     const lastIdx = bars.length - 1;
     disableSortingBtn();
     disableSizeSlider();
