@@ -5,132 +5,181 @@ import "../../css/visualiezer.css";
 const DSARoadmap: React.FC = () => {
   useEffect(() => {
     function swap(e: HTMLElement, r: HTMLElement) {
-      let t = e.style.height;
-      e.style.height = r.style.height;
-      r.style.height = t;
-    }
+        let t = e.style.height;
+        e.style.height = r.style.height;
+        r.style.height = t;
+      }
+  
+      function disableSortingBtn() {
+        document.querySelector<HTMLButtonElement>(".bubbleSort")!.disabled = true;
+        document.querySelector<HTMLButtonElement>(".insertionSort")!.disabled = true;
+        document.querySelector<HTMLButtonElement>(".mergeSort")!.disabled = true;
+        document.querySelector<HTMLButtonElement>(".quickSort")!.disabled = true;
+        document.querySelector<HTMLButtonElement>(".selectionSort")!.disabled = true;
+      }
+  
+      function disableSizeSlider() {
+        (document.querySelector("#arr_sz") as HTMLInputElement).disabled = true;
+      }
 
-    function disableSortingBtn() {
-      document.querySelector(".bubbleSort")!.disabled = true;
-      document.querySelector(".insertionSort")!.disabled = true;
-      document.querySelector(".mergeSort")!.disabled = true;
-      document.querySelector(".quickSort")!.disabled = true;
-      document.querySelector(".selectionSort")!.disabled = true;
-    }
+      function enableSizeSlider() {
+        (document.querySelector("#arr_sz") as HTMLInputElement).disabled = false;
+      }
+      function disableNewArrayBtn() {
+        (document.querySelector(".newArray") as HTMLButtonElement).disabled = true;
+      }
+      function enableNewArrayBtn() {
+        (document.querySelector(".newArray") as HTMLButtonElement).disabled = false;
+      }
 
-    function disableSizeSlider() {
-      document.querySelector("#arr_sz")!.disabled = true;
-    }
-
-    function enableSizeSlider() {
-      document.querySelector("#arr_sz").disabled = !1;
-    }
-    function disableNewArrayBtn() {
-      document.querySelector(".newArray").disabled = !1;
-    }
-    function enableNewArrayBtn() {
-      document.querySelector(".newArray").disabled = !1;
-    }
-
-    function enableSortingBtn() {
-      document.querySelector(".bubbleSort")!.disabled = false;
-      document.querySelector(".insertionSort")!.disabled = false;
-      document.querySelector(".mergeSort")!.disabled = false;
-      document.querySelector(".quickSort")!.disabled = false;
-      document.querySelector(".selectionSort")!.disabled = false;
-    }
-
-    function waitforme(e: number) {
-      return new Promise((r) => {
-        setTimeout(() => {
-          r("");
-        }, e);
+      function enableSortingBtn() {
+        (document.querySelector(".bubbleSort") as HTMLButtonElement).disabled = false;
+        (document.querySelector(".insertionSort") as HTMLButtonElement).disabled = false;
+        (document.querySelector(".mergeSort") as HTMLButtonElement).disabled = false;
+        (document.querySelector(".quickSort") as HTMLButtonElement).disabled = false;
+        (document.querySelector(".selectionSort") as HTMLButtonElement).disabled = false;
+      }
+  
+      function waitforme(e: number): Promise<void> {
+        return new Promise((r) => {
+          setTimeout(() => {
+            r();
+          }, e);
+        });
+      }
+  
+      let arraySize = document.querySelector("#arr_sz") as HTMLInputElement;
+      let delayElement = document.querySelector("#speed_input") as HTMLInputElement;
+  
+      let delay = 260;
+  
+      arraySize.addEventListener("input", function () {
+        createNewArray(parseInt(arraySize.value));
+      });
+  
+      delayElement.addEventListener("input", function () {
+        delay = 320 - parseInt(delayElement.value);
+      });
+  
+      let array: number[] = [];
+  
+      function createNewArray(e: number = 60) {
+        deleteChild();
+        array = [];
+        for (let r = 0; r < e; r++) array.push(Math.floor(250 * Math.random()) + 1);
+        
+        const barsContainer = document.querySelector("#bars") as HTMLElement;
+  
+        for (let t = 0; t < e; t++) {
+          const bar = document.createElement("div");
+          bar.style.height = 1.5 * array[t] + "px";
+          bar.classList.add("bar", "flex-item", `barNo${t}`);
+          barsContainer.appendChild(bar);
+        }
+      }
+  
+      function deleteChild() {
+        const barsContainer = document.querySelector("#bars") as HTMLElement;
+        barsContainer.innerHTML = "";
+      }
+  
+      createNewArray();
+  
+      const newArrayBtn = document.querySelector(".newArray") as HTMLButtonElement;
+      
+      newArrayBtn.addEventListener("click", function () {
+        enableSortingBtn();
+        createNewArray(parseInt(arraySize.value));
       });
     }
 
-    let arraySize = document.querySelector("#arr_sz") as HTMLInputElement;
-    let delayElement = document.querySelector("#speed_input") as HTMLInputElement;
-
-    let delay = 260;
-
-    arraySize.addEventListener("input", function () {
-      createNewArray(parseInt(arraySize.value));
-    });
-
-    delayElement.addEventListener("input", function () {
-      delay = 320 - parseInt(delayElement.value);
-    });
-
-    let array: number[] = [];
-
-    function createNewArray(e: number = 60) {
-      deleteChild();
-      array = [];
-      for (let r = 0; r < e; r++) array.push(Math.floor(250 * Math.random()) + 1);
-
-      const barsContainer = document.querySelector("#bars") as HTMLElement;
-
-      for (let t = 0; t < e; t++) {
-        const bar = document.createElement("div");
-        bar.style.height = 1.5 * array[t] + "px";
-        bar.classList.add("bar", "flex-item", `barNo${t}`);
-        barsContainer.appendChild(bar);
-      }
-    }
-
-    function deleteChild() {
-      const barsContainer = document.querySelector("#bars") as HTMLElement;
-      barsContainer.innerHTML = "";
-    }
-
-    createNewArray();
-
-    const newArrayBtn = document.querySelector(".newArray")!;
-
-    newArrayBtn.addEventListener("click", function () {
-      enableSortingBtn();
-      createNewArray(arraySize.value);
-    });
-
-    // bubble sort
-    async function bubble() {
-      const ele = document.querySelectorAll(".bar");
-      for (let i = 0; i < ele.length - 1; i++) {
-        for (let j = 0; j < ele.length - i - 1; j++) {
-          console.log("In jth loop");
-          ele[j].style.background = "blue";
-          ele[j + 1].style.background = "blue";
-          if (parseInt(ele[j].style.height) > parseInt(ele[j + 1].style.height)) {
-            await waitforme(delay);
-            swap(ele[j], ele[j + 1]);
-          }
-          ele[j].style.background = "cyan";
-          ele[j + 1].style.background = "cyan";
+   // bubble sort
+  async function bubble(): Promise<void> {
+    const ele = document.querySelectorAll(".bar");
+    for (let i = 0; i < ele.length - 1; i++) {
+      for (let j = 0; j < ele.length - i - 1; j++) {
+        console.log("In jth loop");
+        (ele[j] as HTMLElement).style.background = "blue";
+        (ele[j + 1] as HTMLElement).style.background = "blue";
+        // Wait for every comparison, not just swaps, so the highlighted
+        // bars remain visible before their color is reset.
+        await waitforme(delay);
+        if (parseInt((ele[j] as HTMLElement).style.height) > parseInt((ele[j + 1] as HTMLElement).style.height)) {
+          swap(ele[j] as HTMLElement, ele[j + 1] as HTMLElement);
         }
-        ele[ele.length - 1 - i].style.background = "green";
+        (ele[j] as HTMLElement).style.background = "cyan";
+        (ele[j + 1] as HTMLElement).style.background = "cyan";
       }
-      ele[0].style.background = "green";
+      (ele[ele.length - 1 - i] as HTMLElement).style.background = "green";
     }
-    const bubSortbtn = document.querySelector(".bubbleSort");
-    bubSortbtn.addEventListener("click", async function () {
-      disableSortingBtn();
-      disableSizeSlider();
-      disableNewArrayBtn();
-      await bubble();
-      enableSortingBtn();
-      enableSizeSlider();
-      enableNewArrayBtn();
-    });
+    (ele[0] as HTMLElement).style.background = "green";
+  }
+  const bubSortbtn = document.querySelector(".bubbleSort") as HTMLButtonElement;
+  bubSortbtn.addEventListener("click", async function () {
+    disableSortingBtn();
+    disableSizeSlider();
+    disableNewArrayBtn();
+    await bubble();
+    enableSortingBtn();
+    enableSizeSlider();
+    enableNewArrayBtn();
+  });
 
+  
+  // insertion sort
+  async function insertion(): Promise<void> {
+    const ele = document.querySelectorAll(".bar");
+    (ele[0] as HTMLElement).style.background = "green";
+    for (let i = 1; i < ele.length; i++) {
+      let j = i - 1;
+      let key = (ele[i] as HTMLElement).style.height;
+      (ele[i] as HTMLElement).style.background = "blue";
+      await waitforme(delay);
+      while (j >= 0 && parseInt((ele[j] as HTMLElement).style.height) > parseInt(key)) {
+        (ele[j] as HTMLElement).style.background = "blue";
+        (ele[j + 1] as HTMLElement).style.height = (ele[j] as HTMLElement).style.height;
+        j--;
+        await waitforme(delay);
+      }
+      (ele[j + 1] as HTMLElement).style.height = key;
+      for (let k = i; k >= 0; k--) {
+        (ele[k] as HTMLElement).style.background = "green";
+      }
+      (ele[j + 1] as HTMLElement).style.height = key;
+      (ele[i] as HTMLElement).style.background = "green";
+    }
+  }
+  const inSortbtn = document.querySelector(".insertionSort") as HTMLButtonElement;
+  inSortbtn.addEventListener("click", async function () {
+    disableSortingBtn();
+    disableSizeSlider();
+    disableNewArrayBtn();
+    await insertion();
+    enableSortingBtn();
+    enableSizeSlider();
+    enableNewArrayBtn();
+  });
 
-    // insertion sort
-    async function insertion() {
-      const ele = document.querySelectorAll(".bar");
-      ele[0].style.background = "green";
-      for (let i = 1; i < ele.length; i++) {
-        let j = i - 1;
-        let key = ele[i].style.height;
-        ele[i].style.background = "blue";
+     // Merge Sort
+     async function merge(arr: NodeListOf<Element>, left: number, mid: number, right: number): Promise<void> {
+        const n1 = mid - left + 1; // Length of left subarray
+        const n2 = right - mid; // Length of right subarray
+  
+        let leftArr: string[] = [];
+        let rightArr: string[] = [];
+  
+        for (let i = 0; i < n1; i++) {
+          await waitforme(delay);
+          (arr[left + i] as HTMLElement).style.backgroundColor = "orange";
+          leftArr[i] = (arr[left + i] as HTMLElement).style.height;
+        }
+  
+        for (let j = 0; j < n2; j++) {
+          await waitforme(delay);
+          (arr[mid + 1 + j] as HTMLElement).style.backgroundColor = "yellow";
+          rightArr[j] = (arr[mid + 1 + j] as HTMLElement).style.height;
+        }
+  
         await waitforme(delay);
         while (j >= 0 && parseInt(ele[j].style.height) > parseInt(key)) {
           ele[j].style.background = "blue";
@@ -193,139 +242,131 @@ const DSARoadmap: React.FC = () => {
         }
         k++;
       }
-
-      while (i < n1) {
-        await waitforme(delay);
-        (arr[k] as HTMLElement).style.height = leftArr[i];
-        (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
-        i++;
-        k++;
+  
+      async function mergeSort(arr: NodeListOf<Element>, left: number, right: number): Promise<void> {
+        if (left >= right) return;
+  
+        const mid = Math.floor((left + right) / 2);
+        
+        await mergeSort(arr, left, mid);
+        await mergeSort(arr, mid + 1, right);
+        
+        await merge(arr, left, mid, right);
       }
+  
+      const mergeSortBtn = document.querySelector(".mergeSort") as HTMLButtonElement;
+      
+      mergeSortBtn.addEventListener("click", async function () {
+        let barsElements = document.querySelectorAll(".bar");
+        
+        disableSortingBtn();
+        
+        await mergeSort(barsElements, 0, barsElements.length - 1);
+  
+        enableSortingBtn();
+      });
+  
 
-      while (j < n2) {
-        await waitforme(delay);
-        (arr[k] as HTMLElement).style.height = rightArr[j];
-        (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
-        j++;
-        k++;
-      }
-    }
-
-    async function mergeSort(arr: NodeListOf<Element>, left: number, right: number) {
-      if (left >= right) return;
-
-      const mid = Math.floor((left + right) / 2);
-
-      await mergeSort(arr, left, mid);
-      await mergeSort(arr, mid + 1, right);
-
-      await merge(arr, left, mid, right);
-    }
-
-    const mergeSortBtn = document.querySelector(".mergeSort");
-
-    mergeSortBtn.addEventListener("click", async function () {
-      let barsElements = document.querySelectorAll(".bar");
-
-      disableSortingBtn();
-
-      await mergeSort(barsElements, 0, barsElements.length - 1);
-
-      enableSortingBtn();
-    });
-
-
-    // quick sort
-    async function medianOfThree(e, t, a) {
-      let r = t + Math.floor((a - t) / 2);
-      let n = (i) => parseInt(e[i].style.height);
-      if (n(t) > n(r)) { swap(e[t], e[r]); await waitforme(delay); }
-      if (n(t) > n(a)) { swap(e[t], e[a]); await waitforme(delay); }
-      if (n(r) > n(a)) { swap(e[r], e[a]); await waitforme(delay); }
-      swap(e[r], e[a]);
+     // quick sort
+  async function partitionLomuto(
+    bars: NodeListOf<Element>,
+    low: number,
+    pivotIndex: number
+  ): Promise<number> {
+    let partitionIdx = low - 1;
+    (bars[pivotIndex] as HTMLElement).style.background = "red";
+    for (let r = low; r <= pivotIndex - 1; r++) {
+      (bars[r] as HTMLElement).style.background = "yellow";
       await waitforme(delay);
-    }
-    async function partitionLomuto(e, t, a) {
-      await medianOfThree(e, t, a);
-      let n = t - 1;
-      e[a].style.background = "red";
-      for (let r = t; r <= a - 1; r++)
-        (e[r].style.background = "yellow"),
-          await waitforme(delay),
-          parseInt(e[r].style.height) < parseInt(e[a].style.height)
-            ? (n++,
-              swap(e[n], e[r]),
-              (e[n].style.background = "orange"),
-              n != r && (e[r].style.background = "orange"),
-              await waitforme(delay))
-            : (e[r].style.background = "pink");
-      n++,
-        await waitforme(delay),
-        swap(e[n], e[a]),
-        (e[a].style.background = "pink"),
-        (e[n].style.background = "green"),
+      if (parseInt((bars[r] as HTMLElement).style.height) < parseInt((bars[pivotIndex] as HTMLElement).style.height)) {
+        console.log("In partitionLomuto for j if");
+        partitionIdx++;
+        swap(bars[partitionIdx] as HTMLElement, bars[r] as HTMLElement);
+        (bars[partitionIdx] as HTMLElement).style.background = "orange";
+        if (partitionIdx !== r) {
+          (bars[r] as HTMLElement).style.background = "orange";
+        }
         await waitforme(delay);
-      for (let t = 0; t < e.length; t++)
-        "green" != e[t].style.background && (e[t].style.background = "cyan");
-      return n;
+      } else {
+        (bars[r] as HTMLElement).style.background = "pink";
+      }
     }
-    async function quickSort(e, t, a) {
-      while (t < a) {
-        let n = await partitionLomuto(e, t, a);
-        if (n - t < a - n) {
-          await quickSort(e, t, n - 1);
-          t = n + 1;
+    partitionIdx++;
+    await waitforme(delay);
+    swap(bars[partitionIdx] as HTMLElement, bars[pivotIndex] as HTMLElement);
+    (bars[pivotIndex] as HTMLElement).style.background = "pink";
+    (bars[partitionIdx] as HTMLElement).style.background = "green";
+    await waitforme(delay);
+    for (let i = 0; i < bars.length; i++) {
+      if ((bars[i] as HTMLElement).style.background !== "green") {
+        (bars[i] as HTMLElement).style.background = "cyan";
+      }
+    }
+    return partitionIdx;
+  }
+  async function quickSort(
+    bars: NodeListOf<HTMLElement>,
+    low: number,
+    high: number
+  ): Promise<void> {
+    if (low < high) {
+      let pivotFinalIdx = await partitionLomuto(bars, low, high);
+      await quickSort(bars, low, pivotFinalIdx - 1);
+      await quickSort(bars, pivotFinalIdx + 1, high);
+    } else if (low >= 0 && high >= 0 && low < bars.length && high < bars.length) {
+      bars[high].style.background = "green";
+      bars[low].style.background = "green";
+    }
+  }
+  const quickSortbtn = document.querySelector(".quickSort") as HTMLButtonElement;
+  quickSortbtn.addEventListener("click", async function () {
+    const bars = document.querySelectorAll<HTMLElement>(".bar");
+    const lastIdx = bars.length - 1;
+    disableSortingBtn();
+    disableSizeSlider();
+    disableNewArrayBtn();
+    await quickSort(bars, 0, lastIdx);
+    enableSortingBtn();
+    enableSizeSlider();
+    enableNewArrayBtn();
+  });
+
+  // selection sort
+  async function selection(): Promise<void> {
+    const bars = document.querySelectorAll(".bar");
+    for (let t = 0; t < bars.length; t++) {
+      let minIdx = t;
+      (bars[t] as HTMLElement).style.background = "blue";
+      for (let a = t + 1; a < bars.length; a++) {
+        (bars[a] as HTMLElement).style.background = "red";
+        await waitforme(delay);
+        if (parseInt((bars[a] as HTMLElement).style.height) < parseInt((bars[minIdx] as HTMLElement).style.height)) {
+          if (minIdx !== t) {
+            (bars[minIdx] as HTMLElement).style.background = "cyan";
+          }
+          minIdx = a;
         } else {
-          await quickSort(e, n + 1, a);
-          a = n - 1;
+          (bars[a] as HTMLElement).style.background = "cyan";
         }
       }
-      if (t >= 0 && t < e.length) e[t].style.background = "green";
-      if (a >= 0 && a < e.length) e[a].style.background = "green";
+      await waitforme(delay);
+      swap(bars[minIdx] as HTMLElement, bars[t] as HTMLElement);
+      (bars[minIdx] as HTMLElement).style.background = "cyan";
+      (bars[t] as HTMLElement).style.background = "green";
     }
-    const quickSortbtn = document.querySelector(".quickSort");
-    quickSortbtn.addEventListener("click", async function () {
-      let e = document.querySelectorAll(".bar"),
-        t = e.length - 1;
-      disableSortingBtn(),
-        disableSizeSlider(),
-        disableNewArrayBtn(),
-        await quickSort(e, 0, t),
-        enableSortingBtn(),
-        enableSizeSlider(),
-        enableNewArrayBtn();
-    });
-
-    // selection sort
-    async function selection() {
-      const e = document.querySelectorAll(".bar");
-      for (let t = 0; t < e.length; t++) {
-        let n = t;
-        e[t].style.background = "blue";
-        for (let a = t + 1; a < e.length; a++)
-          (e[a].style.background = "red"),
-            await waitforme(delay),
-            parseInt(e[a].style.height) < parseInt(e[n].style.height)
-              ? (n !== t && (e[n].style.background = "cyan"), (n = a))
-              : (e[a].style.background = "cyan");
-        await waitforme(delay),
-          swap(e[n], e[t]),
-          (e[n].style.background = "cyan"),
-          (e[t].style.background = "green");
-      }
-    }
-    const selectionSortbtn = document.querySelector(".selectionSort");
-    selectionSortbtn.addEventListener("click", async function () {
-      disableSortingBtn(),
-        disableSizeSlider(),
-        disableNewArrayBtn(),
-        await selection(),
-        enableSortingBtn(),
-        enableSizeSlider(),
-        enableNewArrayBtn();
-    });
-
-
+  }
+  const selectionSortbtn = document.querySelector(".selectionSort") as HTMLButtonElement;
+  selectionSortbtn.addEventListener("click", async function () {
+    disableSortingBtn();
+    disableSizeSlider();
+    disableNewArrayBtn();
+    await selection();
+    enableSortingBtn();
+    enableSizeSlider();
+    enableNewArrayBtn();
+  });
+  
+    
   }, []);
 
   return (
