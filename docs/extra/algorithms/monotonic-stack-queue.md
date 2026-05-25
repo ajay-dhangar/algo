@@ -3,7 +3,17 @@ id: monotonic-stack-queue
 title: Monotonic Stack & Queue
 sidebar_label: Monotonic Stack & Queue
 description: "A comprehensive guide to Monotonic Stack and Monotonic Queue patterns with visual diagrams, step-by-step dry-runs, code templates in Python, Java, and C++, and practice problems."
-tags: [monotonic-stack, monotonic-queue, algorithms, patterns, dsa, interview-prep, stack, queue]
+tags:
+  [
+    monotonic-stack,
+    monotonic-queue,
+    algorithms,
+    patterns,
+    dsa,
+    interview-prep,
+    stack,
+    queue,
+  ]
 ---
 
 # Monotonic Stack & Queue
@@ -34,10 +44,10 @@ Push 1:   pop 4, pop 2 → [1]   1 < 4 ❌ pop until valid, push 1
 
 ## 🗂️ Types of Monotonic Stack
 
-| Type | Order | Used For |
-|---|---|---|
-| **Increasing** | bottom→top: small→large | Next Greater Element, Stock Span |
-| **Decreasing** | bottom→top: large→small | Next Smaller Element, Largest Rectangle |
+| Type           | Order                   | Used For                                                          |
+| -------------- | ----------------------- | ----------------------------------------------------------------- |
+| **Increasing** | bottom→top: small→large | Next Smaller Element, Previous Smaller Element, Largest Rectangle |
+| **Decreasing** | bottom→top: large→small | Next Greater Element, Previous Greater Element, Stock Span        |
 
 ---
 
@@ -395,6 +405,7 @@ import java.util.Deque;
 public class MonotonicQueue {
     public static int[] slidingWindowMaximum(int[] arr, int k) {
         int n = arr.length;
+        if (n < k) return new int[0];
         int[] result = new int[n - k + 1];
         Deque<Integer> dq = new ArrayDeque<>();  // stores indices
 
@@ -502,13 +513,13 @@ Each element is pushed once and popped once → max 12 operations
 
 ## 📊 Complexity Summary
 
-| Problem | Time | Space |
-|---|---|---|
-| Next Greater Element | O(n) | O(n) |
-| Previous Smaller Element | O(n) | O(n) |
-| Sliding Window Maximum (Deque) | O(n) | O(k) |
-| Stock Span Problem | O(n) | O(n) |
-| Largest Rectangle in Histogram | O(n) | O(n) |
+| Problem                        | Time | Space |
+| ------------------------------ | ---- | ----- |
+| Next Greater Element           | O(n) | O(n)  |
+| Previous Smaller Element       | O(n) | O(n)  |
+| Sliding Window Maximum (Deque) | O(n) | O(k)  |
+| Stock Span Problem             | O(n) | O(n)  |
+| Largest Rectangle in Histogram | O(n) | O(n)  |
 
 ---
 
@@ -524,16 +535,16 @@ Each element is pushed once and popped once → max 12 operations
 
 ## 🏋️ Practice Problems
 
-| # | Problem | Pattern | Difficulty |
-|---|---|---|---|
-| 1 | Next Greater Element I | Monotonic Stack | 🟢 Easy |
-| 2 | Next Greater Element II (circular) | Monotonic Stack | 🟡 Medium |
-| 3 | Daily Temperatures | Monotonic Stack | 🟡 Medium |
-| 4 | Previous Smaller Element | Monotonic Stack | 🟡 Medium |
-| 5 | Stock Span Problem | Monotonic Stack | 🟡 Medium |
-| 6 | Largest Rectangle in Histogram | Monotonic Stack | 🔴 Hard |
-| 7 | Sliding Window Maximum | Monotonic Deque | 🔴 Hard |
-| 8 | Shortest Subarray with Sum ≥ K | Monotonic Deque | 🔴 Hard |
+| #   | Problem                            | Pattern         | Difficulty |
+| --- | ---------------------------------- | --------------- | ---------- |
+| 1   | Next Greater Element I             | Monotonic Stack | 🟢 Easy    |
+| 2   | Next Greater Element II (circular) | Monotonic Stack | 🟡 Medium  |
+| 3   | Daily Temperatures                 | Monotonic Stack | 🟡 Medium  |
+| 4   | Previous Smaller Element           | Monotonic Stack | 🟡 Medium  |
+| 5   | Stock Span Problem                 | Monotonic Stack | 🟡 Medium  |
+| 6   | Largest Rectangle in Histogram     | Monotonic Stack | 🔴 Hard    |
+| 7   | Sliding Window Maximum             | Monotonic Deque | 🔴 Hard    |
+| 8   | Shortest Subarray with Sum ≥ K     | Monotonic Deque | 🔴 Hard    |
 
 ---
 
