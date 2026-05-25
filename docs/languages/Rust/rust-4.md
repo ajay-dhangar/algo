@@ -179,6 +179,7 @@ Bitwise operators work on binary values.
 | `^` | Bitwise XOR |
 | `<<` | Left Shift |
 | `>>` | Right Shift |
+| `!` | Bitwise NOT |
 
 ## Example
 
