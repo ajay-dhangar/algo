@@ -117,7 +117,7 @@ print(max_sum_subarray(arr, 3))   # Output: 9
 
 ```java
 public class SlidingWindow {
-    public static int maxSumSubarray(int[] arr, int k) {
+    public static long maxSumSubarray(int[] arr, int k) {
         int n = arr.length;
         if (n < k) return -1;
 
