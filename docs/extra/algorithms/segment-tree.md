@@ -3,17 +3,19 @@ id: segment-tree
 title: Segment Tree
 sidebar_label: Segment Tree
 description: "A comprehensive guide to Segment Trees with visual diagrams, build/query/update operations, lazy propagation, code templates in Python, Java, and C++, and practice problems."
+
 tags:
-  [
-    segment-tree,
-    algorithms,
-    advanced,
-    dsa,
-    range-query,
-    competitive-programming,
-    interview-prep,
-  ]
+  - segment-tree
+  - algorithms
+  - advanced
+  - dsa
+  - range-query
+  - competitive-programming
+  - interview-prep
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Segment Tree
 
@@ -112,9 +114,6 @@ tree[11] = 9   (range [4,4])
 
 ### Code
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs>
   <TabItem value="python" label="Python" default>
 
@@ -147,7 +146,7 @@ class SegmentTree:
 
 ```java
 public class SegmentTree {
-    int[] tree;
+    long[] tree;
     int n;
 
     public SegmentTree(int[] arr) {
@@ -185,7 +184,7 @@ using namespace std;
 
 class SegmentTree {
 public:
-    vector<int> tree;
+    vector<long long> tree;
     int n;
 
     SegmentTree(vector<int>& arr) {
@@ -294,7 +293,7 @@ Final Answer: 0 + 3 + 5 + 16 + 0 = 24 ✅
   <TabItem value="java" label="Java">
 
 ```java
-    public int query(int l, int r, int start, int end, int node) {
+    public long query(int l, int r, int start, int end, int node) {
         // Case 1: No overlap
         if (r < start || end < l) return 0;
 
@@ -537,13 +536,13 @@ class SegmentTreeLazy:
 
 ```java
 public class SegmentTreeLazy {
-    int[] tree, lazy;
+    long[] tree, lazy;
     int n;
 
     public SegmentTreeLazy(int[] arr) {
         n = arr.length;
-        tree = new int[4 * n];
-        lazy = new int[4 * n];
+        tree = new long[4 * n];
+        lazy = new long[4 * n];
         build(arr, 0, n - 1, 1);
     }
 
@@ -572,7 +571,7 @@ public class SegmentTreeLazy {
     public void rangeUpdate(int l, int r, int val, int start, int end, int node) {
         if (r < start || end < l) return;
         if (l <= start && end <= r) {
-            tree[node] += val * (end - start + 1);
+            tree[node] += (long) val * (end - start + 1);
             lazy[node] += val;
             return;
         }
@@ -583,7 +582,7 @@ public class SegmentTreeLazy {
         tree[node] = tree[2 * node] + tree[2 * node + 1];
     }
 
-    public int query(int l, int r, int start, int end, int node) {
+    public long query(int l, int r, int start, int end, int node) {
         if (r < start || end < l) return 0;
         if (l <= start && end <= r) return tree[node];
         propagate(node, start, end);
