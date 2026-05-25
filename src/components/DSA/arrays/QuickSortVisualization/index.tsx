@@ -104,7 +104,8 @@ const QuickSortVisualization: React.FC = () => {
 
   return (
     <div className='quick-sort-visualization'>
-      <p>Speed: <input 
+      <p><label htmlFor="quick-sort-speed">Speed:</label> <input
+        id="quick-sort-speed"
         type="range" 
         min="50" 
         max="500" 

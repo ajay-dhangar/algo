@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FiUser, FiLock, FiX, FiArrowRight, FiMail } from "react-icons/fi";
+import { FiLock, FiX, FiArrowRight, FiMail } from "react-icons/fi";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -50,10 +50,10 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-5 top-5 z-50 inline-flex items-center justify-center p-2 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-gray-800 border-none bg-transparent cursor-pointer transition-colors"
+          className="absolute right-5 top-5 z-50 inline-flex items-center justify-center p-2 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-gray-800 border-none bg-transparent cursor-pointer transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
           aria-label="Close authentication modal"
         >
-          <FiX className="w-5 h-5" />
+          <FiX className="w-5 h-5" aria-hidden="true" />
         </button>
 
         {/* Inner Content Card Pad View Container */}
@@ -84,9 +84,13 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               {/* Email Container Input Field Block */}
               <div className="group relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 group-focus-within:text-blue-500 dark:group-focus-within:text-blue-400 transition-colors">
-                  <FiMail className="w-4 h-4" />
+                  <FiMail className="w-4 h-4" aria-hidden="true" />
                 </div>
+                <label htmlFor="auth-email" className="sr-only">
+                  Email address
+                </label>
                 <input
+                  id="auth-email"
                   type="email"
                   required
                   placeholder="name@company.com"
@@ -97,9 +101,13 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               {/* Password Container Input Field Block */}
               <div className="group relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 group-focus-within:text-blue-500 dark:group-focus-within:text-blue-400 transition-colors">
-                  <FiLock className="w-4 h-4" />
+                  <FiLock className="w-4 h-4" aria-hidden="true" />
                 </div>
+                <label htmlFor="auth-password" className="sr-only">
+                  Password
+                </label>
                 <input
+                  id="auth-password"
                   type="password"
                   required
                   placeholder={showSignup ? "Choose password" : "Enter password"}
@@ -111,9 +119,13 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               {showSignup && (
                 <div className="group relative animate-fadeIn">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 group-focus-within:text-blue-500 dark:group-focus-within:text-blue-400 transition-colors">
-                    <FiLock className="w-4 h-4" />
+                    <FiLock className="w-4 h-4" aria-hidden="true" />
                   </div>
+                  <label htmlFor="auth-confirm-password" className="sr-only">
+                    Confirm password
+                  </label>
                   <input
+                    id="auth-confirm-password"
                     type="password"
                     required
                     placeholder="Confirm password"
@@ -128,7 +140,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               <div className="flex justify-end pt-1">
                 <button
                   type="button"
-                  className="bg-transparent border-none text-xs font-semibold text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 p-0 transition-colors cursor-pointer focus:outline-none"
+                  className="bg-transparent border-none text-xs font-semibold text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 p-0 transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
                 >
                   Forgot Password?
                 </button>
@@ -139,10 +151,10 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white text-sm font-bold py-3 px-4 shadow-sm hover:shadow transition-all duration-150 cursor-pointer border-none"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white text-sm font-bold py-3 px-4 shadow-sm hover:shadow transition-all duration-150 cursor-pointer border-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
               >
                 {showSignup ? "Register Profile" : "Secure Sign In"}
-                <FiArrowRight className="w-4 h-4" />
+                <FiArrowRight className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
           </form>
@@ -163,11 +175,12 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
           <div className="grid grid-cols-2 gap-3">
             <button
               type="button"
-              className="inline-flex w-full justify-center items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-950/20 hover:bg-slate-50 dark:hover:bg-gray-800/50 py-2.5 px-4 text-xs sm:text-sm font-semibold text-slate-700 dark:text-gray-300 transition-colors shadow-sm cursor-pointer"
+              className="inline-flex w-full justify-center items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-950/20 hover:bg-slate-50 dark:hover:bg-gray-800/50 py-2.5 px-4 text-xs sm:text-sm font-semibold text-slate-700 dark:text-gray-300 transition-colors shadow-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
-                alt="Google Identity logo link"
+                alt=""
+                aria-hidden="true"
                 className="h-4 w-4 block object-contain"
               />
               Google
@@ -175,11 +188,12 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
 
             <button
               type="button"
-              className="inline-flex w-full justify-center items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-950/20 hover:bg-slate-50 dark:hover:bg-gray-800/50 py-2.5 px-4 text-xs sm:text-sm font-semibold text-slate-700 dark:text-gray-300 transition-colors shadow-sm cursor-pointer"
+              className="inline-flex w-full justify-center items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-950/20 hover:bg-slate-50 dark:hover:bg-gray-800/50 py-2.5 px-4 text-xs sm:text-sm font-semibold text-slate-700 dark:text-gray-300 transition-colors shadow-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                alt="GitHub Identity logo link"
+                alt=""
+                aria-hidden="true"
                 className="h-4 w-4 block invert dark:invert-0 object-contain"
               />
               GitHub
@@ -193,7 +207,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               <button
                 type="button"
                 onClick={() => setShowSignup(!showSignup)}
-                className="bg-transparent border-none p-0 text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 transition-colors cursor-pointer focus:outline-none"
+                className="bg-transparent border-none p-0 text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
               >
                 {showSignup ? "Sign In Here" : "Create Account Profiles"}
               </button>
