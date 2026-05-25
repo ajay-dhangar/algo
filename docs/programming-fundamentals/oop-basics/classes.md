@@ -31,6 +31,7 @@ A typical class consists of:
 
 ```cpp
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Car {
