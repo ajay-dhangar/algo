@@ -53,6 +53,8 @@ using namespace std;
 
 class Animal {
 public:
+    virtual ~Animal() {} // Virtual destructor for proper cleanup
+
     // Virtual function enables runtime polymorphism
     virtual void sound() {
         cout << "Animal makes a sound" << endl;
