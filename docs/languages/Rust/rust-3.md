@@ -265,6 +265,7 @@ Second Element: 20
 fn main() {
     let marks: [i32; 5] = [90, 85, 88, 92, 95];
 
+    // Use the debug formatter {:?} to print the array
     println!("{:?}", marks);
 }
 ```
