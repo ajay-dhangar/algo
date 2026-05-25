@@ -305,7 +305,7 @@ const DSARoadmap: React.FC = () => {
     return partitionIdx;
   }
   async function quickSort(
-    bars: NodeListOf<Element>,
+    bars: NodeListOf<HTMLElement>,
     low: number,
     high: number
   ): Promise<void> {
@@ -314,8 +314,8 @@ const DSARoadmap: React.FC = () => {
       await quickSort(bars, low, pivotFinalIdx - 1);
       await quickSort(bars, pivotFinalIdx + 1, high);
     } else if (low >= 0 && high >= 0 && low < bars.length && high < bars.length) {
-      (bars[high] as HTMLElement).style.background = "green";
-      (bars[low] as HTMLElement).style.background = "green";
+      bars[high].style.background = "green";
+      bars[low].style.background = "green";
     }
   }
   const quickSortbtn = document.querySelector(".quickSort") as HTMLButtonElement;
