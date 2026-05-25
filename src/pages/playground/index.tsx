@@ -136,7 +136,6 @@ const PlaygroundContent: React.FC = () => {
   const [execTime, setExecTime] = useState<number | null>(null);
 
   const workerRef = useRef<Worker | null>(null);
-  const consoleEndRef = useRef<HTMLDivElement | null>(null);
   const consolePanelRef = useRef<HTMLDivElement | null>(null);
 
   // Safe to use now because this component is rendered inside <Layout>
