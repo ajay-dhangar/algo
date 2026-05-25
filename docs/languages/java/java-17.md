@@ -295,5 +295,3 @@ Although useful, exception handling also has some limitations:
 Exception handling is an important concept in Java that helps create robust and reliable applications.
 
 By using `try`, `catch`, `throw`, `throws`, and `finally`, developers can efficiently handle errors and improve program stability.
-
-Happy coding!
