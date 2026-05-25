@@ -137,16 +137,18 @@ const PlaygroundContent: React.FC = () => {
 
   const workerRef = useRef<Worker | null>(null);
   const consoleEndRef = useRef<HTMLDivElement | null>(null);
+  const consolePanelRef = useRef<HTMLDivElement | null>(null);
 
   // Safe to use now because this component is rendered inside <Layout>
   const { colorMode } = useColorMode();
 
-  // Scroll to bottom of console logs on update
+  // Scroll to bottom of console logs on update only during execution
   useEffect(() => {
-    if (consoleEndRef.current) {
-      consoleEndRef.current.scrollIntoView({ behavior: "smooth" });
+    if (consolePanelRef.current && isRunning) {
+      // Scroll within the console panel only, don't scroll the page
+      consolePanelRef.current.scrollTop = consolePanelRef.current.scrollHeight;
     }
-  }, [logs]);
+  }, [logs, isRunning]);
 
   // Clean up worker on unmount
   useEffect(() => {
@@ -388,7 +390,7 @@ const PlaygroundContent: React.FC = () => {
             </div>
 
             {/* Console Output Panel */}
-            <div className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
+            <div ref={consolePanelRef} className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
               <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex items-center justify-between">
                 <span className="text-xs font-bold text-gray-400 font-mono flex items-center gap-2">
                   <FaTerminal className="text-gray-500" /> CONSOLE TERMINAL
@@ -423,7 +425,6 @@ const PlaygroundContent: React.FC = () => {
                     );
                   })
                 )}
-                <div ref={consoleEndRef} />
               </div>
             </div>
           </div>
