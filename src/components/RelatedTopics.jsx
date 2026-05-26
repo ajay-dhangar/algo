@@ -17,7 +17,7 @@ export default function RelatedTopics({ topics = [] }) {
             <ul>
                 {topics.map((topic, index) => (
                     <li key={index}>
-                        <Link to={`/algo/docs/${topic}`}>
+                        <Link to={`/docs/${topic}`}>
                             {topic
                                 .split("/")
                                 .pop()
