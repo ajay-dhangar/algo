@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
 import Translate from "@docusaurus/Translate";
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import {
   FaFolderOpen,
   FaFolder,
@@ -13,6 +15,62 @@ import {
 import { topics } from "../../data/topics";
 
 const DSARoadmap: React.FC = () => {
+  const programmingFundamentalsBase = useBaseUrl("/docs/programming-fundamentals");
+  const languagesBase = useBaseUrl("/docs/languages");
+  const dataStructuresBase = useBaseUrl("/docs/data-structures");
+  const basicDataStructuresBase = useBaseUrl("/docs/basic-data-structures");
+  const complexityBase = useBaseUrl("/docs/extra/complexity");
+  const sortingsBase = useBaseUrl("/docs/extra/sortings");
+
+  const slugify = (value: string) => value.toLowerCase().replace(/\s+/g, "-");
+
+  const languageFolderMap: Record<string, string> = {
+    JavaScript: "javascript",
+    Java: "java",
+    Python: "python",
+    "C#": "csharp",
+    "C++": "cpp",
+    Rust: "Rust",
+    SQL: "SQL",
+    C: "C",
+  };
+
+  const languageDocSlug = (fileName: string, languageSlug: string) => {
+    if (fileName.toLowerCase() === "introduction") {
+      return `introduction-to-${languageSlug}`;
+    }
+    return `${slugify(fileName)}-in-${languageSlug}`;
+  };
+
+  const getDocLink = (topicTitle: string, folderName: string, fileName: string) => {
+    if (topicTitle === "Pick a Language") {
+      const languageSlug = languageFolderMap[folderName] ?? slugify(folderName);
+      return `${languagesBase}/${languageSlug}/${languageDocSlug(fileName, languageSlug)}`;
+    }
+
+    if (topicTitle === "Programming Fundamentals") {
+      return `${programmingFundamentalsBase}/${slugify(folderName)}/${slugify(fileName)}`;
+    }
+
+    if (topicTitle === "Data Structures") {
+      return `${dataStructuresBase}/${slugify(fileName)}`;
+    }
+
+    if (topicTitle === "Basic Data Structures") {
+      return `${basicDataStructuresBase}/${slugify(folderName)}/${slugify(fileName)}`;
+    }
+
+    if (topicTitle === "Algorithmic Complexity") {
+      return `${complexityBase}/${slugify(fileName)}`;
+    }
+
+    if (topicTitle === "Sorting Algorithms") {
+      return `${sortingsBase}/${slugify(folderName)}/${slugify(fileName)}`;
+    }
+
+    return `${programmingFundamentalsBase}/${slugify(folderName)}/${slugify(fileName)}`;
+  };
+
   // State for major topics (Top level nodes) - open the first one by default
   const [expandedTopics, setExpandedTopics] = useState<{ [key: number]: boolean }>({ 0: true });
   // State for specific folders (Second level nodes)
@@ -165,15 +223,22 @@ const DSARoadmap: React.FC = () => {
                               <div className="overflow-hidden">
                                 <div className="px-4 pb-4 pt-1 bg-gray-50 dark:bg-gray-800/40 border-t border-gray-100 dark:border-gray-700">
                                   <ul className="ml-2 border-l-2 border-gray-200 dark:border-gray-600 pl-4 space-y-3 mt-3">
-                                    {folder.files.map((file, fileIdx) => (
-                                      <li 
-                                        key={fileIdx} 
-                                        className="flex items-center text-[15px] text-gray-600 dark:text-gray-300 hover:text-[var(--ifm-color-primary)] dark:hover:text-[var(--ifm-color-primary)] transition-colors cursor-pointer group"
-                                      >
-                                        <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500 group-hover:text-[var(--ifm-color-primary)] transition-colors" />
-                                        {file}
-                                      </li>
-                                    ))}
+                                    {folder.files.map((file, fileIdx) => {
+                                      const fileLink = getDocLink(topic.title, folder.name, file);
+
+                                      return (
+                                        <li key={fileIdx}>
+                                          <Link
+                                            to={fileLink}
+                                            className="flex items-center text-[15px] text-gray-600 dark:text-gray-300 hover:text-[var(--ifm-color-primary)] dark:hover:text-[var(--ifm-color-primary)] transition-colors cursor-pointer group"
+                                            style={{ textDecoration: "none" }}
+                                          >
+                                            <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500 group-hover:text-[var(--ifm-color-primary)] transition-colors" />
+                                            <span>{file}</span>
+                                          </Link>
+                                        </li>
+                                      );
+                                    })}
                                   </ul>
                                 </div>
                               </div>
