@@ -1,6 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
+const { exec } = require("child_process");
+const fs = require("fs");
+const path = require("path");
+const os = require("os");
 const sequelize = require("./db");
 const QuizAttempt = require("./models/QuizAttempt");
 const quizAnswers = require("./quizAnswers");
@@ -155,6 +159,117 @@ app.get("/api/quiz-attempts/:userId/:quizId", async (req, res) => {
   } catch (error) {
     console.error("Error retrieving quiz-specific attempts:", error);
     return res.status(500).json({ error: "An internal server error occurred while fetching attempts." });
+  }
+});
+
+/**
+ * Endpoint: POST /api/execute-code
+ * Executes code in different languages (Python, C++, Java)
+ * JavaScript is handled client-side
+ */
+app.post("/api/execute-code", async (req, res) => {
+  const { language, code } = req.body;
+
+  // Validate request
+  if (!language || !code) {
+    return res.status(400).json({ success: false, error: "Missing language or code parameter." });
+  }
+
+  const validLanguages = ["python", "cpp", "java"];
+  if (!validLanguages.includes(language)) {
+    return res.status(400).json({ success: false, error: "Unsupported language. Supported: python, cpp, java" });
+  }
+
+  try {
+    const tempDir = os.tmpdir();
+    let filename, fileExtension, command;
+
+    // Generate unique filename to avoid conflicts
+    const uniqueId = Date.now() + Math.random().toString(36).substr(2, 9);
+
+    switch (language) {
+      case "python":
+        fileExtension = ".py";
+        filename = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
+        command = `python "${filename}"`;
+        break;
+
+      case "cpp":
+        fileExtension = ".cpp";
+        const sourceFile = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
+        const executableFile = path.join(tempDir, `script_${uniqueId}${process.platform === "win32" ? ".exe" : ""}`);
+        filename = sourceFile;
+        // Compile and run
+        command = `g++ "${sourceFile}" -o "${executableFile}" && "${executableFile}"`;
+        break;
+
+      case "java":
+        fileExtension = ".java";
+        // Extract class name from code (first public class)
+        const classNameMatch = code.match(/public\s+class\s+(\w+)/);
+        const className = classNameMatch ? classNameMatch[1] : "Main";
+        filename = path.join(tempDir, `${className}${fileExtension}`);
+        command = `cd "${tempDir}" && javac "${filename}" && java "${className}"`;
+        break;
+
+      default:
+        return res.status(400).json({ success: false, error: "Unsupported language" });
+    }
+
+    // Write code to file
+    fs.writeFileSync(filename, code);
+
+    // Execute code with timeout
+    exec(command, { timeout: 10000, maxBuffer: 10 * 1024 * 1024 }, (error, stdout, stderr) => {
+      // Clean up temp files
+      try {
+        fs.unlinkSync(filename);
+        if (language === "cpp") {
+          const executableFile = filename.replace(fileExtension, process.platform === "win32" ? ".exe" : "");
+          if (fs.existsSync(executableFile)) {
+            fs.unlinkSync(executableFile);
+          }
+        }
+        if (language === "java") {
+          const classNameMatch = code.match(/public\s+class\s+(\w+)/);
+          const className = classNameMatch ? classNameMatch[1] : "Main";
+          const classFile = path.join(os.tmpdir(), `${className}.class`);
+          if (fs.existsSync(classFile)) {
+            fs.unlinkSync(classFile);
+          }
+        }
+      } catch (cleanupError) {
+        console.warn("Cleanup warning:", cleanupError.message);
+      }
+
+      if (error) {
+        // Check for timeout
+        if (error.killed) {
+          return res.json({
+            success: false,
+            error: "Code execution timed out after 10 seconds",
+          });
+        }
+        // Return compilation or runtime error
+        const errorMessage = stderr || error.message;
+        return res.json({
+          success: false,
+          error: errorMessage,
+        });
+      }
+
+      // Return successful output
+      res.json({
+        success: true,
+        output: stdout,
+      });
+    });
+  } catch (error) {
+    console.error("Error executing code:", error);
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : "An error occurred during code execution",
+    });
   }
 });
 
