@@ -1,0 +1,8 @@
+{
+  "label": "Indexing",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about indexing concepts in programming and data structures."
+  }
+}
