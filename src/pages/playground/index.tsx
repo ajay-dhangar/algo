@@ -124,42 +124,57 @@ const PlaygroundContent: React.FC = () => {
   }, []);
 
   // ── Tab 1: JS RUNNER ─────────────────────────────────────────
+  const handleStopJs = () => {
+    if (workerRef.current) {
+      workerRef.current.terminate();
+      workerRef.current = null;
+      setIsRunning(false);
+      setLogs((prev) => [...prev, "", "⛔ Execution stopped by user."]);
+    }
+  };
+
   const handleRunJs = () => {
     if (isRunning) return;
     setIsRunning(true);
     setLogs(["// Starting JS sandbox...", ""]);
     setExecTime(null);
 
-    const workerCode = `
-      self.onmessage = function(e) {
-        const code = e.data;
-        const customConsole = {
-          log: (...args) => {
-            const message = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
-            self.postMessage({ type: 'log', message });
-          },
-          error: (...args) => {
-            self.postMessage({ type: 'error', message: args.join(' ') });
-          }
-        };
-        const start = performance.now();
-        try {
-          const run = new Function('console', \`
-            'use strict';
-            \${code}
-          \`);
-          run(customConsole);
-          self.postMessage({ type: 'finish', time: performance.now() - start });
-        } catch (err) {
-          self.postMessage({ type: 'error', message: err.message });
-          self.postMessage({ type: 'finish', time: performance.now() - start });
-        }
-      };
-    `;
+    // Use JSON.parse for safe code transfer — avoids breakage when user code contains backticks
+    const workerCode = [
+      'self.onmessage = function(e) {',
+      '  const code = e.data;',
+      '  const customConsole = {',
+      '    log: (...args) => {',
+      '      const message = args.map(arg => typeof arg === "object" ? JSON.stringify(arg) : String(arg)).join(" ");',
+      '      self.postMessage({ type: "log", message });',
+      '    },',
+      '    error: (...args) => {',
+      '      self.postMessage({ type: "error", message: args.join(" ") });',
+      '    }',
+      '  };',
+      '  const start = performance.now();',
+      '  try {',
+      '    const run = new Function("console", "\"use strict\";\\n" + code);',
+      '    run(customConsole);',
+      '    self.postMessage({ type: "finish", time: performance.now() - start });',
+      '  } catch (err) {',
+      '    self.postMessage({ type: "error", message: err.message });',
+      '    self.postMessage({ type: "finish", time: performance.now() - start });',
+      '  }',
+      '};',
+    ].join('\n');
 
     const blob = new Blob([workerCode], { type: "text/javascript" });
     const worker = new Worker(URL.createObjectURL(blob));
     workerRef.current = worker;
+
+    // 10-second execution timeout to prevent infinite loops
+    const timeoutId = setTimeout(() => {
+      worker.terminate();
+      workerRef.current = null;
+      setIsRunning(false);
+      setLogs((prev) => [...prev, "", "⏱️ Execution timed out after 10 seconds."]);
+    }, 10000);
 
     worker.onmessage = (e) => {
       const data = e.data;
@@ -168,6 +183,7 @@ const PlaygroundContent: React.FC = () => {
       } else if (data.type === "error") {
         setLogs((prev) => [...prev, `❌ ${data.message}`]);
       } else if (data.type === "finish") {
+        clearTimeout(timeoutId);
         setIsRunning(false);
         setExecTime(data.time);
         setLogs((prev) => [...prev, "", `// Execution finished in ${data.time.toFixed(2)}ms.`]);
@@ -183,13 +199,19 @@ const PlaygroundContent: React.FC = () => {
     setIsPyodideLoading(true);
     setPyLogs(["// Loading Pyodide WASM Runtime from CDN...", "Please wait a moment..."]);
     try {
-      await new Promise((resolve, reject) => {
-        const script = document.createElement("script");
-        script.src = "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js";
-        script.onload = resolve;
-        script.onerror = reject;
-        document.head.appendChild(script);
-      });
+      // Prevent duplicate script tags — check if Pyodide is already loaded
+      if (!(window as any).loadPyodide) {
+        const existingScript = document.querySelector('script[src*="pyodide"]');
+        if (!existingScript) {
+          await new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js";
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        }
+      }
       const py = await (window as any).loadPyodide();
       setPyodide(py);
       setPyLogs(["✅ Pyodide WebAssembly loaded successfully!", "Ready to execute Python code."]);
@@ -299,6 +321,14 @@ const PlaygroundContent: React.FC = () => {
                 >
                   <FaPlay /> Run Sandbox
                 </button>
+                {isRunning && (
+                  <button
+                    onClick={handleStopJs}
+                    className="flex items-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold border-none cursor-pointer"
+                  >
+                    <FaStop /> Stop
+                  </button>
+                )}
                 <button
                   onClick={() => setLogs([])}
                   className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg border-none cursor-pointer"
@@ -311,7 +341,7 @@ const PlaygroundContent: React.FC = () => {
                 <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex justify-between items-center text-xs text-gray-400 font-mono">
                   <span>TERMINAL LOGS</span>
                 </div>
-                <div className="flex-grow p-4 overflow-y-auto font-mono text-sm text-gray-303 bg-black">
+                <div className="flex-grow p-4 overflow-y-auto font-mono text-sm text-gray-300 bg-black">
                   {logs.map((log, i) => (
                     <div key={i}>{log}</div>
                   ))}
@@ -381,7 +411,7 @@ const PlaygroundContent: React.FC = () => {
                 <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex justify-between items-center text-xs text-gray-400 font-mono">
                   <span>PYTHON CONSOLE</span>
                 </div>
-                <div className="flex-grow p-4 overflow-y-auto font-mono text-sm text-gray-305 bg-black">
+                <div className="flex-grow p-4 overflow-y-auto font-mono text-sm text-gray-300 bg-black">
                   {pyLogs.map((log, i) => (
                     <div key={i}>{log}</div>
                   ))}
