@@ -18,11 +18,9 @@ The **Longest Increasing Subsequence (LIS)** is one of the most classic and impo
 A **subsequence** is a sequence derived from the array by deleting some (or no) elements without changing the relative order of remaining elements.
 
 ### Example
-
 ```
 arr = [10, 9, 2, 5, 3, 7, 101, 18]
 ```
-
 Some increasing subsequences:
 - `[2, 5, 7, 101]` — length 4
 - `[2, 3, 7, 101]` — length 4
@@ -35,7 +33,7 @@ Some increasing subsequences:
 
 ## Brute Force Intuition
 
-For every element, we can either **include** it in the subsequence (if it's greater than the last picked element) or **skip** it. This leads to exploring all `2ⁿ` subsets — **O(2ⁿ)** time, which is completely impractical for large inputs.
+For every element, we can either **include** it in the subsequence (if it's greater than the last picked element) or **skip** it. This leads to exploring all $2^n$ subsets — **$O(2^n)$** time, which is completely impractical for large inputs.
 
 This motivates us to use Dynamic Programming or a smarter Binary Search approach.
 
@@ -57,10 +55,8 @@ For every index `i`, look back at all `j < i`:
 
 ### Recurrence
 
-```
-dp[i] = 1 + max{ dp[j] : 0 ≤ j < i and arr[j] < arr[i] }
-dp[i] = 1  (if no such j exists)
-```
+$$dp[i] = 1 + \max \{ dp[j] : 0 \le j < i \text{ and } arr[j] < arr[i] \}$$
+$$dp[i] = 1 \quad \text{(if no such } j \text{ exists)}$$
 
 ---
 
@@ -70,13 +66,13 @@ dp[i] = 1  (if no such j exists)
 
 Initialize: `dp = [1, 1, 1, 1, 1]`
 
-| i | arr[i] | j checked | dp[j]+1 if valid | dp[i] |
-|---|--------|-----------|------------------|-------|
-| 0 | 3      | —         | —                | 1     |
-| 1 | 10     | j=0: 3 &lt; 10 ✓ | 1+1=2          | 2     |
-| 2 | 2      | j=0: 3 &gt; 2 ✗, j=1: 10 &gt; 2 ✗ | — | 1 |
-| 3 | 1      | j=0,1,2: all ≥1 ✗ | —         | 1     |
-| 4 | 20     | j=0: 3 &lt; 20 ✓ → 2, j=1: 10 &lt; 20 ✓ → 3, j=2: 2 &lt; 20 ✓ → 2, j=3: 1 &lt; 20 ✓ → 2 | max=3 | 3 |
+| i | arr[i] | j checked & valid outcomes ($dp[j] + 1$) | Max $dp[j] + 1$ | Final $dp[i]$ |
+|---|--------|-----------------------------------------|-----------------|---------------|
+| 0 | 3      | —                                       | —               | 1             |
+| 1 | 10     | j=0: 3 < 10 ✓ ($1 + 1 = 2$)             | 2               | 2             |
+| 2 | 2      | j=0: 3 > 2 ✗, j=1: 10 > 2 ✗             | —               | 1             |
+| 3 | 1      | j=0, 1, 2: all elements $\ge 1$ ✗        | —               | 1             |
+| 4 | 20     | j=0: 3 < 20 ✓ ($1+1=2$)<br>j=1: 10 < 20 ✓ ($2+1=3$)<br>j=2: 2 < 20 ✓ ($1+1=2$)<br>j=3: 1 < 20 ✓ ($1+1=2$) | 3 | 3 |
 
 `dp = [1, 2, 1, 1, 3]`
 
@@ -94,6 +90,7 @@ using namespace std;
 
 int lis_dp(vector<int>& arr) {
     int n = arr.size();
+    if (n == 0) return 0;
     vector<int> dp(n, 1); // Every element is an LIS of length 1
 
     for (int i = 1; i < n; i++) {
@@ -112,9 +109,8 @@ int main() {
     cout << "LIS length: " << lis_dp(arr) << endl; // Output: 4
     return 0;
 }
-```
 
----
+```
 
 ### Java Implementation (O(n²))
 
