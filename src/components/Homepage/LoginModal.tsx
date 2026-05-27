@@ -179,10 +179,9 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
                 alt="Google Identity logo link"
-                loading="lazy"
-                alt=""
-                aria-hidden="true"
                 className="h-4 w-4 block object-contain"
               />
               Google
