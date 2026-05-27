@@ -13,19 +13,19 @@ const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-    ? false
-    : (() => {
-        try {
-          if (!fs.existsSync(path.join(__dirname, ".git"))) {
+      ? false
+      : (() => {
+          try {
+            if (!fs.existsSync(path.join(__dirname, ".git"))) {
+              return false;
+            }
+            // Dry run a git log check to verify git operations succeed on actual files (fails on OneDrive)
+            execSync("git log -1 docusaurus.config.js", { stdio: "ignore" });
+            return true;
+          } catch {
             return false;
           }
-
-          execSync("git rev-parse --is-inside-work-tree", { stdio: "ignore" });
-          return true;
-        } catch {
-          return false;
-        }
-      })();
+        })();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -153,6 +153,10 @@ const config = {
                 label: "Practice",
               },
               {
+                to: "playground",
+                label: "Playground",
+              },
+              {
                 to: "quizzes",
                 label: "Quizzes",
               },
@@ -171,10 +175,6 @@ const config = {
               {
                 to: "resources",
                 label: "Resources",
-              },
-              {
-                to: "blogs",
-                label: "Blogs",
               },
             ],
           },

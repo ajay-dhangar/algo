@@ -80,7 +80,7 @@ const SelectionSortVisualization: React.FC = () => {
   return (
     <div className='selection-sort-visualization'>
       <p>
-        Speed: <input type="range" min="10" max="200" value={delay} onChange={e => setDelay(Number(e.target.value))} />
+        <label htmlFor="selection-sort-speed">Speed:</label> <input id="selection-sort-speed" type="range" min="10" max="200" value={delay} onChange={e => setDelay(Number(e.target.value))} />
       </p>
       <button onClick={selectionSort} disabled={isSorting}>Sort</button>
       &nbsp;

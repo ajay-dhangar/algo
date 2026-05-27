@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
 
+import QuestionProgress
+from "../../components/Quiz/QuestionProgress";
+
+import QuestionNavigator
+from "../../components/Quiz/QuestionNavigator";
+
 const AVLTreeQuiz: React.FC = () => {
   const questions = [
     // Easy Questions
@@ -94,9 +100,17 @@ const AVLTreeQuiz: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
-  const handleAnswer = (selected: string) => {
-    setSelectedOption(selected);
-  };
+ const handleAnswer=(selected:string)=>{
+
+ setSelectedOption(selected);
+
+ const updatedAnswers=[...userAnswers];
+
+ updatedAnswers[currentQuestion]=selected;
+
+ setUserAnswers(updatedAnswers);
+
+}
 
   const nextQuestion = () => {
     if (selectedOption !== null) {
@@ -121,6 +135,18 @@ const AVLTreeQuiz: React.FC = () => {
       <div className="bg-gradient-to-br from-purple-100 via-purple-200 to-purple-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
         <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">Quiz on AVL Trees</h2>
+
+          <QuestionProgress
+currentQuestion={currentQuestion}
+totalQuestions={questions.length}
+/>
+
+<QuestionNavigator
+questions={questions}
+currentQuestion={currentQuestion}
+userAnswers={userAnswers}
+setCurrentQuestionIndex={setCurrentQuestion}
+/>
           {showResult ? (
             <div>
               <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
