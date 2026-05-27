@@ -150,6 +150,8 @@ public class LIS_DP {
 
 ```python
 def lis_dp(arr):
+    if not arr:
+        return 0
     n = len(arr)
     dp = [1] * n  # Every element is an LIS of length 1
 
