@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
 
+import QuestionProgress
+from "../../components/Quiz/QuestionProgress";
+
+import QuestionNavigator
+from "../../components/Quiz/QuestionNavigator";
+
 const RedBlackTreeQuiz: React.FC = () => {
   const questions = [
     // Easy Questions
@@ -229,9 +235,17 @@ const RedBlackTreeQuiz: React.FC = () => {
     }
   };
 
-  const handleAnswer = (selected: string) => {
-    setSelectedOption(selected);
-  };
+  const handleAnswer=(selected:string)=>{
+
+ setSelectedOption(selected);
+
+ const updatedAnswers=[...userAnswers];
+
+ updatedAnswers[currentQuestion]=selected;
+
+ setUserAnswers(updatedAnswers);
+
+}
 
   const nextQuestion = () => {
     setUserAnswers((prev) => [...prev, selectedOption]);
@@ -293,6 +307,18 @@ const RedBlackTreeQuiz: React.FC = () => {
           </div>
 
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Quiz on Red-Black Trees</h2>
+
+          <QuestionProgress
+currentQuestion={currentQuestion}
+totalQuestions={questions.length}
+/>
+
+<QuestionNavigator
+questions={questions}
+currentQuestion={currentQuestion}
+userAnswers={userAnswers}
+setCurrentQuestionIndex={setCurrentQuestion}
+/>
 
           {!showResult && (
             <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-right">
