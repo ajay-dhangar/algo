@@ -91,12 +91,15 @@ For node at index i:
 ```
 Array: [1, 3, 5, 7, 9, 11]
 
-Step 1: Fill leaf nodes (bottom level)
-tree[6]=1, tree[7]=3, tree[8]=5, tree[9]=7, tree[10]=9, tree[11]=11
+Step 1: Fill leaf nodes
+tree[8]=1, tree[9]=3, tree[5]=5, tree[10]=7, tree[11]=9, tree[7]=11
 
 Step 2: Fill internal nodes bottom-up
-tree[3] = tree[6]+tree[7] = 1+3 = 4
-tree[4] = tree[8]+tree[9] = 5+7 = 12   (wait — let's use 1-indexed correctly)
+tree[4] = tree[8]+tree[9] = 1+3 = 4
+tree[6] = tree[10]+tree[11] = 7+9 = 16
+tree[2] = tree[4]+tree[5] = 4+5 = 9
+tree[3] = tree[6]+tree[7] = 16+11 = 27
+tree[1] = tree[2]+tree[3] = 9+27 = 36
 
 Correct tree (1-indexed, nodes store range sum):
 tree[1]  = 36  (range [0,5])
