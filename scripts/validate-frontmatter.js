@@ -110,7 +110,7 @@ function walkDir(dir) {
         walkDir(filePath);
       }
     } else if (file.endsWith('.md') || file.endsWith('.mdx')) {
-      const relativePath = path.relative(DOCS_DIR, filePath);
+      const relativePath = path.relative(DOCS_DIR, filePath).replace(/\\/g, '/');
       validateFrontmatter(filePath, relativePath);
     }
   });
