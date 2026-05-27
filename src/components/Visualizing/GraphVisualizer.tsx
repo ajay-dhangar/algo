@@ -50,6 +50,14 @@ const GraphVisualizer: React.FC = () => {
   const speedRef = useRef(speed);
   speedRef.current = speed;
 
+  const isMounted = useRef(true);
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
   const resetGraph = () => {
     setVisitedNodes(new Set());
     setVisitedEdges(new Set());
