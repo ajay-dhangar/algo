@@ -509,7 +509,7 @@ print(f"LIS sequence: {seq}")     # [3, 10, 20]
 
 ## Related Topics
 
-- 📄 [Longest Common Subsequence](./longest_common_subsequence) — Another classic DP on sequences
+- 📄 [Longest Common Subsequence](./longest-common-subsequence) — Another classic DP on sequences
 - 📄 [Longest Zig-Zag Subsequence](./longest-zig-zag-subsequence) — Variation of LIS
 - 📄 [Dynamic Programming Optimizations](./dynamic-programming-optimizations) — Advanced DP techniques
 - 📄 [Practice Problems](./practice-problems-different-patterns) — Mixed DP practice set
