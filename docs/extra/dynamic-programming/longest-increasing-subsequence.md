@@ -173,6 +173,7 @@ print(f"LIS length: {lis_dp(arr)}")  # Output: 4
 
 ```javascript
 function lisDp(arr) {
+    if (arr.length === 0) return 0;
     const n = arr.length;
     const dp = new Array(n).fill(1);
 
@@ -181,7 +182,7 @@ function lisDp(arr) {
             if (arr[j] < arr[i]) {
                 dp[i] = Math.max(dp[i], dp[j] + 1);
             }
-        }
+        } 
     }
 
     return Math.max(...dp);
