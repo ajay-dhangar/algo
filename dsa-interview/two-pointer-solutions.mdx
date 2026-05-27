@@ -1,0 +1,125 @@
+---
+id: two-pointer-solutions
+title: "Two Pointers: 3Sum and Two Sum II"
+sidebar_label: "Two Pointers (3Sum, Two Sum II)"
+sidebar_position: 2
+description: "Optimized Java solutions and theory for classic Two-Pointer problems: 3Sum and Two Sum II."
+tags: [java, dsa, two-pointers, algorithms, interview-preparation]
+---
+
+The **Two-Pointer technique** is a highly efficient algorithmic pattern used to solve problems involving arrays, strings, or linked lists. Instead of using nested loops (which often result in slow $O(N^2)$ or $O(N^3)$ time complexities), we use two integer variables (pointers) to traverse the data structure simultaneously. 
+
+When dealing with sorted arrays, these pointers typically start at opposite ends and move towards each other based on specific conditions.
+
+Below is the theoretical breakdown and pure Java code for two classic interview questions.
+
+---
+
+## 1. Two Sum II - Input Array Is Sorted
+
+**Problem Statement:** Given a 1-indexed array of integers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number.
+
+### Theory & Intuition
+Because the array is **sorted**, we do not need to use a HashMap or check every possible combination. We can leverage the sorted property by placing a `left` pointer at the start (the smallest value) and a `right` pointer at the end (the largest value).
+
+1. Calculate the sum of the numbers at the two pointers.
+2. If `sum == target`, you have found your answer.
+3. If the `sum < target`, the current sum is **too small**. To increase the sum, we must move the `left` pointer one step to the right (pointing to a larger number).
+4. If the `sum > target`, the current sum is **too large**. To decrease the sum, we must move the `right` pointer one step to the left (pointing to a smaller number).
+
+### The Java Solution
+
+```java
+public class TwoSumIISolution {
+    public int[] twoSum(int[] numbers, int target) {
+        int left = 0;
+        int right = numbers.length - 1;
+        
+        while (left < right) {
+            // Use 'long' to prevent integer overflow when adding two large numbers
+            long currentSum = (long) numbers[left] + numbers[right];
+            
+            if (currentSum == target) {
+                // The problem typically asks for 1-indexed array return
+                return new int[] {left + 1, right + 1};
+            } else if (currentSum < target) {
+                left++; // Increase the sum
+            } else {
+                right--; // Decrease the sum
+            }
+        }
+        return new int[] {-1, -1}; // No solution found
+    }
+}
+```
+
+### Complexity
+* **Time Complexity:** $O(N)$ because each element is visited at most once by the pointers.
+* **Space Complexity:** $O(1)$ as we only use two integer variables, making it extremely memory efficient.
+
+---
+
+## 2. 3Sum
+
+**Problem Statement:** Given an integer array `nums`, return all the triplets `[nums[i], nums[j], nums[k]]` such that they add up to 0. The solution set must not contain duplicate triplets.
+
+### Theory & Intuition
+The brute force way to solve 3Sum is to use three nested loops, which takes $O(N^3)$ time and will instantly fail an interview. Instead, we can reduce this to $O(N^2)$ by utilizing the Two-Pointer technique.
+
+1. **Sort the array:** This is mandatory. Sorting allows us to use pointers and makes it trivial to skip duplicate numbers.
+2. **The Anchor:** Iterate through the array with a standard `for` loop. The current number `nums[i]` acts as our "anchor". 
+3. **Two Pointers:** Since we need `nums[i] + nums[left] + nums[right] == 0`, we can reframe the logic. We are essentially looking for two numbers that add up to `-nums[i]`. This turns the rest of the array into a standard "Two Sum II" problem!
+4. **Skipping Duplicates:** To ensure we don't return duplicate triplets, we must write `while` loop conditions that skip over identical adjacent numbers whenever we find a valid triplet.
+
+### The Java Solution
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ThreeSumSolution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        
+        // Step 1: Sort the array to use two pointers and easily skip duplicates
+        Arrays.sort(nums); 
+        
+        for (int i = 0; i < nums.length - 2; i++) {
+            // Optimization: If the anchor is positive, the sum can never equal zero
+            if (nums[i] > 0) break;
+            
+            // Skip duplicate elements for the anchor number
+            if (i > 0 && nums[i] == nums[i - 1]) continue;
+            
+            int left = i + 1;
+            int right = nums.length - 1;
+            int target = -nums[i]; // We want left + right to cancel out the anchor
+            
+            while (left < right) {
+                int sum = nums[left] + nums[right];
+                
+                if (sum == target) {
+                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    
+                    // Skip duplicates for the left and right pointers
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                    
+                    left++;
+                    right--;
+                } else if (sum < target) {
+                    left++; // Sum is too small, move left pointer right
+                } else {
+                    right--; // Sum is too large, move right pointer left
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+
+### Complexity
+* **Time Complexity:** $O(N^2)$. Sorting the array takes $O(N \log N)$, and the nested two-pointer while-loop takes $O(N^2)$.
+* **Space Complexity:** $O(1)$ to $O(N)$ depending on the sorting algorithm used under the hood by `Arrays.sort()`.
