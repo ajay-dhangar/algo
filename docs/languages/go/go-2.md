@@ -40,6 +40,8 @@ func main() {
     name := "Bob"     // Go infers this is a string
     age := 30         // Go infers this is an int
     height := 5.9     // Go infers this is a float64
+
+    fmt.Println(name, age, height)
 }
 ```
 *Note: Short declarations (`:=`) can only be used inside functions.*
