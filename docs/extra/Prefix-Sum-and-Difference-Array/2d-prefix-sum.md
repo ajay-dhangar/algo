@@ -268,6 +268,9 @@ print(f"Sum of (1,1)-(3,3) = {rect_sum(P, 1, 1, 3, 3)}")  # 45
 
 ```javascript
 function build2DPrefix(arr) {
+    if (!arr || arr.length === 0 || arr[0].length === 0) {
+        return [];
+    }
     const m = arr.length, n = arr[0].length;
     const P = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
     for (let i = 1; i <= m; i++) {
