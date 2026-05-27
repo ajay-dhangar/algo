@@ -159,7 +159,7 @@ const RedBlackTreeQuiz: React.FC = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   // Custom states for persistence, timer, and history
   const [usernameInput, setUsernameInput] = useState("");
@@ -248,6 +248,8 @@ const RedBlackTreeQuiz: React.FC = () => {
 }
 
   const nextQuestion = () => {
+    if (selectedOption === null) return;
+
     setUserAnswers((prev) => [...prev, selectedOption]);
 
     if (selectedOption === questions[currentQuestion].answer) {
@@ -277,6 +279,7 @@ const RedBlackTreeQuiz: React.FC = () => {
             <form onSubmit={handleRegister} className="space-y-4">
               <input
                 type="text"
+                aria-label="Username"
                 placeholder="Enter username (e.g. JohnDoe)"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
@@ -377,7 +380,12 @@ setCurrentQuestionIndex={setCurrentQuestion}
               </div>
               <button
                 onClick={nextQuestion}
-                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none cursor-pointer font-semibold"
+                disabled={selectedOption === null}
+                className={`mt-6 py-2 px-4 text-white rounded-lg w-full transition-colors duration-300 border-none font-semibold ${
+                  selectedOption === null
+                    ? "bg-gray-400 cursor-not-allowed opacity-60"
+                    : "bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 cursor-pointer"
+                }`}
               >
                 Next Question
               </button>

@@ -136,17 +136,18 @@ const PlaygroundContent: React.FC = () => {
   const [execTime, setExecTime] = useState<number | null>(null);
 
   const workerRef = useRef<Worker | null>(null);
-  const consoleEndRef = useRef<HTMLDivElement | null>(null);
+  const consolePanelRef = useRef<HTMLDivElement | null>(null);
 
   // Safe to use now because this component is rendered inside <Layout>
   const { colorMode } = useColorMode();
 
-  // Scroll to bottom of console logs on update
+  // Scroll to bottom of console logs on update only during execution
   useEffect(() => {
-    if (consoleEndRef.current) {
-      consoleEndRef.current.scrollIntoView({ behavior: "smooth" });
+    if (consolePanelRef.current && isRunning) {
+      // Scroll within the console panel only, don't scroll the page
+      consolePanelRef.current.scrollTop = consolePanelRef.current.scrollHeight;
     }
-  }, [logs]);
+  }, [logs, isRunning]);
 
   // Clean up worker on unmount
   useEffect(() => {
@@ -283,10 +284,11 @@ const PlaygroundContent: React.FC = () => {
 
           {/* Template Selector */}
           <div className="flex items-center justify-center gap-3">
-            <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-              <FaLightbulb className="text-yellow-500" /> Choose Template:
-            </span>
+            <label htmlFor="playground-template" className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
+              <FaLightbulb className="text-yellow-500" aria-hidden="true" /> Choose Template:
+            </label>
             <select
+              id="playground-template"
               value={template}
               onChange={handleTemplateChange}
               className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
@@ -423,7 +425,6 @@ const PlaygroundContent: React.FC = () => {
                     );
                   })
                 )}
-                <div ref={consoleEndRef} />
               </div>
             </div>
           </div>

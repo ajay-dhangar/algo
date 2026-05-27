@@ -71,7 +71,7 @@ const ShellSortVisualization: React.FC = () => {
   return (
     <div className='shell-sort-visualization'>
       <p>
-        Speed: <input type="range" min="10" max="200" value={delay} onChange={e => setDelay(Number(e.target.value))} />
+        <label htmlFor="shell-sort-speed">Speed:</label> <input id="shell-sort-speed" type="range" min="10" max="200" value={delay} onChange={e => setDelay(Number(e.target.value))} />
       </p>
       <button onClick={shellSort} disabled={isSorting}>Sort</button>
       &nbsp;
