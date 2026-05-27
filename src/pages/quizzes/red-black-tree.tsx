@@ -279,6 +279,7 @@ const RedBlackTreeQuiz: React.FC = () => {
             <form onSubmit={handleRegister} className="space-y-4">
               <input
                 type="text"
+                aria-label="Username"
                 placeholder="Enter username (e.g. JohnDoe)"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
