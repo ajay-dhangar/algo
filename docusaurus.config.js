@@ -193,11 +193,57 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Learn",
             items: [
               {
                 label: "Tutorial",
                 to: "/docs/",
+              },
+              {
+                label: "Blog",
+                to: "/blog",
+              },
+              {
+                label: "DSA Roadmap",
+                to: "/dsa-roadmap",
+              },
+              {
+                label: "Practice",
+                to: "/practice",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Contributors",
+                to: "/contributors",
+              },
+              {
+                label: "Challenges",
+                to: "/challenges",
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/ajay-dhangar/algo",
+              },
+            ],
+          },
+          {
+            title: "Resources",
+            items: [
+              {
+                label: "Playground",
+                to: "/playground",
+              },
+              {
+                label: "Quizzes",
+                to: "/quizzes",
+              },
+              {
+                label: "FAQ",
+                to: "/faq",
               },
             ],
           },
