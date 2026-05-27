@@ -79,14 +79,14 @@ function validateFrontmatter(filePath, fileName) {
     }
 
     // Validate title length
-    if (attributes.title && attributes.title.length > 100) {
+    if (typeof attributes.title === 'string' && attributes.title.length > 100) {
       warnings.push(
         `⚠️  ${fileName}: Title is too long (${attributes.title.length} chars, recommended max 100)`
       );
     }
 
     // Validate description length
-    if (attributes.description && attributes.description.length < 20) {
+    if (typeof attributes.description === 'string' && attributes.description.length < 20) {
       warnings.push(
         `⚠️  ${fileName}: Description is too short (${attributes.description.length} chars, recommended min 20)`
       );
