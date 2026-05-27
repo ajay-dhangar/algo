@@ -267,7 +267,7 @@ System.out.println("ROI: "+b.rateOfInterest());
 If a class implements multiple interfaces, or an interface extends multiple interfaces, it is known as multiple inheritance.
 
 <p align="center">
-<img height="350" src="https://user-images.githubusercontent.com/13514156/120522069-b4c32580-c39a-11eb-9c48-6331fe379440.png" loading="lazy" />
+<img height="350" src="https://user-images.githubusercontent.com/13514156/120522069-b4c32580-c39a-11eb-9c48-6331fe379440.png" alt="Multiple inheritance through interfaces diagram" loading="lazy" />
 </p>
 
 :::tip
