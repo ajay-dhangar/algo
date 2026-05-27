@@ -190,6 +190,8 @@ public class PrefixSum {
 
 ```python
 def build_prefix(arr):
+    if arr is None:
+        return [0]
     n = len(arr)
     prefix = [0] * (n + 1)  # 1-indexed
     for i in range(1, n + 1):
