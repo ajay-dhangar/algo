@@ -31,7 +31,10 @@ public class MonotonicArray {
         if (nums == null || nums.length <= 1) {
             return true;
         }
-
+    public static boolean isMonotonic(int[] nums) {
+        if (nums == null) {
+            return false;
+        }
         boolean isIncreasing = true;
         boolean isDecreasing = true;
 
