@@ -119,6 +119,7 @@ const Contributors: React.FC = () => {
                     <img
                       src={contributor.avatar_url}
                       alt={contributor.login}
+                      loading="lazy"
                       className="w-full h-85 rounded-t-xl transition duration-300 transform hover:scale-105 object-top object-cover"
                     />
                   </a>
