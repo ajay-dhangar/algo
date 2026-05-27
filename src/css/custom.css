@@ -188,15 +188,6 @@ button {
   border: 1px solid var(--ifm-color-primary);
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
-.main-wrapper {
-  width: 100%;
-  overflow-x: hidden;
-}
 
 .theme-doc-markdown {
   width: 100%;
@@ -204,9 +195,7 @@ body {
   word-break: break-word;
 }
 
-.container {
-  max-width: 100%;
-}
+
 
 @media screen and (max-width: 768px) {
   .container {
