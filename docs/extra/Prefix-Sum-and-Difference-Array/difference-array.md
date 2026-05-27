@@ -180,6 +180,9 @@ public class DifferenceArray {
     }
 
     static long[] reconstruct(long[] D, int n) {
+        if (n <= 0 || D == null || D.length == 0) {
+            return new long[0];
+        }
         long[] arr = new long[n];
         arr[0] = D[0];
         for (int i = 1; i < n; i++) {
