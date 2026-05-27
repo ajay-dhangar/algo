@@ -363,19 +363,10 @@ totalQuestions=
 />
 
 <QuestionNavigator
-
-questions=
-{questions}
-
-currentQuestion=
-{currentQuestion}
-
-userAnswers=
-{userAnswers}
-
-setCurrentQuestionIndex=
-{setCurrentQuestion}
-
+  questions={questions}
+  currentQuestion={currentQuestion}
+  userAnswers={userAnswers}
+  setCurrentQuestionIndex={setCurrentQuestion}
 />
           
 
