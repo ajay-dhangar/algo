@@ -78,7 +78,7 @@ D[3] -= 2  → D = [2,  3, 0,-2, 0,-3]
 
 ```
 D[3] += -1 → D = [2,  3, 0,-3, 0,-3]
-D[6] -= -1 → (out of bounds, ignore for array of size 6)
+D[6] -= -1 → valid because the difference array is created with size n + 1 to safely handle the r + 1 boundary update.
 ```
 
 ---
