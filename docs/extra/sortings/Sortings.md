@@ -948,7 +948,7 @@ int main() {
 ```
 
 **Time Complexity**
-    - **Worst Case**: O(n²) – mitigated by median-of-three pivot and tail recursion optimization.
+    - **Worst Case**: O(n²) – mitigated by median-of-three pivot and tail recursion optimization (implemented in the Java version).
     
 **Space Complexity**
     - O(log n) – due to recursive calls, but in-place sorting.
