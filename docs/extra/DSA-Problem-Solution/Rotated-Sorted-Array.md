@@ -103,7 +103,7 @@ class Solution:
  * @param {number[]} nums
  * @return {boolean}
  */
-var check = function(nums) {
+const check = function(nums) {
     let count = 0;
     let n = nums.length;
     
