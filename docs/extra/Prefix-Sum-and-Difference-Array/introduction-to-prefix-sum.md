@@ -215,6 +215,9 @@ print(f"Sum of arr[1..8] = {range_sum(prefix, 1, 8)}")  # 31
 
 ```javascript
 function buildPrefix(arr) {
+    if (!arr) {
+        return [0];
+    }
     const n = arr.length;
     const prefix = new Array(n + 1).fill(0); // 1-indexed
     for (let i = 1; i <= n; i++) {
