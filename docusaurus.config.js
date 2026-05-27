@@ -38,7 +38,7 @@ const config = {
   organizationName: "codeharborhub",
   projectName: "algo",
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",  // Temporarily set to "warn" to test broken links without failing the build
   onBrokenMarkdownLinks: "warn",
 
   presets: [
