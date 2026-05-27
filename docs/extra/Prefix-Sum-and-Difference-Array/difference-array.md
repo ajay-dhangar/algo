@@ -219,6 +219,8 @@ def update(D, l, r, val):
 
 def reconstruct(D, n):
     """Reconstruct final array from difference array."""
+    if n <= 0 or not D:
+        return []
     arr = [0] * n
     arr[0] = D[0]
     for i in range(1, n):
