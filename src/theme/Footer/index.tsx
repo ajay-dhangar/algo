@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import { FaGithub, FaLinkedin, FaDiscord, FaTwitter } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { useThemeConfig } from "@docusaurus/theme-common";
 
 import Link from "@docusaurus/Link";
 
 const Footer = () => {
+  const { footer } = useThemeConfig();
+
   useEffect(() => {
     // Create script element for GTranslate
     const script = document.createElement("script");
@@ -102,67 +105,23 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Resources */}
-          <div className="md:pl-32">
-            <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
-            <ul className="space-y-3 pl-0">
-              <li className="list-none">
-                <Link
-                  to="/algo/docs/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Documentation
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/algo/blog/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/docs/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Tutorials
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Community */}
-          <div className="md:pl-32">
-            <h3 className="text-lg font-semibold mb-4 text-white">Community</h3>
-            <ul className="space-y-3 pl-0">
-              <li className="list-none">
-                <Link
-                  to="#"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Join Discord
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/algo/contributors"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Contributors
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="#"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Events
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {footer && footer.links && footer.links.map((group: any, groupIdx: number) => (
+            <div key={groupIdx} className="md:pl-32">
+              <h3 className="text-lg font-semibold mb-4 text-white">{group.title}</h3>
+              <ul className="space-y-3 pl-0">
+                {group.items && group.items.map((item: any, itemIdx: number) => (
+                  <li key={itemIdx} className="list-none">
+                    <Link
+                      to={item.to || item.href}
+                      className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Bottom Section */}
