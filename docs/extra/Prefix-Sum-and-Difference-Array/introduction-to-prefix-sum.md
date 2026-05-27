@@ -161,6 +161,9 @@ Sum of arr[1..8] = 31
 public class PrefixSum {
 
     static long[] buildPrefix(int[] arr) {
+        if (arr == null) {
+            return new long[1];
+        }
         int n = arr.length;
         long[] prefix = new long[n + 1]; // 1-indexed
         for (int i = 1; i <= n; i++) {
