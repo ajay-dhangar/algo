@@ -2,7 +2,12 @@ import React from "react";
 
 interface Props {
 
-  questions: any[];
+  questions: Array<{
+    question: React.ReactNode;
+    options: string[];
+    answer: string;
+    explanation?: string;
+  }>;
 
   currentQuestion: number;
 
