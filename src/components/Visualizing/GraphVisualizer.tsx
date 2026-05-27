@@ -74,9 +74,9 @@ const GraphVisualizer: React.FC = () => {
       adj[e.v].push(e.u); // Undirected graph
     });
     // Sort adjacencies for consistent visualization (left to right)
-    for (const key in adj) {
-      adj[key].sort((a, b) => a - b);
-    }
+    Object.values(adj).forEach((neighbors) => {
+      neighbors.sort((a, b) => a - b);
+    });
     return adj;
   };
 
