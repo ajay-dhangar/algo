@@ -7,22 +7,25 @@
 
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execSync, execFileSync } = require('child_process');
 
 // Languages we support executing
 const SUPPORTED_LANGUAGES = ['javascript', 'js', 'python', 'py'];
 
 function getModifiedFiles() {
+  const repoRoot = path.join(__dirname, '..');
   try {
     // Get list of changed markdown files between current branch and base branch (main)
     const stdout = execSync('git diff --name-only origin/main...', { encoding: 'utf8' });
     return stdout
       .split('\n')
       .map(f => f.trim())
-      .filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
+      .filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
+      .map(f => path.join(repoRoot, f))
+      .filter(f => fs.existsSync(f));
   } catch (e) {
-    console.warn("⚠️ Could not determine changed files via git diff. Scanning all docs under docs/...");
-    return scanDirectory(path.join(__dirname, '../docs'));
+    console.warn("⚠️ Could not determine changed files via git diff. Scanning all markdown files in the repository...");
+    return scanDirectory(repoRoot);
   }
 }
 
@@ -30,6 +33,7 @@ function scanDirectory(dir, fileList = []) {
   if (!fs.existsSync(dir)) return fileList;
   const files = fs.readdirSync(dir);
   for (const file of files) {
+    if (['node_modules', '.git', '.docusaurus', 'build', '.github'].includes(file)) continue;
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
     if (stat.isDirectory()) {
@@ -43,7 +47,7 @@ function scanDirectory(dir, fileList = []) {
 
 function extractCodeBlocks(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
-  const codeBlockRegex = /```(\w+)\n([\s\S]*?)```/g;
+  const codeBlockRegex = /```(\w+)(?:[^\n]*)\n([\s\S]*?)```/g;
   const blocks = [];
   let match;
 
@@ -62,7 +66,7 @@ function runJsCode(code) {
   try {
     // Inject mock console context to suppress heavy logs if desired, but allow execution
     fs.writeFileSync(tempFile, code, 'utf8');
-    execSync(`node ${tempFile}`, { stdio: 'ignore', timeout: 5000 });
+    execFileSync('node', [tempFile], { stdio: 'ignore', timeout: 5000 });
     return { success: true };
   } catch (err) {
     return { success: false, error: err.message };
@@ -78,11 +82,11 @@ function runPythonCode(code) {
     // Try standard python or python3
     let pyCmd = 'python';
     try {
-      execSync('python --version', { stdio: 'ignore' });
+      execFileSync('python', ['--version'], { stdio: 'ignore' });
     } catch {
       pyCmd = 'python3';
     }
-    execSync(`${pyCmd} ${tempFile}`, { stdio: 'ignore', timeout: 5000 });
+    execFileSync(pyCmd, [tempFile], { stdio: 'ignore', timeout: 5000 });
     return { success: true };
   } catch (err) {
     return { success: false, error: err.message };
