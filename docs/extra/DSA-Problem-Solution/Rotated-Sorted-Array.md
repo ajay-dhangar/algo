@@ -86,7 +86,7 @@ class Solution {
 **Python**
 ```py
 class Solution:
-    def check(self, nums: List[int]) -> bool:
+    def check(self, nums: list[int]) -> bool:
         count = 0
         n = len(nums)
         
