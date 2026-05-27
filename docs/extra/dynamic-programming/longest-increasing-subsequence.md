@@ -411,6 +411,8 @@ To retrieve the actual subsequence (not just the length), track a `parent[]` arr
 
 ```python
 def lis_with_sequence(arr):
+    if not arr:
+        return 0, []
     n = len(arr)
     dp = [1] * n
     parent = [-1] * n
