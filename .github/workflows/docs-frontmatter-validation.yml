@@ -8,6 +8,7 @@ on:
       - 'docs/**/*.mdx'
       - 'package.json'
   pull_request:
+    branches: [main, develop]
     paths:
       - 'docs/**/*.md'
       - 'docs/**/*.mdx'
@@ -16,9 +17,6 @@ on:
 jobs:
   validate-frontmatter:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: read
 
     steps:
       - name: Checkout code
@@ -33,22 +31,6 @@ jobs:
         run: npm ci
 
       - name: Validate documentation front-matter
-        id: validate
         run: npm run validate:docs
-        continue-on-error: true
 
-      - name: Comment on PR with validation results
-        if: github.event_name == 'pull_request' && steps.validate.outcome == 'failure'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `## 📋 Documentation Front-Matter Validation Failed\n\nThe validation script found issues with the documentation front-matter. Please run \`npm run validate:docs\` locally to see the details and fix any issues.\n\nRequired fields for all documentation files:\n- **id**: Unique identifier\n- **title**: Document title\n- **sidebar_label**: Label for sidebar navigation\n- **description**: Document description (min 20 chars)\n- **tags**: Array of tags for categorization\n\nOptional but recommended:\n- **sidebar_position**: Numeric position in sidebar (for ordering)\n`
-            });
 
-      - name: Fail workflow if validation failed
-        if: steps.validate.outcome == 'failure'
-        run: exit 1
