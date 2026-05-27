@@ -193,10 +193,9 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                 alt="GitHub Identity logo link"
-                loading="lazy"
-                alt=""
-                aria-hidden="true"
                 className="h-4 w-4 block invert dark:invert-0 object-contain"
               />
               GitHub
