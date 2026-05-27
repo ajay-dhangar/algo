@@ -23,10 +23,15 @@ public class MonotonicArray {
 
     /**
      * Checks if the given array is monotonic.
-     * * @param nums the array of integers
+     * @param nums the array of integers.
      * @return true if the array is monotonic, false otherwise
      */
     public static boolean isMonotonic(int[] nums) {
+        // Defensive check to prevent NullPointerException
+        if (nums == null || nums.length <= 1) {
+            return true;
+        }
+
         boolean isIncreasing = true;
         boolean isDecreasing = true;
 
