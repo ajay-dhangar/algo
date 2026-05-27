@@ -136,17 +136,18 @@ const PlaygroundContent: React.FC = () => {
   const [execTime, setExecTime] = useState<number | null>(null);
 
   const workerRef = useRef<Worker | null>(null);
-  const consoleEndRef = useRef<HTMLDivElement | null>(null);
+  const consolePanelRef = useRef<HTMLDivElement | null>(null);
 
   // Safe to use now because this component is rendered inside <Layout>
   const { colorMode } = useColorMode();
 
-  // Scroll to bottom of console logs on update
+  // Scroll to bottom of console logs on update only during execution
   useEffect(() => {
-    if (consoleEndRef.current) {
-      consoleEndRef.current.scrollIntoView({ behavior: "smooth" });
+    if (consolePanelRef.current && isRunning) {
+      // Scroll within the console panel only, don't scroll the page
+      consolePanelRef.current.scrollTop = consolePanelRef.current.scrollHeight;
     }
-  }, [logs]);
+  }, [logs, isRunning]);
 
   // Clean up worker on unmount
   useEffect(() => {
@@ -424,7 +425,6 @@ const PlaygroundContent: React.FC = () => {
                     );
                   })
                 )}
-                <div ref={consoleEndRef} />
               </div>
             </div>
           </div>
