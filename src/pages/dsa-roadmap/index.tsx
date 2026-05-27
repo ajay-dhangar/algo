@@ -58,7 +58,7 @@ const DSARoadmap: React.FC = () => {
           {/* header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 flex items-center justify-center gap-4 text-gray-900 dark:text-white">
-              <FaMapSigns className="text-[var(--ifm-color-primary)]" />
+              <FaMapSigns className="text-[var(--ifm-color-primary)]" aria-hidden="true" />
               <Translate>DSA Roadmap</Translate>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -66,17 +66,19 @@ const DSARoadmap: React.FC = () => {
             </p>
          
             <div className="flex justify-center gap-4 mt-6">
-              <button 
+              <button
+                type="button"
                 onClick={expandAll}
                 className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm hover:text-[var(--ifm-color-primary)] transition-colors font-semibold text-sm"
               >
-                <FaCheckDouble /> Expand All
+                <FaCheckDouble aria-hidden="true" /> Expand All
               </button>
-              <button 
+              <button
+                type="button"
                 onClick={collapseAll}
                 className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm hover:text-red-500 transition-colors font-semibold text-sm"
               >
-                <FaCompressAlt /> Collapse All
+                <FaCompressAlt aria-hidden="true" /> Collapse All
               </button>
             </div>
           </div>
@@ -92,32 +94,30 @@ const DSARoadmap: React.FC = () => {
                   }`}
                 ></div>
       
-                <div
-                  role="button"
-                  tabIndex={0}
-                  className={`cursor-pointer p-5 rounded-xl border shadow-sm transition-all duration-200 flex justify-between items-center ${
-                    expandedTopics[tIdx] 
-                      ? "bg-white dark:bg-gray-800 border-[var(--ifm-color-primary)]" 
-                      : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 hover:border-gray-400"
-                  }`}
-                  onClick={() => toggleTopic(tIdx)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      toggleTopic(tIdx);
-                    }
-                  }}
-                >
-                  <h2 className={`text-2xl font-bold m-0 transition-colors duration-200 ${expandedTopics[tIdx] ? 'text-[var(--ifm-color-primary)]' : 'text-gray-800 dark:text-gray-200'}`}>
-                    <span className="text-gray-400 dark:text-gray-500 mr-2 text-xl font-normal">{(tIdx + 1).toString().padStart(2, '0')}</span> 
-                    {topic.title}
-                  </h2>
-                  <div className={`text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform duration-300 ${expandedTopics[tIdx] ? 'rotate-180' : 'rotate-0'}`}>
-                    <FaChevronDown />
-                  </div>
-                </div>
+                <h2 className="m-0">
+                  <button
+                    type="button"
+                    aria-expanded={Boolean(expandedTopics[tIdx])}
+                    aria-controls={`roadmap-topic-${tIdx}`}
+                    className={`w-full text-left cursor-pointer p-5 rounded-xl border shadow-sm transition-all duration-200 flex justify-between items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)] ${
+                      expandedTopics[tIdx]
+                        ? "bg-white dark:bg-gray-800 border-[var(--ifm-color-primary)]"
+                        : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 hover:border-gray-400"
+                    }`}
+                    onClick={() => toggleTopic(tIdx)}
+                  >
+                    <span className={`text-2xl font-bold m-0 transition-colors duration-200 ${expandedTopics[tIdx] ? 'text-[var(--ifm-color-primary)]' : 'text-gray-800 dark:text-gray-200'}`}>
+                      <span className="text-gray-400 dark:text-gray-500 mr-2 text-xl font-normal">{(tIdx + 1).toString().padStart(2, '0')}</span>
+                      {topic.title}
+                    </span>
+                    <span className={`text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 p-2 rounded-full transition-transform duration-300 ${expandedTopics[tIdx] ? 'rotate-180' : 'rotate-0'}`}>
+                      <FaChevronDown aria-hidden="true" />
+                    </span>
+                  </button>
+                </h2>
 
                 <div 
+                  id={`roadmap-topic-${tIdx}`}
                   className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
                     expandedTopics[tIdx] ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   }`}
@@ -132,32 +132,30 @@ const DSARoadmap: React.FC = () => {
                             key={fIdx} 
                             className="bg-white dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-hidden h-fit"
                           >
-                            <div
-                              role="button"
-                              tabIndex={0}
-                              className="flex items-center justify-between cursor-pointer p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-                              onClick={() => toggleFolder(tIdx, fIdx)}
-                              onKeyDown={(e) => {
-                                if (e.key === 'Enter' || e.key === ' ') {
-                                  e.preventDefault();
-                                  toggleFolder(tIdx, fIdx);
-                                }
-                              }}
-                            >
-                              <div className="flex items-center gap-3 text-lg font-semibold text-gray-800 dark:text-gray-200">
-                                {isFolderExpanded ? (
-                                  <FaFolderOpen className="text-[var(--ifm-color-primary)] text-xl transition-colors duration-200" />
-                                ) : (
-                                  <FaFolder className="text-gray-400 dark:text-gray-500 text-xl transition-colors duration-200" />
-                                )}
-                                <span>{folder.name}</span>
-                              </div>
-                              <div className={`text-gray-400 text-sm transition-transform duration-300 ${isFolderExpanded ? 'rotate-180' : 'rotate-0'}`}>
-                                <FaChevronDown />
-                              </div>
-                            </div>
+                            <h3 className="m-0">
+                              <button
+                                type="button"
+                                aria-expanded={Boolean(isFolderExpanded)}
+                                aria-controls={`roadmap-folder-${tIdx}-${fIdx}`}
+                                className="w-full flex items-center justify-between cursor-pointer p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors bg-transparent border-none text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
+                                onClick={() => toggleFolder(tIdx, fIdx)}
+                              >
+                                <span className="flex items-center gap-3 text-lg font-semibold text-gray-800 dark:text-gray-200">
+                                  {isFolderExpanded ? (
+                                    <FaFolderOpen className="text-[var(--ifm-color-primary)] text-xl transition-colors duration-200" aria-hidden="true" />
+                                  ) : (
+                                    <FaFolder className="text-gray-400 dark:text-gray-500 text-xl transition-colors duration-200" aria-hidden="true" />
+                                  )}
+                                  <span>{folder.name}</span>
+                                </span>
+                                <span className={`text-gray-400 text-sm transition-transform duration-300 ${isFolderExpanded ? 'rotate-180' : 'rotate-0'}`}>
+                                  <FaChevronDown aria-hidden="true" />
+                                </span>
+                              </button>
+                            </h3>
 
                             <div 
+                              id={`roadmap-folder-${tIdx}-${fIdx}`}
                               className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
                                 isFolderExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                               }`}
@@ -166,11 +164,11 @@ const DSARoadmap: React.FC = () => {
                                 <div className="px-4 pb-4 pt-1 bg-gray-50 dark:bg-gray-800/40 border-t border-gray-100 dark:border-gray-700">
                                   <ul className="ml-2 border-l-2 border-gray-200 dark:border-gray-600 pl-4 space-y-3 mt-3">
                                     {folder.files.map((file, fileIdx) => (
-                                      <li 
-                                        key={fileIdx} 
-                                        className="flex items-center text-[15px] text-gray-600 dark:text-gray-300 hover:text-[var(--ifm-color-primary)] dark:hover:text-[var(--ifm-color-primary)] transition-colors cursor-pointer group"
+                                      <li
+                                        key={fileIdx}
+                                        className="flex items-center text-[15px] text-gray-600 dark:text-gray-300"
                                       >
-                                        <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500 group-hover:text-[var(--ifm-color-primary)] transition-colors" />
+                                        <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500" aria-hidden="true" />
                                         {file}
                                       </li>
                                     ))}
