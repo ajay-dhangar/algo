@@ -38,8 +38,8 @@ Traversal means moving through the data from start to end.
 ```python
 numbers = [5, 10, 15, 20]
 
-for index in range(len(numbers)):
-    print(index, numbers[index])
+for index, value in enumerate(numbers):
+    print(index, value)
 ```
 
 ### Example in JavaScript
