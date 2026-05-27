@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./graphVisualizer.css";
 
 interface NodeData {
@@ -50,6 +50,14 @@ const GraphVisualizer: React.FC = () => {
   const speedRef = useRef(speed);
   speedRef.current = speed;
 
+  const isMounted = useRef(true);
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
   const resetGraph = () => {
     setVisitedNodes(new Set());
     setVisitedEdges(new Set());
@@ -66,9 +74,9 @@ const GraphVisualizer: React.FC = () => {
       adj[e.v].push(e.u); // Undirected graph
     });
     // Sort adjacencies for consistent visualization (left to right)
-    for (const key in adj) {
-      adj[key].sort((a, b) => a - b);
-    }
+    Object.values(adj).forEach((neighbors) => {
+      neighbors.sort((a, b) => a - b);
+    });
     return adj;
   };
 
