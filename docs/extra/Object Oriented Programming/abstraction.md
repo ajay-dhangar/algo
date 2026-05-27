@@ -238,7 +238,7 @@ As shown in the figure given below, a class extends another class, an interface 
 
 
 <p align="center">
-<img height="350" src="https://user-images.githubusercontent.com/13514156/120521854-a4ab4600-c39a-11eb-93e1-1bdf9fee8769.jpeg" loading="lazy" />
+<img height="350" src="https://user-images.githubusercontent.com/13514156/120521854-a4ab4600-c39a-11eb-93e1-1bdf9fee8769.jpeg" alt="Class and interface relationship diagram" loading="lazy" />
 </p>
 
 Example
