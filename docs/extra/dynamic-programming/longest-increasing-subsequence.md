@@ -1,13 +1,13 @@
 ---
-id: longest-increasing-subsequence
-title: Longest Increasing Subsequence (LIS)
+[id: longest-increasing-subsequence
+title: Longest Increasing Subsequence (LIS) with title: "Longest Increasing Subsequence (LIS)
 sidebar_label: Longest Increasing Subsequence
 sidebar_position: 17
 description: "A complete guide to the Longest Increasing Subsequence (LIS) problem — covering brute force intuition, the classic O(n²) Dynamic Programming approach, and the optimal O(n log n) Binary Search solution. Includes dry runs, complexity analysis, common mistakes, and multi-language implementations in C++, Java, Python, and JavaScript."
 tags: [dsa, dynamic programming, LIS, binary search, subsequence, competitive programming, interview]
 ---
 
-# Longest Increasing Subsequence (LIS)
+
 
 ## Introduction
 
@@ -217,7 +217,9 @@ For each element `x` in `arr`:
 
 The **length of `tails`** at the end is the LIS length.
 
-> **Key insight:** Replacing an element with a smaller one doesn't change the current LIS length, but it gives us more room to extend the sequence in the future.
+:::note Key insight
+Replacing an element with a smaller one doesn't change the current LIS length, but it gives us more room to extend the sequence in the future.
+:::
 
 ---
 
@@ -240,7 +242,9 @@ The **length of `tails`** at the end is the LIS length.
 
 **Length of `tails` = 4** → **LIS = 4** ✓
 
-> **Note:** `tails = [2, 3, 7, 18]` is **not** necessarily the actual LIS — it's a virtual structure. It gives us only the correct **length**. (The actual LIS is e.g. `[2, 5, 7, 101]` or `[2, 3, 7, 18]`.)
+:::note
+`tails = [2, 3, 7, 18]` is **not** necessarily the actual LIS — it's a virtual structure. It gives us only the correct **length**. (The actual LIS is e.g. `[2, 5, 7, 101]` or `[2, 3, 7, 18]`.)
+:::
 
 ---
 
