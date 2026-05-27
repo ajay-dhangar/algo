@@ -233,6 +233,8 @@ public class TwoDPrefixSum {
 
 ```python
 def build_2d_prefix(arr):
+    if not arr or not arr[0]:
+        return []
     m, n = len(arr), len(arr[0])
     P = [[0] * (n + 1) for _ in range(m + 1)]  # 1-indexed
     for i in range(1, m + 1):
