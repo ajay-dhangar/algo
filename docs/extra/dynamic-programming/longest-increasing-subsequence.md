@@ -1,6 +1,6 @@
 ---
 [id: longest-increasing-subsequence
-title: Longest Increasing Subsequence (LIS) with title: "Longest Increasing Subsequence (LIS)"
+title:"Longest Increasing Subsequence (LIS)"
 sidebar_label: Longest Increasing Subsequence
 sidebar_position: 17
 description: "A complete guide to the Longest Increasing Subsequence (LIS) problem — covering brute force intuition, the classic O(n²) Dynamic Programming approach, and the optimal O(n log n) Binary Search solution. Includes dry runs, complexity analysis, common mistakes, and multi-language implementations in C++, Java, Python, and JavaScript."
