@@ -192,6 +192,9 @@ Sum of (1,1) to (3,3) = 45
 public class TwoDPrefixSum {
 
     static long[][] buildPrefix(int[][] arr) {
+        if (arr == null || arr.length == 0 || arr[0].length == 0) {
+            return new long[0][0];
+        }
         int m = arr.length, n = arr[0].length;
         long[][] P = new long[m + 1][n + 1]; // 1-indexed
         for (int i = 1; i <= m; i++) {
