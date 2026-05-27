@@ -250,6 +250,9 @@ function update(D, l, r, val) {
 }
 
 function reconstruct(D, n) {
+    if (n <= 0 || !D || D.length === 0) {
+        return [];
+    }
     const arr = new Array(n).fill(0);
     arr[0] = D[0];
     for (let i = 1; i < n; i++) {
