@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "@docusaurus/Link";
-import { FaArrowRight, FaTerminal, FaCompass } from "react-icons/fa";
+import { FaArrowRight, FaTerminal, FaCompass, FaPlay } from "react-icons/fa";
 
 interface Algorithm {
   title: string;
@@ -76,7 +76,7 @@ const PopularAlgorithmsSection: React.FC = () => {
             <Link
               key={index}
               to={algorithm.link}
-              className="no-underline hover:no-underline group outline-none"
+              className="no-underline hover:no-underline group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ifm-color-primary)]"
             >
               <motion.div
                 className="
@@ -125,21 +125,37 @@ const PopularAlgorithmsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Global Pipeline Entry Button */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             to="/algo/docs/category/algorithms"
             className="
-              inline-flex items-center gap-2.5
+              w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               px-8 py-4 rounded-xl
+              border-2 border-transparent
               bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-50
-              text-white dark:text-slate-950 font-bold text-sm sm:text-base
+              text-white dark:text-slate-950 font-bold text-base
               shadow-md hover:shadow-xl transition-all duration-200
               no-underline hover:no-underline
             "
           >
             <FaCompass className="text-base" />
             Explore All Algorithms
+          </Link>
+
+          <Link
+            to="/practice"
+            className="
+              w-full sm:w-auto inline-flex items-center justify-center gap-2.5
+              px-8 py-4 rounded-xl
+              border-2 border-[var(--ifm-color-primary)]
+              bg-transparent hover:bg-[var(--ifm-color-primary)] hover:text-white
+              text-[var(--ifm-color-primary)] font-bold text-base
+              shadow-md hover:shadow-xl transition-all duration-200
+              no-underline hover:no-underline
+            "
+          >
+            <FaPlay className="text-base" />
+            Start Practicing
           </Link>
         </div>
 

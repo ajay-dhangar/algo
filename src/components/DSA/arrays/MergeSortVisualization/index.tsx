@@ -139,8 +139,9 @@ const MergeSortVisualizer: React.FC = () => {
           Start Merge Sort
         </button>
         <div className="speed-control">
-          <label>Speed:</label>
+          <label htmlFor="merge-sort-speed">Speed:</label>
           <input
+            id="merge-sort-speed"
             type="range"
             min="10"
             max="200"

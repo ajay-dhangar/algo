@@ -33,7 +33,9 @@ const Footer = () => {
     <footer className="bg-[#1a1b26] text-gray-300 py-12">
       <div className="container mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+          
           <div className="md:col-span-1">
+            
             <div className="mb-6">
               <Link
               to="/">
@@ -55,7 +57,9 @@ const Footer = () => {
                   algorithms and data structures in various languages.
                 </p>
               </div>
+              
             </div>
+            
             {/* Social Media Links */}
             <div className="flex space-x-4 mt-4">
               <Link
@@ -94,17 +98,82 @@ const Footer = () => {
                 </svg>
               </Link>
               <Link
-                to="#"
+                to="https://discord.gg/f8dHD5Hv8Q"
                 target="_blank"
-                aria-label="Discord"
+                aria-label="Join Discord"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
               >
                 <FaDiscord className="w-6 h-6" />
               </Link>
             </div>
+            
           </div>
 
+          {/* Resources */}
+          <div className="md:pl-32">
+            <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
+            <ul className="space-y-3 pl-0">
+              <li className="list-none">
+                <Link
+                  to="/algo/docs/"
+                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
+                >
+                  Documentation
+                </Link>
+              </li>
+              <li className="list-none">
+                <Link
+                  to="/algo/blog/"
+                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li className="list-none">
+                <Link
+                  to="/docs/"
+                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
+                >
+                  Tutorials
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Community */}
+          <div className="md:pl-32">
+            <h3 className="text-lg font-semibold mb-4 text-white">Community</h3>
+            <ul className="space-y-3 pl-0">
+              <li className="list-none">
+                <Link
+                  to="https://discord.gg/f8dHD5Hv8Q"
+                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
+                >
+                  Join Discord
+                </Link>
+              </li>
+              <li className="list-none">
+                <Link
+                  to="/algo/contributors"
+                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
+                >
+                  Contributors
+                </Link>
+              </li>
+              <li className="list-none">
+                <Link
+                  to="/coming-soon"
+                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
+                >
+                  Events
+                </Link>
+              </li>
+            </ul>
+          </div>
+            
+        </div>
+        
           {footer && footer.links && footer.links.map((group: any, groupIdx: number) => (
             <div key={groupIdx} className="md:pl-32">
               <h3 className="text-lg font-semibold mb-4 text-white">{group.title}</h3>
@@ -122,14 +191,13 @@ const Footer = () => {
               </ul>
             </div>
           ))}
-        </div>
 
         {/* Bottom Section */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <ul className="flex flex-nowrap justify-center items-center pl-0 md:justify-start space-x-4 mb-4 md:mb-0 text-xs md:text-sm text-gray-400">
             <li className="list-none">
               <Link
-                to="#"
+                to="/docs/category/algorithms"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 Features
@@ -153,7 +221,7 @@ const Footer = () => {
             </li>
             <li className="list-none">
               <Link
-                to="#"
+                to="/coming-soon"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 Privacy Policy
@@ -167,6 +235,7 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Algo, Inc. Built with Docusaurus.
           </p>
         </div>
+          
       </div>
     </footer>
   );

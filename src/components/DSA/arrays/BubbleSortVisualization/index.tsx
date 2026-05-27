@@ -76,7 +76,7 @@ const BubbleSortVisualization: React.FC = () => {
   return (
     <div className='bubble-sort-visualization'>
       <p>
-        Speed: <input type="range" min="10" max="200" value={delay} onChange={e => setDelay(Number(e.target.value))} />
+        <label htmlFor="bubble-sort-speed">Speed:</label> <input id="bubble-sort-speed" type="range" min="10" max="200" value={delay} onChange={e => setDelay(Number(e.target.value))} />
       </p>
       <button onClick={bubbleSort} disabled={isSorting}>Sort</button>
       &nbsp;

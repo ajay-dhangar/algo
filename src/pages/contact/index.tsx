@@ -100,10 +100,11 @@ const Contact: React.FC = () => {
     <p className="italic leading-snug text-blue-800 text-sm text-center dark:text-slate-300">We are here to help and answer any question you might have. We look forward to hearing from you!!</p>
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label className="block text-md text-blue-800 font-bold dark:text-gray-300">
+        <label htmlFor="contact-name" className="block text-md text-blue-800 font-bold dark:text-gray-300">
           Name
         </label>
         <input
+          id="contact-name"
           type="text"
           name="name"
           value={formData.name}
@@ -118,10 +119,11 @@ const Contact: React.FC = () => {
       </div>
 
       <div>
-        <label className="block text-md text-blue-800 font-bold dark:text-gray-300">
+        <label htmlFor="contact-email" className="block text-md text-blue-800 font-bold dark:text-gray-300">
           Email
         </label>
         <input
+          id="contact-email"
           type="email"
           name="email"
           value={formData.email}
@@ -132,10 +134,11 @@ const Contact: React.FC = () => {
       </div>
 
       <div>
-        <label className="block text-md text-blue-800 font-bold dark:text-gray-300">
+        <label htmlFor="contact-message" className="block text-md text-blue-800 font-bold dark:text-gray-300">
           Message
         </label>
         <textarea
+          id="contact-message"
           name="message"
           rows={6}
           value={formData.message}

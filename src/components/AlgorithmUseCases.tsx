@@ -89,7 +89,7 @@ const AlgorithmUseCases: React.FC = () => {
                 onClick={() => setSelected(algo)}
                 aria-pressed={isSelected}
                 className={`
-                  snap-center shrink-0 text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 border-none cursor-pointer focus:outline-none relative
+                  snap-center shrink-0 text-left px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 border-none cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)] relative
                   ${
                     isSelected
                       ? "bg-[var(--ifm-color-primary)] text-white shadow-md shadow-blue-500/10"
