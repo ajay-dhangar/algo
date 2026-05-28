@@ -172,7 +172,7 @@ if req == "y":
         print()
 
     print("New available vector:")
-    for i in range(np):
+    for i in range(nr):
         print(avbl1[i], end=" ")
 
 
