@@ -362,7 +362,7 @@ n = n ^ (1U << i);                 // flips bit i
 n = n & (n - 1);                  // 110 -> 100
 
 // Check if n is a power of 2
-bool isPow2 = n && !(n & (n - 1)); // true if exactly one bit set
+bool isPow2 = n > 0 && !(n & (n - 1)); // true if exactly one bit set
 ```
 
 ### Count Set Bits
