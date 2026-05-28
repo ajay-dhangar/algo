@@ -154,7 +154,7 @@ const PrivacyPolicy: React.FC = () => {
           <motion.div
             className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 0, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
             <div className="flex items-center gap-4 mb-6">
