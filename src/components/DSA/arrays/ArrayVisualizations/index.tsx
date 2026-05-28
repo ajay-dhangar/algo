@@ -47,8 +47,9 @@ const ArrayVisualizations: React.FC = () => {
     <div className="p-5 border border-blue-500 rounded-md shadow-md dark:border-gray-100 dark:bg-gray-800">
       <div className="flex justify-center items-center mb-4">
         <p className="mb-4">
-          Speed:{" "}
+          <label htmlFor="array-visualization-speed">Speed:</label>{" "}
           <input
+            id="array-visualization-speed"
             type="range"
             min="50"
             max="500"

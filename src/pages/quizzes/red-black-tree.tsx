@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
 
+import QuestionProgress
+from "../../components/Quiz/QuestionProgress";
+
+import QuestionNavigator
+from "../../components/Quiz/QuestionNavigator";
+
 const RedBlackTreeQuiz: React.FC = () => {
   const questions = [
     // Easy Questions
@@ -153,7 +159,7 @@ const RedBlackTreeQuiz: React.FC = () => {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   // Custom states for persistence, timer, and history
   const [usernameInput, setUsernameInput] = useState("");
@@ -229,11 +235,21 @@ const RedBlackTreeQuiz: React.FC = () => {
     }
   };
 
-  const handleAnswer = (selected: string) => {
-    setSelectedOption(selected);
-  };
+  const handleAnswer=(selected:string)=>{
+
+ setSelectedOption(selected);
+
+ const updatedAnswers=[...userAnswers];
+
+ updatedAnswers[currentQuestion]=selected;
+
+ setUserAnswers(updatedAnswers);
+
+}
 
   const nextQuestion = () => {
+    if (selectedOption === null) return;
+
     setUserAnswers((prev) => [...prev, selectedOption]);
 
     if (selectedOption === questions[currentQuestion].answer) {
@@ -263,6 +279,7 @@ const RedBlackTreeQuiz: React.FC = () => {
             <form onSubmit={handleRegister} className="space-y-4">
               <input
                 type="text"
+                aria-label="Username"
                 placeholder="Enter username (e.g. JohnDoe)"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
@@ -293,6 +310,18 @@ const RedBlackTreeQuiz: React.FC = () => {
           </div>
 
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Quiz on Red-Black Trees</h2>
+
+          <QuestionProgress
+currentQuestion={currentQuestion}
+totalQuestions={questions.length}
+/>
+
+<QuestionNavigator
+questions={questions}
+currentQuestion={currentQuestion}
+userAnswers={userAnswers}
+setCurrentQuestionIndex={setCurrentQuestion}
+/>
 
           {!showResult && (
             <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-right">
@@ -351,7 +380,12 @@ const RedBlackTreeQuiz: React.FC = () => {
               </div>
               <button
                 onClick={nextQuestion}
-                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none cursor-pointer font-semibold"
+                disabled={selectedOption === null}
+                className={`mt-6 py-2 px-4 text-white rounded-lg w-full transition-colors duration-300 border-none font-semibold ${
+                  selectedOption === null
+                    ? "bg-gray-400 cursor-not-allowed opacity-60"
+                    : "bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 cursor-pointer"
+                }`}
               >
                 Next Question
               </button>

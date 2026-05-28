@@ -58,6 +58,7 @@ const Quizes: React.FC = () => {
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
                 Quiz on Stacks
               </h3>
+              
               <p className="text-gray-500 dark:text-gray-400 mt-2">
                 Evaluate your understanding of stack operations and applications.
               </p>
@@ -201,4 +202,3 @@ const Quizes: React.FC = () => {
 };
 
 export default Quizes;
-

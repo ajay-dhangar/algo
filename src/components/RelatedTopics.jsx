@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 export default function RelatedTopics({ topics = [] }) {
+    const docsBase = useBaseUrl("docs/");
+
     if (!topics.length) return null;
 
     return (
