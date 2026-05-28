@@ -23,7 +23,7 @@ ages := make(map[string]int)
 You can also use a map literal to initialize a map with data immediately:
 
 ```go
-capitals := map[string]string{
+var capitals = map[string]string{
     "USA":    "Washington D.C.",
     "France": "Paris",
     "Japan":  "Tokyo", // Note: The trailing comma is required in Go!
