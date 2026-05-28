@@ -152,7 +152,7 @@ const GetInvolvedSection: React.FC = () => {
                 href={card.link} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="group no-underline hover:no-underline outline-none"
+                className="group no-underline hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ifm-color-primary)]"
               >
                 {CardContent}
               </a>
@@ -160,7 +160,7 @@ const GetInvolvedSection: React.FC = () => {
               <Link 
                 key={index} 
                 to={card.link} 
-                className="group no-underline hover:no-underline outline-none"
+                className="group no-underline hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ifm-color-primary)]"
               >
                 {CardContent}
               </Link>

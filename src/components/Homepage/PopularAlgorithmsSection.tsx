@@ -76,7 +76,7 @@ const PopularAlgorithmsSection: React.FC = () => {
             <Link
               key={index}
               to={algorithm.link}
-              className="no-underline hover:no-underline group outline-none"
+              className="no-underline hover:no-underline group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ifm-color-primary)]"
             >
               <motion.div
                 className="

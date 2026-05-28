@@ -41,8 +41,9 @@ const ScrollTopToBottom: React.FC = () => {
                 <button
                     onClick={scrollToBottom}
                     className={styles.scrollToBottomButton}
+                    aria-label="Scroll to bottom"
                 >
-                    <FaArrowDown />
+                    <FaArrowDown aria-hidden="true" />
                 </button>
             )}
             <div id="scroll-target" style={{ height: '1px' }} />
