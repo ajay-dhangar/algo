@@ -10,7 +10,7 @@ tags: [dsa, graph, dijkstra, shortest path, c++]
 
 # Dijkstra’s Algorithm in C++
 
-This project contains a C program that implements Dijkstra’s Algorithm to find the shortest path from a source vertex to all other vertices in a weighted graph. The program takes the number of vertices, edges, and their weights as input, and outputs the shortest distance from the source vertex to each vertex in the graph.
+This project contains a C++ implementation that implements Dijkstra’s Algorithm to find the shortest path from a source vertex to all other vertices in a weighted graph. The program takes the number of vertices, edges, and their weights as input, and outputs the shortest distance from the source vertex to each vertex in the graph.
 
 ---
 
@@ -71,6 +71,11 @@ void dijkstra(int source, const vector<vector<pii>>& graph, vector<int>& dist) {
 }
 ```
 ---
+## Prerequisites
+
+- Basic understanding of graphs
+- Knowledge of priority queues (min-heaps)
+- Familiarity with adjacency list representation
 
 ## Example Usage:
 
@@ -105,7 +110,7 @@ int main() {
 Distance from 0 to 0 is 0
 Distance from 0 to 1 is 7
 Distance from 0 to 2 is 3
-Distance from 0 to 3 is 15
+Distance from 0 to 3 is 9
 Distance from 0 to 4 is 5
 ```
 ---
@@ -114,8 +119,12 @@ Distance from 0 to 4 is 5
 
 ### Time Complexity
 
-Worst Case: (O(V^2)), where V is the number of vertices in the graph.
-This is because, in the simplest implementation using an array, each vertex is checked against all others to find the minimum distance.
+Using a priority queue (min-heap), the time complexity is:
+O((V + E) log V)
+
+Where:
+- V = Number of vertices
+- E = Number of edges
 
 ### Space Complexity
 
