@@ -111,7 +111,8 @@ const HeapSortVisualization: React.FC = () => {
 
   return (
     <div className='heap-sort-visualization'>
-      <p>Speed: <input 
+      <p><label htmlFor="heap-sort-speed">Speed:</label> <input
+        id="heap-sort-speed"
         type="range" 
         min="50" 
         max="500" 

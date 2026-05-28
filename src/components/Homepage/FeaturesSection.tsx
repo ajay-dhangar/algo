@@ -1,99 +1,105 @@
-import React from 'react';
+import React from "react";
+import { FiZap, FiCpu, FiCompass, FiGitBranch } from "react-icons/fi";
 
 interface Feature {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 const features: Feature[] = [
   {
-    title: 'Fast Performance',
-    description: 'Our algorithm solutions are optimized for the fastest performance.',
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12 text-indigo-500 dark:text-yellow-400"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h2l3 9 4-16 4 16 3-9h2" />
-      </svg>
-    ),
+    title: "Fast Performance",
+    description: "Our algorithm solutions are thoroughly optimized for runtime execution speed, low memory overhead, and maximum complexity efficiency.",
+    icon: FiZap,
   },
   {
-    title: 'Multiple Language Support',
-    description: 'We support solutions in Python, JavaScript, Java, and more.',
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12 text-indigo-500 dark:text-yellow-400"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a5 5 0 00-10 0v2H3v6h18V9z" />
-      </svg>
-    ),
+    title: "Multiple Languages",
+    description: "Explore production-ready, clean implementations available across multiple language paradigms: Python, TypeScript, Java, and C++.",
+    icon: FiCpu,
   },
   {
-    title: 'Beginner-Friendly',
-    description: 'Comprehensive guides and easy-to-follow documentation for all levels.',
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12 text-indigo-500 dark:text-yellow-400"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
+    title: "Beginner-Friendly",
+    description: "Step-by-step mathematical documentation, clear trace execution breakdowns, and clean logic flows designed for all core engineering levels.",
+    icon: FiCompass,
   },
   {
-    title: 'Open Source',
-    description: 'Contribute to the repository and grow with the community.',
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-12 text-indigo-500 dark:text-yellow-400"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-3.866 0-7 3.134-7 7 0 1.74 1.28 3 3 3s3-1.26 3-3c0-1.74-1.28-3-3-3v-2h6v2c0-1.74-1.28-3-3-3z" />
-      </svg>
-    ),
+    title: "Open Source Engine",
+    description: "Built collaboratively worldwide. Submit pull requests, pitch runtime updates, improve test coverage metrics, and scale out with the community.",
+    icon: FiGitBranch,
   },
 ];
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section className="py-16 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-2">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
-            Why Choose <span className="text-indigo-500 dark:text-yellow-400">Algo?</span>
+    <section className="relative overflow-hidden py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50/30 dark:from-gray-950 dark:via-gray-900/40 dark:to-gray-950">
+      
+      {/* Structural Minimal Grid Overlays & Glow Filters */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 -z-10 h-96 w-96 rounded-full bg-[var(--ifm-color-primary)]/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 max-w-7xl relative z-10">
+        
+        {/* Animated Structural Header Component */}
+        <div className="mx-auto max-w-3xl text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--ifm-color-primary)]/5 dark:bg-blue-950/30 border border-[var(--ifm-color-primary)]/10 dark:border-blue-900/20 text-xs font-bold text-[var(--ifm-color-primary)] uppercase tracking-wider mb-4">
+            Core Infrastructure Pillars
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+            Why Choose <span className="text-[var(--ifm-color-primary)] bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 bg-clip-text text-transparent">Algo?</span>
           </h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">
-            Explore the key features that make our algorithm library the best resource for learners and developers.
+          <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            Explore the architectural features that make our platform the premium destination for code reference standards, system interview prep, and technical education.
           </p>
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl cursor-pointer"
-            >
-              <div className="mb-6">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">{feature.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
-            </div>
-          ))}
+        {/* Feature Highlights Grid System Layout */}
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-stretch">
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon;
+            
+            return (
+              <div
+                key={index}
+                className="
+                  group relative flex flex-col justify-between overflow-hidden
+                  bg-white dark:bg-gray-900/40
+                  backdrop-blur-md
+                  border border-slate-200/80 dark:border-slate-800/80
+                  p-6 sm:p-8 rounded-2xl
+                  shadow-sm hover:shadow-xl hover:shadow-slate-100 dark:hover:shadow-none
+                  transition-all duration-300 ease-out
+                  hover:-translate-y-1.5 select-none
+                "
+              >
+                {/* Active Interactive Ambient Dynamic Accent Frame Border Overlay */}
+                <div className="absolute inset-0 border border-transparent group-hover:border-[var(--ifm-color-primary)]/30 rounded-2xl transition-colors duration-300 pointer-events-none" />
+                
+                <div>
+                  {/* Styled Icon Wrapper Frame Box */}
+                  <div className="mb-6 inline-flex p-3.5 rounded-xl bg-slate-50 dark:bg-gray-800/50 text-slate-700 dark:text-slate-300 border border-slate-100 dark:border-slate-700/50 transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ifm-color-primary)] group-hover:text-white group-hover:border-transparent">
+                    <IconComponent className="h-5 w-5 sm:h-6 sm:w-6 stroke-[2.2]" />
+                  </div>
+
+                  {/* Core Card Content Header Title text */}
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight group-hover:text-[var(--ifm-color-primary)] transition-colors duration-200">
+                    {feature.title}
+                  </h3>
+
+                  {/* Description Copy */}
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+
+                {/* Animated Structural Gradient Edge Fill Underlay */}
+                <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 transition-all duration-300 ease-out group-hover:w-full" />
+              </div>
+            );
+          })}
         </div>
+        
       </div>
     </section>
   );

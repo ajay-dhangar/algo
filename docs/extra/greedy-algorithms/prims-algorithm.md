@@ -8,7 +8,7 @@ tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 
 Prim's algorithm is a greedy algorithm that constructs a Minimum Spanning Tree (MST) for a weighted, connected, undirected graph. It starts with a single vertex and iteratively adds the lowest-cost edge that expands the MST without forming a cycle.
 
-<Ads />
+<AdsComponent />
 
 ### Characteristics:
 - **Greedy Approach**:  
@@ -22,7 +22,7 @@ Prim's algorithm is a greedy algorithm that constructs a Minimum Spanning Tree (
 2. **Select the smallest weight edge that connects a vertex in the MST to a vertex outside**.
 3. **Repeat** this process until all vertices are included in the MST.
 
-<Ads />
+<AdsComponent />
 
 ### Problem Statement:
 Given a connected, undirected, weighted graph with `n` vertices, find a subset of the edges that forms a tree including all vertices, where the total weight of the edges is minimized.
@@ -36,7 +36,7 @@ Given a connected, undirected, weighted graph with `n` vertices, find a subset o
 - **Space Complexity: $O(V + E)$**  
   This is due to storing vertices, edges, and auxiliary data structures for MST construction.
 
-<Ads />
+<AdsComponent />
 
 ### Example:
 Consider the following Graph:

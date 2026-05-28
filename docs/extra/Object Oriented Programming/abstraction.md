@@ -6,7 +6,7 @@ description: "Abstraction in Java is the process of hiding unnecessary implement
 tags: [Abstraaction, OOPS, Java]
 ---
 
-<Ads />
+<AdsComponent />
 
 - In simple terms, abstraction “displays” only the relevant attributes of objects and “hides” the unnecessary details.
 
@@ -35,7 +35,7 @@ There are two ways to achieve abstraction in Java. They are as follows:
   **3**. Helps to increase the security of an application or program as only important details are provided to the user.
   **4**. Programmers can implement abstract methods to perform different tasks depending on the need. 
 
-<Ads />
+<AdsComponent />
 
 ### Abstract Class in Java
 
@@ -85,7 +85,7 @@ Key points:
 
 An abstract class forces you to use inheritance
 
-<Ads />
+<AdsComponent />
 
 Example Abstract class
 
@@ -182,7 +182,7 @@ class Main {
 }
 ```
 
-<Ads />
+<AdsComponent />
 
 ### Multiple Interfaces 
 
@@ -229,7 +229,7 @@ class Main {
   - Java does not support "multiple inheritance" (a class can only inherit from one superclass). However, it can be achieved with interfaces, because the class can implement multiple interfaces. Note: To implement multiple interfaces, separate them with a comma (see example below).
   - It can be used to achieve loose coupling.
 
-<Ads />
+<AdsComponent />
 
 
 ## The relationship between classes and interfaces
@@ -238,7 +238,7 @@ As shown in the figure given below, a class extends another class, an interface 
 
 
 <p align="center">
-<img height="350" src="https://user-images.githubusercontent.com/13514156/120521854-a4ab4600-c39a-11eb-93e1-1bdf9fee8769.jpeg" />
+<img height="350" src="https://user-images.githubusercontent.com/13514156/120521854-a4ab4600-c39a-11eb-93e1-1bdf9fee8769.jpeg" alt="Class and interface relationship diagram" loading="lazy" />
 </p>
 
 Example
@@ -260,14 +260,14 @@ System.out.println("ROI: "+b.rateOfInterest());
 }}  
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Multiple inheritance in Java by interface
 
 If a class implements multiple interfaces, or an interface extends multiple interfaces, it is known as multiple inheritance.
 
 <p align="center">
-<img height="350" src="https://user-images.githubusercontent.com/13514156/120522069-b4c32580-c39a-11eb-9c48-6331fe379440.png" />
+<img height="350" src="https://user-images.githubusercontent.com/13514156/120522069-b4c32580-c39a-11eb-9c48-6331fe379440.png" alt="Multiple inheritance through interfaces diagram" loading="lazy" />
 </p>
 
 :::tip
@@ -293,7 +293,7 @@ obj.print();
 } 
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Interface inheritance
 
@@ -318,7 +318,7 @@ obj.show();
 }  
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Default Method in Interface
 
@@ -342,7 +342,7 @@ drawing rectangle
 default method
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Static Method in Interface
 
@@ -365,7 +365,7 @@ System.out.println(Drawable.cube(3));
 }} 
 ```
 
-<Ads />
+<AdsComponent />
 
 ## Difference between abstract class and interface
 

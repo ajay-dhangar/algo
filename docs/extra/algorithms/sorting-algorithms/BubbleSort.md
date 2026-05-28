@@ -138,3 +138,16 @@ Use Bubble Sort when:
 - Simplicity is more important than efficiency
 - You are learning sorting concepts
 
+## Complexity Comparison Table
+
+| Algorithm | Best Case | Average Case | Worst Case | Space Complexity |
+|---|---|---|---|---|
+| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
+| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
+| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+
+## Common Mistakes
+
+- Using Bubble Sort for large datasets where performance becomes very slow
+- Forgetting to stop early when the array is already sorted
+- Incorrect swapping of adjacent elements

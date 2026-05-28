@@ -37,7 +37,7 @@ hide_table_of_contents: true
   The minimum degree `t` of a B-Tree is the minimum number of keys each node can have, except for the root node. It defines the tree's branching factor.
 </details>
 
-<Ads />
+<AdsComponent />
 
 ### 3. In a B-Tree, each node can have a maximum of how many children?
 
@@ -69,7 +69,7 @@ hide_table_of_contents: true
   The primary advantage of a B-Tree is that it remains balanced, keeping its height minimal, which ensures that the time for insertions, deletions, and searches is kept logarithmic.
 </details>
 
-<Ads />
+<AdsComponent />
 
 ### 5. When inserting into a B-Tree, what happens if a node exceeds the maximum number of keys?
 
@@ -101,7 +101,7 @@ hide_table_of_contents: true
   A B-Tree is balanced because all leaf nodes appear at the same depth, ensuring that the tree's operations are efficient in terms of time complexity.
 </details>
 
-<Ads />
+<AdsComponent />
 
 ### 7. How is deletion handled in a B-Tree?
 
@@ -129,7 +129,7 @@ hide_table_of_contents: true
   In a B-Tree, the number of children a node can have is limited by the minimum degree `t`. Each internal node has between `t-1` and `2t-1` keys, but the root node can have fewer than `t` keys.
 </details>
 
-<Ads />
+<AdsComponent />
 
 ### 9. In which applications are B-Trees commonly used?
 
@@ -161,7 +161,7 @@ hide_table_of_contents: true
     As the order of a B-Tree increases, the number of keys per node increases, which reduces the height of the tree. This relationship helps maintain the tree's balance and efficiency.
 </details>
 
-<Ads />
+<AdsComponent />
 
 <h2 className="text-center text-gray-800 dark:text-gray-200">
 Now, let's Discuss!

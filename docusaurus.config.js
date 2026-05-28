@@ -3,6 +3,29 @@ import { themes as prismThemes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
+const fs = require("fs");
+const { execSync } = require("child_process");
+
+// Only show git history when git metadata is actually available.
+// Can be explicitly overridden with DOCUSAURUS_ENABLE_GIT_HISTORY=true|false.
+const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
+const showGitHistory =
+  gitHistoryOverride === "true"
+    ? true
+    : gitHistoryOverride === "false"
+    ? false
+    : (() => {
+        try {
+          if (!fs.existsSync(path.join(__dirname, ".git"))) {
+            return false;
+          }
+          // Dry run a git log check to verify git operations succeed on actual files (fails on OneDrive)
+          execSync("git log -1 docusaurus.config.js", { stdio: "ignore" });
+          return true;
+        } catch {
+          return false;
+        }
+      })();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -14,6 +37,9 @@ const config = {
   baseUrl: "/algo/",
   organizationName: "codeharborhub",
   projectName: "algo",
+  customFields: {
+    apiBaseUrl: process.env.DOCUSAURUS_API_BASE_URL || (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
+  },
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -26,17 +52,15 @@ const config = {
         debug: true,
         docs: {
           sidebarPath: "./sidebars.js",
-          editUrl:
-            "https://github.com/ajay-dhangar/algo/tree/main/templates/",
+          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/templates/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: showGitHistory,
+          showLastUpdateTime: showGitHistory,
         },
         blog: {
           showReadingTime: true,
-          editUrl:
-            "https://github.com/ajay-dhangar/algo/tree/main/templates/",
+          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/templates/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -62,9 +86,9 @@ const config = {
     ({
       image: "/",
       announcementBar: {
-        id: "announcementBar",
+        id: "announcementBar_algo_community", 
         content:
-          '📢 Join our <a target="_blank" href="https://www.whatsapp.com/channel/0029Vah6hro8F2pGUhuAcR0B">WhatsApp Channel</a> for the latest updates and collaboration on exciting projects!',
+          '⭐ First, please <b><a target="_blank" href="https://github.com/ajay-dhangar/algo">Star our GitHub Repo</a></b>, then 🚀 <b><a target="_blank" href="https://chat.whatsapp.com/LKaBzmknsyIIqUY1DSMoZa?mode=gi_t">Join our ALGO Core Community on WhatsApp</a></b> to collaborate with top contributors!',
         isCloseable: true,
         backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
       },
@@ -109,6 +133,7 @@ const config = {
             label: "Contributors",
             position: "left",
           },
+          { to: "applications", label: "Applications", position: "left" },
           {
             to: "application",
             label: "Application",
@@ -118,9 +143,9 @@ const config = {
             type: "dropdown",
             label: "More",
             position: "right",
-            items: [              
+            items: [
               {
-                to: "dsa-interview", 
+                to: "dsa-interview",
                 label: "Top DSA Questions",
               },
               {
@@ -136,8 +161,12 @@ const config = {
                 label: "Practice",
               },
               {
-                to: "quizes",
-                label: "Quizes",
+                to: "playground",
+                label: "Playground",
+              },
+              {
+                to: "quizzes",
+                label: "Quizzes",
               },
               {
                 to: "quiz-solutions",
@@ -154,10 +183,6 @@ const config = {
               {
                 to: "resources",
                 label: "Resources",
-              },
-              {
-                to: "blogs",
-                label: "Blogs",
               },
             ],
           },
@@ -196,16 +221,16 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
         additionalLanguages: [
-          'java',
-          'latex',
-          'haskell',
-          'matlab',
-          'PHp',
-          'powershell',
-          'bash',
-          'diff',
-          'json',
-          'scss',
+          "java",
+          "latex",
+          "haskell",
+          "matlab",
+          "php",
+          "powershell",
+          "bash",
+          "diff",
+          "json",
+          "scss",
         ],
       },
       docs: {
@@ -231,12 +256,12 @@ const config = {
         sidebarPath: require.resolve("./dsa-interview-sidebars.js"),
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
-        showLastUpdateAuthor: true,
-        showLastUpdateTime: true,
+        showLastUpdateAuthor: showGitHistory,
+        showLastUpdateTime: showGitHistory,
       },
     ],
     [
-      path.join(__dirname, "/plugins/my-plugin",),
+      path.join(__dirname, "/plugins/my-plugin"),
       {
         settings: "Some20settings",
         api: "Some-API",

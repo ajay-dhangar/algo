@@ -41,8 +41,19 @@ const QuickSortVisualization: React.FC = () => {
     return new Promise(resolve => setTimeout(resolve, ms));
   };
 
+  const medianOfThree = async (arr: number[], low: number, high: number) => {
+    const mid = low + Math.floor((high - low) / 2);
+    if (arr[low] > arr[mid]) [arr[low], arr[mid]] = [arr[mid], arr[low]];
+    if (arr[low] > arr[high]) [arr[low], arr[high]] = [arr[high], arr[low]];
+    if (arr[mid] > arr[high]) [arr[mid], arr[high]] = [arr[high], arr[mid]];
+    [arr[mid], arr[high]] = [arr[high], arr[mid]];
+    setArray([...arr]);
+    await delayFunction(delay);
+    return arr[high];
+  };
+
   const partition = async (arr: number[], low: number, high: number) => {
-    const pivot = arr[high];
+    const pivot = await medianOfThree(arr, low, high);
     setPivotIndex(high);
     let i = low - 1;
 
@@ -52,13 +63,11 @@ const QuickSortVisualization: React.FC = () => {
 
       if (arr[j] < pivot) {
         i++;
-        // Swap elements
         [arr[i], arr[j]] = [arr[j], arr[i]];
         setArray([...arr]);
       }
     }
 
-    // Place pivot in correct position
     [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
     setArray([...arr]);
 
@@ -66,10 +75,16 @@ const QuickSortVisualization: React.FC = () => {
   };
 
   const quickSortHelper = async (arr: number[], low: number, high: number) => {
-    if (low < high) {
+    while (low < high) {
       const pi = await partition(arr, low, high);
-      await quickSortHelper(arr, low, pi - 1);
-      await quickSortHelper(arr, pi + 1, high);
+      // Tail recursion optimization: sort smaller partition first
+      if (pi - low < high - pi) {
+        await quickSortHelper(arr, low, pi - 1);
+        low = pi + 1;
+      } else {
+        await quickSortHelper(arr, pi + 1, high);
+        high = pi - 1;
+      }
     }
   };
 
@@ -89,7 +104,8 @@ const QuickSortVisualization: React.FC = () => {
 
   return (
     <div className='quick-sort-visualization'>
-      <p>Speed: <input 
+      <p><label htmlFor="quick-sort-speed">Speed:</label> <input
+        id="quick-sort-speed"
         type="range" 
         min="50" 
         max="500" 

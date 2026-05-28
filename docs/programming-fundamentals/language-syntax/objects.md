@@ -10,7 +10,7 @@ keywords: [objects, object-oriented programming, classes, instances, data, metho
 
 Objects are instances created from classes or defined directly. They are key to object-oriented programming (OOP) as they encapsulate both state (data) and behavior (methods). This section covers how to define, create, and use objects in JavaScript, Java, Python, and C++ with practical examples.
 
-<Ads />
+<AdsComponent />
 
 ## What is an Object?
 

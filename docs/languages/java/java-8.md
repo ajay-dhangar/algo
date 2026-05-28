@@ -52,7 +52,7 @@ The dog is barking.
 
 In this example, the `Dog` class inherits the `eat()` method from the `Animal` class.
 
-<Ads />
+<AdsComponent />
 
 ## 3. Types of Inheritance
 
@@ -136,7 +136,7 @@ Class B method
 Class C method
 ```
 
-<Ads />
+<AdsComponent />
 
 ### 3.3 Hierarchical Inheritance
 
@@ -225,7 +225,7 @@ Animal is making a sound
 Dog is barking
 ```
 
-<Ads />
+<AdsComponent />
 
 ### 4.2 Using `super` to Call Superclass Constructors
 
