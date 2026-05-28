@@ -232,6 +232,8 @@ const PrivacyPolicy: React.FC = () => {
 
                         <Link
                             to="https://github.com/ajay-dhangar/algo"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-block bg-blue-600 dark:bg-yellow-400 text-white dark:text-gray-900 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 dark:hover:bg-yellow-500 transition duration-200"
                         >
                             Visit GitHub Repository
