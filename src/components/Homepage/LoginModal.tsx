@@ -179,8 +179,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
                 alt="Google Identity logo link"
                 className="h-4 w-4 block object-contain"
               />
@@ -191,8 +189,6 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
               type="button"
               className="inline-flex w-full justify-center items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-gray-950/20 hover:bg-slate-50 dark:hover:bg-gray-800/50 py-2.5 px-4 text-xs sm:text-sm font-semibold text-slate-700 dark:text-gray-300 transition-colors shadow-sm cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
             >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
               <img
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                 alt="GitHub Identity logo link"
