@@ -208,8 +208,6 @@ const BTree: React.FC = () => {
   const nextQuestion = () => {
     if (selectedOption === null) return;
 
-    setUserAnswers((prev) => [...prev, selectedOption]);
-
     if (selectedOption === questions[currentQuestion].answer) {
       setScore((prev) => prev + 1);
     }
@@ -219,8 +217,7 @@ const BTree: React.FC = () => {
       setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers, selectedOption];
-      submitAttempt(finalAnswers);
+      submitAttempt(userAnswers);
     }
   };
 
