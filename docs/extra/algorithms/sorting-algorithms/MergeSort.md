@@ -209,8 +209,8 @@ Merge sort is an efficient and reliable sorting algorithm, particularly for larg
 Merge Sort is efficient and stable, making it useful for handling large datasets.
 
 ## When to Use This Algorithm
+
 Use Merge Sort when:
-- You need guaranteed O(n log n) performance
-- Stability in sorting is required
+- Stable sorting is required
 - Working with large datasets
-- Handling linked lists or external sorting
+- Guaranteed O(n log n) performance is needed

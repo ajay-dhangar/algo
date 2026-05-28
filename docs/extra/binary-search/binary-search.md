@@ -103,8 +103,8 @@ Binary search : O(log n)
 Binary Search provides very fast searching but requires the array to be sorted first.
 
 ## When to Use This Algorithm
+
 Use Binary Search when:
 - The data is already sorted
 - Fast searching is required
-- Working with large datasets
-- Repeated searches are performed on the same dataset
+- Repeated searches are performed

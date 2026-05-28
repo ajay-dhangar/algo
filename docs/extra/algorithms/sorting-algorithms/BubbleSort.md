@@ -139,7 +139,8 @@ Bubble sort is one of the simplest sorting algorithms. While it is inefficient f
 Bubble Sort is best for learning basic sorting concepts and works well for very small datasets.
 
 ## When to Use This Algorithm
+
 Use Bubble Sort when:
 - The dataset is very small
-- Simplicity is more important than performance
-- You are learning how sorting algorithms work
+- Simplicity is more important than efficiency
+- You are learning sorting concepts

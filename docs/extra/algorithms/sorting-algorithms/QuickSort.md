@@ -172,8 +172,8 @@ Quick sort is a highly efficient and widely used sorting algorithm that works we
 Quick Sort is fast and commonly used in real-world applications for efficient sorting.
 
 ## When to Use This Algorithm
+
 Use Quick Sort when:
-- Fast average-case performance is needed
+- Fast average-case sorting is needed
 - Memory usage should be low
 - Working with large arrays
-- Stability is not required
