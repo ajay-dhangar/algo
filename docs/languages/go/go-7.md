@@ -3,6 +3,8 @@ id: goroutines-and-concurrency-in-go
 sidebar_position: 7
 title: "Goroutines & Concurrency in Go"
 sidebar_label: "Concurrency"
+description: "An introduction to Go's powerful concurrency model using lightweight Goroutines."
+tags: ["go","golang","concurrency","goroutines"]
 ---
 
 # Goroutines and Concurrency in Go

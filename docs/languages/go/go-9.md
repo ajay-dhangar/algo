@@ -3,6 +3,8 @@ id: error-handling-in-go
 sidebar_position: 9
 title: "Error Handling in Go"
 sidebar_label: "Error Handling"
+description: "Discover how Go handles errors explicitly without using try-catch blocks."
+tags: ["go","golang","errors","error handling"]
 ---
 
 # Error Handling in Go

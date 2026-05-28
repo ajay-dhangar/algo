@@ -3,6 +3,8 @@ id: functions-in-go
 sidebar_position: 3
 title: "Functions in Go"
 sidebar_label: "Functions"
+description: "Understand how to define and use functions, including multiple return values in Go."
+tags: ["go","golang","functions"]
 ---
 
 # Functions in Go

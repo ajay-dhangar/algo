@@ -3,6 +3,8 @@ id: structs-and-interfaces-in-go
 sidebar_position: 6
 title: "Structs and Interfaces in Go"
 sidebar_label: "Structs & Interfaces"
+description: "Explore Go's approach to object-oriented programming using structs and interfaces."
+tags: ["go","golang","structs","interfaces","oop"]
 ---
 
 # Structs and Interfaces in Go

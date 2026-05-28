@@ -3,6 +3,8 @@ id: variables-in-go
 sidebar_position: 2
 title: "Variables and Data Types in Go"
 sidebar_label: "Variables and Data Types"
+description: "Learn about declaring variables and using fundamental data types in Go."
+tags: ["go","golang","variables","data types"]
 ---
 
 # Variables and Data Types

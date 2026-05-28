@@ -3,6 +3,8 @@ id: channels-in-go
 sidebar_position: 8
 title: "Channels in Go"
 sidebar_label: "Channels"
+description: "Learn how to safely communicate between concurrent Goroutines using Channels."
+tags: ["go","golang","channels","concurrency"]
 ---
 
 # Channels in Go

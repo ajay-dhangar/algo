@@ -3,6 +3,8 @@ id: introduction-to-go
 sidebar_position: 1
 title: "Introduction to Go"
 sidebar_label: "Introduction to Go"
+description: "A beginner-friendly introduction to Go (Golang), covering its features and setup."
+tags: ["go","golang","introduction"]
 ---
 
 # Introduction to Go

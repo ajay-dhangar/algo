@@ -3,6 +3,8 @@ id: arrays-and-slices-in-go
 sidebar_position: 4
 title: "Arrays and Slices in Go"
 sidebar_label: "Arrays and Slices"
+description: "Master arrays and dynamic slices, the primary collection types in Go."
+tags: ["go","golang","arrays","slices"]
 ---
 
 # Arrays and Slices in Go

@@ -3,6 +3,8 @@ id: maps-in-go
 sidebar_position: 5
 title: "Maps in Go"
 sidebar_label: "Maps"
+description: "Learn how to use maps in Go to store and retrieve key-value pairs efficiently."
+tags: ["go","golang","maps"]
 ---
 
 # Maps in Go
