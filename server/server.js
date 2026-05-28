@@ -281,43 +281,51 @@ app.post("/api/execute-code", async (req, res) => {
  */
 app.get("/api/leaderboard", async (req, res) => {
   try {
-    const attempts = await QuizAttempt.findAll();
-
-    // Map to find the max score of each user for each quiz, and count attempts
-    // Structure: { username: { quizId: maxScore } }
-    const userMaxScores = {};
-    const userAttemptsCount = {};
-
-    attempts.forEach((attempt) => {
-      const username = attempt.userId;
-      const qId = attempt.quizId;
-      const score = attempt.score;
-
-      // Increment attempt count for user
-      userAttemptsCount[username] = (userAttemptsCount[username] || 0) + 1;
-
-      if (!userMaxScores[username]) {
-        userMaxScores[username] = {};
-      }
-
-      if (userMaxScores[username][qId] === undefined || score > userMaxScores[username][qId]) {
-        userMaxScores[username][qId] = score;
-      }
+    // 1. Get the max score per quiz for each user
+    const maxScoresPerQuiz = await QuizAttempt.findAll({
+      attributes: [
+        'userId',
+        'quizId',
+        [sequelize.fn('MAX', sequelize.col('score')), 'maxScore']
+      ],
+      group: ['userId', 'quizId'],
+      raw: true
     });
 
-    // Compute total points for each user
-    // Total Points = Sum of (maxScore * 100) across all quizzes taken
-    const leaderboardData = Object.keys(userMaxScores).map((username) => {
-      let totalPoints = 0;
-      const quizzes = userMaxScores[username];
-      Object.keys(quizzes).forEach((qId) => {
-        totalPoints += quizzes[qId] * 100; // 100 points per correct answer
-      });
+    // 2. Get the total attempts count for each user
+    const attemptsCount = await QuizAttempt.findAll({
+      attributes: [
+        'userId',
+        [sequelize.fn('COUNT', sequelize.col('id')), 'totalAttempts']
+      ],
+      group: ['userId'],
+      raw: true
+    });
 
+    // Create a map of userId -> attempts count
+    const userAttemptsMap = {};
+    attemptsCount.forEach(row => {
+      userAttemptsMap[row.userId] = parseInt(row.totalAttempts, 10);
+    });
+
+    // Compute total points per user
+    const userPointsMap = {};
+    maxScoresPerQuiz.forEach(row => {
+      const username = row.userId;
+      const score = parseInt(row.maxScore, 10);
+      
+      if (!userPointsMap[username]) {
+        userPointsMap[username] = 0;
+      }
+      userPointsMap[username] += score * 100; // 100 points per correct answer
+    });
+
+    // Format the leaderboard data
+    const leaderboardData = Object.keys(userPointsMap).map((username) => {
       return {
         username: username,
-        totalScore: totalPoints,
-        attemptsCount: userAttemptsCount[username] || 0
+        totalScore: userPointsMap[username],
+        attemptsCount: userAttemptsMap[username] || 0
       };
     });
 
