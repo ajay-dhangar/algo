@@ -20,7 +20,11 @@ const DEFAULT_API_BASE_URL = "http://localhost:5000";
 export function useApiBase(): string {
   const { siteConfig } = useDocusaurusContext();
   const fromConfig = siteConfig.customFields?.apiBaseUrl;
-  return typeof fromConfig === "string" && fromConfig.length > 0
-    ? fromConfig
-    : DEFAULT_API_BASE_URL;
+  const baseUrl =
+    typeof fromConfig === "string" && fromConfig.length > 0
+      ? fromConfig
+      : DEFAULT_API_BASE_URL;
+  // Strip trailing slashes so callers can safely prefix paths with "/"
+  // without producing double-slash URLs (e.g. https://api.example.com//api/…)
+  return baseUrl.replace(/\/+$/, "");
 }
