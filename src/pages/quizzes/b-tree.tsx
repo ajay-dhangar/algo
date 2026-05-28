@@ -20,6 +20,8 @@ const BTree: React.FC = () => {
       ],
       answer:
         "B) A tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.",
+      explanation:
+        "A B-Tree is a self-balancing tree data structure designed for systems that read and write large blocks of data (e.g., databases, file systems). It generalizes the binary search tree by allowing nodes to have more than two children, keeping data sorted and enabling O(log n) operations.",
     },
     {
       question: "2. What is the minimum degree of a B-Tree?",
@@ -30,12 +32,16 @@ const BTree: React.FC = () => {
         "D) The number of levels in the tree.",
       ],
       answer: "A) The minimum number of keys a node can contain.",
+      explanation:
+        "The minimum degree t of a B-Tree defines the lower bound on the number of keys each non-root node must hold (at least t-1 keys). It also determines the maximum: each node can hold at most 2t-1 keys.",
     },
     {
       question:
         "3. In a B-Tree, each node can have a maximum of how many children?",
       options: ["A) 2", "B) 3", "C) 2t", "D) t"],
       answer: "C) 2t",
+      explanation:
+        "In a B-Tree of minimum degree t, each node can have at most 2t children (and at most 2t-1 keys). This upper bound ensures the tree stays balanced and disk I/O is minimized by keeping nodes large.",
     },
     {
       question:
@@ -47,6 +53,8 @@ const BTree: React.FC = () => {
         "D) Simplicity of implementation.",
       ],
       answer: "C) Better balance and reduced height.",
+      explanation:
+        "B-Trees maintain balance automatically and store many keys per node, resulting in a much shorter tree height compared to a binary search tree. This dramatically reduces the number of disk accesses needed for operations, which is critical for database and file system performance.",
     },
     {
       question:
@@ -58,6 +66,8 @@ const BTree: React.FC = () => {
         "D) No action is taken.",
       ],
       answer: "C) The node is split into two nodes.",
+      explanation:
+        "When a node reaches its maximum capacity (2t-1 keys), it is split into two nodes of t-1 keys each, and the median key is promoted to the parent. This split operation keeps the tree balanced and ensures no node overflows.",
     },
     {
       question: "6. What does it mean for a B-Tree to be balanced?",
@@ -68,6 +78,8 @@ const BTree: React.FC = () => {
         "D) The tree is a complete binary tree.",
       ],
       answer: "A) All leaves are at the same depth.",
+      explanation:
+        "A B-Tree is balanced in the sense that all leaf nodes reside at the same level (depth). This property guarantees that every search, insertion, or deletion takes O(log n) time regardless of the data distribution.",
     },
     {
       question: "7. How is deletion handled in a B-Tree?",
@@ -79,6 +91,8 @@ const BTree: React.FC = () => {
       ],
       answer:
         "C) It may require borrowing a key from a sibling or merging nodes.",
+      explanation:
+        "Deleting a key from a B-Tree can cause a node to fall below the minimum key count (t-1). To fix this, the tree either borrows a key from an adjacent sibling (rotation) or merges the node with a sibling and pulls down a key from the parent, maintaining the B-Tree invariants.",
     },
     {
       question: "8. Which of the following properties is NOT true for B-Trees?",
@@ -89,6 +103,8 @@ const BTree: React.FC = () => {
         "D) Every node can have an arbitrary number of children.",
       ],
       answer: "D) Every node can have an arbitrary number of children.",
+      explanation:
+        "B-Tree nodes are strictly bounded: each non-root node has between t-1 and 2t-1 keys (and between t and 2t children). Allowing an arbitrary number of children would violate the B-Tree definition and break its performance guarantees.",
     },
     {
       question: "9. In which applications are B-Trees commonly used?",
@@ -99,6 +115,8 @@ const BTree: React.FC = () => {
         "D) Small data storage.",
       ],
       answer: "B) File systems and databases.",
+      explanation:
+        "B-Trees are the backbone of most relational database indexes (e.g., MySQL InnoDB, PostgreSQL) and file systems (e.g., NTFS, HFS+, ext4). Their high branching factor minimizes disk reads, making them ideal for large datasets stored on disk.",
     },
     {
       question:
@@ -110,6 +128,8 @@ const BTree: React.FC = () => {
         "D) The height and order are always equal.",
       ],
       answer: "B) The height decreases as the order increases.",
+      explanation:
+        "A higher order (larger t) means each node can hold more keys and have more children, so fewer levels are needed to store the same amount of data. The height of a B-Tree is O(log_t n), so increasing t directly reduces the tree's height.",
     },
   ];
 
@@ -313,9 +333,11 @@ setCurrentQuestionIndex={setCurrentQuestion}
                     <p className="text-md">
                       <span className="font-bold">Correct Answer:</span> {q.answer}
                     </p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
-                      <span className="font-bold">Explanation:</span> {q.explanation}
-                    </p>
+                    {q.explanation && (
+                      <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+                        <span className="font-bold">Explanation:</span> {q.explanation}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
