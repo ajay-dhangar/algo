@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
+import { useApiBase } from "../../config/api";
 
 import QuestionProgress
 from "../../components/Quiz/QuestionProgress";
@@ -9,6 +10,7 @@ import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
 const ArrayQuiz: React.FC = () => {
+  const apiBase = useApiBase();
   const questions = [
     {
       question: (
@@ -203,7 +205,7 @@ int main()
 
   const fetchAttempts = async (uId: string) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/quiz-attempts/${uId}/arrays`);
+      const res = await axios.get(`${apiBase}/api/quiz-attempts/${uId}/arrays`);
       if (res.data?.success) {
         setAttempts(res.data.attempts);
       }
@@ -233,7 +235,7 @@ int main()
   const submitAttempt = async (finalAnswers: string[]) => {
     if (!userId) return;
     try {
-      await axios.post("http://localhost:5000/api/quiz-attempts", {
+      await axios.post(`${apiBase}/api/quiz-attempts`, {
         userId,
         quizId: "arrays",
         userAnswers: finalAnswers,

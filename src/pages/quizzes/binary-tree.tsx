@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
+import { useApiBase } from "../../config/api";
 
 import QuestionProgress
 from "../../components/Quiz/QuestionProgress";
@@ -9,6 +10,7 @@ import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
 const BinaryTreeQuiz: React.FC = () => {
+  const apiBase = useApiBase();
   const questions = [
     // Easy Questions
     {
@@ -136,7 +138,7 @@ const BinaryTreeQuiz: React.FC = () => {
 
   const fetchAttempts = async (uId: string) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/quiz-attempts/${uId}/binary-tree`);
+      const res = await axios.get(`${apiBase}/api/quiz-attempts/${uId}/binary-tree`);
       if (res.data?.success) {
         setAttempts(res.data.attempts);
       }
@@ -166,7 +168,7 @@ const BinaryTreeQuiz: React.FC = () => {
   const submitAttempt = async (finalAnswers: string[]) => {
     if (!userId) return;
     try {
-      await axios.post("http://localhost:5000/api/quiz-attempts", {
+      await axios.post(`${apiBase}/api/quiz-attempts`, {
         userId,
         quizId: "binary-tree",
         userAnswers: finalAnswers,

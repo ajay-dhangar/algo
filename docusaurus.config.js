@@ -78,6 +78,10 @@ const config = {
     },
   ],
 
+  customFields: {
+    apiBaseUrl: process.env.ALGO_API_URL ?? "http://localhost:5000",
+  },
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
