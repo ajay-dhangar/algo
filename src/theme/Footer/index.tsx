@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <div className="mb-6">
               <Link
-              to="/">
+                to="/">
                 <img
                   src="/algo/logo/logo.png"
                   alt="Algo Logo"
@@ -177,16 +177,16 @@ const Footer = () => {
               </Link>
             </li>
             <li className="list-none">
-                <Link
-                  to="/about/"
+              <Link
+                to="/about/"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 About Us
               </Link>
             </li>
             <li className="list-none">
-                <Link
-                  to="/contact/"
+              <Link
+                to="/contact/"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 Contact
@@ -194,7 +194,7 @@ const Footer = () => {
             </li>
             <li className="list-none">
               <Link
-                to="/coming-soon"
+                to="/privacy"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 Privacy Policy
