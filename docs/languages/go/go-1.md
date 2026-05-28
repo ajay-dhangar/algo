@@ -63,7 +63,7 @@ Explanation:
 **Variables and Typing:** Go uses strong typing but supports type inference using the `:=` operator.
 ```go
 var name string = "Alice" // Explicit type declaration
-age := 25                 // Implicit type inference
+var age = 25              // Implicit type inference
 ```
 
 ## 6. Conclusion
