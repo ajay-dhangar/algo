@@ -217,7 +217,7 @@ const config = {
           "latex",
           "haskell",
           "matlab",
-          "PHp",
+          "php",
           "powershell",
           "bash",
           "diff",
