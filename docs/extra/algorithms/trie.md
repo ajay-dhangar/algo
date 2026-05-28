@@ -3,7 +3,17 @@ id: trie
 title: Trie (Prefix Tree)
 sidebar_label: Trie (Prefix Tree)
 description: "A comprehensive guide to the Trie (Prefix Tree) data structure with visual diagrams, Insert, Search, Delete, and AutoComplete implementations in Python, Java, and C++, and practice problems."
-tags: [trie, prefix-tree, data-structures, advanced, dsa, strings, interview-prep, competitive-programming]
+tags:
+  [
+    trie,
+    prefix-tree,
+    data-structures,
+    advanced,
+    dsa,
+    strings,
+    interview-prep,
+    competitive-programming,
+  ]
 ---
 
 # Trie (Prefix Tree)
@@ -170,7 +180,7 @@ class TrieNode {
 }
 
 public class Trie {
-    private TrieNode root;
+    protected TrieNode root;
 
     public Trie() {
         root = new TrieNode();
@@ -203,6 +213,11 @@ struct TrieNode {
     bool isEndOfWord;
 
     TrieNode() : children(26, nullptr), isEndOfWord(false) {}
+    ~TrieNode() {
+        for (auto child : children) {
+            delete child;
+        }
+    }
 };
 
 class Trie {
@@ -211,6 +226,10 @@ public:
 
     Trie() {
         root = new TrieNode();
+    }
+
+    ~Trie() {
+        delete root;
     }
 
     void insert(const string& word) {
@@ -416,26 +435,22 @@ search("apple") → TRUE  ✅ (intact)
 
 ```python
     def delete(self, word: str) -> bool:
-        def _delete(node, word, depth):
-            if depth == len(word):
-                if not node.is_end_of_word:
-                    return False        # word doesn't exist
-                node.is_end_of_word = False
-                return len(node.children) == 0  # delete node if no children
-
-            char = word[depth]
-            if char not in node.children:
-                return False            # word doesn't exist
-
-            should_delete_child = _delete(node.children[char], word, depth + 1)
-
-            if should_delete_child:
-                del node.children[char]
-                return len(node.children) == 0 and not node.is_end_of_word
-
+        if not self.search(word):
             return False
 
-        return _delete(self.root, word, 0)
+        def _delete(node, word, depth):
+            if depth == len(word):
+                node.is_end_of_word = False
+                return len(node.children) == 0
+
+            char = word[depth]
+            if _delete(node.children[char], word, depth + 1):
+                del node.children[char]
+                return len(node.children) == 0 and not node.is_end_of_word
+            return False
+
+        _delete(self.root, word, 0)
+        return True
 ```
 
   </TabItem>
@@ -443,19 +458,18 @@ search("apple") → TRUE  ✅ (intact)
 
 ```java
     public boolean delete(String word) {
-        return deleteHelper(root, word, 0);
+        if (!search(word)) return false;
+        deleteHelper(root, word, 0);
+        return true;
     }
 
     private boolean deleteHelper(TrieNode node, String word, int depth) {
         if (depth == word.length()) {
-            if (!node.isEndOfWord) return false;
             node.isEndOfWord = false;
-            return node.children.isEmpty();    // safe to remove if no children
+            return node.children.isEmpty();
         }
 
         char c = word.charAt(depth);
-        if (!node.children.containsKey(c)) return false;
-
         boolean shouldDelete = deleteHelper(node.children.get(c), word, depth + 1);
 
         if (shouldDelete) {
@@ -471,19 +485,23 @@ search("apple") → TRUE  ✅ (intact)
   <TabItem value="cpp" label="C++">
 
 ```cpp
-    bool deleteWord(TrieNode* node, const string& word, int depth) {
+    bool deleteWord(const string& word) {
+        if (!search(word)) return false;
+        deleteWordHelper(root, word, 0);
+        return true;
+    }
+
+private:
+    bool deleteWordHelper(TrieNode* node, const string& word, int depth) {
         if (depth == (int)word.size()) {
-            if (!node->isEndOfWord) return false;
             node->isEndOfWord = false;
             for (auto child : node->children)
                 if (child) return false;
-            return true;               // safe to remove if no children
+            return true;
         }
 
         int idx = word[depth] - 'a';
-        if (!node->children[idx]) return false;
-
-        bool shouldDelete = deleteWord(node->children[idx], word, depth + 1);
+        bool shouldDelete = deleteWordHelper(node->children[idx], word, depth + 1);
 
         if (shouldDelete) {
             delete node->children[idx];
@@ -531,6 +549,7 @@ Result: ["app", "apple", "apt"] ✅
   <TabItem value="python" label="Python" default>
 
 ```python
+class TrieWithAutoComplete(Trie):
     def autocomplete(self, prefix: str) -> list:
         node = self.root
 
@@ -552,7 +571,7 @@ Result: ["app", "apple", "apt"] ✅
             self._dfs(child_node, current_word + char, results)
 
 # Example
-trie = Trie()
+trie = TrieWithAutoComplete()
 for word in ["app", "apple", "apt", "bat", "ball"]:
     trie.insert(word)
 
@@ -602,11 +621,8 @@ public class TrieWithAutoComplete extends Trie {
   <TabItem value="cpp" label="C++">
 
 ```cpp
-#include <vector>
-#include <string>
-#include <iostream>
-using namespace std;
-
+class TrieWithAutoComplete : public Trie {
+public:
     vector<string> autocomplete(const string& prefix) {
         TrieNode* node = root;
         vector<string> results;
@@ -624,6 +640,7 @@ using namespace std;
         return results;
     }
 
+private:
     void dfs(TrieNode* node, string& current, vector<string>& results) {
         if (node->isEndOfWord) results.push_back(current);
         for (int i = 0; i < 26; i++) {
@@ -634,6 +651,7 @@ using namespace std;
             }
         }
     }
+};
 ```
 
   </TabItem>
@@ -661,13 +679,13 @@ Speedup: ~1,600x faster ✅
 
 ## 📊 Complexity Summary
 
-| Operation | Time | Space |
-|---|---|---|
-| Insert | O(m) | O(m) |
-| Search | O(m) | O(1) |
-| StartsWith | O(m) | O(1) |
-| Delete | O(m) | O(m) stack |
-| AutoComplete | O(m + k) | O(k) |
+| Operation    | Time     | Space      |
+| ------------ | -------- | ---------- |
+| Insert       | O(m)     | O(m)       |
+| Search       | O(m)     | O(1)       |
+| StartsWith   | O(m)     | O(1)       |
+| Delete       | O(m)     | O(m) stack |
+| AutoComplete | O(m + k) | O(k)       |
 
 > m = length of word/prefix &nbsp;|&nbsp; k = number of results returned
 
@@ -685,16 +703,16 @@ Speedup: ~1,600x faster ✅
 
 ## 🏋️ Practice Problems
 
-| # | Problem | Concept | Difficulty |
-|---|---|---|---|
-| 1 | Implement Trie (Prefix Tree) | Insert, Search, StartsWith | 🟡 Medium |
-| 2 | Longest Common Prefix | Trie traversal | 🟢 Easy |
-| 3 | Design Add and Search Words | Wildcard search in Trie | 🟡 Medium |
-| 4 | Replace Words | Prefix replacement | 🟡 Medium |
-| 5 | Map Sum Pairs | Trie with values | 🟡 Medium |
-| 6 | Word Search II | Trie + DFS on grid | 🔴 Hard |
-| 7 | Maximum XOR of Two Numbers | Binary Trie | 🔴 Hard |
-| 8 | Stream of Characters | Trie + sliding window | 🔴 Hard |
+| #   | Problem                      | Concept                    | Difficulty |
+| --- | ---------------------------- | -------------------------- | ---------- |
+| 1   | Implement Trie (Prefix Tree) | Insert, Search, StartsWith | 🟡 Medium  |
+| 2   | Longest Common Prefix        | Trie traversal             | 🟢 Easy    |
+| 3   | Design Add and Search Words  | Wildcard search in Trie    | 🟡 Medium  |
+| 4   | Replace Words                | Prefix replacement         | 🟡 Medium  |
+| 5   | Map Sum Pairs                | Trie with values           | 🟡 Medium  |
+| 6   | Word Search II               | Trie + DFS on grid         | 🔴 Hard    |
+| 7   | Maximum XOR of Two Numbers   | Binary Trie                | 🔴 Hard    |
+| 8   | Stream of Characters         | Trie + sliding window      | 🔴 Hard    |
 
 ---
 
