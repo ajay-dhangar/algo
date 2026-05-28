@@ -269,7 +269,9 @@ public class DSU {
   <TabItem value="cpp" label="C++">
 
 ```cpp
-#include <bits/stdc++.h>
+#include <vector>
+#include <numeric>
+#include <iostream>
 using namespace std;
 
 class DSU {
@@ -444,14 +446,16 @@ print(has_cycle(3, [(0,1),(1,2)]))        # False
   <TabItem value="java" label="Java">
 
 ```java
-public boolean hasCycle(int n, int[][] edges) {
-    DSU dsu = new DSU(n);
-    for (int[] edge : edges) {
-        if (!dsu.union(edge[0], edge[1])) {
-            return true;  // same component → cycle!
+public class GraphCycleDetector {
+    public static boolean hasCycle(int n, int[][] edges) {
+        DSU dsu = new DSU(n);
+        for (int[] edge : edges) {
+            if (!dsu.union(edge[0], edge[1])) {
+                return true;  // same component → cycle!
+            }
         }
+        return false;
     }
-    return false;
 }
 ```
 
@@ -537,7 +541,7 @@ Problem: Check if nodes A and B are connected after Q union operations
 - **Kruskal's MST algorithm** — Build minimum spanning tree by adding edges without creating cycles
 - **Image segmentation** — Group pixels belonging to the same region
 - **Social networks** — Friend circle / community detection
-- **Compiler optimization** — Register allocation using interference graphs
+- **Compiler optimization** — Pointer analysis / Alias analysis (e.g., Steensgaard's algorithm) to group aliased variables
 
 ---
 
