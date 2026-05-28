@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
+import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress
 from "../../components/Quiz/QuestionProgress";
@@ -156,6 +157,7 @@ const RedBlackTreeQuiz: React.FC = () => {
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const apiBaseUrl = useApiBaseUrl();
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -193,7 +195,9 @@ const RedBlackTreeQuiz: React.FC = () => {
 
   const fetchAttempts = async (uId: string) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/quiz-attempts/${uId}/red-black-tree`);
+      const res = await axios.get(
+        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/red-black-tree`)
+      );
       if (res.data?.success) {
         setAttempts(res.data.attempts);
       }
@@ -223,7 +227,7 @@ const RedBlackTreeQuiz: React.FC = () => {
   const submitAttempt = async (finalAnswers: string[]) => {
     if (!userId) return;
     try {
-      await axios.post("http://localhost:5000/api/quiz-attempts", {
+      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
         userId,
         quizId: "red-black-tree",
         userAnswers: finalAnswers,
