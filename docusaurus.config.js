@@ -38,7 +38,7 @@ const config = {
   organizationName: "codeharborhub",
   projectName: "algo",
   customFields: {
-    apiBaseUrl: process.env.DOCUSAURUS_API_BASE_URL || "",
+    apiBaseUrl: process.env.DOCUSAURUS_API_BASE_URL || (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
   },
 
   onBrokenLinks: "throw",
