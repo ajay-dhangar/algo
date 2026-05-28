@@ -7,14 +7,11 @@ description: Learn how to implement a balanced binary tree checker in Java, with
 tags: [tree, binary-tree, depth-first-search, java, leetcode]
 ---
 
-# Balanced Binary Tree Checker
-
-## Problem Statement
-
 Given a binary tree, determine if it is height-balanced. A height-balanced binary tree is defined as:
-:::note
- A binary tree in which the left and right subtrees of every node differ in height by no more than one.
+
+A binary tree in which the left and right subtrees of every node differ in height by no more than one.
 :::
+
 ## Solution
 
 We'll implement a depth-first search (DFS) approach to check if the binary tree is balanced. The idea is to recursively calculate the height of each subtree and check if the difference between the heights of left and right subtrees is not more than 1 for every node.
@@ -96,6 +93,7 @@ Here's an example of how to use the `Solution` class:
     }
 }
 ```
+
 :::note
 This example creates a binary tree and uses the `Solution` class to check if it's balanced. The output will be "The tree is not balanced." because the left subtree has a depth of 4 while the right subtree has a depth of 1, violating the balance condition.
 :::
