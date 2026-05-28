@@ -179,8 +179,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
-                alt=""
-                aria-hidden="true"
+                alt="Google Identity logo link"
                 className="h-4 w-4 block object-contain"
               />
               Google
@@ -192,8 +191,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                alt=""
-                aria-hidden="true"
+                alt="GitHub Identity logo link"
                 className="h-4 w-4 block invert dark:invert-0 object-contain"
               />
               GitHub

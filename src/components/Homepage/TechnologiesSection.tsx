@@ -22,12 +22,12 @@ const technologies: Technology[] = [
   { name: "GitHub", icon: <FaGithub />, brandColorClass: "text-slate-900 dark:text-slate-100" },
   { name: "MongoDB", icon: <FaDatabase />, brandColorClass: "text-[#47A248]" },
   { name: "JavaScript", icon: <FaJs />, brandColorClass: "text-[#F7DF1E]" },
-  { name: "TypeScript", icon: <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" alt="TypeScript" className="h-full w-full object-contain" />, brandColorClass: "text-blue-500" },
+  { name: "TypeScript", icon: <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" alt="TypeScript" loading="lazy" className="h-full w-full object-contain" />, brandColorClass: "text-blue-500" },
   { name: "HTML5", icon: <FaHtml5 />, brandColorClass: "text-[#E34F26]" },
   { name: "CSS3", icon: <FaCss3Alt />, brandColorClass: "text-[#1572B6]" },
-  { name: "Tailwind CSS", icon: <img src="https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" alt="Tailwind CSS" className="h-full w-full object-contain" />, brandColorClass: "text-sky-400" },
-  { name: "Docusaurus", icon: <img src="https://docusaurus.io/img/docusaurus_keytar.svg" alt="Docusaurus" className="h-full w-full object-contain" />, brandColorClass: "text-emerald-500" },
-  { name: "Markdown", icon: <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Markdown-mark-purple.svg" alt="Markdown" className="h-full w-full object-contain" />, brandColorClass: "text-purple-500" },
+  { name: "Tailwind CSS", icon: <img src="https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" alt="Tailwind CSS" loading="lazy" className="h-full w-full object-contain" />, brandColorClass: "text-sky-400" },
+  { name: "Docusaurus", icon: <img src="https://docusaurus.io/img/docusaurus_keytar.svg" alt="Docusaurus" loading="lazy" className="h-full w-full object-contain" />, brandColorClass: "text-emerald-500" },
+  { name: "Markdown", icon: <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Markdown-mark-purple.svg" alt="Markdown" loading="lazy" className="h-full w-full object-contain" />, brandColorClass: "text-purple-500" },
 ];
 
 const TechnologiesSection: React.FC = () => {
