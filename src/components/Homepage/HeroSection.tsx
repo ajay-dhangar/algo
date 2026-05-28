@@ -25,7 +25,7 @@ const HeroSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
           
           <Link
-            to="/docs/"
+            to="/docs"
             className="group relative overflow-hidden flex items-center px-6 py-3 text-lg font-medium text-white rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-blue-500/50 hover:shadow-2xl hover:text-gray-100 active:scale-95">
             <span className="absolute inset-0 bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 transition duration-300 group-hover:from-blue-800 group-hover:via-blue-700 group-hover:to-cyan-600"></span>
             <span className="relative z-10 flex items-center">
