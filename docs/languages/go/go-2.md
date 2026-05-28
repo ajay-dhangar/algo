@@ -81,7 +81,7 @@ You can declare and assign multiple variables at once in Go, making your code cl
 
 ```go
 var a, b, c int = 1, 2, 3
-x, y := 10, "hello" // Mix types with short declaration!
+var x, y = 10, "hello" // Mix types with var declaration
 ```
 
 ## 6. Constants
