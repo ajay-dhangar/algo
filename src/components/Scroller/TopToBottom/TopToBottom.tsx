@@ -6,7 +6,7 @@ const ScrollTopToBottom: React.FC = () => {
     const [showButton, setShowButton] = useState<boolean>(false);
 
     const scrollToBottom = () => {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+        window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
     };
 
     const handleScroll = () => {

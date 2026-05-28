@@ -1,13 +1,15 @@
 import React, { useState, useCallback } from "react";
 import { useLocation } from "@docusaurus/router";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import KeyboardShortcutsModal from "../components/KeyboardShortcutsModal";
 import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
-import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop.tsx";
-import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom.tsx";
+import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop";
+import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom";
 
 export default function Root({ children }) {
   const location = useLocation();
-  const isHomepage = location.pathname === "/";
+  const { siteConfig } = useDocusaurusContext();
+  const isHomepage = location.pathname === siteConfig.baseUrl;
 
   const onOpenHelp = useCallback(() => setShowKeyboardModal(true), []);
   const onCloseHelp = useCallback(() => setShowKeyboardModal(false), []);
