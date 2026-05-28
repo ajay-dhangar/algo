@@ -50,8 +50,8 @@ var s []int // A slice of integers
 
 You can create a slice by specifying a range `[low:high]` on an existing array. This creates a view from `low` up to (but not including) `high`.
 
-```go
-primes := [5]int{2, 3, 5, 7, 11}
+var primes = [5]int{2, 3, 5, 7, 11}
+var s []int = primes[1:4] // s will contain [3, 5, 7]
 var s []int = primes[1:4] // s will contain [3, 5, 7]
 ```
 
