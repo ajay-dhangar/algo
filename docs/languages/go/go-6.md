@@ -131,7 +131,7 @@ The interface type that specifies zero methods is known as the empty interface: 
 Because every type has at least zero methods, **every type implements the empty interface**. It is used to handle values of unknown type.
 
 ```go
-func PrintAnything(v interface{}) {
+func PrintAnything(v any) {
     fmt.Println(v)
 }
 ```
