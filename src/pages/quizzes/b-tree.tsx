@@ -114,10 +114,15 @@ const BTree: React.FC = () => {
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
+
+  // Derived state: eliminates score desync and selectedOption carry-over bugs
+  const selectedOption = userAnswers[currentQuestion] || null;
+  const score = userAnswers.reduce(
+    (acc, answer, index) => (answer === questions[index]?.answer ? acc + 1 : acc),
+    0
+  );
 
   // Custom states for persistence, timer, and history
   const [usernameInput, setUsernameInput] = useState("");
@@ -193,28 +198,17 @@ const BTree: React.FC = () => {
     }
   };
 
-  const handleAnswer=(selected:string)=>{
-
- setSelectedOption(selected);
-
- const updatedAnswers=[...userAnswers];
-
- updatedAnswers[currentQuestion]=selected;
-
- setUserAnswers(updatedAnswers);
-
-}
+  const handleAnswer = (selected: string) => {
+    const updatedAnswers = [...userAnswers];
+    updatedAnswers[currentQuestion] = selected;
+    setUserAnswers(updatedAnswers);
+  };
 
   const nextQuestion = () => {
-    if (selectedOption === null) return;
-
-    if (selectedOption === questions[currentQuestion].answer) {
-      setScore((prev) => prev + 1);
-    }
+    if (!selectedOption) return;
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null);
     } else {
       setShowResult(true);
       submitAttempt(userAnswers);
