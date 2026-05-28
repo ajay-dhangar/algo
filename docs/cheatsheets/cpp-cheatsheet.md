@@ -347,16 +347,16 @@ int halved  = n >> 1;             // n / 2 = 3
 
 // Check if i-th bit is set (0-indexed)
 int i = 1;
-bool isSet = n & (1 << i);        // checks bit at position i
+bool isSet = n & (1U << i);        // checks bit at position i
 
 // Set i-th bit
-n = n | (1 << i);                 // forces bit i to 1
+n = n | (1U << i);                 // forces bit i to 1
 
 // Clear i-th bit
-n = n & ~(1 << i);                // forces bit i to 0
+n = n & ~(1U << i);                // forces bit i to 0
 
 // Toggle i-th bit
-n = n ^ (1 << i);                 // flips bit i
+n = n ^ (1U << i);                 // flips bit i
 
 // Remove lowest set bit (used in bit-counting loops)
 n = n & (n - 1);                  // 110 -> 100
