@@ -102,7 +102,7 @@ const Contributors: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7 }}
             >
-              {contributors.slice(0, visibleCount).map((contributor) => (
+              {contributors.slice(0, visibleCount).map((contributor, index) => (
                 <motion.div
                   key={contributor.id}
                   className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
@@ -116,10 +116,11 @@ const Contributors: React.FC = () => {
                     rel="noopener noreferrer"
                     className="block overflow-hidden"
                   >
-                    <img
+                    <img 
                       src={contributor.avatar_url}
                       alt={contributor.login}
-                      loading="lazy"
+                      loading={index < 3 ? "eager" : "lazy"}
+                      
                       className="w-full h-85 rounded-t-xl transition duration-300 transform hover:scale-105 object-top object-cover"
                     />
                   </a>
