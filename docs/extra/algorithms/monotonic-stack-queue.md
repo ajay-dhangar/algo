@@ -83,9 +83,6 @@ NGE[4]=-1, NGE[5]=-1
 
 ### Code Template
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs>
   <TabItem value="python" label="Python" default>
 
