@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaCrown } from "react-icons/fa";
 import axios from "axios";
+import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 const Leaderboard: React.FC = () => {
   const fallbackLeaders = [
@@ -14,11 +15,12 @@ const Leaderboard: React.FC = () => {
   const [leaders, setLeaders] = useState<any[]>([]);
   const [isLive, setIsLive] = useState(false);
   const [loading, setLoading] = useState(true);
+  const apiBaseUrl = useApiBaseUrl();
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/leaderboard");
+        const res = await axios.get(buildApiUrl(apiBaseUrl, "/api/leaderboard"));
         if (res.data?.success && Array.isArray(res.data.leaderboard)) {
           setLeaders(res.data.leaderboard);
           setIsLive(true);
