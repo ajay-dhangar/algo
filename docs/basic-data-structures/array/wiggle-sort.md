@@ -2,6 +2,7 @@
 id: wiggle-sort
 title: Wiggle Sort Algorithm
 sidebar_label: Wiggle Sort
+sidebar_position: 10
 description: "An optimized O(N) single-pass algorithm to sort an array into a wave-like pattern."
 tags: [array, java, dsa, algorithms, sorting]
 ---
@@ -32,8 +33,7 @@ public class WiggleSort {
         for (int i = 0; i < nums.length - 1; i++) {
             // If index is even, current element should be <= next element
             // If index is odd, current element should be >= next element
-            if (((i % 2 == 0) && nums[i] > nums[i + 1]) || 
-                ((i % 2 == 1) && nums[i] < nums[i + 1])) {
+            if ((i % 2 == 0) ? nums[i] > nums[i + 1] : nums[i] < nums[i + 1]) {
                 swap(nums, i, i + 1);
             }
         }
