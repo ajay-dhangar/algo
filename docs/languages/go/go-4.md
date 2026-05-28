@@ -5,6 +5,8 @@ title: "Arrays and Slices in Go"
 sidebar_label: "Arrays and Slices"
 ---
 
+# Arrays and Slices in Go
+
 Hey there! In this guide, we'll explore **Arrays and Slices** in Go. These are the primary ways to group multiple values of the same type together. Let's dive in!
 
 ## 1. Arrays in Go

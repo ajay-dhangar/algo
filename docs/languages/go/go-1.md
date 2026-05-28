@@ -5,6 +5,8 @@ title: "Introduction to Go"
 sidebar_label: "Introduction to Go"
 ---
 
+# Introduction to Go
+
 Welcome to the world of Go! In this guide, we'll explore the fundamentals of Go (often referred to as Golang), a powerful and efficient programming language developed by Google. Let's get started!
 
 ## 1. What is Go?

@@ -5,6 +5,8 @@ title: "Error Handling in Go"
 sidebar_label: "Error Handling"
 ---
 
+# Error Handling in Go
+
 Hey there! In this guide, we'll explore **Error Handling** in Go. Unlike many other languages that use `try/catch` exceptions, Go treats errors as just another type of return value. Let's dive in!
 
 ## 1. The `error` Type

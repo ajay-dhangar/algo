@@ -5,6 +5,8 @@ title: "Goroutines & Concurrency in Go"
 sidebar_label: "Concurrency"
 ---
 
+# Goroutines and Concurrency in Go
+
 Hey there! In this guide, we'll explore **Concurrency** in Go. Concurrency is one of Go's killer features. Go makes it incredibly easy to run multiple tasks at the same time using **Goroutines**. Let's dive in!
 
 ## 1. What is Concurrency?

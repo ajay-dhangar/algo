@@ -5,6 +5,8 @@ title: "Channels in Go"
 sidebar_label: "Channels"
 ---
 
+# Channels in Go
+
 Hey there! In this guide, we'll explore **Channels** in Go. Channels are the pipes that connect concurrent goroutines. You can send values into channels from one goroutine and receive those values into another goroutine. Let's dive in!
 
 ## 1. What is a Channel?

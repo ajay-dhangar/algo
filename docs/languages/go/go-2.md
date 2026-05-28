@@ -5,6 +5,8 @@ title: "Variables and Data Types in Go"
 sidebar_label: "Variables and Data Types"
 ---
 
+# Variables and Data Types
+
 Hey there! In this guide, we'll explore the concepts of variables and data types in Go. Variables are essential in programming, allowing you to store and manipulate data dynamically. Let's dive in!
 
 ## 1. Introduction to Variables

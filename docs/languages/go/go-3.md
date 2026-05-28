@@ -5,6 +5,8 @@ title: "Functions in Go"
 sidebar_label: "Functions"
 ---
 
+# Functions in Go
+
 Hey there! In this guide, we'll explore **Functions** in Go. Functions are the building blocks of Go programs. They allow you to encapsulate a piece of code so it can be reused throughout your application. Let's dive in!
 
 ## 1. What is a Function?

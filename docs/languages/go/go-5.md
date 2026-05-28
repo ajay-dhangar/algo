@@ -5,6 +5,8 @@ title: "Maps in Go"
 sidebar_label: "Maps"
 ---
 
+# Maps in Go
+
 Hey there! In this guide, we'll explore **Maps** in Go. Maps are Go's built-in associative data type (often called hashes or dictionaries in other languages). They are incredibly useful for storing key-value pairs. Let's dive in!
 
 ## 1. What is a Map?

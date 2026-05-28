@@ -5,6 +5,8 @@ title: "Structs and Interfaces in Go"
 sidebar_label: "Structs & Interfaces"
 ---
 
+# Structs and Interfaces in Go
+
 Hey there! In this guide, we'll explore **Structs and Interfaces** in Go. Go is not a traditional object-oriented language—it doesn't have classes or inheritance. Instead, it uses structs and interfaces to achieve similar, and often more flexible, designs. Let's dive in!
 
 ## 1. Structs in Go
