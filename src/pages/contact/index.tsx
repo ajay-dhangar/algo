@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
         draggable: true,
         progress: undefined,
       });
-      
+
       // Clear form data
       setFormData({ name: "", email: "", message: "" });
     } else {
@@ -81,121 +81,181 @@ const Contact: React.FC = () => {
     <Layout
       title="Contact Us"
       description="Get in touch with us through the contact form or visit our office."
-      >
-    <div className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    >
+      <div className="text-slate-900 dark:text-slate-100">
 
-      <ToastContainer />
+        <ToastContainer />
 
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-10 w-full p-5 lg:p-10 min-h-screen bg-gray-100 dark:bg-gray-600">
-  {/* Form Section */}
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="border-2 w-full md:w-2/3 lg:w-1/3 shadow-lg rounded-lg py-8 bg-[#d6eaf8] dark:bg-blue-950 px-6 md:px-10 flex flex-col justify-center"
-  >
-    <h2 className="text-3xl md:text-4xl font-bold font-serif text-blue-900 dark:text-[#d6eaf8] mb-6 text-center">
-      Contact Us
-    </h2>
-    <p className="italic leading-snug text-blue-800 text-sm text-center dark:text-slate-300">We are here to help and answer any question you might have. We look forward to hearing from you!!</p>
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div>
-        <label htmlFor="contact-name" className="block text-md text-blue-800 font-bold dark:text-gray-300">
-          Name
-        </label>
-        <input
-          id="contact-name"
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          pattern="[a-zA-Z ]+" 
-           onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity('Please enter a valid name without numbers or special characters')}
-           onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
-          className="mt-1 block w-full px-4 py-3 rounded-md text-gray-800 dark:text-gray-300 border border-blue-900 focus:ring-2 focus:ring-blue-500 outline-none"
-        />
-        {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-8 w-full p-6 lg:p-12 min-h-screen">
+
+          {/* Form Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full md:w-2/3 lg:w-[480px] rounded-[32px] border border-white/10 bg-background/60 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.35)] px-8 py-8 relative overflow-hidden"
+          >
+
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 bg-clip-text text-transparent">
+              Contact Us
+            </h2>
+
+            <p className="text-sm text-center text-muted-foreground mb-6 leading-relaxed">
+              We are here to help and answer any question you might have. We look
+              forward to hearing from you!!
+            </p>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+
+              <div>
+                <label
+                  htmlFor="contact-name"
+                  className="block text-sm font-semibold text-foreground mb-2"
+                >
+                  Name
+                </label>
+
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-xl border border-border bg-background/80 px-4 py-3 text-foreground transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+
+                {errors.name && (
+                  <p className="text-sm text-red-500 mt-1">
+                    {errors.name}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="contact-email"
+                  className="block text-sm font-semibold text-foreground mb-2"
+                >
+                  Email
+                </label>
+
+                <input
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-border bg-background/80 px-4 py-3 text-foreground transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+
+                {errors.email && (
+                  <p className="text-sm text-red-500 mt-1">
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="contact-message"
+                  className="block text-sm font-semibold text-foreground mb-2"
+                >
+                  Message
+                </label>
+
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full rounded-xl border border-border bg-background/80 px-4 py-3 text-foreground transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+
+                {errors.message && (
+                  <p className="text-sm text-red-500 mt-1">
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full py-3 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 font-semibold text-white shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5 transition-all duration-300"
+                type="submit"
+              >
+                Send Message
+              </motion.button>
+            </form>
+          </motion.div>
+
+          {/* Cards Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col gap-4 w-full md:w-2/3 lg:w-[320px]"
+          >
+
+            <div className="border border-border bg-background/70 backdrop-blur-xl p-5 rounded-2xl shadow-xl hover:border-yellow-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center md:items-start">
+              <div className="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center mb-3">
+                <FaPhoneAlt className="text-yellow-500 text-lg" />
+              </div>
+
+              <h3 className="text-lg font-semibold mb-1">
+                Call Us
+              </h3>
+
+              <a
+                href="tel:+1234567890"
+                className="text-muted-foreground text-sm hover:underline"
+              >
+                +1 (234) 567-890
+              </a>
+            </div>
+
+            <div className="border border-border bg-background/70 backdrop-blur-xl p-5 rounded-2xl shadow-xl hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center md:items-start">
+              <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3">
+                <FaEnvelope className="text-blue-500 text-lg" />
+              </div>
+
+              <h3 className="text-lg font-semibold mb-1">
+                Email Us
+              </h3>
+
+              <a
+                href="mailto:ajaydhangar49@gmail.com"
+                className="text-muted-foreground text-sm break-all hover:underline"
+              >
+                ajaydhangar49@gmail.com
+              </a>
+            </div>
+
+            <div className="border border-border bg-background/70 backdrop-blur-xl p-5 rounded-2xl shadow-xl hover:border-green-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center md:items-start">
+              <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-3">
+                <FaMapMarkerAlt className="text-green-500 text-lg" />
+              </div>
+
+              <h3 className="text-lg font-semibold mb-1">
+                Visit Us
+              </h3>
+
+              <p className="text-muted-foreground text-sm">
+                Mandsaur, Madhya Pradesh, India
+              </p>
+            </div>
+
+          </motion.div>
+        </div>
       </div>
-
-      <div>
-        <label htmlFor="contact-email" className="block text-md text-blue-800 font-bold dark:text-gray-300">
-          Email
-        </label>
-        <input
-          id="contact-email"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="mt-1 block w-full px-4 py-3 rounded-md text-gray-800 dark:text-gray-300 border border-blue-900 focus:ring-2 focus:ring-blue-500 outline-none"
-        />
-        {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="contact-message" className="block text-md text-blue-800 font-bold dark:text-gray-300">
-          Message
-        </label>
-        <textarea
-          id="contact-message"
-          name="message"
-          rows={6}
-          value={formData.message}
-          onChange={handleChange}
-          className="mt-1 block w-full px-4 py-2 rounded-md text-gray-800 dark:text-gray-300 border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
-        ></textarea>
-        {errors.message && <p className="text-sm text-red-600">{errors.message}</p>}
-      </div>
-
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-md shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition duration-300"
-        type="submit"
-      >
-        Send Message
-      </motion.button>
-    </form>
-  </motion.div>
-
-  {/* Cards Section */}
-  <motion.div
-    initial={{ opacity: 0, x: 20 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.5 }}
-    className="flex flex-col gap-5 w-full md:w-2/3 lg:w-1/4"
-  >
-    <div className="bg-gradient-to-l from-blue-200 via-blue-400 to-blue-600 dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center md:items-start">
-      <div className="bg-[#B7E0FF] rounded-full px-3 py-3 flex items-center mb-2">
-        <FaPhoneAlt className="text-lg text-blue-600 dark:text-gray-800" />
-      </div>
-      <h3 className="text-xl font-semibold text-white dark:text-black mb-1">Call Us</h3>
-      <p className="text-white dark:text-gray-600 font-bold text-lg">+1 (234) 567-890</p>
-    </div>
-
-    <div className="bg-gradient-to-tl from-blue-200 via-blue-400 to-blue-600 dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center md:items-start">
-      <div className="bg-[#B7E0FF] rounded-full px-3 py-3 flex items-center mb-2">
-        <FaEnvelope className="text-lg text-blue-600 dark:text-gray-800" />
-      </div>
-      <h3 className="text-xl font-semibold text-white dark:text-black mb-1">Email Us</h3>
-      <p className="text-white dark:text-gray-600 font-bold text-lg">ajaydhangar49@gmail.com</p>
-    </div>
-
-    <div className="bg-gradient-to-l from-blue-200 via-blue-400 to-blue-600 dark:bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center md:items-start">
-      <div className="bg-[#B7E0FF] rounded-full px-3 py-3 flex items-center mb-2">
-        <FaMapMarkerAlt className="text-lg text-blue-600 dark:text-gray-800" />
-      </div>
-      <h3 className="text-xl font-semibold text-white dark:text-black mb-1">Visit Us</h3>
-      <p className="text-white dark:text-gray-600 font-bold text-lg">
-        Mandsaur, Madhya Pradesh, India
-      </p>
-    </div>
-  </motion.div>
-</div>
-
-
-    </div>
     </Layout>
   );
 };
