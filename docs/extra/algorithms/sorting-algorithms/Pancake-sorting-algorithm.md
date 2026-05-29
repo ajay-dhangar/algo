@@ -103,7 +103,7 @@ void pancakeSort(vector<int>& arr)
 }
 
 // Function to print array
-void printArray(vector<int>& arr)
+void printArray(const vector<int>& arr)
 {
     for (int num : arr)
     {
