@@ -8,7 +8,6 @@ import {
   FiCode,
   FiSearch,
   FiMap,
-  FiUsers,
   FiGlobe,
   FiShare2,
 } from "react-icons/fi";
@@ -229,6 +228,78 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Analyze relationships and connectivity",
     ],
   },
+
+  Backtracking: {
+    applications: [
+      "N-Queens Problem",
+      "Sudoku Solver",
+      "Rat in a Maze",
+      "Permutations & Combinations",
+      "Graph Coloring",
+    ],
+    description:
+      "Backtracking is a problem-solving technique that builds solutions incrementally and backtracks whenever a condition fails.",
+    steps: [
+      "Choose a possible option",
+      "Move recursively to next step",
+      "Check constraints or validity",
+      "Backtrack if solution fails",
+    ],
+  },
+
+  "Greedy Algorithms": {
+    applications: [
+      "Activity Selection",
+      "Huffman Coding",
+      "Fractional Knapsack",
+      "Job Sequencing",
+      "Minimum Platforms Problem",
+    ],
+    description:
+      "Greedy Algorithms make the locally optimal choice at each step to achieve a globally optimal solution.",
+    steps: [
+      "Select the best local choice",
+      "Optimize current step",
+      "Repeat for remaining problem",
+      "Build final optimal solution",
+    ],
+  },
+
+  Heaps: {
+    applications: [
+      "Priority Queues",
+      "Heap Sort",
+      "Kth Largest/Smallest Element",
+      "Merge K Sorted Arrays/Lists",
+      "Median in a Data Stream",
+    ],
+    description:
+      "Heaps are tree-based data structures mainly used for efficient priority management and fast retrieval of minimum or maximum elements.",
+    steps: [
+      "Insert elements into heap",
+      "Maintain heap property",
+      "Access highest priority element",
+      "Perform extraction or updates efficiently",
+    ],
+  },
+
+  Tries: {
+    applications: [
+      "Autocomplete Systems",
+      "Spell Checker",
+      "Dictionary Search",
+      "IP Routing",
+      "Word Search Problems",
+    ],
+    description:
+      "Tries are specialized tree structures used for efficient string storage and fast prefix-based searching.",
+    steps: [
+      "Store characters node-by-node",
+      "Build prefix-based paths",
+      "Traverse using input string",
+      "Retrieve matching words efficiently",
+    ],
+  },
 };
 
 const getIcon = (selected: string) => {
@@ -251,6 +322,18 @@ const getIcon = (selected: string) => {
     case "BFS":
     case "DFS":
       return <FiGlobe className="w-5 h-5 text-indigo-500" />;
+
+    case "Backtracking":
+      return <FiCode className="w-5 h-5 text-red-500" />;
+
+    case "Greedy Algorithms":
+      return <FiCompass className="w-5 h-5 text-yellow-500" />;
+
+    case "Heaps":
+      return <FiDatabase className="w-5 h-5 text-purple-500" />;
+
+    case "Tries":
+      return <FiGitCommit className="w-5 h-5 text-emerald-500" />;
 
     default:
       return <FiCpu className="w-5 h-5 text-[var(--ifm-color-primary)]" />;
