@@ -260,9 +260,9 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Greedy Algorithms make the locally optimal choice at each step to achieve a globally optimal solution.",
     steps: [
       "Select the best local choice",
-      "Optimize current step",
-      "Repeat for remaining problem",
-      "Build final optimal solution",
+      "Optimize the current step",
+      "Repeat for the remaining problem",
+      "Build the final optimal solution",
     ],
   },
 
