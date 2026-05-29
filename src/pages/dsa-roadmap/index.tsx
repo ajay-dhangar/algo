@@ -15,33 +15,7 @@ import {
 import { topics } from "../../data/topics";
 
 const DSARoadmap: React.FC = () => {
-  const programmingFundamentalsBase = useBaseUrl("/docs/programming-fundamentals");
-  const languagesBase = useBaseUrl("/docs/languages");
-  const dataStructuresBase = useBaseUrl("/docs/data-structures");
-  const basicDataStructuresBase = useBaseUrl("/docs/basic-data-structures");
-  const complexityBase = useBaseUrl("/docs/extra/complexity");
-  const sortingsBase = useBaseUrl("/docs/extra/sortings");
   const categoryBase = useBaseUrl("/docs/category");
-
-  const slugify = (value: string) => value.toLowerCase().replace(/\s+/g, "-");
-
-  const languageFolderMap: Record<string, string> = {
-    JavaScript: "javascript",
-    Java: "java",
-    Python: "python",
-    "C#": "csharp",
-    "C++": "cpp",
-    Rust: "Rust",
-    SQL: "SQL",
-    C: "C",
-  };
-
-  const languageDocSlug = (fileName: string, languageSlug: string) => {
-    if (fileName.toLowerCase() === "introduction") {
-      return `introduction-to-${languageSlug}`;
-    }
-    return `${slugify(fileName)}-in-${languageSlug}`;
-  };
 
   // Explicit mapping from topic folder names to actual generated category URLs
   // Built by matching topics.ts folder names to actual categories in /docs/category/

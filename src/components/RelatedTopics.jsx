@@ -113,15 +113,14 @@ function getTopicLabel(topic) {
 
 function TopicLink({ topic }) {
   const docPath = convertTopicToPath(topic);
-  const label = getTopicLabel(topic);
-  
-  // Use useBaseUrl to properly handle baseUrl
-  const to = useBaseUrl(docPath);
 
   if (!docPath) {
     console.warn(`[RelatedTopics] Invalid topic: ${topic}`);
     return null;
   }
+
+  const label = getTopicLabel(topic);
+  const to = useBaseUrl(docPath);
 
   return (
     <Link
