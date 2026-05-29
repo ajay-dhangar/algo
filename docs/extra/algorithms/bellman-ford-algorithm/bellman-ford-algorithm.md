@@ -3,6 +3,8 @@ id: bellman-ford-algorithm
 sidebar_position: 18
 title: "Bellman-Ford Algorithm"
 sidebar_label: Bellman-Ford Algorithm
+description: "An overview of the Bellman-Ford algorithm, including its implementation in C++, Java, and Python, time complexity analysis, and comparison with Dijkstra's algorithm."
+tags: [algorithms, shortest-path, graph-theory, dynamic-programming]
 ---
 
 ### Definition:
