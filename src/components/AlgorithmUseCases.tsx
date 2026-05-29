@@ -277,9 +277,9 @@ const algorithmData: Record<string, AlgorithmDetails> = {
     description:
       "Heaps are tree-based data structures mainly used for efficient priority management and fast retrieval of minimum or maximum elements.",
     steps: [
-      "Insert elements into heap",
-      "Maintain heap property",
-      "Access highest priority element",
+      "Insert elements into the heap",
+      "Maintain the heap property",
+      "Access the highest priority element",
       "Perform extraction or updates efficiently",
     ],
   },
