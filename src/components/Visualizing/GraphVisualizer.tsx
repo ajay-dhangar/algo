@@ -245,8 +245,8 @@ const GraphVisualizer: React.FC = () => {
     if (!uNode || !tNode) return 0;
     const dx = uNode.x - tNode.x;
     const dy = uNode.y - tNode.y;
-    // Scaling distance coordinates relative to normal edge weight indexes
-    return Math.round(Math.sqrt(dx * dx + dy * dy) / 40);
+    // Scaling distance coordinates to ensure the heuristic is admissible (does not overestimate)
+    return Math.round(Math.sqrt(dx * dx + dy * dy) / 100);
   };
 
   const markVisitedEdge = (u: number, v: number) => {
