@@ -331,7 +331,7 @@ const getIcon = (selected: string) => {
       return <FiCompass className="w-5 h-5 text-yellow-500" />;
 
     case "Heaps":
-      return <FiDatabase className="w-5 h-5 text-purple-500" />;
+      return <FiLayers className="w-5 h-5 text-purple-500" />;
 
     case "Tries":
       return <FiGitCommit className="w-5 h-5 text-emerald-500" />;
