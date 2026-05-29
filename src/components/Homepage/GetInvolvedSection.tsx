@@ -56,9 +56,9 @@ const GetInvolvedSection: React.FC = () => {
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event, index) => (
+          {events.map((event) => (
             <EventCard
-              key={index}
+              key={event.title}
               title={event.title}
               description={event.description}
               link={event.link}
