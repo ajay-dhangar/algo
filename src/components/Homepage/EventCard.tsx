@@ -37,7 +37,7 @@ const EventCard: React.FC<EventCardProps> = ({
         </div>
       )}
 
-      <div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg"></div>
+<div className="absolute inset-0 bg-blue-100 opacity-10 rounded-lg pointer-events-none"></div>
     </div>
   );
 };
