@@ -7,12 +7,12 @@ interface QuizResultActionsProps {
 
 const QuizResultActions: React.FC<QuizResultActionsProps> = ({ onRetry }) => {
   return (
-    <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center" aria-label="Quiz navigation actions">
+    <nav className="mt-6 flex flex-col sm:flex-row gap-3 justify-center" aria-label="Quiz navigation actions">
       <Link
         to="/quizzes"
         className="inline-flex items-center justify-center rounded-lg bg-gray-200 px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600 transition-colors"
       >
-        ← Back to Quizzes
+        <span aria-hidden="true" className="mr-1">&larr;</span> Back to Quizzes
       </Link>
       <button
         type="button"
@@ -21,7 +21,7 @@ const QuizResultActions: React.FC<QuizResultActionsProps> = ({ onRetry }) => {
       >
         Try Again
       </button>
-    </div>
+    </nav>
   );
 };
 
