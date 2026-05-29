@@ -9,6 +9,8 @@ from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
+import QuizResultActions from "../../components/Quiz/QuizResultActions";
+
 const BTree: React.FC = () => {
   const questions = [
     {
@@ -238,6 +240,13 @@ const BTree: React.FC = () => {
     }
   };
 
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setShowResult(false);
+    setUserAnswers([]);
+    setTimeSpent(0);
+  };
+
   if (!userId) {
     return (
       <Layout title="Quiz on B-Trees" description="Test your knowledge of B-Trees with this quiz!">
@@ -314,6 +323,8 @@ setCurrentQuestionIndex={setCurrentQuestion}
                   {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
                 </p>
               </div>
+
+              <QuizResultActions onRetry={handleRetry} />
 
               {/* Solutions Section */}
               <div className="mt-8">

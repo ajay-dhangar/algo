@@ -3,6 +3,8 @@ import Layout from "@theme/Layout";
 import Header from "../../components/Header";
 import QuizCard from "../../components/QuizCard";
 import quizData from "../../data/quizData";
+import ScrollBottomToTop from "../../components/Scroller/BottomToTop/BottomToTop";
+import ScrollTopToBottom from "../../components/Scroller/TopToBottom/TopToBottom";
 
 const Quizes: React.FC = () => (
   <Layout
@@ -25,6 +27,8 @@ const Quizes: React.FC = () => (
         ))}
       </div>
     </section>
+    <ScrollBottomToTop />
+    <ScrollTopToBottom />
   </Layout>
 );
 

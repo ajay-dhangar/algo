@@ -9,6 +9,8 @@ from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
+import QuizResultActions from "../../components/Quiz/QuizResultActions";
+
 const BinaryTreeQuiz: React.FC = () => {
   const questions = [
     // Easy Questions
@@ -213,6 +215,15 @@ const BinaryTreeQuiz: React.FC = () => {
     }
   };
 
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+    setSelectedOption(null);
+    setUserAnswers([]);
+    setTimeSpent(0);
+  };
+
   if (!userId) {
     return (
       <Layout title="Binary Tree Quiz" description="Test your knowledge of binary trees with this quiz!">
@@ -289,6 +300,8 @@ setCurrentQuestionIndex={setCurrentQuestion}
                   {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
                 </p>
               </div>
+
+              <QuizResultActions onRetry={handleRetry} />
 
               {/* Solutions Section */}
               <div className="mt-8">
