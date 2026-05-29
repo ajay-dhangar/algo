@@ -6,13 +6,7 @@ const ScrollBottomToTop: React.FC = () => {
     const [showButton, setShowButton] = useState<boolean>(false);
 
     const scrollToTop = () => {
-        const scrollStep = -window.scrollY / (500 / 15);
-        const scrollInterval = setInterval(() => {
-            if (window.scrollY === 0) {
-                clearInterval(scrollInterval);
-            }
-            window.scrollBy(0, scrollStep);
-        }, 15);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const handleScroll = () => {
@@ -32,8 +26,12 @@ const ScrollBottomToTop: React.FC = () => {
 
     return (
         showButton && (
-            <button onClick={scrollToTop} className={styles.scrollToTopButton}>
-                <FaArrowUp />
+            <button
+                onClick={scrollToTop}
+                className={styles.scrollToTopButton}
+                aria-label="Scroll to top"
+            >
+                <FaArrowUp aria-hidden="true" />
             </button>
         )
     );

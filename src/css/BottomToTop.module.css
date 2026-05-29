@@ -18,3 +18,8 @@
   background-color: #0056b3;
   opacity: 1;
 }
+
+.scrollToTopButton:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}

@@ -74,6 +74,7 @@ const About: React.FC = () => {
             <motion.img
               src="/algo/images/mission.jpg"
               alt="Our Mission"
+              loading="lazy"
               className="md:w-1/2 rounded-lg shadow-lg"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -102,6 +103,7 @@ const About: React.FC = () => {
                 className="w-24 h-24 rounded-full mx-auto mb-4"
                 src="/algo/images/team-member-1.jpg"
                 alt="Team Member 1"
+                loading="lazy"
               />
               <h3 className="text-xl font-bold text-gray-800 dark:text-white">
                 Ajay Dhangar
@@ -137,6 +139,7 @@ const About: React.FC = () => {
                 className="w-24 h-24 rounded-full mx-auto mb-4"
                 src="/algo/images/team-member-2.jpg"
                 alt="Team Member 2"
+                loading="lazy"
               />
               <h3 className="text-xl font-bold text-gray-800 dark:text-white">
                 Jane Doe
@@ -174,6 +177,7 @@ const About: React.FC = () => {
                 className="w-24 h-24 rounded-full mx-auto mb-4"
                 src="/algo/images/team-member-3.jpg"
                 alt="Team Member 3"
+                loading="lazy"
               />
               <h3 className="text-xl font-bold text-gray-800 dark:text-white">
                 John Smith

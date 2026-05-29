@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
+import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
+
+import QuestionProgress
+from "../../components/Quiz/QuestionProgress";
+
+import QuestionNavigator
+from "../../components/Quiz/QuestionNavigator";
 
 const BTree: React.FC = () => {
   const questions = [
@@ -14,6 +21,8 @@ const BTree: React.FC = () => {
       ],
       answer:
         "B) A tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.",
+      explanation:
+        "A B-Tree is a self-balancing tree data structure designed for systems that read and write large blocks of data (e.g., databases, file systems). It generalizes the binary search tree by allowing nodes to have more than two children, keeping data sorted and enabling O(log n) operations.",
     },
     {
       question: "2. What is the minimum degree of a B-Tree?",
@@ -24,12 +33,16 @@ const BTree: React.FC = () => {
         "D) The number of levels in the tree.",
       ],
       answer: "A) The minimum number of keys a node can contain.",
+      explanation:
+        "The minimum degree t of a B-Tree defines the lower bound on the number of keys each non-root node must hold (at least t-1 keys). It also determines the maximum: each node can hold at most 2t-1 keys.",
     },
     {
       question:
         "3. In a B-Tree, each node can have a maximum of how many children?",
       options: ["A) 2", "B) 3", "C) 2t", "D) t"],
       answer: "C) 2t",
+      explanation:
+        "In a B-Tree of minimum degree t, each node can have at most 2t children (and at most 2t-1 keys). This upper bound ensures the tree stays balanced and disk I/O is minimized by keeping nodes large.",
     },
     {
       question:
@@ -41,6 +54,8 @@ const BTree: React.FC = () => {
         "D) Simplicity of implementation.",
       ],
       answer: "C) Better balance and reduced height.",
+      explanation:
+        "B-Trees maintain balance automatically and store many keys per node, resulting in a much shorter tree height compared to a binary search tree. This dramatically reduces the number of disk accesses needed for operations, which is critical for database and file system performance.",
     },
     {
       question:
@@ -52,6 +67,8 @@ const BTree: React.FC = () => {
         "D) No action is taken.",
       ],
       answer: "C) The node is split into two nodes.",
+      explanation:
+        "When a node reaches its maximum capacity (2t-1 keys), it is split into two nodes of t-1 keys each, and the median key is promoted to the parent. This split operation keeps the tree balanced and ensures no node overflows.",
     },
     {
       question: "6. What does it mean for a B-Tree to be balanced?",
@@ -62,6 +79,8 @@ const BTree: React.FC = () => {
         "D) The tree is a complete binary tree.",
       ],
       answer: "A) All leaves are at the same depth.",
+      explanation:
+        "A B-Tree is balanced in the sense that all leaf nodes reside at the same level (depth). This property guarantees that every search, insertion, or deletion takes O(log n) time regardless of the data distribution.",
     },
     {
       question: "7. How is deletion handled in a B-Tree?",
@@ -73,6 +92,8 @@ const BTree: React.FC = () => {
       ],
       answer:
         "C) It may require borrowing a key from a sibling or merging nodes.",
+      explanation:
+        "Deleting a key from a B-Tree can cause a node to fall below the minimum key count (t-1). To fix this, the tree either borrows a key from an adjacent sibling (rotation) or merges the node with a sibling and pulls down a key from the parent, maintaining the B-Tree invariants.",
     },
     {
       question: "8. Which of the following properties is NOT true for B-Trees?",
@@ -83,6 +104,8 @@ const BTree: React.FC = () => {
         "D) Every node can have an arbitrary number of children.",
       ],
       answer: "D) Every node can have an arbitrary number of children.",
+      explanation:
+        "B-Tree nodes are strictly bounded: each non-root node has between t-1 and 2t-1 keys (and between t and 2t children). Allowing an arbitrary number of children would violate the B-Tree definition and break its performance guarantees.",
     },
     {
       question: "9. In which applications are B-Trees commonly used?",
@@ -93,6 +116,8 @@ const BTree: React.FC = () => {
         "D) Small data storage.",
       ],
       answer: "B) File systems and databases.",
+      explanation:
+        "B-Trees are the backbone of most relational database indexes (e.g., MySQL InnoDB, PostgreSQL) and file systems (e.g., NTFS, HFS+, ext4). Their high branching factor minimizes disk reads, making them ideal for large datasets stored on disk.",
     },
     {
       question:
@@ -104,14 +129,21 @@ const BTree: React.FC = () => {
         "D) The height and order are always equal.",
       ],
       answer: "B) The height decreases as the order increases.",
+      explanation:
+        "A higher order (larger t) means each node can hold more keys and have more children, so fewer levels are needed to store the same amount of data. The height of a B-Tree is O(log_t n), so increasing t directly reduces the tree's height.",
     },
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
+
+  // Derived state: eliminates score desync and selectedOption carry-over bugs
+  const selectedOption = userAnswers[currentQuestion] || null;
+  const score = userAnswers.reduce(
+    (acc, answer, index) => (answer === questions[index]?.answer ? acc + 1 : acc),
+    0
+  );
 
   // Custom states for persistence, timer, and history
   const [usernameInput, setUsernameInput] = useState("");
@@ -145,7 +177,9 @@ const BTree: React.FC = () => {
 
   const fetchAttempts = async (uId: string) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/quiz-attempts/${uId}/b-tree`);
+      const res = await axios.get(
+        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/b-tree`)
+      );
       if (res.data?.success) {
         setAttempts(res.data.attempts);
       }
@@ -175,7 +209,7 @@ const BTree: React.FC = () => {
   const submitAttempt = async (finalAnswers: string[]) => {
     if (!userId) return;
     try {
-      await axios.post("http://localhost:5000/api/quiz-attempts", {
+      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
         userId,
         quizId: "b-tree",
         userAnswers: finalAnswers,
@@ -188,23 +222,19 @@ const BTree: React.FC = () => {
   };
 
   const handleAnswer = (selected: string) => {
-    setSelectedOption(selected);
+    const updatedAnswers = [...userAnswers];
+    updatedAnswers[currentQuestion] = selected;
+    setUserAnswers(updatedAnswers);
   };
 
   const nextQuestion = () => {
-    setUserAnswers((prev) => [...prev, selectedOption]);
-
-    if (selectedOption === questions[currentQuestion].answer) {
-      setScore((prev) => prev + 1);
-    }
+    if (!selectedOption) return;
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers, selectedOption];
-      submitAttempt(finalAnswers);
+      submitAttempt(userAnswers);
     }
   };
 
@@ -221,6 +251,7 @@ const BTree: React.FC = () => {
             <form onSubmit={handleRegister} className="space-y-4">
               <input
                 type="text"
+                aria-label="Username"
                 placeholder="Enter username (e.g. JohnDoe)"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
@@ -255,6 +286,18 @@ const BTree: React.FC = () => {
 
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Quiz on B-Trees</h2>
 
+          <QuestionProgress
+currentQuestion={currentQuestion}
+totalQuestions={questions.length}
+/>
+
+<QuestionNavigator
+questions={questions}
+currentQuestion={currentQuestion}
+userAnswers={userAnswers}
+setCurrentQuestionIndex={setCurrentQuestion}
+/>
+
           {!showResult && (
             <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-right">
               ⏱ Time: {Math.floor(timeSpent / 60)}m {timeSpent % 60}s
@@ -284,9 +327,11 @@ const BTree: React.FC = () => {
                     <p className="text-md">
                       <span className="font-bold">Correct Answer:</span> {q.answer}
                     </p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
-                      <span className="font-bold">Explanation:</span> {q.explanation}
-                    </p>
+                    {q.explanation && (
+                      <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
+                        <span className="font-bold">Explanation:</span> {q.explanation}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -312,7 +357,12 @@ const BTree: React.FC = () => {
               </div>
               <button
                 onClick={nextQuestion}
-                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none cursor-pointer font-semibold"
+                disabled={selectedOption === null}
+                className={`mt-6 py-2 px-4 text-white rounded-lg w-full transition-colors duration-300 border-none font-semibold ${
+                  selectedOption === null
+                    ? "bg-gray-400 cursor-not-allowed opacity-60"
+                    : "bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 cursor-pointer"
+                }`}
               >
                 Next Question
               </button>
