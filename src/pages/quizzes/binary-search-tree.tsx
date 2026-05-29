@@ -9,6 +9,8 @@ from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
+import QuizResultActions from "../../components/Quiz/QuizResultActions";
+
 const BinarySearchTreeQuiz: React.FC = () => {
   const questions = [
     {
@@ -145,6 +147,15 @@ const BinarySearchTreeQuiz: React.FC = () => {
     }
   };
 
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+    setSelectedOption(null);
+    setUserAnswers([]);
+    setTimeSpent(0);
+  };
+
   if (!userId) {
     return (
       <Layout title="Binary Search Tree Quiz" description="Test your knowledge of binary search trees with this quiz!">
@@ -218,6 +229,8 @@ setCurrentQuestionIndex={setCurrentQuestion}
                   {score <= 1 ? "Better luck next time!" : "Good job!"}
                 </p>
               </div>
+
+              <QuizResultActions onRetry={handleRetry} />
 
               {/* Solutions Section */}
               <div className="mt-8">

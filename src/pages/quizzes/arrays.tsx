@@ -9,6 +9,8 @@ from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
+import QuizResultActions from "../../components/Quiz/QuizResultActions";
+
 const ArrayQuiz: React.FC = () => {
   const questions = [
     {
@@ -281,6 +283,15 @@ int main()
     }
   };
 
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+    setSelectedOption(null);
+    setUserAnswers([]);
+    setTimeSpent(0);
+  };
+
   if (!userId) {
     return (
       <Layout title="Arrays Quiz" description="Test your knowledge on array operations and algorithms.">
@@ -354,6 +365,8 @@ setCurrentQuestionIndex={setCurrentQuestion}
                   {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
                 </p>
               </div>
+
+              <QuizResultActions onRetry={handleRetry} />
 
               {/* Solutions Section */}
               <div className="mt-8">

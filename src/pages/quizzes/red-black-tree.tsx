@@ -9,6 +9,8 @@ from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
+import QuizResultActions from "../../components/Quiz/QuizResultActions";
+
 const RedBlackTreeQuiz: React.FC = () => {
   const questions = [
     // Easy Questions
@@ -270,6 +272,15 @@ const RedBlackTreeQuiz: React.FC = () => {
     }
   };
 
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+    setSelectedOption(null);
+    setUserAnswers([]);
+    setTimeSpent(0);
+  };
+
   if (!userId) {
     return (
       <Layout title="Quiz on Red-Black Trees" description="Challenge your understanding of the properties and algorithms of Red-Black Trees.">
@@ -343,6 +354,8 @@ setCurrentQuestionIndex={setCurrentQuestion}
                   {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
                 </p>
               </div>
+
+              <QuizResultActions onRetry={handleRetry} />
 
               {/* Solutions Section */}
               <div className="mt-8">
