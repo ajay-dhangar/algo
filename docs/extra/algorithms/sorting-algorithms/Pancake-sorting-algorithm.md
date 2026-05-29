@@ -88,11 +88,13 @@ void pancakeSort(vector<int>& arr)
         // Find index of largest element
         int maxIndex = findMaxIndex(arr, currSize);
 
-        // Move largest element to correct position
         if (maxIndex != currSize - 1)
         {
-            // Bring largest element to top
-            flip(arr, maxIndex);
+            // Bring largest element to top if not already there
+            if (maxIndex != 0)
+            {
+                flip(arr, maxIndex);
+            }
 
             // Move largest element to its correct position
             flip(arr, currSize - 1);
