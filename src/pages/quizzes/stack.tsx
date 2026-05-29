@@ -9,6 +9,8 @@ from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
+import QuizResultActions from "../../components/Quiz/QuizResultActions";
+
 const StackQuiz: React.FC = () => {
   const questions = [
     // Easy Questions
@@ -320,6 +322,15 @@ print "balanced"`}
     }
   };
 
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+    setSelectedOption(null);
+    setUserAnswers([]);
+    setTimeSpent(0);
+  };
+
   if (!userId) {
     return (
       <Layout title="Stack Quiz" description="Evaluate your understanding of stack operations and applications.">
@@ -399,6 +410,8 @@ totalQuestions=
                   {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
                 </p>
               </div>
+
+              <QuizResultActions onRetry={handleRetry} />
 
               {/* Solutions Section */}
               <div className="mt-8">
