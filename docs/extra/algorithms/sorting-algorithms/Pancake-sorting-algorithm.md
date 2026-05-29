@@ -81,9 +81,9 @@ int findMaxIndex(const vector<int>& arr, int n)
 }
 
 // Pancake Sort Function
-void pancakeSort(vector<int>& arr, int n)
+void pancakeSort(vector<int>& arr)
 {
-    for (int currSize = n; currSize > 1; currSize--)
+    for (int currSize = arr.size(); currSize > 1; currSize--)
     {
         // Find index of largest element
         int maxIndex = findMaxIndex(arr, currSize);
