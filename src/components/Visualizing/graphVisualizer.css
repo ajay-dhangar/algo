@@ -275,10 +275,10 @@
 
 @keyframes nodePulse {
   from {
-    box-shadow: 0 0 4px #ff9800;
+    stroke-width: 2.5;
   }
   to {
-    box-shadow: 0 0 16px #e65100;
+    stroke-width: 5.5;
   }
 }
 
