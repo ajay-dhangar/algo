@@ -7,13 +7,29 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
  * Example: "category/arrays" -> "/docs/basic-data-structures/array/"
  */
 const CATEGORY_PATH_MAP = {
-  "arrays": "basic-data-structures/array/",
-  "linked-list": "extra/linked-list/",
-  "queue": "extra/queue/",
-  "stacks": "extra/stack/",
+  // Basic data structures (using doc IDs from frontmatter)
+  "arrays": "basic-data-structures/array/arrays-in-dsa",
+  "array": "basic-data-structures/array/arrays-in-dsa",
+
+  // Linked lists (camelCase doc ID)
+  "linked-list": "extra/linked-list/introduction-to-linkedList",
+  "linked-lists": "extra/linked-list/introduction-to-linkedList",
+  "linkedlist": "extra/linked-list/introduction-to-linkedList",
+
+  // Stacks & Queues (using correct doc IDs from frontmatter)
+  "stacks": "extra/Stack/introduction-to-stack",
+  "stack": "extra/Stack/introduction-to-stack",
+  "queues": "extra/Queue/priority-queue-in-dsa",
+  "queue": "extra/Queue/priority-queue-in-dsa",
+
+  // Graphs, recursion, algorithms
   "graphs": "extra/graphs/",
-  "recursion": "programming-fundamentals/functions/",  // Adjust if recursion has its own folder
+  "graph": "extra/graphs/",
+  "recursion": "extra/Recursion/fibonacci-recursion",
+
+  // Sorting / Searching
   "sorting": "extra/sortings/",
+  "sortings": "extra/sortings/",
   "searching": "extra/binary-search/",
 };
 
@@ -45,12 +61,30 @@ function convertTopicToPath(topic) {
     if (mappedPath) {
       return `/docs/${mappedPath}${anchor}`;
     }
-    // Fallback: treat category name as folder
-    return `/docs/basic-data-structures/${categoryName}/${anchor}`;
+
+    // If we don't have an explicit mapping, avoid generating a potentially-broken link.
+    // Log and return null so caller can skip rendering the link.
+    console.warn(`[RelatedTopics] Unknown category mapping for: ${categoryName}`);
+    return null;
   }
 
-  // Handle direct doc paths like "extra/graphs/bfs"
-  return `/docs/${cleanTopic}/${anchor}`;
+  // Handle direct doc paths like "extra/graphs/bfs" (assume author provided valid path)
+  // Normalize and ensure no double slashes
+  if (cleanTopic.includes("/")) {
+    // Use RegExp constructor to avoid issues with literal parsing during build
+    const trimSlashes = new RegExp('(^/+|/+$)', 'g');
+    const normalized = cleanTopic.replace(trimSlashes, "");
+    return `/docs/${normalized}${anchor}`;
+  }
+
+  // If it's a single token (e.g. "arrays"), try to map via CATEGORY_PATH_MAP
+  const token = cleanTopic.toLowerCase();
+  const mapped = CATEGORY_PATH_MAP[token];
+  if (mapped) return `/docs/${mapped}${anchor}`;
+
+  // Unknown single token — avoid creating a broken link
+  console.warn(`[RelatedTopics] Unknown topic token, skipping link: ${topic}`);
+  return null;
 }
 
 /**

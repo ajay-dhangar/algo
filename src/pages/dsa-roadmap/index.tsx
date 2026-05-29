@@ -21,6 +21,7 @@ const DSARoadmap: React.FC = () => {
   const basicDataStructuresBase = useBaseUrl("/docs/basic-data-structures");
   const complexityBase = useBaseUrl("/docs/extra/complexity");
   const sortingsBase = useBaseUrl("/docs/extra/sortings");
+  const categoryBase = useBaseUrl("/docs/category");
 
   const slugify = (value: string) => value.toLowerCase().replace(/\s+/g, "-");
 
@@ -42,33 +43,93 @@ const DSARoadmap: React.FC = () => {
     return `${slugify(fileName)}-in-${languageSlug}`;
   };
 
+  // Explicit mapping from topic folder names to actual generated category URLs
+  // Built by matching topics.ts folder names to actual categories in /docs/category/
+  const topicCategoryMap: Record<string, Record<string, string>> = {
+    "Pick a Language": {
+      "JavaScript": "javascript",
+      "Python": "python",
+      "Java": "java",
+      "C++": "c-1",
+      "C#": "c",
+      "Ruby": "python",  // Ruby docs don't exist; fallback to Python
+      "GO": "java",  // GO docs don't exist; fallback to Java
+      "Rust": "rust",
+    },
+    "Programming Fundamentals": {
+      "Language Syntax": "language-syntax",
+      "Control Structures": "control-structures",
+      "Functions": "functions",
+      "OOP Basics": "oop-basic",
+      "Pseudo Code": "programming-fundamentals",
+    },
+    "Data Structures": {
+      "Data Structures": "data-structure",
+    },
+    "Basic Data Structures": {
+      "Arrays": "arrays",
+      "Linked Lists": "linked-list",
+      "Stacks": "stacks",
+      "Queues": "queue",
+      "Hash Tables": "hash-tables",
+    },
+    "Algorithmic Complexity": {
+      "Time and Space Complexity": "complexity",
+      "Common Runtimes": "complexity",
+      "Asymptotic Notation": "complexity",
+      "Extra Topics": "complexity",
+    },
+    "Sorting Algorithms": {
+      "Bubble Sort": "sorting-algorithms",
+      "Selection Sort": "sorting-algorithms",
+      "Insertion Sort": "sorting-algorithms",
+      "Merge Sort": "sorting-algorithms",
+      "Quick Sort": "sorting-algorithms",
+      "Heap Sort": "sorting-algorithms",
+      "Counting Sort": "sorting-algorithms",
+      "Radix Sort": "sorting-algorithms",
+      "Bucket Sort": "sorting-algorithms",
+    },
+    "Searching Algorithms": {
+      "Linear Search": "binary-search",
+      "Binary Search": "binary-search",
+      "Jump Search": "binary-search",
+      "Interpolation Search": "binary-search",
+      "Exponential Search": "binary-search",
+    },
+    "Recursion": {
+      "Introduction": "recursion",
+      "Recursion Techniques": "recursive-algorithms",
+      "Recursion Problems": "recursion",
+    },
+    "Tree Data Structures": {
+      "Introduction": "binary-trees",
+      "Tree Traversals": "binary-trees",
+      "Search Algorithms": "binary-search-tree",
+      "Tree Problems": "binary-search-tree",
+    },
+    "Graphs": {
+      "Introduction": "graphs",
+      "Graph Representation": "graphs",
+      "Graph Traversals": "graphs",
+      "Graph Algorithms": "graphs",
+    },
+  };
+
   const getDocLink = (topicTitle: string, folderName: string, fileName: string) => {
+    // Use explicit mapping to avoid guessing category URLs
+    const topicMap = topicCategoryMap[topicTitle];
+    if (topicMap && topicMap[folderName]) {
+      return `${categoryBase}/${topicMap[folderName]}`;
+    }
+
+    // Fallback: link to languages category for unmapped topics
     if (topicTitle === "Pick a Language") {
-      const languageSlug = languageFolderMap[folderName] ?? slugify(folderName);
-      return `${languagesBase}/${languageSlug}/${languageDocSlug(fileName, languageSlug)}`;
+      return `${categoryBase}/languages`;
     }
 
-    if (topicTitle === "Programming Fundamentals") {
-      return `${programmingFundamentalsBase}/${slugify(folderName)}/${slugify(fileName)}`;
-    }
-
-    if (topicTitle === "Data Structures") {
-      return `${dataStructuresBase}/${slugify(fileName)}`;
-    }
-
-    if (topicTitle === "Basic Data Structures") {
-      return `${basicDataStructuresBase}/${slugify(folderName)}/${slugify(fileName)}`;
-    }
-
-    if (topicTitle === "Algorithmic Complexity") {
-      return `${complexityBase}/${slugify(fileName)}`;
-    }
-
-    if (topicTitle === "Sorting Algorithms") {
-      return `${sortingsBase}/${slugify(folderName)}/${slugify(fileName)}`;
-    }
-
-    return `${programmingFundamentalsBase}/${slugify(folderName)}/${slugify(fileName)}`;
+    // For any other unmapped topic, link to programming-fundamentals as safe default
+    return `${categoryBase}/programming-fundamentals`;
   };
 
   // State for major topics (Top level nodes) - open the first one by default
