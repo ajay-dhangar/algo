@@ -41,12 +41,12 @@ export default function NotFound() {
             </motion.div>
 
             {/* Giant Graphic 404 Heading */}
-            <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter bg-gradient-to-b from-slate-900 via-slate-800 to-slate-400 dark:from-white dark:via-slate-200 dark:to-gray-600 bg-clip-text text-transparent select-none mb-4">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-black text-slate-900 dark:text-white tracking-tight mb-4">
               404
             </h1>
 
             {/* Main Response Error Titles */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-slate-900 dark:text-white tracking-tight mb-4">
               <Translate id="theme.NotFound.title" description="The title of the 404 page">
                 Page Not Found
               </Translate>
