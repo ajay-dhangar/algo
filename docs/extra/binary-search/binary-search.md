@@ -12,6 +12,23 @@ import RelatedTopics from '@site/src/components/RelatedTopics';
 ## Introduction
 Binary search is a searching algorithm, used to search for an element in an array. It follows a unique approach which reduces the time complexity as compared to linear search. However, to use binary search, the array must be sorted. 
 
+## Visual Flow of Binary Search
+
+```mermaid
+graph TD
+    A[Start with Sorted Array] --> B[Find Middle Element]
+    B --> C{Is Target Equal to Middle Element?}
+
+    C -->|Yes| D[Target Found]
+
+    C -->|No, Target Smaller| E[Search Left Half]
+
+    C -->|No, Target Greater| F[Search Right Half]
+
+    E --> B
+    F --> B
+```
+
 ## Implementation
 
 Let us see how to implement binary search in Java:

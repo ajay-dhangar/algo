@@ -142,6 +142,33 @@ It does not handle negative weight cycles, as Dijkstra's Algorithm is not suitab
 **Single-source shortest path:** When you need the shortest path from one source to all other vertices.
 **Real-time applications:** Ideal for applications like GPS navigation systems and network routing.
 
+## How the Algorithm Works
+
+1. Initialize the distance of the source node as 0 and all other nodes as infinity.
+2. Use a priority queue (min-heap) to always process the node with the smallest distance.
+3. For each neighboring node, calculate the new tentative distance.
+4. If the new distance is smaller than the current recorded distance, update it.
+5. Repeat the process until all reachable nodes are processed.
+
+---
+
+## Advantages of Dijkstra's Algorithm
+
+* Efficient for graphs with non-negative edge weights
+* Widely used in real-world applications such as GPS navigation
+* Finds the shortest path from a single source to all vertices
+
+---
+
+## Real-World Applications
+
+* GPS Navigation Systems
+* Network Routing Protocols
+* Flight Route Optimization
+* Robotics and Path Planning
+* Social Network Analysis
+
+
 ## Conclusion
 
 Dijkstra's Algorithm is a fundamental algorithm in computer science for finding the shortest paths in a weighted graph. Its efficiency and effectiveness make it applicable in various real-world scenarios where optimization is required.
