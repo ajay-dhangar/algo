@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
-import { useApiBase } from "../../config/api";
+import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress
 from "../../components/Quiz/QuestionProgress";
@@ -10,7 +10,6 @@ import QuestionNavigator
 from "../../components/Quiz/QuestionNavigator";
 
 const QueueQuiz: React.FC = () => {
-  const apiBase = useApiBase();
   const questions = [
     {
       question: (
@@ -175,6 +174,7 @@ void delete(Q){
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const apiBaseUrl = useApiBaseUrl();
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -212,7 +212,9 @@ void delete(Q){
 
   const fetchAttempts = async (uId: string) => {
     try {
-      const res = await axios.get(`${apiBase}/api/quiz-attempts/${uId}/queue`);
+      const res = await axios.get(
+        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/queue`)
+      );
       if (res.data?.success) {
         setAttempts(res.data.attempts);
       }
@@ -242,7 +244,7 @@ void delete(Q){
   const submitAttempt = async (finalAnswers: string[]) => {
     if (!userId) return;
     try {
-      await axios.post(`${apiBase}/api/quiz-attempts`, {
+      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
         userId,
         quizId: "queue",
         userAnswers: finalAnswers,
