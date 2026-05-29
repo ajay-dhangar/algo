@@ -242,9 +242,9 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Backtracking is a problem-solving technique that builds solutions incrementally and backtracks whenever a condition fails.",
     steps: [
       "Choose a possible option",
-      "Move recursively to next step",
+      "Move recursively to the next step",
       "Check constraints or validity",
-      "Backtrack if solution fails",
+      "Backtrack if the solution fails",
     ],
   },
 
