@@ -161,10 +161,16 @@ class PriorityQueue {
     constructor() { this.values = []; }
     enqueue(val, priority) {
         this.values.push({val, priority});
-        this.sort();
     }
-    dequeue() { return this.values.shift(); }
-    sort() { this.values.sort((a, b) => a.priority - b.priority); }
+    dequeue() {
+        let minIdx = 0;
+        for (let i = 1; i < this.values.length; i++) {
+            if (this.values[i].priority < this.values[minIdx].priority) {
+                minIdx = i;
+            }
+        }
+        return this.values.splice(minIdx, 1)[0];
+    }
     isEmpty() { return this.values.length === 0; }
 }
 
