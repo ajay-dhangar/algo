@@ -1,6 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
+const { exec } = require("child_process");
+const fs = require("fs");
+const path = require("path");
+const os = require("os");
 const sequelize = require("./db");
 const QuizAttempt = require("./models/QuizAttempt");
 const quizAnswers = require("./quizAnswers");
@@ -159,6 +163,117 @@ app.get("/api/quiz-attempts/:userId/:quizId", async (req, res) => {
 });
 
 /**
+ * Endpoint: POST /api/execute-code
+ * Executes code in different languages (Python, C++, Java)
+ * JavaScript is handled client-side
+ */
+app.post("/api/execute-code", async (req, res) => {
+  const { language, code } = req.body;
+
+  // Validate request
+  if (!language || !code) {
+    return res.status(400).json({ success: false, error: "Missing language or code parameter." });
+  }
+
+  const validLanguages = ["python", "cpp", "java"];
+  if (!validLanguages.includes(language)) {
+    return res.status(400).json({ success: false, error: "Unsupported language. Supported: python, cpp, java" });
+  }
+
+  try {
+    const tempDir = os.tmpdir();
+    let filename, fileExtension, command;
+
+    // Generate unique filename to avoid conflicts
+    const uniqueId = Date.now() + Math.random().toString(36).substr(2, 9);
+
+    switch (language) {
+      case "python":
+        fileExtension = ".py";
+        filename = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
+        command = `python "${filename}"`;
+        break;
+
+      case "cpp":
+        fileExtension = ".cpp";
+        const sourceFile = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
+        const executableFile = path.join(tempDir, `script_${uniqueId}${process.platform === "win32" ? ".exe" : ""}`);
+        filename = sourceFile;
+        // Compile and run
+        command = `g++ "${sourceFile}" -o "${executableFile}" && "${executableFile}"`;
+        break;
+
+      case "java":
+        fileExtension = ".java";
+        // Extract class name from code (first public class)
+        const classNameMatch = code.match(/public\s+class\s+(\w+)/);
+        const className = classNameMatch ? classNameMatch[1] : "Main";
+        filename = path.join(tempDir, `${className}${fileExtension}`);
+        command = `cd "${tempDir}" && javac "${filename}" && java "${className}"`;
+        break;
+
+      default:
+        return res.status(400).json({ success: false, error: "Unsupported language" });
+    }
+
+    // Write code to file
+    fs.writeFileSync(filename, code);
+
+    // Execute code with timeout
+    exec(command, { timeout: 10000, maxBuffer: 10 * 1024 * 1024 }, (error, stdout, stderr) => {
+      // Clean up temp files
+      try {
+        fs.unlinkSync(filename);
+        if (language === "cpp") {
+          const executableFile = filename.replace(fileExtension, process.platform === "win32" ? ".exe" : "");
+          if (fs.existsSync(executableFile)) {
+            fs.unlinkSync(executableFile);
+          }
+        }
+        if (language === "java") {
+          const classNameMatch = code.match(/public\s+class\s+(\w+)/);
+          const className = classNameMatch ? classNameMatch[1] : "Main";
+          const classFile = path.join(os.tmpdir(), `${className}.class`);
+          if (fs.existsSync(classFile)) {
+            fs.unlinkSync(classFile);
+          }
+        }
+      } catch (cleanupError) {
+        console.warn("Cleanup warning:", cleanupError.message);
+      }
+
+      if (error) {
+        // Check for timeout
+        if (error.killed) {
+          return res.json({
+            success: false,
+            error: "Code execution timed out after 10 seconds",
+          });
+        }
+        // Return compilation or runtime error
+        const errorMessage = stderr || error.message;
+        return res.json({
+          success: false,
+          error: errorMessage,
+        });
+      }
+
+      // Return successful output
+      res.json({
+        success: true,
+        output: stdout,
+      });
+    });
+  } catch (error) {
+    console.error("Error executing code:", error);
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : "An error occurred during code execution",
+    });
+  }
+});
+
+/**
  * Endpoint: GET /api/leaderboard
  * Computes dynamic leaderboard based on the highest score per user for each quiz.
  * Total points is the sum of highest scores across all quizzes (each correct answer = 100 points, or raw score).
@@ -166,43 +281,51 @@ app.get("/api/quiz-attempts/:userId/:quizId", async (req, res) => {
  */
 app.get("/api/leaderboard", async (req, res) => {
   try {
-    const attempts = await QuizAttempt.findAll();
-
-    // Map to find the max score of each user for each quiz, and count attempts
-    // Structure: { username: { quizId: maxScore } }
-    const userMaxScores = {};
-    const userAttemptsCount = {};
-
-    attempts.forEach((attempt) => {
-      const username = attempt.userId;
-      const qId = attempt.quizId;
-      const score = attempt.score;
-
-      // Increment attempt count for user
-      userAttemptsCount[username] = (userAttemptsCount[username] || 0) + 1;
-
-      if (!userMaxScores[username]) {
-        userMaxScores[username] = {};
-      }
-
-      if (userMaxScores[username][qId] === undefined || score > userMaxScores[username][qId]) {
-        userMaxScores[username][qId] = score;
-      }
+    // 1. Get the max score per quiz for each user
+    const maxScoresPerQuiz = await QuizAttempt.findAll({
+      attributes: [
+        'userId',
+        'quizId',
+        [sequelize.fn('MAX', sequelize.col('score')), 'maxScore']
+      ],
+      group: ['userId', 'quizId'],
+      raw: true
     });
 
-    // Compute total points for each user
-    // Total Points = Sum of (maxScore * 100) across all quizzes taken
-    const leaderboardData = Object.keys(userMaxScores).map((username) => {
-      let totalPoints = 0;
-      const quizzes = userMaxScores[username];
-      Object.keys(quizzes).forEach((qId) => {
-        totalPoints += quizzes[qId] * 100; // 100 points per correct answer
-      });
+    // 2. Get the total attempts count for each user
+    const attemptsCount = await QuizAttempt.findAll({
+      attributes: [
+        'userId',
+        [sequelize.fn('COUNT', sequelize.col('id')), 'totalAttempts']
+      ],
+      group: ['userId'],
+      raw: true
+    });
 
+    // Create a map of userId -> attempts count
+    const userAttemptsMap = {};
+    attemptsCount.forEach(row => {
+      userAttemptsMap[row.userId] = parseInt(row.totalAttempts, 10);
+    });
+
+    // Compute total points per user
+    const userPointsMap = {};
+    maxScoresPerQuiz.forEach(row => {
+      const username = row.userId;
+      const score = parseInt(row.maxScore, 10);
+      
+      if (!userPointsMap[username]) {
+        userPointsMap[username] = 0;
+      }
+      userPointsMap[username] += score * 100; // 100 points per correct answer
+    });
+
+    // Format the leaderboard data
+    const leaderboardData = Object.keys(userPointsMap).map((username) => {
       return {
         username: username,
-        totalScore: totalPoints,
-        attemptsCount: userAttemptsCount[username] || 0
+        totalScore: userPointsMap[username],
+        attemptsCount: userAttemptsMap[username] || 0
       };
     });
 

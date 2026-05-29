@@ -90,6 +90,7 @@ const UserTestimonialsSection: React.FC = () => {
                       <img
                         src={testimonial.avatar}
                         alt={`${testimonial.name} profiling graphic`}
+                        loading="lazy"
                         className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-white dark:border-gray-900 shadow-md"
                       />
                     </div>
