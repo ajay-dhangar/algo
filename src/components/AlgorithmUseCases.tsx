@@ -297,7 +297,7 @@ const algorithmData: Record<string, AlgorithmDetails> = {
     steps: [
       "Store characters node-by-node",
       "Build prefix-based paths",
-      "Traverse using input string",
+      "Traverse using the input string",
       "Retrieve matching words efficiently",
     ],
   },
