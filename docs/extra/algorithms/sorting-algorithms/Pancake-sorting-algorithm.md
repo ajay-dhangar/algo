@@ -65,7 +65,7 @@ void flip(vector<int>& arr, int k)
 }
 
 // Function to find index of maximum element
-int findMaxIndex(vector<int>& arr, int n)
+int findMaxIndex(const vector<int>& arr, int n)
 {
     int maxIndex = 0;
 
