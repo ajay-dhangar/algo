@@ -10,6 +10,7 @@ import {
   FiMap,
   FiGlobe,
   FiShare2,
+  FiLayers,
 } from "react-icons/fi";
 
 interface AlgorithmDetails {
