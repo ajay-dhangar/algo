@@ -128,6 +128,16 @@ int main() {
 
 Bubble sort is one of the simplest sorting algorithms. While it is inefficient for large datasets due to its O(n²) time complexity, it provides an easy-to-understand introduction to sorting. Both the iterative and recursive versions of bubble sort are straightforward to implement, with the iterative version being more commonly used due to its simplicity.
 
+## Algorithm Tip
+Bubble Sort is best for learning basic sorting concepts and works well for very small datasets.
+
+## When to Use This Algorithm
+
+Use Bubble Sort when:
+- The dataset is very small
+- Simplicity is more important than efficiency
+- You are learning sorting concepts
+
 ## Complexity Comparison Table
 
 | Algorithm | Best Case | Average Case | Worst Case | Space Complexity |

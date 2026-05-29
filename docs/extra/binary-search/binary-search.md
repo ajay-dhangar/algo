@@ -155,6 +155,16 @@ Binary search : $O(log n)$
 - Uses the divide and conquer approach.
 - Best if arrays are too long (large datasets).
 
+## Algorithm Tip
+Binary Search provides very fast searching but requires the array to be sorted first.
+
+## When to Use This Algorithm
+
+Use Binary Search when:
+- The data is already sorted
+- Fast searching is required
+- Repeated searches are performed
+
 ## Common Mistakes
 
 - Using Binary Search on unsorted arrays
