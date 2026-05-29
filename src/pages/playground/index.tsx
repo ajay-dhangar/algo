@@ -102,8 +102,6 @@ const unsorted = [64, 34, 25, 12, 22, 11, 90];
 console.log("Unsorted:", unsorted);
 console.log("Sorted:  ", bubbleSort(unsorted));
 `,
-<<<<<<< HEAD
-=======
     reverseList: `// Reverse a Singly Linked List
 // Returns the new head of the reversed list.
 
@@ -573,7 +571,6 @@ public class Fibonacci {
 }
 `,
   },
->>>>>>> upstream/main
 };
 
 const PYTHON_TEMPLATE = `# Python WebAssembly (Pyodide) Demo
@@ -594,25 +591,19 @@ print("Python Sorted:  ", quick_sort(unsorted))
 `;
 
 const PlaygroundContent: React.FC = () => {
-<<<<<<< HEAD
   const [activeTab, setActiveTab] = useState<"sandbox" | "python">("sandbox");
 
   // JS Sandbox State
   const [code, setCode] = useState<string>(TEMPLATES.binarySearch);
   const [template, setTemplate] = useState<keyof typeof TEMPLATES>("binarySearch");
-=======
   const [language, setLanguage] = useState<LanguageType>("javascript");
   const [code, setCode] = useState<string>(TEMPLATES.javascript.binarySearch);
   const [template, setTemplate] = useState<string>("binarySearch");
->>>>>>> upstream/main
   const [logs, setLogs] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [execTime, setExecTime] = useState<number | null>(null);
   const workerRef = useRef<Worker | null>(null);
-<<<<<<< HEAD
-=======
   const consolePanelRef = useRef<HTMLDivElement | null>(null);
->>>>>>> upstream/main
 
   // Python WASM State
   const [pyCode, setPyCode] = useState<string>(PYTHON_TEMPLATE);
@@ -626,7 +617,6 @@ const PlaygroundContent: React.FC = () => {
   const { colorMode } = useColorMode();
   const apiBaseUrl = useApiBaseUrl();
 
-<<<<<<< HEAD
   // Scroll to bottom helper
   useEffect(() => {
     if (activeTab === "sandbox" && consoleEndRef.current) {
@@ -635,7 +625,6 @@ const PlaygroundContent: React.FC = () => {
       pyConsoleEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [logs, pyLogs, activeTab]);
-=======
   // Scroll to bottom of console logs on update only during execution
   useEffect(() => {
     if (consolePanelRef.current && isRunning) {
@@ -643,7 +632,6 @@ const PlaygroundContent: React.FC = () => {
       consolePanelRef.current.scrollTop = consolePanelRef.current.scrollHeight;
     }
   }, [logs, isRunning]);
->>>>>>> upstream/main
 
   useEffect(() => {
     return () => {
@@ -651,7 +639,6 @@ const PlaygroundContent: React.FC = () => {
     };
   }, []);
 
-<<<<<<< HEAD
   // ── Tab 1: JS RUNNER ─────────────────────────────────────────
   const handleStopJs = () => {
     if (workerRef.current) {
@@ -663,7 +650,6 @@ const PlaygroundContent: React.FC = () => {
   };
 
   const handleRunJs = () => {
-=======
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLanguage = e.target.value as LanguageType;
     setLanguage(selectedLanguage);
@@ -691,13 +677,11 @@ const PlaygroundContent: React.FC = () => {
   };
 
   const handleRun = async () => {
->>>>>>> upstream/main
     if (isRunning) return;
     setIsRunning(true);
     setLogs(["// Starting JS sandbox...", ""]);
     setExecTime(null);
 
-<<<<<<< HEAD
     // Use JSON.parse for safe code transfer — avoids breakage when user code contains backticks
     const workerCode = [
       'self.onmessage = function(e) {',
@@ -722,7 +706,6 @@ const PlaygroundContent: React.FC = () => {
       '  }',
       '};',
     ].join('\n');
-=======
     const startTime = performance.now();
 
     try {
@@ -786,7 +769,6 @@ const PlaygroundContent: React.FC = () => {
         }
       };
     `;
->>>>>>> upstream/main
 
     const blob = new Blob([workerCode], { type: "text/javascript" });
     const worker = new Worker(URL.createObjectURL(blob));
@@ -794,18 +776,15 @@ const PlaygroundContent: React.FC = () => {
 
     // 10-second execution timeout to prevent infinite loops
     const timeoutId = setTimeout(() => {
-<<<<<<< HEAD
       worker.terminate();
       workerRef.current = null;
       setIsRunning(false);
       setLogs((prev) => [...prev, "", "⏱️ Execution timed out after 10 seconds."]);
-=======
       if (workerRef.current) {
         workerRef.current.terminate();
         setIsRunning(false);
         setLogs((prev) => [...prev, "❌ [Timeout] Code execution timed out after 10 seconds."]);
       }
->>>>>>> upstream/main
     }, 10000);
 
     worker.onmessage = (e) => {
@@ -822,9 +801,7 @@ const PlaygroundContent: React.FC = () => {
         worker.terminate();
       }
     };
-<<<<<<< HEAD
     worker.postMessage(code);
-=======
 
     worker.postMessage(jsCode);
   };
@@ -888,7 +865,6 @@ const PlaygroundContent: React.FC = () => {
         ]);
       }
     }
->>>>>>> upstream/main
   };
 
   // ── Tab 2: PYTHON PYODIDE WASM RUNNER ───────────────────────
@@ -948,7 +924,6 @@ const PlaygroundContent: React.FC = () => {
   return (
     <div className="bg-gray-50 dark:bg-[#1b1b1d] min-h-screen py-10 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-<<<<<<< HEAD
         {/* TAB CONTROLLERS */}
         <div className="flex flex-wrap gap-2.5 mb-8 border-b border-gray-200 dark:border-gray-800 pb-4">
           <button
@@ -980,7 +955,6 @@ const PlaygroundContent: React.FC = () => {
               <div className="bg-gray-100 dark:bg-gray-800/80 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono">
                   script.js
-=======
         {/* Header */}
         <div className="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
@@ -1042,7 +1016,6 @@ const PlaygroundContent: React.FC = () => {
                 <span className="w-3 h-3 rounded-full bg-green-500" />
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 ml-2 font-mono">
                   script{LANGUAGE_CONFIGS[language].fileExtension}
->>>>>>> upstream/main
                 </span>
                 <button
                   onClick={() => setCode(TEMPLATES[template])}
@@ -1051,12 +1024,10 @@ const PlaygroundContent: React.FC = () => {
                   <FaUndo /> Reset
                 </button>
               </div>
-<<<<<<< HEAD
               <div className="flex-grow min-h-[480px]">
                 <BrowserOnly>
                   {() => {
                     const Editor = require("@monaco-editor/react").default;
-=======
             </div>
 
             {/* Monaco Wrapper */}
@@ -1152,7 +1123,6 @@ const PlaygroundContent: React.FC = () => {
                     } else if (log.startsWith(">")) {
                       colorClass = "text-green-400";
                     }
->>>>>>> upstream/main
                     return (
                       <Editor
                         height="480px"
@@ -1189,7 +1159,6 @@ const PlaygroundContent: React.FC = () => {
                     <FaStop /> Stop
                   </button>
                 )}
-<<<<<<< HEAD
                 <button
                   onClick={() => setLogs([])}
                   className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg border-none cursor-pointer"
@@ -1208,8 +1177,6 @@ const PlaygroundContent: React.FC = () => {
                   ))}
                   <div ref={consoleEndRef} />
                 </div>
-=======
->>>>>>> upstream/main
               </div>
             </div>
           </div>
