@@ -1,7 +1,7 @@
 ---
 id: partition-equal-subset-sum-algorithm
 title: Partition Equal Subset Sum Algorithm
-sidebar_label: Leetcode 416
+sidebar_label: Partition Equal Subset Sum Algorithm
 tags: [Leetcode, Dynamic Programming, DSA, Partition Equal Subset Sum]
 description: Solve the Partition Equal Subset Sum problem using dynamic programming to check if a set can be partitioned into two subsets with equal sum.
 ---
