@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
       title="Contact Us"
       description="Get in touch with us through the contact form or visit our office."
     >
-      <div className="text-foreground">
+      <div className="text-slate-900 dark:text-slate-100">
 
         <ToastContainer />
 
@@ -126,15 +126,6 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  pattern="[a-zA-Z ]+"
-                  onInvalid={(e) =>
-                    (e.target as HTMLInputElement).setCustomValidity(
-                      "Please enter a valid name without numbers or special characters"
-                    )
-                  }
-                  onInput={(e) =>
-                    (e.target as HTMLInputElement).setCustomValidity("")
-                  }
                   className="w-full rounded-xl border border-border bg-background/80 px-4 py-3 text-foreground transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
@@ -157,6 +148,7 @@ const Contact: React.FC = () => {
                   id="contact-email"
                   type="email"
                   name="email"
+                  required
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full rounded-xl border border-border bg-background/80 px-4 py-3 text-foreground transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -180,6 +172,7 @@ const Contact: React.FC = () => {
                 <textarea
                   id="contact-message"
                   name="message"
+                  required
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
@@ -221,9 +214,12 @@ const Contact: React.FC = () => {
                 Call Us
               </h3>
 
-              <p className="text-muted-foreground text-sm">
+              <a
+                href="tel:+1234567890"
+                className="text-muted-foreground text-sm hover:underline"
+              >
                 +1 (234) 567-890
-              </p>
+              </a>
             </div>
 
             <div className="border border-border bg-background/70 backdrop-blur-xl p-5 rounded-2xl shadow-xl hover:border-blue-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center md:items-start">
@@ -235,9 +231,12 @@ const Contact: React.FC = () => {
                 Email Us
               </h3>
 
-              <p className="text-muted-foreground text-sm break-all">
+              <a
+                href="mailto:ajaydhangar49@gmail.com"
+                className="text-muted-foreground text-sm break-all hover:underline"
+              >
                 ajaydhangar49@gmail.com
-              </p>
+              </a>
             </div>
 
             <div className="border border-border bg-background/70 backdrop-blur-xl p-5 rounded-2xl shadow-xl hover:border-green-500/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center md:items-start">
