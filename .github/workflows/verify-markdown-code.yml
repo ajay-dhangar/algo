@@ -1,0 +1,32 @@
+name: Automated Markdown Code Verification
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+      - '**/*.md'
+      - '**/*.mdx'
+
+jobs:
+  verify-code:
+    name: Verify Documented Algorithms
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Code Verification Pipeline
+        run: node scripts/verify-markdown-code.js

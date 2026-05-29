@@ -120,6 +120,8 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 
 This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
 
+Note: if you are running the backend locally, set `DOCUSAURUS_API_BASE_URL=http://localhost:5000` before starting the frontend.
+
 ## Build
 
 ```bash

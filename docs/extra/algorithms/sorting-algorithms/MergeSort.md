@@ -198,16 +198,25 @@ int main() {
 
 | Algorithm | Best Case | Average Case | Worst Case | Space Complexity |
 |---|---|---|---|---|
-| Bubble Sort | $O(n)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ |
-| Merge Sort | $O(n log n)$ | $O(n log n)$ | $O(n log n)$ | $O(n)$ |
-| Quick Sort | $O(n log n)$ | $O(n log n)$ | $O(n^2)$ | $O(log n)$ |
+| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
+| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
+| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+
+## Algorithm Tip
+Merge Sort is efficient and stable, making it useful for handling large datasets.
+
+## When to Use This Algorithm
+
+Use Merge Sort when:
+- Stable sorting is required
+- Working with large datasets
+- Guaranteed O(n log n) performance is needed
 
 ## Common Mistakes
 
 - Forgetting that Merge Sort requires extra memory for merging
 - Incorrectly dividing the array causing recursion issues
 - Not handling base conditions properly
-
 
 ## Summary:
 

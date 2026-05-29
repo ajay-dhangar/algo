@@ -191,6 +191,16 @@ Quick sort is a highly efficient and widely used sorting algorithm that works we
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
 
+## Algorithm Tip
+Quick Sort is fast and commonly used in real-world applications for efficient sorting.
+
+## When to Use This Algorithm
+
+Use Quick Sort when:
+- Fast average-case sorting is needed
+- Memory usage should be low
+- Working with large arrays
+
 ## Common Mistakes & Mitigations
 
 - Choosing poor pivot elements leading to worst-case performance → use **median-of-three** or randomized pivot

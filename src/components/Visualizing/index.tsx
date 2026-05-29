@@ -388,7 +388,7 @@ const DSARoadmap: React.FC = () => {
                 </button>
               </div>
               <div className="col" id="input">
-                <span id="size">
+                <label id="size" htmlFor="arr_sz">
                   Size
                   <input
                     id="arr_sz"
@@ -398,8 +398,8 @@ const DSARoadmap: React.FC = () => {
                     step="1"
                     defaultValue="40"
                   />
-                </span>
-                <span id="speed">
+                </label>
+                <label id="speed" htmlFor="speed_input">
                   Speed
                   <input
                     id="speed_input"
@@ -409,7 +409,7 @@ const DSARoadmap: React.FC = () => {
                     step="10"
                     defaultValue="100"
                   />
-                </span>
+                </label>
               </div>
               <div className="col gap-2 d-sm-flex justify-content-end">
                 <button type="button" className="btn btn-outline-primary btn-dark bubbleSort">
