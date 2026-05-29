@@ -13,19 +13,19 @@ const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-      ? false
-      : (() => {
-          try {
-            if (!fs.existsSync(path.join(__dirname, ".git"))) {
-              return false;
-            }
-            // Dry run a git log check to verify git operations succeed on actual files (fails on OneDrive)
-            execSync("git log -1 docusaurus.config.js", { stdio: "ignore" });
-            return true;
-          } catch {
+    ? false
+    : (() => {
+        try {
+          if (!fs.existsSync(path.join(__dirname, ".git"))) {
             return false;
           }
-        })();
+          // Dry run a git log check to verify git operations succeed on actual files (fails on OneDrive)
+          execSync("git log -1 docusaurus.config.js", { stdio: "ignore" });
+          return true;
+        } catch {
+          return false;
+        }
+      })();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,6 +37,9 @@ const config = {
   baseUrl: "/algo/",
   organizationName: "codeharborhub",
   projectName: "algo",
+  customFields: {
+    apiBaseUrl: process.env.DOCUSAURUS_API_BASE_URL || (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
+  },
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -82,13 +85,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "/",
-      // announcementBar: {
-      //   id: "announcementBar",
-      //   content:
-      //     '📢 Join our <a target="_blank" href="https://www.whatsapp.com/channel/0029Vah6hro8F2pGUhuAcR0B">WhatsApp Channel</a> for the latest updates and collaboration on exciting projects!',
-      //   isCloseable: true,
-      //   backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
-      // },
+      announcementBar: {
+        id: "announcementBar_algo_community", 
+        content:
+          '⭐ First, please <b><a target="_blank" href="https://github.com/ajay-dhangar/algo">Star our GitHub Repo</a></b>, then 🚀 <b><a target="_blank" href="https://chat.whatsapp.com/LKaBzmknsyIIqUY1DSMoZa?mode=gi_t">Join our ALGO Core Community on WhatsApp</a></b> to collaborate with top contributors!',
+        isCloseable: true,
+        backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
+      },
 
       algolia: {
         apiKey: "865d7bd9906f532b1d8cb5cc0f02b383",

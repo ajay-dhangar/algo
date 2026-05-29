@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import { useColorMode } from "@docusaurus/theme-common";
+import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 import {
   FaPlay,
   FaStop,
@@ -587,6 +588,7 @@ const PlaygroundContent: React.FC = () => {
 
   // Safe to use now because this component is rendered inside <Layout>
   const { colorMode } = useColorMode();
+  const apiBaseUrl = useApiBaseUrl();
 
   // Scroll to bottom of console logs on update only during execution
   useEffect(() => {
@@ -739,7 +741,7 @@ const PlaygroundContent: React.FC = () => {
 
   const executeBackend = async (lang: LanguageType, sourceCode: string, startTime: number) => {
     try {
-      const response = await fetch("http://localhost:5000/api/execute-code", {
+      const response = await fetch(buildApiUrl(apiBaseUrl, "/api/execute-code"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
