@@ -38,7 +38,7 @@ const Footer = () => {
             
             <div className="mb-6">
               <Link
-              to="/">
+                to="/">
                 <img
                   src="/algo/logo/logo.png"
                   alt="Algo Logo"
@@ -116,7 +116,7 @@ const Footer = () => {
             <ul className="space-y-3 pl-0">
               <li className="list-none">
                 <Link
-                  to="/algo/docs/"
+                  to="/docs/"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
                   Documentation
@@ -124,7 +124,7 @@ const Footer = () => {
               </li>
               <li className="list-none">
                 <Link
-                  to="/algo/blog/"
+                  to="/blog/"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
                   Blog
@@ -155,7 +155,7 @@ const Footer = () => {
               </li>
               <li className="list-none">
                 <Link
-                  to="/algo/contributors"
+                  to="/contributors"
                   className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
                 >
                   Contributors
@@ -205,7 +205,7 @@ const Footer = () => {
             </li>
             <li className="list-none">
               <Link
-                to="/algo/about/"
+                to="/about/"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 About Us
@@ -213,7 +213,7 @@ const Footer = () => {
             </li>
             <li className="list-none">
               <Link
-                to="/algo/contact/"
+                to="/contact/"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 Contact
@@ -221,7 +221,7 @@ const Footer = () => {
             </li>
             <li className="list-none">
               <Link
-                to="/coming-soon"
+                to="/privacy"
                 className="hover:text-[#61dafb] transition-colors duration-300"
               >
                 Privacy Policy

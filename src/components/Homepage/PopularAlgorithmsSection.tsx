@@ -14,37 +14,37 @@ const algorithms: Algorithm[] = [
   {
     title: "Binary Search",
     description: "Efficient divide-and-conquer searching protocol built for sorted array tracking.",
-    link: "/algo/docs/extra/binary-search/",
+    link: "/docs/extra/binary-search/",
     complexity: "O(log n)",
   },
   {
     title: "Merge Sort",
     description: "Stable, divide-and-conquer sorting algorithm that guarantees consistent runtime overhead.",
-    link: "/algo/docs/extra/algorithms/sorting-algorithms/merge-sort-algo",
+    link: "/docs/extra/algorithms/sorting-algorithms/merge-sort-algo",
     complexity: "O(n log n)",
   },
   {
     title: "Dijkstra's Algorithm",
     description: "Graph traversal pipeline optimized to calculate single-source paths through non-negative weights.",
-    link: "/algo/docs/extra/algorithms/dijkstra-algorithm",
+    link: "/docs/extra/algorithms/dijkstra-algorithm",
     complexity: "O(V² + E)",
   },
   {
     title: "Quick Sort",
     description: "High-performance in-place partition array sorting methodology optimized for cache locality.",
-    link: "/algo/docs/extra/algorithms/sorting-algorithms/quick-sort-algo",
+    link: "/docs/extra/algorithms/sorting-algorithms/quick-sort-algo",
     complexity: "O(n log n)",
   },
   {
     title: "Linked Lists",
     description: "Sequential pointer-connected node maps foundational for lean linear allocation dynamics.",
-    link: "/algo/docs/category/linked-list",
+    link: "/docs/category/linked-list",
     complexity: "O(1) Insertion",
   },
   {
     title: "Recursion",
     description: "Mathematical problem-solving structures built on state-stack self-invocation frameworks.",
-    link: "/algo/docs/category/recursive-algorithms",
+    link: "/docs/category/recursive-algorithms",
     complexity: "O(2ⁿ) Max Stack",
   }
 ];
@@ -127,7 +127,7 @@ const PopularAlgorithmsSection: React.FC = () => {
 
         <div className="mt-16 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            to="/algo/docs/category/algorithms"
+            to="/docs/category/algorithms"
             className="
               w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               px-8 py-4 rounded-xl

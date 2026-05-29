@@ -7,8 +7,6 @@ description: Implement a solution to check if a binary tree is balanced using Py
 tags: [python, binary-tree, tree-traversal, recursion, depth-first-search]
 ---
 
-# Balanced Binary Tree Checker
-
 This document provides a Python implementation of a binary tree and a method to check if the tree is balanced.
 
 ## Implementation
@@ -41,8 +39,10 @@ This document provides a Python implementation of a binary tree and a method to 
 
         return max(left_height, right_height) + 1
 ```
-# Creating a sample binary tree
- ```
+
+## Creating a sample binary tree
+
+```
  root = Node(1)
  root.left = Node(2)
  root.right = Node(3)
