@@ -129,7 +129,7 @@ const GraphVisualizer: React.FC = () => {
 
   // Click on canvas
   const handleSvgDoubleClick = (e: React.MouseEvent<SVGSVGElement>) => {
-    if (mode !== "edit" || isRunning || !svgRef.current) return;
+    if (mode !== "edit" || isRunning || !svgRef.current || e.target !== e.currentTarget) return;
     const rect = svgRef.current.getBoundingClientRect();
     const x = Math.round(e.clientX - rect.left);
     const y = Math.round(e.clientY - rect.top);
