@@ -2,6 +2,7 @@
 id: floyd-warshall-algorithm
 title: Floyd-Warshall Algorithm
 sidebar_label: Floyd-Warshall Algorithm
+sidebar_position: 1
 description: "Learn the Floyd-Warshall Algorithm for solving the All-Pairs Shortest Path problem using Dynamic Programming."
 tags: [dsa, algorithms, graph, dynamic-programming, shortest-path]
 ---
@@ -88,17 +89,12 @@ using namespace std;
 const int INF = 1000000000;
 
 void floydWarshall(vector<vector<int>>& dist, int V) {
-
     for (int k = 0; k < V; k++) {
-
         for (int i = 0; i < V; i++) {
-
             for (int j = 0; j < V; j++) {
-
                 if (dist[i][k] != INF &&
                     dist[k][j] != INF &&
                     dist[i][k] + dist[k][j] < dist[i][j]) {
-
                     dist[i][j] = dist[i][k] + dist[k][j];
                 }
             }
@@ -106,25 +102,19 @@ void floydWarshall(vector<vector<int>>& dist, int V) {
     }
 
     cout << "Shortest distance matrix:\n";
-
     for (int i = 0; i < V; i++) {
-
         for (int j = 0; j < V; j++) {
-
             if (dist[i][j] == INF)
                 cout << "INF ";
             else
                 cout << dist[i][j] << " ";
         }
-
         cout << endl;
     }
 }
 
 int main() {
-
     int V = 4;
-
     vector<vector<int>> dist = {
         {0, 3, INF, 7},
         {8, 0, 2, INF},
@@ -133,7 +123,6 @@ int main() {
     };
 
     floydWarshall(dist, V);
-
     return 0;
 }
 ```
@@ -144,21 +133,15 @@ int main() {
 
 ```java
 public class FloydWarshall {
-
     static final int INF = 1000000000;
 
     public static void floydWarshall(int[][] dist, int V) {
-
         for (int k = 0; k < V; k++) {
-
             for (int i = 0; i < V; i++) {
-
                 for (int j = 0; j < V; j++) {
-
                     if (dist[i][k] != INF &&
                         dist[k][j] != INF &&
                         dist[i][k] + dist[k][j] < dist[i][j]) {
-
                         dist[i][j] = dist[i][k] + dist[k][j];
                     }
                 }
@@ -169,27 +152,20 @@ public class FloydWarshall {
     }
 
     public static void printSolution(int[][] dist, int V) {
-
         System.out.println("Shortest distance matrix:");
-
         for (int i = 0; i < V; i++) {
-
             for (int j = 0; j < V; j++) {
-
                 if (dist[i][j] == INF)
                     System.out.print("INF ");
                 else
                     System.out.print(dist[i][j] + " ");
             }
-
             System.out.println();
         }
     }
 
     public static void main(String[] args) {
-
         int V = 4;
-
         int[][] graph = {
             {0, 3, INF, 7},
             {8, 0, 2, INF},
@@ -200,6 +176,42 @@ public class FloydWarshall {
         floydWarshall(graph, V);
     }
 }
+```
+
+---
+
+# Implementation in Python
+
+```python
+INF = 1000000000
+
+def floyd_warshall(dist, V):
+    for k in range(V):
+        for i in range(V):
+            for j in range(V):
+                if dist[i][k] != INF and dist[k][j] != INF and dist[i][k] + dist[k][j] < dist[i][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+
+    print("Shortest distance matrix:")
+    for i in range(V):
+        row = []
+        for j in range(V):
+            if dist[i][j] == INF:
+                row.append("INF")
+            else:
+                row.append(str(dist[i][j]))
+        print(" ".join(row))
+
+if __name__ == "__main__":
+    V = 4
+    graph = [
+        [0, 3, INF, 7],
+        [8, 0, 2, INF],
+        [5, INF, 0, 1],
+        [2, INF, INF, 0]
+    ]
+
+    floyd_warshall(graph, V)
 ```
 
 ---
@@ -338,14 +350,3 @@ O(V^2)
 The Floyd-Warshall Algorithm is one of the most important graph algorithms for solving the All-Pairs Shortest Path problem.
 
 It demonstrates matrix-based Dynamic Programming and provides a powerful approach for optimizing shortest paths incrementally using intermediate vertices.
-
-
-
-
-      
-  
-
-
-
-
-
