@@ -2,15 +2,23 @@
 
 Thank you for your interest in contributing to **Algo**! We welcome contributions from everyone, whether you're a beginner or an experienced developer. Contributions can include adding new algorithms, improving documentation, fixing bugs, or enhancing the user experience. This guide will help you get started.
 
-## Resources for Guidance
-Here are some resources that may be helpful as you contribute to Algo:
-- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction)
-- [React.js Documentation](https://react.dev/learn)
-- [Markdown Guide](https://www.markdownguide.org/)
-- [MDX Documentation](https://mdxjs.com/docs/)
-- [Mermaid Documentation](https://mermaid.js.org/)
-- [KaTeX Math Rendering Documentation](https://katex.org/docs/supported.html)
-- [Math Equations](https://docusaurus.io/docs/markdown-features/math-equations)
+## Recommended reading
+
+Algo’s docs site is built with **Docusaurus** (React + MDX). You do not need to master every tool before your first contribution—use this list when you hit a specific task. The same links appear in the README under [Resources for Guidance](./README.md#resources-for-guidance).
+
+| Resource | When it is useful |
+| -------- | ----------------- |
+| [Docusaurus docs](https://docusaurus.io/docs/docs-introduction) | Site structure, docs folders, sidebars, front-matter, and local preview (`npm start`). Start here if you are new to this repo. |
+| [Markdown Guide](https://www.markdownguide.org/) | Writing `.md` pages: headings, lists, links, and fenced code blocks for algorithm implementations. |
+| [MDX documentation](https://mdxjs.com/docs/) | Pages that use `.mdx` and embed React components (imports/JSX inside a doc file). |
+| [React docs](https://react.dev/learn) | Custom components under `src/components/` or interactive examples referenced from MDX. |
+| [Mermaid](https://mermaid.js.org/) | Flowcharts and diagrams inside docs (see also [Writing Documentation](#4-writing-documentation-for-algo) below). |
+| [KaTeX supported functions](https://katex.org/docs/supported.html) | Math notation in docs (`$...$` / `$$...$$`). |
+| [Docusaurus math equations](https://docusaurus.io/docs/markdown-features/math-equations) | Enabling and troubleshooting math rendering in this project. |
+
+**Contributing to the site?** Read [How to Contribute](#how-to-contribute) and [Writing Documentation for Algo](#4-writing-documentation-for-algo).
+
+**Following the DSA roadmap?** See [learn.md](./learn.md) and [Roadmap to Learning DSA](docs/data-structures/roadmap-to-dsa.md) for study paths; use the table above when you want to read or improve doc pages alongside your practice.
 
 ## How to Contribute
 
