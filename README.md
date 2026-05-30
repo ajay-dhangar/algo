@@ -86,9 +86,12 @@ Welcome to Algo, an open-source educational platform built with Docusaurus (Reac
 
 Algo provides a collection of well-documented algorithmic solutions written in various programming languages, covering a range of topics like sorting, searching, dynamic programming, and more.
 
+**New to the site?** Run the **[8-step interactive tour](https://ajay-dhangar.github.io/algo/?tour=1)** (`?tour=1`) or read **[How to Use This Site](https://ajay-dhangar.github.io/algo/docs/getting-started)** for docs layout and a learning path.
+
 ### Pick up Topics
 
 - [DSA Roadmap](https://roadmap.sh/datastructures-and-algorithms)
+- [How to Use This Site](https://ajay-dhangar.github.io/algo/docs/getting-started) (Algo docs guide)
 
 We aim to:
 - Create an extensive library of algorithms in different languages
@@ -97,6 +100,7 @@ We aim to:
 
 ## Features
 
+- **Interactive site tour**: [8-step guide](https://ajay-dhangar.github.io/algo/?tour=1) with Skip — Tutorial, interview prep, playground, quizzes (also in [How to Use This Site](https://ajay-dhangar.github.io/algo/docs/getting-started))
 - **Multi-language Support**: Algorithms in multiple programming languages
 - **Beginner-Friendly**: Well-structured, easy-to-understand explanations
 - **Open Source Contributions**: Welcoming developers at all levels to contribute
