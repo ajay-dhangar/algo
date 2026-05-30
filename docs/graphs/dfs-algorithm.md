@@ -19,6 +19,10 @@ DFS is extremely useful for **topological sorting**, **detecting cycles**, and s
 
 DFS uses a **Stack (LIFO)** data structure, typically implemented via the call stack during recursion, to keep track of the vertices to visit.
 
+### Difference from BFS
+
+While DFS dives deep into a graph by exploring as far as possible along each branch before backtracking, **Breadth-First Search (BFS)** explores the graph level by level, visiting all immediate neighbors of a node before moving deeper. BFS uses a Queue (FIFO) data structure, whereas DFS uses a Stack (LIFO).
+
 ### Steps
 
 1. Start by picking a node and marking it as visited.
@@ -43,6 +47,7 @@ Where `V` = number of vertices, `E` = number of edges. Space complexity stems fr
 
 ### Python
 
+**Recursive Implementation**
 ```python
 def dfs(graph, start, visited=None):
     if visited is None:
@@ -65,6 +70,23 @@ graph = {
     5: [2]
 }
 dfs(graph, 0) # Output: 0 1 3 4 2 5
+```
+
+**Iterative Implementation**
+```python
+def dfs_iterative(graph, start):
+    visited = set()
+    stack = [start]
+
+    while stack:
+        node = stack.pop()
+        if node not in visited:
+            print(node, end=" ")
+            visited.add(node)
+            # Add neighbors to stack in reverse order to visit them in the same order as recursion
+            stack.extend(reversed(graph[node]))
+
+dfs_iterative(graph, 0) # Output: 0 1 3 4 2 5
 ```
 
 ### Java
@@ -127,4 +149,5 @@ function dfs(graph, start, visited = new Set()) {
 
 - **Cycle Detection** — Finding cycles in graphs to resolve deadlocks.
 - **Topological Sorting** — Used in build systems (like Make or npm) to resolve dependencies.
+- **Connected Components** — Finding all connected components in an undirected graph.
 - **Path Finding** — Finding a path in games or mazes where we just need *any* path, not necessarily the shortest.
