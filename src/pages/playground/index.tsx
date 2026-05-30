@@ -606,8 +606,6 @@ const PlaygroundContent: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"sandbox" | "python" | "benchmark">("sandbox");
 
   // JS Sandbox State
-  const [code, setCode] = useState<string>(TEMPLATES.binarySearch);
-  const [template, setTemplate] = useState<keyof typeof TEMPLATES>("binarySearch");
   const [language, setLanguage] = useState<LanguageType>("javascript");
   const [code, setCode] = useState<string>(TEMPLATES.javascript.binarySearch);
   const [template, setTemplate] = useState<string>("binarySearch");
