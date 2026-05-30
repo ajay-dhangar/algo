@@ -7,6 +7,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const { createClient } = require('redis');
 
 function analyzeFile(filePath) {
   if (!fs.existsSync(filePath)) return null;
@@ -100,7 +102,7 @@ function analyzeCode(code) {
   };
 }
 
-function main() {
+async function main() {
   const args = process.argv.slice(2);
   if (args.length === 0) {
     console.log("Usage: node scripts/analyze-complexity.js <file-path-or-code>");
@@ -108,19 +110,72 @@ function main() {
   }
 
   const target = args[0];
-  let analysis;
-
+  let code = '';
+  
   if (fs.existsSync(target)) {
-    console.log(`🔍 Analyzing file: ${target}...`);
-    analysis = analyzeFile(target);
+    code = fs.readFileSync(target, 'utf8');
   } else {
-    console.log("🔍 Analyzing raw code snippet...");
-    analysis = analyzeCode(target);
+    code = target;
+  }
+
+  const hash = crypto.createHash('md5').update(code).digest('hex');
+  const cacheKey = `complexity-cache:${hash}`;
+  let analysis = null;
+  let cacheHit = false;
+
+  // Initialize and connect Redis client
+  const client = createClient({
+    url: process.env.REDIS_URL || 'redis://127.0.0.1:6379'
+  });
+
+  let redisAvailable = false;
+  try {
+    // Graceful Redis connection with 1.5s timeout
+    const connectPromise = client.connect();
+    const timeoutPromise = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('Redis connection timeout')), 1500)
+    );
+    await Promise.race([connectPromise, timeoutPromise]);
+    redisAvailable = true;
+  } catch (err) {
+    console.log("⚠️ Redis caching server not available. Running analysis without cache.");
+  }
+
+  if (redisAvailable) {
+    try {
+      const cachedData = await client.get(cacheKey);
+      if (cachedData) {
+        analysis = JSON.parse(cachedData);
+        cacheHit = true;
+        console.log("⚡ Cache Hit! Retrieved AST analysis from Redis.");
+      }
+    } catch (err) {
+      console.log("⚠️ Error reading from Redis cache:", err.message);
+    }
+  }
+
+  if (!analysis) {
+    if (fs.existsSync(target)) {
+      console.log(`🔍 Analyzing file: ${target}...`);
+      analysis = analyzeFile(target);
+    } else {
+      console.log("🔍 Analyzing raw code snippet...");
+      analysis = analyzeCode(target);
+    }
+
+    if (analysis && redisAvailable) {
+      try {
+        // Save to cache with 24 hours TTL
+        await client.setEx(cacheKey, 86400, JSON.stringify(analysis));
+      } catch (err) {
+        console.log("⚠️ Error writing to Redis cache:", err.message);
+      }
+    }
   }
 
   if (analysis) {
     console.log("\n==============================================");
-    console.log("🚀 STATIC ALGORITHM COMPLEXITY REPORT");
+    console.log("🚀 STATIC ALGORITHM COMPLEXITY REPORT" + (cacheHit ? " [CACHED]" : ""));
     console.log("==============================================");
     console.log(`⏱️ Estimated Time Complexity:  ${analysis.timeComplexity}`);
     console.log(`💾 Estimated Space Complexity: ${analysis.spaceComplexity}`);
@@ -128,6 +183,12 @@ function main() {
     console.log("📝 Details & Metrics:");
     analysis.details.forEach(detail => console.log(`  - ${detail}`));
     console.log("==============================================\n");
+  }
+
+  if (redisAvailable) {
+    try {
+      await client.disconnect();
+    } catch (e) {}
   }
 }
 
