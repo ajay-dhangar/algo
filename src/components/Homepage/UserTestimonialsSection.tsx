@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Link } from "@docusaurus/router";
+import Link from "@docusaurus/Link";
 
 import "swiper/css";
 import "swiper/css/autoplay";
