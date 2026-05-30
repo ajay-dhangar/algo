@@ -156,7 +156,7 @@ const UserTestimonialsSection: React.FC = () => {
                 hover:scale-105 transition-all duration-300"
             >
               Write a Review
-              <span className="text-lg">✍️</span>
+<span role="img" aria-label="writing hand" className="text-lg">✍️</span>
             </Link>
           </div>
         </div>
