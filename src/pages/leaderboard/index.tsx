@@ -83,9 +83,9 @@ const Leaderboard: React.FC = () => {
             );
 
             return {
-              username: entry.username,
-              totalScore: entry.totalScore,
-              attemptsCount: entry.attemptsCount,
+              username: entry.username || "Anonymous",
+              totalScore: entry.totalScore || 0,
+              attemptsCount: entry.attemptsCount || 0,
               avatarUrl: `https://ui-avatars.com/api/?name=${encodeURIComponent(entry.username)}&background=0D8ABC&color=fff&size=150`,
               profileUrl: "#",
               rank: entry.rank,
@@ -126,7 +126,8 @@ const Leaderboard: React.FC = () => {
 
   const maximumScoreValue = useMemo(() => {
     if (leaders.length === 0) return 1;
-    return Math.max(...leaders.map((l) => l.totalScore));
+    const maxScore = Math.max(...leaders.map((l) => l.totalScore));
+    return maxScore === 0 ? 1 : maxScore;
   }, [leaders]);
 
   return (
@@ -273,6 +274,7 @@ const Leaderboard: React.FC = () => {
         )}
 
         {/* Global Competitor Listing Board Section */}
+        {(loading || leaders.length === 0 || leaders.length > 3) && (
         <section className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="bg-white dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-md dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-colors duration-300">
             {/* Header / Filter Dashboard Sub-Panel Grid Frame */}
@@ -429,6 +431,7 @@ const Leaderboard: React.FC = () => {
               )}
           </div>
         </section>
+        )}
       </main>
     </Layout>
   );
