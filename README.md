@@ -184,12 +184,14 @@ To manually invoke Gemini Code Assist, you can use the following commands in the
 [![Forkers repo roster for @ajay-dhangar/algo](https://reporoster.com/forks/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/network/members)
 
 ## Resources for Guidance
-Here are some resources that may be helpful as you contribute to Algo:
-- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction)
-- [React.js Documentation](https://legacy.reactjs.org/docs/getting-started.html)
-- [Markdown Guide](https://www.markdownguide.org/)
-- [MDX Documentation](https://mdxjs.com/docs/)
-- [Mermaid Documentation](https://mermaid.js.org/)
+
+These links are summarized in [CONTRIBUTING.md — Recommended reading](./CONTRIBUTING.md#recommended-reading) with a one-line note on when to use each tool while contributing or editing docs.
+
+- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction) — site layout, sidebars, and local preview
+- [Markdown Guide](https://www.markdownguide.org/) — writing `.md` algorithm and tutorial pages
+- [MDX Documentation](https://mdxjs.com/docs/) — pages that embed React components
+- [React.js Documentation](https://react.dev/learn) — custom components and interactive docs
+- [Mermaid Documentation](https://mermaid.js.org/) — flowcharts and diagrams in documentation
 
 <div align="center">
     <a href="#top">

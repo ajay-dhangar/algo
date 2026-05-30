@@ -47,6 +47,10 @@ Learn the design patterns used to solve complex computing problems:
 * **Multi-Language Support:** Code snippets are available in popular languages like **JavaScript, TypeScript, Python, Java, and C++**.
 * **Open Source Community:** Built by developers, for developers. You can contribute, suggest improvements, or add your own solutions!
 
+## Documentation & tooling (for contributors and doc readers)
+
+While you follow this roadmap, you may want to read or improve pages on the Algo site. Official references for **Markdown**, **MDX**, **Docusaurus**, **Mermaid**, and **React** are listed in [CONTRIBUTING.md — Recommended reading](./CONTRIBUTING.md#recommended-reading) (same list as the README’s Resources for Guidance). Use them when you need help formatting a page, adding a diagram, or understanding how the site is built—not before you start learning DSA basics.
+
 ## How to Get Started
 
 1. **Pick a Topic:** Choose a module from the sidebar based on your current skill level.
