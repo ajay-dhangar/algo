@@ -130,3 +130,43 @@ for p in fcfs_data:
     print(f"{p['name']}: {p['rt']}")
 print("Average response time = ", rt/n)
 ```
+
+**Example:**
+
+Input:
+```text
+Enter no of processes: 4
+Enter name of process, arrival time, and burst time:
+p0 1 3
+p1 2 6
+p3 16 4
+p4 17 2
+```
+
+Output:
+```text
+Gantt Chart:
+    p0        p1        idle        p3        p4    
+1         4         10         16         20         22
+
+Turn Around Time:
+p0: 3
+p1: 8
+p3: 4
+p4: 5
+Average turn around time =  5.0
+
+Waiting Time:
+p0: 0
+p1: 2
+p3: 0
+p4: 3
+Average waiting time =  1.25
+
+Response Time:
+p0: 0
+p1: 2
+p3: 0
+p4: 3
+Average response time =  1.25
+```
