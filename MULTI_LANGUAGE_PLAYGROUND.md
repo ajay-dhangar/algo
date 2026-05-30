@@ -228,26 +228,20 @@ public class BinarySearch {
 - **C++**: Compiled language, fastest execution for compute-intensive tasks
 - **Java**: JVM startup adds overhead, but offers strong type safety
 
-## Security & WebAssembly Sandboxing
+## Security & Sandboxing
 
-The playground employs layered sandboxing techniques depending on the execution runtime to ensure high security and isolate user scripts.
+The playground employs layered security techniques depending on the execution runtime to ensure high security and isolate user scripts.
 
 ### 1. JavaScript Sandboxing (Web Workers)
 * **Execution Environment**: JavaScript code executes entirely inside client-side **Web Workers**.
-* **Global Scope Isolation**: Web Workers do not have access to the browser's main thread global scope, the `window` object, the `document` (DOM), or cookies.
+* **Global Scope Isolation**: Web Workers do not have access to the browser's main thread global scope, the **window** object, the **document** (DOM), or cookies.
 * **Timeout Protection**: A watchdog timer automatically terminates execution if a script exceeds the 10-second execution limit, preventing infinite loop tab freezes.
 
-### 2. Python WebAssembly Sandboxing (Pyodide)
-Python execution offers a client-side option powered by **Pyodide**—a WebAssembly-compiled port of CPython.
-* **CDN-Based Loading**: The runtime is dynamically loaded in the client browser from `https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js`.
-* **Execution Context**: Pyodide compiles and runs Python scripts entirely inside the browser's WebAssembly sandbox. This ensures no server-side execution takes place for the client-side Python runner, guaranteeing total backend security.
-
-#### Pyodide Browser Sandboxing Limitations:
-* **Virtual Filesystem (MEMFS)**: Python's standard file operations (e.g. `open()`, `write()`) use a virtual, in-memory filesystem. File I/O works seamlessly within a single run, but files do **not persist** on the user's hard drive and are lost when the tab is reloaded or closed.
-* **Networking Restrictions**: Raw TCP/UDP socket connections are unsupported in WebAssembly. Standard library networking tools (like `socket`, `urllib`, or `requests`) will fail. External HTTP requests are blocked unless executed using WebAssembly-compatible APIs (like `pyodide.http.pyfetch` or `js.fetch`).
-* **Package/Library Scope**: Only Python standard library modules and a limited subset of compiled science/math libraries (such as NumPy, if loaded) are available. Arbitrary `pip` packages containing uncompiled C-extensions cannot be dynamically installed.
-* **Main-Thread CPU Blocking**: Because the Pyodide WebAssembly runner is executed in the browser's UI thread context, complex, highly intensive loops or infinite execution blocks may cause the browser tab to temporarily freeze. Watchdog termination thresholds are handled via browser execution timers.
-* **Initial Load Latency**: Downloading the WebAssembly runtime and standard library packages (approximately 6-10MB) introduces a minor initial startup delay before the first script execution.
+### 2. Backend Execution (Python, C++, Java)
+Non-JavaScript languages are executed on the backend server.
+* **Execution Environment**: Code is written to temporary files in the server's temporary directory and executed using system commands (python, g++, java).
+* **Timeout Protection**: Backend execution is limited to 10 seconds via the exec timeout option to prevent resource exhaustion.
+* **Cleanup**: Temporary source files and compiled binaries are deleted immediately after execution.
 
 ## Future Enhancements
 
