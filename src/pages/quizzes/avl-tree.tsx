@@ -97,43 +97,35 @@ const AVLTreeQuiz: React.FC = () => {
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
- const handleAnswer=(selected:string)=>{
+  // Derived state: eliminates score desync and selectedOption carry-over bugs
+  const selectedOption = userAnswers[currentQuestion] || null;
+  const score = userAnswers.reduce(
+    (acc, answer, index) => (answer === questions[index]?.answer ? acc + 1 : acc),
+    0
+  );
 
- setSelectedOption(selected);
-
- const updatedAnswers=[...userAnswers];
-
- updatedAnswers[currentQuestion]=selected;
-
- setUserAnswers(updatedAnswers);
-
-}
+  const handleAnswer = (selected: string) => {
+    const updatedAnswers = [...userAnswers];
+    updatedAnswers[currentQuestion] = selected;
+    setUserAnswers(updatedAnswers);
+  };
 
   const nextQuestion = () => {
-    if (selectedOption !== null) {
-      setUserAnswers((prevAnswers) => [...prevAnswers, selectedOption]);
-      if (selectedOption === questions[currentQuestion].answer) {
-        setScore(score + 1);
-      }
-      if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
-        setSelectedOption(null);
-      } else {
-        setShowResult(true);
-      }
+    if (!selectedOption) return;
+
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setShowResult(true);
     }
   };
 
   const handleRetry = () => {
     setCurrentQuestion(0);
-    setScore(0);
     setShowResult(false);
-    setSelectedOption(null);
     setUserAnswers([]);
   };
 
