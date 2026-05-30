@@ -228,19 +228,20 @@ public class BinarySearch {
 - **C++**: Compiled language, fastest execution for compute-intensive tasks
 - **Java**: JVM startup adds overhead, but offers strong type safety
 
-## Security & Execution Sandboxing
+## Security & Sandboxing
 
-The playground employs layered sandboxing techniques depending on the execution runtime to ensure high security and isolate user scripts.
+The playground employs layered security techniques depending on the execution runtime to ensure high security and isolate user scripts.
 
 ### 1. JavaScript Sandboxing (Web Workers)
 * **Execution Environment**: JavaScript code executes entirely inside client-side **Web Workers**.
-* **Global Scope Isolation**: Web Workers do not have access to the browser's main thread global scope, the `window` object, the `document` (DOM), or cookies.
+* **Global Scope Isolation**: Web Workers do not have access to the browser's main thread global scope, the **window** object, the **document** (DOM), or cookies.
 * **Timeout Protection**: A watchdog timer automatically terminates execution if a script exceeds the 10-second execution limit, preventing infinite loop tab freezes.
 
-### 2. Backend Sandboxing & Isolation (Python, C++, Java)
-* **Execution Environment**: Python, C++, and Java code execution is handled by the backend server.
-* **Timeout Protection**: The backend limits execution time using a child process execution timeout of 10 seconds to prevent resource exhaustion and hanging processes.
-* **Temporary File Isolation**: Execution scripts are written to unique, temporary files with random names inside isolated temporary directories, which are automatically deleted immediately after execution completes.
+### 2. Backend Execution (Python, C++, Java)
+Non-JavaScript languages are executed on the backend server.
+* **Execution Environment**: Code is written to temporary files in the server's temporary directory and executed using system commands (python, g++, java).
+* **Timeout Protection**: Backend execution is limited to 10 seconds via the exec timeout option to prevent resource exhaustion.
+* **Cleanup**: Temporary source files and compiled binaries are deleted immediately after execution.
 
 ## Future Enhancements
 
