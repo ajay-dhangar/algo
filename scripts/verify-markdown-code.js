@@ -16,7 +16,7 @@ function getModifiedFiles() {
   const repoRoot = path.join(__dirname, '..');
   try {
     // Get list of changed markdown files between current branch and base branch (main)
-    const stdout = execSync('git diff --name-only origin/main...', { encoding: 'utf8' });
+    const stdout = execFileSync('git', ['diff', '--name-only', 'origin/main...'], { encoding: 'utf8' });
     return stdout
       .split('\n')
       .map(f => f.trim())
