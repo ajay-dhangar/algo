@@ -296,9 +296,11 @@ print "balanced"`}
   };
 
   const handleAnswer = (selected: string) => {
-    const updatedAnswers = [...userAnswers];
-    updatedAnswers[currentQuestion] = selected;
-    setUserAnswers(updatedAnswers);
+    setUserAnswers((prev) => {
+      const updatedAnswers = [...prev];
+      updatedAnswers[currentQuestion] = selected;
+      return updatedAnswers;
+    });
   };
 
   const nextQuestion = () => {
