@@ -83,7 +83,9 @@ def dfs_iterative(graph, start):
         if node not in visited:
             print(node, end=" ")
             visited.add(node)
-            # Add neighbors to stack in reverse order to visit them in the same order as recursion
+            # Add neighbors to stack in reverse order to visit them in the same order as recursion.
+            # Note: This simple iterative approach can push duplicate nodes onto the stack,
+            # leading to a worst-case space complexity of O(E) instead of O(V).
             stack.extend(reversed(graph[node]))
 
 dfs_iterative(graph, 0) # Output: 0 1 3 4 2 5
