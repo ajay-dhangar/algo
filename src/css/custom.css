@@ -18,26 +18,39 @@
 
 :root {
   --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-dark-color: rgb(9, 9, 63);
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe;
+  
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
+  --ifm-background-color: #f8fafc;
 }
 
-[data-theme="dark"] {
-  --ifm-color-primary: rgb(234 179 8);
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+[data-theme="dark"] {  
+  --ifm-color-primary: #eab308; /* Premium Cyber Amber */
+  --ifm-color-primary-dark: #ca8a04;
+  --ifm-color-primary-darker: #a16207;
+  --ifm-color-primary-darkest: #713f12;
+  --ifm-color-primary-light: #fde047;
+  --ifm-color-primary-lighter: #fef08a;
+  --ifm-color-primary-lightest: #fef9c3;
+  
+  --ifm-background-color: #040414; /* Deep Arcade Space Black */
+  --docusaurus-highlighted-code-line-bg: rgba(234, 179, 8, 0.15);
+}
+
+/* Custom platform helper animation for the terminal tags */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 2px var(--ifm-color-primary)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px var(--ifm-color-primary)); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
 }
 
 div[class^="announcementBar_"] {

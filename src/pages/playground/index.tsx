@@ -614,6 +614,7 @@ const PlaygroundContent: React.FC = () => {
   const [execTime, setExecTime] = useState<number | null>(null);
   const workerRef = useRef<Worker | null>(null);
   const consolePanelRef = useRef<HTMLDivElement | null>(null);
+  const editorDisposablesRef = useRef<Array<{ dispose: () => void }>>([]);
 
   // Python WASM State
   const [pyCode, setPyCode] = useState<string>(PYTHON_TEMPLATE);
@@ -900,6 +901,33 @@ const PlaygroundContent: React.FC = () => {
     worker.postMessage(sizes);
   };
 
+  const handleEditorMount = (editor: MonacoEditorLike) => {
+    editorDisposablesRef.current.forEach((disposable) => disposable.dispose());
+    editorDisposablesRef.current = [];
+
+    const cursorDisposable = editor.onDidChangeCursorPosition((event) => {
+      setEditorTelemetry((prev) => ({
+        ...prev,
+        lineNumber: event.position.lineNumber,
+        column: event.position.column,
+      }));
+    });
+
+    const selectionDisposable = editor.onDidChangeCursorSelection((event) => {
+      const model = editor.getModel();
+      const selectionLength = model ? model.getValueInRange(event.selection).length : 0;
+
+      setEditorTelemetry((prev) => ({
+        ...prev,
+        lineNumber: event.selection.endLineNumber,
+        column: event.selection.endColumn,
+        selectionLength,
+      }));
+    });
+
+    editorDisposablesRef.current = [cursorDisposable, selectionDisposable];
+  };
+
   return (
     <div className="bg-gray-50 dark:bg-[#1b1b1d] min-h-screen py-10 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
@@ -992,7 +1020,6 @@ const PlaygroundContent: React.FC = () => {
                     <FaStop /> Stop
                   </button>
                 )}
-<<<<<<< HEAD
                 <button
                   onClick={() => setLogs([])}
                   className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg border-none cursor-pointer"
@@ -1011,9 +1038,49 @@ const PlaygroundContent: React.FC = () => {
                   ))}
                   <div ref={consoleEndRef} />
                 </div>
-=======
->>>>>>> upstream/main
               </div>
+            {/* Monaco Wrapper */}
+            <div className="flex-grow min-h-[480px] flex flex-col">
+              <BrowserOnly fallback={<div className="p-6 text-gray-500 font-mono">Loading code editor...</div>}>
+                {() => {
+                  const Editor = require("@monaco-editor/react").default;
+                  return (
+                    <div className="flex h-full min-h-[480px] flex-col">
+                      <Editor
+                        height="440px"
+                        language={LANGUAGE_CONFIGS[language].monacoLanguage}
+                        theme={colorMode === "dark" ? "vs-dark" : "light"}
+                        value={code}
+                        onMount={handleEditorMount}
+                        onChange={(val: string | undefined) => setCode(val || "")}
+                        options={{
+                          fontSize: 14,
+                          fontFamily: "Fira Code, Menlo, Monaco, Consolas, monospace",
+                          minimap: { enabled: false },
+                          automaticLayout: true,
+                          scrollBeyondLastLine: false,
+                          tabSize: 2,
+                          lineNumbersMinChars: 3,
+                          cursorBlinking: "smooth",
+                          smoothScrolling: true,
+                        }}
+                      />
+
+                      <div className="flex items-center justify-between gap-3 border-t border-gray-200/80 dark:border-gray-700 bg-gray-100 dark:bg-gray-800/90 px-4 py-2 text-[11px] font-mono text-gray-600 dark:text-gray-300">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span>Total Lines: {editorTelemetry.totalLines}</span>
+                          <span>Ln: {editorTelemetry.lineNumber}</span>
+                          <span>Col: {editorTelemetry.column}</span>
+                          <span>Characters: {editorTelemetry.characterCount}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span>Selection: {editorTelemetry.selectionLength}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }}
+              </BrowserOnly>
             </div>
           </div>
         )}

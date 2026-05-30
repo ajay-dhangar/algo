@@ -1,7 +1,7 @@
 ---
 id: Reverse Bits 
 title: Reverse-Bits-Solution
-sidebar_label: DSA Problem Solution
+sidebar_label: Reverse Bits
 sidebar-position: 1
 description: The Reverse Bits problem asks you to reverse the bits of a given 32-bit unsigned integer. Essentially, you need to flip the binary representation of the number so that the least significant bit (LSB) becomes the most significant bit (MSB) and vice versa."
 tags: [DSA, leetcode, problem-solving]
