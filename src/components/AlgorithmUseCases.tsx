@@ -398,7 +398,7 @@ const AlgorithmUseCases: React.FC = () => {
     <div className="w-full max-w-6xl mx-auto my-12 px-4">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 bg-white dark:bg-gray-900/50 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-md p-4 sm:p-6 lg:p-8 backdrop-blur-md">
         {/* Sidebar Navigation */}
-        <div className="md:col-span-4 lg:col-span-3 flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800/60 pr-0 md:pr-4 scrollbar-none snap-x max-h-[60vh] overflow-y-auto">
+        <div className="md:col-span-4 lg:col-span-3 flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800/60 pr-0 md:pr-4 scrollbar-none snap-x md:max-h-[60vh] md:overflow-y-auto">
           {keys.map((algo) => {
             const isSelected = selected === algo;
 
