@@ -207,8 +207,8 @@ const About: React.FC = () => {
                 </p>
               </div>
               <div className="flex justify-center space-x-4 border-t border-slate-100 dark:border-slate-800/60 pt-3 text-slate-400 dark:text-slate-600">
-                <Link to="#" className="hover:text-slate-900 dark:hover:text-white transition-colors"><FaGithub className="w-3.5 h-3.5" /></Link>
-                <Link to="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"><FaLinkedin className="w-3.5 h-3.5" /></Link>
+                <Link to="https://github.com" className="hover:text-slate-900 dark:hover:text-white transition-colors"><FaGithub className="w-3.5 h-3.5" /></Link>
+                <Link to="https://linkedin.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"><FaLinkedin className="w-3.5 h-3.5" /></Link>
               </div>
             </motion.div>
 
@@ -238,8 +238,8 @@ const About: React.FC = () => {
                 </p>
               </div>
               <div className="flex justify-center space-x-4 border-t border-slate-100 dark:border-slate-800/60 pt-3 text-slate-400 dark:text-slate-600">
-                <Link to="#" className="hover:text-slate-900 dark:hover:text-white transition-colors"><FaGithub className="w-3.5 h-3.5" /></Link>
-                <Link to="#" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"><FaLinkedin className="w-3.5 h-3.5" /></Link>
+                <Link to="https://github.com" className="hover:text-slate-900 dark:hover:text-white transition-colors"><FaGithub className="w-3.5 h-3.5" /></Link>
+                <Link to="https://linkedin.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"><FaLinkedin className="w-3.5 h-3.5" /></Link>
               </div>
             </motion.div>
 
