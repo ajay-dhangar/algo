@@ -1,7 +1,7 @@
 ---
 id: Merge Two Sorted Arrays
 title: "Merge Two Sorted Arrays."
-sidebar_label: "DSA Problem Solution"
+sidebar_label: Merge Two Sorted Arrays
 sidebar_position: 5
 description: "This problem is a common exercise in understanding array manipulation and is often used to illustrate the two-pointer technique"
 tags: [DSA, algorithms,Problem-Solving]
