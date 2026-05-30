@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Link } from "@docusaurus/router";
+import Link from "@docusaurus/Link";
 
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -156,7 +156,7 @@ const UserTestimonialsSection: React.FC = () => {
                 hover:scale-105 transition-all duration-300"
             >
               Write a Review
-              <span className="text-lg">✍️</span>
+<span role="img" aria-label="writing hand" className="text-lg">✍️</span>
             </Link>
           </div>
         </div>
