@@ -640,16 +640,15 @@ const PlaygroundContent: React.FC = () => {
   }, []);
 
   // ── Tab 1: JS RUNNER ─────────────────────────────────────────
-  const handleStopJs = () => {
+  const handleStop = () => {
     if (workerRef.current) {
       workerRef.current.terminate();
       workerRef.current = null;
       setIsRunning(false);
-      setLogs((prev) => [...prev, "", "⛔ Execution stopped by user."]);
+      setLogs((prev) => [...prev, "", "⚠️ Execution terminated manually by user."]);
     }
   };
 
-  const handleRunJs = () => {
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLanguage = e.target.value as LanguageType;
     setLanguage(selectedLanguage);
@@ -776,15 +775,12 @@ const PlaygroundContent: React.FC = () => {
 
     // 10-second execution timeout to prevent infinite loops
     const timeoutId = setTimeout(() => {
-      worker.terminate();
-      workerRef.current = null;
-      setIsRunning(false);
-      setLogs((prev) => [...prev, "", "⏱️ Execution timed out after 10 seconds."]);
       if (workerRef.current) {
         workerRef.current.terminate();
-        setIsRunning(false);
-        setLogs((prev) => [...prev, "❌ [Timeout] Code execution timed out after 10 seconds."]);
+        workerRef.current = null;
       }
+      setIsRunning(false);
+      setLogs((prev) => [...prev, "", "⏱️ Execution timed out after 10 seconds."]);
     }, 10000);
 
     worker.onmessage = (e) => {
@@ -948,237 +944,8 @@ const PlaygroundContent: React.FC = () => {
           </button>
         </div>
 
-        {/* ── TAB 1: JS SANDBOX VIEW ───────────────────────────────── */}
         {activeTab === "sandbox" && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            <div className="lg:col-span-7 flex flex-col bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-md">
-              <div className="bg-gray-100 dark:bg-gray-800/80 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono">
-                  script.js
-        {/* Header */}
-        <div className="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white flex items-center justify-center md:justify-start gap-3">
-              <FaCode className="text-blue-600 dark:text-blue-500" />
-              Algo Playground
-            </h1>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
-              Write, run, and experiment with algorithms in {LANGUAGE_CONFIGS[language].name} in real-time.
-            </p>
-          </div>
-
-          {/* Language and Template Selectors */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3">
-            {/* Language Selector */}
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1">
-                Language:
-              </span>
-              <select
-                value={language}
-                onChange={handleLanguageChange}
-                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-              >
-                <option value="javascript">JavaScript</option>
-                <option value="python">Python</option>
-                <option value="cpp">C++</option>
-                <option value="java">Java</option>
-              </select>
-            </div>
-
-            {/* Template Selector */}
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-                <FaLightbulb className="text-yellow-500" /> Template:
-              </span>
-              <select
-                value={template}
-                onChange={handleTemplateChange}
-                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-              >
-                <option value="binarySearch">Binary Search</option>
-                <option value="bubbleSort">Bubble Sort</option>
-                <option value="reverseList">Reverse Linked List</option>
-                <option value="fibonacci">Fibonacci Series</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* Editor and Console Workspace */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          {/* Left side: Code Editor Panel */}
-          <div className="lg:col-span-7 flex flex-col bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-850 rounded-xl overflow-hidden shadow-md">
-            <div className="bg-gray-100 dark:bg-gray-800/80 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-red-500" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500" />
-                <span className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 ml-2 font-mono">
-                  script{LANGUAGE_CONFIGS[language].fileExtension}
-                </span>
-                <button
-                  onClick={() => setCode(TEMPLATES[template])}
-                  className="px-2.5 py-1 text-xs font-semibold bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded border-none cursor-pointer"
-                >
-                  <FaUndo /> Reset
-                </button>
-              </div>
-              <div className="flex-grow min-h-[480px]">
-                <BrowserOnly>
-                  {() => {
-                    const Editor = require("@monaco-editor/react").default;
-            </div>
-
-            {/* Monaco Wrapper */}
-            <div className="flex-grow min-h-[480px]">
-              <BrowserOnly fallback={<div className="p-6 text-gray-500 font-mono">Loading code editor...</div>}>
-                {() => {
-                  const Editor = require("@monaco-editor/react").default;
-                  return (
-                    <Editor
-                      height="480px"
-                      language={LANGUAGE_CONFIGS[language].monacoLanguage}
-                      theme={colorMode === "dark" ? "vs-dark" : "light"}
-                      value={code}
-                      onChange={(val: string | undefined) => setCode(val || "")}
-                      options={{
-                        fontSize: 14,
-                        fontFamily: "Fira Code, Menlo, Monaco, Consolas, monospace",
-                        minimap: { enabled: false },
-                        automaticLayout: true,
-                        scrollBeyondLastLine: false,
-                        tabSize: 2,
-                        lineNumbersMinChars: 3,
-                        cursorBlinking: "smooth",
-                        smoothScrolling: true,
-                      }}
-                    />
-                  );
-                }}
-              </BrowserOnly>
-            </div>
-          </div>
-
-          {/* Right side: Execution and Console Output */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            {/* Controls Box */}
-            <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md flex flex-wrap gap-3 items-center">
-              {!isRunning ? (
-                <button
-                  onClick={handleRun}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
-                >
-                  <FaPlay /> Run Code
-                </button>
-              ) : (
-                <button
-                  onClick={handleStop}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
-                >
-                  <FaStop /> Stop Program
-                </button>
-              )}
-
-              <button
-                onClick={handleClear}
-                className="flex items-center gap-1.5 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-semibold transition border-none cursor-pointer text-sm"
-              >
-                <FaTrash /> Clear
-              </button>
-
-              {execTime !== null && (
-                <span className="text-xs font-mono font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-full ml-auto">
-                  Time: {execTime.toFixed(1)}ms
-                </span>
-              )}
-            </div>
-
-            {/* Console Output Panel */}
-            <div ref={consolePanelRef} className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
-              <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex items-center justify-between">
-                <span className="text-xs font-bold text-gray-400 font-mono flex items-center gap-2">
-                  <FaTerminal className="text-gray-500" /> CONSOLE TERMINAL
-                </span>
-                {isRunning && (
-                  <span className="flex items-center gap-1.5 text-xs text-green-500 font-semibold font-mono animate-pulse">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                    RUNNING
-                  </span>
-                )}
-              </div>
-
-              <div className="flex-grow p-4 overflow-y-auto font-mono text-sm leading-relaxed text-gray-300 bg-gray-950 space-y-1.5 select-text selection:bg-gray-800">
-                {logs.length === 0 ? (
-                  <div className="text-gray-600 italic select-none">
-                    Console is empty. Click "Run Code" to view program output...
-                  </div>
-                ) : (
-                  logs.map((log, idx) => {
-                    let colorClass = "text-gray-300";
-                    if (log.startsWith("❌")) {
-                      colorClass = "text-red-400 font-semibold";
-                    } else if (log.startsWith("⚠️") || log.startsWith("Program finished") || log.startsWith("//")) {
-                      colorClass = "text-gray-500 italic";
-                    } else if (log.startsWith(">")) {
-                      colorClass = "text-green-400";
-                    }
-                    return (
-                      <Editor
-                        height="480px"
-                        language="javascript"
-                        theme={colorMode === "dark" ? "vs-dark" : "light"}
-                        value={code}
-                        onChange={(val: any) => setCode(val || "")}
-                        options={{
-                          fontSize: 14,
-                          minimap: { enabled: false },
-                          automaticLayout: true,
-                        }}
-                      />
-                    );
-                  }}
-                </BrowserOnly>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm flex items-center gap-3">
-                <button
-                  onClick={handleRunJs}
-                  disabled={isRunning}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold border-none cursor-pointer"
-                >
-                  <FaPlay /> Run Sandbox
-                </button>
-                {isRunning && (
-                  <button
-                    onClick={handleStopJs}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold border-none cursor-pointer"
-                  >
-                    <FaStop /> Stop
-                  </button>
-                )}
-                <button
-                  onClick={() => setLogs([])}
-                  className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg border-none cursor-pointer"
-                >
-                  <FaTrash /> Clear
-                </button>
-              </div>
-
-              <div className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden h-[400px] shadow-inner">
-                <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex justify-between items-center text-xs text-gray-400 font-mono">
-                  <span>TERMINAL LOGS</span>
-                </div>
-                <div className="flex-grow p-4 overflow-y-auto font-mono text-sm text-gray-300 bg-black">
-                  {logs.map((log, i) => (
-                    <div key={i}>{log}</div>
-                  ))}
-                  <div ref={consoleEndRef} />
-                </div>
-              </div>
-            </div>
           </div>
         )}
 
