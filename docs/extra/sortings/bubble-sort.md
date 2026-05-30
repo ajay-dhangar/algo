@@ -67,7 +67,7 @@ Let's sort the array `[5, 1, 4, 2, 8]` using Bubble Sort.
 def bubble_sort(arr):
     n = len(arr)
     # Traverse through all array elements
-    for i in range(n):
+    for i in range(n - 1):
         # Flag to optimize and detect if array is already sorted
         swapped = False
         
