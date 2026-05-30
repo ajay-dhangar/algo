@@ -129,16 +129,21 @@ async function main() {
   });
 
   let redisAvailable = false;
+  let timeoutId;
   try {
     // Graceful Redis connection with 1.5s timeout
     const connectPromise = client.connect();
-    const timeoutPromise = new Promise((_, reject) => 
-      setTimeout(() => reject(new Error('Redis connection timeout')), 1500)
-    );
+    const timeoutPromise = new Promise((_, reject) => {
+      timeoutId = setTimeout(() => reject(new Error('Redis connection timeout')), 1500);
+    });
     await Promise.race([connectPromise, timeoutPromise]);
     redisAvailable = true;
   } catch (err) {
     console.log("⚠️ Redis caching server not available. Running analysis without cache.");
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
   }
 
   if (redisAvailable) {
@@ -185,11 +190,9 @@ async function main() {
     console.log("==============================================\n");
   }
 
-  if (redisAvailable) {
-    try {
-      await client.disconnect();
-    } catch (e) {}
-  }
+  try {
+    await client.disconnect();
+  } catch (e) {}
 }
 
 if (require.main === module) {
