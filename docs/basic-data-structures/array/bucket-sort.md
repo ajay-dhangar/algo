@@ -16,12 +16,27 @@ description: "Thsi page containes Bucket Sort, with codes in python, java and c+
 
 Bucket sort is a comparison sorting algorithm that distributes elements into a number of "buckets." Each bucket is then sorted individually, either using another sorting algorithm or recursively applying the bucket sort. Finally, the sorted buckets are combined to form the final sorted array. Bucket sort is particularly useful for uniformly distributed data.
 
+<BucketSortVisualization />
+
 ### Steps of Bucket Sort
 
 1. **Create Buckets**: Initialize an empty array of buckets.
 2. **Distribute Elements**: Distribute the elements of the input array into the appropriate buckets.
 3. **Sort Buckets**: Sort each bucket individually.
 4. **Concatenate Buckets**: Concatenate all sorted buckets to form the final sorted array.
+
+## Diagram
+
+```mermaid
+graph TD
+    A(["Start Unsorted Array"]) --> B["Distribute elements into Buckets based on value ranges"]
+    B --> C["Sort elements in each bucket individually"]
+    C --> D["Gather elements from sorted buckets in order"]
+    D --> E(["Sorted Array"])
+
+    classDef default fill:#f3f4f6,stroke:#9ca3af,stroke-width:1px,color:#1f2937;
+    linkStyle default stroke:#6b7280,stroke-width:2px;
+```
 
 ## Time and Space Complexity
 
@@ -271,6 +286,66 @@ console.log(data); // Output: [32, 33, 37, 42, 47, 51, 52]
 
 - **Space Complexity**: $O(n + k)$, for the input array and the buckets.
 
+## Quiz
+
+1. What is the average-case time complexity of Bucket Sort?
+   - [ ] O(n log n)
+   - [x] O(n + k)     ✔
+   - [ ] O(n²)
+   - [ ] O(1)
+
+2. Under what condition does Bucket Sort degrade to its worst-case time complexity of O(n²)?
+   - [ ] When the elements are uniformly distributed
+   - [x] When all elements are placed in a single bucket     ✔
+   - [ ] When the bucket size is 1
+   - [ ] When the input size is prime
+
+3. What is the space complexity of Bucket Sort?
+   - [ ] O(1)
+   - [ ] O(log n)
+   - [x] O(n + k)     ✔
+   - [ ] O(n²)
+
+4. Is Bucket Sort generally stable?
+   - [x] Yes, if the underlying sorting algorithm used for individual buckets is stable     ✔
+   - [ ] No, it is never stable
+   - [ ] Yes, it is always stable regardless of the bucket sorting algorithm
+   - [ ] Only if the input array is already sorted
+
 ### Conclusion
 
 Bucket sort is efficient for sorting uniformly distributed data and can achieve linear time complexity in the best case. However, it may degrade to quadratic time complexity in the worst case if elements are not uniformly distributed. It's essential to choose an appropriate bucket size and secondary sorting algorithm for optimal performance. By understanding its structure and implementation, you can effectively use bucket sort for various sorting tasks.
+
+<style>{`
+  html:not([data-theme='dark']) .bucketsort-visualizer-card {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+  }
+  html:not([data-theme='dark']) .bucketsort-visualizer-card .button-group button {
+    border-color: #d97706 !important;
+    color: #d97706 !important;
+  }
+  html:not([data-theme='dark']) .bucketsort-visualizer-card .button-group button:hover {
+    background-color: #d97706 !important;
+    color: #ffffff !important;
+  }
+  html:not([data-theme='dark']) .bucketsort-visualizer-card .slider-wrapper label {
+    color: #0f172a !important;
+  }
+  html:not([data-theme='dark']) .bucketsort-visualizer-card .main-array-label {
+    color: #475569 !important;
+  }
+  html:not([data-theme='dark']) .bucketsort-visualizer-card .bucket-box {
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+  }
+  html:not([data-theme='dark']) .bucketsort-visualizer-card .bucket-header {
+    border-bottom-color: #cbd5e1 !important;
+    color: #1e293b !important;
+  }
+  html:not([data-theme='dark']) .bucketsort-visualizer-card .bucket-range {
+    color: #475569 !important;
+  }
+`}</style>

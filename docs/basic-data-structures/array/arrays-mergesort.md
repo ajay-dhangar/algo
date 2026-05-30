@@ -252,3 +252,21 @@ Bubble Sort, Insertion Sort, Quick Sort, Heap Sort, etc.
 ## Conclusion
 
 In this tutorial, we learned about the merge sort algorithm. We discussed the divide-and-conquer approach, pseudocode, diagrams, examples, and complexity analysis. We also implemented merge sort in JavaScript and saw a live example. Merge sort is a powerful sorting algorithm that guarantees $O(n log n)$ performance, making it one of the most reliable choices for sorting large datasets. Feel free to share your thoughts in the comments below.
+
+<style>{`
+  .visualizer-container {
+    min-height: auto !important;
+    padding: 20px !important;
+    background-color: transparent !important;
+  }
+  .array-container {
+    height: 250px !important;
+    background-color: var(--ifm-background-color) !important;
+    border: 1px solid var(--ifm-toc-border-color) !important;
+  }
+  .array-bar {
+    background-color: #3b82f6 !important;
+    transform: scaleY(0.4) !important;
+    transform-origin: bottom !important;
+  }
+`}</style>

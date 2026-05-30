@@ -9,6 +9,8 @@ import HeapSortVisualization from "@site/src/components/DSA/arrays/HeapSortVisua
 import MergeSortVisualization from "@site/src/components/DSA/arrays/MergeSortVisualization";
 import ShellSortVisualization from "@site/src/components/DSA/arrays/ShellSortVisualization";
 import SelectionSortVisualization from "@site/src/components/DSA/arrays/SelectionSortVisualization";
+import TimSortVisualization from "@site/src/components/DSA/arrays/TimSortVisualization";
+import BucketSortVisualization from "@site/src/components/DSA/arrays/BucketSortVisualization";
 import DijkstraVisuzalizations from "@site/src/components/DSA/graphs/DijkstraVisualizations";
 import FloydWarshallVisualizations from "@site/src/components/DSA/graphs/FloydWarshallVisualizations";
 import Highlight from "@site/src/components/Highlight";
@@ -39,6 +41,8 @@ export default {
   HeapSortVisualization,
   MergeSortVisualization,
   ShellSortVisualization,
+  TimSortVisualization,
+  BucketSortVisualization,
 //   Image,
   LiteYouTubeEmbed,
 //   LinearSearchVisualizer,
