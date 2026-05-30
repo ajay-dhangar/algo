@@ -1,6 +1,6 @@
 ---
 id: multithreading-in-java
-sidebar_position: 4
+sidebar_position: 3
 title: Multithread in Java
 sidebar_label: Multithread in Java
 ---
