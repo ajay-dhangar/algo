@@ -239,26 +239,28 @@ button {
 /* Fix Search Bar overlap on tablet and mobile screens (under 996px) */
 @media screen and (max-width: 996px) {
   .navbar__search {
-    max-width: 140px;
+    width: 110px;
+    max-width: 110px;
+    transition: width 0.3s ease, max-width 0.3s ease;
     margin-right: 0.5rem;
   }
   .navbar__search-input {
-    width: 110px !important;
+    width: 100% !important;
+    transition: width 0.3s ease;
   }
-  .navbar__search-input:focus {
-    width: 150px !important;
-    max-width: 180px;
+  .navbar__search:focus-within {
+    width: 150px;
+    max-width: 150px;
   }
 }
 
 @media screen and (max-width: 576px) {
   .navbar__search {
-    max-width: 100px;
+    width: 80px;
+    max-width: 80px;
   }
-  .navbar__search-input {
-    width: 80px !important;
-  }
-  .navbar__search-input:focus {
-    width: 110px !important;
+  .navbar__search:focus-within {
+    width: 110px;
+    max-width: 110px;
   }
 }
