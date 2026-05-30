@@ -303,88 +303,23 @@ const algorithmData: Record<string, AlgorithmDetails> = {
   },
 };
 
+const iconMap: Record<string, { icon: React.ComponentType<{ className?: string }>; color: string }> = {
+  "Trees": { icon: FiFolder, color: "text-green-500" },
+  "Graphs": { icon: FiShare2, color: "text-blue-500" },
+  "Binary Search": { icon: FiSearch, color: "text-cyan-500" },
+  "Dijkstra Algorithm": { icon: FiMap, color: "text-orange-500" },
+  "Linked List": { icon: FiDatabase, color: "text-pink-500" },
+  "BFS": { icon: FiGlobe, color: "text-indigo-500" },
+  "DFS": { icon: FiGlobe, color: "text-indigo-500" },
+  "Backtracking": { icon: FiCode, color: "text-red-500" },
+  "Greedy Algorithms": { icon: FiCompass, color: "text-yellow-500" },
+  "Heaps": { icon: FiLayers, color: "text-purple-500" },
+  "Tries": { icon: FiGitCommit, color: "text-emerald-500" },
+};
+
 const getIcon = (selected: string, isSelected = false) => {
-  switch (selected) {
-    case "Trees":
-      return (
-        <FiFolder
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-green-500"}`}
-        />
-      );
-
-    case "Graphs":
-      return (
-        <FiShare2
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-blue-500"}`}
-        />
-      );
-
-    case "Binary Search":
-      return (
-        <FiSearch
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-cyan-500"}`}
-        />
-      );
-
-    case "Dijkstra Algorithm":
-      return (
-        <FiMap
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-orange-500"}`}
-        />
-      );
-
-    case "Linked List":
-      return (
-        <FiDatabase
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-pink-500"}`}
-        />
-      );
-
-    case "BFS":
-    case "DFS":
-      return (
-        <FiGlobe
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-indigo-500"}`}
-        />
-      );
-
-    case "Backtracking":
-      return (
-        <FiCode
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-red-500"}`}
-        />
-      );
-
-    case "Greedy Algorithms":
-      return (
-        <FiCompass
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-yellow-500"}`}
-        />
-      );
-
-    case "Heaps":
-      return (
-        <FiLayers
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-purple-500"}`}
-        />
-      );
-
-    case "Tries":
-      return (
-        <FiGitCommit
-          className={`w-5 h-5 ${isSelected ? "text-white" : "text-emerald-500"}`}
-        />
-      );
-
-    default:
-      return (
-        <FiCpu
-          className={`w-5 h-5 ${
-            isSelected ? "text-white" : "text-[var(--ifm-color-primary)]"
-          }`}
-        />
-      );
-  }
+  const { icon: Icon, color } = iconMap[selected] || { icon: FiCpu, color: "text-[var(--ifm-color-primary)]" };
+  return <Icon className={"w-5 h-5 " + (isSelected ? "text-white" : color)} />;
 };
 
 const AlgorithmUseCases: React.FC = () => {
