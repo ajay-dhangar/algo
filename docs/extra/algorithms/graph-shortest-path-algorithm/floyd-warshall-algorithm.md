@@ -55,13 +55,37 @@ Where:
 
 ---
 
+## Floyd-Warshall Workflow
+
+```mermaid
+graph TD;
+    A[Start Algorithm] --> B[Initialize Distance Matrix]
+    B --> C[Set dist[i][i] = 0]
+    C --> D[Set unreachable paths = INF]
+    D --> E[Choose Intermediate Vertex k]
+    E --> F[Traverse Source Vertex i]
+    F --> G[Traverse Destination Vertex j]
+    G --> H{dist[i][k] + dist[k][j] < dist[i][j]?}
+    H -- Yes --> I[Update dist[i][j]]
+    H -- No --> J[Keep Existing Distance]
+    I --> K[Continue Iteration]
+    J --> K
+    K --> L{More Vertices Left?}
+    L -- Yes --> E
+    L -- No --> M[Final Shortest Path Matrix]
+```
+
+---
+
 # Implementation in C++
 
 ```cpp
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-#define INF 1e9
+const int INF = 1000000000;
 
 void floydWarshall(vector<vector<int>>& dist, int V) {
 
@@ -121,7 +145,7 @@ int main() {
 ```java
 public class FloydWarshall {
 
-    static final int INF = 999999;
+    static final int INF = 1000000000;
 
     public static void floydWarshall(int[][] dist, int V) {
 
@@ -184,14 +208,25 @@ public class FloydWarshall {
 
 ### Input Graph
 
+```mermaid
+graph LR;
+    A((0)) -- 3 --> B((1))
+    A -- 7 --> D((3))
+    B -- 2 --> C((2))
+    C -- 1 --> D
+    C -- 5 --> A
+    D -- 2 --> A
+    B -- 8 --> A
+```
+
+### Adjacency Matrix Representation
+
 ```text
-0 → 1 = 3
-0 → 3 = 7
-1 → 0 = 8
-1 → 2 = 2
-2 → 0 = 5
-2 → 3 = 1
-3 → 0 = 2
+      0    1    2    3
+0     0    3   INF   7
+1     8    0    2   INF
+2     5   INF   0    1
+3     2   INF  INF   0
 ```
 
 ---
@@ -203,6 +238,24 @@ public class FloydWarshall {
 5 0 2 3
 3 6 0 1
 2 5 7 0
+```
+
+---
+
+## DP Transition Visualization
+
+```mermaid
+graph LR;
+    A[Vertex i] --> B[Intermediate Vertex k]
+    B --> C[Vertex j]
+
+    D[Current Distance dist[i][j]]
+    E[New Distance dist[i][k] + dist[k][j]]
+
+    D --> F{Take Minimum}
+    E --> F
+
+    F --> G[Updated dist[i][j]]
 ```
 
 ---
