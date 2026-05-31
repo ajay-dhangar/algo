@@ -93,9 +93,7 @@ export default function SlidingWindowVisualizer() {
                 margin: "24px 0",
                 background:
                     "var(--ifm-card-background-color)",
-                color: inWindow
-                    ? "#ffffff"
-                    : "var(--ifm-font-color-base)",
+                color: "var(--ifm-font-color-base)",
             }}
         >
             <h3 style={{ marginBottom: "16px" }}>
@@ -176,8 +174,9 @@ export default function SlidingWindowVisualizer() {
                                 background: inWindow
                                     ? "#2563eb"
                                     : "var(--ifm-color-emphasis-200)",
-                                color:
-                                    "var(--ifm-font-color-base)",
+                                color: inWindow
+                                    ? "#ffffff"
+                                    : "var(--ifm-font-color-base)",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
