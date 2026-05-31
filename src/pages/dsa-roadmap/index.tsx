@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import Translate from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
@@ -17,8 +17,6 @@ import { topics } from "../../data/topics";
 const DSARoadmap: React.FC = () => {
   const categoryBase = useBaseUrl("/docs/category");
 
-  // Explicit mapping from topic folder names to actual generated category URLs
-  // Built by matching topics.ts folder names to actual categories in /docs/category/
   const topicCategoryMap: Record<string, Record<string, string>> = {
     "Pick a Language": {
       "JavaScript": "javascript",
@@ -26,8 +24,8 @@ const DSARoadmap: React.FC = () => {
       "Java": "java",
       "C++": "c-1",
       "C#": "c",
-      "Ruby": "python",  // Ruby docs don't exist; fallback to Python
-      "GO": "java",  // GO docs don't exist; fallback to Java
+      "Ruby": "python",
+      "GO": "java",
       "Rust": "rust",
     },
     "Programming Fundamentals": {
@@ -91,25 +89,61 @@ const DSARoadmap: React.FC = () => {
   };
 
   const getDocLink = (topicTitle: string, folderName: string, fileName: string) => {
-    // Use explicit mapping to avoid guessing category URLs
     const topicMap = topicCategoryMap[topicTitle];
     if (topicMap && topicMap[folderName]) {
       return `${categoryBase}/${topicMap[folderName]}`;
     }
-
-    // Fallback: link to languages category for unmapped topics
     if (topicTitle === "Pick a Language") {
       return `${categoryBase}/languages`;
     }
-
-    // For any other unmapped topic, link to programming-fundamentals as safe default
     return `${categoryBase}/programming-fundamentals`;
   };
 
-  // State for major topics (Top level nodes) - open the first one by default
+  // Initialize with default values (SSR-safe — no localStorage access here)
   const [expandedTopics, setExpandedTopics] = useState<{ [key: number]: boolean }>({ 0: true });
-  // State for specific folders (Second level nodes)
   const [expandedFolders, setExpandedFolders] = useState<{ [key: string]: boolean }>({});
+
+  // isLoaded flag prevents save useEffects from overwriting localStorage
+  // with default values before the load useEffect has run
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Load persisted state from localStorage on mount (client-side only)
+  // This runs after hydration, avoiding SSR mismatch
+  useEffect(() => {
+    try {
+      const savedTopics = localStorage.getItem("dsa_roadmap_topics");
+      if (savedTopics) {
+        setExpandedTopics(JSON.parse(savedTopics));
+      }
+      const savedFolders = localStorage.getItem("dsa_roadmap_folders");
+      if (savedFolders) {
+        setExpandedFolders(JSON.parse(savedFolders));
+      }
+    } catch (e) {
+      // Handle private browsing or storage restriction errors
+    }
+    setIsLoaded(true);
+  }, []);
+
+  // Persist expandedTopics to localStorage whenever it changes (after initial load)
+  useEffect(() => {
+    if (!isLoaded) return;
+    try {
+      localStorage.setItem("dsa_roadmap_topics", JSON.stringify(expandedTopics));
+    } catch {
+      // localStorage not available
+    }
+  }, [expandedTopics, isLoaded]);
+
+  // Persist expandedFolders to localStorage whenever it changes (after initial load)
+  useEffect(() => {
+    if (!isLoaded) return;
+    try {
+      localStorage.setItem("dsa_roadmap_folders", JSON.stringify(expandedFolders));
+    } catch {
+      // localStorage not available
+    }
+  }, [expandedFolders, isLoaded]);
 
   const toggleTopic = (idx: number) => {
     setExpandedTopics((prev) => ({ ...prev, [idx]: !prev[idx] }));
@@ -123,14 +157,12 @@ const DSARoadmap: React.FC = () => {
   const expandAll = () => {
     const allTopics: { [key: number]: boolean } = {};
     const allFolders: { [key: string]: boolean } = {};
-    
     topics.forEach((topic, tIdx) => {
       allTopics[tIdx] = true;
       topic.folders.forEach((_, fIdx) => {
         allFolders[`${tIdx}-${fIdx}`] = true;
       });
     });
-    
     setExpandedTopics(allTopics);
     setExpandedFolders(allFolders);
   };
@@ -147,7 +179,7 @@ const DSARoadmap: React.FC = () => {
     >
       <div className="min-h-screen bg-gray-50 dark:bg-[#1b1b1d] py-12">
         <div className="container mx-auto px-4 md:px-8 max-w-5xl">
-          
+
           {/* header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 flex items-center justify-center gap-4 text-gray-900 dark:text-white">
@@ -157,7 +189,7 @@ const DSARoadmap: React.FC = () => {
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               <Translate>A comprehensive, step-by-step interactive learning path to master Data Structures, Algorithms, and Problem Solving.</Translate>
             </p>
-         
+
             <div className="flex justify-center gap-4 mt-6">
               <button
                 type="button"
@@ -181,12 +213,12 @@ const DSARoadmap: React.FC = () => {
             {topics.map((topic, tIdx) => (
               <div key={tIdx} className="mb-10 ml-8 relative">
 
-                <div 
+                <div
                   className={`absolute -left-[2.65rem] top-[21px] h-8 w-8 rounded-full border-4 border-gray-50 dark:border-[#1b1b1d] shadow-sm flex items-center justify-center z-10 transition-colors duration-300 ${
                     expandedTopics[tIdx] ? "bg-[var(--ifm-color-primary)]" : "bg-gray-300 dark:bg-gray-600"
                   }`}
                 ></div>
-      
+
                 <h2 className="m-0">
                   <button
                     type="button"
@@ -209,7 +241,7 @@ const DSARoadmap: React.FC = () => {
                   </button>
                 </h2>
 
-                <div 
+                <div
                   id={`roadmap-topic-${tIdx}`}
                   className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
                     expandedTopics[tIdx] ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
@@ -221,8 +253,8 @@ const DSARoadmap: React.FC = () => {
                         const isFolderExpanded = expandedFolders[`${tIdx}-${fIdx}`];
 
                         return (
-                          <div 
-                            key={fIdx} 
+                          <div
+                            key={fIdx}
                             className="bg-white dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm overflow-hidden h-fit"
                           >
                             <h3 className="m-0">
@@ -247,7 +279,7 @@ const DSARoadmap: React.FC = () => {
                               </button>
                             </h3>
 
-                            <div 
+                            <div
                               id={`roadmap-folder-${tIdx}-${fIdx}`}
                               className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
                                 isFolderExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
@@ -258,7 +290,6 @@ const DSARoadmap: React.FC = () => {
                                   <ul className="ml-2 border-l-2 border-gray-200 dark:border-gray-600 pl-4 space-y-3 mt-3">
                                     {folder.files.map((file, fileIdx) => {
                                       const fileLink = getDocLink(topic.title, folder.name, file);
-
                                       return (
                                         <li key={fileIdx}>
                                           <Link
