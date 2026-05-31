@@ -614,7 +614,6 @@ const PlaygroundContent: React.FC = () => {
   const [execTime, setExecTime] = useState<number | null>(null);
   const workerRef = useRef<Worker | null>(null);
   const consolePanelRef = useRef<HTMLDivElement | null>(null);
-  const editorDisposablesRef = useRef<Array<{ dispose: () => void }>>([]);
 
   // Python WASM State
   const [pyCode, setPyCode] = useState<string>(PYTHON_TEMPLATE);
@@ -901,31 +900,27 @@ const PlaygroundContent: React.FC = () => {
     worker.postMessage(sizes);
   };
 
-  const handleEditorMount = (editor: MonacoEditorLike) => {
-    editorDisposablesRef.current.forEach((disposable) => disposable.dispose());
-    editorDisposablesRef.current = [];
+  const handleRunPython = async () => {
+    if (isPyRunning) return;
+    const py = await loadPyodideInstance();
+    if (!py) return;
 
-    const cursorDisposable = editor.onDidChangeCursorPosition((event) => {
-      setEditorTelemetry((prev) => ({
-        ...prev,
-        lineNumber: event.position.lineNumber,
-        column: event.position.column,
-      }));
-    });
+    setIsPyRunning(true);
+    setPyLogs((prev) => [...prev, "", "🐍 Running Python code..."]);
 
-    const selectionDisposable = editor.onDidChangeCursorSelection((event) => {
-      const model = editor.getModel();
-      const selectionLength = model ? model.getValueInRange(event.selection).length : 0;
-
-      setEditorTelemetry((prev) => ({
-        ...prev,
-        lineNumber: event.selection.endLineNumber,
-        column: event.selection.endColumn,
-        selectionLength,
-      }));
-    });
-
-    editorDisposablesRef.current = [cursorDisposable, selectionDisposable];
+    try {
+      py.setStdout({
+        batched: (str: string) => {
+          setPyLogs((prev) => [...prev, `> ${str}`]);
+        },
+      });
+      await py.runPythonAsync(pyCode);
+      setPyLogs((prev) => [...prev, "", "✅ Python execution completed successfully."]);
+    } catch (err: any) {
+      setPyLogs((prev) => [...prev, `❌ ${err.message}`]);
+    } finally {
+      setIsPyRunning(false);
+    }
   };
 
   return (
@@ -1047,40 +1042,21 @@ const PlaygroundContent: React.FC = () => {
                   return (
                     <div className="flex h-full min-h-[480px] flex-col">
                       <Editor
-                        height="440px"
-                        language={LANGUAGE_CONFIGS[language].monacoLanguage}
+                        height="480px"
+                        language="python"
                         theme={colorMode === "dark" ? "vs-dark" : "light"}
-                        value={code}
-                        onMount={handleEditorMount}
-                        onChange={(val: string | undefined) => setCode(val || "")}
+                        value={pyCode}
+                        onChange={(val: any) => setPyCode(val || "")}
                         options={{
                           fontSize: 14,
-                          fontFamily: "Fira Code, Menlo, Monaco, Consolas, monospace",
                           minimap: { enabled: false },
                           automaticLayout: true,
-                          scrollBeyondLastLine: false,
-                          tabSize: 2,
-                          lineNumbersMinChars: 3,
-                          cursorBlinking: "smooth",
-                          smoothScrolling: true,
                         }}
                       />
-
-                      <div className="flex items-center justify-between gap-3 border-t border-gray-200/80 dark:border-gray-700 bg-gray-100 dark:bg-gray-800/90 px-4 py-2 text-[11px] font-mono text-gray-600 dark:text-gray-300">
-                        <div className="flex flex-wrap items-center gap-3">
-                          <span>Total Lines: {editorTelemetry.totalLines}</span>
-                          <span>Ln: {editorTelemetry.lineNumber}</span>
-                          <span>Col: {editorTelemetry.column}</span>
-                          <span>Characters: {editorTelemetry.characterCount}</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span>Selection: {editorTelemetry.selectionLength}</span>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }}
-              </BrowserOnly>
+                    );
+                  }}
+                </BrowserOnly>
+              </div>
             </div>
           </div>
         )}
