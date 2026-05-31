@@ -162,7 +162,7 @@ print("Average response time = ", rt / n)
 Input:
 ```text
 Enter no of processes: 5
-Enter name of process, arrival time, and burst time:
+Enter name of process, arrival time, burst time, and priority:
 p0 1 3 2
 p1 2 1 1
 p3 2 4 2
