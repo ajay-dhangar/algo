@@ -170,11 +170,11 @@ The **[Leaderboard](/leaderboard)** page in the navbar highlights community acti
 
 | I want to… | Go to |
 | ---------- | ----- |
-| Learn DSA from zero | [Roadmap to Learning DSA](/docs/data-structures/roadmap-to-dsa) |
-| Study graphs | [Graphs](/docs/extra/graphs/) |
-| Prepare for interviews | [DSA Interview](/dsa-interview) |
-| Run code online | [Playground](/playground) |
-| Take a quiz | [Quizzes](/quizzes) |
-| Choose a contribution topic | [DSA Roadmap](/dsa-roadmap) |
+| Learn DSA from zero | [Roadmap to Learning DSA](./data-structures/roadmap-to-learning-dsa) |
+| Study graphs | [Graphs](./extra/graphs/) |
+| Prepare for interviews | [DSA Interview](../dsa-interview) |
+| Run code online | [Playground](../playground) |
+| Take a quiz | [Quizzes](../quizzes) |
+| Choose a contribution topic | [DSA Roadmap](../dsa-roadmap) |
 
 Still stuck? Open a [GitHub Discussion](https://github.com/ajay-dhangar/algo/discussions) or issue and say where you got lost—we use that feedback to improve this guide.
