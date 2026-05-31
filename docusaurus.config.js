@@ -43,9 +43,17 @@ const config = {
   baseUrl: "/algo/",
   organizationName: "codeharborhub",
   projectName: "algo",
-  customFields: {
-  playgroundApiBaseUrl,
-},
+    customFields: {
+    apiBaseUrl:
+      process.env.ALGO_API_URL ||
+      process.env.DOCUSARUS_API_BASE_URL ||
+      (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
+    playgroundApiBaseUrl:
+      process.env.PLAYGROUND_API_BASE_URL ||
+      process.env.ALGO_API_URL ||
+      process.env.DOCUSARUS_API_BASE_URL ||
+      (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
+  },
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
