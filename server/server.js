@@ -175,9 +175,9 @@ app.post("/api/execute-code", async (req, res) => {
     return res.status(400).json({ success: false, error: "Missing language or code parameter." });
   }
 
-  const validLanguages = ["python", "cpp", "java"];
+  const validLanguages = ["python", "cpp", "java", "rust", "go"];
   if (!validLanguages.includes(language)) {
-    return res.status(400).json({ success: false, error: "Unsupported language. Supported: python, cpp, java" });
+    return res.status(400).json({ success: false, error: "Unsupported language. Supported: python, cpp, java, rust, go" });
   }
 
   try {
@@ -212,6 +212,24 @@ app.post("/api/execute-code", async (req, res) => {
         command = `cd "${tempDir}" && javac "${filename}" && java "${className}"`;
         break;
 
+      case "rust":
+        fileExtension = ".rs";
+        const sourceFile2 = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
+        const executableFile2 = path.join(tempDir, `script_${uniqueId}${process.platform === "win32" ? ".exe" : ""}`);
+        filename = sourceFile2;
+        // Compile and run
+        command = `rustc "${sourceFile2}" -o "${executableFile2}" && "${executableFile2}"`;
+        break;
+
+      case "go":
+        fileExtension = ".go";
+        const goSourceFile = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
+        const goExecutableFile = path.join(tempDir, `script_${uniqueId}${process.platform === "win32" ? ".exe" : ""}`);
+        filename = goSourceFile;
+        // Compile and run
+        command = `go run "${goSourceFile}"`;
+        break;
+
       default:
         return res.status(400).json({ success: false, error: "Unsupported language" });
     }
@@ -225,6 +243,12 @@ app.post("/api/execute-code", async (req, res) => {
       try {
         fs.unlinkSync(filename);
         if (language === "cpp") {
+          const executableFile = filename.replace(fileExtension, process.platform === "win32" ? ".exe" : "");
+          if (fs.existsSync(executableFile)) {
+            fs.unlinkSync(executableFile);
+          }
+        }
+        if (language === "rust") {
           const executableFile = filename.replace(fileExtension, process.platform === "win32" ? ".exe" : "");
           if (fs.existsSync(executableFile)) {
             fs.unlinkSync(executableFile);
