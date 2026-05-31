@@ -3,7 +3,7 @@ id: non-preemptive-priority-cpu-scheduling
 title: Non-Preemptive Priority CPU Scheduling Algorithm
 sidebar_label: "Non-Preemptive Priority CPU Scheduling Algorithm"
 sidebar_position: 3
-description: Non-Preemptive Priority is a simple scheduling algorithm where processes are handled in the order they arrive, without priority.
+description: Non-Preemptive Priority is a scheduling algorithm where each process is assigned a priority, and the CPU is allocated to the process with the highest priority.
 tags: [CPU Scheduling, Priority, Algorithm]
 ---
 
