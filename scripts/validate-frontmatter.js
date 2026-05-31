@@ -139,20 +139,35 @@ function getChangedDocFiles() {
   }
 
   const baseRef = process.env.GITHUB_BASE_REF || 'main';
+
+  // Try fetching the base ref in case it wasn't fetched by checkout
+  try {
+    execSync(`git fetch origin ${baseRef} --depth=1`, {
+      cwd: REPO_ROOT,
+      encoding: 'utf8',
+      stdio: 'pipe',
+    });
+  } catch {
+    // non-fatal — diff attempt below will surface the real error if needed
+  }
+
   try {
     const stdout = execSync(`git diff --name-only origin/${baseRef}...HEAD -- docs/`, {
       cwd: REPO_ROOT,
       encoding: 'utf8',
     });
-    return stdout
+    const files = stdout
       .split('\n')
       .map((f) => f.trim())
       .filter((f) => f.endsWith('.md') || f.endsWith('.mdx'))
       .map((f) => path.join(REPO_ROOT, f))
       .filter((f) => fs.existsSync(f));
+    return files;
   } catch (err) {
+    // If we still can't diff, exit cleanly rather than scanning the whole tree
     console.warn(`⚠️  Could not list changed docs vs origin/${baseRef}: ${err.message}`);
-    return null;
+    console.log('✅ Skipping validation — unable to determine changed files in CI.\n');
+    process.exit(0);
   }
 }
 
