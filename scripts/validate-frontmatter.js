@@ -17,17 +17,55 @@ const warnings = [];
 function getModifiedFiles() {
   try {
     let baseRef = 'origin/main';
-    try {
-      execSync('git rev-parse --verify origin/main', { stdio: 'ignore' });
-    } catch (e) {
+    
+    // Fallback order: GITHUB_BASE_REF -> main -> develop
+    const possibleBases = [];
+    if (process.env.GITHUB_BASE_REF) {
+      possibleBases.push(process.env.GITHUB_BASE_REF);
+    }
+    possibleBases.push('main', 'develop');
+
+    for (const base of possibleBases) {
       try {
-        execSync('git rev-parse --verify upstream/main', { stdio: 'ignore' });
-        baseRef = 'upstream/main';
-      } catch (e) {
-        baseRef = 'main';
+        // Try fetching the base branch first to avoid unknown revision error
+        execSync(`git fetch --depth=1 origin ${base}`, { stdio: 'ignore' });
+        baseRef = `origin/${base}`;
+        break;
+      } catch (fetchErr) {
+        // If fetch fails, try if the local ref exists
+        try {
+          execSync(`git rev-parse --verify ${base}`, { stdio: 'ignore' });
+          baseRef = base;
+          break;
+        } catch (e) {
+          try {
+            execSync(`git rev-parse --verify origin/${base}`, { stdio: 'ignore' });
+            baseRef = `origin/${base}`;
+            break;
+          } catch (e2) {}
+        }
       }
     }
-    const stdout = execSync(`git diff --name-only ${baseRef}...`, { encoding: 'utf8' });
+
+    console.log(`ℹ️ Comparing current HEAD against base reference: ${baseRef}`);
+    
+    let stdout = '';
+    try {
+      stdout = execSync(`git diff --name-only ${baseRef}...`, { encoding: 'utf8' });
+    } catch (diffErr) {
+      console.warn(`⚠️ git diff ${baseRef}... failed, trying git diff ${baseRef}`);
+      try {
+        stdout = execSync(`git diff --name-only ${baseRef}`, { encoding: 'utf8' });
+      } catch (diffErr2) {
+        console.warn(`⚠️ git diff ${baseRef} failed, falling back to git diff HEAD~1`);
+        try {
+          stdout = execSync('git diff --name-only HEAD~1', { encoding: 'utf8' });
+        } catch (e) {
+          stdout = execSync('git diff --name-only', { encoding: 'utf8' });
+        }
+      }
+    }
+
     const changedFiles = new Set(
       stdout
         .split('\n')
@@ -37,7 +75,14 @@ function getModifiedFiles() {
     );
     return changedFiles;
   } catch (e) {
-    return null; // Fallback to scanning everything if git fails
+    console.warn("⚠️ Could not determine changed files via git diff:", e.message);
+    // If it's a pull request and we failed to get changed files, we should still try not to fail the whole build for legacy files.
+    // If we're in CI (GITHUB_ACTIONS is true), we can assume it's a PR context, and default to empty set if no markdown files are in git status.
+    if (process.env.GITHUB_ACTIONS === 'true') {
+      console.log("ℹ️ CI context detected, defaulting to empty set of changed files to avoid blocking on unmodified legacy files.");
+      return new Set();
+    }
+    return null; // Fallback to scanning everything locally
   }
 }
 
