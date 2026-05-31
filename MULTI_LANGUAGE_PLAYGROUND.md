@@ -228,12 +228,20 @@ public class BinarySearch {
 - **C++**: Compiled language, fastest execution for compute-intensive tasks
 - **Java**: JVM startup adds overhead, but offers strong type safety
 
-## Security
+## Security & Sandboxing
 
-- **Code Sandboxing**: JavaScript code runs in isolated Web Workers
-- **Execution Timeout**: All code has a 10-second execution limit to prevent infinite loops
-- **No External Access**: Code cannot make network requests or access file systems
-- **Temporary Files**: All generated files are cleaned up after execution
+The playground employs layered security techniques depending on the execution runtime to ensure high security and isolate user scripts.
+
+### 1. JavaScript Sandboxing (Web Workers)
+* **Execution Environment**: JavaScript code executes entirely inside client-side **Web Workers**.
+* **Global Scope Isolation**: Web Workers do not have access to the browser's main thread global scope, the **window** object, the **document** (DOM), or cookies.
+* **Timeout Protection**: A watchdog timer automatically terminates execution if a script exceeds the 10-second execution limit, preventing infinite loop tab freezes.
+
+### 2. Backend Execution (Python, C++, Java)
+Non-JavaScript languages are executed on the backend server.
+* **Execution Environment**: Code is written to temporary files in the server's temporary directory and executed using system commands (python, g++, java).
+* **Timeout Protection**: Backend execution is limited to 10 seconds via the exec timeout option to prevent resource exhaustion.
+* **Cleanup**: Temporary source files and compiled binaries are deleted immediately after execution.
 
 ## Future Enhancements
 
