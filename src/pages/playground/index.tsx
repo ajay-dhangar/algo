@@ -11,6 +11,7 @@ import {
   FaCode,
   FaTerminal,
   FaLightbulb,
+  FaPython,
 } from "react-icons/fa";
 
 // Language configuration
@@ -92,13 +93,11 @@ function bubbleSort(arr) {
         swapped = true;
       }
     }
-    // If no elements were swapped, array is already sorted
     if (!swapped) break;
   }
   return arr;
 }
 
-// Test cases
 const unsorted = [64, 34, 25, 12, 22, 11, 90];
 console.log("Unsorted:", unsorted);
 console.log("Sorted:  ", bubbleSort(unsorted));
@@ -574,63 +573,58 @@ public class Fibonacci {
   },
 };
 
-type EditorTelemetry = {
-  lineNumber: number;
-  column: number;
-  totalLines: number;
-  characterCount: number;
-  selectionLength: number;
-};
+const PYTHON_TEMPLATE = `# Python WebAssembly (Pyodide) Demo
+# Runs completely in your browser locally.
 
-type MonacoSelectionLike = {
-  startLineNumber: number;
-  startColumn: number;
-  endLineNumber: number;
-  endColumn: number;
-};
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quick_sort(left) + middle + right
 
-type MonacoModelLike = {
-  getLineCount: () => number;
-  getValueLength: () => number;
-  getValueInRange: (range: MonacoSelectionLike) => string;
-};
+unsorted = [3, 6, 8, 10, 1, 2, 1]
+print("Python Unsorted:", unsorted)
+print("Python Sorted:  ", quick_sort(unsorted))
+`;
 
-type MonacoEditorLike = {
-  getModel: () => MonacoModelLike | null;
-  onDidChangeCursorPosition: (
-    listener: (event: { position: { lineNumber: number; column: number } }) => void,
-  ) => { dispose: () => void };
-  onDidChangeCursorSelection: (
-    listener: (event: { selection: MonacoSelectionLike }) => void,
-  ) => { dispose: () => void };
-};
-
-const getLineCount = (value: string): number => Math.max(1, value.split(/\r\n|\r|\n/).length);
-
-// Moving the core workspace content to a separate inner component
 const PlaygroundContent: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<"sandbox" | "python">("sandbox");
+
+  // JS Sandbox State
+
+
   const [language, setLanguage] = useState<LanguageType>("javascript");
   const [code, setCode] = useState<string>(TEMPLATES.javascript.binarySearch);
   const [template, setTemplate] = useState<string>("binarySearch");
   const [logs, setLogs] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [execTime, setExecTime] = useState<number | null>(null);
-  const [editorTelemetry, setEditorTelemetry] = useState<EditorTelemetry>({
-    lineNumber: 1,
-    column: 1,
-    totalLines: getLineCount(TEMPLATES.javascript.binarySearch),
-    characterCount: TEMPLATES.javascript.binarySearch.length,
-    selectionLength: 0,
-  });
-
   const workerRef = useRef<Worker | null>(null);
   const consolePanelRef = useRef<HTMLDivElement | null>(null);
-  const editorDisposablesRef = useRef<Array<{ dispose: () => void }>>([]);
 
-  // Safe to use now because this component is rendered inside <Layout>
+  // Python WASM State
+  const [pyCode, setPyCode] = useState<string>(PYTHON_TEMPLATE);
+  const [pyLogs, setPyLogs] = useState<string[]>([]);
+  const [isPyRunning, setIsPyRunning] = useState<boolean>(false);
+  const [pyodide, setPyodide] = useState<any>(null);
+  const [isPyodideLoading, setIsPyodideLoading] = useState<boolean>(false);
+
+  const consoleEndRef = useRef<HTMLDivElement | null>(null);
+  const pyConsoleEndRef = useRef<HTMLDivElement | null>(null);
   const { colorMode } = useColorMode();
   const apiBaseUrl = useApiBaseUrl();
 
+  // Scroll to bottom helper
+  useEffect(() => {
+    if (activeTab === "sandbox" && consoleEndRef.current) {
+      consoleEndRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (activeTab === "python" && pyConsoleEndRef.current) {
+      pyConsoleEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [logs, pyLogs, activeTab]);
   // Scroll to bottom of console logs on update only during execution
   useEffect(() => {
     if (consolePanelRef.current && isRunning) {
@@ -640,23 +634,20 @@ const PlaygroundContent: React.FC = () => {
   }, [logs, isRunning]);
 
   useEffect(() => {
-    setEditorTelemetry((prev) => ({
-      ...prev,
-      totalLines: getLineCount(code),
-      characterCount: code.length,
-    }));
-  }, [code]);
-
-  // Clean up worker on unmount
-  useEffect(() => {
     return () => {
-      if (workerRef.current) {
-        workerRef.current.terminate();
-      }
-      editorDisposablesRef.current.forEach((disposable) => disposable.dispose());
-      editorDisposablesRef.current = [];
+      if (workerRef.current) workerRef.current.terminate();
     };
   }, []);
+
+  // ── Tab 1: JS RUNNER ─────────────────────────────────────────
+  const handleStop = () => {
+    if (workerRef.current) {
+      workerRef.current.terminate();
+      workerRef.current = null;
+      setIsRunning(false);
+      setLogs((prev) => [...prev, "", "⚠️ Execution terminated manually by user."]);
+    }
+  };
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLanguage = e.target.value as LanguageType;
@@ -665,40 +656,18 @@ const PlaygroundContent: React.FC = () => {
     setCode(TEMPLATES[selectedLanguage].binarySearch);
     setLogs([]);
     setExecTime(null);
-    setEditorTelemetry({
-      lineNumber: 1,
-      column: 1,
-      selectionLength: 0,
-      totalLines: getLineCount(TEMPLATES[selectedLanguage].binarySearch),
-      characterCount: TEMPLATES[selectedLanguage].binarySearch.length,
-    });
   };
 
   const handleTemplateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selected = e.target.value;
     setTemplate(selected);
     setCode(TEMPLATES[language][selected]);
-    setEditorTelemetry({
-      lineNumber: 1,
-      column: 1,
-      selectionLength: 0,
-      totalLines: getLineCount(TEMPLATES[language][selected]),
-      characterCount: TEMPLATES[language][selected].length,
-    });
   };
 
   const handleReset = () => {
-    const resetCode = TEMPLATES[language][template];
-    setCode(resetCode);
+    setCode(TEMPLATES[language][template]);
     setLogs(["// Editor reset to original template."]);
     setExecTime(null);
-    setEditorTelemetry({
-      lineNumber: 1,
-      column: 1,
-      selectionLength: 0,
-      totalLines: getLineCount(resetCode),
-      characterCount: resetCode.length,
-    });
   };
 
   const handleClear = () => {
@@ -708,11 +677,34 @@ const PlaygroundContent: React.FC = () => {
 
   const handleRun = async () => {
     if (isRunning) return;
-
     setIsRunning(true);
-    setLogs(["// Starting execution...", ""]);
+    setLogs(["// Starting JS sandbox...", ""]);
     setExecTime(null);
 
+    // Use JSON.parse for safe code transfer — avoids breakage when user code contains backticks
+    const workerCode = [
+      'self.onmessage = function(e) {',
+      '  const code = e.data;',
+      '  const customConsole = {',
+      '    log: (...args) => {',
+      '      const message = args.map(arg => typeof arg === "object" ? JSON.stringify(arg) : String(arg)).join(" ");',
+      '      self.postMessage({ type: "log", message });',
+      '    },',
+      '    error: (...args) => {',
+      '      self.postMessage({ type: "error", message: args.join(" ") });',
+      '    }',
+      '  };',
+      '  const start = performance.now();',
+      '  try {',
+      '    const run = new Function("console", "\"use strict\";\\n" + code);',
+      '    run(customConsole);',
+      '    self.postMessage({ type: "finish", time: performance.now() - start });',
+      '  } catch (err) {',
+      '    self.postMessage({ type: "error", message: err.message });',
+      '    self.postMessage({ type: "finish", time: performance.now() - start });',
+      '  }',
+      '};',
+    ].join('\n');
     const startTime = performance.now();
 
     try {
@@ -781,12 +773,14 @@ const PlaygroundContent: React.FC = () => {
     const worker = new Worker(URL.createObjectURL(blob));
     workerRef.current = worker;
 
+    // 10-second execution timeout to prevent infinite loops
     const timeoutId = setTimeout(() => {
       if (workerRef.current) {
         workerRef.current.terminate();
-        setIsRunning(false);
-        setLogs((prev) => [...prev, "❌ [Timeout] Code execution timed out after 10 seconds."]);
+        workerRef.current = null;
       }
+      setIsRunning(false);
+      setLogs((prev) => [...prev, "", "⏱️ Execution timed out after 10 seconds."]);
     }, 10000);
 
     worker.onmessage = (e) => {
@@ -798,16 +792,12 @@ const PlaygroundContent: React.FC = () => {
       } else if (data.type === "finish") {
         clearTimeout(timeoutId);
         setIsRunning(false);
-        setExecTime(data.timeSpent);
-        setLogs((prev) => [
-          ...prev,
-          "",
-          `// Program finished successfully in ${data.timeSpent.toFixed(2)}ms.`,
-        ]);
+        setExecTime(data.time);
+        setLogs((prev) => [...prev, "", `// Execution finished in ${data.time.toFixed(2)}ms.`]);
         worker.terminate();
-        workerRef.current = null;
       }
     };
+    worker.postMessage(code);
 
     worker.postMessage(jsCode);
   };
@@ -873,244 +863,166 @@ const PlaygroundContent: React.FC = () => {
     }
   };
 
-  const handleStop = () => {
-    if (workerRef.current) {
-      workerRef.current.terminate();
-      workerRef.current = null;
-      setIsRunning(false);
-      setLogs((prev) => [...prev, "", "⚠️ Execution terminated manually by user."]);
+  // ── Tab 2: PYTHON PYODIDE WASM RUNNER ───────────────────────
+  const loadPyodideInstance = async () => {
+    if (pyodide) return pyodide;
+    setIsPyodideLoading(true);
+    setPyLogs(["// Loading Pyodide WASM Runtime from CDN...", "Please wait a moment..."]);
+    try {
+      // Prevent duplicate script tags — check if Pyodide is already loaded
+      if (!(window as any).loadPyodide) {
+        const existingScript = document.querySelector('script[src*="pyodide"]');
+        if (!existingScript) {
+          await new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js";
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        }
+      }
+      const py = await (window as any).loadPyodide();
+      setPyodide(py);
+      setPyLogs(["✅ Pyodide WebAssembly loaded successfully!", "Ready to execute Python code."]);
+      setIsPyodideLoading(false);
+      return py;
+    } catch (e: any) {
+      setPyLogs(["❌ Failed to load Pyodide WASM runtime.", e.message]);
+      setIsPyodideLoading(false);
+      return null;
     }
   };
 
-  const handleEditorMount = (editor: MonacoEditorLike) => {
-    editorDisposablesRef.current.forEach((disposable) => disposable.dispose());
-    editorDisposablesRef.current = [];
+  const handleRunPython = async () => {
+    if (isPyRunning) return;
+    const py = await loadPyodideInstance();
+    if (!py) return;
 
-    const cursorDisposable = editor.onDidChangeCursorPosition((event) => {
-      setEditorTelemetry((prev) => ({
-        ...prev,
-        lineNumber: event.position.lineNumber,
-        column: event.position.column,
-      }));
-    });
+    setIsPyRunning(true);
+    setPyLogs((prev) => [...prev, "", "🐍 Running Python code..."]);
 
-    const selectionDisposable = editor.onDidChangeCursorSelection((event) => {
-      const model = editor.getModel();
-      const selectionLength = model ? model.getValueInRange(event.selection).length : 0;
-
-      setEditorTelemetry((prev) => ({
-        ...prev,
-        lineNumber: event.selection.endLineNumber,
-        column: event.selection.endColumn,
-        selectionLength,
-      }));
-    });
-
-    editorDisposablesRef.current = [cursorDisposable, selectionDisposable];
+    try {
+      py.setStdout({
+        batched: (str: string) => {
+          setPyLogs((prev) => [...prev, `> ${str}`]);
+        },
+      });
+      await py.runPythonAsync(pyCode);
+      setPyLogs((prev) => [...prev, "", "✅ Python execution completed successfully."]);
+    } catch (err: any) {
+      setPyLogs((prev) => [...prev, `❌ ${err.message}`]);
+    } finally {
+      setIsPyRunning(false);
+    }
   };
 
   return (
     <div className="bg-gray-50 dark:bg-[#1b1b1d] min-h-screen py-10 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white flex items-center justify-center md:justify-start gap-3">
-              <FaCode className="text-blue-600 dark:text-blue-500" />
-              Algo Playground
-            </h1>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
-              Write, run, and experiment with algorithms in {LANGUAGE_CONFIGS[language].name} in real-time.
-            </p>
-          </div>
-
-          {/* Language and Template Selectors */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3">
-            {/* Language Selector */}
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1">
-                Language:
-              </span>
-              <select
-                value={language}
-                onChange={handleLanguageChange}
-                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-              >
-                <option value="javascript">JavaScript</option>
-                <option value="python">Python</option>
-                <option value="cpp">C++</option>
-                <option value="java">Java</option>
-              </select>
-            </div>
-
-            {/* Template Selector */}
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-                <FaLightbulb className="text-yellow-500" /> Template:
-              </span>
-              <select
-                value={template}
-                onChange={handleTemplateChange}
-                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-              >
-                <option value="binarySearch">Binary Search</option>
-                <option value="bubbleSort">Bubble Sort</option>
-                <option value="reverseList">Reverse Linked List</option>
-                <option value="fibonacci">Fibonacci Series</option>
-              </select>
-            </div>
-          </div>
+        {/* TAB CONTROLLERS */}
+        <div className="flex flex-wrap gap-2.5 mb-8 border-b border-gray-200 dark:border-gray-800 pb-4">
+          <button
+            onClick={() => setActiveTab("sandbox")}
+            className={`px-5 py-2.5 rounded-xl font-bold text-sm cursor-pointer transition-all border-none flex items-center gap-2 ${
+              activeTab === "sandbox"
+                ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                : "bg-white hover:bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
+            }`}
+          >
+            <FaCode /> JS Sandbox
+          </button>
+          <button
+            onClick={() => setActiveTab("python")}
+            className={`px-5 py-2.5 rounded-xl font-bold text-sm cursor-pointer transition-all border-none flex items-center gap-2 ${
+              activeTab === "python"
+                ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
+                : "bg-white hover:bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
+            }`}
+          >
+            <FaPython className="text-yellow-500" /> Python WASM
+          </button>
         </div>
 
-        {/* Editor and Console Workspace */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          {/* Left side: Code Editor Panel */}
-          <div className="lg:col-span-7 flex flex-col bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-850 rounded-xl overflow-hidden shadow-md">
-            <div className="bg-gray-100 dark:bg-gray-800/80 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-red-500" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500" />
-                <span className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 ml-2 font-mono">
-                  script{LANGUAGE_CONFIGS[language].fileExtension}
+        {activeTab === "sandbox" && (
+          <div>
+          </div>
+        )}
+
+        {/* ── TAB 2: PYTHON PYODIDE WASM VIEW ──────────────────────── */}
+        {activeTab === "python" && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            <div className="lg:col-span-7 flex flex-col bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-md">
+              <div className="bg-gray-100 dark:bg-gray-800/80 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono">
+                  main.py
                 </span>
-              </div>
-              <div className="flex items-center gap-2">
                 <button
-                  onClick={handleReset}
-                  title="Reset to original template"
-                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded transition border-none cursor-pointer"
+                  onClick={() => setPyCode(PYTHON_TEMPLATE)}
+                  className="px-2.5 py-1 text-xs font-semibold bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded border-none cursor-pointer"
                 >
-                  <FaUndo className="text-[10px]" /> Reset
+                  <FaUndo /> Reset
                 </button>
               </div>
-            </div>
-
-            {/* Monaco Wrapper */}
-            <div className="flex-grow min-h-[480px] flex flex-col">
-              <BrowserOnly fallback={<div className="p-6 text-gray-500 font-mono">Loading code editor...</div>}>
-                {() => {
-                  const Editor = require("@monaco-editor/react").default;
-                  return (
-                    <div className="flex h-full min-h-[480px] flex-col">
+              <div className="flex-grow min-h-[480px]">
+                <BrowserOnly>
+                  {() => {
+                    const Editor = require("@monaco-editor/react").default;
+                    return (
                       <Editor
-                        height="440px"
-                        language={LANGUAGE_CONFIGS[language].monacoLanguage}
+                        height="480px"
+                        language="python"
                         theme={colorMode === "dark" ? "vs-dark" : "light"}
-                        value={code}
-                        onMount={handleEditorMount}
-                        onChange={(val: string | undefined) => setCode(val || "")}
+                        value={pyCode}
+                        onChange={(val: any) => setPyCode(val || "")}
                         options={{
                           fontSize: 14,
-                          fontFamily: "Fira Code, Menlo, Monaco, Consolas, monospace",
                           minimap: { enabled: false },
                           automaticLayout: true,
-                          scrollBeyondLastLine: false,
-                          tabSize: 2,
-                          lineNumbersMinChars: 3,
-                          cursorBlinking: "smooth",
-                          smoothScrolling: true,
                         }}
                       />
-
-                      <div className="flex items-center justify-between gap-3 border-t border-gray-200/80 dark:border-gray-700 bg-gray-100 dark:bg-gray-800/90 px-4 py-2 text-[11px] font-mono text-gray-600 dark:text-gray-300">
-                        <div className="flex flex-wrap items-center gap-3">
-                          <span>Total Lines: {editorTelemetry.totalLines}</span>
-                          <span>Ln: {editorTelemetry.lineNumber}</span>
-                          <span>Col: {editorTelemetry.column}</span>
-                          <span>Characters: {editorTelemetry.characterCount}</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span>Selection: {editorTelemetry.selectionLength}</span>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }}
-              </BrowserOnly>
-            </div>
-          </div>
-
-          {/* Right side: Execution and Console Output */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
-            {/* Controls Box */}
-            <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md flex flex-wrap gap-3 items-center">
-              {!isRunning ? (
-                <button
-                  onClick={handleRun}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
-                >
-                  <FaPlay /> Run Code
-                </button>
-              ) : (
-                <button
-                  onClick={handleStop}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
-                >
-                  <FaStop /> Stop Program
-                </button>
-              )}
-
-              <button
-                onClick={handleClear}
-                className="flex items-center gap-1.5 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-semibold transition border-none cursor-pointer text-sm"
-              >
-                <FaTrash /> Clear
-              </button>
-
-              {execTime !== null && (
-                <span className="text-xs font-mono font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-full ml-auto">
-                  Time: {execTime.toFixed(1)}ms
-                </span>
-              )}
-            </div>
-
-            {/* Console Output Panel */}
-            <div ref={consolePanelRef} className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
-              <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex items-center justify-between">
-                <span className="text-xs font-bold text-gray-400 font-mono flex items-center gap-2">
-                  <FaTerminal className="text-gray-500" /> CONSOLE TERMINAL
-                </span>
-                {isRunning && (
-                  <span className="flex items-center gap-1.5 text-xs text-green-500 font-semibold font-mono animate-pulse">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                    RUNNING
-                  </span>
-                )}
-              </div>
-
-              <div className="flex-grow p-4 overflow-y-auto font-mono text-sm leading-relaxed text-gray-300 bg-gray-950 space-y-1.5 select-text selection:bg-gray-800">
-                {logs.length === 0 ? (
-                  <div className="text-gray-600 italic select-none">
-                    Console is empty. Click "Run Code" to view program output...
-                  </div>
-                ) : (
-                  logs.map((log, idx) => {
-                    let colorClass = "text-gray-300";
-                    if (log.startsWith("❌")) {
-                      colorClass = "text-red-400 font-semibold";
-                    } else if (log.startsWith("⚠️") || log.startsWith("Program finished") || log.startsWith("//")) {
-                      colorClass = "text-gray-500 italic";
-                    } else if (log.startsWith(">")) {
-                      colorClass = "text-green-400";
-                    }
-                    return (
-                      <div key={idx} className={`${colorClass} whitespace-pre-wrap`}>
-                        {log}
-                      </div>
                     );
-                  })
-                )}
+                  }}
+                </BrowserOnly>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 flex flex-col gap-6">
+              <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm flex items-center gap-3">
+                <button
+                  onClick={handleRunPython}
+                  disabled={isPyRunning || isPyodideLoading}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg font-bold border-none cursor-pointer"
+                >
+                  <FaPython /> {isPyodideLoading ? "Loading WASM..." : "Run Python WASM"}
+                </button>
+                <button
+                  onClick={() => setPyLogs([])}
+                  className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg border-none cursor-pointer"
+                >
+                  <FaTrash /> Clear
+                </button>
+              </div>
+
+              <div className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden h-[400px] shadow-inner">
+                <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex justify-between items-center text-xs text-gray-400 font-mono">
+                  <span>PYTHON CONSOLE</span>
+                </div>
+                <div className="flex-grow p-4 overflow-y-auto font-mono text-sm text-gray-300 bg-black">
+                  {pyLogs.map((log, i) => (
+                    <div key={i}>{log}</div>
+                  ))}
+                  <div ref={pyConsoleEndRef} />
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
 };
 
-// Main Export Component
 const Playground: React.FC = () => {
   return (
     <Layout
