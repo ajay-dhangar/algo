@@ -151,7 +151,7 @@ SCAN moves the disk head in one direction, servicing all requests along the way,
 req = list(map(int, input("Enter request order: ").split()))
 pos = int(input("Enter initial RW head position: "))
 tot = int(input("Enter total number of tracks: "))
-d = input("Enter direction (l/r): ")
+d = input("Enter direction (l/r): ").strip().lower()
 
 l = sorted([i for i in req if i < pos])
 r = sorted([i for i in req if i >= pos])
