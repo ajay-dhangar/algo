@@ -89,7 +89,7 @@ class Solution {
 }
 ```
 
-**C++**
+**Python**
 ```py
 class Solution:
     def asteroidsDestroyed(self, mass: int, asteroids: List[int]) -> bool:
@@ -105,7 +105,7 @@ class Solution:
 ```
 
 **JavaScript**
-```cpp
+```js
 /**
  * @param {number} mass
  * @param {number[]} asteroids
