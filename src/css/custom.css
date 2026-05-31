@@ -235,3 +235,32 @@ button {
     font-size: 0.95rem;
   }
 }
+
+/* Fix Search Bar overlap on tablet and mobile screens (under 996px) */
+@media screen and (max-width: 996px) {
+  .navbar__search {
+    width: 110px;
+    max-width: 110px;
+    transition: width 0.3s ease, max-width 0.3s ease;
+    margin-right: 0.5rem;
+  }
+  .navbar__search-input {
+    width: 100% !important;
+    transition: width 0.3s ease;
+  }
+  .navbar__search:focus-within {
+    width: 150px;
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar__search {
+    width: 80px;
+    max-width: 80px;
+  }
+  .navbar__search:focus-within {
+    width: 110px;
+    max-width: 110px;
+  }
+}
