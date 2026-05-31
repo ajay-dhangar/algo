@@ -96,11 +96,11 @@ const CallToActionSection: React.FC = () => {
 
             {/* Secondary Action Button */}
             <Link
-              to="#"
+              to="/resources/"
               className="
-                group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 
-                px-8 py-4 rounded-2xl font-semibold text-base md:text-lg text-white 
-                border border-white/20 hover:border-white/40 backdrop-blur-md bg-white/5 
+                group w-full sm:w-auto inline-flex items-center justify-center gap-2.5
+                px-8 py-4 rounded-2xl font-semibold text-base md:text-lg text-white
+                border border-white/20 hover:border-white/40 backdrop-blur-md bg-white/5
                 hover:bg-white/10 transition-all duration-200 active:scale-[0.98] no-underline hover:no-underline
               "
             >

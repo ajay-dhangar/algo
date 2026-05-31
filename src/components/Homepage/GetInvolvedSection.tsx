@@ -29,8 +29,9 @@ const cards: InvolvementCard[] = [
   {
     title: "Workshops",
     description: "Join interactive, live technical deeper dives highlighting core performance stacks and software design patterns.",
-    link: "#", // Simulates coming soon status
+    link: "/docs/",
     icon: <FaLaptopCode />,
+    actionLabel: "View Workshops",
   },
   {
     title: "Community Meetups",
@@ -42,14 +43,16 @@ const cards: InvolvementCard[] = [
   {
     title: "Mentorship Programs",
     description: "Get 1-on-1 code architecture guidance from staff developers and engineering veterans across the tech industry.",
-    link: "#", // Simulates coming soon status
+    link: "/contact/",
     icon: <FaChalkboardTeacher />,
+    actionLabel: "Join Program",
   },
   {
     title: "Online Courses",
     description: "Enroll in guided programmatic curricular paths focused on clean sorting systems, algorithms, and micro-structures.",
-    link: "#", // Simulates coming soon status
+    link: "/resources/",
     icon: <FaGraduationCap />,
+    actionLabel: "Explore Courses",
   },
   {
     title: "Open Source Initiatives",

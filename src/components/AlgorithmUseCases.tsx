@@ -303,42 +303,23 @@ const algorithmData: Record<string, AlgorithmDetails> = {
   },
 };
 
-const getIcon = (selected: string) => {
-  switch (selected) {
-    case "Trees":
-      return <FiFolder className="w-5 h-5 text-green-500" />;
+const iconMap: Record<string, { icon: React.ComponentType<{ className?: string }>; color: string }> = {
+  "Trees": { icon: FiFolder, color: "text-green-500" },
+  "Graphs": { icon: FiShare2, color: "text-blue-500" },
+  "Binary Search": { icon: FiSearch, color: "text-cyan-500" },
+  "Dijkstra Algorithm": { icon: FiMap, color: "text-orange-500" },
+  "Linked List": { icon: FiDatabase, color: "text-pink-500" },
+  "BFS": { icon: FiGlobe, color: "text-indigo-500" },
+  "DFS": { icon: FiGlobe, color: "text-indigo-500" },
+  "Backtracking": { icon: FiCode, color: "text-red-500" },
+  "Greedy Algorithms": { icon: FiCompass, color: "text-yellow-500" },
+  "Heaps": { icon: FiLayers, color: "text-purple-500" },
+  "Tries": { icon: FiGitCommit, color: "text-emerald-500" },
+};
 
-    case "Graphs":
-      return <FiShare2 className="w-5 h-5 text-blue-500" />;
-
-    case "Binary Search":
-      return <FiSearch className="w-5 h-5 text-cyan-500" />;
-
-    case "Dijkstra Algorithm":
-      return <FiMap className="w-5 h-5 text-orange-500" />;
-
-    case "Linked List":
-      return <FiDatabase className="w-5 h-5 text-pink-500" />;
-
-    case "BFS":
-    case "DFS":
-      return <FiGlobe className="w-5 h-5 text-indigo-500" />;
-
-    case "Backtracking":
-      return <FiCode className="w-5 h-5 text-red-500" />;
-
-    case "Greedy Algorithms":
-      return <FiCompass className="w-5 h-5 text-yellow-500" />;
-
-    case "Heaps":
-      return <FiLayers className="w-5 h-5 text-purple-500" />;
-
-    case "Tries":
-      return <FiGitCommit className="w-5 h-5 text-emerald-500" />;
-
-    default:
-      return <FiCpu className="w-5 h-5 text-[var(--ifm-color-primary)]" />;
-  }
+const getIcon = (selected: string, isSelected = false) => {
+  const { icon: Icon, color } = iconMap[selected] || { icon: FiCpu, color: "text-[var(--ifm-color-primary)]" };
+  return <Icon className={"w-5 h-5 " + (isSelected ? "text-white" : color)} />;
 };
 
 const AlgorithmUseCases: React.FC = () => {
@@ -352,7 +333,7 @@ const AlgorithmUseCases: React.FC = () => {
     <div className="w-full max-w-6xl mx-auto my-12 px-4">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 bg-white dark:bg-gray-900/50 rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-md p-4 sm:p-6 lg:p-8 backdrop-blur-md">
         {/* Sidebar Navigation */}
-        <div className="md:col-span-4 lg:col-span-3 flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800/60 pr-0 md:pr-4 scrollbar-none snap-x">
+        <div className="md:col-span-4 lg:col-span-3 flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800/60 pr-0 md:pr-4 scrollbar-none snap-x md:max-h-[60vh] md:overflow-y-auto">
           {keys.map((algo) => {
             const isSelected = selected === algo;
 
@@ -374,7 +355,7 @@ const AlgorithmUseCases: React.FC = () => {
                   <span className="hidden md:block absolute left-0 top-1/4 bottom-1/4 w-1 bg-white rounded-r" />
                 )}
 
-                {getIcon(algo)}
+                {getIcon(algo, isSelected)}
 
                 <span>{algo}</span>
               </button>
@@ -383,7 +364,7 @@ const AlgorithmUseCases: React.FC = () => {
         </div>
 
         {/* Main Content */}
-        <div className="md:col-span-8 lg:col-span-9 flex flex-col justify-between min-w-0 animate-fadeIn">
+        <div className="md:col-span-8 lg:col-span-9 flex flex-col justify-start min-w-0 animate-fadeIn">
           {/* Header */}
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-3">
@@ -394,7 +375,7 @@ const AlgorithmUseCases: React.FC = () => {
               </h2>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed m-0">
+            <p className="text-sm sm:text-lg text-slate-600 dark:text-gray-400 leading-relaxed m-0">
               {activeData.description}
             </p>
           </div>

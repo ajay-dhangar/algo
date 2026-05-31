@@ -38,11 +38,14 @@ const config = {
   organizationName: "codeharborhub",
   projectName: "algo",
   customFields: {
-    apiBaseUrl: process.env.ALGO_API_URL || process.env.DOCUSAURUS_API_BASE_URL || (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
+    apiBaseUrl:
+      process.env.ALGO_API_URL ||
+      process.env.DOCUSAURUS_API_BASE_URL ||
+      (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
   },
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenMarkdownLinks: "throw",
 
   presets: [
     [
@@ -86,9 +89,9 @@ const config = {
     ({
       image: "/",
       announcementBar: {
-        id: "announcementBar_algo_community", 
+        id: "announcementBar_algo_community",
         content:
-          '⭐ First, please <b><a target="_blank" href="https://github.com/ajay-dhangar/algo">Star our GitHub Repo</a></b>, then 🚀 <b><a target="_blank" href="https://chat.whatsapp.com/LKaBzmknsyIIqUY1DSMoZa?mode=gi_t">Join our ALGO Core Community on WhatsApp</a></b> to collaborate with top contributors!',
+          '✨ Help us grow: Leave a <b><a target="_blank" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b> and <b><a target="_blank" href="https://chat.whatsapp.com/LKaBzmknsyIIqUY1DSMoZa?mode=gi_t">connect with the Algo Core Circle on WhatsApp</a></b> today.',
         isCloseable: true,
         backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
       },
