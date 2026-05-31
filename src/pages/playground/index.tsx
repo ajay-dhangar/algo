@@ -11,20 +11,7 @@ import {
   FaCode,
   FaTerminal,
   FaLightbulb,
-  FaPython,
-  FaChartLine,
-  FaCogs,
 } from "react-icons/fa";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
 
 // Language configuration
 type LanguageType = "javascript" | "python" | "cpp" | "java";
@@ -105,11 +92,13 @@ function bubbleSort(arr) {
         swapped = true;
       }
     }
+    // If no elements were swapped, array is already sorted
     if (!swapped) break;
   }
   return arr;
 }
 
+// Test cases
 const unsorted = [64, 34, 25, 12, 22, 11, 90];
 console.log("Unsorted:", unsorted);
 console.log("Sorted:  ", bubbleSort(unsorted));
@@ -585,61 +574,63 @@ public class Fibonacci {
   },
 };
 
-const PYTHON_TEMPLATE = `# Python WebAssembly (Pyodide) Demo
-# Runs completely in your browser locally.
+type EditorTelemetry = {
+  lineNumber: number;
+  column: number;
+  totalLines: number;
+  characterCount: number;
+  selectionLength: number;
+};
 
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
-    pivot = arr[len(arr) // 2]
-    left = [x for x in arr if x < pivot]
-    middle = [x for x in arr if x == pivot]
-    right = [x for x in arr if x > pivot]
-    return quick_sort(left) + middle + right
+type MonacoSelectionLike = {
+  startLineNumber: number;
+  startColumn: number;
+  endLineNumber: number;
+  endColumn: number;
+};
 
-unsorted = [3, 6, 8, 10, 1, 2, 1]
-print("Python Unsorted:", unsorted)
-print("Python Sorted:  ", quick_sort(unsorted))
-`;
+type MonacoModelLike = {
+  getLineCount: () => number;
+  getValueLength: () => number;
+  getValueInRange: (range: MonacoSelectionLike) => string;
+};
 
+type MonacoEditorLike = {
+  getModel: () => MonacoModelLike | null;
+  onDidChangeCursorPosition: (
+    listener: (event: { position: { lineNumber: number; column: number } }) => void,
+  ) => { dispose: () => void };
+  onDidChangeCursorSelection: (
+    listener: (event: { selection: MonacoSelectionLike }) => void,
+  ) => { dispose: () => void };
+};
+
+const getLineCount = (value: string): number => Math.max(1, value.split(/\r\n|\r|\n/).length);
+
+// Moving the core workspace content to a separate inner component
 const PlaygroundContent: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"sandbox" | "python" | "benchmark">("sandbox");
-
-  // JS Sandbox State
   const [language, setLanguage] = useState<LanguageType>("javascript");
   const [code, setCode] = useState<string>(TEMPLATES.javascript.binarySearch);
   const [template, setTemplate] = useState<string>("binarySearch");
   const [logs, setLogs] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [execTime, setExecTime] = useState<number | null>(null);
+  const [editorTelemetry, setEditorTelemetry] = useState<EditorTelemetry>({
+    lineNumber: 1,
+    column: 1,
+    totalLines: getLineCount(TEMPLATES.javascript.binarySearch),
+    characterCount: TEMPLATES.javascript.binarySearch.length,
+    selectionLength: 0,
+  });
+
   const workerRef = useRef<Worker | null>(null);
   const consolePanelRef = useRef<HTMLDivElement | null>(null);
+  const editorDisposablesRef = useRef<Array<{ dispose: () => void }>>([]);
 
-  // Python WASM State
-  const [pyCode, setPyCode] = useState<string>(PYTHON_TEMPLATE);
-  const [pyLogs, setPyLogs] = useState<string[]>([]);
-  const [isPyRunning, setIsPyRunning] = useState<boolean>(false);
-  const [pyodide, setPyodide] = useState<any>(null);
-  const [isPyodideLoading, setIsPyodideLoading] = useState<boolean>(false);
-
-  // Benchmark State
-  const [benchmarkSize, setBenchmarkSize] = useState<number>(1000);
-  const [isBenchmarking, setIsBenchmarking] = useState<boolean>(false);
-  const [benchmarkData, setBenchmarkData] = useState<any[]>([]);
-
-  const consoleEndRef = useRef<HTMLDivElement | null>(null);
-  const pyConsoleEndRef = useRef<HTMLDivElement | null>(null);
+  // Safe to use now because this component is rendered inside <Layout>
   const { colorMode } = useColorMode();
   const apiBaseUrl = useApiBaseUrl();
 
-  // Scroll to bottom helper
-  useEffect(() => {
-    if (activeTab === "sandbox" && consoleEndRef.current) {
-      consoleEndRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (activeTab === "python" && pyConsoleEndRef.current) {
-      pyConsoleEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [logs, pyLogs, activeTab]);
   // Scroll to bottom of console logs on update only during execution
   useEffect(() => {
     if (consolePanelRef.current && isRunning) {
@@ -649,61 +640,153 @@ const PlaygroundContent: React.FC = () => {
   }, [logs, isRunning]);
 
   useEffect(() => {
+    setEditorTelemetry((prev) => ({
+      ...prev,
+      totalLines: getLineCount(code),
+      characterCount: code.length,
+    }));
+  }, [code]);
+
+  // Clean up worker on unmount
+  useEffect(() => {
     return () => {
-      if (workerRef.current) workerRef.current.terminate();
+      if (workerRef.current) {
+        workerRef.current.terminate();
+      }
+      editorDisposablesRef.current.forEach((disposable) => disposable.dispose());
+      editorDisposablesRef.current = [];
     };
   }, []);
 
-  const handleStopJs = () => {
-    if (workerRef.current) {
-      workerRef.current.terminate();
-      workerRef.current = null;
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLanguage = e.target.value as LanguageType;
+    setLanguage(selectedLanguage);
+    setTemplate("binarySearch");
+    setCode(TEMPLATES[selectedLanguage].binarySearch);
+    setLogs([]);
+    setExecTime(null);
+    setEditorTelemetry({
+      lineNumber: 1,
+      column: 1,
+      selectionLength: 0,
+      totalLines: getLineCount(TEMPLATES[selectedLanguage].binarySearch),
+      characterCount: TEMPLATES[selectedLanguage].binarySearch.length,
+    });
+  };
+
+  const handleTemplateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selected = e.target.value;
+    setTemplate(selected);
+    setCode(TEMPLATES[language][selected]);
+    setEditorTelemetry({
+      lineNumber: 1,
+      column: 1,
+      selectionLength: 0,
+      totalLines: getLineCount(TEMPLATES[language][selected]),
+      characterCount: TEMPLATES[language][selected].length,
+    });
+  };
+
+  const handleReset = () => {
+    const resetCode = TEMPLATES[language][template];
+    setCode(resetCode);
+    setLogs(["// Editor reset to original template."]);
+    setExecTime(null);
+    setEditorTelemetry({
+      lineNumber: 1,
+      column: 1,
+      selectionLength: 0,
+      totalLines: getLineCount(resetCode),
+      characterCount: resetCode.length,
+    });
+  };
+
+  const handleClear = () => {
+    setLogs([]);
+    setExecTime(null);
+  };
+
+  const handleRun = async () => {
+    if (isRunning) return;
+
+    setIsRunning(true);
+    setLogs(["// Starting execution...", ""]);
+    setExecTime(null);
+
+    const startTime = performance.now();
+
+    try {
+      if (language === "javascript") {
+        // Use Web Worker for JavaScript
+        executeJavaScript(code, startTime);
+      } else {
+        // Use backend for other languages
+        await executeBackend(language, code, startTime);
+      }
+    } catch (error) {
+      const endTime = performance.now();
       setIsRunning(false);
-      setLogs((prev) => [...prev, "", "⛔ Execution stopped by user."]);
+      setLogs((prev) => [
+        ...prev,
+        `❌ Error: ${error instanceof Error ? error.message : String(error)}`,
+        "",
+        `// Program finished with error in ${(endTime - startTime).toFixed(2)}ms.`,
+      ]);
     }
   };
 
-  const handleRunJs = () => {
-    if (isRunning) return;
-    setIsRunning(true);
-    setLogs(["// Starting JS sandbox...", ""]);
-    setExecTime(null);
+  const executeJavaScript = (jsCode: string, startTime: number) => {
+    const workerCode = `
+      self.onmessage = function(e) {
+        const code = e.data;
+        const customConsole = {
+          log: (...args) => {
+            const message = args.map(arg => {
+              if (arg === null) return 'null';
+              if (arg === undefined) return 'undefined';
+              if (typeof arg === 'object') {
+                try { return JSON.stringify(arg); } catch (e) { return '[Circular Object]'; }
+              }
+              return String(arg);
+            }).join(' ');
+            self.postMessage({ type: 'log', message });
+          },
+          error: (...args) => {
+            const message = args.join(' ');
+            self.postMessage({ type: 'error', message });
+          }
+        };
 
-    // Use array join for safe code transfer — avoids breakage when user code contains backticks
-    const workerCode = [
-      'self.onmessage = function(e) {',
-      '  const code = e.data;',
-      '  const customConsole = {',
-      '    log: (...args) => {',
-      '      const message = args.map(arg => typeof arg === "object" ? JSON.stringify(arg) : String(arg)).join(" ");',
-      '      self.postMessage({ type: "log", message });',
-      '    },',
-      '    error: (...args) => {',
-      '      self.postMessage({ type: "error", message: args.join(" ") });',
-      '    }',
-      '  };',
-      '  const start = performance.now();',
-      '  try {',
-      '    const run = new Function("console", "\"use strict\";\\n" + code);',
-      '    run(customConsole);',
-      '    self.postMessage({ type: "finish", time: performance.now() - start });',
-      '  } catch (err) {',
-      '    self.postMessage({ type: "error", message: err.message });',
-      '    self.postMessage({ type: "finish", time: performance.now() - start });',
-      '  }',
-      '};',
-    ].join('\n');
+        const startTime = performance.now();
+        try {
+          const run = new Function('console', 'window', 'document', 'self', 'parent', 'global', \`
+            'use strict';
+            try {
+    \${code}
+  } catch (err) {
+    console.error(err.message || err);
+  }
+          \`);
+          run(customConsole, {}, {}, {}, {}, {}, {});
+          const endTime = performance.now();
+          self.postMessage({ type: 'finish', success: true, timeSpent: endTime - startTime });
+        } catch (err) {
+          const endTime = performance.now();
+          self.postMessage({ type: 'finish', success: false, error: err.message, timeSpent: endTime - startTime });
+        }
+      };
+    `;
 
     const blob = new Blob([workerCode], { type: "text/javascript" });
     const worker = new Worker(URL.createObjectURL(blob));
     workerRef.current = worker;
 
-    // 10-second execution timeout to prevent infinite loops
     const timeoutId = setTimeout(() => {
-      worker.terminate();
-      workerRef.current = null;
-      setIsRunning(false);
-      setLogs((prev) => [...prev, "", "⏱️ Execution timed out after 10 seconds."]);
+      if (workerRef.current) {
+        workerRef.current.terminate();
+        setIsRunning(false);
+        setLogs((prev) => [...prev, "❌ [Timeout] Code execution timed out after 10 seconds."]);
+      }
     }, 10000);
 
     worker.onmessage = (e) => {
@@ -715,301 +798,194 @@ const PlaygroundContent: React.FC = () => {
       } else if (data.type === "finish") {
         clearTimeout(timeoutId);
         setIsRunning(false);
-        setExecTime(data.time);
-        setLogs((prev) => [...prev, "", `// Execution finished in ${data.time.toFixed(2)}ms.`]);
+        setExecTime(data.timeSpent);
+        setLogs((prev) => [
+          ...prev,
+          "",
+          `// Program finished successfully in ${data.timeSpent.toFixed(2)}ms.`,
+        ]);
         worker.terminate();
+        workerRef.current = null;
       }
     };
-    worker.postMessage(code);
+
+    worker.postMessage(jsCode);
   };
 
-  // ── Tab 2: PYTHON PYODIDE WASM RUNNER ───────────────────────
-  const loadPyodideInstance = async () => {
-    if (pyodide) return pyodide;
-    setIsPyodideLoading(true);
-    setPyLogs(["// Loading Pyodide WASM Runtime from CDN...", "Please wait a moment..."]);
+  const executeBackend = async (lang: LanguageType, sourceCode: string, startTime: number) => {
     try {
-      // Prevent duplicate script tags — check if Pyodide is already loaded
-      if (!(window as any).loadPyodide) {
-        const existingScript = document.querySelector('script[src*="pyodide"]');
-        if (!existingScript) {
-          await new Promise((resolve, reject) => {
-            const script = document.createElement("script");
-            script.src = "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js";
-            script.onload = resolve;
-            script.onerror = reject;
-            document.head.appendChild(script);
-          });
-        }
-      }
-      const py = await (window as any).loadPyodide();
-      setPyodide(py);
-      setPyLogs(["✅ Pyodide WebAssembly loaded successfully!", "Ready to execute Python code."]);
-      setIsPyodideLoading(false);
-      return py;
-    } catch (e: any) {
-      setPyLogs(["❌ Failed to load Pyodide WASM runtime.", e.message]);
-      setIsPyodideLoading(false);
-      return null;
-    }
-  };
-
-    // ── Tab 3: ALGORITHM BENCHMARKER (WEB WORKERS) ──────────────
-  const runBenchmark = () => {
-    if (isBenchmarking) return;
-    setIsBenchmarking(true);
-    setBenchmarkData([]);
-
-    const sizes = [100, 500, 1000, 2000, 5000];
-    const dataPoints: any[] = [];
-
-    // Helper algorithms for benchmark
-    const bubbleSortStr = `
-      function bubbleSort(arr) {
-        let len = arr.length;
-        for (let i = 0; i < len; i++) {
-          for (let j = 0; j < len - 1 - i; j++) {
-            if (arr[j] > arr[j + 1]) {
-              let temp = arr[j];
-              arr[j] = arr[j + 1];
-              arr[j + 1] = temp;
-            }
-          }
-        }
-      }
-    `;
-
-    const insertionSortStr = `
-      function insertionSort(arr) {
-        let len = arr.length;
-        for (let i = 1; i < len; i++) {
-          let key = arr[i];
-          let j = i - 1;
-          while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j = j - 1;
-          }
-          arr[j + 1] = key;
-        }
-      }
-    `;
-
-    const quickSortStr = `
-      function quickSort(arr, left = 0, right = arr.length - 1) {
-        if (left < right) {
-          let pivotIndex = partition(arr, left, right);
-          quickSort(arr, left, pivotIndex - 1);
-          quickSort(arr, pivotIndex + 1, right);
-        }
-        return arr;
-      }
-      function partition(arr, left, right) {
-        let pivot = arr[right];
-        let i = left - 1;
-        for (let j = left; j < right; j++) {
-          if (arr[j] < pivot) {
-            i++;
-            let temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-          }
-        }
-        let temp = arr[i + 1];
-        arr[i + 1] = arr[right];
-        arr[right] = temp;
-        return i + 1;
-      }
-    `;
-
-    const benchmarkWorkerCode = `
-      ${bubbleSortStr}
-      ${insertionSortStr}
-      ${quickSortStr}
-
-      self.onmessage = function(e) {
-        const sizes = e.data;
-        const results = [];
-
-        sizes.forEach(size => {
-          // Generate same arrays
-          const baseArray = Array.from({ length: size }, () => Math.floor(Math.random() * 10000));
-
-          // 1. Bubble Sort
-          const arrBubble = [...baseArray];
-          const t0 = performance.now();
-          bubbleSort(arrBubble);
-          const timeBubble = performance.now() - t0;
-
-          // 2. Insertion Sort
-          const arrInsertion = [...baseArray];
-          const t1 = performance.now();
-          insertionSort(arrInsertion);
-          const timeInsertion = performance.now() - t1;
-
-          // 3. Quick Sort
-          const arrQuick = [...baseArray];
-          const t2 = performance.now();
-          quickSort(arrQuick);
-          const timeQuick = performance.now() - t2;
-
-          results.push({
-            size,
-            "Bubble Sort (O(N^2))": parseFloat(timeBubble.toFixed(2)),
-            "Insertion Sort (O(N^2))": parseFloat(timeInsertion.toFixed(2)),
-            "Quick Sort (O(N log N))": parseFloat(timeQuick.toFixed(2))
-          });
-        });
-
-        self.postMessage(results);
-      };
-    `;
-
-    const blob = new Blob([benchmarkWorkerCode], { type: "text/javascript" });
-    const worker = new Worker(URL.createObjectURL(blob));
-
-    worker.onmessage = (e) => {
-      setBenchmarkData(e.data);
-      setIsBenchmarking(false);
-      worker.terminate();
-    };
-
-    worker.postMessage(sizes);
-  };
-
-  const handleRunPython = async () => {
-    if (isPyRunning) return;
-    const py = await loadPyodideInstance();
-    if (!py) return;
-
-    setIsPyRunning(true);
-    setPyLogs((prev) => [...prev, "", "🐍 Running Python code..."]);
-
-    try {
-      py.setStdout({
-        batched: (str: string) => {
-          setPyLogs((prev) => [...prev, `> ${str}`]);
+      const response = await fetch(buildApiUrl(apiBaseUrl, "/api/execute-code"), {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          language: lang,
+          code: sourceCode,
+        }),
       });
-      await py.runPythonAsync(pyCode);
-      setPyLogs((prev) => [...prev, "", "✅ Python execution completed successfully."]);
-    } catch (err: any) {
-      setPyLogs((prev) => [...prev, `❌ ${err.message}`]);
-    } finally {
-      setIsPyRunning(false);
+
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      const endTime = performance.now();
+
+      setIsRunning(false);
+      setExecTime(endTime - startTime);
+
+      if (data.success) {
+        const outputLines = data.output.split("\n").filter((line: string) => line.trim());
+        setLogs((prev) => [
+          ...prev,
+          ...outputLines.map((line: string) => `> ${line}`),
+          "",
+          `// Program finished successfully in ${(endTime - startTime).toFixed(2)}ms.`,
+        ]);
+      } else {
+        setLogs((prev) => [
+          ...prev,
+          `❌ ${data.error}`,
+          "",
+          `// Program finished with error in ${(endTime - startTime).toFixed(2)}ms.`,
+        ]);
+      }
+    } catch (error) {
+      const endTime = performance.now();
+      setIsRunning(false);
+
+      if (error instanceof Error && error.message.includes("Failed to fetch")) {
+        setLogs((prev) => [
+          ...prev,
+          "❌ Backend server is not running. Please ensure the backend is started with: npm run server:dev",
+          "",
+          `// Connection failed in ${(endTime - startTime).toFixed(2)}ms.`,
+        ]);
+      } else {
+        setLogs((prev) => [
+          ...prev,
+          `❌ ${error instanceof Error ? error.message : "Unknown error"}`,
+          "",
+          `// Program finished with error in ${(endTime - startTime).toFixed(2)}ms.`,
+        ]);
+      }
     }
+  };
+
+  const handleStop = () => {
+    if (workerRef.current) {
+      workerRef.current.terminate();
+      workerRef.current = null;
+      setIsRunning(false);
+      setLogs((prev) => [...prev, "", "⚠️ Execution terminated manually by user."]);
+    }
+  };
+
+  const handleEditorMount = (editor: MonacoEditorLike) => {
+    editorDisposablesRef.current.forEach((disposable) => disposable.dispose());
+    editorDisposablesRef.current = [];
+
+    const cursorDisposable = editor.onDidChangeCursorPosition((event) => {
+      setEditorTelemetry((prev) => ({
+        ...prev,
+        lineNumber: event.position.lineNumber,
+        column: event.position.column,
+      }));
+    });
+
+    const selectionDisposable = editor.onDidChangeCursorSelection((event) => {
+      const model = editor.getModel();
+      const selectionLength = model ? model.getValueInRange(event.selection).length : 0;
+
+      setEditorTelemetry((prev) => ({
+        ...prev,
+        lineNumber: event.selection.endLineNumber,
+        column: event.selection.endColumn,
+        selectionLength,
+      }));
+    });
+
+    editorDisposablesRef.current = [cursorDisposable, selectionDisposable];
   };
 
   return (
     <div className="bg-gray-50 dark:bg-[#1b1b1d] min-h-screen py-10 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* TAB CONTROLLERS */}
-        <div className="flex flex-wrap gap-2.5 mb-8 border-b border-gray-200 dark:border-gray-800 pb-4">
-          <button
-            onClick={() => setActiveTab("sandbox")}
-            className={`px-5 py-2.5 rounded-xl font-bold text-sm cursor-pointer transition-all border-none flex items-center gap-2 ${
-              activeTab === "sandbox"
-                ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
-                : "bg-white hover:bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
-            }`}
-          >
-            <FaCode /> JS Sandbox
-          </button>
-          <button
-            onClick={() => setActiveTab("python")}
-            className={`px-5 py-2.5 rounded-xl font-bold text-sm cursor-pointer transition-all border-none flex items-center gap-2 ${
-              activeTab === "python"
-                ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
-                : "bg-white hover:bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
-            }`}
-          >
-            <FaPython className="text-yellow-500" /> Python WASM
-          </button>
-          <button
-            onClick={() => setActiveTab("benchmark")}
-            className={`px-5 py-2.5 rounded-xl font-bold text-sm cursor-pointer transition-all border-none flex items-center gap-2 ${
-              activeTab === "benchmark"
-                ? "bg-blue-600 text-white shadow-md shadow-blue-500/25"
-                : "bg-white hover:bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
-            }`}
-          >
-            <FaChartLine className="text-green-500" /> Visual Benchmarker
-          </button>
+        {/* Header */}
+        <div className="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white flex items-center justify-center md:justify-start gap-3">
+              <FaCode className="text-blue-600 dark:text-blue-500" />
+              Algo Playground
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 mt-2">
+              Write, run, and experiment with algorithms in {LANGUAGE_CONFIGS[language].name} in real-time.
+            </p>
+          </div>
+
+          {/* Language and Template Selectors */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3">
+            {/* Language Selector */}
+            <div className="flex items-center justify-center gap-2">
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1">
+                Language:
+              </span>
+              <select
+                value={language}
+                onChange={handleLanguageChange}
+                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+              >
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="cpp">C++</option>
+                <option value="java">Java</option>
+              </select>
+            </div>
+
+            {/* Template Selector */}
+            <div className="flex items-center justify-center gap-2">
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
+                <FaLightbulb className="text-yellow-500" /> Template:
+              </span>
+              <select
+                value={template}
+                onChange={handleTemplateChange}
+                className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 rounded-lg px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+              >
+                <option value="binarySearch">Binary Search</option>
+                <option value="bubbleSort">Bubble Sort</option>
+                <option value="reverseList">Reverse Linked List</option>
+                <option value="fibonacci">Fibonacci Series</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        {/* ── TAB 1: JS SANDBOX VIEW ───────────────────────────────── */}
-        {activeTab === "sandbox" && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            <div className="lg:col-span-7 flex flex-col bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-md">
-              <div className="bg-gray-100 dark:bg-gray-800/80 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono">
-                  script.js
+        {/* Editor and Console Workspace */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          {/* Left side: Code Editor Panel */}
+          <div className="lg:col-span-7 flex flex-col bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-850 rounded-xl overflow-hidden shadow-md">
+            <div className="bg-gray-100 dark:bg-gray-800/80 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-red-500" />
+                <span className="w-3 h-3 rounded-full bg-yellow-500" />
+                <span className="w-3 h-3 rounded-full bg-green-500" />
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 ml-2 font-mono">
+                  script{LANGUAGE_CONFIGS[language].fileExtension}
                 </span>
-                <button
-                  onClick={() => setCode(TEMPLATES[template])}
-                  className="px-2.5 py-1 text-xs font-semibold bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded border-none cursor-pointer"
-                >
-                  <FaUndo /> Reset
-                </button>
               </div>
-              <div className="flex-grow min-h-[480px]">
-                <BrowserOnly>
-                  {() => {
-                    const Editor = require("@monaco-editor/react").default;
-                    return (
-                      <Editor
-                        height="480px"
-                        language="javascript"
-                        theme={colorMode === "dark" ? "vs-dark" : "light"}
-                        value={code}
-                        onChange={(val: any) => setCode(val || "")}
-                        options={{
-                          fontSize: 14,
-                          minimap: { enabled: false },
-                          automaticLayout: true,
-                        }}
-                      />
-                    );
-                  }}
-                </BrowserOnly>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleReset}
+                  title="Reset to original template"
+                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded transition border-none cursor-pointer"
+                >
+                  <FaUndo className="text-[10px]" /> Reset
+                </button>
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm flex items-center gap-3">
-                <button
-                  onClick={handleRunJs}
-                  disabled={isRunning}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold border-none cursor-pointer"
-                >
-                  <FaPlay /> Run Sandbox
-                </button>
-                {isRunning && (
-                  <button
-                    onClick={handleStopJs}
-                    className="flex items-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold border-none cursor-pointer"
-                  >
-                    <FaStop /> Stop
-                  </button>
-                )}
-                <button
-                  onClick={() => setLogs([])}
-                  className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg border-none cursor-pointer"
-                >
-                  <FaTrash /> Clear
-                </button>
-              </div>
-
-              <div className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden h-[400px] shadow-inner">
-                <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex justify-between items-center text-xs text-gray-400 font-mono">
-                  <span>TERMINAL LOGS</span>
-                </div>
-                <div className="flex-grow p-4 overflow-y-auto font-mono text-sm text-gray-300 space-y-1 bg-black">
-                  {logs.map((log, i) => (
-                    <div key={i}>{log}</div>
-                  ))}
-                  <div ref={consoleEndRef} />
-                </div>
-              </div>
             {/* Monaco Wrapper */}
             <div className="flex-grow min-h-[480px] flex flex-col">
               <BrowserOnly fallback={<div className="p-6 text-gray-500 font-mono">Loading code editor...</div>}>
@@ -1018,154 +994,123 @@ const PlaygroundContent: React.FC = () => {
                   return (
                     <div className="flex h-full min-h-[480px] flex-col">
                       <Editor
-                        height="480px"
-                        language="python"
+                        height="440px"
+                        language={LANGUAGE_CONFIGS[language].monacoLanguage}
                         theme={colorMode === "dark" ? "vs-dark" : "light"}
-                        value={pyCode}
-                        onChange={(val: any) => setPyCode(val || "")}
+                        value={code}
+                        onMount={handleEditorMount}
+                        onChange={(val: string | undefined) => setCode(val || "")}
                         options={{
                           fontSize: 14,
+                          fontFamily: "Fira Code, Menlo, Monaco, Consolas, monospace",
                           minimap: { enabled: false },
                           automaticLayout: true,
+                          scrollBeyondLastLine: false,
+                          tabSize: 2,
+                          lineNumbersMinChars: 3,
+                          cursorBlinking: "smooth",
+                          smoothScrolling: true,
                         }}
                       />
-                    );
-                  }}
-                </BrowserOnly>
-              </div>
+
+                      <div className="flex items-center justify-between gap-3 border-t border-gray-200/80 dark:border-gray-700 bg-gray-100 dark:bg-gray-800/90 px-4 py-2 text-[11px] font-mono text-gray-600 dark:text-gray-300">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span>Total Lines: {editorTelemetry.totalLines}</span>
+                          <span>Ln: {editorTelemetry.lineNumber}</span>
+                          <span>Col: {editorTelemetry.column}</span>
+                          <span>Characters: {editorTelemetry.characterCount}</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span>Selection: {editorTelemetry.selectionLength}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }}
+              </BrowserOnly>
             </div>
           </div>
-        )}
 
-        {/* ── TAB 2: PYTHON PYODIDE WASM VIEW ──────────────────────── */}
-        {activeTab === "python" && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-            <div className="lg:col-span-7 flex flex-col bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-md">
-              <div className="bg-gray-100 dark:bg-gray-800/80 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 font-mono">
-                  main.py
-                </span>
+          {/* Right side: Execution and Console Output */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            {/* Controls Box */}
+            <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md flex flex-wrap gap-3 items-center">
+              {!isRunning ? (
                 <button
-                  onClick={() => setPyCode(PYTHON_TEMPLATE)}
-                  className="px-2.5 py-1 text-xs font-semibold bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded border-none cursor-pointer"
+                  onClick={handleRun}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
                 >
-                  <FaUndo /> Reset
+                  <FaPlay /> Run Code
                 </button>
-              </div>
-              <div className="flex-grow min-h-[480px]">
-                <BrowserOnly>
-                  {() => {
-                    const Editor = require("@monaco-editor/react").default;
-                    return (
-                      <Editor
-                        height="480px"
-                        language="python"
-                        theme={colorMode === "dark" ? "vs-dark" : "light"}
-                        value={pyCode}
-                        onChange={(val: any) => setPyCode(val || "")}
-                        options={{
-                          fontSize: 14,
-                          minimap: { enabled: false },
-                          automaticLayout: true,
-                        }}
-                      />
-                    );
-                  }}
-                </BrowserOnly>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm flex items-center gap-3">
-                <button
-                  onClick={handleRunPython}
-                  disabled={isPyRunning || isPyodideLoading}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg font-bold border-none cursor-pointer"
-                >
-                  <FaPython /> {isPyodideLoading ? "Loading WASM..." : "Run Python WASM"}
-                </button>
-                <button
-                  onClick={() => setPyLogs([])}
-                  className="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg border-none cursor-pointer"
-                >
-                  <FaTrash /> Clear
-                </button>
-              </div>
-
-              <div className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-2xl overflow-hidden h-[400px] shadow-inner">
-                <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex justify-between items-center text-xs text-gray-400 font-mono">
-                  <span>PYTHON CONSOLE</span>
-                </div>
-                <div className="flex-grow p-4 overflow-y-auto font-mono text-sm text-gray-300 bg-black">
-                  {pyLogs.map((log, i) => (
-                    <div key={i}>{log}</div>
-                  ))}
-                  <div ref={pyConsoleEndRef} />
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* ── TAB 3: ALGORITHM BENCHMARKER (REAL-TIME CHART) ────────── */}
-        {activeTab === "benchmark" && (
-          <div className="bg-white dark:bg-gray-900 p-6 border border-gray-200 dark:border-gray-800 rounded-3xl shadow-lg space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white flex items-center gap-2">
-                  <FaCogs className="text-green-500" /> Time Complexity Analyzer (Web Workers)
-                </h2>
-                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
-                  Run standard sorting algorithms on random arrays of sizes `N = 100` up to `N = 5000` inside background Web Workers to prevent main thread freezing.
-                </p>
-              </div>
-              <button
-                onClick={runBenchmark}
-                disabled={isBenchmarking}
-                className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold border-none cursor-pointer transition transform active:scale-95 flex items-center gap-2 shrink-0 shadow-md"
-              >
-                <FaPlay /> {isBenchmarking ? "Computing..." : "Start Benchmark"}
-              </button>
-            </div>
-
-            {/* Line Chart Panel */}
-            <div className="h-[450px] bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-200/50 dark:border-slate-800/40">
-              {isBenchmarking ? (
-                <div className="h-full flex flex-col items-center justify-center space-y-4">
-                  <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
-                  <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 font-mono">
-                    Executing algorithms in parallel Web Workers...
-                  </span>
-                </div>
-              ) : benchmarkData.length === 0 ? (
-                <div className="h-full flex flex-col items-center justify-center text-center space-y-2">
-                  <FaChartLine className="text-4xl text-slate-300 dark:text-slate-700" />
-                  <span className="text-sm text-slate-400">
-                    No benchmark data available. Click "Start Benchmark" to record times.
-                  </span>
-                </div>
               ) : (
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={benchmarkData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#334155" opacity={0.2} />
-                    <XAxis dataKey="size" stroke="#94a3b8" label={{ value: "Array Size (N)", position: "bottom", offset: 0 }} />
-                    <YAxis stroke="#94a3b8" label={{ value: "Execution Time (ms)", angle: -90, position: "left", offset: 10 }} />
-                    <Tooltip contentStyle={{ backgroundColor: "#0f172a", borderRadius: "1rem", border: "1px solid #334155" }} />
-                    <Legend />
-                    <Line type="monotone" dataKey="Bubble Sort (O(N^2))" stroke="#ef4444" strokeWidth={3} activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="Insertion Sort (O(N^2))" stroke="#f59e0b" strokeWidth={3} />
-                    <Line type="monotone" dataKey="Quick Sort (O(N log N))" stroke="#3b82f6" strokeWidth={3} />
-                  </LineChart>
-                </ResponsiveContainer>
+                <button
+                  onClick={handleStop}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+                >
+                  <FaStop /> Stop Program
+                </button>
+              )}
+
+              <button
+                onClick={handleClear}
+                className="flex items-center gap-1.5 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-semibold transition border-none cursor-pointer text-sm"
+              >
+                <FaTrash /> Clear
+              </button>
+
+              {execTime !== null && (
+                <span className="text-xs font-mono font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-full ml-auto">
+                  Time: {execTime.toFixed(1)}ms
+                </span>
               )}
             </div>
+
+            {/* Console Output Panel */}
+            <div ref={consolePanelRef} className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
+              <div className="bg-gray-900 px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+                <span className="text-xs font-bold text-gray-400 font-mono flex items-center gap-2">
+                  <FaTerminal className="text-gray-500" /> CONSOLE TERMINAL
+                </span>
+                {isRunning && (
+                  <span className="flex items-center gap-1.5 text-xs text-green-500 font-semibold font-mono animate-pulse">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    RUNNING
+                  </span>
+                )}
+              </div>
+
+              <div className="flex-grow p-4 overflow-y-auto font-mono text-sm leading-relaxed text-gray-300 bg-gray-950 space-y-1.5 select-text selection:bg-gray-800">
+                {logs.length === 0 ? (
+                  <div className="text-gray-600 italic select-none">
+                    Console is empty. Click "Run Code" to view program output...
+                  </div>
+                ) : (
+                  logs.map((log, idx) => {
+                    let colorClass = "text-gray-300";
+                    if (log.startsWith("❌")) {
+                      colorClass = "text-red-400 font-semibold";
+                    } else if (log.startsWith("⚠️") || log.startsWith("Program finished") || log.startsWith("//")) {
+                      colorClass = "text-gray-500 italic";
+                    } else if (log.startsWith(">")) {
+                      colorClass = "text-green-400";
+                    }
+                    return (
+                      <div key={idx} className={`${colorClass} whitespace-pre-wrap`}>
+                        {log}
+                      </div>
+                    );
+                  })
+                )}
+              </div>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
 };
 
+// Main Export Component
 const Playground: React.FC = () => {
   return (
     <Layout
