@@ -137,14 +137,22 @@ export default function SiteTour(): React.ReactElement | null {
         params.toString() ? `?${params}` : ""
       }${window.location.hash}`;
       window.history.replaceState({}, "", next);
-    } else if (!localStorage.getItem(SITE_TOUR_STORAGE_KEY)) {
-      const base = normalizePath(siteConfig.baseUrl);
-      const path = normalizePath(location.pathname);
-      const isSiteHome = path === base;
-      const isDocsHome = path === `${base}/docs`;
-      if (isDocsHome || isSiteHome) {
-        const timer = window.setTimeout(() => openTour(0), 800);
-        return () => window.clearTimeout(timer);
+    } else {
+      let completed = false;
+      try {
+        completed = !!localStorage.getItem(SITE_TOUR_STORAGE_KEY);
+      } catch (e) {
+        console.warn("LocalStorage is not accessible:", e);
+      }
+      if (!completed) {
+        const base = normalizePath(siteConfig.baseUrl);
+        const path = normalizePath(location.pathname);
+        const isSiteHome = path === base;
+        const isDocsHome = path === `${base}/docs`;
+        if (isDocsHome || isSiteHome) {
+          const timer = window.setTimeout(() => openTour(0), 800);
+          return () => window.clearTimeout(timer);
+        }
       }
     }
   }, [openTour, location.pathname, siteConfig.baseUrl]);
