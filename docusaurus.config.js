@@ -10,6 +10,7 @@ const { execSync } = require("child_process");
 // Can be explicitly overridden with DOCUSAURUS_ENABLE_GIT_HISTORY=true|false.
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
 const showGitHistory =
+
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
@@ -27,6 +28,11 @@ const showGitHistory =
           }
         })();
 
+        const isProductionBuild = process.env.NODE_ENV === "production";
+const playgroundApiBaseUrl =
+  process.env.PLAYGROUND_API_BASE_URL ||
+  (isProductionBuild ? "" : "http://localhost:5000");
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Algo",
@@ -37,6 +43,9 @@ const config = {
   baseUrl: "/algo/",
   organizationName: "codeharborhub",
   projectName: "algo",
+  customFields: {
+  playgroundApiBaseUrl,
+},
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",

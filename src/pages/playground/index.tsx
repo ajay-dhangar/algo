@@ -11,6 +11,8 @@ import {
   FaTerminal,
   FaLightbulb,
 } from "react-icons/fa";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+
 
 // Language configuration
 type LanguageType = "javascript" | "python" | "cpp" | "java";
@@ -581,6 +583,12 @@ const PlaygroundContent: React.FC = () => {
   const [logs, setLogs] = useState<string[]>([]);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [execTime, setExecTime] = useState<number | null>(null);
+  const { siteConfig } = useDocusaurusContext();
+  const rawPlaygroundApiBaseUrl = siteConfig.customFields?.playgroundApiBaseUrl;
+  const playgroundApiBaseUrl =
+  typeof rawPlaygroundApiBaseUrl === "string"
+    ? rawPlaygroundApiBaseUrl.replace(/\/$/, "")
+    : "";
 
   const workerRef = useRef<Worker | null>(null);
   const consolePanelRef = useRef<HTMLDivElement | null>(null);
@@ -633,7 +641,16 @@ const PlaygroundContent: React.FC = () => {
 
   const handleRun = async () => {
     if (isRunning) return;
-
+    if (language !== "javascript" && !playgroundApiBaseUrl) {
+  setLogs([
+    "❌ Multi-language execution is not configured for this deployment.",
+    "",
+    "// JavaScript runs in the browser.",
+    "// To run Python, C++, or Java locally, start the backend with: npm run server:dev",
+  ]);
+  setExecTime(null);
+  return;
+}
     setIsRunning(true);
     setLogs(["// Starting execution...", ""]);
     setExecTime(null);
@@ -739,7 +756,7 @@ const PlaygroundContent: React.FC = () => {
 
   const executeBackend = async (lang: LanguageType, sourceCode: string, startTime: number) => {
     try {
-      const response = await fetch("http://localhost:5000/api/execute-code", {
+     const response = await fetch(`${playgroundApiBaseUrl}/api/execute-code`,  {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
