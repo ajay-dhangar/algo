@@ -3,7 +3,7 @@ id: disk-scheduling
 title: Disk Scheduling Algorithms
 sidebar_label: "Disk Scheduling Algorithms"
 sidebar_position: 1
-description: Disk scheduling algortihtms govern the way the read/write head moves in order to serve the requets.
+description: Disk scheduling algorithms govern the way the read/write head moves in order to serve the requests.
 tags: [Disk Scheduling, FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK, Algorithm]
 ---
 
