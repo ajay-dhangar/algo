@@ -71,17 +71,23 @@ It measures how quickly a system responds to a process (important in interactive
 ## 7. Python Implementation
 
 ```python
-data=[]
+# Sample input data: (name, arrival_time, burst_time)
+processes = [
+    ("p0", 1, 3),
+    ("p1", 2, 6),
+    ("p3", 16, 4),
+    ("p4", 17, 2)
+]
 
-n = int(input("Enter no of processes: "))
-print("Enter name of process, arrival time, and burst time:")
-for i in range(1,n+1):
-    d = {}
-    d["name"], d["at"], d["bt"] = list(map(str, input().split()))
-    d["at"] = int(d["at"])
-    d["bt"] = int(d["bt"])
-    d["order"] = i
-    data.append(d)
+data = []
+for i, (name, at, bt) in enumerate(processes, 1):
+    data.append({
+        "name": name,
+        "at": at,
+        "bt": bt,
+        "order": i
+    })
+n = len(data)
 
 
 fcfs_data = sorted(data, key=lambda item: (item["at"],item["order"]))
