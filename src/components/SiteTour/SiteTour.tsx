@@ -90,7 +90,8 @@ export default function SiteTour(): React.ReactElement | null {
   const [mounted, setMounted] = useState(false);
 
   const step: SiteTourStep = SITE_TOUR_STEPS[stepIndex];
-  const isCentered = !step.target || step.placement === "center";
+  const hasTarget = typeof document !== "undefined" && step.target ? !!document.querySelector(step.target) : false;
+  const isCentered = !step.target || step.placement === "center" || !hasTarget;
   const total = SITE_TOUR_STEPS.length;
 
   const closeTour = useCallback((markComplete: boolean) => {
