@@ -78,19 +78,25 @@ It measures how quickly a system responds to a process (important in interactive
 ## 7. Python Implementation
 
 ```python
+# Sample input data: (name, arrival_time, burst_time, priority)
+processes = [
+    ("p0", 1, 3, 2),
+    ("p1", 2, 1, 1),
+    ("p3", 2, 4, 2),
+    ("p4", 2, 2, 1),
+    ("p5", 16, 3, 1)
+]
+
 data = []
-
-n = int(input("Enter no of processes: "))
-print("Enter name of process, arrival time, burst time, and priority:")
-
-for i in range(1, n + 1):
-    d = {}
-    d["name"], d["at"], d["bt"], d["priority"] = list(map(str, input().split()))
-    d["at"] = int(d["at"])        
-    d["bt"] = int(d["bt"])
-    d["priority"] = int(d["priority"])
-    d["order"] = i
-    data.append(d)
+for i, (name, at, bt, priority) in enumerate(processes, 1):
+    data.append({
+        "name": name,
+        "at": at,
+        "bt": bt,
+        "priority": priority,
+        "order": i
+    })
+n = len(data)
 
 p_data = data.copy()
 
