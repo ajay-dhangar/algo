@@ -41,12 +41,19 @@ const BubbleSortVisualization: React.FC = () => {
   const updateMoveDuration = () => {
     const stylesheets = document.styleSheets;
     for (let i = 0; i < stylesheets.length; i++) {
-      const rules = (stylesheets[i] as CSSStyleSheet).cssRules || (stylesheets[i] as CSSStyleSheet).rules;
-      for (let j = 0; j < rules.length; j++) {
-        if ((rules[j] as CSSStyleRule).selectorText === '.v-move') {
-          (rules[j] as CSSStyleRule).style.transitionDuration = `${delay}ms`;
-          break;
+      try {
+        const rules = (stylesheets[i] as any).cssRules || (stylesheets[i] as any).rules;
+        if (!rules) continue;
+        for (let j = 0; j < rules.length; j++) {
+          const rule = rules[j] as CSSStyleRule;
+          if (rule && rule.selectorText === '.v-move') {
+            rule.style.transitionDuration = `${delay}ms`;
+            return;
+          }
         }
+      } catch (e) {
+        // Cross-origin stylesheet or inaccessible rules — skip
+        continue;
       }
     }
   };

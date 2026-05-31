@@ -45,7 +45,7 @@ const config = {
   },
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenMarkdownLinks: "throw",
 
   presets: [
     [

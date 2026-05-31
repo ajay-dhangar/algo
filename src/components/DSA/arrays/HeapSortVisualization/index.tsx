@@ -26,13 +26,19 @@ const HeapSortVisualization: React.FC = () => {
 
   const updateMoveDuration = () => {
     const stylesheets = document.styleSheets;
-    for (const stylesheet of stylesheets) {
-      const rules = (stylesheet as CSSStyleSheet).cssRules;
-      for (const rule of rules) {
-        if ((rule as CSSStyleRule).selectorText === '.v-move') {
-          (rule as CSSStyleRule).style.transitionDuration = `${delay}ms`;
-          break;
+    for (let i = 0; i < stylesheets.length; i++) {
+      try {
+        const rules = (stylesheets[i] as any).cssRules || (stylesheets[i] as any).rules;
+        if (!rules) continue;
+        for (let j = 0; j < rules.length; j++) {
+          const rule = rules[j] as CSSStyleRule;
+          if (rule && rule.selectorText === '.v-move') {
+            rule.style.transitionDuration = `${delay}ms`;
+            return;
+          }
         }
+      } catch (e) {
+        continue;
       }
     }
   };

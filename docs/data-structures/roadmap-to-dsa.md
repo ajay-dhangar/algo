@@ -11,7 +11,7 @@ tags: [dsa, learning roadmap, algorithms, data-structures]
 Understanding Data Structures and Algorithms (DSA) is crucial for solving complex problems efficiently. DSA forms the foundation of computer science, providing the necessary tools to manage and manipulate data effectively. This roadmap outlines a structured approach to mastering DSA, designed for both beginners and experienced programmers.
 
 :::tip External references for reading or writing docs
-If you are also browsing or contributing to Algo’s documentation, see [Recommended reading in CONTRIBUTING.md](https://github.com/ajay-dhangar/algo/blob/main/CONTRIBUTING.md#recommended-reading) for links to Docusaurus, Markdown, MDX, Mermaid, and React—with a short note on when each applies. Learners following this roadmap can use [learn.md](https://github.com/ajay-dhangar/algo/blob/main/learn.md#documentation--tooling-for-contributors-and-doc-readers) for the same pointers.
+If you are also browsing or contributing to Algo’s documentation, see [Recommended reading in CONTRIBUTING.md](https://github.com/ajay-dhangar/algo/blob/main/CONTRIBUTING.md#recommended-reading) for links to Docusaurus, Markdown, MDX, Mermaid, and React—with a short note on when each applies. Learners following this roadmap can use [learn.md](https://github.com/ajay-dhangar/algo/blob/main/learn.md#documentation-and-tooling) for the same pointers.
 :::
 
 <AdsComponent />

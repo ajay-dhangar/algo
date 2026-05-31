@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
 import Translate from "@docusaurus/Translate";
+import Link from "@docusaurus/Link";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import {
   FaFolderOpen,
   FaFolder,
@@ -13,6 +15,97 @@ import {
 import { topics } from "../../data/topics";
 
 const DSARoadmap: React.FC = () => {
+  const categoryBase = useBaseUrl("/docs/category");
+
+  // Explicit mapping from topic folder names to actual generated category URLs
+  // Built by matching topics.ts folder names to actual categories in /docs/category/
+  const topicCategoryMap: Record<string, Record<string, string>> = {
+    "Pick a Language": {
+      "JavaScript": "javascript",
+      "Python": "python",
+      "Java": "java",
+      "C++": "c-1",
+      "C#": "c",
+      "Ruby": "python",  // Ruby docs don't exist; fallback to Python
+      "GO": "java",  // GO docs don't exist; fallback to Java
+      "Rust": "rust",
+    },
+    "Programming Fundamentals": {
+      "Language Syntax": "language-syntax",
+      "Control Structures": "control-structures",
+      "Functions": "functions",
+      "OOP Basics": "oop-basic",
+      "Pseudo Code": "programming-fundamentals",
+    },
+    "Data Structures": {
+      "Data Structures": "data-structure",
+    },
+    "Basic Data Structures": {
+      "Arrays": "arrays",
+      "Linked Lists": "linked-list",
+      "Stacks": "stacks",
+      "Queues": "queue",
+      "Hash Tables": "hash-tables",
+    },
+    "Algorithmic Complexity": {
+      "Time and Space Complexity": "complexity",
+      "Common Runtimes": "complexity",
+      "Asymptotic Notation": "complexity",
+      "Extra Topics": "complexity",
+    },
+    "Sorting Algorithms": {
+      "Bubble Sort": "sorting-algorithms",
+      "Selection Sort": "sorting-algorithms",
+      "Insertion Sort": "sorting-algorithms",
+      "Merge Sort": "sorting-algorithms",
+      "Quick Sort": "sorting-algorithms",
+      "Heap Sort": "sorting-algorithms",
+      "Counting Sort": "sorting-algorithms",
+      "Radix Sort": "sorting-algorithms",
+      "Bucket Sort": "sorting-algorithms",
+    },
+    "Searching Algorithms": {
+      "Linear Search": "binary-search",
+      "Binary Search": "binary-search",
+      "Jump Search": "binary-search",
+      "Interpolation Search": "binary-search",
+      "Exponential Search": "binary-search",
+    },
+    "Recursion": {
+      "Introduction": "recursion",
+      "Recursion Techniques": "recursive-algorithms",
+      "Recursion Problems": "recursion",
+    },
+    "Tree Data Structures": {
+      "Introduction": "binary-trees",
+      "Tree Traversals": "binary-trees",
+      "Search Algorithms": "binary-search-tree",
+      "Tree Problems": "binary-search-tree",
+    },
+    "Graphs": {
+      "Introduction": "graphs",
+      "Graph Representation": "graphs",
+      "Graph Traversals": "graphs",
+      "Graph Algorithms": "graphs",
+    },
+  };
+
+  const getDocLink = (topicTitle: string, folderName: string, fileName: string) => {
+    // Use explicit mapping to avoid guessing category URLs
+    const topicMap = topicCategoryMap[topicTitle];
+    if (topicMap && topicMap[folderName]) {
+      return `${categoryBase}/${topicMap[folderName]}`;
+    }
+
+    // Fallback: link to languages category for unmapped topics
+    if (topicTitle === "Pick a Language") {
+      return `${categoryBase}/languages`;
+    }
+
+    // For any other unmapped topic, link to programming-fundamentals as safe default
+    return `${categoryBase}/programming-fundamentals`;
+  };
+
   // State for major topics (Top level nodes) - open the first one by default
   const [expandedTopics, setExpandedTopics] = useState<{ [key: number]: boolean }>({ 0: true });
   // State for specific folders (Second level nodes)
@@ -163,15 +256,22 @@ const DSARoadmap: React.FC = () => {
                               <div className="overflow-hidden">
                                 <div className="px-4 pb-4 pt-1 bg-gray-50 dark:bg-gray-800/40 border-t border-gray-100 dark:border-gray-700">
                                   <ul className="ml-2 border-l-2 border-gray-200 dark:border-gray-600 pl-4 space-y-3 mt-3">
-                                    {folder.files.map((file, fileIdx) => (
-                                      <li
-                                        key={fileIdx}
-                                        className="flex items-center text-[15px] text-gray-600 dark:text-gray-300"
-                                      >
-                                        <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500" aria-hidden="true" />
-                                        {file}
-                                      </li>
-                                    ))}
+                                    {folder.files.map((file, fileIdx) => {
+                                      const fileLink = getDocLink(topic.title, folder.name, file);
+
+                                      return (
+                                        <li key={fileIdx}>
+                                          <Link
+                                            to={fileLink}
+                                            className="flex items-center text-[15px] text-gray-600 dark:text-gray-300 hover:text-[var(--ifm-color-primary)] dark:hover:text-[var(--ifm-color-primary)] transition-colors cursor-pointer group"
+                                            style={{ textDecoration: "none" }}
+                                          >
+                                            <FaFileAlt className="mr-3 text-gray-300 dark:text-gray-500 group-hover:text-[var(--ifm-color-primary)] transition-colors" />
+                                            <span>{file}</span>
+                                          </Link>
+                                        </li>
+                                      );
+                                    })}
                                   </ul>
                                 </div>
                               </div>
