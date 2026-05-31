@@ -754,31 +754,7 @@ const PlaygroundContent: React.FC = () => {
     }
   };
 
-  const handleRunPython = async () => {
-    if (isPyRunning) return;
-    const py = await loadPyodideInstance();
-    if (!py) return;
-
-    setIsPyRunning(true);
-    setPyLogs((prev) => [...prev, "", "🐍 Running Python code..."]);
-
-    try {
-      // Intercept stdout
-      py.setStdout({
-        batched: (str: string) => {
-          setPyLogs((prev) => [...prev, `> ${str}`]);
-        },
-      });
-      await py.runPythonAsync(pyCode);
-      setPyLogs((prev) => [...prev, "", "✅ Python execution completed successfully."]);
-    } catch (err: any) {
-      setPyLogs((prev) => [...prev, `❌ ${err.message}`]);
-    } finally {
-      setIsPyRunning(false);
-    }
-  };
-
-  // ── Tab 3: ALGORITHM BENCHMARKER (WEB WORKERS) ──────────────
+    // ── Tab 3: ALGORITHM BENCHMARKER (WEB WORKERS) ──────────────
   const runBenchmark = () => {
     if (isBenchmarking) return;
     setIsBenchmarking(true);
