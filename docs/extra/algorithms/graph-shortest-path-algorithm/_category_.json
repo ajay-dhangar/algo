@@ -1,8 +1,0 @@
-{
-  "label": "Graph Shortest Path Algorithms",
-  "position": 11,
-  "link": {
-    "type": "generated-index",
-    "description": "Shortest path algorithms are a family of algorithms designed to find the shortest path between nodes in a graph. Common algorithms include Dijkstra's, Bellman-Ford, and Floyd-Warshall."
-  }
-}

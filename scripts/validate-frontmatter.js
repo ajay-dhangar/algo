@@ -2,9 +2,11 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const matter = require('gray-matter');
 
-const DOCS_DIR = path.join(__dirname, '../docs');
+const REPO_ROOT = path.join(__dirname, '..');
+const DOCS_DIR = path.join(REPO_ROOT, 'docs');
 const REQUIRED_FIELDS = ['id', 'title', 'sidebar_label', 'description', 'tags'];
 
 let hasErrors = false;
@@ -12,7 +14,7 @@ const errors = [];
 const idMap = new Map();
 const warnings = [];
 
-function validateFrontmatter(filePath, fileName) {
+function validateFrontmatter(filePath, fileName, globalIdMap) {
   try {
     const content = fs.readFileSync(filePath, 'utf8');
     const parsed = matter(content);
@@ -48,18 +50,16 @@ function validateFrontmatter(filePath, fileName) {
       }
     });
 
-    // Check for duplicate IDs
+    // Check for duplicate IDs (against entire docs tree)
     if (attributes.id) {
-      if (idMap.has(attributes.id)) {
+      const existing = globalIdMap.get(attributes.id);
+      if (existing && existing !== fileName) {
         errors.push(
-          `❌ Duplicate ID "${attributes.id}": Found in ${fileName} and ${idMap.get(
-            attributes.id
-          )}`
+          `❌ Duplicate ID "${attributes.id}": Found in ${fileName} and ${existing}`
         );
         hasErrors = true;
-      } else {
-        idMap.set(attributes.id, fileName);
       }
+      idMap.set(attributes.id, fileName);
     }
 
     // Validate sidebar_position if present
@@ -97,7 +97,7 @@ function validateFrontmatter(filePath, fileName) {
   }
 }
 
-function walkDir(dir) {
+function walkDir(dir, onFile) {
   const files = fs.readdirSync(dir);
 
   files.forEach((file) => {
@@ -105,21 +105,79 @@ function walkDir(dir) {
     const stat = fs.statSync(filePath);
 
     if (stat.isDirectory()) {
-      // Skip hidden and build directories
       if (!file.startsWith('.')) {
-        walkDir(filePath);
+        walkDir(filePath, onFile);
       }
     } else if (file.endsWith('.md') || file.endsWith('.mdx')) {
-      const relativePath = path.relative(DOCS_DIR, filePath).replace(/\\/g, '/');
-      validateFrontmatter(filePath, relativePath);
+      onFile(filePath);
     }
   });
 }
 
+/** Map document id -> relative path (for duplicate detection). */
+function buildGlobalIdMap() {
+  const map = new Map();
+  walkDir(DOCS_DIR, (filePath) => {
+    try {
+      const parsed = matter(fs.readFileSync(filePath, 'utf8'));
+      const id = parsed.data?.id;
+      if (id) {
+        const relativePath = path.relative(DOCS_DIR, filePath).replace(/\\/g, '/');
+        map.set(id, relativePath);
+      }
+    } catch {
+      // ignore parse errors here; validateFrontmatter will report them
+    }
+  });
+  return map;
+}
+
+/** In CI, validate only docs changed in the PR so legacy pages do not block new work. */
+function getChangedDocFiles() {
+  if (!process.env.GITHUB_ACTIONS) {
+    return null;
+  }
+
+  const baseRef = process.env.GITHUB_BASE_REF || 'main';
+  try {
+    const stdout = execSync(`git diff --name-only origin/${baseRef}...HEAD -- docs/`, {
+      cwd: REPO_ROOT,
+      encoding: 'utf8',
+    });
+    return stdout
+      .split('\n')
+      .map((f) => f.trim())
+      .filter((f) => f.endsWith('.md') || f.endsWith('.mdx'))
+      .map((f) => path.join(REPO_ROOT, f))
+      .filter((f) => fs.existsSync(f));
+  } catch (err) {
+    console.warn(`⚠️  Could not list changed docs vs origin/${baseRef}: ${err.message}`);
+    return null;
+  }
+}
+
 console.log('🔍 Validating front-matter in documentation files...\n');
 
+const globalIdMap = buildGlobalIdMap();
+const changedFiles = getChangedDocFiles();
+
 try {
-  walkDir(DOCS_DIR);
+  if (changedFiles !== null) {
+    if (changedFiles.length === 0) {
+      console.log('✅ No documentation files changed in this PR.\n');
+      process.exit(0);
+    }
+    console.log(`📂 PR scope: validating ${changedFiles.length} changed file(s) under docs/\n`);
+    changedFiles.forEach((filePath) => {
+      const relativePath = path.relative(DOCS_DIR, filePath).replace(/\\/g, '/');
+      validateFrontmatter(filePath, relativePath, globalIdMap);
+    });
+  } else {
+    walkDir(DOCS_DIR, (filePath) => {
+      const relativePath = path.relative(DOCS_DIR, filePath).replace(/\\/g, '/');
+      validateFrontmatter(filePath, relativePath, globalIdMap);
+    });
+  }
 } catch (err) {
   console.error('Error scanning docs directory:', err);
   process.exit(1);
