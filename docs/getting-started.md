@@ -28,15 +28,15 @@ The site has two main learning surfaces:
 
 | Area | What you will find | Good for |
 | ---- | ------------------ | -------- |
-| [Welcome](./index.md) | Overview of Algo | First visit |
+| **Welcome** | Overview of Algo — open **Tutorial** → first sidebar item | First visit |
 | **How to Use This Site** (this page) | Navigation and learning path | Beginners |
-| [Table of Contents](./content.md) | Visual overview of DSA topics | Seeing the big picture |
-| [Programming Fundamentals](./programming-fundamentals/index.md) | Syntax, control flow, OOP basics | Very new programmers |
-| [Basic Data Structures](./basic-data-structures/index.md) | Arrays, pointers, core structures | Building foundations |
-| [Data Structures](./data-structures/index.md) | Roadmaps and structure-focused topics | Structured DSA study |
-| [Languages](./languages/index.md) | Python, Java, C++, JavaScript, etc. | Language-specific tips |
-| [Extra](./extra/index.md) | Algorithms, graphs, DP, heaps, and advanced topics | Deeper dives after basics |
-| [Cheatsheets](./cheatsheets/index.md) | Quick reference | Review before interviews |
+| **Table of Contents** | Visual overview of DSA topics — sidebar **Contents** | Seeing the big picture |
+| **Programming Fundamentals** | Syntax, control flow, OOP basics | Very new programmers |
+| **Basic Data Structures** | Arrays, pointers, core structures | Building foundations |
+| **Data Structures** | Roadmaps and structure-focused topics | Structured DSA study |
+| **Languages** | Python, Java, C++, JavaScript, etc. | Language-specific tips |
+| **Extra** | Algorithms, graphs, DP, heaps, and advanced topics | Deeper dives after basics |
+| **Cheatsheets** | Quick reference | Review before interviews |
 
 **Topics vs languages:** Algorithm write-ups usually live under **Extra** (or related topic folders) with code in several languages in one article. The **Languages** section is for learning the language itself—not every algorithm duplicated per language folder.
 
@@ -65,7 +65,7 @@ Interview-focused material lives at **[DSA Interview Preparation](/dsa-interview
 
 ### Graphs and advanced algorithms
 
-Graph algorithms (BFS, DFS, shortest paths, MST, etc.) are under **[Extra → Graphs](/docs/extra/graphs/)**. General sorting, searching, DP, and greedy topics are under **[Extra → Algorithms](/docs/extra/algorithms/)** and related folders.
+Graph algorithms (BFS, DFS, shortest paths, MST, etc.) are in **Extra → Graphs** in the sidebar. Sorting, searching, DP, and greedy topics are under **Extra → Algorithms** and related folders.
 
 ---
 
@@ -91,30 +91,30 @@ flowchart LR
 
 ### Step 1 — Orient yourself
 
-- Read this page and [Welcome to Algo](/docs/).
-- Skim the [Table of Contents](/docs/content) to see how topics connect.
+- Read this page and open **Tutorial** from the navbar (Welcome page).
+- Skim **Contents** in the sidebar to see how topics connect.
 
 ### Step 2 — Follow the roadmap
 
-- **[Roadmap to Learning DSA](./data-structures/roadmap-to-learning-dsa)** — step-by-step study plan inside Docs.
+- **Roadmap to Learning DSA** — under **Data Structure** in the sidebar (step-by-step study plan).
 - **[learn.md](https://github.com/ajay-dhangar/algo/blob/main/learn.md)** on GitHub — same journey described for offline reading.
 - Optional: external [DSA Roadmap on roadmap.sh](https://roadmap.sh/datastructures-and-algorithms).
 
 ### Step 3 — Master sorting and searching
 
-- [Sorting algorithms](/docs/extra/algorithms/sorting-algorithms/) (bubble, merge, quick, heap, …).
-- [Searching algorithms](/docs/extra/algorithms/Searching%20Algorithms/) (binary search, etc.).
+- **Sorting algorithms** — **Extra → Algorithms → Sorting Algorithms** in the sidebar.
+- **Searching algorithms** — **Extra → Binary Search** and **Searching Algorithms** sections.
 - Practice on the [Playground](/playground) with small examples.
 
 ### Step 4 — Core data structures
 
-- [Basic Data Structures](/docs/basic-data-structures/) — arrays, strings, pointers.
-- [Stacks](/docs/extra/Stack/), [Queues](/docs/extra/Queue/), [Linked lists](/docs/extra/linked-list/), [Trees](/docs/extra/Trees/), [Heaps](/docs/extra/heap/).
+- **Basic Data Structures** — arrays, strings, pointers (sidebar section).
+- **Stacks, Queues, Linked lists, Trees, Heaps** — under **Extra** in the sidebar.
 
 ### Step 5 — Graphs and advanced topics
 
-- [Graphs](/docs/extra/graphs/) — representations, traversals, shortest paths.
-- [Dynamic programming](/docs/extra/dynamic-programming/) when you are comfortable with recursion.
+- **Graphs** — **Extra → Graphs** (BFS, DFS, shortest paths).
+- **Dynamic programming** — **Extra → Dynamic Programming** when you are comfortable with recursion.
 
 ### Step 6 — Test yourself
 
@@ -170,11 +170,11 @@ The **[Leaderboard](/leaderboard)** page in the navbar highlights community acti
 
 | I want to… | Go to |
 | ---------- | ----- |
-| Learn DSA from zero | [Roadmap to Learning DSA](./data-structures/roadmap-to-learning-dsa) |
-| Study graphs | [Graphs](./extra/graphs/) |
-| Prepare for interviews | [DSA Interview](../dsa-interview) |
-| Run code online | [Playground](../playground) |
-| Take a quiz | [Quizzes](../quizzes) |
-| Choose a contribution topic | [DSA Roadmap](../dsa-roadmap) |
+| Learn DSA from zero | Sidebar → **Data Structure** → **Roadmap to Learning DSA** |
+| Study graphs | Sidebar → **Extra** → **Graphs** |
+| Prepare for interviews | [DSA Interview](/dsa-interview) |
+| Run code online | [Playground](/playground) |
+| Take a quiz | [Quizzes](/quizzes) |
+| Choose a contribution topic | [DSA Roadmap](/dsa-roadmap) |
 
 Still stuck? Open a [GitHub Discussion](https://github.com/ajay-dhangar/algo/discussions) or issue and say where you got lost—we use that feedback to improve this guide.
