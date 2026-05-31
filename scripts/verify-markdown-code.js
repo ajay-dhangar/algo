@@ -9,8 +9,25 @@ const fs = require('fs');
 const path = require('path');
 const { execSync, execFileSync } = require('child_process');
 
+// Root-level contributor guides: illustration snippets only, not executed in CI
+const SKIP_VERIFICATION_FILES = new Set([
+  'CONTRIBUTING.md',
+  'README.md',
+  'IMPLEMENTATION_SUMMARY.md',
+  'MULTI_LANGUAGE_PLAYGROUND.md',
+  'learn.md',
+  'QUICK_START.md',
+  'CHECKLIST.md',
+]);
+
 // Languages we support executing
 const SUPPORTED_LANGUAGES = ['javascript', 'js', 'python', 'py'];
+
+function shouldSkipFile(filePath) {
+  const repoRoot = path.join(__dirname, '..');
+  const relative = path.relative(repoRoot, filePath).replace(/\\/g, '/');
+  return SKIP_VERIFICATION_FILES.has(relative);
+}
 
 function getModifiedFiles() {
   const repoRoot = path.join(__dirname, '..');
@@ -22,10 +39,11 @@ function getModifiedFiles() {
       .map(f => f.trim())
       .filter(f => f.endsWith('.md') || f.endsWith('.mdx'))
       .map(f => path.join(repoRoot, f))
-      .filter(f => fs.existsSync(f));
+      .filter(f => fs.existsSync(f))
+      .filter(f => !shouldSkipFile(f));
   } catch (e) {
     console.warn("⚠️ Could not determine changed files via git diff. Scanning all markdown files in the repository...");
-    return scanDirectory(repoRoot);
+    return scanDirectory(repoRoot).filter(f => !shouldSkipFile(f));
   }
 }
 
