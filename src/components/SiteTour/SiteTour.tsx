@@ -98,7 +98,11 @@ export default function SiteTour(): React.ReactElement | null {
     setActive(false);
     setStepIndex(0);
     if (markComplete && typeof window !== "undefined") {
-      localStorage.setItem(SITE_TOUR_STORAGE_KEY, "true");
+      try {
+        localStorage.setItem(SITE_TOUR_STORAGE_KEY, "true");
+      } catch (e) {
+        console.warn("LocalStorage is not accessible:", e);
+      }
     }
   }, []);
 
