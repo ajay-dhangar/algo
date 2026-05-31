@@ -24,19 +24,7 @@ export default function Root({ children }) {
 
   return (
     <>
-      <>
-        {isDocsPage && <PageProgressIndicator />}
-
-        {children}
-
-        <KeyboardShortcutsModal
-          isOpen={showKeyboardModal}
-          onClose={onCloseHelp}
-        />
-
-        {!isHomepage && <BottomToTop />}
-        {!isHomepage && <TopToBottom />}
-      </>
+      {isDocsPage && <PageProgressIndicator />}
       {children}
       <KeyboardShortcutsModal
         isOpen={showKeyboardModal}
