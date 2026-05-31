@@ -173,7 +173,7 @@ tags: [<tag1>, <tag2>]
 
 ### 5. How to Add a New Algorithm in Multiple Languages
 
-Algo documents algorithms as **Docusaurus pages under `docs/`**. Implementations for each language live in the **same** `.md` or `.mdx` file as fenced code blocks (for example ` ```python `, ` ```cpp `, ` ```java `). There is no separate per-language source tree for site content.
+Algo documents algorithms as **Docusaurus pages under `docs/`**. Implementations for each language live in the **same** `.md` or `.mdx` file as fenced code blocks (for example, using `python`, `cpp`, or `java` tags). There is no separate per-language source tree for site content.
 
 Use this checklist so new pages appear in the sidebar, pass validation, and stay consistent with existing content.
 
