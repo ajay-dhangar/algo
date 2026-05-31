@@ -96,7 +96,7 @@ flowchart LR
 
 ### Step 2 — Follow the roadmap
 
-- **[Roadmap to Learning DSA](/docs/data-structures/roadmap-to-dsa)** — step-by-step study plan inside Docs.
+- **[Roadmap to Learning DSA](./data-structures/roadmap-to-learning-dsa)** — step-by-step study plan inside Docs.
 - **[learn.md](https://github.com/ajay-dhangar/algo/blob/main/learn.md)** on GitHub — same journey described for offline reading.
 - Optional: external [DSA Roadmap on roadmap.sh](https://roadmap.sh/datastructures-and-algorithms).
 
