@@ -93,7 +93,9 @@ export default function SlidingWindowVisualizer() {
                 margin: "24px 0",
                 background:
                     "var(--ifm-card-background-color)",
-                color: "var(--ifm-font-color-base)",
+                color: inWindow
+                    ? "#ffffff"
+                    : "var(--ifm-font-color-base)",
             }}
         >
             <h3 style={{ marginBottom: "16px" }}>
@@ -118,7 +120,12 @@ export default function SlidingWindowVisualizer() {
                         padding: "10px 16px",
                         borderRadius: "8px",
                         border: "none",
-                        cursor: "pointer",
+                        backgroundColor: running
+                            ? "var(--ifm-color-emphasis-300)"
+                            : "var(--ifm-color-primary)",
+                        color: "#fff",
+                        cursor: running ? "not-allowed" : "pointer",
+                        fontWeight: "bold",
                     }}
                 >
                     Start
@@ -131,7 +138,12 @@ export default function SlidingWindowVisualizer() {
                         padding: "10px 16px",
                         borderRadius: "8px",
                         border: "none",
-                        cursor: "pointer",
+                        backgroundColor: running
+                            ? "var(--ifm-color-emphasis-300)"
+                            : "var(--ifm-color-primary)",
+                        color: "#fff",
+                        cursor: running ? "not-allowed" : "pointer",
+                        fontWeight: "bold",
                     }}
                 >
                     Reset
@@ -183,6 +195,7 @@ export default function SlidingWindowVisualizer() {
                                         position: "absolute",
                                         top: "-20px",
                                         fontSize: "12px",
+                                        color: "var(--ifm-color-primary)",
                                         fontWeight: "bold",
                                     }}
                                 >
