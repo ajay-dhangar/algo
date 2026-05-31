@@ -55,10 +55,10 @@ const GetInvolvedSection: React.FC = () => {
           like-minded individuals. Here’s how you can get involved!
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event) => (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {events.map((event, index) => (
             <EventCard
-              key={event.title}
+              key={index}
               title={event.title}
               description={event.description}
               link={event.link}
@@ -71,4 +71,3 @@ const GetInvolvedSection: React.FC = () => {
 };
 
 export default GetInvolvedSection;
-hi eveu kw urbue fnu ur sbyrj sby ek ai r eu hu im uvaushnavi im trying 
