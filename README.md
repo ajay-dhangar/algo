@@ -97,7 +97,7 @@ We aim to:
 
 ## Features
 
-- **Multi-language Support**: Algorithms in multiple programming languages
+- **Multi-language Support**: Algorithms in multiple programming languages ([contribution workflow](./CONTRIBUTING.md#5-how-to-add-a-new-algorithm-in-multiple-languages))
 - **Beginner-Friendly**: Well-structured, easy-to-understand explanations
 - **Open Source Contributions**: Welcoming developers at all levels to contribute
 - **Community Forum**: A new interactive platform where developers can ask questions, share ideas, and collaborate in real-time. This forum will help bridge the gap between beginners and experts, allowing for deeper engagement and problem-solving.
