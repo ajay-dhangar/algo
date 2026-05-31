@@ -100,10 +100,13 @@ export default function BinarySearchVisualizer() {
                     value={target}
                     onChange={(e) => setTarget(e.target.value)}
                     placeholder="Target"
+                    disabled={running}
                     style={{
                         padding: "10px",
                         borderRadius: "8px",
                         border: "1px solid #475569",
+                        opacity: running ? 0.6 : 1,
+                        cursor: running ? "not-allowed" : "auto",
                     }}
                 />
 
