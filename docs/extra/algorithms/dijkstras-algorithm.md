@@ -10,7 +10,7 @@ tags: [dsa, graph, dijkstra, shortest path, c++]
 
 # Dijkstra’s Algorithm in C++
 
-This project contains a C++ implementation that implements Dijkstra’s Algorithm to find the shortest path from a source vertex to all other vertices in a weighted graph. The program takes the number of vertices, edges, and their weights as input, and outputs the shortest distance from the source vertex to each vertex in the graph.
+This project contains a C++ implementation of Dijkstra’s Algorithm to find the shortest path from a source vertex to all other vertices in a weighted graph. The program takes the number of vertices, edges, and their weights as input, and outputs the shortest distance from the source vertex to each vertex in the graph.
 
 ---
 
