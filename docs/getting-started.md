@@ -28,15 +28,15 @@ The site has two main learning surfaces:
 
 | Area | What you will find | Good for |
 | ---- | ------------------ | -------- |
-| [Welcome](/docs/) | Overview of Algo | First visit |
+| [Welcome](./index.md) | Overview of Algo | First visit |
 | **How to Use This Site** (this page) | Navigation and learning path | Beginners |
-| [Table of Contents](/docs/content) | Visual overview of DSA topics | Seeing the big picture |
-| [Programming Fundamentals](/docs/programming-fundamentals/) | Syntax, control flow, OOP basics | Very new programmers |
-| [Basic Data Structures](/docs/basic-data-structures/) | Arrays, pointers, core structures | Building foundations |
-| [Data Structures](/docs/data-structures/) | Roadmaps and structure-focused topics | Structured DSA study |
-| [Languages](/docs/languages/) | Python, Java, C++, JavaScript, etc. | Language-specific tips |
-| [Extra](/docs/extra/) | Algorithms, graphs, DP, heaps, and advanced topics | Deeper dives after basics |
-| [Cheatsheets](/docs/cheatsheets/) | Quick reference | Review before interviews |
+| [Table of Contents](./content.md) | Visual overview of DSA topics | Seeing the big picture |
+| [Programming Fundamentals](./programming-fundamentals/index.md) | Syntax, control flow, OOP basics | Very new programmers |
+| [Basic Data Structures](./basic-data-structures/index.md) | Arrays, pointers, core structures | Building foundations |
+| [Data Structures](./data-structures/index.md) | Roadmaps and structure-focused topics | Structured DSA study |
+| [Languages](./languages/index.md) | Python, Java, C++, JavaScript, etc. | Language-specific tips |
+| [Extra](./extra/index.md) | Algorithms, graphs, DP, heaps, and advanced topics | Deeper dives after basics |
+| [Cheatsheets](./cheatsheets/index.md) | Quick reference | Review before interviews |
 
 **Topics vs languages:** Algorithm write-ups usually live under **Extra** (or related topic folders) with code in several languages in one article. The **Languages** section is for learning the language itself—not every algorithm duplicated per language folder.
 
