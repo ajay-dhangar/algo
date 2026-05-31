@@ -756,7 +756,7 @@ const PlaygroundContent: React.FC = () => {
 
   const executeBackend = async (lang: LanguageType, sourceCode: string, startTime: number) => {
     try {
-     const response = await fetch(`${playgroundApiBaseUrl}/api/execute-code`,  {
+      const response = await fetch(`${playgroundApiBaseUrl}/api/execute-code`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

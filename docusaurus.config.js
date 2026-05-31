@@ -29,9 +29,7 @@ const showGitHistory =
         })();
 
         const isProductionBuild = process.env.NODE_ENV === "production";
-const playgroundApiBaseUrl =
-  process.env.PLAYGROUND_API_BASE_URL ||
-  (isProductionBuild ? "" : "http://localhost:5000");
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -43,15 +41,11 @@ const config = {
   baseUrl: "/algo/",
   organizationName: "codeharborhub",
   projectName: "algo",
-    customFields: {
+     customFields: {
     apiBaseUrl:
       process.env.ALGO_API_URL ||
       process.env.DOCUSARUS_API_BASE_URL ||
-      (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
-    playgroundApiBaseUrl:
       process.env.PLAYGROUND_API_BASE_URL ||
-      process.env.ALGO_API_URL ||
-      process.env.DOCUSARUS_API_BASE_URL ||
       (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
   },
 
