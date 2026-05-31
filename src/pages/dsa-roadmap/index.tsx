@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "@theme/Layout";
 import Translate from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
@@ -106,10 +106,43 @@ const DSARoadmap: React.FC = () => {
     return `${categoryBase}/programming-fundamentals`;
   };
 
-  // State for major topics (Top level nodes) - open the first one by default
-  const [expandedTopics, setExpandedTopics] = useState<{ [key: number]: boolean }>({ 0: true });
-  // State for specific folders (Second level nodes)
-  const [expandedFolders, setExpandedFolders] = useState<{ [key: string]: boolean }>({});
+  // State for major topics (Top level nodes) - restore from localStorage or open the first one by default
+  const [expandedTopics, setExpandedTopics] = useState<{ [key: number]: boolean }>(() => {
+    try {
+      const saved = localStorage.getItem("dsa_roadmap_topics");
+      return saved ? JSON.parse(saved) : { 0: true };
+    } catch {
+      return { 0: true };
+    }
+  });
+
+  // State for specific folders (Second level nodes) - restore from localStorage
+  const [expandedFolders, setExpandedFolders] = useState<{ [key: string]: boolean }>(() => {
+    try {
+      const saved = localStorage.getItem("dsa_roadmap_folders");
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Persist expandedTopics to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem("dsa_roadmap_topics", JSON.stringify(expandedTopics));
+    } catch {
+      // localStorage not available (e.g. private browsing with storage blocked)
+    }
+  }, [expandedTopics]);
+
+  // Persist expandedFolders to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      localStorage.setItem("dsa_roadmap_folders", JSON.stringify(expandedFolders));
+    } catch {
+      // localStorage not available
+    }
+  }, [expandedFolders]);
 
   const toggleTopic = (idx: number) => {
     setExpandedTopics((prev) => ({ ...prev, [idx]: !prev[idx] }));
