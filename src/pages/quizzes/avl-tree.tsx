@@ -215,10 +215,10 @@ const AVLTreeQuiz: React.FC = () => {
           score: score,
           timeSpent: timeSpent
         };
-        const updatedHistory = [newAttempt, ...localHistory];
+        const updatedHistory = [newAttempt, ...localHistory].slice(0, 5);
         setLocalHistory(updatedHistory);
         localStorage.setItem(
-          `algo_avl_history_${username.toLowerCase()}`, 
+          "algo_avl_history_" + username.toLowerCase(),
           JSON.stringify(updatedHistory)
         );
       }
