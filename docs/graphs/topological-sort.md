@@ -31,8 +31,7 @@ The most popular approach is **Kahn's Algorithm**, which repeatedly selects node
 4. Decrease the in-degree of all its adjacent vertices.
 5. If any adjacent vertex becomes `0`, add it to the queue.
 6. Repeat until the queue becomes empty.
-
-If all vertices are processed, the result is a valid topological ordering.
+7. If the number of processed vertices is less than the total number of vertices, the graph contains a cycle.
 
 ---
 
@@ -76,20 +75,19 @@ def topological_sort(graph, vertices):
         node = queue.popleft()
         result.append(node)
 
-        for neighbor in graph[node]:
+        for neighbor in graph.get(node, []):
             indegree[neighbor] -= 1
 
             if indegree[neighbor] == 0:
                 queue.append(neighbor)
 
-    return result
+    return result if len(result) == vertices else []
 
 
 graph = {
     0: [1, 2],
     1: [3],
-    2: [3],
-    3: []
+    2: [3]
 }
 
 print(topological_sort(graph, 4))
@@ -119,9 +117,12 @@ public class TopologicalSort {
             }
         }
 
+        int count = 0;
+
         while (!queue.isEmpty()) {
             int node = queue.poll();
             System.out.print(node + " ");
+            count++;
 
             for (int neighbor : graph.get(node)) {
                 indegree[neighbor]--;
@@ -130,6 +131,10 @@ public class TopologicalSort {
                     queue.add(neighbor);
                 }
             }
+        }
+
+        if (count != V) {
+            System.out.println("\nCycle detected. Topological ordering not possible.");
         }
     }
 }
@@ -176,7 +181,7 @@ vector<int> topologicalSort(int V, vector<vector<int>>& graph) {
         }
     }
 
-    return result;
+    return result.size() == V ? result : vector<int>();
 }
 ```
 
@@ -215,7 +220,7 @@ function topologicalSort(graph, V) {
         }
     }
 
-    return result;
+    return result.length === V ? result : [];
 }
 ```
 
