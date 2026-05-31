@@ -473,7 +473,7 @@ Total seek time: 15594
 
 ## 7. Summary
 
-| Algorithm | Main Idea	                            | Starvation | Efficiency |
+| Algorithm | Main Idea                             | Starvation | Efficiency |
 |-----------|---------------------------------------|------------|------------|
 | FCFS      | Service requests in arrival order     | No         | Low        |
 | SSTF      | Service nearest request first         | Possible   | High       |
