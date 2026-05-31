@@ -71,19 +71,24 @@ It measures how quickly a system responds to a process (important in interactive
 ## 7. Python Implementation
 
 ```python
+# Sample input data: (name, arrival_time, burst_time)
+processes = [
+    ("p0", 1, 3),
+    ("p1", 2, 1),
+    ("p3", 2, 4),
+    ("p4", 2, 2),
+    ("p5", 16, 3)
+]
+
 data = []
-
-n = int(input("Enter no of processes: "))
-print("Enter name of process, arrival time, and burst time:")
-
-for i in range(1, n + 1):
-    d = {}
-    d["name"], d["at"], d["bt"] = list(map(str, input().split()))
-    d["at"] = int(d["at"])
-    d["tt"] = d["at"]         
-    d["bt"] = int(d["bt"])
-    d["order"] = i
-    data.append(d)
+for i, (name, at, bt) in enumerate(processes, 1):
+    data.append({
+        "name": name,
+        "at": at,
+        "bt": bt,
+        "order": i
+    })
+n = len(data)
 
 sjf_data = data.copy()
 
