@@ -616,6 +616,9 @@ fn main() {
 
 fn bubble_sort(arr: &mut [i32]) {
     let n = arr.len();
+    if n <= 1 {
+        return;
+    }
     for i in 0..n - 1 {
         let mut swapped = false;
         for j in 0..n - i - 1 {
