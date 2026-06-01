@@ -70,3 +70,15 @@ int main() {
     return 0;
 }
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- $O(4^n \cdot n)$ - Where $n$ is the length of the input digits. Most digits map to 3 letters, but some (0, 1, 7, 8, 9) map to 4 letters. For the worst case with all digits mapping to 4 letters, we have $4^n$ combinations, each requiring $O(n)$ time to construct.
+
+### Space Complexity
+- $O(4^n \cdot n)$ - To store all possible combinations. Each combination is a string of length $n$, and there are up to $4^n$ combinations.
+- $O(n)$ - For the recursion stack depth, which is at most the length of the input digits.
+
+## Explanation
+This algorithm uses backtracking to generate all letter combinations. For each digit, it retrieves the corresponding letters from the phone keypad mapping and recursively builds combinations by appending each letter. The exponential time complexity arises because the number of combinations grows exponentially with the number of digits. However, the algorithm efficiently prunes the search space by only considering valid letter mappings for each digit.

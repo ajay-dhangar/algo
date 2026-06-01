@@ -1,213 +1,222 @@
 import React, { useEffect } from "react";
-import { FaGithub, FaLinkedin, FaDiscord, FaTwitter } from "react-icons/fa";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-
+import { FaGithub, FaLinkedin, FaDiscord, FaTwitter, FaTerminal, FaNodeJs } from "react-icons/fa";
+import { HiOutlineCode, HiOutlineServer } from "react-icons/hi";
 import Link from "@docusaurus/Link";
 
 const Footer = () => {
   useEffect(() => {
-    // Create script element for GTranslate
+    // Dynamic integration for GTranslate script
     const script = document.createElement("script");
     script.src = "https://cdn.gtranslate.net/widgets/latest/popup.js";
     script.defer = true;
     document.body.appendChild(script);
 
-    // Set GTranslate settings
     window.gtranslateSettings = {
       default_language: "en",
       detect_browser_language: true,
       wrapper_selector: ".gtranslate_wrapper",
     };
 
-    // Cleanup script on component unmount
     return () => {
       document.body.removeChild(script);
     };
   }, []);
 
   return (
-    <footer className="bg-[#1a1b26] text-gray-300 py-12">
-      <div className="container mx-auto px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
-          <div className="md:col-span-1">
-            <div className="mb-6">
-              <Link
-              to="/">
+    <footer className="bg-[#0b0f17] text-slate-400 border-t border-slate-800/80 relative overflow-hidden font-sans pt-16 pb-8">
+      
+      {/* Background Micro-Accents (Glow Mesh) */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[350px] bg-[radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.04),transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[300px] h-[200px] bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.03),transparent_60%)] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* --- Top Layout Grid Tree --- */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800/50">
+          
+          {/* Brand Core Column Block (4/12 width) */}
+          <div className="md:col-span-4 space-y-5">
+            <Link to="/" className="flex items-center gap-3 no-underline group">
+              <div className="relative">
+                <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-indigo-500 to-cyan-500 opacity-20 blur-sm group-hover:opacity-40 transition-opacity" />
                 <img
                   src="/algo/logo/logo.png"
-                  alt="Algo Logo"
-                  className="w-16 h-16"
+                  alt="Algo Core Logo"
+                  className="w-10 h-10 object-contain relative z-10 transition-transform duration-300 group-hover:scale-105"
                 />
-
-                <span className="relative top-[-25px] text-3xl text-bold font-semibold ml-2 gradient-text">
-                  Algo
-                </span>
-              </Link>
-
-              <div>
-                {/* <h2 className="text-xl font-semibold text-white">Algo</h2> */}
-                <p className="text-gray-300 mt-1">
-                  A platform to learn and practice DSA with a collection of
-                  algorithms and data structures in various languages.
-                </p>
               </div>
+              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-slate-100 via-indigo-200 to-cyan-400 bg-clip-text text-transparent uppercase font-mono">
+                Algo
+              </span>
+            </Link>
+            
+            <p className="text-sm text-slate-400/90 leading-relaxed font-sans max-w-sm m-0">
+              An advanced open-source platform designed to master data structures, refine logical loops, and trace optimal software algorithms across universal runtimes.
+            </p>
+
+            {/* Simulated Architecture Systems Health Badge */}
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-emerald-500/5 border border-emerald-500/20 text-[11px] font-mono font-medium text-emerald-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Systems Live // Operational</span>
             </div>
-            {/* Social Media Links */}
-            <div className="flex space-x-4 mt-4">
+          </div>
+
+          {/* Nav Links Column Matrix (8/12 width split across 3 columns) */}
+          <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            
+            {/* Category Node: Resources */}
+            <div className="space-y-4">
+              <div className="flex flex-col gap-1">
+                <span className="text-[11px] font-mono font-black tracking-widest text-slate-200 uppercase flex items-center gap-1.5">
+                  <HiOutlineCode className="text-indigo-400 text-xs" /> Platform.Core
+                </span>
+                <div className="w-6 h-[2px] bg-indigo-500/60 rounded-full" />
+              </div>
+              <ul className="space-y-2.5 p-0 list-none text-sm m-0">
+                <li>
+                  <Link to="/docs/" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-indigo-400 transition-colors font-mono mr-1">/</span> Documentation
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/blog/" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-indigo-400 transition-colors font-mono mr-1">/</span> Developer Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/docs/" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-indigo-400 transition-colors font-mono mr-1">/</span> Practice Modules
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Category Node: Community */}
+            <div className="space-y-4">
+              <div className="flex flex-col gap-1">
+                <span className="text-[11px] font-mono font-black tracking-widest text-slate-200 uppercase flex items-center gap-1.5">
+                  <FaTerminal className="text-cyan-400 text-[10px]" /> Ecosystem
+                </span>
+                <div className="w-6 h-[2px] bg-cyan-500/60 rounded-full" />
+              </div>
+              <ul className="space-y-2.5 p-0 list-none text-sm m-0">
+                <li>
+                  <Link to="https://discord.gg/f8dHD5Hv8Q" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-cyan-400 transition-colors font-mono mr-1">/</span> Discord Lounge
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contributors" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-cyan-400 transition-colors font-mono mr-1">/</span> Core Contributors
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/events/" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-cyan-400 transition-colors font-mono mr-1">/</span> Open Source Events
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Category Node: Framework Info */}
+            <div className="space-y-4 col-span-2 sm:col-span-1">
+              <div className="flex flex-col gap-1">
+                <span className="text-[11px] font-mono font-black tracking-widest text-slate-200 uppercase flex items-center gap-1.5">
+                  <HiOutlineServer className="text-blue-400 text-xs" /> Specifications
+                </span>
+                <div className="w-6 h-[2px] bg-blue-500/60 rounded-full" />
+              </div>
+              <ul className="space-y-2.5 p-0 list-none text-sm m-0">
+                <li>
+                  <Link to="/docs/category/algorithms" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-blue-400 transition-colors font-mono mr-1">/</span> System Features
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about/" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-blue-400 transition-colors font-mono mr-1">/</span> Infrastructure Team
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact/" className="text-slate-400 hover:text-slate-100 no-underline transition-colors flex items-center gap-1 group">
+                    <span className="text-slate-600 group-hover:text-blue-400 transition-colors font-mono mr-1">/</span> Technical Support
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        {/* --- Bottom Compliance / Meta Horizon Section --- */}
+        <div className="pt-8 flex flex-col lg:flex-row justify-between items-center gap-6">
+          
+          {/* Left Block: Social Aggregators & Legal Routing */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto">
+            
+            {/* Embedded Dynamic Transpiler Box Row for Social Streams */}
+            {/* <div className="flex items-center gap-2 bg-slate-900/60 border border-slate-800/60 p-1 rounded-lg">
               <Link
                 to="https://github.com/ajay-dhangar"
                 target="_blank"
-                aria-label="GitHub"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
+                aria-label="Access GitHub Infrastructure"
+                className="p-1.5 rounded-md text-slate-400 hover:text-white hover:bg-slate-800/80 transition-all"
               >
-                <FaGithub className="w-6 h-6" />
+                <FaGithub className="w-4 h-4" />
               </Link>
               <Link
                 to="https://linkedin.com/in/ajay-dhangar"
                 target="_blank"
-                aria-label="LinkedIn"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
+                aria-label="Access LinkedIn Pipeline"
+                className="p-1.5 rounded-md text-slate-400 hover:text-indigo-400 hover:bg-slate-800/80 transition-all"
               >
-                <FaLinkedin className="w-6 h-6" />
+                <FaLinkedin className="w-4 h-4" />
               </Link>
               <Link
                 to="https://twitter.com/CodesWithAjay"
                 target="_blank"
-                aria-label="X"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
+                aria-label="Access X Platform Log"
+                className="p-1.5 rounded-md text-slate-400 hover:text-sky-400 hover:bg-slate-800/80 transition-all"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1.5rem"
-                  height="1.5rem"
-                  viewBox="0 0 50 50"
-                  fill="currentColor"
-                >
-                  <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
-                </svg>
+                <FaTwitter className="w-4 h-4" />
               </Link>
               <Link
-                to="#"
+                to="https://discord.gg/f8dHD5Hv8Q"
                 target="_blank"
-                aria-label="Discord"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
+                aria-label="Join Discord Hub"
+                className="p-1.5 rounded-md text-slate-400 hover:text-[#5865F2] hover:bg-slate-800/80 transition-all"
               >
-                <FaDiscord className="w-6 h-6" />
+                <FaDiscord className="w-4 h-4" />
               </Link>
+            </div> */}
+
+            {/* Privacy Compliance Footprints Links */}
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs text-slate-500 font-medium">
+              <Link to="/privacy" className="hover:text-slate-300 no-underline transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="text-slate-800 font-mono">|</span>
+              <Link to="/terms" className="hover:text-slate-300 no-underline transition-colors">
+                Terms of Service
+              </Link>
+              <span className="text-slate-800 font-mono">|</span>
+              
+              {/* Dynamic Translator Wrapper Container Dropdown */}
+              <div className="gtranslate_wrapper !inline-block advanced-gtranslate-box"></div>
             </div>
           </div>
 
-          {/* Resources */}
-          <div className="md:pl-32">
-            <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
-            <ul className="space-y-3 pl-0">
-              <li className="list-none">
-                <Link
-                  to="/algo/docs/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Documentation
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/algo/blog/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/docs/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Tutorials
-                </Link>
-              </li>
-            </ul>
+          {/* Right Block: Copyright Node Stamp */}
+          <div className="text-xs text-slate-500/90 font-mono text-center lg:text-right m-0">
+            &copy; {new Date().getFullYear()} Algo Ecosystem. Engineered via Docusaurus framework.
           </div>
-
-          {/* Community */}
-          <div className="md:pl-32">
-            <h3 className="text-lg font-semibold mb-4 text-white">Community</h3>
-            <ul className="space-y-3 pl-0">
-              <li className="list-none">
-                <Link
-                  to="#"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Join Discord
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/algo/contributors"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Contributors
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="#"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Events
-                </Link>
-              </li>
-            </ul>
-          </div>
+          
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <ul className="flex flex-nowrap justify-center items-center pl-0 md:justify-start space-x-4 mb-4 md:mb-0 text-xs md:text-sm text-gray-400">
-            <li className="list-none">
-              <Link
-                to="#"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                Features
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="/algo/about/"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                About Us
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="/algo/contact/"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                Contact
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="#"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                Privacy Policy
-              </Link>
-            </li>
-            <li className="list-none">
-              <div className="gtranslate_wrapper"></div>
-            </li>
-          </ul>
-          <p className="text-sm text-gray-500 mt-4 md:mt-0">
-            &copy; {new Date().getFullYear()} Algo, Inc. Built with Docusaurus.
-          </p>
-        </div>
       </div>
     </footer>
   );

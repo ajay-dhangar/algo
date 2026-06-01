@@ -97,3 +97,17 @@ int main() {
     return 0;
 }
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Best Case:** $O(1)$ - When the predecessor is directly accessible (e.g., in the left subtree).
+- **Average Case:** $O(\log n)$ - For a reasonably balanced tree.
+- **Worst Case:** $O(n)$ - When traversing the entire height of a completely skewed tree.
+
+### Space Complexity
+- $O(1)$ - The iterative approach uses constant space.
+- $O(h)$ - If implemented recursively, where $h$ is the height of the tree (at most $n$ for a skewed tree).
+
+## Explanation
+Finding the inorder predecessor is the mirror operation of finding the successor. If a node has a left subtree, the predecessor is the maximum node in that subtree. Otherwise, we traverse upward until finding an ancestor where the current path came from the right. The algorithm's efficiency depends on tree balance, like the successor operation.

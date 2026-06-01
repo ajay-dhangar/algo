@@ -50,7 +50,7 @@ Welcome to Algo, an open-source educational platform built with Docusaurus (Reac
       <th>Status</th>       
    </tr>
    <tr>
-      <td><img src="gssoc-algo-banner.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td><picture><source srcset="gssoc-algo-banner.webp" type="image/webp"/><img src="gssoc-algo-banner.png" width="200" height="auto" loading="lazy" alt="GSSoC 26"/></picture></td>
       <td>GSSoC '26</td>
       <td>GirlScript Summer of Code (GSSoC) is an awesome 3-month open-source program that's all about getting people into software development.</td>
        <td>Active</td>
@@ -97,7 +97,7 @@ We aim to:
 
 ## Features
 
-- **Multi-language Support**: Algorithms in multiple programming languages
+- **Multi-language Support**: Algorithms in multiple programming languages ([contribution workflow](./CONTRIBUTING.md#5-how-to-add-a-new-algorithm-in-multiple-languages))
 - **Beginner-Friendly**: Well-structured, easy-to-understand explanations
 - **Open Source Contributions**: Welcoming developers at all levels to contribute
 - **Community Forum**: A new interactive platform where developers can ask questions, share ideas, and collaborate in real-time. This forum will help bridge the gap between beginners and experts, allowing for deeper engagement and problem-solving.
@@ -119,6 +119,8 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 ```
 
 This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
+
+Note: if you are running the backend locally, set `DOCUSAURUS_API_BASE_URL=http://localhost:5000` before starting the frontend.
 
 ## Build
 
@@ -160,6 +162,19 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 
 <br>
 
+## Manually invoke Gemini Code Assist
+
+Gemini Code Assist listens to comments from any pull request contributor, and decides whether it should respond.
+
+To manually invoke Gemini Code Assist, you can use the following commands in the main comments page on the pull request as an issue comment.
+
+| Command | Description
+|:---|:---|
+|`/gemini summary` | Posts a summary of the changes in the pull request |
+|`/gemini review` |Posts a code review of the changes in the pull request |
+|`/gemini`| Manually invokes Gemini Code Assist in comments |
+|`/gemini help` | Overview of the available commands |
+
 ## Stargazers
 
 [![Stargazers repo roster for @ajay-dhangar/algo](https://reporoster.com/stars/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/stargazers)
@@ -169,12 +184,14 @@ Thanks to these amazing people who have contributed to the **Algo** project:
 [![Forkers repo roster for @ajay-dhangar/algo](https://reporoster.com/forks/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/network/members)
 
 ## Resources for Guidance
-Here are some resources that may be helpful as you contribute to Algo:
-- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction)
-- [React.js Documentation](https://legacy.reactjs.org/docs/getting-started.html)
-- [Markdown Guide](https://www.markdownguide.org/)
-- [MDX Documentation](https://mdxjs.com/docs/)
-- [Mermaid Documentation](https://mermaid.js.org/)
+
+These links are summarized in [CONTRIBUTING.md — Recommended reading](./CONTRIBUTING.md#recommended-reading) with a one-line note on when to use each tool while contributing or editing docs.
+
+- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction) — site layout, sidebars, and local preview
+- [Markdown Guide](https://www.markdownguide.org/) — writing `.md` algorithm and tutorial pages
+- [MDX Documentation](https://mdxjs.com/docs/) — pages that embed React components
+- [React.js Documentation](https://react.dev/learn) — custom components and interactive docs
+- [Mermaid Documentation](https://mermaid.js.org/) — flowcharts and diagrams in documentation
 
 <div align="center">
     <a href="#top">

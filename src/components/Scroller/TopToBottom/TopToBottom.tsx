@@ -6,16 +6,7 @@ const ScrollTopToBottom: React.FC = () => {
     const [showButton, setShowButton] = useState<boolean>(false);
 
     const scrollToBottom = () => {
-        const totalHeight = document.documentElement.scrollHeight;
-        const currentScroll = window.scrollY;
-        const scrollStep = (totalHeight - currentScroll) / (500 / 15);
-        const scrollInterval = setInterval(() => {
-            const newScroll = window.scrollY + scrollStep;
-            window.scrollTo(0, newScroll);
-            if (window.scrollY >= totalHeight - window.innerHeight) {
-                clearInterval(scrollInterval);
-            }
-        }, 15);
+        window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "smooth" });
     };
 
     const handleScroll = () => {
@@ -41,8 +32,9 @@ const ScrollTopToBottom: React.FC = () => {
                 <button
                     onClick={scrollToBottom}
                     className={styles.scrollToBottomButton}
+                    aria-label="Scroll to bottom"
                 >
-                    <FaArrowDown />
+                    <FaArrowDown aria-hidden="true" />
                 </button>
             )}
             <div id="scroll-target" style={{ height: '1px' }} />

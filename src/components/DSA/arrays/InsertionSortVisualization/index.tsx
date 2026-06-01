@@ -28,13 +28,19 @@ const InsertionSortVisualization: React.FC = () => {
   // Function to update the transition duration for CSS animations
   const updateMoveDuration = () => {
     const stylesheets = document.styleSheets;
-    for (const stylesheet of stylesheets) {
-      const rules = (stylesheet as CSSStyleSheet).cssRules;
-      for (const rule of rules) {
-        if ((rule as CSSStyleRule).selectorText === '.v-move') {
-          (rule as CSSStyleRule).style.transitionDuration = `${delay}ms`;
-          break;
+    for (let i = 0; i < stylesheets.length; i++) {
+      try {
+        const rules = (stylesheets[i] as any).cssRules || (stylesheets[i] as any).rules;
+        if (!rules) continue;
+        for (let j = 0; j < rules.length; j++) {
+          const rule = rules[j] as CSSStyleRule;
+          if (rule && rule.selectorText === '.v-move') {
+            rule.style.transitionDuration = `${delay}ms`;
+            return;
+          }
         }
+      } catch (e) {
+        continue;
       }
     }
   };
@@ -73,7 +79,7 @@ const InsertionSortVisualization: React.FC = () => {
 
   return (
     <div className='insertion-sort-visualization'>
-      <p>Speed: <input type="range" min="50" max="500" value={delay} onChange={e => setDelay(Number(e.target.value))} /></p>
+      <p><label htmlFor="insertion-sort-speed">Speed:</label> <input id="insertion-sort-speed" type="range" min="50" max="500" value={delay} onChange={e => setDelay(Number(e.target.value))} /></p>
       <button onClick={insertionSort} disabled={isSorting}>Sort</button>
       &nbsp;
       <button onClick={resetArray} disabled={isSorting}>Reset</button>

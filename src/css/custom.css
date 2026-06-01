@@ -2,42 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 5px;
   background: #2a2a2a;
-}
+} */
 
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background: var(--ifm-color-primary);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ifm-color-primary-dark);
-}
+} */
 
 :root {
   --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-dark-color: rgb(9, 9, 63);
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe;
+  
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
+  --ifm-background-color: #f8fafc;
 }
 
-[data-theme="dark"] {
-  --ifm-color-primary: rgb(234 179 8);
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+[data-theme="dark"] {  
+  --ifm-color-primary: #eab308; /* Premium Cyber Amber */
+  --ifm-color-primary-dark: #ca8a04;
+  --ifm-color-primary-darker: #a16207;
+  --ifm-color-primary-darkest: #713f12;
+  --ifm-color-primary-light: #fde047;
+  --ifm-color-primary-lighter: #fef08a;
+  --ifm-color-primary-lightest: #fef9c3;
+  
+  --ifm-background-color: #040414; /* Deep Arcade Space Black */
+  --docusaurus-highlighted-code-line-bg: rgba(234, 179, 8, 0.15);
+}
+
+/* Custom platform helper animation for the terminal tags */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 2px var(--ifm-color-primary)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px var(--ifm-color-primary)); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
 }
 
 div[class^="announcementBar_"] {
@@ -94,15 +107,17 @@ div[class^="announcementBar_"] .clean-btn {
 }
 
 [data-theme="dark"] .navbar a {
-  color: #f3f4f6; /* Light text for links */
+  color: #f3f4f6;
+  /* Light text for links */
 }
 
 [data-theme="dark"] .navbar a:hover {
-  color: #60a5fa; /* Lighter blue hover color in dark mode */
+  color: #60a5fa;
+  /* Lighter blue hover color in dark mode */
 }
 
 [data-theme="dark"] #__docusaurus_skipToContent_fallback {
-/*   background: linear-gradient(rgba(15, 23, 42, 0.796), rgba(15, 23, 42, 0.23)); */
+  /*   background: linear-gradient(rgba(15, 23, 42, 0.796), rgba(15, 23, 42, 0.23)); */
   background: #0d1117;
 }
 
@@ -111,12 +126,10 @@ a:hover {
 }
 
 .gradient-text {
-  background: linear-gradient(
-    90deg,
-    rgb(255, 169, 8) 0%,
-    rgb(246, 41, 41) 40%,
-    rgb(152, 0, 255) 100%
-  );
+  background: linear-gradient(90deg,
+      rgb(255, 169, 8) 0%,
+      rgb(246, 41, 41) 40%,
+      rgb(152, 0, 255) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -124,11 +137,9 @@ a:hover {
 }
 
 .noise-bg {
-  background-image: linear-gradient(
-      to bottom,
+  background-image: linear-gradient(to bottom,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.6)
-    ),
+      rgba(255, 255, 255, 0.6)),
     url('/landing/grid-light.svg');
 }
 
@@ -137,11 +148,9 @@ html[data-theme='dark'] .noise-bg {
 }
 
 .theme-doc-markdown header {
-  background-image: linear-gradient(
-      to bottom,
+  background-image: linear-gradient(to bottom,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.6)
-    ),
+      rgba(255, 255, 255, 0.6)),
     url('/landing/grid-light.svg');
   padding: 2rem 1rem;
   margin-bottom: 2rem;
@@ -190,4 +199,68 @@ html[data-theme='dark'] .theme-doc-markdown header {
 button {
   cursor: pointer;
   border: 1px solid var(--ifm-color-primary);
+}
+
+
+.theme-doc-markdown {
+  width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .theme-doc-markdown header {
+    padding: 1.2rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .theme-doc-markdown h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .theme-doc-markdown p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .menu {
+    font-size: 0.95rem;
+  }
+}
+
+/* Fix Search Bar overlap on tablet and mobile screens (under 996px) */
+@media screen and (max-width: 996px) {
+  .navbar__search {
+    width: 110px;
+    max-width: 110px;
+    transition: width 0.3s ease, max-width 0.3s ease;
+    margin-right: 0.5rem;
+  }
+  .navbar__search-input {
+    width: 100% !important;
+    transition: width 0.3s ease;
+  }
+  .navbar__search:focus-within {
+    width: 150px;
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar__search {
+    width: 80px;
+    max-width: 80px;
+  }
+  .navbar__search:focus-within {
+    width: 110px;
+    max-width: 110px;
+  }
 }

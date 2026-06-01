@@ -69,4 +69,17 @@ class Solution {
     }
 }
 ```
- 
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Best Case:** $O(1)$ - When the last digit is not 9 (no carry propagation needed).
+- **Average Case:** $O(1)$ - Most numbers will have some non-9 digits.
+- **Worst Case:** $O(n)$ - When all digits are 9, we need to traverse the entire array and create a new one.
+
+### Space Complexity
+- **Best and Average Case:** $O(1)$ - When no new array is needed.
+- **Worst Case:** $O(n)$ - When all digits are 9 and we need to create an array of size $n+1$.
+
+## Explanation
+The algorithm increments the number from right to left, handling carries. If a digit is not 9, we increment it and return immediately (constant time). However, if all digits are 9 (like 999 → 1000), we must traverse the entire array and create a new array. Despite the worst-case linear complexity, this algorithm is optimal because we must examine at least the non-9 digits, and the worst case (all 9s) is rare.

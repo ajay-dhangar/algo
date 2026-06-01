@@ -66,3 +66,14 @@ int main() {
     return 0;
 }
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- $O(2^{2n})$ or $O(4^n)$ - The number of valid parentheses sequences is the $n$-th Catalan number, which is approximately $\frac{4^n}{n^{1.5}}$. However, generating each string takes time, so the overall complexity is exponential.
+
+### Space Complexity
+- $O(n)$ - The recursion stack depth is at most $2n$ (since we add $2n$ characters total), but each level stores a string of length up to $2n$. The output storage for all results is $O(4^n \cdot n)$ in the worst case.
+
+## Explanation
+The algorithm uses backtracking to generate valid parentheses combinations. At each step, it tracks the number of opening and closing parentheses used. An opening parenthesis can be added if fewer than $n$ have been used, and a closing parenthesis can be added if fewer closing than opening parentheses have been used. This pruning ensures only valid combinations are generated, though the number of valid combinations still grows exponentially with $n$.

@@ -90,3 +90,17 @@ int main() {
   return 0;
 }
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Worst Case:** $O(N!)$ - In the worst case, the algorithm explores all possible permutations of placing $N$ queens, which can result in $N!$ configurations being evaluated.
+- **Best Case:** $O(N!)$ - Even with pruning through the `isSafe` check, the algorithm must still explore many configurations.
+
+### Space Complexity
+- $O(N^2)$ - The board itself requires $O(N^2)$ space to store the placement of queens.
+- $O(N)$ - The recursion stack depth is at most $N$ since we place queens column by column.
+- Total: $O(N^2)$ for the board representation plus $O(N)$ for the recursion stack.
+
+## Explanation
+The N-Queens problem is solved using backtracking with recursion. For each column, the algorithm tries placing a queen in each row, checks if it's safe (not threatened by other queens), and recursively moves to the next column. If a valid placement is found for all columns, it's stored as a solution. If not, the algorithm backtracks and tries the next row. While exponential, the `isSafe` pruning significantly reduces the search space compared to a brute-force exploration of all $N^2$ positions.

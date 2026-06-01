@@ -198,3 +198,17 @@ public class BinarySearchTree {
     }
 }
 ```
+
+## Time and Space Complexity
+
+### Time Complexity
+- **Best Case:** $O(\log n)$ - When the tree is balanced.
+- **Average Case:** $O(\log n)$ - For a reasonably balanced BST.
+- **Worst Case:** $O(n)$ - When the tree is completely skewed.
+
+### Space Complexity
+- $O(\log n)$ - For the recursion stack in a balanced tree.
+- $O(n)$ - In the worst case for a skewed tree.
+
+## Explanation
+Deletion from a BST involves three cases: deleting a leaf node (simple), deleting a node with one child (replace with child), and deleting a node with two children (find inorder successor/predecessor). The efficiency depends on tree balance. In balanced trees, deletion is efficient. In skewed trees, the performance degrades significantly. Self-balancing trees maintain logarithmic performance regardless of insertion order.

@@ -1,7 +1,7 @@
 ---
 id: Reverse Bits 
 title: Reverse-Bits-Solution
-sidebar_label: DSA Problem Solution
+sidebar_label: Reverse Bits
 sidebar-position: 1
 description: The Reverse Bits problem asks you to reverse the bits of a given 32-bit unsigned integer. Essentially, you need to flip the binary representation of the number so that the least significant bit (LSB) becomes the most significant bit (MSB) and vice versa."
 tags: [DSA, leetcode, problem-solving]
@@ -85,6 +85,17 @@ public class Solution {
   > **Print Result:** Outputs the reversed bits result.
   
   > **Close Scanner:** Ensures the Scanner is closed after usage.
+
+## Time and Space Complexity
+
+### Time Complexity
+- $O(1)$ - The `Integer.reverse()` method in Java performs a fixed number of bit operations (at most 32 operations for a 32-bit integer). Since the input size is fixed, the algorithm runs in constant time.
+
+### Space Complexity
+- $O(1)$ - The algorithm uses only a constant amount of extra space, regardless of input size. It operates directly on the bit representation without requiring additional data structures.
+
+## Explanation
+Reversing bits of a 32-bit integer is fundamentally a fixed-size operation. Java's `Integer.reverse()` efficiently reverses the bit sequence by performing bitwise operations. The algorithm swaps bits from both ends moving toward the center. Since we're dealing with a fixed 32-bit representation, both time and space complexity are constant.
 
 ## Submission details:
 
