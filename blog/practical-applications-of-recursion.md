@@ -25,12 +25,40 @@ Quick Sort is a recursive sorting algorithm that works by selecting a 'pivot' el
 #### Example: Quick Sort
 
 ```javascript
-function quickSort(arr) {
-  if (arr.length <= 1) return arr;
-  const pivot = arr[arr.length - 1];
-  const left = arr.slice(0, -1).filter(x => x < pivot);
-  const right = arr.slice(0, -1).filter(x => x >= pivot);
-  return [...quickSort(left), pivot, ...quickSort(right)];
+function quickSort(arr, low = 0, high = arr.length - 1) {
+  while (low < high) {
+    const pi = partition(arr, low, high);
+    if (pi - low < high - pi) {
+      quickSort(arr, low, pi - 1);
+      low = pi + 1;
+    } else {
+      quickSort(arr, pi + 1, high);
+      high = pi - 1;
+    }
+  }
+  return arr;
+}
+
+function medianOfThree(arr, low, high) {
+  const mid = low + Math.floor((high - low) / 2);
+  if (arr[low] > arr[mid]) [arr[low], arr[mid]] = [arr[mid], arr[low]];
+  if (arr[low] > arr[high]) [arr[low], arr[high]] = [arr[high], arr[low]];
+  if (arr[mid] > arr[high]) [arr[mid], arr[high]] = [arr[high], arr[mid]];
+  [arr[mid], arr[high]] = [arr[high], arr[mid]];
+  return arr[high];
+}
+
+function partition(arr, low, high) {
+  const pivot = medianOfThree(arr, low, high);
+  let i = low - 1;
+  for (let j = low; j < high; j++) {
+    if (arr[j] <= pivot) {
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+  [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+  return i + 1;
 }
 ```
 # Searching Algorithms

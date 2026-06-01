@@ -13,19 +13,19 @@ const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-      ? false
-      : (() => {
-          try {
-            if (!fs.existsSync(path.join(__dirname, ".git"))) {
-              return false;
-            }
-            // Dry run a git log check to verify git operations succeed on actual files (fails on OneDrive)
-            execSync("git log -1 docusaurus.config.js", { stdio: "ignore" });
-            return true;
-          } catch {
+    ? false
+    : (() => {
+        try {
+          if (!fs.existsSync(path.join(__dirname, ".git"))) {
             return false;
           }
-        })();
+          // Dry run a git log check to verify git operations succeed on actual files (fails on OneDrive)
+          execSync("git log -1 docusaurus.config.js", { stdio: "ignore" });
+          return true;
+        } catch {
+          return false;
+        }
+      })();
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,9 +37,15 @@ const config = {
   baseUrl: "/algo/",
   organizationName: "codeharborhub",
   projectName: "algo",
+  customFields: {
+    apiBaseUrl:
+      process.env.ALGO_API_URL ||
+      process.env.DOCUSAURUS_API_BASE_URL ||
+      (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
+  },
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenMarkdownLinks: "throw",
 
   presets: [
     [
@@ -82,13 +88,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "/",
-      // announcementBar: {
-      //   id: "announcementBar",
-      //   content:
-      //     '📢 Join our <a target="_blank" href="https://www.whatsapp.com/channel/0029Vah6hro8F2pGUhuAcR0B">WhatsApp Channel</a> for the latest updates and collaboration on exciting projects!',
-      //   isCloseable: true,
-      //   backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
-      // },
+      announcementBar: {
+        id: "announcementBar_algo_community",
+        content:
+          '✨ Help us grow: Leave a <b><a target="_blank" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b> and <b><a target="_blank" href="https://chat.whatsapp.com/LKaBzmknsyIIqUY1DSMoZa?mode=gi_t">connect with the Algo Core Circle on WhatsApp</a></b> today.',
+        isCloseable: true,
+        backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
+      },
 
       algolia: {
         apiKey: "865d7bd9906f532b1d8cb5cc0f02b383",
@@ -176,10 +182,6 @@ const config = {
                 to: "resources",
                 label: "Resources",
               },
-              {
-                to: "blogs",
-                label: "Blogs",
-              },
             ],
           },
           {
@@ -221,7 +223,7 @@ const config = {
           "latex",
           "haskell",
           "matlab",
-          "PHp",
+          "php",
           "powershell",
           "bash",
           "diff",

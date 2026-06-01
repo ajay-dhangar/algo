@@ -25,6 +25,8 @@ jobs:
 
       - name: Build website
         run: npm run build
+        env:
+          ALGO_API_URL: ${{ vars.ALGO_API_URL }}
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3

@@ -16,7 +16,8 @@
     "server:start": "npm run start --prefix server",
     "server:dev": "npm run dev --prefix server",
     "server:test": "npm run test --prefix server",
-    "start:all": "concurrently \"npm run start\" \"npm run server:dev\""
+    "start:all": "concurrently \"npm run start\" \"npm run server:dev\"",
+    "validate:docs": "node scripts/validate-frontmatter.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.5.2",
@@ -35,7 +36,9 @@
     "axios": "^1.7.7",
     "clsx": "^2.0.0",
     "framer-motion": "^11.9.0",
+    "gray-matter": "^4.0.3",
     "joi": "^17.13.3",
+    "lucide-react": "^1.17.0",
     "mermaid": "^11.0.0",
     "prism-react-renderer": "^2.1.0",
     "react": "^18.0.0",
@@ -44,6 +47,7 @@
     "react-lite-youtube-embed": "^2.4.0",
     "react-simple-chatbot": "^0.6.0",
     "react-toastify": "^10.0.5",
+    "redis": "^4.7.1",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "styled-components": "^4.4.1",

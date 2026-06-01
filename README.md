@@ -97,7 +97,7 @@ We aim to:
 
 ## Features
 
-- **Multi-language Support**: Algorithms in multiple programming languages
+- **Multi-language Support**: Algorithms in multiple programming languages ([contribution workflow](./CONTRIBUTING.md#5-how-to-add-a-new-algorithm-in-multiple-languages))
 - **Beginner-Friendly**: Well-structured, easy-to-understand explanations
 - **Open Source Contributions**: Welcoming developers at all levels to contribute
 - **Community Forum**: A new interactive platform where developers can ask questions, share ideas, and collaborate in real-time. This forum will help bridge the gap between beginners and experts, allowing for deeper engagement and problem-solving.
@@ -119,6 +119,8 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 ```
 
 This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
+
+Note: if you are running the backend locally, set `DOCUSAURUS_API_BASE_URL=http://localhost:5000` before starting the frontend.
 
 ## Build
 
@@ -182,12 +184,14 @@ To manually invoke Gemini Code Assist, you can use the following commands in the
 [![Forkers repo roster for @ajay-dhangar/algo](https://reporoster.com/forks/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/network/members)
 
 ## Resources for Guidance
-Here are some resources that may be helpful as you contribute to Algo:
-- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction)
-- [React.js Documentation](https://legacy.reactjs.org/docs/getting-started.html)
-- [Markdown Guide](https://www.markdownguide.org/)
-- [MDX Documentation](https://mdxjs.com/docs/)
-- [Mermaid Documentation](https://mermaid.js.org/)
+
+These links are summarized in [CONTRIBUTING.md — Recommended reading](./CONTRIBUTING.md#recommended-reading) with a one-line note on when to use each tool while contributing or editing docs.
+
+- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction) — site layout, sidebars, and local preview
+- [Markdown Guide](https://www.markdownguide.org/) — writing `.md` algorithm and tutorial pages
+- [MDX Documentation](https://mdxjs.com/docs/) — pages that embed React components
+- [React.js Documentation](https://react.dev/learn) — custom components and interactive docs
+- [Mermaid Documentation](https://mermaid.js.org/) — flowcharts and diagrams in documentation
 
 <div align="center">
     <a href="#top">

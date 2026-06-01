@@ -29,8 +29,9 @@ const cards: InvolvementCard[] = [
   {
     title: "Workshops",
     description: "Join interactive, live technical deeper dives highlighting core performance stacks and software design patterns.",
-    link: "#", // Simulates coming soon status
+    link: "/docs/",
     icon: <FaLaptopCode />,
+    actionLabel: "View Workshops",
   },
   {
     title: "Community Meetups",
@@ -42,14 +43,16 @@ const cards: InvolvementCard[] = [
   {
     title: "Mentorship Programs",
     description: "Get 1-on-1 code architecture guidance from staff developers and engineering veterans across the tech industry.",
-    link: "#", // Simulates coming soon status
+    link: "/contact/",
     icon: <FaChalkboardTeacher />,
+    actionLabel: "Join Program",
   },
   {
     title: "Online Courses",
     description: "Enroll in guided programmatic curricular paths focused on clean sorting systems, algorithms, and micro-structures.",
-    link: "#", // Simulates coming soon status
+    link: "/resources/",
     icon: <FaGraduationCap />,
+    actionLabel: "Explore Courses",
   },
   {
     title: "Open Source Initiatives",
@@ -152,7 +155,7 @@ const GetInvolvedSection: React.FC = () => {
                 href={card.link} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="group no-underline hover:no-underline outline-none"
+                className="group no-underline hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ifm-color-primary)]"
               >
                 {CardContent}
               </a>
@@ -160,7 +163,7 @@ const GetInvolvedSection: React.FC = () => {
               <Link 
                 key={index} 
                 to={card.link} 
-                className="group no-underline hover:no-underline outline-none"
+                className="group no-underline hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ifm-color-primary)]"
               >
                 {CardContent}
               </Link>
