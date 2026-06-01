@@ -224,7 +224,6 @@ app.post("/api/execute-code", async (req, res) => {
       case "go":
         fileExtension = ".go";
         const goSourceFile = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
-        const goExecutableFile = path.join(tempDir, `script_${uniqueId}${process.platform === "win32" ? ".exe" : ""}`);
         filename = goSourceFile;
         // Compile and run
         command = `go run "${goSourceFile}"`;
