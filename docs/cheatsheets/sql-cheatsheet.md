@@ -6,11 +6,9 @@ sidebar_label: "SQL Cheatsheet"
 sidebar_position: 5
 description: "A fast, practical SQL reference for interviews, DBMS, and backend development."
 tags: [sql, database, mysql, cheatsheet]
-----------------------------------------
+---
 
 This page is a quick reference for commonly used SQL commands and database operations. Whether you're preparing for interviews, learning DBMS, or building backend applications, this cheatsheet covers the essentials.
-
-# SQL Cheatsheet
 
 ## Database Operations
 
@@ -34,9 +32,9 @@ DROP DATABASE company_db;
 
 ---
 
-# Table Operations
+## Table Operations
 
-## Create Table
+### Create Table
 
 ```sql
 CREATE TABLE employees (
@@ -48,19 +46,19 @@ CREATE TABLE employees (
 );
 ```
 
-## View Table Structure
+### View Table Structure
 
 ```sql
 DESC employees;
 ```
 
-## Rename Table
+### Rename Table
 
 ```sql
 RENAME TABLE employees TO staff;
 ```
 
-## Delete Table
+### Delete Table
 
 ```sql
 DROP TABLE employees;
@@ -68,16 +66,16 @@ DROP TABLE employees;
 
 ---
 
-# Insert Data
+## Insert Data
 
-## Insert Single Row
+### Insert Single Row
 
 ```sql
 INSERT INTO employees
 VALUES (1, 'John Doe', 'IT', 50000, '2025-01-15');
 ```
 
-## Insert Multiple Rows
+### Insert Multiple Rows
 
 ```sql
 INSERT INTO employees
@@ -88,22 +86,22 @@ VALUES
 
 ---
 
-# Select Queries
+## Select Queries
 
-## Select All Data
+### Select All Data
 
 ```sql
 SELECT * FROM employees;
 ```
 
-## Select Specific Columns
+### Select Specific Columns
 
 ```sql
 SELECT name, salary
 FROM employees;
 ```
 
-## Distinct Values
+### Distinct Values
 
 ```sql
 SELECT DISTINCT department
@@ -112,9 +110,9 @@ FROM employees;
 
 ---
 
-# Filtering Data
+## Filtering Data
 
-## WHERE Clause
+### WHERE Clause
 
 ```sql
 SELECT *
@@ -122,7 +120,7 @@ FROM employees
 WHERE salary > 50000;
 ```
 
-## AND Operator
+### AND Operator
 
 ```sql
 SELECT *
@@ -131,7 +129,7 @@ WHERE department = 'IT'
 AND salary > 40000;
 ```
 
-## OR Operator
+### OR Operator
 
 ```sql
 SELECT *
@@ -140,7 +138,7 @@ WHERE department = 'IT'
 OR department = 'HR';
 ```
 
-## BETWEEN
+### BETWEEN
 
 ```sql
 SELECT *
@@ -148,7 +146,7 @@ FROM employees
 WHERE salary BETWEEN 40000 AND 60000;
 ```
 
-## IN
+### IN
 
 ```sql
 SELECT *
@@ -156,7 +154,7 @@ FROM employees
 WHERE department IN ('IT', 'HR');
 ```
 
-## LIKE
+### LIKE
 
 ```sql
 SELECT *
@@ -166,18 +164,16 @@ WHERE name LIKE 'A%';
 
 ### Wildcards
 
-```sql
-'A%'     -- Starts with A
-'%A'     -- Ends with A
-'%A%'    -- Contains A
-'_A%'    -- Second character is A
-```
+- `'A%'` → Starts with A
+- `'%A'` → Ends with A
+- `'%A%'` → Contains A
+- `'_A%'` → Second character is A
 
 ---
 
-# Sorting Data
+## Sorting Data
 
-## Ascending Order
+### Ascending Order
 
 ```sql
 SELECT *
@@ -185,7 +181,7 @@ FROM employees
 ORDER BY salary ASC;
 ```
 
-## Descending Order
+### Descending Order
 
 ```sql
 SELECT *
@@ -195,37 +191,37 @@ ORDER BY salary DESC;
 
 ---
 
-# Aggregate Functions
+## Aggregate Functions
 
-## COUNT
+### COUNT
 
 ```sql
 SELECT COUNT(*) AS total_employees
 FROM employees;
 ```
 
-## SUM
+### SUM
 
 ```sql
 SELECT SUM(salary)
 FROM employees;
 ```
 
-## AVG
+### AVG
 
 ```sql
 SELECT AVG(salary)
 FROM employees;
 ```
 
-## MAX
+### MAX
 
 ```sql
 SELECT MAX(salary)
 FROM employees;
 ```
 
-## MIN
+### MIN
 
 ```sql
 SELECT MIN(salary)
@@ -234,9 +230,9 @@ FROM employees;
 
 ---
 
-# GROUP BY
+## GROUP BY
 
-## Department-wise Employee Count
+### Department-wise Employee Count
 
 ```sql
 SELECT department,
@@ -245,7 +241,7 @@ FROM employees
 GROUP BY department;
 ```
 
-## Department-wise Average Salary
+### Department-wise Average Salary
 
 ```sql
 SELECT department,
@@ -256,7 +252,7 @@ GROUP BY department;
 
 ---
 
-# HAVING Clause
+## HAVING Clause
 
 ```sql
 SELECT department,
@@ -268,9 +264,9 @@ HAVING COUNT(*) > 2;
 
 ---
 
-# Update Data
+## Update Data
 
-## Update Record
+### Update Record
 
 ```sql
 UPDATE employees
@@ -280,16 +276,16 @@ WHERE id = 1;
 
 ---
 
-# Delete Data
+## Delete Data
 
-## Delete Specific Row
+### Delete Specific Row
 
 ```sql
 DELETE FROM employees
 WHERE id = 1;
 ```
 
-## Delete All Rows
+### Delete All Rows
 
 ```sql
 DELETE FROM employees;
@@ -297,30 +293,30 @@ DELETE FROM employees;
 
 ---
 
-# ALTER TABLE
+## ALTER TABLE
 
-## Add Column
+### Add Column
 
 ```sql
 ALTER TABLE employees
 ADD email VARCHAR(100);
 ```
 
-## Modify Column
+### Modify Column
 
 ```sql
 ALTER TABLE employees
 MODIFY salary DECIMAL(12,2);
 ```
 
-## Rename Column
+### Rename Column
 
 ```sql
 ALTER TABLE employees
 RENAME COLUMN name TO employee_name;
 ```
 
-## Drop Column
+### Drop Column
 
 ```sql
 ALTER TABLE employees
@@ -329,9 +325,9 @@ DROP COLUMN email;
 
 ---
 
-# SQL Constraints
+## SQL Constraints
 
-## Common Constraints
+### Common Constraints
 
 ```sql
 CREATE TABLE students (
@@ -355,9 +351,9 @@ DEFAULT
 
 ---
 
-# Joins
+## Joins
 
-## INNER JOIN
+### INNER JOIN
 
 ```sql
 SELECT e.name,
@@ -367,7 +363,7 @@ INNER JOIN departments d
 ON e.department_id = d.id;
 ```
 
-## LEFT JOIN
+### LEFT JOIN
 
 ```sql
 SELECT *
@@ -376,7 +372,7 @@ LEFT JOIN departments d
 ON e.department_id = d.id;
 ```
 
-## RIGHT JOIN
+### RIGHT JOIN
 
 ```sql
 SELECT *
@@ -385,7 +381,7 @@ RIGHT JOIN departments d
 ON e.department_id = d.id;
 ```
 
-## FULL OUTER JOIN
+### FULL OUTER JOIN
 
 ```sql
 SELECT *
@@ -396,9 +392,9 @@ ON e.department_id = d.id;
 
 ---
 
-# Subqueries
+## Subqueries
 
-## Above Average Salary
+### Above Average Salary
 
 ```sql
 SELECT *
@@ -412,9 +408,9 @@ WHERE salary >
 
 ---
 
-# Views
+## Views
 
-## Create View
+### Create View
 
 ```sql
 CREATE VIEW high_salary_employees AS
@@ -423,7 +419,7 @@ FROM employees
 WHERE salary > 50000;
 ```
 
-## Use View
+### Use View
 
 ```sql
 SELECT * FROM high_salary_employees;
@@ -431,16 +427,16 @@ SELECT * FROM high_salary_employees;
 
 ---
 
-# Indexes
+## Indexes
 
-## Create Index
+### Create Index
 
 ```sql
 CREATE INDEX idx_employee_name
 ON employees(name);
 ```
 
-## Remove Index
+### Remove Index
 
 ```sql
 DROP INDEX idx_employee_name ON employees;
@@ -448,9 +444,9 @@ DROP INDEX idx_employee_name ON employees;
 
 ---
 
-# Transactions
+## Transactions
 
-## Commit Transaction
+### Commit Transaction
 
 ```sql
 START TRANSACTION;
@@ -466,7 +462,7 @@ WHERE id = 2;
 COMMIT;
 ```
 
-## Rollback Transaction
+### Rollback Transaction
 
 ```sql
 ROLLBACK;
@@ -474,9 +470,9 @@ ROLLBACK;
 
 ---
 
-# Common Interview Queries
+## Common Interview Queries
 
-## Second Highest Salary
+### Second Highest Salary
 
 ```sql
 SELECT MAX(salary)
@@ -488,7 +484,7 @@ WHERE salary <
 );
 ```
 
-## Find Duplicate Records
+### Find Duplicate Records
 
 ```sql
 SELECT name,
@@ -498,7 +494,7 @@ GROUP BY name
 HAVING COUNT(*) > 1;
 ```
 
-## Delete Duplicate Records
+### Delete Duplicate Records
 
 ```sql
 DELETE e1
@@ -508,7 +504,7 @@ ON e1.name = e2.name
 AND e1.id > e2.id;
 ```
 
-## Top 5 Highest Salaries
+### Top 5 Highest Salaries
 
 ```sql
 SELECT *
@@ -519,7 +515,7 @@ LIMIT 5;
 
 ---
 
-# SQL Execution Order
+## SQL Execution Order
 
 ```text
 FROM
@@ -533,10 +529,10 @@ LIMIT
 
 ---
 
-# References
+## References
 
-* MySQL Documentation
-* PostgreSQL Documentation
-* SQLBolt
-* W3Schools SQL
-* GeeksforGeeks SQL Tutorial
+- [MySQL Documentation](https://dev.mysql.com/doc/)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+- [SQLBolt](https://sqlbolt.com/)
+- [W3Schools SQL](https://www.w3schools.com/sql/)
+- [GeeksforGeeks SQL Tutorial](https://www.geeksforgeeks.org/sql-tutorial/)
