@@ -36,7 +36,6 @@ const events = [
     link: "https://github.com/ajay-dhangar/algo",
   },
 ];
-
 const GetInvolvedSection: React.FC = () => {
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-800">
@@ -48,25 +47,30 @@ const GetInvolvedSection: React.FC = () => {
           </span>
         </h2>
 
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
-          Join our vibrant community and participate in various events and
-          programs to enhance your skills, contribute to open-source, and meet
-          like-minded individuals. Here’s how you can get involved!
-        </p>
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          
+          {/* Component Header Block */}
+          <div className="text-center mb-20 mx-auto max-w-3xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
+              Get Involved <span className="text-[var(--ifm-color-primary)] bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 bg-clip-text text-transparent">Today</span>
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+              Become part of a highly active ecosystem. Pick your entry path below to refine your production engineering toolkit and collaborate with engineers worldwide.
+            </p>
+          </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((event, index) => (
-            <EventCard
-              key={index}
-              title={event.title}
-              description={event.description}
-              link={event.link}
-            />
-          ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {events.map((event, index) => (
+              <EventCard
+                key={index}
+                title={event.title}
+                description={event.description}
+                link={event.link}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </div>                 
     </section>
   );
 };
-
-export default GetInvolvedSection;
