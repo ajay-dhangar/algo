@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 
 // Language configuration
-type LanguageType = "javascript" | "python" | "cpp" | "java";
+type LanguageType = "javascript" | "python" | "cpp" | "java" | "rust" | "go";
 
 interface LanguageConfig {
   name: string;
@@ -42,6 +42,16 @@ const LANGUAGE_CONFIGS: Record<LanguageType, LanguageConfig> = {
     name: "Java",
     monacoLanguage: "java",
     fileExtension: ".java",
+  },
+  rust: {
+    name: "Rust",
+    monacoLanguage: "rust",
+    fileExtension: ".rs",
+  },
+  go: {
+    name: "Go",
+    monacoLanguage: "go",
+    fileExtension: ".go",
   },
 };
 
@@ -572,6 +582,298 @@ public class Fibonacci {
 }
 `,
   },
+  rust: {
+    binarySearch: `// Binary Search Algorithm
+// Finds the index of a target element in a sorted array.
+// Returns -1 if not found.
+
+fn binary_search(arr: &[i32], target: i32) -> i32 {
+    let mut left = 0;
+    let mut right = (arr.len() as i32) - 1;
+
+    while left <= right {
+        let mid = left + (right - left) / 2;
+        if arr[mid as usize] == target {
+            return mid;
+        } else if arr[mid as usize] < target {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    -1
+}
+
+fn main() {
+    let arr = vec![1, 3, 5, 7, 9, 11, 13, 15];
+    println!("Input Array: {:?}", arr);
+    println!("Searching for 7: {}", binary_search(&arr, 7));  // Expected: 3
+    println!("Searching for 10: {}", binary_search(&arr, 10));  // Expected: -1
+}
+`,
+    bubbleSort: `// Bubble Sort Algorithm
+// Sorts an array of numbers in ascending order.
+
+fn bubble_sort(arr: &mut [i32]) {
+    let n = arr.len();
+    if n <= 1 {
+        return;
+    }
+    for i in 0..n - 1 {
+        let mut swapped = false;
+        for j in 0..n - i - 1 {
+            if arr[j] > arr[j + 1] {
+                arr.swap(j, j + 1);
+                swapped = true;
+            }
+        }
+        if !swapped {
+            break;
+        }
+    }
+}
+
+fn main() {
+    let mut unsorted = vec![64, 34, 25, 12, 22, 11, 90];
+    println!("Unsorted: {:?}", unsorted);
+
+    bubble_sort(&mut unsorted);
+
+    println!("Sorted: {:?}", unsorted);
+}
+`,
+    reverseList: `// Reverse a Singly Linked List
+// Returns the new head of the reversed list.
+
+#[derive(Clone)]
+struct ListNode {
+    val: i32,
+    next: Option<Box<ListNode>>,
+}
+
+impl ListNode {
+    fn new(val: i32) -> Self {
+        ListNode { val, next: None }
+    }
+}
+
+fn reverse_list(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    let mut prev = None;
+    while let Some(mut current) = head {
+        head = current.next.take();
+        current.next = prev;
+        prev = Some(current);
+    }
+    prev
+}
+
+fn print_list(head: &Option<Box<ListNode>>) {
+    print!("List: ");
+    let mut current = head;
+    while let Some(node) = current {
+        print!("{}", node.val);
+        if node.next.is_some() {
+            print!(" -> ");
+        }
+        current = &node.next;
+    }
+    println!();
+}
+
+fn main() {
+    let mut list = Box::new(ListNode::new(1));
+    list.next = Some(Box::new(ListNode::new(2)));
+    list.next.as_mut().unwrap().next = Some(Box::new(ListNode::new(3)));
+    list.next.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(4)));
+    list.next.as_mut().unwrap().next.as_mut().unwrap().next.as_mut().unwrap().next = Some(Box::new(ListNode::new(5)));
+
+    print!("Original: ");
+    print_list(&Some(list.clone()));
+
+    let reversed = reverse_list(Some(list));
+    print!("Reversed: ");
+    print_list(&reversed);
+}
+`,
+    fibonacci: `// Fibonacci Generator
+// Generates the first N fibonacci numbers.
+
+fn generate_fibonacci(n: usize) -> Vec<i32> {
+    if n == 0 {
+        return vec![];
+    }
+    let mut series = vec![0];
+    if n > 1 {
+        series.push(1);
+    }
+
+    for _ in 2..n {
+        let len = series.len();
+        series.push(series[len - 1] + series[len - 2]);
+    }
+    series
+}
+
+fn main() {
+    let fib = generate_fibonacci(10);
+    print!("First 10 Fibonacci numbers: ");
+    for (i, &num) in fib.iter().enumerate() {
+        print!("{}", num);
+        if i < fib.len() - 1 {
+            print!(", ");
+        }
+    }
+    println!();
+}
+`,
+  },
+  go: {
+    binarySearch: `package main
+
+import "fmt"
+
+// Binary Search Algorithm
+// Finds the index of a target element in a sorted array.
+// Returns -1 if not found.
+
+func binarySearch(arr []int, target int) int {
+    left := 0
+    right := len(arr) - 1
+
+    for left <= right {
+        mid := left + (right-left)/2
+        if arr[mid] == target {
+            return mid
+        } else if arr[mid] < target {
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+    return -1
+}
+
+func main() {
+    arr := []int{1, 3, 5, 7, 9, 11, 13, 15}
+    fmt.Println("Input Array:", arr)
+    fmt.Println("Searching for 7:", binarySearch(arr, 7))   // Expected: 3
+    fmt.Println("Searching for 10:", binarySearch(arr, 10)) // Expected: -1
+}
+`,
+    bubbleSort: `package main
+
+import "fmt"
+
+// Bubble Sort Algorithm
+// Sorts an array of numbers in ascending order.
+
+func bubbleSort(arr []int) {
+    n := len(arr)
+    for i := 0; i < n-1; i++ {
+        swapped := false
+        for j := 0; j < n-i-1; j++ {
+            if arr[j] > arr[j+1] {
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                swapped = true
+            }
+        }
+        if !swapped {
+            break
+        }
+    }
+}
+
+func main() {
+    unsorted := []int{64, 34, 25, 12, 22, 11, 90}
+    fmt.Println("Unsorted:", unsorted)
+
+    bubbleSort(unsorted)
+
+    fmt.Println("Sorted:  ", unsorted)
+}
+`,
+    reverseList: `package main
+
+import "fmt"
+
+// Reverse a Singly Linked List
+// Returns the new head of the reversed list.
+
+type ListNode struct {
+    Val  int
+    Next *ListNode
+}
+
+func reverseList(head *ListNode) *ListNode {
+    var prev *ListNode
+    current := head
+    for current != nil {
+        nextNode := current.Next
+        current.Next = prev
+        prev = current
+        current = nextNode
+    }
+    return prev
+}
+
+func printList(head *ListNode) {
+    fmt.Print("List: ")
+    for head != nil {
+        fmt.Print(head.Val)
+        if head.Next != nil {
+            fmt.Print(" -> ")
+        }
+        head = head.Next
+    }
+    fmt.Println()
+}
+
+func main() {
+    list := &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: &ListNode{Val: 5}}}}}
+
+    fmt.Print("Original: ")
+    printList(list)
+
+    reversed := reverseList(list)
+    fmt.Print("Reversed: ")
+    printList(reversed)
+}
+`,
+    fibonacci: `package main
+
+import "fmt"
+
+// Fibonacci Generator
+// Generates the first N fibonacci numbers.
+
+func generateFibonacci(n int) []int {
+    if n <= 0 {
+        return []int{}
+    }
+    if n == 1 {
+        return []int{0}
+    }
+
+    series := []int{0, 1}
+    for i := 2; i < n; i++ {
+        series = append(series, series[i-1]+series[i-2])
+    }
+    return series
+}
+
+func main() {
+    fib := generateFibonacci(10)
+    fmt.Print("First 10 Fibonacci numbers: ")
+    for i, num := range fib {
+        fmt.Print(num)
+        if i < len(fib)-1 {
+            fmt.Print(", ")
+        }
+    }
+    fmt.Println()
+}
+`,
+  },
 };
 
 type EditorTelemetry = {
@@ -940,6 +1242,8 @@ const PlaygroundContent: React.FC = () => {
                 <option value="python">Python</option>
                 <option value="cpp">C++</option>
                 <option value="java">Java</option>
+                <option value="rust">Rust</option>
+                <option value="go">Go</option>
               </select>
             </div>
 
