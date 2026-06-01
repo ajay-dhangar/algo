@@ -523,17 +523,19 @@ function countDistinctMo(arr, ranges) {
   uniqueValues.forEach((value, index) => compressedMap.set(value, index));
 
   const compressed = arr.map((value) => compressedMap.get(value));
-  const queries = ranges.map(([left, right], index) => ({ left, right, index }));
+  const queries = ranges.map(([left, right], index) => ({
+    left,
+    right,
+    index,
+    block: Math.floor(left / blockSize),
+  }));
 
   queries.sort((a, b) => {
-    const blockA = Math.floor(a.left / blockSize);
-    const blockB = Math.floor(b.left / blockSize);
-
-    if (blockA !== blockB) {
-      return blockA - blockB;
+    if (a.block !== b.block) {
+      return a.block - b.block;
     }
 
-    return blockA % 2 === 0 ? a.right - b.right : b.right - a.right;
+    return a.block % 2 === 0 ? a.right - b.right : b.right - a.right;
   });
 
   const frequency = Array(uniqueValues.length).fill(0);
