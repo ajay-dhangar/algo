@@ -1,6 +1,5 @@
 import React from "react";
 import EventCard from "./EventCard";
-// import Link from "@docusaurus/Link";
 
 const events = [
   {
@@ -55,7 +54,7 @@ const GetInvolvedSection: React.FC = () => {
           like-minded individuals. Here’s how you can get involved!
         </p>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((event, index) => (
             <EventCard
               key={index}
