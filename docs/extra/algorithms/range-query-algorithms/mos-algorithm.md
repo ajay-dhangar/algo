@@ -254,18 +254,15 @@ vector<int> countDistinctMo(const vector<int>& arr, const vector<pair<int, int>>
 
     vector<Query> queries;
     for (int i = 0; i < q; i++) {
-        queries.push_back({ranges[i].first, ranges[i].second, i});
+        queries.push_back({ranges[i].first, ranges[i].second, i, ranges[i].first / blockSize});
     }
 
-    sort(queries.begin(), queries.end(), [&](const Query& a, const Query& b) {
-        int blockA = a.left / blockSize;
-        int blockB = b.left / blockSize;
-
-        if (blockA != blockB) {
-            return blockA < blockB;
+    sort(queries.begin(), queries.end(), [](const Query& a, const Query& b) {
+        if (a.block != b.block) {
+            return a.block < b.block;
         }
 
-        if (blockA % 2 == 0) {
+        if (a.block % 2 == 0) {
             return a.right < b.right;
         }
         return a.right > b.right;
