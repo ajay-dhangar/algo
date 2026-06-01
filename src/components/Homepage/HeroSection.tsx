@@ -54,13 +54,14 @@ const HeroSection = () => {
         <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-pink-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
-      <div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer text-slate-400 hover:text-blue-500 dark:text-gray-500 dark:hover:text-blue-400 transition-colors duration-300 z-20"
+      <button 
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer text-slate-400 hover:text-blue-500 dark:text-gray-500 dark:hover:text-blue-400 transition-colors duration-300 z-20 bg-transparent border-0 p-0 focus:outline-none"
         onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        aria-label="Scroll down"
         title="Scroll down"
       >
         <FaChevronDown size={32} />
-      </div>
+      </button>
     </section>
   );
 };
