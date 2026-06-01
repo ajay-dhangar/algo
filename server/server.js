@@ -208,8 +208,15 @@ app.post("/api/execute-code", async (req, res) => {
         // Extract class name from code (first public class)
         const classNameMatch = code.match(/public\s+class\s+(\w+)/);
         const className = classNameMatch ? classNameMatch[1] : "Main";
+        // Detect package declaration so we can run Java classes with their
+        // fully-qualified name (supports `package com.example;`).
+        const packageMatch = code.match(/package\s+([a-zA-Z0-9_.]+)\s*;/);
+        const packageName = packageMatch ? packageMatch[1] : null;
         filename = path.join(tempDir, `${className}${fileExtension}`);
-        command = `cd "${tempDir}" && javac "${filename}" && java "${className}"`;
+        // Compile into the temp directory and run using -cp pointing at tempDir.
+        // This ensures classes declared inside packages are runnable.
+        const fqcn = packageName ? `${packageName}.${className}` : className;
+        command = `javac -d "${tempDir}" "${filename}" && java -cp "${tempDir}" "${fqcn}"`;
         break;
 
       case "rust":
@@ -254,12 +261,36 @@ app.post("/api/execute-code", async (req, res) => {
           }
         }
         if (language === "java") {
-          const classNameMatch = code.match(/public\s+class\s+(\w+)/);
-          const className = classNameMatch ? classNameMatch[1] : "Main";
-          const classFile = path.join(os.tmpdir(), `${className}.class`);
-          if (fs.existsSync(classFile)) {
-            fs.unlinkSync(classFile);
-          }
+            const classNameMatch = code.match(/public\s+class\s+(\w+)/);
+            const className = classNameMatch ? classNameMatch[1] : "Main";
+            const packageMatch = code.match(/package\s+([a-zA-Z0-9_.]+)\s*;/);
+            if (packageMatch) {
+              const packagePath = packageMatch[1].split('.');
+              const classFile = path.join(os.tmpdir(), ...packagePath, `${className}.class`);
+              if (fs.existsSync(classFile)) {
+                fs.unlinkSync(classFile);
+              }
+              // Attempt to remove package directory if empty (best-effort)
+              try {
+                let dir = path.join(os.tmpdir(), ...packagePath);
+                while (dir !== os.tmpdir()) {
+                  const files = fs.readdirSync(dir);
+                  if (files.length === 0) {
+                    fs.rmdirSync(dir);
+                    dir = path.dirname(dir);
+                  } else {
+                    break;
+                  }
+                }
+              } catch (e) {
+                // ignore cleanup failures
+              }
+            } else {
+              const classFile = path.join(os.tmpdir(), `${className}.class`);
+              if (fs.existsSync(classFile)) {
+                fs.unlinkSync(classFile);
+              }
+            }
         }
       } catch (cleanupError) {
         console.warn("Cleanup warning:", cleanupError.message);
