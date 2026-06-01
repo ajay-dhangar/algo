@@ -53,8 +53,6 @@ While you follow this roadmap, you may want to read or improve pages on the Algo
 
 ## How to Get Started
 
-0. **New to the website?** Read [How to Use This Site](https://ajay-dhangar.github.io/algo/docs/getting-started) on the docs site for navigation, quizzes, and a suggested path before you dive into topics below.
-
 1. **Pick a Topic:** Choose a module from the sidebar based on your current skill level.
 2. **Read & Visualize:** Understand the core concept and look at the step-by-step walkthroughs.
 3. **Analyze:** Check the Time and Space complexity analysis for every algorithm.

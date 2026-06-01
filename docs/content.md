@@ -1,6 +1,6 @@
 ---
 id: table-of-contents
-sidebar_position: 3
+sidebar_position: 2
 title: Table Of Contents
 sidebar_label: Contents
 description: "Explore the world of Data Structures and Algorithms (DSA) with Algo's comprehensive learning resources. From fundamental concepts to advanced topics, Algo provides a structured pathway to help you master DSA and enhance your programming skills."

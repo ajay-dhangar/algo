@@ -5,7 +5,6 @@ import KeyboardShortcutsModal from "../components/KeyboardShortcutsModal";
 import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
 import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop";
 import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom";
-import SiteTour from "../components/SiteTour/SiteTour";
 
 export default function Root({ children }) {
   const location = useLocation();
@@ -30,7 +29,6 @@ export default function Root({ children }) {
       />
       {!isHomepage && <BottomToTop />}
       {!isHomepage && <TopToBottom />}
-      <SiteTour />
     </>
   );
 }

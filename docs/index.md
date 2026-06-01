@@ -34,8 +34,6 @@ Algo's adaptive learning platform tailors the content to your skill level and le
 
 ## Get Started with Algo
 
-New here? Start the **[8-step site tour](../?tour=1)** or read **[How to Use This Site](./getting-started.md)** for a map of the docs, interview section, quizzes, graphs, and a suggested learning path.
-
 Ready to dive into the world of Data Structures and Algorithms? Start your learning journey with Algo today! Explore our learning pathways, tackle coding challenges, and connect with a community of like-minded individuals who share your passion for coding.
 
 ---

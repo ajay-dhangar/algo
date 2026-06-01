@@ -247,13 +247,11 @@ Potential improvements:
 
 ## Contributing
 
-**Adding algorithm documentation (Python, C++, Java, etc. on the docs site):** See [How to add a new algorithm in multiple languages](./CONTRIBUTING.md#5-how-to-add-a-new-algorithm-in-multiple-languages) in `CONTRIBUTING.md` for folder layout, MDX/front-matter, and sidebar registration. That workflow is separate from the playground below.
-
-**Changing the multi-language playground** (templates, execution, new runtime):
+To contribute improvements to the multi-language playground:
 
 1. Test your changes with all supported languages
 2. Ensure backend handles errors gracefully
-3. Update this file and [IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md) if adding languages or changing behavior
+3. Update documentation if adding new languages or features
 4. Test with the existing test suite: `npm run server:test`
 
 ## Architecture

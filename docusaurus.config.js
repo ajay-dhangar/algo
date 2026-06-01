@@ -45,7 +45,7 @@ const config = {
   },
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   presets: [
     [
@@ -115,7 +115,6 @@ const config = {
             sidebarId: "tutorialSidebar",
             position: "left",
             label: "Tutorial",
-            className: "algo-tour-step-tutorial",
           },
           {
             to: "blog",
@@ -131,7 +130,6 @@ const config = {
             to: "dsa-roadmap",
             label: "Pick Topic For Contribution",
             position: "left",
-            className: "algo-tour-step-roadmap",
           },
           {
             to: "contributors",
@@ -143,7 +141,6 @@ const config = {
             type: "dropdown",
             label: "More",
             position: "right",
-            className: "algo-tour-step-more",
             items: [
               {
                 to: "dsa-interview",
