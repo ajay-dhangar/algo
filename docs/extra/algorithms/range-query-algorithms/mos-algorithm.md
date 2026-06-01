@@ -235,6 +235,7 @@ struct Query {
     int left;
     int right;
     int index;
+    int block;
 };
 
 vector<int> countDistinctMo(const vector<int>& arr, const vector<pair<int, int>>& ranges) {
