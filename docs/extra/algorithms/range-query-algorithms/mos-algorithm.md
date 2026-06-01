@@ -337,11 +337,13 @@ public class MosAlgorithm {
         int left;
         int right;
         int index;
+        int block;
 
-        Query(int left, int right, int index) {
+        Query(int left, int right, int index, int block) {
             this.left = left;
             this.right = right;
             this.index = index;
+            this.block = block;
         }
     }
 
