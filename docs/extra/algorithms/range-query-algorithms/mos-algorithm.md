@@ -367,18 +367,15 @@ public class MosAlgorithm {
 
         Query[] queries = new Query[q];
         for (int i = 0; i < q; i++) {
-            queries[i] = new Query(ranges[i][0], ranges[i][1], i);
+            queries[i] = new Query(ranges[i][0], ranges[i][1], i, ranges[i][0] / blockSize);
         }
 
         Arrays.sort(queries, (a, b) -> {
-            int blockA = a.left / blockSize;
-            int blockB = b.left / blockSize;
-
-            if (blockA != blockB) {
-                return Integer.compare(blockA, blockB);
+            if (a.block != b.block) {
+                return Integer.compare(a.block, b.block);
             }
 
-            if (blockA % 2 == 0) {
+            if (a.block % 2 == 0) {
                 return Integer.compare(a.right, b.right);
             }
             return Integer.compare(b.right, a.right);
