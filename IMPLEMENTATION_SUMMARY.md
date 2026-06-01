@@ -1,7 +1,5 @@
 # Multi-Language Algo Playground - Implementation Summary
 
-> **Contributors:** To add a new algorithm with implementations in several languages on the documentation site, follow [How to add a new algorithm in multiple languages](./CONTRIBUTING.md#5-how-to-add-a-new-algorithm-in-multiple-languages) in `CONTRIBUTING.md`. Update this file only when you change playground execution, templates, or supported languages—not for every new algorithm doc page.
-
 ## Feature Overview
 Added comprehensive multi-language support to the Algo Playground, allowing users to write and execute code in JavaScript, Python, C++, and Java with proper syntax highlighting, templatesupport, and execution environments.
 
