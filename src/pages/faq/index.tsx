@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
 import Translate from "@docusaurus/Translate";
 import { useColorMode } from "@docusaurus/theme-common";
-import Giscus from "@giscus/react";
+import GiscusComponent from "../../components/GiscusComponent";
 import { 
   FaSearch, 
   FaQuestionCircle, 
