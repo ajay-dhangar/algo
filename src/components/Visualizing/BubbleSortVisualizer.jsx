@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const DEFAULT_ARRAY = [64, 34, 25, 12, 22, 11, 90];
 
@@ -12,13 +12,24 @@ export default function BubbleSortVisualizer() {
         "Click Start to visualize Bubble Sort."
     );
 
+    const cancelRef = useRef(false);
+
+    useEffect(() => {
+        return () => {
+            cancelRef.current = true;
+        };
+    }, []);
+
     const sleep = (ms) =>
         new Promise((resolve) => setTimeout(resolve, ms));
 
     const startVisualization = async () => {
+
         if (running) return;
 
         setRunning(true);
+
+        cancelRef.current = false;
 
         let arr = [...array];
         const n = arr.length;
@@ -27,6 +38,7 @@ export default function BubbleSortVisualizer() {
             let swapped = false;
 
             for (let j = 0; j < n - i - 1; j++) {
+                if (cancelRef.current) return;
                 setCurrent(j);
                 setNext(j + 1);
 
@@ -34,9 +46,13 @@ export default function BubbleSortVisualizer() {
                     `Comparing ${arr[j]} and ${arr[j + 1]}`
                 );
 
-                await sleep(1000);
+                await sleep(300);
+
+                if (cancelRef.current) return;
 
                 if (arr[j] > arr[j + 1]) {
+
+                    if (cancelRef.current) return;
                     setStatus(
                         `Swapping ${arr[j]} and ${arr[j + 1]}`
                     );
@@ -46,9 +62,13 @@ export default function BubbleSortVisualizer() {
                     setArray([...arr]);
                     swapped = true;
 
-                    await sleep(1000);
+                    await sleep(300);
+
+                    if (cancelRef.current) return;
                 }
             }
+
+            if (cancelRef.current) return;
 
             setSortedIndex(n - i - 1);
 
@@ -60,6 +80,8 @@ export default function BubbleSortVisualizer() {
             }
         }
 
+        if (cancelRef.current) return;
+
         setCurrent(null);
         setNext(null);
         setSortedIndex(0);
@@ -70,6 +92,8 @@ export default function BubbleSortVisualizer() {
     };
 
     const reset = () => {
+        cancelRef.current = true;
+
         setArray([...DEFAULT_ARRAY]);
         setCurrent(null);
         setNext(null);
@@ -121,7 +145,6 @@ export default function BubbleSortVisualizer() {
 
                 <button
                     onClick={reset}
-                    disabled={running}
                     style={{
                         padding: "10px 16px",
                         borderRadius: "8px",
@@ -164,8 +187,7 @@ export default function BubbleSortVisualizer() {
                             key={index}
                             style={{
                                 width: "60px",
-                                height: `${value * 2}px`,
-                                minHeight: "50px",
+                                height: `${50 + value * 2}px`,
                                 borderRadius: "8px",
                                 background: bg,
                                 color: textColor,
@@ -175,7 +197,7 @@ export default function BubbleSortVisualizer() {
                                 fontWeight: "bold",
                                 fontSize: "18px",
                                 border: "1px solid rgba(0,0,0,0.15)",
-                                transition: "all 0.8s ease",
+                                transition: "all 0.25s ease",
                                 boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
                             }}
                         >
