@@ -76,7 +76,7 @@ const getImpactColor = (impact: EdgeCase["impact"]) => {
   }
 };
 
-const getImpactBadgeColor = (impact: string) => {
+const getImpactBadgeColor = (impact: EdgeCase["impact"]) => {
   switch (impact) {
     case "high":
       return "bg-red-500 text-white";
