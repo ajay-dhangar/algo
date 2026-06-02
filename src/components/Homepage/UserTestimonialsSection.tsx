@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Link from "@docusaurus/Link";
 
 import "swiper/css";
 import "swiper/css/autoplay";
@@ -140,6 +141,22 @@ const UserTestimonialsSection: React.FC = () => {
           {/* Pagination Container Dot Anchors */}
           <div className="custom-swiper-pagination absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2" />
         </div>
+
+        {/* Call-to-Action Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex justify-center mt-12"
+        >
+          <Link
+            to="/reviews"
+            className="inline-flex items-center gap-2 bg-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary-dark)] text-white font-bold py-3 px-8 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg no-underline"
+          >
+            View All Testimonials →
+          </Link>
+        </motion.div>
 
       </div>
 
