@@ -131,12 +131,12 @@ const Reviews: React.FC = () => {
             <p className="text-lg text-slate-600 dark:text-gray-400 mb-8">
               Join thousands of developers who are mastering algorithms and data structures with Algo.
             </p>
-            <a
-              href="/docs/"
+            <Link
+              to="/docs/"
               className="inline-block bg-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary-dark)] text-white font-bold py-3 px-8 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg no-underline"
             >
               Get Started Now
-            </a>
+            </Link>
           </motion.div>
         </section>
       </div>
