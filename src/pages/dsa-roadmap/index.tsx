@@ -19,28 +19,52 @@ import {
 import { topics } from "../../data/topics";
 
 const DSARoadmap: React.FC = () => {
-  const categoryBase = useBaseUrl("/docs/category");
-
-  // Structural Topic/Category Mapper
-  const topicCategoryMap: Record<string, Record<string, string>> = useMemo(() => ({
-    "Pick a Language": { "JavaScript": "javascript", "Python": "python", "Java": "java", "C++": "c-1", "C#": "c", "Ruby": "python", "GO": "java", "Rust": "rust" },
-    "Programming Fundamentals": { "Language Syntax": "language-syntax", "Control Structures": "control-structures", "Functions": "functions", "OOP Basics": "oop-basic", "Pseudo Code": "programming-fundamentals" },
-    "Data Structures": { "Data Structures": "data-structure" },
-    "Basic Data Structures": { "Arrays": "arrays", "Linked Lists": "linked-list", "Stacks": "stacks", "Queues": "queue", "Hash Tables": "hash-tables" },
-    "Algorithmic Complexity": { "Time and Space Complexity": "complexity", "Common Runtimes": "complexity", "Asymptotic Notation": "complexity", "Extra Topics": "complexity" },
-    "Sorting Algorithms": { "Bubble Sort": "sorting-algorithms", "Selection Sort": "sorting-algorithms", "Insertion Sort": "sorting-algorithms", "Merge Sort": "sorting-algorithms", "Quick Sort": "sorting-algorithms", "Heap Sort": "sorting-algorithms", "Counting Sort": "sorting-algorithms", "Radix Sort": "sorting-algorithms", "Bucket Sort": "sorting-algorithms" },
-    "Searching Algorithms": { "Linear Search": "binary-search", "Binary Search": "binary-search", "Jump Search": "binary-search", "Interpolation Search": "binary-search", "Exponential Search": "binary-search" },
-    "Recursion": { "Introduction": "recursion", "Recursion Techniques": "recursive-algorithms", "Recursion Problems": "recursion" },
-    "Tree Data Structures": { "Introduction": "binary-trees", "Tree Traversals": "binary-trees", "Search Algorithms": "binary-search-tree", "Tree Problems": "binary-search-tree" },
-    "Graphs": { "Introduction": "graphs", "Graph Representation": "graphs", "Graph Traversals": "graphs", "Graph Algorithms": "graphs" },
-  }), []);
 
   const getDocLink = (topicTitle: string, folderName: string, fileName: string) => {
-    const topicMap = topicCategoryMap[topicTitle];
-    if (topicMap && topicMap[folderName]) {
-      return `${categoryBase}/${topicMap[folderName]}`;
+    const docBase = useBaseUrl("/docs");
+
+    // Build the path based on topic title and folder name
+    let path = "";
+
+    if (topicTitle === "Pick a Language") {
+      // Map language folder names to actual directory names
+      const langMap: Record<string, string> = {
+        "JavaScript": "javascript",
+        "Python": "python",
+        "Java": "java",
+        "C++": "cpp",
+        "C#": "csharp",
+        "Ruby": "ruby",
+        "GO": "go",
+        "Rust": "rust"
+      };
+      const langDir = langMap[folderName] || folderName.toLowerCase();
+      path = `languages/${langDir}`;
+    } else if (topicTitle === "Programming Fundamentals") {
+      // Map folder names to directory structure
+      const folderMap: Record<string, string> = {
+        "Language Syntax": "language-syntax",
+        "Control Structures": "control-structures",
+        "Functions": "functions",
+        "OOP Basics": "oop-basics",
+        "Pseudo Code": "pseudo-code"
+      };
+      const folderDir = folderMap[folderName] || folderName.toLowerCase().replace(/\s+/g, "-");
+      path = `programming-fundamentals/${folderDir}`;
+    } else {
+      // For other topics, create a path based on title and folder
+      const topicDir = topicTitle.toLowerCase().replace(/\s+/g, "-");
+      const folderDir = folderName.toLowerCase().replace(/\s+/g, "-");
+      path = `${topicDir}/${folderDir}`;
     }
-    return topicTitle === "Pick a Language" ? `${categoryBase}/languages` : `${categoryBase}/programming-fundamentals`;
+
+    // Convert file name to slug (lowercase, hyphenated)
+    const fileSlug = fileName
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]/g, "");
+
+    return `${docBase}/${path}/${fileSlug}`;
   };
 
   // State Pipeline
