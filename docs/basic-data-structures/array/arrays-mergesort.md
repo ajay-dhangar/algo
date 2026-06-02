@@ -249,6 +249,8 @@ Bubble Sort, Insertion Sort, Quick Sort, Heap Sort, etc.
    - [ ] It has bad cache performance
    - [ ] It is slower than insertion sort
 
+<EdgeCases />
+
 ## Conclusion
 
 In this tutorial, we learned about the merge sort algorithm. We discussed the divide-and-conquer approach, pseudocode, diagrams, examples, and complexity analysis. We also implemented merge sort in JavaScript and saw a live example. Merge sort is a powerful sorting algorithm that guarantees $O(n log n)$ performance, making it one of the most reliable choices for sorting large datasets. Feel free to share your thoughts in the comments below.
