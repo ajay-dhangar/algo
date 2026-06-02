@@ -84,35 +84,6 @@ const faqs: FAQItem[] = [
   }
 ];
 
-/**
- * Isolated Giscus Anchor Engine
- * Safely executes inside the Layout ecosystem where ColorMode context lives.
- */
-const GiscusDiscussionEngine: React.FC = () => {
-  const { colorMode } = useColorMode();
-
-  return (
-    <div className="giscus-component-wrapper min-h-[320px]">
-      <Giscus
-        id="giscus"
-        repo="ajay-dhangar/algo"
-        repoId="R_kgDOK224hg"
-        category="General"
-        categoryId="DIC_kwDOK224hs4CjEDd"
-        mapping="pathname"
-        term="Welcome to Algo Discussions! Please feel free to ask questions, share ideas, and discuss anything related to Algo."
-        strict="0"
-        reactionsEnabled="1"
-        emitMetadata="0"
-        inputPosition="bottom"
-        theme={colorMode}
-        lang="en"
-        loading="lazy"
-      />
-    </div>
-  );
-};
-
 const FAQ: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
