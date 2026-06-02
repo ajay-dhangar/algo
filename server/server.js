@@ -65,7 +65,7 @@ app.post("/api/quiz-attempts", scoreSubmitLimiter, async (req, res) => {
     for (let i = 0; i < totalQuestions; i++) {
       const userAnswer = submittedAnswers[i];
       const correctAnswer = correctAnswers[i];
-      if (userAnswer && userAnswer === correctAnswer) {
+      // Compare answers directly — don't skip valid falsy answers like 0 or ""\n      if (userAnswer !== undefined && userAnswer === correctAnswer) {
         calculatedScore++;
       }
     }
