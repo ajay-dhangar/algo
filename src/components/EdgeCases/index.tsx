@@ -63,7 +63,7 @@ const defaultEdgeCases: EdgeCase[] = [
   },
 ];
 
-const getImpactColor = (impact: string) => {
+const getImpactColor = (impact: EdgeCase["impact"]) => {
   switch (impact) {
     case "high":
       return "bg-red-100 dark:bg-red-900/30 border-red-200 dark:border-red-800";
