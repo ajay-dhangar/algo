@@ -61,18 +61,27 @@ const createMarkdownTableHeader = () => [
 */
 const createLighthouseReport = ({ results, links }) => {
  const tableHeader = createMarkdownTableHeader();
- const tableBody = results.map((result) => {
-   const testUrl = /** @type {string} */ (
-     Object.keys(links).find((key) => key === result.url)
-   );
-   const reportPublicUrl = /** @type {string} */ (links[testUrl]);
+ // Map results to table rows but skip entries that have no public report link
+ const tableBody = (results || [])
+   .map((result) => {
+     const testUrl = /** @type {string} */ (result.url);
+     const reportPublicUrl = links && links[testUrl];
 
-   return createMarkdownTableRow({
-     url: testUrl,
-     summary: result.summary,
-     reportUrl: reportPublicUrl,
-   });
- });
+     if (!testUrl || !reportPublicUrl) {
+       // don't throw — just warn and skip this result
+       // Logging here helps debugging when running the script in CI
+       // eslint-disable-next-line no-console
+       console.warn(`⚠️  Skipping Lighthouse result for url=${String(testUrl)}; missing report link.`);
+       return null;
+     }
+
+     return createMarkdownTableRow({
+       url: testUrl,
+       summary: result.summary,
+       reportUrl: reportPublicUrl,
+     });
+   })
+   .filter(Boolean);
  const comment = [
    "### ⚡️ Lighthouse Report for the Deploy Preview of this PR 🚀",
    "",
@@ -85,4 +94,4 @@ const createLighthouseReport = ({ results, links }) => {
  return comment.join("\n");
 };
 
-export default createLighthouseReport;
+module.exports = createLighthouseReport;
