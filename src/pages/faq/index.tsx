@@ -87,7 +87,7 @@ const faqs: FAQItem[] = [
 const FAQ: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openQuestion, setOpenQuestion] = useState<string | null>(faqs[0]?.question || null);
   const [visibleCount, setVisibleCount] = useState(6);
 
   const categories = ["All", "General", "Contributing", "Support"];
