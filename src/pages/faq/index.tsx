@@ -225,11 +225,11 @@ const FAQ: React.FC = () => {
               <div className="space-y-4 w-full h-[400px] overflow-y-auto rounded custom-scrollbar">
 
               <AnimatePresence initial={false}>
-                {filteredFaqs.slice(0, visibleCount).map((faq, index) => {
-                  const isOpen = openIndex === index;
+                {filteredFaqs.slice(0, visibleCount).map((faq) => {
+                  const isOpen = openQuestion === faq.question;
                   return (
                     <motion.div
-                      key={index}
+                      key={faq.question}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
