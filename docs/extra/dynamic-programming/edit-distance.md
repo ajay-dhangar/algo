@@ -39,7 +39,7 @@ Define `dp[i][j]` as the minimum edit distance between the first `i` characters 
 
 $$
 dp[i][j] = \begin{cases}
-dp[i-1][j-1] & \text{if } word1[i] = word2[j] \\
+dp[i-1][j-1] & \text{if } word1[i-1] = word2[j-1] \\
 1 + \min(dp[i-1][j],\; dp[i][j-1],\; dp[i-1][j-1]) & \text{otherwise}
 \end{cases}
 $$
@@ -205,7 +205,7 @@ function editDistance(word1, word2):
 
     for i = 1 to m:
         for j = 1 to n:
-            if word1[i] == word2[j]:
+            if word1[i-1] == word2[j-1]:
                 dp[i][j] = dp[i-1][j-1]            // no operation needed
             else:
                 dp[i][j] = 1 + min(
