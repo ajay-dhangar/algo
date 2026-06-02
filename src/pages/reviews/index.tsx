@@ -3,6 +3,7 @@ import Layout from "@theme/Layout";
 import { testimonials } from "../../data/testimonialsData";
 import { motion } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa";
+import Link from "@docusaurus/Link";
 
 const Reviews: React.FC = () => {
   const containerVariants = {
