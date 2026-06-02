@@ -59,14 +59,14 @@ For each sequence, we first calculate the absolute earliest finish time of the f
 ```cpp
 class Solution {
     int calc(const vector<int>& start1, const vector<int>& dur1, const vector<int>& start2, const vector<int>& dur2) {
-        int minEnd = 1e9;
+        long long minEnd = LLONG_MAX;
         for (int i = 0; i < start1.size(); i++) {
-            minEnd = min(minEnd, start1[i] + dur1[i]);
+            minEnd = min(minEnd, (long long)start1[i] + dur1[i]);
         }
         
-        int minTotal = 1e9;
+        long long minTotal = LLONG_MAX;
         for (int i = 0; i < start2.size(); i++) {
-            minTotal = min(minTotal, max(start2[i], minEnd) + dur2[i]);
+            minTotal = min(minTotal, max((long long)start2[i], minEnd) + dur2[i]);
         }
         return minTotal;
     }
