@@ -11,6 +11,10 @@ const quizAnswers = require("./quizAnswers");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+// Safety gate: remote code execution is dangerous. Disabled by default.
+const ALLOW_UNTRUSTED_EXECUTION =
+  process.env.ALLOW_UNTRUSTED_EXECUTION === 'true' ||
+  process.env.ALLOW_UNTRUSTED_EXECUTION === '1';
 
 // Enable CORS for frontend cross-origin requests
 app.use(cors());
@@ -169,6 +173,15 @@ app.get("/api/quiz-attempts/:userId/:quizId", async (req, res) => {
  */
 app.post("/api/execute-code", async (req, res) => {
   const { language, code } = req.body;
+
+  // Feature gate: ensure unsafe execution is explicitly enabled by env var.
+  if (!ALLOW_UNTRUSTED_EXECUTION) {
+    return res.status(403).json({
+      success: false,
+      error:
+        "Code execution endpoint is disabled. Set ALLOW_UNTRUSTED_EXECUTION=1 to enable (not recommended in production).",
+    });
+  }
 
   // Validate request
   if (!language || !code) {
