@@ -5,6 +5,7 @@ sidebar_label: Bubble Sort
 description: "Learn about Bubble Sort, a simple comparison-based sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order."
 tags: [dsa, algorithms, sorting]
 ---
+import BubbleSortVisualizer from "@site/src/components/Visualizing/BubbleSortVisualizer";
 
 <AdsComponent />
 
@@ -19,6 +20,8 @@ The algorithm gets its name because smaller or larger elements "bubble" to the t
 4. **Move forward**: It then moves to the next pair (second and third elements) and repeats the comparison and swap if necessary.
 5. **Complete a pass**: Once it reaches the end of the array, one "pass" is complete. The largest element will have "bubbled" up to its correct position at the end of the array.
 6. **Repeat**: The entire process is repeated for the remaining unsorted portion of the array until no swaps are made during a full pass, meaning the array is sorted.
+
+<BubbleSortVisualizer />
 
 ### Time and Space Complexity:
 - **Best Case Time Complexity**: $O(n)$
