@@ -101,8 +101,8 @@ const FAQ: React.FC = () => {
     });
   }, [searchQuery, selectedCategory]);
 
-  const toggleFAQ = (idx: number) => {
-    setOpenIndex(openIndex === idx ? null : idx);
+  const toggleFAQ = (question: string) => {
+    setOpenQuestion(openQuestion === question ? null : question);
   };
 
   return (
