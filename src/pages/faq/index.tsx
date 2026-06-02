@@ -330,7 +330,7 @@ const FAQ: React.FC = () => {
               </div>
 
               {/* Call component safely nested deep inside Layout tree */}
-              <GiscusDiscussionEngine />
+              <GiscusComponent />
             </div>
       </div>
     </Layout>
