@@ -85,16 +85,16 @@ public:
 ```java
 class Solution {
     private int calc(int[] start1, int[] dur1, int[] start2, int[] dur2) {
-        int minEnd = Integer.MAX_VALUE;
+        long minEnd = Long.MAX_VALUE;
         for (int i = 0; i < start1.length; i++) {
-            minEnd = Math.min(minEnd, start1[i] + dur1[i]);
+            minEnd = Math.min(minEnd, (long) start1[i] + dur1[i]);
         }
         
-        int minTotal = Integer.MAX_VALUE;
+        long minTotal = Long.MAX_VALUE;
         for (int i = 0; i < start2.length; i++) {
-            minTotal = Math.min(minTotal, Math.max(start2[i], minEnd) + dur2[i]);
+            minTotal = Math.min(minTotal, Math.max((long) start2[i], minEnd) + dur2[i]);
         }
-        return minTotal;
+        return (int) minTotal;
     }
 
     public int earliestFinishTime(int[] landStartTime, int[] landDuration, int[] waterStartTime, int[] waterDuration) {
