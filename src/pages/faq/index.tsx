@@ -182,7 +182,7 @@ const FAQ: React.FC = () => {
               {categories.map((cat) => (
                 <button
                   key={cat}
-                  onClick={() => { setSelectedCategory(cat); setOpenIndex(0); }}
+                  onClick={() => { setSelectedCategory(cat); setOpenQuestion(null); }}
                   className={`snap-center text-left px-4 py-2.5 rounded-xl font-mono text-xs font-bold tracking-wide border transition-all cursor-pointer whitespace-nowrap shrink-0 lg:w-full ${
                     selectedCategory === cat
                       ? "bg-slate-950 text-white dark:bg-red-600/90 dark:text-white border-transparent shadow-sm"
