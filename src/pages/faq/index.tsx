@@ -240,7 +240,7 @@ const FAQ: React.FC = () => {
                       }`}
                     >
                       <button
-                        onClick={() => toggleFAQ(index)}
+                        onClick={() => toggleFAQ(faq.question)}
                         aria-expanded={isOpen}
                         className="w-full flex items-center justify-between p-4 md:p-5 text-left bg-transparent border-none cursor-pointer group select-none"
                       >
