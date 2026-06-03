@@ -46,7 +46,7 @@ Do not rush to advanced topics. Most graph and dynamic programming problems beco
 | Topic | Difficulty | Prerequisites | Study Link | Key Concepts | Mini Challenge | Complexity Focus |
 | --- | --- | --- | --- | --- | --- | --- |
 | Two Pointers | Beginner | Arrays, strings | [Two Pointers](../extra/algorithms/Two-Pointers/introduction-to-two-pointers.md) | Opposite pointers, same-direction pointers | Check if a sorted array has a pair with target sum | Reduce O(n^2) brute force to O(n) |
-| Sliding Window | Intermediate | Arrays, two pointers | [Sliding Window](../extra/Sliding-Window/introduction-to-sliding-window.mdx) | Fixed window, variable window, shrinking condition | Find maximum sum subarray of size k | Maintain O(n) by updating window state |
+| Sliding Window | Intermediate | Arrays, two pointers | [Sliding Window](../extra/Sliding-Window/introduction-to-sliding-window.md) | Fixed window, variable window, shrinking condition | Find maximum sum subarray of size k | Maintain O(n) by updating window state |
 | Prefix Sum | Intermediate | Arrays | [Prefix Sum](../extra/Prefix-Sum-and-Difference-Array/introduction-to-prefix-sum.md) | Precomputation, range query, difference arrays | Answer five range-sum queries in O(1) each | Build O(n), query O(1), space O(n) |
 | Stack | Beginner | Arrays, recursion | [Stack](../extra/Stack/introduction-to-stack.md) | LIFO, push, pop, monotonic stack | Validate balanced parentheses | Time O(n), stack space O(n) |
 | Queue | Beginner | Arrays, linked lists | [Queue](../extra/Queue/circular-queue.md) | FIFO, circular buffer, enqueue, dequeue | Simulate a ticket counter queue | O(1) enqueue and dequeue |
