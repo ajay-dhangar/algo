@@ -6,7 +6,7 @@ title: "Disjoint Set Union (Union Find)"
 sidebar_label: Disjoint Set Union
 description: "An overview of the Disjoint Set Union (Union Find) data structure, including implementations in C++, Java, and Python, complexity analysis, and applications."
 tags: [algorithms, data-structures, union-find, graph-theory]
--------------------------------------------------------------
+---
 
 ### Definition:
 
