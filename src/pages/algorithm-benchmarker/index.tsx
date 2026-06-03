@@ -137,10 +137,10 @@ const heapSort = (arr: number[]): number => {
 
 interface BenchmarkResult {
   size: number;
-  bubbleSort: number;
-  quickSort: number;
-  mergeSort: number;
-  heapSort: number;
+  bubbleSort?: number;
+  quickSort?: number;
+  mergeSort?: number;
+  heapSort?: number;
 }
 
 const AlgorithmBenchmarker: React.FC = () => {
