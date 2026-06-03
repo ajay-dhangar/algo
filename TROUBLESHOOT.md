@@ -1,40 +1,36 @@
 # Troubleshooting Guide
 
-This guide provides solutions for common setup, development, build, and deployment issues encountered while contributing to the Algo project.
+This guide provides solutions for common setup, development, build, and deployment issues encountered while contributing to the **Algo** project.
 
 ---
 
-# Installation Issues
+## Installation Issues
 
-## `npm install` Fails
+### `npm install` Fails
 
-### Symptoms
+* **Symptoms:** Dependency installation terminates with package resolution, peer dependency conflicts, or environment compatibility errors.
 
-Dependency installation fails with package resolution or compatibility errors.
+#### 1. Verify Your Environment
 
-### Verify Environment
-
-Check your installed versions:
+Ensure you are using the supported Node.js and npm versions designated for this project:
 
 ```bash
 node -v
 npm -v
 ```
 
-Ensure you are using a supported Node.js version for this project.
+#### 2. Perform a Clean Installation
 
-### Clean Installation
+If conflicts persist, clear the existing dependencies and lockfiles, then try a fresh installation.
 
-Remove existing dependencies and reinstall them.
-
-**Linux/macOS**
+**Linux / macOS**
 
 ```bash
 rm -rf node_modules package-lock.json
 npm install
 ```
 
-**Windows PowerShell**
+**Windows (PowerShell)**
 
 ```powershell
 Remove-Item -Recurse -Force node_modules
@@ -44,225 +40,159 @@ npm install
 
 ---
 
-# Development Server Issues
+## Development Server Issues
 
-## Application Does Not Start
+### Application Fails to Start (`npm start`)
 
-### Command
+* **Common Causes:** Missing dependencies, unsupported Node.js versions, port conflicts, or incomplete initial setup.
+
+### Resolution Steps
+
+1. **Reinstall dependencies:** Run `npm install` to ensure no packages are missing or corrupted.
+2. **Check port availability:** Ensure no other local process is occupying the default development port.
+3. **Check Node version:** Verify your environment matches the project's `.nvmrc` or `package.json` engines field.
+4. **Restart:** Re-run `npm start`.
+
+### Changes Are Not Reflected in the Browser
+
+If updates to your files aren't hot-reloading in your local environment:
+
+1. Kill the active development server (`Ctrl + C`).
+2. Clear your browser cache.
+3. Perform a **Hard Refresh** (`Cmd + Shift + R` on Mac or `Ctrl + F5` on Windows) after restarting:
 
 ```bash
 npm start
 ```
 
-### Common Causes
-
-* Missing dependencies
-* Unsupported Node.js version
-* Port conflicts
-* Incomplete installation
-
-### Resolution Steps
-
-1. Reinstall project dependencies:
-
-```bash
-npm install
-```
-
-2. Verify your Node.js version.
-3. Ensure no other application is using the development port.
-4. Restart the development server.
-
 ---
 
-## Changes Are Not Reflected in the Browser
+## Build & MDX Issues
 
-### Resolution Steps
+### Build Command Fails (`npm run build`)
 
-1. Stop the development server.
-2. Clear the browser cache.
-3. Restart the application:
+* ⚠ **Diagnostic Action:** Always review the terminal output directly above the failure flag. Most build errors point to the exact file and line number causing the breakdown.
 
-```bash
-npm start
-```
+* **Resolution Steps:**
+1. Fix any reported linting, syntax, or TypeScript/compilation errors.
+2. Verify that all referenced file paths and named imports exist and match case-sensitively.
+3. Re-run `npm run build` to validate.
 
-4. Perform a hard refresh in your browser.
 
----
+### MDX Compilation Errors
 
-# Build Issues
-
-## Build Command Fails
-
-### Command
-
-```bash
-npm run build
-```
-
-### Resolution Steps
-
-1. Review the build output carefully.
-2. Fix any reported syntax or compilation errors.
-3. Verify all referenced files and imports exist.
-4. Run the build command again after applying fixes.
-
----
-
-## MDX Compilation Errors
-
-### Common Causes
-
-* Unclosed JSX tags
-* Invalid Markdown syntax
-* Missing component imports
-* Incorrect MDX formatting
-
-### Example
-
-**Incorrect**
+* **Common Causes:** Unclosed JSX/TSX tags, unescaped special characters (`{`, `<`, etc.), missing component imports, or malformed frontmatter metadata.
 
 ```jsx
+// ❌ Incorrect
 <MyComponent>
-```
 
-**Correct**
-
-```jsx
+//  Correct
 <MyComponent />
 ```
 
 ---
 
-# Documentation Issues
+## Documentation Issues
 
-## Broken Links
+### Broken Links
 
-### Resolution Steps
+* **Resolution Steps:**
+* 
+1. Verify the target file actually exists in the workspace.
+2. Use **relative paths** (e.g., `../category/file.md`) instead of absolute URLs.
+3. Spin up the local server (`npm start`) and physically click the link to confirm navigation works as expected.
 
-1. Verify the target file exists.
-2. Use relative paths whenever possible.
-3. Test the documentation locally:
 
-```bash
-npm start
-```
+### Images Not Displaying
 
-4. Confirm navigation works as expected.
+If a rendered page shows a broken image icon, double-check the following:
 
----
+* **Path Verification:** Ensure the path points correctly to your asset folder.
+* **Case Sensitivity:** Verify that file names and extensions match perfectly (e.g., `.png` vs `.PNG`).
 
-## Images Not Displaying
+```markdown
+![Algorithm Diagram](../../static/images/example.png)
 
-### Verify
-
-* The image exists in the expected directory.
-* The file name and extension match exactly.
-* The referenced path is correct.
-
-### Example
-
-```md
-![Example](../../static/images/example.png)
 ```
 
 ---
 
-# Deployment Issues
+## Deployment Issues
 
-## GitHub Pages Deployment Fails
+### GitHub Pages Deployment Fails
 
-### Before Deploying
-
-Ensure the project builds successfully:
+Before attempting a deployment, always confirm that your project builds cleanly in your local environment:
 
 ```bash
 npm run build
 ```
 
-### Deployment Commands
+Once the build passes, execute the deployment command matching your GitHub configuration:
 
-**SSH Deployment**
+**Via SSH**
 
 ```bash
 USE_SSH=true npm run deploy
 ```
 
-**HTTPS Deployment**
+**Via HTTPS**
 
 ```bash
-GIT_USER=<github-username> npm run deploy
+GIT_USER=<your-github-username> npm run deploy
 ```
 
 ---
 
-# Backend Connectivity Issues
+## Backend Connectivity Issues
 
-## Local API Is Not Reachable
+### Local API Is Not Reachable
 
-### Environment Configuration
+If your frontend documentation components cannot fetch data from the local backend service, verify your environment settings.
 
+* **Default Environment Configuration (`.env`):**
+* 
 ```env
 DOCUSAURUS_API_BASE_URL=http://localhost:5000
 ```
 
-### Verify
 
-* Backend service is running
-* Port `5000` is accessible
-* Firewall or security software is not blocking requests
-* Environment variables are configured correctly
-
----
-
-# Frequently Asked Questions
-
-## Where Should I Add Algorithm Documentation?
-
-Navigate to the appropriate documentation directory and follow the contribution guidelines outlined in [CONTRIBUTING.md](./CONTRIBUTING.md).
+* **Checklist:**
+* [ ] Ensure your local backend service is actively running.
+* [ ] Confirm the backend is listening on port `5000`.
+* [ ] Verify your local firewall or security software isn't blocking local cross-origin requests (CORS).
 
 ---
 
-## How Can I Preview My Changes?
+## ❓ Frequently Asked Questions
 
-Start the local development server:
+#### Where should I add new algorithm documentation?
 
-```bash
-npm start
-```
+Navigate to the appropriate domain folder within the docs directory and strictly follow the structural rules outlined in our [Contribution Guide](./CONTRIBUTING.md).
 
----
+#### How can I preview my changes dynamically?
 
-## How Can I Validate My Contribution Before Opening a Pull Request?
+Run `npm start` to spin up the hot-reloading development server, then navigate to `http://localhost:3000` (or the terminal-assigned port).
 
-Run:
+#### How do I validate everything before opening a Pull Request?
 
-```bash
-npm run build
-```
-
-A successful build confirms there are no compilation, MDX, or documentation errors.
+Run `npm run build`. A successful local production build confirms that your MDX syntax, internal links, and configurations are completely error-free.
 
 ---
 
-# Getting Additional Help
+## 🙋 Getting Additional Help
 
-If the issue persists:
+If your issue isn't covered here or persists after trying these solutions:
 
-1. Review [CONTRIBUTING.md](./CONTRIBUTING.md)
-2. Check existing project documentation
-3. Search GitHub Discussions
-4. Open a new issue with:
-
-   * Steps to reproduce
-   * Expected behavior
-   * Actual behavior
-   * Screenshots (if applicable)
-   * Relevant logs or error messages
+1. Review the comprehensive guidelines in [CONTRIBUTING.md](./CONTRIBUTING.md).
+2. Search through existing [GitHub Discussions](https://github.com/ajay-dhangar/algo/discussions) and Issues to see if someone else solved it.
+3. Open a new **Issue** providing:
+* 📝 Clear steps to reproduce the bug.
+* 🎯 Expected vs. actual behavior.
+* 📸 Screenshots or terminal error logs.
 
 ---
 
-## Happy Contributing! 🚀
+### Happy Contributing!
 
-Thank you for helping improve the Algo project.
+Thank you for dedicating your time to making the **Algo** project better!
