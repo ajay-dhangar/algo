@@ -250,7 +250,7 @@ A successful build confirms there are no compilation, MDX, or documentation erro
 
 If the issue persists:
 
-1. Review `CONTRIBUTING.md`
+1. Review [CONTRIBUTING.md](./CONTRIBUTING.md)
 2. Check existing project documentation
 3. Search GitHub Discussions
 4. Open a new issue with:
