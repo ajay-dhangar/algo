@@ -220,7 +220,7 @@ DOCUSAURUS_API_BASE_URL=http://localhost:5000
 
 ## Where Should I Add Algorithm Documentation?
 
-Navigate to the appropriate documentation directory and follow the contribution guidelines outlined in `CONTRIBUTING.md`.
+Navigate to the appropriate documentation directory and follow the contribution guidelines outlined in [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ---
 
