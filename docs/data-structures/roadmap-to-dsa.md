@@ -11,7 +11,7 @@ tags: [dsa, learning roadmap, algorithms, data-structures]
 
 Understanding Data Structures and Algorithms (DSA) is crucial for solving complex problems efficiently. DSA forms the foundation of computer science, providing the necessary tools to manage and manipulate data effectively. This roadmap outlines a structured approach to mastering DSA, designed for both beginners and experienced programmers.
 
-If you want to track your progress while following this roadmap, use the [DSA Learning Progress Tracker](./dsa-learning-progress-tracker.md). It maps each roadmap stage to difficulty levels, prerequisites, related Algo docs, mini challenges, and completion checklists.
+Use the progress tracker in this roadmap to turn each stage into measurable checkpoints, mini challenges, and complexity-review goals.
 
 :::tip External references for reading or writing docs
 If you are also browsing or contributing to Algo’s documentation, see [Recommended reading in CONTRIBUTING.md](https://github.com/ajay-dhangar/algo/blob/main/CONTRIBUTING.md#recommended-reading) for links to Docusaurus, Markdown, MDX, Mermaid, and React—with a short note on when each applies. Learners following this roadmap can use [learn.md](https://github.com/ajay-dhangar/algo/blob/main/learn.md#documentation-and-tooling) for the same pointers.
@@ -90,6 +90,37 @@ flowchart TD
    - **Final Steps**: These advanced topics can help you tackle a wide range of problems, providing a well-rounded understanding of DSA.
 
 This roadmap provides a sequential approach, where each step builds on the previous concepts, giving you a solid foundation and gradually preparing you for more complex problem-solving.
+
+## Learning Progress Tracker
+
+Use this tracker while following the roadmap above. Start with the first incomplete stage, read the linked Algo docs, implement at least one mini challenge without copying a solution, and write the time and space complexity from memory before moving forward.
+
+| Stage | Core topics | Study links | Mini challenge | Progress checks |
+| --- | --- | --- | --- | --- |
+| 1. Fundamentals | DSA basics, arrays, strings, recursion | [What is DSA?](./what-is-dsa.md), [Arrays](../basic-data-structures/array/arrays-dsa.md), [Recursion](../extra/Recursion/recursion.md) | Explain one brute-force solution and one optimized solution for the same array problem | Big O basics, array traversal, string frequency maps, recursion base cases |
+| 2. Core patterns | Two pointers, sliding window, prefix sum, stack, queue, hashing, linked list | [Two Pointers](../extra/algorithms/Two-Pointers/introduction-to-two-pointers.md), [Sliding Window](../extra/Sliding-Window/introduction-to-sliding-window.mdx), [Hashing](../extra/Hashing/what-is-hashing.md) | Solve one pair-sum problem, one fixed-window problem, and one frequency-map problem | Pattern selection, O(n) scans, stack/queue ordering, pointer updates |
+| 3. Trees and advanced structures | Binary trees, BST, trie, heap, segment tree, Fenwick tree | [Binary Tree](../extra/Trees/binary-tree.md), [Trie](../extra/Tries/tries-theory.md), [Heap Basics](../extra/heap/heap-basics.md) | Compute tree depth, search a BST, and find the kth largest element | Tree traversal order, balanced vs unbalanced trees, top-k reasoning |
+| 4. Algorithmic paradigms | Binary search, sorting, greedy, backtracking, bit manipulation, dynamic programming | [Binary Search](../extra/algorithms/Searching%20Algorithms/BinarySearch.md), [Greedy Theory](../extra/algorithms/greedy-algorithms/greedy-theory.md), [Identify DP Problems](../extra/dynamic-programming/how-to-identify.md) | Write binary search safely, solve activity selection, and define one DP state transition | Boundary handling, greedy proof idea, recursion tree, DP state design |
+| 5. Graphs and interview practice | Graph representation, BFS, DFS, Dijkstra, DSU, mixed practice | [Adjacency List](../extra/graphs/Adjacency-List.md), [BFS](../extra/graphs/bfs.md), [Dijkstra](../extra/graphs/shortest-path-algorithms/dijkstra-algorithm.md) | Convert an edge list to an adjacency list and solve one traversal problem | O(V + E), shortest-path constraints, connectivity, dominant operation analysis |
+
+### Completion Checklist
+
+- [ ] I can explain why each stage depends on the previous one.
+- [ ] I can choose a data structure based on required operations, not only topic names.
+- [ ] I can solve a problem and write its complexity without checking notes.
+- [ ] I can compare a brute-force approach with an optimized approach.
+- [ ] I can map a new interview problem to at least one known pattern.
+
+### Suggested Weekly Plan
+
+| Week | Focus | Target outcome |
+| --- | --- | --- |
+| 1 | Fundamentals, arrays, strings, recursion | Build comfort with traversal and basic complexity analysis |
+| 2 | Two pointers, sliding window, prefix sums, hashing | Reduce brute-force solutions using reusable patterns |
+| 3 | Stack, queue, linked list, trees | Understand ordering, pointers, and recursion-based structures |
+| 4 | Heap, trie, binary search, sorting, greedy | Solve search, top-k, prefix, and scheduling-style problems |
+| 5 | Backtracking, bit manipulation, dynamic programming | Practice state design and exponential-vs-polynomial tradeoffs |
+| 6 | Graphs, Dijkstra, DSU, mixed practice | Prepare for interview-style problem selection and explanation |
 
 ### Practice and Applications
 

@@ -4,7 +4,7 @@ name: PR Validation
 
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    types: [opened, edited]
 
 jobs:
   validate-pr:
@@ -69,24 +69,25 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const prValid = process.env.PR_VALID;
-          const message = prValid === 'false'
-            ? process.env.ERROR_MESSAGE
-            : process.env.SUCCESS_MESSAGE;
+          const errorMessage = process.env.ERROR_MESSAGE;
+          const successMessage = process.env.SUCCESS_MESSAGE;
           const prNumber = context.payload.pull_request.number;
 
-          try {
-            await github.rest.issues.createComment({
+          if (prValid === 'false') {
+            github.rest.issues.createComment({
               issue_number: prNumber,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: message
+              body: errorMessage
             });
-          } catch (error) {
-            core.warning(`Unable to post PR validation comment: ${error.message}`);
-          }
-
-          if (prValid === 'false') {
-            core.setFailed(message);
+            core.setFailed(errorMessage);
+          } else {
+            github.rest.issues.createComment({
+              issue_number: prNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: successMessage
+            });
           }
 
     - name: Fail if validation failed
