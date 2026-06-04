@@ -2,18 +2,7 @@ import React, { useState, useCallback } from "react";
 import Layout from "@theme/Layout";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import { useColorMode } from "@docusaurus/theme-common";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-} from "recharts";
+
 import {
   FaPlay,
   FaRedo,
@@ -137,10 +126,10 @@ const heapSort = (arr: number[]): number => {
 
 interface BenchmarkResult {
   size: number;
-  bubbleSort: number;
-  quickSort: number;
-  mergeSort: number;
-  heapSort: number;
+  bubbleSort?: number;
+  quickSort?: number;
+  mergeSort?: number;
+  heapSort?: number;
 }
 
 const AlgorithmBenchmarker: React.FC = () => {
@@ -162,10 +151,15 @@ const AlgorithmBenchmarker: React.FC = () => {
   };
 
   const runBenchmark = useCallback(async () => {
+    const start = Math.max(10, startSize);
+    const end = Math.max(start + 1, endSize);
+    const currentStep = Math.max(1, step);
     setIsRunning(true);
     const newResults: BenchmarkResult[] = [];
 
-    for (let size = startSize; size <= endSize; size += step) {
+    for (let size = start; size <= end; size += currentStep) {
+      // Yield control back to browser event loop to keep the UI responsive
+      await new Promise((resolve) => setTimeout(resolve, 0));
       const array = generateRandomArray(size);
       const result: BenchmarkResult = { size };
 
@@ -201,8 +195,19 @@ const AlgorithmBenchmarker: React.FC = () => {
   return (
     <Layout title="Algorithm Benchmarker" description="Compare sorting algorithms performance">
       <BrowserOnly fallback={<div>Loading...</div>}>
-        {() => (
-          <main className={styles.container}>
+        {() => {
+          const {
+            LineChart,
+            Line,
+            XAxis,
+            YAxis,
+            CartesianGrid,
+            Tooltip,
+            Legend,
+            ResponsiveContainer,
+          } = require("recharts");
+          return (
+            <main className={styles.container}>
             <div className={styles.header}>
               <h1>
                 <FaChartLine style={{ marginRight: "10px" }} />
@@ -411,7 +416,8 @@ const AlgorithmBenchmarker: React.FC = () => {
               </div>
             </div>
           </main>
-        )}
+          );
+        }}
       </BrowserOnly>
     </Layout>
   );
