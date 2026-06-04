@@ -1,5 +1,4 @@
 ---
-
 id: disjoint-set-union-algo
 sidebar_position: 19
 title: "Disjoint Set Union (Union Find)"
