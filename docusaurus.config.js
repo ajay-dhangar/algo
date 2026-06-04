@@ -101,7 +101,6 @@ const config = {
         indexName: "ajay-dhangario",
         appId: "T0I3F584D5",
         contextualSearch: true,
-        placeholder: "Search algorithms...",
       },
 
       navbar: {
