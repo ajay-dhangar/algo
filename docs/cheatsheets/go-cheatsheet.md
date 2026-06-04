@@ -348,7 +348,6 @@ func maxInt(a, b int) int {
 }
 
 // math.MaxInt and math.MinInt (Go 1.17+)
-import "math"
 maxVal := math.MaxInt
 minVal := math.MinInt
 ```
