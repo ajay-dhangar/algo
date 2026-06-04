@@ -197,7 +197,7 @@ b := []byte(s)
 b[0] = 'H'
 s2 := string(b)
 
-// iterate over characters
+// iterate over runes (i is the byte index, ch is the rune)
 for i, ch := range s {
     fmt.Println(i, string(ch))
 }
