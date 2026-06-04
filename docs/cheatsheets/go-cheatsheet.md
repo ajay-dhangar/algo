@@ -318,8 +318,11 @@ sort.Slice(words, func(i, j int) bool {
 // sort in descending order
 sort.Sort(sort.Reverse(sort.IntSlice(nums)))
 
-// binary search (on sorted slice)
-idx := sort.SearchInts(nums, 5) // returns index
+// binary search (returns insertion point; must verify if target exists)
+idx := sort.SearchInts(nums, 5)
+if idx < len(nums) && nums[idx] == 5 {
+    // found at idx
+}
 ```
 
 ---
