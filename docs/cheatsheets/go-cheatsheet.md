@@ -190,7 +190,7 @@ strings.HasSuffix(s, "rld")  // true
 strings.Split(s, " ")        // ["hello", "world"]
 strings.Join([]string{"a","b"}, "-") // "a-b"
 strings.TrimSpace("  hi  ")  // "hi"
-strings.Replace(s, "world", "Go", 1)
+strings.Replace(s, "world", "Go", 1) // returns "hello Go" (s is immutable)
 
 // string to []byte (useful for in-place manipulation)
 b := []byte(s)
