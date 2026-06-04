@@ -1,12 +1,12 @@
 import React from "react";
-import { FaGithub, FaArrowRight } from "react-icons/fa";
+import { FaGithub, FaArrowRight, FaChevronDown } from "react-icons/fa";
 import { FiCode } from "react-icons/fi";
 import { default as Link } from "@docusaurus/Link"; // Fixed import statement for Link
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center py-16 px-8 noise-bg">
-      <div className="max-w-4xl text-center">
+      <div className="max-w-4xl text-center z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-slate-600 dark:text-gray-400 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
           <FiCode className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400" />
           <span>v2.0 Architecture</span>
@@ -53,6 +53,15 @@ const HeroSection = () => {
         <div className="absolute -top-20 -left-10 w-72 h-72 bg-blue-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-pink-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
       </div>
+
+      <button 
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer text-slate-400 hover:text-blue-500 dark:text-gray-500 dark:hover:text-blue-400 transition-colors duration-300 z-20 bg-transparent border-0 p-0 focus:outline-none"
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        aria-label="Scroll down"
+        title="Scroll down"
+      >
+        <FaChevronDown size={32} />
+      </button>
     </section>
   );
 };
