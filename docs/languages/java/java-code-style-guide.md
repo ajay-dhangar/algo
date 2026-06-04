@@ -1,7 +1,11 @@
 ---
+id: java-code-style-guide
 title: Java Code Style Guide for DSA Examples
+sidebar_label: Code Style Guide
+sidebar_position: 2
 description: Guidelines for writing clean, readable, and beginner-friendly Java DSA examples.
---
+tags: [java, style-guide, dsa]
+---
 
 # Java Code Style Guide
 
@@ -18,7 +22,7 @@ This guide helps contributors with:
 - Clear class and method names
 - Meaningful variable names
 - Proper formatting
-- Simple comments
+- Useful comments
 - Time and space complexity
 - Input and output examples
 - Edge case handling
@@ -192,7 +196,7 @@ Do not add comments for every single line.
 ### Good
 
 ```java
-// Move the left boundary because the target is greater than mid value
+// Move the left boundary because the target is greater than the middle value
 left = mid + 1;
 ```
 
