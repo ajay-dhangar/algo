@@ -182,6 +182,11 @@ const config = {
                 to: "resources",
                 label: "Resources",
               },
+               {
+  to: "learning-paths",
+  label: "Learning Paths",
+},
+
             ],
           },
           {
