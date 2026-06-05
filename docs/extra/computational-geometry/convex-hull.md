@@ -170,10 +170,14 @@ vector<Point> grahamScan(vector<Point> pts) {
         }
     }
     swap(pts[0], pts[minIdx]);
-    anchor = pts[0];
+    const Point& anchorLocal = pts[0];
 
     // Sort remaining points by polar angle from anchor
-    sort(pts.begin() + 1, pts.end(), polarCmp);
+    sort(pts.begin() + 1, pts.end(), [&anchorLocal](const Point& A, const Point& B) {
+        long long cp = cross(anchorLocal, A, B);
+        if (cp != 0) return cp > 0;
+        return distSq(anchorLocal, A) < distSq(anchorLocal, B);
+    });
 
     // Remove collinear points (keep only the farthest)
     int m = 1;
