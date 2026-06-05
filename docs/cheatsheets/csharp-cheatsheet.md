@@ -334,13 +334,12 @@ int n = input.Length > 0 ? int.Parse(input[0]) : 0;
 ### Priority Queue (.NET 6+)
 
 ```csharp
-PriorityQueue<int, int> pq =
-    new PriorityQueue<int, int>();
+PriorityQueue<int, int> pq = new(); // Min-heap by default
 
 pq.Enqueue(5, 5);
 pq.Enqueue(2, 2);
 
-int value = pq.Dequeue();
+int value = pq.Dequeue(); // Returns 2
 ```
 
 ### Binary Search
