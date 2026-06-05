@@ -237,7 +237,7 @@ double avg = nums.Average();
 ```csharp
 class Person
 {
-    public string Name;
+    public string Name { get; set; }
 
     public Person(string name)
     {
