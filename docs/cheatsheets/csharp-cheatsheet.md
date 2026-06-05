@@ -326,10 +326,9 @@ string content =
 ### Fast Input
 
 ```csharp
-string[] input =
-    Console.ReadLine().Split();
+string[] input = Console.ReadLine()?.Split() ?? Array.Empty<string>();
 
-int n = int.Parse(input[0]);
+int n = input.Length > 0 ? int.Parse(input[0]) : 0;
 ```
 
 ### Priority Queue (.NET 6+)
