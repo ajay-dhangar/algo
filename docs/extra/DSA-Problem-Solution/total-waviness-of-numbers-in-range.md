@@ -74,19 +74,19 @@ private:
 **Java**
 ```java
 class Solution {
-    public int totalWaviness(long num1, long num2) {
+    public int totalWaviness(int num1, int num2) {
         int totalSum = 0;
-        for (long x = num1; x <= num2; x++) {
+        for (int x = num1; x <= num2; x++) {
             totalSum += getWaviness(x);
         }
         return totalSum;
     }
     
-    private int getWaviness(long x) {
-        int[] nums = new int[20]; 
+    private int getWaviness(int x) {
+        int[] nums = new int[12]; 
         int m = 0;
         while (x > 0) {
-            nums[m++] = (int) (x % 10);
+            nums[m++] = x % 10;
             x /= 10;
         }
         
@@ -98,7 +98,7 @@ class Solution {
                 waviness++; 
             } else if (nums[i] < nums[i - 1] && nums[i] < nums[i + 1]) {
                 waviness++; 
-            }
+            } 
         }
         return waviness;
     }
