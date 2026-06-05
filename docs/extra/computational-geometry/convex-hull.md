@@ -140,8 +140,6 @@ struct Point {
     long long x, y;
 };
 
-Point anchor;
-
 // Cross product of vectors (O->A) and (O->B)
 long long cross(const Point& O, const Point& A, const Point& B) {
     return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
@@ -149,12 +147,6 @@ long long cross(const Point& O, const Point& A, const Point& B) {
 
 long long distSq(const Point& A, const Point& B) {
     return (A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y);
-}
-
-bool polarCmp(const Point& A, const Point& B) {
-    long long cp = cross(anchor, A, B);
-    if (cp != 0) return cp > 0;
-    return distSq(anchor, A) < distSq(anchor, B);
 }
 
 vector<Point> grahamScan(vector<Point> pts) {
@@ -182,7 +174,7 @@ vector<Point> grahamScan(vector<Point> pts) {
     // Remove collinear points (keep only the farthest)
     int m = 1;
     for (int i = 1; i < n; i++) {
-        while (i < n - 1 && cross(anchor, pts[i], pts[i + 1]) == 0) i++;
+        while (i < n - 1 && cross(anchorLocal, pts[i], pts[i + 1]) == 0) i++;
         pts[m++] = pts[i];
     }
 
@@ -231,8 +223,6 @@ public class GrahamScan {
         Point(long x, long y) { this.x = x; this.y = y; }
     }
 
-    static Point anchor;
-
     static long cross(Point O, Point A, Point B) {
         return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
     }
@@ -241,11 +231,13 @@ public class GrahamScan {
         return (A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y);
     }
 
-    static List<Point> grahamScan(List<Point> pts) {
+    static List<Point> grahamScan(List<Point> input) {
+        // Copy the input to avoid mutating the caller's list
+        List<Point> pts = new ArrayList<>(input);
         int n = pts.size();
         if (n < 3) return pts;
 
-        // Find anchor
+        // Find anchor (lowest y, then leftmost x) — local variable, no global state
         int minIdx = 0;
         for (int i = 1; i < n; i++) {
             Point cur = pts.get(i), best = pts.get(minIdx);
@@ -253,47 +245,59 @@ public class GrahamScan {
                 minIdx = i;
         }
         Collections.swap(pts, 0, minIdx);
-        anchor = pts.get(0);
+        final Point anchorLocal = pts.get(0);
 
-        // Sort by polar angle
+        // Sort remaining points by polar angle from anchorLocal
         List<Point> rest = new ArrayList<>(pts.subList(1, n));
         rest.sort((a, b) -> {
-            long cp = cross(anchor, a, b);
+            long cp = cross(anchorLocal, a, b);
             if (cp != 0) return cp > 0 ? -1 : 1;
-            long da = distSq(anchor, a), db = distSq(anchor, b);
+            long da = distSq(anchorLocal, a), db = distSq(anchorLocal, b);
             return Long.compare(da, db);
         });
 
-        // Rebuild list
-        List<Point> sorted = new ArrayList<>();
-        sorted.add(anchor);
-        sorted.addAll(rest);
+        // Remove collinear points — keep only the farthest from anchorLocal
+        List<Point> filtered = new ArrayList<>();
+        filtered.add(anchorLocal);
+        int i = 0;
+        while (i < rest.size()) {
+            int j = i;
+            while (j + 1 < rest.size() &&
+                   cross(anchorLocal, rest.get(j), rest.get(j + 1)) == 0) {
+                j++;
+            }
+            filtered.add(rest.get(j)); // keep only the farthest collinear point
+            i = j + 1;
+        }
 
-        // Hull construction via stack
+        // Handle all-collinear input safely
+        if (filtered.size() < 3) return filtered;
+
+        // Stack-based hull construction with size guard
         Stack<Point> stack = new Stack<>();
-        stack.push(sorted.get(0));
-        stack.push(sorted.get(1));
-        stack.push(sorted.get(2));
+        stack.push(filtered.get(0));
+        stack.push(filtered.get(1));
+        stack.push(filtered.get(2));
 
-        for (int i = 3; i < sorted.size(); i++) {
+        for (int k = 3; k < filtered.size(); k++) {
             while (stack.size() > 1) {
                 Point top = stack.peek();
                 Point second = stack.get(stack.size() - 2);
-                if (cross(second, top, sorted.get(i)) <= 0)
+                if (cross(second, top, filtered.get(k)) <= 0)
                     stack.pop();
                 else break;
             }
-            stack.push(sorted.get(i));
+            stack.push(filtered.get(k));
         }
 
         return new ArrayList<>(stack);
     }
 
     public static void main(String[] args) {
-        List<Point> points = Arrays.asList(
+        List<Point> points = new ArrayList<>(Arrays.asList(
             new Point(0,0), new Point(1,1), new Point(2,2),
             new Point(0,2), new Point(2,0), new Point(1,3)
-        );
+        ));
         List<Point> hull = grahamScan(points);
         System.out.println("Convex Hull vertices:");
         for (Point p : hull)
@@ -317,15 +321,17 @@ def dist_sq(A, B):
     return (A[0] - B[0]) ** 2 + (A[1] - B[1]) ** 2
 
 def graham_scan(points):
+    # Remove duplicate points
+    points = list(set(points))
     n = len(points)
     if n < 3:
         return points
 
-    # Find anchor: lowest y, then leftmost
+    # Find anchor: lowest y, then leftmost x
     anchor = min(points, key=lambda p: (p[1], p[0]))
-    pts = [p for p in points if p != anchor]
+    rest = [p for p in points if p != anchor]
 
-    # Sort by polar angle from anchor
+    # Sort by polar angle from anchor; closer points first when collinear
     def cmp(a, b):
         cp = cross(anchor, a, b)
         if cp != 0:
@@ -333,8 +339,23 @@ def graham_scan(points):
         da, db = dist_sq(anchor, a), dist_sq(anchor, b)
         return -1 if da < db else (1 if da > db else 0)
 
-    pts.sort(key=cmp_to_key(cmp))
-    pts = [anchor] + pts
+    rest.sort(key=cmp_to_key(cmp))
+
+    # Remove collinear points — keep only the farthest along each direction
+    filtered = []
+    i = 0
+    while i < len(rest):
+        j = i
+        while j + 1 < len(rest) and cross(anchor, rest[j], rest[j + 1]) == 0:
+            j += 1
+        filtered.append(rest[j])  # farthest collinear point in this direction
+        i = j + 1
+
+    pts = [anchor] + filtered
+
+    # Handle all-collinear inputs safely
+    if len(pts) < 3:
+        return pts
 
     # Stack-based hull construction
     hull = [pts[0], pts[1], pts[2]]
@@ -505,25 +526,27 @@ public class MonotoneChain {
         int n = pts.size();
         if (n < 3) return pts;
 
-        Collections.sort(pts);
+        // Copy input to avoid mutating the caller's list
+        List<Point> sortedPts = new ArrayList<>(pts);
+        Collections.sort(sortedPts);
 
         List<Point> hull = new ArrayList<>();
 
         // Lower hull
         for (int i = 0; i < n; i++) {
             while (hull.size() >= 2 &&
-                   cross(hull.get(hull.size()-2), hull.get(hull.size()-1), pts.get(i)) <= 0)
+                   cross(hull.get(hull.size()-2), hull.get(hull.size()-1), sortedPts.get(i)) <= 0)
                 hull.remove(hull.size() - 1);
-            hull.add(pts.get(i));
+            hull.add(sortedPts.get(i));
         }
 
         // Upper hull
         int lowerSize = hull.size() + 1;
         for (int i = n - 2; i >= 0; i--) {
             while (hull.size() >= lowerSize &&
-                   cross(hull.get(hull.size()-2), hull.get(hull.size()-1), pts.get(i)) <= 0)
+                   cross(hull.get(hull.size()-2), hull.get(hull.size()-1), sortedPts.get(i)) <= 0)
                 hull.remove(hull.size() - 1);
-            hull.add(pts.get(i));
+            hull.add(sortedPts.get(i));
         }
 
         hull.remove(hull.size() - 1); // remove duplicate of first point
