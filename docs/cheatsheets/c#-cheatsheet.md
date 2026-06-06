@@ -20,15 +20,15 @@ This page is a quick reference for C# patterns that show up constantly in DSA, c
 
 
 
-\## Basic Syntax
+## Basic Syntax
 
 
 
-\### Data Types
+### Data Types
 
 
 
-\#### Theory
+#### Theory
 
 
 
