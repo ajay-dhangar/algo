@@ -20,39 +20,22 @@ This page is a quick reference for Bootstrap patterns that show up constantly in
 ```html title="Bootstrap via CDN"
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-&#x20; <meta charset="UTF-8">
-
-&#x20; <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-&#x20; <link
-
-&#x20;   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-
-&#x20;   rel="stylesheet">
-
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
 </head>
-
 <body>
 
-
-
-&#x20; <script
-
-&#x20;   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-
-&#x20; </script>
-
-
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
 
 </body>
-
 </html>
 
 ```
