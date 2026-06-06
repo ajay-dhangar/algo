@@ -68,7 +68,7 @@ export const topics: Topic[] = [
       },
       // C++ Language
       {
-        name: "C++",
+        name: "cpp",
         files: [
           "Introduction",
           "Variables",

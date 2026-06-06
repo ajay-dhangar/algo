@@ -1,0 +1,144 @@
+---
+id: bubble-sort
+title: Bubble Sort
+sidebar_label: Bubble Sort
+description: "Learn about Bubble Sort, a simple comparison-based sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order."
+tags: [dsa, algorithms, sorting]
+---
+import BubbleSortVisualizer from "@site/src/components/Visualizing/BubbleSortVisualizer";
+
+<AdsComponent />
+
+Bubble Sort is one of the most fundamental and simplest sorting algorithms. It works by repeatedly stepping through the list to be sorted, comparing adjacent elements, and swapping them if they are in the wrong order. This process is repeated until the list is fully sorted.
+
+The algorithm gets its name because smaller or larger elements "bubble" to the top or bottom of the list (depending on the sorting order) with each iteration, similar to air bubbles rising in water.
+
+### How it Works:
+1. **Start at the beginning**: The algorithm begins at the first index of the array.
+2. **Compare adjacent pairs**: It compares the first element with the second element.
+3. **Swap if necessary**: If the first element is greater than the second (for ascending order), it swaps them.
+4. **Move forward**: It then moves to the next pair (second and third elements) and repeats the comparison and swap if necessary.
+5. **Complete a pass**: Once it reaches the end of the array, one "pass" is complete. The largest element will have "bubbled" up to its correct position at the end of the array.
+6. **Repeat**: The entire process is repeated for the remaining unsorted portion of the array until no swaps are made during a full pass, meaning the array is sorted.
+
+<BubbleSortVisualizer />
+
+### Time and Space Complexity:
+- **Best Case Time Complexity**: $O(n)$
+  This occurs when the array is already sorted. An optimized version of Bubble Sort can detect this in the first pass (by checking if any swaps were made) and terminate early.
+- **Average Case Time Complexity**: $O(n^2)$
+  On average, elements are randomly distributed, requiring multiple passes and swaps.
+- **Worst Case Time Complexity**: $O(n^2)$
+  This happens when the array is sorted in the reverse order. Every element needs to be swapped to the opposite end.
+- **Space Complexity**: $O(1)$
+  Bubble Sort is an in-place algorithm. It only requires a single extra memory space for the temporary variable used during swapping.
+
+<AdsComponent />
+
+### Step-by-Step Dry Run:
+Let's sort the array `[5, 1, 4, 2, 8]` using Bubble Sort.
+
+**First Pass:**
+- `[5, 1, 4, 2, 8]` $\rightarrow$ Compare `5` and `1`. `5 > 1`, so swap. Array becomes `[1, 5, 4, 2, 8]`
+- `[1, 5, 4, 2, 8]` $\rightarrow$ Compare `5` and `4`. `5 > 4`, so swap. Array becomes `[1, 4, 5, 2, 8]`
+- `[1, 4, 5, 2, 8]` $\rightarrow$ Compare `5` and `2`. `5 > 2`, so swap. Array becomes `[1, 4, 2, 5, 8]`
+- `[1, 4, 2, 5, 8]` $\rightarrow$ Compare `5` and `8`. `5 < 8`, so no swap. Array remains `[1, 4, 2, 5, 8]`
+*(At the end of the first pass, the largest element, 8, is at its correct sorted position at the end.)*
+
+**Second Pass:**
+- `[1, 4, 2, 5, 8]` $\rightarrow$ Compare `1` and `4`. `1 < 4`, so no swap.
+- `[1, 4, 2, 5, 8]` $\rightarrow$ Compare `4` and `2`. `4 > 2`, so swap. Array becomes `[1, 2, 4, 5, 8]`
+- `[1, 2, 4, 5, 8]` $\rightarrow$ Compare `4` and `5`. `4 < 5`, so no swap.
+*(The last element 8 is already sorted, so we don't need to compare with it. The second largest element, 5, is now at its correct position.)*
+
+**Third Pass:**
+- `[1, 2, 4, 5, 8]` $\rightarrow$ Compare `1` and `2`. No swap.
+- `[1, 2, 4, 5, 8]` $\rightarrow$ Compare `2` and `4`. No swap.
+*(Since no swaps were made during this pass, the optimized algorithm knows the array is fully sorted and stops.)*
+
+### When to Use Bubble Sort:
+- **Educational Purposes**: It is an excellent algorithm for teaching beginners the basic concepts of sorting, loops, array manipulation, and algorithmic complexity.
+- **Nearly Sorted Data**: If an array is already mostly sorted with only a few elements out of place, an optimized Bubble Sort can finish very quickly in near $O(n)$ time.
+- **Small Datasets**: For very small arrays, the overhead of more complex algorithms (like Quick Sort or Merge Sort) might not be worth it, and Bubble Sort's simplicity is sufficient.
+- **Stable Sorting**: Bubble Sort is a stable sort, meaning it preserves the relative order of equal elements.
+
+**When NOT to use**: Never use Bubble Sort for large datasets in production code. Its $O(n^2)$ complexity makes it extremely inefficient compared to $O(n \log n)$ algorithms.
+
+### Python Implementation:
+
+```python
+def bubble_sort(arr):
+    n = len(arr)
+    # Traverse through all array elements
+    for i in range(n - 1):
+        # Flag to optimize and detect if array is already sorted
+        swapped = False
+        
+        # Last i elements are already in place, so we don't check them
+        for j in range(0, n - i - 1):
+            
+            # Swap if the element found is greater than the next element
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+                
+        # If no two elements were swapped by inner loop, then break
+        if not swapped:
+            break
+            
+    return arr
+
+# Example Usage
+arr = [5, 1, 4, 2, 8]
+sorted_arr = bubble_sort(arr)
+print("Sorted array is:", sorted_arr)
+```
+
+### C++ Implementation:
+
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to perform Bubble Sort
+void bubbleSort(vector<int>& arr) {
+    int n = arr.size();
+    bool swapped;
+    
+    // Traverse through all array elements
+    for (int i = 0; i < n - 1; i++) {
+        swapped = false;
+        
+        // Last i elements are already in place
+        for (int j = 0; j < n - i - 1; j++) {
+            
+            // Swap if the element found is greater than the next element
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+        
+        // If no two elements were swapped by inner loop, then break
+        if (!swapped) {
+            break;
+        }
+    }
+}
+
+int main() {
+    vector<int> arr = {5, 1, 4, 2, 8};
+    
+    bubbleSort(arr);
+    
+    cout << "Sorted array: ";
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    return 0;
+}
+```

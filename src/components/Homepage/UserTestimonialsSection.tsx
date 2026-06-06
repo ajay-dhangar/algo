@@ -160,6 +160,22 @@ const UserTestimonialsSection: React.FC = () => {
             </Link>
           </div>
         </div>
+        {/* Call-to-Action Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex justify-center mt-12"
+        >
+          <Link
+            to="/reviews"
+            className="inline-flex items-center gap-2 bg-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary-dark)] text-white font-bold py-3 px-8 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg no-underline"
+          >
+            View All Testimonials →
+          </Link>
+        </motion.div>
+
       </div>
 
       {/* Swiper styles */}

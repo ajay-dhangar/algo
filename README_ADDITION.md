@@ -2,9 +2,55 @@
 
 ## Add this section to the main README.md under the Playground section:
 
----
+The **Algo Playground** features an isolated runtime execution engine that supports multiple high-level programming stacks, enabling learners to analyze, benchmark, and deploy core algorithmic routines inside their preferred software environment.
 
-## 🎮 Multi-Language Playground
+```mermaid
+graph TD
+    %% Styling Definitions
+    classDef client fill:#e2e8f0,stroke:#334155,stroke-width:2px,color:#0f172a;
+    classDef core fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b;
+    classDef sandbox fill:#f0fdf4,stroke:#22c55e,stroke-width:2px,color:#166534;
+    classDef network fill:#f0f9ff,stroke:#0ea5e9,stroke-width:2px,color:#075985;
+
+    %% Workflow Nodes
+    User([User Code Input]) --> WebIDE[Playground Editor UI]
+    WebIDE --> LangCheck{Language Selected?}
+    
+    %% JavaScript Flow (Client-Side)
+    LangCheck -- JavaScript --> JSWorker[Web Worker Sandbox]
+    JSWorker --> JSExec[Local Browser Execution]
+    JSExec --> TimeCheckJS{Takes > 10s?}
+    TimeCheckJS -- Yes --> TerminateJS[SIGKILL / Abort Execution]
+    TimeCheckJS -- No --> UIResultJS[Stream Output to Console UI]
+
+    %% Backend Languages Flow (Server-Side)
+    LangCheck -- Python / C++ / Java --> APIReq[POST Request /api/execute-code]
+    APIReq --> BackEnd[Algo Backend Server Router]
+    BackEnd --> IPCSpawn[Isolated Subprocess IPC]
+    
+    subgroups -.- SecureZone
+    subgraph SecureZone [Zero-Trust Sandbox Layer]
+        IPCSpawn --> RunCheck{Binary Environment Valid?}
+        RunCheck -- No --> ErrorLog[Return Environment Path Error]
+        RunCheck -- Yes --> CodeExec[Execute Code Logic]
+        CodeExec --> TimeCheckBack{Takes > 10s?}
+        TimeCheckBack -- Yes --> TerminateBack[Process Killed - Timeout Code 124]
+        TimeCheckBack -- No --> CaptureOut[Capture Stdout / Stderr Stream]
+    end
+
+    CaptureOut --> APIRes[JSON Payload Response]
+    ErrorLog --> APIRes
+    APIRes --> UIResultBack[Stream Output to Console UI]
+
+    %% Applying Classes
+    class User,WebIDE,LangCheck client;
+    class BackEnd,APIReq,APIRes core;
+    class JSWorker,JSExec,IPCSpawn,CodeExec,SecureZone sandbox;
+    class TimeCheckJS,TimeCheckBack,TerminateJS,TerminateBack network;
+
+```
+
+## Multi-Language Playground
 
 The Algo Playground now supports multiple programming languages, allowing learners to practice algorithms in their language of choice!
 
@@ -148,9 +194,9 @@ public class BinarySearch {
 
 ### Documentation
 
-- **[Quick Start Guide](QUICK_START.md)** - Get up and running in 5 minutes
-- **[Complete Documentation](MULTI_LANGUAGE_PLAYGROUND.md)** - Full feature documentation
-- **[Implementation Details](IMPLEMENTATION_SUMMARY.md)** - Technical deep dive
+- **[Quick Start Guide](#)** - Get up and running in 5 minutes
+- **[Complete Documentation](#)** - Full feature documentation
+- **[Implementation Details](#)** - Technical deep dive
 
 ### Troubleshooting
 
@@ -192,9 +238,3 @@ If you encounter issues:
 - Create your own algorithm implementations
 - Compare execution times across languages
 - Contribute new algorithms or templates!
-
----
-
-## End of README Addition
-
-This section should be added to the main README.md under an existing "Features" or "Playground" section, or create a new section after the main feature list.

@@ -2,19 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  width: 5px;
-  background: #2a2a2a;
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  /* .custom-scrollbar::-webkit-scrollbar-track {
+    background: #2a2a2a;
+  } */
+
+  /* .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 9999px;
+  } */
 }
 
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background: var(--ifm-color-primary);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ifm-color-primary-dark);
-}
+} */
 
 :root {
   --ifm-color-primary: #3b82f6;
@@ -97,7 +107,7 @@ div[class^="announcementBar_"] .clean-btn {
 }
 
 .navbar a:hover {
-  color: #3b82f6;
+  color: var(--ifm-color-primary);
 }
 
 [data-theme="dark"] .navbar {
@@ -112,8 +122,22 @@ div[class^="announcementBar_"] .clean-btn {
 }
 
 [data-theme="dark"] .navbar a:hover {
-  color: #60a5fa;
+  color: var(--ifm-color-primary-light) !important;
   /* Lighter blue hover color in dark mode */
+}
+
+/* Active navbar link styling - Light mode */
+.navbar__link--active {
+  /* background-color: #3b82f6 !important; */
+  color: var(--ifm-color-primary-lightest) !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border-bottom: 2px solid var(--ifm-color-primary) !important;
+  
+}
+
+.navbar__link--active:hover {
+  border-bottom-color: var(--ifm-color-primary-dark) !important;
 }
 
 [data-theme="dark"] #__docusaurus_skipToContent_fallback {
@@ -233,5 +257,34 @@ button {
 
   .menu {
     font-size: 0.95rem;
+  }
+}
+
+/* Fix Search Bar overlap on tablet and mobile screens (under 996px) */
+@media screen and (max-width: 996px) {
+  .navbar__search {
+    width: 110px;
+    max-width: 110px;
+    transition: width 0.3s ease, max-width 0.3s ease;
+    margin-right: 0.5rem;
+  }
+  .navbar__search-input {
+    width: 100% !important;
+    transition: width 0.3s ease;
+  }
+  .navbar__search:focus-within {
+    width: 150px;
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar__search {
+    width: 80px;
+    max-width: 80px;
+  }
+  .navbar__search:focus-within {
+    width: 110px;
+    max-width: 110px;
   }
 }

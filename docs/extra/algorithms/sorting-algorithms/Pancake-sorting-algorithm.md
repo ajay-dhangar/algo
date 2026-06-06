@@ -45,6 +45,103 @@ graph TD
 3. **Flip it again** to place it in its correct position.
 4. Repeat the process for the remaining unsorted pancakes until all are sorted.
 
+## C++ Implementation
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// Function to flip first k elements
+void flip(vector<int>& arr, int k)
+{
+    int start = 0;
+
+    while (start < k)
+    {
+        swap(arr[start], arr[k]);
+        start++;
+        k--;
+    }
+}
+
+// Function to find index of maximum element
+int findMaxIndex(const vector<int>& arr, int n)
+{
+    int maxIndex = 0;
+
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] > arr[maxIndex])
+        {
+            maxIndex = i;
+        }
+    }
+
+    return maxIndex;
+}
+
+// Pancake Sort Function
+void pancakeSort(vector<int>& arr)
+{
+    for (int currSize = arr.size(); currSize > 1; currSize--)
+    {
+        // Find index of largest element
+        int maxIndex = findMaxIndex(arr, currSize);
+
+        if (maxIndex != currSize - 1)
+        {
+            // Bring largest element to top if not already there
+            if (maxIndex != 0)
+            {
+                flip(arr, maxIndex);
+            }
+
+            // Move largest element to its correct position
+            flip(arr, currSize - 1);
+        }
+    }
+}
+
+// Function to print array
+void printArray(const vector<int>& arr)
+{
+    for (int num : arr)
+    {
+        cout << num << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    int n;
+
+    // User input for array size
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    vector<int> arr(n);
+
+    // User input for array elements
+    cout << "Enter elements: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    cout << "\nOriginal Array: ";
+    printArray(arr);
+
+    // Perform Pancake Sort
+    pancakeSort(arr, n);
+
+    cout << "Sorted Array: ";
+    printArray(arr);
+
+    return 0;
+}
+```
+
 ## Time Complexity
 - **Time Complexity:** O(n²) where `n` is the number of pancakes. This is because:
 - Finding the largest pancake takes linear time (O(n)).

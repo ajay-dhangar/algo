@@ -1,145 +1,193 @@
 ---
 id: control-statements-in-cpp
-sidebar_position: 3
+sidebar_position: 4
 title: "Control Statements in C++"
-sidebar_label: "Control Statements in C++"
+sidebar_label: "Control Statements"
+tags: ["cpp", "control statements", "decision making", "conditionals"]
+description: "Master decision-making structures in C++, including if-else statement chains, nested blocks, switch-case constructs, and ternary operators."
+keywords: ["C++ control structures", "if else syntax", "switch case break", "nested if C++", "conditional statements"]
 ---
 
+By default, instructions in a C++ program execute sequentially—line by line. However, real-world applications require programs to make decisions, branch out into different execution paths, or skip certain blocks of code entirely based on variable states.
 
-Hey there! In this guide, we'll explore decision-making in C++. Conditional statements, also called decision control structures, like `if`, `else` `if`, `else`, and `switch` are used for making decisions in C programs.
-
-Referred to as Decision-Making Statements, they assess one or more conditions and determine whether a block of code should be executed. 
-These statements: 
-* Guide the flow of program execution 
-* Choosing the path based on evaluated conditions
-* Decision-making structures allow you to execute different blocks of code based on certain conditions.
-* C++ provides several constructs for decision-making, including `if`, `else` `if`, `else`, and `switch`.
+**Control Statements** (or selection statements) evaluate conditional expressions to determine the directional flow of program execution.
 
 ## 1. The `if` Statement
-#### Syntax:
-```cpp
+
+The `if` statement evaluates a boolean expression. If the condition resolves to `true`, the inner code block executes. If it resolves to `false`, the compiler skips the block entirely.
+
+### Syntax
+
+```cpp title="IfStatementSyntax.cpp"
 if (condition) {
-    // code to be executed if condition is true
+    // Code block executes only if condition evaluates to true
 }
+
 ```
-#### Example: 
-```cpp
-int num = 10;
-if (num > 0) {
-    std::cout << "The number is positive." << std::endl;
+
+### Example
+
+```cpp title="IfStatementExample.cpp"
+int runtimeErrors = 3;
+
+if (runtimeErrors > 0) {
+    std::cout << "Warning: System anomalies detected.\n";
 }
+
 ```
 
 ## 2. The `if...else` Statement
-#### Syntax:
-```cpp
+
+The `if...else` structure provides an alternative execution path. It ensures that exactly one of the two defined blocks will run.
+
+### Syntax
+
+```cpp title="IfElseStatementSyntax.cpp"
+if (condition) {
+    // Code block runs if condition is true
+} else {
+    // Code block runs if condition is false
+}
+
+```
+
+### Example
+
+```cpp title="IfElseStatementExample.cpp"
+int batteryLevel = 15;
+
+if (batteryLevel >= 20) {
+    std::cout << "System operational.\n";
+} else {
+    std::cout << "Low power state active.\n";
+}
+
+```
+
+## 3. The `if...else if...else` Chain
+
+To test multiple mutually exclusive conditions sequentially, you can chain several `else if` statements together. The compiler stops evaluating conditions the moment it finds one that resolves to `true`.
+
+### Syntax
+
+```cpp title="IfElseIfElseSyntax.cpp"
 if (condition1) {
-    // code to be executed if condition1 is true
+    // Executes if condition1 is true
 } else if (condition2) {
-    // code to be executed if condition2 is true
+    // Executes if condition1 is false AND condition2 is true
 } else {
-    // code to be executed if both conditions are false
+    // Executes only if all preceding conditions evaluate to false
 }
 
 ```
-#### Example: 
-```cpp
-int num = -5;
-if (num > 0) {
-    std::cout << "The number is positive." << std::endl;
+
+### Example
+
+```cpp title="IfElseIfElseExample.cpp"
+int coreTemperature = 105;
+
+if (coreTemperature > 100) {
+    std::cout << "Critical Alert: Overheating!\n";
+} else if (coreTemperature > 75) {
+    std::cout << "Warning: Elevated thermal profile.\n";
 } else {
-    std::cout << "The number is not positive." << std::endl;
-}
-```
-
-## 3. The `if...else if...else` Statement
-#### Syntax:
-```cpp
-if (condition1) {
-    // code to be executed if condition1 is true
-} else if (condition2) {
-    // code to be executed if condition2 is true
-} else {
-    // code to be executed if both conditions are false
-}
-
-```
-#### Example: 
-```cpp
-int num = 0;
-if (num > 0) {
-    std::cout << "The number is positive." << std::endl;
-} else if (num < 0) {
-    std::cout << "The number is negative." << std::endl;
-} else {
-    std::cout << "The number is zero." << std::endl;
+    std::cout << "Thermal performance stable.\n";
 }
 
 ```
 
+## 4. Nested `if` Statements
 
-## 4. The `switch` Statement
-#### Syntax:
-```cpp
-switch (expression) {
-    case value1:
-        // code to be executed if expression == value1
-        break;
-    case value2:
-        // code to be executed if expression == value2
-        break;
-    default:
-        // code to be executed if expression doesn't match any case
-}
-```
-#### Example: 
-```cpp
-int day = 3;
-switch (day) {
-    case 1:
-        std::cout << "Monday" << std::endl;
-        break;
-    case 2:
-        std::cout << "Tuesday" << std::endl;
-        break;
-    case 3:
-        std::cout << "Wednesday" << std::endl;
-        break;
-    default:
-        std::cout << "Not a valid day" << std::endl;
-}
+A nested conditional block is an `if` statement placed completely inside another `if` block. The inner condition is only evaluated if the outer condition evaluates to `true`.
 
-```
+### Example
 
-## 5. Nested `if` Statements
-#### Example: 
-```cpp
-int num = 15;
-if (num > 10) {
-    std::cout << "The number is greater than 10." << std::endl;
-    if (num > 20) {
-        std::cout << "The number is also greater than 20." << std::endl;
+```cpp title="NestedIfExample.cpp"
+int userAge = 22;
+bool hasValidLicense = true;
+
+if (userAge >= 18) {
+    std::cout << "Age verified.\n";
+    
+    if (hasValidLicense) {
+        std::cout << "Vehicle rental authorized.\n";
     }
 }
-```
-
-## 6. Conditional Operators
-C++ also supports conditional operators for compact decision-making.
-
-#### Ternary Operator
-```cpp
-(condition) ? expression1 : expression2;
 
 ```
 
-#### Example:
-```cpp
-int num = 10;
-std::string result = (num > 0) ? "Positive" : "Non-positive";
-std::cout << result << std::endl;
+## 5. The `switch` Statement
+
+The `switch` statement evaluates a single expression against a list of constant integral values called **cases**. It provides a highly optimized, readable alternative to a long, messy `if...else if` chain when testing against fixed options.
+
+### Syntax
+
+```cpp title="SwitchStatementSyntax.cpp"
+switch (expression) {
+    case constant_value1:
+        // Executed if expression == constant_value1
+        break;
+    case constant_value2:
+        // Executed if expression == constant_value2
+        break;
+    default:
+        // Executed if expression doesn't match any case
+}
 
 ```
 
----
+### Example
 
-Understanding Control Statements structures in C++ is crucial for controlling the flow of your program and executing different actions based on conditions. Happy coding!
+```cpp title="SwitchStatementExample.cpp"
+int accessLevel = 2;
+
+switch (accessLevel) {
+    case 1:
+        std::cout << "Guest Access Privileges.\n";
+        break;
+    case 2:
+        std::cout << "Standard User Access Privileges.\n";
+        break;
+    case 3:
+        std::cout << "Administrative Access Privileges.\n";
+        break;
+    default:
+        std::cout << "Access Denied: Unrecognized Role.\n";
+}
+
+```
+
+:::warning Crucial Rule — Switch Fallthrough
+You must include a `break;` statement at the end of each case block. Without a `break`, the execution will fall straight down into the next case statement automatically—regardless of whether that case condition matches or not.
+:::
+
+## 6. The Inline Ternary Operator (`?:`)
+
+The conditional ternary operator is an elegant, expression-based shorthand mechanism for basic `if...else` statements.
+
+### Syntax
+
+```cpp title="TernaryOperatorSyntax.cpp"
+variable = (condition) ? value_if_true : value_if_false;
+
+```
+
+### Example
+
+```cpp title="TernaryOperatorExample.cpp"
+int networkLatency = 45;
+std::string connectionQuality = (networkLatency < 50) ? "Optimal" : "Degraded";
+
+std::cout << "Connection: " << connectionQuality << "\n"; // Output: Connection: Optimal
+
+```
+
+## 7. Comparative Design Choice: `if-else` vs. `switch`
+
+When deciding which conditional structure to use in professional C++ projects, consider these distinct differences:
+
+| Feature Selection | `if-else` Chains | `switch` Statement |
+| --- | --- | --- |
+| **Expression Evaluation** | Evaluates variables, constants, relational inequalities, and complex logical logic (`&&`, `\|\|`). | Evaluates a single integral expression (e.g., `int`, `char`, `enum`) against explicit integer values only. |
+| **Execution Performance** | Evaluates conditions sequentially. A match at the bottom of a 20-statement chain requires 20 checks. | Often optimized via a compiler-generated **Jump Table**, matching targets almost instantly regardless of case depth. |
+| **Readability Profile** | Ideal for dynamic variable ranges and complex overlapping truth maps. | Ideal for managing clean fixed structures like status codes, modes, menu options, or enumerations. |

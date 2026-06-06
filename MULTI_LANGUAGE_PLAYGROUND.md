@@ -2,12 +2,12 @@
 
 ## Overview
 
-The Algo Playground has been enhanced to support multiple programming languages: **JavaScript**, **Python**, **C++**, and **Java**. Users can now select their preferred language from a dropdown menu and write/execute algorithms in their chosen language.
+The Algo Playground has been enhanced to support multiple programming languages: **JavaScript**, **Python**, **C++**, **Java**, **Rust**, and **Go**. Users can now select their preferred language from a dropdown menu and write/execute algorithms in their chosen language.
 
 ## Features
 
 ### 1. Language Selection Dropdown
-- Users can select from: JavaScript, Python, C++, or Java
+- Users can select from: JavaScript, Python, C++, Java, Rust, or Go
 - Located in the playground header for easy access
 - Changing the language automatically loads appropriate templates
 
@@ -22,11 +22,11 @@ Templates are pre-written with working implementations to help users understand 
 
 ### 3. Dynamic Syntax Highlighting
 - Monaco Editor automatically adjusts syntax highlighting based on selected language
-- File extension in the editor tab reflects the current language (e.g., `script.js`, `script.py`, `script.cpp`, `script.java`)
+- File extension in the editor tab reflects the current language (e.g., `script.js`, `script.py`, `script.cpp`, `script.java`, `script.rs`, `script.go`)
 
 ### 4. Multi-Language Code Execution
 - **JavaScript**: Runs in Web Workers (client-side) for security and performance
-- **Python**, **C++**, **Java**: Execute on the backend server with proper compilation/interpretation
+- **Python**, **C++**, **Java**, **Rust**, **Go**: Execute on the backend server with proper compilation/interpretation
 
 ## Setup Instructions
 
@@ -35,7 +35,7 @@ The frontend changes are automatically included in `src/pages/playground/index.t
 
 ### Backend Requirements
 
-To use Python, C++, and Java execution, ensure the following tools are installed on your server:
+To use Python, C++, Java, Rust, and Go execution, ensure the following tools are installed on your server:
 
 #### Linux/macOS
 ```bash
@@ -48,21 +48,30 @@ g++ --version
 # Java
 java -version
 javac -version
+
+# Rust
+rustc --version
+cargo --version
+
+# Go
+go version
 ```
 
 Install if missing:
 ```bash
 # Ubuntu/Debian
-sudo apt-get install python3 g++ openjdk-11-jdk
+sudo apt-get install python3 g++ openjdk-11-jdk rustc golang-go
 
 # macOS with Homebrew
-brew install python@3.11 gcc openjdk
+brew install python@3.11 gcc openjdk rust go
 ```
 
 #### Windows
 1. **Python**: Download from https://www.python.org/downloads/
 2. **C++ Compiler**: Install MinGW or use Visual C++ Build Tools
 3. **Java**: Download JDK from https://www.oracle.com/java/technologies/javase-jdk11-downloads.html
+4. **Rust**: Download from https://www.rust-lang.org/tools/install
+5. **Go**: Download from https://golang.org/dl/
 
 ### Running the Backend Server
 
@@ -88,7 +97,7 @@ The server will listen on `http://localhost:5000` by default.
 **Request Body:**
 ```json
 {
-  "language": "python|cpp|java",
+  "language": "python|cpp|java|rust|go",
   "code": "// Your source code here"
 }
 ```
@@ -228,17 +237,25 @@ public class BinarySearch {
 - **C++**: Compiled language, fastest execution for compute-intensive tasks
 - **Java**: JVM startup adds overhead, but offers strong type safety
 
-## Security
+## Security & Sandboxing
 
-- **Code Sandboxing**: JavaScript code runs in isolated Web Workers
-- **Execution Timeout**: All code has a 10-second execution limit to prevent infinite loops
-- **No External Access**: Code cannot make network requests or access file systems
-- **Temporary Files**: All generated files are cleaned up after execution
+The playground employs layered security techniques depending on the execution runtime to ensure high security and isolate user scripts.
+
+### 1. JavaScript Sandboxing (Web Workers)
+* **Execution Environment**: JavaScript code executes entirely inside client-side **Web Workers**.
+* **Global Scope Isolation**: Web Workers do not have access to the browser's main thread global scope, the **window** object, the **document** (DOM), or cookies.
+* **Timeout Protection**: A watchdog timer automatically terminates execution if a script exceeds the 10-second execution limit, preventing infinite loop tab freezes.
+
+### 2. Backend Execution (Python, C++, Java, Rust, Go)
+Non-JavaScript languages are executed on the backend server.
+* **Execution Environment**: Code is written to temporary files in the server's temporary directory and executed using system commands (python, g++, java, rustc, go).
+* **Timeout Protection**: Backend execution is limited to 10 seconds via the exec timeout option to prevent resource exhaustion.
+* **Cleanup**: Temporary source files and compiled binaries are deleted immediately after execution.
 
 ## Future Enhancements
 
 Potential improvements:
-- Add more languages (Rust, Go, C#, etc.)
+- Add more languages (C#, Kotlin, etc.)
 - Support for multiple files/modules
 - Code sharing and snippets
 - Collaborative editing
@@ -247,11 +264,13 @@ Potential improvements:
 
 ## Contributing
 
-To contribute improvements to the multi-language playground:
+**Adding algorithm documentation (Python, C++, Java, etc. on the docs site):** See [How to add a new algorithm in multiple languages](./CONTRIBUTING.md#5-how-to-add-a-new-algorithm-in-multiple-languages) in `CONTRIBUTING.md` for folder layout, MDX/front-matter, and sidebar registration. That workflow is separate from the playground below.
+
+**Changing the multi-language playground** (templates, execution, new runtime):
 
 1. Test your changes with all supported languages
 2. Ensure backend handles errors gracefully
-3. Update documentation if adding new languages or features
+3. Update this file and [IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md) if adding languages or changing behavior
 4. Test with the existing test suite: `npm run server:test`
 
 ## Architecture

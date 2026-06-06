@@ -45,7 +45,7 @@ const config = {
   },
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenMarkdownLinks: "throw",
 
   presets: [
     [
@@ -100,7 +100,7 @@ const config = {
         apiKey: "865d7bd9906f532b1d8cb5cc0f02b383",
         indexName: "ajay-dhangario",
         appId: "T0I3F584D5",
-        contextualSearch: false,
+        contextualSearch: true,
       },
 
       navbar: {

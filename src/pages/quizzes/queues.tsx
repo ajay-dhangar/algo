@@ -1,410 +1,352 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
-
-import QuestionProgress
-from "../../components/Quiz/QuestionProgress";
-
-import QuestionNavigator
-from "../../components/Quiz/QuestionNavigator";
-
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  FaUserCircle, 
+  FaSignOutAlt, 
+  FaClock, 
+  FaAward, 
+  FaCheckCircle, 
+  FaTimesCircle, 
+  FaRedoAlt, 
+  FaCode, 
+  FaChevronRight, 
+  FaHistory,
+  FaLayerGroup
+} from "react-icons/fa";
+import QuestionProgress from "../../components/Quiz/QuestionProgress";
+import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
 
-const QueueQuiz: React.FC = () => {
-  const questions = [
-    // Easy Questions
-    {
-      question: "1. What will happen if you try to dequeue an item from an empty queue?",
-      options: ["A) Returns null", "B) Throws an error", "C) Returns undefined", "D) No operation"],
-      answer: "B) Throws an error",
-    },
-    {
-      question: "2. In a circular queue, what is the primary benefit compared to a linear queue?",
-      options: ["A) More memory usage", "B) Faster access time", "C) Efficient use of space", "D) Simpler implementation"],
-      answer: "C) Efficient use of space",
-    },
-    {
-      question: (
-        <>
-          3. Consider the following operations on a queue:
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`enqueue(1);
-enqueue(2);
-enqueue(3);
-dequeue();
-enqueue(4);
-dequeue();`}
-          </pre>
-          What will be the output of the dequeue operations?
-        </>
-      ),
-      options: ["A) 1, 2", "B) 1, 3", "C) 2, 4", "D) 3, 4"],
-      answer: "A) 1, 2",
-    },
-    // Average Questions
-    {
-      question: "4. Which data structure is commonly used to implement a queue?",
-      options: ["A) Array", "B) Linked List", "C) Stack", "D) Both A and B"],
-      answer: "D) Both A and B",
-    },
-    {
-      question: "5. What is the time complexity of enqueue and dequeue operations in a linked list-based queue?",
-      options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
-      answer: "A) O(1)",
-    },
-    {
-      question: "6. In a queue, which operation is used to remove an element from the front?",
-      options: ["A) push", "B) pop", "C) enqueue", "D) dequeue"],
-      answer: "D) dequeue",
-    },
-    {
-      question: (
-        <>
-          7. Given the following pseudocode for a queue operation:
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`if (front == -1) {
-    front = 0;
+interface QueueQuestion {
+  id: number;
+  difficulty: "Easy" | "Medium" | "Hard";
+  questionText: string;
+  codeSnippet?: string;
+  options: string[];
+  answer: string;
+  explanation: string;
 }
-rear++;
-queue[rear] = value;`}
-          </pre>
-          What does this pseudocode represent?
-        </>
-      ),
-      options: [
-        "A) Enqueue operation",
-        "B) Dequeue operation",
-        "C) Peek operation",
-        "D) IsEmpty operation",
-      ],
-      answer: "A) Enqueue operation",
-    },
-    // Difficult QuestionsclassName="options"
-    {
-      question: "8. Which of the following is not a type of queue?",
-      options: ["A) Simple Queue", "B) Circular Queue", "C) Double-ended Queue", "D) Random Queue"],
-      answer: "D) Random Queue",
-    },
-    {
-      question: (
-        <>
-          9. In a priority queue, elements are dequeued based on:
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`1. Their position in the queue
-2. Their priority level`}
-          </pre>
-          Which statement is correct?
-        </>
-      ),
-      options: [
-        "A) Only by position",
-        "B) Only by priority level",
-        "C) Both position and priority level",
-        "D) Neither",
-      ],
-      answer: "B) Only by priority level",
-    },
-    {
-      question: (
-        <>
-          10. What will be the output of the following queue operations if the initial queue is empty?
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`enqueue(10);
-enqueue(20);
-dequeue();
-enqueue(30);`}
-          </pre>
-          What will be the current front of the queue?
-        </>
-      ),
-      options: ["A) 10", "B) 20", "C) 30", "D) Queue is empty"],
-      answer: "C) 30",
-    },
-  ];
 
+interface AttemptHistory {
+  timestamp: number;
+  score: number;
+  timeSpent: number;
+}
+
+const QUESTIONS: QueueQuestion[] = [
+  {
+    id: 1,
+    difficulty: "Easy",
+    questionText: "What will happen if you attempt to dequeue an item from a queue that is currently empty?",
+    options: [
+      "A) The operation returns null and continues",
+      "B) It typically triggers a Queue Underflow error/exception",
+      "C) The operation returns undefined",
+      "D) No operation is performed and state remains same"
+    ],
+    answer: "B) It typically triggers a Queue Underflow error/exception",
+    explanation: "Attempting to remove an element from an empty data structure is a boundary case known as underflow. In most robust implementations, this throws an exception to prevent logic errors."
+  },
+  {
+    id: 2,
+    difficulty: "Easy",
+    questionText: "In a circular queue implementation, what is the primary structural benefit compared to a standard linear array queue?",
+    options: [
+      "A) It consumes more memory for faster buffering",
+      "B) It provides faster O(log n) access time",
+      "C) It allows for efficient reuse of empty spaces (space efficiency)",
+      "D) It is significantly simpler to implement with pointers"
+    ],
+    answer: "C) It allows for efficient reuse of empty spaces (space efficiency)",
+    explanation: "Linear queues can suffer from 'false overflow' where space at the front is wasted after dequeues. Circular queues wrap the rear pointer back to the start, utilizing every available slot."
+  },
+  {
+    id: 3,
+    difficulty: "Medium",
+    questionText: "Consider the following sequence of operations. What values will be returned by the two dequeue() calls respectively?",
+    codeSnippet: `enqueue(1);\nenqueue(2);\nenqueue(3);\ndequeue();\nenqueue(4);\ndequeue();`,
+    options: ["A) 1, 2", "B) 1, 3", "C) 2, 4", "D) 3, 4"],
+    answer: "A) 1, 2",
+    explanation: "Queues follow First-In-First-Out (FIFO). The first dequeue removes the first item added (1). The second dequeue removes the next item that was in line (2), regardless of the fact that 4 was added later."
+  },
+  {
+    id: 4,
+    difficulty: "Easy",
+    questionText: "Which of the following data structures can be used as the underlying foundation to implement a Queue?",
+    options: ["A) Static Arrays", "B) Singly or Doubly Linked Lists", "C) Stacks (using two of them)", "D) All of the above"],
+    answer: "D) All of the above",
+    explanation: "Queues are abstract data types. While Arrays and Linked Lists are common, you can even simulate FIFO behavior using two LIFO Stacks."
+  },
+  {
+    id: 5,
+    difficulty: "Medium",
+    questionText: "What is the time complexity of the enqueue and dequeue operations in an optimized Linked List-based queue?",
+    options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
+    answer: "A) O(1)",
+    explanation: "By maintaining both a 'Head' and a 'Tail' pointer, we can add to the back and remove from the front in constant time without traversing the list."
+  },
+  {
+    id: 6,
+    difficulty: "Hard",
+    questionText: "Examine this pseudocode snippet. Which operation does it accurately represent in a typical array-based implementation?",
+    codeSnippet: `if (front == -1) {\n    front = 0;\n}\nrear++;\nqueue[rear] = value;`,
+    options: [
+      "A) Dequeue Operation",
+      "B) Peek Operation",
+      "C) Enqueue Operation",
+      "D) IsEmpty Check"
+    ],
+    answer: "C) Enqueue Operation",
+    explanation: "This code handles the insertion logic: initializing the front pointer if the queue was empty, incrementing the rear index, and placing the new value at that position."
+  },
+  {
+    id: 7,
+    difficulty: "Medium",
+    questionText: "In a Priority Queue, how is the order of element removal (dequeue) determined?",
+    options: [
+      "A) Strictly by the order of arrival (FIFO)",
+      "B) Based on the priority level associated with each element",
+      "C) Based on the alphabetical order of the data",
+      "D) By the physical memory address of the node"
+    ],
+    answer: "B) Based on the priority level associated with each element",
+    explanation: "A Priority Queue breaks the standard FIFO rule. Elements with higher priority are dequeued before elements with lower priority, regardless of when they entered the queue."
+  },
+  {
+    id: 8,
+    difficulty: "Hard",
+    questionText: "If a queue is initially empty, what is the current 'Front' element after this specific sequence?",
+    codeSnippet: `enqueue(10);\nenqueue(20);\ndequeue();\nenqueue(30);`,
+    options: ["A) 10", "B) 20", "C) 30", "D) The queue is empty"],
+    answer: "B) 20",
+    explanation: "1. Enqueue 10 (Front: 10). 2. Enqueue 20 (Front: 10, Rear: 20). 3. Dequeue removes 10. 4. Front moves to 20. 5. Enqueue 30 (Front remains 20, Rear becomes 30)."
+  }
+];
+
+const QueueQuiz: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const apiBaseUrl = useApiBaseUrl();
-  const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
-
-  // Custom states for persistence, timer, and history
-  const [usernameInput, setUsernameInput] = useState("");
-  const [userId, setUserId] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
+  const [usernameInput, setUsernameInput] = useState("");
   const [timeSpent, setTimeSpent] = useState(0);
-  const [attempts, setAttempts] = useState<any[]>([]);
+  const [history, setHistory] = useState<AttemptHistory[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const storedId = localStorage.getItem("quiz_userId");
-    const storedName = localStorage.getItem("quiz_username");
-    if (storedId && storedName) {
-      setUserId(storedId);
-      setUsername(storedName);
+    setIsMounted(true);
+    const savedUser = localStorage.getItem("quiz_user_queue_alt");
+    if (savedUser) {
+      setUsername(savedUser);
+      const savedHistory = localStorage.getItem(`quiz_history_${savedUser}_queue_alt`);
+      if (savedHistory) setHistory(JSON.parse(savedHistory));
     }
   }, []);
 
   useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId]);
-
-  useEffect(() => {
-    if (showResult || !userId) return;
-    const timer = setInterval(() => {
-      setTimeSpent((prev) => prev + 1);
-    }, 1000);
+    if (showResult || !username) return;
+    const timer = setInterval(() => setTimeSpent(p => p + 1), 1000);
     return () => clearInterval(timer);
-  }, [showResult, userId]);
+  }, [showResult, username]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(
-        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/queues`)
-      );
-      if (res.data?.success) {
-        setAttempts(res.data.attempts);
-      }
-    } catch (e) {
-      console.error("Error fetching attempt history:", e);
-    }
-  };
+  const score = useMemo(() => {
+    return userAnswers.reduce((acc, ans, idx) => (ans === QUESTIONS[idx]?.answer ? acc + 1 : acc), 0);
+  }, [userAnswers]);
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
-    const slug = usernameInput.trim().toLowerCase().replace(/[^a-z0-9_-]/g, "-");
-    localStorage.setItem("quiz_userId", slug);
-    localStorage.setItem("quiz_username", usernameInput.trim());
-    setUserId(slug);
+    localStorage.setItem("quiz_user_queue_alt", usernameInput.trim());
     setUsername(usernameInput.trim());
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("quiz_userId");
-    localStorage.removeItem("quiz_username");
-    setUserId(null);
+    localStorage.removeItem("quiz_user_queue_alt");
     setUsername(null);
-    setAttempts([]);
+    handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
-    if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "queues",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Error submitting attempt:", e);
-    }
+  const handleAnswer = (selected: string) => {
+    const updated = [...userAnswers];
+    updated[currentQuestion] = selected;
+    setUserAnswers(updated);
   };
 
-  const handleAnswer=(selected:string)=>{
-
- setSelectedOption(selected);
-
- const updatedAnswers=[...userAnswers];
-
- updatedAnswers[currentQuestion]=selected;
-
- setUserAnswers(updatedAnswers);
-
-}
-
-  const nextQuestion = () => {
-    if (selectedOption === null) return;
-
-    setUserAnswers((prev) => [...prev, selectedOption]);
-
-    if (selectedOption === questions[currentQuestion].answer) {
-      setScore((prev) => prev + 1);
-    }
-
-    if (currentQuestion < questions.length - 1) {
+  const handleNext = () => {
+    if (currentQuestion < QUESTIONS.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers, selectedOption];
-      submitAttempt(finalAnswers);
+      const newAttempt = { timestamp: Date.now(), score, timeSpent };
+      const updatedHistory = [newAttempt, ...history].slice(0, 5);
+      setHistory(updatedHistory);
+      localStorage.setItem(`quiz_history_${username}_queue_alt`, JSON.stringify(updatedHistory));
     }
   };
 
   const handleRetry = () => {
     setCurrentQuestion(0);
-    setScore(0);
     setShowResult(false);
-    setSelectedOption(null);
     setUserAnswers([]);
     setTimeSpent(0);
   };
 
-  if (!userId) {
+  const formatTime = (s: number) => `${Math.floor(s / 60)}m ${s % 60}s`;
+
+  if (!isMounted) return null;
+
+  if (!username) {
     return (
-      <Layout title="Queues Quiz" description="Challenge your knowledge on queue implementations and their use cases.">
-        <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
-          <div className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-10 w-full max-w-md text-center border border-gray-100 dark:border-gray-700">
-            <div className="text-5xl mb-4">🏆</div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">Welcome to the Quiz!</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
-              Please enter your username to track your progress, save your attempts, and compete on the global leaderboard.
+      <Layout title="Queue Assessment">
+        <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] flex items-center justify-center p-6">
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl rounded-2xl p-10 max-w-md w-full text-center">
+            <div className="w-20 h-20 bg-indigo-500/10 text-indigo-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+              <FaLayerGroup />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Initialize Session</h2>
+            <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm leading-relaxed">
+              Verify your knowledge of FIFO architectures, circular buffering, and priority logic. Enter a username to begin.
             </p>
             <form onSubmit={handleRegister} className="space-y-4">
-              <input
-                type="text"
-                aria-label="Username"
-                placeholder="Enter username (e.g. JohnDoe)"
-                value={usernameInput}
-                onChange={(e) => setUsernameInput(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors cursor-pointer border-none"
-              >
-                Let's Begin!
+              <input type="text" placeholder="Developer Alias" value={usernameInput} onChange={e => setUsernameInput(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all" required />
+              <button type="submit" className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-lg active:scale-95 border-none cursor-pointer">
+                Launch Workspace
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </Layout>
     );
   }
 
   return (
-    <Layout title="Queues Quiz" description="Challenge your knowledge on queue implementations and their use cases.">
-      <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex flex-col items-center justify-center p-6 transition-colors duration-500">
-        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
+    <Layout title="Queue Assessment Engine">
+      <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
+        <div className="max-w-4xl mx-auto">
           
-          <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 mb-4 bg-gray-100 dark:bg-gray-700/50 px-4 py-2 rounded-lg">
-            <span>Logged in as: <strong className="text-gray-900 dark:text-white">{username}</strong></span>
-            <button onClick={handleLogout} className="text-red-500 hover:underline border-none bg-transparent cursor-pointer">Change User</button>
+          {/* Top Identity Meta Header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 mb-8 shadow-sm">
+            <div className="flex items-center gap-3">
+              <FaUserCircle className="text-2xl text-indigo-500" />
+              <span className="text-xs font-mono font-bold text-slate-500">TERMINAL_USER: <strong className="text-slate-900 dark:text-white uppercase">{username}</strong></span>
+            </div>
+            <div className="flex items-center gap-4">
+               {!showResult && <div className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-lg text-indigo-600"><FaClock className="inline mr-1"/> {formatTime(timeSpent)}</div>}
+               <button onClick={handleLogout} className="text-rose-500 hover:bg-rose-500/10 px-3 py-1 rounded-lg text-xs font-bold transition-all border-none bg-transparent cursor-pointer"><FaSignOutAlt className="inline mr-1"/> EXIT</button>
+            </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Quiz on Queues</h2>
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 md:p-10 shadow-sm">
+            <AnimatePresence mode="wait">
+              {!showResult ? (
+                <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-indigo-500 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+                      Module: Linear Collections
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">Step {currentQuestion + 1} of {QUESTIONS.length}</span>
+                  </div>
 
-          <QuestionProgress
-currentQuestion={currentQuestion}
-totalQuestions={questions.length}
-/>
+                  <div className="space-y-6 text-left">
+                    <div className="flex items-center gap-2">
+                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded uppercase ${QUESTIONS[currentQuestion].difficulty === 'Hard' ? 'bg-rose-500/10 text-rose-500' : 'bg-emerald-500/10 text-emerald-500'}`}>
+                        {QUESTIONS[currentQuestion].difficulty} Tier
+                       </span>
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold leading-relaxed">{QUESTIONS[currentQuestion].questionText}</h3>
 
-<QuestionNavigator
-questions={questions}
-currentQuestion={currentQuestion}
-userAnswers={userAnswers}
-setCurrentQuestionIndex={setCurrentQuestion}
-/>
-
-          {!showResult && (
-            <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-right">
-              ⏱ Time: {Math.floor(timeSpent / 60)}m {timeSpent % 60}s
-            </div>
-          )}
-
-          {showResult ? (
-            <div>
-              <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
-                <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
-                  Your Score: <span className="text-4xl">{score}</span> 🎉
-                </h3>
-                <p className="mt-4 text-lg">
-                  {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
-                </p>
-              </div>
-
-              <QuizResultActions onRetry={handleRetry} />
-
-              {/* Solutions Section */}
-              <div className="mt-8">
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions:</h3>
-                {questions.map((q, index) => (
-                  <div key={index} className="mb-6 text-left">
-                    <div className="text-lg font-semibold">{q.question}</div>
-                    <p className="text-md">
-                      <span className="font-bold">Your Answer:</span> {userAnswers[index]}
-                    </p>
-                    <p className="text-md">
-                      <span className="font-bold">Correct Answer:</span> {q.answer}
-                    </p>
-                    {q.explanation && (
-                      <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
-                        <span className="font-bold">Explanation:</span> {q.explanation}
-                      </p>
+                    {QUESTIONS[currentQuestion].codeSnippet && (
+                      <div className="rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-[#0d1117] text-sm">
+                        <div className="bg-slate-800/50 px-4 py-2 border-b border-slate-700 flex items-center justify-between">
+                          <span className="text-[10px] font-mono text-slate-400"><FaCode className="inline mr-2"/> queue_ops.cpp</span>
+                        </div>
+                        <pre className="p-5 overflow-x-auto text-slate-300 font-mono leading-relaxed"><code>{QUESTIONS[currentQuestion].codeSnippet}</code></pre>
+                      </div>
                     )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div>
-              <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4 text-left">
-                {questions[currentQuestion].question}
-              </h3>
-              <div className="space-y-4">
-                {questions[currentQuestion].options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswer(option)}
-                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
-                        ? "bg-blue-600 text-white dark:bg-blue-500"
-                        : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                      }`}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={nextQuestion}
-                disabled={selectedOption === null}
-                className={`mt-6 py-2 px-4 text-white rounded-lg w-full transition-colors duration-300 border-none font-semibold ${
-                  selectedOption === null
-                    ? "bg-gray-400 cursor-not-allowed opacity-60"
-                    : "bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 cursor-pointer"
-                }`}
-              >
-                Next Question
-              </button>
-            </div>
-          )}
 
-          {/* Attempts History */}
-          {attempts.length > 0 && (
-            <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left w-full">
-              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Your Attempt History:</h3>
-              <div className="space-y-3">
-                {attempts.map((att, index) => (
-                  <div key={att.id || index} className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex justify-between items-center hover:shadow-md transition-shadow">
-                    <div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {new Date(att.completedAt).toLocaleString()}
-                      </div>
-                      <div className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                        Attempt #{attempts.length - index}
-                      </div>
+                    <div className="grid grid-cols-1 gap-3 pt-4">
+                      {QUESTIONS[currentQuestion].options.map((opt, i) => (
+                        <button key={i} onClick={() => handleAnswer(opt)}
+                          className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-indigo-400'}`}>
+                          <span className="text-sm font-semibold">{opt}</span>
+                          <div className={`w-4 h-4 rounded-full border ${userAnswers[currentQuestion] === opt ? 'bg-white border-white' : 'border-slate-300 dark:border-slate-700'}`}></div>
+                        </button>
+                      ))}
                     </div>
-                    <div className="text-right">
-                      <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
-                        {att.score} / {att.totalQuestions} ({Math.round((att.score / att.totalQuestions) * 100)}%)
-                      </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        Time spent: {Math.floor(att.timeSpent / 60)}m {att.timeSpent % 60}s
-                      </div>
+
+                    <button onClick={handleNext} disabled={!userAnswers[currentQuestion]}
+                      className={`w-full py-4 mt-8 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all border-none ${userAnswers[currentQuestion] ? 'bg-slate-900 text-white dark:bg-indigo-600 hover:opacity-90 shadow-lg cursor-pointer' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed'}`}>
+                      {currentQuestion === QUESTIONS.length - 1 ? 'Evaluate System' : 'Next Node'} <FaChevronRight className="text-[10px]"/>
+                    </button>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-10">
+                  <div className="bg-indigo-500/5 dark:bg-indigo-500/10 border border-indigo-500/20 rounded-3xl p-8 text-center">
+                    <h3 className="text-xl font-black uppercase text-indigo-500 mb-6">Diagnostic Results</h3>
+                    <div className="inline-flex items-baseline gap-2 text-6xl font-black text-slate-900 dark:text-white font-mono">
+                      {score}<span className="text-2xl text-slate-400 font-normal">/ {QUESTIONS.length}</span>
+                    </div>
+                    <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm font-medium">
+                      {score === QUESTIONS.length ? 'Perfect Score! FIFO logic mastery verified.' : 'Execution complete. Review node trace logs below.'}
+                    </p>
+                    <div className="flex gap-3 justify-center mt-8">
+                       <button onClick={handleRetry} className="bg-indigo-600 text-white px-6 py-2 rounded-lg font-bold text-xs hover:opacity-90 transition-all border-none cursor-pointer shadow-md"><FaRedoAlt className="inline mr-2"/> RETRY</button>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
 
+                  <div className="text-left space-y-8">
+                    <h4 className="text-sm font-mono font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-4">Trace Logic Log</h4>
+                    {QUESTIONS.map((q, idx) => (
+                      <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4">
+                        <div className="flex items-start justify-between gap-4">
+                          <h5 className="text-sm font-bold leading-relaxed">{idx + 1}. {q.questionText}</h5>
+                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0"/> : <FaTimesCircle className="text-rose-500 shrink-0"/>}
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                          <div className={`p-3 rounded-lg border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/10 text-emerald-600' : 'bg-rose-500/5 border-rose-500/10 text-rose-500'}`}>
+                            <span className="block text-[8px] font-black uppercase mb-1 opacity-60">Input</span> {userAnswers[idx] || '[NO_INPUT]'}
+                          </div>
+                          {userAnswers[idx] !== q.answer && <div className="p-3 rounded-lg border bg-emerald-500/5 border-emerald-500/10 text-emerald-600">
+                             <span className="block text-[8px] font-black uppercase mb-1 opacity-60">Baseline</span> {q.answer}
+                          </div>}
+                        </div>
+                        <p className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/50 p-4 rounded-xl italic border border-dashed border-slate-200 dark:border-slate-800">
+                          <strong className="text-indigo-500 not-italic block mb-1">Compiler Insight:</strong> {q.explanation}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {history.length > 0 && (
+              <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-left">
+                <div className="flex items-center gap-2 mb-6">
+                  <FaHistory className="text-slate-400 text-xs" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Execution History</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                  {history.map((h, i) => (
+                    <div key={i} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex justify-between items-center transition-all hover:border-indigo-500/30">
+                      <div>
+                        <div className="text-[10px] font-mono text-slate-400">{new Date(h.timestamp).toLocaleDateString()}</div>
+                        <div className="text-xs font-bold text-slate-700 dark:text-slate-200">Attempt #{history.length - i}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-sm font-black text-indigo-500 font-mono">{h.score}/{QUESTIONS.length}</div>
+                        <div className="text-[9px] text-slate-400 uppercase font-bold">{formatTime(h.timeSpent)}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Layout>
