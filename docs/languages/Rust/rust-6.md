@@ -472,6 +472,9 @@ fn main() {
 
     let a = &text;
     let b = &mut text;
+
+    println("{}", a);
+    println("{}",b);
 }
 ```
 
