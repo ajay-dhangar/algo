@@ -9,9 +9,13 @@ function formatBoolean(value) {
 }
 
 export default function ComplexityTable({ algorithms = [] }) {
+  const algorithmList = Array.isArray(algorithms) ? algorithms : [algorithms];
+
   const selectedAlgorithms =
-    algorithms.length > 0
-      ? algorithms.map((name) => [name, complexityData[name]]).filter(([, data]) => data)
+    algorithmList.length > 0
+      ? algorithmList
+          .map((name) => [name, complexityData[name]])
+          .filter(([, data]) => data)
       : Object.entries(complexityData);
 
   if (selectedAlgorithms.length === 0) {
