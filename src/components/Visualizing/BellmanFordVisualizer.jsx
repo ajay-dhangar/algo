@@ -10,9 +10,10 @@ const EDGES = [
     { from: 2, to: 3, weight: 3 },
     { from: 3, to: 4, weight: 2 },
 ];
+const INITIAL_DISTANCES = NODES.map((_, i) => (i === 0 ? 0 : Infinity));
 
 export default function BellmanFordVisualizer() {
-    const [distances, setDistances] = useState([0, Infinity, Infinity, Infinity, Infinity]);
+    const [distances, setDistances] = useState(INITIAL_DISTANCES);
     const [currentEdge, setCurrentEdge] = useState(null);
     const [updatedNode, setUpdatedNode] = useState(null);
     const [pass, setPass] = useState(0);
