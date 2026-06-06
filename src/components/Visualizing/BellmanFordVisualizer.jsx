@@ -93,7 +93,7 @@ export default function BellmanFordVisualizer() {
     };
 
     const reset = () => {
-        setDistances([0, Infinity, Infinity, Infinity, Infinity]);
+        setDistances(INITIAL_DISTANCES);
         setCurrentEdge(null);
         setUpdatedNode(null);
         setPass(0);
