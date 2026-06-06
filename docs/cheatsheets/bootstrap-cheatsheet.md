@@ -1,20 +1,11 @@
-\---
-
-
-
+---
 id: bootstrap-cheatsheet
-
 title: Bootstrap Cheatsheet
-
-sidebar\_label: Bootstrap Cheatsheet
-
-sidebar\_position: 2
-
+sidebar_label: Bootstrap Cheatsheet
+sidebar_position: 2
 description: "A fast, practical Bootstrap reference for responsive layouts, components, and modern web development."
-
-tags: \[bootstrap, css, frontend, web-development]
-
-\-------------------------------------------------
+tags: [bootstrap, css, frontend, web-development]
+---
 
 
 
@@ -22,50 +13,29 @@ This page is a quick reference for Bootstrap patterns that show up constantly in
 
 
 
-\## Getting Started
+## Getting Started
 
-
-
-\### Bootstrap CDN
-
-
+### Bootstrap CDN
 
 ```html title="Bootstrap via CDN"
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-&#x20; <meta charset="UTF-8">
-
-&#x20; <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-&#x20; <link
-
-&#x20;   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-
-&#x20;   rel="stylesheet">
-
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
 </head>
-
 <body>
 
-
-
-&#x20; <script
-
-&#x20;   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-
-&#x20; </script>
-
-
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
 
 </body>
-
 </html>
 
 ```
@@ -144,7 +114,7 @@ This page is a quick reference for Bootstrap patterns that show up constantly in
 
 
 
-Bootstrap grid uses \*\*12 columns\*\*.
+Bootstrap grid uses **12 columns**.
 
 
 
@@ -1184,19 +1154,13 @@ Show only on mobile:
 
 
 
-\### Best Practices
+### Best Practices
 
-
-
-\* Use the grid system instead of manual widths.
-
-\* Prefer utility classes (`mt-3`, `d-flex`, `text-center`) over custom CSS when possible.
-
-\* Make layouts mobile-first.
-
-\* Use Bootstrap components before reinventing common UI elements.
-
-\* Keep custom CSS organized and minimal.
+* Use the grid system instead of manual widths.
+* Prefer utility classes (mt-3, d-flex, text-center) over custom CSS when possible.
+* Make layouts mobile-first.
+* Use Bootstrap components before reinventing common UI elements.
+* Keep custom CSS organized and minimal.
 
 
 
