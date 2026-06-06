@@ -13,13 +13,9 @@ This page is a quick reference for Bootstrap patterns that show up constantly in
 
 
 
-\## Getting Started
+## Getting Started
 
-
-
-\### Bootstrap CDN
-
-
+### Bootstrap CDN
 
 ```html title="Bootstrap via CDN"
 
