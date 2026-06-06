@@ -137,7 +137,6 @@ div[class^="announcementBar_"] .clean-btn {
 }
 
 .navbar__link--active:hover {
-  /* background-color: #2563eb !important; */
   border-bottom-color: var(--ifm-color-primary-dark) !important;
 }
 
