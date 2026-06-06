@@ -114,7 +114,7 @@ This page is a quick reference for Bootstrap patterns that show up constantly in
 
 
 
-Bootstrap grid uses \*\*12 columns\*\*.
+Bootstrap grid uses **12 columns**.
 
 
 
