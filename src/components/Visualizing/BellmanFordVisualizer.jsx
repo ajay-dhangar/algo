@@ -30,7 +30,7 @@ export default function BellmanFordVisualizer() {
 
         setRunning(true);
 
-        let dist = [0, Infinity, Infinity, Infinity, Infinity];
+        let dist = [...INITIAL_DISTANCES];
 
         setDistances([...dist]);
         setPass(0);
