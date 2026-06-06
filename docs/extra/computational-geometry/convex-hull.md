@@ -83,9 +83,9 @@ flowchart TD
 
 ---
 
-# Graham Scan Algorithm
+## Graham Scan Algorithm
 
-## Idea
+### Idea
 
 Graham Scan, published by Ronald Graham in 1972, computes the convex hull in O(N log N) time. The algorithm works as follows:
 
@@ -98,7 +98,7 @@ After processing all points, the stack contains exactly the vertices of the conv
 
 ---
 
-## Step-by-Step Example
+### Step-by-Step Example
 
 Consider the following six points:
 
@@ -130,7 +130,7 @@ P1 is an interior point and correctly excluded.
 
 ---
 
-## Graham Scan C++ Implementation
+### Graham Scan C++ Implementation
 
 ```cpp
 #include <bits/stdc++.h>
@@ -211,7 +211,7 @@ int main() {
 
 ---
 
-## Graham Scan Java Implementation
+### Graham Scan Java Implementation
 
 ```java
 import java.util.*;
@@ -308,7 +308,7 @@ public class GrahamScan {
 
 ---
 
-## Graham Scan Python Implementation
+### Graham Scan Python Implementation
 
 ```python
 from functools import cmp_to_key
@@ -378,7 +378,7 @@ if __name__ == "__main__":
 
 ---
 
-## Graham Scan Complexity Analysis
+### Graham Scan Complexity Analysis
 
 | Phase | Time Complexity |
 |-------|----------------|
@@ -392,9 +392,9 @@ The O(N log N) sorting step dominates. The stack-based construction is O(N) beca
 
 ---
 
-# Andrew's Monotone Chain Algorithm
+## Andrew's Monotone Chain Algorithm
 
-## Idea
+### Idea
 
 Andrew's Monotone Chain (1979) is closely related to Graham Scan but uses a different sorting strategy that avoids trigonometry and is numerically more robust. The algorithm:
 
@@ -407,7 +407,7 @@ The result is a counter-clockwise list of hull vertices.
 
 ---
 
-## Step-by-Step Example
+### Step-by-Step Example
 
 Using the same six points as before, sorted lexicographically:
 
@@ -440,7 +440,7 @@ Upper hull: `[(2,2), (1,3), (0,2), (0,0)]`
 
 ---
 
-## Andrew's Monotone Chain C++ Implementation
+### Andrew's Monotone Chain C++ Implementation
 
 ```cpp
 #include <bits/stdc++.h>
@@ -500,7 +500,7 @@ int main() {
 
 ---
 
-## Andrew's Monotone Chain Java Implementation
+### Andrew's Monotone Chain Java Implementation
 
 ```java
 import java.util.*;
@@ -568,7 +568,7 @@ public class MonotoneChain {
 
 ---
 
-## Andrew's Monotone Chain Python Implementation
+### Andrew's Monotone Chain Python Implementation
 
 ```python
 def cross(O, A, B):
@@ -613,7 +613,7 @@ if __name__ == "__main__":
 
 ---
 
-## Andrew's Monotone Chain Complexity Analysis
+### Andrew's Monotone Chain Complexity Analysis
 
 | Phase | Time Complexity |
 |-------|----------------|
