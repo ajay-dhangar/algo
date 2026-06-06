@@ -1154,19 +1154,13 @@ Show only on mobile:
 
 
 
-\### Best Practices
+### Best Practices
 
-
-
-\* Use the grid system instead of manual widths.
-
-\* Prefer utility classes (`mt-3`, `d-flex`, `text-center`) over custom CSS when possible.
-
-\* Make layouts mobile-first.
-
-\* Use Bootstrap components before reinventing common UI elements.
-
-\* Keep custom CSS organized and minimal.
+* Use the grid system instead of manual widths.
+* Prefer utility classes (mt-3, d-flex, text-center) over custom CSS when possible.
+* Make layouts mobile-first.
+* Use Bootstrap components before reinventing common UI elements.
+* Keep custom CSS organized and minimal.
 
 
 
