@@ -56,6 +56,138 @@ The algorithm follows these steps:
    - The `distance[]` array holds the shortest distance from the source to every other vertex.
 
 ---
+## Dry Run Example
+
+Consider the following graph:
+
+```mermaid
+graph LR
+    A -->|4| B
+    A -->|2| C
+    C -->|-1| B
+    B -->|2| D
+    C -->|4| E
+    D -->|2| E
+```
+
+Source Vertex: **A**
+
+### Initial Distances
+
+| Vertex | Distance |
+|----------|----------|
+| A | 0 |
+| B | ∞ |
+| C | ∞ |
+| D | ∞ |
+| E | ∞ |
+
+### After Pass 1
+
+| Vertex | Distance |
+|----------|----------|
+| A | 0 |
+| B | 1 |
+| C | 2 |
+| D | 3 |
+| E | 5 |
+
+### After Pass 2
+
+No further updates occur.
+
+### Final Shortest Distances
+
+| Vertex | Distance |
+|----------|----------|
+| A | 0 |
+| B | 1 |
+| C | 2 |
+| D | 3 |
+| E | 5 |
+
+The shortest path to **B** becomes:
+
+A → C → B
+
+with cost:
+
+2 + (-1) = 1
+
+:::tip
+This example demonstrates why Bellman-Ford is useful for graphs containing negative edge weights. The algorithm successfully finds a shorter path through a negative-weight edge, which standard Dijkstra's algorithm cannot handle correctly.
+:::
+---
+
+## Visualization of Relaxation Process
+
+Bellman-Ford works by repeatedly relaxing every edge in the graph. Each relaxation attempts to improve the currently known shortest distance to a vertex.
+
+For every edge:
+
+```text
+If distance[u] + weight < distance[v]
+
+Then
+
+distance[v] = distance[u] + weight
+```
+
+### Relaxation Flow
+
+```mermaid
+flowchart TD
+    Start[Initialize Distances]
+    Relax[Relax All Edges]
+    Update{Distance Updated?}
+    Repeat[Next Iteration]
+    Check[Negative Cycle Check]
+    End[Final Distances]
+
+    Start --> Relax
+    Relax --> Update
+    Update --> Repeat
+    Repeat --> Relax
+    Update --> Check
+    Check --> End
+```
+
+### Negative Cycle Detection
+
+```mermaid
+graph LR
+    X -->|-1| Y
+    Y -->|-2| Z
+    Z -->|1| X
+```
+
+Cycle Weight:
+
+```text
+-1 + (-2) + 1 = -2
+```
+
+Since the total cycle weight is negative, repeatedly traversing this cycle keeps reducing the path cost. Bellman-Ford detects this during the additional relaxation pass.
+
+After performing V−1 iterations:
+
+```text
+One more iteration is performed.
+```
+
+If any distance still decreases:
+
+```text
+Graph contains a Negative Weight Cycle
+```
+
+Otherwise:
+
+```text
+Shortest Paths Found Successfully
+```
+
+
 
 ### C++ Implementation:
 
