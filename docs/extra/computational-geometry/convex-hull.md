@@ -627,7 +627,7 @@ As with Graham Scan, sorting is the bottleneck. Each point enters and leaves the
 
 ---
 
-# Graham Scan vs Andrew's Monotone Chain
+## Graham Scan vs Andrew's Monotone Chain
 
 | Feature | Graham Scan | Andrew's Monotone Chain |
 |---------|-------------|------------------------|
@@ -642,35 +642,35 @@ Both algorithms are optimal for comparison-based convex hull computation (the Ω
 
 ---
 
-# Applications
+## Applications
 
-## Geographic Information Systems (GIS)
+### Geographic Information Systems (GIS)
 
 Convex hulls are used to compute the bounding region of a set of GPS coordinates — for example, defining the approximate boundary of a city, forest, or archaeological site from a collection of surveyed points. They also accelerate spatial queries: checking whether a query point falls within a region can be done against the hull before doing a more expensive per-polygon test.
 
-## Computer Graphics
+### Computer Graphics
 
 In rendering pipelines, convex hulls are used to compute bounding volumes for 3D models. View frustum culling — determining which objects are visible to the camera — often uses convex hull representations for fast rejection of off-screen geometry, significantly reducing rendering overhead.
 
-## Collision Detection
+### Collision Detection
 
 Game engines and physics simulators represent rigid bodies as convex hulls for collision detection. The GJK (Gilbert–Johnson–Keerthi) algorithm, a popular collision detection method, requires convex shapes as input. Decomposing complex meshes into their convex hull allows fast, accurate collision tests.
 
-## Robotics
+### Robotics
 
 In robot motion planning, the free configuration space — the set of positions a robot can occupy without colliding with obstacles — is often computed using convex hull operations. Path planning algorithms such as Rapidly-exploring Random Trees (RRT) use convex hulls to represent obstacle boundaries efficiently.
 
-## Pattern Recognition
+### Pattern Recognition
 
 Convex hulls are used as shape descriptors in machine learning and computer vision. Features such as "convex hull area," "hull perimeter," and the ratio of object area to hull area (convexity) are used to distinguish between object categories — for example, differentiating handwritten digits or classifying cell shapes in medical imaging.
 
-## Image Processing
+### Image Processing
 
 In digital image analysis, the convex hull of a binary region (e.g., a segmented cell, leaf, or tumor) is used to fill holes (convex hull filling), measure shape irregularity, and detect defects. The difference between an object and its convex hull reveals concavities, which can be meaningful features.
 
 ---
 
-# Summary
+## Summary
 
 The **convex hull** of a point set is the smallest convex polygon enclosing all the points, and computing it efficiently is a cornerstone problem in computational geometry.
 
