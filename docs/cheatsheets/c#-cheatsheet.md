@@ -1,18 +1,18 @@
-\---
+---
 
 id: csharp-cheatsheet
 
 title: C# Cheatsheet
 
-sidebar\_label: C# Cheatsheet
+sidebar_label: C# Cheatsheet
 
-sidebar\_position: 2
+sidebar_position: 2
 
 description: "A fast, practical C# reference for DSA, competitive programming, interviews, and .NET development."
 
-tags: \[csharp, dotnet, cheatsheet, dsa]
+tags: [csharp, dotnet, cheatsheet, dsa]
 
-\---
+---
 
 
 
