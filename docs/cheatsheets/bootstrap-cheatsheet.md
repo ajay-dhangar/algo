@@ -1,20 +1,11 @@
-\---
-
-
-
+---
 id: bootstrap-cheatsheet
-
 title: Bootstrap Cheatsheet
-
-sidebar\_label: Bootstrap Cheatsheet
-
-sidebar\_position: 2
-
+sidebar_label: Bootstrap Cheatsheet
+sidebar_position: 2
 description: "A fast, practical Bootstrap reference for responsive layouts, components, and modern web development."
-
-tags: \[bootstrap, css, frontend, web-development]
-
-\-------------------------------------------------
+tags: [bootstrap, css, frontend, web-development]
+---
 
 
 
