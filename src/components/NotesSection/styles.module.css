@@ -1,0 +1,233 @@
+/* NotesSection -> styles.modules.css */
+.notesSection {
+  margin: 32px 0 40px;
+  border: 1px solid #e1e4e8;
+  border-radius: 12px;
+  background-color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.notesSection:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.notesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notesIcon {
+  font-size: 20px;
+}
+
+.notesHeader h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #24292e;
+}
+
+.notesBadge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.saveStatus {
+  font-size: 12px;
+  color: #6a737d;
+  font-style: italic;
+  min-width: 80px;
+  text-align: right;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.iconButton:hover {
+  opacity: 1;
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.collapseButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #586069;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.collapseButton:hover {
+  background-color: #e1e4e8;
+}
+
+.notesContent {
+  padding: 0;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notesToolbar {
+  padding: 12px 20px;
+  background-color: #f6f8fa;
+  border-bottom: 1px solid #e1e4e8;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.toolbarButton {
+  background: white;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #24292e;
+  font-weight: 500;
+}
+
+.toolbarButton:hover {
+  background-color: #f0f0f0;
+  border-color: #c6cbd1;
+  transform: translateY(-1px);
+}
+
+.toolbarDivider {
+  width: 1px;
+  height: 24px;
+  background-color: #d1d5da;
+  margin: 0 4px;
+}
+
+.notesTextarea {
+  width: 100%;
+  padding: 20px;
+  border: none;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+  background-color: white;
+  color: #24292e;
+}
+
+.notesTextarea:focus {
+  outline: none;
+}
+
+.notesTextarea::placeholder {
+  color: #c0c4c8;
+  font-style: italic;
+}
+
+.notesFooter {
+  padding: 12px 20px;
+  background-color: #f6f8fa;
+  border-top: 1px solid #e1e4e8;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #6a737d;
+}
+
+.footerLeft, .footerRight {
+  display: flex;
+  gap: 16px;
+}
+
+.footerLeft span, .footerRight span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .notesSection {
+    background-color: #1a1a1a;
+    border-color: #30363d;
+  }
+  
+  .notesHeader {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-bottom-color: #30363d;
+  }
+  
+  .notesHeader h3 {
+    color: #e6e6e6;
+  }
+  
+  .notesToolbar {
+    background-color: #2d2d2d;
+    border-bottom-color: #30363d;
+  }
+  
+  .toolbarButton {
+    background-color: #3a3a3a;
+    border-color: #404040;
+    color: #e6e6e6;
+  }
+  
+  .toolbarButton:hover {
+    background-color: #4a4a4a;
+  }
+  
+  .notesTextarea {
+    background-color: #1a1a1a;
+    color: #e6e6e6;
+  }
+  
+  .notesFooter {
+    background-color: #2d2d2d;
+    border-top-color: #30363d;
+    color: #8b949e;
+  }
+}
