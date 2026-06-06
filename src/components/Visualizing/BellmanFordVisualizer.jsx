@@ -171,7 +171,9 @@ export default function BellmanFordVisualizer() {
                                     ? "#16a34a"
                                     : "var(--ifm-color-emphasis-200)",
                             color:
-                                "var(--ifm-font-color-base)",
+                                updatedNode === index
+                                    ? "#ffffff"
+                                    : "var(--ifm-font-color-base)",
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "center",
