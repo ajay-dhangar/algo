@@ -98,7 +98,7 @@ class Solution {
 **Python**
 ```py
 class Solution:
-    def leftRightDifference(self, nums: List[int]) -> List[int]:
+    def leftRightDifference(self, nums: list[int]) -> list[int]:
         total_sum = sum(nums)
         left_sum = 0
         ans = []
