@@ -6,6 +6,7 @@ import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
 import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop";
 import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom";
 import PageProgressIndicator from "../components/PageProgressIndicator";
+import SidebarUpdater from '../components/ProgressTracker/SidebarUpdater';
 
 export default function Root({ children }) {
   const location = useLocation();
@@ -24,6 +25,7 @@ export default function Root({ children }) {
 
   return (
     <>
+      <SidebarUpdater />
       {isDocsPage && <PageProgressIndicator />}
       {children}
       <KeyboardShortcutsModal

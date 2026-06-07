@@ -1,48 +1,55 @@
 import React, { useEffect, useState } from "react";
 
 export default function PageProgressIndicator() {
-    const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-    useEffect(() => {
-        const calculateProgress = () => {
-            const scrollTop = window.scrollY;
+  useEffect(() => {
+    let ticking = false;
 
-            const documentHeight =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
+    const calculateProgress = () => {
+      const scrollTop = window.scrollY;
+      const documentHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
 
-            const scrollProgress =
-                documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      const scrollProgress =
+        documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
 
-            setProgress(scrollProgress);
-        };
+      setProgress(scrollProgress);
+      ticking = false;
+    };
 
-        calculateProgress();
+    // Use requestAnimationFrame to prevent scroll lag and maintain high frame rates
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(calculateProgress);
+        ticking = true;
+      }
+    };
 
-        window.addEventListener("scroll", calculateProgress);
-        window.addEventListener("resize", calculateProgress);
+    calculateProgress();
 
-        return () => {
-            window.removeEventListener("scroll", calculateProgress);
-            window.removeEventListener("resize", calculateProgress);
-        };
-    }, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", calculateProgress);
 
-    return (
-        <div
-            style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                width: `${progress}%`,
-                height: "4px",
-                background:
-                    "linear-gradient(90deg, #facc15 0%, #f59e0b 50%, #f97316 100%)",
-                zIndex: 9999,
-                transition: "width 0.1s ease-out",
-                boxShadow: "0 0 8px rgba(250, 204, 21, 0.6)",
-            }}
-            aria-hidden="true"
-        />
-    );
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", calculateProgress);
+    };
+  }, []);
+
+  return (
+    <div
+      className="fixed top-0 left-0 h-[3px] z-[9999] pointer-events-none will-change-[width] transition-all duration-700 ease-out"
+      style={{
+        width: `${progress}%`,
+        background: `linear-gradient(90deg, 
+          var(--ifm-color-primary-light) 0%, 
+          var(--ifm-color-primary) 50%, 
+          var(--ifm-color-primary-darker) 100%)`,
+        boxShadow: "0 1px 10px rgba(var(--ifm-color-primary-rgb), 0.5), 0 0 4px rgba(var(--ifm-color-primary-rgb), 0.3)",
+      }}
+      aria-hidden="true"
+    />
+  );
 }

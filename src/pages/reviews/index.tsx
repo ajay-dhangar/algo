@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { testimonials } from "../../data/testimonialsData";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
