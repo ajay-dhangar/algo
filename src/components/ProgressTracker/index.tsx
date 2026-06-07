@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// improt done and undone icons
+import { FaCheckCircle, FaRegCircle } from 'react-icons/fa';
 
 interface Props {
   topicId: string;
@@ -81,7 +83,7 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
           whiteSpace: 'nowrap' as const
         }}
       >
-        {isCompleted ? '✅ Completed!' : '📌 Mark as Complete'}
+        {isCompleted ? <><FaCheckCircle className='w-3 h-3' /> <span>Completed!</span></> : <><FaRegCircle className='w-3 h-3' /> <span>Mark as Complete</span></>}
       </button>
       {isCompleted ? (
         <span style={{

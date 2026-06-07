@@ -1,23 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { FaEdit, FaEye, FaDownload, FaTrashAlt, FaChevronDown, FaChevronUp, FaCloudUploadAlt, FaCheckCircle } from 'react-icons/fa';
 
 interface Props {
   topicId: string;
 }
 
-// Simple markdown to HTML renderer
+// Simple markdown to HTML renderer driven natively by CSS Variables
 function renderMarkdown(text: string): string {
   return text
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/^### (.+)$/gm, '<h3 style="margin:10px 0 4px;font-size:15px;color:#1565c0">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 style="margin:12px 0 6px;font-size:17px;color:#1565c0">$1</h2>')
-    .replace(/^# (.+)$/gm, '<h1 style="margin:14px 0 8px;font-size:20px;color:#1565c0">$1</h1>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/^### (.+)$/gm, '<h3 style="margin:16px 0 6px; font-size:15px; font-weight:700; color:var(--ifm-color-primary)">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 style="margin:20px 0 8px; font-size:18px; font-weight:700; color:var(--ifm-color-primary); border-bottom:1px solid rgba(128,128,128,0.15); padding-bottom:4px;">$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1 style="margin:24px 0 12px; font-size:22px; font-weight:800; color:var(--ifm-color-primary)">$1</h1>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--ifm-heading-color, inherit)">$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/`(.+?)`/g, '<code style="background:#f0f0f0;padding:1px 5px;border-radius:3px;font-family:monospace;font-size:13px">$1</code>')
-    .replace(/^- (.+)$/gm, '<li style="margin:3px 0;padding-left:4px">$1</li>')
-    .replace(/(<li.*<\/li>)/gs, '<ul style="margin:6px 0;padding-left:20px">$1</ul>')
+    .replace(/`(.+?)`/g, '<code style="background:rgba(128,128,128,0.1); padding:2px 6px; border-radius:4px; font-family:var(--ifm-font-family-monospace, monospace); font-size:var(--ifm-code-font-size, 90%); color:var(--ifm-color-primary-dark, inherit)">$1</code>')
+    .replace(/^- (.+)$/gm, '<li style="margin:4px 0; padding-left:2px">$1</li>')
+    .replace(/(<li.*<\/li>)/gs, '<ul style="margin:8px 0; padding-left:20px; list-style-type:disc;">$1</ul>')
     .replace(/\n/g, '<br/>');
 }
 
@@ -54,7 +55,7 @@ export default function NotesSection({ topicId }: Props) {
       } catch (e) {
         console.error('Error saving notes:', e);
       }
-    }, 1000);
+    }, 800);
   };
 
   const insertSnippet = (snippet: string) => {
@@ -77,47 +78,52 @@ export default function NotesSection({ topicId }: Props) {
   const handleExportPDF = () => {
     const printWindow = window.open('', '_blank');
     if (!printWindow) return;
+    
+    // Grabbing clean primary color styles for the printing stylesheet context
+    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--ifm-color-primary').trim() || '#3b82f6';
+    const headingText = topicId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
     printWindow.document.write(`
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Notes - ${topicId}</title>
+          <title>Notes - ${headingText}</title>
           <style>
             body {
-              font-family: Georgia, serif;
-              max-width: 800px;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+              max-width: 820px;
               margin: 40px auto;
               padding: 0 40px;
-              color: #1a1a1a;
-              line-height: 1.7;
+              color: #1c1917;
+              line-height: 1.65;
             }
-            h1 { color: #1565c0; border-bottom: 2px solid #1565c0; padding-bottom: 8px; }
-            h2 { color: #1565c0; }
-            h3 { color: #1976d2; }
+            h1, h2, h3 { color: ${primaryColor}; font-weight: 700; }
+            h1 { border-bottom: 2px solid ${primaryColor}; padding-bottom: 6px; margin-top: 0; }
             code {
-              background: #f4f4f4;
-              padding: 2px 6px;
-              border-radius: 3px;
+              background: #f4f4f5;
+              padding: 3px 6px;
+              border-radius: 4px;
               font-family: monospace;
+              font-size: 13px;
             }
-            .header {
-              background: #1565c0;
-              color: white;
-              padding: 16px 24px;
-              border-radius: 8px;
-              margin-bottom: 24px;
+            .header-banner {
+              border-left: 4px solid ${primaryColor};
+              background: #f8fafc;
+              padding: 16px 20px;
+              border-radius: 0 12px 12px 0;
+              margin-bottom: 32px;
             }
-            .header h2 { color: white; margin: 0; }
-            .header p { margin: 4px 0 0; opacity: 0.8; font-size: 13px; }
-            @media print { body { margin: 20px; } }
+            .header-banner h2 { color: #0f172a; margin: 0; font-size: 20px; }
+            .header-banner p { margin: 4px 0 0; color: #64748b; font-size: 12px; font-weight: 500; }
+            @media print { body { margin: 20px; } .header-banner { background: #ffffff; border: 1px solid #e2e8f0; } }
           </style>
         </head>
         <body>
-          <div class="header">
-            <h2>📝 My Notes — ${topicId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</h2>
-            <p>Exported on ${new Date().toLocaleDateString('en-IN', { dateStyle: 'long' })}</p>
+          <div class="header-banner">
+            <h2>📝 Personal Study Logs: ${headingText}</h2>
+            <p>Exported from Workbook on ${new Date().toLocaleDateString('en-IN', { dateStyle: 'long' })}</p>
           </div>
-          <div>${renderMarkdown(notes || 'No notes written yet.')}</div>
+          <div>${renderMarkdown(notes || '<em>No custom logs saved for this topic yet.</em>')}</div>
         </body>
       </html>
     `);
@@ -129,7 +135,7 @@ export default function NotesSection({ topicId }: Props) {
   };
 
   const handleClear = () => {
-    if (window.confirm('Clear all notes for this topic? This cannot be undone.')) {
+    if (window.confirm('Clear all local notes for this topic? This execution is permanent.')) {
       setNotes('');
       setSaveStatus('idle');
       try {
@@ -149,218 +155,137 @@ export default function NotesSection({ topicId }: Props) {
   const lineCount = notes ? notes.split('\n').length : 0;
 
   const toolbarItems = [
-    { label: 'B', title: 'Bold', snippet: '**bold**', style: { fontWeight: 'bold' as const } },
-    { label: 'I', title: 'Italic', snippet: '*italic*', style: { fontStyle: 'italic' as const } },
-    { label: '<>', title: 'Code', snippet: '`code`', style: { fontFamily: 'monospace' } },
-    { label: 'H2', title: 'Heading', snippet: '## Heading' },
-    { label: '•', title: 'List item', snippet: '- ' },
+    { label: 'B', title: 'Bold', snippet: '**bold**', className: 'font-bold' },
+    { label: 'I', title: 'Italic', snippet: '*italic*', className: 'italic font-serif' },
+    { label: '<>', title: 'Code Block', snippet: '`code`', className: 'font-mono text-xs opacity-90' },
+    { label: 'H2', title: 'Heading', snippet: '## Heading', className: 'font-black text-xs' },
+    { label: '• List', title: 'Bullet List', snippet: '- ' },
   ];
 
   return (
-    <div style={{
-      margin: '12px 0 40px',
-      border: '1.5px solid #d0dff5',
-      borderRadius: '12px',
-      overflow: 'hidden',
-      boxShadow: '0 2px 12px rgba(21,101,192,0.08)',
-      fontFamily: 'system-ui, sans-serif'
-    }}>
-      {/* Header */}
+    <div className="my-6 border rounded-xl overflow-hidden shadow-sm transition-all duration-300 bg-white border-slate-200 dark:bg-zinc-900/30 dark:border-zinc-800">
+      
+      {/* Interactive Ribbon Top-Header */}
       <div
         onClick={() => setIsCollapsed(!isCollapsed)}
-        style={{
-          padding: '13px 18px',
-          background: 'linear-gradient(135deg, #1565c0 0%, #1976d2 100%)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          cursor: 'pointer',
-          userSelect: 'none' as const
-        }}
+        style={{ background: 'linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%)' }}
+        className="px-5 py-3.5 flex justify-between items-center cursor-pointer select-none shadow-sm active:opacity-95 transition-opacity"
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontSize: '18px' }}>📝</span>
-          <strong style={{ fontSize: '15px', color: 'white', letterSpacing: '0.2px' }}>
-            My Personal Notes
+        <div className="flex items-center gap-3">
+          <span className="text-lg">📝</span>
+          <strong className="text-sm sm:text-base font-bold text-white tracking-tight">
+            My Study Notes
           </strong>
-          <span style={{
-            background: 'rgba(255,255,255,0.2)',
-            color: 'white',
-            padding: '2px 8px',
-            borderRadius: '10px',
-            fontSize: '10px',
-            fontWeight: '700',
-            letterSpacing: '0.8px'
-          }}>AUTO-SAVE</span>
+          <span className="bg-white/20 text-white px-2 py-0.5 rounded-md text-[9px] font-black tracking-wider uppercase backdrop-blur-sm">
+            Local Sync
+          </span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.85)', fontStyle: 'italic' }}>
-            {saveStatus === 'saving' && '💾 Saving...'}
-            {saveStatus === 'saved' && '✓ Saved'}
+        
+        <div className="flex items-center gap-4">
+          <span className="text-xs font-semibold text-white/90 flex items-center gap-1.5 min-w-[70px] justify-end">
+            {saveStatus === 'saving' && <><FaCloudUploadAlt className="animate-pulse" /> Saving...</>}
+            {saveStatus === 'saved' && <><FaCheckCircle /> Saved</>}
           </span>
-          <span style={{ fontSize: '14px', color: 'white' }}>
-            {isCollapsed ? '▼' : '▲'}
-          </span>
+          <div className="text-white opacity-80 hover:opacity-100 text-sm transition-opacity">
+            {isCollapsed ? <FaChevronDown /> : <FaChevronUp />}
+          </div>
         </div>
       </div>
 
       {!isCollapsed && (
-        <>
-          {/* Toolbar */}
-          <div style={{
-            padding: '8px 16px',
-            background: '#f0f4ff',
-            borderBottom: '1px solid #d0dff5',
-            display: 'flex',
-            gap: '6px',
-            flexWrap: 'wrap' as const,
-            alignItems: 'center'
-          }}>
-            {/* Format buttons */}
-            {toolbarItems.map(item => (
-              <button
-                key={item.label}
-                title={item.title}
-                onClick={() => insertSnippet(item.snippet)}
-                style={{
-                  background: 'white',
-                  border: '1.5px solid #c5d5f0',
-                  borderRadius: '5px',
-                  padding: '3px 10px',
-                  fontSize: '13px',
-                  cursor: 'pointer',
-                  color: '#1565c0',
-                  ...(item.style || {})
-                }}
-              >
-                {item.label}
-              </button>
-            ))}
-
-            {/* Divider */}
-            <div style={{ width: '1px', height: '22px', background: '#c5d5f0', margin: '0 4px' }} />
-
-            {/* Write / Preview toggle */}
-            <div style={{ display: 'flex', border: '1.5px solid #c5d5f0', borderRadius: '6px', overflow: 'hidden' }}>
-              {(['write', 'preview'] as const).map(m => (
+        <div className="flex flex-col">
+          
+          {/* Action Module Toolbar */}
+          <div className="px-4 py-2 bg-slate-50 border-b flex flex-wrap gap-2 items-center justify-between dark:bg-zinc-900/60 border-slate-200 dark:border-zinc-800">
+            <div className="flex flex-wrap gap-1.5 items-center">
+              
+              {/* Layout Formatter Hooks */}
+              {toolbarItems.map(item => (
                 <button
-                  key={m}
-                  onClick={() => setMode(m)}
-                  style={{
-                    background: mode === m ? '#1565c0' : 'white',
-                    color: mode === m ? 'white' : '#1565c0',
-                    border: 'none',
-                    padding: '3px 12px',
-                    fontSize: '12px',
-                    cursor: 'pointer',
-                    fontWeight: mode === m ? '600' : '400',
-                    transition: 'all 0.2s'
-                  }}
+                  key={item.label}
+                  title={item.title}
+                  onClick={() => insertSnippet(item.snippet)}
+                  style={{ color: 'var(--ifm-color-primary)' }}
+                  className={`bg-white hover:bg-slate-100 dark:bg-zinc-800 dark:hover:bg-zinc-700 border border-slate-200 dark:border-zinc-700 rounded-md px-2.5 py-1 text-xs font-medium cursor-pointer transition-colors shadow-2xs ${item.className || ''}`}
                 >
-                  {m === 'write' ? '✏️ Write' : '👁️ Preview'}
+                  {item.label}
                 </button>
               ))}
+
+              <div className="w-[1px] h-5 bg-slate-200 dark:bg-zinc-700 mx-1" />
+
+              {/* View Controller Toggles */}
+              <div className="inline-flex rounded-lg border border-slate-200 dark:border-zinc-700 p-0.5 bg-white dark:bg-zinc-800">
+                <button
+                  onClick={() => setMode('write')}
+                  className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-md transition-all border-none cursor-pointer ${
+                    mode === 'write'
+                      ? 'bg-[var(--ifm-color-primary)] text-white shadow-xs'
+                      : 'bg-transparent text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200'
+                  }`}
+                >
+                  <FaEdit className="text-[10px]" /> Write
+                </button>
+                <button
+                  onClick={() => setMode('preview')}
+                  className={`inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold rounded-md transition-all border-none cursor-pointer ${
+                    mode === 'preview'
+                      ? 'bg-[var(--ifm-color-primary)] text-white shadow-xs'
+                      : 'bg-transparent text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-200'
+                  }`}
+                >
+                  <FaEye className="text-[10px]" /> Preview
+                </button>
+              </div>
             </div>
 
-            {/* Spacer */}
-            <div style={{ flex: 1 }} />
-
-            {/* Export PDF */}
-            <button
-              onClick={handleExportPDF}
-              title="Export as PDF"
-              style={{
-                background: '#1565c0',
-                color: 'white',
-                border: 'none',
-                borderRadius: '5px',
-                padding: '4px 12px',
-                fontSize: '12px',
-                cursor: 'pointer',
-                fontWeight: '600'
-              }}
-            >
-              📄 Export PDF
-            </button>
-
-            {/* Clear */}
-            <button
-              onClick={handleClear}
-              title="Clear notes"
-              style={{
-                background: 'white',
-                border: '1.5px solid #ffcdd2',
-                borderRadius: '5px',
-                padding: '4px 12px',
-                fontSize: '12px',
-                cursor: 'pointer',
-                color: '#c62828',
-                fontWeight: '600'
-              }}
-            >
-              🗑️ Clear
-            </button>
+            {/* Global Operations Control */}
+            <div className="flex items-center gap-2 mt-1 sm:mt-0">
+              <button
+                onClick={handleExportPDF}
+                style={{ backgroundColor: 'var(--ifm-color-primary)' }}
+                className="hover:opacity-90 text-white font-bold py-1 px-3 rounded-md text-xs inline-flex items-center gap-1.5 transition-opacity cursor-pointer border-none"
+              >
+                <FaDownload className="text-[10px]" /> Export PDF
+              </button>
+              <button
+                onClick={handleClear}
+                className="bg-transparent hover:bg-rose-50 dark:hover:bg-rose-950/20 border border-slate-200 dark:border-zinc-700 hover:border-rose-200 dark:hover:border-rose-900 rounded-md py-1 px-3 text-xs font-bold text-rose-600 dark:text-rose-400 transition-colors cursor-pointer"
+              >
+                <FaTrashAlt className="text-[10px]" /> Clear
+              </button>
+            </div>
           </div>
 
-          {/* Write mode */}
-          {mode === 'write' && (
-            <textarea
-              id={`notes-${topicId}`}
-              value={notes}
-              onChange={e => handleChange(e.target.value)}
-              placeholder={`Write your notes here — markdown supported!\n\n## Key Concepts\n- Point 1\n- Point 2\n\n**Important:** Use **bold**, *italic*, \`code\` freely.\n\n## Time Complexity\n- Best: O(n log n)\n- Worst: O(n²)`}
-              style={{
-                width: '100%',
-                minHeight: '220px',
-                padding: '18px 20px',
-                border: 'none',
-                fontFamily: "'Fira Code', 'Cascadia Code', 'Roboto Mono', monospace",
-                fontSize: '13.5px',
-                lineHeight: '1.7',
-                resize: 'vertical',
-                outline: 'none',
-                boxSizing: 'border-box' as const,
-                display: 'block',
-                color: '#1a1a1a',
-                background: '#fafcff'
-              }}
-            />
-          )}
-
-          {/* Preview mode */}
-          {mode === 'preview' && (
-            <div
-              style={{
-                minHeight: '220px',
-                padding: '18px 24px',
-                background: '#fafcff',
-                fontSize: '14px',
-                lineHeight: '1.75',
-                color: '#1a1a1a',
-                overflowY: 'auto' as const
-              }}
-              dangerouslySetInnerHTML={{
-                __html: notes
-                  ? renderMarkdown(notes)
-                  : '<span style="color:#aaa;font-style:italic">Nothing to preview yet. Switch to Write mode and add some notes.</span>'
-              }}
-            />
-          )}
-
-          {/* Footer */}
-          <div style={{
-            padding: '8px 18px',
-            background: '#f0f4ff',
-            borderTop: '1px solid #d0dff5',
-            display: 'flex',
-            justifyContent: 'space-between',
-            fontSize: '11px',
-            color: '#5c7cb5'
-          }}>
-            <span>📄 {lineCount} lines · 🔤 {wordCount} words</span>
-            <span>💾 Stored locally · never leaves your browser</span>
+          {/* Core Content Editor / Buffer Area */}
+          <div className="relative bg-slate-50/30 dark:bg-zinc-950/20">
+            {mode === 'write' ? (
+              <textarea
+                id={`notes-${topicId}`}
+                value={notes}
+                onChange={e => handleChange(e.target.value)}
+                placeholder={`Write notes here — markdown supported!\n\n## Core Algorithm Strategy\n- Step 1: Base validation constraints.\n- Step 2: Recurse dynamically.\n\n**Note:** Code tokens like \`O(N log N)\` auto-render nicely.`}
+                className="w-full min-h-[240px] p-5 border-none font-mono text-sm leading-relaxed resize-y bg-transparent outline-none text-slate-800 dark:text-zinc-200 placeholder-slate-400 dark:placeholder-zinc-600 focus:ring-0 block"
+              />
+            ) : (
+              <div
+                className="min-h-[240px] p-6 text-sm leading-relaxed text-slate-800 dark:text-zinc-200 overflow-y-auto"
+                dangerouslySetInnerHTML={{
+                  __html: notes
+                    ? renderMarkdown(notes)
+                    : '<span class="text-slate-400 dark:text-zinc-600 italic font-medium">Notebook is currently blank. Flip back to "Write" mode to append custom parameters.</span>'
+                }}
+              />
+            )}
           </div>
-        </>
+
+          {/* Component Informational Footer */}
+          <div className="px-5 py-2.5 bg-slate-50 border-t flex justify-between items-center text-xs text-slate-500 dark:bg-zinc-900/40 border-slate-200 dark:border-zinc-800 dark:text-zinc-500 font-medium font-mono">
+            <span>{lineCount} lines &middot; {wordCount} words</span>
+            <span className="hidden sm:inline">Locked Workspace &bull; Encrypted Browser Store</span>
+          </div>
+          
+        </div>
       )}
     </div>
   );
