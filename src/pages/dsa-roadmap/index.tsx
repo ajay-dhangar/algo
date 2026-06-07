@@ -340,3 +340,4 @@ const DSARoadmap: React.FC = () => {
   );
 };
 
+export default DSARoadmap;
