@@ -9,7 +9,7 @@ tags: [r, r-programming, data-science, statistics, data-analysis]
 
 
 
-\# R Programming Language Notes
+# R Programming Language Notes
 
 
 
