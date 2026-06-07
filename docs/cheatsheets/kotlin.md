@@ -347,22 +347,12 @@ interface Solver {
 
 
 
-\### Inheritance and Abstract Classes
-
-
-
-```kotlin title="Inheritance and abstract class syntax in Kotlin"
-
 abstract class Shape {
-
-&#x20;   abstract fun area(): Double
-
+    abstract fun area(): Double
 }
 
 class Circle(private val r: Double) : Shape() {
-
-&#x20;   override fun area(): Double = Math.PI \* r \* r
-
+    override fun area(): Double = Math.PI * r * r
 }
 
 val c = Circle(5.0)
