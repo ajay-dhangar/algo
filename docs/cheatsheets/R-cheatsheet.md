@@ -551,13 +551,9 @@ df %>%
 ```r
 
 tryCatch({
-
-&#x20; result <- 10 / 0
-
+  result <- log("a")
 }, error = function(e) {
-
-&#x20; print(paste("Error:", e$message))
-
+  print(paste("Error:", e$message))
 })
 
 ```
