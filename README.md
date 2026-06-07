@@ -3,6 +3,24 @@
 <img width="1024" height="434" alt="image" src="https://github.com/user-attachments/assets/38eb4aed-766b-49f3-add3-e3eb37890a37" />
 
 
+---
+
+## Table of Contents
+
+- [Algo - Open Source Algorithm Repository](#algo---open-source-algorithm-repository)
+- [introduction](#introduction)
+- [Algo Events](#algo-events)
+- [🌐 Links](#-links)
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Website](#website)
+- [🤝 Contributing](#-contributing)
+- [Manually invoke Gemini Code Assist](#manually-invoke-gemini-code-assist)
+- [Stargazers](#stargazers)
+- [Forkers](#forkers)
+- [Resources for Guidance](#resources-for-guidance)
+
+---
 ## introduction
 
 Welcome to Algo, an open-source educational platform built with Docusaurus (React + MDX). We provide developers with comprehensive algorithmic solutions and resources. Whether you're a beginner or an expert, you can contribute, learn, and help us build the world's top educational documentation.
