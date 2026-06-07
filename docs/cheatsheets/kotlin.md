@@ -20,11 +20,9 @@ This page is a quick reference for Kotlin patterns that show up constantly in DS
 
 
 
-\## Basic Syntax
+## Basic Syntax
 
-
-
-\### Data Types
+### Data Types
 
 
 
