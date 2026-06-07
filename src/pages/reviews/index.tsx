@@ -37,8 +37,9 @@ const ReviewsGiscus: React.FC = () => {
 };
 
 const ReviewsPage: React.FC = () => {
+  const forumZoneRef = React.useRef<HTMLDivElement>(null);
   const scrollToDiscussion = () => {
-    document.getElementById("forum-zone")?.scrollIntoView({ behavior: "smooth" });
+    forumZoneRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
