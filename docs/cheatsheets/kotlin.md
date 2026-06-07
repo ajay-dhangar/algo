@@ -81,24 +81,14 @@ arr.fill(-1) // Fills the entire array with -1 instead of 0
 
 
 
-\## Strings and StringBuilder
-
-
-
-```kotlin title="String and StringBuilder syntax in Kotlin"
-
 val s = "abc"
 
-val ch = s\[1] // Returns character at index 1, i.e ch = 'b'
-
+val ch = s[1] // Returns character at index 1, i.e ch = 'b'
 val len = s.length // Returns length of the string s, i.e len = 3
-
 val has = s.contains("b") // Returns true iff "b" exists in s, i.e has = true
-
 val t = s.substring(0, 2) // t = "ab"
 
 val sb = StringBuilder(s) // Special Class used for String Manipulation, s is the original string
-
 sb.append("a").append(123) // abca123
 
 val out = sb.toString() // out = "abca123"
