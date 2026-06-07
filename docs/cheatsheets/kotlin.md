@@ -48,25 +48,14 @@ val s: String = "hello" // Sequence of characters
 
 
 
-```kotlin title="Control flow syntax in Kotlin"
-
 // if, else if and else
-
 if (a > 0) {
-
-&#x20;   // ...
-
+    // ...
 } else if (a == 0) {
-
-&#x20;   // ...
-
+    // ...
 } else {
-
-&#x20;   // ...
-
+    // ...
 }
-
-
 
 for (i in 0 until n) {} // Value of i -> 0,1,2...n-1
 
