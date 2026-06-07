@@ -171,8 +171,23 @@ const UserTestimonialsSection: React.FC = () => {
             <span>Write a Review</span>
             <FaPen className="h-4 w-4 transition-transform duration-200 group-hover:rotate-12" />
           </Link>
-        </motion.div>
 
+          <Link
+            to="/reviews#write-review"
+            className="
+              w-full sm:w-auto inline-flex items-center justify-center gap-2.5
+              px-8 py-4 rounded-full
+              border-2 border-[var(--ifm-color-primary)]
+              bg-transparent hover:bg-[var(--ifm-color-primary)] hover:text-white
+              text-[var(--ifm-color-primary)] font-bold text-base
+              shadow-md hover:shadow-xl hover:scale-105 transition-all duration-200
+              no-underline hover:no-underline
+            "
+          >
+            Write a Review
+            <FaArrowRight className="text-base" />
+          </Link>
+        </motion.div>
       </div>
 
       {/* Swiper styles */}
