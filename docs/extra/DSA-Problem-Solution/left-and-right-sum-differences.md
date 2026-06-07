@@ -117,7 +117,7 @@ class Solution:
  * @param {number[]} nums
  * @return {number[]}
  */
-var leftRightDifference = function(nums) {
+const leftRightDifference = function(nums) {
     let totalSum = nums.reduce((acc, curr) => acc + curr, 0);
     let leftSum = 0;
     let ans = new Array(nums.length);
