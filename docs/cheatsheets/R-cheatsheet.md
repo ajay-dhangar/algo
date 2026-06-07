@@ -1,18 +1,11 @@
-\---
-
+---
 id: r-programming-notes
-
 title: R Programming Notes
-
-sidebar\_label: R Programming Notes
-
-sidebar\_position: 2
-
+sidebar_label: R Programming Notes
+sidebar_position: 2
 description: "Comprehensive beginner to advanced R programming guide covering fundamentals, data structures, visualization, statistics, and data analysis workflows."
-
-tags: \[r, r-programming, data-science, statistics, data-analysis]
-
-\---
+tags: [r, r-programming, data-science, statistics, data-analysis]
+---
 
 
 
