@@ -160,8 +160,8 @@ const UserTestimonialsSection: React.FC = () => {
               w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               px-8 py-4 rounded-xl
               border-2 border-transparent
-              bg-yellow-400 hover:bg-yellow-600
-              text-white hover:text-yellow-100 font-bold text-base
+              bg-yellow-400 hover:bg-yellow-500
+              text-slate-900 hover:text-slate-950 font-bold text-base
               shadow-md hover:shadow-xl transition-all duration-200
               no-underline hover:no-underline
             "
