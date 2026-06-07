@@ -141,28 +141,17 @@ class(is\_active)  # logical
 
 ```r
 
-\# Arithmetic
-
+# Arithmetic
 5 + 3
-
 10 / 2
+3 ** 2     # Power
 
-3 \*\* 2     # Power
-
-
-
-\# Comparison
-
+# Comparison
 5 > 3
-
 x == 42
 
-
-
-\# Logical
-
-TRUE \& FALSE
-
+# Logical
+TRUE & FALSE
 TRUE | FALSE
 
 ```
