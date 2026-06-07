@@ -471,12 +471,12 @@ const SectionBlock: React.FC<{
     </button>
     <div
       style={{
-        maxHeight: isOpen ? section.topics.length * 48 + 32 : 0,
-        overflow: "hidden",
-        transition: "max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        display: "grid",
+        gridTemplateRows: isOpen ? "1fr" : "0fr",
+        transition: "grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      <div style={{ padding: "8px 16px 4px" }}>
+      <div style={{ overflow: "hidden", minHeight: 0, padding: "8px 16px 4px" }}>
         {section.topics.map((topic, i) => (
           <div
             key={i}
