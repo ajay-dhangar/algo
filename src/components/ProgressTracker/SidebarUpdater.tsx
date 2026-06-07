@@ -33,8 +33,8 @@ const SidebarUpdater: React.FC = () => {
             if (title && (linkText.includes(title) || title.includes(linkText))) {
               const badge = document.createElement('span');
               badge.className = 'completion-badge';
-              badge.textContent = ' ✅';
-              badge.style.cssText = 'margin-left:6px;font-size:12px;opacity:0.85;';
+              badge.textContent = '✓';
+              badge.style.cssText = 'margin-left:6px;opacity:0.85;';
               link.appendChild(badge);
               break;
             }
