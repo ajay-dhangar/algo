@@ -103,7 +103,7 @@ val out = sb.toString() // out = "abca123"
 
 ```kotlin title="Kotlin collections import"
 
-import java.util.\* // Has most data structures commonly used in DSA
+import java.util.* // Has most data structures commonly used in DSA
 
 ```
 
