@@ -72,6 +72,8 @@ graph LR
 
 Source Vertex: **A**
 
+*Note: For this dry run, we assume the edges are relaxed in the following order: (A, B), (A, C), (C, B), (B, D), (C, E), (D, E).*
+
 ### Initial Distances
 
 | Vertex | Distance |
