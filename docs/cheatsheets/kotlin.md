@@ -239,27 +239,17 @@ val maxpq = PriorityQueue<Int>(compareByDescending { it }) // Largest element at
 
 \## Common Operations
 
-
-
-\### Sorting
-
-
-
-```kotlin title="Sorting syntax in Kotlin"
-
 val arr = intArrayOf(3, 1, 2)
 
-arr.sort() // arr = \[1, 2, 3], in-place ascending sort
+arr.sort() // arr = [1, 2, 3], in-place ascending sort
 
 val pairs = mutableListOf<IntArray>()
 
-pairs.sortBy { it\[0] } // Sort pairs by first element ascending
+pairs.sortBy { it[0] } // Sort pairs by first element ascending
 
 // Sort by second element desc, then first element asc
-
-pairs.sortWith(compareByDescending<IntArray> { it\[1] }
-
-&#x20;   .thenBy { it\[0] })
+pairs.sortWith(compareByDescending<IntArray> { it[1] }
+    .thenBy { it[0] })
 
 ```
 
