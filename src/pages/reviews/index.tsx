@@ -57,7 +57,7 @@ const ReviewsPage: React.FC = () => {
         </div>
 
         {/* ⭐ REVIEW FORM */}
-        <div className="mb-20 bg-white dark:bg-gray-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-xl max-w-3xl mx-auto">
+        <div id="write-review" className="mb-20 bg-white dark:bg-gray-900/40 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 shadow-xl max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
             Write a Review
           </h2>

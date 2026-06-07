@@ -3,7 +3,7 @@ import { testimonials } from "../../data/testimonialsData";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaQuoteLeft, FaChevronLeft, FaChevronRight, FaPen, FaArrowRight } from "react-icons/fa";
 import Link from "@docusaurus/Link";
 
 import "swiper/css";
@@ -146,33 +146,30 @@ const UserTestimonialsSection: React.FC = () => {
           {/* Pagination */}
           <div className="custom-swiper-pagination absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2" />
 
-          {/* ✅ CTA BUTTON → REVIEW FORM PAGE */}
-          <div className="flex justify-center mt-12">
-            <Link
-              to="/reviews"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full
-                bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500
-                text-white font-bold shadow-xl hover:shadow-2xl
-                hover:scale-105 transition-all duration-300"
-            >
-              Write a Review
-<span role="img" aria-label="writing hand" className="text-lg">✍️</span>
-            </Link>
-          </div>
         </div>
-        {/* Call-to-Action Button */}
+
+        {/* Call-to-Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="flex justify-center mt-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 mt-12"
         >
           <Link
             to="/reviews"
-            className="inline-flex items-center gap-2 bg-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary-dark)] text-white font-bold py-3 px-8 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg no-underline"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-base text-white bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 hover:scale-105 transition-all duration-300 no-underline hover:no-underline"
           >
-            View All Testimonials →
+            <span>View All Testimonials</span>
+            <FaArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
+
+          <Link
+            to="/reviews#write-review"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-semibold text-base text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 no-underline hover:no-underline"
+          >
+            <span>Write a Review</span>
+            <FaPen className="h-4 w-4 transition-transform duration-200 group-hover:rotate-12" />
           </Link>
         </motion.div>
 
