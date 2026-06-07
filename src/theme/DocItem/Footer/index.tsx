@@ -17,7 +17,7 @@ export default function FooterWrapper(props: Props): JSX.Element {
     <>
       <Footer {...props} />
       <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
-      <NotesSection topicId={topicId} />
+      {/* <NotesSection topicId={topicId} /> */}
     </>
   );
 }
