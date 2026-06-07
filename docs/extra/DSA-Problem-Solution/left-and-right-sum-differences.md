@@ -61,7 +61,7 @@ public:
         int leftSum = 0;
         vector<int> ans(nums.size());
         
-        for (int i = 0; i < nums.size(); i++) {
+        for (size_t i = 0; i < nums.size(); i++) {
             int rightSum = totalSum - leftSum - nums[i];
             ans[i] = abs(leftSum - rightSum);
             leftSum += nums[i];
