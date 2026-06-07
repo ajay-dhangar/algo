@@ -12,11 +12,11 @@ description: "A fast, practical Kotlin reference for DSA and competitive program
 
 tags: \[kotlin, cheatsheet, dsa]
 
-\-------------------------------
+\---
 
 
 
-This page is a quick reference for Kotlin patterns that show up constantly in DSA and competitive programming. If you're just starting out, don't worry, every snippet here is explained line by line
+This page is a quick reference for Kotlin patterns that show up constantly in DSA and competitive programming. If you're just starting out, don't worry, every snippet here is explained line by line.
 
 
 
@@ -30,17 +30,17 @@ This page is a quick reference for Kotlin patterns that show up constantly in DS
 
 ```kotlin title="Basic data type syntax in Kotlin"
 
-val a: Int = 1                  // 32-bit integer
+val a: Int = 1 // 32-bit integer
 
-val b: Long = 1\_000\_000\_000L    // 64-bit integer
+val b: Long = 1\_000\_000\_000L // 64-bit integer
 
-val d: Double = 3.14            // 64-bit decimal
+val d: Double = 3.14 // 64-bit decimal
 
-val ok: Boolean = true          // true or false only
+val ok: Boolean = true // true or false only
 
-val c: Char = 'A'               // Unicode character
+val c: Char = 'A' // Unicode character
 
-val s: String = "hello"         // Sequence of characters
+val s: String = "hello" // Sequence of characters
 
 ```
 
@@ -72,8 +72,6 @@ if (a > 0) {
 
 for (i in 0 until n) {} // Value of i -> 0,1,2...n-1
 
-
-
 while (n-- > 0) {} // Value of n -> n,n-1,n-2,...1
 
 ```
@@ -90,8 +88,6 @@ val arr = IntArray(n) // 1D Primitive Integer Array of size n
 
 val grid = Array(r) { IntArray(c) } // 2D Primitive Integer Array/Grid of r - rows, c - columns
 
-
-
 arr.fill(-1) // Fills the entire array with -1 instead of 0
 
 ```
@@ -106,8 +102,6 @@ arr.fill(-1) // Fills the entire array with -1 instead of 0
 
 val s = "abc"
 
-
-
 val ch = s\[1] // Returns character at index 1, i.e ch = 'b'
 
 val len = s.length // Returns length of the string s, i.e len = 3
@@ -116,13 +110,9 @@ val has = s.contains("b") // Returns true iff "b" exists in s, i.e has = true
 
 val t = s.substring(0, 2) // t = "ab"
 
-
-
 val sb = StringBuilder(s) // Special Class used for String Manipulation, s is the original string
 
 sb.append("a").append(123) // abca123
-
-
 
 val out = sb.toString() // out = "abca123"
 
@@ -152,8 +142,6 @@ val a = mutableListOf<Int>() // Dynamic array, O(1) random access, best for most
 
 val b: LinkedList<Int> = LinkedList() // Doubly linked list
 
-
-
 a.add(10) // Appends 10 to the end of the list
 
 val x = a\[0] // Returns element at index 0, i.e x = 10
@@ -172,17 +160,11 @@ val hm = HashMap<String, Int>() // Key-Value pairs, O(1) average get/put, unorde
 
 val hs = HashSet<Int>() // Unique elements only, O(1) average add/contains, unordered
 
-
-
 hm\["k"] = 1 // Maps "k" -> 1
 
 hm.putIfAbsent("k", 2) // "k" already exists, so map remains "k" -> 1
 
-
-
 val v = hm.getOrDefault("missing", 0) // v = 0
-
-
 
 hs.add(5) // Adds 5 to the set
 
@@ -202,13 +184,9 @@ val tm = TreeMap<Int, String>() // Sorted by key in ascending order, O(log n) ge
 
 val ts = TreeSet<Int>() // Unique elements, sorted ascending, O(log n) add/contains
 
-
-
 tm\[2] = "b" // tm = {2 -> "b"}
 
 tm\[1] = "a" // tm = {1 -> "a", 2 -> "b"}
-
-
 
 val firstKey = tm.firstKey() // Returns the smallest key, i.e firstKey = 1
 
@@ -224,29 +202,19 @@ val firstKey = tm.firstKey() // Returns the smallest key, i.e firstKey = 1
 
 val stack = Stack<Int>() // LIFO — Last In First Out
 
-
-
 stack.push(1) // stack = \[1]
 
 val top = stack.peek() // Returns top without removing, i.e top = 1
 
 stack.pop() // Removes top, stack = \[]
 
-
-
 val q: Queue<Int> = LinkedList() // FIFO — First In First Out
-
-
 
 q.add(1) // q = \[1]
 
 q.poll() // Removes and returns front element, q = \[]
 
-
-
 val dq: Deque<Int> = ArrayDeque() // Double-ended queue
-
-
 
 dq.addFirst(1) // dq = \[1]
 
@@ -254,13 +222,9 @@ dq.addLast(2) // dq = \[1, 2]
 
 dq.addFirst(0) // dq = \[0, 1, 2]
 
-
-
 val front = dq.peekFirst() // front = 0
 
 val back = dq.peekLast() // back = 2
-
-
 
 dq.pollFirst() // dq = \[1, 2]
 
@@ -282,17 +246,11 @@ dq.pollLast() // dq = \[1]
 
 val pq = PriorityQueue<Int>() // Min-heap: smallest element always at front
 
-
-
 pq.add(5) // pq = \[5]
 
 pq.add(1) // pq = \[1, 5]
 
-
-
 val min = pq.poll() // Removes and returns smallest, i.e min = 1
-
-
 
 // Max-heap:
 
@@ -314,19 +272,11 @@ val maxpq = PriorityQueue<Int>(compareByDescending { it }) // Largest element at
 
 val arr = intArrayOf(3, 1, 2)
 
-
-
 arr.sort() // arr = \[1, 2, 3], in-place ascending sort
-
-
 
 val pairs = mutableListOf<IntArray>()
 
-
-
 pairs.sortBy { it\[0] } // Sort pairs by first element ascending
-
-
 
 // Sort by second element desc, then first element asc
 
@@ -358,8 +308,6 @@ val idx = arr.binarySearch(target) // Returns index of target in sorted array, n
 
 for (x in arr) {} // Enhanced for-loop over array elements
 
-
-
 // Method 1: Iterate over key-value pairs
 
 for ((k, v) in hm) {
@@ -368,8 +316,6 @@ for ((k, v) in hm) {
 
 }
 
-
-
 // Method 2: Iterate over keys only
 
 for (k in hm.keys) {
@@ -377,8 +323,6 @@ for (k in hm.keys) {
 &#x20;   // use k
 
 }
-
-
 
 // Method 3: Iterate over values only
 
@@ -400,15 +344,9 @@ for (v in hm.values) {
 
 val sum = arr.sum() // Returns sum of all elements in arr
 
-
-
 val sorted = arr.sortedArray() // Returns a new sorted array, original unchanged
 
-
-
 val max = arr.maxOrNull() // Largest element or null if empty
-
-
 
 val min = arr.minOrNull() // Smallest element or null if empty
 
@@ -428,15 +366,9 @@ val min = arr.minOrNull() // Smallest element or null if empty
 
 class Point(val x: Int, val y: Int)
 
-
-
 val p = Point(3, 4)
 
-
-
 val px = p.x // Access property directly, i.e px = 3
-
-
 
 interface Solver {
 
@@ -460,19 +392,13 @@ abstract class Shape {
 
 }
 
-
-
 class Circle(private val r: Double) : Shape() {
 
 &#x20;   override fun area(): Double = Math.PI \* r \* r
 
 }
 
-
-
 val c = Circle(5.0)
-
-
 
 val a = c.area() // a = 78.53...
 
@@ -491,8 +417,6 @@ enum class Dir {
 &#x20;   UP, DOWN, LEFT, RIGHT
 
 }
-
-
 
 val d = Dir.UP
 
@@ -532,8 +456,6 @@ try {
 
 class BadInputException(message: String) : RuntimeException(message)
 
-
-
 throw BadInputException("Invalid input")
 
 ```
@@ -555,8 +477,6 @@ object Singleton {
 &#x20;   fun hello() {}
 
 }
-
-
 
 Singleton.hello()
 
@@ -584,23 +504,15 @@ class User private constructor(
 
 &#x20;       private var age = 0
 
-
-
 &#x20;       fun name(n: String) = apply { name = n }
 
-
-
 &#x20;       fun age(a: Int) = apply { age = a }
-
-
 
 &#x20;       fun build() = User(name, age)
 
 &#x20;   }
 
 }
-
-
 
 val u = User.Builder()
 
@@ -609,8 +521,6 @@ val u = User.Builder()
 &#x20;   .age(20)
 
 &#x20;   .build()
-
-
 
 val name = u.name // name = "Harish"
 
@@ -630,15 +540,11 @@ interface Shape {
 
 }
 
-
-
 class Square(private val s: Double) : Shape {
 
 &#x20;   override fun area() = s \* s
 
 }
-
-
 
 class Circle2(private val r: Double) : Shape {
 
@@ -646,23 +552,15 @@ class Circle2(private val r: Double) : Shape {
 
 }
 
-
-
 object ShapeFactory {
 
 &#x20;   fun square(s: Double): Shape = Square(s)
-
-
 
 &#x20;   fun circle(r: Double): Shape = Circle2(r)
 
 }
 
-
-
 val sq = ShapeFactory.square(4.0)
-
-
 
 val area = sq.area() // area = 16.0
 
@@ -686,8 +584,6 @@ private class FastScanner {
 
 &#x20;   private var ptr = 0
 
-
-
 &#x20;   private fun readByte(): Int {
 
 &#x20;       if (ptr >= len) {
@@ -704,15 +600,11 @@ private class FastScanner {
 
 &#x20;   }
 
-
-
 &#x20;   fun nextInt(): Int {
 
 &#x20;       var c = readByte()
 
 &#x20;       while (c <= 32) c = readByte()
-
-
 
 &#x20;       var sign = 1
 
@@ -724,8 +616,6 @@ private class FastScanner {
 
 &#x20;       }
 
-
-
 &#x20;       var res = 0
 
 &#x20;       while (c > 32) {
@@ -736,19 +626,13 @@ private class FastScanner {
 
 &#x20;       }
 
-
-
 &#x20;       return res \* sign
 
 &#x20;   }
 
 }
 
-
-
 val fs = FastScanner()
-
-
 
 val n = fs.nextInt()
 
@@ -765,6 +649,4 @@ val n = fs.nextInt()
 \* Kotlin Standard Library API: https://kotlinlang.org/api/latest/jvm/stdlib/
 
 \* Kotlin Collections Overview: https://kotlinlang.org/docs/collections-overview.html
-
-
 
