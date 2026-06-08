@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { FiLock, FiX, FiArrowRight, FiMail } from "react-icons/fi";
+import { FiLock, FiX, FiArrowRight, FiMail, FiEye, FiEyeOff } from "react-icons/fi";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -8,6 +8,8 @@ interface LoginModalProps {
 
 const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   const [showSignup, setShowSignup] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Close modal if user clicks outside the modal box boundary canvas
@@ -28,6 +30,19 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [isOpen, onClose]);
+
+  // Reset visibility states when modal is closed or signup view toggled
+  useEffect(() => {
+    if (!isOpen) {
+      setShowPassword(false);
+      setShowConfirmPassword(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    setShowPassword(false);
+    setShowConfirmPassword(false);
+  }, [showSignup]);
 
   if (!isOpen) return null;
 
@@ -108,11 +123,23 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                 </label>
                 <input
                   id="auth-password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
                   placeholder={showSignup ? "Choose password" : "Enter password"}
-                  className="block w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-gray-950/40 py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-500/10 dark:focus:ring-blue-400/5 transition-all w-full"
+                  className="block w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-gray-950/40 py-3 pl-10 pr-10 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-500/10 dark:focus:ring-blue-400/5 transition-all w-full"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors bg-transparent border-none cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? (
+                    <FiEyeOff className="w-4 h-4" aria-hidden="true" />
+                  ) : (
+                    <FiEye className="w-4 h-4" aria-hidden="true" />
+                  )}
+                </button>
               </div>
 
               {/* Conditional Repeat Validation Password Field Node */}
@@ -126,11 +153,23 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   </label>
                   <input
                     id="auth-confirm-password"
-                    type="password"
+                    type={showConfirmPassword ? "text" : "password"}
                     required
                     placeholder="Confirm password"
-                    className="block w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-gray-950/40 py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-500/10 dark:focus:ring-blue-400/5 transition-all w-full"
+                    className="block w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-gray-950/40 py-3 pl-10 pr-10 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:border-blue-500 dark:focus:border-blue-400 focus:bg-white dark:focus:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-500/10 dark:focus:ring-blue-400/5 transition-all w-full"
                   />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors bg-transparent border-none cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ifm-color-primary)]"
+                    aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                  >
+                    {showConfirmPassword ? (
+                      <FiEyeOff className="w-4 h-4" aria-hidden="true" />
+                    ) : (
+                      <FiEye className="w-4 h-4" aria-hidden="true" />
+                    )}
+                  </button>
                 </div>
               )}
             </div>
