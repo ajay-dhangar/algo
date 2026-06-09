@@ -53,7 +53,7 @@ public:
             if (num > max_val) max_val = num;
         }
         
-        return (long long)(max_val - min_val) * k;
+        return ((long long)max_val - min_val) * k;
     }
 };
 ```
