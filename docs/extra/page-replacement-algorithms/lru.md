@@ -75,9 +75,7 @@ for i in ref:
             mm[j] = i
 
         else:
-            x = min(usage.values()) 
-            rev = {v: k for k, v in usage.items()}
-            repl = rev[x]
+            repl = min(usage, key=usage.get)
 
             j = mm.index(repl)
             mm[j] = i
