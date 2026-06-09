@@ -32,9 +32,15 @@ export default function StoryCard({ title, author, username, role, tag, summary 
         <p style={{ fontSize: '0.9rem', color: 'var(--ifm-color-emphasis-700)' }}>{summary}</p>
       </div>
       <div className="card__footer">
-        <Link className="button button--outline button--primary button--block" to={`/story/${username}`}>
-          Read Full Story →
-        </Link>
+        {username && username !== '#' ? (
+          <Link className="button button--outline button--primary button--block" to={'/story/' + username}>
+            Read Full Story →
+          </Link>
+        ) : (
+          <button className="button button--outline button--secondary button--block" disabled>
+            Story Coming Soon
+          </button>
+        )}
       </div>
     </div>
   );
