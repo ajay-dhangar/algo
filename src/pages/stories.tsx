@@ -224,13 +224,19 @@ export default function StoriesPage(): JSX.Element {
                         </div>
                       </div>
                       
-                      <Link 
-                        className="button button--sm button--link text--primary" 
-                        to={`/story/${story.username}`}
-                        style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}
-                      >
-                        Read Route →
-                      </Link>
+                                           {story.username && story.username !== '#' ? (
+                        <Link 
+                          className="button button--sm button--link text--primary" 
+                          to={'/story/' + story.username}
+                          style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}
+                        >
+                          Read Route →
+                        </Link>
+                      ) : ( 
+                        <span style={{ fontSize: '0.85rem', color: 'var(--ifm-color-emphasis-600)', fontWeight: 600 }}>
+                          Coming Soon
+                        </span>
+                      )}
                     </div>
                   </div>
 
