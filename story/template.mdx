@@ -1,0 +1,75 @@
+---
+id: template
+title: "Template for New Story Pages"
+sidebar_label: Template
+sidebar_position: 1
+description: "Use this template as a starting point for creating new story pages in the Algo documentation. Replace the content with your specific topic, ensuring to follow the outlined structure and formatting guidelines."
+tags: [template, guide, documentation, best-practices]
+---
+
+Use this introductory section to explain the core intent, algorithmic system layer, or programming concept covered by this document.
+
+:::info Action Item for Contributors
+*   **What to write:** Replace this block with a 2-3 sentence overview explaining *why* a developer should read this page and what problem it solves.
+*   **Keywords:** Mention core technology or algorithm names early (e.g., "Binary Search", "React Hooks", "Dynamic Programming") so users can find it using our search bar.
+:::
+
+## Core Concepts
+
+Before diving into the code implementation, use this section to establish the foundational rules, underlying mathematical properties, or architectural philosophies.
+
+> **Key Rule / Theorem:** Use this blockquote style to highlight the most critical takeaway, core logic constraint, time complexity requirement, or a warning.
+
+### 1. Architectural or Algorithmic Breakdown
+
+Break down complex technical requirements using explicit bulleted structures to make the page highly scannable:
+
+*   **Prerequisites / Dependencies:** What does a developer need to know or install before starting? (e.g., *Requires basic knowledge of pointers* or *Node.js v18+*).
+*   **Constraints:** Mention boundaries here (e.g., *Array size is within $[1, 10^5]$ elements*).
+*   **Performance Targets:** State the expected ideal time and space complexity baselines (e.g., Space complexity must remain $O(1)$).
+
+## Implementation Layout Matrix
+
+If your topic introduces properties, configuration parameters, API options, or method parameters, use this standardized markdown table to define them cleanly.
+
+| Variable / Parameter Name | Type Signature | Default Value | Core Operational Purpose |
+| :--- | :--- | :--- | :--- |
+| `[parameter_name]` | `[e.g., String]` | `[e.g., null]` | Explain exactly what this variable controls or holds. |
+| `[metric_value]` | `[e.g., Number]` | `[e.g., 0]` | Keep descriptions short, actionable, and precise. |
+
+:::tip Table Optimization Rule
+If your page does not introduce specific parameters, APIs, or comparative data patterns, feel free to completely delete this entire section! Only include a table if you are comparing $\ge 3$ items across $\ge 2$ attributes.
+:::
+
+## Execution Blueprints & Code
+
+This is the heart of your document. Provide a step-by-step breakdown of how to build, run, or implement the concept using clean, well-commented code snippets.
+
+### Step 1: Standard Reference Implementation
+Demonstrate a production-grade, cleanly formatted code configuration or programmatic solution. Make sure to use clear comments explaining your logic flags:
+
+```javascript
+// Add a comment explaining what this function initializes
+const performAlgorithmStep = (inputArray) => {
+  // 1. Edge-case safety checks
+  if (!inputArray || inputArray.length === 0) return [];
+  
+  // 2. Core logical workflow execution 
+  // [Your descriptive code here...]
+  
+  return inputArray;
+};
+
+```
+
+:::warning Language Standards
+If you are writing for our algorithm collection, provide your source implementations inside clean code fences with the language tag clearly specified (e.g., `javascript`,  `cpp`, or `python`).
+:::
+
+:::tip Best Practice Reminder
+Use this formatting block to share specific tips, optimization workarounds, or handy shortcuts that will help contributors and learners speed up their workflow.
+:::
+
+:::note Structural Guideline
+When submitting your final pull request (PR) with this new document, ensure its unique path or filename matches the category structure inside your local workspace layout.
+:::

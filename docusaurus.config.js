@@ -110,77 +110,93 @@ const config = {
           src: "logo/logo.png",
         },
         items: [
+          // --- LEFT ALIGNED ITEMS: Core Education Hub ---
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Tutorial",
+            label: "📖 Tutorial",
           },
           {
             to: "blog",
-            label: "Blog",
-            position: "left",
-          },
-          {
-            to: "faq",
-            label: "FAQ",
+            label: "✍️ Blog",
             position: "left",
           },
           {
             to: "dsa-roadmap",
-            label: "Pick Topic For Contribution",
+            label: "🎯 Contribution Tracker",
             position: "left",
           },
-          {
-            to: "contributors",
-            label: "Contributors",
-            position: "left",
-          },
-          { to: "applications", label: "Applications", position: "left" },
           {
             type: "dropdown",
-            label: "More",
-            position: "right",
+            label: "🧠 DSA Interview",
+            position: "left",
             items: [
               {
-                to: "dsa-interview",
-                label: "Top DSA Questions",
+                to: "roadmap",
+                label: "🗺️ Preparation Roadmap",
               },
               {
-                to: "roadmap",
-                label: "Roadmap",
+                to: "dsa-interview",
+                label: "🔥 Top DSA Questions",
               },
               {
                 to: "challenges",
-                label: "Challenges",
+                label: "⚔️ Code Challenges",
               },
               {
                 to: "practice",
-                label: "Practice",
-              },
-              {
-                to: "playground",
-                label: "Playground",
+                label: "💻 Practice Arena",
               },
               {
                 to: "quizzes",
-                label: "Quizzes",
+                label: "⚡ Concept Quizzes",
               },
               {
                 to: "quiz-solutions",
-                label: "Quizzes Solutions",
+                label: "✅ Quiz Solutions",
+              },
+              {
+                to: "applications",
+                label: "🚀 Real-world Applications",
+              },
+            ],
+          },
+          {
+            to: "faq",
+            label: "❓ FAQ",
+            position: "left",
+          },
+
+          // --- RIGHT ALIGNED ITEMS: Community, Ecosystem & Socials ---
+          {
+            type: "dropdown",
+            label: "👥 Community Hub",
+            position: "right",
+            items: [
+              {
+                to: "stories",
+                label: "✨ Success Stories",
+              },
+              {
+                to: "contributors",
+                label: "🎖️ Contributors Wall",
               },
               {
                 to: "leaderboard",
-                label: "Leaderboard",
+                label: "📊 Global Leaderboard",
               },
               {
                 to: "community",
-                label: "Community",
+                label: "💬 Meetups & Discussion",
+              },
+              {
+                to: "playground",
+                label: "🛝 Code Playground",
               },
               {
                 to: "resources",
-                label: "Resources",
+                label: "📚 Extended Resources",
               },
             ],
           },
@@ -188,6 +204,7 @@ const config = {
             href: "https://github.com/ajay-dhangar/algo",
             label: "GitHub",
             position: "right",
+            className: "header-github-link", // Useful if you want to attach custom CSS icon overrides later
           },
           {
             type: "search",
@@ -256,6 +273,20 @@ const config = {
         rehypePlugins: [rehypeKatex],
         showLastUpdateAuthor: showGitHistory,
         showLastUpdateTime: showGitHistory,
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      {
+        id: "story",
+        path: "story",
+        routeBasePath: "story",
+        sidebarPath: require.resolve("./sidebars.js"),
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+        // showLastUpdateAuthor: showGitHistory,
+        // showLastUpdateTime: showGitHistory,
       },
     ],
     [
