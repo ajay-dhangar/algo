@@ -9,7 +9,7 @@ import UserTestimonialsSection from "./UserTestimonialsSection";
 import ContributeSection from "./ContributeSection";
 import GetInvolvedSection from "./GetInvolvedSection";
 import CallToActionSection from "./CallToActionSection";
-import CookieConsent from "@site/src/components/homepage/cookies/consent";
+import CookieConsent from "./CookieConsent";
 
 const Homepage: React.FC = () => {
   return (
