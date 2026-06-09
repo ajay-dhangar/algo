@@ -49,7 +49,7 @@ When page 4 arrives, page 1 is removed because it entered memory first.
 ## 6. Python Implementation
 
 ```python
-ref = list(input("Enter reference string: ").split())
+ref = input("Enter reference string: ").split()
 m = int(input("Enter number of page frames: "))
 mm = [-1]*m
 
