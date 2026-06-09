@@ -3,7 +3,7 @@ id: optimal-page-replacement
 title: Optimal Page Replacement Algorithm
 sidebar_label: "Optimal Page Replacement Algorithm"
 sidebar_position: 3
-description: Optimal is a simple page replacement algorithm in which pages are replaced based is going to be used last in the future.
+description: Optimal is a simple page replacement algorithm in which pages are replaced based on which page will be used furthest in the future.
 tags: [Page Replacement, optimal, Algorithm]
 ---
 
