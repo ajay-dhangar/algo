@@ -17,7 +17,7 @@ This structured guide covers R from beginner to advanced levels, focusing on dat
 
 
 
-\## Introduction to R and Ecosystem
+## Introduction to R and Ecosystem
 
 
 
@@ -25,42 +25,38 @@ R is a language and environment for statistical computing and graphics. It is wi
 
 
 
-\*\*Core Strengths:\*\*
+**Core Strengths:**
 
-\- Statistical analysis
+- Statistical analysis
 
-\- Data visualization
+- Data visualization
 
-\- Reproducible research
-
-
-
-\*\*Popular Packages:\*\*
-
-\- `tidyverse` — Data manipulation (dplyr, ggplot2, tidyr, etc.)
-
-\- `data.table` — Fast data manipulation
-
-\- `shiny` — Interactive web apps
-
-\- `caret` / `tidymodels` — Machine Learning
+- Reproducible research
 
 
+**Popular Packages:**
 
-\---
+- `tidyverse` — Data manipulation (dplyr, ggplot2, tidyr, etc.)
+
+- `data.table` — Fast data manipulation
+
+- `shiny` — Interactive web apps
+
+- `caret` / `tidymodels` — Machine Learning
 
 
 
-\## Installation and Environment Setup
+---
+
+
+## Installation and Environment Setup
+
+
+Download R from [CRAN](https://cran.r-project.org/).
 
 
 
-Download R from \[CRAN](https://cran.r-project.org/).
-
-
-
-Recommended: Install \*\*RStudio\*\* as your IDE.
-
+Recommended: Install **RStudio** as your IDE.
 
 
 ```r title="Basic commands in console"
@@ -69,10 +65,9 @@ version
 
 getwd()           # Current working directory
 
-setwd("\~/path")   # Change directory
+setwd("~/path")   # Change directory
 
 ```
-
 
 
 ```r title="Install and load packages"
@@ -84,59 +79,51 @@ library(tidyverse)
 ```
 
 
-
-\---
-
+---
 
 
-\## Variables and Data Types
-
+## Variables and Data Types
 
 
 ```r
 
-\# Assignment
+# Assignment
 
 x <- 42
 
 name <- "Alice"
 
-is\_active <- TRUE
+is_active <- TRUE
 
 
-
-\# Data types
+# Data types
 
 class(x)          # numeric
 
 class(name)       # character
 
-class(is\_active)  # logical
+class(is_active)  # logical
 
 ```
 
 
+**Main Types:**
 
-\*\*Main Types:\*\*
+- Numeric (integer, double)
 
-\- Numeric (integer, double)
+- Character
 
-\- Character
+- Logical
 
-\- Logical
+- Factor (categorical)
 
-\- Factor (categorical)
-
-\- Date / POSIXct
-
+- Date / POSIXct
 
 
-\---
+---
 
 
-
-\## Operators and Expressions
-
+## Operators and Expressions
 
 
 ```r
@@ -157,23 +144,18 @@ TRUE | FALSE
 ```
 
 
-
-\---
-
+---
 
 
-\## Control Flow Statements
+## Control Flow Statements
 
 
-
-\### If-Else
-
+### If-Else
 
 
 ```r
 
 score <- 85
-
 
 
 if (score >= 90) {
@@ -193,15 +175,12 @@ if (score >= 90) {
 ```
 
 
-
-\### Switch
-
+### Switch
 
 
 ```r
 
 day <- "Monday"
-
 
 
 switch(day,
@@ -217,18 +196,15 @@ switch(day,
 ```
 
 
-
-\---
-
+---
 
 
-\## Loops
-
+## Loops
 
 
 ```r
 
-\# For loop
+# For loop
 
 for (i in 1:5) {
 
@@ -237,8 +213,7 @@ for (i in 1:5) {
 }
 
 
-
-\# While loop
+# While loop
 
 count <- 0
 
@@ -253,45 +228,36 @@ while (count < 3) {
 ```
 
 
-
-\---
-
+---
 
 
-\## Functions
-
+## Functions
 
 
 ```r
 
-add\_numbers <- function(a, b = 0) {
+add_numbers <- function(a, b = 0) {
 
 &#x20; return(a + b)
 
 }
 
 
-
-add\_numbers(5, 3)
+add_numbers(5, 3)
 
 ```
 
 
-
-\*\*Scope:\*\* Variables inside functions are local unless using `<<-`.
-
+**Scope:** Variables inside functions are local unless using `<<-`.
 
 
-\---
+---
 
 
-
-\## Data Structures
-
+## Data Structures
 
 
-\### Vectors
-
+### Vectors
 
 
 ```r
@@ -301,19 +267,16 @@ numbers <- c(1, 2, 3, 4, 5)
 fruits <- c("apple", "banana", "cherry")
 
 
+# Operations
 
-\# Operations
-
-numbers \* 2
+numbers * 2
 
 mean(numbers)
 
 ```
 
 
-
-\### Matrices
-
+### Matrices
 
 
 ```r
@@ -325,23 +288,19 @@ mat
 ```
 
 
-
-\### Lists
-
+### Lists
 
 
 ```r
 
-my\_list <- list(name = "John", age = 30, scores = c(85, 90))
+my_list <- list(name = "John", age = 30, scores = c(85, 90))
 
-my\_list$name
+my_list$name
 
 ```
 
 
-
-\### Data Frames
-
+### Data Frames
 
 
 ```r
@@ -357,19 +316,15 @@ df <- data.frame(
 )
 
 
-
 head(df)
 
 ```
 
 
-
-\---
-
+---
 
 
-\## String Manipulation
-
+## String Manipulation
 
 
 ```r
@@ -387,8 +342,7 @@ strsplit(text, " ")
 ```
 
 
-
-\*\*Using stringr (tidyverse):\*\*
+**Using stringr (tidyverse):**
 
 
 
@@ -396,37 +350,32 @@ strsplit(text, " ")
 
 library(stringr)
 
-str\_detect(text, "Hello")
+str_detect(text, "Hello")
 
-str\_replace(text, "World", "R")
+str_replace(text, "World", "R")
 
 ```
 
 
-
-\---
-
+---
 
 
-\## File Handling and Data I/O
-
+## File Handling and Data I/O
 
 
 ```r
 
-\# Read CSV
+# Read CSV
 
 df <- read.csv("data.csv")
 
 
-
-\# Write CSV
+# Write CSV
 
 write.csv(df, "output.csv", row.names = FALSE)
 
 
-
-\# Using readr (tidyverse)
+# Using readr (tidyverse)
 
 library(readr)
 
@@ -435,16 +384,13 @@ df <- read\_csv("data.csv")
 ```
 
 
-
-\---
-
+---
 
 
-\## Data Visualization
+## Data Visualization
 
 
-
-\### Base R
+### Base R
 
 
 
@@ -457,9 +403,7 @@ hist(rnorm(1000), breaks = 30)
 ```
 
 
-
-\### ggplot2
-
+### ggplot2
 
 
 ```r
@@ -467,42 +411,36 @@ hist(rnorm(1000), breaks = 30)
 library(ggplot2)
 
 
-
 ggplot(mtcars, aes(x = wt, y = mpg)) +
 
-&#x20; geom\_point() +
+&#x20; geom_point() +
 
-&#x20; geom\_smooth(method = "lm") +
+&#x20; geom_smooth(method = "lm") +
 
-&#x20; theme\_minimal()
+&#x20; theme_minimal()
 
 ```
 
 
-
-\---
-
+---
 
 
-\## Statistical Analysis
-
+## Statistical Analysis
 
 
 ```r
 
-\# Summary statistics
+# Summary statistics
 
 summary(mtcars$mpg)
 
 
-
-\# Correlation
+# Correlation
 
 cor(mtcars$wt, mtcars$mpg)
 
 
-
-\# Linear model
+# Linear model
 
 model <- lm(mpg \~ wt + hp, data = mtcars)
 
@@ -511,13 +449,10 @@ summary(model)
 ```
 
 
-
-\---
-
+---
 
 
-\## Data Wrangling with dplyr
-
+## Data Wrangling with dplyr
 
 
 ```r
@@ -538,14 +473,10 @@ df %>%
 
 ```
 
+---
 
 
-\---
-
-
-
-\## Error Handling and Debugging
-
+## Error Handling and Debugging
 
 
 ```r
@@ -559,75 +490,62 @@ tryCatch({
 ```
 
 
-
 Use `browser()`, `traceback()`, and `debug()` for debugging.
 
 
-
-\---
-
+---
 
 
-\## Package Management
-
+## Package Management
 
 
 ```r
 
-install.packages("package\_name")
+install.packages("package_name")
 
-remove.packages("package\_name")
+remove.packages("package_name")
 
 update.packages()
 
 ```
 
 
-
-\*\*renv\*\* for project-specific environments.
-
+**renv** for project-specific environments.
 
 
-\---
+---
 
 
-
-\## Best Practices and Coding Conventions
+## Best Practices and Coding Conventions
 
 
 
-\- Use meaningful variable names
+- Use meaningful variable names
 
-\- Prefer `<-` for assignment
+- Prefer `<-` for assignment
 
-\- Follow tidyverse style guide
+- Follow tidyverse style guide
 
-\- Comment your code
+- Comment your code
 
-\- Use R Markdown / Quarto for reports
+- Use R Markdown / Quarto for reports
 
-\- Version control with Git
-
-
-
-\---
+- Version control with Git
 
 
-
-\## Practical Examples \& Exercises
-
+---
 
 
-\*\*Exercise 1:\*\* Create a function that calculates mean and standard deviation of a vector.
+## Practical Examples \& Exercises
 
 
-
-\*\*Exercise 2:\*\* Load a dataset and create a scatter plot using ggplot2.
-
+**Exercise 1:** Create a function that calculates mean and standard deviation of a vector.
 
 
-\*\*Real-world Case:\*\* Exploratory Data Analysis (EDA) on built-in `iris` dataset.
+**Exercise 2:** Load a dataset and create a scatter plot using ggplot2.
 
+
+**Real-world Case:** Exploratory Data Analysis (EDA) on built-in `iris` dataset.
 
 
 ```r
@@ -638,24 +556,21 @@ summary(iris)
 
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
-&#x20; geom\_point()
+&#x20; geom_point()
 
 ```
 
 
-
-\---
-
+---
 
 
-\*\*References\*\*
+**References**
 
-\- \[R Documentation](https://www.rdocumentation.org/)
+- [R Documentation](https://www.rdocumentation.org/)
 
-\- \[R for Data Science](https://r4ds.hadley.nz/)
+- [R for Data Science](https://r4ds.hadley.nz/)
 
-\- \[CRAN](https://cran.r-project.org/)
-
+- [CRAN](https://cran.r-project.org/)
 
 
 Happy coding with R! 🚀
