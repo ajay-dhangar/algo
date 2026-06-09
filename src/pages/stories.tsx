@@ -209,9 +209,11 @@ export default function StoriesPage(): JSX.Element {
                       <div className="avatar">
                         <img
                           className="avatar__photo interactive-avatar"
-                          src={`https://github.com/${story.username}.png`}
+                          src={story.username && story.username !== '#' ? 'https://github.com/' + story.username + '.png' : 'https://github.com/github.png'}
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src = 'https://github.com/github.png';
+                            const target = e.target as HTMLImageElement;
+                            target.onerror = null;
+                            target.src = 'https://github.com/github.png';
                           }}
                           alt={story.name}
                           style={{ width: '40px', height: '40px' }}
