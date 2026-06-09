@@ -71,7 +71,7 @@ for i in ref:
         miss+=1
 
 print("\nPage faults: ", miss)
-print("Page replacements: ", miss-m)
+print("Page replacements: ", max(0, miss - m))
 print("Hit ratio: ", hit/(hit+miss))
 print("Miss ratio: ", miss/(hit+miss))
 ```
