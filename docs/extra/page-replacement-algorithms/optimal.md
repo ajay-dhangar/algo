@@ -59,8 +59,6 @@ ref = input("Enter reference string: ").split()
 m = int(input("Enter number of page frames: "))
 mm = [-1]*m
 
-usage = {}
-
 hit = 0
 miss = 0
 
