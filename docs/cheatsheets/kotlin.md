@@ -1,23 +1,21 @@
-\---
+---
 
 id: kotlin-cheatsheet
 
 title: Kotlin Cheatsheet
 
-sidebar\_label: Kotlin Cheatsheet
+sidebar_label: Kotlin Cheatsheet
 
-sidebar\_position: 2
+sidebar_position: 2
 
 description: "A fast, practical Kotlin reference for DSA and competitive programming."
 
-tags: \[kotlin, cheatsheet, dsa]
+tags: [kotlin, cheatsheet, dsa]
 
-\---
-
+---
 
 
 This page is a quick reference for Kotlin patterns that show up constantly in DSA and competitive programming. If you're just starting out, don't worry, every snippet here is explained line by line.
-
 
 
 ## Basic Syntax
@@ -25,12 +23,11 @@ This page is a quick reference for Kotlin patterns that show up constantly in DS
 ### Data Types
 
 
-
 ```kotlin title="Basic data type syntax in Kotlin"
 
 val a: Int = 1 // 32-bit integer
 
-val b: Long = 1\_000\_000\_000L // 64-bit integer
+val b: Long = 1_000_000_000L // 64-bit integer
 
 val d: Double = 3.14 // 64-bit decimal
 
@@ -42,11 +39,7 @@ val s: String = "hello" // Sequence of characters
 
 ```
 
-
-
-\### Operators and Control Flow
-
-
+### Operators and Control Flow
 
 // if, else if and else
 if (a > 0) {
@@ -63,11 +56,7 @@ while (n-- > 0) {} // Value of n -> n,n-1,n-2,...1
 
 ```
 
-
-
-\### Arrays
-
-
+### Arrays
 
 ```kotlin title="Array syntax in Kotlin"
 
@@ -95,10 +84,7 @@ val out = sb.toString() // out = "abca123"
 
 ```
 
-
-
-\## Collections
-
+## Collections
 
 
 ```kotlin title="Kotlin collections import"
@@ -107,10 +93,7 @@ import java.util.* // Has most data structures commonly used in DSA
 
 ```
 
-
-
-\### List
-
+### List
 
 
 ```kotlin title="List syntax in Kotlin"
@@ -125,10 +108,7 @@ val x = a\[0] // Returns element at index 0, i.e x = 10
 
 ```
 
-
-
-\### Map / Set
-
+### Map / Set
 
 
 ```kotlin title="Map and Set syntax in Kotlin"
@@ -149,10 +129,7 @@ val exists = hs.contains(5) // exists = true
 
 ```
 
-
-
-\### Ordered (TreeMap / TreeSet)
-
+### Ordered (TreeMap / TreeSet)
 
 
 ```kotlin title="TreeMap and TreeSet syntax in Kotlin"
@@ -161,71 +138,64 @@ val tm = TreeMap<Int, String>() // Sorted by key in ascending order, O(log n) ge
 
 val ts = TreeSet<Int>() // Unique elements, sorted ascending, O(log n) add/contains
 
-tm\[2] = "b" // tm = {2 -> "b"}
+tm[2] = "b" // tm = {2 -> "b"}
 
-tm\[1] = "a" // tm = {1 -> "a", 2 -> "b"}
+tm[1] = "a" // tm = {1 -> "a", 2 -> "b"}
 
 val firstKey = tm.firstKey() // Returns the smallest key, i.e firstKey = 1
 
 ```
 
-
-
-\### Stack / Queue / Deque
-
+### Stack / Queue / Deque
 
 
 ```kotlin title="Stack Queue and Deque syntax in Kotlin"
 
 val stack = Stack<Int>() // LIFO — Last In First Out
 
-stack.push(1) // stack = \[1]
+stack.push(1) // stack = [1]
 
 val top = stack.peek() // Returns top without removing, i.e top = 1
 
-stack.pop() // Removes top, stack = \[]
+stack.pop() // Removes top, stack = []
 
 val q: Queue<Int> = LinkedList() // FIFO — First In First Out
 
-q.add(1) // q = \[1]
+q.add(1) // q = [1]
 
-q.poll() // Removes and returns front element, q = \[]
+q.poll() // Removes and returns front element, q = []
 
 val dq: Deque<Int> = ArrayDeque() // Double-ended queue
 
-dq.addFirst(1) // dq = \[1]
+dq.addFirst(1) // dq = [1]
 
-dq.addLast(2) // dq = \[1, 2]
+dq.addLast(2) // dq = [1, 2]
 
-dq.addFirst(0) // dq = \[0, 1, 2]
+dq.addFirst(0) // dq = [0, 1, 2]
 
 val front = dq.peekFirst() // front = 0
 
 val back = dq.peekLast() // back = 2
 
-dq.pollFirst() // dq = \[1, 2]
+dq.pollFirst() // dq = [1, 2]
 
-dq.pollLast() // dq = \[1]
+dq.pollLast() // dq = [1]
 
 ```
 
+### PriorityQueue/Heap
 
 
-\### PriorityQueue/Heap
-
-
-
-\#### Default -> Min-Heap
-
+#### Default -> Min-Heap
 
 
 ```kotlin title="PriorityQueue or Heap syntax in Kotlin"
 
 val pq = PriorityQueue<Int>() // Min-heap: smallest element always at front
 
-pq.add(5) // pq = \[5]
+pq.add(5) // pq = [5]
 
-pq.add(1) // pq = \[1, 5]
+pq.add(1) // pq = [1, 5]
 
 val min = pq.poll() // Removes and returns smallest, i.e min = 1
 
@@ -235,9 +205,7 @@ val maxpq = PriorityQueue<Int>(compareByDescending { it }) // Largest element at
 
 ```
 
-
-
-\## Common Operations
+## Common Operations
 
 val arr = intArrayOf(3, 1, 2)
 
@@ -253,9 +221,7 @@ pairs.sortWith(compareByDescending<IntArray> { it[1] }
 
 ```
 
-
-
-\### Searching
+### Searching
 
 
 
@@ -265,9 +231,7 @@ val idx = arr.binarySearch(target) // Returns index of target in sorted array, n
 
 ```
 
-
-
-\### Iterating
+### Iterating
 
 
 
@@ -301,10 +265,7 @@ for (v in hm.values) {
 
 ```
 
-
-
-\### Collection Operations (Quick Patterns)
-
+### Collection Operations (Quick Patterns)
 
 
 ```kotlin title="Collection syntax in Kotlin"
@@ -319,13 +280,10 @@ val min = arr.minOrNull() // Smallest element or null if empty
 
 ```
 
+## OOP (Object Oriented Programming)
 
 
-\## OOP (Object Oriented Programming)
-
-
-
-\### Classes and Interfaces
+### Classes and Interfaces
 
 
 
@@ -361,10 +319,7 @@ val a = c.area() // a = 78.53...
 
 ```
 
-
-
-\### Enums
-
+### Enums
 
 
 ```kotlin title="Enum syntax in Kotlin"
@@ -379,10 +334,7 @@ val d = Dir.UP
 
 ```
 
-
-
-\## Exception Handling
-
+## Exception Handling
 
 
 ```kotlin title="Exception handling syntax in Kotlin"
@@ -403,10 +355,7 @@ try {
 
 ```
 
-
-
-\### Custom Exceptions
-
+### Custom Exceptions
 
 
 ```kotlin title="Custom exception syntax in Kotlin"
@@ -417,13 +366,10 @@ throw BadInputException("Invalid input")
 
 ```
 
+## Common Class Design Patterns
 
 
-\## Common Class Design Patterns
-
-
-
-\### Singleton
+### Singleton
 
 
 
@@ -439,10 +385,7 @@ Singleton.hello()
 
 ```
 
-
-
-\### Builder
-
+### Builder
 
 
 ```kotlin title="Builder pattern in Kotlin"
@@ -483,11 +426,7 @@ val name = u.name // name = "Harish"
 
 ```
 
-
-
-\### Factory
-
-
+### Factory
 
 ```kotlin title="Factory pattern in Kotlin"
 
@@ -523,10 +462,7 @@ val area = sq.area() // area = 16.0
 
 ```
 
-
-
-\## Competitive Programming Fast I/O
-
+## Competitive Programming Fast I/O
 
 
 ```kotlin title="Fast input syntax in Kotlin"
@@ -595,15 +531,12 @@ val n = fs.nextInt()
 
 ```
 
-
-
-\## References
+## References
 
 
 
-\* Kotlin Official Documentation: https://kotlinlang.org/docs/
+* Kotlin Official Documentation: https://kotlinlang.org/docs/
 
-\* Kotlin Standard Library API: https://kotlinlang.org/api/latest/jvm/stdlib/
+* Kotlin Standard Library API: https://kotlinlang.org/api/latest/jvm/stdlib/
 
-\* Kotlin Collections Overview: https://kotlinlang.org/docs/collections-overview.html
-
+* Kotlin Collections Overview: https://kotlinlang.org/docs/collections-overview.html
