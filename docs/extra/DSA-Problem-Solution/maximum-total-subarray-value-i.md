@@ -71,7 +71,7 @@ class Solution {
             if (num > max_val) max_val = num;
         }
         
-        return (long)(max_val - min_val) * k;
+        return ((long)max_val - min_val) * k;
     }
 }
 ```
