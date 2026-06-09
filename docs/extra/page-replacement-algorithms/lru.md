@@ -50,7 +50,7 @@ When page 4 arrives, page 2 is replaced because it was the least recently used p
 ## 6. Python Implementation
 
 ```python
-ref = list(input("Enter reference string: ").split())
+ref = input("Enter reference string: ").split()
 m = int(input("Enter number of page frames: "))
 mm = [-1]*m
 
