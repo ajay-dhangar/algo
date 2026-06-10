@@ -1,542 +1,393 @@
 ---
-
 id: kotlin-cheatsheet
-
 title: Kotlin Cheatsheet
-
 sidebar_label: Kotlin Cheatsheet
-
 sidebar_position: 2
-
-description: "A fast, practical Kotlin reference for DSA and competitive programming."
-
+description: "A fast, production-ready Kotlin reference optimized for DSA, LeetCode, and competitive programming."
 tags: [kotlin, cheatsheet, dsa]
-
 ---
 
+This guide is a fast, practical reference for Kotlin patterns that show up constantly in Data Structures, Algorithms, and competitive programming. Every snippet is structured to be optimized for execution speed and clean readability.
 
-This page is a quick reference for Kotlin patterns that show up constantly in DSA and competitive programming. If you're just starting out, don't worry, every snippet here is explained line by line.
-
-
-## Basic Syntax
+## Basic Syntax & Control Flow
 
 ### Data Types
 
+Kotlin handles type inference beautifully, but when dealing with large constraints in competitive programming, knowing your explicit data sizes is crucial.
 
-```kotlin title="Basic data type syntax in Kotlin"
-
-val a: Int = 1 // 32-bit integer
-
-val b: Long = 1_000_000_000L // 64-bit integer
-
-val d: Double = 3.14 // 64-bit decimal
-
-val ok: Boolean = true // true or false only
-
-val c: Char = 'A' // Unicode character
-
-val s: String = "hello" // Sequence of characters
+```kotlin title="Primitive Data Types"
+val explicitInt: Int = 1           // 32-bit signed integer (Standard for counts/indices)
+val largeValue: Long = 1_000_000_000L // 64-bit signed integer (Use for sums that exceed 2*10^9)
+val preciseDecimal: Double = 3.14  // 64-bit floating point
+val isFound: Boolean = true        // Logical true or false
+val character: Char = 'A'          // Single 16-bit Unicode character
+val greeting: String = "hello"     // Immutable sequence of characters
 
 ```
 
-### Operators and Control Flow
+### Operators & Control Flow
 
-// if, else if and else
+Standard conditional statements and highly optimized loop structures for traversing spaces or handling time limits.
+
+```kotlin title="Control Flow Mechanics"
+// 1. Conditional Logic
 if (a > 0) {
-    // ...
+    // Positive block
 } else if (a == 0) {
-    // ...
+    // Zero block
 } else {
-    // ...
+    // Negative block
 }
 
-for (i in 0 until n) {} // Value of i -> 0,1,2...n-1
+// 2. Range Loops (Highly idiomatic in Kotlin)
+for (i in 0 until n) {
+    // Iterates from 0 up to n - 1 (O based indexing traversal)
+}
 
-while (n-- > 0) {} // Value of n -> n,n-1,n-2,...1
+for (i in 0..n) {
+    // Iterates from 0 directly up to n (Inclusive)
+}
+
+for (i in n downTo 0 step 2) {
+    // Iterates backwards from n down to 0, skipping every second element
+}
+
+// 3. While Loop Execution
+var steps = n
+while (steps-- > 0) {
+    // Runs exactly n times efficiently
+}
 
 ```
 
-### Arrays
+## Primitive Arrays & Strings
 
-```kotlin title="Array syntax in Kotlin"
+### Arrays (1D and 2D)
 
-val arr = IntArray(n) // 1D Primitive Integer Array of size n
+For DSA, prefer primitive array classes like `IntArray` over object arrays like `Array<Int>` to bypass auto-boxing overhead and save memory.
 
-val grid = Array(r) { IntArray(c) } // 2D Primitive Integer Array/Grid of r - rows, c - columns
+```kotlin title="Array Configurations"
+val n = 5
+val r = 3
+val c = 4
 
-arr.fill(-1) // Fills the entire array with -1 instead of 0
+// Initialize a 1D Primitive Integer Array of size n (Defaults to 0)
+val arr = IntArray(n) 
+
+// Initialize a 2D Grid (r rows by c columns) initialized with 0
+val grid = Array(r) { IntArray(c) } 
+
+// Fast fill utility (Useful for clearing memoization tables)
+arr.fill(-1) 
 
 ```
 
+### Strings & StringBuilder
 
+Strings in Kotlin are immutable. For heavy manipulations, transformations, or reversals, wrap them in a `StringBuilder`.
 
+```kotlin title="String Operations"
 val s = "abc"
 
-val ch = s[1] // Returns character at index 1, i.e ch = 'b'
-val len = s.length // Returns length of the string s, i.e len = 3
-val has = s.contains("b") // Returns true iff "b" exists in s, i.e has = true
-val t = s.substring(0, 2) // t = "ab"
+val ch = s[1]              // Directly index characters -> 'b'
+val len = s.length         // String length -> 3
+val hasChar = s.contains("b") // Substring/char lookups -> true
+val sub = s.substring(0, 2) // Extracts from index 0 up to 1 -> "ab"
 
-val sb = StringBuilder(s) // Special Class used for String Manipulation, s is the original string
-sb.append("a").append(123) // abca123
+// Efficient modification via StringBuilder
+val sb = StringBuilder(s)
+sb.append("a").append(123) // Appends values directly without generating new instances
 
-val out = sb.toString() // out = "abca123"
-
-```
-
-## Collections
-
-
-```kotlin title="Kotlin collections import"
-
-import java.util.* // Has most data structures commonly used in DSA
+val out = sb.toString()    // Casts back to standard String -> "abca123"
 
 ```
 
-### List
+## Java-Backed Collections Framework
 
-
-```kotlin title="List syntax in Kotlin"
-
-val a = mutableListOf<Int>() // Dynamic array, O(1) random access, best for most use cases
-
-val b: LinkedList<Int> = LinkedList() // Doubly linked list
-
-a.add(10) // Appends 10 to the end of the list
-
-val x = a\[0] // Returns element at index 0, i.e x = 10
+```kotlin title="Core Collections Import"
+// Import Java utility structures to access low-level high-performance DSA collections
+import java.util.*
 
 ```
 
-### Map / Set
+### Dynamic Lists
 
+```kotlin title="Lists & Linked Lists"
+// Mutable Arraylist: O(1) random access, amortized O(1) insertions
+val list = mutableListOf<Int>() 
 
-```kotlin title="Map and Set syntax in Kotlin"
+// Standard Doubly Linked List
+val linkedList: LinkedList<Int> = LinkedList() 
 
-val hm = HashMap<String, Int>() // Key-Value pairs, O(1) average get/put, unordered
-
-val hs = HashSet<Int>() // Unique elements only, O(1) average add/contains, unordered
-
-hm\["k"] = 1 // Maps "k" -> 1
-
-hm.putIfAbsent("k", 2) // "k" already exists, so map remains "k" -> 1
-
-val v = hm.getOrDefault("missing", 0) // v = 0
-
-hs.add(5) // Adds 5 to the set
-
-val exists = hs.contains(5) // exists = true
+list.add(10)      // Appends element to end
+val element = list[0] // Quick item fetch at index 0
 
 ```
 
-### Ordered (TreeMap / TreeSet)
+### HashMaps & HashSets
 
+Used for immediate $O(1)$ average-time lookups and tracking frequencies.
 
-```kotlin title="TreeMap and TreeSet syntax in Kotlin"
+```kotlin title="Hash Tables"
+val hashMap = HashMap<String, Int>()
+val hashSet = HashSet<Int>()
 
-val tm = TreeMap<Int, String>() // Sorted by key in ascending order, O(log n) get/put
+hashMap["key"] = 1 // Inserts key-value mapping
 
-val ts = TreeSet<Int>() // Unique elements, sorted ascending, O(log n) add/contains
+// Safely inserts a value only if the key does not already exist
+hashMap.putIfAbsent("key", 2) 
 
-tm[2] = "b" // tm = {2 -> "b"}
+// Fetch value safely with a fallback default value to eliminate NullPointerException
+val value = hashMap.getOrDefault("missing_key", 0) 
 
-tm[1] = "a" // tm = {1 -> "a", 2 -> "b"}
-
-val firstKey = tm.firstKey() // Returns the smallest key, i.e firstKey = 1
-
-```
-
-### Stack / Queue / Deque
-
-
-```kotlin title="Stack Queue and Deque syntax in Kotlin"
-
-val stack = Stack<Int>() // LIFO — Last In First Out
-
-stack.push(1) // stack = [1]
-
-val top = stack.peek() // Returns top without removing, i.e top = 1
-
-stack.pop() // Removes top, stack = []
-
-val q: Queue<Int> = LinkedList() // FIFO — First In First Out
-
-q.add(1) // q = [1]
-
-q.poll() // Removes and returns front element, q = []
-
-val dq: Deque<Int> = ArrayDeque() // Double-ended queue
-
-dq.addFirst(1) // dq = [1]
-
-dq.addLast(2) // dq = [1, 2]
-
-dq.addFirst(0) // dq = [0, 1, 2]
-
-val front = dq.peekFirst() // front = 0
-
-val back = dq.peekLast() // back = 2
-
-dq.pollFirst() // dq = [1, 2]
-
-dq.pollLast() // dq = [1]
+hashSet.add(5)                   // Deduplicates and adds item
+val exists = hashSet.contains(5) // Fast existence check -> true
 
 ```
 
-### PriorityQueue/Heap
+### Sorted Collections (Balanced BSTs)
 
+Backed by Red-Black trees under the hood. Provides operations in $O(\log n)$ time.
 
-#### Default -> Min-Heap
+```kotlin title="Tree Maps & Sets"
+val treeMap = TreeMap<Int, String>() // Keeps keys ordered in ascending order
+val treeSet = TreeSet<Int>()         // Keeps items distinct and sorted ascending
 
+treeMap[2] = "b"
+treeMap[1] = "a"
 
-```kotlin title="PriorityQueue or Heap syntax in Kotlin"
-
-val pq = PriorityQueue<Int>() // Min-heap: smallest element always at front
-
-pq.add(5) // pq = [5]
-
-pq.add(1) // pq = [1, 5]
-
-val min = pq.poll() // Removes and returns smallest, i.e min = 1
-
-// Max-heap:
-
-val maxpq = PriorityQueue<Int>(compareByDescending { it }) // Largest element at front
+val lowestKey = treeMap.firstKey()  // Fetches minimum key -> 1
+val highestKey = treeMap.lastKey()  // Fetches maximum key -> 2
 
 ```
 
-## Common Operations
+### Stacks, Queues & Double-Ended Queues (Deques)
 
-val arr = intArrayOf(3, 1, 2)
+Essential components for graph traversals like Breadth-First Search (BFS) and Depth-First Search (DFS).
 
-arr.sort() // arr = [1, 2, 3], in-place ascending sort
+```kotlin title="Linear Data Structures"
+// 1. Stack (LIFO)
+val stack = Stack<Int>()
+stack.push(1)
+val topElement = stack.peek() // Looks at top without removing
+stack.pop()                  // Removes and returns top element
 
-val pairs = mutableListOf<IntArray>()
+// 2. Queue (FIFO)
+val queue: Queue<Int> = LinkedList()
+queue.add(1)
+val frontElement = queue.poll() // Removes and returns front element safely
 
-pairs.sortBy { it[0] } // Sort pairs by first element ascending
+// 3. Deque (Double-Ended Queue)
+val deque: Deque<Int> = ArrayDeque()
+deque.addFirst(1)  // Insert at front
+deque.addLast(2)   // Insert at rear
+deque.peekFirst()  // Inspect front
+deque.pollLast()   // Evict from rear
 
-// Sort by second element desc, then first element asc
-pairs.sortWith(compareByDescending<IntArray> { it[1] }
-    .thenBy { it[0] })
+```
+
+### Priority Queues (Heaps)
+
+Crucial for greedy algorithms, Huffman coding, and Dijkstra’s shortest-path algorithm.
+
+```kotlin title="Min-Heap & Max-Heap"
+// Default configuration initialization constructs a Min-Heap
+val minHeap = PriorityQueue<Int>()
+minHeap.add(5)
+minHeap.add(1)
+val small = minHeap.poll() // Returns smallest element first -> 1
+
+// Construct a Max-Heap by passing an inversion comparator
+val maxHeap = PriorityQueue<Int>(compareByDescending { it })
+
+```
+
+## Sorting, Searching, & Iteration
+
+### Custom Sorting
+
+```kotlin title="Sorting Algorithms"
+val primitives = intArrayOf(3, 1, 2)
+primitives.sort() // Sorts in-place in ascending order -> [1, 2, 3]
+
+// Sorting structural matrix rows/coordinates
+val intervals = mutableListOf<IntArray>()
+
+// Sort objects based on their initial index item ascending
+intervals.sortBy { it[0] } 
+
+// Complex Multi-Criteria Sort: Sort by index 1 descending, then break ties with index 0 ascending
+intervals.sortWith(compareByDescending<IntArray> { it[1] }.thenBy { it[0] })
 
 ```
 
 ### Searching
 
-
-
-```kotlin title="Binary search syntax in Kotlin"
-
-val idx = arr.binarySearch(target) // Returns index of target in sorted array, negative if not found
-
-```
-
-### Iterating
-
-
-
-```kotlin title="Iteration syntax in Kotlin"
-
-for (x in arr) {} // Enhanced for-loop over array elements
-
-// Method 1: Iterate over key-value pairs
-
-for ((k, v) in hm) {
-
-&#x20;   // use k and v
-
-}
-
-// Method 2: Iterate over keys only
-
-for (k in hm.keys) {
-
-&#x20;   // use k
-
-}
-
-// Method 3: Iterate over values only
-
-for (v in hm.values) {
-
-&#x20;   // use v
-
-}
+```kotlin title="Binary Search"
+// Binary search requires a pre-sorted array structure. 
+// Returns target position index, or a negative value if it does not exist.
+val positionIndex = primitives.binarySearch(2) 
 
 ```
 
-### Collection Operations (Quick Patterns)
+### Fast Traversals
 
+```kotlin title="Iteration Patterns"
+// Array Element Loop
+for (element in primitives) { /* ... */ }
 
-```kotlin title="Collection syntax in Kotlin"
+// Map Entry Expansion Loop
+for ((key, value) in hashMap) {
+    // Directly leverage destructured key and value bindings
+}
 
-val sum = arr.sum() // Returns sum of all elements in arr
-
-val sorted = arr.sortedArray() // Returns a new sorted array, original unchanged
-
-val max = arr.maxOrNull() // Largest element or null if empty
-
-val min = arr.minOrNull() // Smallest element or null if empty
+// Individual Dimension Extractions
+for (k in hashMap.keys) { /* Loop keys only */ }
+for (v in hashMap.values) { /* Loop values only */ }
 
 ```
 
-## OOP (Object Oriented Programming)
+### Quick Math Extensions
 
+```kotlin title="Functional Helpers"
+val totalSum = primitives.sum()
+val nonMutatedSorted = primitives.sortedArray() // Creates an entirely new sorted clone
+val maxElement = primitives.maxOrNull()        // Returns item or null if empty container
 
-### Classes and Interfaces
+```
 
+## Object-Oriented Paradigm
 
+### Data Classes & Standard Objects
 
-```kotlin title="Class and interface syntax in Kotlin"
+```kotlin title="OOP Foundations"
+// Data classes automatically provide equals(), hashCode(), and toString() configurations
+data class Coordinate(val x: Int, val y: Int)
 
-class Point(val x: Int, val y: Int)
-
-val p = Point(3, 4)
-
-val px = p.x // Access property directly, i.e px = 3
+val point = Coordinate(3, 4)
+val currentX = point.x // Read properties directly
 
 interface Solver {
-
-&#x20;   fun solve(): Int // Any class implementing Solver must define solve()
-
+    fun process(): Int // Structural contract method
 }
 
 ```
 
+### Abstracts & Inheritance
 
-
-abstract class Shape {
-    abstract fun area(): Double
+```kotlin title="Abstract Implementation"
+abstract class TemplateShape {
+    abstract fun calculateArea(): Double
 }
 
-class Circle(private val r: Double) : Shape() {
-    override fun area(): Double = Math.PI * r * r
+class RadialCircle(private val radius: Double) : TemplateShape() {
+    override fun calculateArea(): Double = Math.PI * radius * radius
 }
-
-val c = Circle(5.0)
-
-val a = c.area() // a = 78.53...
-
-```
-
-### Enums
-
-
-```kotlin title="Enum syntax in Kotlin"
-
-enum class Dir {
-
-&#x20;   UP, DOWN, LEFT, RIGHT
-
-}
-
-val d = Dir.UP
 
 ```
 
 ## Exception Handling
 
-
-```kotlin title="Exception handling syntax in Kotlin"
-
+```kotlin title="Try-Catch-Finally Execution"
 try {
-
-&#x20;   val x = "42".toInt()
-
-} catch (e: NumberFormatException) {
-
-&#x20;   // handle
-
+    val operationalNumber = "42".toInt()
+} catch (error: NumberFormatException) {
+    // Logic fallback to address processing failures
 } finally {
-
-&#x20;   // Always executes regardless of exception — used for cleanup
-
+    // Guarantees execution regardless of exceptions for memory or resource tracking cleanup
 }
 
 ```
 
-### Custom Exceptions
+---
 
+## Common Structural Design Patterns
 
-```kotlin title="Custom exception syntax in Kotlin"
+### Singleton Pattern
 
-class BadInputException(message: String) : RuntimeException(message)
+Useful for building global configuration hubs or shared graph states across execution scopes.
 
-throw BadInputException("Invalid input")
+```kotlin title="Object Pattern"
+object AlgorithmConfig {
+    val moduloBase = 1_000_000_007
+    fun printIdentity() = println("Global Configuration active.")
+}
 
 ```
 
-## Common Class Design Patterns
+### Builder Pattern
 
-
-### Singleton
-
-
-
-```kotlin title="Singleton pattern in Kotlin"
-
-object Singleton {
-
-&#x20;   fun hello() {}
-
+```kotlin title="Safe Builder Realization"
+class Competitor private constructor(val handle: String, val rating: Int) {
+    class Builder {
+        private var handle = ""
+        private var rating = 0
+        
+        fun setHandle(h: String) = apply { this.handle = h }
+        fun setRating(r: Int) = apply { this.rating = r }
+        fun build() = Competitor(handle, rating)
+    }
 }
 
-Singleton.hello()
+val profile = Competitor.Builder().setHandle("Master").setRating(2400).build()
 
 ```
 
-### Builder
+## Competitive Programming Fast I/O Template
 
+Standard `Scanner` operations use heavy regex matching, which can slow things down and cause Time Limit Exceeded (TLE) errors. This low-level `FastScanner` implementation reads byte streams directly from raw input buffers.
 
-```kotlin title="Builder pattern in Kotlin"
+```kotlin title="Fast I/O Implementation"
+import java.io.InputStream
 
-class User private constructor(
+private class FastScanner(private val stream: InputStream = System.`in`) {
+    private val buffer = ByteArray(1 shl 16) // 64KB Buffer Window
+    private var headPointer = 0
+    private var bytesReadLength = 0
 
-&#x20;   val name: String,
+    private fun readNextByte(): Int {
+        if (headPointer >= bytesReadLength) {
+            bytesReadLength = stream.read(buffer, 0, buffer.size)
+            headPointer = 0
+            if (bytesReadLength <= 0) return -1
+        }
+        return buffer[headPointer++].toInt()
+    }
 
-&#x20;   val age: Int
-
-) {
-
-&#x20;   class Builder {
-
-&#x20;       private var name = ""
-
-&#x20;       private var age = 0
-
-&#x20;       fun name(n: String) = apply { name = n }
-
-&#x20;       fun age(a: Int) = apply { age = a }
-
-&#x20;       fun build() = User(name, age)
-
-&#x20;   }
-
+    fun nextInt(): Int {
+        var byteChar = readNextByte()
+        while (byteChar <= 32) {
+            if (byteChar == -1) return 0
+            byteChar = readNextByte()
+        }
+        var structuralSign = 1
+        if (byteChar == '-'.code) {
+            structuralSign = -1
+            byteChar = readNextByte()
+        }
+        var parsingResult = 0
+        while (byteChar > 32) {
+            if (byteChar < '0'.code || byteChar > '9'.code) {
+                // Address unexpected character faults
+                break
+            }
+            parsingResult = parsingResult * 10 + (byteChar - '0'.code)
+            byteChar = readNextByte()
+        }
+        return parsingResult * structuralSign
+    }
 }
 
-val u = User.Builder()
-
-&#x20;   .name("Harish")
-
-&#x20;   .age(20)
-
-&#x20;   .build()
-
-val name = u.name // name = "Harish"
-
-```
-
-### Factory
-
-```kotlin title="Factory pattern in Kotlin"
-
-interface Shape {
-
-&#x20;   fun area(): Double
-
+// Execution initialization entry point pattern
+fun main() {
+    val scanner = FastScanner()
+    val numberOfElements = scanner.nextInt()
 }
-
-class Square(private val s: Double) : Shape {
-
-&#x20;   override fun area() = s \* s
-
-}
-
-class Circle2(private val r: Double) : Shape {
-
-&#x20;   override fun area() = Math.PI \* r \* r
-
-}
-
-object ShapeFactory {
-
-&#x20;   fun square(s: Double): Shape = Square(s)
-
-&#x20;   fun circle(r: Double): Shape = Circle2(r)
-
-}
-
-val sq = ShapeFactory.square(4.0)
-
-val area = sq.area() // area = 16.0
-
-```
-
-## Competitive Programming Fast I/O
-
-
-```kotlin title="Fast input syntax in Kotlin"
-
-private class FastScanner {
-
-&#x20;   private val br = System.`in`
-
-&#x20;   private val buffer = ByteArray(1 shl 16)
-
-&#x20;   private var len = 0
-
-&#x20;   private var ptr = 0
-
-&#x20;   private fun readByte(): Int {
-
-&#x20;       if (ptr >= len) {
-
-&#x20;           len = br.read(buffer)
-
-&#x20;           ptr = 0
-
-&#x20;           if (len <= 0) return -1
-
-&#x20;       }
-
-&#x20;       return buffer\[ptr++].toInt()
-
-&#x20;   }
-
-&#x20;   fun nextInt(): Int {
-
-&#x20;       var c = readByte()
-
-&#x20;       while (c <= 32) c = readByte()
-
-&#x20;       var sign = 1
-
-&#x20;       if (c == '-'.code) {
-
-&#x20;           sign = -1
-
-&#x20;           c = readByte()
-
-&#x20;       }
-
-&#x20;       var res = 0
-
-&#x20;       while (c > 32) {
-
-&#x20;           res = res \* 10 + c - '0'.code
-
-&#x20;           c = readByte()
-
-&#x20;       }
-
-&#x20;       return res \* sign
-
-&#x20;   }
-
-}
-
-val fs = FastScanner()
-
-val n = fs.nextInt()
 
 ```
 
 ## References
 
-
-
-* Kotlin Official Documentation: https://kotlinlang.org/docs/
-
-* Kotlin Standard Library API: https://kotlinlang.org/api/latest/jvm/stdlib/
-
-* Kotlin Collections Overview: https://kotlinlang.org/docs/collections-overview.html
+* [Kotlin Official Language Documentation](https://kotlinlang.org/docs/)
+* [Kotlin Standard Library Core API](https://kotlinlang.org/api/latest/jvm/stdlib/)
+* [Kotlin Collections Paradigm Guide](https://kotlinlang.org/docs/collections-overview.html)
