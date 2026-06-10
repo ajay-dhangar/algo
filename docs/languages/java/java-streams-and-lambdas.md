@@ -31,7 +31,7 @@ Together, they let you express *what* you want to do with data instead of *how* 
   - [Creating Streams](#creating-streams)
   - [Intermediate Operations](#intermediate-operations)
   - [Terminal Operations](#terminal-operations)
-- [Putting It Together](#putting-it-all-together)
+- [Putting It All Together](#putting-it-all-together)
 - [DSA-Style Examples](#dsa-style-examples)
 - [Best Practices and Gotchas](#best-practices-and-gotchas)
 - [Quick Reference](#quick-reference)
@@ -388,7 +388,7 @@ public class StreamsDemo {
 ### Find all primes in a range
 
 ```java
-boolean isPrime(int n) {
+static boolean isPrime(int n) {
     if (n < 2) return false;
     for (int i = 2; i * i <= n; i++) {
         if (n % i == 0) return false;
