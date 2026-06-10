@@ -79,10 +79,12 @@ JOIN
     Department d 
 ON 
     e.departmentId = d.id
-WHERE 
-    (e.departmentId, e.salary) IN (
-        SELECT departmentId, MAX(salary)
-        FROM Employee
-        GROUP BY departmentId
-    );
+JOIN (
+    SELECT departmentId, MAX(salary) AS max_salary
+    FROM Employee
+    GROUP BY departmentId
+) m 
+ON 
+    e.departmentId = m.departmentId 
+    AND e.salary = m.max_salary;
 ```    
