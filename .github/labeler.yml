@@ -1,0 +1,14 @@
+# Documentation changes
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: '**/*.md'
+
+# Core Algorithm Logic
+enhancement:
+  - changed-files:
+      - any-glob-to-any-file: 'src/**/*'
+
+# Repository Configurations
+ci-cd:
+  - changed-files:
+      - any-glob-to-any-file: '.github/**/*'
