@@ -1,8 +1,10 @@
 ---
-id : functional-programming
+id: functional-programming
 sidebar_position: 12
 title: "Functional programming in Java"
 sidebar_label: "functional programming"
+description: "Introduction to functional programming in Java — immutability, pure functions, lambda expressions, and the Streams API overview."
+tags: [java, Functional Programming, Lambda, Streams]
 ---
 
 # Functional Programming in Java
