@@ -13,6 +13,10 @@ on:
       - 'docs/**/*.md'
       - 'docs/**/*.mdx'
       - 'package.json'
+  workflow_dispatch: # Allows maintainers to run validation manually
+
+permissions:
+  contents: read # Restricts permissions to read-only for security best practices
 
 jobs:
   validate-frontmatter:
@@ -25,12 +29,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20' # Upgraded to Node 20 (LTS) to match your release environment
+          cache: 'npm'       # Automatically caches npm dependencies to make runs significantly faster
 
       - name: Install dependencies
         run: npm ci
 
       - name: Validate documentation front-matter
         run: npm run validate:docs
-
-
