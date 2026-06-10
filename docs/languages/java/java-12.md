@@ -96,5 +96,9 @@ int sum = numbers.stream()
                   .reduce(0, (a, b) -> a + b);  // Sum them up
 ```
 
+## Next Steps
+
+For a complete guide with detailed examples on **lambda syntax**, **method references**, **filtering**, **mapping**, and **DSA-style stream patterns**, see [Java Streams API and Lambda Expressions](./java-streams-and-lambdas.md).
+
 ## Conclusion
-Java's functional programming features such as lambda expressions, the Streams API that allow for more concise and readable code. 
+Java's functional programming features such as lambda expressions and the Streams API allow for more concise and readable code. 
