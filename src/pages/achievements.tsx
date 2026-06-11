@@ -144,13 +144,13 @@ export default function AchievementsPage(): JSX.Element {
               </div>
 
               <div className="relative z-10 shrink-0 w-full md:w-auto">
-                <a 
-                  href="/algo/docs/" 
+                <Link 
+                  to="/docs/" 
                   className="w-full md:w-auto inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl font-mono text-[11px] font-black uppercase tracking-wider text-white dark:text-zinc-950 bg-[var(--ifm-color-primary)] hover:brightness-110 transition-all shadow-sm group border border-transparent hover:no-underline decoration-none"
                 >
                   <span>Contribution Parameters</span> 
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </a>
+                </Link>
                 <div className="flex items-center justify-center gap-1.5 text-[8px] font-mono text-slate-400 dark:text-zinc-500 mt-2.5 uppercase tracking-wider">
                   <Terminal className="w-2.5 h-2.5 text-[var(--ifm-color-primary)]" /> routing to /docs/template shell
                 </div>
