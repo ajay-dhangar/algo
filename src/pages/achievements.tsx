@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import { Trophy, Users, Rocket, Award, ArrowRight, Terminal } from 'lucide-react';
 
 interface AchievementCardProps {
