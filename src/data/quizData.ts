@@ -44,7 +44,7 @@ const quizData = [
     title: "Graphs Quiz Solutions",
     description:
       "Test your knowledge of graph types, BFS, DFS, adjacency representations, and real-world graph applications.",
-    link: "/quiz-solutions/graphs/",
+    link: "/quiz-solutions/graph/",
   },
 ];
 
