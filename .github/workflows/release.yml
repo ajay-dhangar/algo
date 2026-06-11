@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20 # Upgraded to Node 20 (LTS) for better performance
+          node-version: 24 # Upgraded to Node 20 (LTS) for better performance
           cache: 'npm'
 
       - name: Install dependencies
@@ -33,14 +33,14 @@ jobs:
 
       - name: Generate Release Notes
         id: release_notes
-        uses: release-drafter/release-drafter@v6
+        uses: release-drafter/release-drafter@v7
         with:
           config-name: 'release-drafter.yml'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: Release ${{ github.ref_name }}
           body: ${{ steps.release_notes.outputs.body }}
