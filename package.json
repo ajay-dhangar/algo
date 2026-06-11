@@ -54,8 +54,8 @@
     "swiper": "^11.1.14"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.5.2",
-    "@docusaurus/types": "3.5.2",
+    "@docusaurus/module-type-aliases": "3.10.1",
+    "@docusaurus/types": "3.10.1",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
     "gh-pages": "^6.1.0",
