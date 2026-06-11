@@ -13,15 +13,44 @@ import {
   FiLayers,
 } from "react-icons/fi";
 
+interface Application {
+  title: string;
+  industry: string;
+  explanation: string;
+  learnMore: string;
+}
+
 interface AlgorithmDetails {
-  applications: string[];
+  applications: Application[];
   description: string;
   steps: string[];
 }
 
 const algorithmData: Record<string, AlgorithmDetails> = {
   "Binary Search": {
-    applications: ["Search engines", "Database indexing", "Dictionary search"],
+    applications: [
+      {
+        title: "Search Engines",
+        industry: "Google, Bing",
+        explanation:
+          "Quickly locates relevant documents in massive sorted indexes.",
+        learnMore:
+          "Enables logarithmic search time, making billion-record searches extremely fast.",
+      },
+      {
+        title: "Database Indexing",
+        industry: "MySQL, PostgreSQL",
+        explanation: "Used in B-Tree indexes for rapid record lookup.",
+        learnMore:
+          "Core component behind efficient SQL queries on large tables.",
+      },
+      {
+        title: "Auto-complete Systems",
+        industry: "VS Code, Google Search",
+        explanation: "Powers fast dictionary and suggestion lookups.",
+        learnMore: "",
+      },
+    ],
     description:
       "Binary Search is used to quickly find elements in sorted data. It reduces search time by repeatedly dividing the search space into halves.",
     steps: [
@@ -31,12 +60,27 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Repeat until element is found",
     ],
   },
-
   "Merge Sort": {
     applications: [
-      "Big data processing",
-      "External sorting",
-      "Stable sorting systems",
+      {
+        title: "External Sorting",
+        industry: "Hadoop, Apache Spark",
+        explanation:
+          "Sorts data larger than available memory by dividing and merging.",
+        learnMore: "Guarantees O(n log n) performance and is stable.",
+      },
+      {
+        title: "Database Operations",
+        industry: "MySQL, PostgreSQL",
+        explanation: "Used for sorting large query results efficiently.",
+        learnMore: "",
+      },
+      {
+        title: "Big Data Processing",
+        industry: "Data Warehousing",
+        explanation: "Sorting logs and analytics data at scale.",
+        learnMore: "",
+      },
     ],
     description:
       "Merge Sort is commonly used in large-scale data processing because of its stable and consistent performance on large datasets.",
@@ -47,12 +91,22 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Repeat until fully sorted",
     ],
   },
-
   "Bubble Sort": {
     applications: [
-      "Educational purposes",
-      "Small datasets",
-      "Beginner learning",
+      {
+        title: "Educational Tools",
+        industry: "Algorithm Visualizers",
+        explanation:
+          "Ideal for teaching sorting concepts due to its simplicity.",
+        learnMore: "Easy to visualize step-by-step swaps.",
+      },
+      {
+        title: "Small Datasets",
+        industry: "Embedded Systems",
+        explanation:
+          "Used when dataset size is very small and simplicity matters.",
+        learnMore: "",
+      },
     ],
     description:
       "Bubble Sort is mainly used for learning sorting concepts because of its simple implementation and easy visualization.",
@@ -63,12 +117,27 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Repeat until array becomes sorted",
     ],
   },
-
   "Quick Sort": {
     applications: [
-      "Fast in-memory sorting",
-      "Programming libraries",
-      "Competitive programming",
+      {
+        title: "Language Standard Libraries",
+        industry: "C++, Java, Python",
+        explanation: "Default implementation for efficient in-memory sorting.",
+        learnMore:
+          "Excellent average-case performance with good cache behavior.",
+      },
+      {
+        title: "Competitive Programming",
+        industry: "LeetCode, Codeforces",
+        explanation: "Fast sorting solution for contest problems.",
+        learnMore: "",
+      },
+      {
+        title: "Data Analysis",
+        industry: "Pandas, Excel",
+        explanation: "Used internally for sorting large tabular data.",
+        learnMore: "",
+      },
     ],
     description:
       "Quick Sort is widely used because of its fast average performance and efficient divide-and-conquer approach.",
@@ -79,9 +148,27 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Recursively sort right side",
     ],
   },
-
   DFS: {
-    applications: ["Maze solving", "Path finding", "Graph traversal"],
+    applications: [
+      {
+        title: "Maze Solving & Pathfinding",
+        industry: "Games & Robotics",
+        explanation: "Explores deep paths before backtracking.",
+        learnMore: "Used in puzzle games and AI navigation.",
+      },
+      {
+        title: "File System Traversal",
+        industry: "Operating Systems",
+        explanation: "Recursively explores directories and files.",
+        learnMore: "",
+      },
+      {
+        title: "Cycle Detection",
+        industry: "Graph Databases",
+        explanation: "Detects loops in dependency graphs.",
+        learnMore: "",
+      },
+    ],
     description:
       "Depth First Search explores nodes deeply before backtracking and is useful in graph traversal and path exploration.",
     steps: [
@@ -91,12 +178,26 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Backtrack when needed",
     ],
   },
-
   BFS: {
     applications: [
-      "Shortest path in graphs",
-      "Social network connections",
-      "Web crawling",
+      {
+        title: "Shortest Path Finding",
+        industry: "Google Maps, Social Networks",
+        explanation: "Finds minimum number of edges in unweighted graphs.",
+        learnMore: "Basis for friend suggestions and minimum moves problems.",
+      },
+      {
+        title: "Web Crawling",
+        industry: "Search Engines",
+        explanation: "Explores websites level by level.",
+        learnMore: "",
+      },
+      {
+        title: "Network Broadcasting",
+        industry: "Telecom",
+        explanation: "Spreads information efficiently across networks.",
+        learnMore: "",
+      },
     ],
     description:
       "Breadth First Search explores level by level and helps find shortest paths in unweighted graphs.",
@@ -107,9 +208,27 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Repeat level-by-level",
     ],
   },
-
   "Dijkstra Algorithm": {
-    applications: ["Google Maps", "GPS navigation", "Network routing"],
+    applications: [
+      {
+        title: "GPS Navigation",
+        industry: "Google Maps, Uber, Apple Maps",
+        explanation: "Calculates shortest routes with real road weights.",
+        learnMore: "Powers real-time navigation worldwide.",
+      },
+      {
+        title: "Network Routing",
+        industry: "Internet & Telecom",
+        explanation: "Used in OSPF routing protocols.",
+        learnMore: "",
+      },
+      {
+        title: "Game Pathfinding",
+        industry: "Video Games",
+        explanation: "AI finds optimal paths considering obstacles.",
+        learnMore: "",
+      },
+    ],
     description:
       "Dijkstra Algorithm is used to calculate shortest paths efficiently in weighted graphs.",
     steps: [
@@ -119,9 +238,27 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Update neighboring distances",
     ],
   },
-
   Stack: {
-    applications: ["Undo feature", "Expression evaluation", "Browser history"],
+    applications: [
+      {
+        title: "Undo/Redo Functionality",
+        industry: "VS Code, Photoshop, Word",
+        explanation: "Stores action history for reversal.",
+        learnMore: "",
+      },
+      {
+        title: "Browser History",
+        industry: "Chrome, Firefox",
+        explanation: "Manages back and forward navigation.",
+        learnMore: "",
+      },
+      {
+        title: "Expression Evaluation",
+        industry: "Compilers",
+        explanation: "Handles parentheses and operator precedence.",
+        learnMore: "",
+      },
+    ],
     description:
       "Stack follows LIFO order and is commonly used in recursion, browser history, and undo operations.",
     steps: [
@@ -131,9 +268,27 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Repeat operations in LIFO order",
     ],
   },
-
   Queue: {
-    applications: ["CPU scheduling", "Printer queue", "Task processing"],
+    applications: [
+      {
+        title: "CPU Scheduling",
+        industry: "Operating Systems",
+        explanation: "Manages processes in Round Robin scheduling.",
+        learnMore: "",
+      },
+      {
+        title: "Print Spooling",
+        industry: "Printer Systems",
+        explanation: "Handles print jobs in arrival order.",
+        learnMore: "",
+      },
+      {
+        title: "Task Processing",
+        industry: "Background Jobs (Celery, Kafka)",
+        explanation: "Processes asynchronous tasks fairly.",
+        learnMore: "",
+      },
+    ],
     description:
       "Queue follows FIFO order and is widely used in scheduling and resource-sharing systems.",
     steps: [
@@ -143,12 +298,26 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Continue in FIFO order",
     ],
   },
-
   "Linked List": {
     applications: [
-      "Music playlists",
-      "Memory management",
-      "Dynamic data storage",
+      {
+        title: "Music Playlists",
+        industry: "Spotify, Apple Music",
+        explanation: "Efficient song insertion, deletion, and reordering.",
+        learnMore: "Doubly linked lists support seamless next/previous.",
+      },
+      {
+        title: "Memory Management",
+        industry: "Operating Systems",
+        explanation: "Dynamic allocation of memory blocks.",
+        learnMore: "",
+      },
+      {
+        title: "Browser History & Navigation",
+        industry: "Web Browsers",
+        explanation: "Maintains session navigation.",
+        learnMore: "",
+      },
     ],
     description:
       "Linked Lists allow dynamic memory allocation and flexible insertion or deletion of elements.",
@@ -159,12 +328,26 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Insert or delete efficiently",
     ],
   },
-
   Recursion: {
     applications: [
-      "Tree traversal",
-      "Backtracking problems",
-      "Divide and conquer algorithms",
+      {
+        title: "Tree & Graph Traversal",
+        industry: "File Systems, Databases",
+        explanation: "Naturally solves hierarchical problems.",
+        learnMore: "",
+      },
+      {
+        title: "Backtracking Problems",
+        industry: "AI & Puzzle Solvers",
+        explanation: "Used in Sudoku, N-Queens, etc.",
+        learnMore: "",
+      },
+      {
+        title: "Divide and Conquer",
+        industry: "Sorting & Searching",
+        explanation: "Foundation for Merge Sort and Quick Sort.",
+        learnMore: "",
+      },
     ],
     description:
       "Recursion solves problems by repeatedly calling the same function with smaller inputs.",
@@ -175,12 +358,26 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Return result after base case",
     ],
   },
-
   "Dynamic Programming": {
     applications: [
-      "Optimization problems",
-      "Game development",
-      "Resource management",
+      {
+        title: "Route Optimization",
+        industry: "Amazon, Uber, Logistics",
+        explanation: "Optimal delivery path and cost calculation.",
+        learnMore: "",
+      },
+      {
+        title: "Game Development",
+        industry: "Chess Engines, Video Games",
+        explanation: "Minimax with memoization for decision making.",
+        learnMore: "",
+      },
+      {
+        title: "Resource Allocation",
+        industry: "Finance & Operations",
+        explanation: "Knapsack and scheduling optimization.",
+        learnMore: "",
+      },
     ],
     description:
       "Dynamic Programming stores previously computed results to optimize complex recursive problems.",
@@ -191,15 +388,32 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Build final optimized solution",
     ],
   },
-
   Trees: {
     applications: [
-      "File systems and directory structures",
-      "Database indexing using B-Trees and AVL Trees",
-      "DOM structure in web development",
-      "Decision trees in Machine Learning",
-      "Expression trees in compilers",
-      "Trie structures for autocomplete/search suggestions",
+      {
+        title: "File Systems",
+        industry: "Windows, Linux, macOS",
+        explanation: "Represents directory hierarchies.",
+        learnMore: "",
+      },
+      {
+        title: "Database Indexing",
+        industry: "MySQL, MongoDB",
+        explanation: "B-Trees and AVL Trees for fast queries.",
+        learnMore: "",
+      },
+      {
+        title: "DOM Structure",
+        industry: "Web Browsers",
+        explanation: "HTML document object model.",
+        learnMore: "",
+      },
+      {
+        title: "Autocomplete & Search",
+        industry: "Google, IDEs",
+        explanation: "Trie-based trees for suggestions.",
+        learnMore: "",
+      },
     ],
     description:
       "Trees are hierarchical data structures widely used in operating systems, databases, web development, machine learning, and search systems.",
@@ -210,15 +424,32 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Perform insertion, deletion, and searching efficiently",
     ],
   },
-
   Graphs: {
     applications: [
-      "Social networks",
-      "GPS and shortest path algorithms",
-      "Recommendation systems",
-      "Network routing",
-      "Web crawling and search engines",
-      "Dependency graphs in software engineering",
+      {
+        title: "Social Networks",
+        industry: "Facebook, LinkedIn, Twitter",
+        explanation: "Models user connections and recommendations.",
+        learnMore: "",
+      },
+      {
+        title: "Recommendation Systems",
+        industry: "Netflix, Amazon",
+        explanation: "Content and product suggestions.",
+        learnMore: "",
+      },
+      {
+        title: "GPS & Navigation",
+        industry: "Google Maps",
+        explanation: "Road networks and routing.",
+        learnMore: "",
+      },
+      {
+        title: "Dependency Management",
+        industry: "Software Build Systems",
+        explanation: "Package and task dependencies.",
+        learnMore: "",
+      },
     ],
     description:
       "Graphs represent relationships between entities and are heavily used in networking, navigation systems, recommendation engines, and large-scale web systems.",
@@ -229,14 +460,32 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Analyze relationships and connectivity",
     ],
   },
-
   Backtracking: {
     applications: [
-      "N-Queens Problem",
-      "Sudoku Solver",
-      "Rat in a Maze",
-      "Permutations & Combinations",
-      "Graph Coloring",
+      {
+        title: "Sudoku Solver",
+        industry: "Puzzle Games",
+        explanation: "Fills grid while satisfying constraints.",
+        learnMore: "",
+      },
+      {
+        title: "N-Queens Problem",
+        industry: "Algorithm Research",
+        explanation: "Places queens without attacking each other.",
+        learnMore: "",
+      },
+      {
+        title: "Rat in a Maze",
+        industry: "Pathfinding",
+        explanation: "Finds valid paths through obstacles.",
+        learnMore: "",
+      },
+      {
+        title: "Permutations & Combinations",
+        industry: "Combinatorial Problems",
+        explanation: "Generates all possible arrangements.",
+        learnMore: "",
+      },
     ],
     description:
       "Backtracking is a problem-solving technique that builds solutions incrementally and backtracks whenever a condition fails.",
@@ -247,14 +496,26 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Backtrack if the solution fails",
     ],
   },
-
   "Greedy Algorithms": {
     applications: [
-      "Activity Selection",
-      "Huffman Coding",
-      "Fractional Knapsack",
-      "Job Sequencing",
-      "Minimum Platforms Problem",
+      {
+        title: "Huffman Coding",
+        industry: "Data Compression (ZIP, JPEG, MP3)",
+        explanation: "Creates optimal prefix codes for compression.",
+        learnMore: "",
+      },
+      {
+        title: "Job Sequencing",
+        industry: "Operating Systems",
+        explanation: "Schedules jobs to maximize profit.",
+        learnMore: "",
+      },
+      {
+        title: "Activity Selection",
+        industry: "Scheduling Systems",
+        explanation: "Selects maximum non-overlapping activities.",
+        learnMore: "",
+      },
     ],
     description:
       "Greedy Algorithms make the locally optimal choice at each step to achieve a globally optimal solution.",
@@ -265,14 +526,32 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Build the final optimal solution",
     ],
   },
-
   Heaps: {
     applications: [
-      "Priority Queues",
-      "Heap Sort",
-      "Kth Largest/Smallest Element",
-      "Merge K Sorted Arrays/Lists",
-      "Median in a Data Stream",
+      {
+        title: "Priority Queues",
+        industry: "Task Schedulers",
+        explanation: "Always processes highest priority item first.",
+        learnMore: "",
+      },
+      {
+        title: "Heap Sort",
+        industry: "System Libraries",
+        explanation: "In-place sorting with O(n log n) guarantee.",
+        learnMore: "",
+      },
+      {
+        title: "Kth Largest/Smallest Element",
+        industry: "Data Streaming",
+        explanation: "Real-time analytics and monitoring.",
+        learnMore: "",
+      },
+      {
+        title: "Merge K Sorted Lists",
+        industry: "Databases & Big Data",
+        explanation: "Efficiently combines multiple sorted streams.",
+        learnMore: "",
+      },
     ],
     description:
       "Heaps are tree-based data structures mainly used for efficient priority management and fast retrieval of minimum or maximum elements.",
@@ -283,14 +562,26 @@ const algorithmData: Record<string, AlgorithmDetails> = {
       "Perform extraction or updates efficiently",
     ],
   },
-
   Tries: {
     applications: [
-      "Autocomplete Systems",
-      "Spell Checker",
-      "Dictionary Search",
-      "IP Routing",
-      "Word Search Problems",
+      {
+        title: "Autocomplete & Search Suggestions",
+        industry: "Google, IDEs, Mobile Keyboards",
+        explanation: "Fast prefix-based word lookup.",
+        learnMore: "Delivers instant suggestions as you type.",
+      },
+      {
+        title: "Spell Checker",
+        industry: "Word Processors",
+        explanation: "Efficient dictionary storage and validation.",
+        learnMore: "",
+      },
+      {
+        title: "IP Routing",
+        industry: "Networking",
+        explanation: "Longest prefix matching for routers.",
+        learnMore: "",
+      },
     ],
     description:
       "Tries are specialized tree structures used for efficient string storage and fast prefix-based searching.",
@@ -303,31 +594,44 @@ const algorithmData: Record<string, AlgorithmDetails> = {
   },
 };
 
-const iconMap: Record<string, { icon: React.ComponentType<{ className?: string }>; color: string }> = {
-  "Trees": { icon: FiFolder, color: "text-green-500" },
-  "Graphs": { icon: FiShare2, color: "text-blue-500" },
+const iconMap: Record<
+  string,
+  { icon: React.ComponentType<{ className?: string }>; color: string }
+> = {
+  Trees: { icon: FiFolder, color: "text-green-500" },
+  Graphs: { icon: FiShare2, color: "text-blue-500" },
   "Binary Search": { icon: FiSearch, color: "text-cyan-500" },
   "Dijkstra Algorithm": { icon: FiMap, color: "text-orange-500" },
   "Linked List": { icon: FiDatabase, color: "text-pink-500" },
-  "BFS": { icon: FiGlobe, color: "text-indigo-500" },
-  "DFS": { icon: FiGlobe, color: "text-indigo-500" },
-  "Backtracking": { icon: FiCode, color: "text-red-500" },
+  BFS: { icon: FiGlobe, color: "text-indigo-500" },
+  DFS: { icon: FiGlobe, color: "text-indigo-500" },
+  Backtracking: { icon: FiCode, color: "text-red-500" },
   "Greedy Algorithms": { icon: FiCompass, color: "text-yellow-500" },
-  "Heaps": { icon: FiLayers, color: "text-purple-500" },
-  "Tries": { icon: FiGitCommit, color: "text-emerald-500" },
+  Heaps: { icon: FiLayers, color: "text-purple-500" },
+  Tries: { icon: FiGitCommit, color: "text-emerald-500" },
 };
 
 const getIcon = (selected: string, isSelected = false) => {
-  const { icon: Icon, color } = iconMap[selected] || { icon: FiCpu, color: "text-[var(--ifm-color-primary)]" };
+  const { icon: Icon, color } = iconMap[selected] || {
+    icon: FiCpu,
+    color: "text-[var(--ifm-color-primary)]",
+  };
   return <Icon className={"w-5 h-5 " + (isSelected ? "text-white" : color)} />;
 };
 
 const AlgorithmUseCases: React.FC = () => {
   const keys = Object.keys(algorithmData);
-
   const [selected, setSelected] = useState<string>(keys[0]);
+  const [expandedApps, setExpandedApps] = useState<Record<string, boolean>>({});
 
   const activeData = algorithmData[selected];
+
+  const toggleExpand = (appTitle: string) => {
+    setExpandedApps((prev) => ({
+      ...prev,
+      [appTitle]: !prev[appTitle],
+    }));
+  };
 
   return (
     <div className="w-full max-w-6xl mx-auto my-12 px-4">
@@ -336,7 +640,6 @@ const AlgorithmUseCases: React.FC = () => {
         <div className="md:col-span-4 lg:col-span-3 flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800/60 pr-0 md:pr-4 scrollbar-none snap-x md:max-h-[60vh] md:overflow-y-auto">
           {keys.map((algo) => {
             const isSelected = selected === algo;
-
             return (
               <button
                 key={algo}
@@ -354,9 +657,7 @@ const AlgorithmUseCases: React.FC = () => {
                 {isSelected && (
                   <span className="hidden md:block absolute left-0 top-1/4 bottom-1/4 w-1 bg-white rounded-r" />
                 )}
-
                 {getIcon(algo, isSelected)}
-
                 <span>{algo}</span>
               </button>
             );
@@ -369,37 +670,65 @@ const AlgorithmUseCases: React.FC = () => {
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-3">
               {getIcon(selected)}
-
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
                 {selected}
               </h2>
             </div>
-
             <p className="text-sm sm:text-lg text-slate-600 dark:text-gray-400 leading-relaxed m-0">
               {activeData.description}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-            {/* Applications */}
+          <div className="grid grid-cols-1 gap-6 items-start">
+            {/* Enhanced Real World Applications */}
             <div className="bg-slate-50/50 dark:bg-gray-950/30 border border-slate-100 dark:border-slate-800/40 rounded-xl p-5">
-              <h3 className="inline-flex items-center gap-2 text-xs font-extrabold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+              <h3 className="inline-flex items-center gap-2 text-xs font-extrabold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-6">
                 <FiCompass className="w-4 h-4 text-[var(--ifm-color-primary)]" />
                 Real World Applications
               </h3>
 
-              <ul className="list-none p-0 m-0 space-y-3">
-                {activeData.applications.map((item, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-sm font-semibold text-slate-700 dark:text-gray-300"
-                  >
-                    <span className="h-2 w-2 mt-1.5 rounded-full bg-[var(--ifm-color-primary)] shrink-0" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {activeData.applications.map((app, index) => {
+                  const isExpanded = expandedApps[app.title] || false;
+                  return (
+                    <div
+                      key={index}
+                      className="group bg-white dark:bg-gray-900 border border-slate-200 dark:border-slate-700 rounded-xl p-5 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5"
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-bold mb-2">
+                            {app.industry}
+                          </div>
+                          <h4 className="font-semibold text-slate-900 dark:text-white text-[15px] leading-tight">
+                            {app.title}
+                          </h4>
+                        </div>
+                      </div>
 
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+                      <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">
+                        {app.explanation}
+                      </p>
+
+                      {app.learnMore && (
+                        <>
+                          <button
+                            onClick={() => toggleExpand(app.title)}
+                            className="mt-4 text-xs font-medium text-[var(--ifm-color-primary)] hover:underline flex items-center gap-1"
+                          >
+                            {isExpanded ? "− Collapse" : "+ Learn More"}
+                          </button>
+                          {isExpanded && (
+                            <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700 text-sm text-slate-500 dark:text-gray-400">
+                              {app.learnMore}
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
             {/* Steps */}
@@ -408,7 +737,6 @@ const AlgorithmUseCases: React.FC = () => {
                 <FiCpu className="w-4 h-4 text-indigo-500 dark:text-indigo-400" />
                 Step-by-Step Workflow
               </h3>
-
               <ol className="list-none p-0 m-0 relative space-y-4">
                 {activeData.steps.map((step, index) => (
                   <li
@@ -418,11 +746,9 @@ const AlgorithmUseCases: React.FC = () => {
                     {index !== activeData.steps.length - 1 && (
                       <span className="absolute left-[11px] top-6 bottom-[-20px] w-[2px] bg-slate-200 dark:bg-gray-800 pointer-events-none" />
                     )}
-
                     <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-900 border-2 border-slate-200 dark:border-slate-800 text-[10px] font-black text-slate-500 dark:text-gray-400 group-hover:border-indigo-500 dark:group-hover:border-indigo-400 transition-colors z-10">
                       {index + 1}
                     </div>
-
                     <span className="text-xs sm:text-sm text-slate-600 dark:text-gray-400 font-medium pt-0.5 leading-relaxed">
                       {step}
                     </span>
