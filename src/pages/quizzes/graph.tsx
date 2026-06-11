@@ -220,7 +220,7 @@ const GraphQuiz: React.FC = () => {
 
   useEffect(() => {
     if (userId) fetchAttempts(userId);
-  }, [userId, apiBaseUrl]);
+  }, [userId, fetchAttempts]);
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -237,7 +237,7 @@ const GraphQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
+  const fetchAttempts = useCallback(async (uId: string) => {
     try {
       const res = await axios.get(buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/graph`));
       if (res.data?.success && Array.isArray(res.data.attempts)) {
@@ -246,8 +246,7 @@ const GraphQuiz: React.FC = () => {
     } catch (e) {
       console.error("Error fetching graph quiz history:", e);
     }
-  };
-
+  }, [apiBaseUrl]);
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
