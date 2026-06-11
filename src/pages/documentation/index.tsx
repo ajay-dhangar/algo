@@ -34,7 +34,9 @@ const DocumentationPage: React.FC = () => {
                 <tbody>
                   <tr>
                     <td>
-                      <strong>Docusaurus docs</strong>
+                      <Link to="https://docusaurus.io/docs/docs-introduction">
+                        <strong>Docusaurus docs</strong>
+                      </Link>
                     </td>
                     <td>
                       Site structure, docs folders, sidebars, front-matter,
@@ -43,31 +45,41 @@ const DocumentationPage: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <strong>Markdown Guide</strong>
+                      <Link to="https://www.markdownguide.org/">
+                        <strong>Markdown Guide</strong>
+                      </Link>
                     </td>
                     <td>Writing .md pages.</td>
                   </tr>
                   <tr>
                     <td>
-                      <strong>MDX documentation</strong>
+                      <Link to="https://mdxjs.com/docs/">
+                        <strong>MDX documentation</strong>
+                      </Link>
                     </td>
                     <td>Embedding React components.</td>
                   </tr>
                   <tr>
                     <td>
-                      <strong>React docs</strong>
+                      <Link to="https://react.dev/learn">
+                        <strong>React docs</strong>
+                      </Link>
                     </td>
                     <td>Custom components.</td>
                   </tr>
                   <tr>
                     <td>
-                      <strong>Mermaid</strong>
+                      <Link to="https://mermaid.js.org/">
+                        <strong>Mermaid</strong>
+                      </Link>
                     </td>
                     <td>Flowcharts and diagrams.</td>
                   </tr>
                   <tr>
                     <td>
-                      <strong>KaTeX</strong>
+                      <Link to="https://katex.org/docs/supported.html">
+                        <strong>KaTeX</strong>
+                      </Link>
                     </td>
                     <td>Math notation in docs.</td>
                   </tr>
@@ -94,12 +106,10 @@ const DocumentationPage: React.FC = () => {
                 <li>Fork the repository.</li>
                 <li>
                   Clone your fork:{" "}
-                  <CodeBlock language="bash">
-                    git clone https://github.com/&lt;your-username&gt;/algo.git
-                  </CodeBlock>
+                  <CodeBlock language="bash">git clone https://github.com/&lt;your-username&gt;/algo.git</CodeBlock>
                 </li>
                 <li>
-                  <CodeBlock language="bash">cd algo</CodeBlock>
+                  <CodeBlock language="bash">cd algo</CodeBlock>``
                 </li>
                 <li>
                   Add upstream:{" "}
