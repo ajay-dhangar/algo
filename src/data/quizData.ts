@@ -40,6 +40,12 @@ const quizData = [
       "Test your understanding of B-Tree properties and their applications.",
     link: "/quiz-solutions/b-trees/",
   },
+  {
+    title: "Graphs Quiz Solutions",
+    description:
+      "Test your knowledge of graph types, BFS, DFS, adjacency representations, and real-world graph applications.",
+    link: "/quiz-solutions/graphs/",
+  },
 ];
 
 export default quizData;
