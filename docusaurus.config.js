@@ -110,16 +110,15 @@ const config = {
           src: "logo/logo.png",
         },
         items: [
-          // --- LEFT ALIGNED ITEMS: Core Education Hub ---
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "📖 Tutorial",
+            label: "📖 Tutorials",
           },
           {
             to: "blog",
-            label: "✍️ Blog",
+            label: "✍️ Blogs",
             position: "left",
           },
           {
@@ -129,16 +128,36 @@ const config = {
           },
           {
             type: "dropdown",
-            label: "🧠 DSA Interview",
+            label: "🧠 Interview Engine",
             position: "left",
+            className: "navbar-interview-dropdown",
             items: [
               {
+                type: "html",
+                value:
+                  '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">System Preparation</div>',
+              },
+              {
                 to: "roadmap",
-                label: "🗺️ Preparation Roadmap",
+                label: "🗺️ Verification Roadmap",
               },
               {
                 to: "dsa-interview",
-                label: "🔥 Top DSA Questions",
+                label: "🔥 Core Matrix Questions",
+              },
+              {
+                to: "applications",
+                label: "🚀 Real-World Implementation",
+              },
+              {
+                type: "html",
+                value:
+                  '<hr style="margin: 0.4rem 0; border: none; border-top: 1px solid var(--ifm-contents-border-color, #e2e8f0); opacity: 0.6;"/>',
+              },
+              {
+                type: "html",
+                value:
+                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Evaluation Pools</div>',
               },
               {
                 to: "challenges",
@@ -154,11 +173,7 @@ const config = {
               },
               {
                 to: "quiz-solutions",
-                label: "✅ Quiz Solutions",
-              },
-              {
-                to: "applications",
-                label: "🚀 Real-world Applications",
+                label: "✅ Compiled Solutions",
               },
             ],
           },
@@ -167,16 +182,16 @@ const config = {
             label: "❓ FAQ",
             position: "left",
           },
-
-          // --- RIGHT ALIGNED ITEMS: Community, Ecosystem & Socials ---
           {
             type: "dropdown",
             label: "👥 Community Hub",
             position: "right",
+            className: "navbar-community-dropdown",
             items: [
               {
-                to: "stories",
-                label: "✨ Success Stories",
+                type: "html",
+                value:
+                  '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Telemetry & Systems</div>',
               },
               {
                 to: "contributors",
@@ -187,24 +202,46 @@ const config = {
                 label: "📊 Global Leaderboard",
               },
               {
-                to: "community",
-                label: "💬 Meetups & Discussion",
+                to: "achievements",
+                label: "🏆 Milestones & Badges",
+              },
+              {
+                to: "sponsors",
+                label: "💰 Infrastructure Patrons",
+              },
+              {
+                type: "html",
+                value:
+                  '<hr style="margin: 0.4rem 0; border: none; border-top: 1px solid var(--ifm-contents-border-color, #e2e8f0); opacity: 0.6;"/>',
+              },
+              {
+                type: "html",
+                value:
+                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Ecosystem Labs</div>',
               },
               {
                 to: "playground",
                 label: "🛝 Code Playground",
               },
               {
+                to: "stories",
+                label: "✨ Success Stories",
+              },
+              {
+                to: "community",
+                label: "💬 Public Discussions",
+              },
+              {
                 to: "resources",
-                label: "📚 Extended Resources",
+                label: "📚 Extended Assets",
               },
             ],
           },
           {
             href: "https://github.com/ajay-dhangar/algo",
-            label: "GitHub",
             position: "right",
-            className: "header-github-link", // Useful if you want to attach custom CSS icon overrides later
+            className: "header-github-link",
+            "aria-label": "GitHub Repository Run",
           },
           {
             type: "search",
@@ -276,19 +313,54 @@ const config = {
       },
     ],
     [
-      "@docusaurus/plugin-content-docs",
-      /** @type {import('@docusaurus/plugin-content-docs').Options} */
+      "@docusaurus/plugin-content-blog",
+      /** @type {import('@docusaurus/plugin-content-blog').Options} */
       {
         id: "story",
         path: "story",
+        editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
+          `https://github.com/ajay-dhangar/algo/edit/main/${blogDirPath}/${blogPath}`,
+        editLocalizedFiles: false,
+        blogTitle: "Algo Success Stories",
+        blogDescription:
+          "Inspiring journeys of triumph and growth in the world of algorithms. Discover how learners overcame challenges, achieved milestones, and transformed their skills through dedication and perseverance.",
+        blogSidebarCount: 5,
+        blogSidebarTitle: "Recent Success Stories",
         routeBasePath: "story",
-        sidebarPath: require.resolve("./sidebars.js"),
+        include: ["**/*.{md,mdx}"],
+        exclude: [
+          "**/_*.{js,jsx,ts,tsx,md,mdx}",
+          "**/_*/**",
+          "**/*.test.{js,jsx,ts,tsx}",
+          "**/__tests__/**",
+        ],
+        postsPerPage: 10,
+        blogListComponent: "@theme/BlogListPage",
+        blogPostComponent: "@theme/BlogPostPage",
+        blogTagsListComponent: "@theme/BlogTagsListPage",
+        blogTagsPostsComponent: "@theme/BlogTagsPostsPage",
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
-        // showLastUpdateAuthor: showGitHistory,
-        // showLastUpdateTime: showGitHistory,
+        truncateMarker: /<!--\s*(truncate)\s*-->/,
+        showReadingTime: true,
+        feedOptions: {
+          type: "all",
+          title: "Algo Success Stories",
+          description:
+            "Inspiring journeys of triumph and growth in the world of algorithms. Discover how learners overcame challenges, achieved milestones, and transformed their skills through dedication and perseverance.",
+          copyright: "Copyright (c) 2024 Algo, Inc.",
+          language: undefined,
+          createFeedItems: async (params) => {
+            const { blogPosts, defaultCreateFeedItems, ...rest } = params;
+            return defaultCreateFeedItems({
+              blogPosts: blogPosts.filter((item, index) => index < 10),
+              ...rest,
+            });
+          },
+        },
       },
     ],
+
     [
       path.join(__dirname, "/plugins/my-plugin"),
       {
