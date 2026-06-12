@@ -31,6 +31,12 @@ const configuredApiBaseUrl = (
   process.env.ALGO_API_URL || process.env.DOCUSAURUS_API_BASE_URL || ""
 ).trim();
 
+if (configuredApiBaseUrl && !/^https?:\/\//i.test(configuredApiBaseUrl)) {
+  throw new Error(
+    `Invalid API base URL: "${configuredApiBaseUrl}". The URL must start with http:// or https://`
+  );
+}
+
 // Production API integrations must be configured explicitly. Falling back to an
 // empty string would turn API calls into relative site requests and fail at runtime.
 if (process.env.NODE_ENV === "production" && !configuredApiBaseUrl) {
