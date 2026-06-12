@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Layout from "@theme/Layout";
-import "../../css/visualizer.css";
+import "../../css/visualiezer.css";
 
 const DSARoadmap: React.FC = () => {
   useEffect(() => {
