@@ -76,17 +76,17 @@ We can solve this in Pandas by first sorting the DataFrame by `recordDate` to en
 import pandas as pd
 
 def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
-    # Sort by date to ensure chronological order
-    weather.sort_values(by='recordDate', inplace=True)
+    # Create a copy and sort by date to ensure chronological order without side effects
+    df = weather.sort_values(by='recordDate').copy()
     
     # Shift temperatures and dates by 1 to compare with the previous row
-    weather['prev_temp'] = weather['temperature'].shift(1)
-    weather['prev_date'] = weather['recordDate'].shift(1)
+    df['prev_temp'] = df['temperature'].shift(1)
+    df['prev_date'] = df['recordDate'].shift(1)
     
     # Conditions: consecutive days AND strictly higher temperature
-    is_consecutive = (weather['recordDate'] - weather['prev_date']).dt.days == 1
-    is_warmer = weather['temperature'] > weather['prev_temp']
+    is_consecutive = (df['recordDate'] - df['prev_date']).dt.days == 1
+    is_warmer = df['temperature'] > df['prev_temp']
     
     # Filter and return only the 'id' column
-    return weather[is_warmer & is_consecutive][['id']]
+    return df[is_warmer & is_consecutive][['id']]
 ```    
