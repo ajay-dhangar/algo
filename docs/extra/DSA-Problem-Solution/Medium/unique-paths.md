@@ -2,7 +2,6 @@
 id: unique-paths
 title: "Unique Paths"
 sidebar_label: Unique Paths
-sidebar_position: 2
 description: "The Unique Paths problem on LeetCode involves finding the number of possible unique paths for a robot to reach the bottom-right corner of a grid."
 tags: [DSA, leetcode, dynamic-programming, combinatorics, math]
 ---

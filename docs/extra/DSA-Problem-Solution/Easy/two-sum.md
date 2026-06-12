@@ -1,6 +1,5 @@
 ---
 id: two-sum-problem
-sidebar_position: 2
 title: Two Sum
 sidebar_label: Two Sum
 description: "This document explains the Two Sum problem, including its description, approach, and implementation."

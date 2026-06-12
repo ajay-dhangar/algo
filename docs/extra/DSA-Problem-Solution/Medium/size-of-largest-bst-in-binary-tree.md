@@ -1,9 +1,9 @@
 ---
 id: size-of-largest-bst-in-binary-tree
-title: Size of Largest BST in Binary Tree
-sidebar_label: GFG
+title: "Size of Largest BST in Binary Tree"
+sidebar_label: Size of Largest BST in Binary Tree
 tags: [GFG , Binary Tree , BST]
-description: Determine whether the subtree rooted at each node is a Binary Search Tree (BST). Find the size of the largest BST.
+description: "Determine whether the subtree rooted at each node is a Binary Search Tree (BST). Find the size of the largest BST."
 ---
 
 # Size of Largest BST in Binary Tree (GFG)

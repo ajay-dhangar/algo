@@ -1,6 +1,5 @@
 ---
 id: plus-one
-sidebar_position: 2
 title: Plus One
 sidebar_label: Plus One
 description: The "Plus One" dsa problem is a classic algorithm challenge that involves manipulating an array of digits. The goal is to add one to a number represented by an array of its digits.
