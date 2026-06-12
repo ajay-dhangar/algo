@@ -2,7 +2,6 @@
 id: clone-linked-list-with-random-and-next-pointer
 title: "Cloning a Linked List with Random and Next Pointers"
 sidebar_label: "clone linked list"
-sidebar_position: 16
 description: "Cloning a linked list that contains both next and random pointers involves creating a new linked list that is an exact copy of the original, preserving the structure and relationships of the nodes."
 tags: [linked list,clone]
 ---

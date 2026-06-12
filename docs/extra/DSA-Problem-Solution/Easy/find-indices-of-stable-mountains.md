@@ -1,6 +1,5 @@
 ---
 id: find-indices-of-stable-mountains
-sidebar_position: 2
 title: Find Indices of stable mountains
 sidebar_label: Find Indices of stable mountains
 description: The "Find Indices of Stable Mountains" problem on involves identifying mountains that meet a specific stability criterion 1.

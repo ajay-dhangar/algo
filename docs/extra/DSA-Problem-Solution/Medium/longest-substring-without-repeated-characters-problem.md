@@ -1,7 +1,6 @@
 ---
 id: longest-substring-without-repeated-characters-problem
-sidebar_position: 4
-title: Longest Substring Without Repeating Characters
+title: "Longest Substring Without Repeating Characters"
 sidebar_label: Longest Substring Without Repeating Characters
 description: "This document explains the 'Longest Substring Without Repeating Characters' problem, including its description, approach, and implementation."
 tags: [dsa, algorithms, problem-solving]

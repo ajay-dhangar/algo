@@ -1,8 +1,7 @@
 ---
 id: loop-in-a-linked-list
 title: "Finding loop in a linked list."
-sidebar_label: "loop"
-sidebar_position: 10
+sidebar_label: "Finding loop in a linked list"
 description: "This document includes solution to problem finding loop in a linked list along with approach and implementation."
 tags: [Linked list, loop]
 ---

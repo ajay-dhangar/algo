@@ -1,9 +1,8 @@
 ---
 id: lowest-common-ancestor
-title: Lowest Common Ancestor
+title: "Lowest Common Ancestor"
 sidebar_label: Lowest Common Ancestor
-sidebar_position: 12
-description: A detailed 
+description: "A detailed solution to the lowest common ancestor dsa problem from leetcode"
 tags: [lowest common ancestor, lca, dsa, prolem solving]
 ---
 

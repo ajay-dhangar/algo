@@ -1,7 +1,6 @@
 ---
 id: reverse-integer
-sidebar_position: 31
-title: Reverse Integer
+title: "Reverse Integer"
 sidebar_label: Reverse Integer
 description: "This document explains the Reverse Integer problem, including its description, approach, and implementation."
 tags: [dsa, algorithms, problem-solving, math]

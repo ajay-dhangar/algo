@@ -1,6 +1,5 @@
 ---
 id: reverse-linked-list
-sidebar_position: 1
 title: Reverse Linked List
 sidebar_label: Reverse Linked List
 description: "This document explains the Reverse Linked List problem, including its description, approach, and implementation."

@@ -1,8 +1,7 @@
 ---
-id: isPalindrome-problem 
+id: check-palindrome
 title: DSA Problem Solution
 sidebar_label: Check Palindrome
-sidebar-position: 1
 description: A palindrome reads the same forwards and backwards, like "121" or "racecar."
 tags: [DSA, leetcode, problem-solving]
 ---
