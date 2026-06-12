@@ -1,95 +1,51 @@
 name: PR Validation
 
-# Created by smog-root
-
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened, edited, synchronize]
+
+permissions:
+  pull-requests: write
 
 jobs:
   validate-pr:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
-      contents: read
-
     steps:
-    - name: Check out code
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
-
-    - name: Validate PR Description
-      id: pr-check
-      run: |
-        # Fetch PR information
-        PR_DESCRIPTION=$(jq -r .pull_request.body < "$GITHUB_EVENT_PATH")
-        PR_TITLE=$(jq -r .pull_request.title < "$GITHUB_EVENT_PATH")
-
-        # Define file paths for the output variables
-        PR_VALID_FILE=$(mktemp)
-        ERROR_MESSAGE_FILE=$(mktemp)
-        SUCCESS_MESSAGE_FILE=$(mktemp)
-
-        # Default value for PR_VALID
-        PR_VALID="true"
-
-        # Check if PR description is empty
-        if [ -z "$PR_DESCRIPTION" ] || [ "$PR_DESCRIPTION" == "null" ]; then
-          echo "Empty PR description"
-          PR_VALID="false"
-          echo '❌ Error: PR description is empty!' > "$ERROR_MESSAGE_FILE"
-        fi
-
-        # Check for issue reference in the description
-        ISSUE_PATTERN="(Fixes|Close|Closes|Closed|Fix|Fixed|Resolve|Resolves) #[0-9]+"
-        if [[ ! "$PR_DESCRIPTION" =~ $ISSUE_PATTERN ]]; then
-          echo "Invalid or missing issue reference"
-          PR_VALID="false"
-          echo '❌ Error: PR must reference an issue with the format Fixes ,Close ,Closes ,Closed ,Fix ,Fixed ,Resolve ,Resolves #Issue_Number' > "$ERROR_MESSAGE_FILE"
-        fi
-
-        # If both checks pass
-        if [ "$PR_VALID" == "true" ]; then
-          echo '✅ Success: PR is valid!' > "$SUCCESS_MESSAGE_FILE"
-        fi
-
-        # Save the outputs to environment files
-        echo "PR_VALID=$PR_VALID" >> $GITHUB_ENV
-        echo "ERROR_MESSAGE=$(cat $ERROR_MESSAGE_FILE)" >> $GITHUB_ENV
-        echo "SUCCESS_MESSAGE=$(cat $SUCCESS_MESSAGE_FILE)" >> $GITHUB_ENV
-
-    - name: Post comment on PR
-      uses: actions/github-script@v6
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const prValid = process.env.PR_VALID;
-          const errorMessage = process.env.ERROR_MESSAGE;
-          const successMessage = process.env.SUCCESS_MESSAGE;
-          const prNumber = context.payload.pull_request.number;
-
-          if (prValid === 'false') {
-            github.rest.issues.createComment({
-              issue_number: prNumber,
+      - name: Validate PR Description
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const body = pr.body || "";
+            
+            // Regex to check for common closing keywords followed by an issue number
+            const issuePattern = /(Fixes|Close|Closes|Closed|Fix|Fixed|Resolve|Resolves)\s+#\d+/i;
+            
+            const isBodyEmpty = body.trim().length === 0;
+            const hasIssueRef = issuePattern.test(body);
+            
+            let message = "";
+            let isValid = true;
+            
+            if (isBodyEmpty) {
+              message = "❌ **Error:** PR description cannot be empty.";
+              isValid = false;
+            } else if (!hasIssueRef) {
+              message = "❌ **Error:** PR must reference an issue (e.g., 'Fixes #123').";
+              isValid = false;
+            } else {
+              message = "✅ **Success:** PR description is valid!";
+            }
+            
+            // Post comment
+            await github.rest.issues.createComment({
+              issue_number: pr.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: errorMessage
+              body: message
             });
-            core.setFailed(errorMessage);
-          } else {
-            github.rest.issues.createComment({
-              issue_number: prNumber,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: successMessage
-            });
-          }
-
-    - name: Fail if validation failed
-      if: env.PR_VALID == 'false'
-      run: exit 1
+            
+            if (!isValid) {
+              core.setFailed(message);
+            }

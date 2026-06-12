@@ -114,73 +114,126 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Tutorial",
+            label: "📖 Tutorials",
           },
           {
             to: "blog",
-            label: "Blog",
-            position: "left",
-          },
-          {
-            to: "faq",
-            label: "FAQ",
+            label: "✍️ Blogs",
             position: "left",
           },
           {
             to: "dsa-roadmap",
-            label: "Pick Topic For Contribution",
+            label: "🎯 Contribution Tracker",
             position: "left",
           },
-          {
-            to: "contributors",
-            label: "Contributors",
-            position: "left",
-          },
-          { to: "applications", label: "Applications", position: "left" },
           {
             type: "dropdown",
-            label: "More",
-            position: "right",
+            label: "🧠 Interview Engine",
+            position: "left",
+            className: "navbar-interview-dropdown",
             items: [
               {
-                to: "dsa-interview",
-                label: "Top DSA Questions",
+                type: "html",
+                value:
+                  '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">System Preparation</div>',
               },
               {
                 to: "roadmap",
-                label: "Roadmap",
+                label: "🗺️ Verification Roadmap",
+              },
+              {
+                to: "dsa-interview",
+                label: "🔥 Core Matrix Questions",
+              },
+              {
+                to: "applications",
+                label: "🚀 Real-World Implementation",
+              },
+              {
+                type: "html",
+                value:
+                  '<hr style="margin: 0.4rem 0; border: none; border-top: 1px solid var(--ifm-contents-border-color, #e2e8f0); opacity: 0.6;"/>',
+              },
+              {
+                type: "html",
+                value:
+                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Evaluation Pools</div>',
               },
               {
                 to: "challenges",
-                label: "Challenges",
+                label: "⚔️ Code Challenges",
               },
               {
                 to: "practice",
-                label: "Practice",
-              },
-              {
-                to: "playground",
-                label: "Playground",
+                label: "💻 Practice Arena",
               },
               {
                 to: "quizzes",
-                label: "Quizzes",
+                label: "⚡ Concept Quizzes",
               },
               {
                 to: "quiz-solutions",
-                label: "Quizzes Solutions",
+                label: "✅ Compiled Solutions",
+              },
+            ],
+          },
+          {
+            to: "faq",
+            label: "❓ FAQ",
+            position: "left",
+          },
+          {
+            type: "dropdown",
+            label: "👥 Community Hub",
+            position: "right",
+            className: "navbar-community-dropdown",
+            items: [
+              {
+                type: "html",
+                value:
+                  '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Telemetry & Systems</div>',
+              },
+              {
+                to: "contributors",
+                label: "🎖️ Contributors Wall",
               },
               {
                 to: "leaderboard",
-                label: "Leaderboard",
+                label: "📊 Global Leaderboard",
+              },
+              {
+                to: "achievements",
+                label: "🏆 Milestones & Badges",
+              },
+              {
+                to: "sponsors",
+                label: "💰 Infrastructure Patrons",
+              },
+              {
+                type: "html",
+                value:
+                  '<hr style="margin: 0.4rem 0; border: none; border-top: 1px solid var(--ifm-contents-border-color, #e2e8f0); opacity: 0.6;"/>',
+              },
+              {
+                type: "html",
+                value:
+                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Ecosystem Labs</div>',
+              },
+              {
+                to: "playground",
+                label: "🛝 Code Playground",
+              },
+              {
+                to: "stories",
+                label: "✨ Success Stories",
               },
               {
                 to: "community",
-                label: "Community",
+                label: "💬 Public Discussions",
               },
               {
                 to: "resources",
-                label: "Resources",
+                label: "📚 Extended Assets",
               },
                {
   to: "learning-paths",
@@ -191,8 +244,9 @@ const config = {
           },
           {
             href: "https://github.com/ajay-dhangar/algo",
-            label: "GitHub",
             position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub Repository Run",
           },
           {
             type: "search",
@@ -263,6 +317,55 @@ const config = {
         showLastUpdateTime: showGitHistory,
       },
     ],
+    [
+      "@docusaurus/plugin-content-blog",
+      /** @type {import('@docusaurus/plugin-content-blog').Options} */
+      {
+        id: "story",
+        path: "story",
+        editUrl: ({ locale, blogDirPath, blogPath, permalink }) =>
+          `https://github.com/ajay-dhangar/algo/edit/main/${blogDirPath}/${blogPath}`,
+        editLocalizedFiles: false,
+        blogTitle: "Algo Success Stories",
+        blogDescription:
+          "Inspiring journeys of triumph and growth in the world of algorithms. Discover how learners overcame challenges, achieved milestones, and transformed their skills through dedication and perseverance.",
+        blogSidebarCount: 5,
+        blogSidebarTitle: "Recent Success Stories",
+        routeBasePath: "story",
+        include: ["**/*.{md,mdx}"],
+        exclude: [
+          "**/_*.{js,jsx,ts,tsx,md,mdx}",
+          "**/_*/**",
+          "**/*.test.{js,jsx,ts,tsx}",
+          "**/__tests__/**",
+        ],
+        postsPerPage: 10,
+        blogListComponent: "@theme/BlogListPage",
+        blogPostComponent: "@theme/BlogPostPage",
+        blogTagsListComponent: "@theme/BlogTagsListPage",
+        blogTagsPostsComponent: "@theme/BlogTagsPostsPage",
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+        truncateMarker: /<!--\s*(truncate)\s*-->/,
+        showReadingTime: true,
+        feedOptions: {
+          type: "all",
+          title: "Algo Success Stories",
+          description:
+            "Inspiring journeys of triumph and growth in the world of algorithms. Discover how learners overcame challenges, achieved milestones, and transformed their skills through dedication and perseverance.",
+          copyright: "Copyright (c) 2024 Algo, Inc.",
+          language: undefined,
+          createFeedItems: async (params) => {
+            const { blogPosts, defaultCreateFeedItems, ...rest } = params;
+            return defaultCreateFeedItems({
+              blogPosts: blogPosts.filter((item, index) => index < 10),
+              ...rest,
+            });
+          },
+        },
+      },
+    ],
+
     [
       path.join(__dirname, "/plugins/my-plugin"),
       {

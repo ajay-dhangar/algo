@@ -2,6 +2,15 @@
 
 <img width="1024" height="434" alt="image" src="https://github.com/user-attachments/assets/38eb4aed-766b-49f3-add3-e3eb37890a37" />
 
+---
+
+## Table of Contents
+
+|1|2|3|4|5|6|7|8|9|10|11|
+|---|---|---|---|---|---|---|---|---|---|---|
+| [Introduction](#introduction) | [Algo Events](#algo-events) | [Links](#-links) | [Project Overview](#project-overview) | [Features](#features) | [Website](#website) | [Installation](#installation) | [Local Development](#local-development) | [Build](#build) | [Deployment](#deployment) | [Contributing](#-contributing) |
+
+---
 
 ## introduction
 

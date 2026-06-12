@@ -31,6 +31,140 @@ The algorithm uses **Dynamic Programming**. The core idea is to gradually allow 
 
 ---
 
+## Dry Run Example
+
+Consider the following graph:
+
+```mermaid
+graph LR
+    A -->|5| B
+    A -->|10| D
+    B -->|3| C
+    C -->|1| D
+```
+
+Initial Distance Matrix:
+
+|   | A | B | C | D |
+|---|---|---|---|---|
+| A | 0 | 5 | ∞ | 10 |
+| B | ∞ | 0 | 3 | ∞ |
+| C | ∞ | ∞ | 0 | 1 |
+| D | ∞ | ∞ | ∞ | 0 |
+
+The algorithm now considers each vertex as an intermediate node and updates the matrix whenever a shorter path is found.
+
+:::note
+Unlike Dijkstra's Algorithm, Floyd-Warshall computes shortest paths between every pair of vertices simultaneously by gradually allowing more intermediate vertices.
+:::
+
+## Matrix Updates
+
+### After considering B as intermediate vertex
+
+Path A → B → C gives:
+
+5 + 3 = 8
+
+Updated matrix:
+
+|   | A | B | C | D |
+|---|---|---|---|---|
+| A | 0 | 5 | 8 | 10 |
+| B | ∞ | 0 | 3 | ∞ |
+| C | ∞ | ∞ | 0 | 1 |
+| D | ∞ | ∞ | ∞ | 0 |
+
+### After considering C as intermediate vertex
+
+Path A → C → D gives:
+
+8 + 1 = 9
+
+### Final Shortest Path Matrix
+
+|   | A | B | C | D |
+|---|---|---|---|---|
+| A | 0 | 5 | 8 | 9 |
+| B | ∞ | 0 | 3 | 4 |
+| C | ∞ | ∞ | 0 | 1 |
+| D | ∞ | ∞ | ∞ | 0 |
+
+The matrix now contains the shortest distances between every pair of vertices after considering all intermediate vertices.
+
+## Visualization
+
+```mermaid
+flowchart TD
+    Start[Initialize Distance Matrix]
+    K[Choose Intermediate Vertex K]
+    Update[Update dist[i][j]]
+    Next[Next Vertex]
+    Check{More Vertices?}
+    End[Shortest Paths Found]
+
+    Start --> K
+    K --> Update
+    Update --> Check
+    Check -->|Yes| Next
+    Next --> K
+    Check -->|No| End
+```
+## Negative Cycle Detection
+
+One advantage of the Floyd-Warshall Algorithm is its ability to detect **negative weight cycles**.
+
+A negative cycle is a cycle whose total edge weight is negative. If such a cycle exists, the shortest path is undefined because repeatedly traversing the cycle keeps reducing the path cost.
+
+### How Detection Works
+
+After all vertices have been considered as intermediate vertices, inspect the diagonal elements of the distance matrix.
+
+For every vertex `i`:
+
+```text
+dist[i][i] < 0
+```
+
+indicates that a path exists from the vertex back to itself with a negative total cost.
+
+Therefore, if any diagonal entry becomes negative, the graph contains a **negative weight cycle**.
+
+### Example
+
+Final distance matrix:
+
+|   | A | B |
+|---|---|---|
+| A | -2 | 1 |
+| B | 3 | 0 |
+
+Here:
+
+```text
+dist[A][A] = -2
+```
+
+Since the distance from `A` back to itself is negative, a negative cycle exists in the graph.
+
+:::warning
+If a negative weight cycle is present, the shortest path values are not reliable because the path cost can be reduced indefinitely by repeatedly traversing the cycle.
+:::
+
+### Detection Check
+
+Pseudo-code:
+
+```text
+for i = 0 to V-1:
+    if dist[i][i] < 0:
+        Negative Cycle Exists
+```
+
+This check takes only **O(V)** time after the Floyd-Warshall computation is complete.
+
+---
+
 ## Complexity Analysis
 
 | Metric           | Value        |

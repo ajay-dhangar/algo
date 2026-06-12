@@ -1,147 +1,200 @@
 import React from "react";
 import Layout from "@theme/Layout";
+import { useColorMode } from "@docusaurus/theme-common";
+import Giscus from "@giscus/react";
 import { testimonials } from "../../data/testimonialsData";
-import { motion } from "framer-motion";
-import { FaQuoteLeft } from "react-icons/fa";
-import Link from "@docusaurus/Link";
+import { 
+  FaStar, 
+  FaQuoteLeft, 
+  FaCommentMedical, 
+  FaUsers, 
+  FaAward, 
+  FaHeart,
+  FaTerminal
+} from "react-icons/fa";
 
-const Reviews: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
-  };
+const ReviewsGiscus: React.FC = () => {
+  const { colorMode } = useColorMode();
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 60, damping: 15 } }
-  };
+  return (
+    <Giscus
+      id="giscus-reviews"
+      repo="ajay-dhangar/algo"
+      repoId="R_kgDOK224hg"
+      category="Reviews & Feedback"
+      categoryId="DIC_kwDOK224hs4C-sTM"
+      mapping="pathname"
+      term="Welcome to Algo Discussions! Please feel free to ask questions, share ideas, and discuss anything related to Algo."
+      strict="0"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      inputPosition="bottom"
+      theme={colorMode}
+      lang="en"
+      loading="lazy"
+    />
+  );
+};
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
+const ReviewsPage: React.FC = () => {
+  const forumZoneRef = React.useRef<HTMLDivElement>(null);
+  const scrollToDiscussion = () => {
+    forumZoneRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <Layout
-      title="User Reviews & Testimonials"
-      description="Discover what our users say about their experience with Algo. Read real success stories and feedback from developers, students, and engineers."
+    <Layout 
+      title="Reviews & Community" 
+      description="Read user testimonials and share your experience with Algo!"
     >
-      <div className="min-h-screen bg-gradient-to-b from-white via-slate-50/50 to-white dark:from-gray-950 dark:via-gray-900/30 dark:to-gray-950">
-        {/* Ambient Background Glows */}
-        <div className="absolute top-1/4 right-0 -z-10 h-96 w-96 rounded-full bg-[var(--ifm-color-primary)]/5 blur-[120px]" />
-        <div className="absolute bottom-1/4 left-0 -z-10 h-96 w-96 rounded-full bg-indigo-500/5 blur-[120px]" />
+      <main className="relative py-24 bg-slate-50 dark:bg-[#0b0f19] overflow-hidden min-h-screen font-sans">
+        
+        {/* Animated Gaming Ambient Background Nodes */}
+        <div className="absolute top-[-5%] left-[-10%] -z-10 h-[600px] w-[600px] rounded-full bg-[var(--ifm-color-primary)]/10 blur-[160px] animate-pulse [animation-duration:8s] dark:bg-[var(--ifm-color-primary)]/5" />
+        <div className="absolute bottom-[15%] right-[-10%] -z-10 h-[600px] w-[600px] rounded-full bg-purple-500/10 blur-[160px] animate-pulse [animation-duration:12s] dark:bg-purple-500/5" />
 
-        {/* Hero Section */}
-        <section className="relative pt-20 pb-16 px-4 mx-auto text-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="max-w-4xl mx-auto"
-          >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
-              What Our <span className="text-[var(--ifm-color-primary)] bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 bg-clip-text text-transparent">Users Say</span>
+        <div className="max-w-7xl mx-auto px-6">
+          
+          {/* Header Hero Section */}
+          <div className="text-center mx-auto mb-20 relative z-10">
+            <span className="inline-flex items-center gap-2 text-xs font-black tracking-widest uppercase text-[var(--ifm-color-primary)] dark:text-cyan-400 bg-[var(--ifm-color-primary)]/10 dark:bg-cyan-500/10 px-4 py-2 rounded-lg mb-4 border border-[var(--ifm-color-primary)]/30 dark:border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+              <FaHeart className="w-3 h-3 text-red-500 animate-bounce" /> LIVE FEEDBACK LOG
+            </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight uppercase">
+              The Wall of <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--ifm-color-primary)] to-purple-500 dark:from-cyan-400 dark:to-fuchsia-500 drop-shadow-[0_2px_10px_rgba(6,182,212,0.1)]">Love</span>
             </h1>
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-gray-400 leading-relaxed">
-              Discover how developers, students, and open-source contributors optimize their theoretical engineering implementations using our codebase.
+            <p className="text-lg text-slate-600 dark:text-slate-400 mx-auto font-medium">
+              Real-time synchronization logs from developers, students, and open-source engineers optimizing their theoretical workflows with Algo.
             </p>
-          </motion.div>
-        </section>
 
-        {/* Reviews Grid */}
-        <section className="max-w-6xl mx-auto px-4 py-20 relative">
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            {testimonials.map((testimonial, index) => (
-              <motion.div
+            <p className="text-sm text-slate-500 dark:text-gray-500 mt-4 italic">
+              "Algo has transformed my coding workflow. The real-time feedback and community support are unparalleled!" - Alex D.
+            </p>
+            
+            {/* Interactive Cyber Button */}
+            <button 
+              onClick={scrollToDiscussion}
+              className="group relative mt-8 px-8 py-4 font-bold text-sm uppercase tracking-wider text-white bg-slate-900 dark:bg-gradient-to-r dark:from-cyan-500 dark:to-blue-600 rounded-xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] active:translate-y-0"
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+              <span className="flex items-center gap-2 justify-center">
+                <FaTerminal className="w-4 h-4 animate-pulse" /> Initialize Review Input
+              </span>
+            </button>
+          </div>
+
+          {/* HUD Metric Analytics Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mx-auto mb-24 p-2 bg-white/80 dark:bg-gray-900/40 border border-slate-200 dark:border-gray-800/80 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.02)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-xl">
+            <div className="text-center p-5 relative group overflow-hidden rounded-xl hover:bg-slate-100/50 dark:hover:bg-gray-800/30 transition-all duration-300">
+              <div className="text-3xl font-black text-[var(--ifm-color-primary)] dark:text-cyan-400 tracking-square">5.0 ★</div>
+              <div className="text-[10px] font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mt-1">Accuracy Matrix</div>
+            </div>
+            <div className="text-center p-5 border-t md:border-t-0 md:border-l border-slate-100 dark:border-gray-800/60 relative group overflow-hidden rounded-xl hover:bg-slate-100/50 dark:hover:bg-gray-800/30 transition-all duration-300">
+              <div className="text-3xl font-black text-slate-900 dark:text-white tracking-square">10K+</div>
+              <div className="text-[10px] font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mt-1">Active Nodes</div>
+            </div>
+            <div className="text-center p-5 border-l border-slate-100 dark:border-gray-800/60 relative group overflow-hidden rounded-xl hover:bg-slate-100/50 dark:hover:bg-gray-800/30 transition-all duration-300">
+              <div className="text-3xl font-black text-slate-900 dark:text-white tracking-square">100%</div>
+              <div className="text-[10px] font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mt-1">Decentralized</div>
+            </div>
+            <div className="text-center p-5 border-t md:border-t-0 border-l border-slate-100 dark:border-gray-800/60 relative group overflow-hidden rounded-xl hover:bg-slate-100/50 dark:hover:bg-gray-800/30 transition-all duration-300">
+              <div className="text-3xl font-black text-amber-500 dark:text-yellow-400 tracking-square">99.4</div>
+              <div className="text-[10px] font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mt-1">Satisfaction index</div>
+            </div>
+          </div>
+
+          {/* High-Interactive Gaming Card Grid Layout */}
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+            {testimonials.map((t, index) => (
+              <div
                 key={index}
-                variants={cardVariants}
-                className="relative h-full flex flex-col"
+                className="group relative bg-white dark:bg-[#111625] border border-slate-200/80 dark:border-gray-800/80 rounded-2xl p-8 shadow-sm hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-500 backdrop-blur-md flex flex-col justify-between overflow-hidden"
               >
-                <div className="
-                  relative h-full flex flex-col
-                  bg-white dark:bg-gray-900/40
-                  backdrop-blur-md rounded-3xl p-8
-                  border border-slate-200/80 dark:border-slate-800/80
-                  shadow-xl shadow-slate-100/40 dark:shadow-none
-                  transition-all duration-300 hover:shadow-2xl hover:dark:shadow-none
-                "
-                >
-                  {/* Quote Icon */}
-                  <FaQuoteLeft className="text-5xl text-slate-100/70 dark:text-gray-800/40 mb-4" />
+                {/* Neon Top Laser-line Accent on Card Hover */}
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[var(--ifm-color-primary)] via-fuchsia-500 to-cyan-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out" />
+                
+                {/* Subtle Geometric Overlay */}
+                <div className="absolute -bottom-10 -right-10 text-9xl font-black text-slate-50 dark:text-gray-900/10 select-none pointer-events-none transform group-hover:scale-110 transition-transform duration-500">
+                  //
+                </div>
 
-                  {/* User Image */}
-                  <div className="mb-6">
-                    <div className="relative group/avatar">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[var(--ifm-color-primary)] to-indigo-500 opacity-20 blur-md" />
-                      <img
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        loading="lazy"
-                        className="relative w-16 h-16 rounded-full object-cover border-4 border-white dark:border-gray-900 shadow-md"
-                      />
-                    </div>
+                <FaQuoteLeft className="absolute top-6 right-8 text-5xl text-slate-100 dark:text-gray-800/20 pointer-events-none transition-all duration-500 group-hover:text-[var(--ifm-color-primary)]/10 group-hover:rotate-12" />
+
+                <div className="relative z-10">
+                  {/* Rating Stars */}
+                  <div className="flex gap-0.5 text-[var(--ifm-color-primary)] mb-6 transition-transform duration-300 group-hover:translate-x-1">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <FaStar key={i} className="w-3.5 h-3.5 fill-current filter drop-shadow-[0_0_5px_rgba(250,204,21,0.4)] dark:drop-shadow-[0_0_5px_rgba(34,211,238,0.4)]" />
+                    ))}
                   </div>
 
                   {/* Feedback Text */}
-                  <p className="text-base text-slate-700 dark:text-slate-300 font-medium leading-relaxed italic mb-6 flex-grow">
-                    "{testimonial.feedback}"
+                  <p className="text-slate-700 dark:text-slate-300 mb-8 leading-relaxed font-medium text-[15px] transition-colors duration-300 group-hover:text-slate-900 dark:group-hover:text-white">
+                    "{t.feedback}"
                   </p>
+                </div>
 
-                  {/* User Info */}
-                  <div className="border-t border-slate-100 dark:border-slate-800/60 pt-4">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-sm font-semibold text-[var(--ifm-color-primary)]">
-                      {testimonial.role}
+                {/* Profile Footer */}
+                <div className="flex items-center gap-4 border-t border-slate-100 dark:border-gray-800/50 pt-5 mt-auto relative z-10">
+                  <div className="relative">
+                    <img
+                      src={t.avatar}
+                      alt={t.name}
+                      className="w-14 h-14 rounded-xl object-cover ring-4 ring-slate-100 dark:ring-gray-900/60 group-hover:ring-cyan-500/30 group-hover:rotate-3 transition-all duration-500"
+                    />
+                    <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-[#111625] rounded-full shadow-sm animate-pulse" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-slate-900 dark:text-white transition-colors duration-300 group-hover:text-[var(--ifm-color-primary)] mb-2">
+                      {t.name}
+                    </h4>
+                    <p className="text-xs text-slate-500 dark:text-gray-500 uppercase tracking-widest transition-colors duration-300 group-hover:text-[var(--ifm-color-primary)]/80">
+                      {t.role}
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-        </section>
+          </div>
 
-        {/* Call to Action Section */}
-        <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="bg-white dark:bg-gray-900/40 backdrop-blur-md rounded-3xl p-12 border border-slate-200/80 dark:border-slate-800/80 shadow-xl"
-          >
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-              Ready to Start Learning?
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-gray-400 mb-8">
-              Join thousands of developers who are mastering algorithms and data structures with Algo.
-            </p>
-            <Link
-              to="/docs/"
-              className="inline-block bg-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary-dark)] text-white font-bold py-3 px-8 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg no-underline"
-            >
-              Get Started Now
-            </Link>
-          </motion.div>
-        </section>
-      </div>
+          {/* Section Break Divider */}
+          <div className="relative my-24 flex justify-center items-center">
+            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-dashed border-slate-200 dark:border-gray-800" /></div>
+            <span className="relative bg-slate-50 dark:bg-[#0b0f19] px-6 text-[10px] font-black text-slate-400 dark:text-gray-600 uppercase tracking-[0.3em]">System Forum Link</span>
+          </div>
+
+          {/* Giscus Container Setup */}
+          <div id="forum-zone" className="mx-auto relative z-10">
+            <div className="bg-gradient-to-br from-white to-slate-100 dark:from-gray-900/40 dark:to-gray-900/10 border border-slate-200 dark:border-gray-800/80 rounded-2xl p-8 md:p-12 text-center mb-8 shadow-inner transition-all duration-300 hover:border-purple-500/30">
+              <div className="inline-flex p-4 rounded-xl bg-[var(--ifm-color-primary)]/10 text-[var(--ifm-color-primary)] dark:text-cyan-400 dark:bg-cyan-500/10 mb-5 border border-[var(--ifm-color-primary)]/20 dark:border-cyan-500/20 relative group">
+                <span className="absolute inset-0 rounded-xl bg-cyan-400/20 scale-100 group-hover:scale-120 animate-ping [animation-duration:2s] opacity-50" />
+                <FaCommentMedical className="w-6 h-6 relative z-10" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mb-3 uppercase tracking-tight">
+                Establish Direct Transmission
+              </h2>
+              <p className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-0 text-sm md:text-base leading-relaxed font-medium">
+                Your console parameters matter. Authorize using a GitHub account handshake down below to post runtime updates or file direct feature recommendations.
+              </p>
+              <p className="text-slate-500 dark:text-gray-500 mt-4 italic text-xs">
+                "The Giscus integration is a game-changer! It allows me to share my thoughts and feedback directly with the developers, fostering a true sense of community." - Jamie L.
+              </p>
+            </div>
+
+            {/* Live Giscus Shell */}
+            <div className="giscus-container bg-white dark:bg-[#0e1322] p-6 md:p-10 rounded-2xl border border-slate-200 dark:border-gray-800/80 shadow-[0_30px_60px_rgba(0,0,0,0.05)] dark:shadow-[0_30px_60px_rgba(0,0,0,0.4)] backdrop-blur-md relative">
+              <div className="absolute top-4 right-4 flex gap-1.5 items-center opacity-40 select-none">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+                <span className="text-[9px] font-black tracking-widest text-slate-400 uppercase">COMMS_OK</span>
+              </div>
+              <ReviewsGiscus />
+            </div>
+          </div>
+
+        </div>
+      </main>
     </Layout>
   );
 };
 
-export default Reviews;
+export default ReviewsPage;
