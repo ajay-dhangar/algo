@@ -218,9 +218,6 @@ const GraphQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) fetchAttempts(userId);
-  }, [userId, fetchAttempts]);
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -247,6 +244,9 @@ const GraphQuiz: React.FC = () => {
       console.error("Error fetching graph quiz history:", e);
     }
   }, [apiBaseUrl]);
+   useEffect(() => {
+    if (userId) fetchAttempts(userId);
+  }, [userId, fetchAttempts]);
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
