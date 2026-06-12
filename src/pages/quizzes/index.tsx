@@ -77,7 +77,15 @@ const QUIZZES_CONFIG: QuizCardConfig[] = [
     description: "Evaluate external indexing structures, block storage node split workflows, high fan-out properties, and direct multi-way search trees.",
     path: "/quizzes/b-tree",
     questionCount: 10
-  }
+  },
+  {
+    id: "graphs",
+    title: "Quiz on Graphs",
+    category: "Non-Linear",
+    description: "Test your knowledge of graph types, vertex/edge terminology, adjacency representations, BFS, DFS traversal algorithms, and real-world graph applications.",
+    path: "/quizzes/graph",
+    questionCount: 12
+  },
 ];
 
 const FILTER_CATEGORIES = ["All", "Linear", "Non-Linear", "Balanced Tree", "Disk Storage"] as const;
