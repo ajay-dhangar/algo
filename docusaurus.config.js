@@ -27,6 +27,18 @@ const showGitHistory =
         }
       })();
 
+const configuredApiBaseUrl = (
+  process.env.ALGO_API_URL || process.env.DOCUSAURUS_API_BASE_URL || ""
+).trim();
+
+// Production API integrations must be configured explicitly. Falling back to an
+// empty string would turn API calls into relative site requests and fail at runtime.
+if (process.env.NODE_ENV === "production" && !configuredApiBaseUrl) {
+  throw new Error(
+    "Missing required environment variable: ALGO_API_URL or DOCUSAURUS_API_BASE_URL"
+  );
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Algo",
@@ -39,9 +51,8 @@ const config = {
   projectName: "algo",
   customFields: {
     apiBaseUrl:
-      process.env.ALGO_API_URL ||
-      process.env.DOCUSAURUS_API_BASE_URL ||
-      (process.env.NODE_ENV === "development" ? "http://localhost:5000" : ""),
+      configuredApiBaseUrl ||
+      (process.env.NODE_ENV === "development" ? "http://localhost:5000" : undefined),
   },
 
   onBrokenLinks: "throw",
