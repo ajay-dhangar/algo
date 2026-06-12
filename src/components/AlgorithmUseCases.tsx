@@ -629,7 +629,7 @@ const AlgorithmUseCases: React.FC = () => {
   const toggleExpand = (appTitle: string) => {
     setExpandedApps((prev) => ({
       ...prev,
-      [appTitle]: !prev[appTitle],
+      [`${selected}-${appTitle}`]: !prev[`${selected}-${appTitle}`],
     }));
   };
 
