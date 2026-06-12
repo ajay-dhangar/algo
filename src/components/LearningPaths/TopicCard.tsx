@@ -13,6 +13,8 @@ interface TopicCardProps {
   index: number;
   isCompleted?: boolean;
   isInProgress?: boolean;
+  onToggleComplete?: (id: string) => void;
+  onToggleInProgress?: (id: string) => void;
 }
 
 export const TopicCard: React.FC<TopicCardProps> = ({
@@ -20,6 +22,8 @@ export const TopicCard: React.FC<TopicCardProps> = ({
   index,
   isCompleted = false,
   isInProgress = false,
+  onToggleComplete,
+  onToggleInProgress,
 }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -136,17 +140,28 @@ export const TopicCard: React.FC<TopicCardProps> = ({
 
       {/* Action Buttons */}
       <div className="flex gap-2">
-        {topic.docLink && (
-          <Link
-            href={topic.docLink}
-            className="flex-1 rounded bg-blue-500 py-2 text-center text-xs font-medium text-white transition-colors hover:bg-blue-600"
-          >
-            Read Docs →
-          </Link>
-        )}
-        <button className="flex-1 rounded border-2 border-gray-300 py-2 text-xs font-medium text-gray-700 transition-colors hover:border-gray-400 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500">
-          {isCompleted ? "Review" : "Start Learning"}
+        <button
+          onClick={() => onToggleComplete?.(topic.id)}
+          className={`flex-1 rounded border-2 py-2 text-xs font-medium transition-colors ${
+            isCompleted
+              ? "border-green-500 bg-green-500 text-white hover:bg-green-600 dark:border-green-600 dark:bg-green-600 dark:hover:bg-green-700"
+              : "border-gray-300 text-gray-700 hover:border-gray-400 dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500"
+          }`}
+        >
+          {isCompleted ? "✓ Completed" : "Mark Complete"}
         </button>
+
+        <Link
+          href={topic.docLink || "/docs"}
+          onClick={() => {
+            if (!isCompleted && !isInProgress) {
+              onToggleInProgress?.(topic.id);
+            }
+          }}
+          className="flex-1 flex justify-center items-center rounded bg-blue-500 py-2 text-xs font-medium text-white transition-colors hover:bg-blue-600 hover:no-underline"
+        >
+          {isCompleted ? "Review" : isInProgress ? "Continue Learning" : "Start Learning"}
+        </Link>
       </div>
     </motion.div>
   );

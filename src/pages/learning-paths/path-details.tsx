@@ -82,6 +82,11 @@ export const PathDetailsPage: React.FC<PathDetailsPageProps> = ({ location }) =>
       newSet.delete(topicId);
     } else {
       newSet.add(topicId);
+      setInProgressTopics((prev) => {
+        const updated = new Set(prev);
+        updated.delete(topicId);
+        return updated;
+      });
     }
     setCompletedTopics(newSet);
   };
@@ -112,7 +117,7 @@ export const PathDetailsPage: React.FC<PathDetailsPageProps> = ({ location }) =>
     );
   }
 
-  const gradientClass = path.color;
+  const gradientClass = `bg-gradient-to-r ${path.color}`;
 
   return (
     <Layout title={`${path.name} - Learning Path`}>
@@ -155,12 +160,11 @@ export const PathDetailsPage: React.FC<PathDetailsPageProps> = ({ location }) =>
 
         {/* Stats Section */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: FaBook, label: "Total Topics", value: stats.totalTopics },
               { icon: FaClock, label: "Total Time", value: `${stats.totalHours}h` },
               { icon: FaCheckCircle, label: "Completed", value: stats.completedCount },
-              { icon: FaPlayCircle, label: "In Progress", value: stats.inProgressCount },
               {
                 icon: FaTrophy,
                 label: "Progress",
@@ -386,29 +390,6 @@ export const PathDetailsPage: React.FC<PathDetailsPageProps> = ({ location }) =>
 
                         {/* Action Buttons */}
                         <div className="ml-4 flex flex-col gap-2">
-                          {topic.docLink && (
-                            <a
-                              href={topic.docLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center justify-center px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-xs font-medium transition-colors"
-                              title="Read Documentation"
-                            >
-                              <FaExternalLinkAlt className="mr-1" />
-                              Docs
-                            </a>
-                          )}
-                          <button
-                            onClick={() => toggleInProgress(topic.id)}
-                            className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
-                              isInProgress
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-200 dark:hover:bg-blue-900"
-                            }`}
-                            title="Mark as In Progress"
-                          >
-                            {isInProgress ? "▶ In Progress" : "Start"}
-                          </button>
                           <button
                             onClick={() => toggleCompleted(topic.id)}
                             className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${

@@ -47,6 +47,7 @@ const programmingFundamentalsTopics: TopicMetadata[] = [
     description:
       "Learn how to declare and use variables, understand primitive data types and type systems",
     icon: "📦",
+    docLink: "/docs/programming-fundamentals/language-syntax/variables",
   },
   {
     id: "operators",
@@ -58,6 +59,7 @@ const programmingFundamentalsTopics: TopicMetadata[] = [
     description:
       "Master arithmetic, logical, and comparison operators for building expressions",
     icon: "➕",
+    docLink: "/docs/programming-fundamentals/language-syntax/operators",
   },
   {
     id: "control-flow",
@@ -69,6 +71,7 @@ const programmingFundamentalsTopics: TopicMetadata[] = [
     description:
       "Understand conditional statements and loops for program flow control",
     icon: "🔄",
+    docLink: "/docs/programming-fundamentals/language-syntax/conditionals",
   },
   {
     id: "functions",
@@ -80,6 +83,7 @@ const programmingFundamentalsTopics: TopicMetadata[] = [
     description:
       "Learn to write reusable code blocks, understand scope and parameter passing",
     icon: "🔧",
+    docLink: "/docs/programming-fundamentals/language-syntax/functions",
   },
   {
     id: "arrays",
@@ -91,6 +95,7 @@ const programmingFundamentalsTopics: TopicMetadata[] = [
     description:
       "Work with ordered collections, array operations, and indexing",
     icon: "📋",
+    docLink: "/docs/programming-fundamentals/language-syntax/arrays",
   },
   {
     id: "strings",
@@ -102,6 +107,7 @@ const programmingFundamentalsTopics: TopicMetadata[] = [
     description:
       "Master string manipulation, common operations, and pattern matching",
     icon: "📝",
+    docLink: "/docs/programming-fundamentals/language-syntax/strings",
   },
   {
     id: "basic-problem-solving",
@@ -113,6 +119,7 @@ const programmingFundamentalsTopics: TopicMetadata[] = [
     description:
       "Apply fundamentals to solve real-world programming problems",
     icon: "💡",
+    docLink: "/docs/programming-fundamentals",
   },
 ];
 
@@ -127,6 +134,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "Understand algorithm efficiency, time complexity analysis, and Big O notation",
     icon: "⏱️",
+    docLink: "/docs/data-structures/types-of-dsa",
   },
   {
     id: "space-complexity",
@@ -138,6 +146,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "Learn memory usage analysis and optimization techniques",
     icon: "💾",
+    docLink: "/docs/data-structures/types-of-dsa",
   },
   {
     id: "arrays-dsa",
@@ -149,6 +158,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "Array manipulation, searching, sorting, and classic problems",
     icon: "📊",
+    docLink: "/docs/basic-data-structures/array",
   },
   {
     id: "strings-dsa",
@@ -160,6 +170,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "String algorithms, pattern matching, and text processing",
     icon: "🔤",
+    docLink: "/docs/basic-data-structures/Strings",
   },
   {
     id: "linked-lists",
@@ -171,6 +182,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "Understand singly/doubly linked lists, operations, and common problems",
     icon: "🔗",
+    docLink: "/docs/data-structures",
   },
   {
     id: "pointers",
@@ -182,6 +194,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "Master pointer concepts essential for linked lists and advanced DS",
     icon: "👉",
+    docLink: "/docs/basic-data-structures/pointer",
   },
   {
     id: "stack",
@@ -193,6 +206,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "LIFO data structure, stack operations, and applications",
     icon: "📚",
+    docLink: "/docs/data-structures",
   },
   {
     id: "queue",
@@ -204,6 +218,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "FIFO data structure, queue types, and practical applications",
     icon: "🎯",
+    docLink: "/docs/data-structures",
   },
   {
     id: "hashing",
@@ -215,6 +230,7 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     description:
       "Hash functions, collision handling, and hash map implementations",
     icon: "#️⃣",
+    docLink: "/docs/data-structures",
   },
 ];
 
@@ -229,6 +245,7 @@ const placementPrepTopics: TopicMetadata[] = [
     description:
       "Essential searching algorithm for sorted data, common interview topic",
     icon: "🔍",
+    docLink: "/docs/dsa-problems/binary-search",
   },
   {
     id: "two-pointers",
@@ -240,6 +257,7 @@ const placementPrepTopics: TopicMetadata[] = [
     description:
       "Powerful technique for array problems, reduces time complexity",
     icon: "👈👉",
+    docLink: "/docs/dsa-problems",
   },
   {
     id: "sliding-window",
@@ -251,6 +269,7 @@ const placementPrepTopics: TopicMetadata[] = [
     description:
       "Optimize substring/subarray problems with sliding window pattern",
     icon: "🪟",
+    docLink: "/docs/dsa-problems",
   },
   {
     id: "trees",
@@ -262,6 +281,7 @@ const placementPrepTopics: TopicMetadata[] = [
     description:
       "Tree structure, traversals, BST, and tree-based problems",
     icon: "🌳",
+    docLink: "/docs/data-structures",
   },
   {
     id: "graphs",
@@ -273,6 +293,7 @@ const placementPrepTopics: TopicMetadata[] = [
     description:
       "Graph representation, BFS, DFS, and advanced graph algorithms",
     icon: "🔗🔗",
+    docLink: "/docs/graphs",
   },
   {
     id: "heap",
@@ -284,6 +305,7 @@ const placementPrepTopics: TopicMetadata[] = [
     description:
       "Min/Max heap, heap operations, and heap-based problems",
     icon: "⛰️",
+    docLink: "/docs/data-structures",
   },
   {
     id: "dynamic-programming",
@@ -295,6 +317,7 @@ const placementPrepTopics: TopicMetadata[] = [
     description:
       "Memoization, tabulation, and solving complex optimization problems",
     icon: "🎓",
+    docLink: "/docs/dsa-problems",
   },
   {
     id: "recursion",
@@ -306,6 +329,7 @@ const placementPrepTopics: TopicMetadata[] = [
     description:
       "Understand recursion, base cases, and recursive problem-solving",
     icon: "🔁",
+    docLink: "/docs/dsa-problems",
   },
 ];
 
@@ -396,28 +420,28 @@ const competitiveProgrammingTopics: TopicMetadata[] = [
 export const learningPaths: LearningPath[] = [
   {
     id: "beginner-programmer",
-    name: "📚 New to Programming",
-    description: "Start your programming journey from scratch with fundamentals",
+    name: "Coding Foundations",
+    description: "Start your programming journey from scratch with fundamentals to build a robust base in logic.",
     icon: "📚",
     color: "from-blue-500 to-cyan-500",
-    targetAudience: "Complete beginners with no programming experience",
+    targetAudience: "Absolute beginners with no prior programming experience",
     totalHours: 16,
     difficulty: "Beginner",
     topics: programmingFundamentalsTopics,
     keyBenefits: [
       "Build strong programming fundamentals",
       "Learn problem-solving mindset",
-      "Prepare for DSA journey",
+      "Prepare for your DSA journey",
       "Understand code structure and best practices",
     ],
   },
   {
     id: "dsa-fundamentals",
-    name: "🚀 New to Data Structures & Algorithms",
-    description: "Master the essentials of DSA that every programmer needs to know",
+    name: "DSA Mastery",
+    description: "Master the essentials of Data Structures & Algorithms to write highly efficient code.",
     icon: "🚀",
     color: "from-purple-500 to-pink-500",
-    targetAudience: "Programmers ready to learn DSA concepts",
+    targetAudience: "Students familiar with coding ready to learn efficiency",
     totalHours: 29,
     difficulty: "Intermediate",
     topics: [
@@ -425,19 +449,19 @@ export const learningPaths: LearningPath[] = [
       ...dsaFundamentalsTopics,
     ],
     keyBenefits: [
-      "Understand algorithm efficiency",
+      "Understand algorithm time/space efficiency",
       "Master fundamental data structures",
       "Solve real-world algorithmic problems",
-      "Build foundation for advanced topics",
+      "Build foundation for advanced technical topics",
     ],
   },
   {
     id: "placement-prep",
-    name: "💼 Placement Preparation",
-    description: "Comprehensive roadmap to ace technical interviews and get placed",
+    name: "Interview Readiness",
+    description: "Targeted practice to crack product-based company interviews with curated problem sheets.",
     icon: "💼",
     color: "from-green-500 to-emerald-500",
-    targetAudience: "Students preparing for job interviews and campus placements",
+    targetAudience: "Job seekers and final-year students preparing for interviews",
     totalHours: 45,
     difficulty: "Advanced",
     topics: [
@@ -445,30 +469,10 @@ export const learningPaths: LearningPath[] = [
       ...placementPrepTopics,
     ],
     keyBenefits: [
-      "Interview-focused topic selection",
-      "High-frequency interview questions",
-      "Time management for coding interviews",
-      "Confidence building for technical rounds",
-    ],
-  },
-  {
-    id: "competitive-programming",
-    name: "🏆 Competitive Programming",
-    description: "Advanced algorithms and techniques for competitive programming contests",
-    icon: "🏆",
-    color: "from-yellow-500 to-orange-500",
-    targetAudience: "Experienced programmers aiming for contests like Codeforces, AtCoder",
-    totalHours: 52,
-    difficulty: "Advanced",
-    topics: [
-      ...placementPrepTopics,
-      ...competitiveProgrammingTopics,
-    ],
-    keyBenefits: [
-      "Master advanced algorithms",
-      "Optimize for time constraints",
-      "Learn problem-solving strategies",
-      "Compete at highest levels",
+      "Interview-focused topic selection and patterns",
+      "High-frequency company interview questions",
+      "Time management for live coding interviews",
+      "Confidence building for technical screening rounds",
     ],
   },
 ];

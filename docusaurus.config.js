@@ -116,6 +116,7 @@ const config = {
             position: "left",
             label: "📖 Tutorials",
           },
+
           {
             to: "blog",
             label: "✍️ Blogs",
@@ -140,6 +141,10 @@ const config = {
               {
                 to: "roadmap",
                 label: "🗺️ Verification Roadmap",
+              },
+              {
+                to: "learning-paths",
+                label: "🚀 Learning Paths",
               },
               {
                 to: "dsa-interview",
@@ -235,11 +240,6 @@ const config = {
                 to: "resources",
                 label: "📚 Extended Assets",
               },
-               {
-  to: "learning-paths",
-  label: "Learning Paths",
-},
-
             ],
           },
           {

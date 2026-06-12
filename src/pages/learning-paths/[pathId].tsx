@@ -134,10 +134,10 @@ export const PathDetail: React.FC<PathDetailParams> = ({ pathId }) => {
 
   const getGradientClass = (): string => {
     const gradients: Record<string, string> = {
-      "from-blue-500 to-cyan-500": "from-blue-600 to-cyan-600",
-      "from-purple-500 to-pink-500": "from-purple-600 to-pink-600",
-      "from-green-500 to-emerald-500": "from-green-600 to-emerald-600",
-      "from-yellow-500 to-orange-500": "from-yellow-600 to-orange-600",
+      "from-blue-500 to-cyan-500": "from-blue-500/20 to-cyan-500/20 dark:from-blue-900/40 dark:to-cyan-900/40",
+      "from-purple-500 to-pink-500": "from-purple-500/20 to-pink-500/20 dark:from-purple-900/40 dark:to-pink-900/40",
+      "from-green-500 to-emerald-500": "from-green-500/20 to-emerald-500/20 dark:from-green-900/40 dark:to-emerald-900/40",
+      "from-yellow-500 to-orange-500": "from-yellow-500/20 to-orange-500/20 dark:from-yellow-900/40 dark:to-orange-900/40",
     };
     return `bg-gradient-to-r ${gradients[path.color] || gradients["from-blue-500 to-cyan-500"]}`;
   };
@@ -161,7 +161,7 @@ export const PathDetail: React.FC<PathDetailParams> = ({ pathId }) => {
         </div>
 
         {/* Hero Section */}
-        <section className={`${getGradientClass()} text-white px-4 py-16 sm:px-6 lg:px-8`}>
+        <section className={`${getGradientClass()} border-b border-gray-200 dark:border-gray-700 px-4 py-16 sm:px-6 lg:px-8`}>
           <div className="mx-auto max-w-7xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -169,17 +169,17 @@ export const PathDetail: React.FC<PathDetailParams> = ({ pathId }) => {
             >
               <div className="mb-4 flex items-center gap-3">
                 <span className="text-5xl">{path.icon}</span>
-                <h1 className="text-4xl font-bold md:text-5xl">
+                <h1 className="text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
                   {path.name}
                 </h1>
               </div>
 
-              <p className="mb-6 max-w-2xl text-lg text-white/90">
+              <p className="mb-6 max-w-2xl text-lg text-gray-700 dark:text-gray-200">
                 {path.description}
               </p>
 
               {/* Stats */}
-              <div className="grid gap-4 sm:grid-cols-5">
+              <div className="grid gap-4 sm:grid-cols-4">
                 {[
                   {
                     label: "Topics",
@@ -197,11 +197,6 @@ export const PathDetail: React.FC<PathDetailParams> = ({ pathId }) => {
                     icon: "✓",
                   },
                   {
-                    label: "In Progress",
-                    value: stats.inProgressCount,
-                    icon: "🔄",
-                  },
-                  {
                     label: "Progress",
                     value: `${stats.progressPercent}%`,
                     icon: "📈",
@@ -209,10 +204,10 @@ export const PathDetail: React.FC<PathDetailParams> = ({ pathId }) => {
                 ].map((stat, idx) => (
                   <div
                     key={idx}
-                    className="rounded-lg bg-white/10 px-4 py-3 backdrop-blur"
+                    className="rounded-lg bg-white/60 dark:bg-gray-800/60 px-4 py-3 backdrop-blur shadow-sm border border-white/20 dark:border-gray-700"
                   >
-                    <p className="text-sm text-white/70">{stat.label}</p>
-                    <p className="flex items-center gap-2 text-2xl font-bold">
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">{stat.label}</p>
+                    <p className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white">
                       <span>{stat.icon}</span>
                       {stat.value}
                     </p>
@@ -382,6 +377,8 @@ export const PathDetail: React.FC<PathDetailParams> = ({ pathId }) => {
                       index={idx}
                       isCompleted={completedTopics.has(topic.id)}
                       isInProgress={inProgressTopics.has(topic.id)}
+                      onToggleComplete={toggleCompleted}
+                      onToggleInProgress={toggleInProgress}
                     />
                   ))}
                 </div>
