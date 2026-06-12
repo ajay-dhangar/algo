@@ -714,6 +714,7 @@ const AlgorithmUseCases: React.FC = () => {
                         <>
                           <button
                             onClick={() => toggleExpand(app.title)}
+                            aria-expanded={isExpanded}
                             className="mt-4 text-xs font-medium text-[var(--ifm-color-primary)] hover:underline flex items-center gap-1"
                           >
                             {isExpanded ? "− Collapse" : "+ Learn More"}
