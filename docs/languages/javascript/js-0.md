@@ -24,7 +24,7 @@ JavaScript, often abbreviated as **JS**, is a high-level, dynamic, and versatile
 JavaScript was created in just **10 days** by Brendan Eich in 1995, and despite its rushed creation, it has grown to become the most widely-used language on the web!
 :::
 
-<AdsComponent />
+<Ads />
 
 ## 2. How Does JavaScript Work?
 

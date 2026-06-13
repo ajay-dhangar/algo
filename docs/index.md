@@ -10,6 +10,8 @@ tags: [dsa, data structures, algorithms, learning-path]
 
 **Algo** is your ultimate gateway to mastering Data Structures and Algorithms (DSA). Whether you are a computer science student, a coding enthusiast, or a professional preparing for technical interviews, Algo provides the perfect ecosystem to sharpen your problem-solving skills.
 
+<AdsComponent />
+
 ## Why Choose Algo?
 
 We break down complex algorithmic concepts into bite-sized, digestible, and practical modules. Here is what you will find inside:
