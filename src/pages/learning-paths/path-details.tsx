@@ -26,7 +26,8 @@ interface PathDetailsPageProps {
 
 export const PathDetailsPage: React.FC<PathDetailsPageProps> = ({ location }) => {
   // Get path ID from URL query parameter
-  const searchParams = new URLSearchParams(location?.search || window.location.search);
+  const location = useLocation();
+  const searchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const pathId = searchParams.get("id") || "beginner-programmer";
   const path = getLearningPathById(pathId);
 
