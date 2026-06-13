@@ -54,12 +54,27 @@ const DSARoadmap: React.FC = () => {
       if (newArrayBtn) newArrayBtn.disabled = false;
     }
 
-    // 4. Time wait helper
+    // 4. Time wait helper & Cleanup logic
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
     function waitforme(millis: number): Promise<void> {
-      return new Promise((resolve) => {
-        setTimeout(() => {
+      return new Promise((resolve, reject) => {
+        if (signal.aborted) {
+          return reject(new Error("Component unmounted"));
+        }
+        
+        const onAbort = () => {
+          clearTimeout(timeout);
+          reject(new Error("Component unmounted"));
+        };
+
+        const timeout = setTimeout(() => {
+          signal.removeEventListener("abort", onAbort);
           resolve();
         }, millis);
+        
+        signal.addEventListener("abort", onAbort);
       });
     }
 
@@ -68,13 +83,13 @@ const DSARoadmap: React.FC = () => {
     if (arraySizeInput) {
       arraySizeInput.addEventListener("input", function () {
         createNewArray(parseInt(arraySizeInput.value));
-      });
+      }, { signal });
     }
 
     if (speedInput) {
       speedInput.addEventListener("input", function () {
         delay = 320 - parseInt(speedInput.value);
-      });
+      }, { signal });
     }
 
     let array: number[] = [];
@@ -115,7 +130,7 @@ const DSARoadmap: React.FC = () => {
         } else {
           createNewArray();
         }
-      });
+      }, { signal });
     }
 
     // --- BUBBLE SORT ---
@@ -144,11 +159,15 @@ const DSARoadmap: React.FC = () => {
         disableSortingBtn();
         disableSizeSlider();
         disableNewArrayBtn();
-        await bubble();
+        try {
+          await bubble();
+        } catch (error) {
+          return;
+        }
         enableSortingBtn();
         enableSizeSlider();
         enableNewArrayBtn();
-      });
+      }, { signal });
     }
 
     // --- INSERTION SORT ---
@@ -180,11 +199,15 @@ const DSARoadmap: React.FC = () => {
         disableSortingBtn();
         disableSizeSlider();
         disableNewArrayBtn();
-        await insertion();
+        try {
+          await insertion();
+        } catch (error) {
+          return;
+        }
         enableSortingBtn();
         enableSizeSlider();
         enableNewArrayBtn();
-      });
+      }, { signal });
     }
 
     // --- MERGE SORT ---
@@ -257,11 +280,15 @@ const DSARoadmap: React.FC = () => {
         disableSortingBtn();
         disableSizeSlider();
         disableNewArrayBtn();
-        await mergeSort(barsElements, 0, barsElements.length - 1);
+        try {
+          await mergeSort(barsElements, 0, barsElements.length - 1);
+        } catch (error) {
+          return;
+        }
         enableSortingBtn();
         enableSizeSlider();
         enableNewArrayBtn();
-      });
+      }, { signal });
     }
 
     // --- QUICK SORT ---
@@ -323,11 +350,15 @@ const DSARoadmap: React.FC = () => {
         disableSortingBtn();
         disableSizeSlider();
         disableNewArrayBtn();
-        await quickSort(bars, 0, lastIdx);
+        try {
+          await quickSort(bars, 0, lastIdx);
+        } catch (error) {
+          return;
+        }
         enableSortingBtn();
         enableSizeSlider();
         enableNewArrayBtn();
-      });
+      }, { signal });
     }
 
     // --- SELECTION SORT ---
@@ -360,12 +391,20 @@ const DSARoadmap: React.FC = () => {
         disableSortingBtn();
         disableSizeSlider();
         disableNewArrayBtn();
-        await selection();
+        try {
+          await selection();
+        } catch (error) {
+          return;
+        }
         enableSortingBtn();
         enableSizeSlider();
         enableNewArrayBtn();
-      });
+      }, { signal });
     }
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   return (
