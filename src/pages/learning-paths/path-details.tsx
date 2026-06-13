@@ -19,15 +19,11 @@ import {
 } from "react-icons/fa";
 import { learningPaths, getLearningPathById, getRelevanceStars } from "../../data/learningPaths";
 
-interface PathDetailsPageProps {
-  location?: {
-    search: string;
-  };
-}
+import { useLocation } from "@docusaurus/router";
 
-export const PathDetailsPage: React.FC<PathDetailsPageProps> = ({ location }) => {
-  // Get path ID from URL query parameter
+export const PathDetailsPage: React.FC = () => {
   const location = useLocation();
+  
   const searchParams = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const pathId = searchParams.get("id") || "beginner-programmer";
   const path = getLearningPathById(pathId);
