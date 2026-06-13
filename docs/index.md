@@ -6,7 +6,6 @@ sidebar_position: 1
 slug: /
 description: "Master Data Structures and Algorithms (DSA) with Algo. A structured, interactive, and community-driven learning ecosystem designed for students, developers, and professionals."
 tags: [dsa, data structures, algorithms, learning-path]
-readingTime: 5 min read
 ---
 
 **Algo** is your ultimate gateway to mastering Data Structures and Algorithms (DSA). Whether you are a computer science student, a coding enthusiast, or a professional preparing for technical interviews, Algo provides the perfect ecosystem to sharpen your problem-solving skills.
