@@ -8,16 +8,9 @@ import { motion } from "framer-motion";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import { FaArrowLeft } from "react-icons/fa";
+import { useParams } from "@docusaurus/router";
 import {
-  FaArrowLeft,
-  FaCheckCircle,
-  FaClock,
-  FaTrophy,
-  FaBook,
-  FaChartLine,
-} from "react-icons/fa";
-import {
-  learningPaths,
   calculateTotalTime,
   getLearningPathById,
 } from "../../data/learningPaths";
@@ -29,13 +22,14 @@ interface PathDetailParams {
 
 export const PathDetail: React.FC<PathDetailParams> = ({ pathId }) => {
   // Get path ID from URL if not provided
-  const [path, setPath] = useState(() => {
-    if (typeof window !== "undefined") {
-      const urlPath = window.location.pathname.split("/").pop();
-      return getLearningPathById(urlPath || pathId || "");
-    }
-    return getLearningPathById(pathId || "");
-  });
+const { pathId: routePathId } = useParams<{ pathId: string }>();
+
+const activePathId = pathId || routePathId;
+
+const path = useMemo(
+  () => getLearningPathById(activePathId || ""),
+  [activePathId]
+);
 
   const [completedTopics, setCompletedTopics] = useState<Set<string>>(
     new Set()
