@@ -73,7 +73,7 @@ const config = {
         debug: true,
         docs: {
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/templates/",
+          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
           showLastUpdateAuthor: showGitHistory,
@@ -81,7 +81,7 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/templates/",
+          editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },

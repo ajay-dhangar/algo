@@ -1,135 +1,97 @@
 ---
 id: table-of-contents
 sidebar_position: 2
-title: Table Of Contents
-sidebar_label: Contents
-description: "Explore the world of Data Structures and Algorithms (DSA) with Algo's comprehensive learning resources. From fundamental concepts to advanced topics, Algo provides a structured pathway to help you master DSA and enhance your programming skills."
-tags: [dsa, data structures, algorithms]
+title: Curriculum Roadmap
+sidebar_label: Table of Contents
+description: "Navigate through Algo's structured Data Structures and Algorithms (DSA) learning pathway. Explore foundational concepts, core algorithms, and real-world interview prep."
+tags: [dsa, data structures, algorithms, roadmap, curriculum]
 ---
 
-Let's delve into the world of Data Structures and Algorithms (DSA) with Algo's comprehensive learning resources. From fundamental concepts to advanced topics, Algo provides a structured pathway to help you master DSA and enhance your programming skills. Whether you're a beginner or an experienced coder, Algo is here to guide you through the intricate world of DSA.
+Welcome to the master blueprint of your DSA journey. To help you navigate efficiently, our curriculum is broken down into three distinct phases. Select a tab below to visualize your learning path, track your goals, and jump directly into the modules.
 
-<AdsComponent />
+<Tabs defaultValue="ds" values={[
+  {label: 'Data Structures', value: 'ds'},
+  {label: 'Algorithms', value: 'algo'},
+  {label: 'Practice & Prep', value: 'practice'},
+]}>
 
-<Tabs>
-  <TabItem value="ds" label="Data Structures" default>
-    ```mermaid
-      sequenceDiagram
-        participant User
-        participant System
+  <TabItem value="ds">
+    <p><em>Build a rock-solid foundation by mastering how data is structured, stored, and optimized in memory.</em></p>
 
-      User -> System: Request to Learn Data Structures
+```mermaid
+    graph TD
+      A[Data Structures Intro] --> B(Arrays & Matrices)
+      B --> C(Linked Lists)
+      C --> D(Stacks & Queues)
+      D --> E(Hierarchical Trees)
+      E --> F(Network Graphs)
 
-      System -> System: Introduction to Data Structures
-      Note over System: What are data structures?<br /><br />Importance of data structures in programming
+      style A fill:#4f46e5,stroke:#333,stroke-width:1px,color:#fff
+      style F fill:#059669,stroke:#333,stroke-width:1px,color:#fff
+    ```
 
-      System -> System: Basics of Arrays
-      Note over System: Basics of arrays<br /><br />Operations on arrays (insertion, deletion, searching)
+    <br />
 
-      System -> System: Linked Lists
-      Note over System: Singly linked lists<br /><br />Doubly linked lists<br /><br />Circular linked lists
-
-      System -> System: Stacks
-      Note over System: Basics of stacks<br /><br />Implementation of stacks<br /><br />Applications of stacks
-
-      System -> System: Queues
-      Note over System: Basics of queues <br /><br />Implementation of queues<br /><br />Priority queues
-
-      System -> System: Trees
-      Note over System: Binary trees<br /><br />Binary search trees (BST)<br /><br />AVL trees (Balanced BST)
-
-      System -> System: Graphs
-      Note over System: Basics of graphs<br /><br />Graph representation (adjacency matrix, adjacency list)<br /><br />Depth-First Search (DFS) and Breadth-First Search (BFS)
-
-      User -> System: Explore Further
-
-      ````
+    ### Detailed Breakdown
+    * **Foundations:** Memory allocation, Time & Space Complexity ($O(n)$ basics).
+    * **Linear Structures:** Sequential arrangements, insertions, and fast deletions.
+    * **Non-Linear Structures:** Hierarchical representation, balancing trees (AVL/BST), and graph traversals (BFS/DFS).
 
   </TabItem>
-  <TabItem value="algo" label="Algorithms">
-    ```mermaid
-      sequenceDiagram
-        participant User
-        participant System
-      
-        User -> System: Request to Learn Algorithms
-      
-        System -> System: Introduction to Algorithms
-        Note over System: What are algorithms?<br /><br />Time and space complexity
-      
-        System -> System: Searching Algorithms
-        Note over System: Linear search<br /><br />Binary search<br /><br />Hashing and hash tables
-      
-        System -> System: Sorting Algorithms
-        Note over System: Bubble sort<br /><br />Selection sort<br /><br />Merge sort<br /><br />Quick sort
-      
-        System -> System: Recursion
-        Note over System: Understanding recursion<br /><br />Recursive algorithms
-      
-        System -> System: Dynamic Programming
-        Note over System: Basics of dynamic programming<br /><br />Memoization and tabulation
-      
-        System -> System: Greedy Algorithms
-        Note over System: Basics of greedy algorithms<br /><br />Applications of greedy algorithms
-      
-        System -> System: Divide and Conquer
-        Note over System: Principles of divide and conquer<br /><br />Examples of divide and conquer algorithms
-      
-        System -> System: Graph Algorithms
-        Note over System: Shortest path algorithms (Dijkstra's, Bellman-Ford)<br /><br />Minimum Spanning Tree (Prim's, Kruskal's)<br /><br />Depth-First Search (DFS) and Breadth-First Search (BFS) for graphs
-      
-        User -> System: Explore Further
-      
-      ````
+
+  <TabItem value="algo">
+    <p><em>Learn step-by-step procedures to manipulate data, solve complex logic problems, and write highly optimized code.</em></p>
+
+```mermaid
+    graph TD
+      A[Analysis of Algorithms] --> B(Searching & Hashing)
+      B --> C(Sorting Techniques)
+      C --> D(Recursion & Backtracking)
+      D --> E(Divide & Conquer)
+      E --> F(Greedy & Dynamic Programming)
+
+      style A fill:#4f46e5,stroke:#333,stroke-width:1px,color:#fff
+      style F fill:#059669,stroke:#333,stroke-width:1px,color:#fff
+    ```
+
+    <br />
+
+    ### Detailed Breakdown
+    * **Search & Sort:** From basic linear lookups to advanced Divide & Conquer structures (Quick/Merge Sort).
+    * **Algorithmic Patterns:** Recognizing sub-problems using Memoization, Tabulation, and Greedy strategies.
+    * **Advanced Graphs:** Shortest paths (Dijkstra's, Bellman-Ford) and Minimum Spanning Trees (Prim's, Kruskal's).
+
   </TabItem>
-  <TabItem value="Practice" label="Practice and Applications">
-    ```mermaid
-      sequenceDiagram
-        participant User
-        participant System
 
-        User -> System: Request for Practice and Applications
+  <TabItem value="practice">
+    <p><em>Bridge the gap between conceptual theory and clearing top-tier technical engineering interviews.</em></p>
 
-        System -> System: Coding Challenges
-        Note over System: Solve coding problems on platforms <br /><br />like LeetCode, HackerRank, and CodeSignal
+```mermaid
+    graph LR
+      A[Coding Challenges] --> B(Mini Projects)
+      B --> C(Interview Patterns)
+      C --> D(Production Deployments)
 
-        System -> System: Project Work
-        Note over System: Implement data structures and algorithms in small projects
+      style A fill:#4f46e5,stroke:#333,stroke-width:1px,color:#fff
+      style D fill:#059669,stroke:#333,stroke-width:1px,color:#fff
+    ```
 
-        System -> System: Real-world Applications
-        Note over System: Explore how DSA is applied in real-world scenarios
+    <br />
 
-        System -> System: Interview Preparation
-        Note over System: Tips for technical interviews<br /><br />Practice common DSA interview questions
-
-        User -> System: Explore Further
-
-      ```
+    ### Detailed Breakdown
+    * **Curated Problem Sets:** Handpicked patterns matching high-frequency questions on LeetCode and HackerRank.
+    * **Pattern Matching:** Master Sliding Window, Two Pointers, and Fast/Slow Pointers.
+    * **Mock Environment:** Behavioral strategies, clean-coding practices, and optimizing space constraints on the fly.
   </TabItem>
 </Tabs>
 
-<AdsComponent />
 
-## What Sets Algo Apart?
+## How to Navigate This Path
 
-### Comprehensive Learning Pathways
+To get the absolute most out of this resource ecosystem, we highly recommend following these three steps:
 
-Algo provides carefully curated learning pathways designed to take you from a DSA novice to a proficient coder. Our structured approach ensures a smooth learning curve, starting with the basics and gradually progressing to advanced topics.
+1. **Keep Consistency Over Speed:** It is better to deeply understand one algorithmic optimization pattern a day than to rush through five modules without coding them out.
+2. **Write it Out:** Do not just read the documentation. Open your IDE or use our interactive console challenges attached to each layout module.
+3. **Engage with the Community:** Struck on a edge case or a tricky recursion loop? Drop your code blocks directly into our discussion panel at the bottom of any module file for peer reviews.
 
-### Interactive Coding Challenges
-
-Learning by doing is at the heart of Algo. Engage in hands-on coding challenges that reinforce your understanding of key concepts. Our interactive platform allows you to apply what you've learned in a practical and engaging manner.
-
-### Supportive Community
-
-Join a vibrant community of learners, mentors, and industry experts who are passionate about DSA. Collaborate, share knowledge, and grow together as you embark on your coding journey.
-
-### Personalized Learning Experience
-
-Algo's adaptive learning platform tailors the content to your skill level and learning pace. Whether you're a beginner or an experienced coder, Algo provides a personalized learning experience that meets your unique needs.
-
-<AdsComponent />
-
-## Get Started with Algo
-
-Ready to dive into the world of Data Structures and Algorithms? Start your learning journey with Algo today! Explore our learning pathways, tackle coding challenges, and connect with a community of like-minded individuals who share your passion for coding.
+Ready to take your first step? Select a node or hop over to the next sidebar page to start learning!
