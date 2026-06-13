@@ -72,8 +72,8 @@ for i in ref:
         hit+=1
 
     else:
-        if -1 in mm:
-            j = mm.index(-1)
+        if "-1" in mm:
+            j = mm.index("-1")
             mm[j] = i
         else:
             far = -1
