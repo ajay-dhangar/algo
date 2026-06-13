@@ -5,6 +5,7 @@ import {
   FiPrinter,
   FiAlertCircle,
   FiClock,
+  FiCalendar,
   FiUser,
 } from "react-icons/fi";
 import styles from "./styles.module.css";
@@ -43,7 +44,7 @@ function DocsInfo({ docsPluginId, ...props }) {
           <div className={styles.metaInfo}>
             {formattedDate && (
               <span className={styles.metaItem}>
-                <FiClock className={styles.icon} />
+                <FiCalendar className={styles.icon} />
                 <time dateTime={new Date(props.lastUpdatedAt).toISOString()}>
                   {formattedDate}
                 </time>
@@ -51,7 +52,7 @@ function DocsInfo({ docsPluginId, ...props }) {
             )}
             {props.readingTimeInWords && (
               <span className={styles.metaItem}>
-                <span className={styles.icon}>⏱</span> {props.readingTimeInWords}
+                <FiClock className={styles.icon} /> {props.readingTimeInWords}
               </span>
             )}
             {props.lastUpdatedBy && (

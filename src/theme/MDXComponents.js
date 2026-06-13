@@ -21,6 +21,7 @@ import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import GiscusComponent from "../components/GiscusComponent";
 import Ads from "@site/src/components/AdsComponent/Ads";
 import EdgeCases from "@site/src/components/EdgeCases";
+import Link from "@docusaurus/Link";
 
 export default {
   // Re-use the default mapping
@@ -47,4 +48,5 @@ export default {
   GiscusComponent,
   Ads,
   EdgeCases,
+  Link
 };
