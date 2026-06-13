@@ -9,6 +9,8 @@ tags: [dsa, data structures, algorithms, roadmap, curriculum]
 
 Welcome to the master blueprint of your DSA journey. To help you navigate efficiently, our curriculum is broken down into three distinct phases. Select a tab below to visualize your learning path, track your goals, and jump directly into the modules.
 
+<Ads />
+
 <Tabs defaultValue="ds" values={[
   {label: 'Data Structures', value: 'ds'},
   {label: 'Algorithms', value: 'algo'},
@@ -84,6 +86,8 @@ Welcome to the master blueprint of your DSA journey. To help you navigate effici
     * **Mock Environment:** Behavioral strategies, clean-coding practices, and optimizing space constraints on the fly.
   </TabItem>
 </Tabs>
+
+<AdsComponent />
 
 
 ## How to Navigate This Path

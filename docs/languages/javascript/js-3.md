@@ -53,7 +53,7 @@ The modulus operator returns the remainder of the division operation.
 let remainder = 15 % 4; // remainder = 3
 ```
 
-<AdsComponent />
+<Ads />
 
 ## 2. **Assignment Operators:**
 
@@ -131,8 +131,6 @@ The less than operator checks if the left operand is less than the right operand
 let isLessThan = 5 < 10; // isLessThan = true
 ```
 
-<AdsComponent />
-
 ## 4. **Logical Operators:**
 
 Logical operators are used to combine multiple conditions.
@@ -204,8 +202,6 @@ count++; // count = 6
 count--; // count = 5
 ```
 
-<AdsComponent />
-
 ## 8. **Bitwise Operators:**
 
 Bitwise operators perform operations on binary representations of numbers.
@@ -266,8 +262,6 @@ Shifts the bits of a number to the right, filling the leftmost bits with zeros.
 let result = 5 >>> 1; // result = 2
 ```
 
-<AdsComponent />
-
 ## 9. **Conditional Operator:**
 
 The conditional operator (`?:`) is a ternary operator that evaluates a condition and returns one of two values based on the result.
@@ -277,8 +271,6 @@ let age = 20;
 
 let message = age >= 18 ? 'You can vote' : 'You are too young to vote';
 ```
-
-<AdsComponent />
 
 ## 10. **Comma Operator:**
 
@@ -331,8 +323,6 @@ let date = new Date();
 
 let isDate = date instanceof Date; // isDate = true
 ```
-
-<AdsComponent adSlot="5461416177" />
 
 ## More Resources:
 

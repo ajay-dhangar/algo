@@ -29,9 +29,10 @@ const Ads: React.FC = () => {
         className="adsbygoogle"
         style={{ display: "block", textAlign: "center" }}
         data-ad-layout="in-article"
-        data-ad-format="fluid"
+        // data-ad-format="fluid"
+        data-ad-layout-key="-fd-1k+58-h7+jr"
         data-ad-client="ca-pub-5832817025080991"
-        data-ad-slot="5461416177"
+        data-ad-slot="3369840309"
        />
     </>
   );
