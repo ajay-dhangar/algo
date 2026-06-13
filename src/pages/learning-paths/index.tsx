@@ -2,21 +2,17 @@
  * Learning Paths Page Component
  * Main page showcasing all available learning paths
  */
-
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import {
   FaSearch,
-  FaTrophy,
-  FaClock,
-  FaBook,
   FaArrowRight,
-  FaFilter,
 } from "react-icons/fa";
 import { learningPaths } from "../../data/learningPaths";
-import PathCard from "../../components/LearningPaths/PathCard";
+import { PathCard } from "../../components/LearningPaths";
+
 
 interface FilterState {
   difficulty: "All" | "Beginner" | "Intermediate" | "Advanced";
@@ -24,7 +20,7 @@ interface FilterState {
 }
 
 export const LearningPathsPage: React.FC = () => {
-  const [selectedPath, setSelectedPath] = useState<string | null>(null);
+
   const [filters, setFilters] = useState<FilterState>({
     difficulty: "All",
     sortBy: "newest",
@@ -206,14 +202,16 @@ export const LearningPathsPage: React.FC = () => {
                 className="grid gap-8 md:grid-cols-2"
               >
                 {filteredPaths.map((path, index) => (
-                  <PathCard
-                    key={path.id}
-                    path={path}
-                    index={index}
-                    onExplore={(pathId) => {
-                      window.location.href = `/algo/learning-paths/path-details?id=${pathId}`;
-                    }}
-                  />
+                  <Link
+  key={path.id}
+  to={`/learning-paths/path-details?id=${path.id}`}
+  className="no-underline"
+>
+  <PathCard
+    path={path}
+    index={index}
+  />
+</Link>
                 ))}
               </motion.div>
             ) : (
