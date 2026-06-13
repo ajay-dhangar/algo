@@ -52,7 +52,7 @@ When page 4 arrives, page 2 is replaced because it was the least recently used p
 ```python
 ref = input("Enter reference string: ").split()
 m = int(input("Enter number of page frames: "))
-mm = [-1]*m
+mm = ["-1"] * m
 
 usage = {}
 
