@@ -173,18 +173,6 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     docLink: "/docs/basic-data-structures/Strings",
   },
   {
-    id: "linked-lists",
-    title: "Linked Lists",
-    difficulty: "Medium",
-    estimatedTime: 2.5,
-    prerequisites: ["pointers"],
-    interviewRelevance: 5,
-    description:
-      "Understand singly/doubly linked lists, operations, and common problems",
-    icon: "🔗",
-    docLink: "/docs/data-structures",
-  },
-  {
     id: "pointers",
     title: "Pointers & References",
     difficulty: "Medium",
@@ -195,6 +183,18 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
       "Master pointer concepts essential for linked lists and advanced DS",
     icon: "👉",
     docLink: "/docs/basic-data-structures/pointer",
+  },
+  {
+    id: "linked-lists",
+    title: "Linked Lists",
+    difficulty: "Medium",
+    estimatedTime: 2.5,
+    prerequisites: ["pointers"],
+    interviewRelevance: 5,
+    description:
+      "Understand singly/doubly linked lists, operations, and common problems",
+    icon: "🔗",
+    docLink: "/docs/data-structures",
   },
   {
     id: "stack",
