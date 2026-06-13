@@ -57,7 +57,7 @@ When page 5 arrives, the frames contain 1, 2, 4. Since none of these pages will 
 ```python
 ref = input("Enter reference string: ").split()
 m = int(input("Enter number of page frames: "))
-mm = [-1]*m
+mm = ["-1"] * m
 
 hit = 0
 miss = 0
