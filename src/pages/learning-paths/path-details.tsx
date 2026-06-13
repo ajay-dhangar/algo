@@ -92,12 +92,17 @@ export const PathDetailsPage: React.FC<PathDetailsPageProps> = ({ location }) =>
     setCompletedTopics(newSet);
   };
 
-  const toggleInProgress = (topicId: string) => {
+    const toggleInProgress = (topicId: string) => {
     const newSet = new Set(inProgressTopics);
     if (newSet.has(topicId)) {
       newSet.delete(topicId);
     } else {
       newSet.add(topicId);
+      setCompletedTopics((prev) => {
+        const updated = new Set(prev);
+        updated.delete(topicId);
+        return updated;
+      });
     }
     setInProgressTopics(newSet);
   };
