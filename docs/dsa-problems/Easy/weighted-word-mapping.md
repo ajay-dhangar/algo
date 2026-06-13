@@ -70,9 +70,9 @@ class Solution {
         for (String word : words) {
             int sum = 0;
             for (char c : word.toCharArray()) {
-                sum += weights[c - 'a'];
+                sum = (sum + weights[c - 'a']) % 26;
             }
-            int rem = sum % 26;
+            int rem = sum;
             result.append((char)('z' - rem));
         }
         return result.toString();
