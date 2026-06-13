@@ -52,9 +52,9 @@ public:
         for (const string& word : words) {
             int sum = 0;
             for (char c : word) {
-                sum += weights[c - 'a'];
+                sum = (sum + weights[c - 'a']) % 26;
             }
-            int rem = sum % 26;
+            int rem = sum;
             result += (char)('z' - rem);
         }
         return result;
