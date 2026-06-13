@@ -335,3 +335,28 @@ button {
   z-index: 1000;
   pointer-events: none;
 }
+
+.blog-wrapper .container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.blog-wrapper .container>.row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.blog-wrapper .container>.row>.col.col--3 {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: auto !important;
+  padding-left: 0.5rem !important;
+  padding-right: 2rem !important;
+}
+
