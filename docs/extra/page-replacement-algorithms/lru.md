@@ -3,7 +3,7 @@ id: least-recently-used-page-replacement
 title: Least Recently Used Page Replacement Algorithm
 sidebar_label: "Least Recently Used Page Replacement Algorithm"
 sidebar_position: 2
-description: Least Recently Used (LRU) is a simple page replacement algorithm in which pages are replaced based on which page has been least recently used.
+description: "Least Recently Used (LRU) is a simple page replacement algorithm in which pages are replaced based on which page has been least recently used."
 tags: [Page Replacement, LRU, Algorithm]
 ---
 
