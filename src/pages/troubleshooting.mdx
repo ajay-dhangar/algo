@@ -169,14 +169,26 @@ If automated interactive code execution frames or custom interactive charts fail
 #### Target Configuration Core (`.env`)
 
 ```env
-DOCUSAURUS_API_BASE_URL=http://localhost:5000
+ALGO_API_URL=http://localhost:5000
 ```
+
+`DOCUSAURUS_API_BASE_URL` remains supported for existing local setups, but new environments should prefer `ALGO_API_URL`.
 
 #### Infrastructure Checklist
 
 * [ ] **Service Activation:** Confirm the targeted local backend engine thread is up and running.
 * [ ] **Port Interface Mapping:** Verify the platform listener is tracking operations over port `5000`.
 * [ ] **CORS Interceptor Overrides:** Verify that your system firewall rules or developer interceptor rules do not block local loopback Cross-Origin Requests.
+
+### Production Build Fails With Missing API Base URL
+
+Production builds intentionally fail when neither `ALGO_API_URL` nor `DOCUSAURUS_API_BASE_URL` is configured. API-backed pages depend on this value for requests, and an empty fallback would make the browser call relative paths on the static site instead of the API service.
+
+Set the production API endpoint before building or deploying:
+
+```env
+ALGO_API_URL=https://api.example.com
+```
 
 ## Frequently Asked Questions
 

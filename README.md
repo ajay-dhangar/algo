@@ -129,7 +129,15 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 
 This command starts a local development server and opens a browser window. Most changes are reflected live without having to restart the server.
 
-Note: if you are running the backend locally, set `DOCUSAURUS_API_BASE_URL=http://localhost:5000` before starting the frontend.
+The frontend uses `customFields.apiBaseUrl` for API-backed features such as quiz history and the code playground. In development, it defaults to `http://localhost:5000`, so local contributors can run the backend on the default port without extra setup.
+
+To use a different backend locally, create a `.env` file from `.env.example` and set one of these variables before starting the frontend:
+
+```env
+ALGO_API_URL=http://localhost:5000
+```
+
+`DOCUSAURUS_API_BASE_URL` is still supported as a backward-compatible alias.
 
 ## Build
 
@@ -140,6 +148,14 @@ Note: if you are running the backend locally, set `DOCUSAURUS_API_BASE_URL=http:
 This command generates static content into the `build` directory, which can be served using any static content hosting service.
 
 ## Deployment
+
+Production builds require an explicit API base URL. Set `ALGO_API_URL` in your hosting environment before running `npm run build` or deploying:
+
+```env
+ALGO_API_URL=https://api.example.com
+```
+
+If neither `ALGO_API_URL` nor `DOCUSAURUS_API_BASE_URL` is set in production, the build fails with a clear configuration error instead of silently emitting relative API requests.
 
 ### Using SSH:
 
