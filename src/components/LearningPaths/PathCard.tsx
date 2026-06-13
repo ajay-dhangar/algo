@@ -50,18 +50,17 @@ export const PathCard: React.FC<PathCardProps> = ({
   };
 
   return (
-    <motion.div
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-50px" }}
-      whileHover="hover"
-      variants={{
-        ...cardVariants,
-        ...hoverVariants,
-      }}
-      className={`group rounded-2xl border border-gray-200 p-6 shadow-md transition-all duration-300 dark:border-gray-700 bg-gradient-to-br ${getGradientClass()} hover:shadow-xl dark:shadow-lg`}
-    >
+  <motion.div
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, margin: "-50px" }}
+  whileHover="hover"
+  variants={{
+    ...cardVariants,
+    ...hoverVariants,
+  }}
+  className={`group rounded-2xl border border-gray-200 p-6 shadow-md transition-all duration-300 dark:border-gray-700 bg-gradient-to-br ${getGradientClass()} hover:shadow-xl dark:shadow-lg`}
+>
       {/* Header */}
       <div className="mb-4 flex items-start justify-between">
         <div className="flex items-center gap-3">
