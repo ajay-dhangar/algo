@@ -83,7 +83,7 @@ class Solution {
 ### Python
 ```py
 class Solution:
-    def mapWordWeights(self, words: List[str], weights: List[int]) -> str:
+    def mapWordWeights(self, words: list[str], weights: list[int]) -> str:
         result = []
         for word in words:
             total_weight = sum(weights[ord(c) - ord('a')] for c in word)
