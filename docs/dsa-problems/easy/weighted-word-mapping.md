@@ -52,9 +52,9 @@ public:
         for (const string& word : words) {
             int sum = 0;
             for (char c : word) {
-                sum += weights[c - 'a'];
+                sum = (sum + weights[c - 'a']) % 26;
             }
-            int rem = sum % 26;
+            int rem = sum;
             result += (char)('z' - rem);
         }
         return result;
@@ -70,9 +70,9 @@ class Solution {
         for (String word : words) {
             int sum = 0;
             for (char c : word.toCharArray()) {
-                sum += weights[c - 'a'];
+                sum = (sum + weights[c - 'a']) % 26;
             }
-            int rem = sum % 26;
+            int rem = sum;
             result.append((char)('z' - rem));
         }
         return result.toString();
@@ -83,7 +83,7 @@ class Solution {
 ### Python
 ```py
 class Solution:
-    def mapWordWeights(self, words: List[str], weights: List[int]) -> str:
+    def mapWordWeights(self, words: list[str], weights: list[int]) -> str:
         result = []
         for word in words:
             total_weight = sum(weights[ord(c) - ord('a')] for c in word)
@@ -104,10 +104,10 @@ var mapWordWeights = function(words, weights) {
     let result = "";
     for (let word of words) {
         let sum = 0;
-        for (let i = 0; i < word.length; i++) {
-            sum += weights[word.charCodeAt(i) - 97]; // 'a' is 97
+        for (let char of word) {
+            sum = (sum + weights[char.charCodeAt(0) - 97]) % 26;
         }
-        let rem = sum % 26;
+        let rem = sum;
         result += String.fromCharCode(122 - rem); // 'z' is 122
     }
     return result;
