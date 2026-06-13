@@ -1,9 +1,9 @@
 ---
 id: first-in-first-out-page-replacement
 title: First In First Out Page Replacement Algorithm
-sidebar_label: "FIFO
+sidebar_label: "FIFO"
 sidebar_position: 1
-description: "First In First Out (FIFO) is a simple page replacement algorithm in which pages are replaced based on which page came in first.
+description: "First In First Out (FIFO) is a simple page replacement algorithm in which pages are replaced based on which page came in first."
 tags: [Page Replacement, FIFO, Algorithm]
 ---
 
