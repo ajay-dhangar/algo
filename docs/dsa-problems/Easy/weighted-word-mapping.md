@@ -104,10 +104,10 @@ var mapWordWeights = function(words, weights) {
     let result = "";
     for (let word of words) {
         let sum = 0;
-        for (let i = 0; i < word.length; i++) {
-            sum += weights[word.charCodeAt(i) - 97]; // 'a' is 97
+        for (let char of word) {
+            sum = (sum + weights[char.charCodeAt(0) - 97]) % 26;
         }
-        let rem = sum % 26;
+        let rem = sum;
         result += String.fromCharCode(122 - rem); // 'z' is 122
     }
     return result;
