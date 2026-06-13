@@ -97,7 +97,7 @@ const Footer = () => {
               <ul className="space-y-3 p-0 list-none text-sm m-0">
                 {["Documentation", "Developer Blog", "Practice Modules"].map((item) => (
                   <li key={item}>
-                    <Link to={item === "Developer Blog" ? "/blog/" : "/docs/"} className="text-slate-400 hover:text-slate-200 no-underline transition-colors flex items-center group">
+                    <Link to={item === "Documentation" ? "/documentation/": item === "Developer Blog" ? "/blog/" : "/practice/"} className="text-slate-400 hover:text-slate-200 no-underline transition-colors flex items-center group">
                       <span className="text-slate-700 group-hover:text-indigo-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
                       {item}
                     </Link>
