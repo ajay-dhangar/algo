@@ -165,11 +165,15 @@ const UserTestimonialsSection: React.FC = () => {
                   <div className="flex flex-col justify-center flex-1">
                     {/* Star Rating */}
                     <div className="flex gap-1 mb-3 text-yellow-500">
-                      {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
-                        <FaStar key={i} className="w-4 h-4 fill-current filter drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]" />
-                      ))}
-                      {testimonial.rating % 1 !== 0 && (
-                        <FaStarHalfAlt className="w-4 h-4 fill-current filter drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]" />
+                      {typeof testimonial.rating === "number" && (
+                        <div className="flex gap-1 mb-3 text-yellow-500">
+                          {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
+                            <FaStar key={i} className="w-4 h-4 fill-current filter drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]" />
+                          ))}
+                          {testimonial.rating % 1 !== 0 && (
+                            <FaStarHalfAlt className="w-4 h-4 fill-current filter drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]" />
+                          )}
+                        </div>
                       )}
                     </div>
                     
