@@ -7,6 +7,7 @@ import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
+import { TopicCard } from "../../components/LearningPaths";
 import {
   FaArrowLeft,
   FaClock,
@@ -298,120 +299,19 @@ export const PathDetailsPage: React.FC<PathDetailsPageProps> = ({ location }) =>
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                   Topics ({filteredTopics.length})
                 </h3>
-                {filteredTopics.map((topic, idx) => {
-                  const isCompleted = completedTopics.has(topic.id);
-                  const isInProgress = inProgressTopics.has(topic.id);
-
-                  return (
-                    <motion.div
-                      key={topic.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05 }}
-                      className={`bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border-l-4 transition-all ${
-                        isCompleted
-                          ? "border-l-green-500 bg-green-50 dark:bg-gray-800/50"
-                          : isInProgress
-                          ? "border-l-blue-500 bg-blue-50 dark:bg-gray-800/50"
-                          : "border-l-gray-300 dark:border-l-gray-600"
-                      }`}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <span className="text-2xl">{topic.icon}</span>
-                            <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                              {topic.title}
-                            </h4>
-                          </div>
-                          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                            {topic.description}
-                          </p>
-
-                          {/* Topic Metadata */}
-                          <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 text-xs mb-3">
-                            {/* Difficulty */}
-                            <div>
-                              <span className="text-gray-500 dark:text-gray-400">Difficulty</span>
-                              <div
-                                className={`mt-1 inline-block px-2 py-1 rounded-full text-xs font-medium ${
-                                  topic.difficulty === "Easy"
-                                    ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
-                                    : topic.difficulty === "Medium"
-                                    ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300"
-                                    : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"
-                                }`}
-                              >
-                                {topic.difficulty}
-                              </div>
-                            </div>
-
-                            {/* Time */}
-                            <div>
-                              <span className="text-gray-500 dark:text-gray-400">Time</span>
-                              <div className="mt-1 font-medium text-gray-900 dark:text-white">
-                                {topic.estimatedTime}h
-                              </div>
-                            </div>
-
-                            {/* Interview Relevance */}
-                            <div>
-                              <span className="text-gray-500 dark:text-gray-400">Relevance</span>
-                              <div className="mt-1 text-yellow-500">{getRelevanceStars(topic.interviewRelevance)}</div>
-                            </div>
-
-                            {/* Prerequisites */}
-                            {topic.prerequisites.length > 0 && (
-                              <div>
-                                <span className="text-gray-500 dark:text-gray-400">Prerequisites</span>
-                                <div className="mt-1 font-medium text-gray-900 dark:text-white">
-                                  {topic.prerequisites.length}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-
-                          {/* Prerequisites List */}
-                          {topic.prerequisites.length > 0 && (
-                            <div className="mt-3 p-3 bg-gray-100 dark:bg-gray-700 rounded text-sm">
-                              <p className="font-medium text-gray-700 dark:text-gray-300 mb-2">
-                                Prerequisites:
-                              </p>
-                              <div className="flex flex-wrap gap-2">
-                                {topic.prerequisites.map((prereqId) => {
-                                  const prereq = path.topics.find((t) => t.id === prereqId);
-                                  return (
-                                    <span
-                                      key={prereqId}
-                                      className="inline-block bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 px-2 py-1 rounded text-xs"
-                                    >
-                                      {prereq?.title || prereqId}
-                                    </span>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="ml-4 flex flex-col gap-2">
-                          <button
-                            onClick={() => toggleCompleted(topic.id)}
-                            className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
-                              isCompleted
-                                ? "bg-green-600 text-white"
-                                : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-green-200 dark:hover:bg-green-900"
-                            }`}
-                            title="Mark as Completed"
-                          >
-                            {isCompleted ? "✓ Done" : "Complete"}
-                          </button>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
+               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
+  {filteredTopics.map((topic, idx) => (
+    <TopicCard
+      key={topic.id}
+      topic={topic}
+      index={idx}
+      isCompleted={completedTopics.has(topic.id)}
+      isInProgress={inProgressTopics.has(topic.id)}
+      onToggleComplete={toggleCompleted}
+      onToggleInProgress={toggleInProgress}
+    />
+  ))}
+</div>
               </div>
             </motion.div>
           </div>
