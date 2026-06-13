@@ -21,7 +21,7 @@ import {
   calculateTotalTime,
   getLearningPathById,
 } from "../../data/learningPaths";
-import TopicCard from "../../components/LearningPaths/TopicCard";
+import { TopicCard } from "../../components/LearningPaths";
 
 interface PathDetailParams {
   pathId?: string;
