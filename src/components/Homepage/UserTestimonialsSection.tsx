@@ -1,15 +1,60 @@
 import React from "react";
-import { testimonials } from "../../data/testimonialsData";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { FaQuoteLeft, FaChevronLeft, FaChevronRight, FaArrowRight , FaStar } from "react-icons/fa";
+import { Autoplay, Navigation, Pagination, FreeMode } from "swiper/modules";
+import { FaQuoteLeft, FaChevronLeft, FaChevronRight, FaArrowRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Link from "@docusaurus/Link";
 
 import "swiper/css";
 import "swiper/css/autoplay";
+import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
+const featuredTestimonials = [
+  {
+    name: "Ajay Dhangar",
+    role: "Founder, CodeHarborHub",
+    avatar: "https://avatars.githubusercontent.com/u/99037494?v=4",
+    feedback: "Building this platform has been a journey of passion. Our goal is to make high-quality engineering education accessible to everyone, everywhere.",
+    rating: 5,
+  },
+  {
+    name: "Rohan Sharma",
+    role: "B.Tech Learner",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    feedback: "The visual execution walkthroughs changed my entire perspective on dynamic programming. I went from failing to mastering it in weeks.",
+    rating: 5,
+  },
+  {
+    name: "Sarah Jenkins",
+    role: "Core Contributor",
+    avatar: "https://i.pravatar.cc/150?u=sarah",
+    feedback: "Contributing to Algo helped me overcome imposter syndrome. Fixing a minor typo led to fixing core logic bugs, thanks to a supportive community.",
+    rating: 4.5,
+  },
+  {
+    name: "Michael Chen",
+    role: "Software Engineer",
+    avatar: "https://i.pravatar.cc/150?u=michael",
+    feedback: "The depth of coverage for graph algorithms is impressive. The production-grade implementations helped me prepare for senior-level interviews.",
+    rating: 5,
+  },
+  {
+    name: "Prakash Patel",
+    role: "CS Student",
+    avatar: "https://i.pravatar.cc/150?u=priya",
+    feedback: "I love how each algorithm comes with detailed complexity metrics. It makes learning theory practical and helps in understanding performance trade-offs.",
+    rating: 5,
+  },
+  {
+    name: "Danny Wilson",
+    role: "Tech Lead",
+    avatar: "https://i.pravatar.cc/150?u=david",
+    feedback: "This is the premium destination for code reference standards. The focus on clean, optimized code makes it a valuable resource for any engineering team.",
+    rating: 5,
+  },
+];
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -56,12 +101,19 @@ const UserTestimonialsSection: React.FC = () => {
         {/* Swiper Container */}
         <div className="relative mx-auto max-w-4xl px-4 sm:px-12">
           <Swiper
-            modules={[Autoplay, Navigation, Pagination]}
+            modules={[Autoplay, Navigation, Pagination, FreeMode]}
             slidesPerView={1}
+            breakpoints={{
+              768: {
+                slidesPerView: 1.2,
+              },
+            }}
             spaceBetween={40}
             loop={true}
+            speed={8000}
+            freeMode={true}
             autoplay={{
-              delay: 7000,
+              delay: 0,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -75,7 +127,7 @@ const UserTestimonialsSection: React.FC = () => {
             }}
             className="!pb-14"
           >
-            {testimonials.map((testimonial, index) => (
+            {featuredTestimonials.map((testimonial, index) => (
               <SwiperSlide key={index} className="h-auto">
                 <div
                   className="
@@ -111,6 +163,20 @@ const UserTestimonialsSection: React.FC = () => {
 
                   {/* Feedback */}
                   <div className="flex flex-col justify-center flex-1">
+                    {/* Star Rating */}
+                    <div className="flex gap-1 mb-3 text-yellow-500">
+                      {typeof testimonial.rating === "number" && (
+                        <div className="flex gap-1 mb-3 text-yellow-500">
+                          {[...Array(Math.floor(testimonial.rating))].map((_, i) => (
+                            <FaStar key={i} className="w-4 h-4 fill-current filter drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]" />
+                          ))}
+                          {testimonial.rating % 1 !== 0 && (
+                            <FaStarHalfAlt className="w-4 h-4 fill-current filter drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]" />
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    
                     <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-medium leading-relaxed italic">
                       "{testimonial.feedback}"
                     </p>
@@ -190,6 +256,10 @@ const UserTestimonialsSection: React.FC = () => {
 
       {/* Swiper styles */}
       <style jsx global>{`
+        .testimonial-swiper .swiper-wrapper {
+          transition-timing-function: linear !important;
+        }
+
         .custom-swiper-pagination .swiper-pagination-bullet {
           background: #94a3b8 !important;
           opacity: 0.4;
