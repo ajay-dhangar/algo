@@ -12,7 +12,8 @@ const DSARoadmap: React.FC = () => {
     }
 
     // Helper to reliably get the numeric value of height for comparisons
-    function getHeightVal(el: HTMLElement | string): number {
+    function getHeightVal(el: HTMLElement | string | null | undefined): number {
+      if (!el) return 0;
       if (typeof el === "string") return parseFloat(el) || 0;
       return parseFloat(el.style.height) || 0;
     }
