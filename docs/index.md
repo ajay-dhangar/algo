@@ -45,8 +45,6 @@ The best way to master DSA is to start writing code. Dive right into our structu
   </div>
 </div>
 
----
-
 <h2 className="text-center">Feedback & Discussion</h2>
 
 <p className="text-center" style={{ marginBottom: '1.5rem' }}>
