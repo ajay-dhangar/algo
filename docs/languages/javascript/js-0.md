@@ -1,5 +1,5 @@
 ---
-id: introduction-to-javascript
+id: introduction
 sidebar_position: 1
 title: Introduction to JavaScript
 sidebar_label: JavaScript Introduction

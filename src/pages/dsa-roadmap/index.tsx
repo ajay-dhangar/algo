@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import Layout from "@theme/Layout";
 import Translate from "@docusaurus/Translate";
 import Link from "@docusaurus/Link";
-import useBaseUrl from "@docusaurus/useBaseUrl";
 import {
   FaFolderOpen,
   FaFolder,
@@ -11,7 +10,6 @@ import {
   FaRoute,
   FaExpandArrowsAlt,
   FaCompress,
-  FaChartNetwork,
   FaTerminal,
   FaInfoCircle,
   FaCheckCircle
@@ -19,43 +17,22 @@ import {
 import { topics } from "../../data/topics";
 
 const DSARoadmap: React.FC = () => {
-  const categoryBase = useBaseUrl("/docs/category");
-
-  // Structural Topic/Category Mapper
-  const topicCategoryMap: Record<string, Record<string, string>> = useMemo(() => ({
-    "Pick a Language": { "JavaScript": "javascript", "Python": "python", "Java": "java", "C++": "c-1", "C#": "c", "Ruby": "python", "GO": "java", "Rust": "rust" },
-    "Programming Fundamentals": { "Language Syntax": "language-syntax", "Control Structures": "control-structures", "Functions": "functions", "OOP Basics": "oop-basic", "Pseudo Code": "programming-fundamentals" },
-    "Data Structures": { "Data Structures": "data-structure" },
-    "Basic Data Structures": { "Arrays": "arrays", "Linked Lists": "linked-list", "Stacks": "stacks", "Queues": "queue", "Hash Tables": "hash-tables" },
-    "Algorithmic Complexity": { "Time and Space Complexity": "complexity", "Common Runtimes": "complexity", "Asymptotic Notation": "complexity", "Extra Topics": "complexity" },
-    "Sorting Algorithms": { "Bubble Sort": "sorting-algorithms", "Selection Sort": "sorting-algorithms", "Insertion Sort": "sorting-algorithms", "Merge Sort": "sorting-algorithms", "Quick Sort": "sorting-algorithms", "Heap Sort": "sorting-algorithms", "Counting Sort": "sorting-algorithms", "Radix Sort": "sorting-algorithms", "Bucket Sort": "sorting-algorithms" },
-    "Searching Algorithms": { "Linear Search": "binary-search", "Binary Search": "binary-search", "Jump Search": "binary-search", "Interpolation Search": "binary-search", "Exponential Search": "binary-search" },
-    "Recursion": { "Introduction": "recursion", "Recursion Techniques": "recursive-algorithms", "Recursion Problems": "recursion" },
-    "Tree Data Structures": { "Introduction": "binary-trees", "Tree Traversals": "binary-trees", "Search Algorithms": "binary-search-tree", "Tree Problems": "binary-search-tree" },
-    "Graphs": { "Introduction": "graphs", "Graph Representation": "graphs", "Graph Traversals": "graphs", "Graph Algorithms": "graphs" },
-  }), []);
-
-  const getDocLink = (topicTitle: string, folderName: string, fileName: string) => {
-    const topicMap = topicCategoryMap[topicTitle];
-    if (topicMap && topicMap[folderName]) {
-      return `${categoryBase}/${topicMap[folderName]}`;
-    }
-    return topicTitle === "Pick a Language" ? `${categoryBase}/languages` : `${categoryBase}/programming-fundamentals`;
-  };
-
   // State Pipeline
   const [expandedTopics, setExpandedTopics] = useState<{ [key: number]: boolean }>({ 0: true });
   const [expandedFolders, setExpandedFolders] = useState<{ [key: string]: boolean }>({});
   const [activeTopicIdx, setActiveTopicIdx] = useState<number>(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // Synchronize localStorage Layout Cache
   useEffect(() => {
     try {
       const savedTopics = localStorage.getItem("pro_dsa_topics");
       if (savedTopics) setExpandedTopics(JSON.parse(savedTopics));
       const savedFolders = localStorage.getItem("pro_dsa_folders");
       if (savedFolders) setExpandedFolders(JSON.parse(savedFolders));
-    } catch {}
+    } catch (error) {
+      console.error("Failed to parse stored roadmap layout cache status", error);
+    }
     setIsLoaded(true);
   }, []);
 
@@ -64,7 +41,9 @@ const DSARoadmap: React.FC = () => {
       try {
         localStorage.setItem("pro_dsa_topics", JSON.stringify(expandedTopics));
         localStorage.setItem("pro_dsa_folders", JSON.stringify(expandedFolders));
-      } catch {}
+      } catch (error) {
+        console.error("Failed to write updated roadmap layout cache status", error);
+      }
     }
   }, [expandedTopics, expandedFolders, isLoaded]);
 
@@ -90,7 +69,9 @@ const DSARoadmap: React.FC = () => {
     if (expand) {
       topics.forEach((topic, tIdx) => {
         nextTopics[tIdx] = true;
-        topic.folders.forEach((_, fIdx) => { nextFolders[`${tIdx}-${fIdx}`] = true; });
+        topic.folders.forEach((_, fIdx) => { 
+          nextFolders[`${tIdx}-${fIdx}`] = true; 
+        });
       });
     }
     setExpandedTopics(nextTopics);
@@ -192,7 +173,7 @@ const DSARoadmap: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* GitGraph Subtree Structure */}
+                    {/* Subtree Structure */}
                     <div className={`grid transition-[grid-template-rows,opacity] duration-200 ${
                       isTopicOpen ? "grid-rows-[1fr] opacity-100 border-t border-slate-100 dark:border-zinc-800/60" : "grid-rows-[0fr] opacity-0"
                     }`}>
@@ -218,7 +199,7 @@ const DSARoadmap: React.FC = () => {
                                   <FaChevronRight className={`text-[10px] text-slate-300 transition-transform ${isFolderOpen ? "rotate-90 text-amber-500" : ""}`} />
                                 </div>
 
-                                {/* Leaf Node Code File Anchors */}
+                                {/* Leaf Node Link Anchors */}
                                 <div className={`grid transition-[grid-template-rows,opacity] duration-150 ${
                                   isFolderOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                                 }`}>
@@ -227,12 +208,12 @@ const DSARoadmap: React.FC = () => {
                                       {folder.files.map((file, fileIdx) => (
                                         <li key={fileIdx} className="m-0">
                                           <Link
-                                            to={getDocLink(topic.title, folder.name, file)}
+                                            to={file.link}
                                             className="flex items-center text-xs font-mono text-slate-600 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors py-1 group/item"
                                             style={{ textDecoration: "none" }}
                                           >
                                             <FaFileCode className="mr-2 text-slate-300 dark:text-zinc-700 group-hover/item:text-red-400 transition-colors" />
-                                            <span className="truncate">{file}</span>
+                                            <span className="truncate">{file.name}</span>
                                           </Link>
                                         </li>
                                       ))}

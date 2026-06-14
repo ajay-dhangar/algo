@@ -1,5 +1,5 @@
 ---  
-id: type-casting-in-javascript  
+id: type-casting  
 sidebar_position: 6
 title: Type Casting in JavaScript  
 sidebar_label: Type Casting in JavaScript

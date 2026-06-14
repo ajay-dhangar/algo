@@ -1,5 +1,5 @@
 ---  
-id: recursion-in-javascript  
+id: recursion
 sidebar_position: 9
 title: Recursion in JavaScript  
 sidebar_label: Recursion in JavaScript

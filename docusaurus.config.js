@@ -27,25 +27,6 @@ const showGitHistory =
         }
       })();
 
-// const configuredApiBaseUrl = (
-//   process.env.ALGO_API_URL || process.env.DOCUSAURUS_API_BASE_URL || ""
-// ).trim();
-
-// if (configuredApiBaseUrl && !/^https?:\/\//i.test(configuredApiBaseUrl)) {
-//   throw new Error(
-//     `Invalid API base URL: "${configuredApiBaseUrl}". The URL must start with http:// or https://`
-//   );
-// }
-
-// Production API integrations must be configured explicitly. Falling back to an
-// empty string would turn API calls into relative site requests and fail at runtime.
-
-// if (process.env.NODE_ENV === "production" && !configuredApiBaseUrl) {
-//   throw new Error(
-//     "Missing required environment variable: ALGO_API_URL or DOCUSAURUS_API_BASE_URL"
-//   );
-// }
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Algo",
@@ -85,7 +66,11 @@ const config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
-        theme: {
+        pages: {
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
+        theme: {  
           customCss: "./src/css/custom.css",
         },
       }),
@@ -310,6 +295,7 @@ const config = {
       },
     }),
 
+  // themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
   themes: ["@docusaurus/theme-mermaid"],
   markdown: {
     mermaid: true,

@@ -5,7 +5,6 @@ import Head from "@docusaurus/Head";
 import Homepage from "../components/Homepage";
 import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop.tsx";
 import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom.tsx";
-import ChatbotIframe from "../components/chatbot.jsx";
 
 
 export default function Home() {
