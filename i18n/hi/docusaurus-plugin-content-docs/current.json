@@ -102,15 +102,7 @@
   "sidebar.tutorialSidebar.category.Control Structures.link.generated-index.description": {
     "message": "प्रोग्रामिंग के बुनियादी सिद्धांतों के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
     "description": "The generated-index page description for category Control Structures in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Functions": {
-    "message": "फ़ंक्शन्स (Functions)",
-    "description": "The label for category Functions in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Functions.link.generated-index.description": {
-    "message": "प्रोग्रामिंग के बुनियादी सिद्धांतों के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
-    "description": "The generated-index page description for category Functions in sidebar tutorialSidebar"
-  },
+  },  
   "sidebar.tutorialSidebar.category.OOP Basic": {
     "message": "OOP बेसिक (OOP Basic)",
     "description": "The label for category OOP Basic in sidebar tutorialSidebar"
@@ -140,18 +132,7 @@
     "message": "बेसिक डेटा स्ट्रक्चर के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
     "description": "The generated-index page description for category Basic Data Structure in sidebar sidebar"
   },
-  "sidebar.tutorialSidebar.category.Arrays": {
-    "message": "एरे (Arrays)",
-    "description": "The label for category Arrays in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Arrays.link.generated-index.description": {
-    "message": "Arrays की सबसे महत्वपूर्ण अवधारणाओं (concepts) को सीखें।",
-    "description": "The generated-index page description for category Arrays in sidebar tutorialSidebar"
-  },
-  "sidebar.tutorialSidebar.category.Strings": {
-    "message": "स्ट्रिंग्स (Strings)",
-    "description": "The label for category Strings in sidebar tutorialSidebar"
-  },
+  
   "sidebar.tutorialSidebar.category.Cheatsheets": {
     "message": "चीटशीट्स (Cheatsheets)",
     "description": "The label for category Cheatsheets in sidebar tutorialSidebar"
