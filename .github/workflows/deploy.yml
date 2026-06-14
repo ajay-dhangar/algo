@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-    # Review GitHub Actions docs if you want to further define triggers, paths, etc.
+    # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
@@ -22,11 +22,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
       - name: Build website
         run: npm run build
-        env:
-          ALGO_API_URL: ${{ vars.ALGO_API_URL }}
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
