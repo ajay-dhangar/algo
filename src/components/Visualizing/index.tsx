@@ -11,6 +11,13 @@ const DSARoadmap: React.FC = () => {
       r.style.height = t;
     }
 
+    // Helper to reliably get the numeric value of height for comparisons
+    function getHeightVal(el: HTMLElement | string | null | undefined): number {
+      if (!el) return 0;
+      if (typeof el === "string") return parseFloat(el) || 0;
+      return parseFloat(el.style.height) || 0;
+    }
+
     // 2. Button and input references using clean TypeScript generics
     const bubbleSortBtn = document.querySelector<HTMLButtonElement>(".bubbleSort");
     const insertionSortBtn = document.querySelector<HTMLButtonElement>(".insertionSort");
@@ -141,7 +148,7 @@ const DSARoadmap: React.FC = () => {
           ele[j].style.background = "blue";
           ele[j + 1].style.background = "blue";
           await waitforme(delay);
-          if (parseInt(ele[j].style.height) > parseInt(ele[j + 1].style.height)) {
+          if (getHeightVal(ele[j]) > getHeightVal(ele[j + 1])) {
             swap(ele[j], ele[j + 1]);
           }
           ele[j].style.background = "cyan";
@@ -181,7 +188,7 @@ const DSARoadmap: React.FC = () => {
         let key = ele[i].style.height;
         ele[i].style.background = "blue";
         await waitforme(delay);
-        while (j >= 0 && parseInt(ele[j].style.height) > parseInt(key)) {
+        while (j >= 0 && getHeightVal(ele[j]) > getHeightVal(key)) {
           ele[j].style.background = "blue";
           ele[j + 1].style.height = ele[j].style.height;
           j--;
@@ -237,7 +244,7 @@ const DSARoadmap: React.FC = () => {
       while (i < n1 && j < n2) {
         await waitforme(delay);
 
-        if (parseInt(leftArr[i]) <= parseInt(rightArr[j])) {
+        if (getHeightVal(leftArr[i]) <= getHeightVal(rightArr[j])) {
           arr[k].style.height = leftArr[i];
           arr[k].style.backgroundColor = "lightgreen";
           i++;
@@ -302,7 +309,7 @@ const DSARoadmap: React.FC = () => {
       for (let r = low; r <= pivotIndex - 1; r++) {
         bars[r].style.background = "yellow";
         await waitforme(delay);
-        if (parseInt(bars[r].style.height) < parseInt(bars[pivotIndex].style.height)) {
+        if (getHeightVal(bars[r]) < getHeightVal(bars[pivotIndex])) {
           partitionIdx++;
           swap(bars[partitionIdx], bars[r]);
           bars[partitionIdx].style.background = "orange";
@@ -370,7 +377,7 @@ const DSARoadmap: React.FC = () => {
         for (let a = t + 1; a < bars.length; a++) {
           bars[a].style.background = "red";
           await waitforme(delay);
-          if (parseInt(bars[a].style.height) < parseInt(bars[minIdx].style.height)) {
+          if (getHeightVal(bars[a]) < getHeightVal(bars[minIdx])) {
             if (minIdx !== t) {
               bars[minIdx].style.background = "cyan";
             }
