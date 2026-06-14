@@ -253,7 +253,7 @@ require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 
-const DB\_URL = process.env.DATABASE\_URL;
+const DB_URL = process.env.DATABASE_URL;
 
 
 
