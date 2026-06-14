@@ -1,5 +1,5 @@
 ---
-id: operator-in-javascript
+id: operators
 sidebar_position: 3
 title: Operator in JavaScript
 sidebar_label: Operator in JS
@@ -85,7 +85,7 @@ let z = 10;
 z -= 2; // z = 8
 ```
 
-<AdsComponent />
+<Ads />
 
 ## 3. **Comparison Operators:**
 
@@ -261,6 +261,8 @@ Shifts the bits of a number to the right, filling the leftmost bits with zeros.
 ```javascript
 let result = 5 >>> 1; // result = 2
 ```
+
+<AdsComponent />
 
 ## 9. **Conditional Operator:**
 

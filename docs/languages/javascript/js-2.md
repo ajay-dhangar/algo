@@ -1,5 +1,5 @@
 ---
-id: datatype-in-javascript
+id: datatypes
 sidebar_position: 2
 title: Data Type in JavaScript
 sidebar_label: Data Type in JS
