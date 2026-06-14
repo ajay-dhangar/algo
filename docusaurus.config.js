@@ -43,8 +43,8 @@ const config = {
   //     (process.env.NODE_ENV === "development" ? "http://localhost:5000" : undefined),
   // },
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
+  // onBrokenLinks: "throw",
+  // onBrokenMarkdownLinks: "throw",
 
   i18n: {
     defaultLocale: "en",
@@ -313,6 +313,10 @@ const config = {
   // themes: ["@docusaurus/theme-mermaid"],
   markdown: {
     mermaid: true,
+    // format: 'mdx',
+    hooks: {
+      onBrokenMarkdownLinks: 'warn', // or 'throw' / 'ignore'
+    },
   },
 
   plugins: [
@@ -323,7 +327,7 @@ const config = {
         id: "dsa-interview",
         path: "dsa-interview",
         routeBasePath: "dsa-interview",
-        sidebarPath: require.resolve("./dsa-interview-sidebars.js"),
+        sidebarPath: require.resolve("./sidebars.js"),
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
         showLastUpdateAuthor: showGitHistory,

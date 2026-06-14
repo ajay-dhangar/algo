@@ -1,5 +1,6 @@
 {
     "label": "Arrays",
+    "key": "arrays",
     "position": 1,
     "link": {
       "type": "generated-index",
