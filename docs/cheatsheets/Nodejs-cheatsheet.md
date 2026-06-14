@@ -361,7 +361,7 @@ process.on('unhandledRejection', (reason, promise) => {
 
 // Path
 
-const fullPath = path.join(\_\_dirname, 'files', 'data.txt');
+const fullPath = path.join(__dirname, 'files', 'data.txt');
 
 
 
