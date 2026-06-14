@@ -101,13 +101,14 @@ public:
 
 **Java**
 ```java
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class Solution {
     public long subArrayRanges(int[] nums) {
         int n = nums.length;
         long res = 0;
-        Stack<Integer> st = new Stack<>();
+        Deque<Integer> st = new ArrayDeque<>();
 
         // Sum of Minimums
         for (int i = 0; i <= n; i++) {
@@ -176,7 +177,7 @@ class Solution:
  */
 var subArrayRanges = function(nums) {
     const n = nums.length;
-    let res = 0n; // Use BigInt to prevent overflow on massive inputs
+    let res = 0;
     let st = [];
 
     // Sum of Minimums
@@ -185,7 +186,7 @@ var subArrayRanges = function(nums) {
             let j = st.pop();
             let left = j - (st.length === 0 ? -1 : st[st.length - 1]);
             let right = i - j;
-            res -= BigInt(nums[j]) * BigInt(left) * BigInt(right);
+            res -= nums[j] * left * right;
         }
         st.push(i);
     }
@@ -198,11 +199,11 @@ var subArrayRanges = function(nums) {
             let j = st.pop();
             let left = j - (st.length === 0 ? -1 : st[st.length - 1]);
             let right = i - j;
-            res += BigInt(nums[j]) * BigInt(left) * BigInt(right);
+            res += nums[j] * left * right;
         }
         st.push(i);
     }
 
-    return Number(res); 
+    return res; 
 };
 ```
