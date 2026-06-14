@@ -1,18 +1,11 @@
-\---
-
+---
 id: nodejs-cheatsheet
-
 title: Node.js Cheatsheet
-
-sidebar\_label: Node.js Cheatsheet
-
-sidebar\_position: 2
-
+sidebar_label: Node.js Cheatsheet
+sidebar_position: 2
 description: Complete quick reference for Node.js - Core modules, npm, async patterns, and best practices.
-
-tags: \[nodejs, javascript, backend, cheatsheet]
-
-\---
+tags: [nodejs, javascript, backend, cheatsheet]
+---
 
 
 
