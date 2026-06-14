@@ -360,3 +360,24 @@ button {
   padding-right: 2rem !important;
 }
 
+/* =============================================
+   Fix #2620: Cookie banner overlap + dark mode
+   ============================================= */
+
+body {
+  padding-bottom: 80px;
+}
+
+[data-theme='dark'] .cookieConsent,
+[data-theme='dark'] [class*='cookieConsent'],
+[data-theme='dark'] [class*='cookie'] {
+  background-color: var(--ifm-background-surface-color) !important;
+  color: var(--ifm-font-color-base) !important;
+  border-top: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+[data-theme='dark'] .cookieConsent button,
+[data-theme='dark'] [class*='cookie'] button {
+  background-color: var(--ifm-color-primary) !important;
+  color: #ffffff !important;
+}
