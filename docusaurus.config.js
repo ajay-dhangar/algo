@@ -46,6 +46,15 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
 
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "hi"], // Add 'hi' here
+    localeConfigs: {
+      en: { label: "English" },
+      hi: { label: "हिन्दी" }, // Label for the dropdown
+    },
+  },
+
   presets: [
     [
       "classic",
@@ -70,7 +79,7 @@ const config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
-        theme: {  
+        theme: {
           customCss: "./src/css/custom.css",
         },
       }),
@@ -241,10 +250,8 @@ const config = {
             ],
           },
           {
-            href: "https://github.com/ajay-dhangar/algo",
+            type: "localeDropdown",
             position: "right",
-            className: "header-github-link",
-            "aria-label": "GitHub Repository Run",
           },
           {
             type: "search",

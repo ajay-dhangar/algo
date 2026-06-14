@@ -1,0 +1,644 @@
+{
+  "version.label": {
+    "message": "अगला (Next)",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Languages": {
+    "message": "भाषाएँ (Languages)",
+    "description": "The label for category Languages in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Languages.link.generated-index.description": {
+    "message": "प्रोग्रामिंग की बुनियादी अवधारणाओं (Basic Concepts) के सबसे महत्वपूर्ण रोडमैप को सीखने के लिए 5 मिनट।",
+    "description": "The generated-index page description for category Languages in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.JavaScript": {
+    "message": "JavaScript",
+    "description": "The label for category JavaScript in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.JavaScript.link.generated-index.description": {
+    "message": "JavaScript एक प्रोग्रामिंग भाषा है जो ECMAScript विनिर्देश (specification) का पालन करती है। जावास्क्रिप्ट हाई-लेवल, अक्सर जस्ट-इन-टाइम कंपाइल और मल्टी-पैराडाइम भाषा है।",
+    "description": "The generated-index page description for category JavaScript in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C++": {
+    "message": "C++",
+    "description": "The label for category C++ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C++.link.generated-index.title": {
+    "message": "C++ प्रोग्रामिंग भाषा",
+    "description": "The generated-index page title for category C++ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C++.link.generated-index.description": {
+    "message": "C++ प्रोग्रामिंग भाषा का अन्वेषण करें, जिसमें कुशल और रखरखाव योग्य कोड लिखने के लिए इसके सिंटैक्स, फीचर्स और सर्वोत्तम अभ्यास (best practices) शामिल हैं। ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग, टेम्प्लेट और स्टैंडर्ड टेम्प्लेट लाइब्रेरी (STL) के लिए C++ के समर्थन के बारे में जानें। चाहे आप शुरुआत कर रहे हों या एक अनुभवी प्रोग्रामर हों, यह सेक्शन आपको C++ में महारत हासिल करने और आपके प्रोजेक्ट्स के लिए इसकी शक्तिशाली क्षमताओं का लाभ उठाने में मदद करेगा।",
+    "description": "The generated-index page description for category C++ in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Python": {
+    "message": "Python",
+    "description": "The label for category Python in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Python.link.generated-index.description": {
+    "message": "Python एक इंटरप्रिटेड, हाई-लेवल, जनरल-पर्पज प्रोग्रामिंग भाषा है। गुइडो वैन रोसुम द्वारा बनाई गई और पहली बार 1991 में जारी की गई, पायथन का डिज़ाइन दर्शन कोड पठनीयता (readability) पर जोर देता है।",
+    "description": "The generated-index page description for category Python in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C#": {
+    "message": "C#",
+    "description": "The label for category C# in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C#.link.generated-index.description": {
+    "message": "C# एक आधुनिक, हाई-लेवल प्रोग्रामिंग भाषा है जिसे Microsoft द्वारा .NET फ्रेमवर्क के हिस्से के रूप में विकसित किया गया है। पहली बार 2002 में जारी की गई, C# अपनी मजबूत टाइपिंग, गारबेज कलेक्शन और ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग के समर्थन के लिए जानी जाती है, जो इसे वेब, डेस्कटॉप और मोबाइल डेवलपमेंट सहित विभिन्न प्रकार के अनुप्रयोगों (applications) के लिए लोकप्रिय बनाती है। .NET कोर के माध्यम से क्रॉस-प्लेटफ़ॉर्म समर्थन के साथ, C# डेवलपर्स को विभिन्न परिवेशों (environments) में बहुमुखी और प्रदर्शन-उन्मुख सॉफ़्टवेयर समाधान बनाने की अनुमति देता है।",
+    "description": "The generated-index page description for category C# in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Java": {
+    "message": "Java",
+    "description": "The label for category Java in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Java.link.generated-index.description": {
+    "message": "Java एक हाई-लेवल, क्लास-बेस्ड, ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग भाषा है जिसे इस तरह डिज़ाइन किया गया है कि इसमें कम से कम इम्प्लीमेंटेशन डिपेंडेंसी (dependencies) हों।",
+    "description": "The generated-index page description for category Java in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Rust": {
+    "message": "Rust",
+    "description": "The label for category Rust in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Rust.link.generated-index.description": {
+    "message": "Rust की दुनिया में आपका स्वागत है! इस गाइड में, हम Rust के बुनियादी सिद्धांतों का पता लगाएंगे, जो गति, मेमोरी सुरक्षा (memory safety) और समवर्तीता (concurrency) पर केंद्रित एक आधुनिक सिस्टम प्रोग्रामिंग भाषा है। चलिए शुरू करते हैं!",
+    "description": "The generated-index page description for category Rust in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Go": {
+    "message": "Go",
+    "description": "The label for category Go in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Go.link.generated-index.description": {
+    "message": "Go (या Golang) Google द्वारा डिज़ाइन की गई एक ओपन-सोर्स, कंपाइल और स्टैटिकली टाइप्ड प्रोग्रामिंग भाषा है। यह अपनी सादगी, कॉन्करेंसी सपोर्ट और प्रदर्शन के लिए जानी जाती है, जो इसे क्लाउड-नेटिव डेवलपमेंट और स्केलेबल बैकएंड सिस्टम के लिए उत्कृष्ट बनाती है।",
+    "description": "The generated-index page description for category Go in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.C": {
+    "message": "C",
+    "description": "The label for category C in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.SQL": {
+    "message": "SQL",
+    "description": "The label for category SQL in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Programming Fundamentals": {
+    "message": "प्रोग्रामिंग के बुनियादी सिद्धांत (Programming Fundamentals)",
+    "description": "The label for category Programming Fundamentals in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Programming Fundamentals.link.generated-index.description": {
+    "message": "प्रोग्रामिंग के बुनियादी सिद्धांतों के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
+    "description": "The generated-index page description for category Programming Fundamentals in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Language Syntax": {
+    "message": "भाषा सिंटैक्स (Language Syntax)",
+    "description": "The label for category Language Syntax in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Language Syntax.link.generated-index.description": {
+    "message": "प्रोग्रामिंग के बुनियादी सिद्धांतों के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
+    "description": "The generated-index page description for category Language Syntax in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Control Structures": {
+    "message": "कंट्रोल स्ट्रक्चर (Control Structures)",
+    "description": "The label for category Control Structures in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Control Structures.link.generated-index.description": {
+    "message": "प्रोग्रामिंग के बुनियादी सिद्धांतों के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
+    "description": "The generated-index page description for category Control Structures in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Functions": {
+    "message": "फ़ंक्शन्स (Functions)",
+    "description": "The label for category Functions in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Functions.link.generated-index.description": {
+    "message": "प्रोग्रामिंग के बुनियादी सिद्धांतों के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
+    "description": "The generated-index page description for category Functions in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.OOP Basic": {
+    "message": "OOP बेसिक (OOP Basic)",
+    "description": "The label for category OOP Basic in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.OOP Basic.link.generated-index.description": {
+    "message": "प्रोग्रामिंग के बुनियादी सिद्धांतों के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
+    "description": "The generated-index page description for category OOP Basic in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.pseudo-code": {
+    "message": "स्यूडो-कोड (Pseudo-code)",
+    "description": "The label for category pseudo-code in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Data Structure": {
+    "message": "डेटा स्ट्रक्चर (Data Structure)",
+    "description": "The label for category Data Structure in sidebar tutorialSidebar"
+  },
+
+  "sidebar.tutorialSidebar.category.Data Structure.link.generated-index.description": {
+    "message": "डेटा स्ट्रक्चर (Data Structure) के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
+    "description": "The generated-index page description for category Data Structure in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Basic Data Structure": {
+    "message": "बेसिक डेटा स्ट्रक्चर (Basic Data Structure)",
+    "description": "The label for category Basic Data Structure in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Basic Data Structure.link.generated-index.description": {
+    "message": "बेसिक डेटा स्ट्रक्चर के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
+    "description": "The generated-index page description for category Basic Data Structure in sidebar sidebar"
+  },
+  "sidebar.tutorialSidebar.category.Arrays": {
+    "message": "एरे (Arrays)",
+    "description": "The label for category Arrays in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Arrays.link.generated-index.description": {
+    "message": "Arrays की सबसे महत्वपूर्ण अवधारणाओं (concepts) को सीखें।",
+    "description": "The generated-index page description for category Arrays in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Strings": {
+    "message": "स्ट्रिंग्स (Strings)",
+    "description": "The label for category Strings in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Cheatsheets": {
+    "message": "चीटशीट्स (Cheatsheets)",
+    "description": "The label for category Cheatsheets in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Cheatsheets.link.generated-index.description": {
+    "message": "DSA और कॉम्पिटिटिव प्रोग्रामिंग में उपयोग की जाने वाली लोकप्रिय प्रोग्रामिंग भाषाओं के लिए त्वरित संदर्भ गाइड (Quick reference guides)।",
+    "description": "The generated-index page description for category Cheatsheets in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Extra": {
+    "message": "अतिरिक्त (Extra)",
+    "description": "The label for category Extra in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Extra.link.generated-index.description": {
+    "message": "प्रोग्रामिंग के बुनियादी सिद्धांतों (Programming Fundamentals) के बारे में जानें। एक अच्छा प्रोग्रामर बनने के लिए यह पहला कदम है।",
+    "description": "The generated-index page description for category Extra in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Balanced Binary Tree (Python)": {
+    "message": "बैलेंस्ड बाइनरी ट्री (Python)",
+    "description": "The label for category Balanced Binary Tree (Python) in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.KMP searching pattern": {
+    "message": "KMP सर्चिंग पैटर्न",
+    "description": "The label for category KMP searching pattern in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.KMP searching pattern.link.generated-index.description": {
+    "message": "KMP एल्गोरिदम एक स्ट्रिंग सर्चिंग एल्गोरिदम है जो किसी टेक्स्ट में पैटर्न खोजने के दौरान अनावश्यक तुलनाओं को छोड़ने के लिए प्रिफिक्स टेबल (prefix table) का उपयोग करता है।",
+    "description": "The generated-index page description for category KMP searching pattern in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Basic Data Structures and Algorithms": {
+    "message": "बेसिक डेटा स्ट्रक्चर और एल्गोरिदम (DSA)",
+    "description": "The label for category Basic Data Structures and Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Basic Data Structures and Algorithms.link.generated-index.description": {
+    "message": "डेटा स्ट्रक्चर और एल्गोरिदम की बुनियादी अवधारणाओं के लिए सबसे महत्वपूर्ण रोडमैप (RoadMap) सीखें।",
+    "description": "The generated-index page description for category Basic Data Structures and Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Hashing in DSA": {
+    "message": "DSA में हैशिंग (Hashing)",
+    "description": "The label for category Hashing in DSA in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Hashing in DSA.link.generated-index.description": {
+    "message": "हैशिंग डेटा स्ट्रक्चर और एल्गोरिदम (DSA) में एक अत्यंत महत्वपूर्ण तकनीक है जो डेटा को स्टोर, रिट्रीव और मैनेज करने के कुशल तरीके प्रदान करती है। कॉम्पिटिटिव प्रोग्रामिंग में आदर्श मामलों में कॉन्स्टेंट-टाइम कॉम्प्लेक्सिटी (constant-time complexity) के कारण सर्चिंग, डुप्लिकेट्स और त्वरित डेटा एक्सेस से जुड़ी समस्याओं को हल करने के लिए इसका व्यापक रूप से उपयोग किया जाता है।",
+    "description": "The generated-index page description for category Hashing in DSA in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Recursion": {
+    "message": "रिकर्शन (Recursion)",
+    "description": "The label for category Recursion in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Recursion.link.generated-index.description": {
+    "message": "रिकर्शन एक प्रोग्रामिंग तकनीक है जहाँ कोई फ़ंक्शन किसी बड़ी समस्या को छोटे और अधिक प्रबंधनीय उप-समस्याओं (sub-problems) में तोड़कर हल करने के लिए प्रत्यक्ष या अप्रत्यक्ष रूप से खुद को कॉल करता है। इसका उपयोग आमतौर पर डिवाइड एंड कॉन्कर (divide and conquer) रणनीतियों, ट्री ट्रैवर्सल और डायनेमिक प्रोग्रामिंग वाले एल्गोरिदम में किया जाता है।",
+    "description": "The generated-index page description for category Recursion in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Sliding Window": {
+    "message": "स्लाइडिंग विंडो (Sliding Window)",
+    "description": "The label for category Sliding Window in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Sliding Window.link.generated-index.description": {
+    "message": "स्लाइडिंग विंडो एरे या स्ट्रिंग्स से जुड़ी समस्याओं को हल करने के लिए एक कुशल तकनीक है जहाँ हमें एक ऐसा सबरेंज (subrange) खोजना होता है जो किसी विशेष शर्त को पूरा करता हो। हर बार पूरे रेंज की गणना शुरू से करने के बजाय, हम एरे/स्ट्रिंग पर एक विंडो स्लाइड करते हैं और समाधान को धीरे-धीरे अपडेट करते हैं।",
+    "description": "The generated-index page description for category Sliding Window in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Stacks": {
+    "message": "स्टेक्स (Stacks)",
+    "description": "The label for category Stacks in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Stacks.link.generated-index.description": {
+    "message": "स्टैक एक लीनियर डेटा स्ट्रक्चर है जो लास्ट इन फर्स्ट आउट (LIFO) सिद्धांत का पालन करता है। यह स्टैक के शीर्ष (top) नामक एक छोर पर ऑपरेशन्स करने की अनुमति देता है, जिससे यह एक्सप्रेशन इवैल्यूएशन, बैकट्रैकिंग एल्गोरिदम और फ़ंक्शन कॉल मैनेजमेंट जैसे परिदृश्यों के लिए कुशल बन जाता है।",
+    "description": "The generated-index page description for category Stacks in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Binary Search": {
+    "message": "बाइनरी सर्च (Binary Search)",
+    "description": "The label for category Binary Search in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Binary Search.link.generated-index.description": {
+    "message": "बाइनरी सर्च एक सर्चिंग एल्गोरिदम है, जिसका उपयोग एरे में किसी एलिमेंट को खोजने के लिए किया जाता है। यह एक अनूठा दृष्टिकोण अपनाता है जो लीनियर सर्च की तुलना में टाइम कॉम्प्लेक्सिटी को कम करता है। हालाँकि, बाइनरी सर्च का उपयोग करने के लिए एरे का सॉर्टेड (sorted) होना अनिवार्य है।",
+    "description": "The generated-index page description for category Binary Search in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Binary Search Tree": {
+    "message": "बाइनरी सर्च ट्री (BST)",
+    "description": "The label for category Binary Search Tree in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Binary Search Tree.link.generated-index.description": {
+    "message": "एक **बाइनरी सर्च ट्री (BST)** एक प्रकार का बाइनरी ट्री है जहाँ प्रत्येक नोड एक विशिष्ट ऑर्डरिंग प्रॉपर्टी का पालन करता है: 1. लेफ्ट सबट्री के सभी मान रूट नोड से कम होते हैं। 2. राइट सबट्री के सभी मान रूट नोड से अधिक होते हैं।",
+    "description": "The generated-index page description for category Binary Search Tree in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Binary Trees": {
+    "message": "बाइनरी ट्रीज़ (Binary Trees)",
+    "description": "The label for category Binary Trees in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Binary Trees.link.generated-index.description": {
+    "message": "बाइनरी ट्रीज़ एक बुनियादी डेटा स्ट्रक्चर हैं जिसका उपयोग पदानुक्रमित संबंधों (hierarchical relationships) को दर्शाने के लिए किया जाता है...",
+    "description": "The generated-index page description for category Binary Trees in sidebar tutorialSidebar"
+  },
+
+    "sidebar.tutorialSidebar.category.Bit Manipulation": {
+    "message": "बिट मैनिपुलेशन (Bit Manipulation)",
+    "description": "The label for category Bit Manipulation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Bit Manipulation.link.generated-index.description": {
+    "message": "बिट मैनिपुलेशन में सीधे बाइनरी डिजिट्स या बिट्स पर काम करना शामिल है, जो कंप्यूटिंग में डेटा की सबसे बुनियादी इकाइयाँ हैं। बिट मैनिपुलेशन का उपयोग लो-लेवल प्रोग्रामिंग कार्यों में किया जाता है जहाँ प्रदर्शन (performance) और मेमोरी दक्षता (memory efficiency) अत्यंत महत्वपूर्ण होती है। यह दस्तावेज़ बिट मैनिपुलेशन में मुख्य अवधारणाओं, ऑपरेशन्स और तकनीकों को कवर करता है।",
+    "description": "The generated-index page description for category Bit Manipulation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Combinatorics": {
+    "message": "कॉम्बिनेटरिक्स (Combinatorics)",
+    "description": "The label for category Combinatorics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Combinatorics.link.generated-index.description": {
+    "message": "कॉम्बिनेटरिक्स गणित की एक शाखा है जो वस्तुओं के कॉम्बिनेशन्स, अरेंजमेंट्स और गिनती से संबंधित है। डेटा स्ट्रक्चर और एल्गोरिदम (DSA) के संदर्भ में, गिनती, व्यवस्था और डेटा के चयन से संबंधित समस्याओं को हल करने के लिए कॉम्बिनेटरियल तकनीकों का उपयोग किया जाता है। ये तकनीकें एल्गोरिदम डिज़ाइन और विश्लेषण में महत्वपूर्ण हैं, विशेष रूप से ग्राफ थ्योरी, प्रोबेबिलिटी और ऑप्टिमाइजेशन जैसे क्षेत्रों में।",
+    "description": "The generated-index page description for category Combinatorics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Complexity": {
+    "message": "कॉम्प्लेक्सिटी (Complexity)",
+    "description": "The label for category Complexity in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Complexity.link.generated-index.description": {
+    "message": "एल्गोरिदम की कॉम्प्लेक्सिटी (जटिलता) के बारे में जानें और उनका विश्लेषण करने का तरीका सीखें।",
+    "description": "The generated-index page description for category Complexity in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Heap": {
+    "message": "हीप (Heap)",
+    "description": "The label for category Heap in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Heap.link.generated-index.description": {
+    "message": "हीप एक विशेष ट्री-बेस्ड डेटा स्ट्रक्चर है जो **हीप प्रॉपर्टी (Heap Property)** को संतुष्ट करता है। हीप्स का उपयोग आमतौर पर प्रायोरिटी क्यू (priority queues) को इम्प्लीमेंट करने और मिनिमम या मैक्सिमम एलिमेंट को कुशलतापूर्वक रिट्रीव करने के लिए किया जाता है।",
+    "description": "The generated-index page description for category Heap in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Object-Oriented Programming (OOPs) Concepts": {
+    "message": "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग (OOPs) अवधारणाएं",
+    "description": "The label for category Object-Oriented Programming (OOPs) Concepts in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Object-Oriented Programming (OOPs) Concepts.link.generated-index.description": {
+    "message": "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग (OOPs) ऑब्जेक्ट्स की अवधारणा पर आधारित एक प्रोग्रामिंग पैराडाइम है, जिसमें डेटा और कोड शामिल हो सकते हैं। OOPs एनकैप्सुलेशन, इनहेरिटेंस, पॉलीमॉर्फिज्म और एब्स्ट्रैक्शन के सिद्धांतों को बढ़ावा देता है। मॉडर्न सॉफ्टवेयर डेवलपमेंट में मॉड्यूलर, रियूजेबल और स्केलेबल कोड बनाने के लिए इसका व्यापक रूप से उपयोग किया जाता है, जिससे एप्लिकेशन को मेंटेन और एक्सटेंड करना आसान हो जाता है।",
+    "description": "The generated-index page description for category Object-Oriented Programming (OOPs) Concepts in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Algorithms": {
+    "message": "एल्गोरिदम (Algorithms)",
+    "description": "The label for category Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Algorithms.link.generated-index.description": {
+    "message": "डेटा स्ट्रक्चर और एल्गोरिदम की बुनियादी अवधारणाओं के लिए सबसे महत्वपूर्ण रोडमैप (RoadMap) सीखें।",
+    "description": "The generated-index page description for category Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Recursive Algorithms": {
+    "message": "रिकर्सिव एल्गोरिदम (Recursive Algorithms)",
+    "description": "The label for category Recursive Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Recursive Algorithms.link.generated-index.description": {
+    "message": "कुछ महत्वपूर्ण रिकर्सिव एल्गोरिदम के बारे में जानें।",
+    "description": "The generated-index page description for category Recursive Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Sorting Algorithms": {
+    "message": "सॉर्टिंग एल्गोरिदम (Sorting Algorithms)",
+    "description": "The label for category Sorting Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Sorting Algorithms.link.generated-index.description": {
+    "message": "कुछ महत्वपूर्ण सॉर्टिंग एल्गोरिदम के बारे में जानें।",
+    "description": "The generated-index page description for category Sorting Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Scheduling Algorithms": {
+    "message": "शेड्यूलिंग एल्गोरिदम (Scheduling Algorithms)",
+    "description": "The label for category Scheduling Algorithms in sidebar tutorialSidebar"
+  },
+
+    "sidebar.tutorialSidebar.category.Scheduling Algorithms.link.generated-index.description": {
+    "message": "कुछ महत्वपूर्ण शेड्यूलिंग एल्गोरिदम के बारे में जानें।",
+    "description": "The generated-index page description for category Scheduling Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.String Algorithms": {
+    "message": "स्ट्रिंग एल्गोरिदम (String Algorithms)",
+    "description": "The label for category String Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.String Algorithms.link.generated-index.description": {
+    "message": "कुछ महत्वपूर्ण स्ट्रिंग एल्गोरिदम के बारे में जानें।",
+    "description": "The generated-index page description for category String Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Dutch National Flag Algorithm": {
+    "message": "डच नेशनल फ्लैग एल्गोरिदम",
+    "description": "The label for category Dutch National Flag Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Dutch National Flag Algorithm.link.generated-index.description": {
+    "message": "डच नेशनल फ्लैग एल्गोरिदम (Dutch National Flag Algorithm) के बारे में जानें।",
+    "description": "The generated-index page description for category Dutch National Flag Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Backtracking Algorithms": {
+    "message": "बैकट्रैकिंग एल्गोरिदम (Backtracking Algorithms)",
+    "description": "The label for category Backtracking Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Backtracking Algorithms.link.generated-index.description": {
+    "message": "बैकट्रैकिंग किसी समस्या को धीरे-धीरे (incrementally) हल करने का प्रयास करके रिकर्सिव रूप से हल करने की एक आवश्यक एल्गोरिद्मिक तकनीक है। विभिन्न बैकट्रैकिंग एल्गोरिदम और जटिल कम्प्यूटेशनल समस्याओं जैसे N-Queens, Sudoku, Subset Sum आदि को हल करने में उनके अनुप्रयोगों (applications) का अन्वेषण करें।",
+    "description": "The generated-index page description for category Backtracking Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Two Pointers Algorithms": {
+    "message": "टू पॉइंटर्स एल्गोरिदम (Two Pointers Algorithms)",
+    "description": "The label for category Two Pointers Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Two Pointers Algorithms.link.generated-index.description": {
+    "message": "इस ब्लॉग पोस्ट में, हम टू पॉइंटर्स एल्गोरिदम (Two Pointers Algorithm) का पता लगाएंगे, जो एरे या स्ट्रिंग्स से जुड़ी समस्याओं को हल करने की एक कुशल तकनीक है।",
+    "description": "The generated-index page description for category Two Pointers Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Greedy Algorithms": {
+    "message": "ग्रीडी एल्गोरिदम (Greedy Algorithms)",
+    "description": "The label for category Greedy Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Greedy Algorithms.link.generated-index.description": {
+    "message": "ग्रीडी एल्गोरिदम ऑप्टिमाइजेशन (इष्टतमीकरण) समस्याओं को हल करने का एक प्रतिमान (paradigm) हैं। ग्रीडी एल्गोरिदम के पीछे मुख्य विचार विकल्पों का एक ऐसा क्रम चुनना है, जो उस समय सबसे अच्छा लगे। यह हर कदम पर स्थानीय रूप से इष्टतम समाधान (local optimal choice) चुनता है इस उम्मीद के साथ कि ये विकल्प वैश्विक स्तर पर एक इष्टतम समाधान (global optimal solution) की ओर ले जाएंगे।",
+    "description": "The generated-index page description for category Greedy Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Mathematical Algorithms": {
+    "message": "गणितीय एल्गोरिदम (Mathematical Algorithms)",
+    "description": "The label for category Mathematical Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Mathematical Algorithms.link.generated-index.description": {
+    "message": "कंप्यूटर साइंस में उन समस्याओं को हल करने के लिए गणितीय एल्गोरिदम आवश्यक हैं जिनमें गणितीय गणनाओं और तर्क की आवश्यकता होती है। ये एल्गोरिदम क्रिप्टोग्राफी से लेकर सांख्यिकीय विश्लेषण (statistical analysis) तक विभिन्न अनुप्रयोगों में बुनियादी भूमिका निभाते हैं, और कॉम्पिटिटिव प्रोग्रामिंग में महत्वपूर्ण स्थान रखते हैं।",
+    "description": "The generated-index page description for category Mathematical Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Memoization Algorithms": {
+    "message": "मेमोइज़ेशन एल्गोरिदम (Memoization Algorithms)",
+    "description": "The label for category Memoization Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Memoization Algorithms.link.generated-index.description": {
+    "message": "मेमोइज़ेशन एक ऑप्टिमाइजेशन तकनीक है जिसका उपयोग मुख्य रूप से पहले से गणना किए गए परिणामों को कैश (cache) करके रिकर्सिव एल्गोरिदम को गति देने के लिए किया जाता है। डायनेमिक प्रोग्रामिंग में अनावश्यक गणनाओं (redundant calculations) से बचने के लिए इसका व्यापक रूप से उपयोग किया जाता है, जिससे फाइबोनैचि अनुक्रम (Fibonacci sequence), सबसे छोटे रास्ते (shortest paths) और अन्य कॉम्बिनेटरियल समस्याओं के प्रदर्शन में महत्वपूर्ण सुधार होता है।",
+    "description": "The generated-index page description for category Memoization Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Range Query Algorithms": {
+    "message": "रेंज क्वेरी एल्गोरिदम (Range Query Algorithms)",
+    "description": "The label for category Range Query Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Range Query Algorithms.link.generated-index.description": {
+    "message": "एरे, कॉम्पिटिटिव प्रोग्रामिंग और इंटरव्यू की समस्याओं को हल करने में उपयोग की जाने वाली ऑफलाइन और ऑनलाइन रेंज क्वेरी तकनीकों के बारे में जानें।",
+    "description": "The generated-index page description for category Range Query Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Kadane's Algorithm": {
+    "message": "कडाने का एल्गोरिदम (Kadane's Algorithm)",
+    "description": "The label for category Kadane's Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Kadane's Algorithm.link.generated-index.description": {
+    "message": "कडाने के एल्गोरिदम (Kadane's Algorithm) की सबसे महत्वपूर्ण और व्यापक रूप से उपयोग की जाने वाली अवधारणाओं को सीखें।",
+    "description": "The generated-index page description for category Kadane's Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Graph Shortest Path Algorithms": {
+    "message": "ग्राफ शॉर्टेस्ट पाथ एल्गोरिदम",
+    "description": "The label for category Graph Shortest Path Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Graph Shortest Path Algorithms.link.generated-index.description": {
+    "message": "शॉर्टेस्ट पाथ एल्गोरिदम ऐसे एल्गोरिदम का एक समूह हैं जिन्हें किसी ग्राफ में नोड्स के बीच सबसे छोटा रास्ता खोजने के लिए डिज़ाइन किया गया है। सामान्य एल्गोरिदम में डिजक्श्ट्रा (Dijkstra's), बेलमैन-फोर्ड (Bellman-Ford), और फ्लॉयड-वॉर्शेल (Floyd-Warshall) शामिल हैं।",
+    "description": "The generated-index page description for category Graph Shortest Path Algorithms in sidebar tutorialSidebar"
+  },
+
+    "sidebar.tutorialSidebar.category.Bentley-Ottmann-Algorithm": {
+    "message": "बेंटले-ऑटमैन एल्गोरिदम (Bentley-Ottmann-Algorithm)",
+    "description": "The label for category Bentley-Ottmann-Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.DLX algorithm": {
+    "message": "DLX एल्गोरिदम",
+    "description": "The label for category DLX algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Edmonds-Karp Algorithm": {
+    "message": "एडमंड्स-कार্প एल्गोरिदम (Edmonds-Karp Algorithm)",
+    "description": "The label for category Edmonds-Karp Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Encryption algorithms": {
+    "message": "एन्क्रिप्शन एल्गोरिदम (Encryption algorithms)",
+    "description": "The label for category Encryption algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Gale-Shapley-Algorithm": {
+    "message": "गेल-शेपली एल्गोरिदम (Gale-Shapley-Algorithm)",
+    "description": "The label for category Gale-Shapley-Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Legendre's Algorithm": {
+    "message": "लेजेंड्रे का एल्गोरिदम (Legendre's Algorithm)",
+    "description": "The label for category Legendre's Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Searching Algorithms": {
+    "message": "सर्चिंग एल्गोरिदम (Searching Algorithms)",
+    "description": "The label for category Searching Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.moores-voting-algorithm": {
+    "message": "मूर का वोटिंग एल्गोरिदम (Moore's Voting Algorithm)",
+    "description": "The label for category moores-voting-algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Prefix Sum & Difference Array": {
+    "message": "प्रिफिक्स सम और डिफरेंस एरे",
+    "description": "The label for category Prefix Sum & Difference Array in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Prefix Sum & Difference Array.link.generated-index.description": {
+    "message": "प्रिफिक्स सम (Prefix Sum) और डिफरेंस एरे (Difference Array) बुनियादी रेंज-क्वेरी तकनीकें हैं जिनका उपयोग कॉम्पिटिटिव प्रोग्रामिंग और DSA इंटरव्यू में बड़े पैमाने पर किया जाता है। कुशल रेंज सम क्वेरी, रेंज अपडेट और जटिल एरे हेरफेर (array manipulation) समस्याओं में महारत हासिल करें।",
+    "description": "The generated-index page description for category Prefix Sum & Difference Array in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Task Scheduling": {
+    "message": "टास्क शेड्यूलिंग (Task Scheduling)",
+    "description": "The label for category Task Scheduling in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Task Scheduling.link.generated-index.description": {
+    "message": "टास्क शेड्यूलिंग में निर्भरताओं (dependencies) के आधार पर कार्यों को एक क्रम में व्यवस्थित करना शामिल है, जिससे यह सुनिश्चित हो सके कि एक निर्भर कार्य शुरू होने से पहले सभी आवश्यक कार्य (prerequisite tasks) पूरे हो जाएं। यह एक निर्देशित अचक्रीय ग्राफ (DAG) में कार्यों के लिए व्यवहार्य शेड्यूल निर्धारित करने के लिए टोपोलॉजिकल सॉर्टिंग (Topological Sorting) जैसे एल्गोरिदम का उपयोग करता है।",
+    "description": "The generated-index page description for category Task Scheduling in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Advanced Data Structures": {
+    "message": "एडवांस्ड डेटा स्ट्रक्चर (Advanced Data Structures)",
+    "description": "The label for category Advanced Data Structures in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Advanced Data Structures.link.generated-index.description": {
+    "message": "उन्नत डेटा स्ट्रक्चर (advanced data structure) अवधारणाओं और तकनीकों में महारत हासिल करने के लिए मुख्य रोडमैप खोजें।",
+    "description": "The generated-index page description for category Advanced Data Structures in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Queue": {
+    "message": "क्यू (Queue)",
+    "description": "The label for category Queue in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Queue.link.generated-index.description": {
+    "message": "क्यू (Queue) की सबसे महत्वपूर्ण और व्यापक रूप से उपयोग की जाने वाली अवधारणाओं को सीखें।",
+    "description": "The generated-index page description for category Queue in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.ChallengeSolutions": {
+    "message": "चैलेंज सॉल्यूशंस (Challenge Solutions)",
+    "description": "The label for category ChallengeSolutions in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.ChallengeSolutions.link.generated-index.description": {
+    "message": "चैलेंज सॉल्यूशंस (Challenge Solutions)",
+    "description": "The generated-index page description for category ChallengeSolutions in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Graphs": {
+    "message": "ग्राफ (Graphs)",
+    "description": "The label for category Graphs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Graphs.link.generated-index.description": {
+    "message": "ग्राफ (Graph) की सबसे महत्वपूर्ण अवधारणाओं को सीखें।",
+    "description": "The generated-index page description for category Graphs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Shortest Path Algorithms": {
+    "message": "शॉर्टेस्ट पाथ एल्गोरिदम",
+    "description": "The label for category Shortest Path Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Shortest Path Algorithms.link.generated-index.description": {
+    "message": "सबसे महत्वपूर्ण शॉर्टेस्ट पाथ एल्गोरिदम (Shortest Path Algorithms) के बारे में जानें।",
+    "description": "The generated-index page description for category Shortest Path Algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Linked List": {
+    "message": "लिंक्ड लिस्ट (Linked List)",
+    "description": "The label for category Linked List in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Linked List.link.generated-index.description": {
+    "message": "लिंक्ड लिस्ट (Linked list) की सबसे महत्वपूर्ण अवधारणाओं को सीखें।",
+    "description": "The generated-index page description for category Linked List in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Dynamic Programming": {
+    "message": "डायनेमिक प्रोग्रामिंग (Dynamic Programming)",
+    "description": "The label for category Dynamic Programming in sidebar tutorialSidebar"
+  },
+
+    "sidebar.tutorialSidebar.category.Dynamic Programming.link.generated-index.description": {
+    "message": "डायनेमिक प्रोग्रामिंग (Dynamic Programming) की सबसे महत्वपूर्ण अवधारणाओं को सीखें।",
+    "description": "The generated-index page description for category Dynamic Programming in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Hash tables": {
+    "message": "हैश टेबल (Hash tables)",
+    "description": "The label for category Hash tables in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Hash tables.link.generated-index.description": {
+    "message": "हैश टेबल एक ऐसा डेटा स्ट्रक्चर है जिसे तेज़ी से काम करने के लिए डिज़ाइन किया गया है।",
+    "description": "The generated-index page description for category Hash tables in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Approximation Algorithm": {
+    "message": "एप्रोक्सिमेशन एल्गोरिदम (Approximation Algorithm)",
+    "description": "The label for category Approximation Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Banker's Algorithm": {
+    "message": "बैंकर का एल्गोरिदम (Banker's Algorithm)",
+    "description": "The label for category Banker's Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Boyer Moore": {
+    "message": "बॉयर मूर (Boyer Moore)",
+    "description": "The label for category Boyer Moore in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Circular_array": {
+    "message": "सर्कुलर एरे (Circular array)",
+    "description": "The label for category Circular_array in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Divide and Conquer": {
+    "message": "डिवाइड एंड कॉन्कर (Divide and Conquer)",
+    "description": "The label for category Divide and Conquer in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Fenwick Tree": {
+    "message": "फेनविक ट्री (Fenwick Tree)",
+    "description": "The label for category Fenwick Tree in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Number theory": {
+    "message": "नंबर थ्योरी (Number theory)",
+    "description": "The label for category Number theory in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Rabin-Karp Algorithm": {
+    "message": "राबिन-कार্প एल्गोरिदम (Rabin-Karp Algorithm)",
+    "description": "The label for category Rabin-Karp Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Randomized Algorithm": {
+    "message": "रैंडमाइज्ड एल्गोरिदम (Randomized Algorithm)",
+    "description": "The label for category Randomized Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Recursion-depths": {
+    "message": "रिकर्शन डेप्थ (Recursion depths)",
+    "description": "The label for category Recursion-depths in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Segment-Trees": {
+    "message": "सेगमेंट ट्रीज़ (Segment Trees)",
+    "description": "The label for category Segment-Trees in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Standard Template Library": {
+    "message": "स्टैंडर्ड टेम्प्लेट लाइब्रेरी (STL)",
+    "description": "The label for category Standard Template Library in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tarjan's Algorithm": {
+    "message": "टार्जन का एल्गोरिदम (Tarjan's Algorithm)",
+    "description": "The label for category Tarjan's Algorithm in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Trees": {
+    "message": "ट्रीज़ (Trees)",
+    "description": "The label for category Trees in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tries": {
+    "message": "ट्राइज़ (Tries)",
+    "description": "The label for category Tries in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.b-tree": {
+    "message": "बी-ट्री (B-Tree)",
+    "description": "The label for category b-tree in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.backtracking algorithms": {
+    "message": "बैकट्रैकिंग एल्गोरिदम (Backtracking Algorithms)",
+    "description": "The label for category backtracking algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.binary-search-problems": {
+    "message": "बाइनरी सर्च समस्याएं (Binary Search Problems)",
+    "description": "The label for category binary-search-problems in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.computational-geometry": {
+    "message": "कम्प्यूटेशनल ज्योमेट्री (Computational Geometry)",
+    "description": "The label for category computational-geometry in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.cpu-scheduling-algorithms": {
+    "message": "CPU शेड्यूलिंग एल्गोरिदम",
+    "description": "The label for category cpu-scheduling-algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.documentation-enhancements": {
+    "message": "दस्तावेज़ीकरण संवर्द्धन (Documentation Enhancements)",
+    "description": "The label for category documentation-enhancements in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.fundamentals": {
+    "message": "बुनियादी बातें (Fundamentals)",
+    "description": "The label for category fundamentals in sidebar tutorialSidebar"
+  },
+  
+    "sidebar.tutorialSidebar.category.game-Theory": {
+    "message": "गेम थ्योरी (Game Theory)",
+    "description": "The label for category game-Theory in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.greedy-algorithms": {
+    "message": "ग्रीडी एल्गोरिदम (Greedy Algorithms)",
+    "description": "The label for category greedy-algorithms in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.machine-learning": {
+    "message": "मशीन लर्निंग (Machine Learning)",
+    "description": "The label for category machine-learning in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Introduction to Sortings": {
+    "message": "सॉर्टिंग का परिचय (Introduction to Sortings)",
+    "description": "The label for category Introduction to Sortings in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Database Problems": {
+    "message": "डेटाबेस समस्याएं (Database Problems)",
+    "description": "The label for category Database Problems in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Easy": {
+    "message": "आसान (Easy)",
+    "description": "The label for category Easy in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Hard": {
+    "message": "कठिन (Hard)",
+    "description": "The label for category Hard in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Medium": {
+    "message": "मध्यम (Medium)",
+    "description": "The label for category Medium in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.DSA Problems": {
+    "message": "DSA समस्याएं (DSA Problems)",
+    "description": "The label for category DSA Problems in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.graphs": {
+    "message": "ग्राफ (Graphs)",
+    "description": "The label for category graphs in sidebar tutorialSidebar"
+  }
+}

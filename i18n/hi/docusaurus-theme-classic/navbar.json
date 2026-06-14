@@ -1,0 +1,94 @@
+{
+  "title": {
+    "message": "एल्गो (Algo)",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "एल्गो लोगो",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.📖 Tutorials": {
+    "message": "ट्यूटोरियल",
+    "description": "Navbar item with label 📖 Tutorials"
+  },
+  "item.label.✍️ Blogs": {
+    "message": "ब्लॉग",
+    "description": "Navbar item with label ✍️ Blogs"
+  },
+  "item.label.🎯 Contribution Tracker": {
+    "message": "योगदान ट्रैकर",
+    "description": "Navbar item with label 🎯 Contribution Tracker"
+  },
+  "item.label.🧠 Interview Engine": {
+    "message": "इंटरव्यू इंजन",
+    "description": "Navbar item with label 🧠 Interview Engine"
+  },
+  "item.label.❓ FAQ": {
+    "message": "अक्सर पूछे जाने वाले प्रश्न (FAQ)",
+    "description": "Navbar item with label ❓ FAQ"
+  },
+  "item.label.👥 Community Hub": {
+    "message": "कम्युनिटी हब",
+    "description": "Navbar item with label 👥 Community Hub"
+  },
+  "item.label.🗺️ Verification Roadmap": {
+    "message": "सत्यापन रोडमैप",
+    "description": "Navbar item with label 🗺️ Verification Roadmap"
+  },
+  "item.label.🔥 Core Matrix Questions": {
+    "message": "मुख्य मैट्रिक्स प्रश्न",
+    "description": "Navbar item with label 🔥 Core Matrix Questions"
+  },
+  "item.label.🚀 Real-World Implementation": {
+    "message": "वास्तविक दुनिया में कार्यान्वयन",
+    "description": "Navbar item with label 🚀 Real-World Implementation"
+  },
+  "item.label.⚔️ Code Challenges": {
+    "message": "कोडिंग चुनौतियाँ",
+    "description": "Navbar item with label ⚔️ Code Challenges"
+  },
+  "item.label.💻 Practice Arena": {
+    "message": "अभ्यास क्षेत्र (Practice Arena)",
+    "description": "Navbar item with label 💻 Practice Arena"
+  },
+  "item.label.⚡ Concept Quizzes": {
+    "message": "कॉन्सेप्ट क्विज़",
+    "description": "Navbar item with label ⚡ Concept Quizzes"
+  },
+  "item.label.✅ Compiled Solutions": {
+    "message": "संकलित समाधान (Solutions)",
+    "description": "Navbar item with label ✅ Compiled Solutions"
+  },
+  "item.label.🎖️ Contributors Wall": {
+    "message": "योगदानकर्ताओं की दीवार",
+    "description": "Navbar item with label 🎖️ Contributors Wall"
+  },
+  "item.label.📊 Global Leaderboard": {
+    "message": "वैश्विक लीडरबोर्ड",
+    "description": "Navbar item with label 📊 Global Leaderboard"
+  },
+  "item.label.🏆 Milestones & Badges": {
+    "message": "उपलब्धियां और बैज",
+    "description": "Navbar item with label 🏆 Milestones & Badges"
+  },
+  "item.label.💰 Infrastructure Patrons": {
+    "message": "इन्फ्रास्ट्रक्चर संरक्षक",
+    "description": "Navbar item with label 💰 Infrastructure Patrons"
+  },
+  "item.label.🛝 Code Playground": {
+    "message": "कोड प्लेग्राउंड",
+    "description": "Navbar item with label 🛝 Code Playground"
+  },
+  "item.label.✨ Success Stories": {
+    "message": "सफलता की कहानियां",
+    "description": "Navbar item with label ✨ Success Stories"
+  },
+  "item.label.💬 Public Discussions": {
+    "message": "सार्वजनिक चर्चाएँ",
+    "description": "Navbar item with label 💬 Public Discussions"
+  },
+  "item.label.📚 Extended Assets": {
+    "message": "विस्तारित संपत्तियां (Extended Assets)",
+    "description": "Navbar item with label 📚 Extended Assets"
+  }
+}

@@ -69,7 +69,7 @@ export const topics: Topic[] = [
           { name: "Objects", link: "/docs/category/java" },
           { name: "Classes", link: "/docs/category/java" },
           { name: "Inheritance", link: "/docs/category/java" },
-          { name: "Interfaces", link: "/docs/languages/java/interfaces" },
+          { name: "Interfaces", link: "/docs/category/java" },
           { name: "Packages", link: "/docs/category/java" },
           { name: "Multithreading", link: "/docs/category/java" },
         ],
