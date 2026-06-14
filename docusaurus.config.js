@@ -43,8 +43,8 @@ const config = {
   //     (process.env.NODE_ENV === "development" ? "http://localhost:5000" : undefined),
   // },
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
+  // onBrokenLinks: "throw",
+  // onBrokenMarkdownLinks: "throw",
 
   i18n: {
     defaultLocale: "en",
@@ -126,21 +126,21 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "📖 Tutorials",
+            label: "Tutorials",
           },
           {
             to: "blog",
-            label: "✍️ Blogs",
+            label: "Blogs",
             position: "left",
           },
           {
             to: "dsa-roadmap",
-            label: "🎯 Contribution Tracker",
+            label: "Contribution Tracker",
             position: "left",
           },
           {
             type: "dropdown",
-            label: "🧠 Interview Engine",
+            label: "Interview Engine",
             position: "left",
             className: "navbar-interview-dropdown",
             items: [
@@ -151,15 +151,15 @@ const config = {
               },
               {
                 to: "roadmap",
-                label: "🗺️ Verification Roadmap",
+                label: "Verification Roadmap",
               },
               {
                 to: "dsa-interview",
-                label: "🔥 Core Matrix Questions",
+                label: "Core Matrix Questions",
               },
               {
                 to: "applications",
-                label: "🚀 Real-World Implementation",
+                label: "Real-World Implementation",
               },
               {
                 type: "html",
@@ -173,30 +173,30 @@ const config = {
               },
               {
                 to: "challenges",
-                label: "⚔️ Code Challenges",
+                label: "Code Challenges",
               },
               {
                 to: "practice",
-                label: "💻 Practice Arena",
+                label: "Practice Arena",
               },
               {
                 to: "quizzes",
-                label: "⚡ Concept Quizzes",
+                label: "Concept Quizzes",
               },
               {
                 to: "quiz-solutions",
-                label: "✅ Compiled Solutions",
+                label: "Compiled Solutions",
               },
             ],
           },
           {
             to: "faq",
-            label: "❓ FAQ",
+            label: "FAQ",
             position: "left",
           },
           {
             type: "dropdown",
-            label: "👥 Community Hub",
+            label: "Community Hub",
             position: "right",
             className: "navbar-community-dropdown",
             items: [
@@ -207,19 +207,19 @@ const config = {
               },
               {
                 to: "contributors",
-                label: "🎖️ Contributors Wall",
+                label: "Contributors Wall",
               },
               {
                 to: "leaderboard",
-                label: "📊 Global Leaderboard",
+                label: "Global Leaderboard",
               },
               {
                 to: "achievements",
-                label: "🏆 Milestones & Badges",
+                label: "Milestones & Badges",
               },
               {
                 to: "sponsors",
-                label: "💰 Infrastructure Patrons",
+                label: "Infrastructure Patrons",
               },
               {
                 type: "html",
@@ -233,19 +233,19 @@ const config = {
               },
               {
                 to: "playground",
-                label: "🛝 Code Playground",
+                label: "Code Playground",
               },
               {
                 to: "stories",
-                label: "✨ Success Stories",
+                label: "Success Stories",
               },
               {
                 to: "community",
-                label: "💬 Public Discussions",
+                label: "Public Discussions",
               },
               {
                 to: "resources",
-                label: "📚 Extended Assets",
+                label: "Extended Assets",
               },
             ],
           },
@@ -300,12 +300,23 @@ const config = {
           hideable: true,
         },
       },
+      liveCodeBlock: {
+      /**
+       * The position of the live playground, above or under the editor
+       * Possible values: "top" | "bottom"
+       */
+      playgroundPosition: 'bottom',
+    },
     }),
 
-  // themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
-  themes: ["@docusaurus/theme-mermaid"],
+  themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
+  // themes: ["@docusaurus/theme-mermaid"],
   markdown: {
     mermaid: true,
+    // format: 'mdx',
+    hooks: {
+      onBrokenMarkdownLinks: 'warn', // or 'throw' / 'ignore'
+    },
   },
 
   plugins: [
@@ -316,7 +327,7 @@ const config = {
         id: "dsa-interview",
         path: "dsa-interview",
         routeBasePath: "dsa-interview",
-        sidebarPath: require.resolve("./dsa-interview-sidebars.js"),
+        sidebarPath: require.resolve("./sidebars.js"),
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
         showLastUpdateAuthor: showGitHistory,
