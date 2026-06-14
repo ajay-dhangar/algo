@@ -80,30 +80,19 @@ const util = require('util');    // Utilities
 
 ```js
 
-const fs = require('fs/promises');
-
-
+const fs = require('fs');
+const fsPromises = require('fs/promises');
 
 async function readFile() {
-
-&#x20; try {
-
-&#x20;   const data = await fs.readFile('file.txt', 'utf8');
-
-&#x20;   console.log(data);
-
-&#x20; } catch (err) {
-
-&#x20;   console.error(err);
-
-&#x20; }
-
+  try {
+    const data = await fsPromises.readFile('file.txt', 'utf8');
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-
-
 // Sync version (avoid in production)
-
 const data = fs.readFileSync('file.txt', 'utf8');
 
 ```
