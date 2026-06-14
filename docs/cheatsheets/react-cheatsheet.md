@@ -33,7 +33,7 @@ function Welcome({ name, age }) {
 }
 
 // Arrow function (recommended)
-const Welcome = ({ name }) => <h1>Welcome, {name}!</h1>;
+const WelcomeArrow = ({ name }) => <h1>Welcome, {name}!</h1>;
 ```
 
 ## 3. Props
