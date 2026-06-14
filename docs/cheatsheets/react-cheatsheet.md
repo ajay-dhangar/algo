@@ -248,3 +248,4 @@ function useLocalStorage(key, initialValue) {
 - Memoize when needed: `React.memo`, `useMemo`, `useCallback`
 - Keep components small and focused (Single Responsibility Principle)
 - Prefer Composition over Inheritance
+

@@ -7,35 +7,28 @@ description: Complete quick reference for Node.js - Core modules, npm, async pat
 tags: [nodejs, javascript, backend, cheatsheet]
 ---
 
-
-
-\# Node.js Cheatsheet
+# Node.js Cheatsheet
 
 
 
 Modern Node.js (v18+ / v20+) – Updated 2026
 
 
-
-\## 1. Basic Setup
-
+## 1. Basic Setup
 
 
 ```bash
 
-\# Initialize project
+# Initialize project
 
 npm init -y
 
-
-
-\# Run a file
+# Run a file
 
 node index.js
 
 
-
-\# Use nodemon for development
+# Use nodemon for development
 
 npm install -g nodemon
 
@@ -43,10 +36,7 @@ nodemon index.js
 
 ```
 
-
-
-\## 2. Core Modules
-
+## 2. Core Modules
 
 
 ```js
@@ -65,10 +55,7 @@ const util = require('util');    // Utilities
 
 ```
 
-
-
-\## 3. File System (fs) - Async / Promise
-
+## 3. File System (fs) - Async / Promise
 
 
 ```js
@@ -90,10 +77,7 @@ const data = fs.readFileSync('file.txt', 'utf8');
 
 ```
 
-
-
-\## 4. HTTP Server
-
+## 4. HTTP Server
 
 
 ```js
@@ -121,9 +105,7 @@ server.listen(3000, () => {
 ```
 
 
-
-\## 5. Express.js Basics
-
+## 5. Express.js Basics
 
 
 ```js
@@ -133,9 +115,7 @@ const express = require('express');
 const app = express();
 
 
-
 app.use(express.json());
-
 
 
 app.get('/', (req, res) => {
@@ -145,23 +125,17 @@ app.get('/', (req, res) => {
 });
 
 
-
 app.post('/api/users', (req, res) => {
 
 &#x20; res.status(201).json({ message: 'User created' });
 
 });
 
-
-
 app.listen(3000, () => console.log('Server running'));
 
 ```
 
-
-
-\## 6. Modules (CommonJS vs ESM)
-
+## 6. Modules (CommonJS vs ESM)
 
 
 ```js
@@ -169,7 +143,6 @@ app.listen(3000, () => console.log('Server running'));
 // CommonJS (default)
 
 module.exports = { add: (a, b) => a + b };
-
 
 
 // ESM (.mjs or "type": "module" in package.json)
@@ -181,9 +154,7 @@ import { add } from './math.js';
 ```
 
 
-
-\## 7. Async Patterns
-
+## 7. Async Patterns
 
 
 ```js
@@ -199,7 +170,6 @@ async function fetchData() {
 }
 
 
-
 // Async/Await with error handling
 
 try {
@@ -213,7 +183,6 @@ try {
 }
 
 
-
 // Event Emitter
 
 const EventEmitter = require('events');
@@ -223,17 +192,13 @@ class MyEmitter extends EventEmitter {}
 const myEmitter = new MyEmitter();
 
 
-
 myEmitter.on('event', () => console.log('Event fired'));
 
 myEmitter.emit('event');
 
 ```
 
-
-
-\## 8. Environment Variables
-
+## 8. Environment Variables
 
 
 ```js
@@ -243,21 +208,15 @@ myEmitter.emit('event');
 require('dotenv').config();
 
 
-
 const PORT = process.env.PORT || 3000;
 
 const DB_URL = process.env.DATABASE_URL;
 
-
-
-console.log(process.env.NODE\_ENV);
+console.log(process.env.NODE_ENV);
 
 ```
 
-
-
-\## 9. npm Scripts \& package.json
-
+## 9. npm Scripts & package.json
 
 
 ```json
@@ -296,32 +255,23 @@ console.log(process.env.NODE\_ENV);
 
 ```
 
-
-
-\## 10. Streams
-
+## 10. Streams
 
 
 ```js
 
 const fs = require('fs');
 
-
-
 const readable = fs.createReadStream('input.txt');
 
 const writable = fs.createWriteStream('output.txt');
-
 
 
 readable.pipe(writable); // Efficient data transfer
 
 ```
 
-
-
-\## 11. Error Handling
-
+## 11. Error Handling
 
 
 ```js
@@ -335,7 +285,6 @@ process.on('uncaughtException', (err) => {
 });
 
 
-
 process.on('unhandledRejection', (reason, promise) => {
 
 &#x20; console.error('Unhandled Rejection:', reason);
@@ -344,10 +293,7 @@ process.on('unhandledRejection', (reason, promise) => {
 
 ```
 
-
-
-\## 12. Common Utilities
-
+## 12. Common Utilities
 
 
 ```js
@@ -357,11 +303,9 @@ process.on('unhandledRejection', (reason, promise) => {
 const fullPath = path.join(__dirname, 'files', 'data.txt');
 
 
-
 // Crypto (hashing)
 
 const hash = crypto.createHash('sha256').update('password').digest('hex');
-
 
 
 // Timers
@@ -372,37 +316,27 @@ setInterval(() => {}, 2000);
 
 ```
 
+## 13. Best Practices
 
 
-\## 13. Best Practices
+- Use **async/await** over callbacks
 
+- Always handle errors properly
 
+- Prefer **ESM** in new projects
 
-\- Use \*\*async/await\*\* over callbacks
+- Use environment variables for secrets
 
-\- Always handle errors properly
+- Enable **strict mode** (`"use strict";`)
 
-\- Prefer \*\*ESM\*\* in new projects
+- Keep `package.json` clean
 
-\- Use environment variables for secrets
+- Use tools: ESLint, Prettier, Jest
 
-\- Enable \*\*strict mode\*\* (`"use strict";`)
+- Consider TypeScript for large apps
 
-\- Keep `package.json` clean
+---
 
-\- Use tools: ESLint, Prettier, Jest
+**Last Updated:** June 2026  
 
-\- Consider TypeScript for large apps
-
-
-
-\---
-
-
-
-\*\*Last Updated:\*\* June 2026  
-
-For latest features, check the \[official Node.js documentation](https://nodejs.org/en/docs).
-
-
-
+For latest features, check the [official Node.js documentation](https://nodejs.org/en/docs).
