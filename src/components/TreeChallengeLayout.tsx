@@ -7,6 +7,7 @@ import {
   FaEye, FaEyeSlash, FaClock, FaChevronRight,
 } from "react-icons/fa";
 import type { TreeChallenge } from "../data/treeChallengesData";
+import Editor from "@monaco-editor/react";
 
 const DIFF_COLORS = {
   Easy: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
@@ -228,14 +229,12 @@ export default function TreeChallengeLayout({ challenge }: Props) {
                   />
                 }
               >
-                {() => {
-                  const Editor = require("@monaco-editor/react").default;
-                  return (
+                {() => { (
                     <Editor
                       height="100%"
                       defaultLanguage="javascript"
                       value={code}
-                      onChange={(val) => setCode(val ?? "")}
+                      onChange={(val: string | undefined) => setCode(val ?? "")}
                       theme="vs-dark"
                       options={{
                         fontSize: 13,
