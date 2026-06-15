@@ -2,6 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaClock, FaPlayCircle, FaTag } from "react-icons/fa";
 import Link from "@docusaurus/Link";
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+const resolvedLink = useBaseUrl(Link);
+<Link to={resolvedLink}></Link>
 
 type Difficulty = "Easy" | "Medium" | "Hard";
 

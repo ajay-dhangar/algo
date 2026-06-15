@@ -28,7 +28,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Easy",
-    link: "/challenges/trees/tree-traversals",
+    link: "/challenges/Trees/tree-traversals",
   },
   {
     title: "Maximum Depth of Binary Tree",
@@ -38,7 +38,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Easy",
-    link: "/challenges/trees/maximum-depth-binary-tree",
+    link: "/challenges/Trees/maximum-depth-binary-tree",
   },
   {
     title: "Count Leaf Nodes",
@@ -48,7 +48,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Easy",
-    link: "/challenges/trees/count-leaf-nodes",
+    link: "/challenges/Trees/count-leaf-nodes",
   },
   {
     title: "Sum of All Nodes",
@@ -58,7 +58,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Easy",
-    link: "/challenges/trees/sum-of-all-nodes",
+    link: "/challenges/Trees/sum-of-all-nodes",
   },
   {
     title: "Symmetric Tree",
@@ -68,7 +68,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Easy",
-    link: "/challenges/trees/symmetric-tree",
+    link: "/challenges/Trees/symmetric-tree",
   },
   // ─── Trees: Medium ──────────────────────────────────────────────────────
   {
@@ -79,7 +79,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Medium",
-    link: "/challenges/trees/level-order-traversal",
+    link: "/challenges/Trees/level-order-traversal",
   },
   {
     title: "Lowest Common Ancestor",
@@ -89,7 +89,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Medium",
-    link: "/challenges/trees/lowest-common-ancestor",
+    link: "/challenges/Trees/lowest-common-ancestor",
   },
   {
     title: "Validate Binary Search Tree",
@@ -99,7 +99,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Medium",
-    link: "/challenges/trees/validate-binary-search-tree",
+    link: "/challenges/Trees/validate-binary-search-tree",
   },
   {
     title: "Diameter of Binary Tree",
@@ -109,7 +109,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Medium",
-    link: "/challenges/trees/diameter-binary-tree",
+    link: "/challenges/Trees/diameter-binary-tree",
   },
   {
     title: "Left View / Right View of Binary Tree",
@@ -119,7 +119,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Medium",
-    link: "/challenges/trees/left-right-view-binary-tree",
+    link: "/challenges/Trees/left-right-view-binary-tree",
   },
   // ─── Trees: Hard ────────────────────────────────────────────────────────
   {
@@ -130,7 +130,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Hard",
-    link: "/challenges/trees/serialize-deserialize-binary-tree",
+    link: "/challenges/Trees/serialize-deserialize-binary-tree",
   },
   {
     title: "Vertical Order Traversal",
@@ -140,7 +140,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Hard",
-    link: "/challenges/trees/vertical-order-traversal",
+    link: "/challenges/Trees/vertical-order-traversal",
   },
   {
     title: "Construct Tree from Traversal Arrays",
@@ -150,7 +150,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Hard",
-    link: "/challenges/trees/construct-tree-from-traversals",
+    link: "/challenges/Trees/construct-tree-from-traversals",
   },
   {
     title: "Binary Tree Maximum Path Sum",
@@ -160,7 +160,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Hard",
-    link: "/challenges/trees/binary-tree-max-path-sum",
+    link: "/challenges/Trees/binary-tree-max-path-sum",
   },
   {
     title: "Recover Binary Search Tree",
@@ -170,7 +170,7 @@ const challengeData = [
     category: "Trees",
     tags: ["Trees"],
     difficulty: "Hard",
-    link: "/challenges/trees/recover-binary-search-tree",
+    link: "/challenges/Trees/recover-binary-search-tree",
   },
 ];
  
