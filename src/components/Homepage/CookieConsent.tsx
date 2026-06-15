@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "@docusaurus/Link";
 import { FaCookieBite, FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
@@ -9,6 +9,18 @@ const COOKIE_KEY = "cookie_consent";
 
 const CookieConsent: React.FC = () => {
   const [visible, setVisible] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  const updateBodyPadding = useCallback(() => {
+    if (bannerRef.current) {
+      const bannerHeight = bannerRef.current.offsetHeight;
+      document.body.style.paddingBottom = `${bannerHeight + 24}px`;
+    }
+  }, []);
+
+  const removeBodyPadding = useCallback(() => {
+    document.body.style.paddingBottom = "";
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem(COOKIE_KEY) as ConsentType;
@@ -17,6 +29,22 @@ const CookieConsent: React.FC = () => {
       setVisible(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (visible) {
+      // Use a small delay to ensure the banner is rendered before measuring
+      const timeoutId = setTimeout(updateBodyPadding, 100);
+      window.addEventListener("resize", updateBodyPadding);
+
+      return () => {
+        clearTimeout(timeoutId);
+        window.removeEventListener("resize", updateBodyPadding);
+        removeBodyPadding();
+      };
+    } else {
+      removeBodyPadding();
+    }
+  }, [visible, updateBodyPadding, removeBodyPadding]);
 
   const saveConsent = (type: ConsentType) => {
     localStorage.setItem(COOKIE_KEY, type || "essential");
@@ -33,24 +61,66 @@ const CookieConsent: React.FC = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
+          ref={bannerRef}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 40 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] w-[92%] md:w-[600px]"
+          style={{
+            position: "fixed",
+            bottom: "1.5rem",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 9999,
+            width: "min(92%, 600px)",
+          }}
         >
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl rounded-2xl p-5">
+          <div
+            style={{
+              backgroundColor: "var(--ifm-background-color)",
+              border: "1px solid var(--ifm-color-emphasis-300)",
+              borderRadius: "1rem",
+              padding: "1.25rem",
+              boxShadow:
+                "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+            }}
+          >
             {/* HEADER */}
-            <div className="flex items-start gap-3 mb-4">
-              <div className="text-green-500 text-xl mt-1">
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "0.75rem",
+                marginBottom: "1rem",
+              }}
+            >
+              <div
+                style={{
+                  color: "#22c55e",
+                  fontSize: "1.25rem",
+                  marginTop: "0.25rem",
+                }}
+              >
                 <FaCookieBite />
               </div>
 
               <div>
-                <h3 className="font-bold text-slate-900 dark:text-white m-0">
+                <h3
+                  style={{
+                    fontWeight: 700,
+                    color: "var(--ifm-font-color-base)",
+                    margin: 0,
+                  }}
+                >
                   We use cookies
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 m-0 mt-1">
+                <p
+                  style={{
+                    fontSize: "0.875rem",
+                    color: "var(--ifm-color-emphasis-700)",
+                    margin: "0.25rem 0 0 0",
+                  }}
+                >
                   We use cookies to improve performance, store preferences, and
                   analyze traffic.
                 </p>
@@ -58,8 +128,17 @@ const CookieConsent: React.FC = () => {
             </div>
 
             {/* INFO */}
-            <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400 mb-4">
-              <FaInfoCircle className="mt-0.5" />
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "0.5rem",
+                fontSize: "0.75rem",
+                color: "var(--ifm-color-emphasis-600)",
+                marginBottom: "1rem",
+              }}
+            >
+              <FaInfoCircle style={{ marginTop: "0.125rem", flexShrink: 0 }} />
               <span>
                 You can accept all cookies, reject non-essential ones, or review
                 full details anytime.
@@ -67,18 +146,66 @@ const CookieConsent: React.FC = () => {
             </div>
 
             {/* ACTION BUTTONS */}
-            <div className="flex flex-col md:flex-row gap-2 justify-between">
-              <div className="flex gap-2">
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "0.5rem",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <div style={{ display: "flex", gap: "0.5rem" }}>
                 <button
                   onClick={() => saveConsent("all")}
-                  className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    backgroundColor: "#16a34a",
+                    color: "#ffffff",
+                    padding: "0.5rem 1rem",
+                    borderRadius: "0.5rem",
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "background-color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.backgroundColor = "#15803d")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.backgroundColor = "#16a34a")
+                  }
                 >
                   <FaCheck /> Accept All
                 </button>
 
                 <button
                   onClick={() => saveConsent("essential")}
-                  className="flex items-center gap-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-900 dark:text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    backgroundColor: "var(--ifm-color-emphasis-200)",
+                    color: "var(--ifm-font-color-base)",
+                    padding: "0.5rem 1rem",
+                    borderRadius: "0.5rem",
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "background-color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.backgroundColor =
+                      "var(--ifm-color-emphasis-300)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.backgroundColor =
+                      "var(--ifm-color-emphasis-200)")
+                  }
                 >
                   <FaTimes /> Reject Non-Essential
                 </button>
@@ -87,7 +214,14 @@ const CookieConsent: React.FC = () => {
               {/* COOKIE POLICY LINK */}
               <Link
                 to="/cookies"
-                className="flex items-center gap-2 text-sm font-semibold text-[var(--ifm-color-primary)] hover:underline mt-2 md:mt-0"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
+                  color: "var(--ifm-color-primary)",
+                }}
               >
                 View Cookie Policy →
               </Link>
