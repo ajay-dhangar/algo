@@ -6,25 +6,7 @@
   .custom-scrollbar::-webkit-scrollbar {
     width: 2px;
   }
-
-  /* .custom-scrollbar::-webkit-scrollbar-track {
-    background: #2a2a2a;
-  } */
-
-  /* .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 9999px;
-  } */
 }
-
-/* ::-webkit-scrollbar-thumb {
-  background: var(--ifm-color-primary);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--ifm-color-primary-dark);
-} */
 
 :root {
   --ifm-color-primary: #3b82f6;
@@ -33,27 +15,24 @@
   --ifm-color-primary-darkest: #1e3a8a;
   --ifm-color-primary-light: #60a5fa;
   --ifm-color-primary-lighter: #93c5fd;
-  --ifm-color-primary-lightest: #bfdbfe;
-  
+  --ifm-color-primary-lightest: #bfdbfe;  
   --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
   --ifm-background-color: #f8fafc;
 }
 
 [data-theme="dark"] {  
-  --ifm-color-primary: #eab308; /* Premium Cyber Amber */
+  --ifm-color-primary: #eab308;
   --ifm-color-primary-dark: #ca8a04;
   --ifm-color-primary-darker: #a16207;
   --ifm-color-primary-darkest: #713f12;
   --ifm-color-primary-light: #fde047;
   --ifm-color-primary-lighter: #fef08a;
-  --ifm-color-primary-lightest: #fef9c3;
-  
-  --ifm-background-color: #040414; /* Deep Arcade Space Black */
+  --ifm-color-primary-lightest: #fef9c3;  
+  --ifm-background-color: #040414;
   --docusaurus-highlighted-code-line-bg: rgba(234, 179, 8, 0.15);
 }
 
-/* Custom platform helper animation for the terminal tags */
 @keyframes pulseGlow {
   0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 2px var(--ifm-color-primary)); }
   50% { opacity: 1; filter: drop-shadow(0 0 8px var(--ifm-color-primary)); }
@@ -118,22 +97,17 @@ div[class^="announcementBar_"] .clean-btn {
 
 [data-theme="dark"] .navbar a {
   color: #f3f4f6;
-  /* Light text for links */
 }
 
 [data-theme="dark"] .navbar a:hover {
   color: var(--ifm-color-primary-light) !important;
-  /* Lighter blue hover color in dark mode */
 }
 
-/* Active navbar link styling - Light mode */
 .navbar__link--active {
-  /* background-color: #3b82f6 !important; */
   color: var(--ifm-color-primary-lightest) !important;
   padding: 0.5rem 1rem;
   border-radius: 0.375rem;
-  border-bottom: 2px solid var(--ifm-color-primary) !important;
-  
+  border-bottom: 2px solid var(--ifm-color-primary) !important;  
 }
 
 .navbar__link--active:hover {
@@ -141,7 +115,6 @@ div[class^="announcementBar_"] .clean-btn {
 }
 
 [data-theme="dark"] #__docusaurus_skipToContent_fallback {
-  /*   background: linear-gradient(rgba(15, 23, 42, 0.796), rgba(15, 23, 42, 0.23)); */
   background: #0d1117;
 }
 
@@ -191,17 +164,6 @@ html[data-theme='dark'] .theme-doc-markdown header {
 .footer {
   background-color: #000;
 }
-
-/* .theme-doc-sidebar-item-category .theme-doc-sidebar-item-link .menu__link--active::before {
-  content: '';
-  position: relative;
-  width: 0.8rem;
-  height: 0.8rem;
-  border: 1px solid #48df84;
-  border-radius: 50%;
-  left: -0.5rem;
-  transform: translateY(-5%);
-} */
 
 .ktt10-btn {
   position: absolute;
@@ -260,7 +222,6 @@ button {
   }
 }
 
-/* Fix Search Bar overlap on tablet and mobile screens (under 996px) */
 @media screen and (max-width: 996px) {
   .navbar__search {
     width: 110px;
@@ -288,7 +249,7 @@ button {
     max-width: 110px;
   }
 }
-/* Completion badges for sidebar */
+
 .completion-badge {
   animation: fadeIn 0.3s ease;
 }
@@ -304,12 +265,10 @@ button {
   }
 }
 
-/* Progress button animations */
 .progress-button {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Notes section smooth transitions */
 .notes-section-enter {
   opacity: 0;
   transform: translateY(-10px);
@@ -321,7 +280,6 @@ button {
   transition: all 0.3s ease;
 }
 
-/* Keyboard shortcut hint */
 .keyboard-hint {
   position: fixed;
   bottom: 20px;

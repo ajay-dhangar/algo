@@ -13,8 +13,8 @@ const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-    ? false
-    : (() => {
+      ? false
+      : (() => {
         try {
           if (!fs.existsSync(path.join(__dirname, ".git"))) {
             return false;
@@ -37,14 +37,9 @@ const config = {
   baseUrl: "/algo/",
   organizationName: "codeharborhub",
   projectName: "algo",
-  // customFields: {
-  //   apiBaseUrl:
-  //     configuredApiBaseUrl ||
-  //     (process.env.NODE_ENV === "development" ? "http://localhost:5000" : undefined),
-  // },
 
-  // onBrokenLinks: "throw",
-  // onBrokenMarkdownLinks: "throw",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "throw",
 
   i18n: {
     defaultLocale: "en",
@@ -80,7 +75,7 @@ const config = {
           rehypePlugins: [rehypeKatex],
         },
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: './src/css/custom.css',
         },
       }),
     ],
@@ -301,21 +296,20 @@ const config = {
         },
       },
       liveCodeBlock: {
-      /**
-       * The position of the live playground, above or under the editor
-       * Possible values: "top" | "bottom"
-       */
-      playgroundPosition: 'bottom',
-    },
+        /**
+         * The position of the live playground, above or under the editor
+         * Possible values: "top" | "bottom"
+         */
+        playgroundPosition: 'bottom',
+      },
     }),
 
   themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
-  // themes: ["@docusaurus/theme-mermaid"],
   markdown: {
+    format: 'detect',
     mermaid: true,
-    // format: 'mdx',
     hooks: {
-      onBrokenMarkdownLinks: 'warn', // or 'throw' / 'ignore'
+      onBrokenMarkdownLinks: 'warn',
     },
   },
 
