@@ -11,16 +11,12 @@ Welcome to the master blueprint of your DSA journey. To help you navigate effici
 
 <Ads />
 
-<Tabs defaultValue="ds" values={[
-  {label: 'Data Structures', value: 'ds'},
-  {label: 'Algorithms', value: 'algo'},
-  {label: 'Practice & Prep', value: 'practice'},
-]}>
+<Tabs defaultValue="ds">
+  <TabItem label="Data Structures" value="ds">
 
-  <TabItem value="ds">
-    <p><em>Build a rock-solid foundation by mastering how data is structured, stored, and optimized in memory.</em></p>
+    *Build a rock-solid foundation by mastering how data is structured, stored, and optimized in memory.*
 
-```mermaid
+    ```mermaid
     graph TD
       A[Data Structures Intro] --> B(Arrays & Matrices)
       B --> C(Linked Lists)
@@ -35,16 +31,17 @@ Welcome to the master blueprint of your DSA journey. To help you navigate effici
     <br />
 
     ### Detailed Breakdown
+
     * **Foundations:** Memory allocation, Time & Space Complexity ($O(n)$ basics).
     * **Linear Structures:** Sequential arrangements, insertions, and fast deletions.
     * **Non-Linear Structures:** Hierarchical representation, balancing trees (AVL/BST), and graph traversals (BFS/DFS).
 
   </TabItem>
 
-  <TabItem value="algo">
-    <p><em>Learn step-by-step procedures to manipulate data, solve complex logic problems, and write highly optimized code.</em></p>
+  <TabItem value="algo" label="Algorithms">
+    *Learn step-by-step procedures to manipulate data, solve complex logic problems, and write highly optimized code.*
 
-```mermaid
+    ```mermaid
     graph TD
       A[Analysis of Algorithms] --> B(Searching & Hashing)
       B --> C(Sorting Techniques)
@@ -59,16 +56,18 @@ Welcome to the master blueprint of your DSA journey. To help you navigate effici
     <br />
 
     ### Detailed Breakdown
+
     * **Search & Sort:** From basic linear lookups to advanced Divide & Conquer structures (Quick/Merge Sort).
     * **Algorithmic Patterns:** Recognizing sub-problems using Memoization, Tabulation, and Greedy strategies.
     * **Advanced Graphs:** Shortest paths (Dijkstra's, Bellman-Ford) and Minimum Spanning Trees (Prim's, Kruskal's).
 
   </TabItem>
 
-  <TabItem value="practice">
-    <p><em>Bridge the gap between conceptual theory and clearing top-tier technical engineering interviews.</em></p>
+  <TabItem value="practice" label="Practice">
 
-```mermaid
+    *Bridge the gap between conceptual theory and clearing top-tier technical engineering interviews.*
+
+    ```mermaid
     graph LR
       A[Coding Challenges] --> B(Mini Projects)
       B --> C(Interview Patterns)
@@ -81,9 +80,11 @@ Welcome to the master blueprint of your DSA journey. To help you navigate effici
     <br />
 
     ### Detailed Breakdown
+
     * **Curated Problem Sets:** Handpicked patterns matching high-frequency questions on LeetCode and HackerRank.
     * **Pattern Matching:** Master Sliding Window, Two Pointers, and Fast/Slow Pointers.
     * **Mock Environment:** Behavioral strategies, clean-coding practices, and optimizing space constraints on the fly.
+
   </TabItem>
 </Tabs>
 

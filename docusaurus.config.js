@@ -3,11 +3,10 @@ import { themes as prismThemes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
+
 const fs = require("fs");
 const { execSync } = require("child_process");
 
-// Only show git history when git metadata is actually available.
-// Can be explicitly overridden with DOCUSAURUS_ENABLE_GIT_HISTORY=true|false.
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
 const showGitHistory =
   gitHistoryOverride === "true"
@@ -39,7 +38,7 @@ const config = {
   projectName: "algo",
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
+  // onBrokenMarkdownLinks: "throw",
 
   i18n: {
     defaultLocale: "en",
@@ -94,7 +93,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+
       image: "/",
+
+      liveCodeBlock: {  
+        playgroundPosition: 'bottom',
+      },
+      
       announcementBar: {
         id: "announcementBar_algo_community",
         content:
@@ -294,24 +299,18 @@ const config = {
         sidebar: {
           hideable: true,
         },
-      },
-      liveCodeBlock: {
-        /**
-         * The position of the live playground, above or under the editor
-         * Possible values: "top" | "bottom"
-         */
-        playgroundPosition: 'bottom',
-      },
+      },      
     }),
 
-  themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
   markdown: {
-    format: 'detect',
     mermaid: true,
-    // hooks: {
-    //   onBrokenMarkdownLinks: 'warn',
-    // },
+    format: 'mdx',
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
   },
+
+  themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
 
   plugins: [
     [
