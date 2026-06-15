@@ -308,9 +308,9 @@ const config = {
   markdown: {
     format: 'detect',
     mermaid: true,
-    hooks: {
-      onBrokenMarkdownLinks: 'warn',
-    },
+    // hooks: {
+    //   onBrokenMarkdownLinks: 'warn',
+    // },
   },
 
   plugins: [
