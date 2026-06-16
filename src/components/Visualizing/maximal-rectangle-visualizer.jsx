@@ -10,15 +10,16 @@ export default function MaximalRectangleVisualizer() {
   const [result, setResult] = useState(null);
 
   const toggleCell = (r, c) => {
-    const newGrid = grid.map((row, rowIndex) =>
-      row.map((cell, colIndex) => {
-        if (rowIndex === r && colIndex === c) {
-          return cell === '1' ? '0' : '1';
-        }
-        return cell;
-      })
+    setGrid(prevGrid =>
+      prevGrid.map((row, rowIndex) =>
+        row.map((cell, colIndex) => {
+          if (rowIndex === r && colIndex === c) {
+            return cell === '1' ? '0' : '1';
+          }
+          return cell;
+        })
+      )
     );
-    setGrid(newGrid);
     setResult(null); 
   };
 
