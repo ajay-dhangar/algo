@@ -1,44 +1,60 @@
 import React, { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
-import { FaCode, FaTerminal, FaFire, FaTrophy, FaLayerGroup } from "react-icons/fa";
+import {
+  FaCode, FaTerminal, FaFire, FaTrophy, FaLayerGroup,
+  FaTree, FaFilter, FaSearch,
+} from "react-icons/fa";
 import ChallengeCard from "../../components/ChallengeCard";
 import challengeData from "../../data/challengeData";
 
-// Animation configs for staggered layout loading
 const containerVariants = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
+  show: { opacity: 1, transition: { staggerChildren: 0.06 } },
+};
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 16 } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { type: "spring", stiffness: 100, damping: 15 } 
-  },
+const CATEGORIES = ["All", "Trees", "Graphs", "DP", "Greedy", "Sorting"];
+const DIFFICULTIES = ["All", "Easy", "Medium", "Hard"];
+
+const DIFF_PILL: Record<string, string> = {
+  Easy: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+  Medium: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+  Hard: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
 };
 
 const Challenges: React.FC = () => {
-  const [selectedTags, setSelectedTags] = useState<string>("All");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [activeDifficulty, setActiveDifficulty] = useState<string>("All");
+  const [search, setSearch] = useState<string>("");
 
-  // Dynamically extract distinct tags/categories if present in data array, otherwise use defaults
-  const categories = ["All", "Trees", "Graphs", "DP", "Greedy", "Sorting"];
+  const treeChallenges = useMemo(
+    () => (challengeData as any[]).filter((c) => c.category === "Trees"),
+    []
+  );
+  const treeEasy = treeChallenges.filter((c) => c.difficulty === "Easy").length;
+  const treeMedium = treeChallenges.filter((c) => c.difficulty === "Medium").length;
+  const treeHard = treeChallenges.filter((c) => c.difficulty === "Hard").length;
 
-  // Filter logic (assumes challenge objects may contain a category or tags array field)
-  const filteredChallenges = useMemo(() => {
-    if (selectedTags === "All") return challengeData;
-    return challengeData.filter((item: any) => 
-      item.category?.toLowerCase() === selectedTags.toLowerCase() || 
-      item.tags?.some((t: string) => t.toLowerCase() === selectedTags.toLowerCase())
-    );
-  }, [selectedTags]);
+  const filtered = useMemo(() => {
+    return (challengeData as any[]).filter((item) => {
+      const matchCat =
+        activeCategory === "All" ||
+        item.category?.toLowerCase() === activeCategory.toLowerCase() ||
+        item.tags?.some((t: string) => t.toLowerCase() === activeCategory.toLowerCase());
+      const matchDiff =
+        activeDifficulty === "All" ||
+        item.difficulty?.toLowerCase() === activeDifficulty.toLowerCase();
+      const matchSearch =
+        !search ||
+        item.title.toLowerCase().includes(search.toLowerCase()) ||
+        item.description?.toLowerCase().includes(search.toLowerCase());
+      return matchCat && matchDiff && matchSearch;
+    });
+  }, [activeCategory, activeDifficulty, search]);
 
   return (
     <Layout
@@ -46,12 +62,12 @@ const Challenges: React.FC = () => {
       description="Engage in algorithmic sandboxes, optimize runtime metrics, and scale the structural ranks."
     >
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] transition-colors duration-300">
-        
-        {/* Immersive Hero Header Panel */}
+
+        {/* Hero */}
         <div className="relative overflow-hidden bg-white dark:bg-slate-900 border-b border-slate-200/60 dark:border-slate-800/80 py-16 px-6 md:px-12">
           <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-70 pointer-events-none" />
           <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/5 dark:bg-red-500/10 blur-3xl rounded-full -mr-20 -mt-20 pointer-events-none" />
-          
+
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
             <div className="space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono font-bold text-red-600 bg-red-500/10 dark:bg-red-500/20 rounded-full border border-red-500/20">
@@ -61,21 +77,27 @@ const Challenges: React.FC = () => {
                 Coding Challenges
               </h1>
               <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed">
-                Push compilation bounds, refactor operational complex paths, and solve complex structural algorithmic problems under timed intervals.
+                Push your limits with hand-crafted algorithmic challenges. Solve problems across Trees, Graphs, Dynamic Programming, and more — with interactive code editors and real test cases.
               </p>
             </div>
 
-            {/* Platform Quick Stats Dashboard View */}
-            <div className="flex items-center gap-4 bg-slate-50 dark:bg-slate-950 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-800/80 w-full md:w-auto">
-              <div className="px-4 border-r border-slate-200 dark:border-slate-800">
-                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Total Tracks</span>
-                <span className="text-xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
+            {/* Stats Dashboard */}
+            <div className="flex items-stretch gap-0 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200/60 dark:border-slate-800/80 overflow-hidden w-full md:w-auto">
+              <div className="px-5 py-4 border-r border-slate-200 dark:border-slate-800">
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Total</span>
+                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
                   <FaCode className="text-red-500 text-sm" /> {challengeData.length}
                 </span>
               </div>
-              <div className="px-4">
-                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Active Streaks</span>
-                <span className="text-xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
+              <div className="px-5 py-4 border-r border-slate-200 dark:border-slate-800">
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Trees</span>
+                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
+                  <FaTree className="text-emerald-500 text-sm" /> {treeChallenges.length}
+                </span>
+              </div>
+              <div className="px-5 py-4">
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Streak</span>
+                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
                   <FaFire className="text-amber-500 text-sm" /> 5 <span className="text-xs text-slate-400 font-normal">days</span>
                 </span>
               </div>
@@ -83,56 +105,148 @@ const Challenges: React.FC = () => {
           </div>
         </div>
 
-        {/* Content Section Area */}
-        <section className="py-12 px-6 md:px-12 max-w-6xl mx-auto space-y-8">
-          
-          {/* Taxonomy Filters bar */}
-          <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none border-b border-slate-200/40 dark:border-slate-800/40">
-            <div className="text-slate-400 dark:text-slate-500 p-1 flex items-center gap-1.5 text-xs uppercase font-mono font-bold shrink-0">
-              <FaLayerGroup /> Sort Paradigm:
+        {/* Trees Banner */}
+        {(activeCategory === "All" || activeCategory === "Trees") && (
+          <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-6 md:px-12 py-4">
+            <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-4 justify-between">
+              <div className="flex items-center gap-3">
+                <FaTree className="text-white text-xl" />
+                <div>
+                  <span className="text-white font-bold text-sm">🌳 Trees Track Now Live!</span>
+                  <span className="text-emerald-100 text-xs ml-2">{treeChallenges.length} new challenges added</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {[
+                  { label: "Easy", count: treeEasy, style: "bg-emerald-500/30 text-white border-emerald-400/30" },
+                  { label: "Medium", count: treeMedium, style: "bg-amber-500/30 text-white border-amber-400/30" },
+                  { label: "Hard", count: treeHard, style: "bg-red-500/30 text-white border-red-400/30" },
+                ].map((d) => (
+                  <span key={d.label} className={`px-3 py-1 rounded-full text-xs font-bold font-mono border ${d.style}`}>
+                    {d.label}: {d.count}
+                  </span>
+                ))}
+              </div>
             </div>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedTags(cat)}
-                className={`px-4 py-1.5 rounded-xl font-mono text-xs font-bold uppercase transition-all tracking-wider shrink-0 border border-transparent cursor-pointer ${
-                  selectedTags === cat
-                    ? "bg-slate-900 text-white dark:bg-red-600 dark:text-white shadow-md shadow-red-500/10"
-                    : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          </div>
+        )}
+
+        <section className="py-10 px-6 md:px-12 max-w-6xl mx-auto space-y-6">
+
+          {/* Filter Bar */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            {/* Search */}
+            <div className="relative flex-1 max-w-sm">
+              <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs" />
+              <input
+                type="text"
+                placeholder="Search challenges..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="w-full pl-8 pr-4 py-2 text-sm font-mono bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-300 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500/50 transition"
+              />
+            </div>
+
+            {/* Category Filter */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-none">
+              <span className="text-slate-400 text-[10px] font-mono uppercase font-bold shrink-0 flex items-center gap-1">
+                <FaLayerGroup /> Topic:
+              </span>
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3 py-1.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider shrink-0 border transition-all cursor-pointer ${
+                    activeCategory === cat
+                      ? "bg-slate-900 text-white dark:bg-red-600 dark:text-white border-transparent shadow-md"
+                      : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+                  }`}
+                >
+                  {cat === "Trees" ? "🌳 " : ""}{cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Difficulty Filter */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-none">
+              <span className="text-slate-400 text-[10px] font-mono uppercase font-bold shrink-0 flex items-center gap-1">
+                <FaFilter /> Level:
+              </span>
+              {DIFFICULTIES.map((d) => (
+                <button
+                  key={d}
+                  onClick={() => setActiveDifficulty(d)}
+                  className={`px-3 py-1.5 rounded-xl font-mono text-xs font-bold tracking-wider shrink-0 border transition-all cursor-pointer ${
+                    activeDifficulty === d
+                      ? d === "Easy"
+                        ? "bg-emerald-500 text-white border-transparent"
+                        : d === "Medium"
+                        ? "bg-amber-500 text-white border-transparent"
+                        : d === "Hard"
+                        ? "bg-red-500 text-white border-transparent"
+                        : "bg-slate-900 text-white dark:bg-red-600 border-transparent"
+                      : d !== "All"
+                      ? `border ${DIFF_PILL[d]} bg-transparent`
+                      : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+                  }`}
+                >
+                  {d}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Grid Manifest displaying targeted algorithm challenges */}
-          {filteredChallenges.length > 0 ? (
-            <motion.div 
-              variants={containerVariants}
-              initial="hidden"
-              animate="show"
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
-              {filteredChallenges.map((challenge, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <ChallengeCard
-                    title={challenge.title}
-                    description={challenge.description}
-                    timeLimit={challenge.timeLimit}
-                    link={challenge.link}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          ) : (
-            <div className="text-center py-20 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl bg-white dark:bg-slate-900">
-              <FaTrophy className="text-4xl text-slate-300 dark:text-slate-700 mx-auto mb-3" />
-              <p className="text-sm font-mono text-slate-500 dark:text-slate-400">
-                No active operational sandboxes found matching criteria.
-              </p>
-            </div>
-          )}
+          {/* Result count */}
+          <div className="text-xs font-mono text-slate-400">
+            Showing <span className="text-slate-700 dark:text-slate-300 font-bold">{filtered.length}</span> challenge{filtered.length !== 1 ? "s" : ""}
+            {activeCategory !== "All" && <> in <span className="text-emerald-500">{activeCategory}</span></>}
+            {activeDifficulty !== "All" && <> · <span className={activeDifficulty === "Easy" ? "text-emerald-500" : activeDifficulty === "Medium" ? "text-amber-500" : "text-red-500"}>{activeDifficulty}</span></>}
+          </div>
+
+          {/* Cards Grid */}
+          <AnimatePresence mode="wait">
+            {filtered.length > 0 ? (
+              <motion.div
+                key={`${activeCategory}-${activeDifficulty}-${search}`}
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+              >
+                {filtered.map((challenge, i) => (
+                  <motion.div key={`${challenge.link}-${i}`} variants={itemVariants} className="h-full">
+                    <ChallengeCard
+                      title={challenge.title}
+                      description={challenge.description}
+                      timeLimit={challenge.timeLimit}
+                      link={challenge.link}
+                      difficulty={(challenge as any).difficulty}
+                      category={(challenge as any).category}
+                      tags={(challenge as any).tags}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                key="empty"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-24 border border-dashed border-slate-200 dark:border-slate-800 rounded-3xl bg-white dark:bg-slate-900"
+              >
+                <FaTrophy className="text-4xl text-slate-300 dark:text-slate-700 mx-auto mb-3" />
+                <p className="text-sm font-mono text-slate-500 dark:text-slate-400">
+                  No challenges match your filters.
+                </p>
+                <button
+                  onClick={() => { setActiveCategory("All"); setActiveDifficulty("All"); setSearch(""); }}
+                  className="mt-4 text-xs font-mono text-red-500 hover:text-red-400 cursor-pointer"
+                >
+                  Clear filters →
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </section>
       </div>
     </Layout>
