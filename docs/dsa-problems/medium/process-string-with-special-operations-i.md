@@ -67,6 +67,11 @@ Using a list or character array is typically more efficient for these operations
 ### C++
 
 ```cpp
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
 class Solution {
 public:
     string processStr(string s) {
