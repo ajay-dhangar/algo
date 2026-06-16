@@ -141,8 +141,8 @@ const LargestRectangleInHistogramVisualizer = () => {
       <div className="font-bold text-gray-700 dark:text-gray-300">Stack (indices):</div>
       <div className="flex gap-1">
         {step.stack?.length === 0 && <span className="text-gray-500">[empty]</span>}
-        {step.stack?.map((idx, sIdx) => (
-          <span key={sIdx} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 font-mono rounded">
+        {step.stack?.map((idx) => (
+          <span key={idx} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 font-mono rounded">
             {idx}
           </span>
         ))}
