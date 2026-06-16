@@ -125,7 +125,7 @@ class Solution:
     def processStr(self, s: str) -> str:
         ans = []
         for c in s:
-            if c.islower():
+            if 'a' <= c <= 'z':
                 ans.append(c)
             elif c == '*':
                 if ans:
