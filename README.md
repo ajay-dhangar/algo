@@ -183,7 +183,9 @@ We welcome contributions from developers of all experience levels.
 
 ## Contributors ✨
 
-Thanks to these amazing people who have contributed to the **Algo** project:
+Thanks to these amazing people who have contributed to the **Algo** project ❤️:
+
+[![Contributors](https://contrib.rocks/image?repo=ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/graphs/contributors)
 
 <br>
 
