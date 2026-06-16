@@ -1,0 +1,142 @@
+---
+id: largest-rectangle-in-histogram
+title: "Largest Rectangle in Histogram"
+sidebar_label: Largest Rectangle in Histogram
+description: "Finding the area of the largest rectangle in a histogram using a monotonic stack approach."
+tags: [DSA, leetcode, array, stack, monotonic-stack]
+---
+
+import LargestRectangleInHistogramVisualizer from '@site/src/components/Visualizing/largest-rectangle-in-histogram-visualizer';
+
+## Description:
+
+Given an array of integers `heights` representing the histogram's bar height where the width of each bar is `1`, return the area of the largest rectangle in the histogram.
+
+**Example 1:**
+
+Input: `heights = [2,1,5,6,2,3]`
+Output: `10`
+**Explanation:** The above is a histogram where width of each bar is 1. The largest rectangle is shown in the middle two columns (height 5 and 6) with an area = 10 units.
+
+**Example 2:**
+
+Input: `heights = [2,4]`
+Output: `4`
+
+---
+
+## Approaches:
+
+### 1. Monotonic Stack
+
+To optimize the brute-force approach to $O(N)$, we can use a **Monotonic Stack**. The core idea is to maintain a stack of indices such that the heights of the corresponding bars are in strictly increasing order.
+
+1. Iterate through the `heights` array.
+2. If we encounter a bar that is shorter than the bar at the top of our stack, it means the taller bar at the top of the stack cannot be extended any further to the right. 
+3. Pop the top index from the stack, calculate the maximum area that can be formed using this popped bar as the shortest bar, and update `max_area`. 
+4. The width of this rectangle is determined by the current index and the new top of the stack.
+5. Repeat this until the current bar is no longer shorter than the top of the stack, and then push the current index.
+6. To cleanly handle the remaining bars in the stack after the loop, conceptually append a bar of height $0$ to the end of the array.
+
+<LargestRectangleInHistogramVisualizer />
+
+* **Time Complexity:** $O(N)$ where $N$ is the number of elements in `heights`. Every index is pushed to the stack exactly once and popped from the stack at most once.
+* **Space Complexity:** $O(N)$ because in the worst-case scenario (an array sorted in ascending order), the stack will store all $N$ indices.
+
+#### Solutions:
+
+**C++**
+
+```cpp
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& heights) {
+        stack<int> s;
+        int maxArea = 0;
+        int n = heights.size();
+        
+        for (int i = 0; i <= n; i++) {
+            int h = (i == n) ? 0 : heights[i];
+            while (!s.empty() && h < heights[s.top()]) {
+                int height = heights[s.top()];
+                s.pop();
+                int width = s.empty() ? i : i - s.top() - 1;
+                maxArea = max(maxArea, height * width);
+            }
+            s.push(i);
+        }
+        
+        return maxArea;
+    }
+};
+```
+
+**Java**
+
+```java
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+        int maxArea = 0;
+        int n = heights.length;
+        
+        for (int i = 0; i <= n; i++) {
+            int h = (i == n ? 0 : heights[i]);
+            while (!stack.isEmpty() && h < heights[stack.peek()]) {
+                int height = heights[stack.pop()];
+                int width = stack.isEmpty() ? i : i - stack.peek() - 1;
+                maxArea = Math.max(maxArea, height * width);
+            }
+            stack.push(i);
+        }
+        
+        return maxArea;
+    }
+}
+```
+
+**Python**
+
+```py
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        stack = []
+        max_area = 0
+        heights.append(0) 
+        
+        for i, h in enumerate(heights):
+            while stack and h < heights[stack[-1]]:
+                height = heights[stack.pop()]
+                width = i if not stack else i - stack[-1] - 1
+                max_area = max(max_area, height * width)
+            stack.append(i)
+            
+        heights.pop() 
+        return max_area
+```
+
+**JavaScript**
+
+```js
+/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+const largestRectangleArea = function(heights) {
+    const stack = [];
+    let maxArea = 0;
+    const n = heights.length;
+    
+    for (let i = 0; i <= n; i++) {
+        const h = (i === n) ? 0 : heights[i];
+        while (stack.length > 0 && h < heights[stack[stack.length - 1]]) {
+            const height = heights[stack.pop()];
+            const width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1;
+            maxArea = Math.max(maxArea, height * width);
+        }
+        stack.push(i);
+    }
+    
+    return maxArea;
+};
+```
