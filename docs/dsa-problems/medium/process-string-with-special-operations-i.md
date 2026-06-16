@@ -103,7 +103,7 @@ class Solution {
                     ans.deleteCharAt(ans.length() - 1);
                 }
             } else if (c == '#') {
-                ans.append(ans.toString());
+                ans.append(ans);
             } else if (c == '%') {
                 ans.reverse();
             }
