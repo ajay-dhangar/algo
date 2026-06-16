@@ -12,6 +12,7 @@ const LargestRectangleInHistogramVisualizer = () => {
     const steps = [];
     const stack = [];
     let maxArea = 0;
+    let bestHighlightRect = null;
     const currentHeights = [...hArray];
     currentHeights.push(0); 
 
@@ -30,17 +31,15 @@ const LargestRectangleInHistogramVisualizer = () => {
 
     for (let i = 0; i < currentHeights.length; i++) {
       const h = currentHeights[i];
-      addStep('processing_bar', `Examining bar at index ${i} with height ${h}.`, { currentI: i });
+      addStep('processing_bar', 'Examining bar at index ' + i + ' with height ' + h + '.', { currentI: i });
 
       while (stack.length > 0 && h < currentHeights[stack[stack.length - 1]]) {
-        addStep('pop_and_calculate_condition', `Current height ${h} < top of stack height ${currentHeights[stack[stack.length - 1]]}. We must pop.`, { currentI: i });
+        addStep('pop_and_calculate_condition', 'Current height ' + h + ' < top of stack height ' + currentHeights[stack[stack.length - 1]] + '. We must pop.', { currentI: i });
         
         const poppedIndex = stack.pop();
         const height = currentHeights[poppedIndex];
         const width = stack.length === 0 ? i : i - stack[stack.length - 1] - 1;
         const area = height * width;
-        const oldMaxArea = maxArea;
-        maxArea = Math.max(maxArea, area);
 
         const highlightRect = {
           x: stack.length === 0 ? 0 : stack[stack.length - 1] + 1,
@@ -50,9 +49,15 @@ const LargestRectangleInHistogramVisualizer = () => {
           color: 'bg-green-300' 
         };
 
-        let calculationDesc = `Popped index ${poppedIndex} (height ${height}). This is our rectangle's height. Width is ${width}. Area = ${height} * ${width} = ${area}.`;
+        const oldMaxArea = maxArea;
+        if (area > maxArea) {
+          maxArea = area;
+          bestHighlightRect = highlightRect;
+        }
+
+        let calculationDesc = 'Popped index ' + poppedIndex + ' (height ' + height + '). This is our rectangle\'s height. Width is ' + width + '. Area = ' + height + ' * ' + width + ' = ' + area + '.';
         if (maxArea > oldMaxArea) {
-           calculationDesc += ` This is a new max area!`;
+           calculationDesc += ' This is a new max area!';
         }
 
         addStep('calculate_area', calculationDesc, { poppedIndex, highlightRect });
@@ -60,13 +65,13 @@ const LargestRectangleInHistogramVisualizer = () => {
 
       if (i < hArray.length) {
         stack.push(i);
-        addStep('push_to_stack', `Pushed index ${i} to the stack. Heights are increasing.`, { currentI: i });
+        addStep('push_to_stack', 'Pushed index ' + i + ' to the stack. Heights are increasing.', { currentI: i });
       }
     }
     currentHeights.pop(); 
-    addStep('finished', `Simulation finished. The largest rectangle area found is ${maxArea}.`, {highlightRect: simulationSteps[simulationSteps.length-1]?.highlightRect}); // Highlight best result
+    addStep('finished', 'Simulation finished. The largest rectangle area found is ' + maxArea + '.', { highlightRect: bestHighlightRect }); // Highlight best result
     return steps;
-  }, []);
+  }, [])
 
   useEffect(() => {
     setSimulationSteps(generateSimulationSteps(heights));
