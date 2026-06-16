@@ -101,7 +101,7 @@ const LargestRectangleInHistogramVisualizer = () => {
     const scale = 150 / maxH; 
 
     return (
-      <div className="flex items-end gap-1 border-b-2 border-gray-400 dark:border-gray-600 h-48 relative px-4">
+      <div className="flex items-end gap-1 border-b-2 border-gray-400 dark:border-gray-600 h-48 relative px-4 overflow-x-auto">
         {step.currentHeights?.slice(0, heights.length)?.map((h, i) => {
           const isCurrentI = step.currentI === i;
           const isStackTop = step.stack?.[step.stack.length - 1] === i;
