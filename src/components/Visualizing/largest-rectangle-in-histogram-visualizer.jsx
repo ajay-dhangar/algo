@@ -111,7 +111,7 @@ const LargestRectangleInHistogramVisualizer = () => {
           if (isStackTop) barColor = 'bg-orange-500';
 
           return (
-            <div key={i} className="flex flex-col items-center">
+            <div key={i} className="flex flex-col items-center flex-shrink-0">
               <div
                 className={`w-10 rounded-t transition-all duration-300 ${barColor}`}
                 style={{ height: `${h * scale}px` }}
