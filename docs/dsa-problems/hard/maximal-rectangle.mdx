@@ -1,0 +1,176 @@
+---
+id: maximal-rectangle
+title: "Maximal Rectangle"
+sidebar_label: Maximal Rectangle
+description: "Finding the largest rectangle containing only 1's in a binary matrix using a monotonic stack approach."
+tags: [DSA, leetcode, array, dynamic-programming, stack, monotonic-stack]
+---
+
+import MaximalRectangleVisualizer from '@site/src/components/Visualizing/maximal-rectangle-visualizer';
+
+## Description:
+
+Given a `rows x cols` binary `matrix` filled with `0`'s and `1`'s, find the largest rectangle containing only `1`'s and return its area.
+
+**Example 1:**
+
+Input: `matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]`
+Output: `6`
+**Explanation:** The maximal rectangle is formed by the 1s in the middle two columns and bottom three rows.
+
+**Example 2:**
+
+Input: `matrix = [["0"]]`
+Output: `0`
+
+**Example 3:**
+
+Input: `matrix = [["1"]]`
+Output: `1`
+
+---
+
+## Approaches:
+
+### 1. Monotonic Stack (Histogram Approach)
+
+This problem is an extension of the "Largest Rectangle in Histogram" problem. We can treat each row of the matrix as the base of a histogram. 
+
+1. Create a `heights` array to store the accumulated height of consecutive `1`s for each column.
+2. Iterate through each row. If a cell is `1`, we increment its corresponding height. If it is `0`, we reset the height to `0`.
+3. For each row's updated `heights` array, apply the monotonic stack approach to find the largest rectangle area.
+4. Maintain a `max_area` variable to keep track of the maximum area found across all rows.
+
+<MaximalRectangleVisualizer />
+
+* **Time Complexity:** $O(R \times C)$ where $R$ is the number of rows and $C$ is the number of columns. We visit each cell a constant number of times while updating heights and processing the stack.
+* **Space Complexity:** $O(C)$ because we use an array of size $C + 1$ to store the heights and a stack that can grow up to size $C$.
+
+#### Solutions:
+
+**C++**
+```cpp
+class Solution {
+public:
+    int maximalRectangle(vector<vector<char>>& matrix) {
+        if (matrix.empty() || matrix[0].empty()) return 0;
+        
+        int cols = matrix[0].size();
+        vector<int> heights(cols + 1, 0);
+        int maxArea = 0;
+        
+        for (const auto& row : matrix) {
+            for (int i = 0; i < cols; i++) {
+                heights[i] = row[i] == '1' ? heights[i] + 1 : 0;
+            }
+            
+            vector<int> stack = {-1};
+            for (int i = 0; i <= cols; i++) {
+                while (stack.back() != -1 && heights[i] < heights[stack.back()]) {
+                    int h = heights[stack.back()];
+                    stack.pop_back();
+                    int w = i - 1 - stack.back();
+                    maxArea = max(maxArea, h * w);
+                }
+                stack.push_back(i);
+            }
+        }
+        
+        return maxArea;
+    }
+};
+```
+
+**Java**
+```java
+class Solution {
+    public int maximalRectangle(char[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return 0;
+        }
+        
+        int cols = matrix[0].length;
+        int[] heights = new int[cols + 1];
+        int maxArea = 0;
+        
+        for (char[] row : matrix) {
+            for (int i = 0; i < cols; i++) {
+                heights[i] = row[i] == '1' ? heights[i] + 1 : 0;
+            }
+            
+            Stack<Integer> stack = new Stack<>();
+            stack.push(-1);
+            
+            for (int i = 0; i <= cols; i++) {
+                while (stack.peek() != -1 && heights[i] < heights[stack.peek()]) {
+                    int h = heights[stack.pop()];
+                    int w = i - 1 - stack.peek();
+                    maxArea = Math.max(maxArea, h * w);
+                }
+                stack.push(i);
+            }
+        }
+        
+        return maxArea;
+    }
+}
+```
+
+**Python**
+```py
+class Solution:
+    def maximalRectangle(self, matrix: List[List[str]]) -> int:
+        if not matrix or not matrix[0]: 
+            return 0
+        
+        n = len(matrix[0])
+        heights = [0] * (n + 1)
+        max_area = 0
+        
+        for row in matrix:
+            for i in range(n):
+                heights[i] = heights[i] + 1 if row[i] == '1' else 0
+            
+            stack = [-1]
+            for i in range(n + 1):
+                while heights[i] < heights[stack[-1]]:
+                    h = heights[stack.pop()]
+                    w = i - 1 - stack[-1]
+                    max_area = max(max_area, h * w)
+                stack.append(i)
+                
+        return max_area
+```
+
+**JavaScript**
+```js
+/**
+ * @param {character[][]} matrix
+ * @return {number}
+ */
+const maximalRectangle = function(matrix) {
+    if (matrix.length === 0 || matrix[0].length === 0) return 0;
+    
+    const cols = matrix[0].length;
+    const heights = new Array(cols + 1).fill(0);
+    let maxArea = 0;
+    
+    for (let row of matrix) {
+        for (let i = 0; i < cols; i++) {
+            heights[i] = row[i] === '1' ? heights[i] + 1 : 0;
+        }
+        
+        const stack = [-1];
+        for (let i = 0; i <= cols; i++) {
+            while (stack[stack.length - 1] !== -1 && heights[i] < heights[stack[stack.length - 1]]) {
+                const h = heights[stack.pop()];
+                const w = i - 1 - stack[stack.length - 1];
+                maxArea = Math.max(maxArea, h * w);
+            }
+            stack.push(i);
+        }
+    }
+    
+    return maxArea;
+};
+```
