@@ -356,5 +356,5 @@ const challengeData = [
     link: "/challenges/DP/dp-with-bitmasking",
   },
 ];
- 
+
 export default challengeData;
