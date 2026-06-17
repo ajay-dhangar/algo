@@ -181,5 +181,4 @@ Only after all threads finish does the program execute `printf("End of main thre
 4. Outputs from different threads may appear intermixed.
 5. Each thread completes its assigned task.
 6. pthread_join() waits for all threads.
-7. Main thread prints:
-8. End of main thread
+7. Main thread prints: "End of main thread"
