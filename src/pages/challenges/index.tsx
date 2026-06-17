@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
 import {
   FaCode, FaTerminal, FaFire, FaTrophy, FaLayerGroup,
-  FaTree, FaFilter, FaSearch,
+  FaTree, FaFilter, FaSearch, FaProjectDiagram,
 } from "react-icons/fa";
 import ChallengeCard from "../../components/ChallengeCard";
 import challengeData from "../../data/challengeData";
@@ -38,6 +38,14 @@ const Challenges: React.FC = () => {
   const treeEasy = treeChallenges.filter((c) => c.difficulty === "Easy").length;
   const treeMedium = treeChallenges.filter((c) => c.difficulty === "Medium").length;
   const treeHard = treeChallenges.filter((c) => c.difficulty === "Hard").length;
+
+  const graphChallenges = useMemo(
+    () => (challengeData as any[]).filter((c) => c.category === "Graphs"),
+    []
+  );
+  const graphEasy = graphChallenges.filter((c) => c.difficulty === "Easy").length;
+  const graphMedium = graphChallenges.filter((c) => c.difficulty === "Medium").length;
+  const graphHard = graphChallenges.filter((c) => c.difficulty === "Hard").length;
 
   const filtered = useMemo(() => {
     return (challengeData as any[]).filter((item) => {
@@ -95,6 +103,12 @@ const Challenges: React.FC = () => {
                   <FaTree className="text-emerald-500 text-sm" /> {treeChallenges.length}
                 </span>
               </div>
+              <div className="px-5 py-4 border-r border-slate-200 dark:border-slate-800">
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Graphs</span>
+                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
+                  <FaProjectDiagram className="text-blue-500 text-sm" /> {graphChallenges.length}
+                </span>
+              </div>
               <div className="px-5 py-4">
                 <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Streak</span>
                 <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
@@ -121,6 +135,32 @@ const Challenges: React.FC = () => {
                   { label: "Easy", count: treeEasy, style: "bg-emerald-500/30 text-white border-emerald-400/30" },
                   { label: "Medium", count: treeMedium, style: "bg-amber-500/30 text-white border-amber-400/30" },
                   { label: "Hard", count: treeHard, style: "bg-red-500/30 text-white border-red-400/30" },
+                ].map((d) => (
+                  <span key={d.label} className={`px-3 py-1 rounded-full text-xs font-bold font-mono border ${d.style}`}>
+                    {d.label}: {d.count}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Graphs Banner */}
+        {(activeCategory === "All" || activeCategory === "Graphs") && (
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 md:px-12 py-4">
+            <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-4 justify-between">
+              <div className="flex items-center gap-3">
+                <FaProjectDiagram className="text-white text-xl" />
+                <div>
+                  <span className="text-white font-bold text-sm">🕸️ Graphs Track Now Live!</span>
+                  <span className="text-blue-100 text-xs ml-2">{graphChallenges.length} new challenges added</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {[
+                  { label: "Easy", count: graphEasy, style: "bg-emerald-500/30 text-white border-emerald-400/30" },
+                  { label: "Medium", count: graphMedium, style: "bg-amber-500/30 text-white border-amber-400/30" },
+                  { label: "Hard", count: graphHard, style: "bg-red-500/30 text-white border-red-400/30" },
                 ].map((d) => (
                   <span key={d.label} className={`px-3 py-1 rounded-full text-xs font-bold font-mono border ${d.style}`}>
                     {d.label}: {d.count}
