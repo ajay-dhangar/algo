@@ -1,0 +1,11 @@
+{
+  "label": "TypeScript",
+  "position": 12,
+  "link": {
+    "type": "generated-index",
+    "title": "TypeScript Programming Language",
+    "slug": "/category/typescript",
+    "description": "Explore the TypeScript programming language, a strongly typed superset of JavaScript. Master its modern syntax, static type checking, compilation configurations, interfaces, advanced type mechanics, and object-oriented design patterns.",
+    "keywords": ["TypeScript", "Static Typing", "TS Config", "Interfaces", "Generics", "Object-Oriented JavaScript"]
+  }
+}
