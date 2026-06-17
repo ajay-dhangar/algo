@@ -172,6 +172,159 @@ const challengeData = [
     difficulty: "Hard",
     link: "/challenges/Trees/recover-binary-search-tree",
   },
+   // ─── Graphs: Easy ───────────────────────────────────────────────────────
+  {
+    title: "Graph Representation (Adjacency List & Matrix)",
+    description:
+      "Build both the adjacency list and adjacency matrix from a list of edges.",
+    timeLimit: "15 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Easy",
+    link: "/challenges/Graphs/graph-representation",
+  },
+  {
+    title: "Depth First Search (DFS)",
+    description:
+      "Traverse a graph as deep as possible along each branch before backtracking.",
+    timeLimit: "20 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Easy",
+    link: "/challenges/Graphs/depth-first-search",
+  },
+  {
+    title: "Breadth First Search (BFS)",
+    description:
+      "Traverse a graph level by level using a queue — the foundation for shortest paths.",
+    timeLimit: "20 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Easy",
+    link: "/challenges/Graphs/breadth-first-search",
+  },
+  {
+    title: "Number of Connected Components",
+    description:
+      "Count how many separate connected components exist in an undirected graph.",
+    timeLimit: "20 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Easy",
+    link: "/challenges/Graphs/number-of-connected-components",
+  },
+  {
+    title: "Find Path Between Two Nodes",
+    description:
+      "Determine whether a path exists between two vertices and reconstruct it.",
+    timeLimit: "20 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Easy",
+    link: "/challenges/Graphs/find-path-between-two-nodes",
+  },
+  // ─── Graphs: Medium ─────────────────────────────────────────────────────
+  {
+    title: "Detect Cycle in an Undirected Graph",
+    description:
+      "Use DFS with parent-tracking to determine if an undirected graph has a cycle.",
+    timeLimit: "25 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Medium",
+    link: "/challenges/Graphs/detect-cycle-undirected-graph",
+  },
+  {
+    title: "Detect Cycle in a Directed Graph",
+    description:
+      "Use three-color DFS state tracking to detect cycles in a directed graph.",
+    timeLimit: "25 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Medium",
+    link: "/challenges/Graphs/detect-cycle-directed-graph",
+  },
+  {
+    title: "Topological Sort",
+    description:
+      "Order the vertices of a DAG so every directed edge points forward in the order.",
+    timeLimit: "30 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Medium",
+    link: "/challenges/Graphs/topological-sort",
+  },
+  {
+    title: "Bipartite Graph Check",
+    description:
+      "Determine whether a graph's vertices can be 2-colored with no same-color edges.",
+    timeLimit: "25 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Medium",
+    link: "/challenges/Graphs/bipartite-graph-check",
+  },
+  {
+    title: "Shortest Path in Unweighted Graph",
+    description:
+      "Compute shortest distances from a source using BFS on an unweighted graph.",
+    timeLimit: "25 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Medium",
+    link: "/challenges/Graphs/shortest-path-unweighted-graph",
+  },
+  // ─── Graphs: Hard ───────────────────────────────────────────────────────
+  {
+    title: "Dijkstra's Algorithm",
+    description:
+      "Find shortest paths from a source in a weighted graph with non-negative weights.",
+    timeLimit: "35 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Hard",
+    link: "/challenges/Graphs/dijkstras-algorithm",
+  },
+  {
+    title: "Bellman-Ford Algorithm",
+    description:
+      "Compute shortest paths even with negative edge weights, and detect negative cycles.",
+    timeLimit: "35 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Hard",
+    link: "/challenges/Graphs/bellman-ford-algorithm",
+  },
+  {
+    title: "Floyd-Warshall Algorithm",
+    description:
+      "Compute shortest paths between every pair of vertices using dynamic programming.",
+    timeLimit: "35 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Hard",
+    link: "/challenges/Graphs/floyd-warshall-algorithm",
+  },
+  {
+    title: "Minimum Spanning Tree (Kruskal's & Prim's)",
+    description:
+      "Find the minimum-weight set of edges connecting all vertices using Kruskal's algorithm.",
+    timeLimit: "40 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Hard",
+    link: "/challenges/Graphs/minimum-spanning-tree",
+  },
+  {
+    title: "Strongly Connected Components (Kosaraju/Tarjan)",
+    description:
+      "Find all maximal sets of mutually reachable vertices using Kosaraju's two-pass DFS.",
+    timeLimit: "40 min",
+    category: "Graphs",
+    tags: ["Graphs"],
+    difficulty: "Hard",
+    link: "/challenges/Graphs/strongly-connected-components",
+  },
 ];
- 
+
 export default challengeData;
