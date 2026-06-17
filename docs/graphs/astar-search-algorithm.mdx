@@ -53,11 +53,11 @@ A\* maintains two key values for every node:
 
 The choice of heuristic **h(n)** is crucial:
 
-| Heuristic | Formula | Best For |
-|-----------|---------|----------|
-| Manhattan Distance | \|x₁ - x₂\| + \|y₁ - y₂\| | Grid with 4-directional movement |
-| Euclidean Distance | √((x₁ - x₂)² + (y₁ - y₂)²) | Grid with any-angle movement |
-| Chebyshev Distance | max(\|x₁ - x₂\|, \|y₁ - y₂\|) | Grid with 8-directional movement |
+| Heuristic | Formula | Allowed Movements | Best For |
+|---|---|---|---|
+| Manhattan | $\vert{}x_1 - x_2\vert{} + \vert{}y_1 - y_2\vert{}$ | 4-directional | Orthogonal grids (Rooks) |
+| Chebyshev | $\max(\vert{}x_1 - x_2\vert{}, \vert{}y_1 - y_2\vert{})$ | 8-directional | King moves (Equal diagonal cost) |
+| Euclidean | $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$ | Straight line | Any-angle / Continuous space |
 
 :::note Admissibility
 For A\* to guarantee the optimal path, the heuristic must be **admissible** — it should **never overestimate** the actual cost to the goal. Manhattan distance is admissible for 4-directional grids.

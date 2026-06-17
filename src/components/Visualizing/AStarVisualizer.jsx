@@ -112,7 +112,7 @@ export default function AStarVisualizer() {
   const [stats, setStats] = useState({ visited: 0, pathLen: 0, time: 0 });
   const [speed, setSpeed] = useState(20);
   const isDrawing = useRef(false);
-  const cancelRef = useRef(false);
+  const runIdRef = useRef(0);
 
   const handleCellClick = useCallback(
     (r, c) => {
@@ -187,7 +187,7 @@ export default function AStarVisualizer() {
   }, []);
 
   const resetGrid = useCallback(() => {
-    cancelRef.current = true;
+    runIdRef.current++;
     setGrid(createEmptyGrid());
     setStartPos(null);
     setEndPos(null);
@@ -230,7 +230,8 @@ export default function AStarVisualizer() {
     }
     if (running) return;
 
-    cancelRef.current = false;
+    runIdRef.current++;
+    const localRunId = runIdRef.current;
     setRunning(true);
     clearVisualization();
 
@@ -256,7 +257,7 @@ export default function AStarVisualizer() {
     let visitedCount = 0;
 
     while (openSet.size > 0) {
-      if (cancelRef.current) {
+      if (localRunId !== runIdRef.current) {
         setRunning(false);
         setStatus("Cancelled.");
         return;
@@ -293,7 +294,7 @@ export default function AStarVisualizer() {
         // Reconstruct and draw path
         const path = reconstructPath(cameFrom, endPos);
         for (let i = 1; i < path.length; i++) {
-          if (cancelRef.current) break;
+          if (localRunId !== runIdRef.current) break;
           const [pr, pc] = path[i];
           setGrid((prev) => {
             const next = prev.map((row) => [...row]);
