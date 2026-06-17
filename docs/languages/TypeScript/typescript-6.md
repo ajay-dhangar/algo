@@ -52,7 +52,7 @@ function formatInput(data: string): string;
 function formatInput(data: number): string;
 
 // Single unified implementation block mapping underlying variants
-function formatInput(data: any): string {
+function formatInput(data: string | number): string {
     if (typeof data === "string") {
         return data.trim().toUpperCase();
     }
