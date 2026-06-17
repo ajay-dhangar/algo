@@ -15,9 +15,12 @@ try {
     if (numericalInput === 0) {
         throw new Error("Cannot complete operations using zero boundaries.");
     }
-} catch (runtimeException: any) {
+} catch (runtimeException: unknown) {
     // Intercepts structural errors safely
-    console.error(`Exception handled successfully: ${runtimeException.message}`);
+    if (runtimeException instanceof Error) {
+        console.error("Exception handled successfully: " + runtimeException.message);
+    }
+
 } finally {
     // Always executes, regardless of whether an error occurred
     console.log("Cleaning up active system connections.");
