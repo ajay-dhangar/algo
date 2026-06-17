@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
 import {
   FaCode, FaTerminal, FaFire, FaTrophy, FaLayerGroup,
-  FaTree, FaFilter, FaSearch, FaBrain,
+  FaTree, FaFilter, FaSearch, FaBrain, FaSortAmountUp,
 } from "react-icons/fa";
 import ChallengeCard from "../../components/ChallengeCard";
 import challengeData from "../../data/challengeData";
@@ -46,6 +46,14 @@ const Challenges: React.FC = () => {
   const dpEasy = dpChallenges.filter((c) => c.difficulty === "Easy").length;
   const dpMedium = dpChallenges.filter((c) => c.difficulty === "Medium").length;
   const dpHard = dpChallenges.filter((c) => c.difficulty === "Hard").length;
+
+  const sortingChallenges = useMemo(
+    () => (challengeData as any[]).filter((c) => c.category === "Sorting"),
+    []
+  );
+  const sortingEasy = sortingChallenges.filter((c) => c.difficulty === "Easy").length;
+  const sortingMedium = sortingChallenges.filter((c) => c.difficulty === "Medium").length;
+  const sortingHard = sortingChallenges.filter((c) => c.difficulty === "Hard").length;
 
   const filtered = useMemo(() => {
     return (challengeData as any[]).filter((item) => {
@@ -107,6 +115,12 @@ const Challenges: React.FC = () => {
                 <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">DP</span>
                 <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
                   <FaBrain className="text-violet-500 text-sm" /> {dpChallenges.length}
+                </span>
+              </div>
+              <div className="px-5 py-4 border-r border-slate-200 dark:border-slate-800">
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Sorting</span>
+                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
+                  <FaSortAmountUp className="text-indigo-500 text-sm" /> {sortingChallenges.length}
                 </span>
               </div>
               <div className="px-5 py-4">
@@ -171,6 +185,32 @@ const Challenges: React.FC = () => {
           </div>
         )}
 
+        {/* Sorting Banner */}
+        {(activeCategory === "All" || activeCategory === "Sorting") && (
+          <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 md:px-12 py-4">
+            <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-4 justify-between">
+              <div className="flex items-center gap-3">
+                <FaSortAmountUp className="text-white text-xl" />
+                <div>
+                  <span className="text-white font-bold text-sm">📊 Sorting Algorithms Track Now Live!</span>
+                  <span className="text-indigo-100 text-xs ml-2">{sortingChallenges.length} new challenges added</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {[
+                  { label: "Easy", count: sortingEasy, style: "bg-emerald-500/30 text-white border-emerald-400/30" },
+                  { label: "Medium", count: sortingMedium, style: "bg-amber-500/30 text-white border-amber-400/30" },
+                  { label: "Hard", count: sortingHard, style: "bg-red-500/30 text-white border-red-400/30" },
+                ].map((d) => (
+                  <span key={d.label} className={`px-3 py-1 rounded-full text-xs font-bold font-mono border ${d.style}`}>
+                    {d.label}: {d.count}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         <section className="py-10 px-6 md:px-12 max-w-6xl mx-auto space-y-6">
 
           {/* Filter Bar */}
@@ -202,7 +242,7 @@ const Challenges: React.FC = () => {
                       : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
                   }`}
                 >
-                  {cat === "Trees" ? "🌳 " : cat === "DP" ? "🧩 " : ""}{cat}
+                  {cat === "Trees" ? "🌳 " : cat === "DP" ? "🧩 " : cat === "Sorting" ? "📊 " : ""}{cat}
                 </button>
               ))}
             </div>
