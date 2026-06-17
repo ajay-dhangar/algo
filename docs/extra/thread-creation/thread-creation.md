@@ -173,7 +173,7 @@ The main thread waits for all created threads to complete:
 
 Only after all threads finish does the program execute `printf("End of main thread\n");`.
 
-### 3.5 Execuation Flow
+### 3.5 Execution Flow
 
 1. Main thread reads the value.
 2. Three threads are created.
