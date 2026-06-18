@@ -1,8 +1,11 @@
 {
   "label": "Go",
   "position": 6,
+  "customProps": {
+    "description": "An open-source programming language supported by Google, known for simplicity, concurrency, and performance."
+  },
   "link": {
     "type": "generated-index",
-    "description": "Go (or Golang) is an open-source, compiled, statically typed programming language designed by Google. It is known for its simplicity, concurrency support, and performance, making it excellent for cloud-native development and scalable backend systems."
+    "description": "Built by Google for the modern cloud! It is simple, incredibly fast, and perfect for building scalable servers and backend networks."
   }
 }

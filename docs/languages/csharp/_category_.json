@@ -1,8 +1,10 @@
 {
   "label": "C#",
   "position": 4,
+  "customProps": {
+    "description": "The engine behind modern game development! Backed by Microsoft, it is the primary language used to build incredible games in the Unity engine."
+  },
   "link": {
-      "type": "generated-index",
-      "description": "C# is a modern, high-level programming language developed by Microsoft as part of the .NET framework. First released in 2002, C# is known for its strong typing, garbage collection, and support for object-oriented programming, making it popular for a variety of applications including web, desktop, and mobile development. With cross-platform support through .NET Core, C# allows developers to create versatile and performant software solutions across different environments."
-  }
+    "type": "generated-index",
+    "description": "Learn C#, a versatile language developed by Microsoft for building web, mobile, and desktop applications."}
 }
