@@ -1,13 +1,13 @@
 ---
 id: "control-statements"
 sidebar_position: 5
-title: "Control Statements in PHP"
+title: "Control Statements in php"
 sidebar_label: "Control Statements"
-description: "Control statements in PHP allow you to control the flow of execution using if, else, elseif, switch, and match expressions."
+description: "Control statements in php allow you to control the flow of execution using if, else, elseif, switch, and match expressions."
 tags: [php, control-flow, if-else, switch, match]
 ---
 
-Control statements allow you to make decisions in your code. PHP supports `if`, `else`, `elseif`, `switch`, and the modern `match` expression.
+Control statements allow you to make decisions in your code. php supports `if`, `else`, `elseif`, `switch`, and the modern `match` expression.
 
 ## The `if` Statement
 
@@ -106,7 +106,7 @@ switch ($day) {
 
 * * *
 
-## The `match` Expression (PHP 8+)
+## The `match` Expression (php 8+)
 
 A cleaner alternative to `switch` with strict comparison:
 
@@ -159,7 +159,7 @@ if ($age >= 18) {
 
 ## Alternative Syntax
 
-PHP allows an alternative syntax for control structures, useful in HTML templates:
+php allows an alternative syntax for control structures, useful in HTML templates:
 
 ```php
 <?php $loggedIn = true; ?>
@@ -171,4 +171,4 @@ PHP allows an alternative syntax for control structures, useful in HTML template
 <?php endif; ?>
 ```
 
-**Note:** This alternative syntax using `:` and `endif;` / `endswitch;` is especially useful when mixing PHP with HTML markup.
+**Note:** This alternative syntax using `:` and `endif;` / `endswitch;` is especially useful when mixing php with HTML markup.

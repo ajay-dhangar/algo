@@ -1,49 +1,49 @@
 ---
 id: "introduction-to-php"
 sidebar_position: 1
-title: "Introduction to PHP"
-sidebar_label: "Introduction to PHP"
-description: "PHP is a popular general-purpose scripting language especially suited to web development. It is fast, flexible, and pragmatic."
+title: "Introduction to php"
+sidebar_label: "Introduction to php"
+description: "php is a popular general-purpose scripting language especially suited to web development. It is fast, flexible, and pragmatic."
 tags: [php, web-development, server-side]
 ---
 
-PHP is a widely-used open-source server-side scripting language designed especially for web development and can be embedded into HTML.
+php is a widely-used open-source server-side scripting language designed especially for web development and can be embedded into HTML.
 
-## What is PHP?
+## What is php?
 
-* PHP stands for **PHP: Hypertext Preprocessor** (a recursive acronym)
-* PHP is a server-side scripting language
-* PHP scripts are executed on the server
-* PHP is free to download and use
-* PHP files have the extension `.php`
-
-* * *
-
-## What Can PHP Do?
-
-* PHP can generate dynamic page content
-* PHP can create, open, read, write, delete, and close files on the server
-* PHP can collect form data
-* PHP can send and receive cookies
-* PHP can add, delete, modify data in your database
-* PHP can be used to control user-access
-* PHP can encrypt data
+* php stands for **php: Hypertext Preprocessor** (a recursive acronym)
+* php is a server-side scripting language
+* php scripts are executed on the server
+* php is free to download and use
+* php files have the extension `.php`
 
 * * *
 
-## Why PHP?
+## What Can php Do?
 
-* PHP runs on various platforms (Windows, Linux, Unix, macOS, etc.)
-* PHP is compatible with almost all servers used today (Apache, Nginx, IIS, etc.)
-* PHP supports a wide range of databases (MySQL, PostgreSQL, SQLite, etc.)
-* PHP is free — download it from the official PHP resource: [php.net](https://www.php.net)
-* PHP is easy to learn and runs efficiently on the server side
+* php can generate dynamic page content
+* php can create, open, read, write, delete, and close files on the server
+* php can collect form data
+* php can send and receive cookies
+* php can add, delete, modify data in your database
+* php can be used to control user-access
+* php can encrypt data
 
 * * *
 
-## A Basic PHP Script
+## Why php?
 
-A PHP script starts with `<?php` and ends with `?>`:
+* php runs on various platforms (Windows, Linux, Unix, macOS, etc.)
+* php is compatible with almost all servers used today (Apache, Nginx, IIS, etc.)
+* php supports a wide range of databases (MySQL, PostgreSQL, SQLite, etc.)
+* php is free — download it from the official php resource: [php.net](https://www.php.net)
+* php is easy to learn and runs efficiently on the server side
+
+* * *
+
+## A Basic php Script
+
+A php script starts with `<?php` and ends with `?>`:
 
 ```php
 <?php
@@ -58,32 +58,32 @@ Hello, World!
 
 * * *
 
-## PHP Syntax
+## php Syntax
 
-PHP code is executed on the server and the result is returned to the browser as plain HTML. A PHP file normally contains HTML tags along with PHP scripting code.
+php code is executed on the server and the result is returned to the browser as plain HTML. A php file normally contains HTML tags along with php scripting code.
 
 ```php
 <!DOCTYPE html>
 <html>
 <body>
 
-<h1>My First PHP Page</h1>
+<h1>My First php Page</h1>
 
 <?php
-echo "Hello from PHP!";
+echo "Hello from php!";
 ?>
 
 </body>
 </html>
 ```
 
-**Note:** PHP statements end with a semicolon (`;`). The closing tag `?>` automatically implies a semicolon, so it is not required on the last line.
+**Note:** php statements end with a semicolon (`;`). The closing tag `?>` automatically implies a semicolon, so it is not required on the last line.
 
 * * *
 
-## PHP Comments
+## php Comments
 
-Comments are used to explain code and are ignored by the PHP engine:
+Comments are used to explain code and are ignored by the php engine:
 
 ```php
 <?php
@@ -96,15 +96,15 @@ This is a
 multi-line comment
 */
 
-echo "PHP Comments Example";
+echo "php Comments Example";
 ?>
 ```
 
 * * *
 
-## PHP Case Sensitivity
+## php Case Sensitivity
 
-In PHP, keywords (e.g. `if`, `else`, `while`, `echo`, etc.) and user-defined functions are **NOT** case-sensitive. However, variable names **ARE** case-sensitive.
+In php, keywords (e.g. `if`, `else`, `while`, `echo`, etc.) and user-defined functions are **NOT** case-sensitive. However, variable names **ARE** case-sensitive.
 
 ```php
 <?php
@@ -120,12 +120,12 @@ echo $Color;   // undefined variable error
 
 * * *
 
-## How PHP Works
+## How php Works
 
 1. The user sends a request to the web server
-2. The web server passes the `.php` file to the PHP interpreter
-3. PHP executes the script and generates HTML output
+2. The web server passes the `.php` file to the php interpreter
+3. php executes the script and generates HTML output
 4. The server sends the HTML back to the user's browser
 5. The browser renders the HTML page
 
-PHP is processed entirely on the **server side** — the client never sees your PHP code, only the resulting HTML.
+php is processed entirely on the **server side** — the client never sees your php code, only the resulting HTML.

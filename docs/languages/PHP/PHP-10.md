@@ -1,9 +1,9 @@
 ---
 id: "associative-arrays"
 sidebar_position: 10
-title: "Associative Arrays in PHP"
+title: "Associative Arrays in php"
 sidebar_label: "Associative Arrays"
-description: "Associative arrays in PHP use named keys instead of numeric indexes. Learn how to create, access, loop, and manipulate them."
+description: "Associative arrays in php use named keys instead of numeric indexes. Learn how to create, access, loop, and manipulate them."
 tags: [php, associative-arrays, key-value]
 ---
 
@@ -178,11 +178,11 @@ print_r($merged);
 
 ```php
 <?php
-$codes = ["PHP" => 1, "JS" => 2, "Python" => 3];
+$codes = ["php" => 1, "JS" => 2, "Python" => 3];
 $flipped = array_flip($codes);
 
 print_r($flipped);
-// [1 => PHP, 2 => JS, 3 => Python]
+// [1 => php, 2 => JS, 3 => Python]
 ?>
 ```
 
@@ -204,4 +204,4 @@ foreach ($employees as $id => $info) {
 ?>
 ```
 
-**Tip:** Associative arrays are commonly used to represent configuration settings, database rows, API responses, and form data in PHP applications.
+**Tip:** Associative arrays are commonly used to represent configuration settings, database rows, API responses, and form data in php applications.

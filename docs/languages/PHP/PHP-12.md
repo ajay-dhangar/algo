@@ -1,13 +1,13 @@
 ---
 id: "forms-and-user-input"
 sidebar_position: 12
-title: "Forms and User Input in PHP"
+title: "Forms and User Input in php"
 sidebar_label: "Forms & User Input"
-description: "Learn how to handle HTML forms in PHP using GET and POST methods, validate input, and prevent common security vulnerabilities."
+description: "Learn how to handle HTML forms in php using GET and POST methods, validate input, and prevent common security vulnerabilities."
 tags: [php, forms, user-input, validation, security]
 ---
 
-Forms are the primary way users submit data to PHP scripts. PHP handles form data through the `$_GET` and `$_POST` superglobals.
+Forms are the primary way users submit data to php scripts. php handles form data through the `$_GET` and `$_POST` superglobals.
 
 ## A Simple HTML Form
 

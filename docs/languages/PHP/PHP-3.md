@@ -1,13 +1,13 @@
 ---
 id: "data-types-in-php"
 sidebar_position: 3
-title: "Data Types in PHP"
+title: "Data Types in php"
 sidebar_label: "Data Types"
-description: "PHP supports several data types including strings, integers, floats, booleans, arrays, objects, NULL, and resources."
+description: "php supports several data types including strings, integers, floats, booleans, arrays, objects, NULL, and resources."
 tags: [php, data-types, types]
 ---
 
-PHP supports the following data types: String, Integer, Float, Boolean, Array, Object, NULL, and Resource.
+php supports the following data types: String, Integer, Float, Boolean, Array, Object, NULL, and Resource.
 
 ## String
 
@@ -16,10 +16,10 @@ A string is a sequence of characters. It can be written inside single or double 
 ```php
 <?php
 $name = "Hello World";
-$greeting = 'Welcome to PHP';
+$greeting = 'Welcome to php';
 
 echo $name;     // Hello World
-echo $greeting; // Welcome to PHP
+echo $greeting; // Welcome to php
 ?>
 ```
 
@@ -150,7 +150,7 @@ fclose($file);
 
 ## Type Checking Functions
 
-PHP provides several functions to check the type of a variable:
+php provides several functions to check the type of a variable:
 
 ```php
 <?php
@@ -183,4 +183,4 @@ var_dump($b); // bool(true)
 ?>
 ```
 
-**Note:** PHP is a loosely typed language — it automatically converts data types based on the context, which is called **type juggling**.
+**Note:** php is a loosely typed language — it automatically converts data types based on the context, which is called **type juggling**.

@@ -1,13 +1,13 @@
 ---
 id: "arrays-in-php"
 sidebar_position: 9
-title: "Arrays in PHP"
+title: "Arrays in php"
 sidebar_label: "Arrays"
-description: "Arrays in PHP store multiple values in a single variable. Learn indexed arrays, multidimensional arrays, and common array functions."
+description: "Arrays in php store multiple values in a single variable. Learn indexed arrays, multidimensional arrays, and common array functions."
 tags: [php, arrays, indexed-array, multidimensional]
 ---
 
-An array stores multiple values in a single variable. PHP supports indexed arrays, associative arrays, and multidimensional arrays.
+An array stores multiple values in a single variable. php supports indexed arrays, associative arrays, and multidimensional arrays.
 
 ## Creating an Array
 

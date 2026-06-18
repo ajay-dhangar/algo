@@ -1,9 +1,9 @@
 ---
 id: "sessions-and-cookies"
 sidebar_position: 19
-title: "Sessions and Cookies in PHP"
+title: "Sessions and Cookies in php"
 sidebar_label: "Sessions & Cookies"
-description: "Sessions and cookies allow PHP to persist data across multiple pages. Learn how to create, read, update, and delete sessions and cookies."
+description: "Sessions and cookies allow php to persist data across multiple pages. Learn how to create, read, update, and delete sessions and cookies."
 tags: [php, sessions, cookies, authentication]
 ---
 
@@ -53,7 +53,7 @@ setcookie("username", "", time() - 3600, "/"); // expire 1 hour ago
 
 * * *
 
-### Cookie Options (PHP 7.3+)
+### Cookie Options (php 7.3+)
 
 ```php
 <?php

@@ -1,9 +1,9 @@
 ---
 id: "interfaces-and-traits"
 sidebar_position: 15
-title: "Interfaces and Traits in PHP"
+title: "Interfaces and Traits in php"
 sidebar_label: "Interfaces & Traits"
-description: "Learn how to use interfaces and traits in PHP to implement contracts, share reusable methods, and work around single inheritance limitations."
+description: "Learn how to use interfaces and traits in php to implement contracts, share reusable methods, and work around single inheritance limitations."
 tags: [php, interfaces, traits, oop]
 ---
 
@@ -184,7 +184,7 @@ $order->audit("Created");
 
 | Feature | Interface | Trait | Abstract Class |
 |---------|-----------|-------|----------------|
-| Can have method body | No (PHP 8+ default methods: No) | Yes | Yes |
+| Can have method body | No (php 8+ default methods: No) | Yes | Yes |
 | Can be instantiated | No | No | No |
 | Multiple use | Yes (implements many) | Yes (use many) | No (extends one) |
 | Properties | Constants only | Yes | Yes |

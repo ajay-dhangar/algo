@@ -1,13 +1,13 @@
 ---
 id: "classes-and-objects"
 sidebar_position: 13
-title: "Classes and Objects in PHP"
+title: "Classes and Objects in php"
 sidebar_label: "Classes & Objects"
-description: "Object-Oriented Programming in PHP. Learn how to define classes, create objects, use constructors, properties, and methods."
+description: "Object-Oriented Programming in php. Learn how to define classes, create objects, use constructors, properties, and methods."
 tags: [php, oop, classes, objects, constructor]
 ---
 
-PHP supports Object-Oriented Programming (OOP). A class is a blueprint for objects. An object is an instance of a class.
+php supports Object-Oriented Programming (OOP). A class is a blueprint for objects. An object is an instance of a class.
 
 ## Defining a Class
 
@@ -221,4 +221,4 @@ $g->show();
 ?>
 ```
 
-**Note:** PHP OOP concepts such as inheritance, interfaces, traits, and abstract classes build on top of this foundation.
+**Note:** php OOP concepts such as inheritance, interfaces, traits, and abstract classes build on top of this foundation.

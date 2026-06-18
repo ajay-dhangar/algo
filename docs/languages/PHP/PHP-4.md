@@ -1,13 +1,13 @@
 ---
 id: "operators-in-php"
 sidebar_position: 4
-title: "Operators in PHP"
+title: "Operators in php"
 sidebar_label: "Operators"
-description: "PHP operators are used to perform operations on variables and values. Learn arithmetic, assignment, comparison, logical, string, and more operators."
+description: "php operators are used to perform operations on variables and values. Learn arithmetic, assignment, comparison, logical, string, and more operators."
 tags: [php, operators, arithmetic, comparison]
 ---
 
-Operators are used to perform operations on variables and values. PHP divides operators into several groups.
+Operators are used to perform operations on variables and values. php divides operators into several groups.
 
 ## Arithmetic Operators
 

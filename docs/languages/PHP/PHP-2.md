@@ -1,17 +1,17 @@
 ---
 id: "variables-and-constants"
 sidebar_position: 2
-title: "Variables and Constants in PHP"
+title: "Variables and Constants in php"
 sidebar_label: "Variables & Constants"
-description: "Learn how to declare and use variables and constants in PHP, including naming rules, scope, and the define() function."
+description: "Learn how to declare and use variables and constants in php, including naming rules, scope, and the define() function."
 tags: [php, variables, constants]
 ---
 
 Variables are containers for storing data values. Constants are identifiers for simple values that cannot be changed during the execution of a script.
 
-## PHP Variables
+## php Variables
 
-In PHP, a variable starts with the `$` sign, followed by the name of the variable:
+In php, a variable starts with the `$` sign, followed by the name of the variable:
 
 ```php
 <?php
@@ -26,7 +26,7 @@ echo $height; // 5.9
 
 * * *
 
-## PHP Variable Rules
+## php Variable Rules
 
 * A variable starts with the `$` sign, followed by the name
 * A variable name must start with a letter or the underscore character
@@ -38,7 +38,7 @@ echo $height; // 5.9
 
 ## Assigning Variables
 
-PHP is a loosely typed language — you do not need to declare a variable's data type explicitly:
+php is a loosely typed language — you do not need to declare a variable's data type explicitly:
 
 ```php
 <?php
@@ -53,7 +53,7 @@ $isValid = true;        // boolean
 
 ## Variable Scope
 
-PHP has three types of variable scope:
+php has three types of variable scope:
 
 * **Local** – declared inside a function, accessible only within it
 * **Global** – declared outside a function, accessible only outside it (use `global` keyword inside functions)
@@ -82,7 +82,7 @@ testStatic(); // 3
 
 * * *
 
-## PHP Constants
+## php Constants
 
 A constant is an identifier for a simple value. The value cannot be changed during the script. A valid constant name starts with a letter or underscore (no `$` sign).
 
@@ -125,7 +125,7 @@ echo PI;      // 3.14159
 
 ## Predefined Constants
 
-PHP has several built-in constants available at all times:
+php has several built-in constants available at all times:
 
 ```php
 <?php

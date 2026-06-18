@@ -1,13 +1,13 @@
 ---
 id: "loops-in-php"
 sidebar_position: 6
-title: "Loops in PHP"
+title: "Loops in php"
 sidebar_label: "Loops"
-description: "PHP loops execute a block of code repeatedly. Learn while, do-while, for, and foreach loops with examples."
+description: "php loops execute a block of code repeatedly. Learn while, do-while, for, and foreach loops with examples."
 tags: [php, loops, while, for, foreach]
 ---
 
-Loops are used to execute the same block of code repeatedly as long as a condition is true. PHP supports `while`, `do...while`, `for`, and `foreach` loops.
+Loops are used to execute the same block of code repeatedly as long as a condition is true. php supports `while`, `do...while`, `for`, and `foreach` loops.
 
 ## The `while` Loop
 

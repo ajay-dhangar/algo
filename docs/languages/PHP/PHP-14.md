@@ -1,9 +1,9 @@
 ---
 id: "inheritance-in-php"
 sidebar_position: 14
-title: "Inheritance in PHP"
+title: "Inheritance in php"
 sidebar_label: "Inheritance"
-description: "Inheritance allows a class to reuse properties and methods of another class. Learn single inheritance, method overriding, and the parent keyword in PHP."
+description: "Inheritance allows a class to reuse properties and methods of another class. Learn single inheritance, method overriding, and the parent keyword in php."
 tags: [php, inheritance, oop, extends, parent]
 ---
 
@@ -204,7 +204,7 @@ final class Singleton {
 
 ## Multilevel Inheritance
 
-PHP supports multilevel inheritance (A → B → C):
+php supports multilevel inheritance (A → B → C):
 
 ```php
 <?php
@@ -228,4 +228,4 @@ $obj->greet();
 ?>
 ```
 
-**Note:** PHP does **not** support multiple inheritance (a class cannot extend more than one class). Use interfaces or traits to achieve similar results.
+**Note:** php does **not** support multiple inheritance (a class cannot extend more than one class). Use interfaces or traits to achieve similar results.

@@ -1,13 +1,13 @@
 ---
 id: "php-oop-best-practices"
 sidebar_position: 21
-title: "PHP OOP Best Practices"
+title: "php OOP Best Practices"
 sidebar_label: "OOP Best Practices"
-description: "Learn best practices for writing clean, maintainable, and scalable object-oriented PHP code including SOLID principles, design patterns, and more."
+description: "Learn best practices for writing clean, maintainable, and scalable object-oriented php code including SOLID principles, design patterns, and more."
 tags: [php, oop, best-practices, solid, design-patterns]
 ---
 
-Writing clean, object-oriented PHP code requires following established principles and patterns. This guide covers the most important best practices for professional PHP development.
+Writing clean, object-oriented php code requires following established principles and patterns. This guide covers the most important best practices for professional php development.
 
 ## 1. Follow the SOLID Principles
 
@@ -53,7 +53,7 @@ class FlatDiscount implements Discount {
 
 * * *
 
-## 2. Use Constructor Promotion (PHP 8+)
+## 2. Use Constructor Promotion (php 8+)
 
 ```php
 // Verbose (old style)
@@ -220,7 +220,7 @@ public function processOrder(OrderData $data): Order {
 
 * * *
 
-## 9. Use Enums (PHP 8.1+)
+## 9. Use Enums (php 8.1+)
 
 ```php
 enum OrderStatus {

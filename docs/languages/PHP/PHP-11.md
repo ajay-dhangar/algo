@@ -1,15 +1,15 @@
 ---
 id: "superglobals-in-php"
 sidebar_position: 11
-title: "Superglobals in PHP"
+title: "Superglobals in php"
 sidebar_label: "Superglobals"
-description: "PHP superglobals are built-in variables available in all scopes. Learn about $_GET, $_POST, $_SERVER, $_SESSION, $_COOKIE, and more."
+description: "php superglobals are built-in variables available in all scopes. Learn about $_GET, $_POST, $_SERVER, $_SESSION, $_COOKIE, and more."
 tags: [php, superglobals, $_GET, $_POST, $_SERVER]
 ---
 
-Superglobals are built-in variables in PHP that are always accessible, regardless of scope. They are available from any function, class, or file without needing to use the `global` keyword.
+Superglobals are built-in variables in php that are always accessible, regardless of scope. They are available from any function, class, or file without needing to use the `global` keyword.
 
-## List of PHP Superglobals
+## List of php Superglobals
 
 * `$GLOBALS`
 * `$_SERVER`

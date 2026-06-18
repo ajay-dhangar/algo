@@ -1,9 +1,9 @@
 ---
 id: "namespaces-in-php"
 sidebar_position: 16
-title: "Namespaces in PHP"
+title: "Namespaces in php"
 sidebar_label: "Namespaces"
-description: "PHP namespaces allow you to organize code and avoid name collisions. Learn how to define, use, and alias namespaces in PHP."
+description: "php namespaces allow you to organize code and avoid name collisions. Learn how to define, use, and alias namespaces in php."
 tags: [php, namespaces, oop, autoloading]
 ---
 
@@ -27,7 +27,7 @@ class User { ... }
 
 ## Defining a Namespace
 
-A namespace declaration must be the first statement in a PHP file:
+A namespace declaration must be the first statement in a php file:
 
 ```php
 <?php
@@ -174,7 +174,7 @@ class MyClass {}
 
 ## Autoloading with Namespaces (PSR-4)
 
-Modern PHP uses Composer and PSR-4 autoloading to automatically load classes based on their namespace:
+Modern php uses Composer and PSR-4 autoloading to automatically load classes based on their namespace:
 
 **composer.json:**
 ```json
@@ -199,4 +199,4 @@ $user = new User("Alice");
 ?>
 ```
 
-**Tip:** Following PSR-4 conventions and using Composer autoloading is the standard way to organize PHP projects with namespaces.
+**Tip:** Following PSR-4 conventions and using Composer autoloading is the standard way to organize php projects with namespaces.

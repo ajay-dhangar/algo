@@ -1,13 +1,13 @@
 ---
 id: "database-connectivity-mysql"
 sidebar_position: 20
-title: "Database Connectivity with MySQL in PHP"
+title: "Database Connectivity with MySQL in php"
 sidebar_label: "MySQL Database"
-description: "Learn how to connect PHP to a MySQL database using PDO and MySQLi, perform CRUD operations, and use prepared statements."
+description: "Learn how to connect php to a MySQL database using PDO and MySQLi, perform CRUD operations, and use prepared statements."
 tags: [php, mysql, database, pdo, mysqli, crud]
 ---
 
-PHP can connect to MySQL databases to store, retrieve, update, and delete data. The two main approaches are **PDO** (PHP Data Objects) and **MySQLi**.
+php can connect to MySQL databases to store, retrieve, update, and delete data. The two main approaches are **PDO** (php Data Objects) and **MySQLi**.
 
 ## Connecting with PDO (Recommended)
 

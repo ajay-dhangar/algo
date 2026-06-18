@@ -1,9 +1,9 @@
 ---
 id: "exception-handling-in-php"
 sidebar_position: 18
-title: "Exception Handling in PHP"
+title: "Exception Handling in php"
 sidebar_label: "Exception Handling"
-description: "Learn how to handle errors and exceptions in PHP using try, catch, finally, throw, and custom exception classes."
+description: "Learn how to handle errors and exceptions in php using try, catch, finally, throw, and custom exception classes."
 tags: [php, exceptions, error-handling, try-catch]
 ---
 
@@ -14,7 +14,7 @@ Exception handling lets you deal with runtime errors gracefully without crashing
 ```php
 <?php
 try {
-    $result = 10 / 0; // This won't throw in PHP, but the concept applies
+    $result = 10 / 0; // This won't throw in php, but the concept applies
     throw new Exception("Something went wrong!");
 } catch (Exception $e) {
     echo "Caught: " . $e->getMessage();
@@ -36,7 +36,7 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();  // File not found
     echo $e->getCode();     // 404
-    echo $e->getFile();     // path to this PHP file
+    echo $e->getFile();     // path to this php file
     echo $e->getLine();     // line number of throw
     echo $e->getTraceAsString(); // stack trace
 }
@@ -149,7 +149,7 @@ try {
 
 * * *
 
-## Catching Multiple Exception Types (PHP 8)
+## Catching Multiple Exception Types (php 8)
 
 ```php
 <?php
@@ -187,7 +187,7 @@ try {
 
 * * *
 
-## Built-in PHP Exception Classes
+## Built-in php Exception Classes
 
 | Class | Use Case |
 |-------|----------|

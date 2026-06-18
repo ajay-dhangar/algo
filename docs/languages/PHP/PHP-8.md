@@ -1,13 +1,13 @@
 ---
 id: "strings-in-php"
 sidebar_position: 8
-title: "Strings in PHP"
+title: "Strings in php"
 sidebar_label: "Strings"
-description: "Learn how to work with strings in PHP including string functions, formatting, searching, replacing, and manipulation techniques."
+description: "Learn how to work with strings in php including string functions, formatting, searching, replacing, and manipulation techniques."
 tags: [php, strings, string-functions]
 ---
 
-A string is a sequence of characters. In PHP, strings can be written inside single quotes, double quotes, heredoc, or nowdoc syntax.
+A string is a sequence of characters. In php, strings can be written inside single quotes, double quotes, heredoc, or nowdoc syntax.
 
 ## Creating Strings
 
@@ -43,7 +43,7 @@ Useful for multi-line strings with variable interpolation:
 $name = "Alice";
 $text = <<<EOT
 Hello, $name!
-Welcome to PHP.
+Welcome to php.
 EOT;
 
 echo $text;
@@ -99,9 +99,9 @@ $str = "Hello World";
 
 echo strpos($str, "World");   // 6 (position)
 echo strrpos($str, "l");      // 9 (last occurrence)
-echo str_contains($str, "World"); // true (PHP 8+)
-echo str_starts_with($str, "Hello"); // true (PHP 8+)
-echo str_ends_with($str, "World");   // true (PHP 8+)
+echo str_contains($str, "World"); // true (php 8+)
+echo str_starts_with($str, "Hello"); // true (php 8+)
+echo str_ends_with($str, "World");   // true (php 8+)
 ?>
 ```
 
@@ -109,10 +109,10 @@ echo str_ends_with($str, "World");   // true (PHP 8+)
 
 ```php
 <?php
-echo str_replace("World", "PHP", "Hello World"); // Hello PHP
+echo str_replace("World", "php", "Hello World"); // Hello php
 
 // Case-insensitive replace
-echo str_ireplace("WORLD", "PHP", "Hello World"); // Hello PHP
+echo str_ireplace("WORLD", "php", "Hello World"); // Hello php
 ?>
 ```
 
@@ -197,8 +197,8 @@ echo str_pad("Hi", 10, "-", STR_PAD_BOTH); // ----Hi----
 
 ```php
 <?php
-echo str_word_count("Hello World PHP"); // 3
+echo str_word_count("Hello World php"); // 3
 ?>
 ```
 
-**Note:** In PHP, string indexes start at **0**. Use `$str[0]` to access the first character of a string.
+**Note:** In php, string indexes start at **0**. Use `$str[0]` to access the first character of a string.

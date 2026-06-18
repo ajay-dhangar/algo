@@ -1,13 +1,13 @@
 ---
 id: "functions-in-php"
 sidebar_position: 7
-title: "Functions in PHP"
+title: "Functions in php"
 sidebar_label: "Functions"
-description: "Functions in PHP are blocks of reusable code. Learn how to create, call, and use parameters, return values, and built-in functions."
+description: "Functions in php are blocks of reusable code. Learn how to create, call, and use parameters, return values, and built-in functions."
 tags: [php, functions, return, parameters]
 ---
 
-A function is a block of statements that can be reused repeatedly. PHP has over 1,000 built-in functions, and you can also create your own.
+A function is a block of statements that can be reused repeatedly. php has over 1,000 built-in functions, and you can also create your own.
 
 ## Creating a Function
 
@@ -89,7 +89,7 @@ echo $result; // 20
 
 * * *
 
-## Type Declarations (PHP 7+)
+## Type Declarations (php 7+)
 
 You can specify the type of arguments and return values:
 
@@ -169,7 +169,7 @@ echo $greet("Alice"); // Hello, Alice!
 
 * * *
 
-## Arrow Functions (PHP 7.4+)
+## Arrow Functions (php 7.4+)
 
 A shorter syntax for simple closures:
 

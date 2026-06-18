@@ -1,13 +1,13 @@
 ---
 id: "file-handling-in-php"
 sidebar_position: 17
-title: "File Handling in PHP"
+title: "File Handling in php"
 sidebar_label: "File Handling"
-description: "Learn how to create, read, write, append, and delete files in PHP using built-in file functions."
+description: "Learn how to create, read, write, append, and delete files in php using built-in file functions."
 tags: [php, file-handling, fopen, fread, fwrite]
 ---
 
-PHP provides built-in functions to create, read, write, and delete files on the server.
+php provides built-in functions to create, read, write, and delete files on the server.
 
 ## Opening a File
 
@@ -75,7 +75,7 @@ foreach ($lines as $line) {
 ### Overwrite (Write Mode)
 ```php
 <?php
-file_put_contents("output.txt", "Hello, PHP!\n");
+file_put_contents("output.txt", "Hello, php!\n");
 // Creates or overwrites the file
 ?>
 ```
