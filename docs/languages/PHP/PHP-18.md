@@ -81,7 +81,7 @@ Code in `finally` always runs, whether an exception occurred or not:
 
 ```php
 <?php
-function readFile($path) {
+function readCustomFile($path) {
     $file = fopen($path, "r");
 
     try {
