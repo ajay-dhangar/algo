@@ -237,7 +237,7 @@ const UserTestimonialsSection: React.FC = () => {
           </Link>
 
           <Link
-            to="/reviews"
+            to="/reviews#write-review"
             className="
               w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               px-8 py-4 rounded-full
