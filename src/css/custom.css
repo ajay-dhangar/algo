@@ -19,6 +19,11 @@
   --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
   --ifm-background-color: #f8fafc;
+
+  --announcement-bg-1: #f3e8ff;
+  --announcement-bg-2: #fff7ed;
+  --announcement-text: #4c1d95;
+  --announcement-border: #e9d5ff;
 }
 
 [data-theme="dark"] {  
@@ -31,6 +36,11 @@
   --ifm-color-primary-lightest: #fef9c3;  
   --ifm-background-color: #040414;
   --docusaurus-highlighted-code-line-bg: rgba(234, 179, 8, 0.15);
+  
+  --announcement-bg-1: #2e1065;
+  --announcement-bg-2: #431407;
+  --announcement-text: #f5f3ff;
+  --announcement-border: #4c1d95;
 }
 
 @keyframes pulseGlow {
@@ -42,33 +52,49 @@
   animation: pulseGlow 2s infinite ease-in-out;
 }
 
-div[class^="announcementBar_"] {
-  border-bottom: 1.8px dotted rgb(37, 184, 11);
-  font-weight: bold;
-  width: 100%;
-  height: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  font-size: 1.2rem;
+.theme-announcement-bar {
+  font-size: 18px;
+  font-weight: 600;
+  /* color: white; */
+  letter-spacing: 0.2px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--announcement-border);
+  position: relative;
+  overflow: hidden;
+
+  background: repeating-linear-gradient(
+    45deg,
+    var(--announcement-bg-1),
+    var(--announcement-bg-1) 20px,
+    var(--announcement-bg-2) 20px,
+    var(--announcement-bg-2) 40px
+  );
+  
+  background-size: 200% 200%;
+  animation: barberShopPole 15s linear infinite;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-div[class^="announcementBar_"] a {
-  color: var(--ifm-color-primary);
-  text-decoration: none;
+@keyframes barberShopPole {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
-div[class^="announcementBar_"] a:hover {
-  color: var(--ifm-color-primary-dark);
+.theme-announcement-bar a {
+  /* text-decoration: underline; */
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
 }
 
-[data-theme="dark"] div[class^="announcementBar_"] {
-  color: #e5e7eb;
-}
-
-div[class^="announcementBar_"] .clean-btn {
-  color: var(--ifm-color-primary);
-  opacity: 100%;
+.theme-announcement-bar a:hover {
+  opacity: 0.8;
 }
 
 .navbar {
@@ -193,7 +219,6 @@ button {
   overflow-wrap: break-word;
   word-break: break-word;
 }
-
 
 
 @media screen and (max-width: 768px) {
