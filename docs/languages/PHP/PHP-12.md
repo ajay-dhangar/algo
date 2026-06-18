@@ -33,8 +33,8 @@ Forms are the primary way users submit data to PHP scripts. PHP handles form dat
 **welcome.php:**
 ```php
 <?php
-$name  = $_POST['name'];
-$email = $_POST['email'];
+$name  = htmlspecialchars($_POST['name'] ?? '');
+$email = htmlspecialchars($_POST['email'] ?? '');
 
 echo "Welcome, $name!";
 echo "Your email is: $email";
