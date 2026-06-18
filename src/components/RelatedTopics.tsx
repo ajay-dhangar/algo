@@ -85,36 +85,7 @@ function TopicLink({ topic }: { topic?: string | null }) {
   return (
     <Link
       to={to}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "6px",
-        padding: "6px 16px",
-        borderRadius: "20px",
-        backgroundColor: "var(--ifm-color-emphasis-100, #f5f6f7)",
-        color: "var(--ifm-color-emphasis-800, #1c1e21)",
-        border: "1px solid var(--ifm-color-emphasis-300, #e3e6e8)",
-        fontSize: "0.9rem",
-        fontWeight: "500",
-        textDecoration: "none",
-        transition: "all 0.2s ease-in-out",
-        cursor: "pointer",
-      }}
-      // Pure CSS-in-JS pseudo-classes using standard element property injection
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = "var(--ifm-color-primary-lightest, #ebf5ff)";
-        e.currentTarget.style.borderColor = "var(--ifm-color-primary, #1890ff)";
-        e.currentTarget.style.color = "var(--ifm-color-primary, #1890ff)";
-        e.currentTarget.style.transform = "translateY(-1px)";
-        e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.05)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = "var(--ifm-color-emphasis-100, #f5f6f7)";
-        e.currentTarget.style.borderColor = "var(--ifm-color-emphasis-300, #e3e6e8)";
-        e.currentTarget.style.color = "var(--ifm-color-emphasis-800, #1c1e21)";
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
+      className="related-topic-link"
     >
       {/* Dynamic inline document icon */}
       <svg 
