@@ -105,7 +105,7 @@ class Solution {
 **Python**
 ```py
 class Solution:
-    def maxScore(self, cardPoints: List[int], k: int) -> int:
+    def maxScore(self, cardPoints: list[int], k: int) -> int:
         n = len(cardPoints)
         
         current_sum = sum(cardPoints[:k])
