@@ -199,7 +199,6 @@ const ReviewsPage: React.FC = () => {
           {/* Giscus Discussion Area */}
           <div
             id="forum-zone"
-            ref={forumZoneRef}
             className="mx-auto relative z-10"
           >
             <div className="bg-gradient-to-br from-white to-slate-100 dark:from-gray-900/40 dark:to-gray-900/10 border border-slate-200 dark:border-gray-800/80 rounded-2xl p-8 md:p-12 text-center mb-8 shadow-inner transition-all duration-300 hover:border-purple-500/30">
