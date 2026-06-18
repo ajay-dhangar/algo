@@ -36,12 +36,7 @@ const ReviewsGiscus: React.FC = () => {
 };
 
 const ReviewsPage: React.FC = () => {
-  const forumZoneRef = React.useRef<HTMLDivElement>(null);
   const [showReviewForm, setShowReviewForm] = React.useState(false);
-
-  const scrollToDiscussion = () => {
-    forumZoneRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const toggleReviewForm = () => {
     setShowReviewForm((prev) => !prev);
