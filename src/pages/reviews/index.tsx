@@ -104,7 +104,7 @@ const ReviewsPage: React.FC = () => {
           </div>
 
           {/* High-Interactive Gaming Card Grid Layout */}
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+          <div id="all-reviews" className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
             {testimonials.map((t, index) => (
               <div
                 key={index}
@@ -164,7 +164,7 @@ const ReviewsPage: React.FC = () => {
           </div>
 
           {/* Giscus Container Setup */}
-          <div id="forum-zone" className="mx-auto relative z-10">
+          <div id="write-review" ref={forumZoneRef} className="mx-auto relative z-10">
             <div className="bg-gradient-to-br from-white to-slate-100 dark:from-gray-900/40 dark:to-gray-900/10 border border-slate-200 dark:border-gray-800/80 rounded-2xl p-8 md:p-12 text-center mb-8 shadow-inner transition-all duration-300 hover:border-purple-500/30">
               <div className="inline-flex p-4 rounded-xl bg-[var(--ifm-color-primary)]/10 text-[var(--ifm-color-primary)] dark:text-cyan-400 dark:bg-cyan-500/10 mb-5 border border-[var(--ifm-color-primary)]/20 dark:border-cyan-500/20 relative group">
                 <span className="absolute inset-0 rounded-xl bg-cyan-400/20 scale-100 group-hover:scale-120 animate-ping [animation-duration:2s] opacity-50" />
