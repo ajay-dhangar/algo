@@ -1,7 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
 
-const ROWS = 20;
-const COLS = 30;
 const CELL_SIZE = 24;
 
 const CELL_EMPTY = 0;
@@ -19,16 +17,20 @@ const MODES = {
   ERASE: "erase",
 };
 
-function createEmptyGrid() {
-  return Array.from({ length: ROWS }, () => Array(COLS).fill(CELL_EMPTY));
+function createEmptyGrid(rows, cols) {
+  return Array.from({ length: rows }, () => Array(cols).fill(CELL_EMPTY));
 }
 
-function heuristic(a, b) {
-  // Manhattan distance
-  return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+function heuristic(a, b, allowDiagonal) {
+  const dx = Math.abs(a[0] - b[0]);
+  const dy = Math.abs(a[1] - b[1]);
+  if (allowDiagonal) {
+    return dx + dy + (Math.SQRT2 - 2) * Math.min(dx, dy);
+  }
+  return dx + dy;
 }
 
-function getNeighbors(row, col, grid) {
+function getNeighbors(row, col, grid, rows, cols, allowDiagonal) {
   const neighbors = [];
   const dirs = [
     [-1, 0],
@@ -36,10 +38,13 @@ function getNeighbors(row, col, grid) {
     [0, -1],
     [0, 1],
   ];
+  if (allowDiagonal) {
+    dirs.push([-1, -1], [-1, 1], [1, -1], [1, 1]);
+  }
   for (const [dr, dc] of dirs) {
     const nr = row + dr;
     const nc = col + dc;
-    if (nr >= 0 && nr < ROWS && nc >= 0 && nc < COLS && grid[nr][nc] !== CELL_WALL) {
+    if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && grid[nr][nc] !== CELL_WALL) {
       neighbors.push([nr, nc]);
     }
   }
@@ -103,7 +108,10 @@ function getCellSymbol(cell) {
 }
 
 export default function AStarVisualizer() {
-  const [grid, setGrid] = useState(createEmptyGrid);
+  const [numRows, setNumRows] = useState(20);
+  const [numCols, setNumCols] = useState(30);
+  const [allowDiagonal, setAllowDiagonal] = useState(false);
+  const [grid, setGrid] = useState(() => createEmptyGrid(20, 30));
   const [mode, setMode] = useState(MODES.WALL);
   const [startPos, setStartPos] = useState(null);
   const [endPos, setEndPos] = useState(null);
@@ -188,38 +196,101 @@ export default function AStarVisualizer() {
 
   const resetGrid = useCallback(() => {
     runIdRef.current++;
-    setGrid(createEmptyGrid());
+    setGrid(createEmptyGrid(numRows, numCols));
     setStartPos(null);
     setEndPos(null);
     setRunning(false);
     setStatus("Place a Start (S), End (E), and draw Walls. Then click Visualize.");
     setStats({ visited: 0, pathLen: 0, time: 0 });
-  }, []);
+  }, [numRows, numCols]);
+
+  React.useEffect(() => {
+    resetGrid();
+  }, [numRows, numCols, resetGrid]);
 
   const generateMaze = useCallback(() => {
     if (running) return;
-    const newGrid = createEmptyGrid();
-    // Random walls (~30%)
-    for (let r = 0; r < ROWS; r++) {
-      for (let c = 0; c < COLS; c++) {
-        if (Math.random() < 0.3) {
-          newGrid[r][c] = CELL_WALL;
+    runIdRef.current++;
+    
+    // Create grid full of walls
+    const newGrid = createEmptyGrid(numRows, numCols);
+    for (let r = 0; r < numRows; r++) {
+      for (let c = 0; c < numCols; c++) {
+        newGrid[r][c] = CELL_WALL;
+      }
+    }
+    
+    // Carve passages using recursive backtracking
+    const stack = [];
+    const startR = 1;
+    const startC = 1;
+    if (numRows > 2 && numCols > 2) {
+      newGrid[startR][startC] = CELL_EMPTY;
+      stack.push([startR, startC]);
+      
+      while (stack.length > 0) {
+        const [cr, cc] = stack[stack.length - 1];
+        const neighbors = [];
+        const dirs = [[-2, 0], [2, 0], [0, -2], [0, 2]];
+        
+        for (const [dr, dc] of dirs) {
+          const nr = cr + dr;
+          const nc = cc + dc;
+          if (nr > 0 && nr < numRows - 1 && nc > 0 && nc < numCols - 1 && newGrid[nr][nc] === CELL_WALL) {
+            neighbors.push([nr, nc, dr, dc]);
+          }
+        }
+        
+        if (neighbors.length > 0) {
+          const [nr, nc, dr, dc] = neighbors[Math.floor(Math.random() * neighbors.length)];
+          newGrid[cr + dr / 2][cc + dc / 2] = CELL_EMPTY;
+          newGrid[nr][nc] = CELL_EMPTY;
+          stack.push([nr, nc]);
+        } else {
+          stack.pop();
+        }
+      }
+    } else {
+      // Too small to generate maze, just clear it
+      for (let r = 0; r < numRows; r++) {
+        for (let c = 0; c < numCols; c++) {
+          newGrid[r][c] = CELL_EMPTY;
         }
       }
     }
-    // Place start & end
-    const sr = Math.floor(Math.random() * ROWS);
-    const sc = Math.floor(Math.random() * Math.floor(COLS / 3));
-    const er = Math.floor(Math.random() * ROWS);
-    const ec = COLS - 1 - Math.floor(Math.random() * Math.floor(COLS / 3));
-    newGrid[sr][sc] = CELL_START;
-    newGrid[er][ec] = CELL_END;
+    
+    // Find empty cells for start and end
+    const emptyCells = [];
+    for (let r = 0; r < numRows; r++) {
+      for (let c = 0; c < numCols; c++) {
+        if (newGrid[r][c] === CELL_EMPTY) {
+          emptyCells.push([r, c]);
+        }
+      }
+    }
+    
+    let sr = 0, sc = 0, er = 0, ec = 0;
+    if (emptyCells.length >= 2) {
+      const sIdx = Math.floor(Math.random() * emptyCells.length);
+      let eIdx = Math.floor(Math.random() * emptyCells.length);
+      while (eIdx === sIdx) {
+        eIdx = Math.floor(Math.random() * emptyCells.length);
+      }
+      [sr, sc] = emptyCells[sIdx];
+      [er, ec] = emptyCells[eIdx];
+      newGrid[sr][sc] = CELL_START;
+      newGrid[er][ec] = CELL_END;
+      setStartPos([sr, sc]);
+      setEndPos([er, ec]);
+    } else {
+      setStartPos(null);
+      setEndPos(null);
+    }
+    
     setGrid(newGrid);
-    setStartPos([sr, sc]);
-    setEndPos([er, ec]);
-    setStatus("Random maze generated! Click Visualize to run A*.");
+    setStatus("Recursive Backtracking Maze generated! Click Visualize.");
     setStats({ visited: 0, pathLen: 0, time: 0 });
-  }, [running]);
+  }, [running, numRows, numCols]);
 
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -251,7 +322,7 @@ export default function AStarVisualizer() {
     const endKey = `${endPos[0]},${endPos[1]}`;
 
     gScore.set(startKey, 0);
-    const startF = heuristic(startPos, endPos);
+    const startF = heuristic(startPos, endPos, allowDiagonal);
     openSet.set(startKey, { g: 0, f: startF, pos: startPos });
 
     let visitedCount = 0;
@@ -312,17 +383,22 @@ export default function AStarVisualizer() {
       }
 
       // Explore neighbors
-      const neighbors = getNeighbors(cr, cc, grid);
+      const neighbors = getNeighbors(cr, cc, grid, numRows, numCols, allowDiagonal);
       for (const [nr, nc] of neighbors) {
         const neighborKey = `${nr},${nc}`;
         if (closedSet.has(neighborKey)) continue;
 
-        const tentativeG = (gScore.get(currentKey) || 0) + 1;
+        let stepCost = 1;
+        if (allowDiagonal && cr !== nr && cc !== nc) {
+          stepCost = Math.SQRT2;
+        }
+
+        const tentativeG = (gScore.get(currentKey) || 0) + stepCost;
 
         if (tentativeG < (gScore.get(neighborKey) ?? Infinity)) {
           cameFrom.set(neighborKey, current.pos);
           gScore.set(neighborKey, tentativeG);
-          const f = tentativeG + heuristic([nr, nc], endPos);
+          const f = tentativeG + heuristic([nr, nc], endPos, allowDiagonal);
 
           openSet.set(neighborKey, { g: tentativeG, f, pos: [nr, nc] });
 
@@ -346,7 +422,7 @@ export default function AStarVisualizer() {
     setStats({ visited: visitedCount, pathLen: 0, time: elapsed });
     setStatus(`❌ No path found. Visited ${visitedCount} nodes (${elapsed}ms)`);
     setRunning(false);
-  }, [startPos, endPos, running, grid, speed, clearVisualization]);
+  }, [startPos, endPos, running, grid, speed, clearVisualization, numRows, numCols, allowDiagonal]);
 
   const modeButtons = [
     { key: MODES.START, label: "🟢 Start", color: "#22c55e" },
@@ -462,21 +538,54 @@ export default function AStarVisualizer() {
           Reset All
         </button>
 
-        {/* Speed control */}
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", marginLeft: "auto" }}>
-          <label style={{ fontSize: "0.8rem", color: "var(--ifm-color-emphasis-600)" }}>Speed:</label>
-          <input
-            type="range"
-            min={1}
-            max={100}
-            value={101 - speed}
-            onChange={(e) => setSpeed(101 - Number(e.target.value))}
-            disabled={running}
-            style={{ width: "80px", accentColor: "#3b82f6" }}
-          />
-          <span style={{ fontSize: "0.75rem", color: "var(--ifm-color-emphasis-500)", minWidth: "32px" }}>
-            {speed <= 10 ? "Fast" : speed <= 50 ? "Med" : "Slow"}
-          </span>
+        {/* Settings */}
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginLeft: "auto", flexWrap: "wrap" }}>
+          <label style={{ fontSize: "0.8rem", color: "var(--ifm-color-emphasis-600)", display: "flex", alignItems: "center", gap: "4px" }}>
+            Rows:
+            <input
+              type="number"
+              min={10}
+              max={50}
+              value={numRows}
+              onChange={(e) => setNumRows(Number(e.target.value))}
+              disabled={running}
+              style={{ width: "50px", background: "var(--ifm-color-emphasis-100)", border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "4px", color: "var(--ifm-font-color-base)", padding: "2px 4px" }}
+            />
+          </label>
+          <label style={{ fontSize: "0.8rem", color: "var(--ifm-color-emphasis-600)", display: "flex", alignItems: "center", gap: "4px" }}>
+            Cols:
+            <input
+              type="number"
+              min={10}
+              max={50}
+              value={numCols}
+              onChange={(e) => setNumCols(Number(e.target.value))}
+              disabled={running}
+              style={{ width: "50px", background: "var(--ifm-color-emphasis-100)", border: "1px solid var(--ifm-color-emphasis-300)", borderRadius: "4px", color: "var(--ifm-font-color-base)", padding: "2px 4px" }}
+            />
+          </label>
+          <label style={{ fontSize: "0.8rem", color: "var(--ifm-color-emphasis-600)", display: "flex", alignItems: "center", gap: "4px", cursor: running ? "not-allowed" : "pointer" }}>
+            <input
+              type="checkbox"
+              checked={allowDiagonal}
+              onChange={(e) => setAllowDiagonal(e.target.checked)}
+              disabled={running}
+              style={{ accentColor: "#3b82f6", cursor: running ? "not-allowed" : "pointer" }}
+            />
+            Diagonal
+          </label>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+            <label style={{ fontSize: "0.8rem", color: "var(--ifm-color-emphasis-600)" }}>Speed:</label>
+            <input
+              type="range"
+              min={1}
+              max={100}
+              value={101 - speed}
+              onChange={(e) => setSpeed(101 - Number(e.target.value))}
+              disabled={running}
+              style={{ width: "70px", accentColor: "#3b82f6" }}
+            />
+          </div>
         </div>
       </div>
 
@@ -491,8 +600,8 @@ export default function AStarVisualizer() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: `repeat(${COLS}, ${CELL_SIZE}px)`,
-            gridTemplateRows: `repeat(${ROWS}, ${CELL_SIZE}px)`,
+            gridTemplateColumns: `repeat(${numCols}, ${CELL_SIZE}px)`,
+            gridTemplateRows: `repeat(${numRows}, ${CELL_SIZE}px)`,
             gap: "0px",
             width: "fit-content",
             userSelect: "none",
