@@ -109,7 +109,11 @@ function TopicLink({ topic }: { topic?: string | null }) {
   );
 }
 
-export default function RelatedTopics({ topics = [] }) {
+interface RelatedTopicsProps {
+  topics?: string[];
+}
+
+export default function RelatedTopics({ topics = [] }: RelatedTopicsProps) {
   // Gracefully filter missing topics before rendering
   const validTopics = topics.filter(topic => !!convertTopicToPath(topic));
 
