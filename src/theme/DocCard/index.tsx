@@ -1,4 +1,7 @@
 import React, {type ReactNode} from 'react';
+import clsx from 'clsx';
+import Translate from '@docusaurus/Translate';
+import {ThemeClassNames} from '@docusaurus/theme-common';
 import {
   useDocById,
   findFirstSidebarItemLink,
@@ -9,7 +12,8 @@ import {
 } from '@docusaurus/theme-common/internal';
 import isInternalUrl from '@docusaurus/isInternalUrl';
 import Layout from '@theme/DocCard/Layout';
-import Link from '@docusaurus/Link'; // Added for smooth SPA routing
+import Link from '@docusaurus/Link';
+import cardStyles from './Layout/styles.module.css';
 
 import type {Props} from '@theme/DocCard';
 import type {
@@ -47,14 +51,18 @@ function CardCategory({item}: {item: PropSidebarItemCategory}): ReactNode {
   }
 
   const { icon, title } = getIconTitleProps(item);
-  const itemCountText = categoryItemsPlural(item.items.length);
-  // Pulls your custom description from the _category_.json file
-  const customDescription = item.customProps?.description || item.description;
+  const itemCountText = categoryItemsPlural(item.items?.length ?? 0);
+  const customDescription = item.customProps?.description;
 
   return (
     <Link
       href={href}
-      className={`card padding--lg ${item.className || ''}`}
+      className={clsx(
+        'card padding--lg',
+        ThemeClassNames.docs.docCard.container,
+        cardStyles.cardContainer,
+        item.className,
+      )}
       style={{ display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none' }}
     >
       {/* Header: Icon & Title */}
@@ -77,7 +85,11 @@ function CardCategory({item}: {item: PropSidebarItemCategory}): ReactNode {
 
       {/* Persistent CTA Button */}
       <div style={{ marginTop: 'auto', fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--ifm-color-primary)' }}>
-        Learn More &rarr;
+        <Translate
+          id="theme.DocCard.categoryDescription.learnMore"
+          description="The label for the link to a category page from a card">
+          Learn More →
+        </Translate>
       </div>
     </Link>
   );
