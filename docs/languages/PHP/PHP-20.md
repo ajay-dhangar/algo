@@ -109,7 +109,7 @@ $stmt = $pdo->query("SELECT * FROM users");
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($users as $user) {
-    echo $user['id'] . " - " . $user['name'] . " - " . $user['email'] . "<br>";
+    echo htmlspecialchars($user['id']) . " - " . htmlspecialchars($user['name']) . " - " . htmlspecialchars($user['email']) . "<br>";
 }
 ?>
 ```

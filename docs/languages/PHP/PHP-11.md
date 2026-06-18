@@ -90,7 +90,7 @@ Collects data submitted via an HTML form with `method="post"`:
 ```php
 <?php
 // process.php
-$username = $_POST['username'];
+$username = htmlspecialchars($_POST['username'] ?? '');
 echo "Hello, $username!";
 ?>
 ```

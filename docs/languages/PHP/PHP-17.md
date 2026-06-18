@@ -48,13 +48,13 @@ echo $content;
 ```php
 <?php
 $file = fopen("data.txt", "r");
-
-while (!feof($file)) {
-    $line = fgets($file);
-    echo $line . "<br>";
+if ($file) {
+    while (!feof($file)) {
+        $line = fgets($file);
+        echo htmlspecialchars($line) . "<br>";
+    }
+    fclose($file);
 }
-
-fclose($file);
 ?>
 ```
 
