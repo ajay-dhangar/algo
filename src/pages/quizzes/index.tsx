@@ -35,8 +35,8 @@ const QUIZZES_CONFIG: QuizCardConfig[] = [
     title: "Quiz on Queues",
     category: "Linear",
     description: "Challenge your skills on asynchronous FIFO task piping, sliding window architectures, priority schedulers, and circular double-ended buffers.",
-    path: "/quizzes/queues",
-    questionCount: 10
+    path: "/quizzes/queue",
+    questionCount: 16
   },
   {
     id: "binary-trees",

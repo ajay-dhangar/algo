@@ -116,8 +116,96 @@ const QUESTIONS: QueueQuestion[] = [
     options: ["A) Deque (Double-ended Queue)", "B) Circular Queue", "C) Priority Queue", "D) Shuffle-Queue"],
     answer: "D) Shuffle-Queue",
     explanation: "Standard queues focus on order preservation (FIFO or Priority). Shuffling (randomizing order) is an operation typically associated with Lists or Collections, not the Queue interface."
+  },
+  {
+    id: 9,
+    difficulty: "Easy",
+    questionText: "What will happen if you attempt to dequeue an item from a queue that is currently empty?",
+    options: [
+      "A) The operation returns null and continues",
+      "B) It typically triggers a Queue Underflow error/exception",
+      "C) The operation returns undefined",
+      "D) No operation is performed and state remains same"
+    ],
+    answer: "B) It typically triggers a Queue Underflow error/exception",
+    explanation: "Attempting to remove an element from an empty data structure is a boundary case known as underflow. In most robust implementations, this throws an exception to prevent logic errors."
+  },
+  {
+    id: 10,
+    difficulty: "Easy",
+    questionText: "In a circular queue implementation, what is the primary structural benefit compared to a standard linear array queue?",
+    options: [
+      "A) It consumes more memory for faster buffering",
+      "B) It provides faster O(log n) access time",
+      "C) It allows for efficient reuse of empty spaces (space efficiency)",
+      "D) It is significantly simpler to implement with pointers"
+    ],
+    answer: "C) It allows for efficient reuse of empty spaces (space efficiency)",
+    explanation: "Linear queues can suffer from 'false overflow' where space at the front is wasted after dequeues. Circular queues wrap the rear pointer back to the start, utilizing every available slot."
+  },
+  {
+    id: 11,
+    difficulty: "Medium",
+    questionText: "Consider the following sequence of operations. What values will be returned by the two dequeue() calls respectively?",
+    codeSnippet: `enqueue(1);\nenqueue(2);\nenqueue(3);\ndequeue();\nenqueue(4);\ndequeue();`,
+    options: ["A) 1, 2", "B) 1, 3", "C) 2, 4", "D) 3, 4"],
+    answer: "A) 1, 2",
+    explanation: "Queues follow First-In-First-Out (FIFO). The first dequeue removes the first item added (1). The second dequeue removes the next item that was in line (2), regardless of the fact that 4 was added later."
+  },
+  {
+    id: 12,
+    difficulty: "Easy",
+    questionText: "Which of the following data structures can be used as the underlying foundation to implement a Queue?",
+    options: ["A) Static Arrays", "B) Singly or Doubly Linked Lists", "C) Stacks (using two of them)", "D) All of the above"],
+    answer: "D) All of the above",
+    explanation: "Queues are abstract data types. While Arrays and Linked Lists are common, you can even simulate FIFO behavior using two LIFO Stacks."
+  },
+  {
+    id: 13,
+    difficulty: "Medium",
+    questionText: "What is the time complexity of the enqueue and dequeue operations in an optimized Linked List-based queue?",
+    options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
+    answer: "A) O(1)",
+    explanation: "By maintaining both a 'Head' and a 'Tail' pointer, we can add to the back and remove from the front in constant time without traversing the list."
+  },
+  {
+    id: 14,
+    difficulty: "Hard",
+    questionText: "Examine this pseudocode snippet. Which operation does it accurately represent in a typical array-based implementation?",
+    codeSnippet: `if (front == -1) {\n    front = 0;\n}\nrear++;\nqueue[rear] = value;`,
+    options: [
+      "A) Dequeue Operation",
+      "B) Peek Operation",
+      "C) Enqueue Operation",
+      "D) IsEmpty Check"
+    ],
+    answer: "C) Enqueue Operation",
+    explanation: "This code handles the insertion logic: initializing the front pointer if the queue was empty, incrementing the rear index, and placing the new value at that position."
+  },
+  {
+    id: 15,
+    difficulty: "Medium",
+    questionText: "In a Priority Queue, how is the order of element removal (dequeue) determined?",
+    options: [
+      "A) Strictly by the order of arrival (FIFO)",
+      "B) Based on the priority level associated with each element",
+      "C) Based on the alphabetical order of the data",
+      "D) By the physical memory address of the node"
+    ],
+    answer: "B) Based on the priority level associated with each element",
+    explanation: "A Priority Queue breaks the standard FIFO rule. Elements with higher priority are dequeued before elements with lower priority, regardless of when they entered the queue."
+  },
+  {
+    id: 16,
+    difficulty: "Hard",
+    questionText: "If a queue is initially empty, what is the current 'Front' element after this specific sequence?",
+    codeSnippet: `enqueue(10);\nenqueue(20);\ndequeue();\nenqueue(30);`,
+    options: ["A) 10", "B) 20", "C) 30", "D) The queue is empty"],
+    answer: "B) 20",
+    explanation: "1. Enqueue 10 (Front: 10). 2. Enqueue 20 (Front: 10, Rear: 20). 3. Dequeue removes 10. 4. Front moves to 20. 5. Enqueue 30 (Front remains 20, Rear becomes 30)."
   }
 ];
+
 
 const QueueQuiz: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);

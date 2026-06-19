@@ -93,7 +93,7 @@ const ArrayVisualizations: React.FC = () => {
       <div className="flex justify-center items-end h-72">
         {array.map((value, index) => (
           <div
-            key={value}
+            key={index}
             className={`w-8 mx-1 bg-blue-500 transition-all duration-300
               ${index === minIndex ? "bg-red-500" : ""}
               ${index === currentIndex ? "bg-yellow-300" : ""}`}
