@@ -1,4 +1,22 @@
-.cardTitle {
-  display: inline-flex;
+.cardHeaderContainer {
+  display: flex;
+  align-items: center; /* Ensures icon and text are perfectly centered vertically */
+  gap: 4px; /* Tiny buffer space between containers */
+  width: 100%;
+  margin-bottom: 12px; /* Smooth spacing before card description/body */
+}
+
+/* Isolators to prevent layout shifting or accidental squishing */
+.iconWrapper {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.textWrapper {
+  display: flex;
+  align-items: center;
+  min-width: 0; /* Critical for CSS text-truncation safety inside flexbox layouts */
+  flex-grow: 1;
 }
