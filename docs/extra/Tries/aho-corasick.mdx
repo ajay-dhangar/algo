@@ -1,0 +1,29 @@
+---
+id: aho-corasick-intro
+sidebar_position: 12
+title: Aho-Corasick Algorithm
+sidebar_label: Aho-Corasick
+description: "Learn about the Aho-Corasick string matching algorithm, Trie construction, failure links, and multi-pattern searches."
+tags: [dsa, data structures, tries, string-matching]
+---
+
+import { AhoCorasickVisualizer } from '@site/src/components/Visualizing/AhoCorasickVisualizer';
+
+The **Aho-Corasick Algorithm** is a powerful string-searching algorithm that locates elements of a finite set of strings (the dictionary/patterns) within an input text. Unlike algorithms that search for one pattern at a time, Aho-Corasick searches for all patterns simultaneously in $O(n + m + z)$ time, where $n$ is the length of the text, $m$ is the combined length of all patterns, and $z$ is the number of matching occurrences.
+
+It accomplishes this by building a **Trie with failure links** and **output links**, converting the Trie into a directed acyclic graph/finite state machine.
+
+<AhoCorasickVisualizer />
+
+## How Aho-Corasick Works
+
+The algorithm consists of two main phases:
+1. **Trie Construction**: All dictionary patterns are inserted into a standard Trie prefix tree.
+2. **Failure Links Construction**: Broadly speaking, the failure link of a node represents the longest proper suffix of the prefix represented by that node which is also a prefix of some pattern in the Trie. This is built using a Breadth-First Search (BFS) traversal.
+3. **Searching**: The text is parsed character-by-character. If no child matches the current character, the search follows the failure link, avoiding backtracking.
+
+## Complexity
+
+- **Pre-processing Time**: $O(m)$ where $m$ is the sum of the lengths of all patterns.
+- **Matching/Search Time**: $O(n + z)$ where $n$ is the length of the text and $z$ is the number of matches.
+- **Space Complexity**: $O(m \times \Sigma)$ where $\Sigma$ is the size of the alphabet.
