@@ -178,7 +178,7 @@ const LargestRectangleInHistogramVisualizer = () => {
                     <input 
                         type="text" 
                         defaultValue={JSON.stringify(heights)}
-                        onKeyPress={(e) => { if (e.key === 'Enter') handleArrayChange(e); }}
+                        onKeyDown={(e) => { if (e.key === 'Enter') handleArrayChange(e); }}
                         onBlur={handleArrayChange}
                         className={`p-2 text-sm font-mono border rounded w-full ${error ? 'border-red-500 focus:outline-red-500' : ''}`}
                     />
