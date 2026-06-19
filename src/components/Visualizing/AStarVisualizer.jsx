@@ -383,7 +383,7 @@ export default function AStarVisualizer() {
       }
 
       // Explore neighbors
-      const neighbors = getNeighbors(cr, cc, grid, numRows, numCols, allowDiagonal);
+      const neighbors = getNeighbors(cr, cc, grid, allowDiagonal);
       for (const [nr, nc] of neighbors) {
         const neighborKey = `${nr},${nc}`;
         if (closedSet.has(neighborKey)) continue;
