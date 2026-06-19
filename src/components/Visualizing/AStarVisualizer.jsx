@@ -422,7 +422,7 @@ export default function AStarVisualizer() {
     setStats({ visited: visitedCount, pathLen: 0, time: elapsed });
     setStatus(`❌ No path found. Visited ${visitedCount} nodes (${elapsed}ms)`);
     setRunning(false);
-  }, [startPos, endPos, running, grid, speed, clearVisualization, numRows, numCols, allowDiagonal]);
+  }, [startPos, endPos, running, grid, speed, clearVisualization, allowDiagonal]);
 
   const modeButtons = [
     { key: MODES.START, label: "🟢 Start", color: "#22c55e" },
