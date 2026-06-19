@@ -1,11 +1,24 @@
-{    
-    "label": "C++",
-    "position": 3,
-    "link": {
-      "type": "generated-index",
-      "title": "C++ Programming Language",
-      "slug": "/category/cpp",
-      "description": "Explore the C++ programming language, including its syntax, features, and best practices for writing efficient and maintainable code. Learn about C++'s support for object-oriented programming, templates, and the Standard Template Library (STL). Whether you're a beginner or an experienced programmer, this section will help you master C++ and leverage its powerful capabilities for your projects.",
-      "keywords": ["C++ programming", "C++ syntax", "C++ features", "C++ best practices", "object-oriented programming in C++", "C++ templates", "C++ STL", "Standard Template Library", "C++ programming language"]
-    }
+{
+  "label": "C++",
+  "position": 2,
+  "customProps": {
+    "description": "The heavy lifter of the software world! Used to build massive 3D games, operating systems, and lightning-fast applications where performance is everything."
+  },
+  "link": {
+    "type": "generated-index",
+    "title": "C++ Programming Language",
+    "slug": "/category/cpp",
+    "description": "Explore the C++ programming language, including its syntax, features, and best practices for writing efficient and maintainable code. Learn about C++'s support for object-oriented programming, templates, and the Standard Template Library (STL). Whether you're a beginner or an experienced programmer, this section will help you master C++ and leverage its powerful capabilities for your projects.",
+    "keywords": [
+      "C++ programming", 
+      "C++ syntax", 
+      "C++ features", 
+      "C++ best practices", 
+      "object-oriented programming in C++", 
+      "C++ templates", 
+      "C++ STL", 
+      "Standard Template Library", 
+      "C++ programming language"
+    ]
   }
+}
