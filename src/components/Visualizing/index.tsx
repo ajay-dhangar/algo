@@ -161,13 +161,13 @@ const DSARoadmap: React.FC = () => {
 
     for (let i = 0; i < n1; i++) {
       await waitforme(delay, signal);
-      arr[left + i].color = "orange";
+      arr[left + i] = { ...arr[left + i], color: "orange" };
       leftArr[i] = arr[left + i].value;
       setBars([...arr]);
     }
     for (let j = 0; j < n2; j++) {
       await waitforme(delay, signal);
-      arr[mid + 1 + j].color = "yellow";
+      arr[mid + 1 + j] = { ...arr[mid + 1 + j], color: "yellow" };
       rightArr[j] = arr[mid + 1 + j].value;
       setBars([...arr]);
     }
@@ -177,12 +177,10 @@ const DSARoadmap: React.FC = () => {
     while (i < n1 && j < n2) {
       await waitforme(delay, signal);
       if (leftArr[i] <= rightArr[j]) {
-        arr[k].value = leftArr[i];
-        arr[k].color = "lightgreen";
+        arr[k] = { ...arr[k], value: leftArr[i], color: "lightgreen" };
         i++;
       } else {
-        arr[k].value = rightArr[j];
-        arr[k].color = "lightgreen";
+        arr[k] = { ...arr[k], value: rightArr[j], color: "lightgreen" };
         j++;
       }
       k++;
@@ -190,16 +188,14 @@ const DSARoadmap: React.FC = () => {
     }
     while (i < n1) {
       await waitforme(delay, signal);
-      arr[k].value = leftArr[i];
-      arr[k].color = "lightgreen";
+      arr[k] = { ...arr[k], value: leftArr[i], color: "lightgreen" };
       i++;
       k++;
       setBars([...arr]);
     }
     while (j < n2) {
       await waitforme(delay, signal);
-      arr[k].value = rightArr[j];
-      arr[k].color = "lightgreen";
+      arr[k] = { ...arr[k], value: rightArr[j], color: "lightgreen" };
       j++;
       k++;
       setBars([...arr]);
@@ -218,7 +214,7 @@ const DSARoadmap: React.FC = () => {
     await mergeSortHelper(arr, 0, arr.length - 1, signal);
     // Color them all green when done
     for (let i = 0; i < arr.length; i++) {
-      arr[i].color = SORTED_COLOR;
+      arr[i] = { ...arr[i], color: SORTED_COLOR };
     }
     setBars([...arr]);
   };
