@@ -108,10 +108,10 @@ function getCellSymbol(cell) {
 }
 
 export default function AStarVisualizer() {
-  const [numRows, setNumRows] = useState(20);
-  const [numCols, setNumCols] = useState(30);
+  const [numRows, setNumRows] = useState(DEFAULT_ROWS);
+  const [numCols, setNumCols] = useState(DEFAULT_COLS);
   const [allowDiagonal, setAllowDiagonal] = useState(false);
-  const [grid, setGrid] = useState(() => createEmptyGrid(20, 30));
+  const [grid, setGrid] = useState(() => createEmptyGrid(DEFAULT_ROWS, DEFAULT_COLS));
   const [mode, setMode] = useState(MODES.WALL);
   const [startPos, setStartPos] = useState(null);
   const [endPos, setEndPos] = useState(null);
