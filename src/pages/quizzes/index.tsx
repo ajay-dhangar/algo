@@ -38,6 +38,46 @@ const QUIZZES_CONFIG: QuizCardConfig[] = [
     path: "/quizzes/queues",
     questionCount: 10
   },
+   {
+    id: "linked-lists",
+    title: "Quiz on Linked Lists",
+    category: "Linear",
+    description: "Test your grasp of singly, doubly, and circular linked list structures, pointer-based operations, and traversal/complexity trade-offs.",
+    path: "/quizzes/linked-list",
+    questionCount: 12
+  },
+  {
+    id: "deques",
+    title: "Quiz on Deques",
+    category: "Linear",
+    description: "Evaluate your understanding of double-ended queue operations, sliding window applications, and front/rear insertion-deletion complexity.",
+    path: "/quizzes/deque",
+    questionCount: 12
+  },
+  {
+    id: "priority-queues",
+    title: "Quiz on Priority Queues",
+    category: "Linear",
+    description: "Test your knowledge of heap-based priority scheduling, min/max-heap operations, and real-world applications like Dijkstra's algorithm.",
+    path: "/quizzes/priority-queue",
+    questionCount: 12
+  },
+  {
+    id: "linear-search",
+    title: "Quiz on Linear Search",
+    category: "Linear",
+    description: "Assess your understanding of sequential search mechanics, best/average/worst case analysis, and when linear search is the right tool.",
+    path: "/quizzes/linear-search",
+    questionCount: 12
+  },
+  {
+    id: "recursion",
+    title: "Quiz on Recursion Fundamentals",
+    category: "Linear",
+    description: "Examine call stack behavior, base and recursive case design, and the time/space complexity implications of recursive algorithms.",
+    path: "/quizzes/recursion",
+    questionCount: 12
+  },
   {
     id: "binary-trees",
     title: "Quiz on Binary Trees",
@@ -70,6 +110,7 @@ const QUIZZES_CONFIG: QuizCardConfig[] = [
     path: "/quizzes/red-black-tree",
     questionCount: 8
   },
+
   {
     id: "b-trees",
     title: "Quiz on B-Trees",

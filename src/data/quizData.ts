@@ -35,6 +35,36 @@ const quizData = [
     link: "/quiz-solutions/red-black-trees/",
   },
   {
+    title: "Linked Lists Quiz Solutions",
+    description:
+      "Test your grasp of singly, doubly, and circular linked list structures and operations.",
+    link: "/quiz-solutions/linked-lists/",
+  },
+  {
+    title: "Deque Quiz Solutions",
+    description:
+      "Evaluate your understanding of double-ended queue operations and applications.",
+    link: "/quiz-solutions/deques/",
+  },
+  {
+    title: "Priority Queue Quiz Solutions",
+    description:
+      "Test your knowledge of heap-based priority scheduling and real-world applications.",
+    link: "/quiz-solutions/priority-queues/",
+  },
+  {
+    title: "Linear Search Quiz Solutions",
+    description:
+      "Assess your understanding of sequential search mechanics and complexity analysis.",
+    link: "/quiz-solutions/linear-search/",
+  },
+  {
+    title: "Recursion Fundamentals Quiz Solutions",
+    description:
+      "Examine call stack behavior, base/recursive cases, and recursive complexity.",
+    link: "/quiz-solutions/recursion/",
+  },
+  {
     title: "B-Trees Quiz Solutions",
     description:
       "Test your understanding of B-Tree properties and their applications.",
