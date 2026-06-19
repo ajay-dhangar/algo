@@ -600,8 +600,8 @@ export default function AStarVisualizer() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: `repeat(${numCols}, ${CELL_SIZE}px)`,
-            gridTemplateRows: `repeat(${numRows}, ${CELL_SIZE}px)`,
+            gridTemplateColumns: `repeat(${grid[0]?.length || 0}, ${CELL_SIZE}px)`,
+            gridTemplateRows: `repeat(${grid.length || 0}, ${CELL_SIZE}px)`,
             gap: "0px",
             width: "fit-content",
             userSelect: "none",
