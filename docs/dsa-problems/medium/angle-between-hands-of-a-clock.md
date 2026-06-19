@@ -51,9 +51,9 @@ public:
         double minute_angle = minutes * 6.0;
         double hour_angle = (hour % 12) * 30.0 + minutes * 0.5;
         
-        double diff = abs(hour_angle - minute_angle);
+        double diff = std::abs(hour_angle - minute_angle);
         
-        return min(diff, 360.0 - diff);
+        return std::min(diff, 360.0 - diff);
     }
 };
 ```
