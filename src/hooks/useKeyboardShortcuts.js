@@ -5,6 +5,10 @@ import { useHistory } from "@docusaurus/router";
 const SEQUENTIAL_SHORTCUTS = {
   gh: "/",
   gd: "/docs",
+  gp: "/playground",
+  gl: "/leaderboard",
+  gb: "/blog",
+  gq: "/quizzes",
 };
 
 const SEARCH_SELECTORS = [
