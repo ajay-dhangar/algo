@@ -71,6 +71,30 @@ const quizData = [
     link: "/quiz-solutions/b-trees/",
   },
   {
+    title: "B+ Tree Quiz Solutions",
+    description:
+      "Test your knowledge of internal vs leaf node organization, range queries, and database indexing.",
+    link: "/quiz-solutions/bplus-trees/",
+  },
+  {
+    title: "ISAM Quiz Solutions",
+    description:
+      "Evaluate static indexing concepts, overflow pages, and comparisons with B-Trees.",
+    link: "/quiz-solutions/isam/",
+  },
+  {
+    title: "Hash Indexing Quiz Solutions",
+    description:
+      "Test your understanding of static/dynamic hashing, extendible/linear hashing, and collision handling.",
+    link: "/quiz-solutions/hash-indexing/",
+  },
+  {
+    title: "External Hashing Quiz Solutions",
+    description:
+      "Assess your knowledge of bucket organization, disk block management, and overflow handling.",
+    link: "/quiz-solutions/external-hashing/",
+  },
+  {
     title: "Graphs Quiz Solutions",
     description:
       "Test your knowledge of graph types, BFS, DFS, adjacency representations, and real-world graph applications.",
