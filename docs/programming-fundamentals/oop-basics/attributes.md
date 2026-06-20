@@ -1,52 +1,48 @@
-\---
+---
 
 id: attributes
 
 title: "Attributes"
 
-sidebar\_label: "Attributes"
+sidebar_label: "Attributes"
 
-sidebar\_position: 7
+sidebar_position: 7
 
 description: "Deep dive into attributes (data members) in C++ classes: object state, fields vs properties, getters/setters, and encapsulation techniques."
 
-tags: \[Attributes, Data-Members, Encapsulation, Getters-Setters, OOP]
+tags: [Attributes, Data-Members, Encapsulation, Getters-Setters, OOP]
 
-\---
+---
 
 
-
-\# Attributes in C++
+# Attributes in C++
 
 
 
 Attributes, also known as data members or fields, represent the state of an object in a C++ class. They store the data that defines an object's characteristics and enable data encapsulation.
 
 
-
-\---
-
+---
 
 
-\## 1. Introduction to Attributes
+## 1. Introduction to Attributes
 
 
-
-\*\*Definition:\*\*
+**Definition:**
 
 Attributes are variables declared inside a class that hold the data (state) of objects created from that class.
 
 
 
-\*\*Key Concepts:\*\*
+**Key Concepts:**
 
-\- \*\*Object State:\*\* The current values of all attributes of an object.
+- **Object State:** The current values of all attributes of an object.
 
-\- \*\*Data Representation:\*\* How real-world entities are modeled using primitive or complex data types within a class.
+- **Data Representation:** How real-world entities are modeled using primitive or complex data types within a class.
 
 
 
-\*\*Syntax:\*\*
+**Syntax:**
 
 ```cpp
 
@@ -63,14 +59,13 @@ class ClassName {
 ```
 
 
-
-\*\*Example - Basic Attributes:\*\*
+**Example - Basic Attributes:**
 
 ```cpp
 
-\#include <iostream>
+#include <iostream>
 
-\#include <string>
+#include <string>
 
 using namespace std;
 
@@ -115,8 +110,7 @@ int main() {
 ```
 
 
-
-\*\*Output:\*\*
+**Output:**
 
 ```text
 
@@ -128,13 +122,10 @@ GPA: 9.2
 
 ```
 
+---
 
 
-\---
-
-
-
-\## 2. Fields vs Properties
+## 2. Fields vs Properties
 
 
 
@@ -158,15 +149,13 @@ In C++, the concept is primarily \*\*fields\*\* (data members). "Properties" is 
 
 
 
-\*\*Recommendation:\*\* Prefer private fields + public getters/setters for better design.
+**Recommendation:** Prefer private fields + public getters/setters for better design.
 
 
-
-\---
-
+---
 
 
-\## 3. Getters and Setters
+## 3. Getters and Setters
 
 
 
@@ -176,13 +165,13 @@ Setters (mutators) modify attribute values with optional validation.
 
 
 
-\*\*Example:\*\*
+**Example:**
 
 ```cpp
 
-\#include <iostream>
+#include <iostream>
 
-\#include <string>
+#include <string>
 
 using namespace std;
 
@@ -260,7 +249,7 @@ int main() {
 
 
 
-\*\*Output:\*\*
+**Output:**
 
 ```text
 
@@ -272,21 +261,17 @@ Balance after deposit: 6500
 
 
 
-\*\*Benefits of Getters/Setters:\*\*
+**Benefits of Getters/Setters:**
 
-\- Control read/write access
-
-\- Add validation logic
-
-\- Enable future changes without breaking client code (interface remains same)
+- Control read/write access
+- Add validation logic
+- Enable future changes without breaking client code (interface remains same)
 
 
-
-\---
-
+---
 
 
-\## 4. Data Encapsulation Techniques
+## 4. Data Encapsulation Techniques
 
 
 
@@ -294,7 +279,7 @@ Encapsulation is the bundling of data (attributes) and methods that operate on t
 
 
 
-\### Access Specifiers for Encapsulation
+### Access Specifiers for Encapsulation
 
 | Specifier   | Class | Derived Class | Outside Class | Use Case |
 
@@ -308,27 +293,27 @@ Encapsulation is the bundling of data (attributes) and methods that operate on t
 
 
 
-\*\*Best Practice:\*\* Make data members `private` and expose them only through public methods.
+**Best Practice:** Make data members `private` and expose them only through public methods.
 
 
 
-\*\*Advanced Encapsulation Techniques:\*\*
+**Advanced Encapsulation Techniques:**
 
 
 
-1\. \*\*Immutable Objects\*\* - Use `const` and delete setters
+1. **Immutable Objects** - Use `const` and delete setters
 
-2\. \*\*PImpl Idiom\*\* - Hide implementation details
+2. **PImpl Idiom** - Hide implementation details
 
-3\. \*\*Const Correctness\*\* - Use `const` member functions for getters
+3. **Const Correctness** - Use `const` member functions for getters
 
 
 
-\*\*Example - Strong Encapsulation:\*\*
+**Example - Strong Encapsulation:**
 
 ```cpp
 
-\#include <iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -364,9 +349,9 @@ public:
 
 &#x20;       if (factor > 0) {
 
-&#x20;           length \*= factor;
+&#x20;           length *= factor;
 
-&#x20;           width \*= factor;
+&#x20;           width *= factor;
 
 &#x20;       }
 
@@ -393,8 +378,7 @@ int main() {
 ```
 
 
-
-\*\*Output:\*\*
+**Output:**
 
 ```text
 
@@ -404,51 +388,42 @@ Area after scaling: 60
 
 ```
 
-
-
-\---
-
-
-
-\## 5. Best Practices for Attributes
+---
 
 
 
-\- \*\*Prefer Initialization\*\* in constructors over assignment.
-
-\- \*\*Use `const`\*\* for attributes that should not change after construction.
-
-\- \*\*Avoid public data members\*\* unless in simple data structs (`struct`).
-
-\- \*\*Group related attributes\*\* logically.
-
-\- \*\*Minimize class size\*\* - only store necessary state.
-
-\- \*\*Use meaningful names\*\* (e.g., `customerEmail` instead of `e`).
-
-\- \*\*Consider `std::string` vs C-strings\*\* for text attributes.
-
-\- \*\*Thread safety\*\* - protect shared mutable state when needed.
+## 5. Best Practices for Attributes
 
 
+- **Prefer Initialization** in constructors over assignment.
 
-\*\*Why Encapsulation Matters:\*\*
+- **Use `const`** for attributes that should not change after construction.
 
-\- Protects object integrity
+- **Avoid public data members** unless in simple data structs (`struct`).
 
-\- Reduces coupling between classes
+- **Group related attributes** logically.
 
-\- Makes code easier to maintain and debug
+- **Minimize class size** - only store necessary state.
 
-\- Supports future evolution of internal representation
+- **Use meaningful names** (e.g., `customerEmail` instead of `e`).
+
+- **Consider `std::string` vs C-strings** for text attributes.
+
+- **Thread safety** - protect shared mutable state when needed.
 
 
 
-\---
+**Why Encapsulation Matters:**
+
+- Protects object integrity
+
+- Reduces coupling between classes
+
+- Makes code easier to maintain and debug
+
+- Supports future evolution of internal representation
 
 
+---
 
-\*\*Mastering attributes and encapsulation is fundamental to writing robust, maintainable C++ classes.\*\*
-
-```
 

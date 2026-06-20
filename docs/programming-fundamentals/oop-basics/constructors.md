@@ -1,82 +1,76 @@
-\---
+---
 
 id: constructors
 
 title: "Constructors"
 
-sidebar\_label: "Constructors"
+sidebar_label: "Constructors"
 
-sidebar\_position: 7
+sidebar_position: 7
 
 description: "Comprehensive guide to constructors in C++ - purpose, types, overloading, chaining, initialization lists, and best practices."
 
-tags: \[Constructors, Default\_Constructor, Parameterized\_Constructor, Copy\_Constructor, Initialization\_List, Constructor\_Overloading]
+tags: [Constructors, Default_Constructor, Parameterized_Constructor, Copy_Constructor, Initialization_List, Constructor_Overloading]
 
-\---
-
-
-
-\# Constructors in C++
+---
 
 
-
-Constructors are special member functions in C++ that are automatically invoked when an object of a class is created. They are primarily used to \*\*initialize\*\* the data members of the class.
-
+# Constructors in C++
 
 
-\---
+Constructors are special member functions in C++ that are automatically invoked when an object of a class is created. They are primarily used to  *initialize** the data members of the class.
+
+---
+
+## 1. Introduction to Constructors
 
 
 
-\## 1. Introduction to Constructors
+**Purpose:**
+
+ - Initialize objects with valid state.
+
+ - Allocate resources (memory, files, etc.).
+
+ - Enforce invariants.
+
+ - Provide default values.
 
 
 
-\*\*Purpose:\*\*
+ * *Key Characteristics: * *
 
-\- Initialize objects with valid state.
+ - Same name as the class.
 
-\- Allocate resources (memory, files, etc.).
+ - No return type (not even `void`).
 
-\- Enforce invariants.
+ - Can be overloaded.
 
-\- Provide default values.
+ - Automatically called upon object creation.
 
-
-
-\*\*Key Characteristics:\*\*
-
-\- Same name as the class.
-
-\- No return type (not even `void`).
-
-\- Can be overloaded.
-
-\- Automatically called upon object creation.
-
-\- Can be defined inside or outside the class.
+ - Can be defined inside or outside the class.
 
 
 
-\*\*Types of Constructors:\*\*
+ * *Types of Constructors: * *
 
-\- Default Constructor
+ - Default Constructor
 
-\- Parameterized Constructor
+ - Parameterized Constructor
 
-\- Copy Constructor
+ - Copy Constructor
 
-\- Move Constructor (C++11)
+ - Move Constructor (C++11)
 
-\- Conversion Constructor
-
-
-
-\---
+ - Conversion Constructor
 
 
 
-\## 2. Default Constructor
+ ---
+
+
+
+ ## 2. Default Constructor
 
 
 
@@ -84,11 +78,11 @@ A constructor with no parameters. If no constructor is defined, the compiler pro
 
 
 
-\*\*Example:\*\*
+ * *Example: * *
 
 ```cpp
 
-\#include <iostream>
+ #include <iostream>
 
 using namespace std;
 
@@ -134,7 +128,7 @@ int main() {
 
 
 
-\*\*Output:\*\*
+ * *Output: * *
 
 ```text
 
@@ -146,11 +140,11 @@ Unknown - 0
 
 
 
-\---
+ ---
 
 
 
-\## 3. Parameterized Constructor
+ ## 3. Parameterized Constructor
 
 
 
@@ -160,7 +154,7 @@ Constructors with parameters for custom initialization.
 
 ```cpp
 
-\#include <iostream>
+ #include <iostream>
 
 using namespace std;
 
@@ -206,7 +200,7 @@ int main() {
 
 
 
-\*\*Output:\*\*
+ * *Output: * *
 
 ```text
 
@@ -218,11 +212,11 @@ Alice - 101
 
 
 
-\---
+ ---
 
 
 
-\## 4. Constructor Overloading
+ ## 4. Constructor Overloading
 
 
 
@@ -230,11 +224,11 @@ Multiple constructors with different parameter lists.
 
 
 
-\*\*Example:\*\*
+ * *Example: * *
 
 ```cpp
 
-\#include <iostream>
+ #include <iostream>
 
 using namespace std;
 
@@ -268,7 +262,7 @@ public:
 
 &#x20;   void area() {
 
-&#x20;       cout << "Area: " << length \* width << endl;
+&#x20;       cout << "Area: " << length  * width << endl;
 
 &#x20;   }
 
@@ -300,7 +294,7 @@ int main() {
 
 
 
-\*\*Output:\*\*
+ * *Output: * *
 
 ```text
 
@@ -314,11 +308,11 @@ Area: 24
 
 
 
-\---
+ ---
 
 
 
-\## 5. Constructor Chaining / Delegation
+ ## 5. Constructor Chaining / Delegation
 
 
 
@@ -326,11 +320,11 @@ One constructor can call another constructor of the same class (C++11+).
 
 
 
-\*\*Example:\*\*
+ * *Example: * *
 
 ```cpp
 
-\#include <iostream>
+ #include <iostream>
 
 using namespace std;
 
@@ -390,11 +384,11 @@ int main() {
 
 
 
-\---
+ ---
 
 
 
-\## 6. Copy Constructor
+ ## 6. Copy Constructor
 
 
 
@@ -402,11 +396,11 @@ Used to create a new object as a copy of an existing object.
 
 
 
-\*\*Example:\*\*
+ * *Example: * *
 
 ```cpp
 
-\#include <iostream>
+ #include <iostream>
 
 using namespace std;
 
@@ -424,7 +418,7 @@ public:
 
 &#x20;   // Copy Constructor
 
-&#x20;   Student(const Student\& other) {
+&#x20;   Student(const Student & other) {
 
 &#x20;       name = other.name;
 
@@ -462,15 +456,15 @@ int main() {
 
 
 
-\*\*Note:\*\* If not defined, compiler generates a shallow copy (member-wise).
+ * *Note: * * If not defined, compiler generates a shallow copy (member-wise).
 
 
 
-\---
+ ---
 
 
 
-\## 7. Member Initializer List
+ ## 7. Member Initializer List
 
 
 
@@ -478,7 +472,7 @@ Preferred way to initialize members (especially `const`, references, and base cl
 
 
 
-\*\*Example:\*\*
+ * *Example: * *
 
 ```cpp
 
@@ -500,25 +494,25 @@ public:
 
 
 
-\*\*Benefits:\*\*
+ * *Benefits: * *
 
-\- Better performance (avoids double initialization).
+ - Better performance (avoids double initialization).
 
-\- Required for certain members.
-
-
-
-\---
+ - Required for certain members.
 
 
 
-\## 8. Practical Example: Complex Number Class
+ ---
+
+
+
+ ## 8. Practical Example: Complex Number Class
 
 
 
 ```cpp
 
-\#include <iostream>
+ #include <iostream>
 
 using namespace std;
 
@@ -546,7 +540,7 @@ public:
 
 &#x20;   // Copy Constructor
 
-&#x20;   Complex(const Complex\& c) : real(c.real), imag(c.imag) {}
+&#x20;   Complex(const Complex & c) : real(c.real), imag(c.imag) {}
 
 &#x20;   
 
@@ -584,51 +578,51 @@ int main() {
 
 
 
-\---
+ ---
 
 
 
-\## 9. Best Practices \& Important Points
+ ## 9. Best Practices  & Important Points
 
 
 
-\- Always provide a default constructor if you define any other constructor (Rule of Three/Five).
+ - Always provide a default constructor if you define any other constructor (Rule of Three/Five).
 
-\- Use initializer lists whenever possible.
+ - Use initializer lists whenever possible.
 
-\- Make copy constructor explicit if needed to prevent unwanted copies.
+ - Make copy constructor explicit if needed to prevent unwanted copies.
 
-\- Consider `= default` and `= delete` (C++11).
+ - Consider `= default` and `= delete` (C++11).
 
-\- Virtual destructors when using inheritance with polymorphism.
+ - Virtual destructors when using inheritance with polymorphism.
 
-\- Avoid heavy computation in constructors.
-
-
-
-\*\*Common Pitfalls:\*\*
-
-\- Forgetting to initialize pointers → dangling pointers.
-
-\- Order of initialization in initializer list must match declaration order.
-
-\- Using `this` in constructor initializer list carefully.
+ - Avoid heavy computation in constructors.
 
 
 
-\---
+ * *Common Pitfalls: * *
+
+ - Forgetting to initialize pointers → dangling pointers.
+
+ - Order of initialization in initializer list must match declaration order.
+
+ - Using `this` in constructor initializer list carefully.
 
 
 
-\## 10. Related Topics
+ ---
 
 
 
-\- Destructors
+ ## 10. Related Topics
 
-\- Rule of Three/Five/Zero
 
-\- Move Semantics (Move Constructor \& Move Assignment)
+
+ - Destructors
+
+ - Rule of Three/Five/Zero
+
+ - Move Semantics (Move Constructor  & Move Assignment)
 
 
 

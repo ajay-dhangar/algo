@@ -1,22 +1,22 @@
-\---
+---
 
 id: methods
 
 title: "Methods"
 
-sidebar\_label: "Methods"
+sidebar_label: "Methods"
 
-sidebar\_position: 7
+sidebar_position: 7
 
 description: "Comprehensive guide to methods in C++: declaration, invocation, parameters, return types, instance vs static, and best practices."
 
-tags: \[Methods, Functions, OOP, C++, Best-Practices]
+tags: [Methods, Functions, OOP, C++, Best-Practices]
 
-\---
+---
 
 
 
-\# Methods in C++
+# Methods in C++
 
 
 
@@ -24,31 +24,31 @@ In C++, methods (also called member functions) are functions defined inside a cl
 
 
 
-\---
+---
 
 
 
-\## 1. Introduction to Methods
+## 1. Introduction to Methods
 
 
 
-\*\*Definition:\*\*  
+**Definition:**  
 
 A method is a function associated with a class or object. It can access and modify the data members of the class.
 
 
 
-\*\*Key Benefits:\*\*
+**Key Benefits:**
 
-\- Encapsulation: Methods control access to data.
+- Encapsulation: Methods control access to data.
 
-\- Code Reusability: Common operations are defined once.
+- Code Reusability: Common operations are defined once.
 
-\- Abstraction: Hide implementation details.
+- Abstraction: Hide implementation details.
 
 
 
-\*\*Syntax:\*\*
+**Syntax:**
 
 ```cpp
 
@@ -68,15 +68,15 @@ public:
 
 
 
-\---
+---
 
 
 
-\## 2. Method Declaration and Invocation
+## 2. Method Declaration and Invocation
 
 
 
-\### Declaration
+### Declaration
 
 Methods are declared inside the class definition.
 
@@ -98,13 +98,13 @@ public:
 
 
 
-\### Definition (Implementation)
+### Definition (Implementation)
 
 Can be inside the class (inline) or outside using scope resolution operator `::`.
 
 
 
-\*\*Inside class:\*\*
+**Inside class:**
 
 ```cpp
 
@@ -124,7 +124,7 @@ public:
 
 
 
-\*\*Outside class:\*\*
+**Outside class:**
 
 ```cpp
 
@@ -148,7 +148,7 @@ int Calculator::add(int a, int b) {
 
 
 
-\### Invocation
+### Invocation
 
 Call methods using the dot (`.`) operator on objects.
 
@@ -172,7 +172,7 @@ int main() {
 
 
 
-\*\*Output:\*\*
+**Output:**
 
 ```text
 
@@ -182,25 +182,25 @@ Sum: 8
 
 
 
-\---
+---
 
 
 
-\## 3. Parameters and Return Types
+## 3. Parameters and Return Types
 
 
 
-\### Parameters
+### Parameters
 
-\- \*\*Formal Parameters:\*\* Declared in method signature.
+- **Formal Parameters:** Declared in method signature.
 
-\- \*\*Actual Parameters:\*\* Passed during invocation.
+- **Actual Parameters:** Passed during invocation.
 
-\- Can be passed by value, by reference (`\&`), or by pointer (`\*`).
+- Can be passed by value, by reference (`&`), or by pointer (`*`).
 
 
 
-\*\*Example:\*\*
+**Example:**
 
 ```cpp
 
@@ -212,7 +212,7 @@ public:
 
 &#x20;   int square(int num) {
 
-&#x20;       return num \* num;
+&#x20;       return num * num;
 
 &#x20;   }
 
@@ -220,7 +220,7 @@ public:
 
 &#x20;   // Pass by reference
 
-&#x20;   void swap(int \&a, int \&b) {
+&#x20;   void swap(int &a, int &b) {
 
 &#x20;       int temp = a;
 
@@ -236,21 +236,21 @@ public:
 
 
 
-\### Return Types
+### Return Types
 
-\- Any valid C++ type: `void`, `int`, `double`, custom objects, references, pointers, etc.
+- Any valid C++ type: `void`, `int`, `double`, custom objects, references, pointers, etc.
 
-\- Use `void` for methods that don't return a value.
+- Use `void` for methods that don't return a value.
 
 
 
-\*\*Example with different return types:\*\*
+**Example with different return types:**
 
 ```cpp
 
-\#include <iostream>
+#include <iostream>
 
-\#include <string>
+#include <string>
 
 using namespace std;
 
@@ -296,21 +296,21 @@ public:
 
 
 
-\---
+---
 
 
 
-\## 4. Instance vs Static Methods
+## 4. Instance vs Static Methods
 
 
 
-\### Instance Methods
+### Instance Methods
 
-\- Belong to objects (instances) of the class.
+- Belong to objects (instances) of the class.
 
-\- Can access both instance and static members.
+- Can access both instance and static members.
 
-\- Called using object.
+- Called using object.
 
 
 
@@ -358,15 +358,15 @@ int main() {
 
 
 
-\### Static Methods
+### Static Methods
 
-\- Belong to the class itself.
+- Belong to the class itself.
 
-\- Cannot access non-static (instance) members.
+- Cannot access non-static (instance) members.
 
-\- Called using class name.
+- Called using class name.
 
-\- Useful for utility functions.
+- Useful for utility functions.
 
 
 
@@ -410,7 +410,7 @@ int main() {
 
 
 
-\*\*Key Differences:\*\*
+**Key Differences:**
 
 
 
@@ -430,33 +430,33 @@ int main() {
 
 
 
-\---
+---
 
 
 
-\## 5. Method Design Best Practices
+## 5. Method Design Best Practices
 
 
 
-1\. \*\*Single Responsibility Principle\*\*  
+1. **Single Responsibility Principle**  
 
 &#x20;  Each method should do one thing well.
 
 
 
-2\. \*\*Meaningful Names\*\*  
+2. **Meaningful Names**  
 
 &#x20;  Use verbs for methods: `calculateTotal()`, `validateInput()`.
 
 
 
-3\. \*\*Parameter Limits\*\*  
+3. **Parameter Limits**  
 
 &#x20;  Keep number of parameters low (ideally ≤ 4). Use objects/structs for many parameters.
 
 
 
-4\. \*\*Const Correctness\*\*  
+4. **Const Correctness**  
 
 &#x20;  Use `const` for methods that don't modify object state.
 
@@ -470,19 +470,19 @@ int main() {
 
 
 
-5\. \*\*Avoid Global/State Dependencies\*\*  
+5. **Avoid Global/State Dependencies**  
 
 &#x20;  Prefer pure functions where possible.
 
 
 
-6\. \*\*Error Handling\*\*  
+6. **Error Handling**  
 
 &#x20;  Use exceptions or return error codes appropriately.
 
 
 
-7\. \*\*Overloading\*\*  
+7. **Overloading**  
 
 &#x20;  Methods can be overloaded with different parameters.
 
@@ -506,7 +506,7 @@ int main() {
 
 
 
-8\. \*\*Default Arguments\*\*  
+8. **Default Arguments**  
 
 &#x20;  Provide sensible defaults.
 
@@ -520,47 +520,47 @@ int main() {
 
 
 
-9\. \*\*Inline vs Out-of-line\*\*  
+9. **Inline vs Out-of-line**  
 
 &#x20;  Define small methods inside class for better performance (inlining).
 
 
 
-10\. \*\*Documentation\*\*  
+10. **Documentation**  
 
 &#x20;   Always add comments describing purpose, parameters, and return value.
 
 
 
-\---
+---
 
 
 
-\## 6. Advanced Topics
+## 6. Advanced Topics
 
 
 
-\### Method Overriding (in Inheritance)
+### Method Overriding (in Inheritance)
 
 Covered in Inheritance documentation. Use `virtual` for polymorphic behavior.
 
 
 
-\### Const Member Functions
+### Const Member Functions
 
 Prevent accidental modification.
 
 
 
-\### Friend Functions
+### Friend Functions
 
 Non-member functions granted access to private members.
 
 
 
-\---
+---
 
 
 
-\*\*Following these guidelines will help you write clean, maintainable, and efficient methods in your C++ programs.\*\*
+**Following these guidelines will help you write clean, maintainable, and efficient methods in your C++ programs.**
 
