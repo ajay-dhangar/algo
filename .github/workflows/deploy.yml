@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   build:
@@ -15,6 +13,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -22,8 +21,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
       - name: Build website
         run: npm run build
+
+      # Fix: Create a .nojekyll file in the build directory before uploading
+      # This explicitly stops GitHub Pages from trying to parse your markdown using Jekyll
+      - name: Disable Jekyll
+        run: touch build/.nojekyll
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
@@ -34,12 +39,10 @@ jobs:
     name: Deploy to GitHub Pages
     needs: build
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
 
-    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
