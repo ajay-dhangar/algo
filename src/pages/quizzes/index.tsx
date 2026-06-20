@@ -119,6 +119,38 @@ const QUIZZES_CONFIG: QuizCardConfig[] = [
     path: "/quizzes/b-tree",
     questionCount: 10
   },
+    {
+    id: "bplus-trees",
+    title: "Quiz on B+ Trees",
+    category: "Disk Storage",
+    description: "Test your knowledge of internal vs leaf node organization, range queries, linked leaf nodes, and database indexing applications.",
+    path: "/quizzes/bplus-tree",
+    questionCount: 12
+  },
+  {
+    id: "isam",
+    title: "Quiz on ISAM",
+    category: "Disk Storage",
+    description: "Evaluate static indexing concepts, overflow pages, search performance trade-offs, and how ISAM compares to dynamic B-Tree structures.",
+    path: "/quizzes/isam",
+    questionCount: 12
+  },
+  {
+    id: "hash-indexing",
+    title: "Quiz on Hash Indexing",
+    category: "Disk Storage",
+    description: "Test your understanding of static and dynamic hashing, extendible and linear hashing, and collision handling techniques.",
+    path: "/quizzes/hash-indexing",
+    questionCount: 12
+  },
+  {
+    id: "external-hashing",
+    title: "Quiz on External Hashing",
+    category: "Disk Storage",
+    description: "Assess your knowledge of bucket organization, disk block management, overflow handling, and disk-based performance analysis.",
+    path: "/quizzes/external-hashing",
+    questionCount: 12
+  },
   {
     id: "graphs",
     title: "Quiz on Graphs",
