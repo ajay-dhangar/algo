@@ -297,7 +297,22 @@ npm start               # confirm page appears in sidebar and renders
 
 Fix any validation errors. Warnings (for example missing `sidebar_position` on older-style pages) should be avoided on **new** files by including all recommended fields.
 
-#### h. Quick checklist
+#### h. Linting MDX/Markdown formatting
+
+Before submitting a PR that adds or edits documentation, run the MDX linter locally:
+
+\`\`\`bash
+npm run lint:mdx
+\`\`\`
+
+This checks for common formatting issues such as:
+- Missing language tags on fenced code blocks
+- Inconsistent heading hierarchy
+- Inconsistent list indentation
+- Missing final newline
+
+The linter is informational for now — fix any warnings it surfaces before opening your PR, but a few pre-existing files in the docs may still show errors unrelated to your change (tracked separately).
+#### i. Quick checklist
 
 - [ ] Page placed under the correct `docs/` category (not scattered across unrelated folders).
 - [ ] Unique `id`, `title`, `sidebar_label`, `description`, `tags` in front-matter.
@@ -306,6 +321,8 @@ Fix any validation errors. Warnings (for example missing `sidebar_position` on o
 - [ ] `npm run validate:docs` passes.
 - [ ] Site builds and the page shows in the sidebar (`npm start`).
 - [ ] Playground / `IMPLEMENTATION_SUMMARY.md` / `MULTI_LANGUAGE_PLAYGROUND.md` updated only if you changed playground execution or templates.
+- [ ] `npm run validate:docs` passes.
+- [ ] `npm run lint:mdx` run locally (pre-existing errors in unrelated files are expected and tracked separately).
 
 ### 6. Commit Your Changes 
 Commit your changes with a descriptive message:
