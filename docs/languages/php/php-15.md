@@ -164,6 +164,8 @@ trait Timestampable {
 }
 
 trait Auditable {
+    abstract public function getTimestamp(): string;
+
     public function audit(string $action): void {
         echo "Action: $action at " . $this->getTimestamp();
     }
