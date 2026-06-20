@@ -105,7 +105,7 @@ class Car {
     public $brand;
     public $color;
 
-    function __construct($brand, $color) {
+    public function __construct($brand, $color) {
         $this->brand = $brand;
         $this->color = $color;
     }
