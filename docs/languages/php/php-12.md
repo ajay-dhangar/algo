@@ -206,18 +206,25 @@ echo "Selected: $country";
 
 ```php
 <?php
-if (isset($_FILES['file'])) {
+if (isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
     $name = $_FILES['file']['name'];
     $tmp  = $_FILES['file']['tmp_name'];
-    $dest = "uploads/" . basename($name);
-
-    if (move_uploaded_file($tmp, $dest)) {
-        echo "File uploaded: $name";
+    
+    // Validate file extension to prevent PHP shell uploads
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
+    $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+    
+    if (in_array($ext, $allowedExtensions)) {
+        $dest = "uploads/" . basename($name);
+        if (move_uploaded_file($tmp, $dest)) {
+            echo "File uploaded: " . htmlspecialchars($name);
+        } else {
+            echo "Upload failed.";
+        }
     } else {
-        echo "Upload failed.";
+        echo "Invalid file type.";
     }
 }
-?>
 ```
 
 **Security Note:** Never trust user-submitted data. Always validate, sanitize, and escape before displaying or storing.
