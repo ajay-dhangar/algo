@@ -221,7 +221,7 @@ const UserTestimonialsSection: React.FC = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
         >
           <Link
-            to="/reviews#all-reviews"
+            to="/reviews"
             className="
               w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               px-8 py-4 rounded-xl
@@ -237,7 +237,7 @@ const UserTestimonialsSection: React.FC = () => {
           </Link>
 
           <Link
-            to="/reviews#write-review"
+            to="/reviews"
             className="
               w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               px-8 py-4 rounded-full
