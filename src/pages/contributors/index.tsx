@@ -1,11 +1,14 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState, useMemo, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import Layout from "@theme/Layout";
 import axios from "axios";
-import { 
-  FiCrosshair, FiTerminal, FiSearch, FiSliders, 
-  FiAward, FiGithub, FiActivity, FiZap, FiTarget, FiAlertTriangle 
+import {
+  FiCrosshair, FiTerminal, FiSearch, FiSliders,
+  FiGithub, FiActivity, FiTarget, FiAlertTriangle,
+  FiUsers, FiGitCommit, FiGitPullRequest, FiZap, FiBarChart2, FiFilter
 } from "react-icons/fi";
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface Contributor {
   id: number;
@@ -15,279 +18,846 @@ interface Contributor {
   contributions: number;
 }
 
-const gridVariants = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.04 } }
-};
+type SortKey = "score" | "alpha" | "active";
+type TierFilter = "ALL" | "MYTHIC" | "DIAMOND" | "PLATINUM" | "GOLD";
+
+// ─── Tier Config ──────────────────────────────────────────────────────────────
+
+const TIERS = {
+  MYTHIC: {
+    label: "🏆 MYTHIC DEV",
+    min: 100,
+    color: "text-purple-400",
+    border: "border-purple-500/40",
+    bg: "bg-purple-500/10",
+    glow: "rgba(168,85,247,0.25)",
+    glowHover: "rgba(168,85,247,0.45)",
+    bar: "from-purple-500 to-fuchsia-500",
+  },
+  DIAMOND: {
+    label: "💎 DIAMOND ELITE",
+    min: 40,
+    color: "text-cyan-400",
+    border: "border-cyan-500/40",
+    bg: "bg-cyan-500/10",
+    glow: "rgba(6,182,212,0.25)",
+    glowHover: "rgba(6,182,212,0.45)",
+    bar: "from-cyan-500 to-blue-500",
+  },
+  PLATINUM: {
+    label: "⚡ PLATINUM PRO",
+    min: 15,
+    color: "text-emerald-400",
+    border: "border-emerald-500/40",
+    bg: "bg-emerald-500/10",
+    glow: "rgba(52,211,153,0.2)",
+    glowHover: "rgba(52,211,153,0.4)",
+    bar: "from-emerald-500 to-teal-400",
+  },
+  GOLD: {
+    label: "🛡️ GOLD CONTRIBUTOR",
+    min: 0,
+    color: "text-amber-400",
+    border: "border-amber-500/30",
+    bg: "bg-amber-500/5",
+    glow: "rgba(251,191,36,0.15)",
+    glowHover: "rgba(251,191,36,0.3)",
+    bar: "from-amber-500 to-yellow-400",
+  },
+} as const;
+
+function getTier(score: number) {
+  if (score >= TIERS.MYTHIC.min) return { key: "MYTHIC" as TierFilter, ...TIERS.MYTHIC };
+  if (score >= TIERS.DIAMOND.min) return { key: "DIAMOND" as TierFilter, ...TIERS.DIAMOND };
+  if (score >= TIERS.PLATINUM.min) return { key: "PLATINUM" as TierFilter, ...TIERS.PLATINUM };
+  return { key: "GOLD" as TierFilter, ...TIERS.GOLD };
+}
+
+// ─── Animated Counter ─────────────────────────────────────────────────────────
+
+function AnimatedCounter({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const [display, setDisplay] = useState(0);
+  const ref = useRef<number>(0);
+
+  useEffect(() => {
+    if (value === 0) return;
+    const duration = 1400;
+    const start = performance.now();
+    const from = ref.current;
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const cur = Math.round(from + (value - from) * eased);
+      setDisplay(cur);
+      ref.current = cur;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [value]);
+
+  return (
+    <span>
+      {display.toLocaleString()}
+      {suffix}
+    </span>
+  );
+}
+
+// ─── Background Particles ─────────────────────────────────────────────────────
+
+function BackgroundFX() {
+  return (
+    <>
+      {/* Scanline grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-40 dark:opacity-25"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right,#1e293b 1px,transparent 1px),linear-gradient(to bottom,#1e293b 1px,transparent 1px)",
+          backgroundSize: "40px 40px",
+          animation: "gridPulse 4s ease-in-out infinite",
+        }}
+      />
+
+      {/* Animated orbs */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: "-80px", left: "15%",
+          width: "520px", height: "520px",
+          background: "radial-gradient(circle,rgba(6,182,212,0.13) 0%,transparent 65%)",
+          animation: "orbFloat1 9s ease-in-out infinite",
+          filter: "blur(1px)",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          top: "30%", right: "5%",
+          width: "480px", height: "480px",
+          background: "radial-gradient(circle,rgba(168,85,247,0.11) 0%,transparent 65%)",
+          animation: "orbFloat2 12s ease-in-out infinite",
+          filter: "blur(1px)",
+        }}
+      />
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          bottom: "10%", left: "30%",
+          width: "400px", height: "400px",
+          background: "radial-gradient(circle,rgba(59,130,246,0.10) 0%,transparent 65%)",
+          animation: "orbFloat3 15s ease-in-out infinite",
+          filter: "blur(2px)",
+        }}
+      />
+
+      {/* Particle dots */}
+      {Array.from({ length: 22 }).map((_, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            width: `${Math.random() * 2 + 1}px`,
+            height: `${Math.random() * 2 + 1}px`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            background: i % 3 === 0
+              ? "rgba(6,182,212,0.5)"
+              : i % 3 === 1
+              ? "rgba(168,85,247,0.4)"
+              : "rgba(251,191,36,0.35)",
+            animation: `particleDrift ${8 + Math.random() * 14}s linear infinite`,
+            animationDelay: `${Math.random() * -20}s`,
+            opacity: 0.6,
+          }}
+        />
+      ))}
+
+      <style>{`
+        @keyframes gridPulse {
+          0%,100% { opacity: 0.3; }
+          50% { opacity: 0.55; }
+        }
+        @keyframes orbFloat1 {
+          0%,100% { transform: translate(0,0) scale(1); }
+          50% { transform: translate(30px,-40px) scale(1.05); }
+        }
+        @keyframes orbFloat2 {
+          0%,100% { transform: translate(0,0) scale(1); }
+          50% { transform: translate(-25px,35px) scale(1.08); }
+        }
+        @keyframes orbFloat3 {
+          0%,100% { transform: translate(0,0) scale(1); }
+          50% { transform: translate(20px,-30px) scale(1.04); }
+        }
+        @keyframes particleDrift {
+          0% { transform: translateY(0) translateX(0); opacity:0; }
+          10% { opacity: 0.6; }
+          90% { opacity: 0.4; }
+          100% { transform: translateY(-120px) translateX(${Math.random() > 0.5 ? "" : "-"}${Math.round(Math.random() * 30)}px); opacity:0; }
+        }
+        @keyframes loading-slide {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(250%); }
+        }
+        @keyframes neonPulse {
+          0%,100% { box-shadow: 0 0 8px rgba(6,182,212,0.3); }
+          50% { box-shadow: 0 0 20px rgba(6,182,212,0.6); }
+        }
+      `}</style>
+    </>
+  );
+}
+
+// ─── Stats Card ───────────────────────────────────────────────────────────────
+
+interface StatCardProps {
+  icon: React.ReactNode;
+  label: string;
+  value: number;
+  suffix?: string;
+  color: string;
+  delay: number;
+}
+
+function StatCard({ icon, label, value, suffix = "", color, delay }: StatCardProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, type: "spring", stiffness: 120 }}
+      className="relative bg-neutral-900/80 border border-neutral-800 rounded-xl p-4 flex items-center gap-3 overflow-hidden group hover:border-neutral-600 transition-all duration-300"
+      style={{ backdropFilter: "blur(10px)" }}
+    >
+      {/* Glow accent */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at 30% 50%, ${color}18, transparent 70%)` }}
+      />
+      <div
+        className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center"
+        style={{ background: `${color}18`, border: `1px solid ${color}35` }}
+      >
+        <span style={{ color }}>{icon}</span>
+      </div>
+      <div className="min-w-0">
+        <div className="text-[9px] font-black tracking-widest uppercase text-neutral-500 mb-0.5">{label}</div>
+        <div className="text-lg font-black text-white tabular-nums" style={{ color }}>
+          <AnimatedCounter value={value} suffix={suffix} />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+// ─── Contributor Card ─────────────────────────────────────────────────────────
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 },
-  show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 14 } }
+  hidden: { opacity: 0, scale: 0.9, y: 24 },
+  show: {
+    opacity: 1, scale: 1, y: 0,
+    transition: { type: "spring", stiffness: 130, damping: 15 },
+  },
+  exit: { opacity: 0, scale: 0.88, y: 10 },
 };
+
+interface ContributorCardProps {
+  c: Contributor;
+  maxContributions: number;
+  rank: number;
+}
+
+function ContributorCard({ c, maxContributions, rank }: ContributorCardProps) {
+  const tier = getTier(c.contributions);
+  const pct = Math.max(6, Math.min(100, (c.contributions / maxContributions) * 100));
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <motion.div
+      layout
+      variants={cardVariants}
+      exit={cardVariants.exit}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="group relative flex flex-col justify-between rounded-xl p-5 overflow-hidden cursor-default"
+      style={{
+        background: hovered
+          ? `linear-gradient(135deg, #0f172a 0%, #111827 100%)`
+          : "#0d1117",
+        border: hovered
+          ? `1.5px solid ${tier.glow.replace("0.25", "0.7")}`
+          : "1.5px solid #1e293b",
+        boxShadow: hovered
+          ? `0 8px 40px ${tier.glowHover}, 0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)`
+          : "0 2px 8px rgba(0,0,0,0.4)",
+        transform: hovered ? "translateY(-6px)" : "translateY(0)",
+        transition: "all 0.25s cubic-bezier(0.4,0,0.2,1)",
+      }}
+    >
+      {/* Corner bracket TL */}
+      <span
+        className="absolute top-0 left-0 border-t-2 border-l-2 transition-all duration-300"
+        style={{
+          width: hovered ? 16 : 8, height: hovered ? 16 : 8,
+          borderColor: hovered ? tier.glow.replace("0.25", "0.9") : "#334155",
+          borderRadius: "2px 0 0 0",
+        }}
+      />
+      {/* Corner bracket BR */}
+      <span
+        className="absolute bottom-0 right-0 border-b-2 border-r-2 transition-all duration-300"
+        style={{
+          width: hovered ? 16 : 8, height: hovered ? 16 : 8,
+          borderColor: hovered ? tier.glow.replace("0.25", "0.9") : "#334155",
+          borderRadius: "0 0 2px 0",
+        }}
+      />
+
+      {/* Rank badge */}
+      <div className="absolute top-3 right-3 text-[9px] font-black tracking-widest text-neutral-600">
+        #{String(rank).padStart(2, "0")}
+      </div>
+
+      <div>
+        {/* Avatar + Identity */}
+        <div className="flex items-center gap-4 mb-4">
+          <div className="relative shrink-0">
+            {/* Rotating dashed ring */}
+            <div
+              className="absolute inset-0 rounded-full border border-dashed transition-all duration-700"
+              style={{
+                borderColor: hovered ? tier.glow.replace("0.25", "0.8") : "#334155",
+                transform: hovered ? "rotate(90deg) scale(1.08)" : "rotate(0deg) scale(1)",
+              }}
+            />
+            {/* Glow ring */}
+            {hovered && (
+              <div
+                className="absolute inset-0 rounded-full animate-pulse pointer-events-none"
+                style={{
+                  boxShadow: `0 0 16px ${tier.glowHover}`,
+                }}
+              />
+            )}
+            <img
+              src={c.avatar_url}
+              alt={`${c.login} avatar`}
+              className="relative z-10 rounded-full object-cover bg-neutral-950 border border-neutral-800"
+              style={{
+                width: 56, height: 56,
+                transform: hovered ? "scale(1.08)" : "scale(1)",
+                transition: "transform 0.3s ease",
+                padding: 3,
+              }}
+            />
+          </div>
+
+          <div className="min-w-0 flex-1">
+            {/* Tier badge */}
+            <div
+              className={`inline-block px-2 py-0.5 rounded text-[9px] font-black tracking-wider border mb-1.5 ${tier.color} ${tier.border} ${tier.bg}`}
+            >
+              {tier.label}
+            </div>
+            <h3
+              className="text-base font-black tracking-tight m-0 truncate transition-colors duration-200"
+              style={{ color: hovered ? tier.glow.replace("0.25","1").replace("rgba","rgb").replace(",0.25","") : "#f1f5f9" }}
+            >
+              {c.login}
+            </h3>
+          </div>
+        </div>
+
+        {/* Stat bar */}
+        <div className="space-y-2 rounded-lg p-3 mb-4" style={{ background: "#0a0f1a", border: "1px solid #1e293b" }}>
+          <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-neutral-500">
+            <span className="flex items-center gap-1.5">
+              <FiTarget className="w-3.5 h-3.5" style={{ color: hovered ? tier.glow.replace("0.25","0.9") : "#38bdf8" }} />
+              COMMIT POWER
+            </span>
+            <span className="font-extrabold" style={{ color: hovered ? "#fff" : "#94a3b8" }}>
+              {c.contributions} XP
+            </span>
+          </div>
+          {/* Track */}
+          <div className="w-full h-2 bg-neutral-800 rounded-full overflow-hidden relative">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${pct}%` }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className={`h-full rounded-full bg-gradient-to-r ${tier.bar}`}
+              style={{
+                filter: hovered ? `drop-shadow(0 0 4px ${tier.glowHover})` : "none",
+                transition: "filter 0.3s ease",
+              }}
+            />
+            {/* Shimmer */}
+            {hovered && (
+              <div
+                className="absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  background: "linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.15) 50%,transparent 100%)",
+                  animation: "shimmer 1.5s infinite",
+                }}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Footer actions */}
+      <div
+        className="flex items-center justify-between gap-3 pt-2"
+        style={{ borderTop: "1px solid #1e293b" }}
+      >
+        <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider">
+          <FiActivity
+            className="w-3.5 h-3.5 animate-pulse"
+            style={{ color: hovered ? "#34d399" : "#10b981" }}
+          />
+          <span style={{ color: hovered ? "#34d399" : "#10b981" }}>PING: OK</span>
+        </div>
+
+        <a
+          href={c.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[10px] font-black uppercase tracking-wider no-underline hover:no-underline transition-all duration-200"
+          style={{
+            background: hovered ? tier.glow.replace("0.25","0.2") : "#0f172a",
+            border: `1px solid ${hovered ? tier.glow.replace("0.25","0.6") : "#1e293b"}`,
+            color: hovered ? "#fff" : "#64748b",
+            boxShadow: hovered ? `0 0 12px ${tier.glowHover}` : "none",
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <FiGithub className="w-3.5 h-3.5" />
+          VIEW PROFILE
+        </a>
+      </div>
+
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(200%); }
+        }
+      `}</style>
+    </motion.div>
+  );
+}
+
+// ─── Main Component ───────────────────────────────────────────────────────────
+
+const gridVariants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.05 } },
+};
+
+const TIER_FILTER_OPTIONS: { key: TierFilter; label: string }[] = [
+  { key: "ALL", label: "ALL" },
+  { key: "MYTHIC", label: "🏆 MYTHIC" },
+  { key: "DIAMOND", label: "💎 DIAMOND" },
+  { key: "PLATINUM", label: "⚡ PLATINUM" },
+  { key: "GOLD", label: "🛡️ GOLD" },
+];
+
+const SORT_OPTIONS: { key: SortKey; label: string }[] = [
+  { key: "score", label: "HIGH SCORE" },
+  { key: "alpha", label: "ALPHABETICAL" },
+  { key: "active", label: "MOST ACTIVE" },
+];
 
 const Contributors: React.FC = () => {
   const [contributors, setContributors] = useState<Contributor[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [sortBy, setSortBy] = useState<"score" | "alpha">("score");
+  const [sortBy, setSortBy] = useState<SortKey>("score");
+  const [tierFilter, setTierFilter] = useState<TierFilter>("ALL");
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
-    
-    async function fetchAllContributors() {
+    async function fetchContributors() {
       try {
-        // Safer approach: Fetch first page to assess total project density safely
-        const response = await axios.get(
-          `https://api.github.com/repos/ajay-dhangar/algo/contributors`,
+        const res = await axios.get(
+          "https://api.github.com/repos/ajay-dhangar/algo/contributors",
           { params: { per_page: 100, page: 1 } }
         );
-        
-        if (isMounted) {
-          setContributors(response.data || []);
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError("MAINFRAME_SYNC_ERROR: GitHub API rate bounds or network drop detected.");
-        }
+        if (isMounted) setContributors(res.data || []);
+      } catch {
+        if (isMounted) setError("MAINFRAME_SYNC_ERROR: GitHub API rate limit or network failure.");
       } finally {
         if (isMounted) setLoading(false);
       }
     }
-
-    fetchAllContributors();
+    fetchContributors();
     return () => { isMounted = false; };
   }, []);
 
-  // Compute stats logic safely based on max contribution records
-  const maxContributions = useMemo(() => {
-    if (contributors.length === 0) return 1;
-    return Math.max(...contributors.map(c => c.contributions));
+  // ── Derived Stats ─────────────────────────────────────────────────────────
+  const stats = useMemo(() => {
+    const totalContributors = contributors.length;
+    const totalCommits = contributors.reduce((s, c) => s + c.contributions, 0);
+    const estPRs = Math.round(totalCommits * 0.38);
+    const activeCount = contributors.filter(c => c.contributions >= 5).length;
+    const activityScore = totalContributors > 0
+      ? Math.min(100, Math.round((totalCommits / 1000) * Math.log(totalContributors + 1) * 4))
+      : 0;
+    return { totalContributors, totalCommits, estPRs, activeCount, activityScore };
   }, [contributors]);
 
-  const getGamerTier = (score: number) => {
-    if (score >= 100) return { label: "🏆 MYTHIC DEV", color: "border-purple-500/40 text-purple-600 dark:text-purple-400 bg-purple-500/10 shadow-[0_0_10px_rgba(168,85,247,0.2)]" };
-    if (score >= 40) return { label: "💎 DIAMOND ELITE", color: "border-cyan-500/40 text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 shadow-[0_0_10px_rgba(6,182,212,0.2)]" };
-    if (score >= 15) return { label: "⚡ PLATINUM PRO", color: "border-emerald-500/40 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10" };
-    return { label: "🛡️ GOLD CONTRIBUTOR", color: "border-amber-500/30 text-amber-600 dark:text-amber-400 bg-amber-500/5" };
-  };
+  const maxContributions = useMemo(() =>
+    contributors.length === 0 ? 1 : Math.max(...contributors.map(c => c.contributions)),
+    [contributors]
+  );
 
+  // ── Processed List ────────────────────────────────────────────────────────
   const processedContributors = useMemo(() => {
-    const filtered = contributors.filter(c => 
+    let list = contributors.filter(c =>
       c.login.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    if (sortBy === "alpha") {
-      return [...filtered].sort((a, b) => a.login.localeCompare(b.login));
+    if (tierFilter !== "ALL") {
+      list = list.filter(c => getTier(c.contributions).key === tierFilter);
     }
-    return [...filtered].sort((a, b) => b.contributions - a.contributions);
-  }, [contributors, searchQuery, sortBy]);
+    if (sortBy === "alpha") return [...list].sort((a, b) => a.login.localeCompare(b.login));
+    if (sortBy === "active") return [...list].sort((a, b) => b.contributions - a.contributions).filter(c => c.contributions >= 5);
+    return [...list].sort((a, b) => b.contributions - a.contributions);
+  }, [contributors, searchQuery, sortBy, tierFilter]);
 
   return (
-    <Layout title="Lobby Dashboard" description="Esports-grade open source developer database framework mapping active roster nodes.">
-      <main className="w-full min-h-screen bg-slate-50 dark:bg-neutral-950 text-slate-800 dark:text-slate-100 font-mono relative overflow-hidden pb-32 transition-colors duration-300">
-        
-        {/* Dynamic Scanline Grid & Ambient Background FX */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-80 dark:opacity-50" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.12),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(6,182,212,0.15),transparent_60%)] pointer-events-none" />
+    <Layout
+      title="Contribution Tracker // Developer Loadouts"
+      description="Esports-grade open source developer leaderboard tracking real-time codebase operations for ajay-dhangar/algo."
+    >
+      <main
+        className="w-full min-h-screen font-mono relative overflow-hidden pb-32 transition-colors duration-300"
+        style={{ background: "#060a10", color: "#e2e8f0" }}
+      >
+        <BackgroundFX />
 
-        {/* Pro Esports Main HUD Banner Section */}
-        <header className="relative z-10 max-w-7xl mx-auto pt-20 px-4 mb-14 text-center">
-          <motion.div 
-            initial={{ y: -15, opacity: 0 }}
+        {/* ── Hero ───────────────────────────────────────────────────────── */}
+        <header className="relative z-10 max-w-7xl mx-auto pt-20 px-4 mb-10 text-center">
+          <motion.div
+            initial={{ y: -18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md border border-blue-500/30 dark:border-cyan-500/40 bg-white dark:bg-black text-blue-600 dark:text-cyan-400 text-xs font-black tracking-widest uppercase mb-6 shadow-sm dark:shadow-[0_0_15px_rgba(6,182,212,0.15)]"
+            transition={{ type: "spring", stiffness: 120 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-md text-xs font-black tracking-widest uppercase mb-6"
+            style={{
+              border: "1px solid rgba(6,182,212,0.35)",
+              background: "rgba(6,182,212,0.06)",
+              color: "#22d3ee",
+              boxShadow: "0 0 20px rgba(6,182,212,0.15)",
+              animation: "neonPulse 3s ease-in-out infinite",
+            }}
           >
             <FiCrosshair className="w-4 h-4 text-rose-500 animate-spin [animation-duration:8s]" />
-            LIVE CONTORL HUBS: ALGO REPOSITORY ROSTER
+            LIVE CONTROL HUB: ALGO REPOSITORY ROSTER
           </motion.div>
 
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tighter uppercase mb-4 text-slate-900 dark:text-white select-none">
-            DEVELOPER <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-cyan-400 dark:to-blue-500">LOADOUTS</span>
-          </h1>
-          
-          <p className="text-xs sm:text-sm font-sans font-bold max-w-2xl mx-auto text-slate-500 dark:text-neutral-400 leading-relaxed uppercase tracking-widest m-0">
-            Analyzing algorithmic code commit metrics mapped from local machine operations branches.
-          </p>
+          <motion.h1
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.08, type: "spring" }}
+            className="text-4xl sm:text-6xl font-black tracking-tighter uppercase mb-4 select-none"
+            style={{ color: "#f8fafc" }}
+          >
+            DEVELOPER{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg,#22d3ee,#6366f1)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                filter: "drop-shadow(0 0 18px rgba(34,211,238,0.3))",
+              }}
+            >
+              LOADOUTS
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.15 }}
+            className="text-xs sm:text-sm font-sans font-bold max-w-2xl mx-auto leading-relaxed uppercase tracking-widest m-0"
+            style={{ color: "#64748b" }}
+          >
+            Analyzing algorithmic code commit metrics mapped from live repository operations.
+          </motion.p>
         </header>
 
-        {/* Dynamic Control Deck Matrix Panel */}
-        <section className="relative z-10 max-w-6xl mx-auto px-4 mb-10">
-          <div className="bg-white/80 dark:bg-neutral-900/90 border-2 border-slate-200 dark:border-neutral-800 rounded-xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 shadow-md dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-md">
-            
-            {/* Search Execution Terminal Interface */}
-            <div className="w-full md:max-w-md relative flex items-center">
-              <FiSearch className="absolute left-4 w-4 h-4 text-slate-400 dark:text-slate-500" />
-              <input 
-                type="text" 
-                placeholder="PROBE OPERATOR ID MATCH..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-100 dark:bg-neutral-950 border border-slate-300 dark:border-neutral-800 text-slate-900 dark:text-white font-mono text-xs font-bold pl-11 pr-4 py-3.5 rounded-lg focus:outline-none focus:border-blue-500 dark:focus:border-cyan-500 focus:ring-1 focus:ring-blue-500/20 dark:focus:shadow-[0_0_15px_rgba(6,182,212,0.25)] transition-all placeholder:text-slate-400 dark:placeholder:text-neutral-600 uppercase"
+        {/* ── Stats Dashboard ─────────────────────────────────────────────── */}
+        {!loading && !error && (
+          <section className="relative z-10 max-w-6xl mx-auto px-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+              <StatCard
+                icon={<FiUsers className="w-4 h-4" />}
+                label="Total Contributors"
+                value={stats.totalContributors}
+                color="#22d3ee"
+                delay={0.1}
+              />
+              <StatCard
+                icon={<FiGitCommit className="w-4 h-4" />}
+                label="Total Commits"
+                value={stats.totalCommits}
+                color="#818cf8"
+                delay={0.18}
+              />
+              <StatCard
+                icon={<FiGitPullRequest className="w-4 h-4" />}
+                label="Est. Pull Requests"
+                value={stats.estPRs}
+                color="#34d399"
+                delay={0.26}
+              />
+              <StatCard
+                icon={<FiZap className="w-4 h-4" />}
+                label="Active Contributors"
+                value={stats.activeCount}
+                color="#f59e0b"
+                delay={0.34}
+              />
+              <StatCard
+                icon={<FiBarChart2 className="w-4 h-4" />}
+                label="Activity Score"
+                value={stats.activityScore}
+                suffix="/100"
+                color="#f43f5e"
+                delay={0.42}
               />
             </div>
+          </section>
+        )}
 
-            {/* Sorting Systems View Vector */}
-            <div className="w-full md:w-auto flex items-center justify-end gap-3 shrink-0">
-              <div className="flex items-center gap-1.5 text-slate-400 dark:text-neutral-500 text-xs font-black uppercase tracking-wider">
-                <FiSliders className="w-4 h-4" />
-                SORT LOGIC:
+        {/* ── Control Deck ────────────────────────────────────────────────── */}
+        <section className="relative z-10 max-w-6xl mx-auto px-4 mb-8">
+          <div
+            className="rounded-xl p-4 flex flex-col gap-3"
+            style={{
+              background: "rgba(15,23,42,0.9)",
+              border: "1.5px solid #1e293b",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
+              backdropFilter: "blur(12px)",
+            }}
+          >
+            {/* Row 1: Search + Sort */}
+            <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+              {/* Search */}
+              <div className="w-full md:max-w-md relative flex items-center">
+                <FiSearch className="absolute left-4 w-4 h-4" style={{ color: "#475569" }} />
+                <input
+                  type="text"
+                  placeholder="PROBE OPERATOR ID MATCH..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full font-mono text-xs font-bold pl-11 pr-4 py-3.5 rounded-lg outline-none uppercase transition-all"
+                  style={{
+                    background: "#060a10",
+                    border: "1px solid #1e293b",
+                    color: "#f1f5f9",
+                  }}
+                  onFocus={(e) => (e.currentTarget.style.border = "1px solid rgba(34,211,238,0.5)")}
+                  onBlur={(e) => (e.currentTarget.style.border = "1px solid #1e293b")}
+                />
               </div>
-              <div className="bg-slate-100 dark:bg-neutral-950 p-1 rounded-lg border border-slate-200 dark:border-neutral-800 flex items-center gap-1">
-                <button
-                  onClick={() => setSortBy("score")}
-                  className={`px-4 py-2 rounded-md text-xs font-black uppercase tracking-wider cursor-pointer border-none transition-all ${sortBy === "score" ? "bg-blue-600 dark:bg-cyan-500 text-white dark:text-neutral-950 shadow-md" : "bg-transparent text-slate-500 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white"}`}
+
+              {/* Sort + Filter toggle */}
+              <div className="w-full md:w-auto flex items-center justify-end gap-3 shrink-0 flex-wrap">
+                <div className="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider" style={{ color: "#475569" }}>
+                  <FiSliders className="w-4 h-4" />
+                  SORT:
+                </div>
+                <div
+                  className="flex items-center gap-1 p-1 rounded-lg"
+                  style={{ background: "#060a10", border: "1px solid #1e293b" }}
                 >
-                  HIGH SCORE
-                </button>
+                  {SORT_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.key}
+                      onClick={() => setSortBy(opt.key)}
+                      className="px-3 py-1.5 rounded-md text-[10px] font-black uppercase tracking-wider cursor-pointer border-none transition-all"
+                      style={{
+                        background: sortBy === opt.key
+                          ? "linear-gradient(135deg,#0891b2,#6366f1)"
+                          : "transparent",
+                        color: sortBy === opt.key ? "#fff" : "#475569",
+                        boxShadow: sortBy === opt.key ? "0 0 12px rgba(34,211,238,0.3)" : "none",
+                      }}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+
                 <button
-                  onClick={() => setSortBy("alpha")}
-                  className={`px-4 py-2 rounded-md text-xs font-black uppercase tracking-wider cursor-pointer border-none transition-all ${sortBy === "alpha" ? "bg-blue-600 dark:bg-cyan-500 text-white dark:text-neutral-950 shadow-md" : "bg-transparent text-slate-500 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white"}`}
+                  onClick={() => setShowFilters((v) => !v)}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider cursor-pointer border-none transition-all"
+                  style={{
+                    background: showFilters ? "rgba(34,211,238,0.15)" : "#060a10",
+                    border: `1px solid ${showFilters ? "rgba(34,211,238,0.4)" : "#1e293b"}`,
+                    color: showFilters ? "#22d3ee" : "#475569",
+                  }}
                 >
-                  ALPHABETICAL
+                  <FiFilter className="w-3.5 h-3.5" />
+                  FILTER
                 </button>
               </div>
             </div>
 
+            {/* Row 2: Tier filter chips (collapsible) */}
+            <AnimatePresence>
+              {showFilters && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="overflow-hidden"
+                >
+                  <div
+                    className="pt-3 flex flex-wrap items-center gap-2"
+                    style={{ borderTop: "1px solid #1e293b" }}
+                  >
+                    <span className="text-[9px] font-black tracking-widest uppercase" style={{ color: "#475569" }}>
+                      RANK TIER:
+                    </span>
+                    {TIER_FILTER_OPTIONS.map((opt) => {
+                      const tierData = opt.key !== "ALL" ? TIERS[opt.key] : null;
+                      const active = tierFilter === opt.key;
+                      return (
+                        <button
+                          key={opt.key}
+                          onClick={() => setTierFilter(opt.key)}
+                          className="px-3 py-1 rounded-full text-[9px] font-black tracking-wider uppercase cursor-pointer border-none transition-all"
+                          style={{
+                            background: active
+                              ? tierData
+                                ? `${tierData.glow.replace("0.25","0.3")}`
+                                : "rgba(34,211,238,0.2)"
+                              : "#0f172a",
+                            border: active
+                              ? `1px solid ${tierData ? tierData.glow.replace("0.25","0.7") : "rgba(34,211,238,0.5)"}`
+                              : "1px solid #1e293b",
+                            color: active
+                              ? tierData
+                                ? "#fff"
+                                : "#22d3ee"
+                              : "#475569",
+                            boxShadow: active && tierData ? `0 0 10px ${tierData.glowHover}` : "none",
+                          }}
+                        >
+                          {opt.label}
+                        </button>
+                      );
+                    })}
+                    {/* Count badge */}
+                    <span
+                      className="ml-auto text-[9px] font-black tracking-widest uppercase"
+                      style={{ color: "#334155" }}
+                    >
+                      {processedContributors.length} OPERATORS
+                    </span>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </section>
 
-        {/* Core Roster Grid Frame */}
+        {/* ── Cards Grid ──────────────────────────────────────────────────── */}
         <section className="relative z-10 max-w-6xl mx-auto px-4">
-          
-          {/* Custom CSS Animation Fallback Loading State */}
+          {/* Loading */}
           {loading && (
             <div className="flex flex-col items-center justify-center py-24 gap-4">
-              <div className="w-48 h-1.5 bg-slate-200 dark:bg-neutral-900 rounded-full overflow-hidden relative border border-slate-300 dark:border-neutral-800">
-                <div 
-                  className="absolute top-0 bottom-0 left-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full"
+              <div
+                className="w-48 h-1.5 rounded-full overflow-hidden relative"
+                style={{ background: "#0f172a", border: "1px solid #1e293b" }}
+              >
+                <div
+                  className="absolute top-0 bottom-0 left-0 rounded-full"
                   style={{
                     width: "40%",
-                    animation: "loading-slide 1.5s infinite ease-in-out"
+                    background: "linear-gradient(90deg,#22d3ee,#6366f1)",
+                    animation: "loading-slide 1.5s infinite ease-in-out",
                   }}
                 />
               </div>
-              <style>{`
-                @keyframes loading-slide {
-                  0% { transform: translateX(-100%); }
-                  100% { transform: translateX(250%); }
-                }
-              `}</style>
-              <p className="text-[11px] tracking-widest text-blue-600 dark:text-cyan-400 uppercase font-black animate-pulse m-0">SYNCHRONIZING REPOSITORY LOBBY STATS...</p>
+              <p
+                className="text-[11px] tracking-widest uppercase font-black animate-pulse m-0"
+                style={{ color: "#22d3ee" }}
+              >
+                SYNCHRONIZING REPOSITORY LOBBY STATS...
+              </p>
             </div>
           )}
 
-          {/* Exception Handler Error Notification */}
+          {/* Error */}
           {!loading && error && (
-            <div className="max-w-md mx-auto bg-rose-500/10 border-2 border-rose-500/30 rounded-xl p-5 flex items-start gap-3 shadow-[0_0_20px_rgba(239,68,68,0.1)]">
+            <div
+              className="max-w-md mx-auto rounded-xl p-5 flex items-start gap-3"
+              style={{
+                background: "rgba(239,68,68,0.08)",
+                border: "2px solid rgba(239,68,68,0.3)",
+                boxShadow: "0 0 24px rgba(239,68,68,0.1)",
+              }}
+            >
               <FiAlertTriangle className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-xs font-black text-rose-600 dark:text-rose-400 m-0 mb-1 uppercase tracking-wider">Lobby Error Intercepted</h4>
-                <p className="text-[11px] font-bold text-slate-600 dark:text-neutral-400 m-0">{error}</p>
+                <h4
+                  className="text-xs font-black m-0 mb-1 uppercase tracking-wider"
+                  style={{ color: "#f87171" }}
+                >
+                  Lobby Error Intercepted
+                </h4>
+                <p className="text-[11px] font-bold m-0" style={{ color: "#94a3b8" }}>{error}</p>
               </div>
             </div>
           )}
 
-          {/* Player Cards Display Pipeline */}
+          {/* Grid */}
           {!loading && !error && (
-            <motion.div 
+            <motion.div
               variants={gridVariants}
               initial="hidden"
               animate="show"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
             >
               <AnimatePresence mode="popLayout">
-                {processedContributors.map((c) => {
-                  const tier = getGamerTier(c.contributions);
-                  // Compute progression bar fill metric against top platform high scores
-                  const statPercentage = Math.max(8, Math.min(100, (c.contributions / maxContributions) * 100));
-
-                  return (
-                    <motion.div
-                      key={c.id}
-                      layout
-                      variants={cardVariants}
-                      exit={{ opacity: 0, scale: 0.9, y: 10 }}
-                      className="group bg-white dark:bg-neutral-900 border-2 border-slate-200 dark:border-neutral-800 hover:border-blue-500 dark:hover:border-cyan-500 rounded-xl p-5 shadow-sm dark:shadow-md transition-all duration-200 relative overflow-hidden flex flex-col justify-between hover:shadow-[0_5px_25px_rgba(59,130,246,0.1)] dark:hover:shadow-[0_0_25px_rgba(6,182,212,0.15)]"
-                    >
-                      {/* Tactical HUD Target Sight Markers */}
-                      <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-slate-300 dark:border-neutral-700 group-hover:border-blue-500 dark:group-hover:border-cyan-400 transition-colors" />
-                      <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-slate-300 dark:border-neutral-700 group-hover:border-blue-500 dark:group-hover:border-cyan-400 transition-colors" />
-
-                      <div>
-                        {/* Upper Card Grid Row: Avatar & Profile Bio Identification */}
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="relative shrink-0">
-                            <div className="absolute inset-0 rounded-full border border-dashed border-slate-300 dark:border-neutral-700 group-hover:border-blue-500 dark:group-hover:border-cyan-500 group-hover:rotate-90 transition-transform duration-1000" />
-                            <img 
-                              src={c.avatar_url} 
-                              alt={`${c.login} profile loadout matrix`}
-                              className="w-14 h-14 rounded-full object-cover p-1 bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 relative z-10"
-                            />
-                          </div>
-
-                          <div className="min-w-0 flex-1">
-                            {/* Esports Badge Class Tag Row */}
-                            <div className={`inline-block px-2 py-0.5 rounded text-[9px] font-black tracking-wider border mb-1.5 ${tier.color}`}>
-                              {tier.label}
-                            </div>
-                            <h3 className="text-base font-black text-slate-900 dark:text-white tracking-tight m-0 truncate group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">
-                              {c.login}
-                            </h3>
-                          </div>
-                        </div>
-
-                        {/* Middle Card Content Row: Performance Bar Stat Progression Modules */}
-                        <div className="space-y-3 bg-slate-50 dark:bg-neutral-950/60 rounded-lg p-3 border border-slate-200 dark:border-neutral-800/80 mb-4">
-                          <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-neutral-500">
-                            <span className="flex items-center gap-1"><FiTarget className="w-3.5 h-3.5 text-blue-500" /> COMMIT POWER</span>
-                            <span className="text-slate-800 dark:text-slate-200 font-extrabold">{c.contributions} XP</span>
-                          </div>
-                          
-                          {/* Live Stat Bar Gauge Track */}
-                          <div className="w-full h-1.5 bg-slate-200 dark:bg-neutral-800 rounded-full overflow-hidden">
-                            <div 
-                              className="h-full bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-cyan-500 dark:to-blue-500 transition-all duration-500 group-hover:brightness-110"
-                              style={{ width: `${statPercentage}%` }}
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Lower Card Action Link Portal Row */}
-                      <div className="flex items-center justify-between gap-4 pt-2 border-t border-slate-100 dark:border-neutral-800/60">
-                        <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider">
-                          <FiActivity className="w-3.5 h-3.5 text-emerald-500 animate-pulse" />
-                          <span className="text-emerald-500">PING: OK</span>
-                        </div>
-                        
-                        <a 
-                          href={c.html_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-100 hover:bg-slate-900 dark:bg-neutral-950 dark:hover:bg-cyan-500 border border-slate-200 dark:border-neutral-800 hover:border-slate-900 dark:hover:border-cyan-400 text-slate-500 hover:text-white dark:text-neutral-400 dark:hover:text-neutral-950 font-black text-[10px] transition-all no-underline hover:no-underline group-hover:translate-x-0.5"
-                          aria-label={`Open link target data profiles`}
-                        >
-                          <FiGithub className="w-3.5 h-3.5" />
-                          VIEW PROFILE
-                        </a>
-                      </div>
-
-                    </motion.div>
-                  );
-                })}
+                {processedContributors.map((c, i) => (
+                  <ContributorCard
+                    key={c.id}
+                    c={c}
+                    maxContributions={maxContributions}
+                    rank={i + 1}
+                  />
+                ))}
               </AnimatePresence>
             </motion.div>
           )}
 
-          {/* Query Match Alternative Flag Fallback */}
-          {!loading && processedContributors.length === 0 && (
-            <div className="bg-slate-100/50 dark:bg-neutral-900/30 border-2 border-dashed border-slate-300 dark:border-neutral-800 rounded-2xl p-14 text-center max-w-md mx-auto shadow-inner">
-              <FiTerminal className="w-6 h-6 text-slate-400 dark:text-neutral-600 mx-auto mb-3" />
-              <h4 className="text-xs font-black uppercase tracking-widest text-slate-500 dark:text-neutral-400 m-0 mb-1">ZERO SEARCH MATCHES</h4>
-              <p className="text-[11px] text-slate-400 dark:text-neutral-500 m-0 leading-relaxed">No network player active inside this lobby instance satisfies the current lookup query parameters.</p>
-            </div>
+          {/* Empty state */}
+          {!loading && !error && processedContributors.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="rounded-2xl p-14 text-center max-w-md mx-auto"
+              style={{
+                background: "rgba(15,23,42,0.5)",
+                border: "2px dashed #1e293b",
+              }}
+            >
+              <FiTerminal className="w-6 h-6 mx-auto mb-3" style={{ color: "#334155" }} />
+              <h4
+                className="text-xs font-black uppercase tracking-widest m-0 mb-1"
+                style={{ color: "#475569" }}
+              >
+                ZERO SEARCH MATCHES
+              </h4>
+              <p className="text-[11px] m-0 leading-relaxed" style={{ color: "#334155" }}>
+                No operators match the current query or tier filter parameters.
+              </p>
+            </motion.div>
           )}
-
         </section>
       </main>
     </Layout>

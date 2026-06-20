@@ -141,6 +141,26 @@ export default function KeyboardShortcutsModal({
             action="Go to Docs"
             shortcut="g + d"
           />
+
+          <ShortcutRow
+            action="Go to Playground"
+            shortcut="g + p"
+          />
+
+          <ShortcutRow
+            action="Go to Leaderboard"
+            shortcut="g + l"
+          />
+
+          <ShortcutRow
+            action="Go to Blog"
+            shortcut="g + b"
+          />
+
+          <ShortcutRow
+            action="Go to Quizzes"
+            shortcut="g + q"
+          />
         </div>
       </div>
     </div>
