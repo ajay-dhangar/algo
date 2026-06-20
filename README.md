@@ -200,6 +200,37 @@ As a Project Admin, I ensure a structured workflow to maintain high code quality
 
 We welcome contributions from developers of all experience levels.
 
+## Manually invoke Gemini Code Assist
+
+Gemini Code Assist listens to comments from any pull request contributor, and decides whether it should respond.
+
+To manually invoke Gemini Code Assist, you can use the following commands in the main comments page on the pull request as an issue comment.
+
+| Command | Description
+|:---|:---|
+|`/gemini summary` | Posts a summary of the changes in the pull request |
+|`/gemini review` |Posts a code review of the changes in the pull request |
+|`/gemini`| Manually invokes Gemini Code Assist in comments |
+|`/gemini help` | Overview of the available commands |
+
+## Stargazers
+
+[![Stargazers repo roster for @ajay-dhangar/algo](https://reporoster.com/stars/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/stargazers)
+
+## Forkers
+
+[![Forkers repo roster for @ajay-dhangar/algo](https://reporoster.com/forks/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/network/members)
+
+## Resources for Guidance
+
+These links are summarized in [CONTRIBUTING.md — Recommended reading](./CONTRIBUTING.md#recommended-reading) with a one-line note on when to use each tool while contributing or editing docs.
+
+- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction) — site layout, sidebars, and local preview
+- [Markdown Guide](https://www.markdownguide.org/) — writing `.md` algorithm and tutorial pages
+- [MDX Documentation](https://mdxjs.com/docs/) — pages that embed React components
+- [React.js Documentation](https://react.dev/learn) — custom components and interactive docs
+- [Mermaid Documentation](https://mermaid.js.org/) — flowcharts and diagrams in documentation
+
 ## Contributors ✨
 
 Thanks to these amazing people who have contributed to the **Algo** project ❤️:
@@ -457,38 +488,6 @@ Thanks to these amazing people who have contributed to the **Algo** project ❤�
 <a href="https://github.com/Lokesh-Bijarniya"><img src="https://images.weserv.nl/?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F152880035%3Fv%3D4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Lokesh-Bijarniya" /></a>
 <a href="https://github.com/shubhagarwal1"><img src="https://images.weserv.nl/?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F105449260%3Fv%3D4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="shubhagarwal1" /></a>
 <a href="https://github.com/OmmDevgoswami"><img src="https://images.weserv.nl/?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F127383096%3Fv%3D4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="OmmDevgoswami" /></a>
-
-
-## Manually invoke Gemini Code Assist
-
-Gemini Code Assist listens to comments from any pull request contributor, and decides whether it should respond.
-
-To manually invoke Gemini Code Assist, you can use the following commands in the main comments page on the pull request as an issue comment.
-
-| Command | Description
-|:---|:---|
-|`/gemini summary` | Posts a summary of the changes in the pull request |
-|`/gemini review` |Posts a code review of the changes in the pull request |
-|`/gemini`| Manually invokes Gemini Code Assist in comments |
-|`/gemini help` | Overview of the available commands |
-
-## Stargazers
-
-[![Stargazers repo roster for @ajay-dhangar/algo](https://reporoster.com/stars/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/stargazers)
-
-## Forkers
-
-[![Forkers repo roster for @ajay-dhangar/algo](https://reporoster.com/forks/dark/ajay-dhangar/algo)](https://github.com/ajay-dhangar/algo/network/members)
-
-## Resources for Guidance
-
-These links are summarized in [CONTRIBUTING.md — Recommended reading](./CONTRIBUTING.md#recommended-reading) with a one-line note on when to use each tool while contributing or editing docs.
-
-- [Docusaurus Documentation](https://docusaurus.io/docs/docs-introduction) — site layout, sidebars, and local preview
-- [Markdown Guide](https://www.markdownguide.org/) — writing `.md` algorithm and tutorial pages
-- [MDX Documentation](https://mdxjs.com/docs/) — pages that embed React components
-- [React.js Documentation](https://react.dev/learn) — custom components and interactive docs
-- [Mermaid Documentation](https://mermaid.js.org/) — flowcharts and diagrams in documentation
 
 <div align="center">
     <a href="#top">
