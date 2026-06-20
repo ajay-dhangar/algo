@@ -6,9 +6,17 @@
 
 ## Table of Contents
 
-|1|2|3|4|5|6|7|8|9|10|11|
-|---|---|---|---|---|---|---|---|---|---|---|
-| [Introduction](#introduction) | [Algo Events](#algo-events) | [Links](#-links) | [Project Overview](#project-overview) | [Features](#features) | [Website](#website) | [Installation](#installation) | [Local Development](#local-development) | [Build](#build) | [Deployment](#deployment) | [Contributing](#-contributing) |
+* 📖 [Introduction](#introduction)
+* 📅 [Algo Events](#algo-events)
+* 🌐 [Links](#-links)
+* 📋 [Project Overview](#project-overview)
+* ⚡ [Features](#features)
+* 💻 [Website](#website)
+* 🛠 [Installation](#installation)
+* 🚀 [Local Development](#local-development)
+* 📦 [Build](#build)
+* 🚢 [Deployment](#deployment)
+* 🤝 [Contributing](#-contributing)
 
 ---
 
@@ -93,23 +101,34 @@ Welcome to Algo, an open-source educational platform built with Docusaurus (Reac
 
 ## Project Overview
 
-Algo provides a collection of well-documented algorithmic solutions written in various programming languages, covering a range of topics like sorting, searching, dynamic programming, and more.
+Algo is a comprehensive, interactive educational platform designed to help developers master Data Structures and Algorithms (DSA). We offer clean, optimized, and well-documented implementations across multiple popular programming languages. 
 
-### Pick up Topics
+Whether you are preparing for technical interviews, academic studies, or simply looking to sharpen your problem-solving skills, Algo provides the resources, interactive tools, and community support to guide you.
 
-- [DSA Roadmap](https://roadmap.sh/datastructures-and-algorithms)
+### Our Core Mission
 
-We aim to:
-- Create an extensive library of algorithms in different languages
-- Help developers learn algorithmic problem-solving
-- Foster open-source contribution and collaboration
+* **Extensive Algorithm Catalog:** Build a complete, structured directory of fundamental and advanced algorithms.
+* **Interactive Visualizations:** Help users build strong mental models of algorithms through real-time, interactive visualizer components (like AVL Trees, Red-Black Trees, Graph traversals, sorting, and search algorithms).
+* **Skill Diagnostics:** Test and benchmark your knowledge with our integrated quiz terminal systems across various DSA topics.
+* **Collaborative Learning:** Foster an inclusive open-source community where developers of all experience levels can contribute, peer-review code, and learn together.
+
+### Featured Study Paths
+
+* **Linear Collections:** Arrays, Stacks, Queues, Deques, and Linked Lists.
+* **Non-Linear Structures:** Binary Trees, BSTs, Graphs, and Heaps.
+* **Balanced Trees:** AVL Trees, Red-Black Trees, and multi-way search trees (B-Trees).
+* **Algorithmic Taxonomies:** Sorting, Searching, Dynamic Programming, Greedy approaches, and Backtracking.
+
+---
 
 ## Features
 
-- **Multi-language Support**: Algorithms in multiple programming languages ([contribution workflow](./CONTRIBUTING.md#5-how-to-add-a-new-algorithm-in-multiple-languages))
-- **Beginner-Friendly**: Well-structured, easy-to-understand explanations
-- **Open Source Contributions**: Welcoming developers at all levels to contribute
-- **Community Forum**: A new interactive platform where developers can ask questions, share ideas, and collaborate in real-time. This forum will help bridge the gap between beginners and experts, allowing for deeper engagement and problem-solving.
+* **Multi-Language Implementations:** Clean code examples for every algorithm in C++, Java, Python, Go, JavaScript, and more. Review our [contribution workflow](./CONTRIBUTING.md#5-how-to-add-a-new-algorithm-in-multiple-languages) to add implementations.
+* **Interactive Visualization Playground:** Move beyond static code. Visualize how data structures change state dynamically as algorithms execute (e.g., node rotations in AVL/Red-Black trees, shortest path relaxation in Dijkstra/A*).
+* **Diagnostic Quiz Terminals:** Challenge your skills with topic-specific quizzes (e.g., Arrays, Stacks, Queues, Recursion) featuring detailed compiler-like feedback and attempt history tracking.
+* **Interactive Code Playground:** Experiment with code, run test cases, and analyze execution performance directly inside your browser.
+* **Community Discussion Hub:** Ask questions, share optimizations, and collaborate on complex algorithms in real-time with other developers.
+* **Accessibility & Keyboard Navigation:** Quick hotkeys and responsive designs built for developers who prefer keyboard-first navigation workflows.
 
 ## Website
 
@@ -185,9 +204,8 @@ We welcome contributions from developers of all experience levels.
 
 Thanks to these amazing people who have contributed to the **Algo** project ❤️:
 
-[![Contributors](https://contrib.rocks/image?repo=ajay-dhangar/algo&max=300)](https://github.com/ajay-dhangar/algo/graphs/contributors)
+<a href="https://github.com/Aditya948351"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/157286761?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Aditya948351" /></a> [![Contributors](https://contrib.rocks/image?repo=ajay-dhangar/algo&max=300)](https://github.com/ajay-dhangar/algo/graphs/contributors)
 
-<br>
 
 ## Manually invoke Gemini Code Assist
 
