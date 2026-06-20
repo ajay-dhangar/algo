@@ -24,6 +24,30 @@
   --announcement-bg-2: #fff7ed;
   --announcement-text: #4c1d95;
   --announcement-border: #e9d5ff;
+
+  /* Blueprint/Grid Pattern Accent Lines */
+  --ifm-color-emphasis-100: #f8fafc;
+  --ifm-color-emphasis-200: #e2e8f0;
+  --ifm-color-emphasis-300: #cbd5e1;
+  --ifm-color-emphasis-400: #94a3b8;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-600: #475569;
+  --ifm-color-emphasis-700: #334155;
+
+  /* Card Backdrop Backings */
+  --ifm-card-background-color: rgba(255, 255, 255, 0.9);
+  --ifm-heading-color: #1c1e21;
+  --ifm-font-color-base: #334155;
+
+  /* Functional Status Accents */
+  --ifm-color-info-contrast-background: rgba(14, 165, 233, 0.08);
+  --ifm-color-danger-contrast-background: rgba(239, 68, 68, 0.08);
+  --ifm-color-danger-light: rgba(239, 68, 68, 0.3);
+  --ifm-color-danger-dark: #dc2626;
+
+  /* System Box Shadows */
+  --ifm-global-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --ifm-global-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="dark"] {  
@@ -41,6 +65,29 @@
   --announcement-bg-2: #431407;
   --announcement-text: #f5f3ff;
   --announcement-border: #4c1d95;
+
+  --ifm-color-emphasis-100: #0b0f17;
+  --ifm-color-emphasis-200: #1e293b;
+  --ifm-color-emphasis-300: #334155;
+  --ifm-color-emphasis-400: #475569;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-600: #94a3b8;
+  --ifm-color-emphasis-700: #cbd5e1;
+
+  /* Card Backdrop Backings */
+  --ifm-card-background-color: rgba(13, 17, 23, 0.9);
+  --ifm-heading-color: #f1f5f9;
+  --ifm-font-color-base: #94a3b8;
+
+  /* Functional Status Accents */
+  --ifm-color-info-contrast-background: rgba(34, 211, 238, 0.12);
+  --ifm-color-danger-contrast-background: rgba(239, 68, 68, 0.12);
+  --ifm-color-danger-light: rgba(239, 68, 68, 0.4);
+  --ifm-color-danger-dark: #f87171;
+
+  /* System Box Shadows */
+  --ifm-global-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --ifm-global-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 @keyframes pulseGlow {
