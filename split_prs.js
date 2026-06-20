@@ -96,7 +96,7 @@ prs.forEach((pr) => {
   }
 
   // Add changes to git
-  runCmd('git', ['add', '.']);
+  runCmd('git', ['add', ...pr.files]);
 
   // Commit changes
   console.log(`Committing changes...`);
