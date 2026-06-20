@@ -204,7 +204,37 @@ We welcome contributions from developers of all experience levels.
 
 Thanks to these amazing people who have contributed to the **Algo** project ❤️:
 
-<a href="https://github.com/Aditya948351"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/157286761?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Aditya948351" /></a> [![Contributors](https://contrib.rocks/image?repo=ajay-dhangar/algo&max=300)](https://github.com/ajay-dhangar/algo/graphs/contributors)
+<a href="https://github.com/Aditya948351"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/157286761?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Aditya948351" /></a>
+<a href="https://github.com/ajay-dhangar"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/99037494?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="ajay-dhangar" /></a>
+<a href="https://github.com/shravya312"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/125795769?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="shravya312" /></a>
+<a href="https://github.com/madhavcodes25"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/219294087?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="madhavcodes25" /></a>
+<a href="https://github.com/ArshiBansal"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/150040105?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="ArshiBansal" /></a>
+<a href="https://github.com/pavitraag"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/100479594?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="pavitraag" /></a>
+<a href="https://github.com/priyashuu"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/150767072?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="priyashuu" /></a>
+<a href="https://github.com/KapuluruBhuvaneswariVspdbct"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/165504668?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="KapuluruBhuvaneswariVspdbct" /></a>
+<a href="https://github.com/AbhijitMotekar99"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/109235675?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="AbhijitMotekar99" /></a>
+<a href="https://github.com/knoxiboy"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/170925990?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="knoxiboy" /></a>
+<a href="https://github.com/pragya0129"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/63705141?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="pragya0129" /></a>
+<a href="https://github.com/mahaveergurjar"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/57872034?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="mahaveergurjar" /></a>
+<a href="https://github.com/Lavanya-Talele"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/227643073?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Lavanya-Talele" /></a>
+<a href="https://github.com/Ankitha2130"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/149484435?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Ankitha2130" /></a>
+<a href="https://github.com/riyaa060"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/153705031?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="riyaa060" /></a>
+<a href="https://github.com/inkerton"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/127668005?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="inkerton" /></a>
+<a href="https://github.com/trushi-jasani"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/202170904?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="trushi-jasani" /></a>
+<a href="https://github.com/Riyachauhan11"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/96919050?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Riyachauhan11" /></a>
+<a href="https://github.com/ananyag309"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/145869907?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="ananyag309" /></a>
+<a href="https://github.com/yashksaini-coder"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/115717039?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="yashksaini-coder" /></a>
+<a href="https://github.com/haseebzaki-07"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/147314463?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="haseebzaki-07" /></a>
+<a href="https://github.com/shuvojitss"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/142198651?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="shuvojitss" /></a>
+<a href="https://github.com/nishant4500"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/135944619?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="nishant4500" /></a>
+<a href="https://github.com/trahulprabhu38"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/167653990?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="trahulprabhu38" /></a>
+<a href="https://github.com/Gopal0Gupta"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/114791914?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Gopal0Gupta" /></a>
+<a href="https://github.com/Jivan052"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/137729176?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Jivan052" /></a>
+<a href="https://github.com/tatheer-fathima"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/148070120?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="tatheer-fathima" /></a>
+<a href="https://github.com/AE-Hertz"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/93651229?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="AE-Hertz" /></a>
+<a href="https://github.com/Meetpidev"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/128205241?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="Meetpidev" /></a>
+<a href="https://github.com/shriyadindi"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/126611334?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="shriyadindi" /></a>
+<a href="https://github.com/aditiverma-21"><img src="https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/180853305?v=4&h=64&w=64&fit=cover&mask=circle" width="64" height="64" alt="aditiverma-21" /></a>
 
 
 ## Manually invoke Gemini Code Assist
