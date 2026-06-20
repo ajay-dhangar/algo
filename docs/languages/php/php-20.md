@@ -122,7 +122,11 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $stmt->execute([':id' => 1]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-echo $user['name']; // Alice
+if ($user) {
+    echo htmlspecialchars($user['name']); // Alice
+} else {
+    echo "User not found.";
+}
 ?>
 ```
 
