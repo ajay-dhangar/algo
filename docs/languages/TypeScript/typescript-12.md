@@ -1,8 +1,17 @@
 ---
 id: polymorphism-and-abstracts
 sidebar_position: 12
-title: "Polymorphism & Abstract Class Contracts"
-sidebar_label: "Polymorphism"
+title: Polymorphism & Abstract Class Contracts
+sidebar_label: Polymorphism
+description: >-
+  Learn about Polymorphism & Abstract Class Contracts in the TypeScript
+  programming language with core concepts, syntax, code examples, and best
+  practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - polymorphism & abstract class contracts
 ---
 
 Polymorphism enables separate objects to expose uniform method signatures while executing unique runtime logic under the hood.

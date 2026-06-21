@@ -1,10 +1,18 @@
-
 ---
-id: lasso-regression  
-title: "Lasso Regression Algorithm"  
-sidebar_label: Lasso Regression  
-description: "In this post, we’ll explore Lasso Regression, a regularization technique in supervised learning that helps prevent overfitting by adding a penalty to the loss function."  
-tags: [machine learning, algorithms, supervised learning, regression, lasso regression]
+id: lasso-regression
+title: Lasso Regression Algorithm
+sidebar_label: Lasso Regression
+description: >-
+  In this post, we’ll explore Lasso Regression, a regularization technique in
+  supervised learning that helps prevent overfitting by adding a penalty to the
+  loss function.
+tags:
+  - machine learning
+  - algorithms
+  - supervised learning
+  - regression
+  - lasso regression
+sidebar_position: 20
 ---
 
 ### Definition:

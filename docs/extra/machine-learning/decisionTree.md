@@ -1,10 +1,17 @@
 ---
-id: decision-tree  
-title: Decision Tree Algorithm  
-sidebar_label: Decision Tree  
-description: "In this post, we'll explore the Decision Tree Algorithm, a popular machine learning model used for classification and regression tasks."  
-tags: [machine learning, algorithms, decision tree, classification, regression]
-
+id: decision-tree
+title: Decision Tree Algorithm
+sidebar_label: Decision Tree
+description: >-
+  In this post, we'll explore the Decision Tree Algorithm, a popular machine
+  learning model used for classification and regression tasks.
+tags:
+  - machine learning
+  - algorithms
+  - decision tree
+  - classification
+  - regression
+sidebar_position: 7
 ---
 
 ### Definition:

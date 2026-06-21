@@ -1,8 +1,16 @@
----  
-id: usage-of-sets-in-python  
-sidebar_position: 5 
-title: Sets in Python  
-sidebar_label: Sets in Python  
+---
+id: usage-of-sets-in-python
+sidebar_position: 5
+title: Sets in Python
+sidebar_label: Sets in Python
+description: >-
+  Learn about Sets in Python in the Python programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - sets in python
 ---
 
 Hey there! In this guide, we'll explore sets in Python. Sets are unordered collections of unique elements that allow you to perform various operations like union, intersection, and difference. Let's dive in!

@@ -1,10 +1,16 @@
 ---
-
-id: linear-search-algo  
-sidebar_position: 1  
-title: Linear Search  
-sidebar_label: Linear Search  
-
+id: linear-search-algo
+sidebar_position: 1
+title: Linear Search
+sidebar_label: Linear Search
+description: >-
+  Detailed guide on Linear Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - linear search
 ---
 
 ### Definition:

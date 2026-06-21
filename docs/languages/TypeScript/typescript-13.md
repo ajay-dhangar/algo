@@ -1,8 +1,16 @@
 ---
 id: generics-in-typescript
 sidebar_position: 13
-title: "Generics & Reusable Component Types"
-sidebar_label: "Generics"
+title: Generics & Reusable Component Types
+sidebar_label: Generics
+description: >-
+  Learn about Generics & Reusable Component Types in the TypeScript programming
+  language with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - generics & reusable component types
 ---
 
 Generics let you write flexible, reusable code components that work with a variety of data types while maintaining strict compile-time type safety.

@@ -1,10 +1,16 @@
 ---
-
-id: tim-sort-algo  
-sidebar_position: 11  
-title: Tim Sort  
-sidebar_label: Tim Sort  
-
+id: tim-sort-algo
+sidebar_position: 11
+title: Tim Sort
+sidebar_label: Tim Sort
+description: >-
+  Detailed guide on Tim Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - tim sort
 ---
 
 ### Definition:

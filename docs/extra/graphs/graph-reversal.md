@@ -1,9 +1,15 @@
 ---
-id: graph-reversal 
+id: graph-reversal
 title: Graph-reversal
-sidebar_label: Graph-reversal 
-description: "Reverse a directed graph so that the incoming edges will be converted to outgoing edges betwwen the same nodes."  
-tags: [dsa, algorithms, graph]
+sidebar_label: Graph-reversal
+description: >-
+  Reverse a directed graph so that the incoming edges will be converted to
+  outgoing edges betwwen the same nodes.
+tags:
+  - dsa
+  - algorithms
+  - graph
+sidebar_position: 15
 ---
 
 ### Problem Statement:

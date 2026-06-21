@@ -1,8 +1,16 @@
 ---
 id: strings-and-manipulation
 sidebar_position: 7
-title: "Strings & Text Processing"
-sidebar_label: "Strings"
+title: Strings & Text Processing
+sidebar_label: Strings
+description: >-
+  Learn about Strings & Text Processing in the TypeScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - strings & text processing
 ---
 
 Strings are primitive immutable entities in TypeScript. Modifications create new allocations instead of altering the original text in memory.

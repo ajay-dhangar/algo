@@ -1,10 +1,16 @@
 ---
-
-id: ternary-search-algo  
-sidebar_position: 3  
-title: Ternary Search  
-sidebar_label: Ternary Search  
-
+id: ternary-search-algo
+sidebar_position: 3
+title: Ternary Search
+sidebar_label: Ternary Search
+description: >-
+  Detailed guide on Ternary Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - ternary search
 ---
 
 ### Definition:

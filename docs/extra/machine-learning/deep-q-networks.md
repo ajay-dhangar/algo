@@ -2,8 +2,17 @@
 id: deep-q-networks
 title: Deep Q-Networks (DQN) Algorithm
 sidebar_label: Deep Q-Networks
-description: "An introduction to Deep Q-Networks, a reinforcement learning technique that combines Q-Learning with deep neural networks to handle complex, high-dimensional state spaces."
-tags: [machine learning, reinforcement learning, DQN, deep learning, algorithms]
+description: >-
+  An introduction to Deep Q-Networks, a reinforcement learning technique that
+  combines Q-Learning with deep neural networks to handle complex,
+  high-dimensional state spaces.
+tags:
+  - machine learning
+  - reinforcement learning
+  - DQN
+  - deep learning
+  - algorithms
+sidebar_position: 8
 ---
 
 <AdsComponent />

@@ -1,10 +1,16 @@
 ---
-
-id: advanced-encryption-standard  
-sidebar_position: 4  
-title: Advanced Encryption Standard (AES)  
-sidebar_label: Advanced Encryption Standard  
-
+id: advanced-encryption-standard
+sidebar_position: 4
+title: Advanced Encryption Standard (AES)
+sidebar_label: Advanced Encryption Standard
+description: >-
+  Detailed guide on Advanced Encryption Standard (AES) including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - advanced encryption standard (aes)
 ---
 
 ### Definition:

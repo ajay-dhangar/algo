@@ -2,8 +2,14 @@
 id: adjacency-matrix
 title: Adjacency matrix
 sidebar_label: Adjacency matrix
-description: "An adjacency matrix is a 2D array used to represent a graph, where each cell (i, j) is set to 1 if there's an edge from node i to node j, and 0 otherwise."
-tags: [Graph,Algorithm, DSA]
+description: >-
+  An adjacency matrix is a 2D array used to represent a graph, where each cell
+  (i, j) is set to 1 if there's an edge from node i to node j, and 0 otherwise.
+tags:
+  - Graph
+  - Algorithm
+  - DSA
+sidebar_position: 2
 ---
 # Adjacency Matrix
 ## Problem Statement

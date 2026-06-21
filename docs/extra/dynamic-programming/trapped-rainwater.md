@@ -2,8 +2,17 @@
 id: trapped-rainwater
 title: Trapped Rainwater
 sidebar_label: Trapped Rainwater
-description: "In this post, we'll explore a solution to the Trapped Rainwater problem, calculating how much rainwater can be held within a terrain represented by an elevation map using a dynamic programming approach."
-tags: [dsa, algorithms, dynamic programming, rainwater, arrays]
+description: >-
+  In this post, we'll explore a solution to the Trapped Rainwater problem,
+  calculating how much rainwater can be held within a terrain represented by an
+  elevation map using a dynamic programming approach.
+tags:
+  - dsa
+  - algorithms
+  - dynamic programming
+  - rainwater
+  - arrays
+sidebar_position: 16
 ---
 
 ### Definition:

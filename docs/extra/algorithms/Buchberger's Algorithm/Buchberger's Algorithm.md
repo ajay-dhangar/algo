@@ -1,10 +1,16 @@
 ---
-
-id: buchbergers-algorithm  
-sidebar_position: 18  
-title: "Buchberger's Algorithm"  
-sidebar_label: Buchberger's Algorithm  
-
+id: buchbergers-algorithm
+sidebar_position: 18
+title: Buchberger's Algorithm
+sidebar_label: Buchberger's Algorithm
+description: >-
+  Detailed guide on Buchberger's Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - buchberger's algorithm
 ---
 
 ### Definition

@@ -1,10 +1,16 @@
 ---
-id: logistic-regression  
-title: Logistic Regression Algorithm  
-sidebar_label: Logistic Regression  
-description: "In this post, we'll explore the Logistic Regression Algorithm, a widely used classification model in machine learning."  
-tags: [machine learning, algorithms, logistic regression, classification]
-
+id: logistic-regression
+title: Logistic Regression Algorithm
+sidebar_label: Logistic Regression
+description: >-
+  In this post, we'll explore the Logistic Regression Algorithm, a widely used
+  classification model in machine learning.
+tags:
+  - machine learning
+  - algorithms
+  - logistic regression
+  - classification
+sidebar_position: 22
 ---
 
 ### Definition:

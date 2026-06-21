@@ -1,8 +1,16 @@
 ---
 id: operators-in-java
 sidebar_position: 2
-title: "Operators in Java"
-sidebar_label: "Operators in Java"
+title: Operators in Java
+sidebar_label: Operators in Java
+description: >-
+  Learn about Operators in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - operators in java
 ---
 
 Hey there! In this guide, we'll explore operators in Java. Operators are symbols that instruct the compiler to perform specific operations on variables or values. Java supports a variety of operators, including arithmetic, relational, logical, bitwise, and more. Let's dive in!

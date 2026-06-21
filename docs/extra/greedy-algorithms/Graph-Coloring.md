@@ -1,9 +1,17 @@
 ---
-id: graph-coloring  
-title: Graph Coloring Algorithm  
-sidebar_label: Graph Coloring 
-description: "In this blog post, we'll explore Graph Coloring, Graph coloring refers to the problem of coloring vertices of a graph in such a way that no two adjacent vertices have the same color. "  
-tags: [dsa, algorithms, greedy algorithms,graphs]
+id: graph-coloring
+title: Graph Coloring Algorithm
+sidebar_label: Graph Coloring
+description: >-
+  In this blog post, we'll explore Graph Coloring, Graph coloring refers to the
+  problem of coloring vertices of a graph in such a way that no two adjacent
+  vertices have the same color. 
+tags:
+  - dsa
+  - algorithms
+  - greedy algorithms
+  - graphs
+sidebar_position: 2
 ---
 
 

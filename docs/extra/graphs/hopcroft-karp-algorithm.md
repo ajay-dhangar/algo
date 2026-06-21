@@ -2,8 +2,14 @@
 id: hopcroft-karp
 title: Hopcroft-Karp Algorithm
 sidebar_label: Hopcroft-Karp Algorithm
-description: "In this blog post, we'll explore the Hopcroft-Karp algorithm, an efficient method for finding the maximum matching in a bipartite graph."
-tags: [dsa, algorithms, maximum matching]
+description: >-
+  In this blog post, we'll explore the Hopcroft-Karp algorithm, an efficient
+  method for finding the maximum matching in a bipartite graph.
+tags:
+  - dsa
+  - algorithms
+  - maximum matching
+sidebar_position: 16
 ---
 
 ### Definition:

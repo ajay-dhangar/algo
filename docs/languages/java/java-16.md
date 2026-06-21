@@ -1,8 +1,16 @@
 ---
 id: encapsulation-in-java
 sidebar_position: 14
-title: "Encapsulation in Java"
-sidebar_label: "Encapsulation"
+title: Encapsulation in Java
+sidebar_label: Encapsulation
+description: >-
+  Learn about Encapsulation in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - encapsulation in java
 ---
 
 # Encapsulation in Java

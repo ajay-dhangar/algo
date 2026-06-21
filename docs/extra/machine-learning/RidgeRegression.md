@@ -2,9 +2,19 @@
 id: ridge-regression
 title: Ridge Regression Algorithm
 sidebar_label: Ridge Regression
-descriptin: "In this post, we'll explore the Ridge Regression Algorithm, it is a type of linear regression that addresses some of the limitations of Ordinary Least Squares (OLS) regression."
-tags: [machine learning, algorithms, linear regression, regression]
-
+descriptin: >-
+  In this post, we'll explore the Ridge Regression Algorithm, it is a type of
+  linear regression that addresses some of the limitations of Ordinary Least
+  Squares (OLS) regression.
+tags:
+  - machine learning
+  - algorithms
+  - linear regression
+  - regression
+description: >-
+  Detailed guide on Ridge Regression Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+sidebar_position: 34
 ---
 
 ### Definition:

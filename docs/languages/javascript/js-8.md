@@ -3,6 +3,14 @@ id: functions
 sidebar_position: 8
 title: Functions in JavaScript
 sidebar_label: Functions in JS
+description: >-
+  Learn about Functions in JavaScript in the JavaScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - functions in javascript
 ---
 
 A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output.

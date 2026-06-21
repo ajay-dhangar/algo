@@ -1,10 +1,16 @@
 ---
-
-id: blockchain-cryptography-algo  
+id: blockchain-cryptography-algo
 sidebar_position: 8
-title: Blockchain Cryptography  
-sidebar_label: Blockchain Cryptography  
-
+title: Blockchain Cryptography
+sidebar_label: Blockchain Cryptography
+description: >-
+  Detailed guide on Blockchain Cryptography including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - blockchain cryptography
 ---
 
 ### Definition:

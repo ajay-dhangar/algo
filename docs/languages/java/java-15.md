@@ -1,8 +1,16 @@
 ---
 id: polymorphism-in-java
 sidebar_position: 13
-title: "Polymorphism in Java"
-sidebar_label: "Polymorphism"
+title: Polymorphism in Java
+sidebar_label: Polymorphism
+description: >-
+  Learn about Polymorphism in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - polymorphism in java
 ---
 
 # Polymorphism in Java

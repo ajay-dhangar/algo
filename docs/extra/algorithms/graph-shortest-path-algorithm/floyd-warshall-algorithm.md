@@ -1,5 +1,5 @@
 ---
-id: floyd-warshall-algorithm
+id: floyd-warshall-algorithm-extra
 title: Floyd-Warshall Algorithm
 sidebar_label: Floyd-Warshall Algorithm
 sidebar_position: 1

@@ -2,19 +2,21 @@
 id: disjoint-set-union
 title: Disjoint Set Union (DSU) / Union-Find
 sidebar_label: Disjoint Set Union (DSU)
-description: "A comprehensive guide to Disjoint Set Union (DSU) with visual diagrams, Path Compression, Union by Rank optimizations, step-by-step dry-runs, code templates in Python, Java, and C++, and practice problems."
+description: >-
+  A comprehensive guide to Disjoint Set Union (DSU) with visual diagrams, Path
+  Compression, Union by Rank optimizations, step-by-step dry-runs, code
+  templates in Python, Java, and C++, and practice problems.
 tags:
-  [
-    dsu,
-    union-find,
-    disjoint-set,
-    algorithms,
-    advanced,
-    graphs,
-    dsa,
-    competitive-programming,
-    interview-prep,
-  ]
+  - dsu
+  - union-find
+  - disjoint-set
+  - algorithms
+  - advanced
+  - graphs
+  - dsa
+  - competitive-programming
+  - interview-prep
+sidebar_position: 7
 ---
 
 # Disjoint Set Union (DSU) / Union-Find

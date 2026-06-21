@@ -1,10 +1,16 @@
 ---
-
-id: digital-search-algo  
-sidebar_position: 4  
-title: Digital Search  
-sidebar_label: Digital Search  
-
+id: digital-search-algo
+sidebar_position: 4
+title: Digital Search
+sidebar_label: Digital Search
+description: >-
+  Detailed guide on Digital Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - digital search
 ---
 
 ### Definition:

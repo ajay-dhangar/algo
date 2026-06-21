@@ -1,10 +1,16 @@
 ---
-
-id: steganography-algo  
-sidebar_position: 9 
-title: Steganography  
-sidebar_label: Steganography  
-
+id: steganography-algo
+sidebar_position: 9
+title: Steganography
+sidebar_label: Steganography
+description: >-
+  Detailed guide on Steganography including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - steganography
 ---
 
 ### Definition:

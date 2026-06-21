@@ -1,11 +1,18 @@
 ---
-
-id: xgboost  
-title: XGBoost Algorithm  
-sidebar_label: XGBoost  
-description: "XGBoost is a highly efficient and scalable machine learning algorithm known for its accuracy and speed in solving both classification and regression problems."  
-tags: [machine learning, algorithms, xgboost, classification, regression]
-
+id: xgboost
+title: XGBoost Algorithm
+sidebar_label: XGBoost
+description: >-
+  XGBoost is a highly efficient and scalable machine learning algorithm known
+  for its accuracy and speed in solving both classification and regression
+  problems.
+tags:
+  - machine learning
+  - algorithms
+  - xgboost
+  - classification
+  - regression
+sidebar_position: 46
 ---
 
 ### Definition:

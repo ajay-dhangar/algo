@@ -3,6 +3,14 @@ id: direct-recursion-algo
 sidebar_position: 1
 title: Direct Recursion
 sidebar_label: Direct Recursion
+description: >-
+  Detailed guide on Direct Recursion including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - direct recursion
 ---
 
 ### Definition:

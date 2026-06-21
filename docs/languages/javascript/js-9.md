@@ -1,8 +1,16 @@
----  
+---
 id: recursion
 sidebar_position: 9
-title: Recursion in JavaScript  
+title: Recursion in JavaScript
 sidebar_label: Recursion in JavaScript
+description: >-
+  Learn about Recursion in JavaScript in the JavaScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - recursion in javascript
 ---
 
 Recursion is a powerful concept in programming where a function calls itself to solve smaller instances of the same problem. This approach is especially useful for tasks that can be broken down into similar sub-tasks, such as traversing trees, calculating factorials, or working with recursive data structures like nested arrays.

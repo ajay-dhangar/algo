@@ -1,11 +1,17 @@
 ---
-
 id: silhouette
 title: Silhouette Score
 sidebar_label: Silhouette Score
-description: "The Silhouette Score is a metric used to evaluate the quality of clustering results by measuring cohesion and separation among clusters."
-tags: [machine learning, clustering, unsupervised learning, silhouette score, evaluation metric]
-
+description: >-
+  The Silhouette Score is a metric used to evaluate the quality of clustering
+  results by measuring cohesion and separation among clusters.
+tags:
+  - machine learning
+  - clustering
+  - unsupervised learning
+  - silhouette score
+  - evaluation metric
+sidebar_position: 36
 ---
 
 ### Definition:

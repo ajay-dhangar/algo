@@ -2,8 +2,23 @@
 id: water-jug
 title: Water Jug Problem Using Recursion
 sidebar_label: Generate Water Jug Problem Solution
-description: "The Recursive Water Jug Problem Solver is an engaging algorithmic approach to a classic puzzle involving two jugs of different capacities. This solver efficiently utilizes recursion to explore all possible states, allowing users to achieve a specific target volume of water through a series of defined operations, such as filling, pouring, and emptying the jugs. Ideal for computer science enthusiasts and learners, this solution highlights the power of recursive problem-solving techniques while demonstrating state management and optimization strategies. Whether you're looking to deepen your understanding of algorithms or tackle a fascinating combinatorial challenge, the Recursive Water Jug Problem Solver offers a practical and insightful experience."
-tags: [WaterJug, recursion, dsa]
+description: >-
+  The Recursive Water Jug Problem Solver is an engaging algorithmic approach to
+  a classic puzzle involving two jugs of different capacities. This solver
+  efficiently utilizes recursion to explore all possible states, allowing users
+  to achieve a specific target volume of water through a series of defined
+  operations, such as filling, pouring, and emptying the jugs. Ideal for
+  computer science enthusiasts and learners, this solution highlights the power
+  of recursive problem-solving techniques while demonstrating state management
+  and optimization strategies. Whether you're looking to deepen your
+  understanding of algorithms or tackle a fascinating combinatorial challenge,
+  the Recursive Water Jug Problem Solver offers a practical and insightful
+  experience.
+tags:
+  - WaterJug
+  - recursion
+  - dsa
+sidebar_position: 22
 ---
 
 ## Water Jug Problem Via Recursion

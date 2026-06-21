@@ -2,10 +2,17 @@
 id: binary-trees-practice-problems
 title: Practice Problems on Binary Trees
 sidebar_label: Practice Problems
-
-description: "In this post, we'll provide a list of curated practice problems on Binary Trees from platforms like LeetCode and GeeksforGeeks. Binary Trees are fundamental in computer science, and practicing these problems will help in strengthening your understanding of tree data structures."
-
-tags: [dsa, algorithms, binary-trees, practice-problems]
+description: >-
+  In this post, we'll provide a list of curated practice problems on Binary
+  Trees from platforms like LeetCode and GeeksforGeeks. Binary Trees are
+  fundamental in computer science, and practicing these problems will help in
+  strengthening your understanding of tree data structures.
+tags:
+  - dsa
+  - algorithms
+  - binary-trees
+  - practice-problems
+sidebar_position: 7
 ---
 
 ## Binary Trees Practice Problems

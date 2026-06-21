@@ -1,10 +1,16 @@
 ---
-
-id: apostolico-giancarlo-algo  
-sidebar_position: 1  
-title: Apostolico–Giancarlo Algorithm  
-sidebar_label: Apostolico–Giancarlo Algorithm  
-
+id: apostolico-giancarlo-algo
+sidebar_position: 1
+title: Apostolico–Giancarlo Algorithm
+sidebar_label: Apostolico–Giancarlo Algorithm
+description: >-
+  Detailed guide on Apostolico–Giancarlo Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - apostolico–giancarlo algorithm
 ---
 
 ### Definition:

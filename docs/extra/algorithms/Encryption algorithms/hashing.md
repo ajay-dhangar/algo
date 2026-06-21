@@ -1,10 +1,16 @@
 ---
-
-id: hashing  
-sidebar_position: 5  
-title: Hashing  
-sidebar_label: Hashing  
-
+id: hashing
+sidebar_position: 5
+title: Hashing
+sidebar_label: Hashing
+description: >-
+  Detailed guide on Hashing including core concepts, algorithmic implementation,
+  complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - hashing
 ---
 
 ### Definition:

@@ -1,10 +1,16 @@
 ---
-
-id: dancing-links  
-sidebar_position: 20  
-title: "Dancing Links (DLX)"  
-sidebar_label: Dancing Links  
-
+id: dancing-links
+sidebar_position: 20
+title: Dancing Links (DLX)
+sidebar_label: Dancing Links
+description: >-
+  Detailed guide on Dancing Links (DLX) including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - dancing links (dlx)
 ---
 
 ### Definition

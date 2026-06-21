@@ -1,8 +1,16 @@
 ---
-id: boyer-moore-search  
-sidebar_position: 5  
-title: Boyer-Moore Search  
-sidebar_label: Boyer-Moore  
+id: boyer-moore-search
+sidebar_position: 5
+title: Boyer-Moore Search
+sidebar_label: Boyer-Moore
+description: >-
+  Detailed guide on Boyer-Moore Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - boyer-moore search
 ---
 
 ### Definition:

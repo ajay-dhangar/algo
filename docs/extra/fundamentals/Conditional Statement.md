@@ -1,9 +1,16 @@
 ---
-id: coditional-statement 
+id: coditional-statement
 title: Coditional Statement
 sidebar_label: Coditional Statement
-description: "This blog post explains various types of Coditional Statement used in programming with examples in C++."
-tags: [programming, Coditional Statement, conditions, c++]
+description: >-
+  This blog post explains various types of Coditional Statement used in
+  programming with examples in C++.
+tags:
+  - programming
+  - Coditional Statement
+  - conditions
+  - c++
+sidebar_position: 1
 ---
 # Conditional Statements
 

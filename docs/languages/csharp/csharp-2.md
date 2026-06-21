@@ -1,8 +1,16 @@
 ---
-id: operators-in-csharp  
-sidebar_position: 3  
-title: "Operators in C#"  
-sidebar_label: "Operators in C#"  
+id: operators-in-csharp
+sidebar_position: 3
+title: Operators in C#
+sidebar_label: Operators in C#
+description: >-
+  Learn about Operators in C# in the C# programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - operators in c#
 ---
 
 Operators in C# allow you to perform various operations on variables and values, such as arithmetic, comparison, logical, and more. This guide introduces the different types of operators available in C# and provides examples to help you understand how to use them.

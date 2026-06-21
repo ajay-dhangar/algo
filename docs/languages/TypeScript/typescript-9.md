@@ -1,8 +1,16 @@
 ---
-id: classes-and-objects
+id: typescript-classes-and-objects
 sidebar_position: 9
-title: "Classes & Objects"
-sidebar_label: "Classes & Objects"
+title: Classes & Objects
+sidebar_label: Classes & Objects
+description: >-
+  Learn about Classes & Objects in the TypeScript programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - classes & objects
 ---
 
 TypeScript features comprehensive Object-Oriented structures, adding strict encapsulation modifiers and type properties over traditional JavaScript classes.

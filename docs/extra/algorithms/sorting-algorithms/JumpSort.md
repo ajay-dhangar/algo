@@ -1,8 +1,16 @@
 ---
-id: jump-sort-algo  
-sidebar_position: 2  
-title: Jump Sort  
-sidebar_label: Jump Sort  
+id: jump-sort-algo
+sidebar_position: 2
+title: Jump Sort
+sidebar_label: Jump Sort
+description: >-
+  Detailed guide on Jump Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - jump sort
 ---
 
 ### Definition:

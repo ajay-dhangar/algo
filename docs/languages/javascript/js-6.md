@@ -1,8 +1,16 @@
----  
-id: type-casting  
+---
+id: type-casting
 sidebar_position: 6
-title: Type Casting in JavaScript  
+title: Type Casting in JavaScript
 sidebar_label: Type Casting in JavaScript
+description: >-
+  Learn about Type Casting in JavaScript in the JavaScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - type casting in javascript
 ---
 
 Hey everyone! Today, we will explore Type Casting in JavaScript, an essential concept for converting data types and ensuring smooth operations in your code. Whether you're a beginner or just need a quick refresher, this guide will help you understand how to effectively change between different types in JavaScript. Let's dive in!

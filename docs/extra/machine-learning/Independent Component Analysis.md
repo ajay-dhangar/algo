@@ -1,10 +1,16 @@
 ---
-id: independent-component-analysis  
-title: Independent Component Analysis   
-sidebar_label: Independent Component Analysis  
-description: "In this post, we'll explore the Independent Component Analysis (ICA) Algorithm, a powerful technique in statistical data analysis."  
-tags: [machine learning, algorithms, ICA, signal processing]
-
+id: independent-component-analysis
+title: Independent Component Analysis
+sidebar_label: Independent Component Analysis
+description: >-
+  In this post, we'll explore the Independent Component Analysis (ICA)
+  Algorithm, a powerful technique in statistical data analysis.
+tags:
+  - machine learning
+  - algorithms
+  - ICA
+  - signal processing
+sidebar_position: 17
 ---
 
 ### Definition:

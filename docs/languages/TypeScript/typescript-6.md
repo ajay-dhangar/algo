@@ -1,8 +1,16 @@
 ---
 id: functions-in-typescript
 sidebar_position: 6
-title: "Functions"
-sidebar_label: "Functions"
+title: Functions
+sidebar_label: Functions
+description: >-
+  Learn about Functions in the TypeScript programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - functions
 ---
 
 Functions are the core building blocks of program architecture. TypeScript enhances standard functions with strict parameter and return type validation rules.

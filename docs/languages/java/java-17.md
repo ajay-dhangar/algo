@@ -1,8 +1,16 @@
 ---
 id: exception-handling-in-java
 sidebar_position: 17
-title: "Exception Handling in Java"
-sidebar_label: "Exception Handling in Java"
+title: Exception Handling in Java
+sidebar_label: Exception Handling in Java
+description: >-
+  Learn about Exception Handling in Java in the Java programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - exception handling in java
 ---
 
 # Exception Handling in Java

@@ -1,10 +1,16 @@
 ---
-
 id: finite-state-automaton
 sidebar_position: 6
 title: Finite State Automaton Algorithm
 sidebar_label: Finite State Automaton Algorithm
-
+description: >-
+  Detailed guide on Finite State Automaton Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - finite state automaton algorithm
 ---
 
 ### Definition:

@@ -1,10 +1,16 @@
 ---
-
 id: manachers-algorithm
 sidebar_position: 15
 title: Manacher's Algorithm
 sidebar_label: Manacher's Algorithm
-
+description: >-
+  Detailed guide on Manacher's Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - manacher's algorithm
 ---
 
 ### Definition:

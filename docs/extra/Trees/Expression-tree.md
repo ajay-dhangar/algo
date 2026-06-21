@@ -2,8 +2,14 @@
 id: expression-tree
 title: Expression-tree
 sidebar_label: Expression-tree
-description: "An Expression Tree is a binary tree representing expressions with operators as internal nodes and operands as leaves."  
-tags: [dsa, algorithms, trees]
+description: >-
+  An Expression Tree is a binary tree representing expressions with operators as
+  internal nodes and operands as leaves.
+tags:
+  - dsa
+  - algorithms
+  - trees
+sidebar_position: 6
 ---
 
 ### Definition:

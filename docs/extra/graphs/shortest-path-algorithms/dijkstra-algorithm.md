@@ -1,10 +1,15 @@
 ---
 id: dijkstra
-title: Dijkstra's Algorithm 
+title: Dijkstra's Algorithm
 sidebar_label: Dijkstra's Algorithm
-description: "In this blog post, we'll dive into Dijkstra's Algorithm, a fundamental graph algorithm used to find the shortest path between nodes in a graph."
-
-tags: [dsa, algorithms, shortest path]
+description: >-
+  In this blog post, we'll dive into Dijkstra's Algorithm, a fundamental graph
+  algorithm used to find the shortest path between nodes in a graph.
+tags:
+  - dsa
+  - algorithms
+  - shortest path
+sidebar_position: 3
 ---
 
 

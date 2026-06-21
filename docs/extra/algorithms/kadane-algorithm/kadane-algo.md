@@ -1,8 +1,16 @@
 ---
 id: kadanes-algorithm
 sidebar_position: 16
-title: "Kadane's Algorithm"
+title: Kadane's Algorithm
 sidebar_label: Maximum Subarray Sum
+description: >-
+  Detailed guide on Kadane's Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - kadane's algorithm
 ---
 
 ### Definition:

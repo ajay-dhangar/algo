@@ -3,6 +3,14 @@ id: introduction
 sidebar_position: 1
 title: Introduction to JavaScript
 sidebar_label: JavaScript Introduction
+description: >-
+  Learn about Introduction to JavaScript in the JavaScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - introduction to javascript
 ---
 
 Hey, everyone! In this guide, we'll take a journey into **JavaScript**, one of the most popular programming languages used for web development. JavaScript allows you to create interactive, dynamic, and feature-rich web applications. Let's dive into the basics!

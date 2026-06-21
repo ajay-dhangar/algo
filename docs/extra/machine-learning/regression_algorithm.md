@@ -1,9 +1,17 @@
 ---
-id: regression  
-title: "Regression Algorithm (Supervised learning)"  
-sidebar_label: Regression Algorithms  
-description: "In this post, we’ll explore the concept of regression in supervised learning, a fundamental approach used for predicting continuous outcomes based on input features."  
-tags: [machine learning, algorithms, supervised learning, regression]
+id: regression
+title: Regression Algorithm (Supervised learning)
+sidebar_label: Regression Algorithms
+description: >-
+  In this post, we’ll explore the concept of regression in supervised learning,
+  a fundamental approach used for predicting continuous outcomes based on input
+  features.
+tags:
+  - machine learning
+  - algorithms
+  - supervised learning
+  - regression
+sidebar_position: 32
 ---
 
 ### Definition:

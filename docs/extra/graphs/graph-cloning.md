@@ -1,9 +1,15 @@
 ---
-id: graph-cloning 
-title: Graph-cloning 
-sidebar_label: Graph-cloning  
-description: "The program is to return a deep copy of the graph, preserving the structure and values of its nodes."  
-tags: [dsa, algorithms, graph]
+id: graph-cloning
+title: Graph-cloning
+sidebar_label: Graph-cloning
+description: >-
+  The program is to return a deep copy of the graph, preserving the structure
+  and values of its nodes.
+tags:
+  - dsa
+  - algorithms
+  - graph
+sidebar_position: 13
 ---
 
 ### Problem Statement:

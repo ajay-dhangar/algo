@@ -1,10 +1,16 @@
 ---
-
-id: bitap-algo  
-sidebar_position: 3  
-title: Bitap Algorithm  
-sidebar_label: Bitap Algorithm  
-
+id: bitap-algo
+sidebar_position: 3
+title: Bitap Algorithm
+sidebar_label: Bitap Algorithm
+description: >-
+  Detailed guide on Bitap Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - bitap algorithm
 ---
 
 ### Definition:

@@ -1,8 +1,16 @@
 ---
-id: inheritance-in-csharp  
-sidebar_position: 8  
-title: "Inheritance in C#"  
-sidebar_label: "Inheritance in C#"  
+id: inheritance-in-csharp
+sidebar_position: 8
+title: Inheritance in C#
+sidebar_label: Inheritance in C#
+description: >-
+  Learn about Inheritance in C# in the C# programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - inheritance in c#
 ---
 
 Inheritance is a core concept in object-oriented programming that allows one class to inherit the properties and methods of another class. In C#, inheritance is implemented using a class hierarchy, enabling code reuse, better organization, and the creation of complex relationships between classes.

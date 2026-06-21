@@ -2,8 +2,16 @@
 id: evaluation-in-stack
 title: Evaluation
 sidebar_label: Evaluation of Postfix and Prefix expression
-description: 'Evaluation of expressions using a stack is a common technique, especially for handling mathematical expressions in postfix (Reverse Polish Notation) or infix notation.'
-tags: [dsa, data-structures, Evaluation , C language]
+description: >-
+  Evaluation of expressions using a stack is a common technique, especially for
+  handling mathematical expressions in postfix (Reverse Polish Notation) or
+  infix notation.
+tags:
+  - dsa
+  - data-structures
+  - Evaluation
+  - C language
+sidebar_position: 4
 ---
 
 ### Postfix Evaluation

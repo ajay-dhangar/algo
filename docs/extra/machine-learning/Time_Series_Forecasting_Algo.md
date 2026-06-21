@@ -1,11 +1,19 @@
 ---
-
-id: time-series-forecasting  
-title: Time Series Forecasting Algorithms  
-sidebar_label: Time Series Forecasting  
-description: "This post covers Time Series Forecasting, a method used to predict future data points in a time-ordered sequence based on past data."  
-tags: [time series, forecasting, machine learning, ARIMA, LSTM, statistics, predictive analysis]
-
+id: time-series-forecasting
+title: Time Series Forecasting Algorithms
+sidebar_label: Time Series Forecasting
+description: >-
+  This post covers Time Series Forecasting, a method used to predict future data
+  points in a time-ordered sequence based on past data.
+tags:
+  - time series
+  - forecasting
+  - machine learning
+  - ARIMA
+  - LSTM
+  - statistics
+  - predictive analysis
+sidebar_position: 43
 ---
 
 ### Definition:  

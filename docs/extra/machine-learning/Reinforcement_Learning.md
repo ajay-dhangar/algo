@@ -1,11 +1,16 @@
 ---
-
-id: reinforcement-learning  
-title: Reinforcement Learning  
-sidebar_label: Reinforcement Learning  
-description: "In this post, we'll explore Reinforcement Learning, a type of machine learning used for decision-making and optimizing actions."  
-tags: [machine learning, reinforcement learning, decision-making, AI]
-
+id: reinforcement-learning
+title: Reinforcement Learning
+sidebar_label: Reinforcement Learning
+description: >-
+  In this post, we'll explore Reinforcement Learning, a type of machine learning
+  used for decision-making and optimizing actions.
+tags:
+  - machine learning
+  - reinforcement learning
+  - decision-making
+  - AI
+sidebar_position: 33
 ---
 
 ### Definition:

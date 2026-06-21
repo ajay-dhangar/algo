@@ -1,11 +1,18 @@
 ---
-
-id: hierarchical-clustering-visualizations  
-title: Hierarchical Clustering Visualizations  
-sidebar_label: Hierarchical Clustering  
-description: "Implement hierarchical clustering algorithms that build a hierarchy of clusters using either agglomerative or divisive methods. This feature will include visualizations to help users understand the clustering process."  
-tags: [data science, clustering, hierarchical clustering, data visualization, machine learning]  
-
+id: hierarchical-clustering-visualizations
+title: Hierarchical Clustering Visualizations
+sidebar_label: Hierarchical Clustering
+description: >-
+  Implement hierarchical clustering algorithms that build a hierarchy of
+  clusters using either agglomerative or divisive methods. This feature will
+  include visualizations to help users understand the clustering process.
+tags:
+  - data science
+  - clustering
+  - hierarchical clustering
+  - data visualization
+  - machine learning
+sidebar_position: 16
 ---
 
 ### Definition:  

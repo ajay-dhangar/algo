@@ -1,10 +1,16 @@
 ---
-
-id: binary-search-algo  
-sidebar_position: 2  
-title: Binary Search  
-sidebar_label: Binary Search  
-
+id: binary-search-algo
+sidebar_position: 2
+title: Binary Search
+sidebar_label: Binary Search
+description: >-
+  Detailed guide on Binary Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - binary search
 ---
 
 ### Definition:

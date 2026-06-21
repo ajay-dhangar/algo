@@ -2,8 +2,15 @@
 id: palindrome-partitioning-iv
 title: Palindrome Partitioning IV
 sidebar_label: Palindrome Partitioning IV
-tags: [Palindrome, String Manipulation, Dynamic Programming, DSA]
-description: Determine if a string can be partitioned into palindromic substrings with at most k changes.
+tags:
+  - Palindrome
+  - String Manipulation
+  - Dynamic Programming
+  - DSA
+description: >-
+  Determine if a string can be partitioned into palindromic substrings with at
+  most k changes.
+sidebar_position: 14
 ---
 
 # Palindrome Partitioning IV

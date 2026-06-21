@@ -1,10 +1,16 @@
 ---
-
-id: comb-sort-algo  
-sidebar_position: 10  
-title: Comb Sort  
-sidebar_label: Comb Sort  
-
+id: comb-sort-algo
+sidebar_position: 10
+title: Comb Sort
+sidebar_label: Comb Sort
+description: >-
+  Detailed guide on Comb Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - comb sort
 ---
 
 ### Definition:

@@ -1,10 +1,16 @@
 ---
-
-id: comparison-search-algo  
+id: comparison-search-algo
 sidebar_position: 3
-title: Comparison Search  
-sidebar_label: Comparison Search  
-
+title: Comparison Search
+sidebar_label: Comparison Search
+description: >-
+  Detailed guide on Comparison Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - comparison search
 ---
 
 ### Definition:

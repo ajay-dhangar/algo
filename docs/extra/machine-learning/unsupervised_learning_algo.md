@@ -1,9 +1,16 @@
 ---
-id: unsupervised-learning-algorithms  
-title: Unsupervised Learning Algorithms  
-sidebar_label: Unsupervised Learning  
-description: "In this post, we’ll explore the concept of unsupervised learning, a fundamental approach in machine learning where models are trained using unlabeled data."  
-tags: [machine learning, algorithms, unsupervised learning]
+id: unsupervised-learning-algorithms
+title: Unsupervised Learning Algorithms
+sidebar_label: Unsupervised Learning
+description: >-
+  In this post, we’ll explore the concept of unsupervised learning, a
+  fundamental approach in machine learning where models are trained using
+  unlabeled data.
+tags:
+  - machine learning
+  - algorithms
+  - unsupervised learning
+sidebar_position: 45
 ---
 
 ### Definition:

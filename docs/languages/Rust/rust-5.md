@@ -3,6 +3,12 @@ id: rust-functions
 title: Rust Functions
 sidebar_position: 3
 description: Learn about functions in Rust with examples.
+sidebar_label: Rust Functions
+tags:
+  - programming
+  - dsa
+  - rust
+  - rust functions
 ---
 
 # Rust Functions

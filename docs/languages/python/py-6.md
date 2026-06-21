@@ -1,8 +1,16 @@
----  
-id: usage-of-dictionaries-in-python  
-sidebar_position: 6  
-title: Dictionaries in Python  
-sidebar_label: Dictionaries in Python  
+---
+id: usage-of-dictionaries-in-python
+sidebar_position: 6
+title: Dictionaries in Python
+sidebar_label: Dictionaries in Python
+description: >-
+  Learn about Dictionaries in Python in the Python programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - dictionaries in python
 ---
 
 Hey there! In this guide, we'll explore dictionaries in Python. Dictionaries are unordered collections of key-value pairs that allow you to store and manipulate data efficiently. Let's dive in!

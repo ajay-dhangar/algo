@@ -2,8 +2,14 @@
 id: graph-coloring
 title: Graph Coloring using Greedy Algorithm
 sidebar_label: Graph Coloring
-description: "In this document, we explore the graph coloring problem and provide a C implementation using a greedy algorithm."
-tags: [dsa, algorithms, graph coloring]
+description: >-
+  In this document, we explore the graph coloring problem and provide a C
+  implementation using a greedy algorithm.
+tags:
+  - dsa
+  - algorithms
+  - graph coloring
+sidebar_position: 14
 ---
 
 ### C Code: Graph Coloring using Greedy Algorithm

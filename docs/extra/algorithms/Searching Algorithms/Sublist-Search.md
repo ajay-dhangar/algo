@@ -1,8 +1,16 @@
 ---
-id: sublist-search  
-sidebar_position: 3  
-title: Sublist Search  
-sidebar_label: Sublist  
+id: sublist-search
+sidebar_position: 3
+title: Sublist Search
+sidebar_label: Sublist
+description: >-
+  Detailed guide on Sublist Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - sublist search
 ---
 
 ### Definition:

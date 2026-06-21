@@ -1,8 +1,16 @@
----  
-id: strings-in-python  
-sidebar_position: 9  
-title: Strings in Python  
-sidebar_label: Strings in Python  
+---
+id: strings-in-python
+sidebar_position: 9
+title: Strings in Python
+sidebar_label: Strings in Python
+description: >-
+  Learn about Strings in Python in the Python programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - strings in python
 ---
 
 Hey everyone! Today we're going to explore one of the most commonly used data types in Python – strings. If you're just starting with Python or need a quick refresher, this guide will help you understand how strings work in Python. Let's get started!

@@ -1,10 +1,16 @@
 ---
-
 id: levenshtein-distance-algorithm
 sidebar_position: 19
 title: Levenshtein Distance Algorithm
 sidebar_label: Levenshtein Distance Algorithm
-
+description: >-
+  Detailed guide on Levenshtein Distance Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - levenshtein distance algorithm
 ---
 
 ### Definition:

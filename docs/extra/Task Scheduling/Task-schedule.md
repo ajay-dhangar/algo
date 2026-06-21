@@ -2,8 +2,15 @@
 id: task-scheduling
 title: Task Scheduling
 sidebar_label: Task Scheduling
-description: The program finds a valid order for task execution based on dependencies, using Topological Sorting with Kahn’s algorithm.
-tags: [Topological Sorting, DAG, DSA, Scheduling]
+description: >-
+  The program finds a valid order for task execution based on dependencies,
+  using Topological Sorting with Kahn’s algorithm.
+tags:
+  - Topological Sorting
+  - DAG
+  - DSA
+  - Scheduling
+sidebar_position: 1
 ---
 
 ### Task Scheduling (Topological Sorting)

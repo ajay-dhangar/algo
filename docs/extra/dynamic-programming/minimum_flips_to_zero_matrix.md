@@ -2,8 +2,15 @@
 id: min-flips-binary-matrix
 title: Minimum Number of Flips to Convert Binary Matrix to Zero Matrix
 sidebar_label: Minimum Flips Binary Matrix
-tags: [Binary Matrix, Dynamic Programming, Matrix Manipulation, DSA]
-description: Given a binary matrix, determine the minimum number of flips required to convert the matrix to all zeroes by flipping any single cell, row, or column.
+tags:
+  - Binary Matrix
+  - Dynamic Programming
+  - Matrix Manipulation
+  - DSA
+description: >-
+  Given a binary matrix, determine the minimum number of flips required to
+  convert the matrix to all zeroes by flipping any single cell, row, or column.
+sidebar_position: 12
 ---
 
 # Minimum Number of Flips to Convert Binary Matrix to Zero Matrix

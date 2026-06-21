@@ -2,8 +2,15 @@
 id: suffix-tree-algorithm
 title: Suffix Tree Algorithm
 sidebar_label: Suffix Tree
-tags: [String Matching, DSA, Suffix Tree, Tree]
-description: Construct and search a Suffix Tree efficiently to represent all suffixes of a string for substring searching and pattern matching.
+tags:
+  - String Matching
+  - DSA
+  - Suffix Tree
+  - Tree
+description: >-
+  Construct and search a Suffix Tree efficiently to represent all suffixes of a
+  string for substring searching and pattern matching.
+sidebar_position: 28
 ---
 
 In computer science, a **suffix tree** is a compressed trie containing all the suffixes of a given text as their keys and positions in the text as their values. Suffix trees allow particularly fast implementations of many important string operations, such as substring search. They are used in bioinformatics applications, such as in the construction of the Burrows–Wheeler transform and in the compression of DNA sequences.

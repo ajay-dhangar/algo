@@ -1,8 +1,16 @@
 ---
-id: interfaces-in-csharp  
-sidebar_position: 9  
-title: "Interfaces in C#"  
-sidebar_label: "Interfaces in C#"  
+id: interfaces-in-csharp
+sidebar_position: 9
+title: Interfaces in C#
+sidebar_label: Interfaces in C#
+description: >-
+  Learn about Interfaces in C# in the C# programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - interfaces in c#
 ---
 
 In C#, an interface is a contract that defines a set of methods and properties that a class must implement, without providing the implementation itself. Interfaces are fundamental to achieving abstraction, polymorphism, and multiple inheritance in C#. They allow classes to share a common contract, which helps in designing flexible and scalable applications.

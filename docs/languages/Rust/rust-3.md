@@ -3,6 +3,12 @@ id: rust-datatypes
 title: Rust Data Types
 sidebar_position: 1
 description: Learn about different data types in Rust with examples.
+sidebar_label: Rust Data Types
+tags:
+  - programming
+  - dsa
+  - rust
+  - rust data types
 ---
 
 # Rust Data Types

@@ -1,9 +1,15 @@
 ---
 id: longest-path-in-dag
 title: Longest Path in DAG
-sidebar_label: Longest Path in DAG 
-description: "Calculating the longest path from a given source in a Directed Acyclic Graph (DAG) with weighted edges."  
-tags: [dsa, algorithms, graph]
+sidebar_label: Longest Path in DAG
+description: >-
+  Calculating the longest path from a given source in a Directed Acyclic Graph
+  (DAG) with weighted edges.
+tags:
+  - dsa
+  - algorithms
+  - graph
+sidebar_position: 21
 ---
 
 ## Definition:

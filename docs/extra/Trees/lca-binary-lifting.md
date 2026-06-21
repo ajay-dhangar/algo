@@ -1,3 +1,17 @@
+---
+id: lca-binary-lifting
+title: 'Example Usage:'
+sidebar_label: 'Example Usage:'
+description: >-
+  Detailed guide on Example Usage: including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - trees
+  - 'example usage:'
+sidebar_position: 9
+---
 ````md
 ---
 id: lca-binary-lifting

@@ -1,10 +1,16 @@
 ---
-
-id: commentz-walter-algo  
-sidebar_position: 4  
-title: Commentz-Walter Algorithm  
-sidebar_label: Commentz-Walter Algorithm  
-
+id: commentz-walter-algo
+sidebar_position: 4
+title: Commentz-Walter Algorithm
+sidebar_label: Commentz-Walter Algorithm
+description: >-
+  Detailed guide on Commentz-Walter Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - commentz-walter algorithm
 ---
 
 ### Definition:

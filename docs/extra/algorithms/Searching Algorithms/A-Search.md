@@ -3,6 +3,14 @@ id: a-star-search
 sidebar_position: 1
 title: A* Search
 sidebar_label: A*
+description: >-
+  Detailed guide on A* Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - a* search
 ---
 
 ### Definition:

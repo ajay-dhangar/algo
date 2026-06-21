@@ -1,9 +1,17 @@
 ---
-id: k-nearest-neighbors  
-title: k-Nearest Neighbors Algorithm  
-sidebar_label: k-Nearest Neighbors  
-description: "In this post, we'll explore the k-Nearest Neighbors (k-NN) Algorithm, one of the simplest and most intuitive algorithms in machine learning."  
-tags: [machine learning, algorithms, classification, regression, k-NN]
+id: k-nearest-neighbors
+title: k-Nearest Neighbors Algorithm
+sidebar_label: k-Nearest Neighbors
+description: >-
+  In this post, we'll explore the k-Nearest Neighbors (k-NN) Algorithm, one of
+  the simplest and most intuitive algorithms in machine learning.
+tags:
+  - machine learning
+  - algorithms
+  - classification
+  - regression
+  - k-NN
+sidebar_position: 19
 ---
 
 **k-Nearest Neighbors (k-NN)** is a simple and widely used supervised learning algorithm. It can be applied to both classification and regression tasks. The algorithm classifies or predicts a data point based on how closely it resembles its neighbours. k-NN does not have an explicit training phase; instead, it stores the entire dataset and makes predictions by finding the **k nearest neighbours** of a given input and using their majority class (for classification) or average value (for regression) to make predictions.

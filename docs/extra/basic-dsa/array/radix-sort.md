@@ -8,8 +8,10 @@ tags:
   - C++
   - Java
   - Sorting
-
-description: "This page explains Radix sort, with code implementations and resources for further learning."
+description: >-
+  This page explains Radix sort, with code implementations and resources for
+  further learning.
+sidebar_position: 13
 ---
 
 ### Introduction to Radix Sort

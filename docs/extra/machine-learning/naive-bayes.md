@@ -1,9 +1,19 @@
 ---
-id: naive-bayes-theorem  
-title: Naive Bayes Algorithm  
-sidebar_label: Naive Bayes  
-description: "In this post, we’ll explore the Naive Bayes Theorem, a fundamental probabilistic algorithm used for classification tasks based on Bayes' Theorem and the assumption of conditional independence."  
-tags: [machine learning, algorithms, naive bayes, classification, bayes theorem, probability]
+id: naive-bayes-theorem
+title: Naive Bayes Algorithm
+sidebar_label: Naive Bayes
+description: >-
+  In this post, we’ll explore the Naive Bayes Theorem, a fundamental
+  probabilistic algorithm used for classification tasks based on Bayes' Theorem
+  and the assumption of conditional independence.
+tags:
+  - machine learning
+  - algorithms
+  - naive bayes
+  - classification
+  - bayes theorem
+  - probability
+sidebar_position: 24
 ---
 
 ### Definition:

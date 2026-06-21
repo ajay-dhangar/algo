@@ -1,10 +1,16 @@
 ---
-id: linear-regression  
-title: Linear Regression Algorithm  
-sidebar_label: Linear Regression  
-description: "In this post, we'll explore the Linear Regression Algorithm, one of the most basic and commonly used algorithms in machine learning."  
-tags: [machine learning, algorithms, linear regression, regression]
-
+id: linear-regression
+title: Linear Regression Algorithm
+sidebar_label: Linear Regression
+description: >-
+  In this post, we'll explore the Linear Regression Algorithm, one of the most
+  basic and commonly used algorithms in machine learning.
+tags:
+  - machine learning
+  - algorithms
+  - linear regression
+  - regression
+sidebar_position: 21
 ---
 
 ### Definition:

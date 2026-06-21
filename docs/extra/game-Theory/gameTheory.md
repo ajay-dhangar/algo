@@ -1,9 +1,15 @@
 ---
-id: Game-Theory-theory  
-title: Game theory  
-sidebar_label: Game Theory  
-description: "is a mathematical framework used to study decision-making in situations where multiple players interact."
-tags: [dsa, algorithms, game theory algorithms]
+id: Game-Theory-theory
+title: Game theory
+sidebar_label: Game Theory
+description: >-
+  is a mathematical framework used to study decision-making in situations where
+  multiple players interact.
+tags:
+  - dsa
+  - algorithms
+  - game theory algorithms
+sidebar_position: 1
 ---
 
 # Game Theory

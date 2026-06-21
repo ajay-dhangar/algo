@@ -1,8 +1,16 @@
 ---
 id: introduction-to-typescript
 sidebar_position: 1
-title: "Introduction to TypeScript"
-sidebar_label: "Introduction to TypeScript"
+title: Introduction to TypeScript
+sidebar_label: Introduction to TypeScript
+description: >-
+  Learn about Introduction to TypeScript in the TypeScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - introduction to typescript
 ---
 
 Welcome to TypeScript! This guide covers the absolute fundamentals of TypeScript, its architectural purpose, and how to configure your system for development.

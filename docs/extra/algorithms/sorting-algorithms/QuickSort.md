@@ -1,10 +1,16 @@
 ---
-
-id: quick-sort-algo  
-sidebar_position: 5  
-title: Quick Sort  
-sidebar_label: Quick Sort  
-
+id: quick-sort-algo
+sidebar_position: 5
+title: Quick Sort
+sidebar_label: Quick Sort
+description: >-
+  Detailed guide on Quick Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - quick sort
 ---
 
 ### Definition:

@@ -1,8 +1,16 @@
----  
-id: loops-in-python  
-sidebar_position: 4  
-title: Loops in Python  
+---
+id: loops-in-python
+sidebar_position: 4
+title: Loops in Python
 sidebar_label: Loops in Python
+description: >-
+  Learn about Loops in Python in the Python programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - loops in python
 ---
 
 Hey there! In this guide, we'll explore loops in Python. Loops are used to execute a block of code repeatedly based on a condition. Let's dive in!

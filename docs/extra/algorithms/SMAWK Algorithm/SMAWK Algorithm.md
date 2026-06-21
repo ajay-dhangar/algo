@@ -1,10 +1,16 @@
 ---
-
-id: smawk-algorithm  
-sidebar_position: 19  
-title: "SMAWK Algorithm"  
-sidebar_label: SMAWK Algorithm  
-
+id: smawk-algorithm
+sidebar_position: 19
+title: SMAWK Algorithm
+sidebar_label: SMAWK Algorithm
+description: >-
+  Detailed guide on SMAWK Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - smawk algorithm
 ---
 
 ### Definition

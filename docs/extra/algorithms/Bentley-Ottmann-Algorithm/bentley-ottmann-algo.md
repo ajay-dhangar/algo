@@ -1,8 +1,16 @@
 ---
 id: Bentley-Ottmann-Algorithm
 sidebar_position: 17
-title: "Bentley-Ottmann Algorithm"
+title: Bentley-Ottmann Algorithm
 sidebar_label: Bentley-Ottmann Algorithm
+description: >-
+  Detailed guide on Bentley-Ottmann Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - bentley-ottmann algorithm
 ---
 ### Definition
 

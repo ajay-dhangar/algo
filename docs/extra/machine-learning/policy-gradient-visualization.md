@@ -2,8 +2,17 @@
 id: policy-gradient-visualization
 title: Policy Gradient Methods Algorithm
 sidebar_label: Policy Gradient Methods
-description: "An introduction to policy gradient methods in reinforcement learning, including their role in optimizing policies directly for better performance in continuous action spaces."
-tags: [machine learning, reinforcement learning, policy gradient, algorithms, visualization]
+description: >-
+  An introduction to policy gradient methods in reinforcement learning,
+  including their role in optimizing policies directly for better performance in
+  continuous action spaces.
+tags:
+  - machine learning
+  - reinforcement learning
+  - policy gradient
+  - algorithms
+  - visualization
+sidebar_position: 27
 ---
 
 <AdsComponent />

@@ -1,9 +1,15 @@
 ---
-id: min-stack 
-title: Min Stack 
-sidebar_label: Min Stack 
-description: "A MinStack is a data structure that supports standard stack operations while efficiently retrieving the minimum element in constant time."  
-tags: [dsa, algorithms, stack]
+id: min-stack
+title: Min Stack
+sidebar_label: Min Stack
+description: >-
+  A MinStack is a data structure that supports standard stack operations while
+  efficiently retrieving the minimum element in constant time.
+tags:
+  - dsa
+  - algorithms
+  - stack
+sidebar_position: 6
 ---
 
 ### Definition:

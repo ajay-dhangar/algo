@@ -1,11 +1,18 @@
 ---
-
-id: singular-value-decomposition  
-title: Singular Value Decomposition (SVD) Algorithm  
-sidebar_label: Singular Value Decomposition  
-description: "In this post, we'll delve into Singular Value Decomposition (SVD), a matrix factorization technique used in linear algebra with applications in dimensionality reduction, image processing, and recommendation systems."  
-tags: [machine learning, linear algebra, SVD, dimensionality reduction, matrix factorization]
-
+id: singular-value-decomposition
+title: Singular Value Decomposition (SVD) Algorithm
+sidebar_label: Singular Value Decomposition
+description: >-
+  In this post, we'll delve into Singular Value Decomposition (SVD), a matrix
+  factorization technique used in linear algebra with applications in
+  dimensionality reduction, image processing, and recommendation systems.
+tags:
+  - machine learning
+  - linear algebra
+  - SVD
+  - dimensionality reduction
+  - matrix factorization
+sidebar_position: 37
 ---
 
 ### Definition:

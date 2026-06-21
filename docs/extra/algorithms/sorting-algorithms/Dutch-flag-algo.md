@@ -1,9 +1,17 @@
 ---
-id: sort-012-dutch-flag  
-sidebar_position: 14  
-title: Sort 0s, 1s, and 2s using Dutch National Flag Algorithm  
-sidebar_label: Dutch Flag Algorithm  
-
+id: sort-012-dutch-flag
+sidebar_position: 14
+title: 'Sort 0s, 1s, and 2s using Dutch National Flag Algorithm'
+sidebar_label: Dutch Flag Algorithm
+description: >-
+  Detailed guide on Sort 0s, 1s, and 2s using Dutch National Flag Algorithm
+  including core concepts, algorithmic implementation, complexity analysis, and
+  practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - 'sort 0s, 1s, and 2s using dutch national flag algorithm'
 ---
 
 ### Definition:

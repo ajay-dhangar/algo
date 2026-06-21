@@ -1,8 +1,16 @@
 ---
 id: inheritance-in-java
 sidebar_position: 8
-title: "Inheritance in Java"
-sidebar_label: "Inheritance in Java"
+title: Inheritance in Java
+sidebar_label: Inheritance in Java
+description: >-
+  Learn about Inheritance in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - inheritance in java
 ---
 
 Hey there! In this guide, we'll explore the concept of inheritance in Java. Inheritance allows one class to inherit fields and methods from another class, promoting code reusability and organization. Let's dive in!

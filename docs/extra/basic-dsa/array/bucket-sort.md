@@ -8,8 +8,8 @@ tags:
   - C++
   - Java
   - Sorting
-
-description: "Thsi page containes Bucket Sort, with codes in python, java and c++ "
+description: 'Thsi page containes Bucket Sort, with codes in python, java and c++ '
+sidebar_position: 7
 ---
 
 ### Introduction to Bucket Sort

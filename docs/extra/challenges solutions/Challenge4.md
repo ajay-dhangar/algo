@@ -1,3 +1,18 @@
+---
+id: challenge4
+title: Data Structures Challenge 4 with Solutions
+sidebar_label: Data Structures Challenge 4 with Solutions
+sidebar_position: 4
+description: >-
+  Detailed guide on Data Structures Challenge 4 with Solutions including core
+  concepts, algorithmic implementation, complexity analysis, and practice
+  problems.
+tags:
+  - programming
+  - dsa
+  - challenges solutions
+  - data structures challenge 4 with solutions
+---
 # Data Structures Challenge 4 with Solutions 
 
 ## Question 1

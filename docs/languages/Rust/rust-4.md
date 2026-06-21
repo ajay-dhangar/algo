@@ -3,6 +3,12 @@ id: rust-operators
 title: Rust Operators
 sidebar_position: 2
 description: Learn different operators in Rust with examples.
+sidebar_label: Rust Operators
+tags:
+  - programming
+  - dsa
+  - rust
+  - rust operators
 ---
 
 # Rust Operators

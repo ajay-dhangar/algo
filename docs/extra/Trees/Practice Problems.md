@@ -3,8 +3,17 @@ id: practice-problems-on-trees
 title: Practice Problems
 sidebar_label: Practice Problems
 sidebar_position: 16
-Description: Here are some practice problems for Tree Data Structure divided into topic-wise and difficulty wise.
-tags: [DSA, algorithms,Trees, dsa]
+Description: >-
+  Here are some practice problems for Tree Data Structure divided into
+  topic-wise and difficulty wise.
+tags:
+  - DSA
+  - algorithms
+  - Trees
+  - dsa
+description: >-
+  Detailed guide on Practice Problems including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
 ---
 
 ### 1. Easy Level

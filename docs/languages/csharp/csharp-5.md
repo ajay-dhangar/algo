@@ -1,8 +1,16 @@
 ---
 id: arrays-in-csharp
 sidebar_position: 5
-title: "Arrays in C#"
-sidebar_label: "Arrays in C#"
+title: Arrays in C#
+sidebar_label: Arrays in C#
+description: >-
+  Learn about Arrays in C# in the C# programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - arrays in c#
 ---
 
 # Arrays in C#

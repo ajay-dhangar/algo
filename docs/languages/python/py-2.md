@@ -3,6 +3,14 @@ id: variables-in-python
 sidebar_position: 1
 title: Variables in Python
 sidebar_label: Variables in Python
+description: >-
+  Learn about Variables in Python in the Python programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - variables in python
 ---
 
 

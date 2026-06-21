@@ -1,10 +1,16 @@
 ---
-
 id: colussi-algorithm
 sidebar_position: 27
 title: Colussi Algorithm
 sidebar_label: Colussi Algorithm
-
+description: >-
+  Detailed guide on Colussi Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - colussi algorithm
 ---
 
 ### Definition:

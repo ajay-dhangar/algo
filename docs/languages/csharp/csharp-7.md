@@ -1,8 +1,16 @@
 ---
 id: classes-in-csharp
 sidebar_position: 7
-title: "Classes in C#"
-sidebar_label: "Classes in C#"
+title: Classes in C#
+sidebar_label: Classes in C#
+description: >-
+  Learn about Classes in C# in the C# programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - classes in c#
 ---
 
 # Classes in C#

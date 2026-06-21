@@ -2,8 +2,14 @@
 id: convex-hull
 title: Convex Hull Algorithms
 sidebar_label: Convex Hull
-description: "Efficient algorithms for constructing the convex hull of a set of points using Graham Scan and Andrew's Monotone Chain."
-tags: [computational geometry, algorithms, convex hull]
+description: >-
+  Efficient algorithms for constructing the convex hull of a set of points using
+  Graham Scan and Andrew's Monotone Chain.
+tags:
+  - computational geometry
+  - algorithms
+  - convex hull
+sidebar_position: 1
 ---
 
 # Convex Hull Algorithms

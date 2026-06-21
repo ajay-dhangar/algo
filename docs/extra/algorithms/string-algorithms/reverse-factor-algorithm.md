@@ -1,10 +1,16 @@
 ---
-
 id: reverse-factor-algorithm
 sidebar_position: 28
 title: Reverse Factor Algorithm
 sidebar_label: Reverse Factor Algorithm
-
+description: >-
+  Detailed guide on Reverse Factor Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - reverse factor algorithm
 ---
 
 ### Definition:

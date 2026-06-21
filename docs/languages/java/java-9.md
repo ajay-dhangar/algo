@@ -1,8 +1,16 @@
 ---
 id: interfaces-in-java
 sidebar_position: 9
-title: "Interfaces in Java"
-sidebar_label: "Interfaces in Java"
+title: Interfaces in Java
+sidebar_label: Interfaces in Java
+description: >-
+  Learn about Interfaces in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - interfaces in java
 ---
 
 # Interfaces in Java

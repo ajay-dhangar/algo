@@ -1,10 +1,16 @@
 ---
-
 id: smith-waterman-algorithm
 sidebar_position: 21
 title: Smith-Waterman Algorithm
 sidebar_label: Smith-Waterman Algorithm
-
+description: >-
+  Detailed guide on Smith-Waterman Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - smith-waterman algorithm
 ---
 
 ### Definition:

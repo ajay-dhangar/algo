@@ -2,8 +2,15 @@
 id: page-rank-algorithm
 title: PageRank Algorithm
 sidebar_label: PageRank Algorithm
-description: "In this blog post, we'll explore the PageRank algorithm, a method used to rank web pages based on their link structure."
-tags: [dsa, algorithms, graphs, page rank]
+description: >-
+  In this blog post, we'll explore the PageRank algorithm, a method used to rank
+  web pages based on their link structure.
+tags:
+  - dsa
+  - algorithms
+  - graphs
+  - page rank
+sidebar_position: 23
 ---
 
 ### Definition:

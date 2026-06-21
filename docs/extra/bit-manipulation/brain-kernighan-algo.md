@@ -3,9 +3,28 @@ id: brian-kernighan-algo
 title: Bit Manipulation Technique
 sidebar_label: Brian-Kernighan-Algoithm
 sidebar_position: 2
-Description: Brian Kernighan’s Algorithm is an efficient method for counting the number of set bits (1s) in the binary representation of an integer. By leveraging the property that subtracting 1 from a number flips all bits after the rightmost set bit, this algorithm repeatedly clears the lowest set bit until the number becomes zero. It is widely used in applications involving bit manipulation, cryptography, and performance-critical programming, making it a fundamental technique in data structures and algorithms.
-
-Tags: [dsa, bit manipulation, algorithm, counting bits, efficiency]
+Description: >-
+  Brian Kernighan’s Algorithm is an efficient method for counting the number of
+  set bits (1s) in the binary representation of an integer. By leveraging the
+  property that subtracting 1 from a number flips all bits after the rightmost
+  set bit, this algorithm repeatedly clears the lowest set bit until the number
+  becomes zero. It is widely used in applications involving bit manipulation,
+  cryptography, and performance-critical programming, making it a fundamental
+  technique in data structures and algorithms.
+Tags:
+  - dsa
+  - bit manipulation
+  - algorithm
+  - counting bits
+  - efficiency
+description: >-
+  Detailed guide on Bit Manipulation Technique including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - bit-manipulation
+  - bit manipulation technique
 ---
 # Brian Kernighan's Algorithm for Counting Set Bits (Hamming Weight)
 

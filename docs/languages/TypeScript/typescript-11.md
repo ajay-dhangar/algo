@@ -1,8 +1,16 @@
 ---
 id: inheritance-and-modules
 sidebar_position: 11
-title: "Inheritance & Code Modules"
-sidebar_label: "Inheritance & Modules"
+title: Inheritance & Code Modules
+sidebar_label: Inheritance & Modules
+description: >-
+  Learn about Inheritance & Code Modules in the TypeScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - inheritance & code modules
 ---
 
 Clean architecture relies on classes inheriting core functionality and organizing related components into distinct files using modular export paths.

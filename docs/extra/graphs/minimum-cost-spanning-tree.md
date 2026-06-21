@@ -2,8 +2,16 @@
 id: minimum-spanning-tree
 title: Minimum Spanning Tree Algorithms
 sidebar_label: Minimum Spanning Tree
-description: "In this blog post, we'll explore Minimum Spanning Tree (MST) algorithms, specifically Prim's and Kruskal's algorithms, which are used to find the minimum cost spanning tree in a weighted graph."
-tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
+description: >-
+  In this blog post, we'll explore Minimum Spanning Tree (MST) algorithms,
+  specifically Prim's and Kruskal's algorithms, which are used to find the
+  minimum cost spanning tree in a weighted graph.
+tags:
+  - dsa
+  - algorithms
+  - graph algorithms
+  - minimum spanning tree
+sidebar_position: 22
 ---
 
 A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tree that has the smallest possible total edge weight among all spanning trees. An MST connects all vertices in the graph without cycles and with the minimum sum of edge weights.

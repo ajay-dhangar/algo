@@ -1,8 +1,16 @@
 ---
-id: dfs-algo  
+id: dfs-algo
 sidebar_position: 7
-title: Depth-First Search  
-sidebar_label: DFS 
+title: Depth-First Search
+sidebar_label: DFS
+description: >-
+  Detailed guide on Depth-First Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - depth-first search
 ---
 
 ### Definition:

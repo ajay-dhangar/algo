@@ -1,10 +1,16 @@
 ---
-
-id: insertion-sort-algo  
-sidebar_position: 3 
-title: Insertion Sort  
-sidebar_label: Insertion Sort  
-
+id: insertion-sort-algo
+sidebar_position: 3
+title: Insertion Sort
+sidebar_label: Insertion Sort
+description: >-
+  Detailed guide on Insertion Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - insertion sort
 ---
 
 ### Definition:

@@ -2,8 +2,16 @@
 id: activity-selection
 title: Activity Selection Problem
 sidebar_label: Activity Selection
-description: "In this blog post, we'll explore the Activity Selection Problem, a classic greedy algorithm used to select the maximum number of activities that don't overlap."
-tags: [dsa, algorithms, greedy algorithms, activity selection]
+description: >-
+  In this blog post, we'll explore the Activity Selection Problem, a classic
+  greedy algorithm used to select the maximum number of activities that don't
+  overlap.
+tags:
+  - dsa
+  - algorithms
+  - greedy algorithms
+  - activity selection
+sidebar_position: 1
 ---
 
 ### Definition:

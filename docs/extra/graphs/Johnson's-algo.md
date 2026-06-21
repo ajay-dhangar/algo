@@ -1,11 +1,16 @@
 ---
-
-id: johnsons-algo  
-title: "Johnson's Algorithm"  
-sidebar_label: "Johnson's Algorithm"  
-description: "In this blog post, we'll explore Johnson's Algorithm, a method to find the shortest paths between all pairs of nodes in a graph, even with negative weights."  
-tags: [dsa, algorithms, shortest path]  
-
+id: johnsons-algo
+title: Johnson's Algorithm
+sidebar_label: Johnson's Algorithm
+description: >-
+  In this blog post, we'll explore Johnson's Algorithm, a method to find the
+  shortest paths between all pairs of nodes in a graph, even with negative
+  weights.
+tags:
+  - dsa
+  - algorithms
+  - shortest path
+sidebar_position: 17
 ---
 
 # Johnson's Algorithm

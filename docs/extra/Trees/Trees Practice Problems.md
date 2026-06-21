@@ -2,10 +2,17 @@
 id: tree-practice-problems
 title: Practice Problems on Trees
 sidebar_label: Practice Problems
-
-description: "In this post, we'll provide a list of curated practice problems on Trees from platforms like LeetCode and GeeksforGeeks. Trees are fundamental data structures in computer science, and practicing these problems will help strengthen your understanding of tree concepts and algorithms."
-
-tags: [dsa, algorithms, trees, practice-problems]
+description: >-
+  In this post, we'll provide a list of curated practice problems on Trees from
+  platforms like LeetCode and GeeksforGeeks. Trees are fundamental data
+  structures in computer science, and practicing these problems will help
+  strengthen your understanding of tree concepts and algorithms.
+tags:
+  - dsa
+  - algorithms
+  - trees
+  - practice-problems
+sidebar_position: 13
 ---
 
 ## Trees Practice Problems

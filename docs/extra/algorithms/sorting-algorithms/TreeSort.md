@@ -1,8 +1,16 @@
 ---
-id: tree-sort-algo  
-sidebar_position: 15  
-title: Tree Sort  
-sidebar_label: Tree Sort  
+id: tree-sort-algo
+sidebar_position: 15
+title: Tree Sort
+sidebar_label: Tree Sort
+description: >-
+  Detailed guide on Tree Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - tree sort
 ---
 
 ### Definition:

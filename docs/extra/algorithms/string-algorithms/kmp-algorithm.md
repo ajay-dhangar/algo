@@ -1,10 +1,16 @@
 ---
-
 id: knuth-morris-pratt-algorithm
 sidebar_position: 11
 title: Knuth-Morris-Pratt Algorithm
 sidebar_label: Knuth-Morris-Pratt Algorithm
-
+description: >-
+  Detailed guide on Knuth-Morris-Pratt Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - knuth-morris-pratt algorithm
 ---
 
 ### Definition:

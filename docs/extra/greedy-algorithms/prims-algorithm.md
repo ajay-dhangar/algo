@@ -1,9 +1,16 @@
 ---
-id: prims-algorithm  
-title: "Prim's Algorithm" 
-sidebar_label: "Prim's Algorithm"
-description: "Explore Prim's algorithm, a minimum spanning tree algorithm that starts with a single vertex and expands the MST one edge at a time."
-tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
+id: prims-algorithm
+title: Prim's Algorithm
+sidebar_label: Prim's Algorithm
+description: >-
+  Explore Prim's algorithm, a minimum spanning tree algorithm that starts with a
+  single vertex and expands the MST one edge at a time.
+tags:
+  - dsa
+  - algorithms
+  - graph algorithms
+  - minimum spanning tree
+sidebar_position: 5
 ---
 
 Prim's algorithm is a greedy algorithm that constructs a Minimum Spanning Tree (MST) for a weighted, connected, undirected graph. It starts with a single vertex and iteratively adds the lowest-cost edge that expands the MST without forming a cycle.

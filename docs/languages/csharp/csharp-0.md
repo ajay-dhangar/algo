@@ -1,8 +1,16 @@
 ---
-id: introduction-to-csharp  
-sidebar_position: 1  
-title: "Introduction to C#"  
-sidebar_label: "Introduction to C#"  
+id: introduction-to-csharp
+sidebar_position: 1
+title: Introduction to C#
+sidebar_label: Introduction to C#
+description: >-
+  Learn about Introduction to C# in the C# programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - introduction to c#
 ---
 
 Welcome to the world of C#! In this guide, we'll explore the essentials of C#, a modern programming language that is widely used in software development, especially for Windows applications, game development, and enterprise solutions. Whether you're interested in building desktop applications, web applications, or games, learning C# will provide you with powerful, versatile skills. Let’s get started!

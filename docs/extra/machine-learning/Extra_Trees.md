@@ -1,11 +1,18 @@
 ---
-
-id: extra-trees  
-title: Extra Trees Algorithm  
-sidebar_label: Extra Trees  
-description: "In this post, we’ll explore the Extra Trees Algorithm, an ensemble learning model used for classification and regression tasks, known for its efficiency and randomness in both feature selection and data sampling."  
-tags: [machine learning, algorithms, extra trees, classification, regression]  
-
+id: extra-trees
+title: Extra Trees Algorithm
+sidebar_label: Extra Trees
+description: >-
+  In this post, we’ll explore the Extra Trees Algorithm, an ensemble learning
+  model used for classification and regression tasks, known for its efficiency
+  and randomness in both feature selection and data sampling.
+tags:
+  - machine learning
+  - algorithms
+  - extra trees
+  - classification
+  - regression
+sidebar_position: 9
 ---
 
 ### Definition:

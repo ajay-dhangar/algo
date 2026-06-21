@@ -1,11 +1,20 @@
 ---
-
-id: gbm-visualizations  
-title: Gradient Boosting Machines (GBM) Visualization  
-sidebar_label: GBM  
-description: "Explore the Gradient Boosting Machines (GBM) algorithm for machine learning, including popular variants like XGBoost and LightGBM. Learn how it builds models sequentially, improving performance by correcting errors from previous models."  
-tags: [machine learning, gradient boosting, XGBoost, LightGBM, data visualization, ensemble learning]  
-
+id: gbm-visualizations
+title: Gradient Boosting Machines (GBM) Visualization
+sidebar_label: GBM
+description: >-
+  Explore the Gradient Boosting Machines (GBM) algorithm for machine learning,
+  including popular variants like XGBoost and LightGBM. Learn how it builds
+  models sequentially, improving performance by correcting errors from previous
+  models.
+tags:
+  - machine learning
+  - gradient boosting
+  - XGBoost
+  - LightGBM
+  - data visualization
+  - ensemble learning
+sidebar_position: 11
 ---
 
 ### Definition:  
