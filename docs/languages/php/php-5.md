@@ -1,5 +1,5 @@
 ---
-id: "control-statements"
+id: "php-control-statements"
 sidebar_position: 5
 title: "Control Statements in php"
 sidebar_label: "Control Statements"

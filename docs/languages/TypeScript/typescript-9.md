@@ -1,8 +1,10 @@
 ---
-id: classes-and-objects
+id: typescript-classes-and-objects
 sidebar_position: 9
 title: "Classes & Objects"
 sidebar_label: "Classes & Objects"
+description: "Explore Object-Oriented programming in TypeScript including classes, instances, constructors, and encapsulation access modifiers."
+tags: [typescript, oop, classes, objects, encapsulation]
 ---
 
 TypeScript features comprehensive Object-Oriented structures, adding strict encapsulation modifiers and type properties over traditional JavaScript classes.
