@@ -1,23 +1,43 @@
 import React from 'react';
-import Footer from '@theme-original/DocItem/Footer';
-import type FooterType from '@theme/DocItem/Footer';
-import type { WrapperProps } from '@docusaurus/types';
+import clsx from 'clsx';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
+import TagsListInline from '@theme/TagsListInline';
+import type { Props } from '@theme/DocItem/Footer';
 import ProgressTracker from '@site/src/components/ProgressTracker';
-import NotesSection from '@site/src/components/NotesSection';
 
-type Props = WrapperProps<typeof FooterType>;
-
-export default function FooterWrapper(props: Props): JSX.Element {
+export default function DocItemFooter(props: Props): JSX.Element | null {
   const { metadata } = useDoc();
+  const { tags } = metadata;
+
   const topicId = metadata.id.replace(/\//g, '-');
   const topicTitle = metadata.title;
 
+  const canRenderTags = tags && tags.length > 0;
+
+  if (!canRenderTags) {
+    return (
+      <>
+        <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
+      </>
+    );
+  }
+
   return (
     <>
-      <Footer {...props} />
+    
       <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
-      {/* <NotesSection topicId={topicId} /> */}
+
+      <footer
+        className={clsx(
+          'docusaurus-mt-lg',
+          'row',
+        )}>
+        {canRenderTags && (
+          <div className="col">
+            <TagsListInline tags={tags} />
+          </div>
+        )}
+      </footer>
     </>
   );
 }

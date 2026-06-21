@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { withVisualizerErrorBoundary } from "../../Visualizing/VisualizerErrorBoundary";
 
-export const DPTable: React.FC = () => {
+const DPTableComponent: React.FC = () => {
   const [str1, setStr1] = useState("LCS");
   const [str2, setStr2] = useState("CLASS");
   const [hovered, setHovered] = useState<{ r: number; c: number } | null>(null);
@@ -148,3 +149,5 @@ export const DPTable: React.FC = () => {
     </div>
   );
 };
+
+export const DPTable = withVisualizerErrorBoundary(DPTableComponent);
