@@ -1,9 +1,16 @@
 ---
-id: kruskals-algorithm  
-title: "Kruskal's Algorithm" 
-sidebar_label: "Kruskal's Algorithm" 
-description: "Learn about Kruskal's algorithm, a minimum spanning tree algorithm that works by sorting the edges and adding them one by one if they don't form a cycle."
-tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
+id: kruskals-algorithm
+title: Kruskal's Algorithm
+sidebar_label: Kruskal's Algorithm
+description: >-
+  Learn about Kruskal's algorithm, a minimum spanning tree algorithm that works
+  by sorting the edges and adding them one by one if they don't form a cycle.
+tags:
+  - dsa
+  - algorithms
+  - graph algorithms
+  - minimum spanning tree
+sidebar_position: 4
 ---
 
 Kruskal's algorithm is a greedy algorithm used to find the Minimum Spanning Tree (MST) of a connected, undirected graph. It works by sorting all edges in the graph in increasing order of weight and adding them one by one to the MST, provided they don't form a cycle.

@@ -3,6 +3,14 @@ id: datatypes-in-python
 sidebar_position: 2
 title: Datatypes in Python
 sidebar_label: Datatypes in Python
+description: >-
+  Learn about Datatypes in Python in the Python programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - datatypes in python
 ---
 
 Hey there! In this guide, we'll explore the different data types available in Python. Understanding data types is crucial for writing efficient and clear Python code. Let's dive in!

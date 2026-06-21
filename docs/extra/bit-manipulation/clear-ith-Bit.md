@@ -1,13 +1,16 @@
 ---
 id: clear-ith-bit
-tittle: Clear ith Bit
-sidebar-level: Clear ith Bit
-sidebar-position: 2
-Description: Clearing the i-th bit in a number is a nifty bit manipulation technique. This involves setting the i-th bit to 0, leaving all other bits unchanged.
-tags: [dsa, bit manipulation, clear bits]
+title: "Clear i-th Bit"
+sidebar_label: "Clear i-th Bit"
+sidebar_position: 2
+description: "Learn how to clear the i-th bit in a number using bitwise operations, with step-by-step guidance and Java code examples."
+tags:
+  - dsa
+  - bit manipulation
+  - clear bits
 ---
 
-# Description
+# Clear i-th Bit
 
 Clearing the i-th bit in a number is a common bit manipulation technique. This operation involves setting the i-th bit to 0 while leaving all other bits unchanged.
 

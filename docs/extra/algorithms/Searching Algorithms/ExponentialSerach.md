@@ -1,10 +1,16 @@
 ---
-
-id: exponential-search-algo  
-sidebar_position: 4  
-title: Exponential Search  
-sidebar_label: Exponential Search  
-
+id: exponential-search-algo
+sidebar_position: 4
+title: Exponential Search
+sidebar_label: Exponential Search
+description: >-
+  Detailed guide on Exponential Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - exponential search
 ---
 
 ### Definition:

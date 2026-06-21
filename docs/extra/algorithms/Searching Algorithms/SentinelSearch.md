@@ -1,10 +1,16 @@
 ---
-
-id: sentinel-search-algo  
-sidebar_position: 3  
-title: Sentinel Search  
-sidebar_label: Sentinel Search  
-
+id: sentinel-search-algo
+sidebar_position: 3
+title: Sentinel Search
+sidebar_label: Sentinel Search
+description: >-
+  Detailed guide on Sentinel Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - sentinel search
 ---
 
 ### Definition:

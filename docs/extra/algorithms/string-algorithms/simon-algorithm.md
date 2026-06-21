@@ -1,10 +1,16 @@
 ---
-
 id: simon-algorithm
 sidebar_position: 18
 title: Simon Algorithm
 sidebar_label: Simon Algorithm
-
+description: >-
+  Detailed guide on Simon Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - simon algorithm
 ---
 
 ### Definition:

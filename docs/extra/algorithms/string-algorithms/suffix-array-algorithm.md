@@ -1,10 +1,16 @@
 ---
-
 id: suffix-array-algorithm
 sidebar_position: 17
 title: Suffix Array Algorithm
 sidebar_label: Suffix Array Algorithm
-
+description: >-
+  Detailed guide on Suffix Array Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - suffix array algorithm
 ---
 
 ### Definition:

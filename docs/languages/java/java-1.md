@@ -1,8 +1,16 @@
 ---
 id: datatypes-in-java
 sidebar_position: 1
-title: "Datatypes in Java"
-sidebar_label: "Datatypes in Java"
+title: Datatypes in Java
+sidebar_label: Datatypes in Java
+description: >-
+  Learn about Datatypes in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - datatypes in java
 ---
 
 Hey there! In this guide, we'll explore the different data types available in Java. Understanding data types is crucial for writing efficient and clear Java code. Let's dive in!

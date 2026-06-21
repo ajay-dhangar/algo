@@ -1,10 +1,16 @@
 ---
-
 id: zhu-takaoka-algorithm
 sidebar_position: 10
 title: Zhu-Takaoka Algorithm
 sidebar_label: Zhu-Takaoka Algorithm
-
+description: >-
+  Detailed guide on Zhu-Takaoka Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - zhu-takaoka algorithm
 ---
 
 ### Definition:

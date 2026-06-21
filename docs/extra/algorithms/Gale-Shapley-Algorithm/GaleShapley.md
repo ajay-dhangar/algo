@@ -1,8 +1,16 @@
 ---
-id: gale-shapley-algorithm  
-sidebar_position: 15  
-title: Gale-Shapley Algorithm  
-sidebar_label: Gale-Shapley Algorithm  
+id: gale-shapley-algorithm
+sidebar_position: 15
+title: Gale-Shapley Algorithm
+sidebar_label: Gale-Shapley Algorithm
+description: >-
+  Detailed guide on Gale-Shapley Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - gale-shapley algorithm
 ---
 
 ## Overview:

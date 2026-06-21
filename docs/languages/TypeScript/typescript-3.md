@@ -1,8 +1,16 @@
 ---
 id: operators-in-typescript
 sidebar_position: 3
-title: "Operators"
-sidebar_label: "Operators"
+title: Operators
+sidebar_label: Operators
+description: >-
+  Learn about Operators in the TypeScript programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - operators
 ---
 
 Operators perform standard math, evaluations, and structural transformations in TypeScript. Let's look at its unique utility operators alongside traditional operators.

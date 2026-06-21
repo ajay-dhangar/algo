@@ -1,9 +1,16 @@
 ---
-
-id: Rabin-Karp-algorithm 
-sidebar_position: 5 
+id: Rabin-Karp-algorithm
+sidebar_position: 5
 title: Rabin-Karp algorithm
 sidebar_label: Rabin-Karp algorithm
+description: >-
+  Detailed guide on Rabin-Karp algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - rabin-karp algorithm
 ---
 ## Definition 📖
 

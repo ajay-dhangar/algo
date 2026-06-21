@@ -1,10 +1,16 @@
 ---
-
-id: bubble-sort-algo  
-sidebar_position: 1  
-title: Bubble Sort  
-sidebar_label: Bubble Sort  
-
+id: bubble-sort-algo
+sidebar_position: 1
+title: Bubble Sort
+sidebar_label: Bubble Sort
+description: >-
+  Detailed guide on Bubble Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - bubble sort
 ---
 
 ### Definition:

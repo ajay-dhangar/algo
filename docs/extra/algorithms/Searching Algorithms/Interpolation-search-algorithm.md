@@ -1,10 +1,16 @@
 ---
-
-id: Interpolation algorithm 
-sidebar_position: 5  
+id: Interpolation algorithm
+sidebar_position: 5
 title: Interpolation search
-sidebar_label: Interpolation search algorithm 
-
+sidebar_label: Interpolation search algorithm
+description: >-
+  Detailed guide on Interpolation search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - interpolation search
 ---
 
 

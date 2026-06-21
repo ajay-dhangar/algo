@@ -1,10 +1,16 @@
 ---
-
-id: fibonacci-search-algo  
-sidebar_position: 5  
-title: Fibonacci Search  
-sidebar_label: Fibonacci Search  
-
+id: fibonacci-search-algo
+sidebar_position: 5
+title: Fibonacci Search
+sidebar_label: Fibonacci Search
+description: >-
+  Detailed guide on Fibonacci Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - fibonacci search
 ---
 
 ### Definition:

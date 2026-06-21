@@ -1,8 +1,16 @@
----  
+---
 id: arrays
 sidebar_position: 7
-title: Arrays in JavaScript  
+title: Arrays in JavaScript
 sidebar_label: Arrays in JavaScript
+description: >-
+  Learn about Arrays in JavaScript in the JavaScript programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - arrays in javascript
 ---
 
 Hey everyone! Today, we're diving into Arrays in JavaScript, one of the most fundamental and powerful data structures. Let's jump in and explore the different ways arrays can be used to store, manipulate, and access data!

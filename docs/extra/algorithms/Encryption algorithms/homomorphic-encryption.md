@@ -1,10 +1,16 @@
 ---
-
-id: homomorphic-encryption-algo  
-sidebar_position: 6 
-title: Homomorphic Encryption  
-sidebar_label: Homomorphic Encryption  
-
+id: homomorphic-encryption-algo
+sidebar_position: 6
+title: Homomorphic Encryption
+sidebar_label: Homomorphic Encryption
+description: >-
+  Detailed guide on Homomorphic Encryption including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - homomorphic encryption
 ---
 
 ### Definition:

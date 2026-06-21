@@ -1,8 +1,16 @@
 ---
-id: gnome-sort-algo  
-sidebar_position: 16  
-title: Gnome Sort  
-sidebar_label: Gnome Sort  
+id: gnome-sort-algo
+sidebar_position: 16
+title: Gnome Sort
+sidebar_label: Gnome Sort
+description: >-
+  Detailed guide on Gnome Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - gnome sort
 ---
 
 ### Definition:

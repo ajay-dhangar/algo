@@ -1,5 +1,5 @@
 ---
-id: classes-and-objects
+id: classes-and-objects-oop
 title: "Classes and Objects in OOP"
 sidebar_label: Classes and Objects
 sidebar_position: 2

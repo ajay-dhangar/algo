@@ -1,8 +1,16 @@
 ---
 id: loops-in-java
 sidebar_position: 4
-title: "Loops In Java"
-sidebar_label: "Loops In Java"
+title: Loops In Java
+sidebar_label: Loops In Java
+description: >-
+  Learn about Loops In Java in the Java programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - loops in java
 ---
 
 Hey there! In this guide, we'll explore loops in Java. Loops are used to execute a block of code repeatedly based on specific conditions. Let's dive in!

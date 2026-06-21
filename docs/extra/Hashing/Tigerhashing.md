@@ -1,3 +1,17 @@
+---
+id: tigerhashing
+title: Tiger Hashing Algorithm
+sidebar_label: Tiger Hashing Algorithm
+description: >-
+  Detailed guide on Tiger Hashing Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - hashing
+  - tiger hashing algorithm
+sidebar_position: 8
+---
 # Tiger Hashing Algorithm
 
 ## Overview

@@ -1,11 +1,18 @@
 ---
-
-id: k-means-clustering-visualizations  
-title: K-Means Clustering Visualizations  
-sidebar_label: K-Means Clustering  
-description: "Implement the K-Means clustering algorithm to partition data into K clusters based on feature similarity. This feature will include visualizations to help users understand the clustering process."  
-tags: [data science, clustering, K-Means, data visualization, machine learning]  
-
+id: k-means-clustering-visualizations
+title: K-Means Clustering Visualizations
+sidebar_label: K-Means Clustering
+description: >-
+  Implement the K-Means clustering algorithm to partition data into K clusters
+  based on feature similarity. This feature will include visualizations to help
+  users understand the clustering process.
+tags:
+  - data science
+  - clustering
+  - K-Means
+  - data visualization
+  - machine learning
+sidebar_position: 18
 ---
 
 ### Definition:  

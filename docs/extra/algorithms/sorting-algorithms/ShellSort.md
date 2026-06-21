@@ -1,10 +1,16 @@
 ---
-
-id: shell-sort-algo  
-sidebar_position: 11  
-title: Shell Sort  
-sidebar_label: Shell Sort  
-
+id: shell-sort-algo
+sidebar_position: 11
+title: Shell Sort
+sidebar_label: Shell Sort
+description: >-
+  Detailed guide on Shell Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - shell sort
 ---
 
 ### Definition:

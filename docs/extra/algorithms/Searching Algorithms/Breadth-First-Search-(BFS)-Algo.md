@@ -1,8 +1,16 @@
 ---
-id: bfs-algo  
+id: bfs-algo
 sidebar_position: 6
-title: Breadth-First Search  
-sidebar_label: BFS  
+title: Breadth-First Search
+sidebar_label: BFS
+description: >-
+  Detailed guide on Breadth-First Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - breadth-first search
 ---
 
 ### Definition:

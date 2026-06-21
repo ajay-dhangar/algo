@@ -1,9 +1,18 @@
---- 
-id: beam-search  
-title: Beam Search Algorithm  
-sidebar_label: Beam Search  
-description: "This guide covers the Beam Search algorithm, a heuristic search technique commonly used in sequence generation tasks to find the most probable output sequence in machine learning."  
-tags: [machine learning, search algorithm, beam search, NLP, transformer]
+---
+id: beam-search
+title: Beam Search Algorithm
+sidebar_label: Beam Search
+description: >-
+  This guide covers the Beam Search algorithm, a heuristic search technique
+  commonly used in sequence generation tasks to find the most probable output
+  sequence in machine learning.
+tags:
+  - machine learning
+  - search algorithm
+  - beam search
+  - NLP
+  - transformer
+sidebar_position: 3
 ---
 
 ### Definition:

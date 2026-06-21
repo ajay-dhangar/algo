@@ -2,18 +2,20 @@
 id: trie
 title: Trie (Prefix Tree)
 sidebar_label: Trie (Prefix Tree)
-description: "A comprehensive guide to the Trie (Prefix Tree) data structure with visual diagrams, Insert, Search, Delete, and AutoComplete implementations in Python, Java, and C++, and practice problems."
+description: >-
+  A comprehensive guide to the Trie (Prefix Tree) data structure with visual
+  diagrams, Insert, Search, Delete, and AutoComplete implementations in Python,
+  Java, and C++, and practice problems.
 tags:
-  [
-    trie,
-    prefix-tree,
-    data-structures,
-    advanced,
-    dsa,
-    strings,
-    interview-prep,
-    competitive-programming,
-  ]
+  - trie
+  - prefix-tree
+  - data-structures
+  - advanced
+  - dsa
+  - strings
+  - interview-prep
+  - competitive-programming
+sidebar_position: 15
 ---
 
 # Trie (Prefix Tree)

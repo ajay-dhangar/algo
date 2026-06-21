@@ -3,6 +3,14 @@ id: variables-in-java
 sidebar_position: 2
 title: Variables in Java
 sidebar_label: Variables in Java
+description: >-
+  Learn about Variables in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - variables in java
 ---
 
 Hey, everyone! In this guide, we'll explore the concept of variables in Java. Variables are essential in programming, allowing you to store and manipulate data dynamically. Let's dive in!

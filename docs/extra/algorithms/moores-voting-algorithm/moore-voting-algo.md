@@ -1,8 +1,16 @@
 ---
-id: moores-voting-algorithm  
-sidebar_position: 15  
-title: "Moore's Voting Algorithm"
+id: moores-voting-algorithm
+sidebar_position: 15
+title: Moore's Voting Algorithm
 sidebar_label: Voting Algorithm
+description: >-
+  Detailed guide on Moore's Voting Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - moore's voting algorithm
 ---
 
 ### Definition:

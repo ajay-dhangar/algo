@@ -1,9 +1,15 @@
 ---
-id: string-reversal 
+id: string-reversal
 title: String Reversal
 sidebar_label: String Reversal
-description: "This program reverses a given string by pushing its characters onto a stack and then popping them back into the string."  
-tags: [dsa, algorithms, stack]
+description: >-
+  This program reverses a given string by pushing its characters onto a stack
+  and then popping them back into the string.
+tags:
+  - dsa
+  - algorithms
+  - stack
+sidebar_position: 14
 ---
 
 ## Problem Statement:

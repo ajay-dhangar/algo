@@ -1,10 +1,16 @@
 ---
-
-id: counting-sort-algo  
-sidebar_position: 8  
-title: Counting Sort  
-sidebar_label: Counting Sort  
-
+id: counting-sort-algo
+sidebar_position: 8
+title: Counting Sort
+sidebar_label: Counting Sort
+description: >-
+  Detailed guide on Counting Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - counting sort
 ---
 
 ### Definition:

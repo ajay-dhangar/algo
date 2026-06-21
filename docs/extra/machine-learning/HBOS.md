@@ -1,10 +1,16 @@
 ---
-id: histogram-based-outlier-score  
-title: Histogram-Based Outlier Score (HBOS)  
-sidebar_label: HBOS  
-description: "In this post, we'll explore Histogram-Based Outlier Score (HBOS), an unsupervised anomaly detection technique that analyzes each feature independently."  
-tags: [anomaly detection, outlier detection, unsupervised learning]
-
+id: histogram-based-outlier-score
+title: Histogram-Based Outlier Score (HBOS)
+sidebar_label: HBOS
+description: >-
+  In this post, we'll explore Histogram-Based Outlier Score (HBOS), an
+  unsupervised anomaly detection technique that analyzes each feature
+  independently.
+tags:
+  - anomaly detection
+  - outlier detection
+  - unsupervised learning
+sidebar_position: 13
 ---
 
 ### Overview

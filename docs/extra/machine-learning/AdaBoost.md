@@ -1,11 +1,18 @@
 ---
-
-id: adaboost-visualizations  
-title: AdaBoost Visualizations  
-sidebar_label: AdaBoost  
-description: "Implement the AdaBoost algorithm to combine multiple weak classifiers into a strong ensemble model. This feature will visualize the boosting process and support various base learners."  
-tags: [machine learning, ensemble methods, AdaBoost, data visualization, classifiers]  
-
+id: adaboost-visualizations
+title: AdaBoost Visualizations
+sidebar_label: AdaBoost
+description: >-
+  Implement the AdaBoost algorithm to combine multiple weak classifiers into a
+  strong ensemble model. This feature will visualize the boosting process and
+  support various base learners.
+tags:
+  - machine learning
+  - ensemble methods
+  - AdaBoost
+  - data visualization
+  - classifiers
+sidebar_position: 1
 ---
 
 ### Definition:  

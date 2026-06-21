@@ -1,8 +1,16 @@
 ---
 id: loops-in-typescript
 sidebar_position: 5
-title: "Loops"
-sidebar_label: "Loops"
+title: Loops
+sidebar_label: Loops
+description: >-
+  Learn about Loops in the TypeScript programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - loops
 ---
 
 Loops allow you to run blocks of code repeatedly until specific bounds or conditional boundaries are met.

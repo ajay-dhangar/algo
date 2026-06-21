@@ -1,8 +1,16 @@
 ---
 id: memory-management
 sidebar_position: 10
-title: "Memory management in Java"
-sidebar_label: "Memory management"
+title: Memory management in Java
+sidebar_label: Memory management
+description: >-
+  Learn about Memory management in Java in the Java programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - memory management in java
 ---
 
 # Memory Management in Java (JVM Internals)

@@ -1,8 +1,16 @@
 ---
-id: uniform-cost-search  
-sidebar_position: 4  
-title: Uniform-Cost Search  
-sidebar_label: Uniform-Cost  
+id: uniform-cost-search
+sidebar_position: 4
+title: Uniform-Cost Search
+sidebar_label: Uniform-Cost
+description: >-
+  Detailed guide on Uniform-Cost Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - uniform-cost search
 ---
 
 ### Definition:

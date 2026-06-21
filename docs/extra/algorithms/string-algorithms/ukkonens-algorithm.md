@@ -1,10 +1,16 @@
 ---
-
 id: ukkonens-algorithm
 sidebar_position: 7
 title: Ukkonen's Algorithm
 sidebar_label: Ukkonen's Algorithm
-
+description: >-
+  Detailed guide on Ukkonen's Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - ukkonen's algorithm
 ---
 
 ### Definition:

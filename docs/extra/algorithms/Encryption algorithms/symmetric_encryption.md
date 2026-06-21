@@ -1,10 +1,16 @@
 ---
-
-id: symmetric-encryption-algo  
-sidebar_position: 1  
-title: Symmetric Encryption  
-sidebar_label: Symmetric Encryption  
-
+id: symmetric-encryption-algo
+sidebar_position: 1
+title: Symmetric Encryption
+sidebar_label: Symmetric Encryption
+description: >-
+  Detailed guide on Symmetric Encryption including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - symmetric encryption
 ---
 
 ### Definition:

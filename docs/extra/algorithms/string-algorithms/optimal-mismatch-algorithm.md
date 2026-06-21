@@ -1,10 +1,16 @@
 ---
-
 id: optimal-mismatch-algorithm
 sidebar_position: 25
 title: Optimal Mismatch Algorithm
 sidebar_label: Optimal Mismatch Algorithm
-
+description: >-
+  Detailed guide on Optimal Mismatch Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - optimal mismatch algorithm
 ---
 
 ### Definition:

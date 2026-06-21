@@ -1,7 +1,16 @@
 ---
 id: legendre-algo
 title: Finding Power of Factorial Divisor
-sidebar_label: "Legendre's Formula"
+sidebar_label: Legendre's Formula
+description: >-
+  Detailed guide on Finding Power of Factorial Divisor including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - finding power of factorial divisor
+sidebar_position: 1
 ---
 
 # Deep Dive into Finding the Power of a Factorial Divisor

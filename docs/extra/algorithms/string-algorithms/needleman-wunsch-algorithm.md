@@ -1,10 +1,16 @@
 ---
-
 id: needleman-wunsch-algorithm
 sidebar_position: 22
 title: Needleman-Wunsch Algorithm
 sidebar_label: Needleman-Wunsch Algorithm
-
+description: >-
+  Detailed guide on Needleman-Wunsch Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - needleman-wunsch algorithm
 ---
 
 ### Definition:

@@ -2,8 +2,16 @@
 id: kahn
 title: Kahn's Algorithm
 sidebar_label: Kahn's Algorithm
-description: "In this blog post, we will delve into Kahn's Algorithm, an efficient method for topological sorting of a directed acyclic graph (DAG). This algorithm provides a way to find a linear ordering of vertices such that for every directed edge u → v, vertex u comes before vertex v."
-tags: [dsa, algorithms, topological sorting]
+description: >-
+  In this blog post, we will delve into Kahn's Algorithm, an efficient method
+  for topological sorting of a directed acyclic graph (DAG). This algorithm
+  provides a way to find a linear ordering of vertices such that for every
+  directed edge u → v, vertex u comes before vertex v.
+tags:
+  - dsa
+  - algorithms
+  - topological sorting
+sidebar_position: 18
 ---
 
 ## 📚 Kahn's Algorithm

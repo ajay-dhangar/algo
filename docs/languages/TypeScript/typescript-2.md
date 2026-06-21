@@ -1,8 +1,16 @@
 ---
 id: data-types-and-variables
 sidebar_position: 2
-title: "Data Types & Variables"
-sidebar_label: "Data Types & Variables"
+title: Data Types & Variables
+sidebar_label: Data Types & Variables
+description: >-
+  Learn about Data Types & Variables in the TypeScript programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - data types & variables
 ---
 
 Mastering data types is essential for maximizing TypeScript's type-safety assertions. Let's look at primitive types, variables, and type safety constraints.

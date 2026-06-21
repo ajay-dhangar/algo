@@ -2,8 +2,15 @@
 id: naive-string-matching
 title: Naive String Matching Algorithm
 sidebar_label: Naive String Matching
-tags: [String Matching, Naive Approach, Algorithms, DSA]
-description: Simple method to find all occurrences of a pattern within a text by comparing each character.
+tags:
+  - String Matching
+  - Naive Approach
+  - Algorithms
+  - DSA
+description: >-
+  Simple method to find all occurrences of a pattern within a text by comparing
+  each character.
+sidebar_position: 16
 ---
 
 # Naive String Matching Algorithm

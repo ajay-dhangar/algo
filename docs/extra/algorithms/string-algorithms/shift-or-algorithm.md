@@ -1,10 +1,16 @@
 ---
-
-id: shift-or-algo  
-sidebar_position: 5  
-title: Shift-Or Algorithm  
-sidebar_label: Shift-Or Algorithm  
-
+id: shift-or-algo
+sidebar_position: 5
+title: Shift-Or Algorithm
+sidebar_label: Shift-Or Algorithm
+description: >-
+  Detailed guide on Shift-Or Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - shift-or algorithm
 ---
 
 ### Definition:

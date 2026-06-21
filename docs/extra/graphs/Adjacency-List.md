@@ -2,8 +2,12 @@
 id: adjacency-list
 title: Adjacency List
 sidebar_label: Adjacency List
-description: "Adjacency list is used to represent a graph using array and linked list"  
-tags: [dsa, algorithms, graph]
+description: Adjacency list is used to represent a graph using array and linked list
+tags:
+  - dsa
+  - algorithms
+  - graph
+sidebar_position: 1
 ---
 
 ## Problem Statement:

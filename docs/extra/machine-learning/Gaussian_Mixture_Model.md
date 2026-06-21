@@ -1,11 +1,17 @@
 ---
-
-id: gaussian-mixture-models  
-title: Gaussian Mixture Models (GMM)  
-sidebar_label: GMM  
-description: "This post explores Gaussian Mixture Models (GMM), a probabilistic model for representing normally distributed subpopulations within a larger population."  
-tags: [machine learning, clustering, gmm, gaussian, statistics]
-
+id: gaussian-mixture-models
+title: Gaussian Mixture Models (GMM)
+sidebar_label: GMM
+description: >-
+  This post explores Gaussian Mixture Models (GMM), a probabilistic model for
+  representing normally distributed subpopulations within a larger population.
+tags:
+  - machine learning
+  - clustering
+  - gmm
+  - gaussian
+  - statistics
+sidebar_position: 10
 ---
 
 ### Definition:

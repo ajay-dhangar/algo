@@ -1,10 +1,16 @@
 ---
-
-id: elliptic-curve-cryptography  
-sidebar_position: 3  
-title: Elliptic Curve Cryptography (ECC)  
-sidebar_label: Elliptic Curve Cryptography  
-
+id: elliptic-curve-cryptography
+sidebar_position: 3
+title: Elliptic Curve Cryptography (ECC)
+sidebar_label: Elliptic Curve Cryptography
+description: >-
+  Detailed guide on Elliptic Curve Cryptography (ECC) including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - elliptic curve cryptography (ecc)
 ---
 
 ### Definition:

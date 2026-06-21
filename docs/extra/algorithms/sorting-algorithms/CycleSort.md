@@ -1,10 +1,16 @@
 ---
-
-id: cycle-sort-algo  
-sidebar_position: 12  
-title: Cycle Sort  
-sidebar_label: Cycle Sort  
-
+id: cycle-sort-algo
+sidebar_position: 12
+title: Cycle Sort
+sidebar_label: Cycle Sort
+description: >-
+  Detailed guide on Cycle Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - cycle sort
 ---
 
 ### Definition:

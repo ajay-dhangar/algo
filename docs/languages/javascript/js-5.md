@@ -1,8 +1,16 @@
----  
+---
 id: loops
-sidebar_position: 5  
-title: Loops in JavaScript  
+sidebar_position: 5
+title: Loops in JavaScript
 sidebar_label: Loops in JavaScript
+description: >-
+  Learn about Loops in JavaScript in the JavaScript programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - loops in javascript
 ---
 
 Hey everyone! Today, we will explore loops in JavaScript, a key concept for automating repetitive tasks. Whether you're just starting or need a quick refresher, this guide will help you understand how loops work in JavaScript. Let's get started!

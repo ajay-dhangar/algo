@@ -2,8 +2,25 @@
 id: sortings
 title: Sortings Data Structure
 sidebar_label: Introduction to Sortings
-description: 'Sorting algorithms are fundamental in computer science, used to arrange data in a particular order, typically ascending or descending. Various sorting techniques are designed to optimize performance based on factors like time complexity, space complexity.'
-tags: [dsa, Sortings, Bubble sort, Insertion sort, Selection sort, Merge sort, Quick sort , C, Java, Python, C++, Heap Sort]
+description: >-
+  Sorting algorithms are fundamental in computer science, used to arrange data
+  in a particular order, typically ascending or descending. Various sorting
+  techniques are designed to optimize performance based on factors like time
+  complexity, space complexity.
+tags:
+  - dsa
+  - Sortings
+  - Bubble sort
+  - Insertion sort
+  - Selection sort
+  - Merge sort
+  - Quick sort
+  - C
+  - Java
+  - Python
+  - C++
+  - Heap Sort
+sidebar_position: 3
 ---
 
 ### Introduction to Sortings

@@ -3,6 +3,14 @@ id: variables
 sidebar_position: 1
 title: Variables in JavaScript
 sidebar_label: Variables in JS
+description: >-
+  Learn about Variables in JavaScript in the JavaScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - variables in javascript
 ---
 
 Hey, everyone! In this guide, we'll explore the concept of variables in JavaScript. Variables are essential in programming, allowing you to store and manipulate data dynamically. Let's dive in!

@@ -1,10 +1,16 @@
 ---
-
-id: jump-search-algo  
-sidebar_position: 5  
-title: Jump Search  
-sidebar_label: Jump Search  
-
+id: jump-search-algo
+sidebar_position: 5
+title: Jump Search
+sidebar_label: Jump Search
+description: >-
+  Detailed guide on Jump Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - jump search
 ---
 
 ### Definition:

@@ -1,8 +1,16 @@
 ---
 id: advanced-types-and-interfaces
 sidebar_position: 10
-title: "Interfaces & Advanced Types"
-sidebar_label: "Interfaces & Type Aliases"
+title: Interfaces & Advanced Types
+sidebar_label: Interfaces & Type Aliases
+description: >-
+  Learn about Interfaces & Advanced Types in the TypeScript programming language
+  with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - interfaces & advanced types
 ---
 
 Interfaces and Type Aliases define structured contracts for complex data structures and objects.

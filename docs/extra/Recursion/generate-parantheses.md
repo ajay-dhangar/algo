@@ -2,8 +2,16 @@
 id: Generate-Parentheses-problem-dsa
 title: Generate Parentheses Recursion
 sidebar_label: Generate Parentheses
-description: "The Generate Parentheses problem requires generating all combinations of well-formed parentheses given n pairs. The solution uses recursion and backtracking to ensure that each combination is valid."
-tags: [generate-parentheses, backtracking, recursion, dsa]
+description: >-
+  The Generate Parentheses problem requires generating all combinations of
+  well-formed parentheses given n pairs. The solution uses recursion and
+  backtracking to ensure that each combination is valid.
+tags:
+  - generate-parentheses
+  - backtracking
+  - recursion
+  - dsa
+sidebar_position: 5
 ---
 
 ## Generate Parentheses Problem | Return All Combinations of Well-Formed Parentheses

@@ -1,8 +1,16 @@
----  
-id: decision-making-in-python  
-sidebar_position: 3  
-title: Decision Making in Python  
+---
+id: decision-making-in-python
+sidebar_position: 3
+title: Decision Making in Python
 sidebar_label: Decision Making in Python
+description: >-
+  Learn about Decision Making in Python in the Python programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - decision making in python
 ---
 
 Hey there! In this guide, we'll explore decision-making in Python. Decision-making constructs allow you to execute code based on certain conditions. Let's dive in!

@@ -1,8 +1,16 @@
----  
+---
 id: decisions
 sidebar_position: 4
-title: Decision Making in JavaScript  
+title: Decision Making in JavaScript
 sidebar_label: Decision Making  in JavaScript
+description: >-
+  Learn about Decision Making in JavaScript in the JavaScript programming
+  language with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - decision making in javascript
 ---
 
 Hey everyone! Today, we're going to explore how decision-making works in JavaScript. Whether you're just starting or need a refresher, this guide will help you understand the key decision-making structures in JavaScript. Let's dive right in!

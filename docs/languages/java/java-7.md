@@ -3,6 +3,14 @@ id: objects-in-java
 sidebar_position: 8
 title: Objects in Java
 sidebar_label: Objects
+description: >-
+  Learn about Objects in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - objects in java
 ---
 
 ## Overview

@@ -1,11 +1,19 @@
 ---
-
-id: svm-visualization  
-title: Support Vector Machines (SVM) Visualization Algorithm  
-sidebar_label: SVM  
-description: "This post explores Support Vector Machines (SVM), a powerful classification algorithm that finds the optimal hyperplane to separate different classes in high-dimensional datasets."  
-tags: [classification, data visualization, machine learning, SVM, hyperplane, support vectors]
-
+id: svm-visualization
+title: Support Vector Machines (SVM) Visualization Algorithm
+sidebar_label: SVM
+description: >-
+  This post explores Support Vector Machines (SVM), a powerful classification
+  algorithm that finds the optimal hyperplane to separate different classes in
+  high-dimensional datasets.
+tags:
+  - classification
+  - data visualization
+  - machine learning
+  - SVM
+  - hyperplane
+  - support vectors
+sidebar_position: 41
 ---
 
 ### Definition:  

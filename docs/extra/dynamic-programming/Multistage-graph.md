@@ -2,8 +2,14 @@
 id: multistage-graph
 title: MULTISTAGE GRAPH
 sidebar_label: SHORTEST PATH IN MULTISTAGE GRAPH
-tags: [Dynamic Programming,Graph, DSA]
-description: The multistage graph problem is finding the path with minimum cost from source to sink.
+tags:
+  - Dynamic Programming
+  - Graph
+  - DSA
+description: >-
+  The multistage graph problem is finding the path with minimum cost from source
+  to sink.
+sidebar_position: 13
 ---
 
 # SHORTEST PATH IN MULTISTAGE GRAPH

@@ -1,10 +1,16 @@
 ---
-
-id: asymmetric-encryption-algo  
-sidebar_position: 2  
-title: Asymmetric Encryption  
-sidebar_label: Asymmetric Encryption  
-
+id: asymmetric-encryption-algo
+sidebar_position: 2
+title: Asymmetric Encryption
+sidebar_label: Asymmetric Encryption
+description: >-
+  Detailed guide on Asymmetric Encryption including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - asymmetric encryption
 ---
 
 ### Definition:

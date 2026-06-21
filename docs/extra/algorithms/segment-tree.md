@@ -2,8 +2,10 @@
 id: segment-tree
 title: Segment Tree
 sidebar_label: Segment Tree
-description: "A comprehensive guide to Segment Trees with visual diagrams, build/query/update operations, lazy propagation, code templates in Python, Java, and C++, and practice problems."
-
+description: >-
+  A comprehensive guide to Segment Trees with visual diagrams,
+  build/query/update operations, lazy propagation, code templates in Python,
+  Java, and C++, and practice problems.
 tags:
   - segment-tree
   - algorithms
@@ -12,6 +14,7 @@ tags:
   - range-query
   - competitive-programming
   - interview-prep
+sidebar_position: 14
 ---
 
 import Tabs from '@theme/Tabs';

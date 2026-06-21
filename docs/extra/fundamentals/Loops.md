@@ -1,9 +1,16 @@
 ---
-id: loops-in-programming 
+id: loops-in-programming
 title: Loops in Programming
 sidebar_label: Loops
-description: "This blog post explains various types of loops used in programming with examples in C++."
-tags: [programming, loops, iteration, c++]
+description: >-
+  This blog post explains various types of loops used in programming with
+  examples in C++.
+tags:
+  - programming
+  - loops
+  - iteration
+  - c++
+sidebar_position: 2
 ---
 
 # Loops in Programming

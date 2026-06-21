@@ -1,8 +1,16 @@
 ---
 id: functions-in-csharp
 sidebar_position: 3
-title: "Functions in C#"
-sidebar_label: "Functions in C#"
+title: Functions in C#
+sidebar_label: Functions in C#
+description: >-
+  Learn about Functions in C# in the C# programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - functions in c#
 ---
 
 # Functions in C#

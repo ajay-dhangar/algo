@@ -1,10 +1,16 @@
 ---
-
-id: radix-sort-algo 
-sidebar_position: 7  
-title: Radix Sort  
-sidebar_label: Radix Sort  
-
+id: radix-sort-algo
+sidebar_position: 7
+title: Radix Sort
+sidebar_label: Radix Sort
+description: >-
+  Detailed guide on Radix Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - radix sort
 ---
 
 

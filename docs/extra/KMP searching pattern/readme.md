@@ -2,8 +2,16 @@
 id: kmp-searching-pattern
 title: KMP Pattern Searching Algorithm - Complete Guide
 sidebar_label: KMP Pattern Searching
-description: A comprehensive guide to the Knuth-Morris-Pratt (KMP) string matching algorithm, including theory, analysis, and implementations in multiple languages
-tags: [Algorithms, String Matching, Pattern Searching, Dynamic Programming]
+description: >-
+  A comprehensive guide to the Knuth-Morris-Pratt (KMP) string matching
+  algorithm, including theory, analysis, and implementations in multiple
+  languages
+tags:
+  - Algorithms
+  - String Matching
+  - Pattern Searching
+  - Dynamic Programming
+sidebar_position: 1
 ---
 
 # 🔍 KMP (Knuth-Morris-Pratt) Pattern Searching Algorithm

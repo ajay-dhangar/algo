@@ -1,10 +1,16 @@
 ---
-
 id: berry-ravindran-algorithm
 sidebar_position: 23
 title: Berry-Ravindran Algorithm
 sidebar_label: Berry-Ravindran Algorithm
-
+description: >-
+  Detailed guide on Berry-Ravindran Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - berry-ravindran algorithm
 ---
 
 ### Definition:

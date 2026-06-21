@@ -1,7 +1,17 @@
-
-
-
-
+---
+id: oddevensort
+title: OddEvenSort
+sidebar_label: OddEvenSort
+description: >-
+  Detailed guide on OddEvenSort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - oddevensort
+sidebar_position: 17
+---
 ### Definition:
 
 Odd-Even Sort is a simple comparison-based sorting algorithm, also known as Brick Sort. It works by repeatedly comparing all odd-indexed elements with their next even-indexed neighbor and swapping them if they are out of order. Then, it performs the same comparison for even-indexed elements and continues alternating between these two phases until the list is sorted.

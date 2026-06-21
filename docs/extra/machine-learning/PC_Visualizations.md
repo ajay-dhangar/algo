@@ -1,11 +1,18 @@
 ---
-
-id: pca-visualizations  
-title: PCA Visualizations  
-sidebar_label: PCA  
-description: "Implement Principal Component Analysis (PCA) to reduce the dimensionality of high-dimensional data while preserving its essential features. Visualize the transformed data to gain insights into underlying patterns."  
-tags: [data science, dimensionality reduction, PCA, data visualization, machine learning]  
-
+id: pca-visualizations
+title: PCA Visualizations
+sidebar_label: PCA
+description: >-
+  Implement Principal Component Analysis (PCA) to reduce the dimensionality of
+  high-dimensional data while preserving its essential features. Visualize the
+  transformed data to gain insights into underlying patterns.
+tags:
+  - data science
+  - dimensionality reduction
+  - PCA
+  - data visualization
+  - machine learning
+sidebar_position: 26
 ---
 
 ### Definition:  

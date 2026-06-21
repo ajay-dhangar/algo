@@ -1,10 +1,17 @@
 ---
-
 id: longest-common-subsequence-algorithm
 sidebar_position: 16
 title: Longest Common Subsequence (LCS) Algorithm
 sidebar_label: LCS Algorithm
-
+description: >-
+  Detailed guide on Longest Common Subsequence (LCS) Algorithm including core
+  concepts, algorithmic implementation, complexity analysis, and practice
+  problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - longest common subsequence (lcs) algorithm
 ---
 
 ### Definition:

@@ -1,8 +1,16 @@
 ---
 id: decision-making-in-java
 sidebar_position: 3
-title: "Decision Making in Java"
-sidebar_label: "Decision Making in Java"
+title: Decision Making in Java
+sidebar_label: Decision Making in Java
+description: >-
+  Learn about Decision Making in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - decision making in java
 ---
 
 Hey there! In this guide, we'll explore decision-making in Java. Decision-making structures allow you to execute different blocks of code based on certain conditions. Let's dive in!

@@ -1,10 +1,16 @@
 ---
-
-id: bucket-sort-algo  
-sidebar_position: 9  
-title: Bucket Sort  
-sidebar_label: Bucket Sort  
-
+id: bucket-sort-algo
+sidebar_position: 9
+title: Bucket Sort
+sidebar_label: Bucket Sort
+description: >-
+  Detailed guide on Bucket Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - bucket sort
 ---
 
 ### Definition:

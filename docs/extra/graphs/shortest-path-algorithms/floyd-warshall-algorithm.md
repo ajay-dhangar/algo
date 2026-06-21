@@ -2,8 +2,15 @@
 id: floyd-warshall
 title: Floyd-Warshall Algorithm
 sidebar_label: Floyd-Warshall Algorithm
-description: "In this blog post, we'll dive into the Floyd-Warshall Algorithm, a fundamental graph algorithm used to find the shortest path between all pairs of nodes in a graph."
-tags: [dsa, algorithms, shortest path]
+description: >-
+  In this blog post, we'll dive into the Floyd-Warshall Algorithm, a fundamental
+  graph algorithm used to find the shortest path between all pairs of nodes in a
+  graph.
+tags:
+  - dsa
+  - algorithms
+  - shortest path
+sidebar_position: 4
 ---
 
 ## Introduction

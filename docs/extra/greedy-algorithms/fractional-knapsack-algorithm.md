@@ -1,9 +1,16 @@
 ---
 id: fractional-knapsack
-title: "Fractional Knapsack Algorithm"
-sidebar_label: "Fractional Knapsack"
-description: "In this blog post, we'll explore the Fractional Knapsack problem, a greedy algorithm-based approach to maximize the value of items within a weight limit by taking fractions of items."
-tags: [dsa, algorithms, greedy algorithms]
+title: Fractional Knapsack Algorithm
+sidebar_label: Fractional Knapsack
+description: >-
+  In this blog post, we'll explore the Fractional Knapsack problem, a greedy
+  algorithm-based approach to maximize the value of items within a weight limit
+  by taking fractions of items.
+tags:
+  - dsa
+  - algorithms
+  - greedy algorithms
+sidebar_position: 1
 ---
 
 The Fractional Knapsack problem is an optimization problem where, given a set of items with specified weights and values, the goal is to maximize the total value within a weight limit by taking fractions of items. The greedy algorithm for this problem prioritizes items based on their value-to-weight ratio, allowing partial items to be selected if they maximize the overall value.

@@ -1,9 +1,17 @@
 ---
 id: principal-component-analysis
-title: "Principal Component Analysis (PCA)"
+title: Principal Component Analysis (PCA)
 sidebar_label: PCA
-description: "In this post, we’ll explore Principal Component Analysis, a fundamental technique in unsupervised learning used for dimensionality reduction and data visualization."
-tags: [machine learning, algorithms, unsupervised learning, PCA]
+description: >-
+  In this post, we’ll explore Principal Component Analysis, a fundamental
+  technique in unsupervised learning used for dimensionality reduction and data
+  visualization.
+tags:
+  - machine learning
+  - algorithms
+  - unsupervised learning
+  - PCA
+sidebar_position: 28
 ---
 
 ### Definition:

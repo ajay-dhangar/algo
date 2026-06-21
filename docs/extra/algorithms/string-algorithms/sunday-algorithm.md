@@ -1,10 +1,16 @@
 ---
-
 id: sunday-algorithm
 sidebar_position: 14
 title: Sunday Algorithm
 sidebar_label: Sunday Algorithm
-
+description: >-
+  Detailed guide on Sunday Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - sunday algorithm
 ---
 
 ### Definition:

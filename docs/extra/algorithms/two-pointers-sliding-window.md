@@ -2,9 +2,18 @@
 id: sliding-window
 title: Sliding Window Algorithm
 sidebar_label: Sliding Window
-description: "A comprehensive guide to the Sliding Window algorithmic pattern with visual diagrams, step-by-step dry runs, code templates in Python, Java, and C++, and practice problems."
+description: >-
+  A comprehensive guide to the Sliding Window algorithmic pattern with visual
+  diagrams, step-by-step dry runs, code templates in Python, Java, and C++, and
+  practice problems.
 tags:
-  [sliding-window, algorithms, patterns, dsa, interview-prep, beginner-friendly]
+  - sliding-window
+  - algorithms
+  - patterns
+  - dsa
+  - interview-prep
+  - beginner-friendly
+sidebar_position: 16
 ---
 
 # Sliding Window Algorithm

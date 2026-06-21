@@ -1,10 +1,16 @@
 ---
-
 id: two-way-string-matching
 sidebar_position: 8
 title: Two-Way String-Matching Algorithm
 sidebar_label: Two-Way String-Matching Algorithm
-
+description: >-
+  Detailed guide on Two-Way String-Matching Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - two-way string-matching algorithm
 ---
 
 ### Definition:

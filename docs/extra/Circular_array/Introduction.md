@@ -1,10 +1,10 @@
 ---
 id: circular-array-introduction
 sidebar_position: 1
-title: Introduction of Circular
+title: Introduction to Circular Array
 sidebar_label: Introduction
-description: "A B-tree is a self-balancing tree data structure that maintains sorted data for efficient insertion, deletion, and search operations."
-tags: [b-tree, algorithms, problem-solving, DSA, data structure]
+description: "An introduction to Circular Arrays (circular buffers), their key features, use cases, complexity analysis, and implementations in Python, Java, and C++."
+tags: [circular-array, data-structures, arrays, algorithms]
 ---
 
 ## Introduction

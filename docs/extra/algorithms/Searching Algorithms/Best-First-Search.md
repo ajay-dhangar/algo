@@ -3,6 +3,14 @@ id: best-first-search
 sidebar_position: 7
 title: Best-First Search
 sidebar_label: BFS
+description: >-
+  Detailed guide on Best-First Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - best-first search
 ---
 ### Definition:
 **Best-First Search (BFS)** is a graph traversal algorithm that selects the most promising node to expand based on a given heuristic. This heuristic is often the estimated cost or distance to the goal, and BFS chooses nodes that appear to lead most directly to the target.

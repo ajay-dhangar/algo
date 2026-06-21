@@ -3,6 +3,14 @@ id: introduction-to-java
 sidebar_position: 1
 title: Introduction to Java
 sidebar_label: Introduction to Java
+description: >-
+  Learn about Introduction to Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - introduction to java
 ---
 
 Hey, everyone! In this guide, we'll explore the fundamentals of Java programming language.

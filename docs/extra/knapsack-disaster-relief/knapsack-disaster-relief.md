@@ -1,9 +1,16 @@
 ---
 id: knapsack-disaster-relief
-title: "Optimizing Disaster Relief Supply Packing"
-sidebar_label: "Knapsack for Disaster Relief"
-description: "Solving the 0/1 Knapsack problem to optimize the packing of supplies for disaster relief missions."
-tags: [Knapsack, Dynamic Programming, Disaster Relief, Algorithms]
+title: Optimizing Disaster Relief Supply Packing
+sidebar_label: Knapsack for Disaster Relief
+description: >-
+  Solving the 0/1 Knapsack problem to optimize the packing of supplies for
+  disaster relief missions.
+tags:
+  - Knapsack
+  - Dynamic Programming
+  - Disaster Relief
+  - Algorithms
+sidebar_position: 1
 ---
 
 In real-world scenarios, the 0/1 Knapsack Problem can help optimize packing decisions for disaster relief missions. The aim is to maximize the total priority of supplies (such as food, medical kits, and blankets) that can be loaded onto a truck with a limited weight capacity.

@@ -2,18 +2,20 @@
 id: monotonic-stack-queue
 title: Monotonic Stack & Queue
 sidebar_label: Monotonic Stack & Queue
-description: "A comprehensive guide to Monotonic Stack and Monotonic Queue patterns with visual diagrams, step-by-step dry-runs, code templates in Python, Java, and C++, and practice problems."
+description: >-
+  A comprehensive guide to Monotonic Stack and Monotonic Queue patterns with
+  visual diagrams, step-by-step dry-runs, code templates in Python, Java, and
+  C++, and practice problems.
 tags:
-  [
-    monotonic-stack,
-    monotonic-queue,
-    algorithms,
-    patterns,
-    dsa,
-    interview-prep,
-    stack,
-    queue,
-  ]
+  - monotonic-stack
+  - monotonic-queue
+  - algorithms
+  - patterns
+  - dsa
+  - interview-prep
+  - stack
+  - queue
+sidebar_position: 11
 ---
 
 # Monotonic Stack & Queue

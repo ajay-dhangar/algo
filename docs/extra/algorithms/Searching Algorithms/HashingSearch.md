@@ -1,10 +1,16 @@
 ---
-
-id: hashing-search-algo  
-sidebar_position: 5  
-title: Hashing Search  
-sidebar_label: Hashing Search  
-
+id: hashing-search-algo
+sidebar_position: 5
+title: Hashing Search
+sidebar_label: Hashing Search
+description: >-
+  Detailed guide on Hashing Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - hashing search
 ---
 
 ### Definition:

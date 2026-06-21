@@ -1,8 +1,16 @@
 ---
-id: ao-star-search  
-sidebar_position: 2  
-title: AO* Search  
-sidebar_label: AO*  
+id: ao-star-search
+sidebar_position: 2
+title: AO* Search
+sidebar_label: AO*
+description: >-
+  Detailed guide on AO* Search including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - ao* search
 ---
 
 ### Definition:

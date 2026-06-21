@@ -1,10 +1,16 @@
 ---
-
-id: bogo-sort-algo  
+id: bogo-sort-algo
 sidebar_position: 13
-title: Bogo Sort  
-sidebar_label: Bogo Sort  
-
+title: Bogo Sort
+sidebar_label: Bogo Sort
+description: >-
+  Detailed guide on Bogo Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - bogo sort
 ---
 
 ### Definition:

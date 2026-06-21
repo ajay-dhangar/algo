@@ -2,8 +2,16 @@
 id: dfs
 title: Depth-First Search (DFS)
 sidebar_label: Depth-First Search
-description: "In this blog post, we'll explore Depth-First Search (DFS), a graph traversal algorithm used to explore vertices and edges by going as deep as possible before backtracking."
-tags: [dsa, algorithms, graph, traversal]
+description: >-
+  In this blog post, we'll explore Depth-First Search (DFS), a graph traversal
+  algorithm used to explore vertices and edges by going as deep as possible
+  before backtracking.
+tags:
+  - dsa
+  - algorithms
+  - graph
+  - traversal
+sidebar_position: 7
 ---
 
 ### Definition:

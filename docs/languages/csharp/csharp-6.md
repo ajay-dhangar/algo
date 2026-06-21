@@ -1,8 +1,16 @@
 ---
 id: objects-in-csharp
 sidebar_position: 6
-title: "Objects in C#"
-sidebar_label: "Objects in C#"
+title: Objects in C#
+sidebar_label: Objects in C#
+description: >-
+  Learn about Objects in C# in the C# programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - objects in c#
 ---
 
 # Objects in C#

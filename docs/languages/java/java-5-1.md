@@ -1,8 +1,16 @@
 ---
 id: strings-in-java
 sidebar_position: 5
-title: "Strings In Java"
-sidebar_label: "Strings In Java"
+title: Strings In Java
+sidebar_label: Strings In Java
+description: >-
+  Learn about Strings In Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - strings in java
 ---
 
 Hello! In this guide, we'll explore how to work with strings in Java. Strings are a crucial part of Java programming as they allow you to manipulate and process text easily. Let's dive in!

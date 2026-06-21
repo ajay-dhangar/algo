@@ -1,8 +1,16 @@
 ---
 id: decorators-and-metadata
 sidebar_position: 14
-title: "Decorators & Metadata Annotations"
-sidebar_label: "Decorators"
+title: Decorators & Metadata Annotations
+sidebar_label: Decorators
+description: >-
+  Learn about Decorators & Metadata Annotations in the TypeScript programming
+  language with core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - decorators & metadata annotations
 ---
 
 Decorators add metadata annotations and custom behaviors to classes, methods, or property definitions at runtime.

@@ -1,9 +1,15 @@
 ---
 id: abstraction
-title: "Abstraction in Object-Oriented Programming"
-sidebar_label: "Generate Details about Abstraction"
-description: "Abstraction in Java is the process of hiding unnecessary implementation details from the user, focusing on exposing only the essential functionalities"
-tags: [Abstraaction, OOPS, Java]
+title: Abstraction in Object-Oriented Programming
+sidebar_label: Generate Details about Abstraction
+description: >-
+  Abstraction in Java is the process of hiding unnecessary implementation
+  details from the user, focusing on exposing only the essential functionalities
+tags:
+  - Abstraaction
+  - OOPS
+  - Java
+sidebar_position: 2
 ---
 
 <AdsComponent />

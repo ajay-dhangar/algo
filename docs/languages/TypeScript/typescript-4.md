@@ -1,8 +1,16 @@
 ---
-id: control-statements
+id: typescript-control-statements
 sidebar_position: 4
-title: "Control Statements"
-sidebar_label: "Control Statements"
+title: Control Statements
+sidebar_label: Control Statements
+description: >-
+  Learn about Control Statements in the TypeScript programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - control statements
 ---
 
 Control structures route program execution dynamically based on real-time runtime conditions.

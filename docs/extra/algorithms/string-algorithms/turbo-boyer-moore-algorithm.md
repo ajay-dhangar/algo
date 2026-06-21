@@ -1,10 +1,16 @@
 ---
-
 id: turbo-boyer-moore-algorithm
 sidebar_position: 20
 title: Turbo Boyer-Moore Algorithm
 sidebar_label: Turbo Boyer-Moore Algorithm
-
+description: >-
+  Detailed guide on Turbo Boyer-Moore Algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - turbo boyer-moore algorithm
 ---
 
 ### Definition:

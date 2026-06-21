@@ -1,10 +1,16 @@
 ---
-
 id: crochemores-algorithm
 sidebar_position: 9
 title: Crochemore's Algorithm
 sidebar_label: Crochemore's Algorithm
-
+description: >-
+  Detailed guide on Crochemore's Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - crochemore's algorithm
 ---
 
 ### Definition:

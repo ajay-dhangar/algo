@@ -1,3 +1,18 @@
+---
+id: practice-problems-different-patterns
+title: Practice Problems Different Patterns
+sidebar_label: Practice Problems Different Patterns
+description: >-
+  Detailed guide on Practice Problems Different Patterns including core
+  concepts, algorithmic implementation, complexity analysis, and practice
+  problems.
+tags:
+  - programming
+  - dsa
+  - dynamic-programming
+  - practice problems different patterns
+sidebar_position: 15
+---
 ### Linear DP
 
 - [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)

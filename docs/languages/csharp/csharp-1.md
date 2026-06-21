@@ -1,8 +1,16 @@
 ---
-id: variables-in-csharp  
-sidebar_position: 2  
-title: "Variables in C#"  
-sidebar_label: "Variables in C#"  
+id: variables-in-csharp
+sidebar_position: 2
+title: Variables in C#
+sidebar_label: Variables in C#
+description: >-
+  Learn about Variables in C# in the C# programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - variables in c#
 ---
 
 In C#, variables are used to store data that can be referenced and manipulated within a program. Understanding how to declare and use variables is fundamental to programming in C#. This guide covers the basics of variables, including types, naming conventions, and examples.

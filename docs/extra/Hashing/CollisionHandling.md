@@ -3,7 +3,12 @@ id: collision-handling-in-hashing
 sidebar_position: 5
 title: Collision Handling in Hashing
 sidebar_label: Collision Handling in Hashing
-tags: [hashing, data structures]
+tags:
+  - hashing
+  - data structures
+description: >-
+  Detailed guide on Collision Handling in Hashing including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
 ---
 
 # Collision Handling in Hashing

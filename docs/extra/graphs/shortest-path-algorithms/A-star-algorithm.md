@@ -2,8 +2,15 @@
 id: a-star-algo
 title: A*-Algorithm
 sidebar_label: A*-Algorithm
-description: "In this blog post, we'll explore the A* Algorithm, an efficient method for pathfinding and graph traversal."
-tags: [dsa, algorithms, pathfinding, graph traversal]
+description: >-
+  In this blog post, we'll explore the A* Algorithm, an efficient method for
+  pathfinding and graph traversal.
+tags:
+  - dsa
+  - algorithms
+  - pathfinding
+  - graph traversal
+sidebar_position: 1
 ---
 
 # A* Algorithm

@@ -1,8 +1,16 @@
 ---
 id: generics-in-java
 sidebar_position: 11
-title: "Generics in Java"
-sidebar_label: "Generics in Java"
+title: Generics in Java
+sidebar_label: Generics in Java
+description: >-
+  Learn about Generics in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - generics in java
 ---
 
 

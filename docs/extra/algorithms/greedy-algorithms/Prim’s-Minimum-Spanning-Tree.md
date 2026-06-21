@@ -1,9 +1,16 @@
 ---
-id: prims-mst  
-title: Prim's Minimum Spanning Tree (MST) Algorithm  
-sidebar_label: Prim's MST  
-description: "In this blog post, we'll explore Prim's Algorithm, a greedy algorithm used to find the Minimum Spanning Tree (MST) of a weighted undirected graph."  
-tags: [dsa, algorithms, greedy algorithms, graph algorithms]
+id: prims-mst
+title: Prim's Minimum Spanning Tree (MST) Algorithm
+sidebar_label: Prim's MST
+description: >-
+  In this blog post, we'll explore Prim's Algorithm, a greedy algorithm used to
+  find the Minimum Spanning Tree (MST) of a weighted undirected graph.
+tags:
+  - dsa
+  - algorithms
+  - greedy algorithms
+  - graph algorithms
+sidebar_position: 8
 ---
 
 ### Definition:

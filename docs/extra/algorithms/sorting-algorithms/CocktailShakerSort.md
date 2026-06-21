@@ -1,8 +1,16 @@
 ---
-id: cocktail-shaker-sort-algo  
-sidebar_position: 18  
-title: Cocktail Shaker Sort  
-sidebar_label: Cocktail Shaker Sort  
+id: cocktail-shaker-sort-algo
+sidebar_position: 18
+title: Cocktail Shaker Sort
+sidebar_label: Cocktail Shaker Sort
+description: >-
+  Detailed guide on Cocktail Shaker Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - cocktail shaker sort
 ---
 
 ### Definition:

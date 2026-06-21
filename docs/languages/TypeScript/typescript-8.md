@@ -1,8 +1,16 @@
 ---
 id: arrays-and-tuples
 sidebar_position: 8
-title: "Arrays & Tuples"
-sidebar_label: "Arrays & Tuples"
+title: Arrays & Tuples
+sidebar_label: Arrays & Tuples
+description: >-
+  Learn about Arrays & Tuples in the TypeScript programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - arrays & tuples
 ---
 
 TypeScript features linear data arrays alongside highly specific, fixed-size **Tuples** for type validation checks.

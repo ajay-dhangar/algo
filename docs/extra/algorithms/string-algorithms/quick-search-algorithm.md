@@ -1,10 +1,16 @@
 ---
-
 id: quick-search-algorithm
 sidebar_position: 26
 title: Quick Search Algorithm
 sidebar_label: Quick Search Algorithm
-
+description: >-
+  Detailed guide on Quick Search Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - quick search algorithm
 ---
 
 ### Definition:

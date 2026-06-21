@@ -2,8 +2,16 @@
 id: q-learning
 title: Q Learning Algorithm
 sidebar_label: Q Learning
-description: "An overview of the Q-Learning Algorithm, a model-free reinforcement learning method that learns the optimal action-value function to guide decision-making."
-tags: [machine learning, reinforcement learning, q-learning, algorithms, model-free]
+description: >-
+  An overview of the Q-Learning Algorithm, a model-free reinforcement learning
+  method that learns the optimal action-value function to guide decision-making.
+tags:
+  - machine learning
+  - reinforcement learning
+  - q-learning
+  - algorithms
+  - model-free
+sidebar_position: 29
 ---
 
 ### Definition:

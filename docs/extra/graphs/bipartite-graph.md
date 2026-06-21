@@ -1,9 +1,15 @@
 ---
-id: bipartite-graph 
+id: bipartite-graph
 title: Bipartite-graph
 sidebar_label: Bipartite-graph
-description: "A bipartite graph is a graph whose vertices can be divided into two disjoint sets such that no two vertices within the same set are adjacent."  
-tags: [dsa, algorithms, graph]
+description: >-
+  A bipartite graph is a graph whose vertices can be divided into two disjoint
+  sets such that no two vertices within the same set are adjacent.
+tags:
+  - dsa
+  - algorithms
+  - graph
+sidebar_position: 5
 ---
 
 ## Problem Statement:

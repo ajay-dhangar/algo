@@ -2,8 +2,17 @@
 id: Letter-Combinations-problem-dsa
 title: Letter Combinations of a Phone Number
 sidebar_label: Letter Combinations
-description: "The Letter Combinations of a Phone Number problem involves generating all possible letter combinations that a string of digits (2-9) can represent based on a standard telephone keypad. This problem is often solved using recursion and backtracking."
-tags: [letter-combinations, backtracking, recursion, dsa]
+description: >-
+  The Letter Combinations of a Phone Number problem involves generating all
+  possible letter combinations that a string of digits (2-9) can represent based
+  on a standard telephone keypad. This problem is often solved using recursion
+  and backtracking.
+tags:
+  - letter-combinations
+  - backtracking
+  - recursion
+  - dsa
+sidebar_position: 10
 ---
 
 ## Letter Combinations of a Phone Number | Generate All Combinations of Letters Based on Digits

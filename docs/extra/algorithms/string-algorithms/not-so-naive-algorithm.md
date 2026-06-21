@@ -1,10 +1,16 @@
 ---
-
 id: not-so-naive-algorithm
 sidebar_position: 24
 title: Not So Naive Algorithm
 sidebar_label: Not So Naive Algorithm
-
+description: >-
+  Detailed guide on Not So Naive Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - not so naive algorithm
 ---
 
 ### Definition:

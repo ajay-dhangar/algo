@@ -3,6 +3,14 @@ id: multithreading-in-java
 sidebar_position: 4
 title: Multithread in Java
 sidebar_label: Multithread in Java
+description: >-
+  Learn about Multithread in Java in the Java programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - java
+  - multithread in java
 ---
 
 ## What is a Thread?

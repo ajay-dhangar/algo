@@ -1,3 +1,18 @@
+---
+id: challenge1
+title: Data Structures Challenge 1  Solutions
+sidebar_label: Data Structures Challenge 1  Solutions
+sidebar_position: 1
+description: >-
+  Detailed guide on Data Structures Challenge 1  Solutions including core
+  concepts, algorithmic implementation, complexity analysis, and practice
+  problems.
+tags:
+  - programming
+  - dsa
+  - challenges solutions
+  - data structures challenge 1  solutions
+---
 # Data Structures Challenge 1  Solutions
 
 ## Question 1

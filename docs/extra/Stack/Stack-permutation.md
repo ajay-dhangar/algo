@@ -1,9 +1,15 @@
 ---
-id: stack-permutation 
-title: Stack Permutation 
-sidebar_label: Stack Permutation 
-description: "A stack permutation is a reordering of an input sequence that can be achieved using a single stack with push and pop operations."  
-tags: [dsa, algorithms, stack]
+id: stack-permutation
+title: Stack Permutation
+sidebar_label: Stack Permutation
+description: >-
+  A stack permutation is a reordering of an input sequence that can be achieved
+  using a single stack with push and pop operations.
+tags:
+  - dsa
+  - algorithms
+  - stack
+sidebar_position: 11
 ---
 
 ### Definition:

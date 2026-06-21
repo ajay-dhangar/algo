@@ -2,8 +2,15 @@
 id: balanced-parentheses
 title: Balanced Parentheses
 sidebar_label: Balanced Parentheses
-description: "The Balanced Parentheses problem involves determining whether a given string of parentheses is valid, meaning every opening bracket has a corresponding closing bracket in the correct order."
-tags: [dsa, algorithms, stack]
+description: >-
+  The Balanced Parentheses problem involves determining whether a given string
+  of parentheses is valid, meaning every opening bracket has a corresponding
+  closing bracket in the correct order.
+tags:
+  - dsa
+  - algorithms
+  - stack
+sidebar_position: 2
 ---
 
 ### Definition:

@@ -1,10 +1,16 @@
 ---
-
 id: priority-search-algorithm
-sidebar_position: 5 
+sidebar_position: 5
 title: Priority Search algorithm
 sidebar_label: Priority Search algorithm
-
+description: >-
+  Detailed guide on Priority Search algorithm including core concepts,
+  algorithmic implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - priority search algorithm
 ---
 
 ## Definition 📖

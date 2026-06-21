@@ -1,11 +1,18 @@
 ---
-
-id: statistical-anomaly-detection  
-title: Statistical Anomaly Detection Algorithm  
-sidebar_label: Statistical Anomaly Detection  
-description: "This post covers Statistical Anomaly Detection, a technique used to identify data points that deviate significantly from the norm based on statistical models and methods."  
-tags: [anomaly detection, statistics, machine learning, outliers, data analysis]
-
+id: statistical-anomaly-detection
+title: Statistical Anomaly Detection Algorithm
+sidebar_label: Statistical Anomaly Detection
+description: >-
+  This post covers Statistical Anomaly Detection, a technique used to identify
+  data points that deviate significantly from the norm based on statistical
+  models and methods.
+tags:
+  - anomaly detection
+  - statistics
+  - machine learning
+  - outliers
+  - data analysis
+sidebar_position: 38
 ---
 
 ### Definition:  

@@ -1,8 +1,16 @@
----  
-id: usage-of-operators-in-python  
-sidebar_position: 7  
-title: Operators in Python  
+---
+id: usage-of-operators-in-python
+sidebar_position: 7
+title: Operators in Python
 sidebar_label: Operators in Python
+description: >-
+  Learn about Operators in Python in the Python programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - operators in python
 ---
 
 Hey there! In this guide, we'll explore operators in Python. Operators are special symbols that perform operations on variables and values. Let's dive in!

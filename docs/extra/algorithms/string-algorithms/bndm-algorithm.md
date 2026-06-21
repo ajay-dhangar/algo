@@ -1,10 +1,16 @@
 ---
-
-id: bndm-algo  
-sidebar_position: 2  
-title: BNDM Algorithm  
-sidebar_label: BNDM Algorithm  
-
+id: bndm-algo
+sidebar_position: 2
+title: BNDM Algorithm
+sidebar_label: BNDM Algorithm
+description: >-
+  Detailed guide on BNDM Algorithm including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - bndm algorithm
 ---
 
 ### Definition:

@@ -3,6 +3,14 @@ id: operators
 sidebar_position: 3
 title: Operator in JavaScript
 sidebar_label: Operator in JS
+description: >-
+  Learn about Operator in JavaScript in the JavaScript programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - javascript
+  - operator in javascript
 ---
 
 Operators are symbols that perform operations on operands. JavaScript supports various types of operators, including arithmetic, assignment, comparison, logical, and more. Let's explore some common operators used in JavaScript:

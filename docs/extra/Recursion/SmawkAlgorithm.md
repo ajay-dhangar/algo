@@ -1,9 +1,22 @@
 ---
-id: smawk-algorithm 
+id: smawk-algorithm
 title: Smawk Algorithm Using Recursion
-sidebar_label: Generating Minima in matrix row  
-description: "The SMAWK algorithm is an efficient method for finding row minima in totally monotone matrices, a specific type of matrix where entries decrease or stay constant along each row and column. Developed for optimizing complex search operations, this algorithm leverages a unique recursive approach, reducing computation time to O(m+n) for an m×n matrix, making it ideal for applications in computational geometry, dynamic programming, and machine learning. With SMAWK, developers gain a powerful tool for solving matrix-based problems more effectively, significantly improving the performance of algorithms that depend on finding minimum values in large, structured datasets"
-tags: [Smawk , recursion, dsa]
+sidebar_label: Generating Minima in matrix row
+description: >-
+  The SMAWK algorithm is an efficient method for finding row minima in totally
+  monotone matrices, a specific type of matrix where entries decrease or stay
+  constant along each row and column. Developed for optimizing complex search
+  operations, this algorithm leverages a unique recursive approach, reducing
+  computation time to O(m+n) for an m×n matrix, making it ideal for applications
+  in computational geometry, dynamic programming, and machine learning. With
+  SMAWK, developers gain a powerful tool for solving matrix-based problems more
+  effectively, significantly improving the performance of algorithms that depend
+  on finding minimum values in large, structured datasets
+tags:
+  - Smawk
+  - recursion
+  - dsa
+sidebar_position: 15
 ---
 ## Smawk Algorithm Via Recursion
 

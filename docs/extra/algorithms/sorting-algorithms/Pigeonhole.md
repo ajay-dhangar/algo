@@ -1,10 +1,16 @@
 ---
-
-id: pigeonhole-sort-algo  
-sidebar_position: 14  
-title: Pigeonhole Sort  
-sidebar_label: Pigeonhole Sort  
-
+id: pigeonhole-sort-algo
+sidebar_position: 14
+title: Pigeonhole Sort
+sidebar_label: Pigeonhole Sort
+description: >-
+  Detailed guide on Pigeonhole Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - pigeonhole sort
 ---
 
 ### Definition:

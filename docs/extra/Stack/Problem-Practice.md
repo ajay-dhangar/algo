@@ -3,8 +3,17 @@ id: Practice-Problems-on stack
 title: Practice Problems
 sidebar_label: Practice Problems
 sidebar_position: 2
-Description: Here are some practice problems for Stack data structure divided into topic-wise and difficulty wise.
-tags: [DSA, algorithms, stack, dsa]
+Description: >-
+  Here are some practice problems for Stack data structure divided into
+  topic-wise and difficulty wise.
+tags:
+  - DSA
+  - algorithms
+  - stack
+  - dsa
+description: >-
+  Detailed guide on Practice Problems including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
 ---
 
 ### Basic Stack Operations:

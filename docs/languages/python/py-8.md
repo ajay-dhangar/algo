@@ -1,8 +1,16 @@
----  
-id: usage-of-python-classes  
+---
+id: usage-of-python-classes
 sidebar_position: 8
-title: Classes in Python  
-sidebar_label: Classes in Python  
+title: Classes in Python
+sidebar_label: Classes in Python
+description: >-
+  Learn about Classes in Python in the Python programming language with core
+  concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - python
+  - classes in python
 ---
 
 Hey there! In this guide, we'll explore classes in Python. Classes are a fundamental part of object-oriented programming in Python. Let's dive in!

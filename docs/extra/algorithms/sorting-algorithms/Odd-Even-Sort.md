@@ -1,8 +1,16 @@
 ---
-id: odd-even-sort-algo  
-sidebar_position: 19  
-title: Odd-Even Sort  
-sidebar_label: Odd-Even Sort  
+id: odd-even-sort-algo
+sidebar_position: 19
+title: Odd-Even Sort
+sidebar_label: Odd-Even Sort
+description: >-
+  Detailed guide on Odd-Even Sort including core concepts, algorithmic
+  implementation, complexity analysis, and practice problems.
+tags:
+  - programming
+  - dsa
+  - algorithms
+  - odd-even sort
 ---
 
 ### Definition:

@@ -1,8 +1,16 @@
 ---
 id: exception-handling
 sidebar_position: 15
-title: "Exception Handling"
-sidebar_label: "Exception Handling"
+title: Exception Handling
+sidebar_label: Exception Handling
+description: >-
+  Learn about Exception Handling in the TypeScript programming language with
+  core concepts, syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - typescript
+  - exception handling
 ---
 
 Runtime errors can crash applications if they aren't caught. TypeScript uses modern `try...catch...finally` blocks to handle runtime errors gracefully.

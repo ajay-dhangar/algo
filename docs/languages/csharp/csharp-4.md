@@ -1,8 +1,16 @@
 ---
 id: loops-in-csharp
 sidebar_position: 4
-title: "Loops in C#"
-sidebar_label: "Loops in C#"
+title: Loops in C#
+sidebar_label: Loops in C#
+description: >-
+  Learn about Loops in C# in the C# programming language with core concepts,
+  syntax, code examples, and best practices.
+tags:
+  - programming
+  - dsa
+  - c#
+  - loops in c#
 ---
 
 # Loops in C#

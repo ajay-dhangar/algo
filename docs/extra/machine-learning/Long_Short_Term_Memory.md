@@ -1,11 +1,20 @@
 ---
-
-id: long-short-term-memory  
-title: Long Short-Term Memory (LSTM)  
-sidebar_label: LSTM  
-description: "This post delves into Long Short-Term Memory (LSTM), a type of recurrent neural network designed to overcome the vanishing gradient problem, enabling better learning of long-term dependencies in sequential data."  
-tags: [machine learning, deep learning, lstm, rnn, neural networks, time series, NLP]
-
+id: long-short-term-memory
+title: Long Short-Term Memory (LSTM)
+sidebar_label: LSTM
+description: >-
+  This post delves into Long Short-Term Memory (LSTM), a type of recurrent
+  neural network designed to overcome the vanishing gradient problem, enabling
+  better learning of long-term dependencies in sequential data.
+tags:
+  - machine learning
+  - deep learning
+  - lstm
+  - rnn
+  - neural networks
+  - time series
+  - NLP
+sidebar_position: 23
 ---
 
 ### Definition:
