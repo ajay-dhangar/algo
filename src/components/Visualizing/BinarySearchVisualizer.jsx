@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
 const DEFAULT_ARRAY = [1, 3, 5, 7, 9, 11, 13, 15];
 
-export default function BinarySearchVisualizer() {
+function BinarySearchVisualizer() {
+    const isMounted = useRef(true);
+    useEffect(() => {
+        isMounted.current = true;
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
     const [target, setTarget] = useState(7);
     const [low, setLow] = useState(null);
     const [high, setHigh] = useState(null);
@@ -15,6 +23,7 @@ export default function BinarySearchVisualizer() {
 
     const startVisualization = async () => {
         if (running) return;
+        if (!isMounted.current) return;
 
         setRunning(true);
         setFoundIndex(null);
@@ -23,6 +32,7 @@ export default function BinarySearchVisualizer() {
         let h = DEFAULT_ARRAY.length - 1;
 
         while (l <= h) {
+            if (!isMounted.current) return;
             const m = Math.floor((l + h) / 2);
 
             setLow(l);
@@ -34,6 +44,7 @@ export default function BinarySearchVisualizer() {
             );
 
             await sleep(1200);
+            if (!isMounted.current) return;
 
             if (DEFAULT_ARRAY[m] === Number(target)) {
                 setFoundIndex(m);
@@ -57,6 +68,7 @@ export default function BinarySearchVisualizer() {
             await sleep(1200);
         }
 
+        if (!isMounted.current) return;
         setStatus("❌ Target not found in array");
         setLow(null);
         setHigh(null);
@@ -207,3 +219,5 @@ export default function BinarySearchVisualizer() {
         </div>
     );
 }
+
+export default withVisualizerErrorBoundary(BinarySearchVisualizer);

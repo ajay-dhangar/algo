@@ -1,8 +1,10 @@
 ---
-id: control-statements
+id: typescript-control-statements
 sidebar_position: 4
 title: "Control Statements"
 sidebar_label: "Control Statements"
+description: "Learn about control flow statements in TypeScript, including conditional logic, switches, and loops with type validation."
+tags: [typescript, control-flow, conditional, loops, programming]
 ---
 
 Control structures route program execution dynamically based on real-time runtime conditions.

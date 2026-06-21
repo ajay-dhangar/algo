@@ -16,7 +16,6 @@ function DocsInfo({ docsPluginId, ...props }) {
   
   const openDocIssueURL = `https://github.com/ajay-dhangar/algo/issues/new?assignees=&labels=&template=---doc-error-report.md&title=Issue with ajay-dhangar.github.io/algo${encodeURIComponent(location.pathname)}`;
 
-  // Helper function to handle both string and number timestamps safely
   const formatDocDate = (dateVal) => {
     if (!dateVal) return null;
     
@@ -37,7 +36,7 @@ function DocsInfo({ docsPluginId, ...props }) {
   const hasMeta = !!(formattedDate || props.lastUpdatedBy || props.readingTimeInWords);
 
   return (
-    <div className={`${styles.docsInfoWrapper} mt-4`}>
+    <div className={`${styles.docsInfoWrapper} my-4`}>
       <div className={styles.docsInfoContainer}>
         {/* Left Section – Meta Info */}
         {hasMeta && (
