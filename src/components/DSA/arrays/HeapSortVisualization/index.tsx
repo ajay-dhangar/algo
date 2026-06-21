@@ -1,7 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { withVisualizerErrorBoundary } from '../../../Visualizing/VisualizerErrorBoundary';
 import './style.css';
 
 const HeapSortVisualization: React.FC = () => {
+  const isMounted = useRef(true);
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
   // State variables
   const [array, setArray] = useState<number[]>([]);
   const [delay, setDelay] = useState<number>(300);
@@ -44,7 +52,16 @@ const HeapSortVisualization: React.FC = () => {
   };
 
   const delayFunction = (ms: number) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    if (!isMounted.current) return Promise.reject(new Error("unmounted"));
+    return new Promise((resolve, reject) => {
+      const timeout = setTimeout(() => {
+        if (isMounted.current) {
+          resolve(null);
+        } else {
+          reject(new Error("unmounted"));
+        }
+      }, ms);
+    });
   };
 
   const heapify = async (arr: number[], n: number, i: number) => {
@@ -82,31 +99,42 @@ const HeapSortVisualization: React.FC = () => {
   };
 
   const heapSort = async () => {
+    if (!isMounted.current) return;
     setIsSorting(true);
-    const arr = [...array];
-    const n = arr.length;
+    try {
+      const arr = [...array];
+      const n = arr.length;
 
-    // Build max heap
-    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
-      await heapify(arr, n, i);
+      // Build max heap
+      for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+        await heapify(arr, n, i);
+      }
+
+      // Extract elements from heap one by one
+      for (let i = n - 1; i > 0; i--) {
+        if (!isMounted.current) return;
+        setComparingIndices([0, i]);
+        await delayFunction(delay);
+        
+        // Move current root to end
+        [arr[0], arr[i]] = [arr[i], arr[0]];
+        if (!isMounted.current) return;
+        setArray([...arr]);
+
+        // Heapify reduced heap
+        await heapify(arr, i, 0);
+      }
+
+      if (isMounted.current) {
+        setHeapIndex(null);
+        setComparingIndices(null);
+        setIsSorting(false);
+      }
+    } catch (e: any) {
+      if (e.message !== "unmounted") {
+        console.error(e);
+      }
     }
-
-    // Extract elements from heap one by one
-    for (let i = n - 1; i > 0; i--) {
-      setComparingIndices([0, i]);
-      await delayFunction(delay);
-      
-      // Move current root to end
-      [arr[0], arr[i]] = [arr[i], arr[0]];
-      setArray([...arr]);
-
-      // Heapify reduced heap
-      await heapify(arr, i, 0);
-    }
-
-    setHeapIndex(null);
-    setComparingIndices(null);
-    setIsSorting(false);
   };
 
   const resetArray = () => {
@@ -145,4 +173,4 @@ const HeapSortVisualization: React.FC = () => {
   );
 };
 
-export default HeapSortVisualization;
+export default withVisualizerErrorBoundary(HeapSortVisualization);

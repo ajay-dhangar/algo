@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
 const NODES = ["A", "B", "C", "D", "E"];
 
@@ -12,7 +13,14 @@ const EDGES = [
 ];
 const INITIAL_DISTANCES = NODES.map((_, i) => (i === 0 ? 0 : Infinity));
 
-export default function BellmanFordVisualizer() {
+function BellmanFordVisualizer() {
+    const isMounted = useRef(true);
+    useEffect(() => {
+        isMounted.current = true;
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
     const [distances, setDistances] = useState(INITIAL_DISTANCES);
     const [currentEdge, setCurrentEdge] = useState(null);
     const [updatedNode, setUpdatedNode] = useState(null);
@@ -27,6 +35,7 @@ export default function BellmanFordVisualizer() {
 
     const startVisualization = async () => {
         if (running) return;
+        if (!isMounted.current) return;
 
         setRunning(true);
 
@@ -36,9 +45,11 @@ export default function BellmanFordVisualizer() {
         setPass(0);
 
         for (let i = 0; i < NODES.length - 1; i++) {
+            if (!isMounted.current) return;
             setPass(i + 1);
 
             for (let j = 0; j < EDGES.length; j++) {
+                if (!isMounted.current) return;
                 const edge = EDGES[j];
 
                 setCurrentEdge(j);
@@ -48,6 +59,7 @@ export default function BellmanFordVisualizer() {
                 );
 
                 await sleep(1200);
+                if (!isMounted.current) return;
 
                 if (
                     dist[edge.from] !== Infinity &&
@@ -64,6 +76,7 @@ export default function BellmanFordVisualizer() {
                     );
 
                     await sleep(1200);
+                    if (!isMounted.current) return;
                 }
 
                 setUpdatedNode(null);
@@ -81,6 +94,8 @@ export default function BellmanFordVisualizer() {
                 break;
             }
         }
+
+        if (!isMounted.current) return;
 
         if (negativeCycle) {
             setStatus("Negative cycle detected!");
@@ -247,3 +262,5 @@ export default function BellmanFordVisualizer() {
         </div>
     );
 }
+
+export default withVisualizerErrorBoundary(BellmanFordVisualizer);
