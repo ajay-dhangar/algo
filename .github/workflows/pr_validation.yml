@@ -39,12 +39,16 @@ jobs:
             }
             
             // Post comment
-            await github.rest.issues.createComment({
-              issue_number: pr.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: message
-            });
+            try {
+              await github.rest.issues.createComment({
+                issue_number: pr.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: message
+              });
+            } catch (error) {
+              console.log("Could not post comment (this is expected for PRs from forks due to read-only token permissions):", error.message);
+            }
             
             if (!isValid) {
               core.setFailed(message);
