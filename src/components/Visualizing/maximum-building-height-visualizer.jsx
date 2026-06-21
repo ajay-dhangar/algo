@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 const MaximumBuildingHeightVisualizer = () => {
   const [n, setN] = useState(5);
   const [restrictions, setRestrictions] = useState([[2, 1], [4, 1]]);
+  const [restrictionsText, setRestrictionsText] = useState(JSON.stringify([[2, 1], [4, 1]]));
   const [currentStep, setCurrentStep] = useState(0);
   const [simulationSteps, setSimulationSteps] = useState([]);
   const [isPaused, setIsPaused] = useState(true);
@@ -10,6 +11,10 @@ const MaximumBuildingHeightVisualizer = () => {
 
   const speed = 1200;
   const intervalRef = useRef(null);
+
+  useEffect(() => {
+    setRestrictionsText(JSON.stringify(restrictions));
+  }, [restrictions]);
 
   const getProfile = (resArray, totalN) => {
     const profile = new Array(totalN).fill(0);
@@ -182,12 +187,24 @@ const MaximumBuildingHeightVisualizer = () => {
   const renderControls = () => {
     const handleRestrictionsChange = (e) => {
       try {
-        const parsed = JSON.parse(e.target.value);
-        if (Array.isArray(parsed) && parsed.every((arr) => Array.isArray(arr) && arr.length === 2)) {
+        const parsed = JSON.parse(e.target?.value || restrictionsText);
+        if (
+          Array.isArray(parsed) &&
+          parsed.every(
+            (arr) =>
+              Array.isArray(arr) &&
+              arr.length === 2 &&
+              Number.isInteger(arr[0]) &&
+              Number.isInteger(arr[1]) &&
+              arr[0] >= 1 &&
+              arr[0] <= n &&
+              arr[1] >= 0
+          )
+        ) {
           setRestrictions(parsed);
           setError(null);
         } else {
-          setError('Must be a 2D JSON array (e.g., [[2,1],[4,1]])');
+          setError(`Must be a 2D JSON array of integers where 1 <= buildingID <= ${n} and maxHeight >= 0 (e.g., [[2,1],[4,1]])`);
         }
       } catch (err) {
         setError('Invalid JSON input');
@@ -198,6 +215,7 @@ const MaximumBuildingHeightVisualizer = () => {
       const val = parseInt(e.target.value, 10);
       if (val >= 2 && val <= 30) {
         setN(val);
+        setRestrictions((prev) => prev.filter((r) => r[0] <= val));
       }
     };
 
@@ -210,21 +228,22 @@ const MaximumBuildingHeightVisualizer = () => {
               <label className="text-xs text-gray-500 mb-1">Total Buildings (n)</label>
               <input
                 type="number"
-                defaultValue={n}
+                value={n}
                 onChange={handleNChange}
                 min={2}
                 max={30}
-                className="p-2 text-sm font-mono border rounded"
+                className="p-2 text-sm font-mono border rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
               />
             </div>
             <div className="flex flex-col flex-grow">
                <label className="text-xs text-gray-500 mb-1">Restrictions Array</label>
               <input
                 type="text"
-                defaultValue={JSON.stringify(restrictions)}
+                value={restrictionsText}
+                onChange={(e) => setRestrictionsText(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter') handleRestrictionsChange(e); }}
                 onBlur={handleRestrictionsChange}
-                className={`p-2 text-sm font-mono border rounded w-full ${
+                className={`p-2 text-sm font-mono border rounded w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 ${
                   error ? 'border-red-500 focus:outline-red-500' : ''
                 }`}
               />
