@@ -1,5 +1,5 @@
 ---
-id: dijkstra-algorithm
+id: extra-dijkstra-algorithm
 sidebar_position: 14 
 title: Dijkstra's Algorithm
 sidebar_label: Dijkstra's Algorithm 

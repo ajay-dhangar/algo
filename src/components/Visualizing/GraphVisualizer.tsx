@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 import "./graphVisualizer.css";
 
 interface NodeData {
@@ -804,4 +805,4 @@ const GraphVisualizer: React.FC = () => {
   );
 };
 
-export default GraphVisualizer;
+export default withVisualizerErrorBoundary(GraphVisualizer);

@@ -26,7 +26,7 @@ const algorithms: Algorithm[] = [
   {
     title: "Dijkstra's Algorithm",
     description: "Graph traversal pipeline optimized to calculate single-source paths through non-negative weights.",
-    link: "/docs/extra/algorithms/dijkstra-algorithm",
+    link: "/docs/extra/algorithms/extra-dijkstra-algorithm",
     complexity: "O(V² + E)",
   },
   {
