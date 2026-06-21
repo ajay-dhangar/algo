@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { withVisualizerErrorBoundary } from './VisualizerErrorBoundary';
 
 const MaximumBuildingHeightVisualizer = () => {
   const [n, setN] = useState(5);
@@ -11,6 +12,14 @@ const MaximumBuildingHeightVisualizer = () => {
 
   const speed = 1200;
   const intervalRef = useRef(null);
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     setRestrictionsText(JSON.stringify(restrictions));
@@ -115,6 +124,7 @@ const MaximumBuildingHeightVisualizer = () => {
   useEffect(() => {
     if (!isPaused && simulationSteps.length > 0) {
       intervalRef.current = setInterval(() => {
+        if (!isMounted.current) return;
         setCurrentStep((prev) => {
           if (prev < simulationSteps.length - 1) {
             return prev + 1;
@@ -303,4 +313,4 @@ const MaximumBuildingHeightVisualizer = () => {
   return <>{renderControls()}</>;
 };
 
-export default MaximumBuildingHeightVisualizer;
+export default withVisualizerErrorBoundary(MaximumBuildingHeightVisualizer);
