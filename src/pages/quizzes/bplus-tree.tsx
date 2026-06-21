@@ -368,7 +368,7 @@ const BPlusTreeQuiz: React.FC = () => {
             </div>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-800 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
             >
               <FaSignOutAlt /> Sign Out
             </button>
@@ -417,8 +417,8 @@ const BPlusTreeQuiz: React.FC = () => {
                         QUESTIONS[currentQuestion].difficulty === "Easy"
                           ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20"
                           : QUESTIONS[currentQuestion].difficulty === "Medium"
-                            ? "bg-amber-500/10 text-amber-600 border-amber-500/20"
-                            : "bg-rose-500/10 text-rose-600 border-rose-500/20"
+                            ? "bg-amber-500/10 text-amber-800 dark:text-amber-400 border-amber-500/20"
+                            : "bg-rose-500/10 text-rose-800 dark:text-rose-400 border-rose-500/20"
                       }`}>
                         {QUESTIONS[currentQuestion].difficulty}
                       </span>
@@ -503,7 +503,7 @@ const BPlusTreeQuiz: React.FC = () => {
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
                               {index + 1}. {q.question}
                             </h5>
-                            <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-500"}`}>
+                            <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}
                             </span>
                           </div>
