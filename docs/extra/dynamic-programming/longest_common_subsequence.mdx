@@ -6,6 +6,9 @@ sidebar_position: 4
 description: Longest Common Subsequence (LCS) is a dynamic programming technique that finds the longest subsequence common to two strings. It’s widely used in text comparison, bioinformatics, and file differencing tools. 
 tags: [DP, Longest common subsequence ]  
 ---
+
+import { DPTable } from '@site/src/components/DSA/DP/DPTable';
+
 # Longest Common Subsequence (LCS)
 
 ## Introduction
@@ -19,6 +22,16 @@ For example, consider the two strings:
 - String Y: `BDCAB`
 
 The longest common subsequence (LCS) between these two strings is `"BCAB"`, which has a length of 4.
+
+---
+
+## Interactive DP Table Visualization
+
+Below is an interactive transition grid for the LCS algorithm. You can type in custom values for String 1 and String 2, hover over cells to trace their dynamic programming dependencies (left, top, or diagonal), and see exactly how the formula is evaluated step-by-step!
+
+<DPTable />
+
+---
 
 ## Problem Definition
 
