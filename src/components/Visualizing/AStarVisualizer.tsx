@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { useColorMode } from "@docusaurus/theme-common";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
 // Layout Configuration Constants
 const CELL_SIZE = 24;
@@ -101,7 +102,7 @@ function getCellSymbol(cell: number) {
 }
 
 // --- Main Visualizer Component ---
-export default function AStarVisualizer() {
+function AStarVisualizer() {
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
 
@@ -119,6 +120,14 @@ export default function AStarVisualizer() {
 
   const isDrawing = useRef(false);
   const runIdRef = useRef(0);
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   const handleCellClick = useCallback(
     (r: number, c: number) => {
@@ -285,6 +294,7 @@ export default function AStarVisualizer() {
       return;
     }
     if (running) return;
+    if (!isMounted.current) return;
 
     runIdRef.current++;
     const localRunId = runIdRef.current;
@@ -311,9 +321,11 @@ export default function AStarVisualizer() {
     let visitedCount = 0;
 
     while (openSet.size > 0) {
-      if (localRunId !== runIdRef.current) {
-        setRunning(false);
-        setStatus("Process runtime interrupted.");
+      if (!isMounted.current || localRunId !== runIdRef.current) {
+        if (isMounted.current) {
+          setRunning(false);
+          setStatus("Process runtime interrupted.");
+        }
         return;
       }
 
@@ -344,7 +356,7 @@ export default function AStarVisualizer() {
       if (currentKey === endKey) {
         const path = reconstructPath(cameFrom, endPos);
         for (let i = 1; i < path.length; i++) {
-          if (localRunId !== runIdRef.current) break;
+          if (!isMounted.current || localRunId !== runIdRef.current) break;
           const [pr, pc] = path[i];
           setGrid((prev) => {
             const next = prev.map((row) => [...row]);
@@ -354,6 +366,7 @@ export default function AStarVisualizer() {
           await sleep(speed);
         }
 
+        if (!isMounted.current) return;
         const elapsed = (performance.now() - t0).toFixed(1);
         setStats({ visited: visitedCount, pathLen: path.length, time: Number(elapsed) });
         setStatus(`✅ Evaluation Complete. Path resolved inside ${path.length} vertices.`);
@@ -395,6 +408,7 @@ export default function AStarVisualizer() {
       await sleep(speed);
     }
 
+    if (!isMounted.current) return;
     const elapsed = (performance.now() - t0).toFixed(1);
     setStats({ visited: visitedCount, pathLen: 0, time: Number(elapsed) });
     setStatus(`❌ Extraneous Bounds. Grid space isolates Target destination.`);
@@ -711,3 +725,5 @@ export default function AStarVisualizer() {
     </div>
   );
 }
+
+export default withVisualizerErrorBoundary(AStarVisualizer);
