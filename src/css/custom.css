@@ -412,13 +412,3 @@ body {
   color: #ffffff !important;
 }
 
-/* Accessibility Focus States for Keyboard Traversal */
-button:focus-visible,
-a:focus-visible,
-[tabindex="0"]:focus-visible,
-input:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--ifm-color-primary) !important;
-  outline-offset: 2px !important;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.4) !important;
-}
