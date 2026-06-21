@@ -7,6 +7,8 @@ description: "A complete guide to Floyd-Warshall Algorithm with explanations, us
 tags: [graph, shortest-path, dynamic-programming, floyd-warshall, all-pairs, dsa]
 ---
 
+import FloydWarshallVisualizations from '@site/src/components/DSA/graphs/FloydWarshallVisualizations';
+
 The **Floyd-Warshall Algorithm** is used to find the shortest paths between **all pairs of vertices** in a weighted graph.
 
 Unlike Dijkstra or Bellman-Ford, which are *Single-Source Shortest Path* algorithms (finding distances from one node to all others), Floyd-Warshall computes the distances between every node `u` and every node `v`.
@@ -14,6 +16,14 @@ Unlike Dijkstra or Bellman-Ford, which are *Single-Source Shortest Path* algorit
 :::info Key Feature
 Floyd-Warshall handles negative weights correctly. It can also be used to detect negative weight cycles (if the distance from a node to itself becomes negative).
 :::
+
+---
+
+## Interactive Visualization
+
+Below is an interactive visualizer for the Floyd-Warshall algorithm. You can click **Start Floyd-Warshall** to step through the dynamic programming transitions, updating the distance matrix as each intermediate vertex `k` is considered.
+
+<FloydWarshallVisualizations />
 
 ---
 
