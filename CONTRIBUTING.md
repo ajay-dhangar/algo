@@ -321,7 +321,6 @@ The linter is informational for now — fix any warnings it surfaces before open
 - [ ] `npm run validate:docs` passes.
 - [ ] Site builds and the page shows in the sidebar (`npm start`).
 - [ ] Playground / `IMPLEMENTATION_SUMMARY.md` / `MULTI_LANGUAGE_PLAYGROUND.md` updated only if you changed playground execution or templates.
-- [ ] `npm run validate:docs` passes.
 - [ ] `npm run lint:mdx` run locally (pre-existing errors in unrelated files are expected and tracked separately).
 
 ### 6. Commit Your Changes 
