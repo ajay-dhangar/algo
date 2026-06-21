@@ -1,6 +1,5 @@
 .docTitle {
   font-size: 3rem;
-  /* Fixed the calc syntax by placing negative multiplier inside */
   margin-bottom: calc(-1 * var(--ifm-leading-desktop) * var(--ifm-leading));
 }
 
@@ -12,7 +11,7 @@
 
 .docsInfoContainer {
   width: 100%;
-  padding: 1rem 0.2rem;
+  padding: 1rem 0.1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
