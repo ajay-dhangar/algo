@@ -7,11 +7,21 @@ description: "A complete guide to Dijkstra's Algorithm with explanations, use ca
 tags: [graph, shortest-path, greedy, dijkstra, dsa]
 ---
 
+import DijkstraVisualizations from '@site/src/components/DSA/graphs/DijkstraVisualizations';
+
 **Dijkstra's Algorithm** finds the **shortest path from a single source vertex to all other vertices** in a weighted graph.
 
 :::warning Important Limitation
 Dijkstra's algorithm is **greedy** and assumes all edge weights are non-negative. If a graph has negative edge weights, Dijkstra's algorithm might fail. Use the **Bellman-Ford Algorithm** instead in such cases.
 :::
+
+---
+
+## Interactive Visualization
+
+Below is an interactive visualizer for Dijkstra's algorithm. You can click **Start Dijkstra** to watch the algorithm explore nodes and update distances using a min-priority queue, or click **Next Step** to step through the execution manually!
+
+<DijkstraVisualizations />
 
 ---
 
