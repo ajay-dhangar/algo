@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
 interface RBNode {
   value: number;
@@ -8,7 +9,7 @@ interface RBNode {
   parent: RBNode | null;
 }
 
-export const RedBlackTreeVisualizer: React.FC = () => {
+const RedBlackTreeVisualizerComponent: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [root, setRoot] = useState<RBNode | null>(null);
   const [log, setLog] = useState<string[]>([]);
@@ -288,3 +289,5 @@ export const RedBlackTreeVisualizer: React.FC = () => {
     </div>
   );
 };
+
+export const RedBlackTreeVisualizer = withVisualizerErrorBoundary(RedBlackTreeVisualizerComponent);
