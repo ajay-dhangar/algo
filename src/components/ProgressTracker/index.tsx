@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// improt done and undone icons
+import clsx from 'clsx';
 import { FaCheckCircle, FaRegCircle } from 'react-icons/fa';
 
 interface Props {
@@ -28,7 +28,7 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
     setIsCompleted(newStatus);
     if (newStatus) {
       setAnimate(true);
-      setTimeout(() => setAnimate(false), 600);
+      setTimeout(() => setAnimate(false), 300); // Reduced animation latency
     }
     try {
       const saved = localStorage.getItem('algo_progress');
@@ -45,62 +45,70 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
   };
 
   return (
-    <div style={{
-      margin: '28px 0 12px',
-      padding: '14px 20px',
-      background: isCompleted
-        ? 'linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%)'
-        : 'linear-gradient(135deg, #e8f0fe 0%, #f0f4ff 100%)',
-      borderRadius: '10px',
-      border: `1.5px solid ${isCompleted ? '#81c784' : '#4a90d9'}`,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '14px',
-      transition: 'all 0.4s ease',
-      boxShadow: isCompleted
-        ? '0 2px 8px rgba(76,175,80,0.12)'
-        : '0 2px 8px rgba(74,144,217,0.12)'
-    }}>
+    <div 
+      className={clsx(
+        'alert',
+        isCompleted ? 'alert--success' : 'alert--info',
+        'docusaurus-mt-lg'
+      )}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '16px',
+        padding: '16px 24px',
+        borderRadius: 'var(--ifm-alert-border-radius)',
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        boxShadow: 'var(--ifm-global-shadow-sm)',
+        transition: 'all 0.3s ease-in-out',
+      }}
+    >
+      {/* Informational Text Section */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: '240px', flex: 1 }}>
+        {isCompleted ? (
+          <span style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--ifm-color-success-darker)' }}>
+            🎉 Great work! Topic mastered.
+          </span>
+        ) : (
+          <span style={{ fontSize: '0.95rem', color: 'var(--ifm-color-info-darker)' }}>
+            Finished reading? Mark this topic as complete.
+          </span>
+        )}
+      </div>
+
+      {/* Interactive Button Section */}
       <button
         onClick={toggle}
+        className={clsx(
+          'button',
+          isCompleted ? 'button--success' : 'button--outline button--info',
+          'button--md'
+        )}
         style={{
-          background: isCompleted
-            ? 'linear-gradient(135deg, #43a047, #2e7d32)'
-            : 'linear-gradient(135deg, #1976d2, #1565c0)',
-          color: 'white',
-          padding: '9px 20px',
-          border: 'none',
-          borderRadius: '7px',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '8px',
+          fontWeight: 600,
+          whiteSpace: 'nowrap',
+          transform: animate ? 'scale(1.05)' : 'scale(1)',
+          transition: 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s',
           cursor: 'pointer',
-          fontSize: '14px',
-          fontWeight: '600',
-          letterSpacing: '0.3px',
-          boxShadow: isCompleted
-            ? '0 3px 8px rgba(46,125,50,0.35)'
-            : '0 3px 8px rgba(21,101,192,0.35)',
-          transform: animate ? 'scale(1.08)' : 'scale(1)',
-          transition: 'all 0.3s ease',
-          whiteSpace: 'nowrap' as const
         }}
       >
-        {isCompleted ? <><FaCheckCircle className='w-3 h-3' /> <span>Completed!</span></> : <><FaRegCircle className='w-3 h-3' /> <span>Mark as Complete</span></>}
+        {isCompleted ? (
+          <>
+            <FaCheckCircle style={{ verticalAlign: 'middle' }} /> 
+            <span>Completed!</span>
+          </>
+        ) : (
+          <>
+            <FaRegCircle style={{ verticalAlign: 'middle' }} /> 
+            <span>Mark as Complete</span>
+          </>
+        )}
       </button>
-      {isCompleted ? (
-        <span style={{
-          color: '#2e7d32',
-          fontWeight: '600',
-          fontSize: '14px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '6px'
-        }}>
-          🎉 Great work! Topic mastered.
-        </span>
-      ) : (
-        <span style={{ color: '#1565c0', fontSize: '13px', opacity: 0.8 }}>
-          Finished reading? Mark this topic as complete.
-        </span>
-      )}
     </div>
   );
 }
