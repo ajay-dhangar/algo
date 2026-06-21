@@ -425,15 +425,7 @@ function ContributorCard({ c, maxContributions, rank }: ContributorCardProps) {
               {tier.label}
             </div>
             <h3
-              className="text-base font-black tracking-tight m-2 truncate transition-colors duration-200"
-              style={{
-                color: hovered
-                  ? tier.glow
-                    .replace("0.25", "1")
-                    .replace("rgba", "rgb")
-                    .replace(",0.25", "")
-                  : "var(--ifm-heading-color, #1c1e21)",
-              }}
+              className="font-black tracking-tight m-2 truncate transition-colors duration-200"              
             >
               {c.login}
             </h3>

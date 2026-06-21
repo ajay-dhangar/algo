@@ -36,8 +36,6 @@
 
   /* Card Backdrop Backings */
   --ifm-card-background-color: rgba(255, 255, 255, 0.9);
-  --ifm-heading-color: #1c1e21;
-  --ifm-font-color-base: #334155;
 
   /* Functional Status Accents */
   --ifm-color-info-contrast-background: rgba(14, 165, 233, 0.08);
@@ -76,8 +74,6 @@
 
   /* Card Backdrop Backings */
   --ifm-card-background-color: rgba(13, 17, 23, 0.9);
-  --ifm-heading-color: #f1f5f9;
-  --ifm-font-color-base: #94a3b8;
 
   /* Functional Status Accents */
   --ifm-color-info-contrast-background: rgba(34, 211, 238, 0.12);
