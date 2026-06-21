@@ -256,7 +256,7 @@ const Quizes: React.FC = () => {
                           : "border-slate-200/80 bg-white dark:bg-slate-950 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:border-[var(--ifm-color-primary)] hover:text-[var(--ifm-color-primary)]"
                       }`}
                     >
-                      {cat === "All" ? "All Frameworks" : cat}
+                      {cat === "All" ? "All Quizzes" : cat}
                     </button>
                   );
                 })}
