@@ -12,6 +12,17 @@ tags: [dsa, algorithms, problem-solving]
 ## Problem Statement
 Given a string, find the length of the longest substring without repeating characters.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="wiGpQwVHdE0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Longest Substring Without Repeating Characters - Leetcode 3 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 We can use the `sliding window technique` along with a `hash map` to track the characters and their indices.
 

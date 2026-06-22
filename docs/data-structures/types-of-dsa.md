@@ -13,6 +13,16 @@ Data Structures and Algorithms (DSA) can be broadly classified into different ty
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="oz9cEqFynHU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Data Structures and Algorithms in 15 Minutes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Types of Data Structures
 
 Data structures are essential for organizing and managing data efficiently. Here's a breakdown of the most common types:

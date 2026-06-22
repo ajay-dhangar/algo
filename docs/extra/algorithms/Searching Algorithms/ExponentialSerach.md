@@ -19,6 +19,16 @@ Exponential search is an algorithm that searches for a target element in a **sor
 - **Binary Search in Identified Range**:
   - Once the range is identified, a binary search is applied within that range to find the target element.
 
+### Video Explanation
+<LiteYouTubeEmbed
+  id="BDVYtuWXgXE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Exponential Search - better than Binary Search? (Explained)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(1)$**  

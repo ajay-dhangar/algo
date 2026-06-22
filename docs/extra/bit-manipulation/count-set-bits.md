@@ -13,6 +13,17 @@ Tags: [dsa, bit manipulation, algorithm, set bits, efficiency]
 
 The **Count Set Bits** algorithm calculates the number of 1s in the binary representation of a given integer. This is particularly useful in digital signal processing, cryptography, and data compression, where binary data operations are essential.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="nttpF8kwgd4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L2. Must Know Tricks in Bit Manipulation | Swap two numbers without third number"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How it Works
 
 The algorithm leverages bit manipulation to clear the rightmost set bit until no bits remain. The key operation, `n & (n - 1)`, removes the lowest set bit, allowing us to count the total set bits with minimal operations.

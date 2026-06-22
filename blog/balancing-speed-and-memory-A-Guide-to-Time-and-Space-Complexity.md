@@ -53,6 +53,16 @@ For example, sorting algorithms like Merge Sort require additional memory, while
 
 In practice, developers often face a trade-off between time and space complexity. A faster algorithm may use more memory, while a memory-efficient algorithm might be slower. The key is to balance both, depending on the problem’s requirements.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="FPu9Uld7W-E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Time and Space Complexity - Strivers A2Z DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Conclusion
 

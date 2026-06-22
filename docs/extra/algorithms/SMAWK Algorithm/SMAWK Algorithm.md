@@ -18,6 +18,16 @@ The **SMAWK Algorithm** is a specialized algorithm for efficiently finding row m
 - **Data Structures**: A vector to store the minimum values and another to track the active set of columns.
 - **Output**: A vector containing the minimum value of each row in the matrix.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="pbmOkYql3HY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="16. S.M.A.W.K Algorithm (Java)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity
 
 - **Average Case**: $O(n \log n)$, where $n$ is the number of rows in the matrix.

@@ -33,6 +33,17 @@ Ukkonen's Algorithm is an online algorithm for constructing suffix trees in line
   - Maintains only necessary internal nodes
   - Efficiently handles repeated patterns
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="aPRqocoBsFQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Suffix Tree using Ukkonen's algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Construction: $O(n)$**

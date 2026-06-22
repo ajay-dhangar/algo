@@ -23,6 +23,17 @@ Parity Partition Sort is a sorting algorithm that initially partitions an array 
 3. **Merge:**
    - Merge the sorted even and odd partitions back into the original array.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="QC4c9fyr8As"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sort Array by Parity - Leetcode 905 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Java Implementation**
 
 ```java

@@ -9,6 +9,16 @@ sidebar_label: Bentley-Ottmann Algorithm
 The **Bentley-Ottmann Algorithm** is a sweep line algorithm designed to detect all intersections within a set of line segments in 2D space. By maintaining a global event-driven structure, it optimally processes line segments to efficiently find intersections in \( O((n + k) \log n) \) time, where \( n \) is the number of line segments and \( k \) is the number of intersections.
 
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="be5y0BVQ5kg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bentley-Ottmann algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics
 
 - **Algorithm Type**: Sweep line

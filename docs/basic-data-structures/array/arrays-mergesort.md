@@ -8,6 +8,19 @@ tags: [dsa, arrays, sorting, merge-sort, divide-and-conquer, sorting-algorithms]
 
 import AdsComponent from '@site/src/components/AdsComponent';
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="tn9hxD8gx2M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.3: How Merge Sort Works?? Full explanation with example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 **Merge Sort** is an efficient, stable, comparison-based, divide and conquer sorting algorithm. It divides the unsorted list into `n` sublists, each containing one element, and then repeatedly merges sublists to produce new sorted sublists until there is only one sublist remaining.
 
 <AdsComponent />

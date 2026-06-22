@@ -12,6 +12,18 @@ description: "Given array of integers nums , with sliding window of size k which
 
 The **Sliding Window Maximum** problem involves finding the maximum value in each subarray of fixed size k that slides across array from left to right.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="DfljaUwZsOk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sliding Window Maximum - Monotonic Queue - Leetcode 239"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Problem Definition
 
 Given:

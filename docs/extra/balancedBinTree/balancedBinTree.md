@@ -11,6 +11,17 @@ tags: [python, binary-tree, tree-traversal, recursion, depth-first-search]
 
 This document provides a Python implementation of a binary tree and a method to check if the tree is balanced.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="QfJsau0ItOY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Balanced Binary Tree - Leetcode 110 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Implementation
 
 ```python

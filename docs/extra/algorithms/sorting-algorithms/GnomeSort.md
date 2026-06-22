@@ -20,6 +20,17 @@ Gnome Sort is a simple comparison-based sorting algorithm that sorts an array by
 - **Stable**:  
   Gnome Sort is stable, meaning it preserves the relative order of equal elements.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="9cIjvXEeOhQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Gnome Sort Algorithm, Child of Insertion and Bubble sort in 3 minutes!"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n)**  

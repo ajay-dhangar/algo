@@ -25,6 +25,17 @@ Merge sort is a **divide-and-conquer** sorting algorithm that splits the array i
 - **Requires Additional Space**:
   - Unlike in-place sorting algorithms, merge sort requires additional memory to store the subarrays during the merging process.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="tn9hxD8gx2M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.3: How Merge Sort Works?? Full explanation with example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(n log n)$**  

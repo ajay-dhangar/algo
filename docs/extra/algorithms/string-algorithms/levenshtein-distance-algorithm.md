@@ -33,6 +33,17 @@ The Levenshtein Distance Algorithm, also known as Edit Distance, calculates the 
   - Fuzzy matching
   - Distance normalization
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="We3YDTzNXEk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Minimum Edit Distance Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Standard Version: $O(m \times n)$**

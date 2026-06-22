@@ -10,6 +10,17 @@ description: Given an integer array nums, return true if any value appears at le
 **Description**:  
 You are given an array of integers, `nums`, which may contain both positive and negative numbers. Your task is to determine whether any value appears more than once in the array. If at least one duplicate exists, return `true`. Otherwise, return `false`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="3OamzN90kPg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Contains Duplicate - Leetcode 217 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example 1:
 
 **Input:**  

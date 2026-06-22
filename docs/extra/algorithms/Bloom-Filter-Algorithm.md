@@ -13,6 +13,19 @@ A Bloom Filter is a probabilistic data structure that enables efficient membersh
 
 ---
 
+# Video Explanation
+
+<LiteYouTubeEmbed
+  id="V3pzxngeLqw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bloom Filters | Algorithms You Should Know #2 | Real-world Examples"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Inputs
 
 - **Size of Bit Array (`m`)**: Number of bits in the array.

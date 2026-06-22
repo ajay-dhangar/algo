@@ -9,6 +9,16 @@ sidebar_label: Indirect Recursion
 
 Indirect recursion occurs when a function calls another function, and eventually, the second function calls the first function back. This process forms a cycle of function calls between two or more functions, instead of a single function calling itself directly.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="t9whckmAEq0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Types of Recursion (Part 1) | Direct & Indirect Recursion"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Mutual Call:**

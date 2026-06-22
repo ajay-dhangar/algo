@@ -15,6 +15,17 @@ Cloning a linked list that contains random pointers can be complex. Each node in
 - **Next Pointer**: Points to the next node in the list.
 - **Random Pointer**: Points to any node in the list or null.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5Y2EiZST97Y"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Copy List with Random Pointer - Linked List - Leetcode 138"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 This guide will walk you through the steps to create a deep copy of such a linked list.
 
 Here are the detailed steps to clone a linked list with random and next pointers:

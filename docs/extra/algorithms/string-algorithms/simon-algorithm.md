@@ -33,6 +33,17 @@ While the Simon Algorithm is historically a quantum computing algorithm, this im
   - Approximate matching
   - Error tolerance
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="A2WP6Wvjrks"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 8 3 SIMON'S ALGORITHM"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Preprocessing: $O(m + σ)$**

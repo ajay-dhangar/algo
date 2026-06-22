@@ -6,6 +6,19 @@ description: "Cyclic Sort is an O(n) in-place sorting algorithm specifically des
 tags: [dsa, arrays, sorting, cyclicsort, sorting-algorithms]
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="JfinxytTYFQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Cycle Sort - Amazon, Google, Microsoft Interview Questions"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 *Cyclic Sort* is a highly specialized, in-place sorting algorithm that achieves an incredible $O(n)$ time complexity. It is used exclusively when the elements of an array belong to a specific continuous range, such as $1$ to $N$ (where $N$ is the size of the array).
 
 ## How Cyclic Sort Works

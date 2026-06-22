@@ -22,6 +22,15 @@ Ternary search is a **divide-and-conquer** algorithm similar to binary search, b
 - **Works on Sorted Data**:
   - Like binary search, ternary search requires the array to be sorted.
 
+### Video Explanation
+<LiteYouTubeEmbed
+  id="WyWL1PBNvb8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Ternary Search | Ternary Search with example | Easy explanation of Ternary Search"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(1)$**  

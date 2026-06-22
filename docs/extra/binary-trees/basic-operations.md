@@ -15,6 +15,17 @@ Binary trees are a versatile data structure that allows for efficient operations
 ### 1. Insertion
 Inserting a new node into a binary tree involves placing the node in its correct position, maintaining the structure of the binary tree.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="cySVml6e_Fc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.10 Binary Search Trees (BST) - Insertion and Deletion | DSA Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 #### Example in C++:
 ```cpp
 // Insert function
@@ -50,6 +61,17 @@ Replace the value of the node to be deleted with the value of the deepest node.
 
 #### 3. Delete the Deepest Node:
 Remove the deepest node from the tree. Since it is a leaf node, you can simply delete it.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="cySVml6e_Fc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.10 Binary Search Trees (BST) - Insertion and Deletion | DSA Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 #### Example in C++:
 ```cpp
@@ -132,6 +154,17 @@ Case # 01: Deleting A (Root Node Removal)
 ### 3. Searching
 Searching for a value in a binary tree involves comparing the value with the current node’s data and then recursively searching in the left or right subtree based on the comparison.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="UeRUKRJvPa4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 69: Binary Search Tree & its Implementation || Insertion, Deletion & Searching a Node"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 #### Example in C++:
 ```cpp
 bool search(Node* root, int val) {
@@ -167,6 +200,17 @@ Traversal refers to visiting all nodes in a binary tree in a specific order. The
 #### a) Pre-order Traversal (Root, Left, Right)
 In pre-order traversal, we visit the root node first, then the left subtree, and finally the right subtree. This method is useful for creating a copy of the tree or for prefix expression evaluations.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="XRcC7bAtL3c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-56: Preorder, Inorder and Postorder in 5 minute | Tree Traversal | Easiest and Shortest Trick"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 #### Example in C++:
 ```cpp
 void preOrder(Node* root) {
@@ -189,6 +233,17 @@ void preOrder(Node* root) {
 #### b) In-order Traversal (Left, Root, Right)
 In in-order traversal, we visit the left subtree first, then the root node, and finally the right subtree. For binary search trees, in-order traversal visits nodes in ascending order.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="XRcC7bAtL3c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-56: Preorder, Inorder and Postorder in 5 minute | Tree Traversal | Easiest and Shortest Trick"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 #### Example in C++:
 ```cpp
 void inOrder(Node* root) {
@@ -209,6 +264,17 @@ void inOrder(Node* root) {
 ```
 #### c) Post-order Traversal (Left, Right, Root)
 In post-order traversal, we visit the left subtree first, followed by the right subtree, and finally the root node.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="XRcC7bAtL3c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-56: Preorder, Inorder and Postorder in 5 minute | Tree Traversal | Easiest and Shortest Trick"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 #### Example in C++:
 ```cpp

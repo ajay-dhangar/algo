@@ -19,6 +19,17 @@ A Doubly Linked List (DLL) is a data structure consisting of nodes, where each n
 
 This structure allows traversal in both directions and efficient insertion and deletion operations.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Mh0NH_SD92k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L18. Delete all occurrences of a Key in DLL"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Statement
 
 Given a DLL and a key, the task is to delete all nodes that contain the specified key. 

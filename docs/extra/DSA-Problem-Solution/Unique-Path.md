@@ -14,6 +14,17 @@ Given the two integers `m` and `n`, return the number of possible unique paths t
 
 The test cases are generated so that the answer will be less than or equal to `2 * 10^9`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="sdE0A2Oxofw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 8. Grid Unique Paths | Learn Everything about DP on Grids | ALL TECHNIQUES"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Example 1:**
 Input: `m = 3`, `n = 7`
 Output: `28`

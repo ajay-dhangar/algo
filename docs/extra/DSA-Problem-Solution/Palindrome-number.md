@@ -13,6 +13,17 @@ tags: [DSA, leetcode, problem-solving]
 
 Given an integer x, return true if x is a palindrome, and false otherwise.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="kNE3vq1g2e8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Frequently Asked Java Program 04: Palindrome Number | How to Check Given Number is Palindrome or Not"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 - **Example 1**:
 Input: x = 121
 Output: true

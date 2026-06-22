@@ -14,6 +14,18 @@ tags: [tree, binary-tree, depth-first-search, java, leetcode]
 Given a binary tree, determine if it is height-balanced. A height-balanced binary tree is defined as:
 :::note
  A binary tree in which the left and right subtrees of every node differ in height by no more than one.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Yt50Jfbd8Po"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L15. Check for Balanced Binary Tree | C++ | Java"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 :::
 ## Solution
 

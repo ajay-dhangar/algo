@@ -11,6 +11,17 @@ A **Red-Black Tree (RBT)** is a self-balancing binary search tree (BST) that ens
 
 Each node in a Red-Black Tree has an additional property: a color, which is either **red** or **black**. The tree follows specific rules regarding the colors, which ensures that it remains balanced.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="3RQtq7PDHog"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.16 Red Black tree | Introduction to Red Black trees | DSA Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Properties of Red-Black Trees
 
 1. **Every node is either red or black.**

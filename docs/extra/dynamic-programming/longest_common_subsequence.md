@@ -24,6 +24,17 @@ The longest common subsequence (LCS) between these two strings is `"BCAB"`, whic
 
 Given two sequences (X and Y), the goal is to find the length of the longest subsequence that is common to both sequences.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="sSno9rV8Rhg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.9 Longest Common Subsequence (LCS) - Recursion and Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Dynamic Programming Approach
 
 To solve the LCS problem, we can utilize dynamic programming by creating a 2D table where `dp[i][j]` represents the length of the LCS of the first `i` characters of string X and the first `j` characters of string Y.

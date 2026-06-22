@@ -18,6 +18,17 @@ A typical recursive function consists of two main parts:
 1. **Base Case**: The condition under which the recursion ends. Without this, the function would call itself indefinitely, leading to a stack overflow.
 2. **Recursive Case**: The part where the function calls itself to solve smaller instances of the problem.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="yVdKa8dnKiE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Re 1. Introduction to Recursion | Recursion Tree | Stack Space | Strivers A2Z DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example of Recursion:
 Here’s a simple example of recursion, calculating the factorial of a number `n`:
 

@@ -9,6 +9,19 @@ tags: [String,isomorphic strings]
 
 # Isomorphic Strings
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="jy6gMDG62Bo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="POTD- 11/11/2023 | Isomorphic Strings| Problem of the Day | GeeksforGeeks"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Definition
 Isomorphic strings are two strings that can be transformed into each other by a consistent mapping of characters. Each character in one string can be replaced with a character from the other string in a way that preserves the order of characters.
 

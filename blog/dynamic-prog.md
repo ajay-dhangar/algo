@@ -33,6 +33,17 @@ You can't throw DP at every single problem. A problem has to pass two specific t
 1. **Overlapping Subproblems:** The problem can be broken down into smaller pieces, and those pieces keep repeating. (Like counting the same numbers over and over).
 2. **Optimal Substructure:** You can find the absolute best solution to the big problem simply by combining the best solutions of the smaller pieces.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="tyB0ztf0DNY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 1. Introduction to Dynamic Programming | Memoization | Tabulation | Space Optimization Techniques"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## The Classic Playground: The Fibonacci Series
 
 The absolute best way to see DP in action is the Fibonacci sequence ($0, 1, 1, 2, 3, 5, 8, 13...$), where each number is the sum of the two preceding ones. 

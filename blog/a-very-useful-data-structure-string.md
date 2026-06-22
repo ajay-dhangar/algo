@@ -17,6 +17,18 @@ In Data Structure, a string is a data type used to represent a sequence of chara
 ```markdown
 "geeks","for","geeks""GeeksforGeeks" ,"Geeks for Geeks","123Geeks","@123 Geeks"
 ```
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="vCRD36bG8xQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings | Lecture 12 | Java Placement Series"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How String is Represented:
 
 In C, a string can be referred to either using a character pointer or as a character array. Here are some important points:

@@ -17,6 +17,17 @@ In this blog, we'll break down:
   
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="bQssdSrSGNE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Basics of Time Complexity and Space Complexity | Java | Complete Placement Course | Lecture 9"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## What is Time Complexity?
 
 Time complexity is a way to describe how the runtime of an algorithm grows as the size of the input grows. It is denoted using **Big O Notation**, which describes the upper limit of an algorithm's execution time.

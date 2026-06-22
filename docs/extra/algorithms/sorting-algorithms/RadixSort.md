@@ -26,6 +26,17 @@ Radix sort is a non-comparative sorting algorithm that sorts numbers by processi
 - **In-Place Sorting (depending on implementation)**:
   - Depending on the subroutine used (like counting sort), radix sort can be implemented as an in-place algorithm, though some versions may require extra space.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="9QSgBO9yjKU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.9: Radix Sort | Easiest explanation with example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(nk)**  

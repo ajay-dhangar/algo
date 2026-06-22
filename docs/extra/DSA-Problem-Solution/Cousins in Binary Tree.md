@@ -17,6 +17,17 @@ Two nodes of a binary tree are considered cousins if they have the same depth bu
 
 Note that in a binary tree, the root node is at depth 0, and children of each depth `k` node are at depth `k + 1`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="UyxnGWMvxwc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Cousins in a binary tree | Leetcode #993"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 To determine if two nodes are cousins, we can use a **Breadth-First Search (BFS)** approach. We will traverse the tree level by level while keeping track of the parent of each node and their respective depths.

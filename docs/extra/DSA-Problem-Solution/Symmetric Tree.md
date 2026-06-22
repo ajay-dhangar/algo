@@ -15,6 +15,17 @@ Given the root of a binary tree, check whether it is a mirror of itself (i.e., s
 
 A binary tree is symmetric if the left subtree is a mirror reflection of the right subtree.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="nKggNAiEpBE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L25. Check for Symmetrical Binary Trees | C++ | Java"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 To determine if a binary tree is symmetric, we can use a **recursive approach**. We will compare the left and right subtrees of the tree.

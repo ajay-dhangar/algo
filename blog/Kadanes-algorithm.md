@@ -18,6 +18,19 @@ In this blog, we'll explore:
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="AHZpyENo7k4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kadane's Algorithm | Maximum Subarray Sum | Finding and Printing"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## The Maximum Subarray Problem
 
 The maximum subarray problem is about finding the contiguous subarray within a one-dimensional numeric array that has the largest sum. Given an array of both positive and negative numbers, the goal is to find the subarray with the maximum possible sum.

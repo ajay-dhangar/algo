@@ -25,6 +25,17 @@ Cycle sort is a comparison-based, in-place sorting algorithm known for its optim
 - **Efficient in Write-Heavy Environments**:
   - While not the most efficient in terms of time complexity, its ability to minimize write operations makes it useful in environments where writing to memory is expensive.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="JfinxytTYFQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Cycle Sort - Amazon, Google, Microsoft Interview Questions"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n²)**  

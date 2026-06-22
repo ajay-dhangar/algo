@@ -23,6 +23,19 @@ Odd-Even Sort, also known as **Brick Sort**, is a simple comparison-based sortin
 
 ---
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="vXwKKzn6D4E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Brick Sort | Bubble Sort Algorithm | Java plus DSA Placement | FAANG"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Time Complexity
 
 - **Best Case**: $O(n)$ (when the array is already sorted)

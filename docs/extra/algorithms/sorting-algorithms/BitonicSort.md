@@ -24,6 +24,17 @@ Bitonic sort is a **parallel sorting algorithm** that can sort a sequence of num
 - **Recursive Structure**:
   - Bitonic sort works by recursively splitting the array into smaller bitonic sequences, sorting those sequences, and then merging them.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="GEQ8y26blEY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bitonic sort (retake)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(log^2 n)**  

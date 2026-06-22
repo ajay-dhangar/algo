@@ -31,16 +31,42 @@ A **digital search** algorithm is one that operates on the individual digits or 
    - **Definition**: A trie (pronounced "try") is a tree-like data structure used for storing strings where each node represents a character. Searching in a trie involves traversing the tree, character by character.
    - **Time Complexity**: $O(m)$ where *m* is the length of the key being searched. This is independent of the number of keys stored in the trie, making it fast for fixed-length keys.
    - **Applications**: Used in applications like auto-completion, dictionary search, and IP routing tables.
+   - **Video Explanation**
+<LiteYouTubeEmbed
+  id="dBGUmUQhjaM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L1. Implement TRIE | INSERT | SEARCH | STARTSWITH"
+  lazyLoad={true}
+  webp
+/>
 
 #### 2. **Radix Search**:
    - **Definition**: Radix search uses the idea of processing keys digit by digit from the most significant digit to the least significant one. It can be implemented using a **radix tree** or **radix sort**.
    - **Time Complexity**: $O(k)$ for searching, where *k* is the number of digits or characters in the key.
    - **Applications**: Useful in scenarios like sorting strings or numbers with fixed lengths.
+   - **Video Explanation**
+<LiteYouTubeEmbed
+  id="9QSgBO9yjKU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.9: Radix Sort | Easiest explanation with example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 #### 3. **Hashing**:
    - **Definition**: Hashing is a form of digital search that uses a **hash function** to transform the search key into an index within a hash table. Searching involves hashing the key and accessing the corresponding bucket.
    - **Time Complexity**: $O(1)$ for average-case search (constant time), though $O(n)$ in the worst case when hash collisions occur.
    - **Applications**: Widely used in databases, caches, and associative arrays.
+   - **Video Explanation**
+<LiteYouTubeEmbed
+  id="W5q0xgxmRd8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-6.1: What is hashing with example | Hashing in data structure"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ### Time Complexity of Digital Search Algorithms:
 

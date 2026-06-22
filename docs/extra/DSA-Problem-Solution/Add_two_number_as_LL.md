@@ -13,6 +13,17 @@ tags: [Linked list]
 
 Given two linked lists, where each node contains a single digit, add the two numbers represented by these linked lists and return the result as a new linked list. The digits are stored in reverse order, meaning the head of the list contains the least significant digit.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="wgFPrzTjm7s"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Add Two Numbers - Leetcode 2 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Steps to Solve the Problem
 
 1. **Initialization**: 

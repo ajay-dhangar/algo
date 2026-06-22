@@ -12,7 +12,20 @@ By maintaining a running state between two pointers (left and right), this appro
 
 ---
 
-## 1. Core Concept
+## 1. Video Explanation
+
+<LiteYouTubeEmbed
+  id="9kdHxplyl5I"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L1. Introduction to Sliding Window and 2 Pointers | Templates | Patterns"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
+## 2. Core Concept
 
 In problems involving contiguous subarrays or substrings, a brute-force approach often uses nested loops to recalculate properties for every possible window. The sliding window technique removes this redundancy. As the window "slides" forward, you add the element entering the window from the right and remove the element leaving the window from the left.
 
@@ -20,7 +33,7 @@ $$\text{New Window State} = \text{Previous Window State} + \text{Entering Elemen
 
 ---
 
-## 2. Visual Representation
+## 3. Visual Representation
 
 Here is a visual representation of a fixed window of size $K = 3$ moving across an array:
 
@@ -56,7 +69,7 @@ style E2 fill:#f3f4f6,stroke:#d1d5db,color:#9ca3af
 
 ---
 
-## 3. Classifications
+## 4. Classifications
 
 ### A. Fixed-size Sliding Window
 Used when the window length $K$ is constant and explicitly specified. The objective is typically to find an optimal state (maximum, minimum, or target match) among all valid windows of size $K$.
@@ -128,7 +141,7 @@ int longestSubarrayWithSumK(const std::vector<int>& arr, int target) {
 
 ---
 
-## 4. Multi-Language Snippets
+## 5. Multi-Language Snippets
 
 ### Python
 ```py
@@ -206,7 +219,7 @@ return maxLength;
 
 ---
 
-## 5. Complexity Analysis
+## 6. Complexity Analysis
 
 * **Time Complexity:** $O(N)$
   Even though there is a nested loop (the `while` loop in the variable-sized window variation), each element is processed at most twice: once when entering the window via the `right` pointer, and at most once when leaving the window via the `left` pointer. This yields a total runtime performance of $2N$, which simplifies to linear $O(N)$ time.

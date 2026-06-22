@@ -15,6 +15,17 @@ tags: [Linked list, loop]
 
 In a linked list, a **loop** occurs when a node's next pointer points back to a previous node, creating a cycle. Detecting a loop is crucial, as it can lead to infinite traversals and memory issues. The goal is to determine whether a loop exists in the linked list and, if so, identify the node where the loop begins.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="gBTe7lFR3vc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Linked List Cycle - Floyd's Tortoise and Hare - Leetcode 141 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 One of the most efficient methods for detecting a loop in a linked list is **Floyd's Cycle-Finding Algorithm**, also known as the "Tortoise and Hare" algorithm.

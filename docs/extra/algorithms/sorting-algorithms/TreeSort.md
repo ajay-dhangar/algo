@@ -23,6 +23,17 @@ Tree Sort is a sorting algorithm that builds a Binary Search Tree (BST) from the
 - **Stable**:
   - Tree Sort can be stable if implemented carefully by ensuring that equal elements are inserted in a way that maintains their relative order.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="n2MLjGeK7qA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Tree Sort | GeeksforGeeks"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n log n)**  

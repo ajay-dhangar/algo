@@ -12,6 +12,17 @@ description: Determine whether the subtree rooted at each node is a Binary Searc
 
 The **Size of Largest BST in Binary Tree** problem is based on determining whether the subtree rooted at each node is a Binary Search Tree (BST). If any node follows the properties of a BST and has the maximum size, we update the size of the largest BST.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="X0oXMdtUDwo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L53. Largest BST in Binary Tree"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Definition
 
 Given:

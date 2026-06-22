@@ -11,6 +11,16 @@ This page is a quick reference for C patterns that show up constantly in DSA, co
 
 ## Basic Syntax
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="irqbmMNs2Bo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="C Language Tutorial for Beginners (with Notes & Practise Questions)"
+  lazyLoad={true}
+  webp
+/>
+
 ### Data Types
 
 ```c title="Basic data type syntax in C"

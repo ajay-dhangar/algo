@@ -12,6 +12,17 @@ tags: [dsa, algorithms, problem-solving]
 ## Problem Statement
 Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="KLlXCFG5TnA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Two Sum - Leetcode 1 - HashmMap - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 To solve this problem, we can use a hash map to store the numbers and their indices. As we iterate through the list, we check if the complement (target - current number) exists in the hash map.
 

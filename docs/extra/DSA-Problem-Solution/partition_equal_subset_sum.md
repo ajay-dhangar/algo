@@ -12,6 +12,17 @@ description: Solve the Partition Equal Subset Sum problem using dynamic programm
 
 The **Partition Equal Subset Sum** problem is a classic dynamic programming problem that determines if a given set can be partitioned into two subsets such that the sum of elements in both subsets is equal.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7win3dcgo3k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Dp 15. Partition Equal Subset Sum | DP on Subsequences"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Definition
 
 Given:

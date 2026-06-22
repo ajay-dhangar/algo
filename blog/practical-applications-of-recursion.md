@@ -22,6 +22,17 @@ In this blog, we’ll discuss:
 
 Quick Sort is a recursive sorting algorithm that works by selecting a 'pivot' element and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="7h1s2SojIRw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.8.1 QuickSort Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 #### Example: Quick Sort
 
 ```javascript
@@ -64,6 +75,17 @@ function partition(arr, low, high) {
 # Searching Algorithms
 ## Binary Search
 Binary Search is a classic example of recursion in searching algorithms. It divides the search interval in half repeatedly until the target value is found.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="V_T5NuccwRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.2 What is Binary Search | Binary Search Algorithm with example | Data Structures Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 #### Example: Binary Search
 ```javacsript

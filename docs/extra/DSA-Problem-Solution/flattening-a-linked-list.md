@@ -11,6 +11,17 @@ tags: [linked list,flattening]
 
 Flattening a linked list involves converting a multi-level linked list into a single-level linked list. In this context, a multi-level linked list is one where each node may point to another linked list (next and child pointers). Flattening means that all child lists are combined into a single list, maintaining the original order.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ykelywHJWLg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L24. Flattening a LinkedList | Multiple Approaches with Dry Run"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Structure of the Linked List
 
 A node in a multi-level linked list can be represented as follows:

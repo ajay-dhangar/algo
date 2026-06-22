@@ -33,6 +33,17 @@ The Quick Search Algorithm is a string matching algorithm that extends the Boyer
   - Straightforward logic
   - Easy maintenance
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wiNfjkMDl3A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Quick Select Algorithm Visualized (and how it compares to Quick Sort!)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Preprocessing: $O(m + σ)$**

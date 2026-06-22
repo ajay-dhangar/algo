@@ -29,6 +29,17 @@ Analyzing space complexity involves counting the memory used by an algorithm, in
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="bQssdSrSGNE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Basics of Time Complexity and Space Complexity | Java | Complete Placement Course | Lecture 9"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How to Calculate Time Complexity
 
 Calculating the time complexity of an algorithm involves analyzing the number of operations it performs as a function of the input size. Here are some common steps to calculate the time complexity of an algorithm:

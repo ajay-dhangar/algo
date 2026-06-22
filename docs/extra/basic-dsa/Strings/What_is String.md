@@ -8,6 +8,19 @@ tags: [String Matching, kmp-algorithm, Substring Search, Algorithm, Pattern Matc
 ---
 # Strings in Programming
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="4NGthO9F1Bo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings in C Programming | Concept of Strings in C Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## What is a String?
 A **string** is a sequence of characters, typically used to represent text. It can include letters, numbers, symbols, and whitespace. Strings are one of the most commonly used data types in programming, especially for tasks involving text manipulation, user input, and output.
 

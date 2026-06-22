@@ -12,6 +12,17 @@ tags: [dsa, algorithms, problem-solving]
 ## Problem Statement
 Given a collection of `intervals`, merge all overlapping intervals.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="IexN60k62jo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Merge Overlapping Intervals | Brute, Optimal with Precise TC analysis"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 To merge the intervals, we can first sort them based on the start time. Then, we can iterate through the sorted intervals and merge them as needed.
 

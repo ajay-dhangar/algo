@@ -14,6 +14,16 @@ tags: [recursion, algorithms, programming]
 
 - **Key Characteristic:** The recursive call occurs at the end of the function, and no computations follow it.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="HIt_GPuD7wk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Types of Recursion (Part 2) | Tail & Non-tail Recursion"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Is It Useful?
 - **Stack Optimization:** Tail recursion allows compilers to optimize the call stack, using constant memory space instead of creating new stack frames for each recursive call. This process is called **Tail Call Optimization (TCO)**.
 - **Prevents Stack Overflow:** In deeply recursive problems, tail recursion minimizes the risk of stack overflow by avoiding excessive memory consumption.

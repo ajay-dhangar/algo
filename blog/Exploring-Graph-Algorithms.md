@@ -68,6 +68,17 @@ DFS also runs in O(V + E) time.
 | Shortest Path           | Yes                         | No                          |
 | Suitable for            | Finding shortest paths      | Solving puzzles (e.g., mazes)|
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="cS-198wtfj0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DFS vs BFS, When to Use Which?"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Code Implementation
 
 ### Python Implementation:

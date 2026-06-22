@@ -9,6 +9,16 @@ tags: [cpp, cheatsheet, dsa]
 
 This page is a quick reference for C++ patterns that show up constantly in DSA and competitive programming. If you're just starting out, don't worry, every snippet here is explained line by line 😊
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="ZzaPdXTrSb8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="C++ Tutorial for Beginners - Learn C++ in 1 Hour"
+  lazyLoad={true}
+  webp
+/>
+
 ## Fast I/O Configuration
 
 ### Optimize Input/Output Speed

@@ -9,6 +9,19 @@ tags: [dsa, arrays, product-of-array, pseudocode, Implementation, explanation, c
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="TW2m8m_FNJE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Product of Array Except Self | Brute to Optimal Solution | LeetCode 238"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Product of Array Except Self
 
 The **Product of Array Except Self** problem involves computing an output array such that `output[i]` is equal to the product of all the elements of the input array except for `input[i]`. 

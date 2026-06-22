@@ -12,6 +12,16 @@ Data Structures and Algorithms (DSA) are fundamental concepts in computer scienc
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="O9v10jQkm5c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Data Structures Explained for Beginners - How I Wish I was Taught"
+  lazyLoad={true}
+  webp
+/>
+
 ## What Are Data Structures?
 
 Data structures are specialized formats for organizing, storing, and managing data in a computer system. They define the way data is stored, accessed, and manipulated, making it easier to perform operations on the data efficiently. Data structures are essential for optimizing the performance of algorithms and applications, as they determine how data is stored in memory and how it can be accessed quickly.

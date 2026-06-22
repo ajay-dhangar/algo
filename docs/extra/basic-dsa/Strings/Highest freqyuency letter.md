@@ -7,7 +7,18 @@ description: "The frequency of a letter in a string refers to the number of time
 tags: [String, frequecy, Hashmap]
 ---
 
+## Video Explanation
 
+<LiteYouTubeEmbed
+  id="iiA6Bag8UUE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Program to find Maximum Occurring Character in String in Java by Deepak"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
 # Find the Letter with the Highest Frequency in a String (Java)
 
 ## Explanation

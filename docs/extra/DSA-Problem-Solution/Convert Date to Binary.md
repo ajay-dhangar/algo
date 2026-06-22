@@ -15,6 +15,17 @@ You are given a string ``date`` representing a Gregorian calendar date in the ``
 ``date`` can be written in its binary representation obtained by converting year, month, and day to their binary representations without any leading zeroes and writing them down in ``year-month-day`` format.
 Return the binary representation of ``date``.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="NMTBmR_lQjc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Very Easy Explanation || Convert Date to Binary || String Methods || Weekly Contest 414"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Example 1:**
 Input: date = "2080-02-29"
 Output: "100000100000-10-11101"

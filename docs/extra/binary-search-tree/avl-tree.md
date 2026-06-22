@@ -10,6 +10,17 @@ tags: [dsa, data structures, avl]
 ## Introduction
 An **AVL Tree** is a self-balancing binary search tree (BST) where the difference in heights between the left and right subtrees of any node is at most one. This balancing property ensures that the tree remains approximately balanced after insertions and deletions, resulting in efficient operations. AVL trees are named after their inventors, Georgy Adelson-Velsky and Evgenii Landis, who introduced this data structure in 1962.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="YWqla0UX-38"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.13 AVL Tree - Insertion, Rotations(LL,RR,LR,RL) with Example | Data Structures Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Definition and Structure
 An AVL tree consists of nodes similar to a BST, but with an added balance factor for each node:
 - **Data:** The value stored in the node.

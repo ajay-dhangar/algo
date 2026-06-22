@@ -13,6 +13,17 @@ tags: [DSA,problem-solving,linked list]
 
 Given a singly linked list, the task is to delete the middle node. If the list has an even number of nodes, delete the second middle node. For example, given the linked list `1 -> 2 -> 3 -> 4 -> 5`, after deletion, it should become `1 -> 2 -> 4 -> 5`. If the list is `1 -> 2 -> 3 -> 4`, it should become `1 -> 2 -> 4`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ePpV-_pfOeI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L16. Delete the middle node of the LinkedList"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 To delete the middle node of a linked list, we can use the following approach:

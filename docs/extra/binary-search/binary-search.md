@@ -12,6 +12,17 @@ import RelatedTopics from '@site/src/components/RelatedTopics';
 ## Introduction
 Binary search is a searching algorithm, used to search for an element in an array. It follows a unique approach which reduces the time complexity as compared to linear search. However, to use binary search, the array must be sorted. 
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V_T5NuccwRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.2 What is Binary Search | Binary Search Algorithm with example | Data Structures Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Implementation
 
 Let us see how to implement binary search in Java:

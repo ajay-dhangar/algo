@@ -25,6 +25,17 @@ The Shift-Or algorithm, also known as the **Bitap algorithm for exact matching**
 - **Linear Time Complexity**:
   - The algorithm processes the input text linearly, making it highly efficient for exact matching tasks, particularly when the pattern length is small compared to the text length.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="uycvdEtavK0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="String Algorithms - SHIFT and OR algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O\left(\frac{n}{w}\right)$**  

@@ -15,6 +15,17 @@ The problem is to determine if a given string can be partitioned into substrings
 - **Input**: A string `s` and an integer `k`.
 - **Output**: Return `true` if the string can be partitioned into palindromes with at most `k` changes; otherwise, return `false`.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="3jvWodd7ht0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Palindrome Partitioning - Backtracking - Leetcode 131"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example
 - **Input**: 
   - `s = "abc"`, `k = 1`

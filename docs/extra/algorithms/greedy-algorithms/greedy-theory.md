@@ -14,6 +14,16 @@ Greedy algorithms are a paradigm for solving optimization problems. The main ide
 
 Unlike dynamic programming, where you solve every subproblem and then combine the solutions to form the optimal solution for the entire problem, greedy algorithms directly pick what seems to be the best option at each decision point.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="ARvQcqJ_-NY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3. Greedy Method - Introduction"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics of Greedy Algorithms
 
 1. **Greedy Choice Property**: A globally optimal solution can be arrived at by making locally optimal choices. The algorithm assumes that by choosing the optimal solution at each step, the overall solution will be optimal.

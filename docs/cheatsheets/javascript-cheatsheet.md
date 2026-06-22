@@ -9,6 +9,17 @@ tags: [javascript, cheatsheet, dsa]
 
 This page is a quick reference for modern JavaScript (ES6+) patterns that show up constantly in DSA and competitive programming. If you're just starting out, don't worry, every snippet here is explained line by line 😊
 
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="EerdGm-ehJQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="JavaScript Tutorial Full Course - Beginner to Pro"
+  lazyLoad={true}
+  webp
+/>
+
 ## Variable Declaration
 
 ### `const`, `let`, and `var`

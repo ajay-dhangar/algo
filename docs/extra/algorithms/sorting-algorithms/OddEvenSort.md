@@ -20,6 +20,18 @@ Odd-Even Sort is a simple comparison-based sorting algorithm, also known as Bric
 - **Simple Implementation**:
   - Odd-Even Sort is easy to implement and can be parallelized since adjacent element comparisons are independent.
 
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="vXwKKzn6D4E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Brick Sort | Bubble Sort Algorithm | Java plus DSA Placement | FAANG"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n)**  

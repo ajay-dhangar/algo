@@ -11,6 +11,16 @@ sidebar_label: Symmetric Encryption
 
 Symmetric encryption is a type of encryption where the same key is used for both encryption and decryption. This means that the sender and the receiver must both possess the secret key and keep it secure. Symmetric encryption is widely used for data confidentiality in various applications.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="6AmmQiOWoXM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-89: Symmetric Key Cryptography in Network Security with examples"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Single Key**:

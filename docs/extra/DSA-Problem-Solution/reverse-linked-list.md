@@ -12,6 +12,17 @@ tags: [dsa, algorithms, problem-solving]
 ## Description
 Given the head of a singly linked list, reverse the list, and return the reversed list.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="sYcOK51hl-A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Reverse a linked list - Iterative method"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 To reverse the linked list, we iterate through the list and reverse the `next` pointers of each node. We use three pointers (`prev`, `current`, and `next_node`) to track and reverse the list iteratively.

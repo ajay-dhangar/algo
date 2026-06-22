@@ -7,8 +7,20 @@ description: Kadane's Algorithm is an efficient technique used to find the maxim
 tags: [basic-dsa, data-structures,Kadane's Algorithm]
 ---
 
+## Video Explanation
 
-### Defination:
+<LiteYouTubeEmbed
+  id="9IZYqostl2M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kadene's Algorithm | Maximum Subarray Sum | DSA Series by Shradha Ma'am"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
+### Definition:
 
 Kadane's Algorithm is an efficient technique used to find the maximum sum of a contiguous subarray within a one-dimensional array of integers. It is particularly useful in scenarios where the input array may contain both positive and negative numbers. By leveraging a dynamic programming approach, Kadane's Algorithm can identify the maximum sum in linear time, making it optimal for large datasets.
 

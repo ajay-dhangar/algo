@@ -11,6 +11,17 @@ and edges (links) connecting them.
 
 <!-- truncate -->
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="M3_pLsDdeuU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-1. Introduction to Graph | Types | Different Conventions Used"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Vertices and Edges
 
 - **Vertices (Nodes):** Represent entities such as people in a social network or cities on a map.

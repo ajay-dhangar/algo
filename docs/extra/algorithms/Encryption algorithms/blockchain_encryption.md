@@ -11,6 +11,16 @@ sidebar_label: Blockchain Cryptography
 
 Blockchain cryptography refers to the cryptographic algorithms and techniques used to secure and verify the integrity of transactions in blockchain systems. These cryptographic methods ensure that data within the blockchain is tamper-proof, decentralized, and transparent, enabling trust between parties without the need for intermediaries.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="QUG-T3E05P4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Introduction to Cryptography in Blockchain Explained | Blockchain Cryptography"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Immutable Ledger**:

@@ -18,6 +18,17 @@ The **Tiling Problem** involves determining the number of ways to tile a given g
 - **Dynamic Programming Solution**:
   - The problem can be solved using dynamic programming to optimize the computation and avoid recalculating subproblems multiple times.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="dVT9JeUMMDE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Tiling with Dominoes Dynamic Programming | Explanation and Code"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Time Complexity ⏱️
 
 - **Best Case: `O(n)`** 🌟

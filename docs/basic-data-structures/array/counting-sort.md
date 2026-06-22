@@ -6,6 +6,19 @@ description: "Counting Sort is an efficient sorting algorithm used for sorting a
 tags: [counting-sort]
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="mowMVn9wTnE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.10: Counting Sort | Easiest explanation with examples"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 Counting Sort is an efficient, non-comparative sorting algorithm suitable for sorting integers within a specific range. It operates by counting the occurrences of each unique value in the input data and then using those counts to determine the positions of each value in the sorted output.
 
 ## Characteristics

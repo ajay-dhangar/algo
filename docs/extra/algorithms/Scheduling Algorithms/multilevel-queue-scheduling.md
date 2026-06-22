@@ -24,6 +24,16 @@ Multilevel Queue Scheduling is a type of CPU scheduling algorithm where the proc
 3. **Fixed Priority Scheduling:** Each queue is assigned a fixed priority. Higher-priority queues are executed before lower-priority ones.
 4. **Execution:** Processes are executed from higher-priority queues first. If there is no process in the higher-priority queue, the scheduler executes processes from the lower-priority queues.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="hBPYP0ZEvS8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.10: Multi Level Queue Scheduling | Operating System"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 
 Consider a system with three queues:

@@ -22,6 +22,16 @@ Consider three processes with the following duration times:
 
 Using the FCFS algorithm, the processes will be executed in the order of their arrival.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="MZdVAVMgNpA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.3: First Come First Serve(FCFS) CPU Scheduling Algorithm with Example"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Definition
 
 Given a list of processes and their corresponding execution times, calculate the waiting times, turnaround times, average waiting time, and average turnaround time for the processes.

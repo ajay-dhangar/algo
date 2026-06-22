@@ -9,6 +9,17 @@ tags: [dsa, algorithms, divide and conquer]
 ### Problem Statement:
 Given 2 matrix, multiply them such that the time complexity of the calculation is O(n^2.81). You can use divide and conquer approach to achieve the time complexity.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="0oJyNmEbS4w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.9 Strassens Matrix Multiplication"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Algorithm Steps
 
 1. **Input Matrices**: Given two `n x n` matrices, `A` and `B`.

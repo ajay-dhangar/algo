@@ -20,6 +20,17 @@ In **Pancake Sorting**, we are given a stack of pancakes of varying sizes and we
 - **In-Place Sorting**: Pancake sort is performed in-place, meaning it uses a constant amount of extra space.
 - **Non-Comparison-Based**: Unlike comparison-based algorithms like Quick Sort or Merge Sort, pancake sorting only allows flipping operations.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="AFtXLUn_TZg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Pancake Sorting | LeetCode 969 | C++, Java, Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How Pancake Sorting Works
 1. **Find the Largest Pancake**: In each iteration, find the largest pancake that is not yet in its correct position.
 2. **Flip the Largest Pancake to the Top**: Perform a flip to move the largest pancake to the top of the stack.

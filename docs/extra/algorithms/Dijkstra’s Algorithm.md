@@ -14,6 +14,19 @@ This project contains a C program that implements Dijkstra’s Algorithm to find
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V6H1qAeB-l4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-32. Dijkstra's Algorithm - Using Priority Queue - C++ and Java - Part 1"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Problem Definition
 
 **Dijkstra's Algorithm** solves the single-source shortest path problem for graphs with non-negative edge weights. It efficiently finds the shortest path from a starting node to all other nodes in the graph.

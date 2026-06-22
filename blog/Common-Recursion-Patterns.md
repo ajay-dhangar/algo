@@ -13,6 +13,18 @@ In this blog, we'll explore:
 
 - **Tree Traversal**: How to traverse tree structures using recursion.
 - **Backtracking**: An approach to solve problems by trying multiple possibilities.
+---
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="yVdKa8dnKiE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Re 1. Introduction to Recursion | Recursion Tree | Stack Space | Strivers A2Z DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
   
 ---
 

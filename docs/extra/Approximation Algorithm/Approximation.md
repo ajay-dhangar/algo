@@ -11,6 +11,17 @@ tags: [Algorithm, Approximation Algorithm, Optimization]
 ## Overview
 Approximation Algorithms are designed to find near-optimal solutions to optimization problems within a guaranteed factor of the optimal. These algorithms are particularly useful for NP-hard problems, where finding an exact solution is computationally expensive or infeasible.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="u5rqrQqGk3E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DAA100: Approximation Algorithms for Vertex Cover Problem | Node Cover Problem is NP Complete"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Use Cases
 - **Combinatorial Optimization**: Useful in problems like the Traveling Salesman, Knapsack, and Vertex Cover.
 - **Resource Allocation**: Commonly applied in scenarios requiring efficient resource distribution, such as server load balancing.

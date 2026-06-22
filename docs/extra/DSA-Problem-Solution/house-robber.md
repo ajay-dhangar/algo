@@ -20,6 +20,17 @@ Given:
 Objective:
 - Determine the maximum amount of money that can be robbed without robbing two adjacent houses.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="GrMBfJNk_NY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 5. Maximum Sum of Non-Adjacent Elements | House Robber | 1D | DP on Subsequences"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Algorithm Overview
 
 1. **Dynamic Programming Approach**:

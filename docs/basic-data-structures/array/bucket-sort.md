@@ -11,6 +11,18 @@ tags:
 
 description: "Thsi page containes Bucket Sort, with codes in python, java and c++ "
 ---
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="E9OccfF9mpI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.11: Bucket Sort | Easiest explanation with examples | Time Complexity analysis with Pseudocode"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
 
 ### Introduction to Bucket Sort
 

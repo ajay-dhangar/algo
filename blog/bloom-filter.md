@@ -32,6 +32,17 @@ A Bloom Filter is a **bit array** of a fixed size combined with **multiple hash 
    - If all positions are set to 1, the element is likely in the set.
    - If any position is 0, the element is definitely not in the set.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V3pzxngeLqw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bloom Filters | Algorithms You Should Know #2 | Real-world Examples"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example
 If we want to add the word "hello" to a Bloom Filter:
    - Pass "hello" through three hash functions.

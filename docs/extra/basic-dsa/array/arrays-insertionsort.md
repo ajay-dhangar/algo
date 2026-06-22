@@ -6,6 +6,18 @@ sidebar_position: 4
 description: "Insertion Sort is a simple sorting algorithm that builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort."
 tags: [dsa, arrays, sorting, insertion-sort, sorting-algorithms]
 ---
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="oTICKmJhLXI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Insertion Sort By Abdul Bari"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
 
 **Insertion Sort** is a simple sorting algorithm that builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. 
 
