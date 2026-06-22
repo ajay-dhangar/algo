@@ -134,7 +134,7 @@ class Solution:
  * @param {number} coins
  * @return {number}
  */
-var maxIceCream = function(costs, coins) {
+const maxIceCream = function(costs, coins) {
     // Sort the costs to pick the cheapest ones first (ascending order)
     costs.sort((a, b) => a - b);
     
