@@ -146,7 +146,7 @@ var maxIceCream = function(costs, coins) {
             // If we can't afford this one, we can't afford any of the rest
             break;
         }
-    }
+    } 
     
     return count;
 };
