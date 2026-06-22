@@ -55,6 +55,7 @@ To maximize the total *number* of items we can buy with a limited budget, we sho
 ## Solutions:
 
 ### C++
+```cpp
 #include <vector>
 #include <algorithm>
 
