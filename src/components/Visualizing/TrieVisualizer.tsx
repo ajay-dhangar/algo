@@ -407,7 +407,6 @@ const TrieVisualizerComponent: React.FC = () => {
 
   const handleLoadExample = useCallback(() => {
     if (running) return;
-    nodeCounter = 0;
     let newRoot = createTrieNode();
     const words = ["apple", "app", "ape", "bat", "ball", "bar"];
     for (const w of words) {
