@@ -9,6 +9,16 @@ Data types are an essential concept in programming languages like JavaScript. Th
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="-9knnv97wSc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Datatypes and ECMA standards | chai aur #javascript"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. **Primitive Data Types:**
 
 These are the basic building blocks of data.

@@ -10,6 +10,16 @@ Hey there! In this guide, we'll explore loops in C++. Loops are used to execute 
 - C++ provides several types of loops that allow you to execute a block of code multiple times based on specific conditions.
 - The main types of loops in C++ are `for`, `while`, and `do-while`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="a7dfSBrTZtE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="For, While and do-while loops in C++ | C++ Tutorials for Beginners #10"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. For Loop
 
 The for loop is used when you know how many times you want to execute a statement or a block of statements.

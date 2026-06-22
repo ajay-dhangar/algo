@@ -11,6 +11,16 @@ Welcome to the world of C++! In this guide, we'll explore the fundamentals of C+
 
 C++ is a high-level programming language developed by Bjarne Stroustrup in the late 1970s as an extension of the C programming language. It introduces object-oriented programming (OOP) concepts, enabling developers to create complex systems using modular code.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="z9bZufPHFLU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="1. Introduction to C++ | Data Structures and Algorithms | College Placement Course | Lecture 1"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. Key Features of C++
 
 - **Object-Oriented Programming (OOP):** C++ supports OOP principles like encapsulation, inheritance, and polymorphism, allowing for better organization of code.

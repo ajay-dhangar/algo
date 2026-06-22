@@ -21,6 +21,16 @@ The most commonly used SQL aggregate functions are:
 
 Aggregate functions ignore null values (except for `COUNT()`).
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Yr4pHPZCshA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-79: SQL Aggregate Functions - SUM, AVG(n), COUNT, MIN, MAX Functions | DBMS"
+  lazyLoad={true}
+  webp
+/>
+
 
 ## SQL MIN() and MAX() Functions
 

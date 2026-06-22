@@ -12,6 +12,16 @@ Hey there! In this guide, we'll explore the different data types available in Py
 * Python provides several built-in data types that allow you to work with different kinds of data. 
 * These data types can be categorized as primitive or non-primitive.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="t2_Q2BRzeEE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Python Full Course❤️ | Variables & Data Types | Lecture 1"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Primitive Data Types
 
 ### a. Integers (`int`)

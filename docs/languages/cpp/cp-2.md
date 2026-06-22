@@ -11,6 +11,16 @@ Hey there! In this guide, we'll explore operators in C++. Operators are symbols 
 - Operators are symbols that instruct the compiler to perform specific operations on variables or values.
 - C++ supports a variety of operators, including arithmetic, relational, logical, bitwise, and more.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="JBgZxnAj4hg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.3 Operators in C++ Programming | Guaranteed Placement Course | 3.3"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Arithmetic Operators
 
 Arithmetic operators perform mathematical operations such as addition, subtraction, multiplication, and division.

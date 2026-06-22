@@ -10,6 +10,16 @@ Hey there! In this guide, we'll explore the different data types available in C+
 * In C++, variables are containers that hold data and are defined by specifying a type followed by the variable name.
 * Variables must be declared before use and can hold various data types.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="cnT1oW5_ePM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.1 Data Types & Type Modifiers | Data Structures & Algorithms Course in C++ | Lecture 2.1"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Declaring Variables in C++
 
 - To declare a variable in C++, you specify its type, followed by the variable's name.

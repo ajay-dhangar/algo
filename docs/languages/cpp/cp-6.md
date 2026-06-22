@@ -9,6 +9,16 @@ sidebar_label: "Strings In C++"
 
 Hey there! In this guide, we'll explore how to work with strings in C++. Strings are used to store sequences of characters and are a vital part of any C++ program. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="MOSjYaVymcU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings & Character Arrays in C++ - Part 1 | DSA Placement Series"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. C-Style Strings

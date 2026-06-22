@@ -24,6 +24,16 @@ In this example, the `ALTER TABLE` statement adds a new column called `Email` wi
 
 ---
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="NA3b8JRUmww"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-63: ALTER Command (DDL) in SQL with Implementation on ORACLE"
+  lazyLoad={true}
+  webp
+/>
+
 ### Syntax
 
 To **add** a column:

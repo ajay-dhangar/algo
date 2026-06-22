@@ -15,6 +15,16 @@ These statements:
 * Decision-making structures allow you to execute different blocks of code based on certain conditions.
 * C++ provides several constructs for decision-making, including `if`, `else` `if`, `else`, and `switch`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qR9U6bKxJ7g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 3: Conditional Statements & Loops | DSA Series by Shradha Ma'am | C++"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. The `if` Statement
 #### Syntax:
 ```cpp

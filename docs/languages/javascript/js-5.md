@@ -13,6 +13,16 @@ Hey everyone! Today, we will explore loops in JavaScript, a key concept for auto
 
 * JavaScript provides several types of loops, such as `for`, `while`, and `do-while` loops.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="0r1SfRoLuzU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Loops in Java | Java Placement Full Course | Lecture 4"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. For Loop
 
 The `for` loop is the most commonly used loop in JavaScript. It repeats a block of code for a set number of times.  

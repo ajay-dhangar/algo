@@ -10,6 +10,16 @@ Hey there! In this guide, we'll explore classes in C++. Classes are the foundati
 * C++ provides the `class` keyword to define a class.
 * A class can have private and public members, including data (variables) and functions (methods).
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="mlIUKyZIUUU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="OOPs Tutorial in One Shot | Object Oriented Programming | in C++ Language | for Placement Interviews"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Defining a Class
 
 A class in C++ is a blueprint for creating objects. It defines data members and member functions that operate on the data.

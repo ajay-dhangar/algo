@@ -9,6 +9,16 @@ sidebar_label: "Pointers in C++"
 
 In this guide, we'll explore pointers in C++, a powerful feature that allows you to directly manage memory and perform low-level programming tasks.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="zuegQmMdy8M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Pointers in C / C++ [Full Course]"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. What is a Pointer?

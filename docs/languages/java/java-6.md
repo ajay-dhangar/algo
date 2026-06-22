@@ -10,6 +10,16 @@ In Java, classes are the fundamental building blocks of object-oriented programm
 
 Classes in Java define the structure and behavior of objects, specifying what data they can hold and what operations they can perform. Each instance of a class (known as an object) represents a specific implementation of that class.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="bSrm9RXwBaI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java OOPs in One Shot | Object Oriented Programming | Java Language | Placement Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## What Is a Class?
 A class in Java is a user-defined data type that serves as a blueprint for creating objects. It encapsulates data for the object and methods to manipulate that data. Classes contain:
 - **Fields (Instance Variables)**: These represent the state or attributes of an object.

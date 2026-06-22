@@ -13,6 +13,16 @@ Hey, everyone! In this guide, we'll take a journey into **JavaScript**, one of t
 
 JavaScript, often abbreviated as **JS**, is a high-level, dynamic, and versatile programming language used primarily for web development. It allows developers to create interactive web pages, handle user events, and manipulate the Document Object Model (DOM).
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="W6NZfCO5SIk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="JavaScript Course for Beginners – Your First Step to Web Development"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Features of JavaScript:
 
 - **Client-side scripting**: Runs directly in the browser, enabling dynamic content.

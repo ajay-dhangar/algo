@@ -9,6 +9,16 @@ In this guide, we'll discuss arrays in C++. Arrays are a fundamental data struct
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="sNrLlmOIn-c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 9: Introduction to Arrays in C++"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. What is an Array?
 
 An array is a collection of elements of the same data type, stored in contiguous memory locations. Each element is accessed by its index, starting from 0.

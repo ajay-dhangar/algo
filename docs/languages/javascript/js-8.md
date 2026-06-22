@@ -7,6 +7,16 @@ sidebar_label: Functions in JS
 
 A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="P0XMXqDGttU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 5: Functions & Methods | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ## **Functions Declaration**

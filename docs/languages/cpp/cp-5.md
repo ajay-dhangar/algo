@@ -10,6 +10,16 @@ Hey there! In this guide, we'll explore functions in C++. Functions are used to 
 * C++ provides the `class` keyword to define a class.
 * A class can have private and public members, including data (variables) and functions (methods).
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RFLFX1boGwo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Functions & Function Prototypes in C++ | C++ Tutorials for Beginners #15"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Declaring a Function :
 
 C++ provides some pre-defined functions, such as main(), which is used to execute code. But you can also create your own functions to perform certain actions.

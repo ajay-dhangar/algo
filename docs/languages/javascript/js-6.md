@@ -15,6 +15,16 @@ Hey everyone! Today, we will explore Type Casting in JavaScript, an essential co
 * However, there are scenarios where you'll need to change the type of a variable to perform certain operations. 
 * Hence, type casting is essential for accurate, efficient, and error-free handling of data in JavaScript applications.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="X7hDBhd_L5U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Datatype conversion confusion | chai aur #javascript"
+  lazyLoad={true}
+  webp
+/>
+
 ## Types of Type Casting -
 
 JavaScript supports two types of type casting:

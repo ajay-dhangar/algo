@@ -23,6 +23,16 @@ In this example, the `DROP TABLE` statement deletes the **Customers** table and 
 
 ---
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="HnFFRcUvgsE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Oracle - SQL - Drop Table"
+  lazyLoad={true}
+  webp
+/>
+
 ### Syntax
 
 To **drop a table**:

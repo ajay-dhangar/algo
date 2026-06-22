@@ -17,6 +17,16 @@ FROM table_name
 WHERE EXISTS (subquery);
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wA9GJZcB618"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-75: EXIST and NOT EXIST Subqueries(part-8) | Database Management System"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Points
 * EXISTS is often used with correlated subqueries, where the subquery depends on the outer query.
 * If the subquery returns any rows, EXISTS will return TRUE.

@@ -13,6 +13,16 @@ Hey, everyone! In this guide, we'll explore the concept of variables in JavaScri
 
 In the world of programming, variables act as containers. Think of them like labeled boxes that hold various types of information in your program. These containers allow you to store, retrieve, and manipulate data, providing the foundation for dynamic and interactive code.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Q4p8vRQX8uY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Variables in JavaScript | JavaScript Tutorial in Hindi #2"
+  lazyLoad={true}
+  webp
+/>
+
 ### Visualizing Variables
 
 ```mermaid
