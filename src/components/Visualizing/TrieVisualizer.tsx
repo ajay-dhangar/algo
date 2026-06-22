@@ -395,7 +395,6 @@ const TrieVisualizerComponent: React.FC = () => {
   }, [input, root, running, animatePath]);
 
   const handleClear = useCallback(() => {
-    nodeCounter = 0;
     runIdRef.current++;
     setRoot(createTrieNode());
     setInput("");
