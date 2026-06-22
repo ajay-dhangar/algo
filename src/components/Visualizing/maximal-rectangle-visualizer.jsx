@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { withVisualizerErrorBoundary } from './VisualizerErrorBoundary';
 
-export default function MaximalRectangleVisualizer() {
+function MaximalRectangleVisualizer() {
   const [grid, setGrid] = useState([
     ['1', '0', '1', '0', '0'],
     ['1', '0', '1', '1', '1'],
@@ -120,3 +121,5 @@ export default function MaximalRectangleVisualizer() {
     </div>
   );
 }
+
+export default withVisualizerErrorBoundary(MaximalRectangleVisualizer);

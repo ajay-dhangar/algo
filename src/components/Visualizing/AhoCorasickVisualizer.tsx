@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
 interface TrieNode {
   id: number;
@@ -9,7 +10,7 @@ interface TrieNode {
   output: string[];
 }
 
-export const AhoCorasickVisualizer: React.FC = () => {
+const AhoCorasickVisualizerComponent: React.FC = () => {
   const [patternsInput, setPatternsInput] = useState("he, she, his, hers");
   const [searchText, setSearchText] = useState("ushers");
   const [nodes, setNodes] = useState<TrieNode[]>([]);
@@ -227,3 +228,5 @@ export const AhoCorasickVisualizer: React.FC = () => {
     </div>
   );
 };
+
+export const AhoCorasickVisualizer = withVisualizerErrorBoundary(AhoCorasickVisualizerComponent);
