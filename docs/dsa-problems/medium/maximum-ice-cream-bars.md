@@ -55,12 +55,14 @@ To maximize the total *number* of items we can buy with a limited budget, we sho
 ## Solutions:
 
 ### C++
-```cpp
+#include <vector>
+#include <algorithm>
+
 class Solution {
 public:
-    int maxIceCream(vector<int>& costs, int coins) {
+    int maxIceCream(std::vector<int>& costs, int coins) {
         // Sort the costs to pick the cheapest ones first
-        sort(costs.begin(), costs.end());
+        std::sort(costs.begin(), costs.end());
         
         int count = 0;
         for (int cost : costs) {
