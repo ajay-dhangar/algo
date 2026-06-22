@@ -64,7 +64,7 @@ function DocsInfo({ docsPluginId, ...props }) {
         )}
 
         {/* Right Section – Actions */}
-        <div className={styles.actions}>
+        <div className={`${styles.actions} no-print`}>
           {props.editUrl && (
             <a
               href={props.editUrl}

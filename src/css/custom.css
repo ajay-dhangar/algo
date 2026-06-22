@@ -408,3 +408,103 @@ body {
   color: #ffffff !important;
 }
 
+/* =============================================
+   Print Layout Styling & Fixes
+   ============================================= */
+@media print {
+  /* Reset background and colors for ink saving and high contrast */
+  html, body, [data-theme], :root {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+  }
+
+  /* Force standard block layout for print so breaks work correctly (Chromium bug workaround) */
+  .row,
+  .col,
+  .container,
+  .markdown,
+  main,
+  article,
+  .theme-doc-main-container,
+  .theme-doc-wrapper,
+  .theme-doc-markdown,
+  .theme-doc-toc,
+  #__docusaurus {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* Hide navigation, sidebar, TOC, footer, progress elements, comments, and other chrome */
+  .navbar,
+  .theme-doc-sidebar-container,
+  .theme-doc-toc,
+  .table-of-contents,
+  .footer,
+  .pagination-nav,
+  .giscus,
+  .giscus-component,
+  #giscus,
+  #comments,
+  .no-print,
+  .clean-btn.theme-back-to-top-button,
+  .theme-doc-footer,
+  aside {
+    display: none !important;
+  }
+
+  /* Ensure page breaks are handled nicely for headings to prevent orphans */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    color: #000000 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Ensure paragraphs, list items, and blockquotes have margin/padding and don't break weirdly */
+  p, li, blockquote {
+    color: #111111 !important;
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Avoid breaking inside content boxes like code blocks, tables, images, blockquotes */
+  pre, code, .theme-code-block, table, tr, img, svg, figure, blockquote, .mermaid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Code block specific styling for high readability and contrast in print */
+  pre, code, .theme-code-block {
+    background-color: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    color: #000000 !important;
+    font-size: 9.5pt !important;
+    white-space: pre-wrap !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+  }
+
+  /* Expand margins for the main article to look good on A4/Letter papers */
+  article {
+    padding: 1.5cm !important;
+  }
+
+  /* Custom header styling inside printable page */
+  .doc-header-banner {
+    background: none !important;
+    border-bottom: 2px solid #333333 !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 20px !important;
+    color: #000000 !important;
+  }
+}
+
+
