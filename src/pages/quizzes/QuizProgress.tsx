@@ -28,7 +28,7 @@ const QuestionProgress: React.FC<QuestionProgressProps> = ({
           Compilation Progress
         </span>
         <p className="text-sm font-mono text-slate-500 dark:text-slate-400">
-          Node <span className="font-black text-red-600 dark:text-red-500 text-base">{currentQuestion + 1}</span>
+          Node <span className="font-black text-red-800 dark:text-red-400 text-base">{currentQuestion + 1}</span>
           <span className="text-slate-300 dark:text-slate-700 mx-1">/</span>
           <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{totalQuestions}</span>
         </p>

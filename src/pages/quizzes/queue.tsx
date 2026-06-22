@@ -313,7 +313,7 @@ const QueueQuiz: React.FC = () => {
             </div>
             <div className="flex items-center gap-4">
                {!showResult && <div className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-lg text-indigo-600"><FaClock className="inline mr-1"/> {formatTime(timeSpent)}</div>}
-               <button onClick={handleLogout} className="text-rose-500 hover:bg-rose-500/10 px-3 py-1 rounded-lg text-xs font-bold transition-all border-none bg-transparent cursor-pointer"><FaSignOutAlt className="inline mr-1"/> LOGOUT</button>
+               <button onClick={handleLogout} className="text-rose-800 dark:text-rose-400 hover:bg-rose-500/10 px-3 py-1 rounded-lg text-xs font-bold transition-all border-none bg-transparent cursor-pointer"><FaSignOutAlt className="inline mr-1"/> LOGOUT</button>
             </div>
           </div>
 
@@ -330,7 +330,7 @@ const QueueQuiz: React.FC = () => {
 
                   <div className="space-y-6 text-left">
                     <div className="flex items-center gap-2">
-                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded uppercase ${QUESTIONS[currentQuestion].difficulty === 'Hard' ? 'bg-rose-500/10 text-rose-500 border border-rose-500/20' : 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'}`}>
+                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded uppercase ${QUESTIONS[currentQuestion].difficulty === 'Hard' ? 'bg-rose-500/10 text-rose-800 dark:text-rose-400 border border-rose-500/20' : 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'}`}>
                         {QUESTIONS[currentQuestion].difficulty}
                        </span>
                     </div>
@@ -382,10 +382,10 @@ const QueueQuiz: React.FC = () => {
                       <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4">
                         <div className="flex items-start justify-between gap-4">
                           <h5 className="text-sm font-bold leading-relaxed">{idx + 1}. {q.questionText}</h5>
-                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0"/> : <FaTimesCircle className="text-rose-500 shrink-0"/>}
+                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0"/> : <FaTimesCircle className="text-rose-800 dark:text-rose-400 shrink-0"/>}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
-                          <div className={`p-3 rounded-lg border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/5 border-rose-500/20 text-rose-500'}`}>
+                          <div className={`p-3 rounded-lg border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/5 border-rose-500/20 text-rose-800 dark:text-rose-400'}`}>
                             <span className="block text-[8px] font-black uppercase mb-1 opacity-60">Your Input</span> {userAnswers[idx] || '[NO_INPUT]'}
                           </div>
                           {userAnswers[idx] !== q.answer && <div className="p-3 rounded-lg border bg-emerald-500/5 border-emerald-500/20 text-emerald-600">
