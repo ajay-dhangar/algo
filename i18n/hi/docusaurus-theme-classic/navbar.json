@@ -90,5 +90,89 @@
   "item.label.📚 Extended Assets": {
     "message": "विस्तारित संपत्तियां (Extended Assets)",
     "description": "Navbar item with label 📚 Extended Assets"
+  },
+  "item.label.Tutorials": {
+    "message": "Tutorials",
+    "description": "Navbar item with label Tutorials"
+  },
+  "item.label.Blogs": {
+    "message": "Blogs",
+    "description": "Navbar item with label Blogs"
+  },
+  "item.label.Contribution Tracker": {
+    "message": "Contribution Tracker",
+    "description": "Navbar item with label Contribution Tracker"
+  },
+  "item.label.Interview Engine": {
+    "message": "Interview Engine",
+    "description": "Navbar item with label Interview Engine"
+  },
+  "item.label.FAQ": {
+    "message": "FAQ",
+    "description": "Navbar item with label FAQ"
+  },
+  "item.label.Community Hub": {
+    "message": "Community Hub",
+    "description": "Navbar item with label Community Hub"
+  },
+  "item.label.Verification Roadmap": {
+    "message": "Verification Roadmap",
+    "description": "Navbar item with label Verification Roadmap"
+  },
+  "item.label.Core Matrix Questions": {
+    "message": "Core Matrix Questions",
+    "description": "Navbar item with label Core Matrix Questions"
+  },
+  "item.label.Real-World Implementation": {
+    "message": "Real-World Implementation",
+    "description": "Navbar item with label Real-World Implementation"
+  },
+  "item.label.Code Challenges": {
+    "message": "Code Challenges",
+    "description": "Navbar item with label Code Challenges"
+  },
+  "item.label.Practice Arena": {
+    "message": "Practice Arena",
+    "description": "Navbar item with label Practice Arena"
+  },
+  "item.label.Concept Quizzes": {
+    "message": "Concept Quizzes",
+    "description": "Navbar item with label Concept Quizzes"
+  },
+  "item.label.Compiled Solutions": {
+    "message": "Compiled Solutions",
+    "description": "Navbar item with label Compiled Solutions"
+  },
+  "item.label.Contributors Wall": {
+    "message": "Contributors Wall",
+    "description": "Navbar item with label Contributors Wall"
+  },
+  "item.label.Global Leaderboard": {
+    "message": "Global Leaderboard",
+    "description": "Navbar item with label Global Leaderboard"
+  },
+  "item.label.Milestones & Badges": {
+    "message": "Milestones & Badges",
+    "description": "Navbar item with label Milestones & Badges"
+  },
+  "item.label.Infrastructure Patrons": {
+    "message": "Infrastructure Patrons",
+    "description": "Navbar item with label Infrastructure Patrons"
+  },
+  "item.label.Code Playground": {
+    "message": "Code Playground",
+    "description": "Navbar item with label Code Playground"
+  },
+  "item.label.Success Stories": {
+    "message": "Success Stories",
+    "description": "Navbar item with label Success Stories"
+  },
+  "item.label.Public Discussions": {
+    "message": "Public Discussions",
+    "description": "Navbar item with label Public Discussions"
+  },
+  "item.label.Extended Assets": {
+    "message": "Extended Assets",
+    "description": "Navbar item with label Extended Assets"
   }
 }
