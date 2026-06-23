@@ -73,7 +73,7 @@ const quizData = [
     description:
       "Examine call stack behavior, base/recursive cases, and recursive complexity.",
     link: "/quiz-solutions/recursion/",
-    category: "Linear",
+    category: "Algorithms",
   },
   {
     title: "B-Trees Quiz Solutions",
