@@ -103,8 +103,8 @@ fun main() {
 
     println(numbers.sum())         // Sum of all elements
     println(numbers.average())     // Average
-    println(numbers.max())         // Maximum value
-    println(numbers.min())         // Minimum value
+    println(numbers.maxOrNull())   // Maximum value
+    println(numbers.minOrNull())   // Minimum value
     println(numbers.sorted())      // Sorted list (returns List)
     println(numbers.contains(5))   // true
     println(numbers.count())       // 8
