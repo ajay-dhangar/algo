@@ -280,7 +280,7 @@ public interface IDrawable
 
 &#x20;   void Draw();
 
-&#x20;   int MaxSize { get; } = 100;  // Default property (C# 8+)
+    int MaxSize => 100;  // Default property (C# 8+)
 
 &#x20;   
 
