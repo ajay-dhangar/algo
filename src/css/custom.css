@@ -96,11 +96,10 @@
 }
 
 .theme-announcement-bar {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  /* color: white; */
   letter-spacing: 0.2px;
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,14 +129,27 @@
   }
 }
 
-.theme-announcement-bar a {
-  /* text-decoration: underline; */
+.theme-announcement-bar .announcementBarContent_xLdY a {
   text-underline-offset: 3px;
+  text-decoration: none;
   transition: opacity 0.2s ease;
 }
 
-.theme-announcement-bar a:hover {
+.theme-announcement-bar .announcementBarContent_xLdY a:hover {
   opacity: 0.8;
+  color: var(--ifm-color-primary);
+}
+
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--announcement-text);
+}
+
+.close:hover {
+  color:indianred;
 }
 
 .navbar {
@@ -218,7 +230,7 @@ header.doc-header-banner {
       rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 0.6)),
     url('/landing/grid-light.svg');
-  padding: 1rem 0.3rem;
+  padding: 0.3rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid var(--ifm-color-primary-lightest);
   border-radius: 0.5rem;
@@ -228,7 +240,6 @@ header.doc-header-banner {
 html[data-theme='dark'] header.doc-header-banner {
   background-image: url('/landing/grid-dark.svg');
 }
-
 
 .footer {
   background-color: #000;
@@ -256,13 +267,11 @@ button {
   border: 1px solid var(--ifm-color-primary);
 }
 
-
 .theme-doc-markdown {
   width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
 }
-
 
 @media screen and (max-width: 768px) {
   .container {
@@ -384,14 +393,6 @@ button {
   max-width: auto !important;
   padding-left: 0.5rem !important;
   padding-right: 2rem !important;
-}
-
-/* =============================================
-   Fix #2620: Cookie banner overlap + dark mode
-   ============================================= */
-
-body {
-  padding-bottom: 80px;
 }
 
 [data-theme='dark'] .cookieConsent,
