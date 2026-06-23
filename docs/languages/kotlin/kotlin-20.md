@@ -14,8 +14,8 @@ Generics allow you to write **type-safe, reusable code** that works with differe
 ## Generic Functions
 
 ```kotlin
-fun <T> printItem(item: T) {
-    println("Item: $item (${item!!::class.simpleName})")
+fun <T : Any> printItem(item: T) {
+    println("Item: $item (${item::class.simpleName})")
 }
 
 fun main() {
