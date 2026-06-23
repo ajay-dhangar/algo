@@ -66,7 +66,7 @@ const quizData = [
     description:
       "Assess your understanding of sequential search mechanics and complexity analysis.",
     link: "/quiz-solutions/linear-search/",
-    category: "Linear",
+    category: "Algorithms",
   },
   {
     title: "Recursion Fundamentals Quiz Solutions",
