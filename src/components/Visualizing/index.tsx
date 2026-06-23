@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Layout from "@theme/Layout";
 import "../../css/visualiezer.css";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
 interface BarData {
   value: number;
@@ -12,22 +13,55 @@ const COMPARE_COLOR = "blue";
 const SWAP_COLOR = "red";
 const SORTED_COLOR = "green";
 
-const DSARoadmap: React.FC = () => {
+const SortingVisualizer: React.FC = () => {
   const [bars, setBars] = useState<BarData[]>([]);
   const [arraySize, setArraySize] = useState<number>(40);
   const [speed, setSpeed] = useState<number>(100);
   const [isSorting, setIsSorting] = useState<boolean>(false);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
   const abortControllerRef = useRef<AbortController | null>(null);
+  const isPausedRef = useRef<boolean>(false);
+  const unpauseRef = useRef<(() => void) | null>(null);
+
+  const togglePause = () => {
+    if (isPausedRef.current) {
+      isPausedRef.current = false;
+      setIsPaused(false);
+      if (unpauseRef.current) {
+        unpauseRef.current();
+        unpauseRef.current = null;
+      }
+    } else {
+      isPausedRef.current = true;
+      setIsPaused(true);
+    }
+  };
 
   // Derive delay from speed: speed is 20-300. Max delay should be smaller for higher speed.
   const getDelay = () => 320 - speed;
 
-  const waitforme = (millis: number, signal: AbortSignal): Promise<void> => {
+  const waitforme = async (millis: number, signal: AbortSignal): Promise<void> => {
+    if (signal.aborted) throw new Error("aborted");
+    while (isPausedRef.current) {
+      await new Promise<void>((resolve, reject) => {
+        const onAbort = () => {
+          signal.removeEventListener("abort", onAbort);
+          reject(new Error("aborted"));
+        };
+        signal.addEventListener("abort", onAbort);
+
+        unpauseRef.current = () => {
+          signal.removeEventListener("abort", onAbort);
+          resolve();
+        };
+      });
+    }
     return new Promise((resolve, reject) => {
       if (signal.aborted) return reject(new Error("aborted"));
       const onAbort = () => {
         clearTimeout(timeout);
+        signal.removeEventListener("abort", onAbort);
         reject(new Error("aborted"));
       };
       const timeout = setTimeout(() => {
@@ -42,6 +76,10 @@ const DSARoadmap: React.FC = () => {
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
+    if (unpauseRef.current) {
+      unpauseRef.current();
+      unpauseRef.current = null;
+    }
     const newBars: BarData[] = [];
     for (let i = 0; i < size; i++) {
       newBars.push({
@@ -51,6 +89,8 @@ const DSARoadmap: React.FC = () => {
     }
     setBars(newBars);
     setIsSorting(false);
+    setIsPaused(false);
+    isPausedRef.current = false;
   }, []);
 
   useEffect(() => {
@@ -76,20 +116,32 @@ const DSARoadmap: React.FC = () => {
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
+    if (unpauseRef.current) {
+      unpauseRef.current();
+      unpauseRef.current = null;
+    }
     const newController = new AbortController();
     abortControllerRef.current = newController;
     setIsSorting(true);
+    setIsPaused(false);
+    isPausedRef.current = false;
 
     const barsCopy = bars.map(b => ({ ...b, color: DEFAULT_COLOR }));
     setBars(barsCopy);
 
     sortFn(barsCopy, newController.signal)
-      .then(() => setIsSorting(false))
+      .then(() => {
+        setIsSorting(false);
+        setIsPaused(false);
+        isPausedRef.current = false;
+      })
       .catch((err) => {
         if (err.message !== "aborted") {
           console.error(err);
         }
         setIsSorting(false);
+        setIsPaused(false);
+        isPausedRef.current = false;
       });
   };
 
@@ -161,13 +213,13 @@ const DSARoadmap: React.FC = () => {
 
     for (let i = 0; i < n1; i++) {
       await waitforme(delay, signal);
-      arr[left + i].color = "orange";
+      arr[left + i] = { ...arr[left + i], color: "orange" };
       leftArr[i] = arr[left + i].value;
       setBars([...arr]);
     }
     for (let j = 0; j < n2; j++) {
       await waitforme(delay, signal);
-      arr[mid + 1 + j].color = "yellow";
+      arr[mid + 1 + j] = { ...arr[mid + 1 + j], color: "yellow" };
       rightArr[j] = arr[mid + 1 + j].value;
       setBars([...arr]);
     }
@@ -177,12 +229,10 @@ const DSARoadmap: React.FC = () => {
     while (i < n1 && j < n2) {
       await waitforme(delay, signal);
       if (leftArr[i] <= rightArr[j]) {
-        arr[k].value = leftArr[i];
-        arr[k].color = "lightgreen";
+        arr[k] = { ...arr[k], value: leftArr[i], color: "lightgreen" };
         i++;
       } else {
-        arr[k].value = rightArr[j];
-        arr[k].color = "lightgreen";
+        arr[k] = { ...arr[k], value: rightArr[j], color: "lightgreen" };
         j++;
       }
       k++;
@@ -190,16 +240,14 @@ const DSARoadmap: React.FC = () => {
     }
     while (i < n1) {
       await waitforme(delay, signal);
-      arr[k].value = leftArr[i];
-      arr[k].color = "lightgreen";
+      arr[k] = { ...arr[k], value: leftArr[i], color: "lightgreen" };
       i++;
       k++;
       setBars([...arr]);
     }
     while (j < n2) {
       await waitforme(delay, signal);
-      arr[k].value = rightArr[j];
-      arr[k].color = "lightgreen";
+      arr[k] = { ...arr[k], value: rightArr[j], color: "lightgreen" };
       j++;
       k++;
       setBars([...arr]);
@@ -218,7 +266,7 @@ const DSARoadmap: React.FC = () => {
     await mergeSortHelper(arr, 0, arr.length - 1, signal);
     // Color them all green when done
     for (let i = 0; i < arr.length; i++) {
-      arr[i].color = SORTED_COLOR;
+      arr[i] = { ...arr[i], color: SORTED_COLOR };
     }
     setBars([...arr]);
   };
@@ -289,7 +337,148 @@ const DSARoadmap: React.FC = () => {
     setBars([...arr]);
   };
 
-  // --- SELECTION SORT ---
+  // --- SHELL SORT ---
+  const shellSort = async (arr: BarData[], signal: AbortSignal) => {
+    const delay = getDelay();
+    let n = arr.length;
+    for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+      for (let i = gap; i < n; i += 1) {
+        let temp = arr[i].value;
+        let j;
+        arr[i].color = COMPARE_COLOR;
+        setBars([...arr]);
+        await waitforme(delay, signal);
+
+        for (j = i; j >= gap && arr[j - gap].value > temp; j -= gap) {
+          arr[j].color = COMPARE_COLOR;
+          arr[j - gap].color = COMPARE_COLOR;
+          setBars([...arr]);
+          await waitforme(delay, signal);
+
+          arr[j].value = arr[j - gap].value;
+          arr[j].color = DEFAULT_COLOR;
+          arr[j - gap].color = DEFAULT_COLOR;
+        }
+        arr[j].value = temp;
+        arr[i].color = DEFAULT_COLOR;
+        setBars([...arr]);
+      }
+    }
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].color = SORTED_COLOR;
+    }
+    setBars([...arr]);
+  };
+
+  // --- HEAP SORT ---
+  const heapify = async (arr: BarData[], n: number, i: number, signal: AbortSignal) => {
+    const delay = getDelay();
+    let largest = i;
+    const left = 2 * i + 1;
+    const right = 2 * i + 2;
+
+    if (left < n && arr[left].value > arr[largest].value) {
+      largest = left;
+    }
+    if (right < n && arr[right].value > arr[largest].value) {
+      largest = right;
+    }
+
+    if (largest !== i) {
+      arr[i].color = COMPARE_COLOR;
+      arr[largest].color = COMPARE_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+
+      const temp = arr[i].value;
+      arr[i].value = arr[largest].value;
+      arr[largest].value = temp;
+      setBars([...arr]);
+
+      arr[i].color = DEFAULT_COLOR;
+      arr[largest].color = DEFAULT_COLOR;
+
+      await heapify(arr, n, largest, signal);
+    }
+  };
+
+  const heapSort = async (arr: BarData[], signal: AbortSignal) => {
+    const delay = getDelay();
+    const n = arr.length;
+
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+      await heapify(arr, n, i, signal);
+    }
+
+    for (let i = n - 1; i > 0; i--) {
+      arr[0].color = COMPARE_COLOR;
+      arr[i].color = COMPARE_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+
+      const temp = arr[0].value;
+      arr[0].value = arr[i].value;
+      arr[i].value = temp;
+
+      arr[0].color = DEFAULT_COLOR;
+      arr[i].color = SORTED_COLOR;
+      setBars([...arr]);
+
+      await heapify(arr, i, 0, signal);
+    }
+    if (arr.length > 0) arr[0].color = SORTED_COLOR;
+    setBars([...arr]);
+  };
+
+  // --- RADIX SORT ---
+  const countSort = async (arr: BarData[], n: number, exp: number, signal: AbortSignal) => {
+    const delay = getDelay();
+    let output = new Array(n);
+    let count = new Array(10).fill(0);
+
+    for (let i = 0; i < n; i++) {
+      count[Math.floor(arr[i].value / exp) % 10]++;
+      arr[i].color = COMPARE_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+      arr[i].color = DEFAULT_COLOR;
+    }
+
+    for (let i = 1; i < 10; i++) {
+      count[i] += count[i - 1];
+    }
+
+    for (let i = n - 1; i >= 0; i--) {
+      output[count[Math.floor(arr[i].value / exp) % 10] - 1] = arr[i].value;
+      count[Math.floor(arr[i].value / exp) % 10]--;
+    }
+
+    for (let i = 0; i < n; i++) {
+      arr[i].value = output[i];
+      arr[i].color = SWAP_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+      arr[i].color = DEFAULT_COLOR;
+    }
+  };
+
+  const radixSort = async (arr: BarData[], signal: AbortSignal) => {
+    let max = arr[0].value;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i].value > max) {
+        max = arr[i].value;
+      }
+    }
+
+    for (let exp = 1; Math.floor(max / exp) > 0; exp *= 10) {
+      await countSort(arr, arr.length, exp, signal);
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].color = SORTED_COLOR;
+    }
+    setBars([...arr]);
+  };
   const selectionSort = async (arr: BarData[], signal: AbortSignal) => {
     const delay = getDelay();
     for (let i = 0; i < arr.length; i++) {
@@ -342,6 +531,16 @@ const DSARoadmap: React.FC = () => {
                 >
                   New Array
                 </button>
+                {isSorting && (
+                  <button
+                    type="button"
+                    className="btn btn-outline-warning btn-dark ml-2"
+                    onClick={togglePause}
+                    aria-label={isPaused ? "Resume Sorting" : "Pause Sorting"}
+                  >
+                    {isPaused ? "Resume" : "Pause"}
+                  </button>
+                )}
               </div>
               <div className="col">
                 <label htmlFor="arr_sz">
@@ -373,10 +572,10 @@ const DSARoadmap: React.FC = () => {
                   />
                 </label>
               </div>
-              <div className="col gap-2 d-sm-flex justify-content-end">
+              <div className="col gap-2 d-sm-flex justify-content-end flex-wrap">
                 <button 
                   type="button" 
-                  className="btn btn-outline-primary btn-dark"
+                  className="btn btn-outline-primary btn-dark m-1"
                   onClick={() => startSort(bubbleSort)}
                   disabled={isSorting}
                   aria-label="Start Bubble Sort"
@@ -385,7 +584,7 @@ const DSARoadmap: React.FC = () => {
                 </button>
                 <button 
                   type="button" 
-                  className="btn btn-outline-primary btn-dark"
+                  className="btn btn-outline-primary btn-dark m-1"
                   onClick={() => startSort(selectionSort)}
                   disabled={isSorting}
                   aria-label="Start Selection Sort"
@@ -394,7 +593,7 @@ const DSARoadmap: React.FC = () => {
                 </button>
                 <button 
                   type="button" 
-                  className="btn btn-outline-primary btn-dark"
+                  className="btn btn-outline-primary btn-dark m-1"
                   onClick={() => startSort(insertionSort)}
                   disabled={isSorting}
                   aria-label="Start Insertion Sort"
@@ -403,7 +602,7 @@ const DSARoadmap: React.FC = () => {
                 </button>
                 <button 
                   type="button" 
-                  className="btn btn-outline-primary btn-dark"
+                  className="btn btn-outline-primary btn-dark m-1"
                   onClick={() => startSort(quickSort)}
                   disabled={isSorting}
                   aria-label="Start Quick Sort"
@@ -412,12 +611,39 @@ const DSARoadmap: React.FC = () => {
                 </button>
                 <button 
                   type="button" 
-                  className="btn btn-outline-primary btn-dark"
+                  className="btn btn-outline-primary btn-dark m-1"
                   onClick={() => startSort(mergeSort)}
                   disabled={isSorting}
                   aria-label="Start Merge Sort"
                 >
                   Merge Sort
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(heapSort)}
+                  disabled={isSorting}
+                  aria-label="Start Heap Sort"
+                >
+                  Heap Sort
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(radixSort)}
+                  disabled={isSorting}
+                  aria-label="Start Radix Sort"
+                >
+                  Radix Sort
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(shellSort)}
+                  disabled={isSorting}
+                  aria-label="Start Shell Sort"
+                >
+                  Shell Sort
                 </button>
               </div>
             </div>
@@ -437,4 +663,4 @@ const DSARoadmap: React.FC = () => {
   );
 };
 
-export default DSARoadmap;
+export default withVisualizerErrorBoundary(SortingVisualizer);

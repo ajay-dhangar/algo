@@ -12,8 +12,8 @@ const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-      ? false
-      : (() => {
+    ? false
+    : (() => {
         try {
           if (!fs.existsSync(path.join(__dirname, ".git"))) {
             return false;
@@ -74,7 +74,7 @@ const config = {
           rehypePlugins: [rehypeKatex],
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
@@ -93,21 +93,19 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-
       image: "/",
 
-      liveCodeBlock: {  
-        playgroundPosition: 'bottom',
-      },
-      
-      announcementBar: {
-        id: "announcementBar_algo_community",
-        content:
-          '✨ Help us grow: Leave a <b><a target="_blank" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b> and <b><a target="_blank" href="https://chat.whatsapp.com/LKaBzmknsyIIqUY1DSMoZa?mode=gi_t">connect with the Algo Core Circle on WhatsApp</a></b> today.',
-        isCloseable: true,
-        backgroundColor: "var(--docusaurus-highlighted-code-line-bg)",
+      liveCodeBlock: {
+        playgroundPosition: "bottom",
       },
 
+      announcementBar: {
+        id: "star_us_announcement", 
+        content:
+          '🌟 Loving the project? Support our open-source journey with a <b><a target="_blank" rel="noopener noreferrer" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b>!',
+        textColor: "var(--announcement-text)",
+        isCloseable: true,
+      },
       algolia: {
         apiKey: "865d7bd9906f532b1d8cb5cc0f02b383",
         indexName: "ajay-dhangario",
@@ -299,12 +297,12 @@ const config = {
         sidebar: {
           hideable: true,
         },
-      },      
+      },
     }),
 
   markdown: {
     mermaid: true,
-    format: 'mdx',
+    format: "mdx",
     hooks: {
       onBrokenMarkdownLinks: "warn",
     },

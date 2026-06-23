@@ -14,9 +14,6 @@ import {
   FaHistory,
   FaLayerGroup
 } from "react-icons/fa";
-import QuestionProgress from "../../components/Quiz/QuestionProgress";
-import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
-import QuizResultActions from "../../components/Quiz/QuizResultActions";
 
 interface QueueQuestion {
   id: number;
@@ -116,6 +113,93 @@ const QUESTIONS: QueueQuestion[] = [
     options: ["A) Deque (Double-ended Queue)", "B) Circular Queue", "C) Priority Queue", "D) Shuffle-Queue"],
     answer: "D) Shuffle-Queue",
     explanation: "Standard queues focus on order preservation (FIFO or Priority). Shuffling (randomizing order) is an operation typically associated with Lists or Collections, not the Queue interface."
+  },
+  {
+    id: 9,
+    difficulty: "Easy",
+    questionText: "What will happen if you attempt to dequeue an item from a queue that is currently empty?",
+    options: [
+      "A) The operation returns null and continues",
+      "B) It typically triggers a Queue Underflow error/exception",
+      "C) The operation returns undefined",
+      "D) No operation is performed and state remains same"
+    ],
+    answer: "B) It typically triggers a Queue Underflow error/exception",
+    explanation: "Attempting to remove an element from an empty data structure is a boundary case known as underflow. In most robust implementations, this throws an exception to prevent logic errors."
+  },
+  {
+    id: 10,
+    difficulty: "Easy",
+    questionText: "In a circular queue implementation, what is the primary structural benefit compared to a standard linear array queue?",
+    options: [
+      "A) It consumes more memory for faster buffering",
+      "B) It provides faster O(log n) access time",
+      "C) It allows for efficient reuse of empty spaces (space efficiency)",
+      "D) It is significantly simpler to implement with pointers"
+    ],
+    answer: "C) It allows for efficient reuse of empty spaces (space efficiency)",
+    explanation: "Linear queues can suffer from 'false overflow' where space at the front is wasted after dequeues. Circular queues wrap the rear pointer back to the start, utilizing every available slot."
+  },
+  {
+    id: 11,
+    difficulty: "Medium",
+    questionText: "Consider the following sequence of operations. What values will be returned by the two dequeue() calls respectively?",
+    codeSnippet: `enqueue(1);\nenqueue(2);\nenqueue(3);\ndequeue();\nenqueue(4);\ndequeue();`,
+    options: ["A) 1, 2", "B) 1, 3", "C) 2, 4", "D) 3, 4"],
+    answer: "A) 1, 2",
+    explanation: "Queues follow First-In-First-Out (FIFO). The first dequeue removes the first item added (1). The second dequeue removes the next item that was in line (2), regardless of the fact that 4 was added later."
+  },
+  {
+    id: 12,
+    difficulty: "Easy",
+    questionText: "Which of the following data structures can be used as the underlying foundation to implement a Queue?",
+    options: ["A) Static Arrays", "B) Singly or Doubly Linked Lists", "C) Stacks (using two of them)", "D) All of the above"],
+    answer: "D) All of the above",
+    explanation: "Queues are abstract data types. While Arrays and Linked Lists are common, you can even simulate FIFO behavior using two LIFO Stacks."
+  },
+  {
+    id: 13,
+    difficulty: "Medium",
+    questionText: "What is the time complexity of the enqueue and dequeue operations in an optimized Linked List-based queue?",
+    options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
+    answer: "A) O(1)",
+    explanation: "By maintaining both a 'Head' and a 'Tail' pointer, we can add to the back and remove from the front in constant time without traversing the list."
+  },
+  {
+    id: 14,
+    difficulty: "Hard",
+    questionText: "Examine this pseudocode snippet. Which operation does it accurately represent in a typical array-based implementation?",
+    codeSnippet: `if (front == -1) {\n    front = 0;\n}\nrear++;\nqueue[rear] = value;`,
+    options: [
+      "A) Dequeue Operation",
+      "B) Peek Operation",
+      "C) Enqueue Operation",
+      "D) IsEmpty Check"
+    ],
+    answer: "C) Enqueue Operation",
+    explanation: "This code handles the insertion logic: initializing the front pointer if the queue was empty, incrementing the rear index, and placing the new value at that position."
+  },
+  {
+    id: 15,
+    difficulty: "Medium",
+    questionText: "In a Priority Queue, how is the order of element removal (dequeue) determined?",
+    options: [
+      "A) Strictly by the order of arrival (FIFO)",
+      "B) Based on the priority level associated with each element",
+      "C) Based on the alphabetical order of the data",
+      "D) By the physical memory address of the node"
+    ],
+    answer: "B) Based on the priority level associated with each element",
+    explanation: "A Priority Queue breaks the standard FIFO rule. Elements with higher priority are dequeued before elements with lower priority, regardless of when they entered the queue."
+  },
+  {
+    id: 16,
+    difficulty: "Hard",
+    questionText: "If a queue is initially empty, what is the current 'Front' element after this specific sequence?",
+    codeSnippet: `enqueue(10);\nenqueue(20);\ndequeue();\nenqueue(30);`,
+    options: ["A) 10", "B) 20", "C) 30", "D) The queue is empty"],
+    answer: "B) 20",
+    explanation: "1. Enqueue 10 (Front: 10). 2. Enqueue 20 (Front: 10, Rear: 20). 3. Dequeue removes 10. 4. Front moves to 20. 5. Enqueue 30 (Front remains 20, Rear becomes 30)."
   }
 ];
 
@@ -207,7 +291,7 @@ const QueueQuiz: React.FC = () => {
             <form onSubmit={handleRegister} className="space-y-4">
               <input type="text" placeholder="Developer Alias" value={usernameInput} onChange={e => setUsernameInput(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all" required />
-              <button type="submit" className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-lg active:scale-95">
+              <button type="submit" className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-lg active:scale-95 border-none cursor-pointer">
                 Launch Workspace
               </button>
             </form>
@@ -229,7 +313,7 @@ const QueueQuiz: React.FC = () => {
             </div>
             <div className="flex items-center gap-4">
                {!showResult && <div className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-lg text-indigo-600"><FaClock className="inline mr-1"/> {formatTime(timeSpent)}</div>}
-               <button onClick={handleLogout} className="text-rose-500 hover:bg-rose-500/10 px-3 py-1 rounded-lg text-xs font-bold transition-all"><FaSignOutAlt className="inline mr-1"/> LOGOUT</button>
+               <button onClick={handleLogout} className="text-rose-800 dark:text-rose-400 hover:bg-rose-500/10 px-3 py-1 rounded-lg text-xs font-bold transition-all border-none bg-transparent cursor-pointer"><FaSignOutAlt className="inline mr-1"/> LOGOUT</button>
             </div>
           </div>
 
@@ -246,7 +330,7 @@ const QueueQuiz: React.FC = () => {
 
                   <div className="space-y-6 text-left">
                     <div className="flex items-center gap-2">
-                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded uppercase ${QUESTIONS[currentQuestion].difficulty === 'Hard' ? 'bg-rose-500/10 text-rose-500 border border-rose-500/20' : 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'}`}>
+                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded uppercase ${QUESTIONS[currentQuestion].difficulty === 'Hard' ? 'bg-rose-500/10 text-rose-800 dark:text-rose-400 border border-rose-500/20' : 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'}`}>
                         {QUESTIONS[currentQuestion].difficulty}
                        </span>
                     </div>
@@ -264,7 +348,7 @@ const QueueQuiz: React.FC = () => {
                     <div className="grid grid-cols-1 gap-3 pt-4">
                       {QUESTIONS[currentQuestion].options.map((opt, i) => (
                         <button key={i} onClick={() => handleAnswer(opt)}
-                          className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between group ${userAnswers[currentQuestion] === opt ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-indigo-400'}`}>
+                          className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-indigo-400'}`}>
                           <span className="text-sm font-semibold">{opt}</span>
                           <div className={`w-4 h-4 rounded-full border ${userAnswers[currentQuestion] === opt ? 'bg-white border-white' : 'border-slate-300 dark:border-slate-700'}`}></div>
                         </button>
@@ -272,7 +356,7 @@ const QueueQuiz: React.FC = () => {
                     </div>
 
                     <button onClick={handleNext} disabled={!userAnswers[currentQuestion]}
-                      className={`w-full py-4 mt-8 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all ${userAnswers[currentQuestion] ? 'bg-slate-900 text-white dark:bg-indigo-600 hover:opacity-90 shadow-lg cursor-pointer' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed'}`}>
+                      className={`w-full py-4 mt-8 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all border-none ${userAnswers[currentQuestion] ? 'bg-slate-900 text-white dark:bg-indigo-600 hover:opacity-90 shadow-lg cursor-pointer' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed'}`}>
                       {currentQuestion === QUESTIONS.length - 1 ? 'Evaluate System' : 'Next Node'} <FaChevronRight className="text-[10px]"/>
                     </button>
                   </div>
@@ -288,7 +372,7 @@ const QueueQuiz: React.FC = () => {
                       {score === QUESTIONS.length ? 'Perfect execution. FIFO logic fully optimized.' : 'Verification complete. Review edge cases in priority nodes below.'}
                     </p>
                     <div className="flex gap-3 justify-center mt-8">
-                       <button onClick={handleRetry} className="bg-indigo-600 text-white px-6 py-2 rounded-lg font-bold text-xs hover:opacity-90 transition-all cursor-pointer"><FaRedoAlt className="inline mr-2"/> RETRY</button>
+                       <button onClick={handleRetry} className="bg-indigo-600 text-white px-6 py-2 rounded-lg font-bold text-xs hover:opacity-90 transition-all border-none cursor-pointer shadow-md"><FaRedoAlt className="inline mr-2"/> RETRY</button>
                     </div>
                   </div>
 
@@ -298,10 +382,10 @@ const QueueQuiz: React.FC = () => {
                       <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4">
                         <div className="flex items-start justify-between gap-4">
                           <h5 className="text-sm font-bold leading-relaxed">{idx + 1}. {q.questionText}</h5>
-                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0"/> : <FaTimesCircle className="text-rose-500 shrink-0"/>}
+                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0"/> : <FaTimesCircle className="text-rose-800 dark:text-rose-400 shrink-0"/>}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
-                          <div className={`p-3 rounded-lg border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/5 border-rose-500/20 text-rose-500'}`}>
+                          <div className={`p-3 rounded-lg border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/5 border-rose-500/20 text-rose-800 dark:text-rose-400'}`}>
                             <span className="block text-[8px] font-black uppercase mb-1 opacity-60">Your Input</span> {userAnswers[idx] || '[NO_INPUT]'}
                           </div>
                           {userAnswers[idx] !== q.answer && <div className="p-3 rounded-lg border bg-emerald-500/5 border-emerald-500/20 text-emerald-600">

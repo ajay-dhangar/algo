@@ -1,12 +1,22 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { withVisualizerErrorBoundary } from './VisualizerErrorBoundary';
 
 const LargestRectangleInHistogramVisualizer = () => {
   const [heights, setHeights] = useState([2, 1, 5, 6, 2, 3]);
   const [currentStep, setCurrentStep] = useState(0);
   const [simulationSteps, setSimulationSteps] = useState([]);
   const [isPaused, setIsPaused] = useState(true);
+  const [error, setError] = useState(null);
   const speed = 1000; 
   const intervalRef = useRef(null);
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   const generateSimulationSteps = useCallback((hArray) => {
     const steps = [];
@@ -82,6 +92,7 @@ const LargestRectangleInHistogramVisualizer = () => {
   useEffect(() => {
     if (!isPaused && simulationSteps.length > 0) {
       intervalRef.current = setInterval(() => {
+        if (!isMounted.current) return;
         setCurrentStep((prev) => {
           if (prev < simulationSteps.length - 1) {
             return prev + 1;
@@ -161,21 +172,29 @@ const LargestRectangleInHistogramVisualizer = () => {
             const newHeights = JSON.parse(e.target.value);
             if (Array.isArray(newHeights) && newHeights.every(h => typeof h === 'number' && h >= 0)) {
                 setHeights(newHeights);
+                setError(null);
+            } else {
+                setError('Must be a JSON array of non-negative numbers');
             }
-        } catch (err) { /* Invalid JSON input, ignore */ }
+        } catch (err) {
+            setError('Invalid JSON input');
+        }
     }
 
     return (
         <div className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm bg-white dark:bg-gray-800 my-6">
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4">
-                <input 
-                    type="text" 
-                    defaultValue={JSON.stringify(heights)}
-                    onKeyPress={(e) => { if (e.key === 'Enter') handleArrayChange(e); }}
-                    onBlur={handleArrayChange}
-                    className="flex-grow p-2 text-sm font-mono border rounded w-full sm:w-auto"
-                />
-                <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
+                <div className="flex-grow w-full sm:w-auto flex flex-col">
+                    <input 
+                        type="text" 
+                        defaultValue={JSON.stringify(heights)}
+                        onKeyDown={(e) => { if (e.key === 'Enter') handleArrayChange(e); }}
+                        onBlur={handleArrayChange}
+                        className={`p-2 text-sm font-mono border rounded w-full ${error ? 'border-red-500 focus:outline-red-500' : ''}`}
+                    />
+                    {error && <span className="text-red-500 text-xs mt-1">{error}</span>}
+                </div>
+                <div className="flex items-center gap-2 mt-1 sm:mt-0">
                     <button onClick={() => setCurrentStep(0)} className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Reset</button>
                     <button onClick={() => setCurrentStep(prev => Math.max(0, prev - 1))} disabled={currentStep === 0} className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Prev</button>
                     <button onClick={() => setIsPaused(!isPaused)} className="px-6 py-1.5 text-sm font-bold bg-indigo-600 text-white rounded shadow hover:bg-indigo-700 transition-colors">{isPaused ? 'Play' : 'Pause'}</button>
@@ -201,4 +220,4 @@ const LargestRectangleInHistogramVisualizer = () => {
   return <>{renderControls()}</>;
 };
 
-export default LargestRectangleInHistogramVisualizer;
+export default withVisualizerErrorBoundary(LargestRectangleInHistogramVisualizer);

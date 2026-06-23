@@ -22,6 +22,7 @@ import GiscusComponent from "../components/GiscusComponent";
 import Ads from "@site/src/components/AdsComponent/Ads";
 import EdgeCases from "@site/src/components/EdgeCases";
 import Link from "@docusaurus/Link";
+import RelatedTopics from '@site/src/components/RelatedTopics';
 
 export default {
   // Re-use the default mapping
@@ -48,5 +49,6 @@ export default {
   GiscusComponent,
   Ads,
   EdgeCases,
-  Link
+  Link,
+  RelatedTopics
 };

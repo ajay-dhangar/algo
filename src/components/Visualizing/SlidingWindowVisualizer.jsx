@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
 const DEFAULT_ARRAY = [2, 1, 5, 1, 3, 2];
 const WINDOW_SIZE = 3;
 
-export default function SlidingWindowVisualizer() {
+function SlidingWindowVisualizer() {
+    const isMounted = useRef(true);
+    useEffect(() => {
+        isMounted.current = true;
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
     const [left, setLeft] = useState(null);
     const [right, setRight] = useState(null);
     const [currentSum, setCurrentSum] = useState(0);
@@ -18,6 +26,7 @@ export default function SlidingWindowVisualizer() {
 
     const startVisualization = async () => {
         if (running) return;
+        if (!isMounted.current) return;
 
         setRunning(true);
 
@@ -54,6 +63,7 @@ export default function SlidingWindowVisualizer() {
 
             best = Math.max(best, windowSum);
 
+            if (!isMounted.current) return;
             setLeft(start);
             setRight(end);
             setCurrentSum(windowSum);
@@ -66,6 +76,7 @@ export default function SlidingWindowVisualizer() {
             await sleep(1500);
         }
 
+        if (!isMounted.current) return;
         setStatus(
             `🎉 Maximum window sum found = ${best}`
         );
@@ -227,3 +238,5 @@ export default function SlidingWindowVisualizer() {
         </div>
     );
 }
+
+export default withVisualizerErrorBoundary(SlidingWindowVisualizer);

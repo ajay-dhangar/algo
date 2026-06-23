@@ -37,6 +37,235 @@ Kruskal's algorithm is a **greedy algorithm** used to find the Minimum Spanning 
 - **Space Complexity: O(V + E)**  
   The algorithm requires extra space for the parent and rank arrays used by the Union-Find data structure, resulting in O(V + E) space, where V is the number of vertices and E is the number of edges.
 
+---
+## Dry Run Example
+
+Consider the following weighted graph:
+
+```mermaid
+graph LR
+    A ---|4| B
+    A ---|6| C
+    A ---|5| D
+    B ---|15| D
+    C ---|4| D
+```
+
+### Sorted Edges
+
+| Edge | Weight |
+|------|---------|
+| C-D | 4 |
+| A-B | 4 |
+| A-D | 5 |
+| A-C | 6 |
+| B-D | 15 |
+
+Kruskal's Algorithm processes edges in ascending order of weight.
+
+:::note
+The algorithm repeatedly selects the smallest edge that does not create a cycle in the growing Minimum Spanning Tree (MST).
+:::
+
+## Edge Selection Process
+
+### Step 1
+
+Select edge **C-D (4)**
+
+✅ No cycle is formed, so include it in the MST.
+
+Current MST:
+
+```text
+(C-D)
+```
+
+Current Weight = 4
+
+### Step 2
+
+Select edge **A-B (4)**
+
+✅ No cycle is formed, so include it in the MST.
+
+Current MST:
+
+```text
+(C-D), (A-B)
+```
+
+Current Weight = 8
+
+### Step 3
+
+Select edge **A-D (5)**
+
+✅ A and D belong to different components.
+
+Include the edge in the MST.
+
+Current MST:
+
+```text
+(C-D), (A-B), (A-D)
+```
+
+Current Weight = 13
+
+Since the graph contains 4 vertices, the MST must contain exactly:
+
+```text
+V - 1 = 3 edges
+```
+
+The MST is now complete.
+
+### Total MST Weight
+
+```text
+4 + 4 + 5 = 13
+```
+
+:::tip
+A Minimum Spanning Tree of a graph with `V` vertices always contains exactly `V - 1` edges.
+:::
+
+---
+
+## Minimum Spanning Tree Visualization
+
+The selected edges form the following MST:
+
+```mermaid
+graph LR
+    A ---|4| B
+    A ---|5| D
+    D ---|4| C
+```
+
+Selected edges:
+
+1. C-D (4)
+2. A-B (4)
+3. A-D (5)
+
+Total MST Weight = **13**
+
+---
+
+## Cycle Detection Using Union-Find
+
+Kruskal's Algorithm uses the **Union-Find (Disjoint Set Union - DSU)** data structure to efficiently detect cycles while constructing the Minimum Spanning Tree.
+
+### How It Works
+
+1. Initially, every vertex belongs to its own set.
+2. For each edge `(u, v)`:
+   - Find the representative (parent) of `u`.
+   - Find the representative (parent) of `v`.
+3. If both vertices belong to different sets:
+   - Add the edge to the MST.
+   - Merge the two sets.
+4. If both vertices belong to the same set:
+   - Adding the edge would create a cycle.
+   - Discard the edge.
+
+### Example
+
+Initial sets:
+
+```text
+{A}
+{B}
+{C}
+{D}
+```
+
+After selecting edges `(C-D)` and `(A-B)`:
+
+```text
+{A, B}
+{C, D}
+```
+
+When edge `(A-D)` is considered:
+
+```text
+find(A) ≠ find(D)
+```
+
+Therefore, the edge is added and the sets are merged:
+
+```text
+{A, B, C, D}
+```
+
+If another edge connects vertices already inside this set:
+
+```text
+find(A) = find(C)
+```
+
+the edge is skipped because it would create a cycle.
+
+### Why Union-Find?
+
+Without Union-Find, cycle detection could require repeatedly traversing the graph. Union-Find performs cycle checks and set merges in nearly constant time, making Kruskal's Algorithm highly efficient.
+
+### Union-Find Check
+
+```text
+if Find(u) != Find(v)
+    Add Edge
+    Union(u, v)
+else
+    Skip Edge
+```
+
+---
+
+## Algorithm Visualization
+
+```mermaid
+flowchart TD
+    Start[Sort All Edges by Weight]
+    Pick[Pick Smallest Remaining Edge]
+    Check{Forms Cycle?}
+    Add[Add Edge to MST]
+    Skip[Discard Edge]
+    More{MST has V-1 edges?}
+    End[MST Complete]
+
+    Start --> Pick
+    Pick --> Check
+    Check -->|No| Add
+    Check -->|Yes| Skip
+    Add --> More
+    Skip --> More
+    More -->|No| Pick
+    More -->|Yes| End
+```
+
+---
+
+## MST Construction Summary
+
+| Selected Edge | Weight |
+|--------------|---------|
+| C-D | 4 |
+| A-B | 4 |
+| A-D | 5 |
+
+### Final MST Weight
+
+```text
+13
+```
+
+The algorithm successfully constructs the Minimum Spanning Tree by selecting the smallest valid edges while avoiding cycles using the Union-Find data structure.
+
+---
 ### C++ Implementation:
 
 ```cpp

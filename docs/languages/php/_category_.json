@@ -1,0 +1,18 @@
+{
+  "label": "php",
+  "position": 12,
+  "link": {
+    "type": "generated-index",
+    "title": "php Programming Language",
+    "slug": "/category/php",
+    "description": "Learn php from basics to advanced concepts including variables, functions, OOP, database connectivity, sessions, cookies, and exception handling.",
+    "keywords": [
+      "php",
+      "php programming",
+      "php tutorial",
+      "php OOP",
+      "php MySQL",
+      "php web development"
+    ]
+  }
+}
