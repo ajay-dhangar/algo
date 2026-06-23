@@ -8,7 +8,7 @@ tags: [java, Streams, Lambda, Functional Programming, filter, map, reduce, colle
 ---
 
 :::info Who is this for?
-Developers who know basic Java (loops, collections) and want to write cleaner, modern code using **lambda expressions** and the **Streams API**. This guide focuses on functional-style programming with hands-on examples. For the full Collections reference, see [Collections and Streams in Java](./java-14.md).
+Developers who know basic Java (loops, collections) and want to write cleaner, modern code using **lambda expressions** and the **Streams API**. This guide focuses on functional-style programming with hands-on examples. For the full Collections reference, see [Collections and Streams in Java](./collections-and-streams).
 :::
 
 # Java Streams API and Lambda Expressions

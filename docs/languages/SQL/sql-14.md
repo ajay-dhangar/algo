@@ -111,5 +111,4 @@ SELECT MIN(Price) AS SmallestPrice, CategoryID
 FROM Products  
 GROUP BY CategoryID;
 ```
-
-You will learn more about the `[GROUP BY](./sql-21.md)` clause later in this tutorial.
+
