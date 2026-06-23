@@ -216,12 +216,6 @@ const DataStructuresQuiz: React.FC = () => {
     handleFinishQuiz(); // Call finish quiz function
   };
 
-  // Automatically finish quiz when all questions are answered
-  useEffect(() => {
-    if (currentQuestionIndex === questions.length) {
-      handleFinishQuiz();
-    }
-  }, [currentQuestionIndex]);
 
   // Format time as MM:SS
   const formatTime = (seconds) => {
@@ -291,7 +285,7 @@ const DataStructuresQuiz: React.FC = () => {
                   )}
                 </div>
                 {currentQuestionIndex === questions.length - 1 ? (
-                  <button className="mt-5 bg-blue-600 rounded-lg text-white border border-blue-600 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed" onClick={handleSubmitQuiz} disabled={!selectedOption}>
+                  <button className="mt-5 bg-blue-600 rounded-lg text-white border border-blue-600 p-3" onClick={handleSubmitQuiz}>
                     Submit Quiz
                   </button>
                 ) : (
