@@ -77,11 +77,21 @@ function monogram(name: string): string {
 const SponsorsPage: React.FC = () => {
   const [activeTier, setActiveTier] = useState<"all" | "enterprise" | "individual">("all");
   const [glowingIndex, setGlowingIndex] = useState<number | null>(null);
+  const [hoveredBacker, setHoveredBacker] = useState<{ index: number; x: number; y: number } | null>(null);
 
   // Briefly glow the clicked backer card before the new tab opens / as user feedback
   const triggerGlow = (index: number) => {
     setGlowingIndex(index);
     window.setTimeout(() => setGlowingIndex(null), 900);
+  };
+
+  const updateBackerGlow = (index: number, event: React.PointerEvent<HTMLAnchorElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setHoveredBacker({
+      index,
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top,
+    });
   };
 
   return (
@@ -266,13 +276,28 @@ const SponsorsPage: React.FC = () => {
                       href={`https://github.com/${bk.username}`}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onPointerEnter={(event) => updateBackerGlow(i, event)}
+                      onPointerMove={(event) => updateBackerGlow(i, event)}
+                      onPointerLeave={() => setHoveredBacker(null)}
                       onClick={() => triggerGlow(i)}
                       className={`group relative flex items-center gap-3 p-3 rounded-xl border bg-slate-50/50 dark:bg-zinc-950/40 hover:bg-white dark:hover:bg-zinc-900/60 hover:shadow-3xs transition-all duration-200 no-underline ${
                         glowingIndex === i
                           ? "backer-glow border-[var(--ifm-color-primary)]"
-                          : "border-slate-100 dark:border-zinc-800/40 hover:border-slate-300 dark:hover:border-zinc-700"
+                          : "border-slate-100 dark:border-zinc-800/40 hover:border-slate-300 dark:hover:border-zinc-700 hover:shadow-[0_0_0_1px_rgba(59,130,246,0.18),0_0_24px_rgba(59,130,246,0.12)] dark:hover:shadow-[0_0_0_1px_rgba(234,179,8,0.18),0_0_24px_rgba(234,179,8,0.1)]"
                       }`}
                     >
+                      {hoveredBacker?.index === i && (
+                        <span
+                          aria-hidden="true"
+                          className="pointer-events-none absolute inset-0 backer-hover-glow"
+                          style={
+                            {
+                              "--glow-x": `${hoveredBacker.x}px`,
+                              "--glow-y": `${hoveredBacker.y}px`,
+                            } as React.CSSProperties
+                          }
+                        />
+                      )}
                       <img
                         src={`https://github.com/${bk.username}.png?size=72`}
                         alt={bk.username}
@@ -280,7 +305,7 @@ const SponsorsPage: React.FC = () => {
                         className={`w-9 h-9 rounded-full border object-cover bg-slate-200 dark:bg-zinc-800 transition-all duration-300 ${
                           glowingIndex === i
                             ? "border-[var(--ifm-color-primary)] shadow-[0_0_12px_var(--ifm-color-primary)]"
-                            : "border-slate-200 dark:border-zinc-800"
+                            : "border-slate-200 dark:border-zinc-800 group-hover:border-[var(--ifm-color-primary)] group-hover:shadow-[0_0_16px_rgba(59,130,246,0.25)] dark:group-hover:shadow-[0_0_16px_rgba(234,179,8,0.2)]"
                         }`}
                         onError={(e) => {
                           // Fallback to a generated avatar if the GitHub user has no image / 404s
@@ -400,6 +425,27 @@ const SponsorsPage: React.FC = () => {
           }
           .backer-glow {
             animation: backerGlowPulse 0.9s ease-out;
+          }
+          .backer-hover-glow {
+            background:
+              radial-gradient(
+                circle at var(--glow-x) var(--glow-y),
+                rgba(59, 130, 246, 0.28) 0%,
+                rgba(59, 130, 246, 0.16) 18%,
+                rgba(59, 130, 246, 0.08) 34%,
+                transparent 68%
+              );
+            mix-blend-mode: screen;
+          }
+          [data-theme="dark"] .backer-hover-glow {
+            background:
+              radial-gradient(
+                circle at var(--glow-x) var(--glow-y),
+                rgba(234, 179, 8, 0.26) 0%,
+                rgba(234, 179, 8, 0.14) 18%,
+                rgba(234, 179, 8, 0.06) 34%,
+                transparent 68%
+              );
           }
         `}</style>
       </main>
