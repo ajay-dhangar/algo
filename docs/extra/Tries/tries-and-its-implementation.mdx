@@ -7,8 +7,17 @@ description: "In this blog post, we'll explore Tries, a powerful data structure 
 tags: [dsa, data structures, tries]
 ---
 
+import { TrieVisualizer } from '@site/src/components/Visualizing/TrieVisualizer';
+
 ## Introduction
 Tries, also known as **Prefix Trees**, are a specialized data structure used primarily for **efficient retrieval of keys** in a dataset of strings. Tries are particularly useful when dealing with problems involving dynamic sets of strings, such as word searches, dictionary implementations, or autocomplete systems. Unlike other data structures such as hash tables, tries store characters at each level, providing a more structured representation of the key itself.
+
+## Interactive Visualization
+
+Try inserting, searching, and deleting words in the interactive Trie below to see how the data structure works in real-time:
+
+<TrieVisualizer />
+
 
 ## Definition and Structure
 A Trie is a tree-like data structure where each node represents a single character of a string. The root node is typically an empty node, and each path down the tree represents a word or prefix.
