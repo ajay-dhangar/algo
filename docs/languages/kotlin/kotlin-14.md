@@ -114,7 +114,7 @@ class Circle(radius: Double) {
         }
 
     val area: Double
-        get() = Math.PI * radius * radius
+        get() = kotlin.math.PI * radius * radius
 }
 
 fun main() {
