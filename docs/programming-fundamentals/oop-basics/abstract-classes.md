@@ -48,13 +48,13 @@ An **abstract class** is a class that cannot be instantiated on its own and is d
 
 - Can contain:
 
-&#x20; - Abstract methods (no body).
+  - Abstract methods (no body).
 
-&#x20; - Concrete methods (with implementation).
+  - Concrete methods (with implementation).
 
-&#x20; - Fields (variables).
+  - Fields (variables).
 
-&#x20; - Static methods and variables.
+  - Static methods and variables.
 
 
 
