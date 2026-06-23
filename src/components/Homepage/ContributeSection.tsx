@@ -156,7 +156,7 @@ const ContributeSection: React.FC = () => {
           </a>
 
           <a
-            href="/contibution_documentation"
+            to="/contribution_documentation"
             className="
               w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               bg-white hover:bg-slate-50 dark:bg-gray-900 dark:hover:bg-gray-800/80
