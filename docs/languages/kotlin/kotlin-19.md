@@ -202,7 +202,6 @@ fun main() {
 
 ```kotlin
 import java.io.File
-import java.time.LocalDateTime
 
 data class LogEntry(val timestamp: String, val level: String, val message: String)
 
