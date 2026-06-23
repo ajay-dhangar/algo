@@ -477,7 +477,7 @@ button {
   }
 
   /* Avoid breaking inside content boxes like code blocks, tables, images, blockquotes */
-  pre, code, .theme-code-block, table, tr, img, svg, figure, blockquote, .mermaid {
+  pre, .theme-code-block, table, tr, img, svg, figure, blockquote, .mermaid {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
