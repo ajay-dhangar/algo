@@ -251,36 +251,21 @@ public class Program
 ```mermaid
 
 classDiagram
-
-&#x20;   class Person {
-
-&#x20;       -String name
-
-&#x20;       -int age
-
-&#x20;       +introduce()
-
-&#x20;   }
-
-&#x20;   class Alice {
-
-&#x20;       +String name = "Alice"
-
-&#x20;       +int age = 30
-
-&#x20;   }
-
-&#x20;   class Bob {
-
-&#x20;       +String name = "Bob"
-
-&#x20;       +int age = 25
-
-&#x20;   }
-
-&#x20;   Person <|-- Alice
-
-&#x20;   Person <|-- Bob
+    class Person {
+        -String name
+        -int age
+        +introduce()
+    }
+    class Alice {
+        +String name = "Alice"
+        +int age = 30
+    }
+    class Bob {
+        +String name = "Bob"
+        +int age = 25
+    }
+    Person ..> Alice : "instantiates"
+    Person ..> Bob : "instantiates"
 
 ```
 
