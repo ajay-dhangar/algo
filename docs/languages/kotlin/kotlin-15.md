@@ -121,8 +121,8 @@ class Rectangle(val width: Double, val height: Double, color: String) : Shape(co
 }
 
 class Circle(val radius: Double, color: String) : Shape(color) {
-    override fun area() = Math.PI * radius * radius
-    override fun perimeter() = 2 * Math.PI * radius
+    override fun area() = kotlin.math.PI * radius * radius
+    override fun perimeter() = 2 * kotlin.math.PI * radius
 }
 
 fun main() {
