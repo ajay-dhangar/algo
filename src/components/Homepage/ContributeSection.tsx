@@ -1,11 +1,11 @@
 import React from "react";
-import { 
-  FaGithub, 
-  FaCodeBranch, 
-  FaFileCode, 
-  FaArrowRight, 
+import {
+  FaGithub,
+  FaCodeBranch,
+  FaFileCode,
+  FaArrowRight,
   FaBookOpen,
-  FaCheckCircle
+  FaCheckCircle,
 } from "react-icons/fa";
 
 interface ContributionStep {
@@ -24,7 +24,8 @@ const ContributeSection: React.FC = () => {
       icon: <FaGithub />,
       stepNumber: "01",
       title: "Fork the Repository",
-      description: "Create a personal copy of the code ecosystem under your GitHub profile to freely implement, test, and sand-box your algorithmic configurations.",
+      description:
+        "Create a personal copy of the code ecosystem under your GitHub profile to freely implement, test, and sand-box your algorithmic configurations.",
       link: "https://github.com/ajay-dhangar/algo/fork",
       actionText: "Fork Repository",
     },
@@ -32,38 +33,43 @@ const ContributeSection: React.FC = () => {
       icon: <FaCodeBranch />,
       stepNumber: "02",
       title: "Create a Feature Branch",
-      description: "Isolate your changes inside a isolated development branch. Keeping your system commits separated ensures a clean, predictable merge hierarchy.",
+      description:
+        "Isolate your changes inside a isolated development branch. Keeping your system commits separated ensures a clean, predictable merge hierarchy.",
       badgeText: "Local Setup",
     },
     {
       icon: <FaFileCode />,
       stepNumber: "03",
       title: "Submit a Pull Request",
-      description: "Open a upstream PR. Our automated continuous integration runners and core reviewers will analyze your structures for integration.",
+      description:
+        "Open a upstream PR. Our automated continuous integration runners and core reviewers will analyze your structures for integration.",
       badgeText: "Review Phase",
     },
   ];
 
   return (
     <section className="relative overflow-hidden py-24 bg-gradient-to-b from-white via-slate-50/40 to-white dark:from-gray-950 dark:via-gray-900/30 dark:to-gray-950">
-      
       {/* Decorative High-Tech Mesh Overlay and Ambient Light Flares */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
       <div className="absolute top-1/4 left-10 -z-10 h-96 w-96 rounded-full bg-blue-500/5 blur-[100px] dark:bg-blue-500/10 pointer-events-none" />
       <div className="absolute bottom-1/4 right-10 -z-10 h-96 w-96 rounded-full bg-indigo-500/5 blur-[100px] dark:bg-indigo-500/10 pointer-events-none" />
 
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        
         {/* Component Title & Subtitle Header */}
         <div className="mx-auto max-w-3xl text-center mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/30 text-xs font-bold text-[var(--ifm-color-primary)] uppercase tracking-wider mb-4">
             Open Source Workflow
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
-            Want to <span className="text-[var(--ifm-color-primary)] bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 bg-clip-text text-transparent">Contribute?</span>
+            Want to{" "}
+            <span className="text-[var(--ifm-color-primary)] bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 bg-clip-text text-transparent">
+              Contribute?
+            </span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Join an engineering community building clear, accessible computer science infrastructure. We welcome feature builds, runtime optimization, and refined algorithm indexing.
+            Join an engineering community building clear, accessible computer
+            science infrastructure. We welcome feature builds, runtime
+            optimization, and refined algorithm indexing.
           </p>
         </div>
 
@@ -87,7 +93,9 @@ const ContributeSection: React.FC = () => {
                 {/* Header Row: Structural Card Icons & Step Counter Labels */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="inline-flex p-3 rounded-xl bg-slate-50 dark:bg-gray-800/60 text-slate-700 dark:text-slate-300 border border-slate-100 dark:border-slate-700/50 transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ifm-color-primary)] group-hover:text-white group-hover:border-transparent">
-                    {React.cloneElement(item.icon, { className: "h-5 w-5 sm:h-6 sm:w-6" })}
+                    {React.cloneElement(item.icon, {
+                      className: "h-5 w-5 sm:h-6 sm:w-6",
+                    })}
                   </div>
                   <span className="text-3xl font-black font-mono tracking-tight text-slate-200 dark:text-slate-800 transition-colors duration-300 group-hover:text-[var(--ifm-color-primary)]/20">
                     {item.stepNumber}
@@ -148,9 +156,7 @@ const ContributeSection: React.FC = () => {
           </a>
 
           <a
-            href="https://github.com/ajay-dhangar/algo/blob/main/CONTRIBUTING.md"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contibution_documentation"
             className="
               w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               bg-white hover:bg-slate-50 dark:bg-gray-900 dark:hover:bg-gray-800/80
@@ -163,7 +169,6 @@ const ContributeSection: React.FC = () => {
             <span>Read Contribution Guide</span>
           </a>
         </div>
-        
       </div>
     </section>
   );
