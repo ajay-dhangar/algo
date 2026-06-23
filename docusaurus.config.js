@@ -26,6 +26,15 @@ const showGitHistory =
         }
       })();
 
+const isProd = process.env.NODE_ENV === "production";
+const apiBaseUrl = process.env.ALGO_API_URL || process.env.DOCUSAURUS_API_BASE_URL;
+
+if (isProd && !apiBaseUrl) {
+  throw new Error(
+    "Configuration Error: Neither ALGO_API_URL nor DOCUSAURUS_API_BASE_URL environment variable is set in production."
+  );
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Algo",
@@ -36,6 +45,9 @@ const config = {
   baseUrl: "/algo/",
   organizationName: "codeharborhub",
   projectName: "algo",
+  customFields: {
+    apiBaseUrl: apiBaseUrl || "http://localhost:5000",
+  },
 
   onBrokenLinks: "throw",
   // onBrokenMarkdownLinks: "throw",

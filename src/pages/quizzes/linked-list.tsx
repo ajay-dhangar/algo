@@ -204,6 +204,7 @@ const LinkedListQuiz: React.FC = () => {
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
+  const [apiError, setApiError] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
 
   const apiBaseUrl = useApiBaseUrl();
@@ -239,9 +240,12 @@ const LinkedListQuiz: React.FC = () => {
 
   const fetchAttempts = async (uId: string) => {
     try {
+      setApiError(null);
       const res = await axios.get(buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/linked-list`));
       if (res.data?.success && Array.isArray(res.data.attempts)) {
         setAttempts(res.data.attempts);
+      } else {
+        setApiError("Failed to load attempt history.");
       }
     } catch (e) {
       console.error("Error fetching linked list quiz history:", e);
@@ -270,15 +274,22 @@ const LinkedListQuiz: React.FC = () => {
   const submitAttempt = async (finalAnswers: string[]) => {
     if (!userId) return;
     try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
+      setApiError(null);
+      const res = await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
         userId,
         quizId: "linked-list",
         userAnswers: finalAnswers,
         timeSpent
       });
-      fetchAttempts(userId);
+      
+      if (res.data?.success) {
+        fetchAttempts(userId);
+      } else {
+        setApiError("Failed to save quiz attempt.");
+      }
     } catch (e) {
       console.error("Failed to submit linked list quiz attempt:", e);
+      setApiError("Unable to connect to the server. Your attempt could not be saved.");
     }
   };
 
@@ -530,6 +541,13 @@ const LinkedListQuiz: React.FC = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+
+                        {apiError && (
+              <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-solid border-red-500/20 text-red-700 dark:text-red-400 text-xs font-semibold font-mono uppercase tracking-wider flex items-center gap-2">
+                <span>⚠️</span>
+                <span>{apiError}</span>
+              </div>
+            )}
 
             {attempts.length > 0 && (
               <div className="mt-12 border-t border-solid border-slate-200 dark:border-slate-800/80 pt-8 text-left">

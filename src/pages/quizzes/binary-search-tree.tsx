@@ -150,6 +150,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
+  const [apiError, setApiError] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
 
   const apiBaseUrl = useApiBaseUrl();
@@ -189,11 +190,14 @@ const BinarySearchTreeQuiz: React.FC = () => {
 
   const fetchAttempts = async (uId: string) => {
     try {
+      setApiError(null);
       const res = await axios.get(
         buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/binary-search-tree`)
       );
       if (res.data?.success && Array.isArray(res.data.attempts)) {
         setAttempts(res.data.attempts);
+      } else {
+        setApiError("Failed to load attempt history.");
       }
     } catch (e) {
       console.error("Error retrieving historical diagnostic data streams:", e);
@@ -222,15 +226,22 @@ const BinarySearchTreeQuiz: React.FC = () => {
   const submitAttempt = async (finalAnswers: string[]) => {
     if (!userId) return;
     try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
+      setApiError(null);
+      const res = await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
         userId,
         quizId: "binary-search-tree",
         userAnswers: finalAnswers,
         timeSpent
       });
-      fetchAttempts(userId);
+      
+      if (res.data?.success) {
+        fetchAttempts(userId);
+      } else {
+        setApiError("Failed to save quiz attempt.");
+      }
     } catch (e) {
       console.error("Error processing parameter payload transmission:", e);
+      setApiError("Unable to connect to the server. Your attempt could not be saved.");
     }
   };
 
@@ -313,7 +324,14 @@ const BinarySearchTreeQuiz: React.FC = () => {
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
         <div className="max-w-4xl mx-auto">
           
-          {/* Top Status Bar */}
+                      {apiError && (
+              <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-solid border-red-500/20 text-red-700 dark:text-red-400 text-xs font-semibold font-mono uppercase tracking-wider flex items-center gap-2">
+                <span>⚠️</span>
+                <span>{apiError}</span>
+              </div>
+            )}
+
+            {/* Top Status Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-solid border-slate-200 dark:border-slate-800/80 rounded-2xl p-4 mb-6 shadow-xs">
             <div className="flex items-center gap-3">
               <FaUserCircle className="text-2xl text-slate-400 dark:text-slate-600" />

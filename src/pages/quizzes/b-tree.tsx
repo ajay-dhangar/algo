@@ -13,7 +13,7 @@ import {
   FaHistory, 
   FaAward 
 } from "react-icons/fa";
-import { buildApiUrl } from "../../utils/api";
+import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -176,9 +176,10 @@ const BTreeQuiz: React.FC = () => {
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<DBAttempt[]>([]);
   const [isMounted, setIsMounted] = useState(false);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   // Fallback anchor configuration for context boundaries
-  const apiBaseUrl = "https://api.codeharborhub.com"; 
+  const apiBaseUrl = useApiBaseUrl(); 
 
   useEffect(() => {
     setIsMounted(true);
@@ -194,7 +195,7 @@ const BTreeQuiz: React.FC = () => {
     if (userId) {
       fetchAttempts(userId);
     }
-  }, [userId]);
+  }, [userId, apiBaseUrl]);
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -215,14 +216,18 @@ const BTreeQuiz: React.FC = () => {
 
   const fetchAttempts = async (uId: string) => {
     try {
+      setApiError(null);
       const res = await axios.get(
         buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/b-tree`)
       );
       if (res.data?.success && Array.isArray(res.data.attempts)) {
         setAttempts(res.data.attempts);
+      } else {
+        setApiError("Failed to load attempt history.");
       }
     } catch (e) {
       console.error("Failed to recover target user records stream:", e);
+      setApiError("Unable to connect to the server. Attempt history may not be up to date.");
     }
   };
 
@@ -248,15 +253,21 @@ const BTreeQuiz: React.FC = () => {
   const submitAttempt = async (finalAnswers: string[]) => {
     if (!userId) return;
     try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
+      setApiError(null);
+      const res = await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
         userId,
         quizId: "b-tree",
         userAnswers: finalAnswers,
         timeSpent
       });
-      fetchAttempts(userId);
+      if (res.data?.success) {
+        fetchAttempts(userId);
+      } else {
+        setApiError("Failed to save quiz attempt.");
+      }
     } catch (e) {
       console.error("Failed transmission check of user compilation metrics:", e);
+      setApiError("Unable to connect to the server. Your attempt could not be saved.");
     }
   };
 
@@ -523,6 +534,13 @@ const BTreeQuiz: React.FC = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+
+            {apiError && (
+              <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-solid border-red-500/20 text-red-700 dark:text-red-400 text-xs font-semibold font-mono uppercase tracking-wider flex items-center gap-2">
+                <span>⚠️</span>
+                <span>{apiError}</span>
+              </div>
+            )}
 
             {/* Historical Verification Track Log */}
             {attempts.length > 0 && (
