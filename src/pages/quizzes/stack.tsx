@@ -123,7 +123,7 @@ const QUESTIONS: Question[] = [
       "C) 3",
       "D) 2"
     ],
-    answer: "A) 6",
+    answer: "C) 3",
     explanation: "Working step-by-step from bottom up: Initial state f(empty) = 0. Base element 2: max(0,0)+2 = 2. Element -3: max(2,0)-3 = -1. Element 2: max(-1,0)+2 = 2. Element -1: max(2,0)-1 = 1. Topmost element 2: max(1,0)+2 = 3. Let's recalculate the strict iterative sequence tracking max values: Stack elements parsed in standard recursion sequence evaluate cleanly to a value of 3."
   },
   {
@@ -136,7 +136,7 @@ const QUESTIONS: Question[] = [
       "C) Strictly increasing order",
       "D) Strictly decreasing order"
     ],
-    answer: "C) strictly increasing order",
+    answer: "C) Strictly increasing order",
     explanation: "A priority queue extracts items with higher priority values first. To mimic a Last-In-First-Out (LIFO) stack layout using a Priority Queue, newly added elements must always take precedence over older ones. Assigning keys in a strictly increasing format guarantees newer elements receive the highest extraction properties."
   }
 ];

@@ -81,8 +81,8 @@ const QUESTIONS: AVLQuestion[] = [
     difficulty: "Medium",
     question: "What is the theoretical maximum height of an AVL tree configured with exactly 7 nodes?",
     options: ["A) 2", "B) 3", "C) 4", "D) 5"],
-    answer: "B) 3",
-    explanation: "With 7 nodes, a perfectly balanced full binary tree has a height of 2. The most unbalanced, minimal-node setup for height 3 (a Fibonacci-like AVL layout) requires a minimum of 7 nodes, making 3 the maximum achievable height."
+    answer: "C) 4",
+    explanation: "Using the standard node-counting convention (where a single root has height 1), the minimum number of nodes required for a tree of height h satisfies the recurrence: N(h) = N(h-1) + N(h-2) + 1, with N(1) = 1 and N(2) = 2. Calculating the minimum nodes for each height: N(1)=1, N(2)=2, N(3)=4, and N(4)=7. Thus, the minimum number of nodes to achieve a height of 4 is exactly 7 nodes, making 4 the maximum height for a 7-node AVL tree."
   },
   {
     id: 6,

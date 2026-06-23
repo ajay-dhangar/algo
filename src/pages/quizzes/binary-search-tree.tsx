@@ -113,8 +113,8 @@ const QUESTIONS: BSTQuestion[] = [
     difficulty: "Hard",
     question: "What is the maximum possible height of an unbalanced Binary Search Tree that holds exactly 'n' nodes?",
     options: ["A) O(log n)", "B) O(n)", "C) O(n - 1)", "D) O(sqrt(n))"],
-    answer: "C) O(n - 1)",
-    explanation: "In a worst-case, single-line skewed tree, every node has exactly one child. Counting the distance from the root down to the last leaf gives an exact structural height value of n - 1."
+    answer: "B) O(n)",
+    explanation: "In a worst-case, single-line skewed tree, every node has exactly one child. Under the standard node-counting convention (where a single root node has height 1), the maximum height of a tree with n nodes is n, which is O(n)."
   },
   {
     id: 9,
