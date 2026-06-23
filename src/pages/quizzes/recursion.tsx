@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
@@ -219,9 +219,7 @@ const RecursionQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) fetchAttempts(userId);
-  }, [userId, apiBaseUrl]);
+  
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -238,10 +236,12 @@ const RecursionQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
+  const fetchAttempts = useCallback(async (uId: string) => {
     try {
       setApiError(null);
-      const res = await axios.get(buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/recursion`));
+      const res = await axios.get(
+        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/recursion`)
+      );
       if (res.data?.success && Array.isArray(res.data.attempts)) {
         setAttempts(res.data.attempts);
       } else {
@@ -249,8 +249,15 @@ const RecursionQuiz: React.FC = () => {
       }
     } catch (e) {
       console.error("Error fetching recursion quiz history:", e);
+      setApiError("Unable to connect to the server. Attempt history may not be up to date.");
     }
-  };
+  }, [apiBaseUrl]);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();

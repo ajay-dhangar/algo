@@ -237,7 +237,10 @@ const GraphQuiz: React.FC = () => {
 
   const fetchAttempts = useCallback(async (uId: string) => {
     try {
-      const res = await axios.get(buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/graph`));
+      setApiError(null);
+      const res = await axios.get(
+        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/graph`)
+      );
       if (res.data?.success && Array.isArray(res.data.attempts)) {
         setAttempts(res.data.attempts);
       } else {
@@ -245,11 +248,16 @@ const GraphQuiz: React.FC = () => {
       }
     } catch (e) {
       console.error("Error fetching graph quiz history:", e);
+      setApiError("Unable to connect to the server. Attempt history may not be up to date.");
     }
   }, [apiBaseUrl]);
-   useEffect(() => {
-    if (userId) fetchAttempts(userId);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
   }, [userId, fetchAttempts]);
+   
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;

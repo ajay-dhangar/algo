@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
@@ -191,11 +191,7 @@ const BTreeQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId, apiBaseUrl]);
+  
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -214,7 +210,7 @@ const BTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
+  const fetchAttempts = useCallback(async (uId: string) => {
     try {
       setApiError(null);
       const res = await axios.get(
@@ -229,7 +225,13 @@ const BTreeQuiz: React.FC = () => {
       console.error("Failed to recover target user records stream:", e);
       setApiError("Unable to connect to the server. Attempt history may not be up to date.");
     }
-  };
+  }, [apiBaseUrl]);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
