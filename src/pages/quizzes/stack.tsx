@@ -17,7 +17,7 @@ import {
 interface Question {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   codeSnippet?: string;
   options: string[];
   answer: string;
@@ -35,7 +35,7 @@ const QUESTIONS: Question[] = [
   {
     id: 1,
     difficulty: "Easy",
-    questionText: "Following is a C-like pseudo code of a function that takes an integer argument and utilizes an empty Stack S for data processing. What does this function compute or print in general?",
+    question: "Following is a C-like pseudo code of a function that takes an integer argument and utilizes an empty Stack S for data processing. What does this function compute or print in general?",
     codeSnippet: `void fun(int n) {\n    Stack S;  // Creates an empty stack S\n    while (n > 0) {\n        push(&S, n % 2);\n        n = n / 2;\n    }\n    while (!isEmpty(&S)) {\n        printf("%d ", pop(&S));\n    }\n}`,
     options: [
       "A) Prints binary representation of n in reverse order",
@@ -49,7 +49,7 @@ const QUESTIONS: Question[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "Consider the processing sequence inside the following character stack pseudocode. What is the explicit screen output generated if the structural input read is 'geeksquiz'?",
+    question: "Consider the processing sequence inside the following character stack pseudocode. What is the explicit screen output generated if the structural input read is 'geeksquiz'?",
     codeSnippet: `declare a stack of characters\nwhile (there are more characters in the word to read) {\n    read a character\n    push the character on the stack\n}\nwhile (the stack is not empty) {\n    pop a character off the stack\n    write the character to the screen\n}`,
     options: [
       "A) geeksquizgeeksquiz",
@@ -63,7 +63,7 @@ const QUESTIONS: Question[] = [
   {
     id: 3,
     difficulty: "Easy",
-    questionText: "The following loop attempts to validate balanced sequence variations of brackets, but contains an logical error. Identify which unbalanced structural variation below is incorrectly validated as 'balanced' by this pseudocode:",
+    question: "The following loop attempts to validate balanced sequence variations of brackets, but contains an logical error. Identify which unbalanced structural variation below is incorrectly validated as 'balanced' by this pseudocode:",
     codeSnippet: `declare a character stack \nwhile (more input is available) {\n    read a character\n    if (the character is a '(' )\n        push it on the stack\n    else if (the character is a ')' and the stack is not empty)\n        pop a character off the stack\n    else\n        print "unbalanced" and exit\n}\nprint "balanced"`,
     options: [
       "A) ((())",
@@ -77,7 +77,7 @@ const QUESTIONS: Question[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "A single-digit numerical postfix operation expression '8 2 3 ^ / 2 3 * + 5 1 * -' is being evaluated using an isolated computer science stack framework. What are the top two elements residing inside the stack instantly after the first multiplication operator (*) evaluates?",
+    question: "A single-digit numerical postfix operation expression '8 2 3 ^ / 2 3 * + 5 1 * -' is being evaluated using an isolated computer science stack framework. What are the top two elements residing inside the stack instantly after the first multiplication operator (*) evaluates?",
     options: [
       "A) 6, 1",
       "B) 5, 7",
@@ -90,7 +90,7 @@ const QUESTIONS: Question[] = [
   {
     id: 5,
     difficulty: "Medium",
-    questionText: "An isolated vector block array A[1..MAXSIZE] concurrently holds two discrete stack structures growing sequentially from absolute opposing endpoints. To maximize memory allocations dynamically, what is the exact operational condition representing a 'Stack Full' event?",
+    question: "An isolated vector block array A[1..MAXSIZE] concurrently holds two discrete stack structures growing sequentially from absolute opposing endpoints. To maximize memory allocations dynamically, what is the exact operational condition representing a 'Stack Full' event?",
     options: [
       "A) (top1 = MAXSIZE/2) and (top2 = MAXSIZE/2+1)",
       "B) top1 + top2 + 1 = MAXSIZE",
@@ -103,7 +103,7 @@ const QUESTIONS: Question[] = [
   {
     id: 6,
     difficulty: "Hard",
-    questionText: "Assume mathematical operator values +, -, * are left-associative, while the exponential ^ token is right-associative. Precedence hierarchy scales downwards as (^, *, +, -). Map out the mathematically equivalent postfix notation configuration string for the infix assignment: a + b * c - d ^ e ^ f",
+    question: "Assume mathematical operator values +, -, * are left-associative, while the exponential ^ token is right-associative. Precedence hierarchy scales downwards as (^, *, +, -). Map out the mathematically equivalent postfix notation configuration string for the infix assignment: a + b * c - d ^ e ^ f",
     options: [
       "A) abc * + def ^ ^ -",
       "B) abc * + de ^ f ^ -",
@@ -116,7 +116,7 @@ const QUESTIONS: Question[] = [
   {
     id: 7,
     difficulty: "Hard",
-    questionText: "A data structure mapping function f defined explicitly on integer-based memory stack blocks satisfies these exact logical rules: f(empty) = 0 and f(push(S, i)) = max(f(S), 0) + i. If our linear stack array variable S systematically stores integers [2, -3, 2, -1, 2] packed from bottom-to-top boundaries, evaluate f(S):",
+    question: "A data structure mapping function f defined explicitly on integer-based memory stack blocks satisfies these exact logical rules: f(empty) = 0 and f(push(S, i)) = max(f(S), 0) + i. If our linear stack array variable S systematically stores integers [2, -3, 2, -1, 2] packed from bottom-to-top boundaries, evaluate f(S):",
     options: [
       "A) 6",
       "B) 4",
@@ -129,7 +129,7 @@ const QUESTIONS: Question[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "A prioritized queue structure Q is used behind the scenes to model a computer science LIFO stack array S. Push operations are handled inside the backend engine via INSERT(Q, character, key) where 'key' represents a numeric weight assignment. To successfully enforce true stack logic, what sequencing format must keys follow across incoming requests?",
+    question: "A prioritized queue structure Q is used behind the scenes to model a computer science LIFO stack array S. Push operations are handled inside the backend engine via INSERT(Q, character, key) where 'key' represents a numeric weight assignment. To successfully enforce true stack logic, what sequencing format must keys follow across incoming requests?",
     options: [
       "A) Non-increasing order",
       "B) Non-decreasing order",
@@ -374,7 +374,7 @@ const StackQuiz: React.FC = () => {
                     </div>
 
                     <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white m-0 leading-relaxed font-sans">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
 
                     {/* Integrated Interactive Code Editor Simulation Component Frame */}
@@ -474,7 +474,7 @@ const StackQuiz: React.FC = () => {
                         <div key={q.id} className="bg-slate-50/50 dark:bg-slate-950/30 border border-solid border-slate-200/80 dark:border-slate-800/60 rounded-xl p-5 space-y-3">
                           <div className="flex items-start justify-between gap-4">
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
-                              {index + 1}. {q.questionText}
+                              {index + 1}. {q.question}
                             </h5>
                             <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}
