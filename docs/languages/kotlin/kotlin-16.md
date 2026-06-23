@@ -70,7 +70,7 @@ interface Shape {
 class Circle(val radius: Double) : Shape {
     override val name = "Circle"
     override val color = "Red"
-    override fun area() = Math.PI * radius * radius
+    override fun area() = kotlin.math.PI * radius * radius
 }
 
 fun main() {
