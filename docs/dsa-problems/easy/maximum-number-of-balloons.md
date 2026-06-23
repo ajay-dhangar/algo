@@ -127,20 +127,22 @@ class Solution:
  * @return {number}
  */
 var maxNumberOfBalloons = function(text) {
-    const count = new Array(26).fill(0);
+    const count = { b: 0, a: 0, l: 0, o: 0, n: 0 };
     
     // Count frequencies of all characters
-    for (let i = 0; i < text.length; i++) {
-        count[text.charCodeAt(i) - 97]++;
+    for (const char of text) {
+        if (char in count) {
+            count[char]++;
+        }
     }
     
-    // index 1 is 'b', 0 is 'a', 11 is 'l', 14 is 'o', 13 is 'n'
+    // Find the minimum limiting character
     return Math.min(
-        count[1], 
-        count[0], 
-        Math.floor(count[11] / 2), 
-        Math.floor(count[14] / 2), 
-        count[13]
+        count.b,
+        count.a,
+        Math.floor(count.l / 2),
+        Math.floor(count.o / 2),
+        count.n
     );
 };
 ```
