@@ -42,9 +42,9 @@ fun main() {
 ## Generic Classes
 
 ```kotlin
-class Box<T>(val value: T) {
+class Box<T : Any>(val value: T) {
     fun getValue(): T = value
-    fun describe() = println("Box contains: $value (${value!!::class.simpleName})")
+    fun describe() = println("Box contains: $value (${value::class.simpleName})")
 }
 
 fun main() {
