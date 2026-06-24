@@ -15,14 +15,11 @@ import {
 } from "react-icons/fa";
 
 // Existing custom quiz sub-components (assumed available in your project)
-import QuestionProgress from "../../components/Quiz/QuestionProgress";
-import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
-import QuizResultActions from "../../components/Quiz/QuizResultActions";
 
 interface RBTQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   options: string[];
   answer: string;
   explanation: string;
@@ -38,7 +35,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
-    questionText: "Which fundamental property characterizes a Red-Black Tree (RBT)?",
+    question: "Which fundamental property characterizes a Red-Black Tree (RBT)?",
     options: [
       "A) A binary search tree where every node is red.",
       "B) A self-balancing binary search tree with an extra bit for node color.",
@@ -51,7 +48,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "In a valid Red-Black Tree configuration, what must be the color of the Root node?",
+    question: "In a valid Red-Black Tree configuration, what must be the color of the Root node?",
     options: ["A) Red", "B) Black", "C) Either Red or Black", "D) Transparent"],
     answer: "B) Black",
     explanation: "Property 2 of Red-Black trees strictly states that the root must be Black. This is crucial for maintaining the black-height stability of the tree."
@@ -59,7 +56,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 3,
     difficulty: "Easy",
-    questionText: "What color are the leaves (NIL/External nodes) in a Red-Black Tree?",
+    question: "What color are the leaves (NIL/External nodes) in a Red-Black Tree?",
     options: ["A) Red", "B) Black", "C) Grey", "D) Leaves do not have colors"],
     answer: "B) Black",
     explanation: "All leaf nodes (NIL) are considered Black. This allows every path from a node to reach a black 'endpoint'."
@@ -67,7 +64,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "If a node is Red, what constraint applies to its children?",
+    question: "If a node is Red, what constraint applies to its children?",
     options: [
       "A) Both children must be Red.",
       "B) At least one child must be Black.",
@@ -80,7 +77,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 5,
     difficulty: "Medium",
-    questionText: "What is the 'Black-Height' property regarding paths from a node to its leaves?",
+    question: "What is the 'Black-Height' property regarding paths from a node to its leaves?",
     options: [
       "A) Every path must have more red nodes than black nodes.",
       "B) Every path from a node to its descendant leaves must contain the same number of black nodes.",
@@ -93,7 +90,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 6,
     difficulty: "Medium",
-    questionText: "What is the maximum theoretical height of a Red-Black tree with 'n' internal nodes?",
+    question: "What is the maximum theoretical height of a Red-Black tree with 'n' internal nodes?",
     options: ["A) O(n)", "B) O(log n)", "C) Approximately 2 * log(n + 1)", "D) O(sqrt(n))"],
     answer: "C) Approximately 2 * log(n + 1)",
     explanation: "Because of the balance properties, the height of a Red-Black tree is guaranteed to be logarithmic, specifically at most twice the height of a perfectly balanced BST."
@@ -101,7 +98,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 7,
     difficulty: "Hard",
-    questionText: "When inserting a new node into an RBT, what is its initial color before rebalancing begins?",
+    question: "When inserting a new node into an RBT, what is its initial color before rebalancing begins?",
     options: ["A) Black", "B) Red", "C) Random", "D) Depends on the parent's color"],
     answer: "B) Red",
     explanation: "New nodes are always inserted as Red. This avoids violating the black-height property (Prop 5) immediately, though it may violate the red-child rule (Prop 4), which is then fixed via rotations."
@@ -109,7 +106,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "Which of the following operations is used during rebalancing if an inserted node's uncle is also Red?",
+    question: "Which of the following operations is used during rebalancing if an inserted node's uncle is also Red?",
     options: [
       "A) Only Left Rotation",
       "B) Only Right Rotation",
@@ -122,7 +119,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 9,
     difficulty: "Medium",
-    questionText: "What is the primary advantage of a Red-Black Tree over a standard Binary Search Tree?",
+    question: "What is the primary advantage of a Red-Black Tree over a standard Binary Search Tree?",
     options: [
       "A) It uses less memory than a BST.",
       "B) It guarantees O(log n) performance for search, insert, and delete operations.",
@@ -135,7 +132,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 10,
     difficulty: "Hard",
-    questionText: "Which rotation is required if we have a 'Left-Right' violation (inserted node is right child of a left child)?",
+    question: "Which rotation is required if we have a 'Left-Right' violation (inserted node is right child of a left child)?",
     options: [
       "A) Single Right Rotation",
       "B) Single Left Rotation",
@@ -227,7 +224,7 @@ const RedBlackTreeQuiz: React.FC = () => {
         <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] flex items-center justify-center p-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl rounded-3xl p-10 max-w-md w-full text-center">
-            <div className="w-20 h-20 bg-red-500/10 text-red-600 rounded-2xl flex items-center justify-center text-4xl mx-auto mb-6">
+            <div className="w-20 h-20 bg-red-500/10 text-red-800 dark:text-red-400 rounded-2xl flex items-center justify-center text-4xl mx-auto mb-6">
               <FaTree />
             </div>
             <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight mb-2">RB-Tree Terminal</h2>
@@ -255,12 +252,12 @@ const RedBlackTreeQuiz: React.FC = () => {
           {/* Identity & Status Header */}
           <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 mb-8 shadow-sm">
             <div className="flex items-center gap-3">
-              <FaUserCircle className="text-2xl text-red-600" />
+              <FaUserCircle className="text-2xl text-red-800 dark:text-red-400" />
               <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-widest">USER_SESSION: <strong className="text-slate-900 dark:text-white">{username}</strong></span>
             </div>
             <div className="flex items-center gap-4">
-               {!showResult && <div className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-lg text-red-600 border border-red-500/20"><FaClock className="inline mr-1"/> {formatTime(timeSpent)}</div>}
-               <button onClick={handleLogout} className="text-slate-400 hover:text-red-500 transition-colors border-none bg-transparent cursor-pointer text-xs font-bold"><FaSignOutAlt className="inline mr-1"/> DISCONNECT</button>
+               {!showResult && <div className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-lg text-red-800 dark:text-red-400 border border-red-500/20"><FaClock className="inline mr-1"/> {formatTime(timeSpent)}</div>}
+               <button onClick={handleLogout} className="text-slate-400 hover:text-red-800 dark:text-red-400 transition-colors border-none bg-transparent cursor-pointer text-xs font-bold"><FaSignOutAlt className="inline mr-1"/> DISCONNECT</button>
             </div>
           </div>
 
@@ -271,7 +268,7 @@ const RedBlackTreeQuiz: React.FC = () => {
               {!showResult ? (
                 <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
                   <div className="flex items-center justify-between mb-8">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-red-600 bg-red-600/10 px-3 py-1 rounded-full border border-red-600/20">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-red-800 dark:text-red-400 bg-red-600/10 px-3 py-1 rounded-full border border-red-600/20">
                       Module 08: Balanced Trees
                     </span>
                     <span className="text-xs font-mono text-slate-400">Question {currentQuestion + 1} / {QUESTIONS.length}</span>
@@ -284,14 +281,14 @@ const RedBlackTreeQuiz: React.FC = () => {
                        </span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold leading-snug text-slate-900 dark:text-white">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
 
                     <div className="grid grid-cols-1 gap-4 pt-4">
                       {QUESTIONS[currentQuestion].options.map((opt, i) => (
                         <button key={i} onClick={() => handleAnswer(opt)}
                           className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-red-600/5 border-red-600 dark:bg-red-600/10' : 'bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 hover:border-red-600/50'}`}>
-                          <span className={`text-sm md:text-base font-semibold ${userAnswers[currentQuestion] === opt ? 'text-red-600' : 'text-slate-700 dark:text-slate-300'}`}>{opt}</span>
+                          <span className={`text-sm md:text-base font-semibold ${userAnswers[currentQuestion] === opt ? 'text-red-800 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'}`}>{opt}</span>
                           <div className={`w-5 h-5 rounded-full border-2 ${userAnswers[currentQuestion] === opt ? 'border-red-600 bg-red-600' : 'border-slate-300 dark:border-slate-600 group-hover:border-red-600/50'}`}>
                             {userAnswers[currentQuestion] === opt && <div className="w-2 h-2 bg-white rounded-full m-auto mt-1"></div>}
                           </div>
@@ -309,8 +306,8 @@ const RedBlackTreeQuiz: React.FC = () => {
                 /* RESULTS VIEW */
                 <motion.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-12">
                   <div className="bg-red-600/5 dark:bg-red-600/10 border border-red-600/20 rounded-3xl p-10 text-center">
-                    <FaAward className="text-5xl text-red-600 mb-4 mx-auto" />
-                    <h3 className="text-xl font-black uppercase text-red-600 mb-2 tracking-widest">Diagnostic Report</h3>
+                    <FaAward className="text-5xl text-red-800 dark:text-red-400 mb-4 mx-auto" />
+                    <h3 className="text-xl font-black uppercase text-red-800 dark:text-red-400 mb-2 tracking-widest">Diagnostic Report</h3>
                     <div className="inline-flex items-baseline gap-2 text-7xl font-black text-slate-900 dark:text-white font-mono">
                       {score}<span className="text-2xl text-slate-400 font-normal">/ {QUESTIONS.length}</span>
                     </div>
@@ -322,16 +319,16 @@ const RedBlackTreeQuiz: React.FC = () => {
 
                   <div className="text-left space-y-10">
                     <h4 className="text-sm font-mono font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-4 flex items-center gap-2">
-                       <FaTree className="text-red-600"/> Structural Logic Tracing
+                       <FaTree className="text-red-800 dark:text-red-400"/> Structural Logic Tracing
                     </h4>
                     {QUESTIONS.map((q, idx) => (
                       <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-5">
                         <div className="flex items-start justify-between gap-4">
-                          <h5 className="text-sm md:text-base font-bold leading-relaxed">{idx + 1}. {q.questionText}</h5>
-                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0 text-xl"/> : <FaTimesCircle className="text-red-600 shrink-0 text-xl"/>}
+                          <h5 className="text-sm md:text-base font-bold leading-relaxed">{idx + 1}. {q.question}</h5>
+                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0 text-xl"/> : <FaTimesCircle className="text-red-800 dark:text-red-400 shrink-0 text-xl"/>}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono uppercase tracking-tighter">
-                          <div className={`p-4 rounded-xl border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-600' : 'bg-red-500/5 border-red-500/20 text-red-600'}`}>
+                          <div className={`p-4 rounded-xl border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-600' : 'bg-red-500/5 border-red-500/20 text-red-800 dark:text-red-400'}`}>
                             <span className="block text-[8px] font-black opacity-60 mb-2">User Registry</span> {userAnswers[idx] || '[NULL_ENTRY]'}
                           </div>
                           {userAnswers[idx] !== q.answer && <div className="p-4 rounded-xl border bg-emerald-500/5 border-emerald-500/20 text-emerald-600">
@@ -339,7 +336,7 @@ const RedBlackTreeQuiz: React.FC = () => {
                           </div>}
                         </div>
                         <p className="text-[11px] md:text-xs leading-relaxed text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/50 p-5 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800">
-                          <strong className="text-red-600 not-italic block mb-2 uppercase font-black tracking-widest text-[9px]">Compiler Insight:</strong> {q.explanation}
+                          <strong className="text-red-800 dark:text-red-400 not-italic block mb-2 uppercase font-black tracking-widest text-[9px]">Compiler Insight:</strong> {q.explanation}
                         </p>
                       </div>
                     ))}
@@ -352,7 +349,7 @@ const RedBlackTreeQuiz: React.FC = () => {
             {history.length > 0 && (
               <div className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800 text-left">
                 <div className="flex items-center gap-2 mb-8">
-                  <FaHistory className="text-red-600 text-xs" />
+                  <FaHistory className="text-red-800 dark:text-red-400 text-xs" />
                   <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Terminal History (Last 5 Runs)</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -363,7 +360,7 @@ const RedBlackTreeQuiz: React.FC = () => {
                         <div className="text-xs font-black text-slate-700 dark:text-slate-200 uppercase">RUN_#{history.length - i}</div>
                       </div>
                       <div className="text-right">
-                        <div className="text-lg font-black text-red-600 font-mono">{h.score}/{QUESTIONS.length}</div>
+                        <div className="text-lg font-black text-red-800 dark:text-red-400 font-mono">{h.score}/{QUESTIONS.length}</div>
                         <div className="text-[9px] text-slate-400 uppercase font-bold">{formatTime(h.timeSpent)}</div>
                       </div>
                     </div>

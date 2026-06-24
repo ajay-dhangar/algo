@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { withVisualizerErrorBoundary } from './VisualizerErrorBoundary';
 
 const LargestRectangleInHistogramVisualizer = () => {
   const [heights, setHeights] = useState([2, 1, 5, 6, 2, 3]);
@@ -8,6 +9,14 @@ const LargestRectangleInHistogramVisualizer = () => {
   const [error, setError] = useState(null);
   const speed = 1000; 
   const intervalRef = useRef(null);
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   const generateSimulationSteps = useCallback((hArray) => {
     const steps = [];
@@ -83,6 +92,7 @@ const LargestRectangleInHistogramVisualizer = () => {
   useEffect(() => {
     if (!isPaused && simulationSteps.length > 0) {
       intervalRef.current = setInterval(() => {
+        if (!isMounted.current) return;
         setCurrentStep((prev) => {
           if (prev < simulationSteps.length - 1) {
             return prev + 1;
@@ -210,4 +220,4 @@ const LargestRectangleInHistogramVisualizer = () => {
   return <>{renderControls()}</>;
 };
 
-export default LargestRectangleInHistogramVisualizer;
+export default withVisualizerErrorBoundary(LargestRectangleInHistogramVisualizer);

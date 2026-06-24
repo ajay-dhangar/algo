@@ -1,5 +1,5 @@
 ---
-id: "classes-and-objects"
+id: "php-classes-and-objects"
 sidebar_position: 13
 title: "Classes and Objects in php"
 sidebar_label: "Classes & Objects"

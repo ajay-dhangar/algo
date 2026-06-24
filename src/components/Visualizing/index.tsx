@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Layout from "@theme/Layout";
 import "../../css/visualiezer.css";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
 interface BarData {
   value: number;
@@ -662,4 +663,4 @@ const SortingVisualizer: React.FC = () => {
   );
 };
 
-export default SortingVisualizer;
+export default withVisualizerErrorBoundary(SortingVisualizer);

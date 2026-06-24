@@ -22,7 +22,7 @@ import QuizResultActions from "../../components/Quiz/QuizResultActions";
 interface BSTQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   options: string[];
   answer: string;
   explanation: string;
@@ -40,7 +40,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
-    questionText: "What is the primary structural property that defines a Binary Search Tree (BST)?",
+    question: "What is the primary structural property that defines a Binary Search Tree (BST)?",
     options: [
       "A) Every single node across all levels must have exactly two child nodes.",
       "B) The left child's key is greater than the parent node, and the right child's key is strictly smaller.",
@@ -53,7 +53,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "What is the average-case time complexity for executing a lookup operation in a balanced Binary Search Tree?",
+    question: "What is the average-case time complexity for executing a lookup operation in a balanced Binary Search Tree?",
     options: ["A) O(n)", "B) O(log n)", "C) O(n log n)", "D) O(1)"],
     answer: "B) O(log n)",
     explanation: "When a BST is well-balanced, its depth scales at log(n). Each search step cuts the search space exactly in half, delivering clear O(log n) performance limits."
@@ -61,7 +61,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 3,
     difficulty: "Medium",
-    questionText: "In the worst-case scenario (such as a skewed tree built from sorted inputs), what does a standard BST lookup degrade to?",
+    question: "In the worst-case scenario (such as a skewed tree built from sorted inputs), what does a standard BST lookup degrade to?",
     options: ["A) O(1)", "B) O(log n)", "C) O(n)", "D) O(n^2)"],
     answer: "C) O(n)",
     explanation: "If items are inserted in linear sorted order, a regular BST shifts into a linked-list shape. This breakdown forces search pipelines to run sequentially through all elements, degrading to O(n)."
@@ -69,7 +69,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "Which depth-first tree traversal technique produces a list of BST keys sorted in ascending sequence?",
+    question: "Which depth-first tree traversal technique produces a list of BST keys sorted in ascending sequence?",
     options: ["A) Pre-order traversal", "B) Post-order traversal", "C) In-order traversal", "D) Level-order traversal"],
     answer: "C) In-order traversal",
     explanation: "An In-order traversal follows a Left-Root-Right pattern. Given the structural positioning rules of a BST, this sequence outputs all values in a perfect ascending order."
@@ -77,7 +77,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 5,
     difficulty: "Hard",
-    questionText: "When deleting an internal node with two active children from a BST, which alternative node is typically substituted to preserve structural balance?",
+    question: "When deleting an internal node with two active children from a BST, which alternative node is typically substituted to preserve structural balance?",
     options: [
       "A) The absolute deepest leaf node located anywhere in the tree configuration.",
       "B) Either the In-order Predecessor or the In-order Successor of that node.",
@@ -90,7 +90,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 6,
     difficulty: "Easy",
-    questionText: "What is the maximum number of children any node can legally maintain within a Binary Search Tree layout?",
+    question: "What is the maximum number of children any node can legally maintain within a Binary Search Tree layout?",
     options: ["A) Unlimited", "B) 1", "C) 2", "D) 4"],
     answer: "C) 2",
     explanation: "As an explicit binary structural configuration, every single node position is capped at a maximum child count of exactly two (traditionally labeled left and right children)."
@@ -98,7 +98,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 7,
     difficulty: "Medium",
-    questionText: "If the root node of a valid BST holds the value 50, where would a new element with a value of 35 be placed?",
+    question: "If the root node of a valid BST holds the value 50, where would a new element with a value of 35 be placed?",
     options: [
       "A) Somewhere inside the right subtree branch.",
       "B) Directly as the new primary parent over the root node.",
@@ -111,15 +111,15 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "What is the maximum possible height of an unbalanced Binary Search Tree that holds exactly 'n' nodes?",
+    question: "What is the maximum possible height of an unbalanced Binary Search Tree that holds exactly 'n' nodes?",
     options: ["A) O(log n)", "B) O(n)", "C) O(n - 1)", "D) O(sqrt(n))"],
-    answer: "C) O(n - 1)",
-    explanation: "In a worst-case, single-line skewed tree, every node has exactly one child. Counting the distance from the root down to the last leaf gives an exact structural height value of n - 1."
+    answer: "B) O(n)",
+    explanation: "In a worst-case, single-line skewed tree, every node has exactly one child. Under the standard node-counting convention (where a single root node has height 1), the maximum height of a tree with n nodes is n, which is O(n)."
   },
   {
     id: 9,
     difficulty: "Medium",
-    questionText: "Which of these specialized algorithmic frameworks is explicitly engineered to prevent a BST from degrading into a skewed layout?",
+    question: "Which of these specialized algorithmic frameworks is explicitly engineered to prevent a BST from degrading into a skewed layout?",
     options: ["A) Hash Map", "B) Red-Black Tree / AVL Tree", "C) Priority Queue Linkages", "D) Minimal Spanning Matrix"],
     answer: "B) Red-Black Tree / AVL Tree",
     explanation: "AVL and Red-Black trees are self-balancing extensions of a classic BST. They run automated structural adjustments during modifications to keep lookup times locked at O(log n)."
@@ -127,7 +127,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 10,
     difficulty: "Hard",
-    questionText: "If an in-order traversal of a target binary tree yields '2, 3, 4, 7, 9', is this data alone enough to confirm the tree is a valid BST?",
+    question: "If an in-order traversal of a target binary tree yields '2, 3, 4, 7, 9', is this data alone enough to confirm the tree is a valid BST?",
     options: [
       "A) No, because we do not know if the structural layout satisfies binary tree requirements.",
       "B) Yes, an ascending sorted sequence proves it is a valid BST.",
@@ -323,7 +323,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
             </div>
             <button 
               onClick={handleLogout} 
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-800 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
             >
               <FaSignOutAlt /> Terminate Session
             </button>
@@ -377,15 +377,15 @@ const BinarySearchTreeQuiz: React.FC = () => {
                         QUESTIONS[currentQuestion].difficulty === "Easy" 
                           ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20" 
                           : QUESTIONS[currentQuestion].difficulty === "Medium"
-                            ? "bg-amber-500/10 text-amber-600 border-amber-500/20"
-                            : "bg-rose-500/10 text-rose-600 border-rose-500/20"
+                            ? "bg-amber-500/10 text-amber-800 dark:text-amber-400 border-amber-500/20"
+                            : "bg-rose-500/10 text-rose-800 dark:text-rose-400 border-rose-500/20"
                       }`}>
                         {QUESTIONS[currentQuestion].difficulty} Difficulty
                       </span>
                     </div>
 
                     <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white m-0 leading-relaxed font-sans">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
                   </div>
 
@@ -465,9 +465,9 @@ const BinarySearchTreeQuiz: React.FC = () => {
                         <div key={q.id} className="bg-slate-50/50 dark:bg-slate-950/30 border border-solid border-slate-200/80 dark:border-slate-800/60 rounded-xl p-5 space-y-3">
                           <div className="flex items-start justify-between gap-4">
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
-                              {index + 1}. {q.questionText}
+                              {index + 1}. {q.question}
                             </h5>
-                            <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-500"}`}>
+                            <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}
                             </span>
                           </div>

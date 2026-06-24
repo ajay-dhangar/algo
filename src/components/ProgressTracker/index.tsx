@@ -49,7 +49,8 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
       className={clsx(
         'alert',
         isCompleted ? 'alert--success' : 'alert--info',
-        'docusaurus-mt-lg'
+        'docusaurus-mt-lg',
+        'no-print'
       )}
       style={{
         display: 'flex',

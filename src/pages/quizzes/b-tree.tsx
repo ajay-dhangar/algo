@@ -22,7 +22,7 @@ import QuizResultActions from "../../components/Quiz/QuizResultActions";
 interface BTreeQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   options: string[];
   answer: string;
   explanation: string;
@@ -40,7 +40,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
-    questionText: "What is the core defining structural property of a B-Tree?",
+    question: "What is the core defining structural property of a B-Tree?",
     options: [
       "A) A binary search tree that is strictly balanced height-wise.",
       "B) A self-balancing search tree layout that keeps keys sorted and allows logarithmic lookups, inserts, and structural deletes.",
@@ -53,7 +53,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "How does the minimum degree 't' dictate the bounds of non-root nodes in a B-Tree?",
+    question: "How does the minimum degree 't' dictate the bounds of non-root nodes in a B-Tree?",
     options: [
       "A) It dictates the absolute minimum number of keys a non-root node can contain.",
       "B) It sets the absolute upper threshold of children branches allowed.",
@@ -66,7 +66,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 3,
     difficulty: "Easy",
-    questionText: "In a B-Tree configuration with minimum degree 't', what is the maximum number of children any node can maintain?",
+    question: "In a B-Tree configuration with minimum degree 't', what is the maximum number of children any node can maintain?",
     options: ["A) 2", "B) 3", "C) 2t", "D) t"],
     answer: "C) 2t",
     explanation: "A node can accept up to 2t - 1 keys maximum. Exceeding this boundary requires a split, meaning the upper threshold limit for children paths caps out cleanly at exactly 2t."
@@ -74,7 +74,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "What architectural advantage makes B-Trees preferred over classic self-balancing BSTs for external disk memory structures?",
+    question: "What architectural advantage makes B-Trees preferred over classic self-balancing BSTs for external disk memory structures?",
     options: [
       "A) Faster processing cycles across local CPU registries.",
       "B) Minimal footprint allocations inside active virtual memory maps.",
@@ -87,7 +87,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 5,
     difficulty: "Medium",
-    questionText: "What workflow is executed when an insertion step causes a target node to surpass its maximum permitted key allowance?",
+    question: "What workflow is executed when an insertion step causes a target node to surpass its maximum permitted key allowance?",
     options: [
       "A) The node undergoes deletion and the storage block gets scrubbed.",
       "B) The complete tree path gets purged and rebuilt from scratch.",
@@ -100,7 +100,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 6,
     difficulty: "Medium",
-    questionText: "What exact height invariant must be continually maintained for a B-Tree to be classified as fully balanced?",
+    question: "What exact height invariant must be continually maintained for a B-Tree to be classified as fully balanced?",
     options: [
       "A) Every leaf node must reside at the exact same depth level.",
       "B) The key distributions across all nodes must match perfectly.",
@@ -113,7 +113,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 7,
     difficulty: "Hard",
-    questionText: "How does a B-Tree process a key deletion when the target node drops below its minimum key threshold?",
+    question: "How does a B-Tree process a key deletion when the target node drops below its minimum key threshold?",
     options: [
       "A) The key is cleared out immediately, ignoring underflow bounds.",
       "B) Keys are shifted around locally within that single isolated node block.",
@@ -126,7 +126,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "Which of the following structural assertions is FALSE regarding standard B-Tree constraints?",
+    question: "Which of the following structural assertions is FALSE regarding standard B-Tree constraints?",
     options: [
       "A) Every leaf node is located at the identical level boundary.",
       "B) Internal nodes are guaranteed to house at least t - 1 keys.",
@@ -139,7 +139,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 9,
     difficulty: "Medium",
-    questionText: "In which software engineering domains do B-Trees and their variations find their most widespread application?",
+    question: "In which software engineering domains do B-Trees and their variations find their most widespread application?",
     options: [
       "A) Volatile low-latency register stores.",
       "B) Solid-state file system layers and relational database index systems.",
@@ -152,7 +152,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 10,
     difficulty: "Hard",
-    questionText: "How do adjustments to the overall tree order or degree ('t') directly affect the net height metrics of a B-Tree?",
+    question: "How do adjustments to the overall tree order or degree ('t') directly affect the net height metrics of a B-Tree?",
     options: [
       "A) Height parameters scale upward in direct proportion to order expansions.",
       "B) Height metrics decrease because a higher order increases node capacity and fan-out.",
@@ -350,7 +350,7 @@ const BTreeQuiz: React.FC = () => {
             </div>
             <button 
               onClick={handleLogout} 
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-800 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
             >
               <FaSignOutAlt /> Disconnect Terminal
             </button>
@@ -404,15 +404,15 @@ const BTreeQuiz: React.FC = () => {
                         QUESTIONS[currentQuestion].difficulty === "Easy" 
                           ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20" 
                           : QUESTIONS[currentQuestion].difficulty === "Medium"
-                            ? "bg-amber-500/10 text-amber-600 border-amber-500/20"
-                            : "bg-rose-500/10 text-rose-600 border-rose-500/20"
+                            ? "bg-amber-500/10 text-amber-800 dark:text-amber-400 border-amber-500/20"
+                            : "bg-rose-500/10 text-rose-800 dark:text-rose-400 border-rose-500/20"
                       }`}>
                         {QUESTIONS[currentQuestion].difficulty} Tier
                       </span>
                     </div>
 
                     <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white m-0 leading-relaxed font-sans">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
                   </div>
 
@@ -492,9 +492,9 @@ const BTreeQuiz: React.FC = () => {
                         <div key={q.id} className="bg-slate-50/50 dark:bg-slate-950/30 border border-solid border-slate-200/80 dark:border-slate-800/60 rounded-xl p-5 space-y-3">
                           <div className="flex items-start justify-between gap-4">
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
-                              {index + 1}. {q.questionText}
+                              {index + 1}. {q.question}
                             </h5>
-                            <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-500"}`}>
+                            <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}
                             </span>
                           </div>

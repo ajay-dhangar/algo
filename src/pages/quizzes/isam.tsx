@@ -324,7 +324,7 @@ const IsamQuiz: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="bg-white dark:bg-slate-900 border border-solid border-slate-200 dark:border-slate-800 shadow-md rounded-2xl p-8 max-w-md w-full text-center"
           >
-            <div className="w-14 h-14 bg-amber-500/10 text-amber-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5 border border-solid border-amber-500/20">
+            <div className="w-14 h-14 bg-amber-500/10 text-amber-800 dark:text-amber-400 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5 border border-solid border-amber-500/20">
               <FaLayerGroup />
             </div>
             <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight m-0 mb-2">ISAM Quiz</h2>
@@ -368,7 +368,7 @@ const IsamQuiz: React.FC = () => {
             </div>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-800 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
             >
               <FaSignOutAlt /> Sign Out
             </button>
@@ -395,7 +395,7 @@ const IsamQuiz: React.FC = () => {
                       <span className="text-[10px] font-mono tracking-wider text-slate-400 uppercase font-black flex items-center gap-1 justify-end">
                         <FaClock /> Time
                       </span>
-                      <div className="text-base font-mono font-bold text-amber-600 dark:text-amber-400">
+                      <div className="text-base font-mono font-bold text-amber-800 dark:text-amber-400">
                         {formatDuration(timeSpent)}
                       </div>
                     </div>
@@ -417,8 +417,8 @@ const IsamQuiz: React.FC = () => {
                         QUESTIONS[currentQuestion].difficulty === "Easy"
                           ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20"
                           : QUESTIONS[currentQuestion].difficulty === "Medium"
-                            ? "bg-amber-500/10 text-amber-600 border-amber-500/20"
-                            : "bg-rose-500/10 text-rose-600 border-rose-500/20"
+                            ? "bg-amber-500/10 text-amber-800 dark:text-amber-400 border-amber-500/20"
+                            : "bg-rose-500/10 text-rose-800 dark:text-rose-400 border-rose-500/20"
                       }`}>
                         {QUESTIONS[currentQuestion].difficulty}
                       </span>
@@ -476,7 +476,7 @@ const IsamQuiz: React.FC = () => {
                   <div className="bg-slate-50 dark:bg-slate-950 border border-solid border-slate-200 dark:border-slate-800 rounded-2xl p-6 md:p-8 text-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(8,145,178,0.03),transparent_50%)]" />
                     <h3 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight m-0 mb-4">Quiz Results</h3>
-                    <div className="inline-flex items-baseline gap-1 text-5xl font-mono font-black text-amber-600 dark:text-amber-500">
+                    <div className="inline-flex items-baseline gap-1 text-5xl font-mono font-black text-amber-800 dark:text-amber-400">
                       {score}
                       <span className="text-xl text-slate-400 font-sans font-normal">/ {QUESTIONS.length}</span>
                     </div>
@@ -503,7 +503,7 @@ const IsamQuiz: React.FC = () => {
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
                               {index + 1}. {q.question}
                             </h5>
-                            <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-500"}`}>
+                            <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}
                             </span>
                           </div>
@@ -554,7 +554,7 @@ const IsamQuiz: React.FC = () => {
                           </div>
                         </div>
                         <div className="text-right space-y-1">
-                          <div className="font-mono font-black text-sm text-amber-600 dark:text-amber-400">
+                          <div className="font-mono font-black text-sm text-amber-800 dark:text-amber-400">
                             {att.score} <span className="text-[10px] text-slate-400 font-sans font-normal">/ {totalCount}</span>
                           </div>
                           <div className="text-[10px] text-slate-400 font-mono">
