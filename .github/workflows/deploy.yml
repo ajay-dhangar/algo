@@ -23,6 +23,11 @@ jobs:
         run: npm ci
 
       - name: Build website
+        # The env block injects your GitHub Secrets into the build process
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
         run: npm run build
 
       # Fix: Create a .nojekyll file in the build directory before uploading

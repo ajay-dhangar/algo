@@ -12,8 +12,8 @@ const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-    ? false
-    : (() => {
+      ? false
+      : (() => {
         try {
           if (!fs.existsSync(path.join(__dirname, ".git"))) {
             return false;
@@ -100,16 +100,16 @@ const config = {
       },
 
       announcementBar: {
-        id: "star_us_announcement", 
+        id: "star_us_announcement",
         content:
           '🌟 Loving the project? Support our open-source journey with a <b><a target="_blank" rel="noopener noreferrer" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b>!',
         textColor: "var(--announcement-text)",
         isCloseable: true,
       },
       algolia: {
-        apiKey: "865d7bd9906f532b1d8cb5cc0f02b383",
-        indexName: "ajay-dhangario",
-        appId: "T0I3F584D5",
+        appId: process.env.ALGOLIA_APP_ID || "T0I3F584D5",
+        apiKey: process.env.ALGOLIA_API_KEY || "865d7bd9906f532b1d8cb5cc0f02b383",
+        indexName: process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
         contextualSearch: true,
       },
 
