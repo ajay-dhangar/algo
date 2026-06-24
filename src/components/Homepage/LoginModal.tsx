@@ -67,7 +67,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
       }
 
       onClose();
-      history.push("/profile");
+      history.push("/algo/profile");
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Authentication failed.");
     } finally {
@@ -120,7 +120,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   type="button"
                   onClick={() => {
                     onClose();
-                    history.push("/profile");
+                    history.push("/algo/profile");
                   }}
                   className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white text-sm font-bold py-3 px-4 shadow-sm hover:shadow transition-all duration-150 cursor-pointer border-none"
                 >
