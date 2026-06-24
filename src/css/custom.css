@@ -409,55 +409,37 @@ button {
   color: #ffffff !important;
 }
 
-/* =============================================
-<<<<<<< HEAD
+/* ==========================================================================
    Print Layout Styling & Fixes (Docusaurus Docs)
-   ============================================= */
+   ========================================================================== */
+
 @media print {
-  /* ----------------------------------------- */
-  /* 1. GLOBAL RESETS & THEME OVERRIDES        */
-  /* ----------------------------------------- */
-=======
-   Print Layout Styling & Fixes
-   ============================================= */
-@media print {
+  /* ---------------------------------------------------------------------- */
+  /* 1. GLOBAL RESETS & THEME OVERRIDES                                     */
+  /* ---------------------------------------------------------------------- */
+  
   /* Reset background and colors for ink saving and high contrast */
->>>>>>> aeca5553bc2de11f8ac5da9fd3a45d300560dad6
   html, body, [data-theme], :root {
     background-color: #ffffff !important;
     background-image: none !important;
     color: #000000 !important;
-<<<<<<< HEAD
     height: auto !important;
     min-height: 0 !important;
     overflow: visible !important; /* Critical: Stops text cut-offs at page breaks */
   }
 
-  /* Force standard block layout for print so standard pagination functions correctly */
-  #__docusaurus,
-  .theme-doc-wrapper,
-  .theme-doc-main-container,
-  main,
-  .container,
-  .row,
-  .col,
-  article {
-=======
-  }
-
-  /* Force standard block layout for print so breaks work correctly (Chromium bug workaround) */
-  .row,
-  .col,
-  .container,
-  .markdown,
-  main,
+  /* Force standard block layout for print so standard pagination/breaks work (Chromium fix) */
+  #__docusaurus, 
+  .theme-doc-wrapper, 
+  .theme-doc-main-container, 
+  main, 
+  .container, 
+  .row, 
+  .col, 
   article,
-  .theme-doc-main-container,
-  .theme-doc-wrapper,
+  .markdown,
   .theme-doc-markdown,
-  .theme-doc-toc,
-  #__docusaurus {
->>>>>>> aeca5553bc2de11f8ac5da9fd3a45d300560dad6
+  .theme-doc-toc {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -466,13 +448,14 @@ button {
     float: none !important;
     box-shadow: none !important;
     background: transparent !important;
-<<<<<<< HEAD
     overflow: visible !important;
   }
 
-  /* ----------------------------------------- */
-  /* 2. CHROME & GOOGLE ADSENSE DELETION       */
-  /* ----------------------------------------- */
+  /* ---------------------------------------------------------------------- */
+  /* 2. CHROME, COMMENTS, & GOOGLE ADSENSE DELETION                         */
+  /* ---------------------------------------------------------------------- */
+  
+  /* Hide navigation, sidebar, TOC, footer, progress elements, and UI elements */
   .navbar,                               /* Top Navigation Bar */
   .theme-doc-sidebar-container,          /* Left Documentation Sidebar */
   .theme-doc-toc,                        /* Right Desktop TOC Container */
@@ -486,6 +469,11 @@ button {
   .theme-doc-footer,                     /* Inner document bottom area */
   .no-print,                             /* Custom utilities hidden from paper */
   aside,                                 /* Secondary tracking/sidebars */
+  .giscus,                               /* Comments section */
+  .giscus-component, 
+  #giscus, 
+  #comments,
+  .theme-code-block-button-group,        /* Overlay copy buttons on code elements */
   
   /* --- GOOGLE ADSENSE BLANKET DELETION --- */
   ins.adsbygoogle,                       /* Native Google Ad Container tag */
@@ -493,7 +481,7 @@ button {
   iframe[name^="aswift"],                /* Variable iframe targeting handles */
   iframe[id^="google_ads"],              /* Explicit Google Ad frame wrappers */
   .google-ads,                           /* Common developer wrappers */
-  [data-ad-client],                     /* Direct data attribute hooks */
+  [data-ad-client],                      /* Direct data attribute hooks */
   [data-ad-slot]                         /* Direct slot attribute hooks */ {
     display: none !important;
     visibility: hidden !important;
@@ -504,38 +492,16 @@ button {
     padding: 0 !important;
   }
 
-  /* ----------------------------------------- */
-  /* 3. DOCUMENT BODY OPTIMIZATION             */
-  /* ----------------------------------------- */
+  /* ---------------------------------------------------------------------- */
+  /* 3. DOCUMENT BODY OPTIMIZATION                                         */
+  /* ---------------------------------------------------------------------- */
+  
   /* Add crisp margins so the pure document text doesn't touch the paper edge */
   article {
     padding: 1.5cm !important;
   }
 
   /* Prevent headings from being separated from their content down on the next sheet */
-=======
-  }
-
-  /* Hide navigation, sidebar, TOC, footer, progress elements, comments, and other chrome */
-  .navbar,
-  .theme-doc-sidebar-container,
-  .theme-doc-toc,
-  .table-of-contents,
-  .footer,
-  .pagination-nav,
-  .giscus,
-  .giscus-component,
-  #giscus,
-  #comments,
-  .no-print,
-  .clean-btn.theme-back-to-top-button,
-  .theme-doc-footer,
-  aside {
-    display: none !important;
-  }
-
-  /* Ensure page breaks are handled nicely for headings to prevent orphans */
->>>>>>> aeca5553bc2de11f8ac5da9fd3a45d300560dad6
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid !important;
     break-after: avoid !important;
@@ -544,30 +510,24 @@ button {
     margin-bottom: 0.75rem !important;
   }
 
-<<<<<<< HEAD
-=======
-  /* Ensure paragraphs, list items, and blockquotes have margin/padding and don't break weirdly */
->>>>>>> aeca5553bc2de11f8ac5da9fd3a45d300560dad6
+  /* Ensure paragraphs, list items, and blockquotes don't break weirdly */
   p, li, blockquote {
     color: #111111 !important;
     font-size: 11pt !important;
     line-height: 1.6 !important;
   }
 
-<<<<<<< HEAD
-  /* Avoid breaking code boxes, tables, images, or graphics in half across sheets */
-=======
   /* Avoid breaking inside content boxes like code blocks, tables, images, blockquotes */
->>>>>>> aeca5553bc2de11f8ac5da9fd3a45d300560dad6
   pre, .theme-code-block, table, tr, img, svg, figure, blockquote, .mermaid {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
-<<<<<<< HEAD
-  /* ----------------------------------------- */
-  /* 4. CODE BLOCK CLEANUP                      */
-  /* ----------------------------------------- */
+  /* ---------------------------------------------------------------------- */
+  /* 4. CODE BLOCK CLEANUP                                                 */
+  /* ---------------------------------------------------------------------- */
+  
+  /* Code block specific styling for high readability and contrast in print */
   pre, code, .theme-code-block, .theme-code-block pre {
     background-color: #f8f9fa !important;
     border: 1px solid #dddddd !important;
@@ -576,34 +536,6 @@ button {
     white-space: pre-wrap !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
-  }
-
-  /* Hide the overlay copy buttons on code elements */
-  .theme-code-block-button-group {
-    display: none !important;
-  }
-}
-
-/* Page Setup Configuration */
-@page {
-  size: letter; /* Options: A4, letter */
-  margin: 1.5cm;
-}
-=======
-  /* Code block specific styling for high readability and contrast in print */
-  pre, code, .theme-code-block {
-    background-color: #f5f5f5 !important;
-    border: 1px solid #ddd !important;
-    color: #000000 !important;
-    font-size: 9.5pt !important;
-    white-space: pre-wrap !important;
-    overflow-wrap: break-word !important;
-    word-wrap: break-word !important;
-  }
-
-  /* Expand margins for the main article to look good on A4/Letter papers */
-  article {
-    padding: 1.5cm !important;
   }
 
   /* Custom header styling inside printable page */
@@ -616,5 +548,10 @@ button {
   }
 }
 
-
->>>>>>> aeca5553bc2de11f8ac5da9fd3a45d300560dad6
+/* -------------------------------------------------------------------------- */
+/* 5. PAGE SETUP CONFIGURATION                                                */
+/* -------------------------------------------------------------------------- */
+@page {
+  size: letter; /* Options: A4, letter */
+  margin: 1.5cm;
+}
