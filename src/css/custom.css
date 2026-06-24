@@ -408,3 +408,127 @@ button {
   background-color: var(--ifm-color-primary) !important;
   color: #ffffff !important;
 }
+
+/* =============================================
+   Print Layout Styling & Fixes (Docusaurus Docs)
+   ============================================= */
+@media print {
+  /* ----------------------------------------- */
+  /* 1. GLOBAL RESETS & THEME OVERRIDES        */
+  /* ----------------------------------------- */
+  html, body, [data-theme], :root {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important; /* Critical: Stops text cut-offs at page breaks */
+  }
+
+  /* Force standard block layout for print so standard pagination functions correctly */
+  #__docusaurus,
+  .theme-doc-wrapper,
+  .theme-doc-main-container,
+  main,
+  .container,
+  .row,
+  .col,
+  article {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+
+  /* ----------------------------------------- */
+  /* 2. CHROME & GOOGLE ADSENSE DELETION       */
+  /* ----------------------------------------- */
+  .navbar,                               /* Top Navigation Bar */
+  .theme-doc-sidebar-container,          /* Left Documentation Sidebar */
+  .theme-doc-toc,                        /* Right Desktop TOC Container */
+  .table-of-contents,                    /* Mobile/In-line TOC Lists */
+  .footer,                               /* Global Site Footer */
+  .pagination-nav,                       /* Next/Previous Page Buttons */
+  .breadcrumbs,                          /* Top Page File-path Links */
+  .theme-edit-this-page,                 /* "Edit this page" Link */
+  .theme-doc-footer-edit-meta-row,       /* Last updated timestamps */
+  .clean-btn.theme-back-to-top-button,   /* Back to top scroll button */
+  .theme-doc-footer,                     /* Inner document bottom area */
+  .no-print,                             /* Custom utilities hidden from paper */
+  aside,                                 /* Secondary tracking/sidebars */
+  
+  /* --- GOOGLE ADSENSE BLANKET DELETION --- */
+  ins.adsbygoogle,                       /* Native Google Ad Container tag */
+  iframe[id^="aswift"],                  /* Dynamic inner layout script frames */
+  iframe[name^="aswift"],                /* Variable iframe targeting handles */
+  iframe[id^="google_ads"],              /* Explicit Google Ad frame wrappers */
+  .google-ads,                           /* Common developer wrappers */
+  [data-ad-client],                     /* Direct data attribute hooks */
+  [data-ad-slot]                         /* Direct slot attribute hooks */ {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* ----------------------------------------- */
+  /* 3. DOCUMENT BODY OPTIMIZATION             */
+  /* ----------------------------------------- */
+  /* Add crisp margins so the pure document text doesn't touch the paper edge */
+  article {
+    padding: 1.5cm !important;
+  }
+
+  /* Prevent headings from being separated from their content down on the next sheet */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    color: #000000 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  p, li, blockquote {
+    color: #111111 !important;
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Avoid breaking code boxes, tables, images, or graphics in half across sheets */
+  pre, .theme-code-block, table, tr, img, svg, figure, blockquote, .mermaid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ----------------------------------------- */
+  /* 4. CODE BLOCK CLEANUP                      */
+  /* ----------------------------------------- */
+  pre, code, .theme-code-block, .theme-code-block pre {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dddddd !important;
+    color: #000000 !important;
+    font-size: 9.5pt !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Hide the overlay copy buttons on code elements */
+  .theme-code-block-button-group {
+    display: none !important;
+  }
+}
+
+/* Page Setup Configuration */
+@page {
+  size: letter; /* Options: A4, letter */
+  margin: 1.5cm;
+}
