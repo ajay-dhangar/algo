@@ -32,7 +32,7 @@ export default function LoginPage() {
                 Create account
               </Link>
               <Link
-                to="/algo/profile"
+                to="/profile"
                 className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-transparent px-5 py-3 text-sm font-semibold text-slate-700 no-underline hover:bg-white hover:no-underline dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-900/60"
               >
                 View profile
