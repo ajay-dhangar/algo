@@ -68,6 +68,17 @@ Let's look at an example to understand how `if-else` statements work in practice
     - If the `number` is `0`, the message "The number is zero" is printed.
 
   </TabItem>
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Zg4-uSjxosE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Operators and Conditional Statements | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
   <TabItem value="java" label="Java">
 
 <h3>Java If-Else Example</h3>
@@ -94,6 +105,16 @@ The output of this program will be the same as the JavaScript example.
 
   </TabItem>
 
+  ## Video Explanation
+
+<LiteYouTubeEmbed
+  id="I5srDu75h_M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Conditional Statements | If-else, Switch Break | Complete Java Placement Course | Lecture 3"
+  lazyLoad={true}
+  webp
+/>
+
     <TabItem value="python" label="Python">
 
 <h3>Python If-Else Example</h3>
@@ -114,6 +135,16 @@ else:
 The Python code snippet achieves the same functionality as the JavaScript and Java examples.
 
   </TabItem>
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ceiuLR2ysas"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="If Else Conditional Statements in Python | Python Tutorial - Day #14"
+  lazyLoad={true}
+  webp
+/>
 
 </Tabs>
 

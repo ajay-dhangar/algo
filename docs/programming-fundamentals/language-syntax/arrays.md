@@ -24,6 +24,16 @@ An array is a collection of items stored at contiguous memory locations. The ide
 
 In JavaScript, arrays are dynamic, which means they can change size and hold mixed data types.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="gFWhbjzowrM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 4: Arrays | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 #### Declaration and Initialization
 
 ```js title="JavaScript Array Example"
@@ -61,6 +71,16 @@ console.log(fruits); // Output: ["Apple", "Mango", "Cherry"]
 
 Java arrays have a fixed size and must be declared with a type.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="NTHVTY6w2Co"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Arrays Introduction | Java Complete Placement Course | Lecture 10"
+  lazyLoad={true}
+  webp
+/>
+
 #### Declaration and Initialization
 
 ```java title="Java Array Example"
@@ -93,6 +113,16 @@ for (int num : primes) {
 ### Python Arrays (Lists) Overview
 
 In Python, lists are dynamic and can hold different data types.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="8wmn7k1TTcI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Array Data Structure - Part1 | DSA Series by Shradha Khapra Ma'am | C++"
+  lazyLoad={true}
+  webp
+/>
 
 #### Declaration and Initialization
 
@@ -129,6 +159,16 @@ print(fruits)  # Output: ["Apple", "Mango", "Cherry"]
 ### C++ Arrays Overview
 
 C++ arrays are static and have a fixed size.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="sNrLlmOIn-c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 9: Introduction to Arrays in C++"
+  lazyLoad={true}
+  webp
+/>
 
 #### Declaration and Initialization
 

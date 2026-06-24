@@ -25,6 +25,16 @@ An object is a self-contained entity that consists of properties (attributes) an
 
 In JavaScript, objects can be created using literal notation or class instantiation.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="PFmuCDHHpwk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Object-oriented Programming in JavaScript: Made Super Simple | Mosh"
+  lazyLoad={true}
+  webp
+/>
+
 #### Object Literal
 
 ```js title="JavaScript Object Example"
@@ -65,6 +75,16 @@ person1.greet(); // Output: Hello, my name is Bob and I am 25 years old.
 ### Java Objects Overview
 
 In Java, objects are created by instantiating classes using the `new` keyword.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="bSrm9RXwBaI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java OOPs in One Shot | Object Oriented Programming | Java Language | Placement Course"
+  lazyLoad={true}
+  webp
+/>
 
 #### Creating an Object
 
@@ -122,6 +142,16 @@ person1.greet()  # Output: Hello, my name is Alice and I am 30 years old.
 ### C++ Objects Overview
 
 In C++, objects are created by instantiating classes defined in your code.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="nGJTWaaFdjc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Object Oriented Programming in C++ | C++ Tutorials for Beginners #20"
+  lazyLoad={true}
+  webp
+/>
 
 #### Creating an Object
 

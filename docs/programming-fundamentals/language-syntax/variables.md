@@ -38,6 +38,16 @@ var isStudent = true; // Function-scoped (use is discouraged)
 Use `let` and `const` for modern JavaScript as they offer better scoping and avoid potential pitfalls.
 :::
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Q4p8vRQX8uY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Variables in JavaScript | JavaScript Tutorial in Hindi #2"
+  lazyLoad={true}
+  webp
+/>
+
 ### Variable Hoisting in JavaScript
 
 JavaScript variables declared using `var` are hoisted to the top of their scope, but not initialized:
@@ -64,6 +74,17 @@ int age = 25;
 boolean isStudent = true;
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="LusTv0RlnSU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Variables in Java | Input Output | Complete Placement Course | Lecture 2"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Variable Scope in Java
 
 Java has three main types of variable scopes:
@@ -84,6 +105,16 @@ name = "Alice"
 age = 25
 is_student = True
 ```
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="t2_Q2BRzeEE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Python Full Course❤️ | Variables & Data Types | Lecture 1"
+  lazyLoad={true}
+  webp
+/>
 
 ### Variable Naming Conventions
 
@@ -112,6 +143,16 @@ std::string name = "Alice";
 int age = 25;
 bool isStudent = true;
 ```
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Dxu7GKtdbnA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Variable, Data Types & Operators | DSA Series by Shradha Ma'am | C++"
+  lazyLoad={true}
+  webp
+/>
 
 ### Variable Lifetime and Scope in C++
 
