@@ -102,6 +102,8 @@ class Solution {
         int maxOpen = 0;
         
         for (char c : s.toCharArray()) {
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
             if (c == '(') {
                 minOpen++;
                 maxOpen++;
@@ -112,7 +114,6 @@ class Solution {
                 minOpen--;
                 maxOpen++;
             }
-            
             // If maxOpen is negative, we have too many ')'
             if (maxOpen < 0) return false;
             
