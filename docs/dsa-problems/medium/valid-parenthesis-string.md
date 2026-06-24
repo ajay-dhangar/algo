@@ -66,7 +66,7 @@ We maintain two variables:
 ```cpp
 class Solution {
 public:
-    bool checkValidString(string s) {
+    bool checkValidString(const string& s) {
         int minOpen = 0;
         int maxOpen = 0;
         
