@@ -5,64 +5,114 @@ import { default as Link } from "@docusaurus/Link"; // Fixed import statement fo
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-16 px-8 noise-bg">
-      <div className="max-w-4xl text-center z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/5 border border-slate-900/10 dark:border-white/10 text-slate-600 dark:text-gray-400 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
-          <FiCode className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400" />
-          <span>v2.0 Architecture</span>
-          <span className="h-3 w-[1px] bg-slate-200 dark:bg-gray-800" />
-          <span className="text-blue-600 dark:text-blue-400">Open Source</span>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+  
+  {/* Aurora Background */}
+  <div className="absolute inset-0">
+    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/30 blur-[150px] rounded-full animate-pulse" />
+    <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-600/30 blur-[150px] rounded-full animate-pulse" />
+  </div>
 
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-          Data Structures & Algorithms
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed mb-10">
-          Learn, implement, and contribute to production-grade data structures and algorithms. 
-          Accelerate your computer science proficiency from fundamental roots to production execution.
-        </p>
+  {/* Grid */}
+  <div
+    className="absolute inset-0 opacity-20"
+    style={{
+      backgroundImage:
+        "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+      backgroundSize: "40px 40px",
+    }}
+  />
 
-        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-          
-          <Link
-            to="/docs"
-            className="group relative overflow-hidden flex items-center px-6 py-3 text-lg font-medium text-white rounded-lg shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-blue-500/50 hover:shadow-2xl hover:text-gray-100 active:scale-95">
-            <span className="absolute inset-0 bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 transition duration-300 group-hover:from-blue-800 group-hover:via-blue-700 group-hover:to-cyan-600"></span>
-            <span className="relative z-10 flex items-center">
-              Explore Algorithms
-            <FaArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-2" />
-            </span>
-          </Link>
+  <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
 
-          <Link
-            to="https://github.com/ajay-dhangar/algo"
-            className="group relative overflow-hidden flex items-center px-6 py-3 text-lg font-medium text-blue-600 dark:text-white border-2 border-blue-600 dark:border-white rounded-lg transition-all duration-300 ease-in-out hover:scale-110 hover:text-gray-200 hover:shadow-xl hover:shadow-gray-500/40 active:scale-95"
-          >
-            <span className="absolute inset-0 bg-blue-600 dark:bg-white scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+    {/* Badge */}
+    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-10">
+      <FiCode className="text-cyan-400" />
+      <span className="text-sm text-white/80">
+        Trusted by 10,000+ Developers
+      </span>
+    </div>
 
-            <span className="relative z-10 flex items-center group-hover:text-white dark:group-hover:text-blue-600 transition-colors duration-300">
-              View on GitHub
-              <FaGithub className="ml-2 transition-transform duration-300 group-hover:rotate-18 group-hover:scale-125" />
-            </span>
-          </Link>
+    {/* Heading */}
+    <h1 className="text-6xl md:text-8xl font-black tracking-tight leading-none">
+      <span className="text-white">
+        Master
+      </span>
+      <br />
+      <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+        Algorithms
+      </span>
+    </h1>
 
-        </div>
-        
-      </div>
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-20 -left-10 w-72 h-72 bg-blue-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-pink-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
-      </div>
+    {/* Subtitle */}
+    <p className="max-w-3xl mx-auto mt-8 text-xl text-gray-400 leading-relaxed">
+      Learn data structures, algorithms, system design, and problem solving
+      through production-ready implementations crafted for modern engineers.
+    </p>
 
-      <button 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer text-slate-400 hover:text-blue-500 dark:text-gray-500 dark:hover:text-blue-400 transition-colors duration-300 z-20 bg-transparent border-0 p-0 focus:outline-none"
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-        aria-label="Scroll down"
-        title="Scroll down"
+    {/* CTA */}
+    <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-12">
+
+      <Link
+        to="/docs"
+        className="group px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-lg shadow-[0_20px_60px_rgba(59,130,246,0.4)] hover:scale-105 transition"
       >
-        <FaChevronDown size={32} />
-      </button>
-    </section>
+        <span className="flex items-center">
+          Start Learning
+          <FaArrowRight className="ml-3 group-hover:translate-x-2 transition" />
+        </span>
+      </Link>
+
+      <a
+        href="https://github.com/ajay-dhangar/algo"
+        target="_blank"
+        rel="noreferrer"
+        className="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-white hover:bg-white/10 transition"
+      >
+        <span className="flex items-center">
+          <FaGithub className="mr-3" />
+          Star on GitHub
+        </span>
+      </a>
+
+    </div>
+
+    {/* Stats */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-24">
+
+      <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8">
+        <h3 className="text-4xl font-bold text-white">500+</h3>
+        <p className="text-gray-400 mt-2">Algorithms</p>
+      </div>
+
+      <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8">
+        <h3 className="text-4xl font-bold text-white">40+</h3>
+        <p className="text-gray-400 mt-2">Topics Covered</p>
+      </div>
+
+      <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8">
+        <h3 className="text-4xl font-bold text-white">10k+</h3>
+        <p className="text-gray-400 mt-2">Developers</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  {/* Scroll */}
+  <button
+    className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/50 hover:text-white"
+    onClick={() =>
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: "smooth",
+      })
+    }
+  >
+    <FaChevronDown size={30} />
+  </button>
+
+</section>
   );
 };
 
