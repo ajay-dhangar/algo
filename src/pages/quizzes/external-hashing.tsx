@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaUserCircle,
@@ -12,7 +11,6 @@ import {
   FaChevronRight,
   FaHistory
 } from "react-icons/fa";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -204,11 +202,9 @@ const ExternalHashingQuiz: React.FC = () => {
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
-  const [apiError, setApiError] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-  const apiBaseUrl = useApiBaseUrl();
-
+  
   useEffect(() => {
     setIsMounted(true);
     const storedId = localStorage.getItem("quiz_userId");
@@ -236,22 +232,20 @@ const ExternalHashingQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = useCallback(async (uId: string) => {
-    try {
-      setApiError(null);
-      const res = await axios.get(
-        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/external-hashing`)
-      );
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
-      } else {
-        setApiError("Failed to load attempt history.");
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_external-hashing`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Error fetching external hashing quiz history:", e);
-      setApiError("Unable to connect to the server. Attempt history may not be up to date.");
+    } else {
+      setAttempts([]);
     }
-  }, [apiBaseUrl]);
+  }, []);
 
   useEffect(() => {
     if (userId) {
@@ -278,26 +272,21 @@ const ExternalHashingQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      setApiError(null);
-      const res = await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "external-hashing",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      
-      if (res.data?.success) {
-        fetchAttempts(userId);
-      } else {
-        setApiError("Failed to save quiz attempt.");
-      }
-    } catch (e) {
-      console.error("Failed to submit external hashing quiz attempt:", e);
-      setApiError("Unable to connect to the server. Your attempt could not be saved.");
-    }
+    const newAttempt: HistoryAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_external-hashing`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -549,12 +538,7 @@ const ExternalHashingQuiz: React.FC = () => {
               )}
             </AnimatePresence>
 
-                        {apiError && (
-              <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-solid border-red-500/20 text-red-700 dark:text-red-400 text-xs font-semibold font-mono uppercase tracking-wider flex items-center gap-2">
-                <span>⚠️</span>
-                <span>{apiError}</span>
-              </div>
-            )}
+                        
 
             {attempts.length > 0 && (
               <div className="mt-12 border-t border-solid border-slate-200 dark:border-slate-800/80 pt-8 text-left">

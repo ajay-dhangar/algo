@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -13,7 +12,6 @@ import {
   FaHistory, 
   FaAward 
 } from "react-icons/fa";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -176,10 +174,9 @@ const BTreeQuiz: React.FC = () => {
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<DBAttempt[]>([]);
   const [isMounted, setIsMounted] = useState(false);
-  const [apiError, setApiError] = useState<string | null>(null);
-
+  
   // Fallback anchor configuration for context boundaries
-  const apiBaseUrl = useApiBaseUrl(); 
+   
 
   useEffect(() => {
     setIsMounted(true);
@@ -210,22 +207,20 @@ const BTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = useCallback(async (uId: string) => {
-    try {
-      setApiError(null);
-      const res = await axios.get(
-        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/b-tree`)
-      );
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
-      } else {
-        setApiError("Failed to load attempt history.");
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_b-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Failed to recover target user records stream:", e);
-      setApiError("Unable to connect to the server. Attempt history may not be up to date.");
+    } else {
+      setAttempts([]);
     }
-  }, [apiBaseUrl]);
+  }, []);
 
   useEffect(() => {
     if (userId) {
@@ -252,25 +247,21 @@ const BTreeQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      setApiError(null);
-      const res = await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "b-tree",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      if (res.data?.success) {
-        fetchAttempts(userId);
-      } else {
-        setApiError("Failed to save quiz attempt.");
-      }
-    } catch (e) {
-      console.error("Failed transmission check of user compilation metrics:", e);
-      setApiError("Unable to connect to the server. Your attempt could not be saved.");
-    }
+    const newAttempt: DBAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_b-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -537,12 +528,7 @@ const BTreeQuiz: React.FC = () => {
               )}
             </AnimatePresence>
 
-            {apiError && (
-              <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-solid border-red-500/20 text-red-700 dark:text-red-400 text-xs font-semibold font-mono uppercase tracking-wider flex items-center gap-2">
-                <span>⚠️</span>
-                <span>{apiError}</span>
-              </div>
-            )}
+            
 
             {/* Historical Verification Track Log */}
             {attempts.length > 0 && (
