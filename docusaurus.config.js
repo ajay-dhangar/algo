@@ -255,6 +255,12 @@ const config = {
             type: "search",
             position: "right",
           },
+          {
+            label: 'Sign Up',
+            href: '/register',
+            position: 'right',
+            className: 'algo-signup algo-link',
+          },
         ],
       },
       footer: {
