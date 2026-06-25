@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -12,7 +11,6 @@ import {
   FaChevronRight, 
   FaHistory 
 } from "react-icons/fa";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -139,10 +137,9 @@ const BinaryTreeQuiz: React.FC = () => {
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
-  const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-  const apiBaseUrl = useApiBaseUrl();
-
+  
   useEffect(() => {
     setIsMounted(true);
     const storedId = localStorage.getItem("quiz_userId");
@@ -153,11 +150,7 @@ const BinaryTreeQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId, apiBaseUrl]);
+  
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -176,18 +169,26 @@ const BinaryTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(
-        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/binary-tree`)
-      );
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_binary-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Error retrieving historical performance data logs:", e);
+    } else {
+      setAttempts([]);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -208,19 +209,21 @@ const BinaryTreeQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "binary-tree",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Failed payload deployment to endpoint:", e);
-    }
+    const newAttempt: HistoryAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_binary-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -302,7 +305,9 @@ const BinaryTreeQuiz: React.FC = () => {
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
         <div className="max-w-4xl mx-auto">
           
-          {/* Top Info Bar */}
+                      
+
+            {/* Top Info Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-solid border-slate-200 dark:border-slate-800/80 rounded-2xl p-4 mb-6 shadow-xs">
             <div className="flex items-center gap-3">
               <FaUserCircle className="text-2xl text-slate-400 dark:text-slate-600" />

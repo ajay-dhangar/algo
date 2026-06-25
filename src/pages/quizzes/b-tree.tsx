@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -13,7 +12,6 @@ import {
   FaHistory, 
   FaAward 
 } from "react-icons/fa";
-import { buildApiUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -176,9 +174,9 @@ const BTreeQuiz: React.FC = () => {
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<DBAttempt[]>([]);
   const [isMounted, setIsMounted] = useState(false);
-
+  
   // Fallback anchor configuration for context boundaries
-  const apiBaseUrl = "https://api.codeharborhub.com"; 
+   
 
   useEffect(() => {
     setIsMounted(true);
@@ -190,11 +188,7 @@ const BTreeQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId]);
+  
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -213,18 +207,26 @@ const BTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(
-        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/b-tree`)
-      );
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_b-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Failed to recover target user records stream:", e);
+    } else {
+      setAttempts([]);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -245,19 +247,21 @@ const BTreeQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "b-tree",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Failed transmission check of user compilation metrics:", e);
-    }
+    const newAttempt: DBAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_b-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -523,6 +527,8 @@ const BTreeQuiz: React.FC = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+
+            
 
             {/* Historical Verification Track Log */}
             {attempts.length > 0 && (
