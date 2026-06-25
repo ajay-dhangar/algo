@@ -42,7 +42,8 @@ Output: `[]`
 Since we need to find *all* possible combinations that meet a specific condition, **Backtracking** is the most natural and optimal approach. At each step, we make a decision: we can either include the current candidate number in our combination, or skip it and move on to the next candidate.
 
 1. **State:** We need to keep track of the current index we are exploring in the `candidates` array, the current combination of numbers we've chosen, and the `remaining_target` we are trying to reach.
-2. **Base Cases:** - If `remaining_target == 0`, we found a valid combination! Add a copy of the current combination to our results.
+2. **Base Cases:**
+   - If `remaining_target == 0`, we found a valid combination! Add a copy of the current combination to our results.
    - If `remaining_target < 0` or we have explored all candidates (`index >= candidates.length`), this path is invalid, so we return and stop exploring.
 3. **Recursive Step (Choices):**
    - **Include:** Add the candidate at the current index to our combination and make a recursive call. Crucially, we *do not* increment the index, because we are allowed to use the same candidate an unlimited number of times. We subtract the candidate's value from the `remaining_target`.
