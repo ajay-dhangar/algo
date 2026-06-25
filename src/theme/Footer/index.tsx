@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { FaGithub, FaLinkedin, FaDiscord, FaTwitter, FaTerminal } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaDiscord, FaTerminal } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { HiOutlineCode, HiOutlineServer } from "react-icons/hi";
 import Link from "@docusaurus/Link";
 
@@ -38,7 +39,7 @@ const Footer = () => {
   const socialLinks = [
     { href: "https://github.com/ajay-dhangar", icon: <FaGithub className="w-4 h-4" />, label: "GitHub", hoverClass: "hover:text-white hover:bg-slate-800" },
     { href: "https://linkedin.com/in/ajay-dhangar", icon: <FaLinkedin className="w-4 h-4" />, label: "LinkedIn", hoverClass: "hover:text-indigo-400 hover:bg-indigo-950/30" },
-    { href: "https://twitter.com/CodesWithAjay", icon: <FaTwitter className="w-4 h-4" />, label: "Twitter", hoverClass: "hover:text-sky-400 hover:bg-sky-950/30" },
+    { href: "https://x.com/CodesWithAjay", icon: <FaXTwitter className="w-4 h-4" />, label: "Twitter", hoverClass: "hover:text-sky-400 hover:bg-sky-950/30" },
     { href: "https://discord.gg/f8dHD5Hv8Q", icon: <FaDiscord className="w-4 h-4" />, label: "Discord", hoverClass: "hover:text-[#5865F2] hover:bg-[#5865F2]/10" }
   ];
 
