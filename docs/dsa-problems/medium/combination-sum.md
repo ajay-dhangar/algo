@@ -162,7 +162,7 @@ class Solution:
  * @param {number} target
  * @return {number[][]}
  */
-var combinationSum = function(candidates, target) {
+const combinationSum = function(candidates, target) {
     const res = [];
     
     const backtrack = (index, currentCombo, remainingTarget) => {
