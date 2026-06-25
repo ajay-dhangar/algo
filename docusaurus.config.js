@@ -108,7 +108,8 @@ const config = {
       },
       algolia: {
         appId: process.env.ALGOLIA_APP_ID || "T0I3F584D5",
-        apiKey: process.env.ALGOLIA_API_KEY || "865d7bd9906f532b1d8cb5cc0f02b383",
+        apiKey:
+          process.env.ALGOLIA_API_KEY || "865d7bd9906f532b1d8cb5cc0f02b383",
         indexName: process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
         contextualSearch: true,
       },
@@ -125,16 +126,6 @@ const config = {
             sidebarId: "tutorialSidebar",
             position: "left",
             label: "Tutorials",
-          },
-          {
-            to: "blog",
-            label: "Blogs",
-            position: "left",
-          },
-          {
-            to: "dsa-roadmap",
-            label: "Contribution Tracker",
-            position: "left",
           },
           {
             type: "dropdown",
@@ -158,6 +149,10 @@ const config = {
               {
                 to: "applications",
                 label: "Real-World Implementation",
+              },
+              {
+                to: "dsa-roadmap",
+                label: "Contribution Tracker",
               },
               {
                 type: "html",
@@ -188,14 +183,9 @@ const config = {
             ],
           },
           {
-            to: "faq",
-            label: "FAQ",
-            position: "left",
-          },
-          {
             type: "dropdown",
             label: "Community Hub",
-            position: "right",
+            position: "left",
             className: "navbar-community-dropdown",
             items: [
               {
@@ -248,6 +238,16 @@ const config = {
             ],
           },
           {
+            to: "faq",
+            label: "FAQ",
+            position: "left",
+          },
+          {
+            to: "blog",
+            label: "Blogs",
+            position: "right",
+          },
+          {
             type: "localeDropdown",
             position: "right",
           },
@@ -256,10 +256,10 @@ const config = {
             position: "right",
           },
           {
-            label: 'Sign Up',
-            href: '/register',
-            position: 'right',
-            className: 'algo-signup algo-link',
+            label: "Sign Up",
+            href: "/register",
+            position: "right",
+            className: "algo-signup algo-link",
           },
         ],
       },
