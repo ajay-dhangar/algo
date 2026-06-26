@@ -111,13 +111,14 @@ const config = {
         textColor: "var(--announcement-text)",
         isCloseable: true,
       },
-      algolia: {
-        appId: process.env.ALGOLIA_APP_ID || "T0I3F584D5",
-        apiKey:
-          process.env.ALGOLIA_API_KEY || "865d7bd9906f532b1d8cb5cc0f02b383",
-        indexName: process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
-        contextualSearch: true,
-      },
+      ...(process.env.ALGOLIA_API_KEY ? {
+        algolia: {
+          appId: process.env.ALGOLIA_APP_ID,
+          apiKey: process.env.ALGOLIA_API_KEY,
+          indexName: process.env.ALGOLIA_INDEX_NAME,
+          contextualSearch: true,
+        }
+      } : {}),
 
       navbar: {
         title: "Algo",
