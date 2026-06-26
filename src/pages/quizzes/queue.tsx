@@ -18,7 +18,7 @@ import {
 interface QueueQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   codeSnippet?: string;
   options: string[];
   answer: string;
@@ -35,7 +35,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 1,
     difficulty: "Medium",
-    questionText: "Examine the C-like pseudocode below. A Queue 'Q' is passed into the function and processed using an auxiliary Stack 'S'. What is the net effect of this function on the Queue?",
+    question: "Examine the C-like pseudocode below. A Queue 'Q' is passed into the function and processed using an auxiliary Stack 'S'. What is the net effect of this function on the Queue?",
     codeSnippet: `void fun(Queue *Q) {\n    Stack S;  // Initialize empty stack\n    while (!isEmpty(Q)) {\n        push(&S, deQueue(Q));\n    }\n    while (!isEmpty(&S)) {\n        enQueue(Q, pop(&S));\n    }\n}`,
     options: [
       "A) Removes the last element from Q",
@@ -49,7 +49,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "If only Stack data structures are available, what is the minimum number of Stacks required to fully implement a functional Queue logic?",
+    question: "If only Stack data structures are available, what is the minimum number of Stacks required to fully implement a functional Queue logic?",
     options: ["A) 1 Stack", "B) 2 Stacks", "C) 3 Stacks", "D) 4 Stacks"],
     answer: "B) 2 Stacks",
     explanation: "Two stacks are required: one to handle 'enqueue' (pushing) and another to handle 'dequeue' (reversing the order so the oldest element is accessible)."
@@ -57,7 +57,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 3,
     difficulty: "Easy",
-    questionText: "In an ideal Queue implementation (Circular Array or Linked List with Head/Tail pointers), which operations achieve O(1) constant time complexity?",
+    question: "In an ideal Queue implementation (Circular Array or Linked List with Head/Tail pointers), which operations achieve O(1) constant time complexity?",
     options: ["A) Only Enqueue", "B) Only Dequeue", "C) Both Enqueue and Dequeue", "D) Only Peek"],
     answer: "C) Both Enqueue and Dequeue",
     explanation: "By maintaining pointers to both the front and the rear of the structure, we can add or remove elements without iterating through the collection, resulting in O(1) time."
@@ -65,7 +65,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "Which data structure provides the most efficient underlying implementation for a Priority Queue to ensure logarithmic time for both insertion and extraction?",
+    question: "Which data structure provides the most efficient underlying implementation for a Priority Queue to ensure logarithmic time for both insertion and extraction?",
     options: ["A) Unordered Array", "B) Doubly Linked List", "C) Binary Heap / Fibonacci Heap", "D) Simple Stack"],
     answer: "C) Binary Heap / Fibonacci Heap",
     explanation: "Heaps maintain a semi-ordered state that allows for O(log n) insertions and O(log n) extractions of the highest/lowest priority element, outperforming linear arrays or lists."
@@ -73,7 +73,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 5,
     difficulty: "Medium",
-    questionText: "A Priority-Queue is implemented as a Max-Heap with current elements: [10, 8, 5, 3, 2]. If we insert '1' then '7' in that order, what is the resulting level-order traversal?",
+    question: "A Priority-Queue is implemented as a Max-Heap with current elements: [10, 8, 5, 3, 2]. If we insert '1' then '7' in that order, what is the resulting level-order traversal?",
     options: [
       "A) 10, 8, 7, 5, 3, 2, 1",
       "B) 10, 8, 7, 3, 2, 1, 5",
@@ -86,7 +86,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 6,
     difficulty: "Hard",
-    questionText: "Consider a 'MultiDequeue' operation that dequeues 'k' elements from a queue 'Q'. What is the amortized time complexity of 'n' such operations on an initially empty queue?",
+    question: "Consider a 'MultiDequeue' operation that dequeues 'k' elements from a queue 'Q'. What is the amortized time complexity of 'n' such operations on an initially empty queue?",
     codeSnippet: `MultiDequeue(Q, k) {\n    m = k;\n    while (!isEmpty(Q) && m > 0) {\n        deQueue(Q);\n        m--;\n    }\n}`,
     options: ["A) Θ(n)", "B) Θ(n + k)", "C) Θ(nk)", "D) Θ(n²)"],
     answer: "B) Θ(n + k)",
@@ -95,7 +95,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 7,
     difficulty: "Hard",
-    questionText: "Identify the purpose of the following function 'fun' which utilizes an integer queue 'q'. What is the final output sequence?",
+    question: "Identify the purpose of the following function 'fun' which utilizes an integer queue 'q'. What is the final output sequence?",
     codeSnippet: `fun(int n) {\n    Queue q = new Queue();\n    q.enqueue(0);\n    q.enqueue(1);\n    for (int i = 0; i < n; i++) {\n        int a = q.dequeue();\n        int b = q.dequeue();\n        q.enqueue(b);\n        q.enqueue(a + b);\n        print(a);\n    }\n}`,
     options: [
       "A) Prints 0 to n-1",
@@ -109,7 +109,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 8,
     difficulty: "Easy",
-    questionText: "Which of the following is NOT a standard variation or operation of a Queue data structure?",
+    question: "Which of the following is NOT a standard variation or operation of a Queue data structure?",
     options: ["A) Deque (Double-ended Queue)", "B) Circular Queue", "C) Priority Queue", "D) Shuffle-Queue"],
     answer: "D) Shuffle-Queue",
     explanation: "Standard queues focus on order preservation (FIFO or Priority). Shuffling (randomizing order) is an operation typically associated with Lists or Collections, not the Queue interface."
@@ -117,7 +117,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 9,
     difficulty: "Easy",
-    questionText: "What will happen if you attempt to dequeue an item from a queue that is currently empty?",
+    question: "What will happen if you attempt to dequeue an item from a queue that is currently empty?",
     options: [
       "A) The operation returns null and continues",
       "B) It typically triggers a Queue Underflow error/exception",
@@ -130,7 +130,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 10,
     difficulty: "Easy",
-    questionText: "In a circular queue implementation, what is the primary structural benefit compared to a standard linear array queue?",
+    question: "In a circular queue implementation, what is the primary structural benefit compared to a standard linear array queue?",
     options: [
       "A) It consumes more memory for faster buffering",
       "B) It provides faster O(log n) access time",
@@ -143,7 +143,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 11,
     difficulty: "Medium",
-    questionText: "Consider the following sequence of operations. What values will be returned by the two dequeue() calls respectively?",
+    question: "Consider the following sequence of operations. What values will be returned by the two dequeue() calls respectively?",
     codeSnippet: `enqueue(1);\nenqueue(2);\nenqueue(3);\ndequeue();\nenqueue(4);\ndequeue();`,
     options: ["A) 1, 2", "B) 1, 3", "C) 2, 4", "D) 3, 4"],
     answer: "A) 1, 2",
@@ -152,7 +152,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 12,
     difficulty: "Easy",
-    questionText: "Which of the following data structures can be used as the underlying foundation to implement a Queue?",
+    question: "Which of the following data structures can be used as the underlying foundation to implement a Queue?",
     options: ["A) Static Arrays", "B) Singly or Doubly Linked Lists", "C) Stacks (using two of them)", "D) All of the above"],
     answer: "D) All of the above",
     explanation: "Queues are abstract data types. While Arrays and Linked Lists are common, you can even simulate FIFO behavior using two LIFO Stacks."
@@ -160,7 +160,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 13,
     difficulty: "Medium",
-    questionText: "What is the time complexity of the enqueue and dequeue operations in an optimized Linked List-based queue?",
+    question: "What is the time complexity of the enqueue and dequeue operations in an optimized Linked List-based queue?",
     options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
     answer: "A) O(1)",
     explanation: "By maintaining both a 'Head' and a 'Tail' pointer, we can add to the back and remove from the front in constant time without traversing the list."
@@ -168,7 +168,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 14,
     difficulty: "Hard",
-    questionText: "Examine this pseudocode snippet. Which operation does it accurately represent in a typical array-based implementation?",
+    question: "Examine this pseudocode snippet. Which operation does it accurately represent in a typical array-based implementation?",
     codeSnippet: `if (front == -1) {\n    front = 0;\n}\nrear++;\nqueue[rear] = value;`,
     options: [
       "A) Dequeue Operation",
@@ -182,7 +182,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 15,
     difficulty: "Medium",
-    questionText: "In a Priority Queue, how is the order of element removal (dequeue) determined?",
+    question: "In a Priority Queue, how is the order of element removal (dequeue) determined?",
     options: [
       "A) Strictly by the order of arrival (FIFO)",
       "B) Based on the priority level associated with each element",
@@ -195,7 +195,7 @@ const QUESTIONS: QueueQuestion[] = [
   {
     id: 16,
     difficulty: "Hard",
-    questionText: "If a queue is initially empty, what is the current 'Front' element after this specific sequence?",
+    question: "If a queue is initially empty, what is the current 'Front' element after this specific sequence?",
     codeSnippet: `enqueue(10);\nenqueue(20);\ndequeue();\nenqueue(30);`,
     options: ["A) 10", "B) 20", "C) 30", "D) The queue is empty"],
     answer: "B) 20",
@@ -341,7 +341,7 @@ const QueueQuiz: React.FC = () => {
                         {QUESTIONS[currentQuestion].difficulty}
                        </span>
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold leading-relaxed">{QUESTIONS[currentQuestion].questionText}</h3>
+                    <h3 className="text-lg md:text-xl font-bold leading-relaxed">{QUESTIONS[currentQuestion].question}</h3>
 
                     {QUESTIONS[currentQuestion].codeSnippet && (
                       <div className="rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-[#0d1117] text-sm">
@@ -388,7 +388,7 @@ const QueueQuiz: React.FC = () => {
                     {QUESTIONS.map((q, idx) => (
                       <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4">
                         <div className="flex items-start justify-between gap-4">
-                          <h5 className="text-sm font-bold leading-relaxed">{idx + 1}. {q.questionText}</h5>
+                          <h5 className="text-sm font-bold leading-relaxed">{idx + 1}. {q.question}</h5>
                           {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0"/> : <FaTimesCircle className="text-rose-800 dark:text-rose-400 shrink-0"/>}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">

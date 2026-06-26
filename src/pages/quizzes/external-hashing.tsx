@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaUserCircle,
@@ -12,7 +11,6 @@ import {
   FaChevronRight,
   FaHistory
 } from "react-icons/fa";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -204,10 +202,9 @@ const ExternalHashingQuiz: React.FC = () => {
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
-  const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-  const apiBaseUrl = useApiBaseUrl();
-
+  
   useEffect(() => {
     setIsMounted(true);
     const storedId = localStorage.getItem("quiz_userId");
@@ -218,9 +215,7 @@ const ExternalHashingQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) fetchAttempts(userId);
-  }, [userId, apiBaseUrl]);
+  
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -237,16 +232,26 @@ const ExternalHashingQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/external-hashing`));
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_external-hashing`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Error fetching external hashing quiz history:", e);
+    } else {
+      setAttempts([]);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
 
   const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -274,19 +279,21 @@ const ExternalHashingQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "external-hashing",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Failed to submit external hashing quiz attempt:", e);
-    }
+    const newAttempt: HistoryAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_external-hashing`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -538,6 +545,8 @@ const ExternalHashingQuiz: React.FC = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+
+                        
 
             {attempts.length > 0 && (
               <div className="mt-12 border-t border-solid border-slate-200 dark:border-slate-800/80 pt-8 text-left">

@@ -7,6 +7,7 @@ import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop";
 import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom";
 import PageProgressIndicator from "../components/PageProgressIndicator";
 import SidebarUpdater from '../components/ProgressTracker/SidebarUpdater';
+import { AuthProvider } from "../contexts/AuthContext";
 
 export default function Root({ children }) {
   const location = useLocation();
@@ -25,15 +26,17 @@ export default function Root({ children }) {
 
   return (
     <>
-      <SidebarUpdater />
-      {isDocsPage && <PageProgressIndicator />}
-      {children}
-      <KeyboardShortcutsModal
-        isOpen={showKeyboardModal}
-        onClose={onCloseHelp}
-      />
-      {!isHomepage && <BottomToTop />}
-      {!isHomepage && <TopToBottom />}
+      <AuthProvider>
+        <SidebarUpdater />
+        {isDocsPage && <PageProgressIndicator />}
+        {children}
+        <KeyboardShortcutsModal
+          isOpen={showKeyboardModal}
+          onClose={onCloseHelp}
+        />
+        {!isHomepage && <BottomToTop />}
+        {!isHomepage && <TopToBottom />}
+      </AuthProvider>
     </>
   );
 }
