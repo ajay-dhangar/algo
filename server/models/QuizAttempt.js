@@ -42,6 +42,11 @@ const QuizAttempt = sequelize.define("QuizAttempt", {
       const rawValue = this.getDataValue("userAnswers");
       try {
         return rawValue ? JSON.parse(rawValue) : [];
+    get() {
+      const rawValue = this.getDataValue("userAnswers");
+      if (!rawValue) return [];
+      try {
+        return JSON.parse(rawValue);
       } catch (e) {
         return [];
       }
