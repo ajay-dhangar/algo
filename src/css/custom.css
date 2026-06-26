@@ -433,6 +433,12 @@ button {
   color: #fff;
 }
 
+[data-theme="dark"] .algo-signup {
+  --ifm-link-hover-color: #000;
+  --ifm-navbar-link-hover-color: #000;
+  color: #000;
+}
+
 .algo-signup svg {
   display: none;
 }
