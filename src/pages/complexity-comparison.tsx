@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
-import autoComplexitiesRaw from '../data/auto-complexities.json';
 
 interface ComplexityData {
   title: string;
@@ -13,7 +12,40 @@ interface ComplexityData {
   space: string;
 }
 
-const autoComplexities = autoComplexitiesRaw as ComplexityData[];
+const autoComplexities: ComplexityData[] = [
+  {
+    title: "Array",
+    path: "docs/basic-data-structures/array",
+    time_best: "O(1)",
+    time_average: "O(1)",
+    time_worst: "O(n)",
+    space: "O(n)"
+  },
+  {
+    title: "Hash Map",
+    path: "docs/basic-data-structures/hash-map",
+    time_best: "O(1)",
+    time_average: "O(1)",
+    time_worst: "O(n)",
+    space: "O(n)"
+  },
+  {
+    title: "Bubble Sort",
+    path: "docs/extra/algorithms/sorting-algorithms/bubble-sort",
+    time_best: "O(n)",
+    time_average: "O(n^2)",
+    time_worst: "O(n^2)",
+    space: "O(1)"
+  },
+  {
+    title: "Merge Sort",
+    path: "docs/extra/algorithms/sorting-algorithms/merge-sort",
+    time_best: "O(n log n)",
+    time_average: "O(n log n)",
+    time_worst: "O(n log n)",
+    space: "O(n)"
+  }
+];
 
 export default function ComplexityComparison() {
   return (
@@ -26,7 +58,7 @@ export default function ComplexityComparison() {
           <Translate id="complexity.comparison.title">Algorithm Complexity Comparison</Translate>
         </h1>
         <p>
-          <Translate id="complexity.comparison.description">This table is automatically generated from the documentation metadata.</Translate>
+          <Translate id="complexity.comparison.description">This table provides a reference for the time and space complexities of common data structures and algorithms.</Translate>
         </p>
         
         {autoComplexities.length === 0 ? (

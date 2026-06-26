@@ -7,17 +7,15 @@
   },
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "npm run generate:complexity && docusaurus start",
-    "build": "npm run generate:complexity && docusaurus build --no-minify",
+    "start": "docusaurus start",
+    "build": "docusaurus build --no-minify",
     "swizzle": "docusaurus swizzle",
     "deploy": "gh-pages -d build",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "validate:docs": "node scripts/validate-frontmatter.js",
-    "validate:complexity": "node scripts/validate-complexity.js",
-    "generate:complexity": "node scripts/generate-complexity-data.js"
+    "validate:docs": "node scripts/validate-frontmatter.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.5.2",
