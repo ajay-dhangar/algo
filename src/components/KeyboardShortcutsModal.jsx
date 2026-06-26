@@ -2,34 +2,12 @@ import React from "react";
 import useFocusTrap from "../hooks/useFocusTrap";
 
 const ShortcutRow = ({ action, shortcut }) => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      padding: "0.75rem 0",
-      borderBottom: "1px solid #e5e7eb",
-    }}
-  >
-    <span
-      style={{
-        fontSize: "0.95rem",
-        fontWeight: 500,
-      }}
-    >
+  <div className="flex justify-between items-center py-3 border-b border-slate-200 dark:border-slate-800">
+    <span className="text-[0.95rem] font-medium text-slate-900 dark:text-white">
       {action}
     </span>
 
-    <kbd
-      style={{
-        background: "#f3f4f6",
-        padding: "6px 10px",
-        borderRadius: "8px",
-        fontSize: "0.85rem",
-        fontWeight: 600,
-        border: "1px solid #d1d5db",
-      }}
-    >
+    <kbd className="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-1.5 text-[0.85rem] font-semibold text-slate-900 dark:text-white">
       {shortcut}
     </kbd>
   </div>
@@ -46,16 +24,7 @@ export default function KeyboardShortcutsModal({
   return (
     <div
       onClick={onClose}
-      style={{
-        position: "fixed",
-        inset: 0,
-        background: "rgba(0, 0, 0, 0.65)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        zIndex: 9999,
-        padding: "1rem",
-      }}
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/65 backdrop-blur-sm p-4"
     >
       <div
         ref={modalRef}
@@ -63,43 +32,18 @@ export default function KeyboardShortcutsModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="keyboard-shortcuts-title"
-        style={{
-          background: "#ffffff",
-          color: "#111827",
-          width: "100%",
-          maxWidth: "500px",
-          padding: "2rem",
-          borderRadius: "18px",
-          boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
-        }}
+        className="w-full max-w-[500px] bg-white dark:bg-gray-900 text-slate-900 dark:text-white p-8 rounded-[18px] shadow-[0_25px_60px_rgba(0,0,0,0.35)]"
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "1.5rem",
-          }}
-        >
+        <div className="flex justify-between items-center mb-6">
           <div>
             <h2
               id="keyboard-shortcuts-title"
-              style={{
-                margin: 0,
-                fontSize: "1.5rem",
-                fontWeight: 700,
-              }}
+              className="m-0 text-2xl font-bold"
             >
               Keyboard Shortcuts
             </h2>
 
-            <p
-              style={{
-                marginTop: "0.4rem",
-                color: "#6b7280",
-                fontSize: "0.95rem",
-              }}
-            >
+            <p className="mt-1.5 text-slate-500 dark:text-slate-400 text-[0.95rem]">
               Navigate Algo faster with keyboard shortcuts
             </p>
           </div>
@@ -107,16 +51,7 @@ export default function KeyboardShortcutsModal({
           <button
             onClick={onClose}
             aria-label="Close"
-            style={{
-              border: "none",
-              background: "#f3f4f6",
-              width: "40px",
-              height: "40px",
-              borderRadius: "10px",
-              cursor: "pointer",
-              fontSize: "1.2rem",
-              fontWeight: 700,
-            }}
+            className="border-none w-10 h-10 rounded-[10px] cursor-pointer text-[1.2rem] font-bold flex items-center justify-center bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white transition-colors"
           >
             ✕
           </button>

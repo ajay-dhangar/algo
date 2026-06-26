@@ -1,0 +1,214 @@
+---
+id: n-queens
+title: "N-Queens"
+sidebar_label: N-Queens
+description: "Solving the classic N-Queens puzzle using a backtracking approach."
+tags: [DSA, leetcode, array, backtracking]
+---
+
+import NQueensVisualizer from '@site/src/components/Visualizing/n-queens-visualizer';
+
+## Description:
+
+The **n-queens** puzzle is the problem of placing `n` queens on an `n x n` chessboard such that no two queens attack each other.
+
+Given an integer `n`, return *all distinct solutions to the **n-queens puzzle***. You may return the answer in **any order**.
+
+Each solution contains a distinct board configuration of the n-queens' placement, where `'Q'` and `'.'` both indicate a queen and an empty space, respectively.
+
+**Example 1:**
+
+Input: `n = 4`
+Output: `[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]`
+**Explanation:** There exist two distinct solutions to the 4-queens puzzle as shown above.
+
+**Example 2:**
+
+Input: `n = 1`
+Output: `[["Q"]]`
+
+---
+
+## Approaches:
+
+### 1. Backtracking
+
+The most effective way to solve the N-Queens problem is using **Backtracking**. We place queens row by row. For each row, we try to place a queen in each column. We must ensure that the new queen is not under attack by any previously placed queens.
+
+1. Maintain three sets to track the columns and the two diagonals (positive and negative) that are currently occupied by queens.
+2. The positive diagonal has a constant property where `row + col` is the same for all elements on that diagonal.
+3. The negative diagonal has a constant property where `row - col` is the same for all elements on that diagonal.
+4. Create a recursive `backtrack` function that starts at `row = 0`.
+5. If `row == n`, a valid board configuration has been found, so we format it and add it to our results.
+6. For the current row, iterate through each column `c`. If placing a queen at `(row, c)` violates any of our sets, skip it.
+7. Otherwise, place the queen, update the sets, and recursively call `backtrack(row + 1)`.
+8. After exploring that path, remove the queen and back out of the sets to explore other possibilities.
+
+<NQueensVisualizer />
+
+* **Time Complexity:** $O(N!)$ where $N$ is the number of queens. For the first row we have $N$ choices, for the next roughly $N-1$, and so on, leading to a factorial time complexity.
+* **Space Complexity:** $O(N^2)$ for storing the board state and the output array, plus $O(N)$ for the recursion stack and the sets used to track attacks.
+
+#### Solutions:
+
+**C++**
+```cpp
+class Solution {
+public:
+    vector<vector<string>> solveNQueens(int n) {
+        vector<vector<string>> res;
+        vector<string> board(n, string(n, '.'));
+        vector<int> col(n, 0), posDiag(2 * n, 0), negDiag(2 * n, 0);
+        backtrack(0, n, board, res, col, posDiag, negDiag);
+        return res;
+    }
+
+private:
+    void backtrack(int r, int n, vector<string>& board, vector<vector<string>>& res, vector<int>& col, vector<int>& posDiag, vector<int>& negDiag) {
+        if (r == n) {
+            res.push_back(board);
+            return;
+        }
+        for (int c = 0; c < n; c++) {
+            if (col[c] || posDiag[r + c] || negDiag[r - c + n]) continue;
+            
+            board[r][c] = 'Q';
+            col[c] = posDiag[r + c] = negDiag[r - c + n] = 1;
+            
+            backtrack(r + 1, n, board, res, col, posDiag, negDiag);
+            
+            board[r][c] = '.';
+            col[c] = posDiag[r + c] = negDiag[r - c + n] = 0;
+        }
+    }
+};
+```
+
+**Java**
+```java
+class Solution {
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> res = new ArrayList<>();
+        char[][] board = new char[n][n];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(board[i], '.');
+        }
+        
+        Set<Integer> col = new HashSet<>();
+        Set<Integer> posDiag = new HashSet<>();
+        Set<Integer> negDiag = new HashSet<>();
+        
+        backtrack(0, n, board, res, col, posDiag, negDiag);
+        return res;
+    }
+    
+    private void backtrack(int r, int n, char[][] board, List<List<String>> res, Set<Integer> col, Set<Integer> posDiag, Set<Integer> negDiag) {
+        if (r == n) {
+            List<String> copy = new ArrayList<>();
+            for (char[] row : board) {
+                copy.add(new String(row));
+            }
+            res.add(copy);
+            return;
+        }
+        
+        for (int c = 0; c < n; c++) {
+            if (col.contains(c) || posDiag.contains(r + c) || negDiag.contains(r - c)) {
+                continue;
+            }
+            
+            col.add(c);
+            posDiag.add(r + c);
+            negDiag.add(r - c);
+            board[r][c] = 'Q';
+            
+            backtrack(r + 1, n, board, res, col, posDiag, negDiag);
+            
+            col.remove(c);
+            posDiag.remove(r + c);
+            negDiag.remove(r - c);
+            board[r][c] = '.';
+        }
+    }
+}
+```
+
+**Python**
+```py
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        col = set()
+        posDiag = set() # (r + c)
+        negDiag = set() # (r - c)
+        
+        res = []
+        board = [["."] * n for _ in range(n)]
+        
+        def backtrack(r):
+            if r == n:
+                copy = ["".join(row) for row in board]
+                res.append(copy)
+                return
+            
+            for c in range(n):
+                if c in col or (r + c) in posDiag or (r - c) in negDiag:
+                    continue
+                
+                col.add(c)
+                posDiag.add(r + c)
+                negDiag.add(r - c)
+                board[r][c] = "Q"
+                
+                backtrack(r + 1)
+                
+                col.remove(c)
+                posDiag.remove(r + c)
+                negDiag.remove(r - c)
+                board[r][c] = "."
+                
+        backtrack(0)
+        return res
+```
+
+**JavaScript**
+```js
+/**
+ * @param {number} n
+ * @return {string[][]}
+ */
+const solveNQueens = function(n) {
+    const res = [];
+    const board = Array.from({ length: n }, () => Array(n).fill('.'));
+    const col = new Set();
+    const posDiag = new Set();
+    const negDiag = new Set();
+
+    const backtrack = (r) => {
+        if (r === n) {
+            res.push(board.map(row => row.join('')));
+            return;
+        }
+
+        for (let c = 0; c < n; c++) {
+            if (col.has(c) || posDiag.has(r + c) || negDiag.has(r - c)) {
+                continue;
+            }
+
+            col.add(c);
+            posDiag.add(r + c);
+            negDiag.add(r - c);
+            board[r][c] = 'Q';
+
+            backtrack(r + 1);
+
+            col.delete(c);
+            posDiag.delete(r + c);
+            negDiag.delete(r - c);
+            board[r][c] = '.';
+        }
+    };
+
+    backtrack(0);
+    return res;
+};
+```
