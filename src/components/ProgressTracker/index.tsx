@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { FaCheckCircle, FaRegCircle } from 'react-icons/fa';
+import { safeJsonParse } from '../../utils/safeStorage';
+
 
 interface Props {
   topicId: string;
@@ -13,11 +15,8 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('algo_progress');
-      if (saved) {
-        const progress = JSON.parse(saved);
-        setIsCompleted(!!progress[topicId]);
-      }
+      const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
+      setIsCompleted(!!progress[topicId]);
     } catch (e) {
       console.error('Error loading progress:', e);
     }
@@ -31,8 +30,7 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
       setTimeout(() => setAnimate(false), 300); // Reduced animation latency
     }
     try {
-      const saved = localStorage.getItem('algo_progress');
-      const progress = saved ? JSON.parse(saved) : {};
+      const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
       progress[topicId] = newStatus;
       progress[`${topicId}_title`] = topicTitle;
       localStorage.setItem('algo_progress', JSON.stringify(progress));

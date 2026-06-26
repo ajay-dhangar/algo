@@ -16,6 +16,7 @@ import {
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
+import { safeJsonParse } from "../../utils/safeStorage";
 
 interface ArrayQuestion {
   id: number;
@@ -137,8 +138,7 @@ const ArrayQuiz: React.FC = () => {
     if (storedUser) {
       setUsername(storedUser);
       const historyKey = `algo_array_history_${storedUser.toLowerCase()}`;
-      const savedHistory = localStorage.getItem(historyKey);
-      if (savedHistory) setLocalHistory(JSON.parse(savedHistory));
+      setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
     }
   }, []);
 
@@ -166,8 +166,7 @@ const ArrayQuiz: React.FC = () => {
     setUsername(cleanName);
 
     const historyKey = `algo_array_history_${cleanName.toLowerCase()}`;
-    const savedHistory = localStorage.getItem(historyKey);
-    setLocalHistory(savedHistory ? JSON.parse(savedHistory) : []);
+    setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
   };
 
   const handleLogout = () => {

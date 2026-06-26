@@ -18,6 +18,8 @@ import {
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
+import { safeJsonParse } from "../../utils/safeStorage";
+
 
 interface RBTQuestion {
   id: number;
@@ -163,8 +165,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("rbt_quiz_user");
     if (savedUser) {
       setUsername(savedUser);
-      const savedHistory = localStorage.getItem(`rbt_history_${savedUser}`);
-      if (savedHistory) setHistory(JSON.parse(savedHistory));
+      setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${savedUser}`, []));
     }
   }, []);
 
