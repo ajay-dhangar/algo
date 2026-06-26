@@ -37,6 +37,9 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
 }) => {
   return (
     <motion.div
+      role="region"
+      aria-label={`Challenge: ${title}`}
+      tabIndex={0}
       className="group relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full"
       whileHover={{ y: -3 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}

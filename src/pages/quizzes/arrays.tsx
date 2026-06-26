@@ -158,6 +158,13 @@ const ArrayQuiz: React.FC = () => {
 
   const selectedOption = userAnswers[currentQuestion] || null;
 
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
+    }
+  };
+
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
@@ -246,6 +253,7 @@ const ArrayQuiz: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter handle identity (e.g. CodeMaster)"
+                aria-label="Enter handle identity (e.g. CodeMaster)"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
                 maxLength={20}
@@ -366,7 +374,7 @@ const ArrayQuiz: React.FC = () => {
                   </div>
 
                   {/* Options Selections Loop Blocks Grid */}
-                  <div className="grid grid-cols-1 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Quiz Options">
                     {QUESTIONS[currentQuestion].options.map((option, index) => {
                       const isSelected = selectedOption === option;
                       return (

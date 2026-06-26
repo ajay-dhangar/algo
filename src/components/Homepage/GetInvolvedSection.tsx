@@ -74,4 +74,4 @@ const GetInvolvedSection: React.FC = () => {
     </section>
   );
 };
-export default EventCard;
+export default GetInvolvedSection;
