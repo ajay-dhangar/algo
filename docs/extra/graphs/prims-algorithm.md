@@ -39,22 +39,167 @@ Here’s how Prim’s Algorithm can be executed on a simple graph:
 
 ```mermaid
 graph TB
-  B -->|2| A
-  B -->|4| C
-  B -->|3| D
+  B ---|2| A
+  B ---|4| C
+  B ---|3| D
   A ---|1| D
-  A --- C
-  C -->|5| D
+  A ---|4| C
+  C ---|5| D
 ```
 
 - **Execution Steps:**
 1. Start with vertex **A**.
-2. Add edge **(A-D)**, weight **1** (smallest edge).
-3. Add edge **(A-B)**, weight **2**.
-4. Add edge **(B-E)**, weight **3**.
-5. Add edge **(A-C)**, weight **4**.
+2. Add edge **(A-D)** with weight **1**.
+3. Add edge **(A-B)** with weight **2**.
+4. Add edge **(A-C)** with weight **4**.
 
-The final MST includes edges **(A-D)**, **(A-B)**, **(B-E)**, and **(A-C)** with a total weight of **10**.
+The final MST includes edges **(A-D)**, **(A-B)**, and **(A-C)** with a total weight of **7**.
+
+## Dry Run Example
+
+Consider the graph shown above.
+
+### Edge Selection Process
+
+Start from vertex **A**.
+
+### Step 1
+
+Available edges:
+
+| Edge | Weight |
+|------|--------|
+| A-D | 1 |
+| A-B | 2 |
+| A-C | 4 |
+
+Choose the smallest edge.
+
+✅ Select **A-D (1)**
+
+Current MST:
+
+```text
+(A-D)
+```
+
+### Step 2
+
+Visited vertices: `{A, D}`
+
+Available edges:
+
+| Edge | Weight |
+|------|--------|
+| A-B | 2 |
+| D-B | 3 |
+| A-C | 4 |
+| D-C | 5 |
+
+Choose the smallest edge.
+
+✅ Select **A-B (2)**
+
+Current MST:
+
+```text
+(A-D), (A-B)
+```
+
+### Step 3
+
+Visited vertices: `{A, B, D}`
+
+Available edges:
+
+| Edge | Weight |
+|------|--------|
+| B-C | 4 |
+| A-C | 4 |
+| D-C | 5 |
+
+Choose the smallest valid edge.
+
+✅ Select **A-C (4)**
+
+Current MST:
+
+```text
+(A-D), (A-B), (A-C)
+```
+
+All vertices are now included in the MST.
+
+### Final MST Weight
+
+```text
+1 + 2 + 4 = 7
+```
+
+---
+
+## Greedy Selection Visualization
+
+```mermaid
+flowchart TD
+    Start[Choose Starting Vertex]
+    Select[Pop Minimum Edge from Priority Queue]
+    Check{Destination Vertex Already in MST?}
+    Add[Add Edge and Destination Vertex to MST]
+    Done{All Vertices Included?}
+    End[MST Complete]
+
+    Start --> Select
+    Select --> Check
+    Check -->|No| Add
+    Check -->|Yes| Select
+    Add --> Done
+    Done -->|No| Select
+    Done -->|Yes| End
+```
+
+---
+
+## Minimum Spanning Tree Visualization
+
+The selected edges form the following MST:
+
+```mermaid
+graph LR
+    A ---|2| B
+    A ---|4| C
+    A ---|1| D
+```
+
+Total MST Weight = **7**
+
+---
+
+## Prim's vs Kruskal's Approach
+
+:::note
+Prim's Algorithm grows a single connected tree from a starting vertex.
+
+Kruskal's Algorithm processes edges globally in sorted order and uses Union-Find to avoid cycles.
+
+Both algorithms produce a Minimum Spanning Tree, but they build it differently.
+:::
+
+---
+
+## MST Construction Summary
+
+| Selected Edge | Weight |
+|--------------|--------|
+| A-D | 1 |
+| A-B | 2 |
+| A-C | 4 |
+
+### Final MST Weight
+
+```text
+7
+```
 
 ## Time Complexity
 - The time complexity of Prim's Algorithm is **O(E log V)** when using a priority queue (min-heap), where **E** is the number of edges and **V** is the number of vertices. With an adjacency matrix, it can be reduced to **O(V^2)**.
