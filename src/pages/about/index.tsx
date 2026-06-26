@@ -2,7 +2,8 @@ import React from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaTerminal, FaCode, FaServer, FaShieldAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTerminal, FaCode, FaServer, FaShieldAlt } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const About: React.FC = () => {
   const containerVariants = {
@@ -175,7 +176,7 @@ const About: React.FC = () => {
                   <div className="flex justify-center sm:justify-start gap-4 text-slate-400 dark:text-slate-600">
                     <Link to="https://github.com/ajay-dhangar" className="hover:text-slate-900 dark:hover:text-white transition-colors"><FaGithub className="w-4 h-4" /></Link>
                     <Link to="https://linkedin.com/in/ajay-dhangar" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"><FaLinkedin className="w-4 h-4" /></Link>
-                    <Link to="https://twitter.com/CodesWithAjay" className="hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"><FaTwitter className="w-4 h-4" /></Link>
+                    <Link to="https://x.com/CodesWithAjay" className="hover:text-slate-900 dark:hover:text-white transition-colors" aria-label="X"><FaXTwitter className="w-4 h-4" /></Link>
                   </div>
                 </div>
               </div>

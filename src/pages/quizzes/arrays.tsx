@@ -13,15 +13,12 @@ import {
   FaChevronRight, 
   FaHistory 
 } from "react-icons/fa";
-import QuestionProgress from "../../components/Quiz/QuestionProgress";
-import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
-import QuizResultActions from "../../components/Quiz/QuizResultActions";
 import { safeJsonParse } from "../../utils/safeStorage";
 
 interface ArrayQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   codeSnippet?: string;
   options: string[];
   answer: string;
@@ -39,7 +36,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 1,
     difficulty: "Medium",
-    questionText: "What will be the exact operational output of the following C++ code sequence?",
+    question: "What will be the exact operational output of the following C++ code sequence?",
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[2] = { 1, 2 };\n    cout << 0[arr] << ", " << 1[arr] << endl;\n    return 0;\n}`,
     options: ["A) 1, 2", "B) Syntax error", "C) Run time error", "D) None of the above"],
     answer: "A) 1, 2",
@@ -48,7 +45,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 2,
     difficulty: "Medium",
-    questionText: "What will be the output or behavior when executing the code below?",
+    question: "What will be the output or behavior when executing the code below?",
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = { 1, 2, 3, 4, 5 };\n    cout << arr[5] << endl;\n    return 0;\n}`,
     options: ["A) 5", "B) 0", "C) Garbage value", "D) Out of bounds compilation error"],
     answer: "C) Garbage value",
@@ -57,7 +54,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 3,
     difficulty: "Easy",
-    questionText: "What value prints to the console terminal during execution here?",
+    question: "What value prints to the console terminal during execution here?",
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = { 1, 2, 3, 4, 5 };\n    cout << arr[4] << endl;\n    return 0;\n}`,
     options: ["A) 5", "B) 0", "C) 4", "D) None of the above"],
     answer: "A) 5",
@@ -66,7 +63,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 4,
     difficulty: "Easy",
-    questionText: "What value prints to the console terminal during execution here?",
+    question: "What value prints to the console terminal during execution here?",
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = { 1, 2, 3, 4, 5 };\n    cout << arr[0] << endl;\n    return 0;\n}`,
     options: ["A) 1", "B) 0", "C) 5", "D) Undefined behavior"],
     answer: "A) 1",
@@ -75,7 +72,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 5,
     difficulty: "Easy",
-    questionText: "What is the true asymptotic worst-case time complexity of accessing an individual element inside an array given its valid index?",
+    question: "What is the true asymptotic worst-case time complexity of accessing an individual element inside an array given its valid index?",
     options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
     answer: "A) O(1)",
     explanation: "Array memory blocks are contiguous. Calculating an item address requires only one multiplication and one addition operation: Base_Address + (Index * Element_Size). This constant-time calculation runs in O(1) complexity."
@@ -83,7 +80,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 6,
     difficulty: "Easy",
-    questionText: "Which of the following conceptual architectural descriptions is entirely true regarding native arrays in C++?",
+    question: "Which of the following conceptual architectural descriptions is entirely true regarding native arrays in C++?",
     options: [
       "A) The elements of an array are stored in contiguous memory locations",
       "B) The elements of an array are stored in non-contiguous memory locations",
@@ -96,7 +93,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 7,
     difficulty: "Medium",
-    questionText: "In C++, if a primitive local array is declared as 'int arr[5];' within a local stack frame block, what will be the default values inside its elements?",
+    question: "In C++, if a primitive local array is declared as 'int arr[5];' within a local stack frame block, what will be the default values inside its elements?",
     options: ["A) 0", "B) 1", "C) Random value (Garbage)", "D) Compile-time allocation error"],
     answer: "C) Random value (Garbage)",
     explanation: "Locally scoped automatic variables declared inside block functions are not zero-initialized by C++ runtime frameworks. They inherit whatever residual binary configurations existed previously in those stack memory registers, returning garbage values until explicitly written to."
@@ -104,7 +101,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "What will be the output or behavior when executing the uninitialized array block below?",
+    question: "What will be the output or behavior when executing the uninitialized array block below?",
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5];\n    cout << arr[0] << endl;\n    return 0;\n}`,
     options: ["A) Always 0", "B) Always 1", "C) Random garbage value", "D) Segmentation faults"],
     answer: "C) Random garbage value",
@@ -113,7 +110,7 @@ const QUESTIONS: ArrayQuestion[] = [
   {
     id: 9,
     difficulty: "Hard",
-    questionText: "What does the console display when attempting to print the unindexed array variable pointer label directly?",
+    question: "What does the console display when attempting to print the unindexed array variable pointer label directly?",
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = { 1, 2, 3, 4, 5 };\n    cout << arr << endl;\n    return 0;\n}`,
     options: ["A) Address of the first element", "B) 1", "C) 2", "D) Hexadecimal hash of total element counts"],
     answer: "A) Address of the first element",
@@ -346,7 +343,7 @@ const ArrayQuiz: React.FC = () => {
                     </div>
 
                     <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white m-0 leading-relaxed font-sans">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
 
                     {/* Syntax Highlight Mock Terminal Console */}
@@ -446,7 +443,7 @@ const ArrayQuiz: React.FC = () => {
                         <div key={q.id} className="bg-slate-50/50 dark:bg-slate-950/30 border border-solid border-slate-200/80 dark:border-slate-800/60 rounded-xl p-5 space-y-3">
                           <div className="flex items-start justify-between gap-4">
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
-                              {index + 1}. {q.questionText}
+                              {index + 1}. {q.question}
                             </h5>
                             <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}

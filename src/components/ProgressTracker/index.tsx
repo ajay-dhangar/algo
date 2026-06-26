@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
-import { FaCheckCircle, FaRegCircle } from 'react-icons/fa';
+import { FiCheckCircle, FiCircle, FiTrendingUp, FiAward } from 'react-icons/fi';
 import { safeJsonParse } from '../../utils/safeStorage';
-
 
 interface Props {
   topicId: string;
@@ -10,101 +9,163 @@ interface Props {
 }
 
 export default function ProgressTracker({ topicId, topicTitle }: Props) {
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [animate, setAnimate] = useState(false);
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [animate, setAnimate] = useState<boolean>(false);
 
+  // Safely check and read state from localStorage
   useEffect(() => {
     try {
       const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
       setIsCompleted(!!progress[topicId]);
-    } catch (e) {
-      console.error('Error loading progress:', e);
+    } catch (error) {
+      console.error('[Algo Progress] Failed to parse engine storage state:', error);
     }
   }, [topicId]);
 
-  const toggle = () => {
-    const newStatus = !isCompleted;
-    setIsCompleted(newStatus);
-    if (newStatus) {
-      setAnimate(true);
-      setTimeout(() => setAnimate(false), 300); // Reduced animation latency
-    }
+  // Handle local state modification and sync globally
+  const toggleProgress = useCallback(() => {
+    const nextState = !isCompleted;
+    setIsCompleted(nextState);
+    setAnimate(true);
+    
+    setTimeout(() => setAnimate(false), 250);
+
     try {
       const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
-      progress[topicId] = newStatus;
+      
+      // Sync structured telemetry object schema
+      progress[topicId] = nextState;
       progress[`${topicId}_title`] = topicTitle;
+      progress[`${topicId}_updatedAt`] = new Date().toISOString();
+      
       localStorage.setItem('algo_progress', JSON.stringify(progress));
-      window.dispatchEvent(new CustomEvent('progressUpdated', {
-        detail: { topicId, completed: newStatus, title: topicTitle }
-      }));
-    } catch (e) {
-      console.error('Error saving progress:', e);
+
+      // Dispatch unified pipeline context updates across component domains
+      window.dispatchEvent(
+        new CustomEvent('progressUpdated', {
+          detail: { topicId, completed: nextState, title: topicTitle },
+        })
+      );
+    } catch (error) {
+      console.error('[Algo Progress] Failed to write engine storage state:', error);
     }
-  };
+  }, [isCompleted, topicId, topicTitle]);
 
   return (
-    <div 
-      className={clsx(
-        'alert',
-        isCompleted ? 'alert--success' : 'alert--info',
-        'docusaurus-mt-lg',
-        'no-print'
-      )}
+    <div
+      className={clsx('no-print margin-top--lg')}
       style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         gap: '16px',
-        padding: '16px 24px',
-        borderRadius: 'var(--ifm-alert-border-radius)',
-        borderWidth: '1px',
-        borderStyle: 'solid',
+        padding: '14px 20px',
+        borderRadius: '12px',
+        border: '1px solid var(--ifm-color-emphasis-200)',
+        backgroundColor: 'var(--ifm-card-background-color)',
         boxShadow: 'var(--ifm-global-shadow-sm)',
-        transition: 'all 0.3s ease-in-out',
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
       }}
     >
-      {/* Informational Text Section */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: '240px', flex: 1 }}>
-        {isCompleted ? (
-          <span style={{ fontWeight: 600, fontSize: '0.95rem', color: 'var(--ifm-color-success-darker)' }}>
-            🎉 Great work! Topic mastered.
+      {/* Informational Tracking Metadata Section */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: '260px' }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '36px',
+            width: '36px',
+            borderRadius: '8px',
+            backgroundColor: isCompleted ? 'rgba(16, 185, 129, 0.1)' : 'var(--ifm-color-emphasis-100)',
+            border: `1px solid ${isCompleted ? 'rgba(16, 185, 129, 0.2)' : 'var(--ifm-color-emphasis-200)'}`,
+            color: isCompleted ? 'var(--ifm-color-success)' : 'var(--ifm-color-primary)',
+            transition: 'all 0.2s ease',
+          }}
+        >
+          {isCompleted ? <FiAward size={18} /> : <FiTrendingUp size={18} />}
+        </div>
+
+        <div>
+          <span
+            style={{
+              display: 'block',
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              opacity: 0.5,
+            }}
+          >
+            Telemetry Integration
           </span>
-        ) : (
-          <span style={{ fontSize: '0.95rem', color: 'var(--ifm-color-info-darker)' }}>
-            Finished reading? Mark this topic as complete.
-          </span>
-        )}
+          <p
+            style={{
+              margin: 0,
+              fontSize: '0.9rem',
+              fontWeight: isCompleted ? 600 : 500,
+              color: isCompleted ? 'var(--ifm-color-success-darker)' : 'var(--ifm-heading-color)',
+            }}
+          >
+            {isCompleted ? (
+              <span>🎉 Optimization Mastered! Node checkpoint successfully compiled.</span>
+            ) : (
+              <span>Completed working through this block? Sync progress to workspace.</span>
+            )}
+          </p>
+        </div>
       </div>
 
-      {/* Interactive Button Section */}
+      {/* Modern High-Fidelity Button Interface */}
       <button
-        onClick={toggle}
-        className={clsx(
-          'button',
-          isCompleted ? 'button--success' : 'button--outline button--info',
-          'button--md'
-        )}
+        type="button"
+        onClick={toggleProgress}
         style={{
           display: 'inline-flex',
           alignItems: 'center',
+          justifyContent: 'center',
           gap: '8px',
-          fontWeight: 600,
-          whiteSpace: 'nowrap',
-          transform: animate ? 'scale(1.05)' : 'scale(1)',
-          transition: 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s, border-color 0.2s',
+          padding: '8px 16px',
+          fontSize: '0.85rem',
+          fontWeight: 700,
+          borderRadius: '10px',
           cursor: 'pointer',
+          whiteSpace: 'nowrap',
+          border: '1px solid transparent',
+          backgroundColor: isCompleted ? 'var(--ifm-color-success)' : 'var(--ifm-color-emphasis-100)',
+          color: isCompleted ? '#ffffff' : 'var(--ifm-heading-color)',
+          borderColor: isCompleted ? 'var(--ifm-color-success-dark)' : 'var(--ifm-color-emphasis-300)',
+          transform: animate ? 'scale(0.96)' : 'scale(1)',
+          boxShadow: isCompleted ? '0 4px 12px rgba(16, 185, 129, 0.15)' : 'none',
+          transition: 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        }}
+        onMouseEnter={(e) => {
+          if (!isCompleted) {
+            e.currentTarget.style.backgroundColor = 'var(--ifm-color-emphasis-200)';
+            e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-400)';
+          } else {
+            e.currentTarget.style.opacity = '0.9';
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (!isCompleted) {
+            e.currentTarget.style.backgroundColor = 'var(--ifm-color-emphasis-100)';
+            e.currentTarget.style.borderColor = 'var(--ifm-color-emphasis-300)';
+          } else {
+            e.currentTarget.style.opacity = '1';
+          }
         }}
       >
         {isCompleted ? (
           <>
-            <FaCheckCircle style={{ verticalAlign: 'middle' }} /> 
-            <span>Completed!</span>
+            <FiCheckCircle size={16} strokeWidth={2.5} />
+            <span>Mastery Verified</span>
           </>
         ) : (
           <>
-            <FaRegCircle style={{ verticalAlign: 'middle' }} /> 
-            <span>Mark as Complete</span>
+            <FiCircle size={16} strokeWidth={2.5} />
+            <span>Commit to Profile</span>
           </>
         )}
       </button>

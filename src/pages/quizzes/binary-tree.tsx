@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -12,7 +11,6 @@ import {
   FaChevronRight, 
   FaHistory 
 } from "react-icons/fa";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -21,7 +19,7 @@ import QuizResultActions from "../../components/Quiz/QuizResultActions";
 interface BTQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   options: string[];
   answer: string;
   explanation: string;
@@ -39,7 +37,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
-    questionText: "What is the height of a binary tree that contains only a single root node?",
+    question: "What is the height of a binary tree that contains only a single root node?",
     options: ["A) 0", "B) 1", "C) 2", "D) It depends entirely on the tree implementation"],
     answer: "B) 1",
     explanation: "By standard node-counting convention, a binary tree containing exactly one node has a height of 1. (Note: If counting edges instead, it would be 0, but standard educational frameworks default to node counts)."
@@ -47,7 +45,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "Which fundamental depth-first traversal method processes a binary tree in the exact sequence: Left Subtree, Root Node, Right Subtree?",
+    question: "Which fundamental depth-first traversal method processes a binary tree in the exact sequence: Left Subtree, Root Node, Right Subtree?",
     options: ["A) Pre-order traversal", "B) In-order traversal", "C) Post-order traversal", "D) Level-order traversal"],
     answer: "B) In-order traversal",
     explanation: "In-order traversal strictly follows the Left-Root-Right pattern recursively. When executed on a binary search tree, this traversal returns elements in sorted order."
@@ -55,7 +53,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 3,
     difficulty: "Easy",
-    questionText: "In a traditional binary tree setup, what is the maximum possible number of nodes that can exist specifically at depth 'd'?",
+    question: "In a traditional binary tree setup, what is the maximum possible number of nodes that can exist specifically at depth 'd'?",
     options: ["A) 2^d", "B) 2^(d+1) - 1", "C) 2d", "D) d^2"],
     answer: "A) 2^d",
     explanation: "Since every node in a binary tree can split into at most 2 children, the maximum node limit doubles with each level, scaling exactly as 2^d (assuming the root sits at depth 0)."
@@ -63,7 +61,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "What is the average-case time complexity of looking up a unique key within a perfectly balanced Binary Search Tree (BST)?",
+    question: "What is the average-case time complexity of looking up a unique key within a perfectly balanced Binary Search Tree (BST)?",
     options: ["A) O(n)", "B) O(log n)", "C) O(n log n)", "D) O(1)"],
     answer: "B) O(log n)",
     explanation: "A balanced BST splits the search space in half with every node comparison. This makes the search operational length proportional to the height of the tree, which is O(log n)."
@@ -71,7 +69,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 5,
     difficulty: "Medium",
-    questionText: "Which structural rule must a binary tree satisfy to qualify as a valid Binary Search Tree?",
+    question: "Which structural rule must a binary tree satisfy to qualify as a valid Binary Search Tree?",
     options: [
       "A) The left subtree of a node contains only keys lesser than the node's key.",
       "B) The right subtree of a node contains only keys greater than the node's key.",
@@ -84,7 +82,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 6,
     difficulty: "Medium",
-    questionText: "Which of the following definitions precisely describes a 'Complete Binary Tree'?",
+    question: "Which of the following definitions precisely describes a 'Complete Binary Tree'?",
     options: [
       "A) Every level is completely filled except possibly the last level, which is filled from left to right.",
       "B) All leaf nodes are forced to sit on the exact same depth layer.",
@@ -97,7 +95,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 7,
     difficulty: "Hard",
-    questionText: "What is the absolute maximum possible depth/height of an unconstrained binary tree structured with exactly 'n' nodes?",
+    question: "What is the absolute maximum possible depth/height of an unconstrained binary tree structured with exactly 'n' nodes?",
     options: ["A) n", "B) log n", "C) n / 2", "D) n - 1"],
     answer: "A) n",
     explanation: "In a worst-case scenario where each node contains only one child, the tree stretches out into a single linear sequence. The depth matches the count of nodes, resulting in a height of n."
@@ -105,7 +103,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "Which implementation architectures can be used to determine the Lowest Common Ancestor (LCA) of two target nodes within a binary tree?",
+    question: "Which implementation architectures can be used to determine the Lowest Common Ancestor (LCA) of two target nodes within a binary tree?",
     options: ["A) A purely recursive post-order exploration stack", "B) An iterative parent-mapping pointer tracker using hash structures", "C) Both A and B", "D) None of the above methods are valid"],
     answer: "C) Both A and B",
     explanation: "LCA problems can be handled recursively by bubbled matches from sub-branches, or iteratively by mapping out parent nodes via a look-up map and finding where their paths cross."
@@ -113,7 +111,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 9,
     difficulty: "Hard",
-    questionText: "Which specific traversal path strategy yields the contents of a valid Binary Search Tree in strict descending order?",
+    question: "Which specific traversal path strategy yields the contents of a valid Binary Search Tree in strict descending order?",
     options: ["A) Standard In-order traversal", "B) Pre-order structural traversal", "C) Post-order cleanup traversal", "D) Reverse In-order traversal"],
     answer: "D) Reverse In-order traversal",
     explanation: "While a standard in-order traversal (Left, Root, Right) yields elements in ascending order, reversing that approach to (Right, Root, Left) outputs the largest elements first, delivering a perfect descending list."
@@ -121,7 +119,7 @@ const QUESTIONS: BTQuestion[] = [
   {
     id: 10,
     difficulty: "Medium",
-    questionText: "What is the worst-case time complexity encountered when attempting to insert a new node into an unbalanced Binary Search Tree?",
+    question: "What is the worst-case time complexity encountered when attempting to insert a new node into an unbalanced Binary Search Tree?",
     options: ["A) O(log n)", "B) O(n)", "C) O(n log n)", "D) O(1)"],
     answer: "B) O(n)",
     explanation: "If a BST gets heavily skewed into a linear chain, inserting an item that belongs at the very end requires iterating past every single existing element, leading to a worst-case time of O(n)."
@@ -139,10 +137,9 @@ const BinaryTreeQuiz: React.FC = () => {
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
-  const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-  const apiBaseUrl = useApiBaseUrl();
-
+  
   useEffect(() => {
     setIsMounted(true);
     const storedId = localStorage.getItem("quiz_userId");
@@ -153,11 +150,7 @@ const BinaryTreeQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId, apiBaseUrl]);
+  
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -176,18 +169,26 @@ const BinaryTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(
-        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/binary-tree`)
-      );
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_binary-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Error retrieving historical performance data logs:", e);
+    } else {
+      setAttempts([]);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -208,19 +209,21 @@ const BinaryTreeQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "binary-tree",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Failed payload deployment to endpoint:", e);
-    }
+    const newAttempt: HistoryAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_binary-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -302,7 +305,9 @@ const BinaryTreeQuiz: React.FC = () => {
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
         <div className="max-w-4xl mx-auto">
           
-          {/* Top Info Bar */}
+                      
+
+            {/* Top Info Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-solid border-slate-200 dark:border-slate-800/80 rounded-2xl p-4 mb-6 shadow-xs">
             <div className="flex items-center gap-3">
               <FaUserCircle className="text-2xl text-slate-400 dark:text-slate-600" />
@@ -374,7 +379,7 @@ const BinaryTreeQuiz: React.FC = () => {
                     </div>
 
                     <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white m-0 leading-relaxed font-sans">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
                   </div>
 
@@ -454,7 +459,7 @@ const BinaryTreeQuiz: React.FC = () => {
                         <div key={q.id} className="bg-slate-50/50 dark:bg-slate-950/30 border border-solid border-slate-200/80 dark:border-slate-800/60 rounded-xl p-5 space-y-3">
                           <div className="flex items-start justify-between gap-4">
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
-                              {index + 1}. {q.questionText}
+                              {index + 1}. {q.question}
                             </h5>
                             <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}
