@@ -407,7 +407,7 @@ const StackQuiz: React.FC = () => {
                       return (
                         <button
                           key={index}
-                          onClick={() => handleSelectAnswer(option)}
+                          onClick={() => handleSelectAnswer(option)} role="radio" aria-checked={isSelected}
                           className={`w-full text-left p-4 rounded-xl border border-solid transition-all text-xs md:text-sm font-semibold tracking-wide cursor-pointer flex items-center justify-between min-h-[52px] ${
                             isSelected
                               ? "bg-[var(--ifm-color-primary)] border-[var(--ifm-color-primary)] text-white shadow-sm"

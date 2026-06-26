@@ -14,9 +14,7 @@ export default function StoryCard({ title, author, username, role, tag, summary 
   return (
     <div 
       className="card margin-bottom--md" 
-      role="region" 
-      aria-label={`Story by ${author}: ${title}`} 
-      tabIndex={0} 
+
       style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
     >
       <div className="card__header">

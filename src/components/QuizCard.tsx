@@ -11,9 +11,7 @@ interface QuizCardProps {
 
 const QuizCard: React.FC<QuizCardProps> = ({ title, description, link }) => (
   <motion.div
-    role="region"
-    aria-label={`Quiz: ${title}`}
-    tabIndex={0}
+
     className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-left hover:shadow-xl transform transition-transform duration-300"
     whileHover={{ scale: 1.05 }}
     transition={{ type: "spring", stiffness: 200 }}
