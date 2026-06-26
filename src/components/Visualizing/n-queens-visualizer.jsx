@@ -3,6 +3,7 @@ import { withVisualizerErrorBoundary } from './VisualizerErrorBoundary';
 
 const NQueensVisualizer = () => {
   const [n, setN] = useState(4);
+  const [inputValue, setInputValue] = useState('4');
   const [currentStep, setCurrentStep] = useState(0);
   const [simulationSteps, setSimulationSteps] = useState([]);
   const [isPaused, setIsPaused] = useState(true);
@@ -21,7 +22,7 @@ const NQueensVisualizer = () => {
 
   const generateSimulationSteps = useCallback((boardSize) => {
     const steps = [];
-    const board = Array.from({ length: boardSize }, () => Array(boardSize).fill('.'));
+    const queens = Array(boardSize).fill(-1);
     const cols = new Set();
     const posDiag = new Set(); // r + c
     const negDiag = new Set(); // r - c
@@ -30,7 +31,7 @@ const NQueensVisualizer = () => {
     const addStep = (type, description, activeRow = -1, activeCol = -1) => {
       steps.push({
         type,
-        board: board.map(row => [...row]),
+        queens: [...queens],
         description,
         activeRow,
         activeCol,
@@ -38,20 +39,20 @@ const NQueensVisualizer = () => {
       });
     };
 
-    addStep('initial', `Start. Preparing to solve N-Queens for N = ${boardSize}.`);
+    addStep('initial', 'Start. Preparing to solve N-Queens for N = ' + boardSize + '.');
 
     const backtrack = (r) => {
       if (r === boardSize) {
         solutionsCount++;
-        addStep('solution', `Valid board configuration found! Total solutions so far: ${solutionsCount}.`);
+        addStep('solution', 'Valid board configuration found! Total solutions so far: ' + solutionsCount + '.');
         return;
       }
 
       for (let c = 0; c < boardSize; c++) {
-        addStep('evaluating', `Evaluating row ${r}, column ${c}. Checking for conflicts...`, r, c);
+        addStep('evaluating', 'Evaluating row ' + r + ', column ' + c + '. Checking for conflicts...', r, c);
 
         if (cols.has(c) || posDiag.has(r + c) || negDiag.has(r - c)) {
-          addStep('conflict', `Conflict detected at row ${r}, column ${c}. A queen is already attacking this square.`, r, c);
+          addStep('conflict', 'Conflict detected at row ' + r + ', column ' + c + '. A queen is already attacking this square.', r, c);
           continue;
         }
 
@@ -59,9 +60,9 @@ const NQueensVisualizer = () => {
         cols.add(c);
         posDiag.add(r + c);
         negDiag.add(r - c);
-        board[r][c] = 'Q';
+        queens[r] = c;
 
-        addStep('placed', `Safe! Placed queen at row ${r}, column ${c}. Moving to row ${r + 1}.`, r, c);
+        addStep('placed', 'Safe! Placed queen at row ' + r + ', column ' + c + '. Moving to row ' + (r + 1) + '.', r, c);
 
         backtrack(r + 1);
 
@@ -69,14 +70,14 @@ const NQueensVisualizer = () => {
         cols.delete(c);
         posDiag.delete(r + c);
         negDiag.delete(r - c);
-        board[r][c] = '.';
+        queens[r] = -1;
 
-        addStep('backtrack', `Backtracking. Removed queen from row ${r}, column ${c} to explore other options.`, r, c);
+        addStep('backtrack', 'Backtracking. Removed queen from row ' + r + ', column ' + c + ' to explore other options.', r, c);
       }
     };
 
     backtrack(0);
-    addStep('finished', `Simulation finished. Found a total of ${solutionsCount} distinct solutions for a ${boardSize}x${boardSize} board.`);
+    addStep('finished', 'Simulation finished. Found a total of ' + solutionsCount + ' distinct solutions for a ' + boardSize + 'x' + boardSize + ' board.');
 
     return steps;
   }, []);
@@ -110,17 +111,18 @@ const NQueensVisualizer = () => {
   const step = simulationSteps[currentStep] || {};
 
   const renderBoard = () => {
-    if (!step.board) return null;
+    if (!step.queens) return null;
 
     return (
       <div className="flex flex-col items-center my-6">
         <div className="inline-block border-4 border-gray-800 dark:border-gray-600 rounded">
-          {step.board.map((row, r) => (
+          {Array.from({ length: n }).map((_, r) => (
             <div key={r} className="flex">
-              {row.map((cell, c) => {
+              {Array.from({ length: n }).map((_, c) => {
                 const isDark = (r + c) % 2 === 1;
                 let cellColor = isDark ? 'bg-gray-400 dark:bg-gray-600' : 'bg-gray-100 dark:bg-gray-200';
                 let highlightClass = '';
+                const hasQueen = step.queens[r] === c;
 
                 if (step.activeRow === r && step.activeCol === c) {
                   if (step.type === 'evaluating') highlightClass = 'ring-4 ring-inset ring-yellow-400';
@@ -129,17 +131,17 @@ const NQueensVisualizer = () => {
                   else if (step.type === 'backtrack') cellColor = 'bg-orange-300 dark:bg-orange-400';
                 }
 
-                if (step.type === 'solution' && cell === 'Q') {
-                    cellColor = 'bg-green-400 dark:bg-green-500';
-                    highlightClass = 'animate-pulse';
+                if (step.type === 'solution' && hasQueen) {
+                  cellColor = 'bg-green-400 dark:bg-green-500';
+                  highlightClass = 'animate-pulse';
                 }
 
                 return (
                   <div
-                    key={`${r}-${c}`}
+                    key={r + '-' + c}
                     className={`w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 flex items-center justify-center text-2xl sm:text-3xl md:text-4xl transition-all duration-200 ${cellColor} ${highlightClass}`}
                   >
-                    {cell === 'Q' && (
+                    {hasQueen && (
                       <span className="text-black dark:text-gray-900 drop-shadow-md">
                         ♛
                       </span>
@@ -155,8 +157,8 @@ const NQueensVisualizer = () => {
   };
 
   const renderControls = () => {
-    const handleNChange = (e) => {
-      const val = parseInt(e.target.value);
+    const handleNChange = () => {
+      const val = parseInt(inputValue);
       if (isNaN(val) || val < 1 || val > 8) {
         setError('N must be an integer between 1 and 8');
       } else {
@@ -175,14 +177,13 @@ const NQueensVisualizer = () => {
                 type="number"
                 min="1"
                 max="8"
-                defaultValue={n}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleNChange(e);
+                  if (e.key === 'Enter') handleNChange();
                 }}
                 onBlur={handleNChange}
-                className={`p-2 text-sm font-mono border rounded w-24 bg-white dark:bg-gray-900 dark:text-white ${
-                  error ? 'border-red-500 focus:outline-red-500' : 'border-gray-300 dark:border-gray-600'
-                }`}
+                className={'p-2 text-sm font-mono border rounded w-24 bg-white dark:bg-gray-900 dark:text-white ' + (error ? 'border-red-500 focus:outline-red-500' : 'border-gray-300 dark:border-gray-600')}
               />
             </div>
             {error && <span className="text-red-500 text-xs mt-1">{error}</span>}
