@@ -3,6 +3,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
+const remarkComplexity = require("./plugins/remark-complexity.js");
 
 const fs = require("fs");
 const { execSync } = require("child_process");
@@ -58,7 +59,7 @@ const config = {
         docs: {
           sidebarPath: "./sidebars.js",
           editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
-          remarkPlugins: [remarkMath],
+          remarkPlugins: [remarkMath, remarkComplexity],
           rehypePlugins: [rehypeKatex],
           showLastUpdateAuthor: showGitHistory,
           showLastUpdateTime: showGitHistory,
@@ -66,11 +67,11 @@ const config = {
         blog: {
           showReadingTime: true,
           editUrl: "https://github.com/ajay-dhangar/algo/tree/main/",
-          remarkPlugins: [remarkMath],
+          remarkPlugins: [remarkMath, remarkComplexity],
           rehypePlugins: [rehypeKatex],
         },
         pages: {
-          remarkPlugins: [remarkMath],
+          remarkPlugins: [remarkMath, remarkComplexity],
           rehypePlugins: [rehypeKatex],
         },
         theme: {
@@ -303,9 +304,6 @@ const config = {
   markdown: {
     mermaid: true,
     format: "mdx",
-    hooks: {
-      onBrokenMarkdownLinks: "warn",
-    },
   },
 
   themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
@@ -319,7 +317,7 @@ const config = {
         path: "dsa-interview",
         routeBasePath: "dsa-interview",
         sidebarPath: require.resolve("./sidebars.js"),
-        remarkPlugins: [remarkMath],
+        remarkPlugins: [remarkMath, remarkComplexity],
         rehypePlugins: [rehypeKatex],
         showLastUpdateAuthor: showGitHistory,
         showLastUpdateTime: showGitHistory,
@@ -352,7 +350,7 @@ const config = {
         blogPostComponent: "@theme/BlogPostPage",
         blogTagsListComponent: "@theme/BlogTagsListPage",
         blogTagsPostsComponent: "@theme/BlogTagsPostsPage",
-        remarkPlugins: [remarkMath],
+        remarkPlugins: [remarkMath, remarkComplexity],
         rehypePlugins: [rehypeKatex],
         truncateMarker: /<!--\s*(truncate)\s*-->/,
         showReadingTime: true,

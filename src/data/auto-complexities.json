@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Test Algorithm",
+    "path": "docs/dsa-problems/test-algorithm.md",
+    "time_best": "O(1)",
+    "time_average": "O(n)",
+    "time_worst": "O(n^2)",
+    "space": "O(n)"
+  }
+]
