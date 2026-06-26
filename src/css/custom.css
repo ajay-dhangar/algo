@@ -428,15 +428,17 @@ button {
 }
 
 .algo-signup {
-  --ifm-link-hover-color: #fff;
-  --ifm-navbar-link-hover-color: #fff;
-  color: #fff;
+  --ifm-link-hover-color: #ffffff;
+  --ifm-navbar-link-hover-color: #ffffff;
+  color: #ffffff !important;
+  background-color: var(--ifm-color-primary-dark) !important;
 }
 
 [data-theme="dark"] .algo-signup {
-  --ifm-link-hover-color: #000;
-  --ifm-navbar-link-hover-color: #000;
-  color: #000;
+  --ifm-link-hover-color: #000000;
+  --ifm-navbar-link-hover-color: #000000;
+  color: #000000 !important;
+  background-color: var(--ifm-color-primary) !important;
 }
 
 .algo-signup svg {

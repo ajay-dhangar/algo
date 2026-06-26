@@ -68,11 +68,11 @@ export default function NotFound() {
 
             {/* Mock Algorithm Terminal Trace Component Block */}
             <div className="bg-slate-950 rounded-xl p-4 text-left font-mono text-[11px] sm:text-xs text-emerald-400 shadow-inner border border-slate-800/80 mb-8 max-w-lg mx-auto overflow-x-auto">
-              <div className="flex items-center gap-1.5 border-b border-slate-800 pb-2 mb-2 text-slate-600 dark:text-slate-400 font-sans font-bold uppercase tracking-wider">
-                <FiTerminal className="w-3.5 h-3.5 text-slate-400" />
+              <div className="flex items-center gap-1.5 border-b border-slate-800 pb-2 mb-2 text-slate-300 font-sans font-bold uppercase tracking-wider">
+                <FiTerminal className="w-3.5 h-3.5 text-slate-300" />
                 Stack Trace Diagnostic
               </div>
-              <p className="m-0 text-slate-600 dark:text-slate-400 font-semibold">&gt; executing router lookups...</p>
+              <p className="m-0 text-slate-300 font-semibold">&gt; executing router lookups...</p>
               <p className="m-0 text-rose-400 font-semibold">&gt; [ERROR] Segment NotFoundException: Stack Pointer out of bounds.</p>
               <p className="m-0 text-amber-400">&gt; routing fallback resolution initiated...</p>
             </div>

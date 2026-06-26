@@ -89,7 +89,7 @@ const ContributeSection: React.FC = () => {
                   <div className="inline-flex p-3 rounded-xl bg-slate-50 dark:bg-gray-800/60 text-slate-700 dark:text-slate-300 border border-slate-100 dark:border-slate-700/50 transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ifm-color-primary)] group-hover:text-white group-hover:border-transparent">
                     {React.cloneElement(item.icon, { className: "h-5 w-5 sm:h-6 sm:w-6" })}
                   </div>
-                  <span className="text-3xl font-black font-mono tracking-tight text-slate-400 dark:text-slate-500 transition-colors duration-300 group-hover:text-[var(--ifm-color-primary)]/60">
+                  <span className="text-3xl font-black font-mono tracking-tight text-slate-500 dark:text-slate-500 transition-colors duration-300 group-hover:text-[var(--ifm-color-primary)]/60">
                     {item.stepNumber}
                   </span>
                 </div>

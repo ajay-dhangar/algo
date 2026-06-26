@@ -182,11 +182,11 @@ const Footer = () => {
 
             {/* Privacy Compliance Links */}
             <div className="flex items-center gap-4 text-xs text-slate-300 font-medium">
-              <Link to="/privacy" className="hover:text-white no-underline transition-colors">
+              <Link to="/privacy" className="text-slate-200 dark:text-slate-300 hover:text-white no-underline transition-colors">
                 Privacy Policy
               </Link>
               <span className="text-slate-400 font-mono">/</span>
-              <Link to="/terms" className="hover:text-white no-underline transition-colors">
+              <Link to="/terms" className="text-slate-200 dark:text-slate-300 hover:text-white no-underline transition-colors">
                 Terms of Service
               </Link>
               <span className="text-slate-400 font-mono">/</span>              
