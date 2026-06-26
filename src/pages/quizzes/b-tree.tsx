@@ -172,7 +172,7 @@ const BTreeQuiz: React.FC = () => {
   const [userId, setUserId] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
-  const [attempts, setAttempts] = useState<DBAttempt[]>([]);
+  const { attempts, isLoading, fetchAttempts, submitAttempt, setAttempts } = useQuizData({ quizId: "b-tree" });
   const [isMounted, setIsMounted] = useState(false);
   
   // Fallback anchor configuration for context boundaries
@@ -207,22 +207,7 @@ const BTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = useCallback((uId: string) => {
-    const historyKey = `quiz_attempts_${uId}_b-tree`;
-    const savedAttempts = localStorage.getItem(historyKey);
-    if (savedAttempts) {
-      try {
-        setAttempts(JSON.parse(savedAttempts));
-      } catch (e) {
-        console.error("Error parsing history attempts:", e);
-        setAttempts([]);
-      }
-    } else {
-      setAttempts([]);
-    }
-  }, []);
-
-  useEffect(() => {
+    useEffect(() => {
     if (userId) {
       fetchAttempts(userId);
     }
@@ -247,24 +232,7 @@ const BTreeQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = (finalAnswers: string[]) => {
-    if (!userId) return;
-    const newAttempt: DBAttempt = {
-      id: Math.random().toString(36).substring(2, 9),
-      score: score,
-      totalQuestions: QUESTIONS.length,
-      timeSpent: timeSpent,
-      completedAt: new Date().toISOString()
-    };
-    const historyKey = `quiz_attempts_${userId}_b-tree`;
-    const savedAttempts = localStorage.getItem(historyKey);
-    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
-    const updated = [newAttempt, ...existing].slice(0, 5);
-    localStorage.setItem(historyKey, JSON.stringify(updated));
-    setAttempts(updated);
-  };
-
-  const handleAnswer = (selected: string) => {
+    const handleAnswer = (selected: string) => {
     setUserAnswers((prev) => {
       const copy = [...prev];
       copy[currentQuestion] = selected;
@@ -279,7 +247,7 @@ const BTreeQuiz: React.FC = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResult(true);
-      submitAttempt(userAnswers);
+      submitAttempt(userId, score, QUESTIONS.length, timeSpent);
     }
   };
 
