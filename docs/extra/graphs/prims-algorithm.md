@@ -143,9 +143,9 @@ All vertices are now included in the MST.
 ```mermaid
 flowchart TD
     Start[Choose Starting Vertex]
-    Select[Select Minimum Edge]
-    Check{Vertex Already in MST?}
-    Add[Add Edge and Vertex]
+    Select[Pop Minimum Edge from Priority Queue]
+    Check{Destination Vertex Already in MST?}
+    Add[Add Edge and Destination Vertex to MST]
     Done{All Vertices Included?}
     End[MST Complete]
 
