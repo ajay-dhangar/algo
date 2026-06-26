@@ -71,9 +71,14 @@ const QuizAttempt = sequelize.define("QuizAttempt", {
   timestamps: true, // adds createdAt and updatedAt columns
   tableName: "quiz_attempts",
   indexes: [
+}, {
+  timestamps: true, // adds createdAt and updatedAt columns
+  tableName: "quiz_attempts",
+  indexes: [
     { fields: ["userId"] },
-    { fields: ["quizId"] }
-  ],
+    { fields: ["quizId"] },
+    { fields: ["userId", "quizId"] }
+  ]
 });
 
 module.exports = QuizAttempt;
