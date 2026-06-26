@@ -1,4 +1,5 @@
 import React from "react";
+import useFocusTrap from "../hooks/useFocusTrap";
 
 const ShortcutRow = ({ action, shortcut }) => (
   <div
@@ -38,6 +39,8 @@ export default function KeyboardShortcutsModal({
   isOpen,
   onClose,
 }) {
+  const modalRef = useFocusTrap(isOpen);
+
   if (!isOpen) return null;
 
   return (
@@ -55,9 +58,11 @@ export default function KeyboardShortcutsModal({
       }}
     >
       <div
+        ref={modalRef}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="keyboard-shortcuts-title"
         style={{
           background: "#ffffff",
           color: "#111827",
@@ -78,6 +83,7 @@ export default function KeyboardShortcutsModal({
         >
           <div>
             <h2
+              id="keyboard-shortcuts-title"
               style={{
                 margin: 0,
                 fontSize: "1.5rem",

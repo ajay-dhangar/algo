@@ -27,6 +27,9 @@ export default function Root({ children }) {
   return (
     <>
       <AuthProvider>
+        <a href="#__docusaurus" className="skip-to-content">
+          Skip to main content
+        </a>
         <SidebarUpdater />
         {isDocsPage && <PageProgressIndicator />}
         {children}

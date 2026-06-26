@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { FiX, FiArrowRight, FiLogIn, FiUserPlus, FiCompass, FiTerminal } from "react-icons/fi";
 import { useHistory } from "@docusaurus/router";
 import { useAuth } from "../../contexts/AuthContext";
+import useFocusTrap from "../../hooks/useFocusTrap";
 
 interface CTAActionModalProps {
   isOpen: boolean;
@@ -11,7 +12,7 @@ interface CTAActionModalProps {
 const CTAActionModal: React.FC<CTAActionModalProps> = ({ isOpen, onClose }) => {
   const history = useHistory();
   const { user, isAuthenticated } = useAuth();
-  const modalRef = useRef<HTMLDivElement>(null);
+  const modalRef = useFocusTrap(isOpen);
 
   // Close modal safely on backdrop clicks
   useEffect(() => {
@@ -38,6 +39,9 @@ const CTAActionModal: React.FC<CTAActionModalProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/70 backdrop-blur-md px-4 transition-all duration-300">
       <div
         ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="login-modal-title"
         className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-slate-100 dark:border-slate-800/80 shadow-2xl transition-all duration-300"
       >
         {/* Tech-Layer Grid Styling Backgrounds */}
@@ -61,7 +65,7 @@ const CTAActionModal: React.FC<CTAActionModalProps> = ({ isOpen, onClose }) => {
             <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded-md">
               Workspace Core Engine
             </span>
-            <h2 className="text-2xl font-black tracking-tight text-slate-900 dark:text-white mt-3 mb-1">
+            <h2 id="login-modal-title" className="text-2xl font-black tracking-tight text-slate-900 dark:text-white mt-3 mb-1">
               Initialize Your Training Lab
             </h2>
             <p className="text-sm text-slate-500 dark:text-gray-400 m-0">

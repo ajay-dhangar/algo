@@ -199,6 +199,27 @@
   background: #0d1117;
 }
 
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 10000;
+  padding: 10px 15px;
+  background-color: var(--ifm-color-primary);
+  color: white !important;
+  font-weight: bold;
+  border-radius: 4px;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.skip-to-content:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 8px;
+  opacity: 1;
+}
+
 a:hover {
   text-decoration: none;
 }
