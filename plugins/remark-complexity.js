@@ -1,5 +1,3 @@
-const visit = require('unist-util-visit');
-
 module.exports = function remarkComplexityPlugin() {
   return (tree, file) => {
     // Docusaurus parses frontmatter into file.data.frontMatter

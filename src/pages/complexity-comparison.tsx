@@ -1,6 +1,19 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import autoComplexities from '../data/auto-complexities.json';
+import Link from '@docusaurus/Link';
+import Translate from '@docusaurus/Translate';
+import autoComplexitiesRaw from '../data/auto-complexities.json';
+
+interface ComplexityData {
+  title: string;
+  path: string;
+  time_best: string;
+  time_average: string;
+  time_worst: string;
+  space: string;
+}
+
+const autoComplexities = autoComplexitiesRaw as ComplexityData[];
 
 export default function ComplexityComparison() {
   return (
@@ -9,8 +22,12 @@ export default function ComplexityComparison() {
       description="Compare time and space complexities of all documented algorithms"
     >
       <main className="container margin-vert--lg">
-        <h1>Algorithm Complexity Comparison</h1>
-        <p>This table is automatically generated from the documentation metadata.</p>
+        <h1>
+          <Translate id="complexity.comparison.title">Algorithm Complexity Comparison</Translate>
+        </h1>
+        <p>
+          <Translate id="complexity.comparison.description">This table is automatically generated from the documentation metadata.</Translate>
+        </p>
         
         {autoComplexities.length === 0 ? (
           <div className="alert alert--info">
@@ -31,7 +48,9 @@ export default function ComplexityComparison() {
               {autoComplexities.map((item, idx) => (
                 <tr key={idx} style={{ borderBottom: '1px solid var(--ifm-color-emphasis-200)' }}>
                   <td style={{ padding: '0.5rem' }}>
-                    <strong>{item.title}</strong>
+                    <Link to={`/${item.path.replace(/\.mdx?$/, '')}`}>
+                      <strong>{item.title}</strong>
+                    </Link>
                     <div style={{ fontSize: '0.8rem', color: 'var(--ifm-color-emphasis-600)' }}>
                       {item.path}
                     </div>

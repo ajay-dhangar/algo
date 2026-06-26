@@ -1,6 +1,13 @@
 import React from 'react';
 
-export default function ComplexityCard({ best, average, worst, space }) {
+interface ComplexityCardProps {
+  best?: string;
+  average?: string;
+  worst?: string;
+  space?: string;
+}
+
+export default function ComplexityCard({ best, average, worst, space }: ComplexityCardProps) {
   if (!best && !average && !worst && !space) return null;
 
   return (

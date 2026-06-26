@@ -26,10 +26,10 @@ function checkFile(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const { data } = matter(content);
 
-  if (data.complexity) {
+  if (data.complexity && typeof data.complexity === 'object' && !Array.isArray(data.complexity)) {
     complexities.push({
       title: data.title || path.basename(filePath, path.extname(filePath)),
-      path: filePath.replace(path.join(__dirname, '../'), '').replace(/\\/g, '/'),
+      path: path.relative(path.join(__dirname, '..'), filePath).replace(/\\/g, '/'),
       ...data.complexity
     });
   }

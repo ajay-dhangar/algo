@@ -25,7 +25,7 @@ function checkFile(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const { data } = matter(content);
 
-  const tags = data.tags || [];
+  const tags = Array.isArray(data.tags) ? data.tags : (typeof data.tags === 'string' ? [data.tags] : []);
   const isAlgorithmPage = 
     tags.includes('algorithm') || 
     tags.includes('algorithms') || 
