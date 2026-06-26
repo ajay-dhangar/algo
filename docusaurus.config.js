@@ -2,10 +2,9 @@ import { themes as prismThemes } from "prism-react-renderer";
 // import remarkPlugin from 'remark-plugin';
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-const path = require("path");
-
-const fs = require("fs");
-const { execSync } = require("child_process");
+import path from "path";
+import fs from "fs";
+import { execSync } from "child_process";
 
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
 const showGitHistory =
@@ -329,7 +328,7 @@ const config = {
         id: "dsa-interview",
         path: "dsa-interview",
         routeBasePath: "dsa-interview",
-        sidebarPath: require.resolve("./sidebars.js"),
+        sidebarPath: "./sidebars.js",
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
         showLastUpdateAuthor: showGitHistory,
