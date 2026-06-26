@@ -218,16 +218,15 @@ app.post("/api/execute-code",
       case "python":
         fileExtension = ".py";
         filename = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
-        command = `python "${filename}"`;
+        command = `docker run --rm -v "${tempDir}:/app" -w /app python:3.9-alpine python "/app/${path.basename(filename)}"`;
         break;
 
       case "cpp":
         fileExtension = ".cpp";
         const sourceFile = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
-        const executableFile = path.join(tempDir, `script_${uniqueId}${process.platform === "win32" ? ".exe" : ""}`);
         filename = sourceFile;
-        // Compile and run
-        command = `g++ "${sourceFile}" -o "${executableFile}" && "${executableFile}"`;
+        // Compile and run inside GCC container
+        command = `docker run --rm -v "${tempDir}:/app" -w /app gcc:latest sh -c "g++ /app/${path.basename(filename)} -o /app/out && /app/out"`;
         break;
 
       case "java":
@@ -236,57 +235,47 @@ app.post("/api/execute-code",
         const classNameMatch = code.match(/public\s+class\s+(\w+)/);
         const className = classNameMatch ? classNameMatch[1] : "Main";
         filename = path.join(tempDir, `${className}${fileExtension}`);
-        command = `cd "${tempDir}" && javac "${filename}" && java "${className}"`;
+        command = `docker run --rm -v "${tempDir}:/app" -w /app openjdk:17-alpine sh -c "javac /app/${path.basename(filename)} && java ${className}"`;
         break;
 
       case "rust":
         fileExtension = ".rs";
         const sourceFile2 = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
-        const executableFile2 = path.join(tempDir, `script_${uniqueId}${process.platform === "win32" ? ".exe" : ""}`);
         filename = sourceFile2;
-        // Compile and run
-        command = `rustc "${sourceFile2}" -o "${executableFile2}" && "${executableFile2}"`;
+        // Compile and run inside Rust container
+        command = `docker run --rm -v "${tempDir}:/app" -w /app rust:1.70-alpine sh -c "rustc /app/${path.basename(filename)} -o /app/out && /app/out"`;
         break;
 
       case "go":
         fileExtension = ".go";
         const goSourceFile = path.join(tempDir, `script_${uniqueId}${fileExtension}`);
         filename = goSourceFile;
-        // Compile and run
-        command = `go run "${goSourceFile}"`;
+        // Run inside Go container
+        command = `docker run --rm -v "${tempDir}:/app" -w /app golang:1.20-alpine go run "/app/${path.basename(filename)}"`;
         break;
 
       default:
         return res.status(400).json({ success: false, error: "Unsupported language" });
     }
 
-    // Write code to file
-    fs.writeFileSync(filename, code);
+    // Write code to file asynchronously (Promises)
+    await fs.promises.writeFile(filename, code);
 
     // Execute code with timeout
-    exec(command, { timeout: 10000, maxBuffer: 10 * 1024 * 1024 }, (error, stdout, stderr) => {
-      // Clean up temp files
+    exec(command, { timeout: 10000, maxBuffer: 10 * 1024 * 1024 }, async (error, stdout, stderr) => {
+      // Clean up temp files asynchronously (Promises)
       try {
-        fs.unlinkSync(filename);
-        if (language === "cpp") {
-          const executableFile = filename.replace(fileExtension, process.platform === "win32" ? ".exe" : "");
-          if (fs.existsSync(executableFile)) {
-            fs.unlinkSync(executableFile);
-          }
+        await fs.promises.unlink(filename);
+        // Docker might not create executable files on host since we compiled in the container `/app/out`
+        // But for java, we might need to check if the .class file was created in tempDir due to javac behavior
+        // Actually, docker wrote to `/app`, which maps to tempDir, so let's clean up generic outputs if they exist
+        const classFile = path.join(tempDir, `${path.basename(filename, ".java")}.class`);
+        if (language === "java" && fs.existsSync(classFile)) {
+          await fs.promises.unlink(classFile);
         }
-        if (language === "rust") {
-          const executableFile = filename.replace(fileExtension, process.platform === "win32" ? ".exe" : "");
-          if (fs.existsSync(executableFile)) {
-            fs.unlinkSync(executableFile);
-          }
-        }
-        if (language === "java") {
-          const classNameMatch = code.match(/public\s+class\s+(\w+)/);
-          const className = classNameMatch ? classNameMatch[1] : "Main";
-          const classFile = path.join(os.tmpdir(), `${className}.class`);
-          if (fs.existsSync(classFile)) {
-            fs.unlinkSync(classFile);
-          }
+        const outBin = path.join(tempDir, "out");
+        if (["cpp", "rust"].includes(language) && fs.existsSync(outBin)) {
+          await fs.promises.unlink(outBin);
         }
       } catch (cleanupError) {
         console.warn("Cleanup warning:", cleanupError.message);

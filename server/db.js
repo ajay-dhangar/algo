@@ -8,6 +8,13 @@ const sequelize = new Sequelize({
   dialect: "sqlite",
   storage: dbPath,
   logging: false, // Set to console.log for debugging sql queries
+  dialectOptions: {
+    // Retry connection if database is locked (handle concurrent writes)
+    retry: {
+      match: [/SQLITE_BUSY/],
+      max: 5,
+    },
+  },
 });
 
 module.exports = sequelize;

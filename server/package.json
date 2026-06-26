@@ -15,7 +15,10 @@
     "express-rate-limit": "^7.4.1",
     "express-validator": "^7.3.2",
     "helmet": "^8.2.0",
-    "sequelize": "^6.37.5",
-    "sqlite3": "^5.1.7"
+    "sequelize": "^6.37.8",
+    "sqlite3": "^6.0.1"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
   }
 }

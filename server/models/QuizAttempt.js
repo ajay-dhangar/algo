@@ -40,7 +40,11 @@ const QuizAttempt = sequelize.define("QuizAttempt", {
     allowNull: false,
     get() {
       const rawValue = this.getDataValue("userAnswers");
-      return rawValue ? JSON.parse(rawValue) : [];
+      try {
+        return rawValue ? JSON.parse(rawValue) : [];
+      } catch (e) {
+        return [];
+      }
     },
     set(value) {
       this.setDataValue("userAnswers", JSON.stringify(value));
@@ -61,6 +65,10 @@ const QuizAttempt = sequelize.define("QuizAttempt", {
 }, {
   timestamps: true, // adds createdAt and updatedAt columns
   tableName: "quiz_attempts",
+  indexes: [
+    { fields: ["userId"] },
+    { fields: ["quizId"] }
+  ],
 });
 
 module.exports = QuizAttempt;
