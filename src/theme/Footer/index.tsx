@@ -99,7 +99,7 @@ const Footer = () => {
                 {["Documentation", "Developer Blog", "Practice Modules"].map((item) => (
                   <li key={item}>
                     <Link to={item === "Documentation" ? "/documentation/": item === "Developer Blog" ? "/blog/" : "/practice/"} className="text-slate-400 hover:text-slate-200 no-underline transition-colors flex items-center group">
-                      <span className="text-slate-700 group-hover:text-indigo-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
+                      <span className="text-slate-400 group-hover:text-indigo-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
                       {item}
                     </Link>
                   </li>
@@ -123,7 +123,7 @@ const Footer = () => {
                 ].map((item) => (
                   <li key={item.name}>
                     <Link to={item.to} className="text-slate-400 hover:text-slate-200 no-underline transition-colors flex items-center group">
-                      <span className="text-slate-700 group-hover:text-cyan-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
+                      <span className="text-slate-400 group-hover:text-cyan-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
                       {item.name}
                     </Link>
                   </li>
@@ -147,7 +147,7 @@ const Footer = () => {
                 ].map((item) => (
                   <li key={item.name}>
                     <Link to={item.to} className="text-slate-400 hover:text-slate-200 no-underline transition-colors flex items-center group">
-                      <span className="text-slate-700 group-hover:text-blue-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
+                      <span className="text-slate-400 group-hover:text-blue-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
                       {item.name}
                     </Link>
                   </li>
@@ -181,20 +181,20 @@ const Footer = () => {
             </div>
 
             {/* Privacy Compliance Links */}
-            <div className="flex items-center gap-4 text-xs text-slate-500 font-medium">
-              <Link to="/privacy" className="hover:text-slate-300 no-underline transition-colors">
+            <div className="flex items-center gap-4 text-xs text-slate-300 font-medium">
+              <Link to="/privacy" className="text-slate-200 dark:text-slate-300 hover:text-white no-underline transition-colors">
                 Privacy Policy
               </Link>
-              <span className="text-slate-800 font-mono">/</span>
-              <Link to="/terms" className="hover:text-slate-300 no-underline transition-colors">
+              <span className="text-slate-400 font-mono">/</span>
+              <Link to="/terms" className="text-slate-200 dark:text-slate-300 hover:text-white no-underline transition-colors">
                 Terms of Service
               </Link>
-              <span className="text-slate-800 font-mono">/</span>              
+              <span className="text-slate-400 font-mono">/</span>              
             </div>
           </div>
 
           {/* Right Side: Copyright Node Stamp */}
-          <div className="text-xs text-slate-600 font-mono text-center md:text-right m-0">
+          <div className="text-xs text-slate-400 font-mono text-center md:text-right m-0">
             &copy; {new Date().getFullYear()} Algo Ecosystem. Built via Docusaurus.
           </div>
           

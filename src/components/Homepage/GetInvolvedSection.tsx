@@ -127,7 +127,6 @@ const EventCard: React.FC<{ event: EventItem }> = ({ event }) => {
     </CardWrapper>
   );
 };
-
 export default function GetInvolvedSection(): JSX.Element {
   return (
     <section className="relative overflow-hidden bg-slate-50 px-4 py-20 dark:bg-[#090d16]">

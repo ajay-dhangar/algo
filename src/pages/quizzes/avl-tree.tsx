@@ -174,6 +174,13 @@ const AVLTreeQuiz: React.FC = () => {
 
   const selectedOption = userAnswers[currentQuestion] || null;
 
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
+    }
+  };
+
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
@@ -262,6 +269,7 @@ const AVLTreeQuiz: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter handle identity (e.g. TreeWalker)"
+                aria-label="Enter handle identity (e.g. TreeWalker)"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
                 maxLength={20}
@@ -363,13 +371,13 @@ const AVLTreeQuiz: React.FC = () => {
                   </div>
 
                   {/* Options Selection Stack */}
-                  <div className="grid grid-cols-1 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Quiz Options">
                     {QUESTIONS[currentQuestion].options.map((option, index) => {
                       const isSelected = selectedOption === option;
                       return (
                         <button
                           key={index}
-                          onClick={() => handleSelectAnswer(option)}
+                          onClick={() => handleSelectAnswer(option)} role="radio" aria-checked={isSelected}
                           className={`w-full text-left p-4 rounded-xl border border-solid transition-all text-xs md:text-sm font-semibold tracking-wide cursor-pointer flex items-center justify-between min-h-[54px] ${
                             isSelected
                               ? "bg-[var(--ifm-color-primary)] border-[var(--ifm-color-primary)] text-white shadow-sm"

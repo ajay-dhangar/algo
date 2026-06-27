@@ -12,7 +12,11 @@ interface StoryCardProps {
 
 export default function StoryCard({ title, author, username, role, tag, summary }: StoryCardProps) {
   return (
-    <div className="card margin-bottom--md" style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+    <div 
+      className="card margin-bottom--md" 
+
+      style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+    >
       <div className="card__header">
         <span className="badge badge--primary margin-bottom--sm">{tag}</span>
         <h3>{title}</h3>

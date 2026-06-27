@@ -233,6 +233,13 @@ const QueueQuiz: React.FC = () => {
     return userAnswers.reduce((acc, ans, idx) => (ans === QUESTIONS[idx]?.answer ? acc + 1 : acc), 0);
   }, [userAnswers]);
 
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
+    }
+  };
+
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
@@ -345,9 +352,9 @@ const QueueQuiz: React.FC = () => {
                       </div>
                     )}
 
-                    <div className="grid grid-cols-1 gap-3 pt-4">
+                    <div className="grid grid-cols-1 gap-3 pt-4" role="radiogroup" aria-label="Quiz Options">
                       {QUESTIONS[currentQuestion].options.map((opt, i) => (
-                        <button key={i} onClick={() => handleAnswer(opt)}
+                        <button key={i} onClick={() => handleAnswer(opt)} role="radio" aria-checked={userAnswers[currentQuestion] === opt}
                           className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-indigo-400'}`}>
                           <span className="text-sm font-semibold">{opt}</span>
                           <div className={`w-4 h-4 rounded-full border ${userAnswers[currentQuestion] === opt ? 'bg-white border-white' : 'border-slate-300 dark:border-slate-700'}`}></div>
