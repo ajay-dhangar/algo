@@ -56,7 +56,7 @@ DSA is everywhere in modern technology. Here are some practical examples:
 - **Search Engines (Google)** → **Tries, Inverted Indexes, Graphs, and Hashing** for fast keyword retrieval and ranking.
 - **Social Networks (Facebook, LinkedIn)** → **Graphs** for friend recommendations, mutual connections, and feed algorithms.
 - **Undo/Redo Features in Editors** → **Stack** (or two stacks) to track and revert changes.
-- **Music/Video Playlists & Task Queues** → **Queues** or **Linked Lists** for sequential processing.
+- **Music/Video Playlists & Task Queues** → **Queues** or **Doubly Linked Lists** (for navigating forward and backward through tracks).
 - **Databases & Caching** → **B-Trees** for indexing, **Hash Tables** for fast lookups (Redis, Memcached).
 - **Recommendation Systems (Netflix, Amazon)** → Graphs, Trees, and advanced algorithms for personalized suggestions.
 
