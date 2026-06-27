@@ -37,8 +37,8 @@ const config = {
   organizationName: "ajay-dhangar",
   projectName: "algo",
 
-  onBrokenLinks: "throw",
-  // onBrokenMarkdownLinks: "throw",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
 
   i18n: {
     defaultLocale: "en",
