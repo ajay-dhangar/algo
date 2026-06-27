@@ -111,7 +111,7 @@ const config = {
         textColor: "var(--announcement-text)",
         isCloseable: true,
       },
-      ...(process.env.ALGOLIA_API_KEY ? {
+      ...(process.env.ALGOLIA_API_KEY && process.env.ALGOLIA_APP_ID && process.env.ALGOLIA_INDEX_NAME ? {
         algolia: {
           appId: process.env.ALGOLIA_APP_ID,
           apiKey: process.env.ALGOLIA_API_KEY,
