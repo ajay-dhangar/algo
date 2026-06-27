@@ -105,7 +105,7 @@ You don't need to be an expert, but basic comfort with the following will make y
 - Variables, Data Types, and Operators
 - Conditional Statements (`if-else`)
 - Loops (`for`, `while`)
-- Functions/Methods and Recursion basics
+- Functions and Methods (understanding parameters, return values, and scope)
 - Basic Arrays and Strings manipulation
 - Basic Object-Oriented Programming concepts (Classes, Objects) — helpful but not mandatory at the start
 
