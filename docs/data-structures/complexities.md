@@ -67,23 +67,14 @@ Big O Notation (`O(...)`) describes the **worst-case** upper bound of an algorit
 
 
 | Complexity       | Name              | Description                              | Example                          |
-
 |------------------|-------------------|------------------------------------------|----------------------------------|
-
 | **O(1)**        | Constant         | Runtime does not depend on input size   | Array access by index, HashMap lookup (average) |
-
 | **O(log n)**    | Logarithmic      | Doubles input → adds constant time      | Binary Search, operations on balanced BST |
-
 | **O(n)**        | Linear           | Time grows proportionally to input      | Linear Search, single array traversal |
-
 | **O(n log n)**  | Linearithmic     | Efficient for sorting/comparison        | Merge Sort, Quick Sort (average) |
-
 | **O(n²)**       | Quadratic        | Nested loops                            | Bubble Sort, Selection Sort      |
-
 | **O(n³)**       | Cubic            | Triple nested loops                     | Naive matrix multiplication      |
-
 | **O(2ⁿ)**      | Exponential      | Very slow, doubles with each addition   | Recursive Fibonacci (naive), Subset problems |
-
 | **O(n!)**       | Factorial        | Extremely slow                          | Brute-force Traveling Salesman   |
 
 
