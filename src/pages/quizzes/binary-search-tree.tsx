@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
+import QuizErrorBoundary from "../../components/Quiz/QuizErrorBoundary";
+import QuizSkeleton from "../../components/Quiz/QuizSkeleton";
+import { useQuizData } from "../../hooks/useQuizData";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -507,6 +510,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
           </div>
         </div>
       </div>
+          </QuizErrorBoundary>
     </Layout>
   );
 };
