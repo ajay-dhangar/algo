@@ -141,6 +141,8 @@ class Solution {
 ```py
 class Solution:
     def exist(self, board: list[list[str]], word: str) -> bool:
+        if not board or not board[0] or not word:
+            return False
         rows, cols = len(board), len(board[0])
         
         def dfs(r, c, index):
