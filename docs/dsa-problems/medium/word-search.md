@@ -81,7 +81,8 @@ public:
         return found;
     }
     
-    bool exist(vector<vector<char>>& board, string word) {
+    bool exist(vector<vector<char>>& board, const string& word) {
+        if (board.empty() || board[0].empty() || word.empty()) return false;
         for (int i = 0; i < board.size(); i++) {
             for (int j = 0; j < board[0].size(); j++) {
                 // Start DFS if the first character matches
