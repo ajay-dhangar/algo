@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { toast } from "react-toastify";
 
 interface DBAttempt {
@@ -17,13 +17,24 @@ export function useQuizData({ quizId }: UseQuizDataOptions) {
   const [attempts, setAttempts] = useState<DBAttempt[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const fetchAttempts = useCallback((userId: string) => {
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  const fetchAttempts = useCallback((userId?: string | null) => {
+    if (!userId) return;
     setIsLoading(true);
     setError(null);
     
+    if (timerRef.current) clearTimeout(timerRef.current);
+    
     // Simulate a tiny network delay for smooth UI transition
-    setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       try {
         const historyKey = `quiz_attempts_${userId}_${quizId}`;
         const savedAttempts = localStorage.getItem(historyKey);
@@ -43,11 +54,14 @@ export function useQuizData({ quizId }: UseQuizDataOptions) {
     }, 300);
   }, [quizId]);
 
-  const submitAttempt = useCallback((userId: string, score: number, totalQuestions: number, timeSpent: number) => {
+  const submitAttempt = useCallback((userId: string | null | undefined, score: number, totalQuestions: number, timeSpent: number) => {
+    if (!userId) return;
     setIsLoading(true);
     setError(null);
     
-    setTimeout(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    timerRef.current = setTimeout(() => {
       try {
         const newAttempt: DBAttempt = {
           id: Math.random().toString(36).substring(2, 9),

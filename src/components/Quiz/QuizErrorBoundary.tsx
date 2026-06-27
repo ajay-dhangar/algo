@@ -26,8 +26,9 @@ class QuizErrorBoundary extends Component<Props, State> {
   }
 
   public render() {
+    let content;
     if (this.state.hasError) {
-      return (
+      content = (
         <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center p-8 mt-12 bg-red-50 dark:bg-red-900/10 rounded-2xl border border-red-200 dark:border-red-900/50">
           <h2 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">Something went wrong</h2>
           <p className="text-slate-600 dark:text-slate-300 mb-6 text-center">
@@ -41,11 +42,13 @@ class QuizErrorBoundary extends Component<Props, State> {
           </button>
         </div>
       );
+    } else {
+      content = this.props.children;
     }
 
     return (
       <>
-        {this.props.children}
+        {content}
         <ToastContainer theme="dark" position="top-right" toastClassName="font-mono text-sm" />
       </>
     );
