@@ -45,7 +45,7 @@ To find if a specific word exists in a grid, we can treat the grid as a graph an
 3. **Result:** If any of our DFS paths return `true`, the word exists. If we check all paths from all valid starting cells and find nothing, return `false`.
 
 ### Complexity
-* **Time Complexity:** $O(M \times N \times 4^L)$ where $M$ is the number of rows, $N$ is the number of columns, and $L$ is the length of the word. We iterate through every cell, and in the worst case, the DFS explores 4 directions for every character up to length $L$.
+* **Time Complexity:** $O(M \times N \times 3^L)$ where $M$ is the number of rows, $N$ is the number of columns, and $L$ is the length of the word. We iterate through every cell, and in the worst case, the DFS explores 3 directions (since we cannot visit the cell we just came from) for every character up to length $L$.
 * **Space Complexity:** $O(L)$ for the recursion stack space. The maximum depth of the DFS recursion tree will be equal to the length of the word $L$.
 
 ---
