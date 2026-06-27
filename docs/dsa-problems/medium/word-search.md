@@ -184,6 +184,7 @@ class Solution:
  * @return {boolean}
  */
 var exist = function(board, word) {
+    if (!board || board.length === 0 || board[0].length === 0 || !word) return false;
     const rows = board.length;
     const cols = board[0].length;
     
