@@ -1,4 +1,3 @@
-// src/utils/safeStorage.ts
 export function safeJsonParse<T>(key: string, fallback: T): T {
   if (typeof window === 'undefined' || !window.localStorage) {
     return fallback;
@@ -14,5 +13,4 @@ export function safeJsonParse<T>(key: string, fallback: T): T {
     } catch {}
     return fallback;
   }
-}
 }
