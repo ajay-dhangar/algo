@@ -2,20 +2,33 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Version | Supported |
+| ------- | --------- |
+| latest  | ✅        |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security vulnerability, please report it responsibly:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+1. **GitHub Security Advisories**: Use the "Report a vulnerability" button on the [Security tab](https://github.com/ajay-dhangar/algo/security/advisories)
+2. **Do NOT** open public issues for security vulnerabilities
+
+We aim to acknowledge reports within 48 hours and provide a fix timeline within 7 days.
+
+## Scope
+
+Vulnerabilities in the following are considered in-scope:
+- The Docusaurus website configuration and deployment
+- Documentation content and build scripts
+- Any authentication or authorization mechanisms
+
+Out-of-scope:
+- Third-party dependencies (report to their respective maintainers)
+
+## Disclosure Policy
+
+We follow a coordinated disclosure process:
+1. Reporter submits vulnerability via Security Advisory
+2. Maintainer acknowledges receipt within 48 hours
+3. Fix is developed and tested in private
+4. Fix is released, and the advisory is published publicly
