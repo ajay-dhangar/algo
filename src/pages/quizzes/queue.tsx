@@ -14,6 +14,7 @@ import {
   FaHistory,
   FaLayerGroup
 } from "react-icons/fa";
+import { safeJsonParse } from "../../utils/safeStorage";
 
 interface QueueQuestion {
   id: number;
@@ -218,8 +219,7 @@ const QueueQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("quiz_user_queue");
     if (savedUser) {
       setUsername(savedUser);
-      const savedHistory = localStorage.getItem(`quiz_history_${savedUser}_queue`);
-      if (savedHistory) setHistory(JSON.parse(savedHistory));
+      setHistory(safeJsonParse<AttemptHistory[]>(`quiz_history_${savedUser}_queue`, []));
     }
   }, []);
 

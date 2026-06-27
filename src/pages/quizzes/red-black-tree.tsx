@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 
 // Existing custom quiz sub-components (assumed available in your project)
+import { safeJsonParse } from "../../utils/safeStorage";
 
 interface RBTQuestion {
   id: number;
@@ -160,8 +161,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("rbt_quiz_user");
     if (savedUser) {
       setUsername(savedUser);
-      const savedHistory = localStorage.getItem(`rbt_history_${savedUser}`);
-      if (savedHistory) setHistory(JSON.parse(savedHistory));
+      setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${savedUser}`, []));
     }
   }, []);
 

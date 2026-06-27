@@ -16,6 +16,7 @@ import {
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
+import { safeJsonParse } from "../../utils/safeStorage";
 
 interface AVLQuestion {
   id: number;
@@ -153,8 +154,7 @@ const AVLTreeQuiz: React.FC = () => {
     if (storedUser) {
       setUsername(storedUser);
       const historyKey = `algo_avl_history_${storedUser.toLowerCase()}`;
-      const savedHistory = localStorage.getItem(historyKey);
-      if (savedHistory) setLocalHistory(JSON.parse(savedHistory));
+      setLocalHistory(safeJsonParse<LocalQuizAttempt[]>(historyKey, []));
     }
   }, []);
 
@@ -189,8 +189,7 @@ const AVLTreeQuiz: React.FC = () => {
     setUsername(cleanName);
 
     const historyKey = `algo_avl_history_${cleanName.toLowerCase()}`;
-    const savedHistory = localStorage.getItem(historyKey);
-    setLocalHistory(savedHistory ? JSON.parse(savedHistory) : []);
+    setLocalHistory(safeJsonParse<LocalQuizAttempt[]>(historyKey, []));
   };
 
   const handleLogout = () => {

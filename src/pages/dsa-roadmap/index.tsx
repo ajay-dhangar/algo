@@ -15,6 +15,7 @@ import {
   FaCheckCircle
 } from "react-icons/fa";
 import { topics } from "../../data/topics";
+import { safeJsonParse } from "../../utils/safeStorage";
 
 const DSARoadmap: React.FC = () => {
   // State Pipeline
@@ -26,10 +27,8 @@ const DSARoadmap: React.FC = () => {
   // Synchronize localStorage Layout Cache
   useEffect(() => {
     try {
-      const savedTopics = localStorage.getItem("pro_dsa_topics");
-      if (savedTopics) setExpandedTopics(JSON.parse(savedTopics));
-      const savedFolders = localStorage.getItem("pro_dsa_folders");
-      if (savedFolders) setExpandedFolders(JSON.parse(savedFolders));
+      setExpandedTopics(safeJsonParse<{ [key: number]: boolean }>("pro_dsa_topics", { 0: true }));
+      setExpandedFolders(safeJsonParse<{ [key: string]: boolean }>("pro_dsa_folders", {}));
     } catch (error) {
       console.error("Failed to parse stored roadmap layout cache status", error);
     }

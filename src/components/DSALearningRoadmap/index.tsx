@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "@docusaurus/Link";
 import { FaChevronDown, FaExternalLinkAlt } from "react-icons/fa";
+import { safeJsonParse } from "../../utils/safeStorage";
 
 // ─── Types ───────────────────────────────────────────────────────────
 
@@ -523,8 +524,7 @@ const DSALearningRoadmap: React.FC = () => {
   // Persist completion state
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("dsa_learning_roadmap_completed");
-      if (saved) setCompletedStages(new Set(JSON.parse(saved)));
+      setCompletedStages(new Set(safeJsonParse<number[]>("dsa_learning_roadmap_completed", [])));
     } catch {}
   }, []);
 
