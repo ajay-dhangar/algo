@@ -62,7 +62,7 @@ export default function KeyboardShortcutsModal({
 
           <ShortcutRow
             action="Focus search"
-            shortcut="/"
+            shortcut="Cmd/Ctrl + K or /"
           />
 
           <ShortcutRow

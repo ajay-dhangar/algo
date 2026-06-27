@@ -12,6 +12,7 @@ const SEQUENTIAL_SHORTCUTS = {
 };
 
 const SEARCH_SELECTORS = [
+  ".DocSearch-Button", // Docusaurus Algolia button
   ".DocSearch-Input",
   'input[type="search"]',
 ];
@@ -31,9 +32,24 @@ export default function useKeyboardShortcuts({ onOpenHelp, onCloseHelp }) {
         (["INPUT", "TEXTAREA", "SELECT"].includes(active.tagName) ||
           active.isContentEditable);
 
-      if (isTyping) return;
+      const { key, shiftKey, metaKey, ctrlKey } = event;
 
-      const { key, shiftKey } = event;
+      // Handle Cmd/Ctrl + K for search globally (even if typing)
+      if ((metaKey || ctrlKey) && key.toLowerCase() === "k") {
+        event.preventDefault();
+        const searchInput = SEARCH_SELECTORS.reduce(
+          (el, selector) => el || document.querySelector(selector),
+          null
+        );
+        
+        if (searchInput) {
+          searchInput.focus();
+          if (searchInput.tagName === 'BUTTON') searchInput.click();
+        }
+        return;
+      }
+
+      if (isTyping) return;
 
       // 3. Simple Single-key Map Matchers
       if (shiftKey && key === "?") {
@@ -56,7 +72,10 @@ export default function useKeyboardShortcuts({ onOpenHelp, onCloseHelp }) {
           (el, selector) => el || document.querySelector(selector),
           null
         );
-        searchInput?.focus();
+        if (searchInput) {
+          searchInput.focus();
+          if (searchInput.tagName === 'BUTTON') searchInput.click();
+        }
         return;
       }
 
