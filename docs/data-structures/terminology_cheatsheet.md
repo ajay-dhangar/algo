@@ -295,5 +295,5 @@ This comprehensive quick-reference guide covers essential terminology in Data St
 
 
 
-**Usage Tip**: Bookmark this page! Cross-reference terms while reading tutorials or solving problems. For implementations, examples, and practice questions, visit the linked DSA tutorial sections. This cheat sheet evolves with your learning—feel free to suggest additions. Happy coding!
+**Usage Tip**: Bookmark this page! Cross-reference terms while reading tutorials or solving problems. For implementations, examples, and practice questions, visit the DSA tutorial sections in the sidebar. This cheat sheet evolves with your learning—feel free to suggest additions. Happy coding!
 
