@@ -29,8 +29,7 @@ This comprehensive quick-reference guide covers essential terminology in Data St
 
 
 - **Data Structure**: A specialized format for organizing, processing, retrieving, and storing data efficiently in memory. It defines relationships between data elements and supported operations.  
-
-&#x20; *Key Insight*: Choosing the right data structure optimizes time and space. *Examples*: Arrays (fast access), Linked Lists (dynamic size), Trees/Graphs (hierarchical/relational data).
+  *Key Insight*: Choosing the right data structure optimizes time and space. *Examples*: Arrays (fast access), Linked Lists (dynamic size), Trees/Graphs (hierarchical/relational data).
 
 
 
