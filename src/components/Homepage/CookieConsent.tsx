@@ -71,7 +71,7 @@ const CookieConsent: React.FC = () => {
               <div className="flex gap-2">
                 <button
                   onClick={() => saveConsent("all")}
-                  className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
+                  className="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
                 >
                   <FaCheck /> Accept All
                 </button>

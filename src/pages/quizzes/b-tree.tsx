@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -13,7 +12,6 @@ import {
   FaHistory, 
   FaAward 
 } from "react-icons/fa";
-import { buildApiUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -22,7 +20,7 @@ import QuizResultActions from "../../components/Quiz/QuizResultActions";
 interface BTreeQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   options: string[];
   answer: string;
   explanation: string;
@@ -40,7 +38,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
-    questionText: "What is the core defining structural property of a B-Tree?",
+    question: "What is the core defining structural property of a B-Tree?",
     options: [
       "A) A binary search tree that is strictly balanced height-wise.",
       "B) A self-balancing search tree layout that keeps keys sorted and allows logarithmic lookups, inserts, and structural deletes.",
@@ -53,7 +51,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "How does the minimum degree 't' dictate the bounds of non-root nodes in a B-Tree?",
+    question: "How does the minimum degree 't' dictate the bounds of non-root nodes in a B-Tree?",
     options: [
       "A) It dictates the absolute minimum number of keys a non-root node can contain.",
       "B) It sets the absolute upper threshold of children branches allowed.",
@@ -66,7 +64,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 3,
     difficulty: "Easy",
-    questionText: "In a B-Tree configuration with minimum degree 't', what is the maximum number of children any node can maintain?",
+    question: "In a B-Tree configuration with minimum degree 't', what is the maximum number of children any node can maintain?",
     options: ["A) 2", "B) 3", "C) 2t", "D) t"],
     answer: "C) 2t",
     explanation: "A node can accept up to 2t - 1 keys maximum. Exceeding this boundary requires a split, meaning the upper threshold limit for children paths caps out cleanly at exactly 2t."
@@ -74,7 +72,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "What architectural advantage makes B-Trees preferred over classic self-balancing BSTs for external disk memory structures?",
+    question: "What architectural advantage makes B-Trees preferred over classic self-balancing BSTs for external disk memory structures?",
     options: [
       "A) Faster processing cycles across local CPU registries.",
       "B) Minimal footprint allocations inside active virtual memory maps.",
@@ -87,7 +85,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 5,
     difficulty: "Medium",
-    questionText: "What workflow is executed when an insertion step causes a target node to surpass its maximum permitted key allowance?",
+    question: "What workflow is executed when an insertion step causes a target node to surpass its maximum permitted key allowance?",
     options: [
       "A) The node undergoes deletion and the storage block gets scrubbed.",
       "B) The complete tree path gets purged and rebuilt from scratch.",
@@ -100,7 +98,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 6,
     difficulty: "Medium",
-    questionText: "What exact height invariant must be continually maintained for a B-Tree to be classified as fully balanced?",
+    question: "What exact height invariant must be continually maintained for a B-Tree to be classified as fully balanced?",
     options: [
       "A) Every leaf node must reside at the exact same depth level.",
       "B) The key distributions across all nodes must match perfectly.",
@@ -113,7 +111,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 7,
     difficulty: "Hard",
-    questionText: "How does a B-Tree process a key deletion when the target node drops below its minimum key threshold?",
+    question: "How does a B-Tree process a key deletion when the target node drops below its minimum key threshold?",
     options: [
       "A) The key is cleared out immediately, ignoring underflow bounds.",
       "B) Keys are shifted around locally within that single isolated node block.",
@@ -126,7 +124,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "Which of the following structural assertions is FALSE regarding standard B-Tree constraints?",
+    question: "Which of the following structural assertions is FALSE regarding standard B-Tree constraints?",
     options: [
       "A) Every leaf node is located at the identical level boundary.",
       "B) Internal nodes are guaranteed to house at least t - 1 keys.",
@@ -139,7 +137,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 9,
     difficulty: "Medium",
-    questionText: "In which software engineering domains do B-Trees and their variations find their most widespread application?",
+    question: "In which software engineering domains do B-Trees and their variations find their most widespread application?",
     options: [
       "A) Volatile low-latency register stores.",
       "B) Solid-state file system layers and relational database index systems.",
@@ -152,7 +150,7 @@ const QUESTIONS: BTreeQuestion[] = [
   {
     id: 10,
     difficulty: "Hard",
-    questionText: "How do adjustments to the overall tree order or degree ('t') directly affect the net height metrics of a B-Tree?",
+    question: "How do adjustments to the overall tree order or degree ('t') directly affect the net height metrics of a B-Tree?",
     options: [
       "A) Height parameters scale upward in direct proportion to order expansions.",
       "B) Height metrics decrease because a higher order increases node capacity and fan-out.",
@@ -176,9 +174,9 @@ const BTreeQuiz: React.FC = () => {
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<DBAttempt[]>([]);
   const [isMounted, setIsMounted] = useState(false);
-
+  
   // Fallback anchor configuration for context boundaries
-  const apiBaseUrl = "https://api.codeharborhub.com"; 
+   
 
   useEffect(() => {
     setIsMounted(true);
@@ -190,11 +188,7 @@ const BTreeQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId]);
+  
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -213,16 +207,31 @@ const BTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(
-        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/b-tree`)
-      );
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_b-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Failed to recover target user records stream:", e);
+    } else {
+      setAttempts([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
     }
   };
 
@@ -245,19 +254,21 @@ const BTreeQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "b-tree",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Failed transmission check of user compilation metrics:", e);
-    }
+    const newAttempt: DBAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_b-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -316,6 +327,7 @@ const BTreeQuiz: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter handle workspace ID (e.g. NodeSplitter)"
+                aria-label="Enter handle workspace ID (e.g. NodeSplitter)"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
                 maxLength={24}
@@ -412,18 +424,18 @@ const BTreeQuiz: React.FC = () => {
                     </div>
 
                     <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white m-0 leading-relaxed font-sans">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
                   </div>
 
                   {/* Option Choice Grid Stack */}
-                  <div className="grid grid-cols-1 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Quiz Options">
                     {QUESTIONS[currentQuestion].options.map((option, index) => {
                       const isSelected = selectedOption === option;
                       return (
                         <button
                           key={index}
-                          onClick={() => handleAnswer(option)}
+                          onClick={() => handleAnswer(option)} role="radio" aria-checked={isSelected}
                           className={`w-full text-left p-4 rounded-xl border border-solid transition-all text-xs md:text-sm font-semibold tracking-wide cursor-pointer flex items-center justify-between min-h-[54px] ${
                             isSelected
                               ? "bg-blue-600 border-blue-600 text-white shadow-sm"
@@ -492,7 +504,7 @@ const BTreeQuiz: React.FC = () => {
                         <div key={q.id} className="bg-slate-50/50 dark:bg-slate-950/30 border border-solid border-slate-200/80 dark:border-slate-800/60 rounded-xl p-5 space-y-3">
                           <div className="flex items-start justify-between gap-4">
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
-                              {index + 1}. {q.questionText}
+                              {index + 1}. {q.question}
                             </h5>
                             <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}
@@ -523,6 +535,8 @@ const BTreeQuiz: React.FC = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+
+            
 
             {/* Historical Verification Track Log */}
             {attempts.length > 0 && (

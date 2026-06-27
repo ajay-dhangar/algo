@@ -15,14 +15,11 @@ import {
 } from "react-icons/fa";
 
 // Existing custom quiz sub-components (assumed available in your project)
-import QuestionProgress from "../../components/Quiz/QuestionProgress";
-import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
-import QuizResultActions from "../../components/Quiz/QuizResultActions";
 
 interface RBTQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   options: string[];
   answer: string;
   explanation: string;
@@ -38,7 +35,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
-    questionText: "Which fundamental property characterizes a Red-Black Tree (RBT)?",
+    question: "Which fundamental property characterizes a Red-Black Tree (RBT)?",
     options: [
       "A) A binary search tree where every node is red.",
       "B) A self-balancing binary search tree with an extra bit for node color.",
@@ -51,7 +48,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "In a valid Red-Black Tree configuration, what must be the color of the Root node?",
+    question: "In a valid Red-Black Tree configuration, what must be the color of the Root node?",
     options: ["A) Red", "B) Black", "C) Either Red or Black", "D) Transparent"],
     answer: "B) Black",
     explanation: "Property 2 of Red-Black trees strictly states that the root must be Black. This is crucial for maintaining the black-height stability of the tree."
@@ -59,7 +56,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 3,
     difficulty: "Easy",
-    questionText: "What color are the leaves (NIL/External nodes) in a Red-Black Tree?",
+    question: "What color are the leaves (NIL/External nodes) in a Red-Black Tree?",
     options: ["A) Red", "B) Black", "C) Grey", "D) Leaves do not have colors"],
     answer: "B) Black",
     explanation: "All leaf nodes (NIL) are considered Black. This allows every path from a node to reach a black 'endpoint'."
@@ -67,7 +64,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "If a node is Red, what constraint applies to its children?",
+    question: "If a node is Red, what constraint applies to its children?",
     options: [
       "A) Both children must be Red.",
       "B) At least one child must be Black.",
@@ -80,7 +77,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 5,
     difficulty: "Medium",
-    questionText: "What is the 'Black-Height' property regarding paths from a node to its leaves?",
+    question: "What is the 'Black-Height' property regarding paths from a node to its leaves?",
     options: [
       "A) Every path must have more red nodes than black nodes.",
       "B) Every path from a node to its descendant leaves must contain the same number of black nodes.",
@@ -93,7 +90,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 6,
     difficulty: "Medium",
-    questionText: "What is the maximum theoretical height of a Red-Black tree with 'n' internal nodes?",
+    question: "What is the maximum theoretical height of a Red-Black tree with 'n' internal nodes?",
     options: ["A) O(n)", "B) O(log n)", "C) Approximately 2 * log(n + 1)", "D) O(sqrt(n))"],
     answer: "C) Approximately 2 * log(n + 1)",
     explanation: "Because of the balance properties, the height of a Red-Black tree is guaranteed to be logarithmic, specifically at most twice the height of a perfectly balanced BST."
@@ -101,7 +98,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 7,
     difficulty: "Hard",
-    questionText: "When inserting a new node into an RBT, what is its initial color before rebalancing begins?",
+    question: "When inserting a new node into an RBT, what is its initial color before rebalancing begins?",
     options: ["A) Black", "B) Red", "C) Random", "D) Depends on the parent's color"],
     answer: "B) Red",
     explanation: "New nodes are always inserted as Red. This avoids violating the black-height property (Prop 5) immediately, though it may violate the red-child rule (Prop 4), which is then fixed via rotations."
@@ -109,7 +106,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "Which of the following operations is used during rebalancing if an inserted node's uncle is also Red?",
+    question: "Which of the following operations is used during rebalancing if an inserted node's uncle is also Red?",
     options: [
       "A) Only Left Rotation",
       "B) Only Right Rotation",
@@ -122,7 +119,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 9,
     difficulty: "Medium",
-    questionText: "What is the primary advantage of a Red-Black Tree over a standard Binary Search Tree?",
+    question: "What is the primary advantage of a Red-Black Tree over a standard Binary Search Tree?",
     options: [
       "A) It uses less memory than a BST.",
       "B) It guarantees O(log n) performance for search, insert, and delete operations.",
@@ -135,7 +132,7 @@ const QUESTIONS: RBTQuestion[] = [
   {
     id: 10,
     difficulty: "Hard",
-    questionText: "Which rotation is required if we have a 'Left-Right' violation (inserted node is right child of a left child)?",
+    question: "Which rotation is required if we have a 'Left-Right' violation (inserted node is right child of a left child)?",
     options: [
       "A) Single Right Rotation",
       "B) Single Left Rotation",
@@ -178,6 +175,13 @@ const RedBlackTreeQuiz: React.FC = () => {
   const score = useMemo(() => {
     return userAnswers.reduce((acc, ans, idx) => (ans === QUESTIONS[idx]?.answer ? acc + 1 : acc), 0);
   }, [userAnswers]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
+    }
+  };
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -284,12 +288,12 @@ const RedBlackTreeQuiz: React.FC = () => {
                        </span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-bold leading-snug text-slate-900 dark:text-white">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
 
                     <div className="grid grid-cols-1 gap-4 pt-4">
                       {QUESTIONS[currentQuestion].options.map((opt, i) => (
-                        <button key={i} onClick={() => handleAnswer(opt)}
+                        <button key={i} onClick={() => handleAnswer(opt)} role="radio" aria-checked={userAnswers[currentQuestion] === opt}
                           className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-red-600/5 border-red-600 dark:bg-red-600/10' : 'bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 hover:border-red-600/50'}`}>
                           <span className={`text-sm md:text-base font-semibold ${userAnswers[currentQuestion] === opt ? 'text-red-800 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'}`}>{opt}</span>
                           <div className={`w-5 h-5 rounded-full border-2 ${userAnswers[currentQuestion] === opt ? 'border-red-600 bg-red-600' : 'border-slate-300 dark:border-slate-600 group-hover:border-red-600/50'}`}>
@@ -327,7 +331,7 @@ const RedBlackTreeQuiz: React.FC = () => {
                     {QUESTIONS.map((q, idx) => (
                       <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-5">
                         <div className="flex items-start justify-between gap-4">
-                          <h5 className="text-sm md:text-base font-bold leading-relaxed">{idx + 1}. {q.questionText}</h5>
+                          <h5 className="text-sm md:text-base font-bold leading-relaxed">{idx + 1}. {q.question}</h5>
                           {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0 text-xl"/> : <FaTimesCircle className="text-red-800 dark:text-red-400 shrink-0 text-xl"/>}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono uppercase tracking-tighter">

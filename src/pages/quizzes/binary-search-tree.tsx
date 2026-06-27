@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -13,7 +12,6 @@ import {
   FaHistory, 
   FaAward 
 } from "react-icons/fa";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -22,7 +20,7 @@ import QuizResultActions from "../../components/Quiz/QuizResultActions";
 interface BSTQuestion {
   id: number;
   difficulty: "Easy" | "Medium" | "Hard";
-  questionText: string;
+  question: string;
   options: string[];
   answer: string;
   explanation: string;
@@ -40,7 +38,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
-    questionText: "What is the primary structural property that defines a Binary Search Tree (BST)?",
+    question: "What is the primary structural property that defines a Binary Search Tree (BST)?",
     options: [
       "A) Every single node across all levels must have exactly two child nodes.",
       "B) The left child's key is greater than the parent node, and the right child's key is strictly smaller.",
@@ -53,7 +51,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 2,
     difficulty: "Easy",
-    questionText: "What is the average-case time complexity for executing a lookup operation in a balanced Binary Search Tree?",
+    question: "What is the average-case time complexity for executing a lookup operation in a balanced Binary Search Tree?",
     options: ["A) O(n)", "B) O(log n)", "C) O(n log n)", "D) O(1)"],
     answer: "B) O(log n)",
     explanation: "When a BST is well-balanced, its depth scales at log(n). Each search step cuts the search space exactly in half, delivering clear O(log n) performance limits."
@@ -61,7 +59,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 3,
     difficulty: "Medium",
-    questionText: "In the worst-case scenario (such as a skewed tree built from sorted inputs), what does a standard BST lookup degrade to?",
+    question: "In the worst-case scenario (such as a skewed tree built from sorted inputs), what does a standard BST lookup degrade to?",
     options: ["A) O(1)", "B) O(log n)", "C) O(n)", "D) O(n^2)"],
     answer: "C) O(n)",
     explanation: "If items are inserted in linear sorted order, a regular BST shifts into a linked-list shape. This breakdown forces search pipelines to run sequentially through all elements, degrading to O(n)."
@@ -69,7 +67,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 4,
     difficulty: "Medium",
-    questionText: "Which depth-first tree traversal technique produces a list of BST keys sorted in ascending sequence?",
+    question: "Which depth-first tree traversal technique produces a list of BST keys sorted in ascending sequence?",
     options: ["A) Pre-order traversal", "B) Post-order traversal", "C) In-order traversal", "D) Level-order traversal"],
     answer: "C) In-order traversal",
     explanation: "An In-order traversal follows a Left-Root-Right pattern. Given the structural positioning rules of a BST, this sequence outputs all values in a perfect ascending order."
@@ -77,7 +75,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 5,
     difficulty: "Hard",
-    questionText: "When deleting an internal node with two active children from a BST, which alternative node is typically substituted to preserve structural balance?",
+    question: "When deleting an internal node with two active children from a BST, which alternative node is typically substituted to preserve structural balance?",
     options: [
       "A) The absolute deepest leaf node located anywhere in the tree configuration.",
       "B) Either the In-order Predecessor or the In-order Successor of that node.",
@@ -90,7 +88,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 6,
     difficulty: "Easy",
-    questionText: "What is the maximum number of children any node can legally maintain within a Binary Search Tree layout?",
+    question: "What is the maximum number of children any node can legally maintain within a Binary Search Tree layout?",
     options: ["A) Unlimited", "B) 1", "C) 2", "D) 4"],
     answer: "C) 2",
     explanation: "As an explicit binary structural configuration, every single node position is capped at a maximum child count of exactly two (traditionally labeled left and right children)."
@@ -98,7 +96,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 7,
     difficulty: "Medium",
-    questionText: "If the root node of a valid BST holds the value 50, where would a new element with a value of 35 be placed?",
+    question: "If the root node of a valid BST holds the value 50, where would a new element with a value of 35 be placed?",
     options: [
       "A) Somewhere inside the right subtree branch.",
       "B) Directly as the new primary parent over the root node.",
@@ -111,15 +109,15 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 8,
     difficulty: "Hard",
-    questionText: "What is the maximum possible height of an unbalanced Binary Search Tree that holds exactly 'n' nodes?",
+    question: "What is the maximum possible height of an unbalanced Binary Search Tree that holds exactly 'n' nodes?",
     options: ["A) O(log n)", "B) O(n)", "C) O(n - 1)", "D) O(sqrt(n))"],
-    answer: "C) O(n - 1)",
-    explanation: "In a worst-case, single-line skewed tree, every node has exactly one child. Counting the distance from the root down to the last leaf gives an exact structural height value of n - 1."
+    answer: "B) O(n)",
+    explanation: "In a worst-case, single-line skewed tree, every node has exactly one child. Under the standard node-counting convention (where a single root node has height 1), the maximum height of a tree with n nodes is n, which is O(n)."
   },
   {
     id: 9,
     difficulty: "Medium",
-    questionText: "Which of these specialized algorithmic frameworks is explicitly engineered to prevent a BST from degrading into a skewed layout?",
+    question: "Which of these specialized algorithmic frameworks is explicitly engineered to prevent a BST from degrading into a skewed layout?",
     options: ["A) Hash Map", "B) Red-Black Tree / AVL Tree", "C) Priority Queue Linkages", "D) Minimal Spanning Matrix"],
     answer: "B) Red-Black Tree / AVL Tree",
     explanation: "AVL and Red-Black trees are self-balancing extensions of a classic BST. They run automated structural adjustments during modifications to keep lookup times locked at O(log n)."
@@ -127,7 +125,7 @@ const QUESTIONS: BSTQuestion[] = [
   {
     id: 10,
     difficulty: "Hard",
-    questionText: "If an in-order traversal of a target binary tree yields '2, 3, 4, 7, 9', is this data alone enough to confirm the tree is a valid BST?",
+    question: "If an in-order traversal of a target binary tree yields '2, 3, 4, 7, 9', is this data alone enough to confirm the tree is a valid BST?",
     options: [
       "A) No, because we do not know if the structural layout satisfies binary tree requirements.",
       "B) Yes, an ascending sorted sequence proves it is a valid BST.",
@@ -152,8 +150,6 @@ const BinarySearchTreeQuiz: React.FC = () => {
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
-  const apiBaseUrl = useApiBaseUrl();
-
   useEffect(() => {
     setIsMounted(true);
     const storedId = localStorage.getItem("quiz_userId");
@@ -163,12 +159,6 @@ const BinarySearchTreeQuiz: React.FC = () => {
       setUsername(storedName);
     }
   }, []);
-
-  useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId, apiBaseUrl]);
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -187,16 +177,31 @@ const BinarySearchTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(
-        buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/binary-search-tree`)
-      );
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_binary-search-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Error retrieving historical diagnostic data streams:", e);
+    } else {
+      setAttempts([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
     }
   };
 
@@ -219,19 +224,21 @@ const BinarySearchTreeQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "binary-search-tree",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Error processing parameter payload transmission:", e);
-    }
+    const newAttempt: HistoryAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_binary-search-tree`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -289,6 +296,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter workspace developer alias"
+                aria-label="Enter workspace developer alias"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
                 maxLength={24}
@@ -313,7 +321,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
         <div className="max-w-4xl mx-auto">
           
-          {/* Top Status Bar */}
+            {/* Top Status Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-solid border-slate-200 dark:border-slate-800/80 rounded-2xl p-4 mb-6 shadow-xs">
             <div className="flex items-center gap-3">
               <FaUserCircle className="text-2xl text-slate-400 dark:text-slate-600" />
@@ -385,18 +393,18 @@ const BinarySearchTreeQuiz: React.FC = () => {
                     </div>
 
                     <h3 className="text-base md:text-lg font-bold text-slate-900 dark:text-white m-0 leading-relaxed font-sans">
-                      {QUESTIONS[currentQuestion].questionText}
+                      {QUESTIONS[currentQuestion].question}
                     </h3>
                   </div>
 
                   {/* Radio Choice Container Stack */}
-                  <div className="grid grid-cols-1 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Quiz Options">
                     {QUESTIONS[currentQuestion].options.map((option, index) => {
                       const isSelected = selectedOption === option;
                       return (
                         <button
                           key={index}
-                          onClick={() => handleAnswer(option)}
+                          onClick={() => handleAnswer(option)} role="radio" aria-checked={isSelected}
                           className={`w-full text-left p-4 rounded-xl border border-solid transition-all text-xs md:text-sm font-semibold tracking-wide cursor-pointer flex items-center justify-between min-h-[54px] ${
                             isSelected
                               ? "bg-blue-600 border-blue-600 text-white shadow-xs"
@@ -465,7 +473,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
                         <div key={q.id} className="bg-slate-50/50 dark:bg-slate-950/30 border border-solid border-slate-200/80 dark:border-slate-800/60 rounded-xl p-5 space-y-3">
                           <div className="flex items-start justify-between gap-4">
                             <h5 className="text-sm font-bold text-slate-900 dark:text-white m-0 leading-relaxed max-w-2xl">
-                              {index + 1}. {q.questionText}
+                              {index + 1}. {q.question}
                             </h5>
                             <span className={`text-base shrink-0 ${isCorrect ? "text-emerald-500" : "text-rose-800 dark:text-rose-400"}`}>
                               {isCorrect ? <FaCheckCircle /> : <FaTimesCircle />}

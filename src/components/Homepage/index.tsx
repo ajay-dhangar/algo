@@ -32,7 +32,10 @@ const Homepage: React.FC = () => {
 
         {/* PHASE 5: ECOSYSTEM CONVERSION */}
         <ContributeSection />
-        <GetInvolvedSection />
+        <GetInvolvedSection
+          title="Get Involved"
+          description="Explore ways to contribute, join the community, and help shape the future of our platform."
+        />
         <CallToActionSection />
       </main>
 

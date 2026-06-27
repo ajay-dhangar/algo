@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaUserCircle,
@@ -12,7 +11,6 @@ import {
   FaChevronRight,
   FaHistory
 } from "react-icons/fa";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -204,10 +202,9 @@ const IsamQuiz: React.FC = () => {
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
-  const [isMounted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-  const apiBaseUrl = useApiBaseUrl();
-
+  
   useEffect(() => {
     setIsMounted(true);
     const storedId = localStorage.getItem("quiz_userId");
@@ -218,9 +215,7 @@ const IsamQuiz: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    if (userId) fetchAttempts(userId);
-  }, [userId, apiBaseUrl]);
+  
 
   useEffect(() => {
     if (showResult || !userId) return;
@@ -237,14 +232,31 @@ const IsamQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/isam`));
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_isam`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Error fetching ISAM quiz history:", e);
+    } else {
+      setAttempts([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
+  }, [userId, fetchAttempts]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
     }
   };
 
@@ -267,19 +279,21 @@ const IsamQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "isam",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Failed to submit ISAM quiz attempt:", e);
-    }
+    const newAttempt: HistoryAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_isam`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -335,6 +349,7 @@ const IsamQuiz: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter your identifier to begin"
+                aria-label="Enter your identifier to begin"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
                 maxLength={24}
@@ -428,13 +443,13 @@ const IsamQuiz: React.FC = () => {
                     </h3>
                   </div>
 
-                  <div className="grid grid-cols-1 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Quiz Options">
                     {QUESTIONS[currentQuestion].options.map((option, index) => {
                       const isSelected = selectedOption === option;
                       return (
                         <button
                           key={index}
-                          onClick={() => handleAnswer(option)}
+                          onClick={() => handleAnswer(option)} role="radio" aria-checked={isSelected}
                           className={`w-full text-left p-4 rounded-xl border border-solid transition-all text-xs md:text-sm font-semibold tracking-wide cursor-pointer flex items-center justify-between min-h-[54px] ${
                             isSelected
                               ? "bg-amber-600 border-amber-600 text-white shadow-xs"
@@ -530,6 +545,8 @@ const IsamQuiz: React.FC = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+
+                        
 
             {attempts.length > 0 && (
               <div className="mt-12 border-t border-solid border-slate-200 dark:border-slate-800/80 pt-8 text-left">

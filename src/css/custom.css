@@ -9,9 +9,9 @@
 }
 
 :root {
-  --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
   --ifm-color-primary-darkest: #1e3a8a;
   --ifm-color-primary-light: #60a5fa;
   --ifm-color-primary-lighter: #93c5fd;
@@ -409,29 +409,86 @@ button {
   color: #ffffff !important;
 }
 
-/* =============================================
-   Print Layout Styling & Fixes
-   ============================================= */
+.algo-link {
+  background-color: var(--ifm-color-primary);
+  border-radius: 4px;
+  transition-property: all;
+  padding: 0.25rem 0.75rem !important;
+  margin: 0 0.5rem;
+}
+
+.algo-link:last-child {
+  margin-right: 0;
+}
+
+.algo-link svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.2rem;
+}
+
+.algo-signup {
+  --ifm-link-hover-color: #ffffff;
+  --ifm-navbar-link-hover-color: #ffffff;
+  color: #ffffff !important;
+  background-color: var(--ifm-color-primary-dark) !important;
+}
+
+[data-theme="dark"] .algo-signup {
+  --ifm-link-hover-color: #000000;
+  --ifm-navbar-link-hover-color: #000000;
+  color: #000000 !important;
+  background-color: var(--ifm-color-primary) !important;
+}
+
+.algo-signup svg {
+  display: none;
+}
+
+.algo-signup:hover {
+  background-color: var(--ifm-color-primary-darker);
+}
+
+.algo-login {
+  background-color: transparent;
+}
+
+.navbar-sidebar .algo-link {
+  padding: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   Print Layout Styling & Fixes (Docusaurus Docs)
+   ========================================================================== */
+
 @media print {
+  /* ---------------------------------------------------------------------- */
+  /* 1. GLOBAL RESETS & THEME OVERRIDES                                     */
+  /* ---------------------------------------------------------------------- */
+  
   /* Reset background and colors for ink saving and high contrast */
   html, body, [data-theme], :root {
     background-color: #ffffff !important;
     background-image: none !important;
     color: #000000 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important; /* Critical: Stops text cut-offs at page breaks */
   }
 
-  /* Force standard block layout for print so breaks work correctly (Chromium bug workaround) */
-  .row,
-  .col,
-  .container,
-  .markdown,
-  main,
+  /* Force standard block layout for print so standard pagination/breaks work (Chromium fix) */
+  #__docusaurus, 
+  .theme-doc-wrapper, 
+  .theme-doc-main-container, 
+  main, 
+  .container, 
+  .row, 
+  .col, 
   article,
-  .theme-doc-main-container,
-  .theme-doc-wrapper,
+  .markdown,
   .theme-doc-markdown,
-  .theme-doc-toc,
-  #__docusaurus {
+  .theme-doc-toc {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -440,27 +497,60 @@ button {
     float: none !important;
     box-shadow: none !important;
     background: transparent !important;
+    overflow: visible !important;
   }
 
-  /* Hide navigation, sidebar, TOC, footer, progress elements, comments, and other chrome */
-  .navbar,
-  .theme-doc-sidebar-container,
-  .theme-doc-toc,
-  .table-of-contents,
-  .footer,
-  .pagination-nav,
-  .giscus,
-  .giscus-component,
-  #giscus,
+  /* ---------------------------------------------------------------------- */
+  /* 2. CHROME, COMMENTS, & GOOGLE ADSENSE DELETION                         */
+  /* ---------------------------------------------------------------------- */
+  
+  /* Hide navigation, sidebar, TOC, footer, progress elements, and UI elements */
+  .navbar,                               /* Top Navigation Bar */
+  .theme-doc-sidebar-container,          /* Left Documentation Sidebar */
+  .theme-doc-toc,                        /* Right Desktop TOC Container */
+  .table-of-contents,                    /* Mobile/In-line TOC Lists */
+  .footer,                               /* Global Site Footer */
+  .pagination-nav,                       /* Next/Previous Page Buttons */
+  .breadcrumbs,                          /* Top Page File-path Links */
+  .theme-edit-this-page,                 /* "Edit this page" Link */
+  .theme-doc-footer-edit-meta-row,       /* Last updated timestamps */
+  .clean-btn.theme-back-to-top-button,   /* Back to top scroll button */
+  .theme-doc-footer,                     /* Inner document bottom area */
+  .no-print,                             /* Custom utilities hidden from paper */
+  aside,                                 /* Secondary tracking/sidebars */
+  .giscus,                               /* Comments section */
+  .giscus-component, 
+  #giscus, 
   #comments,
-  .no-print,
-  .clean-btn.theme-back-to-top-button,
-  .theme-doc-footer,
-  aside {
+  .theme-code-block-button-group,        /* Overlay copy buttons on code elements */
+  
+  /* --- GOOGLE ADSENSE BLANKET DELETION --- */
+  ins.adsbygoogle,                       /* Native Google Ad Container tag */
+  iframe[id^="aswift"],                  /* Dynamic inner layout script frames */
+  iframe[name^="aswift"],                /* Variable iframe targeting handles */
+  iframe[id^="google_ads"],              /* Explicit Google Ad frame wrappers */
+  .google-ads,                           /* Common developer wrappers */
+  [data-ad-client],                      /* Direct data attribute hooks */
+  [data-ad-slot]                         /* Direct slot attribute hooks */ {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* Ensure page breaks are handled nicely for headings to prevent orphans */
+  /* ---------------------------------------------------------------------- */
+  /* 3. DOCUMENT BODY OPTIMIZATION                                         */
+  /* ---------------------------------------------------------------------- */
+  
+  /* Add crisp margins so the pure document text doesn't touch the paper edge */
+  article {
+    padding: 1.5cm !important;
+  }
+
+  /* Prevent headings from being separated from their content down on the next sheet */
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid !important;
     break-after: avoid !important;
@@ -469,7 +559,7 @@ button {
     margin-bottom: 0.75rem !important;
   }
 
-  /* Ensure paragraphs, list items, and blockquotes have margin/padding and don't break weirdly */
+  /* Ensure paragraphs, list items, and blockquotes don't break weirdly */
   p, li, blockquote {
     color: #111111 !important;
     font-size: 11pt !important;
@@ -482,20 +572,19 @@ button {
     break-inside: avoid !important;
   }
 
+  /* ---------------------------------------------------------------------- */
+  /* 4. CODE BLOCK CLEANUP                                                 */
+  /* ---------------------------------------------------------------------- */
+  
   /* Code block specific styling for high readability and contrast in print */
-  pre, code, .theme-code-block {
-    background-color: #f5f5f5 !important;
-    border: 1px solid #ddd !important;
+  pre, code, .theme-code-block, .theme-code-block pre {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dddddd !important;
     color: #000000 !important;
     font-size: 9.5pt !important;
     white-space: pre-wrap !important;
-    overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-  }
-
-  /* Expand margins for the main article to look good on A4/Letter papers */
-  article {
-    padding: 1.5cm !important;
+    overflow-wrap: break-word !important;
   }
 
   /* Custom header styling inside printable page */
@@ -508,4 +597,17 @@ button {
   }
 }
 
+/* Accessibility Focus States (WCAG 2.1 AA) */
+:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+}
 
+/* -------------------------------------------------------------------------- */
+/* 5. PAGE SETUP CONFIGURATION                                                */
+/* -------------------------------------------------------------------------- */
+@page {
+  size: letter; /* Options: A4, letter */
+  margin: 1.5cm;
+}

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useMemo , useCallback} from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaUserCircle,
@@ -12,7 +11,6 @@ import {
   FaChevronRight,
   FaHistory
 } from "react-icons/fa";
-import { buildApiUrl, useApiBaseUrl } from "../../utils/api";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
@@ -206,8 +204,6 @@ const GraphQuiz: React.FC = () => {
   const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
-  const apiBaseUrl = useApiBaseUrl();
-
   useEffect(() => {
     setIsMounted(true);
     const storedId = localStorage.getItem("quiz_userId");
@@ -234,19 +230,27 @@ const GraphQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = useCallback(async (uId: string) => {
-    try {
-      const res = await axios.get(buildApiUrl(apiBaseUrl, `/api/quiz-attempts/${uId}/graph`));
-      if (res.data?.success && Array.isArray(res.data.attempts)) {
-        setAttempts(res.data.attempts);
+  const fetchAttempts = useCallback((uId: string) => {
+    const historyKey = `quiz_attempts_${uId}_graph`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    if (savedAttempts) {
+      try {
+        setAttempts(JSON.parse(savedAttempts));
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+        setAttempts([]);
       }
-    } catch (e) {
-      console.error("Error fetching graph quiz history:", e);
+    } else {
+      setAttempts([]);
     }
-  }, [apiBaseUrl]);
-   useEffect(() => {
-    if (userId) fetchAttempts(userId);
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchAttempts(userId);
+    }
   }, [userId, fetchAttempts]);
+
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
@@ -266,19 +270,21 @@ const GraphQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = async (finalAnswers: string[]) => {
+  const submitAttempt = (finalAnswers: string[]) => {
     if (!userId) return;
-    try {
-      await axios.post(buildApiUrl(apiBaseUrl, "/api/quiz-attempts"), {
-        userId,
-        quizId: "graph",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Failed to submit graph quiz attempt:", e);
-    }
+    const newAttempt: HistoryAttempt = {
+      id: Math.random().toString(36).substring(2, 9),
+      score: score,
+      totalQuestions: QUESTIONS.length,
+      timeSpent: timeSpent,
+      completedAt: new Date().toISOString()
+    };
+    const historyKey = `quiz_attempts_${userId}_graph`;
+    const savedAttempts = localStorage.getItem(historyKey);
+    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    const updated = [newAttempt, ...existing].slice(0, 5);
+    localStorage.setItem(historyKey, JSON.stringify(updated));
+    setAttempts(updated);
   };
 
   const handleAnswer = (selected: string) => {
@@ -334,6 +340,7 @@ const GraphQuiz: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter your identifier to begin"
+                aria-label="Enter your identifier to begin"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
                 maxLength={24}
@@ -358,7 +365,7 @@ const GraphQuiz: React.FC = () => {
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
         <div className="max-w-4xl mx-auto">
 
-          {/* Top Bar */}
+            {/* Top Bar */}
           <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-solid border-slate-200 dark:border-slate-800/80 rounded-2xl p-4 mb-6 shadow-xs">
             <div className="flex items-center gap-3">
               <FaUserCircle className="text-2xl text-slate-400 dark:text-slate-600" />
@@ -432,13 +439,13 @@ const GraphQuiz: React.FC = () => {
                   </div>
 
                   {/* Options */}
-                  <div className="grid grid-cols-1 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Quiz Options">
                     {QUESTIONS[currentQuestion].options.map((option, index) => {
                       const isSelected = selectedOption === option;
                       return (
                         <button
                           key={index}
-                          onClick={() => handleAnswer(option)}
+                          onClick={() => handleAnswer(option)} role="radio" aria-checked={isSelected}
                           className={`w-full text-left p-4 rounded-xl border border-solid transition-all text-xs md:text-sm font-semibold tracking-wide cursor-pointer flex items-center justify-between min-h-[54px] ${
                             isSelected
                               ? "bg-indigo-600 border-indigo-600 text-white shadow-xs"

@@ -306,7 +306,7 @@ const DataStructuresQuiz = () => {
 
   // Move to next question
   const handleNextQuestion = () => {
-    if (selectedOption) {
+    if (selectedOption && currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOption("");
     }
@@ -324,12 +324,6 @@ const DataStructuresQuiz = () => {
     handleFinishQuiz(); // Call finish quiz function
   };
 
-  // Automatically finish quiz when all questions are answered
-  useEffect(() => {
-    if (currentQuestionIndex === questions.length) {
-      handleFinishQuiz();
-    }
-  }, [currentQuestionIndex]);
 
   // Format time as MM:SS
   const formatTime = (seconds) => {
@@ -376,32 +370,42 @@ const DataStructuresQuiz = () => {
           <div>
             <h3 className="text-center text-rose-900">Time Left: {formatTime(timeLeft)}</h3>{" "}
             {/* Show running timer */}
-            <div className="bg-gray-100 text-neutral-800 rounded-2xl p-4">
-              <p className="text-center text-gray-600 mb-2">Question {currentQuestionIndex + 1} of {questions.length}</p>
-              <h3>{questions[currentQuestionIndex].question}</h3>
-              <div>
-                {questions[currentQuestionIndex].options.map(
-                  (option, index) => (
-                    <div
-                      key={index}
-                      className="text-left my-2 rounded-md p-3 w-full"
-                      style={{
-                        border: selectedOption === option ? "2px solid blue" : "1px solid #ddd",
-                        backgroundColor: selectedOption === option ? "rgba(11, 19, 43, 0.1)" : "white",
-                        cursor: "pointer",
-                      }}
-                      onClick={() => handleOptionSelect(option)}
-                    >
-                      {option}
-                    </div>
-                  )
+            {questions[currentQuestionIndex] && (
+              <div className="bg-gray-100 text-neutral-800 rounded-2xl p-4">
+                <p className="text-center text-gray-600 mb-2">Question {currentQuestionIndex + 1} of {questions.length}</p>
+                <h3>{questions[currentQuestionIndex].question}</h3>
+                <div>
+                  {questions[currentQuestionIndex].options.map(
+                    (option, index) => (
+                      <div
+                        key={index}
+                        className="text-left my-2 rounded-md p-3 w-full"
+                        style={{
+                          border: selectedOption === option ? "2px solid blue" : "1px solid #ddd",
+                          backgroundColor: selectedOption === option ? "rgba(11, 19, 43, 0.1)" : "white",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => handleOptionSelect(option)}
+                      >
+                        {option}
+                      </div>
+                    )
+                  )}
+                </div>
+                {currentQuestionIndex === questions.length - 1 ? (
+                  <button className="mt-5 bg-blue-600 rounded-lg text-white border border-blue-600 p-3" onClick={handleSubmitQuiz}>
+                    Submit Quiz
+                  </button>
+                ) : (
+                  <>
+                    <button className="mt-5 bg-blue-600 rounded-lg text-white border border-blue-600 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed" onClick={handleNextQuestion} disabled={!selectedOption}>
+                      Next Question
+                    </button>
+                    <button className="mt-5 bg-gray-200 border border-gray-800 rounded-lg text-gray-800 ml-2 p-3" onClick={handleSubmitQuiz}>Submit Quiz</button>
+                  </>
                 )}
               </div>
-              <button className="mt-5 bg-blue-600 rounded-lg text-white border border-blue-600 p-3 disabled:bg-gray-500 disabled:border-gray-500 disabled:cursor-not-allowed" onClick={handleNextQuestion} disabled={!selectedOption}>
-                Next Question
-              </button>
-              <button className="mt-5 bg-gray-200 border border-gray-800 rounded-lg text-gray-800 ml-2 p-3" onClick={handleSubmitQuiz}>Submit Quiz</button>
-            </div>
+            )}
           </div>
         )}
       </div>
