@@ -34,7 +34,7 @@ const config = {
 
   url: "https://ajay-dhangar.github.io",
   baseUrl: "/algo/",
-  organizationName: "codeharborhub",
+  organizationName: "ajay-dhangar",
   projectName: "algo",
 
   onBrokenLinks: "throw",
