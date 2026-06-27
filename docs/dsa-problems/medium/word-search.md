@@ -56,7 +56,7 @@ To find if a specific word exists in a grid, we can treat the grid as a graph an
 ```cpp
 class Solution {
 public:
-    bool dfs(vector<vector<char>>& board, string& word, int i, int j, int index) {
+    bool dfs(vector<vector<char>>& board, const string& word, int i, int j, int index) {
         // Base case: entire word is found
         if (index == word.length()) return true;
         
