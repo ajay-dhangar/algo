@@ -24,6 +24,7 @@ Vulnerabilities in the following are considered in-scope:
 
 Out-of-scope:
 - Third-party dependencies (report to their respective maintainers)
+- Client-side mock authentication limitations (not representative of production security)
 
 ## Disclosure Policy
 
@@ -32,3 +33,4 @@ We follow a coordinated disclosure process:
 2. Maintainer acknowledges receipt within 48 hours
 3. Fix is developed and tested in private
 4. Fix is released, and the advisory is published publicly
+
