@@ -9,13 +9,14 @@
 }
 
 :root {
-  --ifm-color-primary: #2563eb;
-  --ifm-color-primary-dark: #1d4ed8;
-  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
   --ifm-color-primary-darkest: #1e3a8a;
   --ifm-color-primary-light: #60a5fa;
   --ifm-color-primary-lighter: #93c5fd;
-  --ifm-color-primary-lightest: #bfdbfe;  
+  --ifm-color-primary-lightest: #bfdbfe; 
+  --ifm-color-table-light: #bfdbfe69; 
   --ifm-code-font-size: 90%;
   --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
   --ifm-background-color: #f8fafc;
@@ -55,7 +56,8 @@
   --ifm-color-primary-darkest: #713f12;
   --ifm-color-primary-light: #fde047;
   --ifm-color-primary-lighter: #fef08a;
-  --ifm-color-primary-lightest: #fef9c3;  
+  --ifm-color-primary-lightest: #fef9c3;
+  --ifm-color-table-light: #45494b93; 
   --ifm-background-color: #040414;
   --docusaurus-highlighted-code-line-bg: rgba(234, 179, 8, 0.15);
   
@@ -428,17 +430,9 @@ button {
 }
 
 .algo-signup {
-  --ifm-link-hover-color: #ffffff;
-  --ifm-navbar-link-hover-color: #ffffff;
-  color: #ffffff !important;
-  background-color: var(--ifm-color-primary-dark) !important;
-}
-
-[data-theme="dark"] .algo-signup {
-  --ifm-link-hover-color: #000000;
-  --ifm-navbar-link-hover-color: #000000;
-  color: #000000 !important;
-  background-color: var(--ifm-color-primary) !important;
+  --ifm-link-hover-color: #fff;
+  --ifm-navbar-link-hover-color: #fff;
+  color: #fff;
 }
 
 .algo-signup svg {
@@ -595,13 +589,6 @@ button {
     margin-bottom: 20px !important;
     color: #000000 !important;
   }
-}
-
-/* Accessibility Focus States (WCAG 2.1 AA) */
-:focus-visible {
-  outline: 2px solid var(--ifm-color-primary) !important;
-  outline-offset: 2px !important;
-  border-radius: 2px;
 }
 
 /* -------------------------------------------------------------------------- */
