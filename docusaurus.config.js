@@ -5,6 +5,10 @@ import rehypeKatex from "rehype-katex";
 import path from "path";
 import fs from "fs";
 import { execSync } from "child_process";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
 const showGitHistory =
