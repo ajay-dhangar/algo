@@ -25,7 +25,7 @@ const showGitHistory =
             return false;
           }
           // Dry run a git log check to verify git operations succeed on actual files (fails on OneDrive)
-          execSync("git log -1 docusaurus.config.js", { stdio: "ignore" });
+          execSync("git log -1 docusaurus.config.mjs", { stdio: "ignore" });
           return true;
         } catch {
           return false;
