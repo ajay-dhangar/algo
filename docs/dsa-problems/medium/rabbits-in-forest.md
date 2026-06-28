@@ -66,15 +66,15 @@ public:
             counts[ans]++;
         }
         
-        int total_rabbits = 0;
+        int totalRabbits = 0;
         for (auto& [ans, count] : counts) {
             int groupSize = ans + 1;
             // Integer ceiling division: (a + b - 1) / b
             int numGroups = (count + groupSize - 1) / groupSize;
-            total_rabbits += numGroups * groupSize;
+            totalRabbits += numGroups * groupSize;
         }
         
-        return total_rabbits;
+        return totalRabbits;
     }
 };
 ```
