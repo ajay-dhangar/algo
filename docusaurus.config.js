@@ -38,7 +38,6 @@ const config = {
   projectName: "algo",
 
   onBrokenLinks: "throw",
-  // onBrokenMarkdownLinks: "throw",
 
   i18n: {
     defaultLocale: "en",
