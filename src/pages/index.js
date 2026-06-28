@@ -26,7 +26,10 @@ export default function Home() {
           async
           custom-element="amp-auto-ads"
           src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
-        ></script>
+        />
+        {/* 3rd part... cookies */}
+        <script src="https://app.secureprivacy.ai/script/6a40bb4e4918bc215a63f02b.js" />
+        {/*  */}
       </Head>
       <main>
         <Homepage />
