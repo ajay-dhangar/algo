@@ -394,6 +394,13 @@ const config = {
     ],
 
     [
+      '@docusaurus/plugin-google-tag-manager',
+      {
+        containerId: 'GTM-NWMCVM3L',
+      },
+    ],
+
+    [
       path.join(__dirname, "/plugins/my-plugin"),
       {
         settings: "Some20settings",
