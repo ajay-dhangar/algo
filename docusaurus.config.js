@@ -386,6 +386,21 @@ const config = {
     ],
 
     [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: process.env.GTAG_TRACKING_ID || 'G-N1R880BPS0',
+        anonymizeIP: true,
+      },
+    ],
+
+    [
+      '@docusaurus/plugin-google-tag-manager',
+      {
+        containerId: 'GTM-NWMCVM3L',
+      },
+    ],
+
+    [
       path.join(__dirname, "/plugins/my-plugin"),
       {
         settings: "Some20settings",
