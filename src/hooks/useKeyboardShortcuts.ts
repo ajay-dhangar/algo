@@ -7,6 +7,7 @@ interface UseKeyboardShortcutsProps {
   onCloseHelp: () => void;
   onToggleTheme?: () => void;     // Optional callback for theme toggling
   onResetLayout?: () => void;     // Optional callback for resetting layout/code
+  onCollapseAll?: () => void;     // Optional callback for collapsing panes
 }
 
 type SequentialShortcuts = Record<string, string>;
@@ -75,8 +76,8 @@ export default function useKeyboardShortcuts({
 
       if (isTyping) return;
 
-      // 2. Global Command: Cmd/Ctrl + T (Theme Toggle)
-      if ((metaKey || ctrlKey) && lowerKey === "t" && onToggleTheme) {
+      // 2. Global Command: Cmd/Ctrl + D (Theme Toggle)
+      if ((metaKey || ctrlKey) && lowerKey === "d" && onToggleTheme) {
         event.preventDefault();
         onToggleTheme();
         return;
@@ -92,7 +93,45 @@ export default function useKeyboardShortcuts({
       if (key === "Escape") {
         event.preventDefault();
         onCloseHelp();
-        keyBuffer.current = [];
+        
+        if (keyBuffer.current[keyBuffer.current.length - 1] === "escape") {
+          // Double escape: Collapse all panes
+          if (onCollapseAll) {
+            onCollapseAll();
+          } else {
+            const expandedItems = document.querySelectorAll<HTMLElement>('.menu__list-item:not(.menu__list-item--collapsed)');
+            expandedItems.forEach(item => {
+              const caret = item.querySelector<HTMLElement>(':scope > .menu__list-item-collapsible > .menu__caret') || 
+                            item.querySelector<HTMLElement>('.menu__caret');
+              if (caret) caret.click();
+            });
+          }
+          keyBuffer.current = [];
+        } else {
+          keyBuffer.current.push("escape");
+          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+          timeoutRef.current = setTimeout(() => {
+            keyBuffer.current = [];
+          }, 1000);
+        }
+        return;
+      }
+
+      if (lowerKey === "j" && !shiftKey && !metaKey && !ctrlKey && !altKey) {
+        const nextLink = document.querySelector<HTMLElement>('.pagination-nav__link--next');
+        if (nextLink) {
+          event.preventDefault();
+          nextLink.click();
+        }
+        return;
+      }
+
+      if (lowerKey === "k" && !shiftKey && !metaKey && !ctrlKey && !altKey) {
+        const prevLink = document.querySelector<HTMLElement>('.pagination-nav__link--prev');
+        if (prevLink) {
+          event.preventDefault();
+          prevLink.click();
+        }
         return;
       }
 
@@ -140,5 +179,5 @@ export default function useKeyboardShortcuts({
       document.removeEventListener("keydown", handler);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [history, onOpenHelp, onCloseHelp, onToggleTheme, onResetLayout]);
+  }, [history, onOpenHelp, onCloseHelp, onToggleTheme, onResetLayout, onCollapseAll]);
 }
