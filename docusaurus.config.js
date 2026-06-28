@@ -386,6 +386,14 @@ const config = {
     ],
 
     [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-N1R880BPS0',
+        anonymizeIP: true,
+      },
+    ],
+
+    [
       path.join(__dirname, "/plugins/my-plugin"),
       {
         settings: "Some20settings",
