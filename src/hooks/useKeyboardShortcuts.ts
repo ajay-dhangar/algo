@@ -77,8 +77,8 @@ export default function useKeyboardShortcuts({
 
       if (isTyping) return;
 
-      // 2. Global Command: Cmd/Ctrl + D (Theme Toggle)
-      if ((metaKey || ctrlKey) && lowerKey === "d" && onToggleTheme) {
+      // 2. Global Command: Cmd/Ctrl + Shift + D (Theme Toggle)
+      if ((metaKey || ctrlKey) && shiftKey && lowerKey === "d" && onToggleTheme) {
         event.preventDefault();
         onToggleTheme();
         return;
