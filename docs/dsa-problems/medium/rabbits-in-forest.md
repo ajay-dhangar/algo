@@ -120,7 +120,7 @@ class Solution:
         for ans, count in counts.items():
             group_size = ans + 1
             # Calculate the number of groups needed
-            num_groups = math.ceil(count / group_size)
+            num_groups = (count + group_size - 1) // group_size
             total_rabbits += num_groups * group_size
             
         return total_rabbits
