@@ -4,7 +4,11 @@
 
 | Version | Supported |
 | ------- | --------- |
-| latest  | ✅        |
+| latest  | :white_check_mark: |
+| 5.1.x   | :white_check_mark: |
+| 5.0.x   | :x:                |
+| 4.0.x   | :white_check_mark: |
+| < 4.0   | :x:                |
 
 ## Reporting a Vulnerability
 
@@ -20,11 +24,11 @@ We aim to acknowledge reports within 48 hours and provide a fix timeline within 
 Vulnerabilities in the following are considered in-scope:
 - The Docusaurus website configuration and deployment
 - Documentation content and build scripts
-- Any authentication or authorization mechanisms
+- Any authentication or authorization mechanisms (excluding client-side sandbox/mock limitations)
 
 Out-of-scope:
 - Third-party dependencies (report to their respective maintainers)
-- Client-side mock authentication limitations (not representative of production security)
+- Client-side mock authentication limitations (e.g., local storage, client-side hashing)
 
 ## Disclosure Policy
 
@@ -33,4 +37,3 @@ We follow a coordinated disclosure process:
 2. Maintainer acknowledges receipt within 48 hours
 3. Fix is developed and tested in private
 4. Fix is released, and the advisory is published publicly
-
