@@ -34,6 +34,7 @@ export default function useKeyboardShortcuts({
   onCloseHelp,
   onToggleTheme,
   onResetLayout,
+  onCollapseAll,
 }: UseKeyboardShortcutsProps): void {
   const history = useHistory();
   const keyBuffer = useRef<string[]>([]);
