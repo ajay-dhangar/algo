@@ -132,7 +132,7 @@ class Solution:
  * @param {number[]} answers
  * @return {number}
  */
-var numRabbits = function(answers) {
+const numRabbits = function(answers) {
     const counts = new Map();
     for (let ans of answers) {
         counts.set(ans, (counts.get(ans) || 0) + 1);
