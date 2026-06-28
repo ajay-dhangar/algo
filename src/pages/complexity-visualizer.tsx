@@ -39,7 +39,6 @@ export default function ComplexityVisualizer() {
   const padding = 50;
 
   const activeComplexities = COMPLEXITIES.filter(c => selected.includes(c.id));
-
   const maxY = useMemo(() => {
     if (activeComplexities.length === 0) return 100;
     let maxVal = 0;
@@ -47,7 +46,9 @@ export default function ComplexityVisualizer() {
       const val = c.fn(nValue);
       if (val > maxVal) maxVal = val;
     }
-    return Math.min(maxVal, 1e6);
+    // If it's infinity or too large, cap it so the browser doesn't break rendering
+    // Ensure maxY is at least 1 to avoid division by zero when maxVal is 0
+    return Math.max(1, Math.min(maxVal, 1e6));
   }, [activeComplexities, nValue]);
 
   const generatePath = (fn: (n: number) => number) => {
