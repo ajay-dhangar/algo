@@ -1,5 +1,5 @@
 ---
-id: operators
+id: js-operators
 sidebar_position: 3
 title: Operator in JavaScript
 sidebar_label: Operator in JS

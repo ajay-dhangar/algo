@@ -1,5 +1,5 @@
 ---
-id: variables
+id: js-variables
 sidebar_position: 2
 title: Variables in JavaScript
 sidebar_label: Variables in JS
