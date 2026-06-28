@@ -388,7 +388,7 @@ const config = {
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'G-N1R880BPS0',
+        trackingID: process.env.GTAG_TRACKING_ID || 'G-N1R880BPS0',
         anonymizeIP: true,
       },
     ],
