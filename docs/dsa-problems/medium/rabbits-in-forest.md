@@ -60,8 +60,8 @@ If a rabbit says there are `k` other rabbits with the same color, it means that 
 
 class Solution {
 public:
-    int numRabbits(vector<int>& answers) {
-        unordered_map<int, int> counts;
+    int numRabbits(std::vector<int>& answers) {
+        std::unordered_map<int, int> counts;
         for (int ans : answers) {
             counts[ans]++;
         }
