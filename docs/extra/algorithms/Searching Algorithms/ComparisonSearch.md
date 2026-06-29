@@ -29,6 +29,7 @@ A **comparison search** algorithm is one that relies on comparing elements to de
    - **Time Complexity**: $O(n)$ for both best, worst, and average cases.
    - **When to Use**: Linear search is used for unsorted datasets or small arrays where other algorithms are not worth the overhead.
    - **Video Explanation**
+
 <LiteYouTubeEmbed
   id="C46QfTjVCNU"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
@@ -37,11 +38,13 @@ A **comparison search** algorithm is one that relies on comparing elements to de
   webp
 />
 
+
 #### 2. **Binary Search**:
    - **Definition**: Binary search is a divide-and-conquer algorithm that works on sorted data. It repeatedly divides the search space in half and compares the middle element with the target.
    - **Time Complexity**: $O(log n)$ in the average and worst case.
    - **When to Use**: Best suited for large, sorted arrays or data structures with random access like arrays.
    - **Video Explanation**
+
 <LiteYouTubeEmbed
   id="V_T5NuccwRA"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
@@ -55,6 +58,7 @@ A **comparison search** algorithm is one that relies on comparing elements to de
    - **Time Complexity**: $O(log3 n)$, which is still logarithmic but often slower than binary search in practice due to the additional comparisons.
    - **When to Use**: Useful in unimodal functions where there's a single peak, making ternary search more applicable.
    - **Video Explanation**
+
 <LiteYouTubeEmbed
   id="WyWL1PBNvb8"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"

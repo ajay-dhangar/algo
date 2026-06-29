@@ -32,6 +32,7 @@ A **digital search** algorithm is one that operates on the individual digits or 
    - **Time Complexity**: $O(m)$ where *m* is the length of the key being searched. This is independent of the number of keys stored in the trie, making it fast for fixed-length keys.
    - **Applications**: Used in applications like auto-completion, dictionary search, and IP routing tables.
    - **Video Explanation**
+
 <LiteYouTubeEmbed
   id="dBGUmUQhjaM"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
@@ -45,6 +46,7 @@ A **digital search** algorithm is one that operates on the individual digits or 
    - **Time Complexity**: $O(k)$ for searching, where *k* is the number of digits or characters in the key.
    - **Applications**: Useful in scenarios like sorting strings or numbers with fixed lengths.
    - **Video Explanation**
+
 <LiteYouTubeEmbed
   id="9QSgBO9yjKU"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
@@ -59,6 +61,7 @@ A **digital search** algorithm is one that operates on the individual digits or 
    - **Time Complexity**: $O(1)$ for average-case search (constant time), though $O(n)$ in the worst case when hash collisions occur.
    - **Applications**: Widely used in databases, caches, and associative arrays.
    - **Video Explanation**
+   
 <LiteYouTubeEmbed
   id="W5q0xgxmRd8"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"

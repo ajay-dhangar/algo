@@ -8,7 +8,7 @@ The **Tiger Hashing Algorithm** is a cryptographic hash function developed by Ro
 <LiteYouTubeEmbed
   id="9UjXMbKBzl4"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="INS Module 2 Tiger Hash
+  title="INS Module 2 Tiger Hash"
   lazyLoad={true}
   webp
 />
