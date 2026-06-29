@@ -11,6 +11,16 @@ tags: [time series, forecasting, machine learning, ARIMA, LSTM, statistics, pred
 ### Definition:  
 **Time Series Forecasting** is a technique used to predict future values based on previously observed time-ordered data. Time series data are sequences of data points collected or recorded at specific time intervals. Forecasting techniques attempt to model the underlying patterns such as trend, seasonality, and noise to make accurate future predictions.
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="e8Yw4alG16Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Time Series Analysis in Python | Time Series Forecasting | Data Science with Python | Edureka"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Temporal Dependency**:  
   Time series forecasting depends heavily on the sequential nature of the data, with future values influenced by past observations.

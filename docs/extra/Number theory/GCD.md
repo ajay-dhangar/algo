@@ -13,6 +13,16 @@ tags: [gcd, number theory, competitive programming]
 
 The **GCD (Greatest Common Divisor)** of two integers is the largest positive integer that divides both of them without leaving a remainder. The GCD is widely used in number theory and has applications in fractions, simplifying ratios, and solving problems involving divisibility.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="JUzYl1TYMcU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="How to Find the Greatest Common Divisor by Using the Euclidian Algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 ## Explanation:
 
 Given two integers `a` and `b`, the GCD can be computed efficiently using **Euclid's Algorithm**. This algorithm is based on the observation that the GCD of two numbers also divides their difference. The process continues by replacing the larger number with the remainder of dividing the two numbers, until one of the numbers becomes zero. The other number at that point is the GCD.

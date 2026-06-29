@@ -9,6 +9,17 @@ tags: [DSA, algorithms, strings]
 
 # String Basics
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="lIId8IDP6TU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Strings & Conditional Statements | Python Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### 1. Introduction to Strings
 
 Strings are a data structure commonly used to store and manipulate text. They are usually represented as sequences of characters, and are an essential part of most programming languages. Strings can contain letters, numbers, symbols, and even whitespace.

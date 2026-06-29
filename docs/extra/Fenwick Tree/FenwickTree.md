@@ -11,6 +11,17 @@ tags: [Algorithm, Fenwick Tree, Binary Indexed Tree]
 ## Overview
 The Fenwick Tree, also known as a Binary Indexed Tree (BIT), is a data structure used for efficiently calculating prefix sums and updating elements. It offers a significant performance boost when dealing with cumulative frequency tables, making it ideal for scenarios where frequent updates and prefix sum queries are required.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="CWDQJGaN1gY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Fenwick Tree or Binary Indexed Tree"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Use Cases
 - **Efficient Range Queries**: Commonly used in situations where range sums and point updates are frequent.
 - **Inversion Counting in Arrays**: Used in competitive programming to count inversions in arrays.

@@ -13,6 +13,16 @@ A **Circular LinkedList** is a variation of a linked list where the last node po
 
 ![alt text](CircularLinkedList.png)
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="UclZxvnOQZc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Circular Linked Lists: Operations in C Language"
+  lazyLoad={true}
+  webp
+/>
+
 
 ### Circular LinkedList Operations
 

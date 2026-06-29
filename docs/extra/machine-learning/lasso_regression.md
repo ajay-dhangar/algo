@@ -10,6 +10,16 @@ tags: [machine learning, algorithms, supervised learning, regression, lasso regr
 ### Definition:
 **Lasso Regression** (Least Absolute Shrinkage and Selection Operator) is a type of linear regression that uses L1 regularization to enhance the prediction accuracy and interpretability of the statistical model it produces. By adding a penalty equal to the absolute value of the magnitude of coefficients, Lasso can shrink some coefficients to zero, effectively performing variable selection.
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="NGf0voTMlcs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Regularization Part 2: Lasso (L1) Regression"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ### Characteristics:

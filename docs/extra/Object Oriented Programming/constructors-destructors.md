@@ -13,6 +13,17 @@ Constructors and destructors are **special member functions** in object-oriented
 
 ---
 
+## Video Explanation**
+
+<LiteYouTubeEmbed
+  id="y9KRmJAmmN4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="constructor and destructor in c++ | constructor and destructor in hindi | constructor in c++"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## **1. What is a Constructor?**
 
 A **constructor** is a special function that initializes an object when it is created. It has the same name as the class and does not have a return type. Constructors can take parameters to initialize object attributes.

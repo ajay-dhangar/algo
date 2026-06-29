@@ -11,6 +11,16 @@ tags: [machine learning, gradient boosting, XGBoost, LightGBM, data visualizatio
 ### Definition:  
 **Gradient Boosting Machines (GBM)** are a family of machine learning algorithms that build models sequentially. Each new model focuses on correcting the errors made by previous models. The primary objective of GBM is to minimize a loss function by combining weak learners (typically decision trees) into a stronger model.
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="3CC4N4z3GJc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Gradient Boost Part 1 (of 4): Regression Main Ideas"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Sequential Learning**:  
   GBMs build models in a step-by-step fashion, correcting errors from previous iterations.

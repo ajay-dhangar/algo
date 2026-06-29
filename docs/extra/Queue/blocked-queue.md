@@ -15,6 +15,17 @@ A **blocked queue** is a linear data structure that follows the First In First O
 
 ![alt text](Blocked-queue.png)
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="AVh_udI27K0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Blocking Queue in Java"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Blocked Queue Operations
 
 1. **Enqueue**: Add an element to the back of the queue.

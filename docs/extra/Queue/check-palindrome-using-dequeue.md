@@ -11,6 +11,17 @@ tags: [data structure, deque, palindrome]
 
 A palindrome is a string that reads the same forwards and backwards. This guide explains how to check if a string is a palindrome using a **deque** (double-ended queue) data structure, which allows for efficient operations at both ends.
 
+## Video Explanation**
+
+<LiteYouTubeEmbed
+  id="nWVqt40GBys"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="check Whether a string is palindrome using Deque Data Structure Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Introduction
 
 Using a deque to check for palindromes leverages its ability to add or remove elements from both ends in constant time. This makes it a suitable choice for the task, as we can compare characters from the front and back of the string until we reach the center.

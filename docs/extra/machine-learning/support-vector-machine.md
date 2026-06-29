@@ -11,6 +11,16 @@ tags: [machine learning, algorithms, SVM, classification, regression]
 ### Definition:
 The **Support Vector Machine (SVM)** is a supervised machine learning algorithm commonly used for **classification** and sometimes for **regression**. It works by finding the optimal hyperplane that separates different classes in the feature space, ensuring that the margin between the nearest points (support vectors) of each class is maximized.
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="_PwhiWxHK8o"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="16. Learning: Support Vector Machines"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Margin Maximization**:  
   SVM aims to maximize the distance between the hyperplane and the nearest data points from each class (support vectors). This helps in achieving better generalization.

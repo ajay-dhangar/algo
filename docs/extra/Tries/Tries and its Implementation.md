@@ -10,6 +10,17 @@ tags: [dsa, data structures, tries]
 ## Introduction
 Tries, also known as **Prefix Trees**, are a specialized data structure used primarily for **efficient retrieval of keys** in a dataset of strings. Tries are particularly useful when dealing with problems involving dynamic sets of strings, such as word searches, dictionary implementations, or autocomplete systems. Unlike other data structures such as hash tables, tries store characters at each level, providing a more structured representation of the key itself.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="zIjfhVPRZCg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Data Structures: Tries"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Definition and Structure
 A Trie is a tree-like data structure where each node represents a single character of a string. The root node is typically an empty node, and each path down the tree represents a word or prefix.
 

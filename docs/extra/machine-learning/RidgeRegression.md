@@ -10,6 +10,16 @@ tags: [machine learning, algorithms, linear regression, regression]
 ### Definition:
 **Ridge Regression** addresses some of the limitations of Ordinary Least Squares (OLS) regression, particularly when dealing with multicollinearity or highly correlated features.
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="Q81RR3yKn30"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Regularization Part 1: Ridge (L2) Regression"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Regularization (L2 Penalty)**
 Ridge Regression applies an L2 regularization penalty, which adds the square of the coefficient magnitudes to the cost function. This penalty term is what differentiates it from standard linear regression.

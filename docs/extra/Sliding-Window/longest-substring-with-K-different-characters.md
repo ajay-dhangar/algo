@@ -13,6 +13,18 @@ tags: [dsa, algorithms, sliding window, strings]
 
 Given a string `s` and an integer `k`, the task is to find the length of the **longest substring** of `s` that contains **exactly k distinct characters**. 
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="teM9ZsVRQyc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L6. Longest Substring With At Most K Distinct Characters | 2 Pointers and Sliding Window Playlist"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Example:
 
 Let's consider the string `s = "araaci"` and `k = 2`.

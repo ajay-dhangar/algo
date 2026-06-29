@@ -13,6 +13,17 @@ tags: [oops, inheritance, classes]
 
 Inheritance is a key concept in Object-Oriented Programming (OOP) that allows one class (child or derived class) to inherit attributes and methods from another class (parent or base class). This promotes code reusability and establishes a relationship between classes.
 
+## Video Explanation**
+
+<LiteYouTubeEmbed
+  id="sQavCfVF60A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Inheritance in Java (hindi) | What is Inheritance? full Explanation"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## **Types of Inheritance**
 
 1. **Single Inheritance**: A child class inherits from one parent class.

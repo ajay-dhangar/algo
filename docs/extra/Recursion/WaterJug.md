@@ -12,6 +12,17 @@ tags: [WaterJug, recursion, dsa]
 
 You are given two jugs with different capacities: Jug A with a maximum capacity of mm**m** liters and Jug B with a maximum capacity of nn**n** liters. You also have an unlimited supply of water. The objective is to measure exactly dd**d** liters of water using these two jugs by performing a series of allowed operations.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="u9KMMudAQ6M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Water Jug Problem in Artificial Intelligence | (Eng-Hindi) #8"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Allowed Operations** :
 
 1. Fill Jug A completely.

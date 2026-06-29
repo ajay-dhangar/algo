@@ -9,6 +9,16 @@ tags: [dsa, algorithms, graph]
 ### Problem Statement:
 You are given the reference of a node in a connected undirected graph. Return a deep copy (clone) of the graph. Each node in the graph contains a value and a list of its neighbors. There are n nodes in the graph each with a unique value from 0 to n-1.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="mQeF6bN8hMk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Clone Graph - Depth First Search - Leetcode 133"
+  lazyLoad={true}
+  webp
+/>
+
 ## Definition:
 ### Input
 - A pointer/reference to a node of the original graph. Each node is represented as follows:

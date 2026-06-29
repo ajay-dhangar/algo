@@ -11,6 +11,16 @@ tags: [data science, dimensionality reduction, PCA, data visualization, machine 
 ### Definition:  
 **Principal Component Analysis (PCA)** is a statistical technique used for dimensionality reduction. It transforms high-dimensional data into a lower-dimensional space, capturing the most variance in the data while minimizing loss of information. PCA helps simplify complex datasets, making them easier to visualize and analyze.
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="FgakZw6K1QQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="StatQuest: Principal Component Analysis (PCA), Step-by-Step"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Dimensionality Reduction**:  
   PCA reduces the number of variables (dimensions) in a dataset while retaining the essential patterns and structures.

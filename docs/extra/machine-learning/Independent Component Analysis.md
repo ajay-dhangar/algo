@@ -10,6 +10,16 @@ tags: [machine learning, algorithms, ICA, signal processing]
 ### Definition:
 **Independent Component Analysis (ICA)** is a computational method used for separating a multivariate signal into additive, independent components. It is widely applied in the fields of signal processing, data analysis, and feature extraction, particularly in scenarios where the observed data is a mixture of signals from different sources.
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="YQA9lLdLig8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 16 - Independent Component Analysis & RL | Stanford CS229: Machine Learning (Autumn 2018)"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Statistical Independence**:  
   ICA assumes that the components are statistically independent from each other, which distinguishes it from other methods like PCA (Principal Component Analysis).

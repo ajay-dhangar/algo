@@ -9,6 +9,16 @@ tags: [machine learning, algorithms, unsupervised learning]
 ### Definition:
 **Unsupervised Learning** is a type of machine learning where an algorithm learns from unlabeled data to identify patterns, groupings, or structures within the data. Unlike supervised learning, there are no predefined labels or outcomes to guide the learning process.
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="Aa4MACKaDC0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete Unsupervised Machine Learning Tutorials In Hindi- K Means,DBSCAN, Hierarchical Clustering"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ### Characteristics:

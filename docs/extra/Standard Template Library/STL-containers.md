@@ -9,6 +9,17 @@ tags: [STL, data-structures, libraries]
 
 STL (Standard Template Library) containers are data structures that store collections of objects. STL containers are designed to be flexible, efficient, and consistent. They can store a variety of types and provide a range of operations to manipulate their contents.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="m0gnToak2-g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Containers in C++ STL | C++ Tutorials for Beginners #70"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Types of STL Containers
 
 1. **Sequence Containers**: Maintain elements in a specific sequence (order).

@@ -13,6 +13,16 @@ Prim's Algorithm is a greedy algorithm for finding the Minimum Spanning Tree (MS
 
 In graph theory, a Minimum Spanning Tree (MST) is a subset of the edges that connects all vertices in a graph with the minimum possible total edge weight and without any cycles. Prim's Algorithm builds the MST by growing a single tree and repeatedly selecting the smallest edge that connects a vertex in the tree to a vertex outside of it.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="4ZlRH0eK-qQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.5 Prims and Kruskals Algorithms - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics of Prim's Algorithm
 
 1. **Greedy Nature**: Always selects the smallest available edge at every step.

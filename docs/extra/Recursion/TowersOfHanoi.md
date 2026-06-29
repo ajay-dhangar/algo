@@ -14,6 +14,17 @@ tags: [towers-of-hanoi, recursion, dsa]
 2. A disk can only be placed on top of a larger disk or on an empty rod.
 3. A disk can only be moved from the top of its current rod to the top of another rod.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="q6RicK1FCUs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Tower of Hanoi Problem - Made Easy"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ```cpp
 #include <iostream>
 #include <vector>

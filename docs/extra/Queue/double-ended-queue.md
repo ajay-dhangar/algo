@@ -12,6 +12,17 @@ A **double-ended queue (Deque)** is a linear data structure similar to a queue b
 
 ![alt text](doubleendedqueue.png)
 
+### Video Explanation**
+
+<LiteYouTubeEmbed
+  id="pqg0SOPRlJ4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.7 DEQUE in Data Structure | Introduction to DEQue - Double Ended Queue"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Double-Ended Queue Operations
 
 1. **InsertFront**: Add an element to the front of the deque.

@@ -12,6 +12,16 @@ The **A* algorithm** is a popular and efficient pathfinding and graph traversal 
 
 The A* algorithm employs a heuristic to estimate the cost to reach the goal, allowing it to prioritize promising paths while ensuring optimality.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="-L-WgKMFuhE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="A* Pathfinding (E01: algorithm explanation)"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Features:
 - **Time Complexity**: O(b^d), where b is the branching factor and d is the depth of the optimal solution.
 - **Space Complexity**: O(b^d) due to maintaining the open and closed lists.

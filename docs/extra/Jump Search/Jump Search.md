@@ -8,6 +8,16 @@ tags: [searching, algorithms]
 
 Jump Search is a searching algorithm used to find an element in a sorted array. It works by jumping ahead by a fixed number of steps, rather than checking each element one by one (as in linear search). Once it finds an interval where the target element might be, it performs a linear search within that interval.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="wNOoyZ45SmQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What is Jump Search and how does it work (with CODE)"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Points:
 1) Step Size: We select a fixed jump size, typically the square root of the array length, as a good balance between linear and binary search.
 2) Process: Jump by this fixed step size until the next jump goes past the element or reaches a number greater than the target.

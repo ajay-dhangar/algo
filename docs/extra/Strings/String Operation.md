@@ -11,6 +11,17 @@ tags: [DSA, algorithms, strings]
 
 # String Operations
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="8jW7lpT8HW8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings Slicing and Operations on Strings in Python | Python Tutorial - Day #12"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### 1. String Length
 The length of a string refers to the total number of characters it contains, including spaces and special characters. Knowing the length of a string is useful in various scenarios, such as looping through each character or setting constraints on input.
 

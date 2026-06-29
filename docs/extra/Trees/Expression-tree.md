@@ -9,6 +9,17 @@ tags: [dsa, algorithms, trees]
 ### Definition:
 An Expression Tree is a binary tree in which each internal node represents an operator, and each leaf node represents an operand. By performing an inorder traversal of this tree, the corresponding infix expression can be retrieved. This structure is useful for evaluating expressions and converting between different notations (infix, postfix, prefix).
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="2Z6g3kNymd0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.12 Expression Trees | Binary Expression Tree | Data Structures Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Statement:
 Given a postfix expression, construct an expression tree where:
 - Operators are stored as internal nodes.

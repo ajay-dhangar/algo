@@ -14,6 +14,17 @@ Given a string `s` consisting of parentheses (i.e., `(`, `)`, `{`, `}`, `[`, `]`
 - Open brackets are closed by the same type of brackets.
 - Open brackets are closed in the correct order.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="WTzjTskDFMg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Valid Parentheses - Stack - Leetcode 20 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Algorithm Steps:
 
 1. **Initialize a Stack:** Use a stack to keep track of opening parentheses.

@@ -12,6 +12,17 @@ tags: [Data Structures, binary-tree-algorithm, Algorithms]
 ## Overview
 A Binary Tree is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child. It is widely used for various applications, including search algorithms, expression parsing, and organizing data.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="-DzowlcaUmE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Binary Tree in Data Structures | All about Binary Tree | DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Introduction
 A Binary Tree can take various forms, including:
 - **Full Binary Tree**: Every node has either 0 or 2 children.

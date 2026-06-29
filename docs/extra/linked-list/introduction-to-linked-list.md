@@ -13,6 +13,16 @@ import RelatedTopics from '@site/src/components/RelatedTopics';
 
 A **LinkedList** is a linear data structure in which elements are stored in nodes, and each node points to the next node, forming a chain. Imagine a train where each car is connected to the next car, but you can only move forward through the train. Each car contains passengers (data) and has a coupling (pointer) that connects it to the next car.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="oAja8-Ulz6o"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Introduction to Linked List | Data Structures & Algorithms | Java Placement Course"
+  lazyLoad={true}
+  webp
+/>
+
 ### Definition and Structure
 A linked list consists of nodes, where each node contains:
 - **Data:** The value stored in the node.

@@ -15,6 +15,16 @@ This tutorial provides a C++ implementation to find the intersection point of tw
 
 Given two singly linked lists, find the node where the two linked lists intersect. Intersection is determined based on the reference of nodes, not the value.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="u4FWXfgS8jw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Intersection point of two Linked Lists | Amazon | Microsoft | Brute | Better | Optimal1 | Optimal2"
+  lazyLoad={true}
+  webp
+/>
+
 ### Approach:
 
 The key steps in the approach are as follows:
