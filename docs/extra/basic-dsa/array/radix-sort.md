@@ -12,7 +12,11 @@ tags:
 description: "This page explains Radix sort, with code implementations and resources for further learning."
 ---
 
-## Video Explanation
+### Introduction to Radix Sort
+
+Radix sort is a non-comparative integer sorting algorithm. It sorts integers by processing individual digits. Starting from the least significant digit (LSD) to the most significant digit (MSD), it uses a stable subroutine sort (like counting sort) to handle the individual digits. The algorithm is efficient for sorting numbers with a fixed number of digits and works well when the range of digits is not excessively large.
+
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="9QSgBO9yjKU"
@@ -23,11 +27,6 @@ description: "This page explains Radix sort, with code implementations and resou
   webp
 />
 
----
-
-### Introduction to Radix Sort
-
-Radix sort is a non-comparative integer sorting algorithm. It sorts integers by processing individual digits. Starting from the least significant digit (LSD) to the most significant digit (MSD), it uses a stable subroutine sort (like counting sort) to handle the individual digits. The algorithm is efficient for sorting numbers with a fixed number of digits and works well when the range of digits is not excessively large.
 
 ### Steps of Radix Sort (Pseudocode Steps)
 

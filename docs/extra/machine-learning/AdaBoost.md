@@ -11,7 +11,7 @@ tags: [machine learning, ensemble methods, AdaBoost, data visualization, classif
 ### Definition:  
 **AdaBoost (Adaptive Boosting)** is a popular ensemble learning algorithm that combines the outputs of multiple weak classifiers to create a robust model. By focusing on the errors made by previous classifiers, AdaBoost iteratively improves its predictions and effectively reduces bias and variance.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="LsK-xG1cLYA"

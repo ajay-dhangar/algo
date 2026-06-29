@@ -7,6 +7,9 @@ description: "Counting Sort is an efficient sorting algorithm used for sorting a
 tags: [counting-sort]
 ---
 
+
+Counting Sort is an efficient, non-comparative sorting algorithm suitable for sorting integers within a specific range. It operates by counting the occurrences of each unique value in the input data and then using those counts to determine the positions of each value in the sorted output.
+
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -18,9 +21,6 @@ tags: [counting-sort]
   webp
 />
 
----
-
-Counting Sort is an efficient, non-comparative sorting algorithm suitable for sorting integers within a specific range. It operates by counting the occurrences of each unique value in the input data and then using those counts to determine the positions of each value in the sorted output.
 
 ## Characteristics
 - **Time Complexity**: $O(n + k)$, where `n` is the number of elements in the input array and `k` is the range of the input values.

@@ -11,7 +11,7 @@ tags: [data structure, deque, palindrome]
 
 A palindrome is a string that reads the same forwards and backwards. This guide explains how to check if a string is a palindrome using a **deque** (double-ended queue) data structure, which allows for efficient operations at both ends.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="nWVqt40GBys"

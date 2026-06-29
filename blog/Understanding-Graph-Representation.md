@@ -24,17 +24,6 @@ In this blog, we'll explore:
 
 Graphs consist of vertices (nodes) connected by edges (links). They can be directed or undirected, weighted or unweighted, and are used to model relationships and structures in various fields, from social networks to transportation systems.
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="5hPfm_uqXmw"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="6.1 Graph Representation in Data Structure (Graph Theory)|Adjacency Matrix & Adjacency List"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
 ### Graph Representation Example:
 
 Consider the following undirected graph:

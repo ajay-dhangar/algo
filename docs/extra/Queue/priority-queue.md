@@ -13,7 +13,7 @@ A priority queue is an abstract data type that operates similarly to a regular q
 
 ![alt text](Priority-queue.png)
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="HqPJF2L5h9U"

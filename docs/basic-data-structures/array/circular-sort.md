@@ -6,6 +6,9 @@ description: "Circular Sort (often called Cycle Sort) is an in-place sorting alg
 tags: [dsa, arrays, sorting, circularsort, sorting-algorithms]
 ---
 
+
+*Circular Sort* is a highly efficient, in place sorting algorithm. It works by placing each element directly into its correct sorted position.
+
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -17,9 +20,6 @@ tags: [dsa, arrays, sorting, circularsort, sorting-algorithms]
   webp
 />
 
----
-
-*Circular Sort* is a highly efficient, in place sorting algorithm. It works by placing each element directly into its correct sorted position.
 
 ## How Circular Sort Works:
 1. **Identify the Cycle**: Start with the first element and count how many elements are smaller than it to find its correct position.

@@ -10,7 +10,7 @@ tags: [machine learning, algorithms, linear regression, regression]
 ### Definition:
 **Ridge Regression** addresses some of the limitations of Ordinary Least Squares (OLS) regression, particularly when dealing with multicollinearity or highly correlated features.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="Q81RR3yKn30"

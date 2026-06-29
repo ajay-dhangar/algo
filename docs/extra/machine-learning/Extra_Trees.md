@@ -11,7 +11,7 @@ tags: [machine learning, algorithms, extra trees, classification, regression]
 ### Definition:
 The **Extra Trees Algorithm** (Extremely Randomized Trees) is an ensemble learning technique similar to Random Forest, but with added randomness in the way splits are selected during tree construction. Like random forests, it is applicable to both **classification** and **regression** tasks. The key difference is that Extra Trees chooses split points randomly for each feature, making the trees more varied and often faster to train than random forests.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="Q1qpG7gwix4"

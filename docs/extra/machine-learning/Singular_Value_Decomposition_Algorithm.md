@@ -11,7 +11,7 @@ tags: [machine learning, linear algebra, SVD, dimensionality reduction, matrix f
 ### Definition:
 **Singular Value Decomposition (SVD)** is a matrix factorization technique used in linear algebra to decompose a matrix into three other matrices. SVD is commonly used in dimensionality reduction, noise reduction, and feature extraction in data analysis and machine learning.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="mBcLRGuAFUk"

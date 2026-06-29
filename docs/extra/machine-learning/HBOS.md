@@ -12,7 +12,7 @@ Histogram-Based Outlier Score (HBOS) is an unsupervised anomaly detection techni
 
 The main idea is that points falling in bins with low frequencies (rare occurrences) are more likely to be considered outliers.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="gE1LDHB3ImQ"

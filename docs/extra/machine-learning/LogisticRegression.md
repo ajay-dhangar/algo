@@ -10,7 +10,7 @@ tags: [machine learning, algorithms, logistic regression, classification]
 ### Definition:
 **Logistic Regression** is a supervised learning algorithm primarily used for **binary classification** tasks (where the target variable has two categories). It models the relationship between the independent variables (features) and the probability of a particular outcome (class). Unlike linear regression, logistic regression predicts the **probability** that a given input belongs to a specific class using the **logistic function** (also known as the sigmoid function).
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="yIYKR4sgzI8"

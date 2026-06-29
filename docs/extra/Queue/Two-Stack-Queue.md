@@ -11,7 +11,7 @@ tags: [data structure, queue, stack]
 
 This project implements a queue data structure using two stacks with a lazy transfer approach. The implementation provides O(1) amortized time complexity for both enqueue and dequeue operations.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="mDcP7tLuBhc"

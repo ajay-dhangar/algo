@@ -7,12 +7,10 @@ description: "A circular deque is a double-ended queue data structure that conne
 tags: [dsa, data-structures, Circular Deque]
 ---
 
-
-
 ## Introduction to Circular Deque
 A circular deque (double-ended queue) is an advanced linear data structure that extends the concept of a circular queue by allowing insertion and deletion of elements from both the front and rear ends. This structure offers flexibility for applications that require dynamic additions and removals at both ends, such as real-time task scheduling, caching, and managing resource pools efficiently.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="WJres9mgiAk"

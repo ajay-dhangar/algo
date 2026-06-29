@@ -27,16 +27,6 @@ Big O Notation describes the upper limit of an algorithm's growth rate, allowing
 3. **$O(log n)$ - Logarithmic Time**
 4. **$O(n^2)$ - Quadratic Time**
 
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="7dz8Iaf_weM"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-1.3: Asymptotic Notations | Big O | Big Omega | Theta Notations | Most Imp Topic of Algorithms"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ---
 

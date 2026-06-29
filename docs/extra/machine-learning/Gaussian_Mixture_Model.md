@@ -11,7 +11,7 @@ tags: [machine learning, clustering, gmm, gaussian, statistics]
 ### Definition:
 **Gaussian Mixture Models (GMMs)** are a probabilistic model used to represent a mixture of multiple Gaussian distributions within a dataset. GMMs are commonly applied in clustering tasks where data is assumed to be generated from several Gaussian-distributed subpopulations, but the identity of the subpopulation to which a particular data point belongs is unknown.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="qMTuMa86NzU"

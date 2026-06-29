@@ -11,7 +11,7 @@ tags: [deep learning, neural networks, GANs, generative models]
 ### Definition:
 **Generative Adversarial Networks (GANs)** are a class of deep learning models designed to generate new data samples that are similar to a given dataset. GANs consist of two neural networks, the **generator** and the **discriminator**, which are trained simultaneously in a game-theoretic setting. The **generator** learns to produce realistic data, while the **discriminator** tries to distinguish between real and generated data. This adversarial process helps the generator improve over time.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="Sw9r8CL98N0"

@@ -13,7 +13,7 @@ A circular queue is a linear data structure that follows the First In First Out 
 
 ![alt text](Circular-queue.png)
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="dn01XST9-bI"

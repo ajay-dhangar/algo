@@ -36,17 +36,6 @@ Let's go through each pattern one by one.
 - Squaring a Sorted Array: Given a sorted array, create a new array containing squares of all the numbers of the input array in the sorted order.
 - Triplet Sum to Zero: Given an array of unsorted numbers, find all unique triplets in it that add up to zero.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="9kdHxplyl5I"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L1. Introduction to Sliding Window and 2 Pointers | Templates | Patterns"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
 ## 2. Island (Matrix Traversal) Pattern
 
 **Description**: The Island pattern, also known as Matrix Traversal, is a technique used to navigate through a 2D array or matrix. The primary goal is to identify and process contiguous groups of elements, often referred to as ‘islands’. This pattern is particularly useful when you need to explore and manipulate grid-based data.
@@ -67,17 +56,6 @@ Let's go through each pattern one by one.
 - Number of Islands: Count the number of islands in a given 2D matrix.
 - Biggest Island: Find the largest island in terms of area or number of cells.
 - Flood Fill: Change the color of an image represented by a 2D array.
-
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="muncqlKJrH0"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="G-8. Number of Islands | Number of Connected Components in Matrix | C++ | Java "
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 3. Fast & Slow Pointers
 
@@ -101,17 +79,6 @@ Let's go through each pattern one by one.
 - Middle of the LinkedList: Find the middle node of a linked list.
 - Palindrome LinkedList: Check if a linked list is a palindrome.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="b139yf7Ik-E"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Fast and Slow Pointers in 6 Minutes | Leetcode Pattern"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
 ## 4. Sliding Window
 
 **Description**: The Sliding Window pattern involves creating a ‘window’ over a portion of data and sliding it across to solve problems efficiently. This technique is particularly useful for array or list-based problems where you need to find or calculate something among all the contiguous subarrays or sublists of a given size.
@@ -133,16 +100,6 @@ Let's go through each pattern one by one.
 - Fruits Into Baskets: Given an array of characters where each character represents a fruit tree, you are given two baskets, and your goal is to put maximum number of fruits in each basket.
 - Longest Substring with K Distinct Characters: Given a string, find the length of the longest substring in it with no more than K distinct characters.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="9kdHxplyl5I"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L1. Introduction to Sliding Window and 2 Pointers | Templates | Patterns"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 5. Merge Intervals
 
@@ -165,16 +122,6 @@ Let's go through each pattern one by one.
 - Insert Interval: Given a list of non-overlapping intervals sorted by their start time, insert a given interval at the correct position and merge all necessary intervals to produce a list that has only mutually exclusive intervals.
 - Intervals Intersection: Given two lists of intervals, find the intersection of these two lists. Each list consists of disjoint intervals sorted on their start time.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="IexN60k62jo"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Merge Overlapping Intervals | Brute, Optimal with Precise TC analysis"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 6. Cyclic Sort
 
@@ -197,16 +144,6 @@ Let's go through each pattern one by one.
 - Find all Duplicates: Find all the duplicate numbers (without using extra space and in O(n) runtime).
 - Duplicates In Array: Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="JfinxytTYFQ"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Cycle Sort - Amazon, Google, Microsoft Interview Questions"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 7. In-place Reversal of a Linked List
 
@@ -229,16 +166,6 @@ Let's go through each pattern one by one.
 - Reverse a Sub-list: Given the head of a LinkedList and two positions ‘p’ and ‘q’, reverse the LinkedList from position ‘p’ to ‘q’.
 - Reverse Every K-element Sub-list: Given the head of a LinkedList and a number ‘k’, reverse every ‘k’ sized sub-list starting from the head.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="D2vI2DNJGd8"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L9. Reverse a LinkedList | Iterative and Recursive"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 8. Tree Breadth First Search
 
@@ -261,16 +188,6 @@ Let's go through each pattern one by one.
 - Reverse Level Order Traversal: Traverse a tree in reverse level order.
 - Zigzag Traversal: Traverse a tree in a zigzag order.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="pcKY4hjDrxk"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="5.1 Graph Traversals - BFS & DFS - Breadth First Search and Depth First Search"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 9. Tree Depth First Search
 
@@ -293,16 +210,6 @@ Let's go through each pattern one by one.
 - All Paths for a Sum: Find all root-to-leaf paths in a binary tree that have a sum equal to a given number.
 - Count Paths for a Sum: Find the number of paths in a tree that sum up to a given value.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="pcKY4hjDrxk"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="5.1 Graph Traversals - BFS & DFS - Breadth First Search and Depth First Search"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 10. Two Heaps
 
@@ -325,16 +232,6 @@ Let's go through each pattern one by one.
 - Sliding Window Median: Find the median of all subarrays of size ‘K’ in the array.
 - Maximize Capital: Given a set of investment projects with their respective profits, we need to find the most profitable projects. We are given an initial capital and are allowed to invest only in a fixed number of projects. Our goal is to choose projects that give us the maximum profit.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="9P7W5aEaatQ"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Coding Interview Patterns: Two Heaps"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 11. Subsets
 
@@ -357,16 +254,6 @@ Let's go through each pattern one by one.
 - Subsets With Duplicates: Given a set of numbers that might contain duplicates, find all of its distinct subsets.
 - Permutations: Given a set of distinct numbers, find all of its permutations.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="REOH22Xwdkk"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Subsets - Backtracking - Leetcode 78"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 12. Modified Binary Search
 
@@ -389,17 +276,6 @@ Let's go through each pattern one by one.
 - Ceiling of a Number: Given an array of numbers sorted in ascending order, find the ceiling of a given number. The ceiling of a number is the smallest number in the given array greater than or equal to the given number.
 - Next Letter: Given an array of lowercase letters sorted in ascending order, find the smallest letter in the given array greater than a given ‘key’.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="1rtEtULACgs"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Modified Binary Search - CP TacTics | Find Minimum in Rotated Sorted Array | The Code Mate"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
 ## 13. Bitwise XOR
 
 **Description**: The Bitwise XOR pattern involves using the XOR bitwise operator to solve problems, often related to finding missing numbers or duplicate numbers in an array. XOR is a binary operator that returns 1 when the two bits are different and 0 when they are the same.
@@ -407,16 +283,6 @@ Let's go through each pattern one by one.
 **Usage**:
 - Finding Missing or Duplicate Numbers: Ideal for problems where you need to find a missing number or duplicate numbers
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="Yk3Jwm5YuFs"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-13: Bitwise Operators in Python | Right-shift, Left-shift, AND, OR, NOT, XOR | Python"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 14. Top 'K' Elements
 
@@ -439,16 +305,6 @@ Let's go through each pattern one by one.
 - **Kth Smallest Number**: Given an unsorted array of numbers, find the Kth smallest number in it.
 - **‘K’ Closest Points to the Origin**: Given an array of points in the a 2D plane, find ‘K’ closest points to the origin.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="XEmy13g1Qxc"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Kth Largest Element in an Array - Quick Select - Leetcode 215 - Python"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 15. K-way Merge
 
@@ -471,16 +327,6 @@ Let's go through each pattern one by one.
 - **Kth Smallest Number in M Sorted Lists**: Given ‘M’ sorted arrays, find the K’th smallest number among all the arrays.
 - **Find the Smallest Range Covering Elements from K Lists**: Given ‘M’ sorted arrays, find the smallest range that includes at least one number from each of the ‘M’ lists.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="q5a5OiGbT6Q"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Merge K Sorted Lists - Leetcode 23 - Python"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 16. Topological Sort
 
@@ -503,16 +349,6 @@ Let's go through each pattern one by one.
 - **Tasks Scheduling**: Find if it is possible to schedule all the tasks.
 - **Tasks Scheduling Order**: Find the order of tasks we should pick to finish all tasks.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="dis_c84ejhQ"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="6.10 Topological Sorting (with Examples) | How find all Topological Orderings of a Graph"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 17. Trie
 
@@ -536,16 +372,6 @@ Let's go through each pattern one by one.
 - **Longest Common Prefix**: Find the longest common prefix of a set of strings.
 - **Word Search**: Given a 2D board and a word, find if the word exists in the grid.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="zIjfhVPRZCg"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Data Structures: Tries"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 18. Backtracking
 **Description** : Backtracking is a general algorithmic technique that considers searching through all the possible configurations of a search space in order to solve computational problems. It is particularly useful for optimization problems and when a complete search of the solution space is required. The main idea is to explore each possibility until the solution is found or all possibilities have been exhausted.
@@ -565,17 +391,6 @@ Let's go through each pattern one by one.
  - **Subsets** Given a set of numbers, find all of its subsets.
  - **Permutations**  Given a set of distinct numbers, find all of its permutations.
  - **N-Queens**  Place N queens on an N×N chessboard so that no two queens threaten each other.
-
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="DKCbsiDBN6c"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="6 Introduction to Backtracking - Brute Force Approach"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 19. Monotonic Stack
 
@@ -598,16 +413,6 @@ Let's go through each pattern one by one.
 - **Maximum Area Histogram**: Given a histogram, find the largest rectangular area under the histogram.
 - **Largest Rectangle in Histogram**: Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
 
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="e7XQLtOQM3I"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L5. Next Greater Element | Stack and Queue Playlist"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## 20. 0/1 Knapsack (Dynamic Programming)
 
@@ -629,14 +434,3 @@ Let's go through each pattern one by one.
 - **0/1 Knapsack**: Given the weights and profits of ‘N’ items, put these items in a knapsack which has a capacity ‘C’. The goal is to get the maximum profit out of the items in the knapsack.
 - **Equal Subset Sum Partition**: Given a set of positive numbers, find if we can partition it into two subsets such that the sum of elements in both subsets is equal.
 - **Subset Sum**: Given a set of positive numbers, determine if there exists a subset in the set whose sum is equal to a given number ‘S’.
-
-**Video Explanation**
-
-<LiteYouTubeEmbed
-  id="nLmhmB6NzcM"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="4.5 0/1 Knapsack - Two Methods - Dynamic Programming"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>

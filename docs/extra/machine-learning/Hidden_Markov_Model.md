@@ -11,7 +11,7 @@ tags: [machine learning, hidden markov model, HMM, sequence modeling]
 ### Definition:
 **Hidden Markov Models (HMMs)** are statistical models that represent systems as a set of hidden states and observable sequences. They are widely used for sequential data modeling, where the system evolves over time and only observable data points can be seen, while the underlying states remain hidden.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="RWkHJnFj5rY"

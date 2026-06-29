@@ -15,7 +15,7 @@ A **blocked queue** is a linear data structure that follows the First In First O
 
 ![alt text](Blocked-queue.png)
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="AVh_udI27K0"

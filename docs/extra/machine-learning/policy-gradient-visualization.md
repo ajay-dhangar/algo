@@ -12,7 +12,7 @@ tags: [machine learning, reinforcement learning, policy gradient, algorithms, vi
 
 **Policy Gradient Methods** are a class of reinforcement learning algorithms that optimize the policy directly by updating its parameters to maximize the expected cumulative reward. Unlike value-based methods that learn a value function, policy gradient approaches adjust the policy itself, making them suitable for environments with continuous action spaces.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="5P7I-xPq8u8"

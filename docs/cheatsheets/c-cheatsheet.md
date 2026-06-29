@@ -9,8 +9,6 @@ tags: [c, cheatsheet, dsa, systems]
 
 This page is a quick reference for C patterns that show up constantly in DSA, competitive programming, and systems programming. If you're just starting out, don't worry - every snippet here is explained line by line 😊
 
-## Basic Syntax
-
 ### Video Explanation
 
 <LiteYouTubeEmbed
@@ -20,6 +18,9 @@ This page is a quick reference for C patterns that show up constantly in DSA, co
   lazyLoad={true}
   webp
 />
+
+
+## Basic Syntax
 
 ### Data Types
 

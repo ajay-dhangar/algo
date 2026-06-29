@@ -11,7 +11,7 @@ tags: [machine learning, algorithms, xgboost, classification, regression]
 ### Definition:
 **XGBoost (eXtreme Gradient Boosting)** is a supervised learning algorithm that implements gradient boosting for classification and regression tasks. It builds an ensemble of decision trees in a sequential manner, where each subsequent tree aims to reduce the errors of the previous trees, improving accuracy through boosting techniques.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="OtD8wVaFm6E"

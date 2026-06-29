@@ -8,7 +8,11 @@ description: Kadane's Algorithm is an efficient technique used to find the maxim
 tags: [basic-dsa, data-structures,Kadane's Algorithm]
 ---
 
-## Video Explanation
+### Definition:
+
+Kadane's Algorithm is an efficient technique used to find the maximum sum of a contiguous subarray within a one-dimensional array of integers. It is particularly useful in scenarios where the input array may contain both positive and negative numbers. By leveraging a dynamic programming approach, Kadane's Algorithm can identify the maximum sum in linear time, making it optimal for large datasets.
+
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="9IZYqostl2M"
@@ -18,12 +22,6 @@ tags: [basic-dsa, data-structures,Kadane's Algorithm]
   lazyLoad={true}
   webp
 />
-
----
-
-### Definition:
-
-Kadane's Algorithm is an efficient technique used to find the maximum sum of a contiguous subarray within a one-dimensional array of integers. It is particularly useful in scenarios where the input array may contain both positive and negative numbers. By leveraging a dynamic programming approach, Kadane's Algorithm can identify the maximum sum in linear time, making it optimal for large datasets.
 
 ### Characteristics:
 

@@ -11,7 +11,7 @@ tags: [clustering, machine learning, DBSCAN, density-based]
 ### Definition:
 **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)** is a clustering algorithm that groups points based on the density of the data. It can identify clusters of arbitrary shapes and handle noise (outliers) effectively by grouping densely packed points and marking sparse points as noise.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="RDZUdRSDOok"

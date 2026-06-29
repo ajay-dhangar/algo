@@ -11,7 +11,7 @@ tags: [machine learning, algorithms, catboost, classification, regression, boost
 ### Definition:
 **CatBoost (Categorical Boosting)** is a gradient boosting algorithm designed to handle categorical data directly without the need for extensive preprocessing. It is particularly effective in problems with categorical features, offering high performance and reducing the need for extensive hyperparameter tuning.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="KXOTSkPL2X4"

@@ -10,7 +10,7 @@ tags: [machine learning, algorithms, linear regression, regression]
 ### Definition:
 **Linear Regression** is a supervised learning algorithm used for **predictive modeling** of continuous numerical variables. It establishes a linear relationship between a dependent variable (the target) and one or more independent variables (the features). The goal of linear regression is to model this relationship using a straight line (linear equation) to predict the target values based on input features.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="owI7zxCqNY0"

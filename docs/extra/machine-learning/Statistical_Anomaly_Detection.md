@@ -11,7 +11,7 @@ tags: [anomaly detection, statistics, machine learning, outliers, data analysis]
 ### Definition:  
 **Statistical Anomaly Detection** refers to methods used to detect data points, events, or observations that deviate significantly from the norm, based on statistical models and distributions. These anomalous points, often called *outliers*, may indicate unusual events or errors and are crucial in areas such as fraud detection, network security, quality control, and more.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="OS9xRGKfx4E"

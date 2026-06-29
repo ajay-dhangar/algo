@@ -6,6 +6,10 @@ description: "Heap Sort is an efficient comparison-based sorting algorithm based
 tags: [dsa, arrays, sorting, heap-sort, algorithm of heap-sort, pseudocode of heap-sort, complexity of heap-sort, example of heap-sort, explanation of heap-sort]
 ---
 
+<AdsComponent />
+
+**Heap Sort** is an efficient, comparison-based sorting algorithm based on a binary heap data structure. Heap Sort builds a max-heap from the array and then repeatedly extracts the maximum element to achieve the sorted order. It is particularly effective for sorting large datasets due to its time complexity.
+
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -16,11 +20,6 @@ tags: [dsa, arrays, sorting, heap-sort, algorithm of heap-sort, pseudocode of he
   lazyLoad={true}
   webp
 />
-
----
-<AdsComponent />
-
-**Heap Sort** is an efficient, comparison-based sorting algorithm based on a binary heap data structure. Heap Sort builds a max-heap from the array and then repeatedly extracts the maximum element to achieve the sorted order. It is particularly effective for sorting large datasets due to its time complexity.
 
 <HeapSortVisualization />
 

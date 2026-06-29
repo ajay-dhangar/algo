@@ -7,7 +7,12 @@ tags: [dsa, arrays, product-of-array, pseudocode, Implementation, explanation, c
 ---
 <AdsComponent />
 
-## Video Explanation
+## Product of Array Except Self
+
+The **Product of Array Except Self** problem involves computing an output array such that `output[i]` is equal to the product of all the elements of the input array except for `input[i]`. 
+
+
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="TW2m8m_FNJE"
@@ -18,12 +23,6 @@ tags: [dsa, arrays, product-of-array, pseudocode, Implementation, explanation, c
   webp
 />
 
----
-
-
-## Product of Array Except Self
-
-The **Product of Array Except Self** problem involves computing an output array such that `output[i]` is equal to the product of all the elements of the input array except for `input[i]`. 
 
 ### Problem Statement
 

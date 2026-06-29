@@ -9,6 +9,10 @@ tags: [String,isomorphic strings]
 
 # Isomorphic Strings
 
+
+## Definition
+Isomorphic strings are two strings that can be transformed into each other by a consistent mapping of characters. Each character in one string can be replaced with a character from the other string in a way that preserves the order of characters.
+
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -20,10 +24,6 @@ tags: [String,isomorphic strings]
   webp
 />
 
----
-
-## Definition
-Isomorphic strings are two strings that can be transformed into each other by a consistent mapping of characters. Each character in one string can be replaced with a character from the other string in a way that preserves the order of characters.
 
 ### Example
 - **Isomorphic**: "egg" and "add"

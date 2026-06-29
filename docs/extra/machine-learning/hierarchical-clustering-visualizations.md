@@ -11,7 +11,7 @@ tags: [data science, clustering, hierarchical clustering, data visualization, ma
 ### Definition:  
 **Hierarchical Clustering** is an unsupervised machine learning technique that creates a hierarchy of clusters, allowing data points to be grouped based on their similarities. This method can be performed in two ways: agglomeratively (bottom-up) and divisively (top-down).
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="YH0r47m0kFM"

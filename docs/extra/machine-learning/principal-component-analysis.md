@@ -9,7 +9,7 @@ tags: [machine learning, algorithms, unsupervised learning, PCA]
 ### Definition:
 **Principal Component Analysis (PCA)** is an unsupervised learning algorithm for dimensionality reduction. It transforms data into a new coordinate system where the greatest variance by any projection lies on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="FgakZw6K1QQ"

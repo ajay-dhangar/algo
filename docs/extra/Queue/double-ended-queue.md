@@ -12,7 +12,7 @@ A **double-ended queue (Deque)** is a linear data structure similar to a queue b
 
 ![alt text](doubleendedqueue.png)
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="pqg0SOPRlJ4"

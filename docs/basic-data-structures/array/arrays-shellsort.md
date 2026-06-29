@@ -6,6 +6,10 @@ description: "Shell Sort is an in-place comparison sort algorithm that generaliz
 tags: [dsa, arrays, sorting, shell-sort, gap-sort, sorting-algorithms]
 ---
 
+import AdsComponent from '@site/src/components/AdsComponent';
+
+**Shell Sort** is a highly efficient in-place sorting algorithm and an improved version of Insertion Sort. It allows the exchange of items that are far apart, unlike Insertion Sort which only exchanges adjacent items. The idea is to arrange the list of elements so that, starting anywhere, taking every $h$-th element produces a sorted list — such a list is said to be **h-sorted**.
+
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -17,10 +21,7 @@ tags: [dsa, arrays, sorting, shell-sort, gap-sort, sorting-algorithms]
   webp
 />
 
----
-import AdsComponent from '@site/src/components/AdsComponent';
 
-**Shell Sort** is a highly efficient in-place sorting algorithm and an improved version of Insertion Sort. It allows the exchange of items that are far apart, unlike Insertion Sort which only exchanges adjacent items. The idea is to arrange the list of elements so that, starting anywhere, taking every $h$-th element produces a sorted list — such a list is said to be **h-sorted**.
 
 <AdsComponent />
 

@@ -11,7 +11,7 @@ tags: [machine learning, neural networks, deep learning, data visualization, fee
 ### Definition:  
 **Neural Networks** are a class of machine learning algorithms inspired by the human brain. They consist of interconnected layers of nodes (neurons) that process data by learning patterns and relationships from examples. Neural networks are the foundation of deep learning, used in various domains, including computer vision, natural language processing, and reinforcement learning.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="aircAruvnKk"

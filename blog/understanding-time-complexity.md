@@ -17,16 +17,6 @@ When designing algorithms, we are interested in how fast they can solve
 a problem. Time complexity provides a way to estimate the performance of 
 an algorithm without having to test it on every possible input.
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="9TlHvipP5yA"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="1.5.1 Time Complexity #1"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## Big-O Notation
 

@@ -21,17 +21,6 @@ Browser History
 Function Call Stack
 ```
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="bxRVz8zklWM"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="3.1 Stack in Data Structure | Introduction to Stack | Data Structures Tutorials"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
 ## How Stack is Represented:
 
 A stack can be implemented using arrays or linked lists. It follows the **LIFO (Last In First Out)** principle, where the last inserted element is removed first.

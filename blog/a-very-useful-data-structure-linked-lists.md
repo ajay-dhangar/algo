@@ -46,17 +46,6 @@ In this blog, we'll explore:
 * Implementing music players and video players
 * Implementing hash tables
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="6wXZ_m3SbEs"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="2.4 Linked List Implementation in C/C++ | Creation and Display | DSA Tutorials"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
 ## C Code Examples
 
 ### Singly Linked List

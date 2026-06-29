@@ -11,7 +11,7 @@ tags: [machine learning, reinforcement learning, DQN, deep learning, algorithms]
 ### Definition:
 **Deep Q-Networks (DQN)** is a reinforcement learning algorithm that extends Q-Learning by using deep neural networks to approximate the Q-function. This allows DQN to handle high-dimensional state spaces that are not feasible with traditional tabular Q-Learning. The approach was popularized by DeepMind's success in applying DQN to play Atari games at a superhuman level.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="SgC6AZss478"

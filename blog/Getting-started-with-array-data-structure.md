@@ -23,17 +23,6 @@ In this blog, we'll break down:
 
 Array is a linear data structure that stores a collection of items of same data type in contiguous memory locations. Each item in an array is indexed starting with 0. We can directly access an array element by using its index value.
 
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="AT14lCXuMKI"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="1.1 Arrays in Data Structure | Declaration, Initialization, Memory representation"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
 ### Basic Terminologies of Array:
 
 1. **$(Array Index)$ :**

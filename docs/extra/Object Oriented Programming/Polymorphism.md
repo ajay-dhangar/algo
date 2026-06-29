@@ -14,7 +14,7 @@ Polymorphism is a core concept in object-oriented programming that allows object
 
 Refers to the ability of OOPs programming languages to differentiate between entities with the same name efficiently. This is done by Java with the help of the signature and declaration of these entities.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="F5PbnZkHqmg"

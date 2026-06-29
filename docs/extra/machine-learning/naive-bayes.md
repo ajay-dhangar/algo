@@ -9,7 +9,7 @@ tags: [machine learning, algorithms, naive bayes, classification, bayes theorem,
 ### Definition:
 The **Naive Bayes** algorithm is a probabilistic classifier based on **Bayes' Theorem** with the assumption that the features are conditionally independent given the class label. Despite the "naive" assumption of feature independence, it is highly effective for various real-world applications such as spam filtering, text classification, and recommendation systems.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="XzSlEA4ck2I"

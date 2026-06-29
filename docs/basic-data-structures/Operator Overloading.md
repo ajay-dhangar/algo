@@ -7,7 +7,7 @@ description: 'Operator overloading allows you to redefine the way operators work
 tags: [dsa, data-structures, Operator Overloading]
 ---
 
-## 2 Operator Overloading
+## Operator Overloading
 
 ### Introduction 
 

@@ -18,18 +18,6 @@ In this blog, we'll explore:
 
 ---
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="AHZpyENo7k4"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Kadane's Algorithm | Maximum Subarray Sum | Finding and Printing"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
----
 
 ## The Maximum Subarray Problem
 

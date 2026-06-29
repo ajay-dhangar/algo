@@ -9,6 +9,9 @@ tags: [dsa, arrays, sorting, heap-sort, algorithm of heap-sort, pseudocode of he
 
 <AdsComponent />
 
+
+**Heap Sort** is an efficient, comparison-based sorting algorithm based on a binary heap data structure. Heap Sort builds a max-heap from the array and then repeatedly extracts the maximum element to achieve the sorted order. It is particularly effective for sorting large datasets due to its time complexity.
+
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -20,9 +23,6 @@ tags: [dsa, arrays, sorting, heap-sort, algorithm of heap-sort, pseudocode of he
   webp
 />
 
----
-
-**Heap Sort** is an efficient, comparison-based sorting algorithm based on a binary heap data structure. Heap Sort builds a max-heap from the array and then repeatedly extracts the maximum element to achieve the sorted order. It is particularly effective for sorting large datasets due to its time complexity.
 
 <HeapSortVisualization />
 

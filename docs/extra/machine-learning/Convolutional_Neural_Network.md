@@ -11,7 +11,7 @@ tags: [machine learning, deep learning, cnn, neural networks, computer vision]
 ### Definition:
 **Convolutional Neural Networks (CNNs)** are a class of deep neural networks specifically designed to process data with a grid-like structure, such as images. CNNs are highly effective in tasks like image classification, object detection, and recognition due to their ability to capture spatial hierarchies in data through convolutional layers.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="vT1JzLTH4G4"

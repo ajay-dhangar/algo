@@ -9,7 +9,7 @@ tags: [machine learning, algorithms, random forest, classification, regression]
 ### Definition:
 The **Random Forest Algorithm** is a versatile and widely-used ensemble learning technique that builds multiple decision trees during training and combines their predictions to improve accuracy and robustness. This algorithm is applicable to both **classification** and **regression** tasks. The core idea behind random forests is that by averaging or "voting" across many decision trees, the overall prediction is more reliable and less prone to overfitting compared to individual trees.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="J4Wdy0Wc_xQ"

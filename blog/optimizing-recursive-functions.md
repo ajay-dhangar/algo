@@ -20,17 +20,6 @@ In this blog, we’ll cover:
 
 Memoization is an optimization technique where you store the results of expensive function calls and return the cached result when the same inputs occur again.
 
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="tyB0ztf0DNY"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="DP 1. Introduction to Dynamic Programming | Memoization | Tabulation | Space Optimization Techniques"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
 ### Example: Fibonacci with Memoization
 
 ```javascript
@@ -45,16 +34,6 @@ function fibonacci(n) {
 ## Tail Recursion
 Tail recursion is when a function calls itself as its last action. Some programming languages can optimize tail recursive calls to avoid adding a new stack frame.
 
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="HIt_GPuD7wk"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Types of Recursion (Part 2) | Tail & Non-tail Recursion"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Example: Tail Recursive Factorial
 ```javascript

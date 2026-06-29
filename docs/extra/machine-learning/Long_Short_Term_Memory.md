@@ -11,7 +11,7 @@ tags: [machine learning, deep learning, lstm, rnn, neural networks, time series,
 ### Definition:
 **Long Short-Term Memory (LSTM)** is a special type of Recurrent Neural Network (RNN) architecture designed to learn long-term dependencies. It addresses the vanishing gradient problem inherent in vanilla RNNs by introducing gates that regulate the flow of information through the network. LSTMs are particularly effective for tasks involving sequential data, such as time-series prediction, language modeling, and speech recognition.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="YCzL96nL7j0"

@@ -11,7 +11,7 @@ tags: [oops, abstraction, encapsulation, inheritance, polymorphism]
 
 Object-Oriented Programming (OOP) is built on four main pillars: **Abstraction**, **Encapsulation**, **Inheritance**, and **Polymorphism**. Each of these concepts plays a crucial role in creating modular, reusable, and maintainable code.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="pTB0EiLXUC8"

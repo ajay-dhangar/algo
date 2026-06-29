@@ -13,7 +13,7 @@ In object-oriented programming, both **interfaces** and **abstract classes** are
 
 ---
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="nNwZN3mOVcw"

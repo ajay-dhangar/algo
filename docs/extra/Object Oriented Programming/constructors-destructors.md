@@ -13,7 +13,7 @@ Constructors and destructors are **special member functions** in object-oriented
 
 ---
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="y9KRmJAmmN4"

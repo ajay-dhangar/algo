@@ -10,7 +10,7 @@ tags: [machine learning, algorithms, decision tree, classification, regression]
 ### Definition:
 The **Decision Tree Algorithm** is a supervised machine learning algorithm used for both **classification** and **regression** tasks. It splits data into subsets based on feature values, creating a tree-like structure where each internal node represents a decision based on a feature, and each leaf node represents an outcome (class label or continuous value).
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="coOTEc-0OGw"

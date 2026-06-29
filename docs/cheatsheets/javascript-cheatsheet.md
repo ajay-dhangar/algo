@@ -13,9 +13,9 @@ This page is a quick reference for modern JavaScript (ES6+) patterns that show u
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="EerdGm-ehJQ"
+  id="PkZNo7MFNFg"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="JavaScript Tutorial Full Course - Beginner to Pro"
+  title="Learn JavaScript - Full Course for Beginners"
   lazyLoad={true}
   webp
 />

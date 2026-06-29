@@ -17,16 +17,6 @@ In this blog, we'll break down:
   
 ---
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="bQssdSrSGNE"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Basics of Time Complexity and Space Complexity | Java | Complete Placement Course | Lecture 9"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## What is Time Complexity?
 

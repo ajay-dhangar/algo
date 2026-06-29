@@ -8,7 +8,7 @@ tags: [machine learning, algorithms, classification, regression, k-NN]
 
 **k-Nearest Neighbors (k-NN)** is a simple and widely used supervised learning algorithm. It can be applied to both classification and regression tasks. The algorithm classifies or predicts a data point based on how closely it resembles its neighbours. k-NN does not have an explicit training phase; instead, it stores the entire dataset and makes predictions by finding the **k nearest neighbours** of a given input and using their majority class (for classification) or average value (for regression) to make predictions.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="O1nWXTXcCwI"

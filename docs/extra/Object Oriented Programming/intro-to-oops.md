@@ -11,7 +11,7 @@ tags: [oops, object-oriented-programming]
 
 Object-Oriented Programming (OOPs) is a **programming paradigm** that organizes software design around data, or objects, rather than functions and logic. It helps in breaking down complex problems into smaller, manageable units by representing real-world entities as objects.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="pTB0EiLXUC8"

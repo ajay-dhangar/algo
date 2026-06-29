@@ -11,7 +11,7 @@ tags: [oops, classes, objects]
 
 In Object-Oriented Programming (OOP), **classes** and **objects** are fundamental concepts that help structure your code.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="HeW-D6KpDwY"

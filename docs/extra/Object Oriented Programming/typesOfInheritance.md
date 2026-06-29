@@ -13,7 +13,7 @@ tags: [oops, inheritance, classes]
 
 Inheritance is a key concept in Object-Oriented Programming (OOP) that allows one class (child or derived class) to inherit attributes and methods from another class (parent or base class). This promotes code reusability and establishes a relationship between classes.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="sQavCfVF60A"

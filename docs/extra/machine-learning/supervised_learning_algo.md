@@ -9,7 +9,7 @@ tags: [machine learning, algorithms, supervised learning]
 ### Definition:
 **Supervised Learning** is a type of machine learning where an algorithm learns from labeled training data to make predictions or classifications on unseen data. The model is trained using input-output pairs, allowing it to learn the relationship between features and target labels.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="LKlOH8OLLcw"

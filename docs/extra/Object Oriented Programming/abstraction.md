@@ -22,7 +22,7 @@ Example
 
 In our daily lives, we all use an ATM for cash withdrawals, money transfers, retrieving min-statements, etc. But we don't know internally what things are happening inside ATM when you insert an ATM card for performing any kind of operations.
 
-## Video Explanation**
+## Video Explanation
 
 <LiteYouTubeEmbed
   id="iSP60D5UZ8U"

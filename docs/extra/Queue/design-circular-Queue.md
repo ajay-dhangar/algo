@@ -11,7 +11,7 @@ tags: [dsa, data-structures, Circular Queue]
 
 A **circular queue** is a linear data structure that connects the last position to the first to form a circular structure. Unlike a standard queue, a circular queue efficiently reuses memory by connecting the rear end back to the front, making it ideal for applications like CPU scheduling, managing shared resources, and handling real-time data streams.
 
-### Video Explanation**
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="dn01XST9-bI"

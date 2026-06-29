@@ -8,6 +8,12 @@ tags: [String Matching, kmp-algorithm, Substring Search, Algorithm, Pattern Matc
 ---
 # Strings in Programming
 
+
+## What is a String?
+A **string** is a sequence of characters, typically used to represent text. It can include letters, numbers, symbols, and whitespace. Strings are one of the most commonly used data types in programming, especially for tasks involving text manipulation, user input, and output.
+
+In most programming languages, strings are enclosed within quotes, either single (`'`) or double (`"`). The characters within the quotes form the actual content of the string.
+
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -19,12 +25,6 @@ tags: [String Matching, kmp-algorithm, Substring Search, Algorithm, Pattern Matc
   webp
 />
 
----
-
-## What is a String?
-A **string** is a sequence of characters, typically used to represent text. It can include letters, numbers, symbols, and whitespace. Strings are one of the most commonly used data types in programming, especially for tasks involving text manipulation, user input, and output.
-
-In most programming languages, strings are enclosed within quotes, either single (`'`) or double (`"`). The characters within the quotes form the actual content of the string.
 
 ### Example:
 ```java
