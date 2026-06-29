@@ -45,7 +45,7 @@ export default function AlgorithmVisualizer() {
     const newArr: ArrayElement[] = [];
     for (let i = 0; i < size; i++) {
       newArr.push({
-        id: `id-${Math.random().toString(36).substr(2, 9)}`,
+        id: `id-${Math.random().toString(36).slice(2, 11)}`,
         value: Math.floor(Math.random() * 90) + 10,
         state: 'default',
       });
