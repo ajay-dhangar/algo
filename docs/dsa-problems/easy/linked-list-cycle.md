@@ -64,7 +64,7 @@ We use two pointers moving at different speeds:
  * struct ListNode {
  * int val;
  * ListNode *next;
- * ListNode(int x) : val(x), next(NULL) {}
+ * ListNode(int x) : val(x), next(nullptr) {}
  * };
  */
 class Solution {
@@ -73,7 +73,7 @@ public:
         ListNode *slow = head;
         ListNode *fast = head;
         
-        while (fast != NULL && fast->next != NULL) {
+        while (fast != nullptr && fast->next != nullptr) {
             slow = slow->next;
             fast = fast->next->next;
             
