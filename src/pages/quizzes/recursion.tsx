@@ -331,6 +331,7 @@ const RecursionQuiz: React.FC = () => {
 
   return (
     <Layout title="Recursion Fundamentals Quiz — Call Stack & Complexity">
+      <QuizErrorBoundary>
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
         <div className="max-w-4xl mx-auto">
 
