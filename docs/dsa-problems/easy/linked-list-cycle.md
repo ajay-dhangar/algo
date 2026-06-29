@@ -127,8 +127,10 @@ public class Solution {
 #         self.val = x
 #         self.next = None
 
+from typing import Optional
+
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
+    def hasCycle(self, head: Optional['ListNode']) -> bool:
         slow = head
         fast = head
         
