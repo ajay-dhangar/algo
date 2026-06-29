@@ -215,10 +215,12 @@ export default function AlgorithmVisualizer() {
     };
 
     const quickSortHelper = async (low: number, high: number) => {
+      if (!isSortingRef.current) return;
       if (low < high) {
         let pi = await partition(low, high);
-        if (pi === -1) return; // stopped
+        if (pi === -1 || !isSortingRef.current) return; // stopped
         await quickSortHelper(low, pi - 1);
+        if (!isSortingRef.current) return;
         await quickSortHelper(pi + 1, high);
       } else if (low === high) {
         arr = updateState([low], 'sorted', arr);
