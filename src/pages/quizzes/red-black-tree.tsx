@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 
 // Existing custom quiz sub-components (assumed available in your project)
+import { safeJsonParse } from "../../utils/safeStorage";
 
 interface RBTQuestion {
   id: number;
@@ -160,8 +161,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("rbt_quiz_user");
     if (savedUser) {
       setUsername(savedUser);
-      const savedHistory = localStorage.getItem(`rbt_history_${savedUser}`);
-      if (savedHistory) setHistory(JSON.parse(savedHistory));
+      setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${savedUser}`, []));
     }
   }, []);
 
@@ -175,6 +175,13 @@ const RedBlackTreeQuiz: React.FC = () => {
   const score = useMemo(() => {
     return userAnswers.reduce((acc, ans, idx) => (ans === QUESTIONS[idx]?.answer ? acc + 1 : acc), 0);
   }, [userAnswers]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
+    }
+  };
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -286,7 +293,7 @@ const RedBlackTreeQuiz: React.FC = () => {
 
                     <div className="grid grid-cols-1 gap-4 pt-4">
                       {QUESTIONS[currentQuestion].options.map((opt, i) => (
-                        <button key={i} onClick={() => handleAnswer(opt)}
+                        <button key={i} onClick={() => handleAnswer(opt)} role="radio" aria-checked={userAnswers[currentQuestion] === opt}
                           className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-red-600/5 border-red-600 dark:bg-red-600/10' : 'bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 hover:border-red-600/50'}`}>
                           <span className={`text-sm md:text-base font-semibold ${userAnswers[currentQuestion] === opt ? 'text-red-800 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'}`}>{opt}</span>
                           <div className={`w-5 h-5 rounded-full border-2 ${userAnswers[currentQuestion] === opt ? 'border-red-600 bg-red-600' : 'border-slate-300 dark:border-slate-600 group-hover:border-red-600/50'}`}>

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { safeJsonParse } from '../../utils/safeStorage';
+
 
 interface ProgressData {
   [key: string]: boolean | string;
@@ -10,8 +12,7 @@ const SidebarUpdater: React.FC = () => {
   useEffect(() => {
     const load = () => {
       try {
-        const saved = localStorage.getItem('algo_progress');
-        if (saved) setProgress(JSON.parse(saved));
+        setProgress(safeJsonParse<ProgressData>('algo_progress', {}));
       } catch (e) {
         console.error(e);
       }

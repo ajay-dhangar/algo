@@ -10,27 +10,6 @@ import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom.tsx";
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
-  // useEffect(() => {
-  //   // Create and append the Chatrace script
-  //   const chatraceScript = document.createElement("script");
-  //   chatraceScript.src = "https://chatrace.com/webchat/plugin.js?v=5";
-  //   chatraceScript.async = true;
-  //   chatraceScript.onload = () => {
-  //     // Initialize the chat widget after the script loads
-  //     if (window.ktt10) {
-  //       window.ktt10.setup({
-  //         id: "2Xk6i0bywhd02D",
-  //         accountId: "1322274",
-  //         color: "#006dff",
-  //       });
-  //     }
-  //   };
-  //   document.body.appendChild(chatraceScript);
-
-  //   return () => {
-  //     document.body.removeChild(chatraceScript);
-  //   };
-  // }, []);
 
   return (
     <Layout
@@ -47,7 +26,10 @@ export default function Home() {
           async
           custom-element="amp-auto-ads"
           src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
-        ></script>
+        />
+        {/* 3rd part... cookies */}
+        <script src="https://app.secureprivacy.ai/script/6a40bb4e4918bc215a63f02b.js" />
+        {/*  */}
       </Head>
       <main>
         <Homepage />
