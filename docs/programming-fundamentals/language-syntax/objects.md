@@ -119,6 +119,16 @@ public class Main {
 
 Objects in Python are straightforward to create by instantiating classes.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wfcWRAxRVBA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Classes and Objects with Python - Part 1 (Python Tutorial #9)"
+  lazyLoad={true}
+  webp
+/>
+
 #### Creating an Object
 
 ```python title="Python Object Example"
