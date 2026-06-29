@@ -26,7 +26,7 @@ const SHORTCUTS_DATA: ShortcutItem[] = [
   { action: "Go to Blog", keys: ["g", "b"] },
   { action: "Go to Quizzes", keys: ["g", "q"] },
 
-  { action: "Toggle dark mode", keys: ["⌘D"] },
+  { action: "Toggle dark mode", keys: ["⌘", "Shift", "D"] },
   { action: "Next item / Next step", keys: ["j"] },
   { action: "Previous item / Previous step", keys: ["k"] },
   { action: "Collapse/Expand all panes", keys: ["Esc", "Esc"] },
