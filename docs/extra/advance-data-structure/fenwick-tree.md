@@ -1,13 +1,11 @@
 ---
 id: fenwick-tree
 sidebar_position: 3
-title: Fenwick Tree (Binary Indexed Tree)
+title: "Fenwick Tree (Binary Indexed Tree)"
 sidebar_label: Fenwick Tree
 description: "Fenwick Tree (Binary Indexed Tree) is a more space-efficient data structure for cumulative frequency tables."
 tags: [fenwick tree, binary indexed tree, advance data structures]
 ---
-
-# Fenwick Tree (Binary Indexed Tree)
 
 The **Fenwick Tree**, also known as the **Binary Indexed Tree (BIT)**, is a data structure that provides efficient methods for maintaining cumulative frequency tables. It allows for both updates and prefix sum calculations to be performed in logarithmic time.
 
@@ -140,5 +138,7 @@ function query(index):
         index -= index & -index
     return sum
 ```
-### Conclusion
+
+## Conclusion
+
 The Fenwick Tree (Binary Indexed Tree) is a powerful data structure for efficiently managing cumulative frequency tables and performing range queries. Its ability to update and query sums in logarithmic time makes it a valuable tool in various algorithmic applications.

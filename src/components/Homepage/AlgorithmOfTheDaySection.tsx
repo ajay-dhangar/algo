@@ -111,7 +111,7 @@ const AlgorithmOfTheDaySection: React.FC = () => {
                 
                 <div className="flex flex-col gap-3.5">
                   {[
-                    { label: "Best Case", value: algo.timeComplexity.best, color: "text-emerald-600 dark:text-emerald-400 bg-emerald-500/[0.03] dark:bg-emerald-400/[0.02]" },
+                    { label: "Best Case", value: algo.timeComplexity.best, color: "text-emerald-700 dark:text-emerald-400 bg-emerald-500/[0.03] dark:bg-emerald-400/[0.02]" },
                     { label: "Average Case", value: algo.timeComplexity.average, color: "text-blue-600 dark:text-blue-400 bg-blue-500/[0.03] dark:bg-blue-400/[0.02]" },
                     { label: "Worst Case", value: algo.timeComplexity.worst, color: "text-rose-600 dark:text-rose-400 bg-rose-500/[0.03] dark:bg-rose-400/[0.02]" },
                     { label: "Space Bounds", value: algo.spaceComplexity, color: "text-purple-600 dark:text-purple-400 bg-purple-500/[0.03] dark:bg-purple-400/[0.02]" }

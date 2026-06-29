@@ -22,7 +22,8 @@ This project demonstrates a Task Scheduling algorithm using Topological Sorting 
 
 ## Table of Contents
 - [Description](#description)
-- [Algorithm](#algorithm)
+- [Solution Approach](#solution-approach)
+ - [Algorithm](#algorithm)
 - [Usage](#usage)
 - [Example](#example)
 - [Limitations](#limitations)
@@ -84,6 +85,10 @@ void topologicalSort(int graph[V][V], int inDegree[]) {
     printf("\n");
 }
 ```
+
+## Algorithm
+
+The code above implements Kahn's Algorithm for topological sorting: compute in-degrees, enqueue zero in-degree nodes, process queue, and detect cycles if not all nodes are processed.
 
 ## Usage
 

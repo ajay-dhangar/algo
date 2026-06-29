@@ -20,6 +20,9 @@ import { FaReact } from "react-icons/fa";
 import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import GiscusComponent from "../components/GiscusComponent";
 import Ads from "@site/src/components/AdsComponent/Ads";
+import EdgeCases from "@site/src/components/EdgeCases";
+import Link from "@docusaurus/Link";
+import RelatedTopics from '@site/src/components/RelatedTopics';
 
 export default {
   // Re-use the default mapping
@@ -45,4 +48,7 @@ export default {
   AdsComponent,
   GiscusComponent,
   Ads,
+  EdgeCases,
+  Link,
+  RelatedTopics
 };

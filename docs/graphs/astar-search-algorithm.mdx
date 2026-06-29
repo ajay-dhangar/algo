@@ -1,0 +1,439 @@
+---
+id: graph-astar-search-algorithm
+title: "A* Search Algorithm"
+sidebar_label: "A* Search Algorithm"
+sidebar_position: 7
+description: "A complete guide to the A* Search Algorithm with interactive grid visualization, explanations, heuristic functions, implementations in Python, Java, C++, and JavaScript, and related LeetCode problems."
+tags: [graph, shortest-path, pathfinding, heuristic, astar, a-star, dsa]
+---
+
+import AStarVisualizer from '@site/src/components/Visualizing/AStarVisualizer';
+
+The **A\* (A-Star) Search Algorithm** is one of the most popular and efficient pathfinding algorithms. It finds the **shortest path** between a start and goal node by combining the strengths of **Dijkstra's Algorithm** (guaranteed shortest path) and **Greedy Best-First Search** (speed via heuristics).
+
+:::info Why A*?
+A\* is widely used in game development, robotics, GPS navigation, and AI because it is **both optimal and complete** — it always finds the shortest path if one exists, and does so efficiently using heuristic guidance.
+:::
+
+---
+
+## Interactive Visualization
+
+Click on the grid below to place a **Start (S)**, **End (E)**, and **Walls**. Then press **Visualize** to watch the A\* algorithm explore the grid in real-time.
+
+<AStarVisualizer />
+
+---
+
+## How It Works
+
+A\* maintains two key values for every node:
+
+- **g(n)** — the actual cost from the start node to node `n`
+- **h(n)** — the estimated (heuristic) cost from node `n` to the goal
+- **f(n) = g(n) + h(n)** — the total estimated cost of the cheapest path through `n`
+
+### Algorithm Steps
+
+1. Add the start node to the **open set** (priority queue)
+2. While the open set is not empty:
+   - Pick the node with the **lowest f(n)**
+   - If it's the goal, reconstruct and return the path
+   - Move it to the **closed set** (already evaluated)
+   - For each neighbor:
+     - Skip if it's in the closed set or is a wall
+     - Calculate tentative `g` score
+     - If this path to the neighbor is better than any previously known:
+       - Update `g(n)` and `f(n)`
+       - Record the parent for path reconstruction
+       - Add/update it in the open set
+3. If the open set is empty and the goal was not reached → **no path exists**
+
+### Heuristic Functions
+
+The choice of heuristic **h(n)** is crucial:
+
+| Heuristic | Formula | Allowed Movements | Best For |
+|---|---|---|---|
+| Manhattan | $\vert{}x_1 - x_2\vert{} + \vert{}y_1 - y_2\vert{}$ | 4-directional | Orthogonal grids (Rooks) |
+| Chebyshev | $\max(\vert{}x_1 - x_2\vert{}, \vert{}y_1 - y_2\vert{})$ | 8-directional | King moves (Equal diagonal cost) |
+| Euclidean | $\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$ | Straight line | Any-angle / Continuous space |
+
+:::note Admissibility
+For A\* to guarantee the optimal path, the heuristic must be **admissible** — it should **never overestimate** the actual cost to the goal. Manhattan distance is admissible for 4-directional grids.
+:::
+
+---
+
+## Dry Run Example
+
+Consider a 5×5 grid where `S` is start (0,0), `E` is end (4,4), and `#` are walls:
+
+```
+S . . . .
+. # # . .
+. . # . .
+. . . # .
+. . . . E
+```
+
+| Step | Current | g | h (Manhattan) | f = g+h | Action |
+|------|---------|---|---------------|---------|--------|
+| 1 | (0,0) | 0 | 8 | 8 | Start — expand neighbors |
+| 2 | (0,1) | 1 | 7 | 8 | Expand (no wall) |
+| 3 | (1,0) | 1 | 7 | 8 | Expand (no wall) |
+| 4 | (0,2) | 2 | 6 | 8 | Continue exploring... |
+| ... | ... | ... | ... | ... | ... |
+| Final | (4,4) | 8 | 0 | 8 | **Goal reached!** |
+
+The algorithm finds the shortest path of length **8** while exploring far fewer nodes than BFS would.
+
+---
+
+## Complexity Analysis
+
+| Metric | Value |
+|--------|-------|
+| Time Complexity | O(E log V) with a binary heap |
+| Space Complexity | O(V) |
+| Optimality | ✅ Guaranteed (with admissible heuristic) |
+| Completeness | ✅ Will find a path if one exists |
+
+Where `V` = number of vertices (cells), `E` = number of edges (connections).
+
+---
+
+## A* vs Other Pathfinding Algorithms
+
+| Feature | A* | Dijkstra | BFS | Greedy Best-First |
+|---------|-----|----------|-----|-------------------|
+| Uses heuristic | ✅ | ❌ | ❌ | ✅ |
+| Optimal path | ✅ | ✅ | ✅ (unweighted) | ❌ |
+| Speed | ⚡ Fast | 🐢 Slower | 🐢 Slower | ⚡⚡ Fastest |
+| Weighted edges | ✅ | ✅ | ❌ | ✅ |
+| Best for | Pathfinding with obstacles | All shortest paths | Unweighted graphs | Speed over accuracy |
+
+**Rule of thumb:**
+- Use **A\*** when you need the optimal path quickly with a good heuristic
+- Use **Dijkstra** when there's no natural heuristic (or you need all shortest paths)
+- Use **BFS** for simple unweighted graphs
+- Use **Greedy Best-First** when speed matters more than optimality
+
+---
+
+## Implementations
+
+### Python
+
+```python
+import heapq
+
+def astar(grid, start, end):
+    rows, cols = len(grid), len(grid[0])
+
+    def heuristic(a, b):
+        return abs(a[0] - b[0]) + abs(a[1] - b[1])  # Manhattan distance
+
+    open_set = []
+    heapq.heappush(open_set, (0, start))
+    came_from = {}
+    g_score = {start: 0}
+
+    while open_set:
+        _, current = heapq.heappop(open_set)
+
+        if current == end:
+            # Reconstruct path
+            path = []
+            while current in came_from:
+                path.append(current)
+                current = came_from[current]
+            path.append(start)
+            return path[::-1]
+
+        for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            neighbor = (current[0] + dr, current[1] + dc)
+            nr, nc = neighbor
+
+            if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] != 1:
+                tentative_g = g_score[current] + 1
+
+                if tentative_g < g_score.get(neighbor, float('inf')):
+                    came_from[neighbor] = current
+                    g_score[neighbor] = tentative_g
+                    f = tentative_g + heuristic(neighbor, end)
+                    heapq.heappush(open_set, (f, neighbor))
+
+    return None  # No path found
+
+# Example usage
+grid = [
+    [0, 0, 0, 0, 0],
+    [0, 1, 1, 0, 0],
+    [0, 0, 1, 0, 0],
+    [0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 0],
+]
+path = astar(grid, (0, 0), (4, 4))
+print(path)  # [(0,0), (1,0), (2,0), (2,1), (3,0), (3,1), (3,2), (4,3), (4,4)]
+```
+
+### Java
+
+```java
+import java.util.*;
+
+public class AStarSearch {
+
+    static int[] dx = {-1, 1, 0, 0};
+    static int[] dy = {0, 0, -1, 1};
+
+    static int heuristic(int[] a, int[] b) {
+        return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+    }
+
+    static List<int[]> astar(int[][] grid, int[] start, int[] end) {
+        int rows = grid.length, cols = grid[0].length;
+        // Priority queue: {f, g, row, col}
+        PriorityQueue<int[]> openSet = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        Map<String, String> cameFrom = new HashMap<>();
+        Map<String, Integer> gScore = new HashMap<>();
+
+        String startKey = start[0] + "," + start[1];
+        gScore.put(startKey, 0);
+        openSet.offer(new int[]{heuristic(start, end), 0, start[0], start[1]});
+
+        while (!openSet.isEmpty()) {
+            int[] current = openSet.poll();
+            int cr = current[2], cc = current[3];
+            String currentKey = cr + "," + cc;
+
+            if (cr == end[0] && cc == end[1]) {
+                // Reconstruct path
+                List<int[]> path = new ArrayList<>();
+                String key = currentKey;
+                while (key != null) {
+                    String[] parts = key.split(",");
+                    path.add(0, new int[]{Integer.parseInt(parts[0]), Integer.parseInt(parts[1])});
+                    key = cameFrom.get(key);
+                }
+                return path;
+            }
+
+            for (int d = 0; d < 4; d++) {
+                int nr = cr + dx[d], nc = cc + dy[d];
+                if (nr < 0 || nr >= rows || nc < 0 || nc >= cols || grid[nr][nc] == 1)
+                    continue;
+
+                String neighborKey = nr + "," + nc;
+                int tentativeG = gScore.getOrDefault(currentKey, Integer.MAX_VALUE) + 1;
+
+                if (tentativeG < gScore.getOrDefault(neighborKey, Integer.MAX_VALUE)) {
+                    cameFrom.put(neighborKey, currentKey);
+                    gScore.put(neighborKey, tentativeG);
+                    int f = tentativeG + heuristic(new int[]{nr, nc}, end);
+                    openSet.offer(new int[]{f, tentativeG, nr, nc});
+                }
+            }
+        }
+        return null; // No path found
+    }
+
+    public static void main(String[] args) {
+        int[][] grid = {
+            {0, 0, 0, 0, 0},
+            {0, 1, 1, 0, 0},
+            {0, 0, 1, 0, 0},
+            {0, 0, 0, 1, 0},
+            {0, 0, 0, 0, 0}
+        };
+        List<int[]> path = astar(grid, new int[]{0, 0}, new int[]{4, 4});
+        if (path != null) {
+            for (int[] p : path) System.out.println("(" + p[0] + ", " + p[1] + ")");
+        }
+    }
+}
+```
+
+### C++
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    int f, g, row, col;
+    bool operator>(const Node& other) const { return f > other.f; }
+};
+
+int heuristic(int r1, int c1, int r2, int c2) {
+    return abs(r1 - r2) + abs(c1 - c2);
+}
+
+vector<pair<int,int>> astar(vector<vector<int>>& grid, pair<int,int> start, pair<int,int> end) {
+    int rows = grid.size(), cols = grid[0].size();
+    int dx[] = {-1, 1, 0, 0};
+    int dy[] = {0, 0, -1, 1};
+
+    priority_queue<Node, vector<Node>, greater<Node>> openSet;
+    map<pair<int,int>, pair<int,int>> cameFrom;
+    map<pair<int,int>, int> gScore;
+
+    gScore[start] = 0;
+    openSet.push({heuristic(start.first, start.second, end.first, end.second), 0, start.first, start.second});
+
+    while (!openSet.empty()) {
+        auto [f, g, cr, cc] = openSet.top();
+        openSet.pop();
+
+        if (make_pair(cr, cc) == end) {
+            // Reconstruct path
+            vector<pair<int,int>> path;
+            pair<int,int> cur = end;
+            while (cameFrom.count(cur)) {
+                path.push_back(cur);
+                cur = cameFrom[cur];
+            }
+            path.push_back(start);
+            reverse(path.begin(), path.end());
+            return path;
+        }
+
+        for (int d = 0; d < 4; d++) {
+            int nr = cr + dx[d], nc = cc + dy[d];
+            if (nr < 0 || nr >= rows || nc < 0 || nc >= cols || grid[nr][nc] == 1)
+                continue;
+
+            int tentativeG = gScore[{cr, cc}] + 1;
+            pair<int,int> neighbor = {nr, nc};
+
+            if (!gScore.count(neighbor) || tentativeG < gScore[neighbor]) {
+                cameFrom[neighbor] = {cr, cc};
+                gScore[neighbor] = tentativeG;
+                int newF = tentativeG + heuristic(nr, nc, end.first, end.second);
+                openSet.push({newF, tentativeG, nr, nc});
+            }
+        }
+    }
+    return {}; // No path found
+}
+
+int main() {
+    vector<vector<int>> grid = {
+        {0, 0, 0, 0, 0},
+        {0, 1, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 0, 1, 0},
+        {0, 0, 0, 0, 0}
+    };
+    auto path = astar(grid, {0, 0}, {4, 4});
+    for (auto& [r, c] : path) cout << "(" << r << ", " << c << ")\n";
+    return 0;
+}
+```
+
+### JavaScript
+
+```javascript
+function astar(grid, start, end) {
+  const rows = grid.length, cols = grid[0].length;
+  const heuristic = (a, b) => Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+
+  const openSet = new Map();
+  const closedSet = new Set();
+  const cameFrom = new Map();
+  const gScore = new Map();
+
+  const key = (r, c) => `${r},${c}`;
+  const startKey = key(start[0], start[1]);
+  const endKey = key(end[0], end[1]);
+
+  gScore.set(startKey, 0);
+  openSet.set(startKey, { f: heuristic(start, end), pos: start });
+
+  while (openSet.size > 0) {
+    // Find node with lowest f
+    let currentKey = null, lowestF = Infinity;
+    for (const [k, node] of openSet) {
+      if (node.f < lowestF) { lowestF = node.f; currentKey = k; }
+    }
+
+    const current = openSet.get(currentKey);
+    openSet.delete(currentKey);
+    closedSet.add(currentKey);
+
+    if (currentKey === endKey) {
+      // Reconstruct path
+      const path = [];
+      let k = currentKey;
+      while (cameFrom.has(k)) {
+        const pos = cameFrom.get(k);
+        path.unshift(pos);
+        k = key(pos[0], pos[1]);
+      }
+      path.push(end);
+      return path;
+    }
+
+    const [cr, cc] = current.pos;
+    for (const [dr, dc] of [[-1,0],[1,0],[0,-1],[0,1]]) {
+      const nr = cr + dr, nc = cc + dc;
+      if (nr < 0 || nr >= rows || nc < 0 || nc >= cols || grid[nr][nc] === 1)
+        continue;
+
+      const neighborKey = key(nr, nc);
+      if (closedSet.has(neighborKey)) continue;
+
+      const tentativeG = (gScore.get(currentKey) || 0) + 1;
+      if (tentativeG < (gScore.get(neighborKey) ?? Infinity)) {
+        cameFrom.set(neighborKey, current.pos);
+        gScore.set(neighborKey, tentativeG);
+        const f = tentativeG + heuristic([nr, nc], end);
+        openSet.set(neighborKey, { f, pos: [nr, nc] });
+      }
+    }
+  }
+  return null; // No path found
+}
+
+// Example usage
+const grid = [
+  [0, 0, 0, 0, 0],
+  [0, 1, 1, 0, 0],
+  [0, 0, 1, 0, 0],
+  [0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 0],
+];
+console.log(astar(grid, [0, 0], [4, 4]));
+```
+
+---
+
+## Real-World Use Cases
+
+- **Game Development** — NPC pathfinding in games (e.g., enemies navigating around obstacles)
+- **Robotics** — Robot navigation in warehouse environments (e.g., Amazon warehouse robots)
+- **GPS Navigation** — Finding shortest driving routes between two locations
+- **AI Planning** — State-space search in puzzle solving (e.g., 15-puzzle, Rubik's Cube)
+- **Network Routing** — Optimizing data packet routing through network nodes
+
+---
+
+## Related LeetCode Problems
+
+| Problem | Difficulty | Link |
+|---------|------------|------|
+| #1091 — Shortest Path in Binary Matrix | Medium | [LeetCode](https://leetcode.com/problems/shortest-path-in-binary-matrix/) |
+| #752 — Open the Lock | Medium | [LeetCode](https://leetcode.com/problems/open-the-lock/) |
+| #773 — Sliding Puzzle | Hard | [LeetCode](https://leetcode.com/problems/sliding-puzzle/) |
+| #1293 — Shortest Path in a Grid with Obstacles Elimination | Hard | [LeetCode](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/) |
+
+---
+
+## Summary
+
+- A\* combines **Dijkstra's guaranteed optimality** with **heuristic-guided speed**
+- Uses **f(n) = g(n) + h(n)** to prioritize which nodes to explore
+- With an **admissible heuristic**, it guarantees the shortest path
+- Typically much faster than BFS/Dijkstra for pathfinding in grids
+- The choice of heuristic greatly affects performance — **Manhattan distance** is ideal for 4-directional grids

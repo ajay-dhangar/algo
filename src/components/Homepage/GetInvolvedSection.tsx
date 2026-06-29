@@ -1,175 +1,161 @@
 import React from "react";
 import Link from "@docusaurus/Link";
-import { 
-  FaTrophy, 
-  FaLaptopCode, 
-  FaUsers, 
-  FaChalkboardTeacher, 
-  FaGraduationCap, 
-  FaCode,
+import clsx from "clsx";
+import {
+  FaCodeBranch,
+  FaLaptopCode,
+  FaChalkboardTeacher,
+  FaUsers,
+  FaGraduationCap,
+  FaLightbulb,
   FaArrowRight
 } from "react-icons/fa";
 
-interface InvolvementCard {
+interface EventItem {
   title: string;
   description: string;
-  link: string;
-  icon: React.ReactElement;
-  actionLabel?: string;
+  link?: string;
+  icon: React.ReactNode;
+  tag: string;
+  tagClass: string;
+  ctaText: string;
 }
 
-const cards: InvolvementCard[] = [
+const events: EventItem[] = [
   {
-    title: "Hackathons",
-    description: "Participate in global sprints to showcase engineering architectures, smash bugs, and claim ecosystem prizes.",
-    link: "https://hacktoberfest.com/",
-    icon: <FaTrophy />,
-    actionLabel: "View Hackathons",
+    title: "Open Source Contributions",
+    description: "Solve open issues, refactor data structures, and optimize complex time complexities in our core algorithm index.",
+    link: "https://github.com/ajay-dhangar/algo",
+    icon: <FaCodeBranch />,
+    tag: "Highly Recommended",
+    tagClass: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+    ctaText: "Explore Issues"
   },
   {
-    title: "Workshops",
-    description: "Join interactive, live technical deeper dives highlighting core performance stacks and software design patterns.",
-    link: "#", // Simulates coming soon status
+    title: "Hackathons",
+    description: "Push your limits under tight execution clocks. Build functional prototypes, crush bugs, and win exclusive developer swag.",
+    link: "https://hacktoberfest.com/",
     icon: <FaLaptopCode />,
+    tag: "Live Event",
+    tagClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+    ctaText: "Join Hackathon"
   },
   {
     title: "Community Meetups",
-    description: "Connect with core contributors and share functional engineering patterns during our recurring technical mixers.",
+    description: "Sync with global maintainers, review system architectures, and showcase your optimization milestones on our networks.",
     link: "https://www.linkedin.com/in/ajay-dhangar/",
     icon: <FaUsers />,
-    actionLabel: "Join Network",
+    tag: "Networking",
+    tagClass: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
+    ctaText: "Connect with Devs"
+  },
+  {
+    title: "Technical Workshops",
+    description: "Deep dive into production system designs, binary manipulation, and spatial complexity trade-offs alongside core maintainers.",
+    icon: <FaChalkboardTeacher />,
+    tag: "Interactive Lessons",
+    tagClass: "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
+    ctaText: "Coming Soon"
   },
   {
     title: "Mentorship Programs",
-    description: "Get 1-on-1 code architecture guidance from staff developers and engineering veterans across the tech industry.",
-    link: "#", // Simulates coming soon status
-    icon: <FaChalkboardTeacher />,
+    description: "Get 1-on-1 code architecture guidance from elite engineers to prepare for technical screenings and whiteboarding panels.",
+    icon: <FaLightbulb />,
+    tag: "Career Growth",
+    tagClass: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20",
+    ctaText: "Join Queue"
   },
   {
-    title: "Online Courses",
-    description: "Enroll in guided programmatic curricular paths focused on clean sorting systems, algorithms, and micro-structures.",
-    link: "#", // Simulates coming soon status
+    title: "Interactive Courses",
+    description: "Progress through systematic algorithmic paradigms, solve rigorous diagnostic tests, and unlock verified completion badges.",
     icon: <FaGraduationCap />,
-  },
-  {
-    title: "Open Source Initiatives",
-    description: "Submit pull requests, write clean reference documentation, and elevate algorithmic structures inside our repository.",
-    link: "https://github.com/ajay-dhangar/algo",
-    icon: <FaCode />,
-    actionLabel: "Start Contributing",
+    tag: "Self-Paced",
+    tagClass: "bg-rose-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20",
+    ctaText: "Browse Syllabi"
   },
 ];
 
-const GetInvolvedSection: React.FC = () => {
-  return (
-    <section className="relative overflow-hidden py-24 bg-gradient-to-b from-white via-slate-50/50 to-white dark:from-gray-950 dark:via-gray-900/40 dark:to-gray-950">
-      {/* Structural Neon Ambient Orbs */}
-      <div className="absolute top-1/3 left-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[var(--ifm-color-primary)]/5 blur-[120px]" />
+// Inner Event Card Layout
+const EventCard: React.FC<{ event: EventItem }> = ({ event }) => {
+  const CardWrapper = event.link ? Link : "div";
 
-      <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        
-        {/* Component Header Block */}
-        <div className="text-center mb-20 mx-auto max-w-3xl">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
-            Get Involved <span className="text-[var(--ifm-color-primary)] bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 bg-clip-text text-transparent">Today</span>
+  return (
+    <CardWrapper
+      to={event.link}
+      className={clsx(
+        "group relative flex flex-col justify-between rounded-2xl border p-6 transition-all duration-300 no-underline hover:no-underline",
+        event.link
+          ? "border-slate-200 bg-white shadow-sm hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/5 dark:border-slate-800 dark:bg-slate-900/60 dark:hover:border-blue-500"
+          : "border-slate-200/60 bg-slate-50/50 opacity-75 dark:border-slate-800/40 dark:bg-slate-900/20"
+      )}
+    >
+      <div>
+        {/* Card Metadata Top Deck */}
+        <div className="flex items-center justify-between gap-4 mb-5">
+          <div className={clsx(
+            "flex h-11 w-11 items-center justify-center rounded-xl text-lg transition-transform group-hover:scale-110",
+            event.link
+              ? "bg-blue-500/5 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400"
+              : "bg-slate-200 text-slate-400 dark:bg-slate-800 dark:text-slate-600"
+          )}>
+            {event.icon}
+          </div>
+          <span className={clsx("rounded-full border px-2.5 py-0.5 font-mono text-[10px] font-bold tracking-wide uppercase", event.tagClass)}>
+            {event.tag}
+          </span>
+        </div>
+
+        {/* Card Typography */}
+        <h3 className="mb-2 text-lg font-bold tracking-tight text-slate-900 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400 transition-colors">
+          {event.title}
+        </h3>
+        <p className="mb-6 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+          {event.description}
+        </p>
+      </div>
+
+      {/* Dynamic CTA Footer Section */}
+      <div className={clsx(
+        "inline-flex items-center gap-1.5 text-xs font-bold font-mono tracking-wide uppercase mt-auto",
+        event.link
+          ? "text-blue-600 dark:text-blue-400"
+          : "text-slate-400 dark:text-slate-600"
+      )}>
+        <span>{event.ctaText}</span>
+        {event.link && <FaArrowRight className="transition-transform group-hover:translate-x-1" />}
+      </div>
+    </CardWrapper>
+  );
+};
+export default function GetInvolvedSection(): JSX.Element {
+  return (
+    <section className="relative overflow-hidden bg-slate-50 px-4 py-20 dark:bg-[#090d16]">
+      {/* Background Ambience Accent Blobs */}
+      <div className="absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 h-[400px] w-[400px] rounded-full bg-indigo-500/5 blur-[100px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl relative z-10">
+
+        {/* Main Section Header */}
+        <div className="text-center mb-16 mx-auto max-w-3xl">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/5 border border-blue-500/10 px-3 py-1 text-xs font-mono font-semibold tracking-wider text-blue-600 dark:text-blue-400 mb-4">
+            JOIN THE ECOSYSTEM
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+            Get Involved  <span className="text-[var(--ifm-color-primary)] bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 bg-clip-text text-transparent">Today</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Become part of a highly active ecosystem. Pick your entry path below to refine your production engineering toolkit and collaborate with engineers worldwide.
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
+            Become part of a highly active sandbox. Pick an entry path below to refine your production engineering toolkit and collaborate with developers worldwide.
           </p>
         </div>
 
-        {/* 3-Column Responsive Interactive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-          {cards.map((card, index) => {
-            const isPlaceholder = card.link === "#";
-            
-            // Build out individual modular structural card block layout
-            const CardContent = (
-              <div className="
-                relative flex flex-col justify-between h-full p-6 sm:p-8
-                bg-white dark:bg-gray-900/40
-                backdrop-blur-md rounded-2xl
-                border border-slate-200/80 dark:border-slate-800/80
-                shadow-sm group-hover:shadow-xl
-                transition-all duration-300 ease-out
-                group-hover:-translate-y-1.5
-              "
-              >
-                {/* Active Focus Border Highlight Dynamic Frame Overlay */}
-                <div className={`absolute inset-0 border border-transparent rounded-2xl transition-colors duration-300 pointer-events-none ${!isPlaceholder ? "group-hover:border-[var(--ifm-color-primary)]/30" : ""}`} />
-
-                <div>
-                  {/* Top Panel: Card Icon Badge Indicator */}
-                  <div className={`
-                    mb-6 inline-flex p-3 rounded-xl border transition-all duration-300
-                    ${isPlaceholder 
-                      ? "bg-slate-50 dark:bg-slate-900 text-slate-400 border-slate-200/60 dark:border-slate-800" 
-                      : "bg-blue-50/50 dark:bg-blue-950/30 text-[var(--ifm-color-primary)] border-blue-100/50 dark:border-blue-900/20 group-hover:scale-110 group-hover:bg-[var(--ifm-color-primary)] group-hover:text-white group-hover:border-transparent"
-                    }
-                  `}>
-                    {React.cloneElement(card.icon, { className: "h-5 w-5 sm:h-6 sm:w-6" })}
-                  </div>
-
-                  {/* Context Text Block Layout */}
-                  <h3 className={`text-xl font-bold tracking-tight mb-3 transition-colors duration-200 ${isPlaceholder ? "text-slate-500 dark:text-slate-400" : "text-slate-900 dark:text-white group-hover:text-[var(--ifm-color-primary)]"}`}>
-                    {card.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed mb-6">
-                    {card.description}
-                  </p>
-                </div>
-
-                {/* Bottom Panel Actions Footer Layout */}
-                <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/40 flex items-center justify-between text-sm font-bold">
-                  {isPlaceholder ? (
-                    <span className="text-xs font-mono font-medium tracking-wider px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200/40 dark:border-slate-700/50">
-                      COMING SOON
-                    </span>
-                  ) : (
-                    <div className="inline-flex items-center gap-1.5 text-[var(--ifm-color-primary)]">
-                      <span>{card.actionLabel || "Explore Program"}</span>
-                      <FaArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-1" />
-                    </div>
-                  )}
-                </div>
-              </div>
-            );
-
-            // Conditional Routing Architecture Evaluator
-            if (isPlaceholder) {
-              return (
-                <div key={index} className="group opacity-75 cursor-not-allowed select-none">
-                  {CardContent}
-                </div>
-              );
-            }
-
-            const isExternal = card.link.startsWith("http");
-
-            return isExternal ? (
-              <a 
-                key={index} 
-                href={card.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group no-underline hover:no-underline outline-none"
-              >
-                {CardContent}
-              </a>
-            ) : (
-              <Link 
-                key={index} 
-                to={card.link} 
-                className="group no-underline hover:no-underline outline-none"
-              >
-                {CardContent}
-              </Link>
-            );
-          })}
+        {/* Responsive Flex/Grid Cards Matrix */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {events.map((event, index) => (
+            <EventCard key={index} event={event} />
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default GetInvolvedSection;
+}

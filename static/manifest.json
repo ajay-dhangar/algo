@@ -1,0 +1,48 @@
+{
+  "name": "Algo",
+  "short_name": "ALGO",
+  "description": "Algo is a web application that provides a collection of algorithms and data structures implemented in various programming languages. It serves as a resource for developers, students, and anyone interested in learning about algorithms and data structures.",
+  "theme_color": "#2196f3",
+  "background_color": "#424242",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./index.html",
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://ajay-dhangar.github.io/algo///manifest.json"
+    }
+  ],
+  "icons": [
+    {
+      "src": "logo/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "logo/logo.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "logo/logo.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "logo/logo.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "logo/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,392 +1,381 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  FaUserCircle, 
+  FaSignOutAlt, 
+  FaClock, 
+  FaTree, 
+  FaCheckCircle, 
+  FaTimesCircle, 
+  FaChevronRight, 
+  FaHistory, 
+  FaAward,
+  FaRedoAlt
+} from "react-icons/fa";
+
+// Existing custom quiz sub-components (assumed available in your project)
+import { safeJsonParse } from "../../utils/safeStorage";
+
+interface RBTQuestion {
+  id: number;
+  difficulty: "Easy" | "Medium" | "Hard";
+  question: string;
+  options: string[];
+  answer: string;
+  explanation: string;
+}
+
+interface AttemptRecord {
+  timestamp: number;
+  score: number;
+  timeSpent: number;
+}
+
+const QUESTIONS: RBTQuestion[] = [
+  {
+    id: 1,
+    difficulty: "Easy",
+    question: "Which fundamental property characterizes a Red-Black Tree (RBT)?",
+    options: [
+      "A) A binary search tree where every node is red.",
+      "B) A self-balancing binary search tree with an extra bit for node color.",
+      "C) A complete binary tree where all levels are filled.",
+      "D) A tree where left children are always red and right are black."
+    ],
+    answer: "B) A self-balancing binary search tree with an extra bit for node color.",
+    explanation: "Red-Black trees use a color bit (Red or Black) per node. This metadata, combined with specific rules, ensures the tree remains approximately balanced during mutations."
+  },
+  {
+    id: 2,
+    difficulty: "Easy",
+    question: "In a valid Red-Black Tree configuration, what must be the color of the Root node?",
+    options: ["A) Red", "B) Black", "C) Either Red or Black", "D) Transparent"],
+    answer: "B) Black",
+    explanation: "Property 2 of Red-Black trees strictly states that the root must be Black. This is crucial for maintaining the black-height stability of the tree."
+  },
+  {
+    id: 3,
+    difficulty: "Easy",
+    question: "What color are the leaves (NIL/External nodes) in a Red-Black Tree?",
+    options: ["A) Red", "B) Black", "C) Grey", "D) Leaves do not have colors"],
+    answer: "B) Black",
+    explanation: "All leaf nodes (NIL) are considered Black. This allows every path from a node to reach a black 'endpoint'."
+  },
+  {
+    id: 4,
+    difficulty: "Medium",
+    question: "If a node is Red, what constraint applies to its children?",
+    options: [
+      "A) Both children must be Red.",
+      "B) At least one child must be Black.",
+      "C) Both children must be Black.",
+      "D) Red nodes cannot have children."
+    ],
+    answer: "C) Both children must be Black.",
+    explanation: "The 'No Two Red Nodes' rule: A Red node cannot have a Red child. This prevents the tree from becoming too skewed or 'heavy' on one side."
+  },
+  {
+    id: 5,
+    difficulty: "Medium",
+    question: "What is the 'Black-Height' property regarding paths from a node to its leaves?",
+    options: [
+      "A) Every path must have more red nodes than black nodes.",
+      "B) Every path from a node to its descendant leaves must contain the same number of black nodes.",
+      "C) The total number of nodes in any path must be even.",
+      "D) The root to leaf path must be shorter than log(n)."
+    ],
+    answer: "B) Every path from a node to its descendant leaves must contain the same number of black nodes.",
+    explanation: "This is the most critical property. By ensuring all paths have the same number of black nodes, we guarantee that no path is more than twice as long as any other path."
+  },
+  {
+    id: 6,
+    difficulty: "Medium",
+    question: "What is the maximum theoretical height of a Red-Black tree with 'n' internal nodes?",
+    options: ["A) O(n)", "B) O(log n)", "C) Approximately 2 * log(n + 1)", "D) O(sqrt(n))"],
+    answer: "C) Approximately 2 * log(n + 1)",
+    explanation: "Because of the balance properties, the height of a Red-Black tree is guaranteed to be logarithmic, specifically at most twice the height of a perfectly balanced BST."
+  },
+  {
+    id: 7,
+    difficulty: "Hard",
+    question: "When inserting a new node into an RBT, what is its initial color before rebalancing begins?",
+    options: ["A) Black", "B) Red", "C) Random", "D) Depends on the parent's color"],
+    answer: "B) Red",
+    explanation: "New nodes are always inserted as Red. This avoids violating the black-height property (Prop 5) immediately, though it may violate the red-child rule (Prop 4), which is then fixed via rotations."
+  },
+  {
+    id: 8,
+    difficulty: "Hard",
+    question: "Which of the following operations is used during rebalancing if an inserted node's uncle is also Red?",
+    options: [
+      "A) Only Left Rotation",
+      "B) Only Right Rotation",
+      "C) Recoloring (flipping colors of parent, uncle, and grandparent)",
+      "D) Deleting the node"
+    ],
+    answer: "C) Recoloring (flipping colors of parent, uncle, and grandparent)",
+    explanation: "If the uncle is Red, we can simply flip the colors of the parent, uncle, and grandparent without needing complex rotations. We then move our focus up to the grandparent to ensure no new violations were created."
+  },
+  {
+    id: 9,
+    difficulty: "Medium",
+    question: "What is the primary advantage of a Red-Black Tree over a standard Binary Search Tree?",
+    options: [
+      "A) It uses less memory than a BST.",
+      "B) It guarantees O(log n) performance for search, insert, and delete operations.",
+      "C) It is easier to implement code-wise.",
+      "D) It keeps nodes sorted in reverse order."
+    ],
+    answer: "B) It guarantees O(log n) performance for search, insert, and delete operations.",
+    explanation: "A standard BST can become a 'linked list' (O(n)) if data is inserted in sorted order. An RBT forces balance, ensuring O(log n) even in the worst-case insertion scenarios."
+  },
+  {
+    id: 10,
+    difficulty: "Hard",
+    question: "Which rotation is required if we have a 'Left-Right' violation (inserted node is right child of a left child)?",
+    options: [
+      "A) Single Right Rotation",
+      "B) Single Left Rotation",
+      "C) Left Rotation on child, then Right Rotation on parent",
+      "D) No rotation is needed for this case"
+    ],
+    answer: "C) Left Rotation on child, then Right Rotation on parent",
+    explanation: "A double rotation is needed to fix the zig-zag. We first rotate the child to turn the zig-zag into a straight line, then rotate the parent to restore balance."
+  }
+];
 
 const RedBlackTreeQuiz: React.FC = () => {
-  const questions = [
-    // Easy Questions
-    {
-      question: (
-        <>
-          1. What is a Red-Black Tree?
-        </>
-      ),
-      options: [
-        "A) A binary search tree with additional color properties.",
-        "B) A tree that only allows red nodes.",
-        "C) A tree where all nodes are black.",
-        "D) A tree with no duplicate values.",
-      ],
-      answer: "A) A binary search tree with additional color properties.",
-    },
-    {
-      question: (
-        <>
-          2. What are the two colors used in a Red-Black Tree?
-        </>
-      ),
-      options: [
-        "A) Red and Blue",
-        "B) Black and White",
-        "C) Red and Black",
-        "D) Green and Yellow",
-      ],
-      answer: "C) Red and Black",
-    },
-    {
-      question: (
-        <>
-          3. What is the maximum height of a Red-Black Tree with n nodes?
-        </>
-      ),
-      options: [
-        "A) O(n)",
-        "B) O(log n)",
-        "C) O(2 log n)",
-        "D) O(sqrt(n))",
-      ],
-      answer: "B) O(log n)",
-    },
-    // Average Questions
-    {
-      question: (
-        <>
-          4. Which of the following properties must be true for a Red-Black Tree?
-        </>
-      ),
-      options: [
-        "A) The root must be red.",
-        "B) Red nodes cannot have red children.",
-        "C) All leaves are red.",
-        "D) Every path from a node to its leaves must have the same number of red nodes.",
-      ],
-      answer: "B) Red nodes cannot have red children.",
-    },
-    {
-      question: (
-        <>
-          5. What is the role of rotations in Red-Black Trees?
-        </>
-      ),
-      options: [
-        "A) To delete nodes.",
-        "B) To maintain the balance of the tree.",
-        "C) To insert nodes.",
-        "D) To traverse the tree.",
-      ],
-      answer: "B) To maintain the balance of the tree.",
-    },
-    {
-      question: (
-        <>
-          6. When a new node is inserted into a Red-Black Tree, what color is it initially?
-        </>
-      ),
-      options: [
-        "A) Red",
-        "B) Black",
-        "C) Blue",
-        "D) Green",
-      ],
-      answer: "A) Red",
-    },
-    // Difficult Questions
-    {
-      question: (
-        <>
-          7. In a Red-Black Tree, how do you ensure that the tree remains balanced after an insertion?
-        </>
-      ),
-      options: [
-        "A) By performing rotations and recoloring nodes.",
-        "B) By deleting the inserted node.",
-        "C) By adjusting the tree's height.",
-        "D) By increasing the tree's depth.",
-      ],
-      answer: "A) By performing rotations and recoloring nodes.",
-    },
-    {
-      question: (
-        <>
-          8. Which of the following scenarios requires a right rotation in a Red-Black Tree?
-        </>
-      ),
-      options: [
-        "A) Inserting a red node in the left subtree of a left child.",
-        "B) Inserting a red node in the right subtree of a right child.",
-        "C) Inserting a red node in the right subtree of a left child.",
-        "D) Inserting a black node.",
-      ],
-      answer: "A) Inserting a red node in the left subtree of a left child.",
-    },
-    {
-      question: (
-        <>
-          9. What happens if a Red-Black Tree property is violated during an insertion?
-        </>
-      ),
-      options: [
-        "A) The tree is deleted.",
-        "B) The tree is rebalanced.",
-        "C) The insertion is aborted.",
-        "D) No action is taken.",
-      ],
-      answer: "B) The tree is rebalanced.",
-    },
-    {
-      question: (
-        <>
-          10. What is the primary advantage of using a Red-Black Tree over a regular Binary Search Tree?
-        </>
-      ),
-      options: [
-        "A) It requires less memory.",
-        "B) It guarantees O(log n) time complexity for insertions, deletions, and searches.",
-        "C) It can store duplicate values.",
-        "D) It allows for faster traversals.",
-      ],
-      answer: "B) It guarantees O(log n) time complexity for insertions, deletions, and searches.",
-    },
-  ];
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
-
-  // Custom states for persistence, timer, and history
-  const [usernameInput, setUsernameInput] = useState("");
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [username, setUsername] = useState<string | null>(null);
+  const [usernameInput, setUsernameInput] = useState("");
   const [timeSpent, setTimeSpent] = useState(0);
-  const [attempts, setAttempts] = useState<any[]>([]);
+  const [history, setHistory] = useState<AttemptRecord[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
 
+  // Initialize from LocalStorage
   useEffect(() => {
-    const storedId = localStorage.getItem("quiz_userId");
-    const storedName = localStorage.getItem("quiz_username");
-    if (storedId && storedName) {
-      setUserId(storedId);
-      setUsername(storedName);
+    setIsMounted(true);
+    const savedUser = localStorage.getItem("rbt_quiz_user");
+    if (savedUser) {
+      setUsername(savedUser);
+      setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${savedUser}`, []));
     }
   }, []);
 
+  // Timer logic
   useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId]);
-
-  useEffect(() => {
-    if (showResult || !userId) return;
-    const timer = setInterval(() => {
-      setTimeSpent((prev) => prev + 1);
-    }, 1000);
+    if (showResult || !username) return;
+    const timer = setInterval(() => setTimeSpent(p => p + 1), 1000);
     return () => clearInterval(timer);
-  }, [showResult, userId]);
+  }, [showResult, username]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(`http://localhost:5000/api/quiz-attempts/${uId}/red-black-tree`);
-      if (res.data?.success) {
-        setAttempts(res.data.attempts);
-      }
-    } catch (e) {
-      console.error("Error fetching attempt history:", e);
+  const score = useMemo(() => {
+    return userAnswers.reduce((acc, ans, idx) => (ans === QUESTIONS[idx]?.answer ? acc + 1 : acc), 0);
+  }, [userAnswers]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
     }
   };
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
-    const slug = usernameInput.trim().toLowerCase().replace(/[^a-z0-9_-]/g, "-");
-    localStorage.setItem("quiz_userId", slug);
-    localStorage.setItem("quiz_username", usernameInput.trim());
-    setUserId(slug);
+    localStorage.setItem("rbt_quiz_user", usernameInput.trim());
     setUsername(usernameInput.trim());
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("quiz_userId");
-    localStorage.removeItem("quiz_username");
-    setUserId(null);
+    localStorage.removeItem("rbt_quiz_user");
     setUsername(null);
-    setAttempts([]);
-  };
-
-  const submitAttempt = async (finalAnswers: string[]) => {
-    if (!userId) return;
-    try {
-      await axios.post("http://localhost:5000/api/quiz-attempts", {
-        userId,
-        quizId: "red-black-tree",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Error submitting attempt:", e);
-    }
+    handleRetry();
   };
 
   const handleAnswer = (selected: string) => {
-    setSelectedOption(selected);
+    const updated = [...userAnswers];
+    updated[currentQuestion] = selected;
+    setUserAnswers(updated);
   };
 
-  const nextQuestion = () => {
-    setUserAnswers((prev) => [...prev, selectedOption]);
-
-    if (selectedOption === questions[currentQuestion].answer) {
-      setScore((prev) => prev + 1);
-    }
-
-    if (currentQuestion < questions.length - 1) {
+  const handleNext = () => {
+    if (currentQuestion < QUESTIONS.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers, selectedOption];
-      submitAttempt(finalAnswers);
+      const newAttempt = { timestamp: Date.now(), score, timeSpent };
+      const updatedHistory = [newAttempt, ...history].slice(0, 5);
+      setHistory(updatedHistory);
+      localStorage.setItem(`rbt_history_${username}`, JSON.stringify(updatedHistory));
     }
   };
 
-  if (!userId) {
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setShowResult(false);
+    setUserAnswers([]);
+    setTimeSpent(0);
+  };
+
+  const formatTime = (s: number) => `${Math.floor(s / 60)}m ${s % 60}s`;
+
+  if (!isMounted) return null;
+
+  if (!username) {
     return (
-      <Layout title="Quiz on Red-Black Trees" description="Challenge your understanding of the properties and algorithms of Red-Black Trees.">
-        <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
-          <div className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-10 w-full max-w-md text-center border border-gray-100 dark:border-gray-700">
-            <div className="text-5xl mb-4">🏆</div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">Welcome to the Quiz!</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
-              Please enter your username to track your progress, save your attempts, and compete on the global leaderboard.
+      <Layout title="Red-Black Tree Quiz">
+        <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] flex items-center justify-center p-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl rounded-3xl p-10 max-w-md w-full text-center">
+            <div className="w-20 h-20 bg-red-500/10 text-red-800 dark:text-red-400 rounded-2xl flex items-center justify-center text-4xl mx-auto mb-6">
+              <FaTree />
+            </div>
+            <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight mb-2">RB-Tree Terminal</h2>
+            <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm leading-relaxed">
+              Analyze balance factors, recoloring cases, and rotation logic. Please initialize your developer alias to begin.
             </p>
             <form onSubmit={handleRegister} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Enter username (e.g. JohnDoe)"
-                value={usernameInput}
-                onChange={(e) => setUsernameInput(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors cursor-pointer border-none"
-              >
-                Let's Begin!
+              <input type="text" placeholder="Alias (e.g. AlgoExpert)" value={usernameInput} onChange={e => setUsernameInput(e.target.value)}
+                className="w-full px-5 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-red-500 transition-all font-semibold" required />
+              <button type="submit" className="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-lg active:scale-95 border-none cursor-pointer">
+                Enter Terminal
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </Layout>
     );
   }
 
   return (
-    <Layout title="Quiz on Red-Black Trees" description="Challenge your understanding of the properties and algorithms of Red-Black Trees.">
-      <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex flex-col items-center justify-center p-6 transition-colors duration-500">
-        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
+    <Layout title="Red-Black Tree Assessment">
+      <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
+        <div className="max-w-4xl mx-auto">
           
-          <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 mb-4 bg-gray-100 dark:bg-gray-700/50 px-4 py-2 rounded-lg">
-            <span>Logged in as: <strong className="text-gray-900 dark:text-white">{username}</strong></span>
-            <button onClick={handleLogout} className="text-red-500 hover:underline border-none bg-transparent cursor-pointer">Change User</button>
+          {/* Identity & Status Header */}
+          <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 mb-8 shadow-sm">
+            <div className="flex items-center gap-3">
+              <FaUserCircle className="text-2xl text-red-800 dark:text-red-400" />
+              <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-widest">USER_SESSION: <strong className="text-slate-900 dark:text-white">{username}</strong></span>
+            </div>
+            <div className="flex items-center gap-4">
+               {!showResult && <div className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-lg text-red-800 dark:text-red-400 border border-red-500/20"><FaClock className="inline mr-1"/> {formatTime(timeSpent)}</div>}
+               <button onClick={handleLogout} className="text-slate-400 hover:text-red-800 dark:text-red-400 transition-colors border-none bg-transparent cursor-pointer text-xs font-bold"><FaSignOutAlt className="inline mr-1"/> DISCONNECT</button>
+            </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Quiz on Red-Black Trees</h2>
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl overflow-hidden relative">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-bl-full -mr-10 -mt-10 pointer-events-none"></div>
 
-          {!showResult && (
-            <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-right">
-              ⏱ Time: {Math.floor(timeSpent / 60)}m {timeSpent % 60}s
-            </div>
-          )}
-
-          {showResult ? (
-            <div>
-              <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
-                <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
-                  Your Score: <span className="text-4xl">{score}</span> 🎉
-                </h3>
-                <p className="mt-4 text-lg">
-                  {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
-                </p>
-              </div>
-
-              {/* Solutions Section */}
-              <div className="mt-8">
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions:</h3>
-                {questions.map((q, index) => (
-                  <div key={index} className="mb-6 text-left">
-                    <div className="text-lg font-semibold">{q.question}</div>
-                    <p className="text-md">
-                      <span className="font-bold">Your Answer:</span> {userAnswers[index]}
-                    </p>
-                    <p className="text-md">
-                      <span className="font-bold">Correct Answer:</span> {q.answer}
-                    </p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
-                      <span className="font-bold">Explanation:</span> {q.explanation}
-                    </p>
+            <AnimatePresence mode="wait">
+              {!showResult ? (
+                <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-red-800 dark:text-red-400 bg-red-600/10 px-3 py-1 rounded-full border border-red-600/20">
+                      Module 08: Balanced Trees
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">Question {currentQuestion + 1} / {QUESTIONS.length}</span>
                   </div>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div>
-              <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4 text-left">
-                {questions[currentQuestion].question}
-              </h3>
-              <div className="space-y-4">
-                {questions[currentQuestion].options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswer(option)}
-                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
-                        ? "bg-blue-600 text-white dark:bg-blue-500"
-                        : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                      }`}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={nextQuestion}
-                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none cursor-pointer font-semibold"
-              >
-                Next Question
-              </button>
-            </div>
-          )}
 
-          {/* Attempts History */}
-          {attempts.length > 0 && (
-            <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left w-full">
-              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Your Attempt History:</h3>
-              <div className="space-y-3">
-                {attempts.map((att, index) => (
-                  <div key={att.id || index} className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex justify-between items-center hover:shadow-md transition-shadow">
-                    <div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {new Date(att.completedAt).toLocaleString()}
+                  <div className="space-y-8 text-left">
+                    <div className="flex items-center gap-3">
+                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded uppercase ${QUESTIONS[currentQuestion].difficulty === 'Hard' ? 'bg-red-600 text-white' : 'bg-slate-800 text-slate-100'}`}>
+                        {QUESTIONS[currentQuestion].difficulty}
+                       </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold leading-snug text-slate-900 dark:text-white">
+                      {QUESTIONS[currentQuestion].question}
+                    </h3>
+
+                    <div className="grid grid-cols-1 gap-4 pt-4">
+                      {QUESTIONS[currentQuestion].options.map((opt, i) => (
+                        <button key={i} onClick={() => handleAnswer(opt)} role="radio" aria-checked={userAnswers[currentQuestion] === opt}
+                          className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-red-600/5 border-red-600 dark:bg-red-600/10' : 'bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 hover:border-red-600/50'}`}>
+                          <span className={`text-sm md:text-base font-semibold ${userAnswers[currentQuestion] === opt ? 'text-red-800 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'}`}>{opt}</span>
+                          <div className={`w-5 h-5 rounded-full border-2 ${userAnswers[currentQuestion] === opt ? 'border-red-600 bg-red-600' : 'border-slate-300 dark:border-slate-600 group-hover:border-red-600/50'}`}>
+                            {userAnswers[currentQuestion] === opt && <div className="w-2 h-2 bg-white rounded-full m-auto mt-1"></div>}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+
+                    <button onClick={handleNext} disabled={!userAnswers[currentQuestion]}
+                      className={`w-full py-4 mt-10 rounded-2xl font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2 transition-all border-none ${userAnswers[currentQuestion] ? 'bg-slate-900 dark:bg-red-600 text-white hover:opacity-90 shadow-xl cursor-pointer' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed'}`}>
+                      {currentQuestion === QUESTIONS.length - 1 ? 'Compile Results' : 'Proceed to Next Node'} <FaChevronRight className="text-[10px]"/>
+                    </button>
+                  </div>
+                </motion.div>
+              ) : (
+                /* RESULTS VIEW */
+                <motion.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-12">
+                  <div className="bg-red-600/5 dark:bg-red-600/10 border border-red-600/20 rounded-3xl p-10 text-center">
+                    <FaAward className="text-5xl text-red-800 dark:text-red-400 mb-4 mx-auto" />
+                    <h3 className="text-xl font-black uppercase text-red-800 dark:text-red-400 mb-2 tracking-widest">Diagnostic Report</h3>
+                    <div className="inline-flex items-baseline gap-2 text-7xl font-black text-slate-900 dark:text-white font-mono">
+                      {score}<span className="text-2xl text-slate-400 font-normal">/ {QUESTIONS.length}</span>
+                    </div>
+                    <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm font-medium max-w-sm mx-auto">
+                      {score === QUESTIONS.length ? 'Perfect balance! Your understanding of RBT invariants is flawlessly optimized.' : 'Calibration required. Trace the red-child and black-height violations below.'}
+                    </p>
+                    <button onClick={handleRetry} className="mt-8 bg-red-600 text-white px-8 py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-all cursor-pointer border-none shadow-lg"><FaRedoAlt className="inline mr-2"/> RETRY SIMULATION</button>
+                  </div>
+
+                  <div className="text-left space-y-10">
+                    <h4 className="text-sm font-mono font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-4 flex items-center gap-2">
+                       <FaTree className="text-red-800 dark:text-red-400"/> Structural Logic Tracing
+                    </h4>
+                    {QUESTIONS.map((q, idx) => (
+                      <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-5">
+                        <div className="flex items-start justify-between gap-4">
+                          <h5 className="text-sm md:text-base font-bold leading-relaxed">{idx + 1}. {q.question}</h5>
+                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0 text-xl"/> : <FaTimesCircle className="text-red-800 dark:text-red-400 shrink-0 text-xl"/>}
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono uppercase tracking-tighter">
+                          <div className={`p-4 rounded-xl border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-600' : 'bg-red-500/5 border-red-500/20 text-red-800 dark:text-red-400'}`}>
+                            <span className="block text-[8px] font-black opacity-60 mb-2">User Registry</span> {userAnswers[idx] || '[NULL_ENTRY]'}
+                          </div>
+                          {userAnswers[idx] !== q.answer && <div className="p-4 rounded-xl border bg-emerald-500/5 border-emerald-500/20 text-emerald-600">
+                             <span className="block text-[8px] font-black opacity-60 mb-2">Expected Invariant</span> {q.answer}
+                          </div>}
+                        </div>
+                        <p className="text-[11px] md:text-xs leading-relaxed text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/50 p-5 rounded-2xl border border-dashed border-slate-200 dark:border-slate-800">
+                          <strong className="text-red-800 dark:text-red-400 not-italic block mb-2 uppercase font-black tracking-widest text-[9px]">Compiler Insight:</strong> {q.explanation}
+                        </p>
                       </div>
-                      <div className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                        Attempt #{attempts.length - index}
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* ATTEMPT HISTORY (LOCAL STORAGE) */}
+            {history.length > 0 && (
+              <div className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800 text-left">
+                <div className="flex items-center gap-2 mb-8">
+                  <FaHistory className="text-red-800 dark:text-red-400 text-xs" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Terminal History (Last 5 Runs)</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {history.map((h, i) => (
+                    <div key={i} className="bg-slate-100/50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 flex justify-between items-center group hover:border-red-600/30 transition-all">
+                      <div className="space-y-1">
+                        <div className="text-[10px] font-mono text-slate-400 uppercase tracking-tighter">{new Date(h.timestamp).toLocaleString(undefined, {dateStyle: 'short', timeStyle: 'short'})}</div>
+                        <div className="text-xs font-black text-slate-700 dark:text-slate-200 uppercase">RUN_#{history.length - i}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-lg font-black text-red-800 dark:text-red-400 font-mono">{h.score}/{QUESTIONS.length}</div>
+                        <div className="text-[9px] text-slate-400 uppercase font-bold">{formatTime(h.timeSpent)}</div>
                       </div>
                     </div>
-                    <div className="text-right">
-                      <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
-                        {att.score} / {att.totalQuestions} ({Math.round((att.score / att.totalQuestions) * 100)}%)
-                      </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        Time spent: {Math.floor(att.timeSpent / 60)}m {att.timeSpent % 60}s
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
-
+            )}
+          </div>
         </div>
       </div>
     </Layout>

@@ -1,0 +1,33 @@
+name: Accessibility Audit (WCAG 2.1 AA)
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install pa11y-ci
+        run: npm install -g pa11y-ci
+
+      - name: Build Docusaurus site
+        run: npm run build
+
+      - name: Serve and Run Accessibility Audit
+        run: npx start-server-and-test 'npm run serve' 3000 'pa11y-ci --config .pa11yci'

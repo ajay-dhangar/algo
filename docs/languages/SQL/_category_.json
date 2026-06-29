@@ -1,0 +1,11 @@
+{
+  "label": "SQL",
+  "position": 10,
+  "customProps": {
+    "description": "The master of data! The absolute best tool to communicate with, organize, and analyze massive databases that power modern applications."
+  },
+  "link": {
+    "type": "generated-index",
+    "description": "Structured Query Language, the standard language for managing and manipulating relational databases."
+  }
+}

@@ -1,15 +1,16 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
 import { TOPICS } from "../../data/practiceProblems";
 import type { Difficulty, Problem, TopicData } from "../../data/practiceProblems";
+import { safeJsonParse } from "../../utils/safeStorage";
 
 const LEETCODE_BASE = "https://leetcode.com/problems/";
 
-const DIFFICULTY_CONFIG: Record<Difficulty, { color: string; bg: string; border: string }> = {
-  Easy:   { color: "#15803d", bg: "#f0fdf4", border: "#bbf7d0" },
-  Medium: { color: "#b45309", bg: "#fffbeb", border: "#fde68a" },
-  Hard:   { color: "#b91c1c", bg: "#fef2f2", border: "#fecaca" },
+const DIFFICULTY_CONFIG: Record<Difficulty, { color: string; bg: string; border: string; rawColor: string }> = {
+  Easy:   { color: "text-emerald-700 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/30", border: "border-emerald-200 dark:border-emerald-900/50", rawColor: "#10b981" },
+  Medium: { color: "text-amber-700 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-950/30", border: "border-amber-200 dark:border-amber-900/50", rawColor: "#f59e0b" },
+  Hard:   { color: "text-rose-700 dark:text-rose-400", bg: "bg-rose-50 dark:bg-rose-950/30", border: "border-rose-200 dark:border-rose-900/50", rawColor: "#ef4444" },
 };
 
 const DIFFICULTIES: Difficulty[] = ["Easy", "Medium", "Hard"];
@@ -22,21 +23,27 @@ function allProblemsForTopic(topic: string, data: TopicData) {
   const seen = new Set<string>();
   const result: { key: string; problem: Problem; difficulty: Difficulty }[] = [];
   for (const diff of DIFFICULTIES) {
-    for (const p of data.problems[diff]) {
-      const k = problemKey(topic, p);
-      if (!seen.has(k)) { seen.add(k); result.push({ key: k, problem: p, difficulty: diff }); }
+    if (data.problems[diff]) {
+      for (const p of data.problems[diff]) {
+        const k = problemKey(topic, p);
+        if (!seen.has(k)) {
+          seen.add(k);
+          result.push({ key: k, problem: p, difficulty: diff });
+        }
+      }
     }
   }
   return result;
 }
 
-// ─── Sidebar ──────────────────────────────────────────────────────────────────
+// ─── Sidebar Component ────────────────────────────────────────────────────────
 
 const Sidebar: React.FC<{
   solved: Set<string>;
   onToggle: (key: string) => void;
   onClose: () => void;
-}> = ({ solved, onToggle, onClose }) => {
+  isMobile: boolean;
+}> = ({ solved, onToggle, onClose, isMobile }) => {
   const allEntries = useMemo(() =>
     Object.entries(TOPICS).flatMap(([topic, data]) =>
       allProblemsForTopic(topic, data).map((e) => ({ ...e, topic }))
@@ -45,131 +52,147 @@ const Sidebar: React.FC<{
   const total       = allEntries.length;
   const solvedCount = allEntries.filter((e) => solved.has(e.key)).length;
   const pct         = total > 0 ? Math.round((solvedCount / total) * 100) : 0;
+  
   const easySolved  = allEntries.filter((e) => e.difficulty === "Easy"   && solved.has(e.key)).length;
   const medSolved   = allEntries.filter((e) => e.difficulty === "Medium" && solved.has(e.key)).length;
   const hardSolved  = allEntries.filter((e) => e.difficulty === "Hard"   && solved.has(e.key)).length;
+  
   const easyTotal   = allEntries.filter((e) => e.difficulty === "Easy").length;
   const medTotal    = allEntries.filter((e) => e.difficulty === "Medium").length;
   const hardTotal   = allEntries.filter((e) => e.difficulty === "Hard").length;
 
-  return (
-    <motion.aside
-      key="sidebar"
-      initial={{ x: -280, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -280, opacity: 0 }}
-      transition={{ type: "spring", stiffness: 280, damping: 30 }}
-      style={{
-        width: 268,
-        top: "var(--ifm-navbar-height, 60px)",
-        height: "calc(100vh - var(--ifm-navbar-height, 60px))",
-      }}
-      className="flex-shrink-0 sticky overflow-y-auto bg-[var(--ifm-background-color)] border-r border-[var(--ifm-color-emphasis-200)] flex flex-col z-10"
-    >
-      {/* Header */}
-      <div className="px-4 pt-[1.125rem] pb-4 border-b border-[var(--ifm-color-emphasis-200)]">
+  const sidebarContent = (
+    <div className="flex flex-col h-full bg-[var(--ifm-background-color)]">
+      {/* Progress Card Section */}
+      <div className="p-5 border-b border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-color-emphasis-100)]/30">
         <div className="flex items-center justify-between mb-4">
-          <span className="font-bold text-[0.9375rem] text-[var(--ifm-color-emphasis-900)]">Progress</span>
+          <span className="font-bold text-sm uppercase tracking-wider text-[var(--ifm-color-emphasis-600)]">Overall Analytics</span>
           <button
             onClick={onClose}
             aria-label="Close sidebar"
-            className="bg-transparent border-none cursor-pointer p-1 text-[var(--ifm-color-emphasis-500)] text-base leading-none"
+            className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--ifm-color-emphasis-200)] text-[var(--ifm-color-emphasis-600)] hover:text-[var(--ifm-color-emphasis-900)] transition-colors border-none cursor-pointer"
           >
             ✕
           </button>
         </div>
 
-        <div className="flex items-baseline gap-1.5 mb-[0.625rem]">
-          <span className="text-[2.25rem] font-extrabold leading-none text-[var(--ifm-color-primary)]">{pct}%</span>
-          <span className="text-[0.8125rem] text-[var(--ifm-color-emphasis-500)]">{solvedCount} / {total} solved</span>
+        <div className="flex items-baseline gap-2 mb-3">
+          <span className="text-4xl font-extrabold tracking-tight text-[var(--ifm-color-primary)]">{pct}%</span>
+          <span className="text-xs font-medium text-[var(--ifm-color-emphasis-500)]">Completed ({solvedCount}/{total})</span>
         </div>
 
-        <div className="h-1.5 bg-[var(--ifm-color-emphasis-200)] rounded-full overflow-hidden mb-[0.875rem]">
+        <div className="h-2 bg-[var(--ifm-color-emphasis-200)] rounded-full overflow-hidden mb-4 shadow-inner">
           <motion.div
             animate={{ width: `${pct}%` }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="h-full rounded-full"
-            style={{ background: "linear-gradient(90deg, var(--ifm-color-primary), #a855f7)" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="h-full rounded-full bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500"
           />
         </div>
 
-        <div className="grid grid-cols-3 gap-1.5">
-          {([
-            { label: "Easy",   s: easySolved, t: easyTotal,  color: "#15803d", bg: "#f0fdf4" },
-            { label: "Medium", s: medSolved,  t: medTotal,   color: "#b45309", bg: "#fffbeb" },
-            { label: "Hard",   s: hardSolved, t: hardTotal,  color: "#b91c1c", bg: "#fef2f2" },
-          ] as const).map(({ label, s, t, color, bg }) => (
-            <div key={label} style={{ background: bg }} className="rounded-lg py-1.5 text-center">
-              <div style={{ color }} className="text-lg font-bold leading-none">{s}</div>
-              <div style={{ color }} className="text-[0.625rem] opacity-75 mt-0.5">{label} / {t}</div>
+        <div className="grid grid-cols-3 gap-2">
+          {[
+            { label: "Easy", s: easySolved, t: easyTotal, cfg: DIFFICULTY_CONFIG.Easy },
+            { label: "Med", s: medSolved, t: medTotal, cfg: DIFFICULTY_CONFIG.Medium },
+            { label: "Hard", s: hardSolved, t: hardTotal, cfg: DIFFICULTY_CONFIG.Hard },
+          ].map(({ label, s, t, cfg }) => (
+            <div key={label} className={`rounded-xl p-2.5 text-center border border-solid ${cfg.border} ${cfg.bg}`}>
+              <div className={`text-base font-bold leading-none ${cfg.color}`}>{s}</div>
+              <div className={`text-[10px] font-semibold tracking-wide uppercase mt-1 opacity-80 ${cfg.color}`}>{label}: {t}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Checklist */}
-      <div className="flex-1 overflow-y-auto py-1.5">
+      {/* Real-time Checklist Tracker */}
+      <div className="flex-1 overflow-y-auto divide-y divide-solid divide-[var(--ifm-color-emphasis-100)]">
         {Object.entries(TOPICS).map(([topic, data]) => {
           const entries = allProblemsForTopic(topic, data);
           const topicSolvedCount = entries.filter((e) => solved.has(e.key)).length;
-          const allDone = topicSolvedCount === entries.length;
+          const allDone = topicSolvedCount === entries.length && entries.length > 0;
+          
           return (
-            <div key={topic} className="border-b border-[var(--ifm-color-emphasis-100)]">
-              <div className="flex items-center justify-between px-4 pt-2 pb-[0.3rem]">
-                <span className="text-[0.6875rem] font-bold uppercase tracking-[0.05em] text-[var(--ifm-color-emphasis-500)]">
-                  {data.icon} {topic}
+            <div key={topic} className="p-3 bg-[var(--ifm-background-color)]">
+              <div className="flex items-center justify-between px-1 mb-2">
+                <span className="text-xs font-bold text-[var(--ifm-color-emphasis-700)] truncate max-w-[70%]">
+                  {data.icon} <span className="ml-1">{topic}</span>
                 </span>
-                <span
-                  className={`text-[0.6875rem] ${allDone ? "text-green-700 font-semibold" : "text-[var(--ifm-color-emphasis-400)] font-normal"}`}
-                >
+                <span className={`text-[11px] px-1.5 py-0.5 rounded-md ${allDone ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300 font-bold" : "bg-[var(--ifm-color-emphasis-100)] text-[var(--ifm-color-emphasis-600)]"}`}>
                   {topicSolvedCount}/{entries.length}
                 </span>
               </div>
-              {entries.map(({ key, problem, difficulty }) => {
-                const done = solved.has(key);
-                return (
-                  <button
-                    key={key}
-                    onClick={() => onToggle(key)}
-                    className={`w-full flex items-start gap-2 py-1 pr-4 pl-3.5 border-none cursor-pointer text-left transition-colors duration-[120ms] ${done ? "bg-green-700/5" : "bg-transparent"}`}
-                  >
-                    <span
-                      className={`w-[15px] h-[15px] rounded-[4px] flex-shrink-0 mt-0.5 inline-flex items-center justify-center transition-all duration-150 ${
-                        done ? "bg-green-700 border-0" : "bg-transparent border-[1.5px] border-[var(--ifm-color-emphasis-300)]"
+              <div className="space-y-1">
+                {entries.map(({ key, problem, difficulty }) => {
+                  const done = solved.has(key);
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => onToggle(key)}
+                      className={`w-full flex items-center gap-2.5 p-2 rounded-lg border border-solid transition-all duration-150 text-left cursor-pointer min-h-[38px] ${
+                        done 
+                          ? "bg-emerald-500/5 border-emerald-500/10 hover:bg-emerald-500/10" 
+                          : "bg-transparent border-transparent hover:bg-[var(--ifm-color-emphasis-100)]"
                       }`}
                     >
-                      {done && (
-                        <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
-                          <path d="M1 3L3 5L7 1" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
-                      )}
-                    </span>
-                    <span
-                      className={`flex-1 text-[0.775rem] leading-snug ${
-                        done
-                          ? "text-[var(--ifm-color-emphasis-400)] line-through"
-                          : "text-[var(--ifm-color-emphasis-800)]"
-                      }`}
-                    >
-                      <span className="text-[var(--ifm-color-emphasis-400)] mr-0.5">#{problem.id}</span>
-                      {problem.title}
-                    </span>
-                    <span
-                      className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-[5px] opacity-80"
-                      style={{ background: DIFFICULTY_CONFIG[difficulty].color }}
-                    />
-                  </button>
-                );
-              })}
+                      <div className={`w-4 h-4 rounded-md flex-shrink-0 flex items-center justify-center transition-all ${
+                        done ? "bg-emerald-600 text-white" : "border-2 border-solid border-[var(--ifm-color-emphasis-400)] bg-transparent"
+                      }`}>
+                        {done && (
+                          <svg width="10" height="8" viewBox="0 0 8 6" fill="none" className="stroke-current">
+                            <path d="M1 3L3 5L7 1" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        )}
+                      </div>
+                      <span className={`flex-1 text-xs truncate ${done ? "text-[var(--ifm-color-emphasis-400)] line-through" : "text-[var(--ifm-color-emphasis-800)] font-medium"}`}>
+                        <span className="opacity-50 mr-1 font-mono">#{problem.id}</span>
+                        {problem.title}
+                      </span>
+                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: DIFFICULTY_CONFIG[difficulty].rawColor }} />
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           );
         })}
       </div>
+    </div>
+  );
+
+  if (isMobile) {
+    return (
+      <div className="fixed inset-0 z-50 flex md:hidden">
+        {/* Backdrop overlay filter */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm"
+        />
+        <motion.aside
+          initial={{ x: "-100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ type: "spring", damping: 25, stiffness: 200 }}
+          className="relative w-full max-w-[300px] h-full shadow-2xl z-10 border-r border-solid border-[var(--ifm-color-emphasis-200)] overflow-hidden"
+        >
+          {sidebarContent}
+        </motion.aside>
+      </div>
+    );
+  }
+
+  return (
+    <motion.aside
+      className="hidden md:flex flex-col sticky w-[300px] shrink-0 border-r border-solid border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-background-color)]"
+      style={{ top: "var(--ifm-navbar-height, 60px)", height: "calc(100vh - var(--ifm-navbar-height, 60px))" }}
+    >
+      {sidebarContent}
     </motion.aside>
   );
 };
 
-// ─── Problem Row ──────────────────────────────────────────────────────────────
+// ─── ProblemRow Component ─────────────────────────────────────────────────────
 
 const ProblemRow: React.FC<{
   problem: Problem; difficulty: Difficulty; topic: string;
@@ -181,44 +204,47 @@ const ProblemRow: React.FC<{
   const cfg  = DIFFICULTY_CONFIG[difficulty];
 
   return (
-    <div className="flex items-center gap-1.5 py-0.5">
+    <div className="flex items-center gap-3 py-1.5 px-2 rounded-xl hover:bg-[var(--ifm-color-emphasis-100)] transition-colors group">
+      {/* Larger checkbox interaction boundary zone */}
       <button
         onClick={(e) => { e.stopPropagation(); onToggle(key); }}
         aria-label={done ? "Mark unsolved" : "Mark solved"}
-        className={`w-[17px] h-[17px] rounded-[4px] flex-shrink-0 cursor-pointer flex items-center justify-center transition-all duration-150 p-0 ${
-          done ? "bg-green-700 border-0" : "bg-transparent border-[1.5px] border-[var(--ifm-color-emphasis-300)]"
+        className={`w-5 h-5 rounded-md flex-shrink-0 cursor-pointer flex items-center justify-center transition-all p-0 border-solid ${
+          done ? "bg-emerald-600 border-transparent text-white" : "bg-transparent border-2 border-[var(--ifm-color-emphasis-300)] hover:border-[var(--ifm-color-primary)]"
         }`}
       >
         {done && (
-          <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
-            <path d="M1 3.5L3.5 6L8 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg width="11" height="9" viewBox="0 0 9 7" fill="none" className="stroke-current">
+            <path d="M1 3.5L3.5 6L8 1" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         )}
       </button>
-      <motion.a
+      
+      <a 
         href={url} target="_blank" rel="noopener noreferrer"
-        whileHover={{ x: 3 }} transition={{ type: "spring", stiffness: 400, damping: 25 }}
-        className={`group no-underline flex items-center gap-3 flex-1 px-3 py-[0.45rem] rounded-lg hover:bg-[var(--ifm-color-emphasis-100)] cursor-pointer text-inherit transition-colors ${done ? "opacity-50" : "opacity-100"}`}
+        className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 flex-1 min-w-0 no-underline text-inherit transition-opacity ${done ? "opacity-40" : "opacity-100"}`}
       >
-        <span className="text-xs text-[var(--ifm-color-emphasis-500)] font-mono min-w-[42px]">#{problem.id}</span>
-        <span className={`text-[0.9rem] text-[var(--ifm-color-emphasis-800)] flex-1 whitespace-nowrap overflow-hidden text-ellipsis ${done ? "line-through" : ""}`}>
-          {problem.title}
-        </span>
-        <span
-          className="text-[0.6875rem] font-semibold px-2 py-0.5 rounded-full flex-shrink-0"
-          style={{ color: cfg.color, background: cfg.bg, border: `1px solid ${cfg.border}` }}
-        >
-          {difficulty}
-        </span>
-        <span className="text-[0.8125rem] font-semibold text-[var(--ifm-color-primary)] flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-100">
-          Solve →
-        </span>
-      </motion.a>
+        <div className="flex items-center gap-2 flex-1 min-w-0">
+          <span className="text-xs font-mono text-[var(--ifm-color-emphasis-400)] shrink-0">#{problem.id}</span>
+          <span className={`text-[14px] font-medium text-[var(--ifm-color-emphasis-800)] truncate ${done ? "line-through" : ""}`}>
+            {problem.title}
+          </span>
+        </div>
+        
+        <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
+          <span className={`text-[10px] font-bold tracking-wide uppercase px-2 py-0.5 rounded-md border border-solid ${cfg.bg} ${cfg.color} ${cfg.border}`}>
+            {difficulty}
+          </span>
+          <span className="text-xs font-bold text-[var(--ifm-color-primary)] opacity-0 group-hover:opacity-100 hidden sm:inline-block transition-all duration-150 transform translate-x-2 group-hover:translate-x-0">
+            Solve →
+          </span>
+        </div>
+      </a>
     </div>
   );
 };
 
-// ─── Topic Card ───────────────────────────────────────────────────────────────
+// ─── TopicCard Component ──────────────────────────────────────────────────────
 
 const TopicCard: React.FC<{
   name: string; data: TopicData; index: number;
@@ -228,223 +254,243 @@ const TopicCard: React.FC<{
   const allEntries  = useMemo(() => allProblemsForTopic(name, data), [name, data]);
   const solvedCount = allEntries.filter((e) => solved.has(e.key)).length;
   const topicPct    = allEntries.length > 0 ? Math.round((solvedCount / allEntries.length) * 100) : 0;
-  const allDone     = solvedCount === allEntries.length;
+  const allDone     = solvedCount === allEntries.length && allEntries.length > 0;
 
   return (
     <motion.div
-      className="border border-[var(--ifm-color-emphasis-200)] hover:border-[var(--ifm-color-emphasis-400)] rounded-xl overflow-hidden bg-[var(--ifm-background-color)] transition-colors duration-150"
-      initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.04, duration: 0.4 }}
+      className="border border-solid border-[var(--ifm-color-emphasis-200)] hover:border-[var(--ifm-color-emphasis-300)] rounded-xl overflow-hidden bg-[var(--ifm-background-color)] shadow-sm hover:shadow-md transition-all duration-200"
+      initial={{ opacity: 0, y: 16 }} 
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.03, duration: 0.35 }}
     >
       <button
-        className="w-full flex items-center justify-between px-5 py-4 bg-transparent border-none cursor-pointer gap-4 text-inherit"
+        className="w-full flex items-center justify-between p-4 sm:p-5 bg-transparent border-none cursor-pointer gap-4 text-inherit min-h-[64px]"
         onClick={() => setExpanded(!expanded)}
         aria-expanded={expanded}
       >
-        <div className="flex items-center gap-3">
-          <span
-            className="text-xl leading-none w-8 h-8 flex items-center justify-center bg-[var(--ifm-color-emphasis-100)] rounded-lg flex-shrink-0"
-            aria-hidden="true"
-          >
+        <div className="flex items-center gap-3 min-w-0">
+          <span className="text-xl w-9 h-9 flex items-center justify-center bg-[var(--ifm-color-emphasis-100)] rounded-xl shrink-0" aria-hidden="true">
             {data.icon}
           </span>
-          <span className="text-base font-semibold text-[var(--ifm-color-emphasis-900)]">{name}</span>
+          <span className="text-sm sm:text-base font-bold text-[var(--ifm-color-emphasis-900)] truncate text-left">{name}</span>
         </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <div className="flex items-center gap-1.5">
-            <div className="w-[52px] h-1 bg-[var(--ifm-color-emphasis-200)] rounded-full overflow-hidden">
+        
+        <div className="flex items-center gap-3 shrink-0">
+          <div className="hidden sm:flex items-center gap-2">
+            <div className="w-16 h-1.5 bg-[var(--ifm-color-emphasis-200)] rounded-full overflow-hidden">
               <div
-                className="h-full rounded-full transition-[width] duration-[400ms] ease-out"
+                className="h-full rounded-full transition-all duration-500 ease-out"
                 style={{
                   width: `${topicPct}%`,
-                  background: allDone ? "#15803d" : "var(--ifm-color-primary)",
+                  background: allDone ? "#10b981" : "var(--ifm-color-primary)",
                 }}
               />
             </div>
-            <span
-              className={`text-[0.6875rem] min-w-[26px] ${allDone ? "text-green-700 font-semibold" : "text-[var(--ifm-color-emphasis-400)] font-normal"}`}
-            >
-              {solvedCount}/{allEntries.length}
-            </span>
           </div>
-          <span
-            className={`text-xl text-[var(--ifm-color-emphasis-400)] leading-none inline-block transition-transform duration-200 ${expanded ? "rotate-90" : ""}`}
-          >
+          <span className={`text-xs px-2 py-1 rounded-md font-semibold ${allDone ? "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" : "bg-[var(--ifm-color-emphasis-100)] text-[var(--ifm-color-emphasis-500)]"}`}>
+            {solvedCount}/{allEntries.length}
+          </span>
+          <span className={`text-lg text-[var(--ifm-color-emphasis-400)] transition-transform duration-200 transform ${expanded ? "rotate-90" : ""}`}>
             ›
           </span>
         </div>
       </button>
 
-      {expanded && (
-        <motion.div
-          className="border-t border-[var(--ifm-color-emphasis-200)] overflow-hidden"
-          initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.25 }}
-        >
-          {DIFFICULTIES.map((difficulty, di) => {
-            const diffSolved = data.problems[difficulty].filter((p) => solved.has(problemKey(name, p))).length;
-            return (
-              <div
-                key={difficulty}
-                className={`px-5 pt-4 ${di === DIFFICULTIES.length - 1 ? "pb-4" : "pb-1"}`}
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className="text-[0.8125rem] font-bold uppercase tracking-[0.06em]"
-                    style={{ color: DIFFICULTY_CONFIG[difficulty].color }}
-                  >
-                    {difficulty}
-                  </span>
-                  <span className="text-xs text-[var(--ifm-color-emphasis-500)]">
-                    {diffSolved}/{data.problems[difficulty].length} solved
-                  </span>
-                </div>
-                <div className="flex flex-col gap-0.5">
-                  {data.problems[difficulty].map((problem) => (
-                    <ProblemRow
-                      key={`${problem.id}-${problem.slug}`}
-                      problem={problem}
-                      difficulty={difficulty}
-                      topic={name}
-                      solved={solved}
-                      onToggle={onToggle}
-                    />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </motion.div>
-      )}
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="border-t border-solid border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-color-emphasis-100)]/10 overflow-hidden"
+          >
+            <div className="p-4 sm:p-5 space-y-4 divide-y divide-solid divide-[var(--ifm-color-emphasis-200)]/50">
+              {DIFFICULTIES.map((difficulty, di) => {
+                const problems = data.problems[difficulty] || [];
+                if (problems.length === 0) return null;
+                const diffSolved = problems.filter((p) => solved.has(problemKey(name, p))).length;
+                
+                return (
+                  <div key={difficulty} className={di === 0 ? "" : "pt-4"}>
+                    <div className="flex items-center gap-2 mb-2 px-1">
+                      <span className={`text-[11px] font-bold tracking-wider uppercase ${DIFFICULTY_CONFIG[difficulty].color}`}>
+                        {difficulty}
+                      </span>
+                      <span className="text-xs font-medium text-[var(--ifm-color-emphasis-400)]">
+                        • {diffSolved} of {problems.length} completed
+                      </span>
+                    </div>
+                    <div className="space-y-0.5">
+                      {problems.map((problem) => (
+                        <ProblemRow
+                          key={`${problem.id}-${problem.slug}`}
+                          problem={problem}
+                          difficulty={difficulty}
+                          topic={name}
+                          solved={solved}
+                          onToggle={onToggle}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
+// ─── Main Practice Page Component ─────────────────────────────────────────────
 
 const Practice: React.FC = () => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<Difficulty | "All">("All");
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  
-  const [solved, setSolved] = useState<Set<string>>(() => {
-  if (typeof window === "undefined") return new Set();
-  try {
-    const saved = localStorage.getItem("leetcode_solved");
-    return saved ? new Set(JSON.parse(saved)) : new Set();
-  } catch {
-    return new Set();
-  }
-});
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [solved, setSolved] = useState<Set<string>>(new Set());
 
-const toggleSolved = (key: string) => {
-  setSolved((prev) => {
-    const next = new Set(prev);
-    next.has(key) ? next.delete(key) : next.add(key);
-    localStorage.setItem("leetcode_solved", JSON.stringify([...next]));
-    return next;
-  });
-};
+  // Mount logic to safely bootstrap standard LocalStorage states in dynamic SSR
+  useEffect(() => {
+    try {
+      setSolved(new Set(safeJsonParse<string[]>("leetcode_solved", [])));
+    } catch (e) {
+      console.error("Failed parsing problem registry context state data:", e);
+    }
+  }, []);
 
-  const filteredTopics = Object.entries(TOPICS).filter(([name]) =>
-    name.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const PILL_ACTIVE: Record<string, string> = {
-    All:    "bg-[var(--ifm-color-primary)] border-[var(--ifm-color-primary)] text-white",
-    Easy:   "bg-green-700 border-green-700 text-white",
-    Medium: "bg-[#b45309] border-[#b45309] text-white",
-    Hard:   "bg-[#b91c1c] border-[#b91c1c] text-white",
+  const toggleSolved = (key: string) => {
+    setSolved((prev) => {
+      const next = new Set(prev);
+      next.has(key) ? next.delete(key) : next.add(key);
+      localStorage.setItem("leetcode_solved", JSON.stringify([...next]));
+      return next;
+    });
   };
 
+  const filteredTopics = useMemo(() => {
+    return Object.entries(TOPICS).filter(([name]) =>
+      name.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [search]);
+
   return (
-    <Layout title="Practice" description="Practice coding skills with curated LeetCode problems by topic and difficulty.">
-      {/* practice-shell */}
-      <div className="flex min-h-[calc(100vh-var(--ifm-navbar-height,60px))] items-start">
-        <AnimatePresence>
-          {sidebarOpen && <Sidebar solved={solved} onToggle={toggleSolved} onClose={() => setSidebarOpen(false)} />}
+    <Layout title="Practice Platform" description="Track and master curated algorithmic dynamic processing paradigms by structural taxonomy.">
+      <div className="flex relative min-w-0 w-full bg-[var(--ifm-background-color)]">
+        
+        {/* Responsive Drawer & Sidebar Column Assembly */}
+        <AnimatePresence mode="wait">
+          {sidebarOpen && (
+            <Sidebar 
+              solved={solved} 
+              onToggle={toggleSolved} 
+              onClose={() => setSidebarOpen(false)} 
+              isMobile={true} 
+            />
+          )}
         </AnimatePresence>
+        
+        <Sidebar 
+          solved={solved} 
+          onToggle={toggleSolved} 
+          onClose={() => setSidebarOpen(false)} 
+          isMobile={false} 
+        />
 
-        {/* practice-page */}
-        <div className="flex-1 max-w-[860px] mx-auto px-6 pt-12 pb-20 min-w-0">
+        {/* Content Workspace Core Wrapper */}
+        <main className="flex-1 min-w-0 w-full mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 pb-24">
+          
+          {/* Dashboard Header Banner Section */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-6">
+            <div>
+              <motion.h1 
+                className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-1.5"
+                initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}
+              >
+                Problem Matrix
+              </motion.h1>
+              <p className="text-sm sm:text-base m-0 font-medium">
+                Curated programmatic coding structures map index. Pick an execution path to start debugging.
+              </p>
+            </div>
 
-          {/* Hero */}
-          <div className="mb-10">
-            <motion.h1
-              className="text-[2.25rem] font-bold tracking-[-0.03em] mb-2 text-[var(--ifm-color-emphasis-900)] md:text-[1.75rem]"
-              initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+            {/* Mobile Analytics Indicator Button */}
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="md:hidden flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-solid border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-color-emphasis-100)] text-sm font-bold text-[var(--ifm-color-emphasis-700)] hover:bg-[var(--ifm-color-emphasis-200)] transition-all cursor-pointer shadow-sm active:scale-95"
             >
-              Practice Problems
-            </motion.h1>
-            <motion.p
-              className="text-base text-[var(--ifm-color-emphasis-600)] m-0"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              Curated LeetCode problems by topic and difficulty. Click any problem to open it on LeetCode.
-            </motion.p>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="stroke-current">
+                <rect x="2" y="2" width="12" height="12" rx="2" strokeWidth="1.5"/>
+                <path d="M5 8.5L7 10.5L11 6.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              View Analytics
+            </button>
           </div>
 
-          {/* Controls */}
-          <div className="flex gap-3 mb-6 flex-wrap items-center">
-            {/* Search */}
-            <div className="flex-1 min-w-[200px] relative">
+          {/* Filtering Controls Infrastructure Area */}
+          <div className="flex flex-col md:flex-row gap-3.5 mb-6 items-stretch md:items-center justify-between">
+            {/* Realtime Regex Engine Filter Box Input */}
+            <div className="relative flex-1">
               <svg
-                width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"
-                className="absolute left-[10px] top-1/2 -translate-y-1/2 text-[var(--ifm-color-emphasis-500)] pointer-events-none"
+                width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden="true"
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--ifm-color-emphasis-400)] pointer-events-none"
               >
                 <path d="M10 6.5C10 8.43 8.43 10 6.5 10C4.57 10 3 8.43 3 6.5C3 4.57 4.57 3 6.5 3C8.43 3 10 4.57 10 6.5ZM9.3 10.01C8.57 10.63 7.58 11 6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 7.58 10.63 8.57 10.01 9.3L13.35 12.65C13.55 12.84 13.55 13.16 13.35 13.35C13.16 13.55 12.84 13.55 12.65 13.35L9.3 10.01Z" fill="currentColor"/>
               </svg>
               <input
                 type="text"
-                placeholder="Search topics…"
+                placeholder="Search topics (e.g., Arrays, Dynamic Programming)..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                aria-label="Search topics"
-                className="w-full py-2 pl-9 pr-3 border border-[var(--ifm-color-emphasis-300)] rounded-lg text-sm bg-[var(--ifm-background-color)] text-[var(--ifm-color-emphasis-900)] outline-none transition-colors duration-150 focus:border-[var(--ifm-color-primary)]"
+                className="w-full py-2.5 pl-10 pr-4 border border-solid border-[var(--ifm-color-emphasis-300)] rounded-xl text-sm bg-[var(--ifm-background-color)] text-[var(--ifm-color-emphasis-900)] outline-none transition-all focus:border-[var(--ifm-color-primary)] focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20 shadow-sm"
               />
             </div>
 
-            {/* Filter pills */}
-            <div className="flex gap-1.5" role="group" aria-label="Filter by difficulty">
-              {(["All", "Easy", "Medium", "Hard"] as const).map((d) => (
-                <button
-                  key={d}
-                  onClick={() => setFilter(d)}
-                  className={`px-3.5 py-1.5 rounded-full text-[0.8125rem] font-medium cursor-pointer border transition-all duration-150 ${
-                    filter === d
-                      ? PILL_ACTIVE[d]
-                      : "border-[var(--ifm-color-emphasis-300)] bg-transparent text-[var(--ifm-color-emphasis-700)] hover:border-[var(--ifm-color-primary)] hover:text-[var(--ifm-color-primary)]"
-                  }`}
-                >
-                  {d}
-                </button>
-              ))}
-            </div>
+            {/* Horizontal Filter Control Pills */}
+            <div className="overflow-x-auto pb-1 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-none">
+              <div className="flex gap-1.5" role="group" aria-label="Filter cards by difficulty index metrics">
+                {(["All", "Easy", "Medium", "Hard"] as const).map((d) => {
+                  const isActive = filter === d;
+                  const activePillClasses: Record<string, string> = {
+                    All:    "bg-[var(--ifm-color-primary)] border-[var(--ifm-color-primary)] text-white shadow-sm",
+                    Easy:   "bg-emerald-600 border-emerald-600 text-white shadow-sm",
+                    Medium: "bg-amber-600 border-amber-600 text-white shadow-sm",
+                    Hard:   "bg-rose-600 border-rose-600 text-white shadow-sm",
+                  };
 
-            {/* Progress toggle */}
-            {!sidebarOpen && (
-              <button
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[0.8125rem] font-medium cursor-pointer border border-[var(--ifm-color-emphasis-300)] bg-transparent text-[var(--ifm-color-emphasis-700)] hover:border-[var(--ifm-color-primary)] hover:text-[var(--ifm-color-primary)] transition-all duration-150 whitespace-nowrap"
-                onClick={() => setSidebarOpen(true)}
-              >
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" strokeWidth="1.3"/>
-                  <path d="M4 7L6.5 9.5L10 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                Progress
-              </button>
-            )}
+                  return (
+                    <button
+                      key={d}
+                      onClick={() => setFilter(d)}
+                      className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide cursor-pointer border border-solid transition-all whitespace-nowrap min-h-[36px] ${
+                        isActive
+                          ? activePillClasses[d]
+                          : "border-[var(--ifm-color-emphasis-300)] bg-[var(--ifm-background-color)] text-[var(--ifm-color-emphasis-600)] hover:border-[var(--ifm-color-primary)] hover:text-[var(--ifm-color-primary)]"
+                      }`}
+                    >
+                      {d}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
-          {/* Topics list */}
-          <div className="flex flex-col gap-3">
+          {/* Core Problem Target Stack Area */}
+          <div className="space-y-3">
             {filteredTopics.length === 0 ? (
-              <div className="text-center py-12 px-4 text-[var(--ifm-color-emphasis-500)] text-[0.9375rem]">
-                No topics match your search.
+              <div className="text-center py-16 px-4 rounded-2xl border border-dashed border-[var(--ifm-color-emphasis-300)] bg-[var(--ifm-color-emphasis-100)]/20">
+                <div className="text-3xl mb-2">🔍</div>
+                <h3 className="text-base font-bold text-[var(--ifm-color-emphasis-800)] m-0">No Matching Topics Found</h3>
+                <p className="text-sm text-[var(--ifm-color-emphasis-500)] mt-1 max-w-xs mx-auto">
+                  Adjust your current keywords or clear the search path parameters to retry.
+                </p>
               </div>
             ) : (
               filteredTopics
-                .filter(([_, data]) => filter === "All" || data.problems[filter as Difficulty].length > 0)
+                .filter(([_, data]) => filter === "All" || (data.problems[filter as Difficulty] && data.problems[filter as Difficulty].length > 0))
                 .map(([name, data], i) => {
                   const filteredData = filter === "All" ? data : {
                     ...data,
@@ -467,7 +513,7 @@ const toggleSolved = (key: string) => {
                 })
             )}
           </div>
-        </div>
+        </main>
       </div>
     </Layout>
   );

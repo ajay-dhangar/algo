@@ -1,5 +1,5 @@
 ---
-id: functions-in-javascript
+id: functions
 sidebar_position: 8
 title: Functions in JavaScript
 sidebar_label: Functions in JS

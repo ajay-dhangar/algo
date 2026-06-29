@@ -1,8 +1,10 @@
 ---
-id : functional-programming
+id: functional-programming
 sidebar_position: 12
 title: "Functional programming in Java"
 sidebar_label: "functional programming"
+description: "Introduction to functional programming in Java — immutability, pure functions, lambda expressions, and the Streams API overview."
+tags: [java, Functional Programming, Lambda, Streams]
 ---
 
 # Functional Programming in Java
@@ -106,5 +108,9 @@ int sum = numbers.stream()
                   .reduce(0, (a, b) -> a + b);  // Sum them up
 ```
 
+## Next Steps
+
+For a complete guide with detailed examples on **lambda syntax**, **method references**, **filtering**, **mapping**, and **DSA-style stream patterns**, see [Java Streams API and Lambda Expressions](./java-streams-and-lambdas.md).
+
 ## Conclusion
-Java's functional programming features such as lambda expressions, the Streams API that allow for more concise and readable code. 
+Java's functional programming features such as lambda expressions and the Streams API allow for more concise and readable code. 

@@ -1,5 +1,5 @@
 ---  
-id: arrays-in-javascript  
+id: arrays
 sidebar_position: 7
 title: Arrays in JavaScript  
 sidebar_label: Arrays in JavaScript

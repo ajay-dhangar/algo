@@ -1,5 +1,5 @@
 ---
-id: datatype-in-javascript
+id: datatypes
 sidebar_position: 2
 title: Data Type in JavaScript
 sidebar_label: Data Type in JS
@@ -123,7 +123,7 @@ let person = {
 };
 ```
 
-<AdsComponent />
+<Ads />
 
 ## 3. **Special Data Types:**
 

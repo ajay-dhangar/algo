@@ -1,14 +1,16 @@
 ---
 id: datatypes-in-cpp
-sidebar_position: 1
-title: "Datatypes in C++"
-sidebar_label: "Datatypes in C++"
+sidebar_position: 2
+title: "Data Types and Variables in C++"
+sidebar_label: "Data Types & Variables"
+tags: ["cpp", "datatypes", "variables"]
+description: "Master C++ data types, including integers, floating-point numbers, characters, booleans, and strings. Learn variable declaration, initialization, scoping, type casting, and dynamic memory management."
+keywords: ["C++ data types", "primitive types", "variable scope", "type casting", "dynamic allocation"]
 ---
 
-Hey there! In this guide, we'll explore the different data types available in C++. Understanding data types is crucial for writing efficient and clear C++ code. Let's dive in!
+In C++, data types specify the type and size of data that a variable can store. Because C++ is a **strongly-typed** and **statically-typed** language, every variable must have a declared data type before it can be used, and this type cannot change during runtime. 
 
-* In C++, variables are containers that hold data and are defined by specifying a type followed by the variable name.
-* Variables must be declared before use and can hold various data types.
+Understanding how data types map to memory allocation is foundational to writing optimized, high-performance C++ applications.
 
 ## Video Explanation
 
@@ -20,116 +22,187 @@ Hey there! In this guide, we'll explore the different data types available in C+
   webp
 />
 
-## 1. Declaring Variables in C++
+## 1. Declaring and Initializing Variables
 
-- To declare a variable in C++, you specify its type, followed by the variable's name.
-```cpp
-int age;
-double salary;
-char grade;
+A **variable** is a named storage location in memory. To use a variable, you must first declare it. You can also optionally initialize it (assign an initial value) at the same time.
+
+### Declaration
+
+Specifies the type and the identifier (name) of the variable. This tells the compiler how much memory to reserve.
+
+```cpp title="VariableDeclaration.cpp"
+int age;          // Reserves memory for an integer
+double salary;     // Reserves memory for a double-precision float
+char grade;        // Reserves memory for a single character
+
 ```
 
-## 2. Initializing Variables in C++
+### Initialization
 
-- Variables can be initialized with a value at the time of declaration.
-```cpp
+Assigns a literal value to the allocated memory location.
+
+```cpp title="VariableInitialization.cpp"
 int age = 25;
 double salary = 45000.50;
 char grade = 'A';
+
 ```
 
-## 3. Types of Variables in C++
+## 2. Primitive Data Types Summary
 
-### a.  Integer Variables (`int`)
-- Holds whole numbers, both positive and negative.
-```cpp
-int x = 10;
-int y = -20;
+The table below summarizes the core primitive data types in C++ (assuming a standard 64-bit architecture):
+
+| Data Type | Keyword | Size (Bytes) | Typical Value Range |
+| --- | --- | --- | --- |
+| **Integer** | `int` | 4 bytes | $-2,147,483,648$ to $2,147,483,647$ |
+| **Floating-Point** | `float` | 4 bytes | 6-7 decimal digits of precision |
+| **Double Floating-Point** | `double` | 8 bytes | 15 decimal digits of precision |
+| **Character** | `char` | 1 byte | ASCII characters (e.g., `'A'`, `'9'`, `'\n'`) |
+| **Boolean** | `bool` | 1 byte | `true` (1) or `false` (0) |
+
+## 3. Deep Dive: Primitive & Standard Types
+
+### A. Integer Types (`int`)
+
+Used for storing whole numbers without decimals.
+
+```cpp title="IntegerExample.cpp"
+int executionCount = 150;
+int temperature = -12;
+
 ```
 
-### b. Floating-Point Variables (`float`, `double`)
-- Represents real numbers, with `float` using less precision than `double`.
-```cpp
-float pi = 3.14f;
-double gravity = 9.81;
+### B. Floating-Point Types (`float`, `double`)
+
+Used for representing fractional numbers or decimals. Use the `f` suffix for `float` literals to prevent automatic promotion to `double`.
+
+```cpp title="FloatingPointExample.cpp"
+float pi = 3.14159f;       // Single precision
+double precisionG = 9.80665; // Double precision (preferred for accuracy)
+
 ```
 
-### c. Character Variables (`char`)
-- Stores a single character enclosed in single quotes.
-```cpp
-char initial = 'A';
+### C. Character Type (`char`)
+
+Stores a single character enclosed in **single quotes**. Under the hood, C++ stores characters as their integer ASCII values.
+
+```cpp title="CharacterExample.cpp"
+char networkStatus = 'G'; // 'G' for Good
+
 ```
 
-### d. Boolean Variables (`bool`)
-- Holds either `true` or `false` values.
-```cpp
-bool is_sunny = true;
-bool is_raining = false;
+### D. Boolean Type (`bool`)
+
+Represents conditional states. Explicitly holds either `true` or `false`.
+
+```cpp title="BooleanExample.cpp"
+bool isEngineRunning = true;
+bool hasPermission = false;
+
 ```
 
-### e. String Variables (`std::string`)
+### E. String Type (`std::string`)
 
-```python
-my_list = [1, 2, 3]
-my_tuple = tuple(my_list)
-print(my_tuple)   # Output: (1, 2, 3)
-print(type(my_tuple)) # Output: <class 'tuple'>
+Unlike primitive types, strings are compound objects provided by the Standard Library (`<string>`). They represent sequences of characters enclosed in **double quotes**.
+
+```cpp title="StringExample.cpp"
+#include <string>
+
+std::string username = "JohnDoe_99";
+
 ```
 
-## 4. Variable Scope
-- The scope of a variable refers to the region of the program where the variable is accessible.
- - **Local Variables:** Declared inside functions or blocks, only accessible within that block.
- - **Global Variables:** Declared outside all functions and accessible from any part of the program.
+## 4. Constant Variables (`const`)
 
-### a. Local Variable Example:
+If a variable's value should remain unchanged throughout the program's lifecycle, prepend the declaration with the `const` qualifier. Any attempt to modify a `const` variable will trigger a compilation error.
 
-```cpp
-void myFunction() {
-    int localVar = 10;  // Only accessible inside myFunction
+```cpp title="ConstExample.cpp"
+const double COULOMBS_CONSTANT = 8.987551e9;
+// COULOMBS_CONSTANT = 9.1; // Error: assignment of read-only variable
+
+```
+
+## 5. Variable Scope
+
+Scope dictates the visibility and lifetime of a variable within your program.
+
+### Local Variables
+
+Declared inside a function or a specific code block (`{}`). They are created when the block is entered and destroyed when the block is exited.
+
+```cpp title="LocalVariables.cpp"
+void calculateMetrics() {
+    int localResult = 42; // Only accessible within calculateMetrics()
 }
+// localResult is inaccessible here
+
 ```
 
-### b. Global Variable Example:
+### Global Variables
+
+Declared outside of all functions. They are accessible from any point in the file after their declaration and persist for the entire duration of the application.
 
 ```cpp
-int globalVar = 20;  // Accessible throughout the program
+int globalSystemState = 1; // Global scope
 
-void myFunction() {
-    globalVar = 30;   // Modifying globalVar
+void updateState() {
+    globalSystemState = 2; // Modifying global variable
 }
+
 ```
 
-## 5. Constant Variables
-- Variables declared as `const` cannot be modified after initialization.
+:::warning Best Practice
+Minimize the use of global variables. They introduce state-tracking dependencies that make code difficult to debug and multithread safely.
+:::
 
-```cpp
-const int MAX_AGE = 100;
+## 6. Type Conversion (Casting)
+
+Type conversion happens when a value of one data type is transferred to another.
+
+### Implicit Conversion (Coercion)
+
+Handled automatically by the compiler when converting a smaller data type to a larger data type without risk of data loss.
+
+```cpp title="ImplicitConversion.cpp"
+int basicValue = 100;
+double promotedValue = basicValue; // Implicitly converted to 100.0
+
 ```
 
-## 6.  Type Conversion
-C++ allows conversion between data types either implicitly or explicitly (using type casting).
+### Explicit Conversion (Casting)
 
-### a. Implicit Type Conversion
-- C++ automatically converts one type to another when necessary.
-```cpp
-int x = 10;
-double y = x;  // Implicit conversion from int to double
+Required when data loss might occur (e.g., converting a floating-point number to an integer, which truncates the decimal). Modern C++ favors `static_cast` over C-style casting for safety and clarity.
+
+```cpp title="ExplicitConversion.cpp"
+double exactMeasurement = 45.97;
+
+// C-Style Casting (Discouraged in modern C++)
+int truncatedValue = (int)exactMeasurement; // Evaluates to 45
+
+// Modern C++ Casting (Recommended)
+int refinedValue = static_cast<int>(exactMeasurement); // Evaluates to 45
+
 ```
 
-### b. Explicit Type Conversion (Casting)
-- You can explicitly convert a variable's type using type casting.
-```cpp
-double pi = 3.14;
-int int_pi = (int)pi;  // Cast double to int
-```
-## 7. Dynamic Variables
-- Variables that are allocated memory during runtime using pointers and dynamic memory allocation (`new` and `delete`).
-```cpp
-int* ptr = new int;  // Dynamically allocate memory for an integer
-*ptr = 5;
-delete ptr;         // Free the allocated memory
+## 7. Dynamic Variables & Memory Allocation
+
+While standard variables are managed on the **Stack**, dynamic variables are allocated at runtime on the **Heap** using raw pointers. You must explicitly manage this memory to prevent memory leaks.
+
+```cpp title="DynamicMemoryExample.cpp"
+// 1. Allocate memory on the Heap for an integer
+int* dynamicPointer = new int;  
+
+// 2. Assign a value to the allocated memory (dereferencing)
+*dynamicPointer = 500;          
+
+// 3. Deallocate memory to prevent memory leaks
+delete dynamicPointer;          
+
+// 4. Clear pointer to prevent dangling pointer errors
+dynamicPointer = nullptr;       
+
 ```
 
----
-
-Variables are a crucial part of any C++ program, and understanding how to use them effectively is key to writing efficient C++ code.
+:::note
+While understanding `new` and `delete` is vital for foundational C++, modern production C++ utilizes **Smart Pointers** (`std::unique_ptr`, `std::shared_ptr`) to automate this cleanup process safely.
+:::

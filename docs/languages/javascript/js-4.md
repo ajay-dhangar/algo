@@ -1,5 +1,5 @@
 ---  
-id: decision-making-in-javascript  
+id: decisions
 sidebar_position: 4
 title: Decision Making in JavaScript  
 sidebar_label: Decision Making  in JavaScript

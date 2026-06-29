@@ -1,0 +1,210 @@
+---
+id: maximum-building-height
+sidebar_position: 1
+title: "Maximum Building Height"
+sidebar_label: Maximum Building Height
+description: "Finding the maximum possible height of a building given a set of restrictions using a two-pass constraint propagation approach."
+tags: [DSA, leetcode, array, math, sorting]
+---
+
+import MaximumBuildingHeightVisualizer from '@site/src/components/Visualizing/maximum-building-height-visualizer';
+
+## Description:
+
+You want to build `n` new buildings in a city. The new buildings will be built in a line and are labeled from `1` to `n`.
+
+However, there are city restrictions on the heights of the new buildings:
+- The height of each building must be a non-negative integer.
+- The height of the first building **must** be `0`.
+- The height difference between any two adjacent buildings **cannot exceed** `1`.
+
+Additionally, there are city restrictions on the maximum height of specific buildings. These restrictions are given as a 2D integer array `restrictions` where `restrictions[i] = [idi, maxHeighti]` indicates that building `idi` must have a height **less than or equal to** `maxHeighti`.
+
+It is guaranteed that there will be at most one restriction for any building.
+
+Return the **maximum possible height** of the tallest building.
+
+**Example 1:**
+
+Input: `n = 5, restrictions = [[2,1],[4,1]]`
+Output: `2`
+**Explanation:** We can build the buildings with heights [0, 1, 2, 1, 2]. 
+The tallest building has a height of 2.
+
+**Example 2:**
+
+Input: `n = 6, restrictions = []`
+Output: `5`
+**Explanation:**
+With no restrictions, the heights can be [0, 1, 2, 3, 4, 5].
+The tallest building has a height of 5.
+
+---
+
+## Approaches:
+
+### 1. Two-Pass Constraint Propagation
+
+To optimize the approach and find the true maximum height, we can treat this as a constraint propagation problem. The height of any building is restricted by the limits set on buildings to its left and its right. 
+
+1. **Add Boundary Conditions:** Explicitly append the base constraint `[1, 0]` since the first building is always height `0`. Also, append a constraint for the last building `[n, n - 1]` because the height can only increase by a maximum of 1 per step.
+2. **Sort:** Sort the restrictions array based on the building IDs in ascending order.
+3. **Left-to-Right Pass:** Iterate forward through the sorted restrictions. Update the current building's height limit to be the minimum of its own limit and the previous building's limit plus the distance between them.
+4. **Right-to-Left Pass:** Iterate backward. Update the current limit to be the minimum of its own limit and the next building's limit plus the distance between them.
+5. **Calculate the Peaks:** Loop through adjacent pairs of restrictions. The highest possible building between two restrictions forms a "peak". The maximum height between two restrictions with heights `h1` and `h2` separated by distance `d` is `(h1 + h2 + d) / 2`. Keep track of the global maximum.
+
+<MaximumBuildingHeightVisualizer />
+
+* **Time Complexity:** `O(M log M)` where `M` is the number of restrictions. Sorting the restrictions dominates the time complexity. The forward and backward passes take linear time `O(M)`.
+* **Space Complexity:** `O(1)` or `O(M)` depending on the language and the sorting algorithm's internal space requirements. Modifying the array in-place keeps auxiliary space minimal.
+
+#### Solutions:
+
+**C++**
+```cpp
+class Solution {
+public:
+    int maxBuilding(int n, vector<vector<int>>& restrictions) {
+        restrictions.push_back({1, 0});
+        restrictions.push_back({n, n - 1});
+        sort(restrictions.begin(), restrictions.end());
+        
+        int m = restrictions.size();
+        
+        // Left to right pass
+        for (int i = 1; i < m; ++i) {
+            restrictions[i][1] = min(restrictions[i][1], restrictions[i - 1][1] + restrictions[i][0] - restrictions[i - 1][0]);
+        }
+        
+        // Right to left pass
+        for (int i = m - 2; i >= 0; --i) {
+            restrictions[i][1] = min(restrictions[i][1], restrictions[i + 1][1] + restrictions[i + 1][0] - restrictions[i][0]);
+        }
+        
+        int max_height = 0;
+        // Find the maximum peak between any two adjacent restrictions
+        for (int i = 1; i < m; ++i) {
+            int h1 = restrictions[i - 1][1];
+            int h2 = restrictions[i][1];
+            int d = restrictions[i][0] - restrictions[i - 1][0];
+            int peak = (h1 + h2 + d) / 2;
+            max_height = max(max_height, peak);
+        }
+        
+        return max_height;
+    }
+};
+```
+
+**Java**
+```java
+import java.util.Arrays;
+
+class Solution {
+    public int maxBuilding(int n, int[][] restrictions) {
+        int m = restrictions.length;
+        int[][] res = new int[m + 2][2];
+        for (int i = 0; i < m; i++) {
+            res[i] = restrictions[i];
+        }
+        res[m] = new int[]{1, 0};
+        res[m + 1] = new int[]{n, n - 1};
+        
+        Arrays.sort(res, (a, b) -> Integer.compare(a[0], b[0]));
+        
+        m = res.length;
+        
+        // Left to right pass
+        for (int i = 1; i < m; i++) {
+            res[i][1] = Math.min(res[i][1], res[i - 1][1] + res[i][0] - res[i - 1][0]);
+        }
+        
+        // Right to left pass
+        for (int i = m - 2; i >= 0; i--) {
+            res[i][1] = Math.min(res[i][1], res[i + 1][1] + res[i + 1][0] - res[i][0]);
+        }
+        
+        int maxHeight = 0;
+        // Find the maximum peak between any two adjacent restrictions
+        for (int i = 1; i < m; i++) {
+            int h1 = res[i - 1][1];
+            int h2 = res[i][1];
+            int d = res[i][0] - res[i - 1][0];
+            int peak = (h1 + h2 + d) / 2;
+            maxHeight = Math.max(maxHeight, peak);
+        }
+        
+        return maxHeight;
+    }
+}
+```
+
+**Python**
+```py
+class Solution:
+    def maxBuilding(self, n: int, restrictions: List[List[int]]) -> int:
+        restrictions.append([1, 0])
+        restrictions.append([n, n - 1])
+        restrictions.sort()
+        
+        m = len(restrictions)
+        
+        # Left to right pass
+        for i in range(1, m):
+            restrictions[i][1] = min(restrictions[i][1], restrictions[i - 1][1] + restrictions[i][0] - restrictions[i - 1][0])
+            
+        # Right to left pass
+        for i in range(m - 2, -1, -1):
+            restrictions[i][1] = min(restrictions[i][1], restrictions[i + 1][1] + restrictions[i + 1][0] - restrictions[i][0])
+            
+        max_height = 0
+        
+        # Find the maximum peak between any two adjacent restrictions
+        for i in range(1, m):
+            h1 = restrictions[i - 1][1]
+            h2 = restrictions[i][1]
+            d = restrictions[i][0] - restrictions[i - 1][0]
+            peak = (h1 + h2 + d) // 2
+            max_height = max(max_height, peak)
+            
+        return max_height
+```
+
+**JavaScript**
+```js
+/**
+ * @param {number} n
+ * @param {number[][]} restrictions
+ * @return {number}
+ */
+const maxBuilding = function(n, restrictions) {
+    restrictions.push([1, 0]);
+    restrictions.push([n, n - 1]);
+    restrictions.sort((a, b) => a[0] - b[0]);
+    
+    let m = restrictions.length;
+    
+    // Left to right pass
+    for (let i = 1; i < m; i++) {
+        restrictions[i][1] = Math.min(restrictions[i][1], restrictions[i - 1][1] + restrictions[i][0] - restrictions[i - 1][0]);
+    }
+    
+    // Right to left pass
+    for (let i = m - 2; i >= 0; i--) {
+        restrictions[i][1] = Math.min(restrictions[i][1], restrictions[i + 1][1] + restrictions[i + 1][0] - restrictions[i][0]);
+    }
+    
+    let maxHeight = 0;
+    
+    // Find the maximum peak between any two adjacent restrictions
+    for (let i = 1; i < m; i++) {
+        let h1 = restrictions[i - 1][1];
+        let h2 = restrictions[i][1];
+        let d = restrictions[i][0] - restrictions[i - 1][0];
+        let peak = Math.floor((h1 + h2 + d) / 2);
+        maxHeight = Math.max(maxHeight, peak);
+    }
+    
+    return maxHeight;
+};
+```

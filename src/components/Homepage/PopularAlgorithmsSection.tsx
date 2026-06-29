@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "@docusaurus/Link";
-import { FaArrowRight, FaTerminal, FaCompass } from "react-icons/fa";
+import { FaArrowRight, FaTerminal, FaCompass, FaPlay } from "react-icons/fa";
 
 interface Algorithm {
   title: string;
@@ -14,37 +14,37 @@ const algorithms: Algorithm[] = [
   {
     title: "Binary Search",
     description: "Efficient divide-and-conquer searching protocol built for sorted array tracking.",
-    link: "/algo/docs/extra/binary-search/",
+    link: "/docs/extra/binary-search/",
     complexity: "O(log n)",
   },
   {
     title: "Merge Sort",
     description: "Stable, divide-and-conquer sorting algorithm that guarantees consistent runtime overhead.",
-    link: "/algo/docs/extra/algorithms/sorting-algorithms/merge-sort-algo",
+    link: "/docs/extra/algorithms/sorting-algorithms/merge-sort-algo",
     complexity: "O(n log n)",
   },
   {
     title: "Dijkstra's Algorithm",
     description: "Graph traversal pipeline optimized to calculate single-source paths through non-negative weights.",
-    link: "/algo/docs/extra/algorithms/dijkstra-algorithm",
+    link: "/docs/extra/algorithms/extra-dijkstra-algorithm",
     complexity: "O(V² + E)",
   },
   {
     title: "Quick Sort",
     description: "High-performance in-place partition array sorting methodology optimized for cache locality.",
-    link: "/algo/docs/extra/algorithms/sorting-algorithms/quick-sort-algo",
+    link: "/docs/extra/algorithms/sorting-algorithms/quick-sort-algo",
     complexity: "O(n log n)",
   },
   {
     title: "Linked Lists",
     description: "Sequential pointer-connected node maps foundational for lean linear allocation dynamics.",
-    link: "/algo/docs/category/linked-list",
+    link: "/docs/category/linked-list",
     complexity: "O(1) Insertion",
   },
   {
     title: "Recursion",
     description: "Mathematical problem-solving structures built on state-stack self-invocation frameworks.",
-    link: "/algo/docs/category/recursive-algorithms",
+    link: "/docs/category/recursive-algorithms",
     complexity: "O(2ⁿ) Max Stack",
   }
 ];
@@ -76,7 +76,7 @@ const PopularAlgorithmsSection: React.FC = () => {
             <Link
               key={index}
               to={algorithm.link}
-              className="no-underline hover:no-underline group outline-none"
+              className="no-underline hover:no-underline group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--ifm-color-primary)]"
             >
               <motion.div
                 className="
@@ -125,21 +125,37 @@ const PopularAlgorithmsSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Global Pipeline Entry Button */}
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            to="/algo/docs/category/algorithms"
+            to="/docs/category/algorithms"
             className="
-              inline-flex items-center gap-2.5
+              w-full sm:w-auto inline-flex items-center justify-center gap-2.5
               px-8 py-4 rounded-xl
+              border-2 border-transparent
               bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-50
-              text-white dark:text-slate-950 font-bold text-sm sm:text-base
+              text-white dark:text-slate-950 font-bold text-base
               shadow-md hover:shadow-xl transition-all duration-200
               no-underline hover:no-underline
             "
           >
             <FaCompass className="text-base" />
             Explore All Algorithms
+          </Link>
+
+          <Link
+            to="/practice"
+            className="
+              w-full sm:w-auto inline-flex items-center justify-center gap-2.5
+              px-8 py-4 rounded-xl
+              border-2 border-[var(--ifm-color-primary)]
+              bg-transparent hover:bg-[var(--ifm-color-primary)] hover:text-white
+              text-[var(--ifm-color-primary)] font-bold text-base
+              shadow-md hover:shadow-xl transition-all duration-200
+              no-underline hover:no-underline
+            "
+          >
+            <FaPlay className="text-base" />
+            Start Practicing
           </Link>
         </div>
 

@@ -7,8 +7,6 @@ description: "Segment Trees are used for efficient range queries."
 tags: [segment trees, advance data structures, trees, range queries]
 ---
 
-# Segment Trees
-
 **Segment Trees** are a versatile and efficient data structure used for solving range query problems. They allow for quick querying of information over a range of elements in an array, making them particularly useful in scenarios where the data may change frequently.
 
 ## Video Explanation
@@ -157,7 +155,9 @@ class SegmentTree {
     }
 }
 ```
+
 ### Python
+
 ```python
 class SegmentTree:
     def __init__(self, arr):
@@ -200,7 +200,9 @@ class SegmentTree:
                 self.update_recursive(2 * node + 2, mid + 1, end, idx, val)
             self.tree[node] = self.tree[2 * node + 1] + self.tree[2 * node + 2]  # Update parent
 ```
+
 ### Pseudo Code
+
 ```
 function buildTree(arr, node, start, end):
     if start == end:
@@ -229,6 +231,7 @@ function update(node, start, end, idx, val):
             update(2 * node + 1, start, mid, idx, val)
        
 ```
-### Conclusion
+
+## Conclusion
 
 Segment Trees are an essential data structure for efficiently handling dynamic array queries and updates. They provide a systematic approach to managing ranges and are widely used in algorithmic competitions and software development.
