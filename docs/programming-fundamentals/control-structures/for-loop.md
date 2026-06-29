@@ -47,6 +47,17 @@ Let's look at an example to understand how `for` loops work in practice. Suppose
 
     In JavaScript, you can use a `for` loop to calculate the sum of the first `n` positive integers:
 
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="UmRtFFSDSFo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 3: Loops and Strings | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
     ```javascript title="Calculate the sum of the first n positive integers"
     let n = 5;
     let sum = 0;
@@ -62,21 +73,21 @@ Let's look at an example to understand how `for` loops work in practice. Suppose
 
   </TabItem>
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="UmRtFFSDSFo"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lecture 3: Loops and Strings | JavaScript Full Course"
-  lazyLoad={true}
-  webp
-/>
-
     <TabItem value="python" label="Python">
     
         <h3>Python For Loop Example</h3>
     
         In Python, you can use a `for` loop to calculate the sum of the first `n` positive integers:
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="S73thl0AyFU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 5 : Loops in Python | While & For Loops | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
     
         ```python title="Calculate the sum of the first n positive integers"
         n = 5
@@ -92,21 +103,21 @@ Let's look at an example to understand how `for` loops work in practice. Suppose
 
     </TabItem>
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="S73thl0AyFU"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lecture 5 : Loops in Python | While & For Loops | Python Full Course"
-  lazyLoad={true}
-  webp
-/>
-
     <TabItem value="java" label="Java">
 
     <h3>Java For Loop Example</h3>
 
     In Java, you can use a `for` loop to calculate the sum of the first `n` positive integers:
+
+  ## Video Explanation
+
+<LiteYouTubeEmbed
+  id="0r1SfRoLuzU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Loops in Java | Java Placement Full Course | Lecture 4"
+  lazyLoad={true}
+  webp
+/>
 
     ```java title="Calculate the sum of the first n positive integers"
     public class Main {
@@ -126,15 +137,6 @@ Let's look at an example to understand how `for` loops work in practice. Suppose
     This Java example is similar to the JavaScript and Python examples. It calculates the sum of the first `n` positive integers using a `for` loop.
 
     </TabItem>
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="0r1SfRoLuzU"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Loops in Java | Java Placement Full Course | Lecture 4"
-  lazyLoad={true}
-  webp
-/>
 
 </Tabs>
 

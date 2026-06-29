@@ -6,7 +6,11 @@ description: "In this blog post, we'll explore Kadane's Algorithm, a dynamic pro
 tags: [dsa, algorithms, dynamic programming, subarray]
 ---
 
-## Video Explanation
+### Definition:
+
+Kadane's algorithm is a **dynamic programming algorithm** used to find the maximum sum of a contiguous subarray within a one-dimensional array of numbers. It efficiently calculates the largest sum that can be obtained by adding consecutive elements in the array.
+
+### Video Explanation
 
 <LiteYouTubeEmbed
   id="9IZYqostl2M"
@@ -16,12 +20,6 @@ tags: [dsa, algorithms, dynamic programming, subarray]
   lazyLoad={true}
   webp
 />
-
----
-
-### Definition:
-
-Kadane's algorithm is a **dynamic programming algorithm** used to find the maximum sum of a contiguous subarray within a one-dimensional array of numbers. It efficiently calculates the largest sum that can be obtained by adding consecutive elements in the array.
 
 ### Characteristics:
 
