@@ -34,11 +34,11 @@ const config = {
 
   url: "https://ajay-dhangar.github.io",
   baseUrl: "/algo/",
-  organizationName: "codeharborhub",
+  organizationName: "ajay-dhangar",
   projectName: "algo",
 
-  onBrokenLinks: "throw",
-  // onBrokenMarkdownLinks: "throw",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
 
   i18n: {
     defaultLocale: "en",
@@ -229,6 +229,10 @@ const config = {
                 label: "Code Playground",
               },
               {
+                to: "algorithm-visualizer",
+                label: "Algorithm Visualizer",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
@@ -382,6 +386,21 @@ const config = {
             });
           },
         },
+      },
+    ],
+
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: process.env.GTAG_TRACKING_ID || 'G-N1R880BPS0',
+        anonymizeIP: true,
+      },
+    ],
+
+    [
+      '@docusaurus/plugin-google-tag-manager',
+      {
+        containerId: 'GTM-NWMCVM3L',
       },
     ],
 

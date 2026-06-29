@@ -178,6 +178,13 @@ const BinaryTreeQuiz: React.FC = () => {
     }
   }, [userId, fetchAttempts]);
 
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
+    }
+  };
+
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
@@ -252,6 +259,7 @@ const BinaryTreeQuiz: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter workspace handle identifier"
+                aria-label="Enter workspace handle identifier"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
                 maxLength={24}
@@ -356,13 +364,13 @@ const BinaryTreeQuiz: React.FC = () => {
                   </div>
 
                   {/* Choices Interactive Array Stack */}
-                  <div className="grid grid-cols-1 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Quiz Options">
                     {QUESTIONS[currentQuestion].options.map((option, index) => {
                       const isSelected = selectedOption === option;
                       return (
                         <button
                           key={index}
-                          onClick={() => handleAnswer(option)}
+                          onClick={() => handleAnswer(option)} role="radio" aria-checked={isSelected}
                           className={`w-full text-left p-4 rounded-xl border border-solid transition-all text-xs md:text-sm font-semibold tracking-wide cursor-pointer flex items-center justify-between min-h-[54px] ${
                             isSelected
                               ? "bg-blue-600 border-blue-600 text-white shadow-xs"

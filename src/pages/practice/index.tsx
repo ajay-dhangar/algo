@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
 import { TOPICS } from "../../data/practiceProblems";
 import type { Difficulty, Problem, TopicData } from "../../data/practiceProblems";
+import { safeJsonParse } from "../../utils/safeStorage";
 
 const LEETCODE_BASE = "https://leetcode.com/problems/";
 
@@ -354,8 +355,7 @@ const Practice: React.FC = () => {
   // Mount logic to safely bootstrap standard LocalStorage states in dynamic SSR
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("leetcode_solved");
-      if (saved) setSolved(new Set(JSON.parse(saved)));
+      setSolved(new Set(safeJsonParse<string[]>("leetcode_solved", [])));
     } catch (e) {
       console.error("Failed parsing problem registry context state data:", e);
     }

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ajay-dhangar.github.io/algo/sitemap.xml

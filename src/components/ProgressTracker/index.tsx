@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 import { FiCheckCircle, FiCircle, FiTrendingUp, FiAward } from 'react-icons/fi';
+import { safeJsonParse } from '../../utils/safeStorage';
 
 interface Props {
   topicId: string;
@@ -14,11 +15,8 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
   // Safely check and read state from localStorage
   useEffect(() => {
     try {
-      const saved = localStorage.getItem('algo_progress');
-      if (saved) {
-        const progress = JSON.parse(saved);
-        setIsCompleted(!!progress[topicId]);
-      }
+      const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
+      setIsCompleted(!!progress[topicId]);
     } catch (error) {
       console.error('[Algo Progress] Failed to parse engine storage state:', error);
     }
@@ -33,8 +31,7 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
     setTimeout(() => setAnimate(false), 250);
 
     try {
-      const saved = localStorage.getItem('algo_progress');
-      const progress = saved ? JSON.parse(saved) : {};
+      const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
       
       // Sync structured telemetry object schema
       progress[topicId] = nextState;
