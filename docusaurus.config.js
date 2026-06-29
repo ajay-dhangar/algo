@@ -229,6 +229,10 @@ const config = {
                 label: "Code Playground",
               },
               {
+                to: "algorithm-visualizer",
+                label: "Algorithm Visualizer",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
