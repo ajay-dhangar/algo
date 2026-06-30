@@ -1,19 +1,10 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback } from "react";
 
 export default function useConsoleCapture() {
-  const origLogRef = useRef(console.log);
-  const origErrorRef = useRef(console.error);
-
-  // Safely restore original console methods on unmount
-  useEffect(() => {
-    return () => {
-      console.log = origLogRef.current;
-      console.error = origErrorRef.current;
-    };
-  }, []);
-
   const runWithCapture = useCallback((code: string): string[] => {
     const logs: string[] = [];
+    const origLog = console.log;
+    const origError = console.error;
     
     // Override methods to capture output
     console.log = (...args: unknown[]) => {
@@ -32,8 +23,8 @@ export default function useConsoleCapture() {
       logs.push("❌ Error: " + msg);
     } finally {
       // Restore immediately after synchronous execution completes
-      console.log = origLogRef.current;
-      console.error = origErrorRef.current;
+      console.log = origLog;
+      console.error = origError;
     }
 
     return logs;
