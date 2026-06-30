@@ -10,6 +10,16 @@ tags: [Attributes, Data-Members, Encapsulation, Getters-Setters, OOP]
 
 Attributes, also known as data members or fields, represent the state of an object in a C++ class. They store the data that defines an object's characteristics and enable data encapsulation.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Introduction to Attributes
 
 **Definition:**  

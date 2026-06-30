@@ -17,6 +17,16 @@ Rust provides different types of operators such as:
 4. Logical Operators
 5. Bitwise Operators
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 # 1. Arithmetic Operators

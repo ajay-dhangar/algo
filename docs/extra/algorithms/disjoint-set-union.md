@@ -24,6 +24,19 @@ tags:
 1. **Find**: Which set does this element belong to?
 2. **Union**: Merge two sets together.
 
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="QzZ7nmouLTI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ---
 
 ## 🧠 Real-World Analogy

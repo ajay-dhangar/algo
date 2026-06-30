@@ -15,6 +15,17 @@ Shortest Remaining Time First (SRTF) is the preemptive version of the Shortest J
 
 SRTF is a preemptive scheduling algorithm, meaning a running process can be interrupted before completion.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. How It Works
 
 - Processes arrive in the ready queue.

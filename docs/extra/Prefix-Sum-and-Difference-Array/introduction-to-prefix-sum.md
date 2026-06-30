@@ -27,6 +27,17 @@ rangeSum(l, r) = prefix[r] - prefix[l - 1]
 
 This is the core idea: **precompute cumulative sums once, then answer each query in constant time.**
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ### Building the Prefix Sum Array

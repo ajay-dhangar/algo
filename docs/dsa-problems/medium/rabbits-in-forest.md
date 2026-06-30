@@ -29,6 +29,16 @@ Output: `11`
 - All three rabbits that answered "10" could be the same color. 
 - If they are all the same color, there must be 11 rabbits of that color in total.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

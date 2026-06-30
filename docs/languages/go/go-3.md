@@ -11,6 +11,16 @@ tags: ["go","golang","functions"]
 
 Hey there! In this guide, we'll explore **Functions** in Go. Functions are the building blocks of Go programs. They allow you to encapsulate a piece of code so it can be reused throughout your application. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. What is a Function?
 
 A function is a block of code that takes some inputs (parameters), performs a specific task, and optionally returns a result. In Go, functions are defined using the `func` keyword.

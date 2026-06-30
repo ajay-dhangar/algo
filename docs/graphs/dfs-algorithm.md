@@ -13,6 +13,16 @@ tags: [graph, search, dfs, backtracking, recursion, dsa]
 DFS is extremely useful for **topological sorting**, **detecting cycles**, and solving **mazes or puzzles** with a single solution.
 :::
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## How It Works

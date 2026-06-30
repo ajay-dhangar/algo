@@ -11,6 +11,16 @@ sidebar_position: 21
 
 Coroutines are Kotlin's approach to **asynchronous, non-blocking programming**. They are lightweight threads that can be suspended and resumed, allowing you to write asynchronous code that looks sequential and is easy to read.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Setup
 
 Add to your `build.gradle.kts`:

@@ -10,6 +10,16 @@ tags: [sql, database, mysql, cheatsheet]
 
 This page is a quick reference for commonly used SQL commands and database operations. Whether you're preparing for interviews, learning DBMS, or building backend applications, this cheatsheet covers the essentials.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ## Database Operations
 
 ### Create Database

@@ -7,6 +7,16 @@ sidebar_label: "Polymorphism"
 
 Polymorphism enables separate objects to expose uniform method signatures while executing unique runtime logic under the hood.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Abstract Class Structural Blueprints
 
 Abstract classes act as base validation blueprints. They cannot be instantiated directly and can declare abstract method stubs that subclasses must implement:

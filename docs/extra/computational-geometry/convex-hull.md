@@ -16,6 +16,17 @@ A helpful way to visualise this is the **rubber-band analogy**: imagine stretchi
 
 Convex hulls are a foundational primitive in computational geometry. They appear as a preprocessing step or sub-routine in problems ranging from collision detection and path planning to image processing and geographic information systems. Understanding how to compute them efficiently — and why the algorithms work — is a key skill for anyone working in algorithms or applied mathematics.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Characteristics

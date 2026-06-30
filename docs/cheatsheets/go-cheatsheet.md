@@ -11,6 +11,16 @@ tags: [go, golang, cheatsheet, dsa, programming]
 
 A quick reference for Go syntax and patterns commonly used in Data Structures and Algorithms.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Hello World

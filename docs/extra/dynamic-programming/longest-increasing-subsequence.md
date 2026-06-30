@@ -27,6 +27,17 @@ Valid strictly increasing subsequences include:
 
 **Optimal Evaluation:** $4$
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Combinatorial Brute Force Intuition

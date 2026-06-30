@@ -7,6 +7,16 @@ sidebar_label: "Arrays & Tuples"
 
 TypeScript features linear data arrays alongside highly specific, fixed-size **Tuples** for type validation checks.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Array Declarations
 
 You can initialize array data types using trailing square brackets or standard functional generic wrappers:

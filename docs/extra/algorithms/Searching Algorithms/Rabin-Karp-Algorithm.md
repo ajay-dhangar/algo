@@ -9,6 +9,16 @@ sidebar_label: Rabin-Karp algorithm
 
 **Rabin-Karp algorithm** is a string-searching algorithm that utilizes hashing to find a pattern within a text. This algorithm is particularly efficient for finding multiple patterns within the same text by comparing hash values, reducing the need for repeated character comparisons.
 
+## Video Explanation**
+<LiteYouTubeEmbed
+  id="qQ8vS2btsxI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9.2 Rabin-Karp String Matching Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics ✨
 
 - **Hash-Based Search**:
@@ -20,15 +30,6 @@ sidebar_label: Rabin-Karp algorithm
 - **Rolling Hash**:
   - Uses a rolling hash technique to quickly update the hash value for the next substring, enhancing efficiency for large texts.
 
-## Video Explanation**
-<LiteYouTubeEmbed
-  id="qQ8vS2btsxI"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="9.2 Rabin-Karp String Matching Algorithm"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ## Time Complexity ⏱️
 

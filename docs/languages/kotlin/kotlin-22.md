@@ -7,6 +7,16 @@ sidebar_position: 22
 
 # Kotlin Best Practices
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Prefer `val` Over `var`
 
 Always use `val` (immutable) unless mutation is truly needed.

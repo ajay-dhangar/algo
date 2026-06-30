@@ -15,6 +15,17 @@ Given an array nums of n positive integers. The task is to find the longest Zig-
 
 The input consists of an array where nums = `{a,b,c}`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Objective
 - The objective of the longest zigzag subsequence problem is to find the longest subsequence within a given sequence of numbers that alternates between increasing and decreasing.
  

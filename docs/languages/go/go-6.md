@@ -11,6 +11,16 @@ tags: ["go","golang","structs","interfaces","oop"]
 
 Hey there! In this guide, we'll explore **Structs and Interfaces** in Go. Go is not a traditional object-oriented language—it doesn't have classes or inheritance. Instead, it uses structs and interfaces to achieve similar, and often more flexible, designs. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Structs in Go
 
 A struct (short for structure) is a typed collection of fields. They are useful for grouping data together to form records.

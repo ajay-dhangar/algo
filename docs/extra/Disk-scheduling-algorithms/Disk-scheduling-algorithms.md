@@ -11,6 +11,17 @@ tags: [Disk Scheduling, FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK, Algorithm]
 
 Disk scheduling is the process used by an operating system to decide the order in which disk I/O requests are serviced. Since the movement of the disk's read/write head takes time, efficient scheduling algorithms aim to reduce seek time, improve performance, and increase disk throughput.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. First Come First Serve (FCFS)
 
 FCFS services disk requests in the exact order they arrive.

@@ -20,6 +20,16 @@ Java 8 introduced two features that fundamentally changed how we write everyday 
 
 Together, they let you express **what** you want to do with data instead of **how** to loop over it step-by-step.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Use Lambdas and Streams?
 
 ### Before (Imperative Style)

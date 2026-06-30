@@ -18,6 +18,16 @@ The **waviness** of a number is defined as the total count of its peaks and vall
 
 **Objective:** Return the total sum of waviness for all numbers in the range `[num1, num2]`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

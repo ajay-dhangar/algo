@@ -7,6 +7,16 @@ sidebar_label: "Exception Handling"
 
 Runtime errors can crash applications if they aren't caught. TypeScript uses modern `try...catch...finally` blocks to handle runtime errors gracefully.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Standard Error Handling Blocks
 
 ```typescript

@@ -9,6 +9,16 @@ tags: [php, loops, while, for, foreach]
 
 Loops are used to execute the same block of code repeatedly as long as a condition is true. php supports `while`, `do...while`, `for`, and `foreach` loops.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## The `while` Loop
 
 Executes code as long as the condition is true:

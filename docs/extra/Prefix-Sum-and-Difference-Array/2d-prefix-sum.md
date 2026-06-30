@@ -19,6 +19,17 @@ The **2D Prefix Sum** (also called the *summed area table* or *integral image*) 
 **Naïve approach:** Iterate through every cell in the rectangle — O(m × n) per query.  
 **2D Prefix Sum:** Preprocess in O(m × n), then answer each query in **O(1)**.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ### Building the 2D Prefix Array

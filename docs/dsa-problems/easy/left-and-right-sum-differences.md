@@ -30,6 +30,16 @@ Output: `[0]`
 **Explanation:** The array `leftSum` is `[0]` and the array `rightSum` is `[0]`.
 The array `answer` is `[|0 - 0|] = [0]`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

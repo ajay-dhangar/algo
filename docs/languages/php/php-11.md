@@ -21,6 +21,16 @@ Superglobals are built-in variables in php that are always accessible, regardles
 * `$_REQUEST`
 * `$_ENV`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 * * *
 
 ## `$GLOBALS`

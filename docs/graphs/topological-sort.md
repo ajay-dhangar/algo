@@ -15,6 +15,16 @@ It is commonly used when tasks have dependencies and must be performed in a spec
 Topological Sort is only possible in a Directed Acyclic Graph (DAG). If the graph contains a cycle, a valid topological ordering does not exist.
 :::
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## How It Works

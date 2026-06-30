@@ -21,6 +21,17 @@ import TabItem from '@theme/TabItem';
 
 A **Segment Tree** is an advanced data structure that allows you to efficiently perform **range queries** and **point updates** on an array — operations that would take O(n) per query with brute force, reduced to O(log n) with a Segment Tree.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="QzZ7nmouLTI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 🧠 Why Segment Tree?

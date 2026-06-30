@@ -20,6 +20,17 @@ The following example demonstrates concurrent execution by launching three indep
 * **Thread 2:** Computes Triangular Numbers
 * **Thread 3:** Generates Fibonacci Numbers
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 2. C Implementation

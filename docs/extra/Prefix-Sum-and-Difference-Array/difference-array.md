@@ -23,6 +23,17 @@ This is the **dual** of Prefix Sum:
 - Prefix Sum: fast range *queries*, slow range *updates*
 - Difference Array: fast range *updates*, fast final *reconstruction*
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ### Core Concept

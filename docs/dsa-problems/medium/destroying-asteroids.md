@@ -31,6 +31,16 @@ Output: `false`
 - The planet collides with the asteroid of mass 4: 9 + 4 = 13.
 - The planet collides with the asteroid of mass 23. It is destroyed as 13 < 23.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

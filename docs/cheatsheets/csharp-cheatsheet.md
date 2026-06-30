@@ -9,6 +9,16 @@ tags: [csharp, cheatsheet, dsa]
 
 This page is a quick reference for C# patterns that commonly appear in DSA, competitive programming, and technical interviews.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ## Basic Syntax
 
 ### Hello World

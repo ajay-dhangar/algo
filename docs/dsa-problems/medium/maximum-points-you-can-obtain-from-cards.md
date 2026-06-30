@@ -31,6 +31,16 @@ Input: `cardPoints = [9,7,7,9,7,7,9]`, `k = 7`
 Output: `55`
 **Explanation:** You have to take all the cards. Your score is the sum of points of all cards.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

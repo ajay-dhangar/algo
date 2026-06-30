@@ -11,6 +11,16 @@ tags: ["go","golang","variables","data types"]
 
 Hey there! In this guide, we'll explore the concepts of variables and data types in Go. Variables are essential in programming, allowing you to store and manipulate data dynamically. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Introduction to Variables
 
 In Go, variables are explicitly declared and used by the compiler to e.g. check type-correctness of function calls. Go is statically typed, meaning once a variable is declared with a specific type, it cannot change to hold another type.

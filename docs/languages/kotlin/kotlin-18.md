@@ -11,6 +11,16 @@ sidebar_position: 18
 
 Exceptions are runtime errors that disrupt the normal flow of a program. Kotlin provides structured exception handling using `try`, `catch`, `finally`, and `throw`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Basic `try-catch`
 
 ```kotlin

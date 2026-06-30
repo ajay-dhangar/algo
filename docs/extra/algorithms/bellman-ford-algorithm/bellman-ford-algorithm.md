@@ -11,6 +11,16 @@ tags: [algorithms, shortest-path, graph-theory, dynamic-programming]
 
 The **Bellman-Ford Algorithm** is a graph algorithm used to find the shortest paths from a single source vertex to all other vertices in a weighted directed graph. Unlike Dijkstra's Algorithm, it can handle graphs with **negative edge weights** and is also capable of detecting **negative weight cycles**.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Edge Relaxation Based**:

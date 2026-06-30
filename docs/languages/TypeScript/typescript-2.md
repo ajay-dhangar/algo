@@ -7,6 +7,16 @@ sidebar_label: "Data Types & Variables"
 
 Mastering data types is essential for maximizing TypeScript's type-safety assertions. Let's look at primitive types, variables, and type safety constraints.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Variable Declarations (`let` vs `const`)
 
 TypeScript strictly enforces standard JavaScript scoping layouts:

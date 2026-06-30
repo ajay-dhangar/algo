@@ -9,6 +9,16 @@ tags: [php, file-handling, fopen, fread, fwrite]
 
 php provides built-in functions to create, read, write, and delete files on the server.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Opening a File
 
 `fopen()` opens a file and returns a file handle:

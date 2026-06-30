@@ -11,6 +11,17 @@ sidebar_label: Bucket Sort
 
 Bucket sort is a comparison-based sorting algorithm that works by distributing elements into several "buckets" or ranges. Each bucket is sorted individually, either using another sorting algorithm or recursively applying bucket sort. Finally, the sorted buckets are concatenated to produce the final sorted array.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="E9OccfF9mpI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.11: Bucket Sort | Easiest explanation with examples | Time Complexity analysis with Pseudocode"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Distribution-Based Sorting**:
@@ -24,17 +35,6 @@ Bucket sort is a comparison-based sorting algorithm that works by distributing e
 
 - **Stable**:
   - Bucket sort is stable when the underlying sorting algorithm used within each bucket is stable.
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="E9OccfF9mpI"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-3.11: Bucket Sort | Easiest explanation with examples | Time Complexity analysis with Pseudocode"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

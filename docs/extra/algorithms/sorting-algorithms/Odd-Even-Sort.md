@@ -9,17 +9,6 @@ sidebar_label: Odd-Even Sort
 
 Odd-Even Sort is a simple parallel sorting algorithm that works by repeatedly performing two phases: an odd phase and an even phase. It compares and swaps adjacent elements in two passes, which gradually sorts the array. It is mainly used in parallel computing environments due to its ability to be implemented efficiently across multiple processors.
 
-### Characteristics:
-
-- **Two Phases**:  
-  The algorithm alternates between an odd phase (comparing elements at odd indexes with their next even index) and an even phase (comparing elements at even indexes with their next odd index).
-
-- **In-Place**:  
-  The algorithm sorts the array without requiring any additional storage, modifying the input array directly.
-
-- **Not Stable**:  
-  Odd-Even Sort is not stable, meaning that the relative order of equal elements may not be preserved.
-
 ### Video Explanation
 
 <LiteYouTubeEmbed
@@ -30,6 +19,17 @@ Odd-Even Sort is a simple parallel sorting algorithm that works by repeatedly pe
   lazyLoad={true}
   webp
 />
+
+### Characteristics:
+
+- **Two Phases**:  
+  The algorithm alternates between an odd phase (comparing elements at odd indexes with their next even index) and an even phase (comparing elements at even indexes with their next odd index).
+
+- **In-Place**:  
+  The algorithm sorts the array without requiring any additional storage, modifying the input array directly.
+
+- **Not Stable**:  
+  Odd-Even Sort is not stable, meaning that the relative order of equal elements may not be preserved.
 
 ### Time Complexity:
 

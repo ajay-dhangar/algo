@@ -11,6 +11,16 @@ tags: ["go","golang","concurrency","goroutines"]
 
 Hey there! In this guide, we'll explore **Concurrency** in Go. Concurrency is one of Go's killer features. Go makes it incredibly easy to run multiple tasks at the same time using **Goroutines**. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. What is Concurrency?
 
 Concurrency is the ability of a program to break a task down into smaller, independent parts that can be executed out of order or in partial order without affecting the final outcome. This allows programs to utilize multiple CPU cores efficiently.

@@ -10,6 +10,17 @@ tags: [dsa, arrays, sorting, shell-sort, algorithm of shell-sort, pseudocode of 
 
 **Shell Sort** is a generalization of insertion sort that allows the exchange of elements that are far apart from each other. It starts with a large gap between compared elements and progressively reduces the gap, eventually performing a standard insertion sort when the gap is 1. This approach significantly improves the efficiency of insertion sort, especially for larger datasets, making it a practical choice for moderate-sized arrays.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="9crZRd8GPWM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.11 Shell Sort | Sorting Algorithms | Full explanation with Code | DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 <ShellSortVisualization />
 
 ## Algorithm
@@ -28,27 +39,6 @@ sidebar_label: Shell Sort
 description: "Shell Sort is an in-place comparison sort algorithm that generalizes insertion sort by allowing the exchange of elements that are far apart. It starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared."
 tags: [dsa, arrays, sorting, shell-sort, gap-sort, sorting-algorithms]
 ---
-
-import AdsComponent from '@site/src/components/AdsComponent';
-
-**Shell Sort** is a highly efficient in-place sorting algorithm and an improved version of Insertion Sort. It allows the exchange of items that are far apart, unlike Insertion Sort which only exchanges adjacent items. The idea is to arrange the list of elements so that, starting anywhere, taking every $h$-th element produces a sorted list — such a list is said to be **h-sorted**.
-
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="9crZRd8GPWM"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="7.11 Shell Sort | Sorting Algorithms | Full explanation with Code | DSA Course"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
-
-
-
-<AdsComponent />
-
-<ShellSortVisualization />
 
 <br />
 

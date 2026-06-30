@@ -13,16 +13,6 @@ tags: [sorting, dsa, algorithms, programming, parity sort, partition sort, parit
 
 Parity Partition Sort is a sorting algorithm that initially partitions an array into two subarrays: one containing even numbers and the other containing odd numbers. It then sorts each subarray independently using a standard sorting algorithm like Merge Sort or Insertion Sort. Finally, the two sorted subarrays are merged to form the final sorted array.
 
-**Algorithm**
-
-1. **Partition:**
-   - Iterate through the array and place even numbers in the left part of a temporary array.
-   - Place odd numbers in the right part of the temporary array.
-2. **Sort:**
-   - Sort the even and odd partitions independently using a suitable sorting algorithm (e.g., Merge Sort).
-3. **Merge:**
-   - Merge the sorted even and odd partitions back into the original array.
-
 **Video Explanation**
 
 <LiteYouTubeEmbed
@@ -33,6 +23,16 @@ Parity Partition Sort is a sorting algorithm that initially partitions an array 
   lazyLoad={true}
   webp
 />
+
+**Algorithm**
+
+1. **Partition:**
+   - Iterate through the array and place even numbers in the left part of a temporary array.
+   - Place odd numbers in the right part of the temporary array.
+2. **Sort:**
+   - Sort the even and odd partitions independently using a suitable sorting algorithm (e.g., Merge Sort).
+3. **Merge:**
+   - Merge the sorted even and odd partitions back into the original array.
 
 **Java Implementation**
 

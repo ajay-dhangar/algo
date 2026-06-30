@@ -9,6 +9,16 @@ tags: [r, r-programming, data-science, statistics, data-analysis]
 
 Welcome to your comprehensive guide to R. This modern, structured handbook is designed to take you from writing your first line of code to executing advanced data engineering and statistical workflows.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ## Introduction to the R Ecosystem
 
 R is more than just a programming language; it is a highly specialized environment designed for data analysis, statistical computing, and stunning graphics. 

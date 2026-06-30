@@ -11,6 +11,17 @@ sidebar_label: Needleman-Wunsch Algorithm
 
 The Needleman-Wunsch Algorithm is a dynamic programming algorithm for global sequence alignment, finding the optimal alignment between two sequences by considering the entire length of both sequences. Developed by Saul B. Needleman and Christian D. Wunsch in 1970, it optimizes a scoring function based on matches, mismatches, and gaps.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="ipp-pNRIp4g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Global Sequence Alignment & Needleman-Wunsch || Algorithm and Example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Global Alignment**:
@@ -32,17 +43,6 @@ The Needleman-Wunsch Algorithm is a dynamic programming algorithm for global seq
   - Maximum score path
   - Full sequence coverage
   - Optimal alignment
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="ipp-pNRIp4g"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Global Sequence Alignment & Needleman-Wunsch || Algorithm and Example"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

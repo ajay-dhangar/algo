@@ -9,6 +9,16 @@ tags: [php, data-types, types]
 
 php supports the following data types: String, Integer, Float, Boolean, Array, Object, NULL, and Resource.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## String
 
 A string is a sequence of characters. It can be written inside single or double quotes:

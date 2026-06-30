@@ -7,6 +7,16 @@ sidebar_position: 8
 
 # Loops
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## `for` Loop
 
 The `for` loop is used to iterate over ranges, arrays, or collections.

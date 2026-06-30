@@ -36,6 +36,16 @@ Return the final string `result` after processing all characters in `s`.
   2. `'*'` -> Remove last: `""`
   3. `'#'` -> Duplicate: `""`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approach: Simulation

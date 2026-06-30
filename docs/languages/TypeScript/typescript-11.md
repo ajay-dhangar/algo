@@ -7,6 +7,16 @@ sidebar_label: "Inheritance & Modules"
 
 Clean architecture relies on classes inheriting core functionality and organizing related components into distinct files using modular export paths.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Class Inheritance Mechanics
 
 Classes reuse or override parent logic using the `extends` keyword. Subclasses must invoke the parent constructor using `super()` before accessing `this`:

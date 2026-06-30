@@ -11,6 +11,16 @@ tags: ["go","golang","maps"]
 
 Hey there! In this guide, we'll explore **Maps** in Go. Maps are Go's built-in associative data type (often called hashes or dictionaries in other languages). They are incredibly useful for storing key-value pairs. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. What is a Map?
 
 A map maps keys to values. For example, you might use a map to store the ages of users, where the user's name is the key (a string), and their age is the value (an int).

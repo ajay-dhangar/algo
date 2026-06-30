@@ -15,6 +15,17 @@ Priority Scheduling assigns each process a priority value, and the CPU is alloca
 
 This ensures that important processes receive CPU time as soon as possible.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. How It Works
 
 - Each process is assigned a priority level.

@@ -25,6 +25,16 @@ Return a string formed by concatenating the mapped characters for all words in o
 - The weight of `"xyz"` is $7 + 7 + 2 = 16$. The result modulo 26 is $16 \pmod{26} = 16$, which maps to `'j'`.
 Thus, the string formed by concatenating the mapped characters is `"rij"`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Intuition & Approach

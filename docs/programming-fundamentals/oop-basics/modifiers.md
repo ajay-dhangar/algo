@@ -11,6 +11,16 @@ tags: [Access-Modifiers, Public, Private, Protected, Encapsulation, OOP, Friend]
 
 Access modifiers control the **visibility** and **accessibility** of class members, forming the foundation of **encapsulation** in OOP.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. Introduction

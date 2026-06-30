@@ -31,6 +31,16 @@ Output: `true`
 **Explanation:** `[1, 2, 3]` is the original sorted array.
 You can rotate the array by x = 0 positions (i.e. no rotation) to make `nums`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

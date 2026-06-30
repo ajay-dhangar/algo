@@ -11,6 +11,16 @@ sidebar_position: 13
 
 In many languages, accessing a null reference causes a **NullPointerException (NPE)**. Kotlin eliminates this by distinguishing between nullable and non-nullable types at compile time.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Non-Nullable Types (Default)
 
 ```kotlin

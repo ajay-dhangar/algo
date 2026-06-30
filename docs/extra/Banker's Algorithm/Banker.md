@@ -8,17 +8,6 @@ tags: [operating systems, algorithms, deadlock prevention]
 
 The Banker's Algorithm is a deadlock avoidance algorithm used in operating systems. It allocates resources to processes in a safe manner by verifying that the system can allocate resources in a way that avoids deadlocks. It ensures a "safe state" where resources can be allocated without risk of deadlock, based on maximum and current allocations.
 
-### Characteristics:
-
-- **Safety Check**:
-  - The algorithm uses a **safety check** to determine if the system is in a safe state by calculating a "safe sequence" for process execution.
-  
-- **Work Array and Finish Array**:
-  - The **work array** is initialized to available resources, and **finish array** tracks completed processes. A safe sequence is identified if all processes can be allocated resources in an order that completes without deadlock.
-  
-- **Efficient Deadlock Avoidance**:
-  - The algorithm helps avoid deadlock by dynamically checking if resources can be safely allocated before fulfilling a process request, ensuring a safe state.
-
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -29,6 +18,17 @@ The Banker's Algorithm is a deadlock avoidance algorithm used in operating syste
   lazyLoad={true}
   webp
 />
+
+### Characteristics:
+
+- **Safety Check**:
+  - The algorithm uses a **safety check** to determine if the system is in a safe state by calculating a "safe sequence" for process execution.
+  
+- **Work Array and Finish Array**:
+  - The **work array** is initialized to available resources, and **finish array** tracks completed processes. A safe sequence is identified if all processes can be allocated resources in an order that completes without deadlock.
+  
+- **Efficient Deadlock Avoidance**:
+  - The algorithm helps avoid deadlock by dynamically checking if resources can be safely allocated before fulfilling a process request, ensuring a safe state.
 
 ### C Implementation:
 

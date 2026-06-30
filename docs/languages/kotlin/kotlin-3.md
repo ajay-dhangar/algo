@@ -7,6 +7,16 @@ sidebar_position: 3
 
 # Your First Kotlin Program
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Hello, World!
 
 Every programming journey begins with a simple "Hello, World!" program. In Kotlin, it takes just two lines.

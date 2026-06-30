@@ -9,6 +9,16 @@ tags: [php, sessions, cookies, authentication]
 
 Sessions and cookies help maintain state across multiple HTTP requests since HTTP is stateless by default.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Cookies
 
 A cookie is a small text file stored on the client's browser.

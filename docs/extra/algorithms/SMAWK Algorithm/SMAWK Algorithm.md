@@ -11,13 +11,6 @@ sidebar_label: SMAWK Algorithm
 
 The **SMAWK Algorithm** is a specialized algorithm for efficiently finding row minima in a certain class of totally monotone matrices. It is primarily used in problems involving dynamic programming on matrices and is an optimization over the brute-force approach of finding the minimum in each row independently.
 
-### Characteristics
-
-- **Algorithm Type**: Dynamic Programming Optimization, Matrix Algorithms.
-- **Main Operation**: Finds the minimum element in each row of a totally monotone matrix.
-- **Data Structures**: A vector to store the minimum values and another to track the active set of columns.
-- **Output**: A vector containing the minimum value of each row in the matrix.
-
 ### Video Explanation**
 <LiteYouTubeEmbed
   id="pbmOkYql3HY"
@@ -27,6 +20,14 @@ The **SMAWK Algorithm** is a specialized algorithm for efficiently finding row m
   lazyLoad={true}
   webp
 />
+
+### Characteristics
+
+- **Algorithm Type**: Dynamic Programming Optimization, Matrix Algorithms.
+- **Main Operation**: Finds the minimum element in each row of a totally monotone matrix.
+- **Data Structures**: A vector to store the minimum values and another to track the active set of columns.
+- **Output**: A vector containing the minimum value of each row in the matrix.
+
 
 ### Time Complexity
 

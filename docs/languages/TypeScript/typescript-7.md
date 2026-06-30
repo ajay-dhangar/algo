@@ -7,6 +7,16 @@ sidebar_label: "Strings"
 
 Strings are primitive immutable entities in TypeScript. Modifications create new allocations instead of altering the original text in memory.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Syntax Formats & Template Literal Interpolations
 
 TypeScript supports standard string quotations alongside advanced multi-line evaluation blocks using backticks:

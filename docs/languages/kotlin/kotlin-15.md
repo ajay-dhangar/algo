@@ -7,6 +7,16 @@ sidebar_position: 15
 
 # Inheritance
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## The `open` Keyword
 
 In Kotlin, classes are **final** by default. Use `open` to allow inheritance:

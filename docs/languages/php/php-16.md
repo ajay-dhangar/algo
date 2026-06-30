@@ -9,6 +9,16 @@ tags: [php, namespaces, oop, autoloading]
 
 Namespaces allow you to organize your code into logical groups and avoid naming conflicts between classes, functions, and constants.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Use Namespaces?
 
 Without namespaces, if two libraries both define a class named `User`, there would be a conflict. Namespaces solve this:

@@ -11,6 +11,16 @@ sidebar_position: 20
 
 Generics allow you to write **type-safe, reusable code** that works with different data types without sacrificing type safety. Instead of writing separate classes for each type, you write one class with a type parameter.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Generic Functions
 
 ```kotlin

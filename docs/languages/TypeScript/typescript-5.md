@@ -7,6 +7,16 @@ sidebar_label: "Loops"
 
 Loops allow you to run blocks of code repeatedly until specific bounds or conditional boundaries are met.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Traditional `for` & Conditional Iterations
 
 ```typescript

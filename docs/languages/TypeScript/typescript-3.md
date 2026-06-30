@@ -7,6 +7,16 @@ sidebar_label: "Operators"
 
 Operators perform standard math, evaluations, and structural transformations in TypeScript. Let's look at its unique utility operators alongside traditional operators.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Arithmetic & Relational Operators
 
 ```typescript

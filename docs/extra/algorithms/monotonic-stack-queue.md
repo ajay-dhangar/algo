@@ -20,6 +20,17 @@ tags:
 
 Monotonic Stack and Monotonic Queue are powerful patterns used to solve problems involving **next/previous greater or smaller elements** and **sliding window extremes** in O(n) time — problems that would otherwise take O(n²) with brute force.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="QzZ7nmouLTI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 🧠 What is a Monotonic Stack?

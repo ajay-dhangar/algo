@@ -26,6 +26,16 @@ Typical examples include:
 - range mode variants with extra bookkeeping
 - problems where prefix sums are not enough because the answer depends on element frequencies
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Problem It Solves

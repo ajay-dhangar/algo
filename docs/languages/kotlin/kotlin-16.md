@@ -11,6 +11,16 @@ sidebar_position: 16
 
 An interface defines a **contract** — a set of functions and properties that a class must implement. Unlike abstract classes, a class can implement **multiple interfaces**.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Defining and Implementing an Interface
 
 ```kotlin

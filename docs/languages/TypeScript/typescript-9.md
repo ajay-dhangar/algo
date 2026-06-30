@@ -9,6 +9,16 @@ tags: [typescript, oop, classes, objects, encapsulation]
 
 TypeScript features comprehensive Object-Oriented structures, adding strict encapsulation modifiers and type properties over traditional JavaScript classes.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Class Structure and Properties
 
 ```typescript

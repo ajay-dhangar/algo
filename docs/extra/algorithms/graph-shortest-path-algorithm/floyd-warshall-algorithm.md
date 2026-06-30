@@ -26,6 +26,16 @@ The algorithm works for:
 
 However, it does **not** work correctly for graphs containing **negative weight cycles**.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Dynamic Programming Concept
