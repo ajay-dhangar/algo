@@ -235,6 +235,7 @@ const Quizes: React.FC = () => {
               <input
                 type="text"
                 placeholder="Search specific structure queries..."
+                aria-label="Search specific structure queries..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full py-2.5 pl-10 pr-4 border border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 focus:outline-none focus:border-[var(--ifm-color-primary)] text-sm font-semibold rounded-xl transition-all shadow-xs"
