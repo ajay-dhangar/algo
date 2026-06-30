@@ -16,7 +16,7 @@ If you find this repository helpful for your learning or development, please con
 ## Table of Contents
 
 | [Intro](#introduction) | [Events](#algo-events) | [Overview](#project-overview) | [Features](#features) | [Website](#website) | [Install](#installation) | [Local Dev](#local-development) | [Build](#build) | [Deployment](#deployment) | [Contributing](#-contributing) |
-|---|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|
 
 ---
 

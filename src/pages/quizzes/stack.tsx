@@ -13,6 +13,7 @@ import {
   FaChevronRight, 
   FaHistory 
 } from "react-icons/fa";
+import { safeJsonParse } from "../../utils/safeStorage";
 
 interface Question {
   id: number;
@@ -161,8 +162,7 @@ const StackQuiz: React.FC = () => {
     if (storedUser) {
       setUsername(storedUser);
       const historyKey = `algo_quiz_history_${storedUser.toLowerCase()}`;
-      const savedHistory = localStorage.getItem(historyKey);
-      if (savedHistory) setLocalHistory(JSON.parse(savedHistory));
+      setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
     }
   }, []);
 
@@ -184,6 +184,13 @@ const StackQuiz: React.FC = () => {
 
   const selectedOption = userAnswers[currentQuestion] || null;
 
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
+    }
+  };
+
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
@@ -192,8 +199,7 @@ const StackQuiz: React.FC = () => {
     setUsername(cleanName);
 
     const historyKey = `algo_quiz_history_${cleanName.toLowerCase()}`;
-    const savedHistory = localStorage.getItem(historyKey);
-    setLocalHistory(savedHistory ? JSON.parse(savedHistory) : []);
+    setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
   };
 
   const handleLogout = () => {
@@ -273,6 +279,7 @@ const StackQuiz: React.FC = () => {
               <input
                 type="text"
                 placeholder="Enter workspace identity (e.g. Developer)"
+                aria-label="Enter workspace identity (e.g. Developer)"
                 value={usernameInput}
                 onChange={(e) => setUsernameInput(e.target.value)}
                 maxLength={20}
@@ -393,13 +400,13 @@ const StackQuiz: React.FC = () => {
                   </div>
 
                   {/* Interactive Option Selection Layout Blocks */}
-                  <div className="grid grid-cols-1 gap-3 pt-2">
+                  <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Quiz Options">
                     {QUESTIONS[currentQuestion].options.map((option, index) => {
                       const isSelected = selectedOption === option;
                       return (
                         <button
                           key={index}
-                          onClick={() => handleSelectAnswer(option)}
+                          onClick={() => handleSelectAnswer(option)} role="radio" aria-checked={isSelected}
                           className={`w-full text-left p-4 rounded-xl border border-solid transition-all text-xs md:text-sm font-semibold tracking-wide cursor-pointer flex items-center justify-between min-h-[52px] ${
                             isSelected
                               ? "bg-[var(--ifm-color-primary)] border-[var(--ifm-color-primary)] text-white shadow-sm"
