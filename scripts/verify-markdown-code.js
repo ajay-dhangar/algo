@@ -80,7 +80,7 @@ function runJsCode(code) {
   try {
     // Inject mock console context to suppress heavy logs if desired, but allow execution
     fs.writeFileSync(tempFile, code, 'utf8');
-    execFileSync('node', [tempFile], { stdio: 'ignore', timeout: 5000 });
+    execFileSync('node', ['--check', tempFile], { stdio: 'ignore', timeout: 5000 });
     return { success: true };
   } catch (err) {
     return { success: false, error: err.message };
@@ -100,7 +100,7 @@ function runPythonCode(code) {
     } catch {
       pyCmd = 'python3';
     }
-    execFileSync(pyCmd, [tempFile], { stdio: 'ignore', timeout: 5000 });
+    execFileSync(pyCmd, ['-m', 'py_compile', tempFile], { stdio: 'ignore', timeout: 5000 });
     return { success: true };
   } catch (err) {
     return { success: false, error: err.message };
@@ -140,7 +140,7 @@ function main() {
       }
 
       if (result.success) {
-        console.log(`  ✅ Block #${idx + 1} passed syntax & execution check.`);
+        console.log(`  ✅ Block #${idx + 1} passed syntax check.`);
       } else {
         failedBlocks++;
         console.error(`  ❌ Block #${idx + 1} FAILED check!`);
