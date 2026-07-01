@@ -38,7 +38,6 @@ const config = {
   projectName: "algo",
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
 
   i18n: {
     defaultLocale: "en",
@@ -401,6 +400,51 @@ const config = {
       '@docusaurus/plugin-google-tag-manager',
       {
         containerId: 'GTM-NWMCVM3L',
+      },
+    ],
+
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: true, // Turn off (false) in production
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
+        swCustom: require.resolve("./src/sw.js"),
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/algo/logo/logo.png', // Update to your actual logo path
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/algo/manifest.json', // Must match the baseUrl
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: '#rgb(37, 194, 160)', // Your brand color
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: '#000',
+          },
+          {
+            tagName: 'link',
+            rel: 'apple-touch-icon',
+            href: '/algo/logo/logo.png',
+          },
+        ],
       },
     ],
 
