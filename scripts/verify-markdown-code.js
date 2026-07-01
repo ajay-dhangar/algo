@@ -13,11 +13,7 @@ const { execSync, execFileSync } = require('child_process');
 const SKIP_VERIFICATION_FILES = new Set([
   'CONTRIBUTING.md',
   'README.md',
-  'IMPLEMENTATION_SUMMARY.md',
-  'MULTI_LANGUAGE_PLAYGROUND.md',
   'learn.md',
-  'QUICK_START.md',
-  'CHECKLIST.md',
 ]);
 
 // Languages we support executing
