@@ -37,7 +37,7 @@ const config = {
   organizationName: "ajay-dhangar",
   projectName: "algo",
 
-  onBrokenLinks: "warn",
+  onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
   i18n: {
