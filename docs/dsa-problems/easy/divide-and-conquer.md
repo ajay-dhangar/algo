@@ -118,15 +118,17 @@ def solve():
     t = int(input_data[0])
     index = 1
     
+    results = []
     for _ in range(t):
         x = int(input_data[index])
         y = int(input_data[index+1])
         index += 2
         
         if x % y == 0:
-            print("YES")
+            results.append("YES")
         else:
-            print("NO")
+            results.append("NO")
+    print('\n'.join(results))
 
 if __name__ == "__main__":
     solve()
