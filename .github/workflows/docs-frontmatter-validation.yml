@@ -24,14 +24,14 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: '20' # Upgraded to Node 20 (LTS) to match your release environment
+          node-version: '24' # Upgraded to Node 20 (LTS) to match your release environment
           cache: 'npm'       # Automatically caches npm dependencies to make runs significantly faster
 
       - name: Install dependencies
