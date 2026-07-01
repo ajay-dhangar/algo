@@ -5,8 +5,9 @@
   "theme_color": "#2196f3",
   "background_color": "#424242",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./index.html",
+  "orientation": "portrait",
+  "scope": "/algo/",
+  "start_url": "/algo/",
   "related_applications": [
     {
       "platform": "webapp",
@@ -15,34 +16,22 @@
   ],
   "icons": [
     {
-      "src": "logo/logo.png",
+      "src": "/algo/img/logo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "logo/logo.png",
+      "src": "/algo/img/logo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "logo/logo.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "logo/logo.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    },
-    {
-      "src": "logo/logo.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "logo/logo.png",
+      "src": "/algo/img/logo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
