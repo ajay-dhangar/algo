@@ -35,7 +35,7 @@ const Leaderboard: React.FC = () => {
   useEffect(() => {
     if (!cacheTime) return;
     const updateAge = () => {
-      const diffMs = Date.now() - cacheTime;
+      const diffMs = Math.max(0, Date.now() - cacheTime);
       const diffSec = Math.floor(diffMs / 1000);
       const diffMin = Math.floor(diffSec / 60);
       const diffHr = Math.floor(diffMin / 60);
@@ -110,6 +110,7 @@ const Leaderboard: React.FC = () => {
           setLeaders(mappedLeaders);
           setIsLive(true);
           setDataSource("live");
+          setCacheTime(null);
           try {
             const cacheData = {
               timestamp: Date.now(),
@@ -130,7 +131,7 @@ const Leaderboard: React.FC = () => {
             const cached = localStorage.getItem("algo_leaderboard_cache");
             if (cached) {
               const parsed = JSON.parse(cached);
-              if (parsed && Array.isArray(parsed.data) && parsed.data.length > 0) {
+              if (parsed && typeof parsed.timestamp === "number" && !isNaN(parsed.timestamp) && Array.isArray(parsed.data) && parsed.data.length > 0) {
                 fallback = parsed.data;
                 setCacheTime(parsed.timestamp);
                 setDataSource("cache");
