@@ -28,7 +28,7 @@ export default function Home() {
           src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
         />
         {/* 3rd part... cookies */}
-        <script src="https://app.secureprivacy.ai/script/6a40bb4e4918bc215a63f02b.js" />
+        {/* <script src="https://app.secureprivacy.ai/script/6a40bb4e4918bc215a63f02b.js" /> */}
         {/*  */}
       </Head>
       <main>
