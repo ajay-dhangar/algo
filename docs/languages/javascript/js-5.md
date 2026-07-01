@@ -1,5 +1,5 @@
 ---  
-id: js-loops
+id: loops
 sidebar_position: 5  
 title: Loops in JavaScript  
 sidebar_label: Loops in JavaScript

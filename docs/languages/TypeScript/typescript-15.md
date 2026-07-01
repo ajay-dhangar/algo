@@ -1,5 +1,5 @@
 ---
-id: typescript-exception-handling
+id: exception-handling
 sidebar_position: 15
 title: "Exception Handling"
 sidebar_label: "Exception Handling"
