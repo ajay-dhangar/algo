@@ -139,22 +139,24 @@ if __name__ == "__main__":
 const fs = require('fs');
 
 function main() {
-    const input = fs.readFileSync('/dev/stdin', 'utf-8').trim().split(/\s+/);
+    const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
     if (input.length === 0 || input[0] === '') return;
     
     let t = parseInt(input[0], 10);
     let index = 1;
+    const results = [];
     
     for (let i = 0; i < t; i++) {
         let x = parseInt(input[index++], 10);
         let y = parseInt(input[index++], 10);
         
         if (x % y === 0) {
-            console.log("YES");
+            results.push("YES");
         } else {
-            console.log("NO");
+            results.push("NO");
         }
     }
+    console.log(results.join('\n'));
 }
 
 main();
