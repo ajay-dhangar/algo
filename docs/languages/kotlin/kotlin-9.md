@@ -10,9 +10,9 @@ sidebar_position: 9
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="YxixgkS_B1s"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Kotlin Functions and Methods example. Basics and Syntax. Kotlin Android Tutorial. #7.1"
   lazyLoad={true}
   webp
 />

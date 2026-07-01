@@ -12,9 +12,9 @@ An array stores multiple values in a single variable. php supports indexed array
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="SLqF77h6HLY"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="PHP Array Tutorial in Hindi / Urdu"
   lazyLoad={true}
   webp
 />

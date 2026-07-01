@@ -7,19 +7,20 @@ sidebar_label: "Inheritance & Modules"
 
 Clean architecture relies on classes inheriting core functionality and organizing related components into distinct files using modular export paths.
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="RRVYpIET_RU"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
-  lazyLoad={true}
-  webp
-/>
 
 ## 1. Class Inheritance Mechanics
 
-Classes reuse or override parent logic using the `extends` keyword. Subclasses must invoke the parent constructor using `super()` before accessing `this`:
+Classes reuse or override parent logic using the `extends` keyword. Subclasses must invoke the parent constructor using `super()` before accessing `this`
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Sn6K57YSuwU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="TypeScript Basics 14 - Inheritance and Polymorphism In TypeScript"
+  lazyLoad={true}
+  webp
+/>
 
 ```typescript
 class BasicPeripheral {
@@ -45,7 +46,17 @@ class OpticalScanner extends BasicPeripheral {
 
 ## 2. Code Organization Modules (`export` & `import`)
 
-TypeScript uses standard ES Module semantics to manage file boundaries and share code components between separate modules:
+TypeScript uses standard ES Module semantics to manage file boundaries and share code components between separate modules
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="P5CJQTWBW8Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="TypeScript Hindi Tutorial #27 Modules"
+  lazyLoad={true}
+  webp
+/>
 
 ```typescript
 // Inside file path context: dataUtility.ts

@@ -12,9 +12,9 @@ Hey there! In this guide, we'll explore exception handling in Java. Exception ha
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="bxcZ7cXbDI0"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Exception Handling in Java | ArithmeticException"
   lazyLoad={true}
   webp
 />

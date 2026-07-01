@@ -9,17 +9,17 @@ tags: [php, loops, while, for, foreach]
 
 Loops are used to execute the same block of code repeatedly as long as a condition is true. php supports `while`, `do...while`, `for`, and `foreach` loops.
 
+## The `while` Loop
+
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="86tJIr6qpNQ"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="While Loops in php | PHP Tutorial #12"
   lazyLoad={true}
   webp
 />
-
-## The `while` Loop
 
 Executes code as long as the condition is true:
 
@@ -39,6 +39,16 @@ while ($i <= 5) {
 
 ## The `do...while` Loop
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="LMhQAErF8J0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="do-While Loops in php | PHP Tutorial #14"
+  lazyLoad={true}
+  webp
+/>
+
 Executes the code block **once** before checking the condition, then repeats while true:
 
 ```php
@@ -57,6 +67,16 @@ do {
 * * *
 
 ## The `for` Loop
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="GVGolpfz-ms"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="For Loops in php | PHP Tutorial #13"
+  lazyLoad={true}
+  webp
+/>
 
 Used when you know in advance how many times to loop:
 
@@ -78,6 +98,16 @@ for (initialization; condition; increment) {
 * * *
 
 ## The `foreach` Loop
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="sFjRRRJ-j8Y"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="foreach Loops in php | PHP Tutorial #15"
+  lazyLoad={true}
+  webp
+/>
 
 Used to loop through arrays:
 

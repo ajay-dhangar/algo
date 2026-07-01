@@ -14,9 +14,9 @@ In C++, methods (also called member functions) are functions defined inside a cl
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="1oOWq4rpXIg"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Class Member Functions (aka Methods) | C++ Tutorial"
   lazyLoad={true}
   webp
 />

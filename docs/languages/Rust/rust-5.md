@@ -21,9 +21,9 @@ In Rust, the `main()` function is the starting point of every program.
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="SqT5YglW3qU"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Rust Functions Are Weird (But Be Glad)"
   lazyLoad={true}
   webp
 />

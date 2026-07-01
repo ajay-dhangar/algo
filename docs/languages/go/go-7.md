@@ -14,9 +14,9 @@ Hey there! In this guide, we'll explore **Concurrency** in Go. Concurrency is on
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="f6kdp27TYZs"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Google I/O 2012 - Go Concurrency Patterns"
   lazyLoad={true}
   webp
 />

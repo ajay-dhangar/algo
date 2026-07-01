@@ -10,9 +10,9 @@ Mastering data types is essential for maximizing TypeScript's type-safety assert
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="61ksPqjgMKo"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Typescript tutorial for beginners in Hindi #5 Core Data Types"
   lazyLoad={true}
   webp
 />

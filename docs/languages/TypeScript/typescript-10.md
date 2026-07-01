@@ -10,9 +10,9 @@ Interfaces and Type Aliases define structured contracts for complex data structu
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="Idf0zh9f3qQ"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Why I use Type and not Interface in TypeScript"
   lazyLoad={true}
   webp
 />

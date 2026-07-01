@@ -14,9 +14,9 @@ Kotlin is a modern, statically typed programming language developed by JetBrains
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="xT8oP0wy-A0"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Kotlin in 100 Seconds"
   lazyLoad={true}
   webp
 />

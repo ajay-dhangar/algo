@@ -12,9 +12,9 @@ Exception handling lets you deal with runtime errors gracefully without crashing
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="rQntgj7yink"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="PHP Error Handling & Error Handlers - Full PHP 8 Tutorial"
   lazyLoad={true}
   webp
 />

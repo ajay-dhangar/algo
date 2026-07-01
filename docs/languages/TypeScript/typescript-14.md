@@ -21,9 +21,9 @@ To compile decorators safely, ensure the `experimentalDecorators` flag is enable
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="O6A-u_FoEX8"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="The Magic of TypeScript Decorators"
   lazyLoad={true}
   webp
 />

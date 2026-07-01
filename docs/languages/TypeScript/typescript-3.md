@@ -10,9 +10,9 @@ Operators perform standard math, evaluations, and structural transformations in 
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="JefL5I435h0"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="TypeScript Part5- Operators in TypeScript"
   lazyLoad={true}
   webp
 />

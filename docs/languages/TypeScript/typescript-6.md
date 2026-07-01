@@ -10,9 +10,9 @@ Functions are the core building blocks of program architecture. TypeScript enhan
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="jXoSaX_yFh4"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="TypeScript Tutorial #8 - Function Basics"
   lazyLoad={true}
   webp
 />

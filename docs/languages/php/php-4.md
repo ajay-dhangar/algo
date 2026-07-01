@@ -12,9 +12,9 @@ Operators are used to perform operations on variables and values. php divides op
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="xLc70TTz88Q"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Operators in Php | PHP Tutorial #9"
   lazyLoad={true}
   webp
 />

@@ -14,9 +14,9 @@ Hey there! In this guide, we'll explore **Arrays and Slices** in Go. These are t
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="Arb-LjPg7FA"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Go (Golang) Tutorial #5 - Arrays & Slices"
   lazyLoad={true}
   webp
 />

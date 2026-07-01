@@ -12,9 +12,9 @@ php can connect to MySQL databases to store, retrieve, update, and delete data. 
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="ueWpNe0PG34"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Connect to MySQL with PHP in XAMPP / Create a new database"
   lazyLoad={true}
   webp
 />

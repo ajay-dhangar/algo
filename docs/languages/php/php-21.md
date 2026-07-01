@@ -9,16 +9,6 @@ tags: [php, oop, best-practices, solid, design-patterns]
 
 Writing clean, object-oriented php code requires following established principles and patterns. This guide covers the most important best practices for professional php development.
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="RRVYpIET_RU"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
-  lazyLoad={true}
-  webp
-/>
-
 ## 1. Follow the SOLID Principles
 
 ### Single Responsibility Principle (SRP)

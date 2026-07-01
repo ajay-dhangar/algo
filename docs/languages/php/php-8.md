@@ -12,9 +12,9 @@ A string is a sequence of characters. In php, strings can be written inside sing
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="BlSlJNulc6w"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="String in PHP (Hindi)"
   lazyLoad={true}
   webp
 />

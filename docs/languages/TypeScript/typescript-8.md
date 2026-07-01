@@ -10,9 +10,9 @@ TypeScript features linear data arrays alongside highly specific, fixed-size **T
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="yYblYVQKn2U"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="TypeScript Basics 7 - Arrays and tuples"
   lazyLoad={true}
   webp
 />

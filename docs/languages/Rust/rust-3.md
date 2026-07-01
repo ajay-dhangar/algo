@@ -25,9 +25,9 @@ Rust mainly provides two categories of data types:
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="t047Hseyj_k"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Rust Tutorial #4 - Data Types"
   lazyLoad={true}
   webp
 />

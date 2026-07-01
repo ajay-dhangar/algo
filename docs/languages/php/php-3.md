@@ -12,9 +12,9 @@ php supports the following data types: String, Integer, Float, Boolean, Array, O
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="oXX2SJKijig"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="PHP Data Types Tutorial in Hindi / Urdu"
   lazyLoad={true}
   webp
 />

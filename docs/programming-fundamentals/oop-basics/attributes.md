@@ -13,9 +13,9 @@ Attributes, also known as data members or fields, represent the state of an obje
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="BpulWncdn9Y"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="C++ Weekly - Ep 423 - Complete Guide to Attributes Through C++23"
   lazyLoad={true}
   webp
 />

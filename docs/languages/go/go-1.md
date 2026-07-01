@@ -14,9 +14,9 @@ Welcome to the world of Go! In this guide, we'll explore the fundamentals of Go 
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="446E-r0rXHI"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Go in 100 Seconds"
   lazyLoad={true}
   webp
 />

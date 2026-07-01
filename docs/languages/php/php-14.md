@@ -12,9 +12,9 @@ Inheritance lets a class inherit properties and methods from another class. The 
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="X6xY4Ouydas"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="4: Visibility And Inheritance In OOP PHP | OOP Scopes | Object Oriented PHP Tutorial | PHP Tutorial"
   lazyLoad={true}
   webp
 />

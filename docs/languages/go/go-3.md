@@ -14,9 +14,9 @@ Hey there! In this guide, we'll explore **Functions** in Go. Functions are the b
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="X68JmClzap4"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Go (Golang) Tutorial #9 - Using Functions"
   lazyLoad={true}
   webp
 />

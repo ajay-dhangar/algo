@@ -14,9 +14,9 @@ Hey there! In this guide, we'll explore **Maps** in Go. Maps are Go's built-in a
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="_0R6H1m9o78"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Maps in golang"
   lazyLoad={true}
   webp
 />

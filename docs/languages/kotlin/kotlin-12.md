@@ -20,9 +20,9 @@ Kotlin collections come in two flavors:
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="N4CpLxGJlq0"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Kotlin Advanced Tutorial: Collection Operations"
   lazyLoad={true}
   webp
 />

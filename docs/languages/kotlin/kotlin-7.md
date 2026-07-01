@@ -10,9 +10,9 @@ sidebar_position: 7
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="mOhBUWJ9HSM"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Kotlin Conditions - What are the Conditional Statements in Kotlin | Kotlin Android Tutorial"
   lazyLoad={true}
   webp
 />

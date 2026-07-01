@@ -10,9 +10,9 @@ sidebar_position: 5
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="iPdVy8sAzX8"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Kotlin Operators Tutorial | Arithmetic & Relational Operators Kotlin | CheezyCode #5"
   lazyLoad={true}
   webp
 />

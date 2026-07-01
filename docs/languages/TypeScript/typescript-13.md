@@ -10,9 +10,9 @@ Generics let you write flexible, reusable code components that work with a varie
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="EcCTIExsqmI"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Learn TypeScript Generics In 13 Minutes"
   lazyLoad={true}
   webp
 />

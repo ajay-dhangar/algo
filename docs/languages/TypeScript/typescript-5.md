@@ -10,9 +10,9 @@ Loops allow you to run blocks of code repeatedly until specific bounds or condit
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="5NRXKzi-0HY"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="TypeScript for Playwright | Looping Statements| while, do-while, for loops (Session 6)"
   lazyLoad={true}
   webp
 />

@@ -16,9 +16,9 @@ TypeScript does not run directly in browsers; instead, the TypeScript compiler (
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="ahCwqrYpIuM"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="TypeScript - The Basics"
   lazyLoad={true}
   webp
 />

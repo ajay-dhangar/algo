@@ -14,9 +14,9 @@ Hey there! In this guide, we'll explore the concepts of variables and data types
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="pM0-CMysa_M"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Golang Tutorial #2 - Variables & Data Types"
   lazyLoad={true}
   webp
 />

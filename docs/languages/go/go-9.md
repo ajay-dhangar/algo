@@ -14,9 +14,9 @@ Hey there! In this guide, we'll explore **Error Handling** in Go. Unlike many ot
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="CxcxRgwWtAk"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Handling errors LIKE a 10x ENGINEER in Golang - Golang Service Pattern"
   lazyLoad={true}
   webp
 />

@@ -10,9 +10,9 @@ Runtime errors can crash applications if they aren't caught. TypeScript uses mod
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="Q1euMQFI35I"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Try Catch Error Handling With TypeScript"
   lazyLoad={true}
   webp
 />

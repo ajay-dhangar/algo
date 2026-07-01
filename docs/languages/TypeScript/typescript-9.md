@@ -12,9 +12,9 @@ TypeScript features comprehensive Object-Oriented structures, adding strict enca
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="zQondDhCXDI"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="TypeScript Classes Tutorial | TS for Beginners Lesson"
   lazyLoad={true}
   webp
 />

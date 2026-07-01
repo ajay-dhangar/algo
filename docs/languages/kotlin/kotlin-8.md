@@ -10,9 +10,9 @@ sidebar_position: 8
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="RmqXF8cn0p4"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Kotlin For Loop, Ranges & String Templating Tutorial | CheezyCode #10"
   lazyLoad={true}
   webp
 />

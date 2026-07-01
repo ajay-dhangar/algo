@@ -9,19 +9,19 @@ tags: [php, interfaces, traits, oop]
 
 Interfaces define a contract that implementing classes must follow. Traits allow you to reuse methods across multiple classes without inheritance.
 
-## Video Explanation
-
-<LiteYouTubeEmbed
-  id="RRVYpIET_RU"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
-  lazyLoad={true}
-  webp
-/>
-
 ## Interfaces
 
 An interface declares method signatures without implementing them. Any class that `implements` the interface must define all its methods.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qOzQbnDaMng"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="PHP OOP Interfaces Tutorial in Hindi / Urdu"
+  lazyLoad={true}
+  webp
+/>
 
 ```php
 <?php
@@ -138,6 +138,16 @@ interface Writable extends Readable {
 ## Traits
 
 Traits are a mechanism for code reuse. A trait is like a class but cannot be instantiated. It is inserted into a class using the `use` keyword.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="OJ5fmrMMcDU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="PHP OOP Traits Tutorial in Hindi / Urdu"
+  lazyLoad={true}
+  webp
+/>
 
 ```php
 <?php

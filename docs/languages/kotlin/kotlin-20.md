@@ -14,9 +14,9 @@ Generics allow you to write **type-safe, reusable code** that works with differe
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="V-3L2TEdJXs"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Kotlin Newbie to Pro - GENERICS - Part 29"
   lazyLoad={true}
   webp
 />

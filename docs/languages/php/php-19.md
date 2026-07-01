@@ -12,9 +12,9 @@ Sessions and cookies help maintain state across multiple HTTP requests since HTT
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="jort8_4U-88"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="27: Session and Cookies in PHP | PHP Tutorial | Learn PHP Programming | PHP for Beginners"
   lazyLoad={true}
   webp
 />

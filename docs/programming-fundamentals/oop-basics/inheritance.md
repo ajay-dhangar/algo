@@ -14,9 +14,9 @@ Inheritance is a fundamental feature of Object-Oriented Programming (OOP) that a
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="RO1ZYW9NAzg"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Inheritance & Its Different Types with Examples in C++ | C++ Tutorials for Beginners #36"
   lazyLoad={true}
   webp
 />

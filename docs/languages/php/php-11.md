@@ -24,9 +24,9 @@ Superglobals are built-in variables in php that are always accessible, regardles
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="MujfofukfwQ"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="5 | Built-In Superglobal Variables in PHP | 2023 | Learn PHP Full Course for Beginners"
   lazyLoad={true}
   webp
 />

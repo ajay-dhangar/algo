@@ -10,9 +10,9 @@ Strings are primitive immutable entities in TypeScript. Modifications create new
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="2kWdAGc-cPg"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="TypeScript Part6- Strings | String methods in TypeScript"
   lazyLoad={true}
   webp
 />

@@ -10,9 +10,9 @@ sidebar_position: 10
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="1maBb3B2LRo"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Arrays in Kotlin With Examples | CheezyCode #13"
   lazyLoad={true}
   webp
 />

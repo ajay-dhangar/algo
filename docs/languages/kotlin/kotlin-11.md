@@ -10,9 +10,9 @@ sidebar_position: 11
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="IKitRTLRUSM"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Kotlin Tutorial for Beginners - Kotlin String Function (With Example)"
   lazyLoad={true}
   webp
 />

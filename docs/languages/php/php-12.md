@@ -12,9 +12,9 @@ Forms are the primary way users submit data to php scripts. php handles form dat
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="PTVECOCyr40"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="PHP Forms Tutorial: GET & POST Requests in php | PHP Tutorial #21"
   lazyLoad={true}
   webp
 />

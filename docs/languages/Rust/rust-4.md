@@ -20,9 +20,9 @@ Rust provides different types of operators such as:
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="3wrUIVO9jyM"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Operators | Learn Rust part 11"
   lazyLoad={true}
   webp
 />

@@ -10,9 +10,9 @@ sidebar_position: 6
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="UTEYWN64m-s"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="#39 Kotlin Tutorial | User Input in Kotlin"
   lazyLoad={true}
   webp
 />
