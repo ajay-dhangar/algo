@@ -81,6 +81,7 @@ void solve() {
         // The prefix sum of a can never exceed the prefix sum of b
         if (sumA > sumB) {
             possible = false;
+            break;
         }
     }
     
