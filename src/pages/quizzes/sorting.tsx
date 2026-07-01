@@ -92,11 +92,11 @@ const QUESTIONS: SortingQuestion[] = [
     question: "Why is Quick Sort preferred over Merge Sort for sorting arrays in-place, despite having a worst-case complexity of O(n²)?",
     options: [
       "A) Quick Sort is always stable",
-      "B) Quick Sort has O(1) auxiliary space complexity and excellent cache locality in practice",
+      "B) Quick Sort is in-place (requiring only O(log n) auxiliary stack space) and has excellent cache locality in practice",
       "C) Merge Sort has a worse average-case time complexity",
       "D) Quick Sort requires no comparisons"
     ],
-    answer: "B) Quick Sort has O(1) auxiliary space complexity and excellent cache locality in practice",
+    answer: "B) Quick Sort is in-place (requiring only O(log n) auxiliary stack space) and has excellent cache locality in practice",
     explanation: "Quick Sort operates in-place (requiring only O(log n) stack space for recursion), whereas Merge Sort requires O(n) auxiliary space to merge subarrays. Quick Sort also exhibits excellent cache localization (sequential memory access patterns during partitioning), making it very fast in practice."
   },
   {
@@ -169,12 +169,12 @@ const QUESTIONS: SortingQuestion[] = [
     difficulty: "Hard",
     question: "What is the theoretical lower bound for the time complexity of any comparison-based sorting algorithm in the worst case?",
     options: [
-      "A) O(n)",
-      "B) O(n log n)",
-      "C) O(n²)",
-      "D) O(2^n)"
+      "A) Ω(n)",
+      "B) Ω(n log n)",
+      "C) Ω(n²)",
+      "D) Ω(2^n)"
     ],
-    answer: "B) O(n log n)",
+    answer: "B) Ω(n log n)",
     explanation: "The decision tree model shows that to sort n elements, there are n! possible permutations. A binary decision tree must have at least n! leaves, meaning its height (the minimum number of comparisons in the worst case) is at least log(n!) = Ω(n log n) by Stirling's approximation."
   },
   {
@@ -280,7 +280,17 @@ const SortingQuiz: React.FC = () => {
     };
     const historyKey = `quiz_attempts_${userId}_sorting`;
     const savedAttempts = localStorage.getItem(historyKey);
-    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
+    let existing: HistoryAttempt[] = [];
+    if (savedAttempts) {
+      try {
+        existing = JSON.parse(savedAttempts);
+        if (!Array.isArray(existing)) {
+          existing = [];
+        }
+      } catch (e) {
+        console.error("Error parsing history attempts:", e);
+      }
+    }
     const updated = [newAttempt, ...existing].slice(0, 5);
     localStorage.setItem(historyKey, JSON.stringify(updated));
     setAttempts(updated);
