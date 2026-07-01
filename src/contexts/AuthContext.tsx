@@ -76,7 +76,7 @@ async function hashPassword(password: string, salt: string) {
   const scope = safeWindow();
   if (!scope?.crypto?.subtle) {
     throw new Error(
-      "Secure crypto is unavailable. Please use the site over HTTPS (or localhost) to create an account."
+      "Secure crypto is unavailable. Please use the site over HTTPS (or localhost) to authenticate."
     );
   }
   const encoded = new TextEncoder().encode(`${salt}:${password}`);
