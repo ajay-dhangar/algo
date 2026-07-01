@@ -75,9 +75,10 @@ function randomSalt() {
 async function hashPassword(password: string, salt: string) {
   const scope = safeWindow();
   if (!scope?.crypto?.subtle) {
-    return `${salt}:${password}`;
+    throw new Error(
+      "Secure crypto is unavailable. Please use the site over HTTPS (or localhost) to create an account."
+    );
   }
-
   const encoded = new TextEncoder().encode(`${salt}:${password}`);
   const digest = await scope.crypto.subtle.digest("SHA-256", encoded);
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
