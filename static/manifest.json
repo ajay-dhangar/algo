@@ -5,8 +5,8 @@
   "theme_color": "#3578e5",
   "background_color": "#ffffff",
   "display": "standalone",
-  "scope": "/algo/",
-  "start_url": "/algo/",
+  "scope": "./",
+  "start_url": "./index.html",
   "lang": "en",
   "categories": ["education", "productivity"],
   "icons": [
