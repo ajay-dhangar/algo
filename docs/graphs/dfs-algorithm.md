@@ -16,9 +16,9 @@ DFS is extremely useful for **topological sorting**, **detecting cycles**, and s
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="pcKY4hjDrxk"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="5.1 Graph Traversals - BFS & DFS -Breadth First Search and Depth First Search"
   lazyLoad={true}
   webp
 />

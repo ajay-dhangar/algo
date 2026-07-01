@@ -18,9 +18,10 @@ Topological Sort is only possible in a Directed Acyclic Graph (DAG). If the grap
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="dis_c84ejhQ"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="6.10 Topological Sorting (with Examples) | How to find all Topological Orderings of a Graph"
+  poster="maxresdefault"
   lazyLoad={true}
   webp
 />
