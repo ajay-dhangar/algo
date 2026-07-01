@@ -2,10 +2,13 @@ import { themes as prismThemes } from "prism-react-renderer";
 // import remarkPlugin from 'remark-plugin';
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-const path = require("path");
+import path from "path";
+import fs from "fs";
+import { execSync } from "child_process";
+import { fileURLToPath } from "url";
 
-const fs = require("fs");
-const { execSync } = require("child_process");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
 const showGitHistory =
@@ -19,7 +22,7 @@ const showGitHistory =
             return false;
           }
           // Dry run a git log check to verify git operations succeed on actual files (fails on OneDrive)
-          execSync("git log -1 docusaurus.config.js", { stdio: "ignore" });
+          execSync("git log -1 docusaurus.config.mjs", { stdio: "ignore" });
           return true;
         } catch {
           return false;
@@ -333,7 +336,7 @@ const config = {
         id: "dsa-interview",
         path: "dsa-interview",
         routeBasePath: "dsa-interview",
-        sidebarPath: require.resolve("./sidebars.js"),
+        sidebarPath: "./sidebars.js",
         remarkPlugins: [remarkMath],
         rehypePlugins: [rehypeKatex],
         showLastUpdateAuthor: showGitHistory,
