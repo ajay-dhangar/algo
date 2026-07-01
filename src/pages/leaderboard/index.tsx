@@ -28,6 +28,33 @@ const Leaderboard: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [isLive, setIsLive] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [cacheTime, setCacheTime] = useState<number | null>(null);
+  const [dataSource, setDataSource] = useState<"live" | "cache" | "mock">("mock");
+  const [formattedAge, setFormattedAge] = useState<string>("");
+
+  useEffect(() => {
+    if (!cacheTime) return;
+    const updateAge = () => {
+      const diffMs = Date.now() - cacheTime;
+      const diffSec = Math.floor(diffMs / 1000);
+      const diffMin = Math.floor(diffSec / 60);
+      const diffHr = Math.floor(diffMin / 60);
+      const diffDay = Math.floor(diffHr / 24);
+
+      if (diffSec < 60) {
+        setFormattedAge("JUST NOW");
+      } else if (diffMin < 60) {
+        setFormattedAge(`${diffMin}M AGO`);
+      } else if (diffHr < 24) {
+        setFormattedAge(`${diffHr}H AGO`);
+      } else {
+        setFormattedAge(`${diffDay}D AGO`);
+      }
+    };
+    updateAge();
+    const interval = setInterval(updateAge, 60000);
+    return () => clearInterval(interval);
+  }, [cacheTime]);
 
   useEffect(() => {
     let isMounted = true;
@@ -82,16 +109,47 @@ const Leaderboard: React.FC = () => {
 
           setLeaders(mappedLeaders);
           setIsLive(true);
+          setDataSource("live");
+          try {
+            const cacheData = {
+              timestamp: Date.now(),
+              data: mappedLeaders
+            };
+            localStorage.setItem("algo_leaderboard_cache", JSON.stringify(cacheData));
+          } catch (e) {
+            console.error("Failed to cache leaderboard data:", e);
+          }
         }
       } catch (error) {
         console.warn("Cyber Terminal offline. Booting simulation profile arrays.", error);
         if (isMounted) {
-          const fallback: LeaderNode[] = [
-            { username: "Ajay Dhangar", totalScore: 12500, attemptsCount: 84, avatarUrl: "https://github.com/ajay-dhangar.png", profileUrl: "https://github.com/ajay-dhangar", rank: 1, tier: "APEX LEGEND", accentColor: "from-amber-400 via-orange-500 to-yellow-500", textColor: "text-amber-600 dark:text-amber-400" },
-            { username: "Jane_DevOps", totalScore: 8400, attemptsCount: 56, avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", profileUrl: "#", rank: 2, tier: "GRANDMASTER", accentColor: "from-purple-500 via-fuchsia-500 to-pink-500", textColor: "text-purple-600 dark:text-purple-400" },
-            { username: "NeonNinja", totalScore: 6150, attemptsCount: 41, avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", profileUrl: "#", rank: 3, tier: "MASTER", accentColor: "from-emerald-500 to-teal-400", textColor: "text-emerald-600 dark:text-emerald-400" },
-            { username: "StackOverlord", totalScore: 4200, attemptsCount: 28, avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", profileUrl: "#", rank: 4, tier: "DIAMOND", accentColor: "from-blue-500 to-indigo-500", textColor: "text-blue-600 dark:text-blue-400" }
-          ];
+          let fallback: LeaderNode[] = [];
+          let loadedFromCache = false;
+          
+          try {
+            const cached = localStorage.getItem("algo_leaderboard_cache");
+            if (cached) {
+              const parsed = JSON.parse(cached);
+              if (parsed && Array.isArray(parsed.data) && parsed.data.length > 0) {
+                fallback = parsed.data;
+                setCacheTime(parsed.timestamp);
+                setDataSource("cache");
+                loadedFromCache = true;
+              }
+            }
+          } catch (e) {
+            console.error("Failed to parse cached leaderboard:", e);
+          }
+
+          if (!loadedFromCache) {
+            fallback = [
+              { username: "Ajay Dhangar", totalScore: 12500, attemptsCount: 84, avatarUrl: "https://github.com/ajay-dhangar.png", profileUrl: "https://github.com/ajay-dhangar", rank: 1, tier: "APEX LEGEND", accentColor: "from-amber-400 via-orange-500 to-yellow-500", textColor: "text-amber-600 dark:text-amber-400" },
+              { username: "Jane_DevOps", totalScore: 8400, attemptsCount: 56, avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80", profileUrl: "#", rank: 2, tier: "GRANDMASTER", accentColor: "from-purple-500 via-fuchsia-500 to-pink-500", textColor: "text-purple-600 dark:text-purple-400" },
+              { username: "NeonNinja", totalScore: 6150, attemptsCount: 41, avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80", profileUrl: "#", rank: 3, tier: "MASTER", accentColor: "from-emerald-500 to-teal-400", textColor: "text-emerald-600 dark:text-emerald-400" },
+              { username: "StackOverlord", totalScore: 4200, attemptsCount: 28, avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80", profileUrl: "#", rank: 4, tier: "DIAMOND", accentColor: "from-blue-500 to-indigo-500", textColor: "text-blue-600 dark:text-blue-400" }
+            ];
+            setDataSource("mock");
+          }
           setLeaders(fallback);
           setIsLive(false);
         }
@@ -126,10 +184,17 @@ const Leaderboard: React.FC = () => {
         {/* HUD Header Panel Area */}
         <header className="relative z-10 max-w-6xl mx-auto pt-20 px-6 mb-12 text-center">
           <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 text-xs font-semibold tracking-widest mb-6 uppercase text-slate-500 dark:text-neutral-400 shadow-sm dark:shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-            {isLive ? (
+            {dataSource === "live" ? (
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
                 <span className="text-cyan-600 dark:text-cyan-400 font-bold">ALGO_SERVER_CORE // CONNECTED</span>
+              </span>
+            ) : dataSource === "cache" ? (
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b] animate-pulse" />
+                <span className="text-amber-600 dark:text-amber-400 font-bold">
+                  LOCAL_CACHE_BACKUP // {formattedAge || "LOADED"}
+                </span>
               </span>
             ) : (
               <span className="flex items-center gap-2">
