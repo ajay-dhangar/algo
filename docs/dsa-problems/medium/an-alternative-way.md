@@ -167,10 +167,10 @@ def solve():
         n = int(input_data[idx])
         idx += 1
         
-        a = [int(x) for x in input_data[idx : idx + n]]
+        a = list(map(int, input_data[idx : idx + n]))
         idx += n
         
-        b = [int(x) for x in input_data[idx : idx + n]]
+        b = list(map(int, input_data[idx : idx + n]))
         idx += n
         
         sumA = 0
