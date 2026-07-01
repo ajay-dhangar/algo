@@ -405,6 +405,45 @@ const config = {
     ],
 
     [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: false,
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/algo/manifest.json',
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: '#3578e5',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: 'default',
+          },
+          {
+            tagName: 'link',
+            rel: 'apple-touch-icon',
+            href: '/algo/logo/logo.png',
+          },
+        ],
+      },
+    ],
+
+    [
       path.join(__dirname, "/plugins/my-plugin"),
       {
         settings: "Some20settings",
