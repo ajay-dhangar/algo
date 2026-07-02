@@ -12,7 +12,7 @@ export default function swCustom(params) {
       [
         /graph\.facebook\.com\/.*\/picture/,
         /netlify\.com\/img/,
-        /avatars1\.githubusercontent/,
+        /avatars[0-9]?\.githubusercontent\.com/,
       ].some((regex) => context.url.href.match(regex)),
     new StaleWhileRevalidate(),
   );
