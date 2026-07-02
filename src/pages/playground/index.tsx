@@ -940,7 +940,9 @@ const PlaygroundContent: React.FC = () => {
         setLanguage(urlLang);
         if (urlCode) {
           try {
-            const decoded = decodeURIComponent(escape(atob(urlCode)));
+            const binString = atob(urlCode);
+            const bytes = Uint8Array.from(binString, (m) => m.codePointAt(0)!);
+            const decoded = new TextDecoder().decode(bytes);
             setCode(decoded);
             setTemplate("custom");
             setEditorTelemetry((prev) => ({
@@ -958,11 +960,13 @@ const PlaygroundContent: React.FC = () => {
     }
   }, []);
 
-  const handleShare = () => {
+  const handleShare = async () => {
     try {
-      const encodedCode = btoa(unescape(encodeURIComponent(code)));
+      const bytes = new TextEncoder().encode(code);
+      const binString = Array.from(bytes, (byte) => String.fromCodePoint(byte)).join("");
+      const encodedCode = btoa(binString);
       const shareUrl = `${window.location.origin}${window.location.pathname}?lang=${encodeURIComponent(language)}&code=${encodedCode}`;
-      navigator.clipboard.writeText(shareUrl);
+      await navigator.clipboard.writeText(shareUrl);
       toast.success("🚀 Share URL copied to clipboard!", {
         position: "top-right",
         autoClose: 3000,
