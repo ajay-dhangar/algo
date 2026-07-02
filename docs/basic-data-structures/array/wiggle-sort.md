@@ -14,9 +14,9 @@ Wiggle Sort is an algorithm that reorders an array such that the elements altern
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="9crZRd8GPWM"
+  id="vGsyTE4s34w"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="7.11 Shell Sort | Sorting Algorithms | Full explanation with Code | DSA Course"
+  title="Wiggle Sort - Leetcode 280 - Python"
   poster="maxresdefault"
   lazyLoad={true}
   webp

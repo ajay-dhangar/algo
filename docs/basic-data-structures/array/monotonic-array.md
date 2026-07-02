@@ -13,9 +13,9 @@ An array is considered **monotonic** if it is either entirely non-increasing (mo
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="9crZRd8GPWM"
+  id="sqWOFIZ9Z0U"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="7.11 Shell Sort | Sorting Algorithms | Full explanation with Code | DSA Course"
+  title="Monotonic Array - Leetcode 896 - Python"
   poster="maxresdefault"
   lazyLoad={true}
   webp
