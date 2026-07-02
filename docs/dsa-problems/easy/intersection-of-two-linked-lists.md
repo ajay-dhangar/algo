@@ -123,6 +123,8 @@ public class Solution {
 #         self.val = x
 #         self.next = None
 
+from typing import Optional
+
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         if not headA or not headB:
