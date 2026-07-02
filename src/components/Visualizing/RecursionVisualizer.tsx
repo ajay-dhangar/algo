@@ -41,8 +41,6 @@ interface TraceStep {
   variables: Record<string, any>;
 }
 
-const getLineCount = (value: string): number => Math.max(1, value.split(/\r\n|\r|\n/).length);
-
 function RecursionVisualizer() {
   const [algo, setAlgo] = useState<AlgorithmType>("fibonacci");
   
@@ -60,12 +58,9 @@ function RecursionVisualizer() {
   const [speed, setSpeed] = useState<number>(1000); // ms per step
   const [treeWidth, setTreeWidth] = useState<number>(600);
 
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
   // Generate trace based on current configurations
   const generateTrace = () => {
     setIsPlaying(false);
-    if (timerRef.current) clearInterval(timerRef.current);
 
     if (algo === "fibonacci") {
       const { steps: fibSteps, width } = generateFibTrace(fibN);
@@ -76,15 +71,53 @@ function RecursionVisualizer() {
       setSteps(factSteps);
       setTreeWidth(width);
     } else if (algo === "binarySearch") {
-      const arr = bsArrayStr.split(",").map(x => Number(x.trim())).filter(x => !isNaN(x));
-      const { steps: bsSteps, width } = generateBSTrace(arr, bsTarget);
-      setSteps(bsSteps);
-      setTreeWidth(width);
+      const arr = bsArrayStr
+        .split(",")
+        .map((x) => x.trim())
+        .filter((x) => x !== "")
+        .map(Number)
+        .filter((x) => !isNaN(x));
+
+      if (arr.length === 0) {
+        setSteps([
+          {
+            stack: [],
+            treeNodes: {},
+            activeNodeId: null,
+            description: "Please enter a valid non-empty sorted array.",
+            variables: {},
+          },
+        ]);
+        setTreeWidth(600);
+      } else {
+        const { steps: bsSteps, width } = generateBSTrace(arr, bsTarget);
+        setSteps(bsSteps);
+        setTreeWidth(width);
+      }
     } else if (algo === "mergeSort") {
-      const arr = msArrayStr.split(",").map(x => Number(x.trim())).filter(x => !isNaN(x));
-      const { steps: msSteps, width } = generateMergeSortTrace(arr);
-      setSteps(msSteps);
-      setTreeWidth(width);
+      const arr = msArrayStr
+        .split(",")
+        .map((x) => x.trim())
+        .filter((x) => x !== "")
+        .map(Number)
+        .filter((x) => !isNaN(x));
+
+      if (arr.length === 0) {
+        setSteps([
+          {
+            stack: [],
+            treeNodes: {},
+            activeNodeId: null,
+            description: "Please enter a valid non-empty array to sort.",
+            variables: {},
+          },
+        ]);
+        setTreeWidth(600);
+      } else {
+        const { steps: msSteps, width } = generateMergeSortTrace(arr);
+        setSteps(msSteps);
+        setTreeWidth(width);
+      }
     }
     setCurrentStepIdx(0);
   };
@@ -92,32 +125,21 @@ function RecursionVisualizer() {
   // Re-generate trace whenever algo or inputs change
   useEffect(() => {
     generateTrace();
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
   }, [algo, fibN, factN, bsTarget, bsArrayStr, msArrayStr]);
 
   // Autoplay control
   useEffect(() => {
-    if (isPlaying) {
-      timerRef.current = setInterval(() => {
-        setCurrentStepIdx((prev) => {
-          if (prev >= steps.length - 1) {
-            setIsPlaying(false);
-            return prev;
-          }
-          return prev + 1;
-        });
-      }, speed);
-    } else {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      setCurrentStepIdx((prev) => {
+        if (prev >= steps.length - 1) {
+          setIsPlaying(false);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, speed);
+    return () => clearInterval(interval);
   }, [isPlaying, steps, speed]);
 
   const handleStepForward = () => {
@@ -377,12 +399,14 @@ function RecursionVisualizer() {
 
     function buildTree(low: number, high: number, parentId: string = ""): string {
       const id = `node_${nodeIdCounter++}`;
-      const mid = Math.floor((low + high) / 2);
-      const midVal = arr[mid];
+      const hasMid = low <= high;
+      const mid = hasMid ? Math.floor((low + high) / 2) : 0;
+      const midVal = hasMid ? arr[mid] : undefined;
+
       nodes[id] = {
         id,
         label: `bs(${low}, ${high})`,
-        params: { low, high, mid, midVal },
+        params: { low, high, ...(hasMid ? { mid, midVal } : {}) },
         status: "pending",
         children: [],
         parent: parentId,
@@ -394,7 +418,7 @@ function RecursionVisualizer() {
         nodes[parentId].children.push(id);
       }
       
-      if (low <= high && midVal !== target) {
+      if (hasMid && midVal !== target) {
         if (midVal < target) {
           buildTree(mid + 1, high, id);
         } else {
@@ -413,6 +437,30 @@ function RecursionVisualizer() {
     function runBS(low: number, high: number, id: string): number {
       activeStack.push({ id, label: `bs(${low}, ${high})`, params: { low, high } });
       nodes[id].status = "active";
+
+      if (low > high) {
+        stepsList.push({
+          stack: [...activeStack],
+          treeNodes: JSON.parse(JSON.stringify(nodes)),
+          activeNodeId: id,
+          description: `Evaluating bs(low=${low}, high=${high}). Base case reached: low > high. Target not found.`,
+          variables: { low, high },
+        });
+
+        nodes[id].status = "resolved";
+        nodes[id].returnValue = -1;
+        activeStack.pop();
+
+        stepsList.push({
+          stack: [...activeStack],
+          treeNodes: JSON.parse(JSON.stringify(nodes)),
+          activeNodeId: nodes[id].parent || null,
+          description: `Base case: low (${low}) > high (${high}). Target not found. Returning -1.`,
+          variables: { low, high, return: -1 },
+        });
+        return -1;
+      }
+
       const mid = Math.floor((low + high) / 2);
       const midVal = arr[mid];
 
@@ -423,20 +471,6 @@ function RecursionVisualizer() {
         description: `Evaluating bs(low=${low}, high=${high}). Middle index is ${mid} (value ${midVal}).`,
         variables: { low, high, mid, midVal },
       });
-
-      if (low > high) {
-        nodes[id].status = "resolved";
-        nodes[id].returnValue = -1;
-        activeStack.pop();
-        stepsList.push({
-          stack: [...activeStack],
-          treeNodes: JSON.parse(JSON.stringify(nodes)),
-          activeNodeId: nodes[id].parent || null,
-          description: `Base case: low (${low}) > high (${high}). Target not found.`,
-          variables: { low, high, return: -1 },
-        });
-        return -1;
-      }
 
       if (midVal === target) {
         nodes[id].status = "resolved";
@@ -929,7 +963,7 @@ function RecursionVisualizer() {
       </div>
 
       {/* Main Workspace Layout */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", lg: "1fr 1fr", gap: "2rem" }} className="grid lg:grid-cols-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left Side: Recursion Tree Visualizer (takes 8 cols on large screen) */}
         <div
           className="lg:col-span-8 flex flex-col bg-white dark:bg-[#1e1e1e] border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden shadow-md"
