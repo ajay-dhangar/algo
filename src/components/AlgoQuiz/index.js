@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function AlgoQuiz({ question, options, correctAnswer, explanation }) {
+export default function AlgoQuiz({ question, options = [], correctAnswer, explanation }) {
   const [selected, setSelected] = useState(null);
   const [showExplanation, setShowExplanation] = useState(false);
 
