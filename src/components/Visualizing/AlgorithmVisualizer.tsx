@@ -96,7 +96,7 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
             swapped = true;
 
             newSteps.push({
-              description: `Swapped: ${tempArr[j]} and ${tempArr[j + 1]} since ${tempArr[j + 1]} < ${tempArr[j]}.`,
+              description: `Swapped: ${tempArr[j + 1]} and ${tempArr[j]} since ${tempArr[j + 1]} was greater than ${tempArr[j]}.`,
               array: [...tempArr],
               variables: { i, j, swapped: 'true' },
               highlights: { active: [j, j + 1] },
