@@ -23,9 +23,9 @@ The optimal subarray is the entire array `[1, 2, 3, 4]`. Its value is `4 - 1 = 3
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="V9162iPEJFc"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="Maximum Total Subarray Value I | Simple Observation | Leetcode 3689 | codestorywithMIK"
   lazyLoad={true}
   webp
 />

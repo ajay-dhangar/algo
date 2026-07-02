@@ -28,9 +28,9 @@ Thus, the string formed by concatenating the mapped characters is `"rij"`.
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="JLemlFGtqow"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="Weighted Word Mapping | Leetcode 3838 | Java | Hindi"
   lazyLoad={true}
   webp
 />

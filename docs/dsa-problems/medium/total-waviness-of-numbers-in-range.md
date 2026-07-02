@@ -21,9 +21,9 @@ The **waviness** of a number is defined as the total count of its peaks and vall
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="rPbjKtn3vOg"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="Total Waviness of Numbers in Range I | Simple | Leetcode 3751 | codestorywithMIK"
   lazyLoad={true}
   webp
 />

@@ -34,9 +34,9 @@ Output: `55`
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="pBWCOCS636U"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="L2. Maximum Points You Can Obtain from Cards | 2 Pointers and Sliding Window Playlist"
   lazyLoad={true}
   webp
 />

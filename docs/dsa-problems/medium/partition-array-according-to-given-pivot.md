@@ -33,9 +33,9 @@ The relative ordering of the elements less than and greater than pivot is also m
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="OX0bCSG7EfE"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="Partition Array According to Given Pivot - Leetcode 2161 - Python"
   lazyLoad={true}
   webp
 />

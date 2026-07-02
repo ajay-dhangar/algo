@@ -39,9 +39,9 @@ Return the final string `result` after processing all characters in `s`.
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="SDE8xan15Nw"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="Process String with Special Operations I | Simple Simulation | Leetcode 3612 | codestorywithMIK"
   lazyLoad={true}
   webp
 />

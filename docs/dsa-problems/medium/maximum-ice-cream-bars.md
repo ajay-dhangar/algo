@@ -37,9 +37,9 @@ Output: `6`
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="uY3mWwJvRkA"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="Maximum Ice Cream Bars | Leetcode 1833 | Simple Approach | codestorywithMIK"
   lazyLoad={true}
   webp
 />

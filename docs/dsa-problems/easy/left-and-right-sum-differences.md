@@ -33,9 +33,9 @@ The array `answer` is `[|0 - 0|] = [0]`.
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="zXk7CPqDGDc"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="2574. Left and Right Sum Differences - JAVA - Weekly Contest 334 (Detailed explanation + coding)"
   lazyLoad={true}
   webp
 />

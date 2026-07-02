@@ -40,9 +40,9 @@ So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="gIrMptNPf5M"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="L10. Sum of subarray ranges | Stack and Queue Playlist"
   lazyLoad={true}
   webp
 />

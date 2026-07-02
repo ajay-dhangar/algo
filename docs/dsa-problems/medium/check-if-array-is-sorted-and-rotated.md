@@ -34,9 +34,9 @@ You can rotate the array by x = 0 positions (i.e. no rotation) to make `nums`.
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="Z7_nMTHROZo"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="Lecture21: Solving LeetCode/CodeStudio Questions [Arrays]"
   lazyLoad={true}
   webp
 />

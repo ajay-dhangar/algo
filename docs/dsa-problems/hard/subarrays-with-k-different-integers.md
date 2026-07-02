@@ -29,9 +29,9 @@ Output: `3`
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="7wYGbV_LsX4"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="L11. Subarray with k different integers | 2 Pointers and Sliding Window Playlist"
   lazyLoad={true}
   webp
 />
