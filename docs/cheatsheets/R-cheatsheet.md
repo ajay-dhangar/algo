@@ -12,9 +12,9 @@ Welcome to your comprehensive guide to R. This modern, structured handbook is de
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="_SrCMbCsn2w"
+  id="_V8eKsto3Ug"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  title="R Programming Tutorial - Learn the Basics of Statistical Computing"
   lazyLoad={true}
   webp
 />
