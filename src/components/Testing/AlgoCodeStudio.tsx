@@ -6,7 +6,7 @@ function AlgoCodeStudio() {
   const [code, setCode] = useState<string | undefined>(
     `// Write your algo testing scripts here\nfunction calculateRSI(prices) {\n  return 100;\n}\n\nconsole.log("Calculated RSI:", calculateRSI([]));`
   );
-  const [output, setOutput] = useState<string[]>([]);
+  const [output, setOutput] = useState<string[] | null>(null);
   const { runWithCapture } = useConsoleCapture();
 
   // Triggered on every stroke changes inside the editor screen
