@@ -848,17 +848,17 @@ export const topics: Topic[] = [
         files: [
           { name: "Introduction", link: "#" },
           { name: "How to Practice", link: "#" },
-          { name: "Top 75 Problems", link: "#" },
+          { name: "Top 75 Problems", link: "/practice" },
         ],
       },
       {
         name: "Other Platforms",
         files: [
-          { name: "HackerRank", link: "#" },
-          { name: "Codeforces", link: "#" },
-          { name: "GeeksforGeeks", link: "#" },
-          { name: "CodeChef", link: "#" },
-          { name: "AtCoder", link: "#" },
+          { name: "HackerRank", link: "https://www.hackerrank.com/" },
+          { name: "Codeforces", link: "https://codeforces.com/" },
+          { name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org/" },
+          { name: "CodeChef", link: "https://www.codechef.com/" },
+          { name: "AtCoder", link: "https://atcoder.jp/" },
         ],
       },
     ],
