@@ -406,28 +406,29 @@ const config = {
     [
       '@docusaurus/plugin-pwa',
       {
-        debug: true, // Turn off (false) in production
+        // debug: isDeployPreview,
         offlineModeActivationStrategies: [
           'appInstalled',
           'standalone',
           'queryString',
         ],
-        swCustom: require.resolve("./src/sw.js"),
+        // swRegister: false,
+        swCustom: require.resolve('./src/sw.js'),
         pwaHead: [
           {
             tagName: 'link',
             rel: 'icon',
-            href: '/algo/logo/logo.png', // Update to your actual logo path
+            href: 'logo/logo.png',
           },
           {
             tagName: 'link',
             rel: 'manifest',
-            href: '/algo/manifest.json', // Must match the baseUrl
+            href: 'manifest.json',
           },
           {
             tagName: 'meta',
             name: 'theme-color',
-            content: '#rgb(37, 194, 160)', // Your brand color
+            content: 'rgb(37, 194, 160)',
           },
           {
             tagName: 'meta',
@@ -442,19 +443,35 @@ const config = {
           {
             tagName: 'link',
             rel: 'apple-touch-icon',
-            href: '/algo/logo/logo.png',
+            href: 'logo/logo.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'mask-icon',
+            href: 'logo/logo.png',
+            color: 'rgb(62, 204, 94)',
+          },
+          {
+            tagName: 'meta',
+            name: 'msapplication-TileImage',
+            content: 'logo/logo.png',
+          },
+          {
+            tagName: 'meta',
+            name: 'msapplication-TileColor',
+            content: '#000',
           },
         ],
       },
     ],
 
-    [
-      path.join(__dirname, "/plugins/my-plugin"),
-      {
-        settings: "Some20settings",
-        api: "Some-API",
-        keys: "Some-keys",
-      },
+  [
+    path.join(__dirname, "/plugins/my-plugin"),
+    {
+      settings: "Some20settings",
+      api: "Some-API",
+      keys: "Some-keys",
+    },
     ],
   ],
 };
