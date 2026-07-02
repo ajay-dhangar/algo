@@ -233,6 +233,10 @@ const config = {
                 label: "Algorithm Visualizer",
               },
               {
+                to: "recursion-visualizer",
+                label: "Recursion Visualizer",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
