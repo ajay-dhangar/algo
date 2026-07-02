@@ -6,6 +6,8 @@ description: "In this blog post, we'll explore Breadth-First Search (BFS), a gra
 tags: [dsa, algorithms, graph, traversal]
 ---
 
+import PracticeProblems from "@site/src/components/PracticeProblems";
+
 ### Definition:
 
 Breadth-First Search (BFS) is a **graph traversal algorithm** that explores vertices level by level. Starting from a source vertex, BFS explores all its direct neighbors before moving to the next level of neighbors. It is useful for traversing or searching graph data structures and can be applied to both directed and undirected graphs.
@@ -131,3 +133,32 @@ public class Main {
 ### Conclusion:
 
 Breadth-First Search (BFS) is a fundamental graph traversal algorithm that explores vertices level by level. It is widely used in various applications, such as finding the shortest path in unweighted graphs, analyzing network connectivity, and solving puzzles. By leveraging the queue data structure, BFS ensures that nodes are visited in the correct order, making it an essential tool for graph exploration and search.
+
+## Practice Problems
+
+<PracticeProblems problems={[
+  {
+    name: "01 Matrix",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/01-matrix/"
+  },
+  {
+    name: "Rotting Oranges",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/rotting-oranges/"
+  },
+  {
+    name: "Shortest Path in Binary Matrix",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/shortest-path-in-binary-matrix/"
+  },
+  {
+    name: "Word Ladder",
+    platform: "LeetCode",
+    difficulty: "Hard",
+    link: "https://leetcode.com/problems/word-ladder/"
+  }
+]} />
