@@ -356,15 +356,16 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
                 const low = highlights.low;
                 const high = highlights.high;
                 const mid = highlights.mid;
-
-                if (mid === idx) {
-                  bgColor = 'var(--ifm-color-danger)'; // Red for mid
-                } else if (low === idx) {
-                  bgColor = 'var(--ifm-color-warning)'; // Yellow for low
-                } else if (high === idx) {
-                  bgColor = 'var(--ifm-color-info)'; // Blue for high
-                } else if (typeof low === 'number' && typeof high === 'number' && (idx < low || idx > high)) {
-                  bgColor = 'var(--ifm-color-emphasis-400)'; // Gray for excluded range
+              } else if (algorithm === 'binary-search') {
+                const hasRange = highlights.low !== undefined && highlights.high !== undefined;
+                if (highlights.mid === idx) {
+                  bgColor = 'var(--ifm-color-danger)';
+                } else if (idx === highlights.low) {
+                  bgColor = 'var(--ifm-color-warning)';
+                } else if (idx === highlights.high) {
+                  bgColor = 'var(--ifm-color-info)';
+                } else if (hasRange && (idx < highlights.low! || idx > highlights.high!)) {
+                  bgColor = 'var(--ifm-color-emphasis-400)';
                 }
               }
 
