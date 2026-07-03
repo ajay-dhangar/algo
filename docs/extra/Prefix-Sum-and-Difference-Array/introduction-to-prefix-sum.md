@@ -30,9 +30,9 @@ This is the core idea: **precompute cumulative sums once, then answer each query
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="yuws7YK0Yng"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="Prefix Sum in 4 minutes | LeetCode Pattern"
   poster="maxresdefault"
   lazyLoad={true}
   webp

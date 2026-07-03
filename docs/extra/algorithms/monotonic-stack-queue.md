@@ -23,9 +23,9 @@ Monotonic Stack and Monotonic Queue are powerful patterns used to solve problems
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="QzZ7nmouLTI"
+  id="Dq_ObZwTY_Q"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  title="Monotonic Stack Data Structure Explained"
   poster="maxresdefault"
   lazyLoad={true}
   webp

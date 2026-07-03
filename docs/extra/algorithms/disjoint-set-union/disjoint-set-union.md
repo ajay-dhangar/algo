@@ -19,9 +19,9 @@ DSU is widely used in graph algorithms, particularly in **Kruskal's Minimum Span
 ### Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="wU6udHRIkcc"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find"
   lazyLoad={true}
   webp
 />

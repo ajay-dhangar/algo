@@ -16,9 +16,9 @@ The Optimal Page Replacement Algorithm, often called OPT or MIN, replaces the pa
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="q2BpMvPhhrY"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="L-5.24: Optimal Page Replacement algorithm | Operating System"
   poster="maxresdefault"
   lazyLoad={true}
   webp

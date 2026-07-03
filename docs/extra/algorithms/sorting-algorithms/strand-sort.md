@@ -12,9 +12,9 @@ tags: [sorting, dsa, algorithms, programming, strand sort]
 ### Video Explanation
 
 <LiteYouTubeEmbed
-  id="hDVhmWTKglQ"
+  id="t8r6wyG8eAU"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="STOOGE soring ALGORITHM explained"
+  title="Strand Sort Algorithm"
   poster="maxresdefault"
   lazyLoad={true}
   webp

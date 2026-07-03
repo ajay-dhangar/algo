@@ -19,9 +19,9 @@ Convex hulls are a foundational primitive in computational geometry. They appear
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="B2AJoQSZf4M"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="Convex Hull Algorithm - Graham Scan and Jarvis March tutorial"
   poster="maxresdefault"
   lazyLoad={true}
   webp

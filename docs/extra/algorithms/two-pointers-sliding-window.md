@@ -14,9 +14,9 @@ The **Sliding Window** technique is one of the most powerful patterns in DSA. It
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="QzZ7nmouLTI"
+  id="9kdHxplyl5I"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  title="L1. Introduction to Sliding Window and 2 Pointers | Templates | Patterns"
   poster="maxresdefault"
   lazyLoad={true}
   webp

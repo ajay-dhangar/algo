@@ -18,9 +18,9 @@ SRTF is a preemptive scheduling algorithm, meaning a running process can be inte
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="hoN7_VMzw_g"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="L-2.5: Shortest Remaining Time First (SJF With Preemption) Scheduling Algorithm with Example | OS"
   poster="maxresdefault"
   lazyLoad={true}
   webp

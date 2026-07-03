@@ -16,9 +16,9 @@ FIFO (First In First Out) is one of the simplest page replacement algorithms use
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="8rcUs5RutX0"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="L-5.22: Page Replacement Introduction | FIFO Page Replacement algorithm | Operating System"
   poster="maxresdefault"
   lazyLoad={true}
   webp

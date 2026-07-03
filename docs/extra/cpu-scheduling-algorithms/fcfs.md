@@ -18,9 +18,9 @@ FCFS is a non-preemptive scheduling algorithm, meaning the CPU cannot be taken a
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="MZdVAVMgNpA"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="L-2.3: First Come First Serve(FCFS) CPU Scheduling Algorithm with Example"
   poster="maxresdefault"
   lazyLoad={true}
   webp

@@ -24,9 +24,9 @@ A **Segment Tree** is an advanced data structure that allows you to efficiently 
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="QzZ7nmouLTI"
+  id="-dUiRtJ8ot0"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  title="Segment Tree: Build and Query | Live Coding.."
   poster="maxresdefault"
   lazyLoad={true}
   webp

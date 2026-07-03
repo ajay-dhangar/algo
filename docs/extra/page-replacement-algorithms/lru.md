@@ -16,9 +16,9 @@ LRU (Least Recently Used) is a page replacement algorithm that removes the page 
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="dYIoWkCvd6A"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="L-5.25: Least Recently Used Page Replacement Algorithm | Operating System"
   poster="maxresdefault"
   lazyLoad={true}
   webp

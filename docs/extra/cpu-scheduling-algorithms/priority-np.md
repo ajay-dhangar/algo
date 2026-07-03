@@ -18,9 +18,9 @@ In non-preemptive priority scheduling, once a process begins execution, it conti
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="5xYvFN9OrZs"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="Non Preemptive Priority Scheduling Algorithm with example | Operating System"
   poster="maxresdefault"
   lazyLoad={true}
   webp

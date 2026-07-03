@@ -22,9 +22,9 @@ The **2D Prefix Sum** (also called the *summed area table* or *integral image*) 
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="nZe7P674xZo"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="Pre-Computation using Prefix Sum in 1D/2D Arrays | Competitive Programming Course | EP 13"
   poster="maxresdefault"
   lazyLoad={true}
   webp

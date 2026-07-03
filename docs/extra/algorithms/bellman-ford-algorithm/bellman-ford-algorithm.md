@@ -14,9 +14,9 @@ The **Bellman-Ford Algorithm** is a graph algorithm used to find the shortest pa
 ### Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="FtN3BYH2Zes"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="4.4 Bellman Ford Algorithm - Single Source Shortest Path - Dynamic Programming"
   lazyLoad={true}
   webp
 />

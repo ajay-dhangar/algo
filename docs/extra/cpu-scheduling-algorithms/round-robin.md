@@ -18,9 +18,9 @@ This ensures fair CPU allocation among all processes.
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="TxjIlNYRZ5M"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="L-2.7: Round Robin(RR) CPU Scheduling Algorithm with Example"
   poster="maxresdefault"
   lazyLoad={true}
   webp

@@ -30,9 +30,9 @@ Valid strictly increasing subsequences include:
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="ekcwMsSIzVc"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="DP 41. Longest Increasing Subsequence | Memoization"
   poster="maxresdefault"
   lazyLoad={true}
   webp

@@ -23,9 +23,9 @@ A **Trie** (pronounced "try", from re**trie**val) is a tree-based data structure
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="QzZ7nmouLTI"
+  id="zIjfhVPRZCg"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  title="Data Structures: Tries"
   poster="maxresdefault"
   lazyLoad={true}
   webp

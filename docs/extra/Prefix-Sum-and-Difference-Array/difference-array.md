@@ -26,9 +26,9 @@ This is the **dual** of Prefix Sum:
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="96RG7EBF8LI"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="Difference Array Technique | Tutorial | Range Updates | Competitive Programming Tricks Part 1"
   poster="maxresdefault"
   lazyLoad={true}
   webp

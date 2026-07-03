@@ -14,9 +14,9 @@ Disk scheduling is the process used by an operating system to decide the order i
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="9uoa_p8q47Y"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="L-6.3: Disk Scheduling Algorithm | Operating System"
   poster="maxresdefault"
   lazyLoad={true}
   webp

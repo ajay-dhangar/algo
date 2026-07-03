@@ -18,9 +18,9 @@ This ensures that important processes receive CPU time as soon as possible.
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="7gMLNiEz3nw"
+  id="rsDGfFxSgiY"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  title="L-2.8: Pre-emptive Priority Scheduling Algorithm with Example | Operating System"
   poster="maxresdefault"
   lazyLoad={true}
   webp

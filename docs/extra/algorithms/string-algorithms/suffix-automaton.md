@@ -14,9 +14,9 @@ A **Suffix Automaton** is a powerful directed acyclic word graph representing al
 ### Video Explanation
 
 <LiteYouTubeEmbed
-  id="zqKlL3ZpTqs"
+  id="hTN5U7fY5hU"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Suffix array introduction"
+  title="But what is Suffix Automaton"
   poster="maxresdefault"
   lazyLoad={true}
   webp

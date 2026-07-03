@@ -29,9 +29,9 @@ Typical examples include:
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="RRVYpIET_RU"
+  id="BJhzd_VG61k"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  title="Square Root Decomposition, Mo's Algorithm"
   lazyLoad={true}
   webp
 />
