@@ -1,3 +1,12 @@
+---
+id: tiger-hashing-algorithm
+sidebar_position: 6
+title: Tiger Hashing Algorithm
+sidebar_label: Tiger Hashing Algorithm
+description: "Tiger Hashing Algorithm is optimized for 64-bit platforms and is known for its fast performance and security."
+tags: [algorithms, hashing, data structures]
+---
+
 # Tiger Hashing Algorithm
 
 ## Overview
