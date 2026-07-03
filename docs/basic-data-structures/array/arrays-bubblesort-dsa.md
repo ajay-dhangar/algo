@@ -206,6 +206,8 @@ Insertion Sort, Selection Sort, Merge Sort, Quick Sort, etc.
    - [x] It is not suitable for large datasets  ✔
    - [ ] It is used in practice
 
+<EdgeCases />
+
 ## Conclusion
 
 In this tutorial, we learned about the bubble sort algorithm. We discussed the algorithm, pseudocode, diagram, example, complexity, and related concepts. We also implemented the bubble sort algorithm in JavaScript and saw a live example. We also discussed the advantages and disadvantages of the bubble sort algorithm. We hope you enjoyed this tutorial and found it helpful. Feel free to share your thoughts in the comments below.

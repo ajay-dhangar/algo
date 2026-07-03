@@ -1,0 +1,303 @@
+.graph-visualizer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.graph-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.graph-controls select,
+.graph-controls button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.graph-controls button:hover {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+.graph-controls button.active {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 8px rgba(var(--ifm-color-primary-rgb), 0.4);
+}
+
+.graph-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ifm-font-color-base);
+  font-size: 14px;
+}
+
+.edit-hint {
+  font-size: 13px;
+  color: var(--ifm-color-primary);
+  background-color: rgba(var(--ifm-color-primary-rgb), 0.1);
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+  animation: pulse 2s infinite ease-in-out;
+  border: 1px dashed var(--ifm-color-primary);
+  margin-bottom: 10px;
+  max-width: 600px;
+}
+
+.graph-area {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.svg-container {
+  border: 2px solid var(--ifm-color-emphasis-200);
+  background-color: var(--ifm-background-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+.node-group {
+  cursor: grab;
+}
+
+.node-group:active {
+  cursor: grabbing;
+}
+
+.node-circle {
+  stroke: var(--ifm-color-emphasis-800);
+  stroke-width: 2.5;
+  transition: fill 0.3s ease, stroke 0.3s ease, r 0.2s ease;
+}
+
+.node-circle:hover {
+  r: 22px;
+}
+
+.node-text {
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: bold;
+  pointer-events: none;
+  fill: #fff;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.edge-line {
+  stroke-width: 3.5;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+/* Node States */
+.node-unvisited {
+  fill: var(--ifm-color-emphasis-500);
+  stroke: var(--ifm-color-emphasis-700);
+}
+
+.node-current {
+  fill: #ff9800; /* Orange for current */
+  stroke: #e65100;
+  stroke-width: 3.5;
+  animation: nodePulse 1.2s infinite alternate;
+}
+
+.node-visited {
+  fill: #4caf50; /* Green for visited */
+  stroke: #2e7d32;
+}
+
+.node-start {
+  stroke: #00e5ff; /* Cyan border for Start */
+  stroke-width: 4px;
+}
+
+.node-target {
+  stroke: #ff1744; /* Bright Red border for Target */
+  stroke-width: 4px;
+}
+
+.node-selected {
+  stroke: #ffd700; /* Neon Gold highlight for selected */
+  stroke-dasharray: 4;
+  stroke-width: 4px;
+  animation: dash 1s linear infinite;
+}
+
+/* Edge States */
+.edge-unvisited {
+  stroke: var(--ifm-color-emphasis-300);
+}
+
+.edge-visited {
+  stroke: #81c784; /* Soft green */
+}
+
+.edge-shortest-path {
+  stroke: #00e5ff; /* Bright Cyan for path */
+  stroke-width: 6.5px;
+  stroke-linecap: round;
+  animation: pathFlow 1.5s linear infinite;
+}
+
+.edge-mst {
+  stroke: #ffd700; /* Bright Neon Gold for MST */
+  stroke-width: 6px;
+  stroke-linecap: round;
+}
+
+/* Weight Badge Styling */
+.weight-rect {
+  fill: var(--ifm-background-surface-color);
+  stroke: var(--ifm-color-emphasis-300);
+  stroke-width: 1;
+  rx: 4;
+  ry: 4;
+  cursor: pointer;
+  transition: fill 0.2s, stroke 0.2s;
+}
+
+.weight-rect:hover {
+  fill: var(--ifm-color-primary);
+  stroke: var(--ifm-color-primary);
+}
+
+.weight-text {
+  font-family: sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  fill: var(--ifm-font-color-base);
+  pointer-events: none;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.weight-rect:hover + .weight-text {
+  fill: #fff;
+}
+
+/* Data Structure Visualization */
+.ds-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  max-width: 320px;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 15px;
+  background-color: var(--ifm-background-color);
+  height: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ds-header {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: var(--ifm-font-color-base);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-bottom: 10px;
+}
+
+.ds-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.ds-item {
+  padding: 10px;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 13px;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes nodePulse {
+  from {
+    stroke-width: 2.5;
+  }
+  to {
+    stroke-width: 5.5;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes pathFlow {
+  from {
+    stroke-dasharray: 8, 8;
+    stroke-dashoffset: 16;
+  }
+  to {
+    stroke-dasharray: 8, 8;
+    stroke-dashoffset: 0;
+  }
+}

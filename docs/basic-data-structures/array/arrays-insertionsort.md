@@ -166,6 +166,8 @@ The time complexity of the Insertion Sort algorithm is ***O(n<sup>2</sup>)*** in
 
 The space complexity of the Insertion Sort algorithm is ***O(1)*** since it requires only a constant amount of additional memory space.
 
+<EdgeCases />
+
 ## References
 
 - [Wikipedia - Insertion Sort](https://en.wikipedia.org/wiki/Insertion_sort)

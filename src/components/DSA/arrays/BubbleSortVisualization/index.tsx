@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { withVisualizerErrorBoundary } from '../../../Visualizing/VisualizerErrorBoundary';
 import './BubbleSortVisualization.css';
 
 /**
@@ -8,6 +9,13 @@ import './BubbleSortVisualization.css';
  * @returns {JSX.Element} The rendered component
  */
 const BubbleSortVisualization: React.FC = () => {
+  const isMounted = useRef(true);
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
   // State to store the array of numbers to be sorted
   const [array, setArray] = useState<number[]>([]);
   // State to control the delay for visualization speed
@@ -41,12 +49,19 @@ const BubbleSortVisualization: React.FC = () => {
   const updateMoveDuration = () => {
     const stylesheets = document.styleSheets;
     for (let i = 0; i < stylesheets.length; i++) {
-      const rules = (stylesheets[i] as CSSStyleSheet).cssRules || (stylesheets[i] as CSSStyleSheet).rules;
-      for (let j = 0; j < rules.length; j++) {
-        if ((rules[j] as CSSStyleRule).selectorText === '.v-move') {
-          (rules[j] as CSSStyleRule).style.transitionDuration = `${delay}ms`;
-          break;
+      try {
+        const rules = (stylesheets[i] as any).cssRules || (stylesheets[i] as any).rules;
+        if (!rules) continue;
+        for (let j = 0; j < rules.length; j++) {
+          const rule = rules[j] as CSSStyleRule;
+          if (rule && rule.selectorText === '.v-move') {
+            rule.style.transitionDuration = `${delay}ms`;
+            return;
+          }
         }
+      } catch (e) {
+        // Cross-origin stylesheet or inaccessible rules — skip
+        continue;
       }
     }
   };
@@ -55,12 +70,15 @@ const BubbleSortVisualization: React.FC = () => {
    * Performs the Bubble Sort algorithm on the array with visualization.
    */
   const bubbleSort = async () => {
+    if (!isMounted.current) return;
     setIsSorting(true);
     let tempArray = [...array];
     for (let i = 0; i < tempArray.length - 1; i++) {
       for (let j = 0; j < tempArray.length - i - 1; j++) {
+        if (!isMounted.current) return;
         setComparingIndices([j, j + 1]);
         await new Promise(resolve => setTimeout(resolve, delay));
+        if (!isMounted.current) return;
         if (tempArray[j] > tempArray[j + 1]) {
           let temp = tempArray[j];
           tempArray[j] = tempArray[j + 1];
@@ -69,6 +87,7 @@ const BubbleSortVisualization: React.FC = () => {
         }
       }
     }
+    if (!isMounted.current) return;
     setComparingIndices([]);
     setIsSorting(false);
   };
@@ -76,7 +95,7 @@ const BubbleSortVisualization: React.FC = () => {
   return (
     <div className='bubble-sort-visualization'>
       <p>
-        Speed: <input type="range" min="10" max="200" value={delay} onChange={e => setDelay(Number(e.target.value))} />
+        <label htmlFor="bubble-sort-speed">Speed:</label> <input id="bubble-sort-speed" type="range" min="10" max="200" value={delay} onChange={e => setDelay(Number(e.target.value))} />
       </p>
       <button onClick={bubbleSort} disabled={isSorting}>Sort</button>
       &nbsp;
@@ -98,4 +117,4 @@ const BubbleSortVisualization: React.FC = () => {
   );
 };
 
-export default BubbleSortVisualization;
+export default withVisualizerErrorBoundary(BubbleSortVisualization);

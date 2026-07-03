@@ -328,7 +328,70 @@ v.erase(unique(v.begin(), v.end()), v.end());    // Removes consecutive duplicat
 // Fill range with value
 fill(v.begin(), v.end(), 0);                     // All elements = 0
 ```
+## Bitwise Operations
 
+Bitwise operators work directly on bits and are extremely common in DSA and competitive programming for efficient solutions.
+
+### Common Limits
+
+```cpp title="Common limit constants in C++"
+#include <climits>
+
+INT_MAX   // 2147483647  (2^31 - 1)
+INT_MIN   // -2147483648 (-2^31)
+LLONG_MAX // 9223372036854775807 (2^63 - 1)
+LLONG_MIN // -9223372036854775808 (-2^63)
+```
+
+### Bit Tricks
+
+```cpp title="Essential bitwise tricks for competitive programming"
+int n = 6; // binary: 110
+
+// Check if number is odd
+bool isOdd = n & 1;               // 0 = even, 1 = odd
+
+// Multiply / divide by 2
+int doubled = n << 1;             // n * 2 = 12
+int halved  = n >> 1;             // n / 2 = 3
+
+// Check if i-th bit is set (0-indexed)
+int i = 1;
+bool isSet = n & (1U << i);        // checks bit at position i
+
+// Set i-th bit
+n = n | (1U << i);                 // forces bit i to 1
+
+// Clear i-th bit
+n = n & ~(1U << i);                // forces bit i to 0
+
+// Toggle i-th bit
+n = n ^ (1U << i);                 // flips bit i
+
+// Remove lowest set bit (used in bit-counting loops)
+n = n & (n - 1);                  // 110 -> 100
+
+// Check if n is a power of 2
+bool isPow2 = n > 0 && !(n & (n - 1)); // true if exactly one bit set
+```
+
+### Count Set Bits
+
+```cpp title="Counting set bits (popcount)"
+int n = 7; // binary: 111
+
+// Built-in functions (fastest)
+int bits   = __builtin_popcount(n);   // for int,      bits = 3
+int bitsLL = __builtin_popcountll(n); // for long long
+
+// Manual method
+int count = 0;
+while (n) {
+    n = n & (n - 1); // removes lowest set bit each iteration
+    count++;
+}
+// count = 3
+```
 ## Object-Oriented Programming
 
 ### Classes and Constructors

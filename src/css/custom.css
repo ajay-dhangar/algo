@@ -2,71 +2,156 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  width: 5px;
-  background: #2a2a2a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--ifm-color-primary);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--ifm-color-primary-dark);
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 2px;
+  }
 }
 
 :root {
   --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-dark-color: rgb(9, 9, 63);
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #bfdbfe; 
+  --ifm-color-table-light: #bfdbfe69; 
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
+  --ifm-background-color: #f8fafc;
+
+  --announcement-bg-1: #f3e8ff;
+  --announcement-bg-2: #fff7ed;
+  --announcement-text: #4c1d95;
+  --announcement-border: #e9d5ff;
+
+  /* Blueprint/Grid Pattern Accent Lines */
+  --ifm-color-emphasis-100: #f8fafc;
+  --ifm-color-emphasis-200: #e2e8f0;
+  --ifm-color-emphasis-300: #cbd5e1;
+  --ifm-color-emphasis-400: #94a3b8;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-600: #475569;
+  --ifm-color-emphasis-700: #334155;
+
+  /* Card Backdrop Backings */
+  --ifm-card-background-color: rgba(255, 255, 255, 0.9);
+
+  /* Functional Status Accents */
+  --ifm-color-info-contrast-background: rgba(14, 165, 233, 0.08);
+  --ifm-color-danger-contrast-background: rgba(239, 68, 68, 0.08);
+  --ifm-color-danger-light: rgba(239, 68, 68, 0.3);
+  --ifm-color-danger-dark: #dc2626;
+
+  /* System Box Shadows */
+  --ifm-global-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --ifm-global-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
-[data-theme="dark"] {
-  --ifm-color-primary: rgb(234 179 8);
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+[data-theme="dark"] {  
+  --ifm-color-primary: #eab308;
+  --ifm-color-primary-dark: #ca8a04;
+  --ifm-color-primary-darker: #a16207;
+  --ifm-color-primary-darkest: #713f12;
+  --ifm-color-primary-light: #fde047;
+  --ifm-color-primary-lighter: #fef08a;
+  --ifm-color-primary-lightest: #fef9c3;
+  --ifm-color-table-light: #45494b93; 
+  --ifm-background-color: #040414;
+  --docusaurus-highlighted-code-line-bg: rgba(234, 179, 8, 0.15);
+  
+  --announcement-bg-1: #2e1065;
+  --announcement-bg-2: #431407;
+  --announcement-text: #f5f3ff;
+  --announcement-border: #4c1d95;
+
+  --ifm-color-emphasis-100: #0b0f17;
+  --ifm-color-emphasis-200: #1e293b;
+  --ifm-color-emphasis-300: #334155;
+  --ifm-color-emphasis-400: #475569;
+  --ifm-color-emphasis-500: #64748b;
+  --ifm-color-emphasis-600: #94a3b8;
+  --ifm-color-emphasis-700: #cbd5e1;
+
+  /* Card Backdrop Backings */
+  --ifm-card-background-color: rgba(13, 17, 23, 0.9);
+
+  /* Functional Status Accents */
+  --ifm-color-info-contrast-background: rgba(34, 211, 238, 0.12);
+  --ifm-color-danger-contrast-background: rgba(239, 68, 68, 0.12);
+  --ifm-color-danger-light: rgba(239, 68, 68, 0.4);
+  --ifm-color-danger-dark: #f87171;
+
+  /* System Box Shadows */
+  --ifm-global-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --ifm-global-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-div[class^="announcementBar_"] {
-  border-bottom: 1.8px dotted rgb(37, 184, 11);
-  font-weight: bold;
-  width: 100%;
-  height: auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  font-size: 1.2rem;
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 2px var(--ifm-color-primary)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px var(--ifm-color-primary)); }
 }
 
-div[class^="announcementBar_"] a {
-  color: var(--ifm-color-primary);
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.theme-announcement-bar {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--announcement-border);
+  position: relative;
+  overflow: hidden;
+
+  background: repeating-linear-gradient(
+    45deg,
+    var(--announcement-bg-1),
+    var(--announcement-bg-1) 20px,
+    var(--announcement-bg-2) 20px,
+    var(--announcement-bg-2) 40px
+  );
+  
+  background-size: 200% 200%;
+  animation: barberShopPole 15s linear infinite;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+@keyframes barberShopPole {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.theme-announcement-bar .announcementBarContent_xLdY a {
+  text-underline-offset: 3px;
   text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
-div[class^="announcementBar_"] a:hover {
-  color: var(--ifm-color-primary-dark);
-}
-
-[data-theme="dark"] div[class^="announcementBar_"] {
-  color: #e5e7eb;
-}
-
-div[class^="announcementBar_"] .clean-btn {
+.theme-announcement-bar .announcementBarContent_xLdY a:hover {
+  opacity: 0.8;
   color: var(--ifm-color-primary);
-  opacity: 100%;
+}
+
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--announcement-text);
+}
+
+.close:hover {
+  color:indianred;
 }
 
 .navbar {
@@ -84,7 +169,7 @@ div[class^="announcementBar_"] .clean-btn {
 }
 
 .navbar a:hover {
-  color: #3b82f6;
+  color: var(--ifm-color-primary);
 }
 
 [data-theme="dark"] .navbar {
@@ -94,15 +179,25 @@ div[class^="announcementBar_"] .clean-btn {
 }
 
 [data-theme="dark"] .navbar a {
-  color: #f3f4f6; /* Light text for links */
+  color: #f3f4f6;
 }
 
 [data-theme="dark"] .navbar a:hover {
-  color: #60a5fa; /* Lighter blue hover color in dark mode */
+  color: var(--ifm-color-primary-light) !important;
+}
+
+.navbar__link--active {
+  color: var(--ifm-color-primary-lightest) !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border-bottom: 2px solid var(--ifm-color-primary) !important;  
+}
+
+.navbar__link--active:hover {
+  border-bottom-color: var(--ifm-color-primary-dark) !important;
 }
 
 [data-theme="dark"] #__docusaurus_skipToContent_fallback {
-/*   background: linear-gradient(rgba(15, 23, 42, 0.796), rgba(15, 23, 42, 0.23)); */
   background: #0d1117;
 }
 
@@ -111,12 +206,10 @@ a:hover {
 }
 
 .gradient-text {
-  background: linear-gradient(
-    90deg,
-    rgb(255, 169, 8) 0%,
-    rgb(246, 41, 41) 40%,
-    rgb(152, 0, 255) 100%
-  );
+  background: linear-gradient(90deg,
+      rgb(255, 169, 8) 0%,
+      rgb(246, 41, 41) 40%,
+      rgb(152, 0, 255) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -124,11 +217,9 @@ a:hover {
 }
 
 .noise-bg {
-  background-image: linear-gradient(
-      to bottom,
+  background-image: linear-gradient(to bottom,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.6)
-    ),
+      rgba(255, 255, 255, 0.6)),
     url('/landing/grid-light.svg');
 }
 
@@ -136,39 +227,25 @@ html[data-theme='dark'] .noise-bg {
   background-image: url('/landing/grid-dark.svg');
 }
 
-.theme-doc-markdown header {
-  background-image: linear-gradient(
-      to bottom,
+header.doc-header-banner {
+  background-image: linear-gradient(to bottom,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.6)
-    ),
+      rgba(255, 255, 255, 0.6)),
     url('/landing/grid-light.svg');
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  padding: 0.3rem;
+  margin-bottom: 1rem;
   border-bottom: 1px solid var(--ifm-color-primary-lightest);
   border-radius: 0.5rem;
   color: var(--ifm-color-primary);
 }
 
-html[data-theme='dark'] .theme-doc-markdown header {
+html[data-theme='dark'] header.doc-header-banner {
   background-image: url('/landing/grid-dark.svg');
 }
-
 
 .footer {
   background-color: #000;
 }
-
-/* .theme-doc-sidebar-item-category .theme-doc-sidebar-item-link .menu__link--active::before {
-  content: '';
-  position: relative;
-  width: 0.8rem;
-  height: 0.8rem;
-  border: 1px solid #48df84;
-  border-radius: 50%;
-  left: -0.5rem;
-  transform: translateY(-5%);
-} */
 
 .ktt10-btn {
   position: absolute;
@@ -190,4 +267,344 @@ html[data-theme='dark'] .theme-doc-markdown header {
 button {
   cursor: pointer;
   border: 1px solid var(--ifm-color-primary);
+}
+
+.theme-doc-markdown {
+  width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .theme-doc-markdown header {
+    padding: 1.2rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .theme-doc-markdown h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .theme-doc-markdown p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .menu {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .navbar__search {
+    width: 110px;
+    max-width: 110px;
+    transition: width 0.3s ease, max-width 0.3s ease;
+    margin-right: 0.5rem;
+  }
+  .navbar__search-input {
+    width: 100% !important;
+    transition: width 0.3s ease;
+  }
+  .navbar__search:focus-within {
+    width: 150px;
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar__search {
+    width: 80px;
+    max-width: 80px;
+  }
+  .navbar__search:focus-within {
+    width: 110px;
+    max-width: 110px;
+  }
+}
+
+.completion-badge {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.progress-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.notes-section-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.notes-section-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.keyboard-hint {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: monospace;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.blog-wrapper .container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.blog-wrapper .container>.row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.blog-wrapper .container>.row>.col.col--3 {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: auto !important;
+  padding-left: 0.5rem !important;
+  padding-right: 2rem !important;
+}
+
+[data-theme='dark'] .cookieConsent,
+[data-theme='dark'] [class*='cookieConsent'],
+[data-theme='dark'] [class*='cookie'] {
+  background-color: var(--ifm-background-surface-color) !important;
+  color: var(--ifm-font-color-base) !important;
+  border-top: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+[data-theme='dark'] .cookieConsent button,
+[data-theme='dark'] [class*='cookie'] button {
+  background-color: var(--ifm-color-primary) !important;
+  color: #ffffff !important;
+}
+
+.algo-link {
+  background-color: var(--ifm-color-primary);
+  border-radius: 4px;
+  transition-property: all;
+  padding: 0.25rem 0.75rem !important;
+  margin: 0 0.5rem;
+}
+
+.algo-link:last-child {
+  margin-right: 0;
+}
+
+.algo-link svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.2rem;
+}
+
+.algo-signup {
+  --ifm-link-hover-color: #fff;
+  --ifm-navbar-link-hover-color: #fff;
+  background-color: var(--ifm-color-primary-darker);
+  color: #fff !important;
+  border-radius: 4px;
+}
+
+.algo-signup svg {
+  display: none;
+}
+
+.algo-signup:hover {
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Fix contrast ratio for KaTeX elements in tables */
+td .katex {
+  color: #000;
+}
+html[data-theme='dark'] td .katex {
+  color: #fff;
+}
+
+.algo-login {
+  background-color: transparent;
+}
+
+.navbar-sidebar .algo-link {
+  padding: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   Print Layout Styling & Fixes (Docusaurus Docs)
+   ========================================================================== */
+
+@media print {
+  /* ---------------------------------------------------------------------- */
+  /* 1. GLOBAL RESETS & THEME OVERRIDES                                     */
+  /* ---------------------------------------------------------------------- */
+  
+  /* Reset background and colors for ink saving and high contrast */
+  html, body, [data-theme], :root {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important; /* Critical: Stops text cut-offs at page breaks */
+  }
+
+  /* Force standard block layout for print so standard pagination/breaks work (Chromium fix) */
+  #__docusaurus, 
+  .theme-doc-wrapper, 
+  .theme-doc-main-container, 
+  main, 
+  .container, 
+  .row, 
+  .col, 
+  article,
+  .markdown,
+  .theme-doc-markdown,
+  .theme-doc-toc {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* 2. CHROME, COMMENTS, & GOOGLE ADSENSE DELETION                         */
+  /* ---------------------------------------------------------------------- */
+  
+  /* Hide navigation, sidebar, TOC, footer, progress elements, and UI elements */
+  .navbar,                               /* Top Navigation Bar */
+  .theme-doc-sidebar-container,          /* Left Documentation Sidebar */
+  .theme-doc-toc,                        /* Right Desktop TOC Container */
+  .table-of-contents,                    /* Mobile/In-line TOC Lists */
+  .footer,                               /* Global Site Footer */
+  .pagination-nav,                       /* Next/Previous Page Buttons */
+  .breadcrumbs,                          /* Top Page File-path Links */
+  .theme-edit-this-page,                 /* "Edit this page" Link */
+  .theme-doc-footer-edit-meta-row,       /* Last updated timestamps */
+  .clean-btn.theme-back-to-top-button,   /* Back to top scroll button */
+  .theme-doc-footer,                     /* Inner document bottom area */
+  .no-print,                             /* Custom utilities hidden from paper */
+  aside,                                 /* Secondary tracking/sidebars */
+  .giscus,                               /* Comments section */
+  .giscus-component, 
+  #giscus, 
+  #comments,
+  .theme-code-block-button-group,        /* Overlay copy buttons on code elements */
+  
+  /* --- GOOGLE ADSENSE BLANKET DELETION --- */
+  ins.adsbygoogle,                       /* Native Google Ad Container tag */
+  iframe[id^="aswift"],                  /* Dynamic inner layout script frames */
+  iframe[name^="aswift"],                /* Variable iframe targeting handles */
+  iframe[id^="google_ads"],              /* Explicit Google Ad frame wrappers */
+  .google-ads,                           /* Common developer wrappers */
+  [data-ad-client],                      /* Direct data attribute hooks */
+  [data-ad-slot]                         /* Direct slot attribute hooks */ {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* 3. DOCUMENT BODY OPTIMIZATION                                         */
+  /* ---------------------------------------------------------------------- */
+  
+  /* Add crisp margins so the pure document text doesn't touch the paper edge */
+  article {
+    padding: 1.5cm !important;
+  }
+
+  /* Prevent headings from being separated from their content down on the next sheet */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    color: #000000 !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Ensure paragraphs, list items, and blockquotes don't break weirdly */
+  p, li, blockquote {
+    color: #111111 !important;
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Avoid breaking inside content boxes like code blocks, tables, images, blockquotes */
+  pre, .theme-code-block, table, tr, img, svg, figure, blockquote, .mermaid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* 4. CODE BLOCK CLEANUP                                                 */
+  /* ---------------------------------------------------------------------- */
+  
+  /* Code block specific styling for high readability and contrast in print */
+  pre, code, .theme-code-block, .theme-code-block pre {
+    background-color: #f8f9fa !important;
+    border: 1px solid #dddddd !important;
+    color: #000000 !important;
+    font-size: 9.5pt !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Custom header styling inside printable page */
+  .doc-header-banner {
+    background: none !important;
+    border-bottom: 2px solid #333333 !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 20px !important;
+    color: #000000 !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. PAGE SETUP CONFIGURATION                                                */
+/* -------------------------------------------------------------------------- */
+@page {
+  size: letter; /* Options: A4, letter */
+  margin: 1.5cm;
 }

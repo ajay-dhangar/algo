@@ -1,0 +1,11 @@
+{
+  "label": "Go",
+  "position": 6,
+  "customProps": {
+    "description": "An open-source programming language supported by Google, known for simplicity, concurrency, and performance."
+  },
+  "link": {
+    "type": "generated-index",
+    "description": "Built by Google for the modern cloud! It is simple, incredibly fast, and perfect for building scalable servers and backend networks."
+  }
+}

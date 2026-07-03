@@ -1,0 +1,21 @@
+import React, { type ReactNode } from 'react';
+import clsx from 'clsx';
+import { ThemeClassNames } from '@docusaurus/theme-common';
+import type { Props } from '@theme/DocCard/Description';
+
+import styles from './styles.module.css';
+
+export default function DocCardDescription({ description }: Props): ReactNode {
+  if (!description) return null; // Defensive check to avoid empty rendering overhead
+
+  return (
+    <p
+      className={clsx(
+        ThemeClassNames.docs.docCard.description,
+        styles.cardDescription
+      )}
+    >
+      {description}
+    </p>
+  );
+}

@@ -1,213 +1,205 @@
 import React, { useEffect } from "react";
-import { FaGithub, FaLinkedin, FaDiscord, FaTwitter } from "react-icons/fa";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-
+import { FaGithub, FaLinkedin, FaDiscord, FaTerminal } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { HiOutlineCode, HiOutlineServer } from "react-icons/hi";
 import Link from "@docusaurus/Link";
+
+// Extend Window interface for TypeScript compliance with GTranslate
+declare global {
+  interface Window {
+    gtranslateSettings?: {
+      default_language: string;
+      detect_browser_language: boolean;
+      wrapper_selector: string;
+    };
+  }
+}
 
 const Footer = () => {
   useEffect(() => {
-    // Create script element for GTranslate
+    // Dynamic integration for GTranslate script
     const script = document.createElement("script");
     script.src = "https://cdn.gtranslate.net/widgets/latest/popup.js";
     script.defer = true;
     document.body.appendChild(script);
 
-    // Set GTranslate settings
     window.gtranslateSettings = {
       default_language: "en",
       detect_browser_language: true,
       wrapper_selector: ".gtranslate_wrapper",
     };
 
-    // Cleanup script on component unmount
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
+  const socialLinks = [
+    { href: "https://github.com/ajay-dhangar", icon: <FaGithub className="w-4 h-4" />, label: "GitHub", hoverClass: "hover:text-white hover:bg-slate-800" },
+    { href: "https://linkedin.com/in/ajay-dhangar", icon: <FaLinkedin className="w-4 h-4" />, label: "LinkedIn", hoverClass: "hover:text-indigo-400 hover:bg-indigo-950/30" },
+    { href: "https://x.com/CodesWithAjay", icon: <FaXTwitter className="w-4 h-4" />, label: "X", hoverClass: "hover:text-white hover:bg-slate-800" },
+    { href: "https://discord.gg/f8dHD5Hv8Q", icon: <FaDiscord className="w-4 h-4" />, label: "Discord", hoverClass: "hover:text-[#5865F2] hover:bg-[#5865F2]/10" }
+  ];
+
   return (
-    <footer className="bg-[#1a1b26] text-gray-300 py-12">
-      <div className="container mx-auto px-6 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
-          <div className="md:col-span-1">
-            <div className="mb-6">
-              <Link
-              to="/">
+    <footer className="relative overflow-hidden border-t bg-slate-950 text-slate-400 border-slate-900 pt-16 pb-8 font-sans">
+      {/* Background Micro-Accents (Glow & Subtle Grid) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute -top-12 left-1/4 w-72 h-72 bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* --- Top Layout Grid --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-slate-900">
+          
+          {/* Brand Core Column Block (4/12 width on large screens) */}
+          <div className="lg:col-span-4 space-y-6">
+            <Link to="/" className="inline-flex items-center gap-3 no-underline group">
+              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 group-hover:border-slate-700 transition-colors shadow-inner">
                 <img
                   src="/algo/logo/logo.png"
-                  alt="Algo Logo"
-                  className="w-16 h-16"
+                  alt="Algo Core Logo"
+                  className="w-6 h-6 object-contain transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
                 />
-
-                <span className="relative top-[-25px] text-3xl text-bold font-semibold ml-2 gradient-text">
-                  Algo
-                </span>
-              </Link>
-
-              <div>
-                {/* <h2 className="text-xl font-semibold text-white">Algo</h2> */}
-                <p className="text-gray-300 mt-1">
-                  A platform to learn and practice DSA with a collection of
-                  algorithms and data structures in various languages.
-                </p>
               </div>
-            </div>
-            {/* Social Media Links */}
-            <div className="flex space-x-4 mt-4">
-              <Link
-                to="https://github.com/ajay-dhangar"
-                target="_blank"
-                aria-label="GitHub"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
-              >
-                <FaGithub className="w-6 h-6" />
-              </Link>
-              <Link
-                to="https://linkedin.com/in/ajay-dhangar"
-                target="_blank"
-                aria-label="LinkedIn"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
-              >
-                <FaLinkedin className="w-6 h-6" />
-              </Link>
-              <Link
-                to="https://twitter.com/CodesWithAjay"
-                target="_blank"
-                aria-label="X"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1.5rem"
-                  height="1.5rem"
-                  viewBox="0 0 50 50"
-                  fill="currentColor"
-                >
-                  <path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
-                </svg>
-              </Link>
-              <Link
-                to="#"
-                target="_blank"
-                aria-label="Discord"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#6366F1] transition-colors duration-300"
-              >
-                <FaDiscord className="w-6 h-6" />
-              </Link>
+              <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-slate-100 via-indigo-100 to-cyan-400 bg-clip-text text-transparent uppercase font-mono">
+                Algo
+              </span>
+            </Link>
+            
+            <p className="text-sm text-slate-400 leading-relaxed max-w-sm m-0">
+              An advanced open-source platform designed to master data structures, refine logical loops, and trace optimal software algorithms across universal runtimes.
+            </p>
+
+            {/* Architecture Systems Health Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/10 text-[11px] font-mono font-medium text-emerald-400 shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>Systems Live // Operational</span>
             </div>
           </div>
 
-          {/* Resources */}
-          <div className="md:pl-32">
-            <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
-            <ul className="space-y-3 pl-0">
-              <li className="list-none">
-                <Link
-                  to="/algo/docs/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Documentation
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/algo/blog/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/docs/"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Tutorials
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Nav Links Matrix (8/12 width split across 3 grids) */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
+            
+            {/* Category Node: Resources */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <span className="text-[11px] font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2">
+                  <HiOutlineCode className="text-indigo-400 text-sm" /> Platform.Core
+                </span>
+                <div className="w-8 h-[1px] bg-indigo-500/40" />
+              </div>
+              <ul className="space-y-3 p-0 list-none text-sm m-0">
+                {["Documentation", "Developer Blog", "Practice Modules"].map((item) => (
+                  <li key={item}>
+                    <Link to={item === "Documentation" ? "/documentation/": item === "Developer Blog" ? "/blog/" : "/practice/"} className="text-slate-400 hover:text-slate-200 no-underline transition-colors flex items-center group">
+                      <span className="text-slate-400 group-hover:text-indigo-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Community */}
-          <div className="md:pl-32">
-            <h3 className="text-lg font-semibold mb-4 text-white">Community</h3>
-            <ul className="space-y-3 pl-0">
-              <li className="list-none">
-                <Link
-                  to="#"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Join Discord
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="/algo/contributors"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Contributors
-                </Link>
-              </li>
-              <li className="list-none">
-                <Link
-                  to="#"
-                  className="text-gray-400 hover:text-[#61dafb] transition-colors duration-300"
-                >
-                  Events
-                </Link>
-              </li>
-            </ul>
+            {/* Category Node: Community */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <span className="text-[11px] font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2">
+                  <FaTerminal className="text-cyan-400 text-[10px]" /> Ecosystem
+                </span>
+                <div className="w-8 h-[1px] bg-cyan-500/40" />
+              </div>
+              <ul className="space-y-3 p-0 list-none text-sm m-0">
+                {[
+                  { name: "Discord Lounge", to: "https://discord.gg/f8dHD5Hv8Q" },
+                  { name: "Core Contributors", to: "/contributors" },
+                  { name: "Open Source Events", to: "/events/" }
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link to={item.to} className="text-slate-400 hover:text-slate-200 no-underline transition-colors flex items-center group">
+                      <span className="text-slate-400 group-hover:text-cyan-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Category Node: Framework Info */}
+            <div className="space-y-4">
+              <div className="space-y-1">
+                <span className="text-[11px] font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2">
+                  <HiOutlineServer className="text-blue-400 text-sm" /> Specifications
+                </span>
+                <div className="w-8 h-[1px] bg-blue-500/40" />
+              </div>
+              <ul className="space-y-3 p-0 list-none text-sm m-0">
+                {[
+                  { name: "System Features", to: "/docs/category/algorithms" },
+                  { name: "Infrastructure Team", to: "/about/" },
+                  { name: "Technical Support", to: "/contact/" }
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link to={item.to} className="text-slate-400 hover:text-slate-200 no-underline transition-colors flex items-center group">
+                      <span className="text-slate-400 group-hover:text-blue-400 transition-colors font-mono mr-1.5 duration-300 transform group-hover:translate-x-0.5">/</span>
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <ul className="flex flex-nowrap justify-center items-center pl-0 md:justify-start space-x-4 mb-4 md:mb-0 text-xs md:text-sm text-gray-400">
-            <li className="list-none">
-              <Link
-                to="#"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                Features
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="/algo/about/"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                About Us
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="/algo/contact/"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
-                Contact
-              </Link>
-            </li>
-            <li className="list-none">
-              <Link
-                to="#"
-                className="hover:text-[#61dafb] transition-colors duration-300"
-              >
+        {/* --- Bottom Compliance / Meta Horizon Section --- */}
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          
+          {/* Left Side: Social Icons & Privacy/Terms */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 w-full md:w-auto">
+            
+            {/* Cleaner mapped Social Streams Layout */}
+            <div className="flex items-center gap-1.5 bg-slate-900/40 border border-slate-900 p-1 rounded-xl shadow-inner">
+              {socialLinks.map((link, idx) => (
+                <Link
+                  key={idx}
+                  to={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className={`p-2 rounded-lg text-slate-400 transition-all duration-200 ${link.hoverClass}`}
+                >
+                  {link.icon}
+                </Link>
+              ))}
+            </div>
+
+            {/* Privacy Compliance Links */}
+            <div className="flex items-center gap-4 text-xs text-slate-300 font-medium">
+              <Link to="/privacy" className="text-slate-200 dark:text-slate-300 hover:text-white no-underline transition-colors">
                 Privacy Policy
               </Link>
-            </li>
-            <li className="list-none">
-              <div className="gtranslate_wrapper"></div>
-            </li>
-          </ul>
-          <p className="text-sm text-gray-500 mt-4 md:mt-0">
-            &copy; {new Date().getFullYear()} Algo, Inc. Built with Docusaurus.
-          </p>
+              <span className="text-slate-400 font-mono">/</span>
+              <Link to="/terms" className="text-slate-200 dark:text-slate-300 hover:text-white no-underline transition-colors">
+                Terms of Service
+              </Link>
+              <span className="text-slate-400 font-mono">/</span>              
+            </div>
+          </div>
+
+          {/* Right Side: Copyright Node Stamp */}
+          <div className="text-xs text-slate-400 font-mono text-center md:text-right m-0">
+            &copy; {new Date().getFullYear()} Algo Ecosystem. Built via Docusaurus.
+          </div>
+          
         </div>
+
       </div>
     </footer>
   );

@@ -47,8 +47,9 @@ const ArrayVisualizations: React.FC = () => {
     <div className="p-5 border border-blue-500 rounded-md shadow-md dark:border-gray-100 dark:bg-gray-800">
       <div className="flex justify-center items-center mb-4">
         <p className="mb-4">
-          Speed:{" "}
+          <label htmlFor="array-visualization-speed">Speed:</label>{" "}
           <input
+            id="array-visualization-speed"
             type="range"
             min="50"
             max="500"
@@ -92,10 +93,8 @@ const ArrayVisualizations: React.FC = () => {
       <div className="flex justify-center items-end h-72">
         {array.map((value, index) => (
           <div
-            key={value}
-            className={`w-8 mx-1 bg-blue-500 transition-all duration-300
-              ${index === minIndex ? "bg-red-500" : ""}
-              ${index === currentIndex ? "bg-yellow-300" : ""}`}
+            key={index}
+            className={"w-8 mx-1 transition-all duration-300 " + (index === minIndex ? "bg-red-500" : index === currentIndex ? "bg-yellow-300" : "bg-blue-500")}
             style={{ height: `${value * 3}px` }}
           />
         ))}

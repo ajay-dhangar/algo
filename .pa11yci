@@ -1,0 +1,21 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 60000,
+    "wait": 2000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
+    },
+    "ignore": [
+      "WCAG2AA.Principle3.Guideline3_2.3_2_2.UIInputWithNoSubmitButton",
+      "WCAG2AA.Principle2.Guideline2_4.2_4_1.H64.1",
+      "WCAG2AA.Principle2.Guideline2_4.2_4_1.H64.2"
+    ]
+  },
+  "urls": [
+    "http://localhost:3000/algo/",
+    "http://localhost:3000/algo/quizzes/arrays",
+    "http://localhost:3000/algo/complexity-comparison",
+    "http://localhost:3000/algo/docs/intro"
+  ]
+}

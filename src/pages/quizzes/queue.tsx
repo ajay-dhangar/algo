@@ -1,411 +1,437 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Layout from "@theme/Layout";
-import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  FaUserCircle, 
+  FaSignOutAlt, 
+  FaClock, 
+  FaAward, 
+  FaCheckCircle, 
+  FaTimesCircle, 
+  FaRedoAlt, 
+  FaCode, 
+  FaChevronRight, 
+  FaHistory,
+  FaLayerGroup
+} from "react-icons/fa";
+import { safeJsonParse } from "../../utils/safeStorage";
+
+interface QueueQuestion {
+  id: number;
+  difficulty: "Easy" | "Medium" | "Hard";
+  question: string;
+  codeSnippet?: string;
+  options: string[];
+  answer: string;
+  explanation: string;
+}
+
+interface AttemptHistory {
+  timestamp: number;
+  score: number;
+  timeSpent: number;
+}
+
+const QUESTIONS: QueueQuestion[] = [
+  {
+    id: 1,
+    difficulty: "Medium",
+    question: "Examine the C-like pseudocode below. A Queue 'Q' is passed into the function and processed using an auxiliary Stack 'S'. What is the net effect of this function on the Queue?",
+    codeSnippet: `void fun(Queue *Q) {\n    Stack S;  // Initialize empty stack\n    while (!isEmpty(Q)) {\n        push(&S, deQueue(Q));\n    }\n    while (!isEmpty(&S)) {\n        enQueue(Q, pop(&S));\n    }\n}`,
+    options: [
+      "A) Removes the last element from Q",
+      "B) Retains the original order of Q",
+      "C) Purges all elements (Q becomes empty)",
+      "D) Reverses the sequence of elements in Q"
+    ],
+    answer: "D) Reverses the sequence of elements in Q",
+    explanation: "Because a Stack is LIFO (Last-In-First-Out) and a Queue is FIFO (First-In-First-Out), dequeuing all items into a stack and then popping them back into the queue effectively inverts the sequence."
+  },
+  {
+    id: 2,
+    difficulty: "Easy",
+    question: "If only Stack data structures are available, what is the minimum number of Stacks required to fully implement a functional Queue logic?",
+    options: ["A) 1 Stack", "B) 2 Stacks", "C) 3 Stacks", "D) 4 Stacks"],
+    answer: "B) 2 Stacks",
+    explanation: "Two stacks are required: one to handle 'enqueue' (pushing) and another to handle 'dequeue' (reversing the order so the oldest element is accessible)."
+  },
+  {
+    id: 3,
+    difficulty: "Easy",
+    question: "In an ideal Queue implementation (Circular Array or Linked List with Head/Tail pointers), which operations achieve O(1) constant time complexity?",
+    options: ["A) Only Enqueue", "B) Only Dequeue", "C) Both Enqueue and Dequeue", "D) Only Peek"],
+    answer: "C) Both Enqueue and Dequeue",
+    explanation: "By maintaining pointers to both the front and the rear of the structure, we can add or remove elements without iterating through the collection, resulting in O(1) time."
+  },
+  {
+    id: 4,
+    difficulty: "Medium",
+    question: "Which data structure provides the most efficient underlying implementation for a Priority Queue to ensure logarithmic time for both insertion and extraction?",
+    options: ["A) Unordered Array", "B) Doubly Linked List", "C) Binary Heap / Fibonacci Heap", "D) Simple Stack"],
+    answer: "C) Binary Heap / Fibonacci Heap",
+    explanation: "Heaps maintain a semi-ordered state that allows for O(log n) insertions and O(log n) extractions of the highest/lowest priority element, outperforming linear arrays or lists."
+  },
+  {
+    id: 5,
+    difficulty: "Medium",
+    question: "A Priority-Queue is implemented as a Max-Heap with current elements: [10, 8, 5, 3, 2]. If we insert '1' then '7' in that order, what is the resulting level-order traversal?",
+    options: [
+      "A) 10, 8, 7, 5, 3, 2, 1",
+      "B) 10, 8, 7, 3, 2, 1, 5",
+      "C) 10, 8, 7, 2, 3, 1, 5",
+      "D) 10, 8, 7, 1, 2, 3, 5"
+    ],
+    answer: "B) 10, 8, 7, 3, 2, 1, 5",
+    explanation: "After inserting 1, the heap remains unchanged. Inserting 7 places it at the next available leaf (right child of 5). Since 7 > 5, they swap. The level order becomes 10, 8, 7, 3, 2, 1, 5."
+  },
+  {
+    id: 6,
+    difficulty: "Hard",
+    question: "Consider a 'MultiDequeue' operation that dequeues 'k' elements from a queue 'Q'. What is the amortized time complexity of 'n' such operations on an initially empty queue?",
+    codeSnippet: `MultiDequeue(Q, k) {\n    m = k;\n    while (!isEmpty(Q) && m > 0) {\n        deQueue(Q);\n        m--;\n    }\n}`,
+    options: ["A) Θ(n)", "B) Θ(n + k)", "C) Θ(nk)", "D) Θ(n²)"],
+    answer: "B) Θ(n + k)",
+    explanation: "While a single operation might take O(k), an element can only be dequeued if it was first enqueued. In a sequence of n operations, the total number of dequeues cannot exceed the total number of enqueues, leading to amortized linear time."
+  },
+  {
+    id: 7,
+    difficulty: "Hard",
+    question: "Identify the purpose of the following function 'fun' which utilizes an integer queue 'q'. What is the final output sequence?",
+    codeSnippet: `fun(int n) {\n    Queue q = new Queue();\n    q.enqueue(0);\n    q.enqueue(1);\n    for (int i = 0; i < n; i++) {\n        int a = q.dequeue();\n        int b = q.dequeue();\n        q.enqueue(b);\n        q.enqueue(a + b);\n        print(a);\n    }\n}`,
+    options: [
+      "A) Prints 0 to n-1",
+      "B) Prints the powers of 2",
+      "C) Prints the first n Fibonacci numbers",
+      "D) Prints prime numbers up to n"
+    ],
+    answer: "C) Prints the first n Fibonacci numbers",
+    explanation: "The function maintains the last two calculated values in the queue. Each iteration dequeues both, sums them for the next term, and re-enqueues the state, mimicking the Fibonacci recurrence: F(n) = F(n-1) + F(n-2)."
+  },
+  {
+    id: 8,
+    difficulty: "Easy",
+    question: "Which of the following is NOT a standard variation or operation of a Queue data structure?",
+    options: ["A) Deque (Double-ended Queue)", "B) Circular Queue", "C) Priority Queue", "D) Shuffle-Queue"],
+    answer: "D) Shuffle-Queue",
+    explanation: "Standard queues focus on order preservation (FIFO or Priority). Shuffling (randomizing order) is an operation typically associated with Lists or Collections, not the Queue interface."
+  },
+  {
+    id: 9,
+    difficulty: "Easy",
+    question: "What will happen if you attempt to dequeue an item from a queue that is currently empty?",
+    options: [
+      "A) The operation returns null and continues",
+      "B) It typically triggers a Queue Underflow error/exception",
+      "C) The operation returns undefined",
+      "D) No operation is performed and state remains same"
+    ],
+    answer: "B) It typically triggers a Queue Underflow error/exception",
+    explanation: "Attempting to remove an element from an empty data structure is a boundary case known as underflow. In most robust implementations, this throws an exception to prevent logic errors."
+  },
+  {
+    id: 10,
+    difficulty: "Easy",
+    question: "In a circular queue implementation, what is the primary structural benefit compared to a standard linear array queue?",
+    options: [
+      "A) It consumes more memory for faster buffering",
+      "B) It provides faster O(log n) access time",
+      "C) It allows for efficient reuse of empty spaces (space efficiency)",
+      "D) It is significantly simpler to implement with pointers"
+    ],
+    answer: "C) It allows for efficient reuse of empty spaces (space efficiency)",
+    explanation: "Linear queues can suffer from 'false overflow' where space at the front is wasted after dequeues. Circular queues wrap the rear pointer back to the start, utilizing every available slot."
+  },
+  {
+    id: 11,
+    difficulty: "Medium",
+    question: "Consider the following sequence of operations. What values will be returned by the two dequeue() calls respectively?",
+    codeSnippet: `enqueue(1);\nenqueue(2);\nenqueue(3);\ndequeue();\nenqueue(4);\ndequeue();`,
+    options: ["A) 1, 2", "B) 1, 3", "C) 2, 4", "D) 3, 4"],
+    answer: "A) 1, 2",
+    explanation: "Queues follow First-In-First-Out (FIFO). The first dequeue removes the first item added (1). The second dequeue removes the next item that was in line (2), regardless of the fact that 4 was added later."
+  },
+  {
+    id: 12,
+    difficulty: "Easy",
+    question: "Which of the following data structures can be used as the underlying foundation to implement a Queue?",
+    options: ["A) Static Arrays", "B) Singly or Doubly Linked Lists", "C) Stacks (using two of them)", "D) All of the above"],
+    answer: "D) All of the above",
+    explanation: "Queues are abstract data types. While Arrays and Linked Lists are common, you can even simulate FIFO behavior using two LIFO Stacks."
+  },
+  {
+    id: 13,
+    difficulty: "Medium",
+    question: "What is the time complexity of the enqueue and dequeue operations in an optimized Linked List-based queue?",
+    options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
+    answer: "A) O(1)",
+    explanation: "By maintaining both a 'Head' and a 'Tail' pointer, we can add to the back and remove from the front in constant time without traversing the list."
+  },
+  {
+    id: 14,
+    difficulty: "Hard",
+    question: "Examine this pseudocode snippet. Which operation does it accurately represent in a typical array-based implementation?",
+    codeSnippet: `if (front == -1) {\n    front = 0;\n}\nrear++;\nqueue[rear] = value;`,
+    options: [
+      "A) Dequeue Operation",
+      "B) Peek Operation",
+      "C) Enqueue Operation",
+      "D) IsEmpty Check"
+    ],
+    answer: "C) Enqueue Operation",
+    explanation: "This code handles the insertion logic: initializing the front pointer if the queue was empty, incrementing the rear index, and placing the new value at that position."
+  },
+  {
+    id: 15,
+    difficulty: "Medium",
+    question: "In a Priority Queue, how is the order of element removal (dequeue) determined?",
+    options: [
+      "A) Strictly by the order of arrival (FIFO)",
+      "B) Based on the priority level associated with each element",
+      "C) Based on the alphabetical order of the data",
+      "D) By the physical memory address of the node"
+    ],
+    answer: "B) Based on the priority level associated with each element",
+    explanation: "A Priority Queue breaks the standard FIFO rule. Elements with higher priority are dequeued before elements with lower priority, regardless of when they entered the queue."
+  },
+  {
+    id: 16,
+    difficulty: "Hard",
+    question: "If a queue is initially empty, what is the current 'Front' element after this specific sequence?",
+    codeSnippet: `enqueue(10);\nenqueue(20);\ndequeue();\nenqueue(30);`,
+    options: ["A) 10", "B) 20", "C) 30", "D) The queue is empty"],
+    answer: "B) 20",
+    explanation: "1. Enqueue 10 (Front: 10). 2. Enqueue 20 (Front: 10, Rear: 20). 3. Dequeue removes 10. 4. Front moves to 20. 5. Enqueue 30 (Front remains 20, Rear becomes 30)."
+  }
+];
 
 const QueueQuiz: React.FC = () => {
-  const questions = [
-    {
-      question: (
-        <>
-          1. Following is C like pseudo-code of a function that takes a Queue as an argument, and uses a stack S to do processing.
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`void fun(Queue *Q)
-{
-    Stack S;  // Say it creates an empty stack S
-
-    // Run while Q is not empty
-    while (!isEmpty(Q))
-    {
-        // deQueue an item from Q and push the dequeued item to S
-        push(&S, deQueue(Q));
-    }
-
-    // Run while Stack S is not empty
-    while (!isEmpty(&S))
-    {
-      // Pop an item from S and enqueue the popped item to Q
-      enQueue(Q, pop(&S));
-    }
-}`}
-          </pre>
-        </>
-      ),
-      options: [
-        "A) Removes the last from Q",
-        "B) Keeps the Q same as it was before the call",
-        "C) Makes Q empty",
-        "D) Reverses the Q"
-      ],
-      answer: "D) Reverses the Q",
-    },
-    {
-      question: "2. How many stacks are needed to implement a queue? Consider the situation where no other data structure like arrays, linked list is available to you.",
-      options: ["A) 1", "B) 2", "C) 3", "D) 4"],
-      answer: "B) 2",
-    },
-    {
-      question: "3. Which of the following operations on a queue data structure has a time complexity of O(1)?",
-      options: ["A) Enqueue", "B) Dequeue", "C) Peek", "D) Clear"],
-      answer: "A and B",
-    },
-    {
-      question: "4. A priority queue can be efficiently implemented using which of the following data structures?",
-      options: ["A) Array", "B) Linked List", "C) Heap Data Structures like Binary Heap, Fibonacci Heap", "D) None of the above"],
-      answer: "C) Heap Data Structures like Binary Heap, Fibonacci Heap",
-    },
-    {
-      question: "5. Which of the following is true about linked list implementation of a queue?",
-      options: [
-        "A) In push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end.",
-        "B) In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning.",
-        "C) Both of the above",
-        "D) None of the above"
-      ],
-      answer: "C) Both of the above",
-    },
-    {
-      question: "6. A Priority-Queue is implemented as a Max-Heap. Initially, it has 5 elements. The level-order traversal of the heap is given below: 10, 8, 5, 3, 2. Two new elements '1' and '7' are inserted in the heap in that order. The level-order traversal of the heap after the insertion of the elements is:",
-      options: [
-        "A) 10, 8, 7, 5, 3, 2, 1",
-        "B) 10, 8, 7, 2, 3, 1, 5",
-        "C) 10, 8, 7, 1, 2, 3, 5",
-        "D) 10, 8, 7, 3, 2, 1, 5"
-      ],
-      answer: "A) 10, 8, 7, 5, 3, 2, 1",
-    },
-    {
-      question: (
-        <>
-          7. An implementation of a queue Q, using two stacks S1 and S2, is given below:
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`void insert(Q, x) {
-   push(S1, x);
-}
- 
-void delete(Q){
-   if(stack-empty(S2)) then 
-      if(stack-empty(S1)) then {
-          print(“Q is empty”);
-          return;
-      }
-      else while (!(stack-empty(S1))){
-          x=pop(S1);
-          push(S2,x);
-      }
-   x=pop(S2);
-}`}
-          </pre>
-        </>
-      ),
-      options: [
-        "A) n+m <= x < 2n and 2m <= y <= n+m",
-        "B) n+m <= x < 2n and 2m <= y <= 2n",
-        "C) 2m <= x < 2n and 2m <= y <= n+m",
-        "D) 2m <= x < 2n and 2m <= y <= 2n"
-      ],
-      answer: "A) n+m <= x < 2n and 2m <= y <= n+m",
-    },
-    {
-      question: (
-        <>
-          8. Consider the following operation along with Enqueue and Dequeue operations on queues, where k is a global parameter.
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`MultiDequeue(Q){
-   m = k
-   while (Q is not empty and m  > 0) {
-      Dequeue(Q)
-      m = m - 1
-   }
-}`}
-          </pre>
-          What is the worst-case time complexity of a sequence of n MultiDequeue() operations on an initially empty queue?
-        </>
-      ),
-      options: [
-        "A) Θ(n)",
-        "B) Θ(n + k)",
-        "C) Θ(nk)",
-        "D) Θ(n²)"
-      ],
-      answer: "B) Θ(n + k)",
-    },
-    {
-      question: (
-        <>
-          9. Consider the following pseudo code. Assume that IntQueue is an integer queue. What does the function fun do?
-          <pre style={{ backgroundColor: "black", color: "white", padding: "10px", borderRadius: "5px" }}>
-            {`fun(int n)
-{
-   IntQueue q = new IntQueue();
-   q.enqueue(0);
-   q.enqueue(1);
-   for (int i = 0; i < n; i++)
-   {
-      int a = q.dequeue();
-      int b = q.dequeue();
-      q.enqueue(b);
-      q.enqueue(a + b);
-      print(a);
-   }
-}`}
-          </pre>
-        </>
-      ),
-      options: [
-        "A) Prints numbers from 0 to n-1",
-        "B) Prints numbers from n-1 to 0",
-        "C) Prints first n Fibonacci numbers",
-        "D) Prints first n Fibonacci numbers in reverse order"
-      ],
-      answer: "C) Prints first n Fibonacci numbers",
-    },
-    {
-      question: "10. Which of the following is NOT a common operation in a queue data structure?",
-      options: ["A) Enqueue", "B) Dequeue", "C) Peek", "D) Shuffle"],
-      answer: "D) Shuffle",
-    },
-  ];
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [userAnswers, setUserAnswers] = useState<(string | null)[]>([]);
-
-  // Custom states for persistence, timer, and history
-  const [usernameInput, setUsernameInput] = useState("");
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userAnswers, setUserAnswers] = useState<string[]>([]);
   const [username, setUsername] = useState<string | null>(null);
+  const [usernameInput, setUsernameInput] = useState("");
   const [timeSpent, setTimeSpent] = useState(0);
-  const [attempts, setAttempts] = useState<any[]>([]);
+  const [history, setHistory] = useState<AttemptHistory[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const storedId = localStorage.getItem("quiz_userId");
-    const storedName = localStorage.getItem("quiz_username");
-    if (storedId && storedName) {
-      setUserId(storedId);
-      setUsername(storedName);
+    setIsMounted(true);
+    const savedUser = localStorage.getItem("quiz_user_queue");
+    if (savedUser) {
+      setUsername(savedUser);
+      setHistory(safeJsonParse<AttemptHistory[]>(`quiz_history_${savedUser}_queue`, []));
     }
   }, []);
 
   useEffect(() => {
-    if (userId) {
-      fetchAttempts(userId);
-    }
-  }, [userId]);
-
-  useEffect(() => {
-    if (showResult || !userId) return;
-    const timer = setInterval(() => {
-      setTimeSpent((prev) => prev + 1);
-    }, 1000);
+    if (showResult || !username) return;
+    const timer = setInterval(() => setTimeSpent(p => p + 1), 1000);
     return () => clearInterval(timer);
-  }, [showResult, userId]);
+  }, [showResult, username]);
 
-  const fetchAttempts = async (uId: string) => {
-    try {
-      const res = await axios.get(`http://localhost:5000/api/quiz-attempts/${uId}/queue`);
-      if (res.data?.success) {
-        setAttempts(res.data.attempts);
-      }
-    } catch (e) {
-      console.error("Error fetching attempt history:", e);
+  const score = useMemo(() => {
+    return userAnswers.reduce((acc, ans, idx) => (ans === QUESTIONS[idx]?.answer ? acc + 1 : acc), 0);
+  }, [userAnswers]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleRegister(option);
     }
   };
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
-    const slug = usernameInput.trim().toLowerCase().replace(/[^a-z0-9_-]/g, "-");
-    localStorage.setItem("quiz_userId", slug);
-    localStorage.setItem("quiz_username", usernameInput.trim());
-    setUserId(slug);
+    localStorage.setItem("quiz_user_queue", usernameInput.trim());
     setUsername(usernameInput.trim());
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("quiz_userId");
-    localStorage.removeItem("quiz_username");
-    setUserId(null);
+    localStorage.removeItem("quiz_user_queue");
     setUsername(null);
-    setAttempts([]);
-  };
-
-  const submitAttempt = async (finalAnswers: string[]) => {
-    if (!userId) return;
-    try {
-      await axios.post("http://localhost:5000/api/quiz-attempts", {
-        userId,
-        quizId: "queue",
-        userAnswers: finalAnswers,
-        timeSpent
-      });
-      fetchAttempts(userId);
-    } catch (e) {
-      console.error("Error submitting attempt:", e);
-    }
+    handleRetry();
   };
 
   const handleAnswer = (selected: string) => {
-    setSelectedOption(selected);
+    const updated = [...userAnswers];
+    updated[currentQuestion] = selected;
+    setUserAnswers(updated);
   };
 
-  const nextQuestion = () => {
-    setUserAnswers((prev) => [...prev, selectedOption]);
-
-    if (selectedOption === questions[currentQuestion].answer) {
-      setScore((prev) => prev + 1);
-    }
-
-    if (currentQuestion < questions.length - 1) {
+  const handleNext = () => {
+    if (currentQuestion < QUESTIONS.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null);
     } else {
       setShowResult(true);
-      const finalAnswers = [...userAnswers, selectedOption];
-      submitAttempt(finalAnswers);
+      const newAttempt = { timestamp: Date.now(), score, timeSpent };
+      const updatedHistory = [newAttempt, ...history].slice(0, 5);
+      setHistory(updatedHistory);
+      localStorage.setItem(`quiz_history_${username}_queue`, JSON.stringify(updatedHistory));
     }
   };
 
-  if (!userId) {
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setShowResult(false);
+    setUserAnswers([]);
+    setTimeSpent(0);
+  };
+
+  const formatTime = (s: number) => `${Math.floor(s / 60)}m ${s % 60}s`;
+
+  if (!isMounted) return null;
+
+  if (!username) {
     return (
-      <Layout title="Queue Quiz" description="Test your knowledge of queues with this quiz!">
-        <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex items-center justify-center p-6 transition-colors duration-500">
-          <div className="bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-10 w-full max-w-md text-center border border-gray-100 dark:border-gray-700">
-            <div className="text-5xl mb-4">🏆</div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">Welcome to the Quiz!</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">
-              Please enter your username to track your progress, save your attempts, and compete on the global leaderboard.
+      <Layout title="Queue Assessment">
+        <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] flex items-center justify-center p-6">
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl rounded-2xl p-10 max-w-md w-full text-center">
+            <div className="w-20 h-20 bg-indigo-500/10 text-indigo-500 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+              <FaLayerGroup />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Initialize Session</h2>
+            <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm leading-relaxed">
+              Analyze FIFO logic, complexity metrics, and heap-based priority structures. Enter your handle to begin.
             </p>
             <form onSubmit={handleRegister} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Enter username (e.g. JohnDoe)"
-                value={usernameInput}
-                onChange={(e) => setUsernameInput(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors cursor-pointer border-none"
-              >
-                Let's Begin!
+              <input type="text" placeholder="Developer Alias" value={usernameInput} onChange={e => setUsernameInput(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 transition-all" required />
+              <button type="submit" className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-lg active:scale-95 border-none cursor-pointer">
+                Launch Workspace
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </Layout>
     );
   }
 
   return (
-    <Layout title="Queue Quiz" description="Test your knowledge of queues with this quiz!">
-      <div className="bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 dark:from-gray-800 dark:via-gray-900 dark:to-black min-h-screen flex flex-col items-center justify-center p-6 transition-colors duration-500">
-        <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-2xl text-center transition-transform transform hover:scale-105 duration-300">
+    <Layout title="Queue Quiz Terminal">
+      <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
+        <div className="max-w-4xl mx-auto">
           
-          <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 mb-4 bg-gray-100 dark:bg-gray-700/50 px-4 py-2 rounded-lg">
-            <span>Logged in as: <strong className="text-gray-900 dark:text-white">{username}</strong></span>
-            <button onClick={handleLogout} className="text-red-500 hover:underline border-none bg-transparent cursor-pointer">Change User</button>
+          <div className="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 mb-8 shadow-sm">
+            <div className="flex items-center gap-3">
+              <FaUserCircle className="text-2xl text-indigo-500" />
+              <span className="text-xs font-mono font-bold text-slate-500">TERMINAL_USER: <strong className="text-slate-900 dark:text-white uppercase">{username}</strong></span>
+            </div>
+            <div className="flex items-center gap-4">
+               {!showResult && <div className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-lg text-indigo-600"><FaClock className="inline mr-1"/> {formatTime(timeSpent)}</div>}
+               <button onClick={handleLogout} className="text-rose-800 dark:text-rose-400 hover:bg-rose-500/10 px-3 py-1 rounded-lg text-xs font-bold transition-all border-none bg-transparent cursor-pointer"><FaSignOutAlt className="inline mr-1"/> LOGOUT</button>
+            </div>
           </div>
 
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Quiz on Queues</h2>
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 md:p-10 shadow-sm">
+            <AnimatePresence mode="wait">
+              {!showResult ? (
+                <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-indigo-500 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+                      Module 04: Linear Data Structures
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">Step {currentQuestion + 1} of {QUESTIONS.length}</span>
+                  </div>
 
-          {!showResult && (
-            <div className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-right">
-              ⏱ Time: {Math.floor(timeSpent / 60)}m {timeSpent % 60}s
-            </div>
-          )}
+                  <div className="space-y-6 text-left">
+                    <div className="flex items-center gap-2">
+                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded uppercase ${QUESTIONS[currentQuestion].difficulty === 'Hard' ? 'bg-rose-500/10 text-rose-800 dark:text-rose-400 border border-rose-500/20' : 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'}`}>
+                        {QUESTIONS[currentQuestion].difficulty}
+                       </span>
+                    </div>
+                    <h3 className="text-lg md:text-xl font-bold leading-relaxed">{QUESTIONS[currentQuestion].question}</h3>
 
-          {showResult ? (
-            <div>
-              <div className="bg-green-100 dark:bg-green-800 p-6 rounded-lg">
-                <h3 className="text-2xl font-semibold text-green-800 dark:text-green-300">
-                  Your Score: <span className="text-4xl">{score}</span> 🎉
-                </h3>
-                <p className="mt-4 text-lg">
-                  {score <= 5 ? "Better luck next time!" : score <= 8 ? "Good job!" : "Excellent work!"}
-                </p>
-              </div>
-
-              {/* Solutions Section */}
-              <div className="mt-8">
-                <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Solutions:</h3>
-                {questions.map((q, index) => (
-                  <div key={index} className="mb-6 text-left">
-                    <div className="text-lg font-semibold">{q.question}</div>
-                    <p className="text-md">
-                      <span className="font-bold">Your Answer:</span> {userAnswers[index]}
-                    </p>
-                    <p className="text-md">
-                      <span className="font-bold">Correct Answer:</span> {q.answer}
-                    </p>
-                    {q.explanation && (
-                      <p className="text-sm text-gray-700 dark:text-gray-300 mt-2">
-                        <span className="font-bold">Explanation:</span> {q.explanation}
-                      </p>
+                    {QUESTIONS[currentQuestion].codeSnippet && (
+                      <div className="rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-[#0d1117] text-sm">
+                        <div className="bg-slate-800/50 px-4 py-2 border-b border-slate-700 flex items-center justify-between">
+                          <span className="text-[10px] font-mono text-slate-400"><FaCode className="inline mr-2"/> queue_simulation.c</span>
+                        </div>
+                        <pre className="p-5 overflow-x-auto text-slate-300 font-mono leading-relaxed"><code>{QUESTIONS[currentQuestion].codeSnippet}</code></pre>
+                      </div>
                     )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div>
-              <div className="text-lg font-medium text-gray-800 dark:text-gray-200 mb-4 text-left">
-                {questions[currentQuestion].question}
-              </div>
-              <div className="space-y-4">
-                {questions[currentQuestion].options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleAnswer(option)}
-                    className={`block w-full py-3 px-5 rounded-lg text-left border border-transparent transition-all duration-300 text-gray-800 dark:text-gray-100 ${selectedOption === option
-                        ? "bg-blue-600 text-white dark:bg-blue-500"
-                        : "bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-                      }`}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-              <button
-                onClick={nextQuestion}
-                className="mt-6 py-2 px-4 bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white rounded-lg w-full transition-colors duration-300 border-none cursor-pointer font-semibold"
-              >
-                Next Question
-              </button>
-            </div>
-          )}
 
-          {/* Attempts History */}
-          {attempts.length > 0 && (
-            <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6 text-left w-full">
-              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Your Attempt History:</h3>
-              <div className="space-y-3">
-                {attempts.map((att, index) => (
-                  <div key={att.id || index} className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-4 flex justify-between items-center hover:shadow-md transition-shadow">
-                    <div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        {new Date(att.completedAt).toLocaleString()}
-                      </div>
-                      <div className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                        Attempt #{attempts.length - index}
-                      </div>
+                    <div className="grid grid-cols-1 gap-3 pt-4" role="radiogroup" aria-label="Quiz Options">
+                      {QUESTIONS[currentQuestion].options.map((opt, i) => (
+                        <button key={i} onClick={() => handleAnswer(opt)} role="radio" aria-checked={userAnswers[currentQuestion] === opt}
+                          className={`w-full text-left p-4 rounded-xl border transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 hover:border-indigo-400'}`}>
+                          <span className="text-sm font-semibold">{opt}</span>
+                          <div className={`w-4 h-4 rounded-full border ${userAnswers[currentQuestion] === opt ? 'bg-white border-white' : 'border-slate-300 dark:border-slate-700'}`}></div>
+                        </button>
+                      ))}
                     </div>
-                    <div className="text-right">
-                      <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
-                        {att.score} / {att.totalQuestions} ({Math.round((att.score / att.totalQuestions) * 100)}%)
-                      </div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400">
-                        Time spent: {Math.floor(att.timeSpent / 60)}m {att.timeSpent % 60}s
-                      </div>
+
+                    <button onClick={handleNext} disabled={!userAnswers[currentQuestion]}
+                      className={`w-full py-4 mt-8 rounded-xl font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all border-none ${userAnswers[currentQuestion] ? 'bg-slate-900 text-white dark:bg-indigo-600 hover:opacity-90 shadow-lg cursor-pointer' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed'}`}>
+                      {currentQuestion === QUESTIONS.length - 1 ? 'Evaluate System' : 'Next Node'} <FaChevronRight className="text-[10px]"/>
+                    </button>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div key="result" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-10">
+                  <div className="bg-indigo-500/5 dark:bg-indigo-500/10 border border-indigo-500/20 rounded-3xl p-8 text-center">
+                    <h3 className="text-xl font-black uppercase text-indigo-500 mb-6">Diagnostic Complete</h3>
+                    <div className="inline-flex items-baseline gap-2 text-6xl font-black text-slate-900 dark:text-white font-mono">
+                      {score}<span className="text-2xl text-slate-400 font-normal">/ {QUESTIONS.length}</span>
+                    </div>
+                    <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm font-medium">
+                      {score === QUESTIONS.length ? 'Perfect execution. FIFO logic fully optimized.' : 'Verification complete. Review edge cases in priority nodes below.'}
+                    </p>
+                    <div className="flex gap-3 justify-center mt-8">
+                       <button onClick={handleRetry} className="bg-indigo-600 text-white px-6 py-2 rounded-lg font-bold text-xs hover:opacity-90 transition-all border-none cursor-pointer shadow-md"><FaRedoAlt className="inline mr-2"/> RETRY</button>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
 
+                  <div className="text-left space-y-8">
+                    <h4 className="text-sm font-mono font-black uppercase tracking-widest text-slate-400 border-b border-slate-100 dark:border-slate-800 pb-4">Logic Trace Log</h4>
+                    {QUESTIONS.map((q, idx) => (
+                      <div key={idx} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 space-y-4">
+                        <div className="flex items-start justify-between gap-4">
+                          <h5 className="text-sm font-bold leading-relaxed">{idx + 1}. {q.question}</h5>
+                          {userAnswers[idx] === q.answer ? <FaCheckCircle className="text-emerald-500 shrink-0"/> : <FaTimesCircle className="text-rose-800 dark:text-rose-400 shrink-0"/>}
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+                          <div className={`p-3 rounded-lg border ${userAnswers[idx] === q.answer ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/5 border-rose-500/20 text-rose-800 dark:text-rose-400'}`}>
+                            <span className="block text-[8px] font-black uppercase mb-1 opacity-60">Your Input</span> {userAnswers[idx] || '[NO_INPUT]'}
+                          </div>
+                          {userAnswers[idx] !== q.answer && <div className="p-3 rounded-lg border bg-emerald-500/5 border-emerald-500/20 text-emerald-600">
+                             <span className="block text-[8px] font-black uppercase mb-1 opacity-60">Expected</span> {q.answer}
+                          </div>}
+                        </div>
+                        <p className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/50 p-4 rounded-xl italic border border-dashed border-slate-200 dark:border-slate-800">
+                          <strong className="text-indigo-500 not-italic block mb-1">Compiler Insight:</strong> {q.explanation}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {history.length > 0 && (
+              <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-left">
+                <div className="flex items-center gap-2 mb-6">
+                  <FaHistory className="text-slate-400 text-xs" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Archived Attempts</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                  {history.map((h, i) => (
+                    <div key={i} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex justify-between items-center transition-all hover:border-indigo-500/30">
+                      <div>
+                        <div className="text-[10px] font-mono text-slate-400">{new Date(h.timestamp).toLocaleDateString()}</div>
+                        <div className="text-xs font-bold text-slate-700 dark:text-slate-200">Attempt #{history.length - i}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-sm font-black text-indigo-500 font-mono">{h.score}/{QUESTIONS.length}</div>
+                        <div className="text-[9px] text-slate-400 uppercase font-bold">{formatTime(h.timeSpent)}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </Layout>

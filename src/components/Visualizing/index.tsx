@@ -1,332 +1,515 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Layout from "@theme/Layout";
 import "../../css/visualiezer.css";
+import { withVisualizerErrorBoundary } from "./VisualizerErrorBoundary";
 
-const DSARoadmap: React.FC = () => {
-  useEffect(() => {
-    function swap(e: HTMLElement, r: HTMLElement) {
-      let t = e.style.height;
-      e.style.height = r.style.height;
-      r.style.height = t;
-    }
+interface BarData {
+  value: number;
+  color: string;
+}
 
-    function disableSortingBtn() {
-      document.querySelector(".bubbleSort")!.disabled = true;
-      document.querySelector(".insertionSort")!.disabled = true;
-      document.querySelector(".mergeSort")!.disabled = true;
-      document.querySelector(".quickSort")!.disabled = true;
-      document.querySelector(".selectionSort")!.disabled = true;
-    }
+const DEFAULT_COLOR = "cyan";
+const COMPARE_COLOR = "blue";
+const SWAP_COLOR = "red";
+const SORTED_COLOR = "green";
 
-    function disableSizeSlider() {
-      document.querySelector("#arr_sz")!.disabled = true;
-    }
+const SortingVisualizer: React.FC = () => {
+  const [bars, setBars] = useState<BarData[]>([]);
+  const [arraySize, setArraySize] = useState<number>(40);
+  const [speed, setSpeed] = useState<number>(100);
+  const [isSorting, setIsSorting] = useState<boolean>(false);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
-    function enableSizeSlider() {
-      document.querySelector("#arr_sz").disabled = !1;
-    }
-    function disableNewArrayBtn() {
-      document.querySelector(".newArray").disabled = !1;
-    }
-    function enableNewArrayBtn() {
-      document.querySelector(".newArray").disabled = !1;
-    }
+  const abortControllerRef = useRef<AbortController | null>(null);
+  const isPausedRef = useRef<boolean>(false);
+  const unpauseRef = useRef<(() => void) | null>(null);
 
-    function enableSortingBtn() {
-      document.querySelector(".bubbleSort")!.disabled = false;
-      document.querySelector(".insertionSort")!.disabled = false;
-      document.querySelector(".mergeSort")!.disabled = false;
-      document.querySelector(".quickSort")!.disabled = false;
-      document.querySelector(".selectionSort")!.disabled = false;
+  const togglePause = () => {
+    if (isPausedRef.current) {
+      isPausedRef.current = false;
+      setIsPaused(false);
+      if (unpauseRef.current) {
+        unpauseRef.current();
+        unpauseRef.current = null;
+      }
+    } else {
+      isPausedRef.current = true;
+      setIsPaused(true);
     }
+  };
 
-    function waitforme(e: number) {
-      return new Promise((r) => {
-        setTimeout(() => {
-          r("");
-        }, e);
+  // Derive delay from speed: speed is 20-300. Max delay should be smaller for higher speed.
+  const getDelay = () => 320 - speed;
+
+  const waitforme = async (millis: number, signal: AbortSignal): Promise<void> => {
+    if (signal.aborted) throw new Error("aborted");
+    while (isPausedRef.current) {
+      await new Promise<void>((resolve, reject) => {
+        const onAbort = () => {
+          signal.removeEventListener("abort", onAbort);
+          reject(new Error("aborted"));
+        };
+        signal.addEventListener("abort", onAbort);
+
+        unpauseRef.current = () => {
+          signal.removeEventListener("abort", onAbort);
+          resolve();
+        };
       });
     }
-
-    let arraySize = document.querySelector("#arr_sz") as HTMLInputElement;
-    let delayElement = document.querySelector("#speed_input") as HTMLInputElement;
-
-    let delay = 260;
-
-    arraySize.addEventListener("input", function () {
-      createNewArray(parseInt(arraySize.value));
+    return new Promise((resolve, reject) => {
+      if (signal.aborted) return reject(new Error("aborted"));
+      const onAbort = () => {
+        clearTimeout(timeout);
+        signal.removeEventListener("abort", onAbort);
+        reject(new Error("aborted"));
+      };
+      const timeout = setTimeout(() => {
+        signal.removeEventListener("abort", onAbort);
+        resolve();
+      }, millis);
+      signal.addEventListener("abort", onAbort);
     });
+  };
 
-    delayElement.addEventListener("input", function () {
-      delay = 320 - parseInt(delayElement.value);
-    });
-
-    let array: number[] = [];
-
-    function createNewArray(e: number = 60) {
-      deleteChild();
-      array = [];
-      for (let r = 0; r < e; r++) array.push(Math.floor(250 * Math.random()) + 1);
-
-      const barsContainer = document.querySelector("#bars") as HTMLElement;
-
-      for (let t = 0; t < e; t++) {
-        const bar = document.createElement("div");
-        bar.style.height = 1.5 * array[t] + "px";
-        bar.classList.add("bar", "flex-item", `barNo${t}`);
-        barsContainer.appendChild(bar);
-      }
+  const createNewArray = useCallback((size: number) => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
     }
-
-    function deleteChild() {
-      const barsContainer = document.querySelector("#bars") as HTMLElement;
-      barsContainer.innerHTML = "";
+    if (unpauseRef.current) {
+      unpauseRef.current();
+      unpauseRef.current = null;
     }
-
-    createNewArray();
-
-    const newArrayBtn = document.querySelector(".newArray")!;
-
-    newArrayBtn.addEventListener("click", function () {
-      enableSortingBtn();
-      createNewArray(arraySize.value);
-    });
-
-    // bubble sort
-    async function bubble() {
-      const ele = document.querySelectorAll(".bar");
-      for (let i = 0; i < ele.length - 1; i++) {
-        for (let j = 0; j < ele.length - i - 1; j++) {
-          console.log("In jth loop");
-          ele[j].style.background = "blue";
-          ele[j + 1].style.background = "blue";
-          if (parseInt(ele[j].style.height) > parseInt(ele[j + 1].style.height)) {
-            await waitforme(delay);
-            swap(ele[j], ele[j + 1]);
-          }
-          ele[j].style.background = "cyan";
-          ele[j + 1].style.background = "cyan";
-        }
-        ele[ele.length - 1 - i].style.background = "green";
-      }
-      ele[0].style.background = "green";
+    const newBars: BarData[] = [];
+    for (let i = 0; i < size; i++) {
+      newBars.push({
+        value: Math.floor(250 * Math.random()) + 1,
+        color: DEFAULT_COLOR,
+      });
     }
-    const bubSortbtn = document.querySelector(".bubbleSort");
-    bubSortbtn.addEventListener("click", async function () {
-      disableSortingBtn();
-      disableSizeSlider();
-      disableNewArrayBtn();
-      await bubble();
-      enableSortingBtn();
-      enableSizeSlider();
-      enableNewArrayBtn();
-    });
-
-
-    // insertion sort
-    async function insertion() {
-      const ele = document.querySelectorAll(".bar");
-      ele[0].style.background = "green";
-      for (let i = 1; i < ele.length; i++) {
-        let j = i - 1;
-        let key = ele[i].style.height;
-        ele[i].style.background = "blue";
-        await waitforme(delay);
-        while (j >= 0 && parseInt(ele[j].style.height) > parseInt(key)) {
-          ele[j].style.background = "blue";
-          ele[j + 1].style.height = ele[j].style.height;
-          j--;
-          await waitforme(delay);
-          for (let k = i; k >= 0; k--) {
-            ele[k].style.background = "green";
-          }
-        }
-        ele[j + 1].style.height = key;
-        ele[i].style.background = "green";
-      }
-    }
-    const inSortbtn = document.querySelector(".insertionSort");
-    inSortbtn.addEventListener("click", async function () {
-      disableSortingBtn();
-      disableSizeSlider();
-      disableNewArrayBtn();
-      await insertion();
-      enableSortingBtn();
-      enableSizeSlider();
-      enableNewArrayBtn();
-    });
-    // Merge Sort
-    async function merge(arr: NodeListOf<Element>, left: number, mid: number, right: number) {
-      const n1 = mid - left + 1; // Length of left subarray
-      const n2 = right - mid; // Length of right subarray
-
-      let leftArr: string[] = [];
-      let rightArr: string[] = [];
-
-      for (let i = 0; i < n1; i++) {
-        await waitforme(delay);
-        (arr[left + i] as HTMLElement).style.backgroundColor = "orange";
-        leftArr[i] = (arr[left + i] as HTMLElement).style.height;
-      }
-
-      for (let j = 0; j < n2; j++) {
-        await waitforme(delay);
-        (arr[mid + 1 + j] as HTMLElement).style.backgroundColor = "yellow";
-        rightArr[j] = (arr[mid + 1 + j] as HTMLElement).style.height;
-      }
-
-      await waitforme(delay);
-
-      let i = 0, j = 0, k = left;
-
-      while (i < n1 && j < n2) {
-        await waitforme(delay);
-
-        if (parseInt(leftArr[i]) <= parseInt(rightArr[j])) {
-          (arr[k] as HTMLElement).style.height = leftArr[i];
-          (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
-          i++;
-        } else {
-          (arr[k] as HTMLElement).style.height = rightArr[j];
-          (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
-          j++;
-        }
-        k++;
-      }
-
-      while (i < n1) {
-        await waitforme(delay);
-        (arr[k] as HTMLElement).style.height = leftArr[i];
-        (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
-        i++;
-        k++;
-      }
-
-      while (j < n2) {
-        await waitforme(delay);
-        (arr[k] as HTMLElement).style.height = rightArr[j];
-        (arr[k] as HTMLElement).style.backgroundColor = "lightgreen";
-        j++;
-        k++;
-      }
-    }
-
-    async function mergeSort(arr: NodeListOf<Element>, left: number, right: number) {
-      if (left >= right) return;
-
-      const mid = Math.floor((left + right) / 2);
-
-      await mergeSort(arr, left, mid);
-      await mergeSort(arr, mid + 1, right);
-
-      await merge(arr, left, mid, right);
-    }
-
-    const mergeSortBtn = document.querySelector(".mergeSort");
-
-    mergeSortBtn.addEventListener("click", async function () {
-      let barsElements = document.querySelectorAll(".bar");
-
-      disableSortingBtn();
-
-      await mergeSort(barsElements, 0, barsElements.length - 1);
-
-      enableSortingBtn();
-    });
-
-
-    // quick sort
-    async function medianOfThree(e, t, a) {
-      let r = t + Math.floor((a - t) / 2);
-      let n = (i) => parseInt(e[i].style.height);
-      if (n(t) > n(r)) { swap(e[t], e[r]); await waitforme(delay); }
-      if (n(t) > n(a)) { swap(e[t], e[a]); await waitforme(delay); }
-      if (n(r) > n(a)) { swap(e[r], e[a]); await waitforme(delay); }
-      swap(e[r], e[a]);
-      await waitforme(delay);
-    }
-    async function partitionLomuto(e, t, a) {
-      await medianOfThree(e, t, a);
-      let n = t - 1;
-      e[a].style.background = "red";
-      for (let r = t; r <= a - 1; r++)
-        (e[r].style.background = "yellow"),
-          await waitforme(delay),
-          parseInt(e[r].style.height) < parseInt(e[a].style.height)
-            ? (n++,
-              swap(e[n], e[r]),
-              (e[n].style.background = "orange"),
-              n != r && (e[r].style.background = "orange"),
-              await waitforme(delay))
-            : (e[r].style.background = "pink");
-      n++,
-        await waitforme(delay),
-        swap(e[n], e[a]),
-        (e[a].style.background = "pink"),
-        (e[n].style.background = "green"),
-        await waitforme(delay);
-      for (let t = 0; t < e.length; t++)
-        "green" != e[t].style.background && (e[t].style.background = "cyan");
-      return n;
-    }
-    async function quickSort(e, t, a) {
-      while (t < a) {
-        let n = await partitionLomuto(e, t, a);
-        if (n - t < a - n) {
-          await quickSort(e, t, n - 1);
-          t = n + 1;
-        } else {
-          await quickSort(e, n + 1, a);
-          a = n - 1;
-        }
-      }
-      if (t >= 0 && t < e.length) e[t].style.background = "green";
-      if (a >= 0 && a < e.length) e[a].style.background = "green";
-    }
-    const quickSortbtn = document.querySelector(".quickSort");
-    quickSortbtn.addEventListener("click", async function () {
-      let e = document.querySelectorAll(".bar"),
-        t = e.length - 1;
-      disableSortingBtn(),
-        disableSizeSlider(),
-        disableNewArrayBtn(),
-        await quickSort(e, 0, t),
-        enableSortingBtn(),
-        enableSizeSlider(),
-        enableNewArrayBtn();
-    });
-
-    // selection sort
-    async function selection() {
-      const e = document.querySelectorAll(".bar");
-      for (let t = 0; t < e.length; t++) {
-        let n = t;
-        e[t].style.background = "blue";
-        for (let a = t + 1; a < e.length; a++)
-          (e[a].style.background = "red"),
-            await waitforme(delay),
-            parseInt(e[a].style.height) < parseInt(e[n].style.height)
-              ? (n !== t && (e[n].style.background = "cyan"), (n = a))
-              : (e[a].style.background = "cyan");
-        await waitforme(delay),
-          swap(e[n], e[t]),
-          (e[n].style.background = "cyan"),
-          (e[t].style.background = "green");
-      }
-    }
-    const selectionSortbtn = document.querySelector(".selectionSort");
-    selectionSortbtn.addEventListener("click", async function () {
-      disableSortingBtn(),
-        disableSizeSlider(),
-        disableNewArrayBtn(),
-        await selection(),
-        enableSortingBtn(),
-        enableSizeSlider(),
-        enableNewArrayBtn();
-    });
-
-
+    setBars(newBars);
+    setIsSorting(false);
+    setIsPaused(false);
+    isPausedRef.current = false;
   }, []);
+
+  useEffect(() => {
+    createNewArray(arraySize);
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, [createNewArray, arraySize]);
+
+  const handleSizeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newSize = parseInt(e.target.value);
+    setArraySize(newSize);
+    createNewArray(newSize);
+  };
+
+  const handleSpeedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSpeed(parseInt(e.target.value));
+  };
+
+  const startSort = (sortFn: (barsCopy: BarData[], signal: AbortSignal) => Promise<void>) => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    if (unpauseRef.current) {
+      unpauseRef.current();
+      unpauseRef.current = null;
+    }
+    const newController = new AbortController();
+    abortControllerRef.current = newController;
+    setIsSorting(true);
+    setIsPaused(false);
+    isPausedRef.current = false;
+
+    const barsCopy = bars.map(b => ({ ...b, color: DEFAULT_COLOR }));
+    setBars(barsCopy);
+
+    sortFn(barsCopy, newController.signal)
+      .then(() => {
+        setIsSorting(false);
+        setIsPaused(false);
+        isPausedRef.current = false;
+      })
+      .catch((err) => {
+        if (err.message !== "aborted") {
+          console.error(err);
+        }
+        setIsSorting(false);
+        setIsPaused(false);
+        isPausedRef.current = false;
+      });
+  };
+
+  // --- BUBBLE SORT ---
+  const bubbleSort = async (arr: BarData[], signal: AbortSignal) => {
+    const delay = getDelay();
+    for (let i = 0; i < arr.length - 1; i++) {
+      for (let j = 0; j < arr.length - i - 1; j++) {
+        arr[j].color = COMPARE_COLOR;
+        arr[j + 1].color = COMPARE_COLOR;
+        setBars([...arr]);
+        await waitforme(delay, signal);
+
+        if (arr[j].value > arr[j + 1].value) {
+          const temp = arr[j].value;
+          arr[j].value = arr[j + 1].value;
+          arr[j + 1].value = temp;
+          setBars([...arr]);
+        }
+        arr[j].color = DEFAULT_COLOR;
+        arr[j + 1].color = DEFAULT_COLOR;
+      }
+      arr[arr.length - 1 - i].color = SORTED_COLOR;
+      setBars([...arr]);
+    }
+    if (arr.length > 0) {
+      arr[0].color = SORTED_COLOR;
+      setBars([...arr]);
+    }
+  };
+
+  // --- INSERTION SORT ---
+  const insertionSort = async (arr: BarData[], signal: AbortSignal) => {
+    const delay = getDelay();
+    if (arr.length > 0) {
+      arr[0].color = SORTED_COLOR;
+      setBars([...arr]);
+    }
+    for (let i = 1; i < arr.length; i++) {
+      let j = i - 1;
+      const key = arr[i].value;
+      arr[i].color = COMPARE_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+
+      while (j >= 0 && arr[j].value > key) {
+        arr[j].color = COMPARE_COLOR;
+        arr[j + 1].value = arr[j].value;
+        setBars([...arr]);
+        await waitforme(delay, signal);
+        j--;
+      }
+      arr[j + 1].value = key;
+      for (let k = i; k >= 0; k--) {
+        arr[k].color = SORTED_COLOR;
+      }
+      setBars([...arr]);
+    }
+  };
+
+  // --- MERGE SORT ---
+  const merge = async (arr: BarData[], left: number, mid: number, right: number, signal: AbortSignal) => {
+    const delay = getDelay();
+    const n1 = mid - left + 1;
+    const n2 = right - mid;
+    
+    const leftArr = new Array(n1);
+    const rightArr = new Array(n2);
+
+    for (let i = 0; i < n1; i++) {
+      await waitforme(delay, signal);
+      arr[left + i] = { ...arr[left + i], color: "orange" };
+      leftArr[i] = arr[left + i].value;
+      setBars([...arr]);
+    }
+    for (let j = 0; j < n2; j++) {
+      await waitforme(delay, signal);
+      arr[mid + 1 + j] = { ...arr[mid + 1 + j], color: "yellow" };
+      rightArr[j] = arr[mid + 1 + j].value;
+      setBars([...arr]);
+    }
+    await waitforme(delay, signal);
+
+    let i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+      await waitforme(delay, signal);
+      if (leftArr[i] <= rightArr[j]) {
+        arr[k] = { ...arr[k], value: leftArr[i], color: "lightgreen" };
+        i++;
+      } else {
+        arr[k] = { ...arr[k], value: rightArr[j], color: "lightgreen" };
+        j++;
+      }
+      k++;
+      setBars([...arr]);
+    }
+    while (i < n1) {
+      await waitforme(delay, signal);
+      arr[k] = { ...arr[k], value: leftArr[i], color: "lightgreen" };
+      i++;
+      k++;
+      setBars([...arr]);
+    }
+    while (j < n2) {
+      await waitforme(delay, signal);
+      arr[k] = { ...arr[k], value: rightArr[j], color: "lightgreen" };
+      j++;
+      k++;
+      setBars([...arr]);
+    }
+  };
+
+  const mergeSortHelper = async (arr: BarData[], left: number, right: number, signal: AbortSignal) => {
+    if (left >= right) return;
+    const mid = Math.floor((left + right) / 2);
+    await mergeSortHelper(arr, left, mid, signal);
+    await mergeSortHelper(arr, mid + 1, right, signal);
+    await merge(arr, left, mid, right, signal);
+  };
+
+  const mergeSort = async (arr: BarData[], signal: AbortSignal) => {
+    await mergeSortHelper(arr, 0, arr.length - 1, signal);
+    // Color them all green when done
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = { ...arr[i], color: SORTED_COLOR };
+    }
+    setBars([...arr]);
+  };
+
+  // --- QUICK SORT ---
+  const partitionLomuto = async (arr: BarData[], low: number, high: number, signal: AbortSignal) => {
+    const delay = getDelay();
+    let pivot = arr[high].value;
+    let i = low - 1;
+    arr[high].color = "red";
+    setBars([...arr]);
+    
+    for (let j = low; j <= high - 1; j++) {
+      arr[j].color = "yellow";
+      setBars([...arr]);
+      await waitforme(delay, signal);
+      
+      if (arr[j].value < pivot) {
+        i++;
+        const temp = arr[i].value;
+        arr[i].value = arr[j].value;
+        arr[j].value = temp;
+        
+        arr[i].color = "orange";
+        if (i !== j) arr[j].color = "orange";
+        setBars([...arr]);
+        await waitforme(delay, signal);
+      } else {
+        arr[j].color = "pink";
+        setBars([...arr]);
+      }
+    }
+    i++;
+    await waitforme(delay, signal);
+    const temp = arr[i].value;
+    arr[i].value = arr[high].value;
+    arr[high].value = temp;
+    
+    arr[high].color = "pink";
+    arr[i].color = SORTED_COLOR;
+    setBars([...arr]);
+    await waitforme(delay, signal);
+    
+    for (let k = 0; k < arr.length; k++) {
+      if (arr[k].color !== SORTED_COLOR) arr[k].color = DEFAULT_COLOR;
+    }
+    setBars([...arr]);
+    return i;
+  };
+
+  const quickSortHelper = async (arr: BarData[], low: number, high: number, signal: AbortSignal) => {
+    if (low < high) {
+      const pi = await partitionLomuto(arr, low, high, signal);
+      await quickSortHelper(arr, low, pi - 1, signal);
+      await quickSortHelper(arr, pi + 1, high, signal);
+    } else if (low >= 0 && high >= 0 && low < arr.length && high < arr.length) {
+      arr[high].color = SORTED_COLOR;
+      arr[low].color = SORTED_COLOR;
+      setBars([...arr]);
+    }
+  };
+
+  const quickSort = async (arr: BarData[], signal: AbortSignal) => {
+    await quickSortHelper(arr, 0, arr.length - 1, signal);
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].color = SORTED_COLOR;
+    }
+    setBars([...arr]);
+  };
+
+  // --- SHELL SORT ---
+  const shellSort = async (arr: BarData[], signal: AbortSignal) => {
+    const delay = getDelay();
+    let n = arr.length;
+    for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+      for (let i = gap; i < n; i += 1) {
+        let temp = arr[i].value;
+        let j;
+        arr[i].color = COMPARE_COLOR;
+        setBars([...arr]);
+        await waitforme(delay, signal);
+
+        for (j = i; j >= gap && arr[j - gap].value > temp; j -= gap) {
+          arr[j].color = COMPARE_COLOR;
+          arr[j - gap].color = COMPARE_COLOR;
+          setBars([...arr]);
+          await waitforme(delay, signal);
+
+          arr[j].value = arr[j - gap].value;
+          arr[j].color = DEFAULT_COLOR;
+          arr[j - gap].color = DEFAULT_COLOR;
+        }
+        arr[j].value = temp;
+        arr[i].color = DEFAULT_COLOR;
+        setBars([...arr]);
+      }
+    }
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].color = SORTED_COLOR;
+    }
+    setBars([...arr]);
+  };
+
+  // --- HEAP SORT ---
+  const heapify = async (arr: BarData[], n: number, i: number, signal: AbortSignal) => {
+    const delay = getDelay();
+    let largest = i;
+    const left = 2 * i + 1;
+    const right = 2 * i + 2;
+
+    if (left < n && arr[left].value > arr[largest].value) {
+      largest = left;
+    }
+    if (right < n && arr[right].value > arr[largest].value) {
+      largest = right;
+    }
+
+    if (largest !== i) {
+      arr[i].color = COMPARE_COLOR;
+      arr[largest].color = COMPARE_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+
+      const temp = arr[i].value;
+      arr[i].value = arr[largest].value;
+      arr[largest].value = temp;
+      setBars([...arr]);
+
+      arr[i].color = DEFAULT_COLOR;
+      arr[largest].color = DEFAULT_COLOR;
+
+      await heapify(arr, n, largest, signal);
+    }
+  };
+
+  const heapSort = async (arr: BarData[], signal: AbortSignal) => {
+    const delay = getDelay();
+    const n = arr.length;
+
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+      await heapify(arr, n, i, signal);
+    }
+
+    for (let i = n - 1; i > 0; i--) {
+      arr[0].color = COMPARE_COLOR;
+      arr[i].color = COMPARE_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+
+      const temp = arr[0].value;
+      arr[0].value = arr[i].value;
+      arr[i].value = temp;
+
+      arr[0].color = DEFAULT_COLOR;
+      arr[i].color = SORTED_COLOR;
+      setBars([...arr]);
+
+      await heapify(arr, i, 0, signal);
+    }
+    if (arr.length > 0) arr[0].color = SORTED_COLOR;
+    setBars([...arr]);
+  };
+
+  // --- RADIX SORT ---
+  const countSort = async (arr: BarData[], n: number, exp: number, signal: AbortSignal) => {
+    const delay = getDelay();
+    let output = new Array(n);
+    let count = new Array(10).fill(0);
+
+    for (let i = 0; i < n; i++) {
+      count[Math.floor(arr[i].value / exp) % 10]++;
+      arr[i].color = COMPARE_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+      arr[i].color = DEFAULT_COLOR;
+    }
+
+    for (let i = 1; i < 10; i++) {
+      count[i] += count[i - 1];
+    }
+
+    for (let i = n - 1; i >= 0; i--) {
+      output[count[Math.floor(arr[i].value / exp) % 10] - 1] = arr[i].value;
+      count[Math.floor(arr[i].value / exp) % 10]--;
+    }
+
+    for (let i = 0; i < n; i++) {
+      arr[i].value = output[i];
+      arr[i].color = SWAP_COLOR;
+      setBars([...arr]);
+      await waitforme(delay, signal);
+      arr[i].color = DEFAULT_COLOR;
+    }
+  };
+
+  const radixSort = async (arr: BarData[], signal: AbortSignal) => {
+    let max = arr[0].value;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i].value > max) {
+        max = arr[i].value;
+      }
+    }
+
+    for (let exp = 1; Math.floor(max / exp) > 0; exp *= 10) {
+      await countSort(arr, arr.length, exp, signal);
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].color = SORTED_COLOR;
+    }
+    setBars([...arr]);
+  };
+  const selectionSort = async (arr: BarData[], signal: AbortSignal) => {
+    const delay = getDelay();
+    for (let i = 0; i < arr.length; i++) {
+      let minIdx = i;
+      arr[i].color = COMPARE_COLOR;
+      setBars([...arr]);
+      
+      for (let j = i + 1; j < arr.length; j++) {
+        arr[j].color = SWAP_COLOR;
+        setBars([...arr]);
+        await waitforme(delay, signal);
+        
+        if (arr[j].value < arr[minIdx].value) {
+          if (minIdx !== i) arr[minIdx].color = DEFAULT_COLOR;
+          minIdx = j;
+        } else {
+          arr[j].color = DEFAULT_COLOR;
+        }
+        setBars([...arr]);
+      }
+      await waitforme(delay, signal);
+      
+      const temp = arr[minIdx].value;
+      arr[minIdx].value = arr[i].value;
+      arr[i].value = temp;
+      
+      arr[minIdx].color = DEFAULT_COLOR;
+      arr[i].color = SORTED_COLOR;
+      setBars([...arr]);
+    }
+  };
 
   return (
     <Layout
@@ -338,16 +521,29 @@ const DSARoadmap: React.FC = () => {
           <h1 className="text-4xl font-bold text-center mb-8 text-blue-900">Sorting Visualizer</h1>
           <nav>
             <div className="row">
-              <div className="col gap-2 d-sm-flex" id="newArray">
+              <div className="col gap-2 d-sm-flex">
                 <button
                   type="button"
-                  className="btn btn-outline-success btn-dark newArray"
+                  className="btn btn-outline-success btn-dark"
+                  onClick={() => createNewArray(arraySize)}
+                  disabled={isSorting}
+                  aria-label="Generate new array"
                 >
                   New Array
                 </button>
+                {isSorting && (
+                  <button
+                    type="button"
+                    className="btn btn-outline-warning btn-dark ml-2"
+                    onClick={togglePause}
+                    aria-label={isPaused ? "Resume Sorting" : "Pause Sorting"}
+                  >
+                    {isPaused ? "Resume" : "Pause"}
+                  </button>
+                )}
               </div>
-              <div className="col" id="input">
-                <span id="size">
+              <div className="col">
+                <label htmlFor="arr_sz">
                   Size
                   <input
                     id="arr_sz"
@@ -355,10 +551,13 @@ const DSARoadmap: React.FC = () => {
                     min="5"
                     max="100"
                     step="1"
-                    defaultValue="40"
+                    value={arraySize}
+                    onChange={handleSizeChange}
+                    disabled={isSorting}
+                    aria-label="Adjust array size"
                   />
-                </span>
-                <span id="speed">
+                </label>
+                <label htmlFor="speed_input">
                   Speed
                   <input
                     id="speed_input"
@@ -366,34 +565,102 @@ const DSARoadmap: React.FC = () => {
                     min="20"
                     max="300"
                     step="10"
-                    defaultValue="100"
+                    value={speed}
+                    onChange={handleSpeedChange}
+                    disabled={isSorting}
+                    aria-label="Adjust sorting speed"
                   />
-                </span>
+                </label>
               </div>
-              <div className="col gap-2 d-sm-flex justify-content-end">
-                <button type="button" className="btn btn-outline-primary btn-dark bubbleSort">
+              <div className="col gap-2 d-sm-flex justify-content-end flex-wrap">
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(bubbleSort)}
+                  disabled={isSorting}
+                  aria-label="Start Bubble Sort"
+                >
                   Bubble Sort
                 </button>
-                <button type="button" className="btn btn-outline-primary btn-dark selectionSort">
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(selectionSort)}
+                  disabled={isSorting}
+                  aria-label="Start Selection Sort"
+                >
                   Selection Sort
                 </button>
-                <button type="button" className="btn btn-outline-primary btn-dark insertionSort">
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(insertionSort)}
+                  disabled={isSorting}
+                  aria-label="Start Insertion Sort"
+                >
                   Insertion Sort
                 </button>
-                <button type="button" className="btn btn-outline-primary btn-dark quickSort">
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(quickSort)}
+                  disabled={isSorting}
+                  aria-label="Start Quick Sort"
+                >
                   Quick Sort
                 </button>
-                <button type="button" className="btn btn-outline-primary btn-dark mergeSort">
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(mergeSort)}
+                  disabled={isSorting}
+                  aria-label="Start Merge Sort"
+                >
                   Merge Sort
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(heapSort)}
+                  disabled={isSorting}
+                  aria-label="Start Heap Sort"
+                >
+                  Heap Sort
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(radixSort)}
+                  disabled={isSorting}
+                  aria-label="Start Radix Sort"
+                >
+                  Radix Sort
+                </button>
+                <button 
+                  type="button" 
+                  className="btn btn-outline-primary btn-dark m-1"
+                  onClick={() => startSort(shellSort)}
+                  disabled={isSorting}
+                  aria-label="Start Shell Sort"
+                >
+                  Shell Sort
                 </button>
               </div>
             </div>
           </nav>
-          <div id="bars" className="flex-container"></div>
+          <div id="bars" className="flex-container">
+            {bars.map((bar, idx) => (
+              <div
+                key={idx}
+                className={`bar flex-item barNo${idx}`}
+                style={{ height: `${1.5 * bar.value}px`, background: bar.color }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </Layout>
   );
 };
 
-export default DSARoadmap;
+export default withVisualizerErrorBoundary(SortingVisualizer);

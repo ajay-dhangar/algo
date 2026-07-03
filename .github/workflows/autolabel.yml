@@ -11,28 +11,49 @@ jobs:
       issues: write
     steps:
       - name: Label Issue
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const issue = context.payload.issue;
             const issueBody = issue.body ? issue.body.toLowerCase() : '';
             const issueTitle = issue.title.toLowerCase();
+            const combinedText = `${issueTitle} ${issueBody}`;
             
-            // Add gssoc-ext and hacktoberfest labels to all issues
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue.number,
-             // labels: ['gssoc-ext', 'hacktoberfest-accepted', 'level1']
-              labels: ['in-review']
-            });
+            // Base labels to add to every single issue
+            const labelsToAdd = ['in-review'];
             
-            const addLabel = async (label) => {
+            // --- DOCUSAURUS & CONTENT CHECK ---
+            if (combinedText.includes('docs') || combinedText.includes('docusaurus') || combinedText.includes('mdx') || combinedText.includes('sidebar') || combinedText.includes('typo')) {
+              labelsToAdd.push('documentation');
+            }
+            
+            // --- ALGORITHM / CODE CHECK ---
+            if (combinedText.includes('bug') || combinedText.includes('error') || combinedText.includes('fail')) {
+              labelsToAdd.push('bug');
+            }
+            if (combinedText.includes('feature') || combinedText.includes('add algorithm') || combinedText.includes('implement')) {
+              labelsToAdd.push('enhancement');
+            }
+            
+            // --- DIFFICULTY / LEVEL CHECK ---
+            if (combinedText.includes('easy') || combinedText.includes('level1') || combinedText.includes('basic')) {
+              labelsToAdd.push('level1');
+            } else if (combinedText.includes('medium') || combinedText.includes('level2') || combinedText.includes('intermediate')) {
+              labelsToAdd.push('level2');
+            } else if (combinedText.includes('hard') || combinedText.includes('level3') || combinedText.includes('advanced')) {
+              labelsToAdd.push('level3');
+            }
+
+            // GSSoC & Hacktoberfest tags (Uncomment if your project is participating)
+            // labelsToAdd.push('gssoc-26', 'gssoc:approved');
+
+            // Apply all identified labels in a single, efficient API call
+            if (labelsToAdd.length > 0) {
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                labels: [label]
+                labels: labelsToAdd
               });
-            };
+            }

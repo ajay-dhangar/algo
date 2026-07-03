@@ -1,0 +1,131 @@
+.docTitle {
+  font-size: 3rem;
+  margin-bottom: calc(-1 * var(--ifm-leading-desktop) * var(--ifm-leading));
+}
+
+.docsInfoWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.docsInfoContainer {
+  width: 100%;
+  padding: 1rem 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem; /* Added default gap for responsive mobile wrapping collapsing */
+  border-radius: 8px;
+}
+
+.metaInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.9rem; 
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  background: var(--ifm-background-surface-color);
+  font-size: 0.85rem;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.actionBtn:hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+/* Duplicated rule removed and consolidated cleanly */
+.docsRating {
+  text-align: center;
+  font-family: var(--ifm-font-family-base);
+}
+
+.heading {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.voteBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  font-size: 0.95rem;
+}
+
+.voteBtn:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.thankYou {
+  font-size: 1.1rem;
+  color: var(--ifm-color-success);
+  font-weight: 500;
+}
+
+.feedbackLinks {
+  text-align: left;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+.feedbackLinks a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.feedbackLinks a:hover {
+  text-decoration: underline;
+}
