@@ -9,6 +9,16 @@ tags: [php, mysql, database, pdo, mysqli, crud]
 
 php can connect to MySQL databases to store, retrieve, update, and delete data. The two main approaches are **PDO** (php Data Objects) and **MySQLi**.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ueWpNe0PG34"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Connect to MySQL with PHP in XAMPP / Create a new database"
+  lazyLoad={true}
+  webp
+/>
+
 ## Connecting with PDO (Recommended)
 
 PDO supports multiple databases and uses prepared statements by default:

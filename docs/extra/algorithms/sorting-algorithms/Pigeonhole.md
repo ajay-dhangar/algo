@@ -11,6 +11,17 @@ sidebar_label: Pigeonhole Sort
 
 Pigeonhole Sort is a non-comparison sorting algorithm based on the pigeonhole principle. It sorts an array of n elements where the range of input values ( k ) is not significantly greater than n. The algorithm distributes the elements into "pigeonholes" (or buckets) according to their value and then collects them back into a sorted order.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="nVQz0kZNC64"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Pigeonhole Sort | GeeksforGeeks"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Pigeonhole Principle**:
@@ -24,17 +35,6 @@ Pigeonhole Sort is a non-comparison sorting algorithm based on the pigeonhole pr
 
 - **Stable**:
   - Pigeonhole sort can be implemented in a stable manner, meaning it preserves the relative order of equal elements.
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="nVQz0kZNC64"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Pigeonhole Sort | GeeksforGeeks"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

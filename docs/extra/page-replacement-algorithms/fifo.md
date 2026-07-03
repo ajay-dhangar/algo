@@ -13,6 +13,17 @@ tags: [Page Replacement, FIFO, Algorithm]
 
 FIFO (First In First Out) is one of the simplest page replacement algorithms used in operating systems for memory management. It replaces the page that has been in memory for the longest time whenever a new page needs to be loaded and all available frames are occupied. The algorithm follows the same principle as a queue: the first page that enters memory is the first one to be removed.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="8rcUs5RutX0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-5.22: Page Replacement Introduction | FIFO Page Replacement algorithm | Operating System"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. Working
 
 - Pages are loaded into memory frames in the order they arrive.

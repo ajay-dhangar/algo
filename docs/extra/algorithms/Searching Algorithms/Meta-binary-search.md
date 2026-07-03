@@ -10,6 +10,16 @@ sidebar_label: Meta binary search
 
 Meta Binary Search is an optimized version of the traditional binary search that uses bitwise operations to reduce the number of comparisons required to find an element in a sorted array. Instead of calculating the middle index using arithmetic, meta binary search directly manipulates the bits of the search range to divide it into halves more efficiently. This allows it to perform the search with fewer arithmetic operations, leveraging the speed of bitwise shifts to determine the next search interval.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="XzRwUmYrqIM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Meta binary search | One-sided binary search - Basic Algorithms Fast (24)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Bitwise Operations:**:
@@ -29,16 +39,6 @@ Meta Binary Search is an optimized version of the traditional binary search that
 
 - **Lower-level Optimization:**:
   - It is often used in system-level applications or cases where performance optimization is crucial. It provides a slight optimization over binary search by minimizing overhead from division operations.
-
-### Video Explanation**
-<LiteYouTubeEmbed
-  id="XzRwUmYrqIM"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Meta binary search | One-sided binary search - Basic Algorithms Fast (24)"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

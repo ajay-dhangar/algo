@@ -9,17 +9,6 @@ sidebar_label: Cocktail Shaker Sort
 
 Cocktail Shaker Sort, also known as Bidirectional Bubble Sort, is a variation of the Bubble Sort algorithm that sorts an array in both directions. It traverses the array back and forth, moving larger elements towards the end and smaller elements towards the beginning, making it more efficient than standard Bubble Sort in some cases.
 
-### Characteristics:
-
-- **Bidirectional**:  
-  Unlike traditional sorting algorithms that only iterate in one direction, Cocktail Shaker Sort moves in both directions, which can help to reduce the total number of passes required.
-
-- **In-Place**:  
-  The algorithm sorts the array without using any additional storage, modifying the input array directly.
-
-- **Stable**:  
-  Cocktail Shaker Sort maintains the relative order of equal elements, making it a stable sorting algorithm.
-
 ### Video Explanation
 
 <LiteYouTubeEmbed
@@ -30,6 +19,17 @@ Cocktail Shaker Sort, also known as Bidirectional Bubble Sort, is a variation of
   lazyLoad={true}
   webp
 />
+
+### Characteristics:
+
+- **Bidirectional**:  
+  Unlike traditional sorting algorithms that only iterate in one direction, Cocktail Shaker Sort moves in both directions, which can help to reduce the total number of passes required.
+
+- **In-Place**:  
+  The algorithm sorts the array without using any additional storage, modifying the input array directly.
+
+- **Stable**:  
+  Cocktail Shaker Sort maintains the relative order of equal elements, making it a stable sorting algorithm.
 
 ### Time Complexity:
 

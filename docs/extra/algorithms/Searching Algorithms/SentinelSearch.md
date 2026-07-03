@@ -11,15 +11,6 @@ sidebar_label: Sentinel Search
 
 **Sentinel search** is an optimization of linear search that improves the performance of searching for an element in an **unsorted array**. It does so by placing a sentinel (or marker) value at the end of the array, which helps to eliminate the need for checking whether the end of the array has been reached during the search process. This reduces the number of comparisons and enhances efficiency.
 
-### Characteristics:
-
-- **Linear Search Enhancement**:
-  - Sentinel search builds on the concept of linear search by introducing a sentinel value, effectively optimizing the search process for arrays.
-- **Works on Unsorted Data**:
-  - Unlike binary search, sentinel search does not require the input data to be sorted, making it versatile for various applications.
-- **Single Pass**:
-  - The sentinel search performs the search in a single pass through the array, leading to a simplified control structure and fewer checks.
-
 ### Video Explanation**
 <LiteYouTubeEmbed
   id="E4N2qPNp5lo"
@@ -29,6 +20,16 @@ sidebar_label: Sentinel Search
   lazyLoad={true}
   webp
 />
+
+### Characteristics:
+
+- **Linear Search Enhancement**:
+  - Sentinel search builds on the concept of linear search by introducing a sentinel value, effectively optimizing the search process for arrays.
+- **Works on Unsorted Data**:
+  - Unlike binary search, sentinel search does not require the input data to be sorted, making it versatile for various applications.
+- **Single Pass**:
+  - The sentinel search performs the search in a single pass through the array, leading to a simplified control structure and fewer checks.
+
 
 ### Time Complexity:
 

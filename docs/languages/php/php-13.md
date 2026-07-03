@@ -9,6 +9,16 @@ tags: [php, oop, classes, objects, constructor]
 
 php supports Object-Oriented Programming (OOP). A class is a blueprint for objects. An object is an instance of a class.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="iEGUOE9RKqM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3: Create Classes In OOP PHP | PHP Classes | Object Oriented PHP Tutorial For Beginners | mmtuts"
+  lazyLoad={true}
+  webp
+/>
+
 ## Defining a Class
 
 ```php

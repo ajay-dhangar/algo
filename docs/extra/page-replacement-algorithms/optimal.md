@@ -13,6 +13,17 @@ tags: [Page Replacement, optimal, Algorithm]
 
 The Optimal Page Replacement Algorithm, often called OPT or MIN, replaces the page that will not be used for the longest time in the future. It produces the minimum possible number of page faults for a given reference string and is therefore considered the theoretical best page replacement algorithm.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="q2BpMvPhhrY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-5.24: Optimal Page Replacement algorithm | Operating System"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. Working
 
 - When a page fault occurs, the operating system examines future page references.

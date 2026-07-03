@@ -41,6 +41,16 @@ Output: `14`
   - Land ride 0 opened at `landStartTime[0] = 5`. Start immediately at 11 and finish at 11 + `landDuration[0] = 14`.
 Plan A provides the earliest finish time of 14.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="R94VBJJoqTU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Earliest Finish Time for Land and Water Rides I and II | Story To Code | Leetcode 3633 & 3635 | MIK"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

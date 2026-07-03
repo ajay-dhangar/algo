@@ -9,6 +9,16 @@ tags: [php, exceptions, error-handling, try-catch]
 
 Exception handling lets you deal with runtime errors gracefully without crashing your application.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="rQntgj7yink"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="PHP Error Handling & Error Handlers - Full PHP 8 Tutorial"
+  lazyLoad={true}
+  webp
+/>
+
 ## Basic Try-Catch
 
 ```php

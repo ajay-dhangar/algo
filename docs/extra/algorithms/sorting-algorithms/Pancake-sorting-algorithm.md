@@ -12,14 +12,6 @@ tags: [Sorting Algorithms, pancake-sorting-algorithm, Algorithm]
 ## Overview
 Pancake sorting is a sorting algorithm in which the only allowed operation is to reverse the elements of a prefix of the array. The goal is to sort the array using a minimal number of prefix reversals. This problem is a classic example of a **sorting** algorithm that limits the available operations.
 
-## Introduction
-In **Pancake Sorting**, we are given a stack of pancakes of varying sizes and we want to sort them in order of size, with the largest pancake at the bottom and the smallest pancake on top. However, the only allowed operation is a **flip**, which reverses the order of the top `k` pancakes in the stack. The algorithm aims to sort the pancakes using the fewest number of flips.
-
-## Characteristics of Pancake Sorting Algorithm
-- **Flip-Based Sorting**: The algorithm sorts an array by repeatedly flipping prefixes of the array.
-- **In-Place Sorting**: Pancake sort is performed in-place, meaning it uses a constant amount of extra space.
-- **Non-Comparison-Based**: Unlike comparison-based algorithms like Quick Sort or Merge Sort, pancake sorting only allows flipping operations.
-
 ## Video Explanation
 
 <LiteYouTubeEmbed
@@ -30,6 +22,14 @@ In **Pancake Sorting**, we are given a stack of pancakes of varying sizes and we
   lazyLoad={true}
   webp
 />
+
+## Introduction
+In **Pancake Sorting**, we are given a stack of pancakes of varying sizes and we want to sort them in order of size, with the largest pancake at the bottom and the smallest pancake on top. However, the only allowed operation is a **flip**, which reverses the order of the top `k` pancakes in the stack. The algorithm aims to sort the pancakes using the fewest number of flips.
+
+## Characteristics of Pancake Sorting Algorithm
+- **Flip-Based Sorting**: The algorithm sorts an array by repeatedly flipping prefixes of the array.
+- **In-Place Sorting**: Pancake sort is performed in-place, meaning it uses a constant amount of extra space.
+- **Non-Comparison-Based**: Unlike comparison-based algorithms like Quick Sort or Merge Sort, pancake sorting only allows flipping operations.
 
 ## How Pancake Sorting Works
 1. **Find the Largest Pancake**: In each iteration, find the largest pancake that is not yet in its correct position.

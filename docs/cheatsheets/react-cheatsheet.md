@@ -11,6 +11,16 @@ tags: [react, javascript, frontend, hooks, cheatsheet]
 
 Modern React (Hooks + Functional Components) – Updated 2026
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="SqcY0GlETPk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="React Tutorial for Beginners"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. JSX Basics
 
 ```jsx

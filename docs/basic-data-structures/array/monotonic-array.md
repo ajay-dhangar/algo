@@ -10,6 +10,17 @@ tags: [array, java, dsa, algorithms]
 
 An array is considered **monotonic** if it is either entirely non-increasing (monotonic decreasing) or entirely non-decreasing (monotonic increasing). 
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="sqWOFIZ9Z0U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Monotonic Array - Leetcode 896 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics
 - **Time Complexity:** $O(N)$, where $N$ is the length of the array. We only need to traverse the array once.
 - **Space Complexity:** $O(1)$, as we are only using two boolean flags for evaluation without any extra auxiliary data structures.

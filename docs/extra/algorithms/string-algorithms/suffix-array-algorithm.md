@@ -11,6 +11,17 @@ sidebar_label: Suffix Array Algorithm
 
 The Suffix Array Algorithm is a space-efficient data structure that stores all suffixes of a string in lexicographically sorted order. Combined with the LCP (Longest Common Prefix) array, it provides efficient solutions for various string processing problems, including pattern matching, substring searches, and string analysis.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="zqKlL3ZpTqs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Suffix array introduction"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Lexicographical Sorting**:
@@ -32,17 +43,6 @@ The Suffix Array Algorithm is a space-efficient data structure that stores all s
   - Linear space usage
   - Implicit suffix storage
   - Compact representation
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="zqKlL3ZpTqs"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Suffix array introduction"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

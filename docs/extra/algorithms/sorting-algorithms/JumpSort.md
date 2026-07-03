@@ -9,6 +9,17 @@ sidebar_label: Jump Sort
 
 Jump Sort is a simple comparison-based sorting algorithm that sorts elements by dividing the list into blocks and performing a linear search within these blocks. The algorithm jumps ahead by a fixed step size to reduce the number of comparisons, making it more efficient than naive sorting algorithms for larger datasets.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wNOoyZ45SmQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What is Jump Search and how does it work (with CODE)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Block-wise Comparison**:
@@ -22,17 +33,6 @@ Jump Sort is a simple comparison-based sorting algorithm that sorts elements by 
 
 - **Simplicity**:
   - The algorithm is straightforward and easy to implement, although it may not be as efficient as other algorithms for large datasets.
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="wNOoyZ45SmQ"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="What is Jump Search and how does it work (with CODE)"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

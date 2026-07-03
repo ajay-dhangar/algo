@@ -11,6 +11,17 @@ sidebar_label: Quick Search Algorithm
 
 The Quick Search Algorithm is a string matching algorithm that extends the Boyer-Moore approach by examining the character immediately following the current pattern window. It simplifies the bad character rule by only looking at the character after the current window position, making it particularly efficient for short patterns.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wiNfjkMDl3A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Quick Select Algorithm Visualized (and how it compares to Quick Sort!)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Next Character Rule**:
@@ -32,17 +43,6 @@ The Quick Search Algorithm is a string matching algorithm that extends the Boyer
   - Minimal preprocessing
   - Straightforward logic
   - Easy maintenance
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="wiNfjkMDl3A"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Quick Select Algorithm Visualized (and how it compares to Quick Sort!)"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 
