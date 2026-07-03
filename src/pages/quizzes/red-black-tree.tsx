@@ -186,13 +186,16 @@ const RedBlackTreeQuiz: React.FC = () => {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
-    localStorage.setItem("quiz_username", usernameInput.trim());
-    setUsername(usernameInput.trim());
+    const cleanName = usernameInput.trim();
+    localStorage.setItem("quiz_username", cleanName);
+    setUsername(cleanName);
+    setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${cleanName}`, []));
   };
-
   const handleLogout = () => {
     localStorage.removeItem("quiz_username");
     setUsername(null);
+    setUsernameInput("");
+    setHistory([]);
     handleRetry();
   };
 
