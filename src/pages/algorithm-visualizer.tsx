@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
 import { motion, AnimatePresence } from 'framer-motion';
+import ComplexityCard from '@site/src/components/ComplexityCard';
 
 interface ArrayElement {
   id: string;
@@ -14,6 +15,40 @@ const ALGORITHMS = [
   { id: 'quick', name: 'Quick Sort' },
 ];
 
+const COMPLEXITY: Record<string, { best: string; average: string; worst: string; space: string }> = {
+  bubble: { best: 'O(n)', average: 'O(n²)', worst: 'O(n²)', space: 'O(1)' },
+  selection: { best: 'O(n²)', average: 'O(n²)', worst: 'O(n²)', space: 'O(1)' },
+  quick: { best: 'O(n log n)', average: 'O(n log n)', worst: 'O(n²)', space: 'O(log n)' },
+};
+
+const PSEUDOCODE: Record<string, string[]> = {
+  bubble: [
+    'for i from 0 to n-1',
+    '  for j from 0 to n-i-2',
+    '    if a[j] > a[j+1]',
+    '      swap(a[j], a[j+1])',
+  ],
+  selection: [
+    'for i from 0 to n-1',
+    '  minIdx = i',
+    '  for j from i+1 to n-1',
+    '    if a[j] < a[minIdx]',
+    '      minIdx = j',
+    '  swap(a[i], a[minIdx])',
+  ],
+  quick: [
+    'quicksort(lo, hi)',
+    '  if lo < hi',
+    '    p = partition(lo, hi)',
+    '    quicksort(lo, p-1)',
+    '    quicksort(p+1, hi)',
+    'partition(lo, hi): pivot = a[hi]',
+    '  for j from lo to hi-1',
+    '    if a[j] < pivot: swap',
+    '  swap(a[i], a[hi])',
+  ],
+};
+
 export default function AlgorithmVisualizer() {
   const [array, setArray] = useState<ArrayElement[]>([]);
   const [arraySize, setArraySize] = useState<number>(30);
@@ -21,11 +56,16 @@ export default function AlgorithmVisualizer() {
   const [isSorting, setIsSorting] = useState<boolean>(false);
   const [selectedAlgo, setSelectedAlgo] = useState<string>('bubble');
   const [isClient, setIsClient] = useState<boolean>(false);
+  const [comparisons, setComparisons] = useState<number>(0);
+  const [swaps, setSwaps] = useState<number>(0);
+  const [currentLine, setCurrentLine] = useState<number>(-1);
 
   // Use refs for values that change but shouldn't trigger re-renders inside async loops,
   // or values that async loops need to read the latest of.
   const delayRef = useRef(delay);
   const isSortingRef = useRef(isSorting);
+  const comparisonsRef = useRef(0);
+  const swapsRef = useRef(0);
   
   useEffect(() => {
     delayRef.current = delay;
@@ -65,6 +105,16 @@ export default function AlgorithmVisualizer() {
     return newArr;
   };
 
+  const countComparison = () => {
+    comparisonsRef.current += 1;
+    setComparisons(comparisonsRef.current);
+  };
+
+  const countSwap = () => {
+    swapsRef.current += 1;
+    setSwaps(swapsRef.current);
+  };
+
   const bubbleSort = async () => {
     let arr = [...array];
     const n = arr.length;
@@ -74,6 +124,8 @@ export default function AlgorithmVisualizer() {
         
         arr = updateState([j, j + 1], 'comparing', arr);
         setArray(arr);
+        countComparison();
+        setCurrentLine(2);
         await sleep();
 
         if (arr[j].value > arr[j + 1].value) {
@@ -82,6 +134,8 @@ export default function AlgorithmVisualizer() {
           await sleep();
 
           // Swap
+          countSwap();
+          setCurrentLine(3);
           let temp = arr[j];
           arr[j] = arr[j + 1];
           arr[j + 1] = temp;
@@ -96,8 +150,8 @@ export default function AlgorithmVisualizer() {
       setArray(arr);
     }
     if (n > 0) {
-       arr = updateState([0], 'sorted', arr);
-       setArray(arr);
+      arr = updateState([0], 'sorted', arr);
+      setArray(arr);
     }
     setIsSorting(false);
   };
@@ -116,6 +170,8 @@ export default function AlgorithmVisualizer() {
         
         arr = updateState([j], 'comparing', arr);
         setArray(arr);
+        countComparison();
+        setCurrentLine(3);
         await sleep();
         
         if (arr[j].value < arr[minIdx].value) {
@@ -131,6 +187,8 @@ export default function AlgorithmVisualizer() {
       if (!isSortingRef.current) return;
 
       if (minIdx !== i) {
+        countSwap();
+        setCurrentLine(5);
         let temp = arr[i];
         arr[i] = arr[minIdx];
         arr[minIdx] = temp;
@@ -164,6 +222,8 @@ export default function AlgorithmVisualizer() {
         if (!isSortingRef.current) return -1;
         
         arr = updateState([j], 'comparing', arr);
+        countComparison();
+        setCurrentLine(7);
         setArray(arr);
         await sleep();
         
@@ -174,6 +234,8 @@ export default function AlgorithmVisualizer() {
             setArray(arr);
             await sleep();
             
+            countSwap();
+            setCurrentLine(7);
             let temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
@@ -182,7 +244,7 @@ export default function AlgorithmVisualizer() {
             
             arr = updateState([i, j], 'default', arr);
           } else {
-             arr = updateState([j], 'default', arr);
+            arr = updateState([j], 'default', arr);
           }
         } else {
           arr = updateState([j], 'default', arr);
@@ -198,6 +260,8 @@ export default function AlgorithmVisualizer() {
         setArray(arr);
         await sleep();
         
+        countSwap();
+        setCurrentLine(8);
         let temp = arr[i];
         arr[i] = arr[high];
         arr[high] = temp;
@@ -239,7 +303,13 @@ export default function AlgorithmVisualizer() {
   };
 
   const handleStart = async () => {
+    comparisonsRef.current = 0;
+    swapsRef.current = 0;
+    setComparisons(0);
+    setSwaps(0);
+    setCurrentLine(-1);
     setIsSorting(true);
+    isSortingRef.current = true;   // ← set ref synchronously so the sort loop sees it immediately
     if (selectedAlgo === 'bubble') {
       await bubbleSort();
     } else if (selectedAlgo === 'selection') {
@@ -255,6 +325,11 @@ export default function AlgorithmVisualizer() {
 
   const handleReset = () => {
     setIsSorting(false);
+    comparisonsRef.current = 0;
+    swapsRef.current = 0;
+    setComparisons(0);
+    setSwaps(0);
+    setCurrentLine(-1);
     generateArray(arraySize);
   };
 
@@ -372,6 +447,116 @@ export default function AlgorithmVisualizer() {
             <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-success)', borderRadius: '4px' }}></div>
             <span className="small font-code text--muted">Sorted</span>
           </div>
+        </div>
+
+        {/* Live Metrics */}
+        <div
+          className="margin-bottom--md"
+          style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: '0.5rem',
+              padding: '0.4rem 0.9rem',
+              borderRadius: '8px',
+              border: '1px solid var(--ifm-color-emphasis-200)',
+              backgroundColor: 'var(--ifm-color-emphasis-100)',
+            }}
+          >
+            <span className="small text--uppercase text--muted" style={{ fontWeight: 'bold' }}>
+              Comparisons
+            </span>
+            <span className="font-code" style={{ fontSize: '1.1rem', fontWeight: 700 }}>
+              {comparisons}
+            </span>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: '0.5rem',
+              padding: '0.4rem 0.9rem',
+              borderRadius: '8px',
+              border: '1px solid var(--ifm-color-emphasis-200)',
+              backgroundColor: 'var(--ifm-color-emphasis-100)',
+            }}
+          >
+            <span className="small text--uppercase text--muted" style={{ fontWeight: 'bold' }}>
+              Swaps
+            </span>
+            <span className="font-code" style={{ fontSize: '1.1rem', fontWeight: 700 }}>
+              {swaps}
+            </span>
+          </div>
+        </div>
+
+        {/* Complexity Panel */}
+        <div className="margin-bottom--md" style={{ maxWidth: '520px', margin: '0 auto 1rem' }}>
+          <ComplexityCard
+            best={COMPLEXITY[selectedAlgo]?.best}
+            average={COMPLEXITY[selectedAlgo]?.average}
+            worst={COMPLEXITY[selectedAlgo]?.worst}
+            space={COMPLEXITY[selectedAlgo]?.space}
+          />
+        </div>
+
+        {/* Pseudocode Panel */}
+        <div
+          className="card shadow--sm margin-bottom--md"
+          style={{
+            maxWidth: '520px',
+            margin: '0 auto 1rem',
+            borderRadius: '12px',
+            border: '1px solid var(--ifm-color-emphasis-200)',
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            className="small text--uppercase text--muted"
+            style={{
+              fontWeight: 'bold',
+              padding: '0.6rem 1rem',
+              borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+              backgroundColor: 'var(--ifm-color-emphasis-100)',
+            }}
+          >
+            Pseudocode
+          </div>
+          <pre
+            style={{
+              margin: 0,
+              padding: '0.5rem 0',
+              background: 'transparent',
+              fontSize: '0.85rem',
+              lineHeight: 1.6,
+            }}
+          >
+            {PSEUDOCODE[selectedAlgo]?.map((line, idx) => (
+              <div
+                key={idx}
+                style={{
+                  padding: '0.1rem 1rem',
+                  whiteSpace: 'pre',
+                  borderLeft:
+                    idx === currentLine
+                      ? '3px solid var(--ifm-color-primary)'
+                      : '3px solid transparent',
+                  backgroundColor:
+                    idx === currentLine ? 'var(--ifm-color-primary-lightest)' : 'transparent',
+                  color:
+                    idx === currentLine
+                      ? 'var(--ifm-color-primary-darkest)'
+                      : 'var(--ifm-font-color-base)',
+                  fontWeight: idx === currentLine ? 700 : 400,
+                  transition: 'background-color 0.1s ease, border-color 0.1s ease',
+                }}
+              >
+                {line || ' '}
+              </div>
+            ))}
+          </pre>
         </div>
 
         {/* Visualizer Canvas */}
