@@ -11,6 +11,16 @@ tags: [hashing, data structures, insertion]
 
 The insertion operation in a hash table involves adding a key-value pair. Hashing is used to map the key to an index in the table. If the key already exists, the existing value can be updated.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="CStrcau4jAA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Hash Table Insertion Operation | Data Structure"
+  lazyLoad={true}
+  webp
+/>
+
 ### Steps for Insertion
 
 1. **Hash the Key**: Use a hash function to convert the key into an index.

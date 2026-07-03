@@ -18,6 +18,17 @@ In this section, we will see how to implement basic combinatorics concepts like 
 
 To generate all possible permutations of a given set of elements, C++ provides the `std::next_permutation` function. Below is an example using this function.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="YK78FU5Ffjw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L12. Print all Permutations of a String/Array | Recursion | Approach-1"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example: Generating All Permutations of a String
 
 ```cpp
@@ -47,6 +58,18 @@ CBA
 ```
 
 ## 2. Combinations
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="OyZFFqQtu98"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L8. Combination Sum | Recursion | Leetcode | C++ | Java"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -87,6 +110,17 @@ int main() {
 3 4
 ```
 ## 3. Binomial Coefficient
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="GmB0cIY7uMk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Binomial Coefficient using Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ```cpp
 #include <iostream>

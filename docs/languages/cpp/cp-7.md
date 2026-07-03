@@ -12,6 +12,16 @@ An **array** is a fundamental data structure in C++ used to store a fixed-size, 
 
 Instead of declaring separate variables for each value (e.g., `score1`, `score2`, `score3`), arrays allow you to group multiple data points together under a single identifier name and manage them efficiently.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="sNrLlmOIn-c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 9: Introduction to Arrays in C++"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Memory Architecture of an Array
 
 Arrays are stored in **contiguous memory locations**. This means that elements are placed back-to-back in your system's hardware RAM. 

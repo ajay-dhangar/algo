@@ -27,6 +27,7 @@ Big O Notation describes the upper limit of an algorithm's growth rate, allowing
 3. **$O(log n)$ - Logarithmic Time**
 4. **$O(n^2)$ - Quadratic Time**
 
+
 ---
 
 ## Example of Time Complexity Analysis

@@ -27,6 +27,17 @@ Heap sort is a **comparison-based** sorting algorithm that uses a binary heap da
 - **No Recursive Calls**:
   - Unlike recursive algorithms like merge sort, heap sort uses an iterative approach to build the heap and extract elements.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="HqPJF2L5h9U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.6.3 Heap - Heap Sort - Heapify - Priority Queues"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n log n)**  

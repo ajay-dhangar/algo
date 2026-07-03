@@ -11,6 +11,16 @@ sidebar_label: Advanced Encryption Standard
 
 The Advanced Encryption Standard (AES) is a symmetric encryption algorithm established by the U.S. National Institute of Standards and Technology (NIST) in 2001. AES is widely used for secure data transmission and is recognized for its strength and efficiency.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="O4xNJsjtN6E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="AES Explained (Advanced Encryption Standard) - Computerphile"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Symmetric Key Algorithm**:

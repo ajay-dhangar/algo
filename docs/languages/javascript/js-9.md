@@ -9,6 +9,16 @@ Recursion is a powerful concept in programming where a function calls itself to 
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="LteNqj4DFD8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Best Javascript Recursion Explanation on YouTube"
+  lazyLoad={true}
+  webp
+/>
+
 ## What is Recursion?
 
 In JavaScript, recursion occurs when a function calls itself until it reaches a base condition, at which point it stops calling itself and returns a value.

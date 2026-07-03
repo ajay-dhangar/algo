@@ -12,6 +12,17 @@ tags: [Deep Learning, Convolutional Neural Networks, CNN, Image Processing]
 ## Overview
 **Convolutional Neural Networks (CNNs)** are a class of deep learning models that are highly effective for image processing tasks. By leveraging convolutional layers, CNNs capture spatial features, making them ideal for applications like image classification, object detection, and segmentation.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="YRhxdVk_sIs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Convolutional Nueral Networks (CNNs) explained"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Description
 - **Input**: An image or batch of images.
   - The model aims to recognize specific features within the image, such as edges, textures, or objects, depending on the application.

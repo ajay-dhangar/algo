@@ -9,6 +9,16 @@ tags: [dsa, algorithms, greedy algorithms, graph algorithms]
 ### Definition:
 Prim's Minimum Spanning Tree (MST) is a greedy algorithm that finds the Minimum Spanning Tree for a weighted undirected graph. The MST is a subset of the graph that includes all the vertices and the minimum possible total edge weight without forming any cycles. Prim's algorithm starts with an arbitrary node and grows the MST by adding the shortest edge from the tree to a new vertex, ensuring all vertices are eventually included.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="4ZlRH0eK-qQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.5 Prims and Kruskals Algorithms - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Greedy Approach**:  
   Prim's algorithm is a greedy algorithm that always selects the smallest edge connecting a vertex in the MST to a vertex outside the MST. This process continues until all vertices are included.

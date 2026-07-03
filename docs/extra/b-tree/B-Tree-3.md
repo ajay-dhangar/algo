@@ -11,6 +11,17 @@ tags: [b-tree, algorithms, problem-solving, DSA, data structure]
 
 B-Trees are a type of data structure commonly known as a Balanced Tree that stores multiple data items efficiently. B-Trees provide ordered access to data in a database. In this article, we will explore the delete operation in the B-Tree, which is a self-balancing tree.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="GKa_t7fF8o0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.28 B-Tree Deletion in Data Structures | DSA Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Deletion Process in B-Trees
 
 Deleting from a B-tree is more complicated than insertion because we can delete a key from any node—not just a leaf—and when we delete a key from an internal node, we will have to rearrange the node’s children.

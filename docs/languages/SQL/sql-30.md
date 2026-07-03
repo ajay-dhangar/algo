@@ -15,6 +15,16 @@ The `CREATE DATABASE` statement in SQL is used to create a new database. It allo
 CREATE DATABASE database_name;
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wgRwITQHszU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Installing MySQL and Creating Databases | MySQL for Beginners"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Points
 * Database Name: Must be unique within the SQL server.
 * Permissions: Creating a database usually requires administrative or specific permissions.

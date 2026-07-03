@@ -27,6 +27,16 @@ Loops are used in programming to repeat a block of code until a certain conditio
 
 In JavaScript, you can use different types of loops to iterate over arrays, objects, or perform repetitive tasks. Here are examples of common loops in JavaScript:
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="UmRtFFSDSFo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 3: Loops and Strings | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 #### 1. For Loop
 
 ```js title="JavaScript For Loop Example"
@@ -62,6 +72,16 @@ do {
 ### Java Loops Overview
 
 In Java, loops are used to iterate over arrays, collections, or perform repetitive tasks. Here are examples of common loops in Java:
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="0r1SfRoLuzU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Loops in Java | Java Placement Full Course | Lecture 4"
+  lazyLoad={true}
+  webp
+/>
 
 #### 1. For Loop
 
@@ -108,6 +128,16 @@ for (int num : numbers) {
 
 In Python, loops are used to iterate over sequences, collections, or perform repetitive tasks. Here are examples of common loops in Python:
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="S73thl0AyFU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 5 : Loops in Python | While & For Loops | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 #### 1. For Loop
 
 ```python title="Python For Loop Example"
@@ -131,6 +161,16 @@ while i < 5:
 ### C++ Loops Overview
 
 In C++, loops are used to iterate over arrays, collections, or perform repetitive tasks. Here are examples of common loops in C++:
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="a7dfSBrTZtE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="For, While and do-while loops in C++ | C++ Tutorials for Beginners #10"
+  lazyLoad={true}
+  webp
+/>
 
 #### 1. For Loop
 

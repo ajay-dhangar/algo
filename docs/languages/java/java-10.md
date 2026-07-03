@@ -9,6 +9,16 @@ sidebar_label: "Memory management"
 
 Memory management is a critical aspect of the Java Virtual Machine (JVM). The JVM is responsible for managing the memory resources of a Java application, including allocation, garbage collection, and deallocation of objects. The JVM's memory management model is designed to optimize performance, scalability, and reliability.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="vz6vSZRuS2M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9. Java Memory Management and Garbage Collection in Depth"
+  lazyLoad={true}
+  webp
+/>
+
 ## Table of Contents
 1. [JVM Memory Architecture](#jvm-memory-architecture)
 2. [Memory Areas in JVM](#memory-areas-in-jvm)

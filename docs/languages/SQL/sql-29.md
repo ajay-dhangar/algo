@@ -9,6 +9,16 @@ tags: [sql, dbms, database, stored procedure, functions]
 
 A **Stored Procedure** in SQL is a set of SQL statements that can be stored in the database and executed later, either manually or automatically. Stored procedures allow you to encapsulate complex SQL logic and reuse it multiple times, improving code modularity and performance.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Qu3E-oncF3g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Stored procedures in sql server Part 18"
+  lazyLoad={true}
+  webp
+/>
+
 ### Advantages of Stored Procedures
 
 - **Modularity**: Reuse SQL code without rewriting it.

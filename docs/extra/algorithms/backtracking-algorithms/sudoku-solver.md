@@ -9,6 +9,17 @@ tags: [backtracking, sudoku, constraint-satisfaction, dsa]
 
 The **Sudoku Solver** is a classic constraint-satisfaction problem solved using backtracking. The goal is to fill a partially completed 9×9 grid so that every row, column, and 3×3 sub-box contains the digits 1–9 exactly once.
 
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="FWAIf_EVUKE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L15. Sudoko Solver | Backtracking"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Statement
 
 Given a 9×9 grid partially filled with digits (1–9), fill in the empty cells (represented as `0` or `.`) such that:

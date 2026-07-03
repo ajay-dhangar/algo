@@ -10,6 +10,16 @@ tags: [Topological Sorting, DAG, DSA, Scheduling]
 
 This project demonstrates a Task Scheduling algorithm using Topological Sorting (Kahn’s Algorithm) implemented in C. This algorithm determines an order in which tasks can be completed given dependencies between them.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="73sneFXuTEg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-22. Kahn's Algorithm | Topological Sort Algorithm | BFS"
+  lazyLoad={true}
+  webp
+/>
+
 ## Table of Contents
 - [Description](#description)
 - [Solution Approach](#solution-approach)

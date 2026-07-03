@@ -13,6 +13,17 @@ The **Standard Template Library (STL)** in C++ is a powerful set of template cla
 
 ---
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="RRVYpIET_RU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete C++ STL in 1 Video | Time Complexity and Notes"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Components of STL
 
 The STL is divided into three main components:

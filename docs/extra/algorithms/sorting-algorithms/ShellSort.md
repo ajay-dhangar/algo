@@ -25,6 +25,17 @@ Shell sort is an extension of insertion sort that allows the exchange of far-apa
 - **Gap Sequence**:
   - The choice of gap sequence is crucial to the performance of Shell sort. Common sequences include the original gap sequence (n/2, n/4, ..., 1), Hibbard's sequence, and Sedgewick's sequence, among others.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="9crZRd8GPWM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.11 Shell Sort | Sorting Algorithms | Full explanation with Code | DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n log n)**  

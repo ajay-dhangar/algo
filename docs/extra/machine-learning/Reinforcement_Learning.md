@@ -11,6 +11,16 @@ tags: [machine learning, reinforcement learning, decision-making, AI]
 ### Definition:
 **Reinforcement Learning (RL)** is a type of machine learning where an **agent** learns to make decisions by interacting with an **environment** to achieve a specific goal. The agent takes actions, receives feedback in the form of rewards or penalties, and adjusts its behavior to maximize cumulative rewards over time. It is commonly used for tasks involving **sequential decision-making**.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="2pWv7GOvuf0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="RL Course by David Silver - Lecture 1: Introduction to Reinforcement Learning"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Trial-and-Error Learning**:  
   The agent learns through a process of trial and error, exploring different strategies to maximize rewards.

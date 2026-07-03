@@ -9,6 +9,16 @@ tags: [Algorithm, Moore, Majority element]
 
 **Moore's Voting Algorithm** is a highly efficient algorithm used to find the **"majority element"** in a sequence or dataset - an element that appears strictly more than $(n/2)$ times.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="nP_ns3uSh80"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Majority Element I | Brute-Better-Optimal | Moore's Voting Algorithm | Intuition 🔥|Brute to Optimal"
+  lazyLoad={true}
+  webp
+/>
+
 ## Use Cases
 
 - **Practical Use CasesData Stream Analytics**: Identifying the most frequent user action in massive real-time streams without storing all data.

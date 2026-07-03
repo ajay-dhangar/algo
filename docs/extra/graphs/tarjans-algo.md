@@ -13,6 +13,16 @@ Tarjan's Algorithm is a graph traversal technique used to find all strongly conn
 
 In graph theory, a strongly connected component (SCC) of a directed graph is a maximal subgraph where every vertex is reachable from every other vertex. Tarjan's Algorithm efficiently identifies all SCCs using a single DFS traversal, making it suitable for various applications in network analysis, compiler design, and more.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qrAub5z8FeA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-55. Bridges in Graph - Using Tarjan's Algorithm of time in and low time"
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics of Tarjan's Algorithm
 
 1. **Single DFS Traversal**: The algorithm performs a single depth-first search traversal of the graph.

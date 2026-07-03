@@ -25,6 +25,17 @@ Tim Sort is a hybrid, stable sorting algorithm derived from merge sort and inser
 - **Efficient for Real-World Data**:
   - Designed to work well on real-world data sets, which often contain sequences of ordered elements, and thus performs better than many traditional algorithms in practice.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="emeME__917E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="The FASTEST sorting algorithm: Part 1 - TimSort"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n)**  

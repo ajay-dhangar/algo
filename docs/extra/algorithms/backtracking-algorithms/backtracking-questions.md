@@ -13,6 +13,16 @@ Welcome to this in-depth exploration of backtracking patterns! This guide is des
 
 Backtracking is a fundamental algorithmic technique for solving problems incrementally by trying out partial solutions and abandoning those that fail to satisfy the problem's constraints. It's particularly useful in solving combinatorial and constraint satisfaction problems.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="DKCbsiDBN6c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6 Introduction to Backtracking - Brute Force Approach"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Master Backtracking?
 
 Understanding backtracking is crucial for several reasons:

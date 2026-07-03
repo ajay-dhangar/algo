@@ -13,6 +13,17 @@ Hey there! In this guide, we'll explore operators in Python. Operators are speci
 * Python supports various types of operators to perform different kinds of operations on variables and values.
 
 * These operators are grouped into several categories.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="v5MR5JnKcZI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="#11 Python Tutorial for Beginners | Operators in Python"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Arithmetic Operators
 
 

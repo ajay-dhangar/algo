@@ -20,6 +20,17 @@ In **Topological Sorting**, vertices of a DAG are arranged in a sequence such th
 - **Acyclic Graph**: Works only with **DAGs** (Directed Acyclic Graphs).
 - **No Unique Solution**: There may be multiple valid topological orderings depending on the graph's structure.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="dis_c84ejhQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.10 Topological Sorting (with Examples) | How to find all Topological Orderings of a Graph"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How Topological Sorting Works
 1. **Identify Vertices**: In a DAG, identify vertices with no incoming edges (i.e., in-degree of 0).
 2. **Remove Vertices**: Remove the vertex and all its outgoing edges from the graph.

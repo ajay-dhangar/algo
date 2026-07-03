@@ -12,6 +12,17 @@ Sorting algorithms play a crucial role in organizing data for efficient access a
 
 In this page we will learn about **Bubble Sort** , **Selection Sort** , **Insertion Sort** , **Merge Sort** and **Quick Sort**.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="HGk_ypEuS24"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sorting - Part 1 | Selection Sort, Bubble Sort, Insertion Sort | Strivers A2Z DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Bubble Sort
 
 Bubble sort is a simple, comparison-based sorting algorithm. It works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. This process is repeated until no more swaps are needed, indicating that the list is sorted.

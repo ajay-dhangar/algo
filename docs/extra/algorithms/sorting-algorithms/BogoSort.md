@@ -25,6 +25,17 @@ Bogo Sort (also known as permutation sort, stupid sort, or slow sort) is a highl
 - **Not Stable**:
   - Since elements are randomly shuffled, Bogo sort does not preserve the relative order of equal elements, making it inherently unstable.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="DaPJkYo2quc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bogo Sort"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n)**  

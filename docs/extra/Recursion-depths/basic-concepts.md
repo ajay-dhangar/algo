@@ -11,6 +11,17 @@ tags: [recursion, depth, basics]
 
 Recursion is a programming technique where a function calls itself in order to solve smaller instances of a problem. The recursion depth is the total number of recursive calls in a function.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="yVdKa8dnKiE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Re 1. Introduction to Recursion | Recursion Tree | Stack Space | Strivers A2Z DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Concepts
 1. **Base Case**: Condition where recursion stops. Understanding recursion depth is essential to avoid stack overflows, especially in algorithms that rely on deep recursion.
 

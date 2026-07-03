@@ -12,6 +12,17 @@ tags: [Algorithm, Problem, Binary Search]
 🎯 **The Goal**
 - Place all **C** cows in the stalls such that the minimum distance between any two cows is as large as possible.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="YTTdLgyqOLY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 15: Book Allocation Problem || Aggressive Cows Problem || Binary Search Advanced Problems"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Binary Search
 - We use Binary Search because the **search space** for the answer is monotonic.
 - **Eliminates Half the Work**: Instead of checking every number, Binary Search cuts the range in half every time.

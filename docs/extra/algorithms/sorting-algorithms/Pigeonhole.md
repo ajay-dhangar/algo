@@ -25,6 +25,17 @@ Pigeonhole Sort is a non-comparison sorting algorithm based on the pigeonhole pr
 - **Stable**:
   - Pigeonhole sort can be implemented in a stable manner, meaning it preserves the relative order of equal elements.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="nVQz0kZNC64"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Pigeonhole Sort | GeeksforGeeks"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n + k)**  

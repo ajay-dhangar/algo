@@ -9,6 +9,16 @@ tags: [dsa, algorithms, sorting]
 ### Problem Statement:
 Implement the Randomized Quick Sort algorithm, which sorts an array by selecting a random pivot element at each partitioning step. The goal is to sort an array of integers in ascending order using this randomized approach to avoid the worst-case time complexity of `O(n^2)` that occurs with a deterministic pivot on already sorted or nearly sorted input.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="nUlEfx-HgII"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Randomized Quicksort Algorithm | Divide and Conquer | GATECSE | DAA"
+  lazyLoad={true}
+  webp
+/>
+
 ### Defination
 This program sorts an array of integers in ascending order using the randomized QuickSort algorithm. It begins by taking an array of integers as input, selects random pivots during partitioning to improve performance, and recursively sorts the partitions.
 

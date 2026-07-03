@@ -12,6 +12,17 @@ Hey everyone! Today we're going to explore one of the most commonly used data ty
 * A string in Python is a sequence of characters enclosed within single quotes, double quotes, or triple quotes.
 
 * Strings are immutable, meaning once created, they cannot be changed.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="lIId8IDP6TU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Strings & Conditional Statements | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Defining a String
 
 

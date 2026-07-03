@@ -15,6 +15,17 @@ tags: [reverse-string, recursion, dsa]
 
 - Expected Auxiliary Space: 𝑂(𝑛)
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="_d0T_2Lk2qA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Reverse String - 3 Ways - Leetcode 344 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### C++ Implementation
 
 ```cpp

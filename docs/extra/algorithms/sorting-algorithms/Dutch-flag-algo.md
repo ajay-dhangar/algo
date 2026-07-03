@@ -24,6 +24,17 @@ The Dutch National Flag Algorithm is an efficient sorting algorithm that sorts a
 - **Efficient for Specific Inputs**:  
   The algorithm is optimized for arrays with only three distinct values (0, 1, and 2), achieving linear time complexity.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="tp8JIuCXBaU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sort an array of 0's 1's & 2's | Intuition of Algo | C++ Java Python | Brute-Better-Optimal"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(N)$**  

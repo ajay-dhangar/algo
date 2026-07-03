@@ -14,6 +14,17 @@ A **Binary Search Tree (BST)** is a type of binary tree where each node follows 
 
 This structure makes it efficient for performing operations like searching, insertion, and deletion. BSTs are an important part of computer science and widely used in various applications like databases and search engines.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="cySVml6e_Fc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.10 Binary Search Trees (BST) - Insertion and Deletion | DSA Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Definition and Structure
 A binary search tree consists of nodes, where each node contains:
 - **Data:** The value stored in the node.

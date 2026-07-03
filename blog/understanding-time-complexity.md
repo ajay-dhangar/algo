@@ -17,6 +17,7 @@ When designing algorithms, we are interested in how fast they can solve
 a problem. Time complexity provides a way to estimate the performance of 
 an algorithm without having to test it on every possible input.
 
+
 ## Big-O Notation
 
 Time complexity is often expressed using Big-O notation, which describes 

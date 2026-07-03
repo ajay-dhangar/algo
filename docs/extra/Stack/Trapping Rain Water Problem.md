@@ -14,6 +14,17 @@ The **Trapping Rain Water** algorithm calculates the amount of water that can be
 ## Problem Statement
 Given an array of non-negative integers representing the heights of bars, calculate how much water can be trapped after raining.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ZI2z5pq0TqA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Trapping Rain Water - Google Interview Question - Leetcode 42"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 1. Use a stack to keep track of the indices of the bars.
 2. Iterate through each bar in the array.

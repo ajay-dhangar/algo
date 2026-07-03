@@ -17,6 +17,17 @@ A **Binary Search Tree (BST)** is a binary tree where each node follows the bina
 
 BSTs are commonly used for searching, insertion, and deletion operations, all of which can be performed efficiently with an average time complexity of **O(log n)** for balanced trees.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="cySVml6e_Fc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.10 Binary Search Trees (BST) - Insertion and Deletion | DSA Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Features
 - **Efficient Search**: Lookup operations are performed in **O(log n)** time.
 - **Insertion**: New elements are added in the correct position in **O(log n)** time.

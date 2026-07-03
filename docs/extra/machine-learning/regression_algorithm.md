@@ -9,6 +9,16 @@ tags: [machine learning, algorithms, supervised learning, regression]
 ### Definition:
 **Regression** is a type of supervised learning algorithm used to predict continuous outcomes based on one or more input features. The model learns from labeled training data to establish a relationship between the input variables and the target variable.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="WWqE7YHR4Jc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Regression: Crash Course Statistics #32"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ### Characteristics:

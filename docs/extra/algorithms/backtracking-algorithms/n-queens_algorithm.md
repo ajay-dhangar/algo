@@ -12,6 +12,17 @@ tags: [backtracking, algorithms]
 ## Introduction
 The N-Queens problem is a classic example of constraint satisfaction problems and explores ways to place `n` queens on an `n×n` chessboard such that no two queens can attack each other. This challenge is often solved using backtracking techniques and has various applications in algorithm design and artificial intelligence.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="xFv_Hl4B83A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.1 N Queens Problem using Backtracking"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Problem Statement
 
 The goal is to place `n` queens on an `n×n` chessboard so that:

@@ -12,6 +12,17 @@ tags: [Gray-Code, recursion, dsa]
 
 - The objective is to generate the Gray code sequence for a given integer nn**n**, where nn**n** represents the number of bits. Gray codes are binary sequences where each consecutive code differs from the previous one by exactly one bit. This property is particularly useful in various applications such as digital communication, error correction, and minimizing transitions in hardware.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="R7uuIACpdGQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-9: Binary to Gray Code Conversion & Vice-versa"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Input:**
 
 - An integer n `(1 ≤ n ≤ 16)` representing the number of bits for which the Gray code needs to be generated.

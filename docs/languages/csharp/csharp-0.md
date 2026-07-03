@@ -11,6 +11,16 @@ Welcome to the world of C#! In this guide, we'll explore the essentials of C#, a
 
 C# is a modern, object-oriented programming language developed by Microsoft as part of the .NET framework in the early 2000s. It is known for its simplicity, robustness, and flexibility, making it an excellent choice for various applications, from enterprise software to game development with Unity.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="gfkTfcpWqAY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="C# Tutorial For Beginners - Learn C# Basics in 1 Hour"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. Key Features of C#
 
 - **Object-Oriented Programming (OOP):** C# follows an OOP approach, emphasizing concepts such as classes, objects, inheritance, and polymorphism.

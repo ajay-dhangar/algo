@@ -13,6 +13,17 @@ tags: [dsa, algorithms, sliding window, strings]
 
 You are given a string `s` and an integer `k`. You can choose any character from the string and replace it with any other character up to `k` times. The task is to find the length of the longest substring that contains the same character after performing at most `k` character replacements.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="gqXU1UyA8pk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Longest Repeating Character Replacement - Leetcode 424 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example:
 
 Let's consider the string `s = "AABABBA"` and `k = 1`.

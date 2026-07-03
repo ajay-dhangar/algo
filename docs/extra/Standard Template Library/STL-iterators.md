@@ -9,6 +9,17 @@ tags: [STL, data-structures, libraries]
 
 STL (Standard Template Library) iterators in C++ act as generalized pointers that allow traversal and manipulation of elements in STL containers such as vectors, lists, sets, and maps. Iterators provide an abstraction for traversing containers, without exposing the underlying structure of the container.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="SgcHcbQ0RCQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="ITERATORS in C++"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Types of Iterators
 
 1. **Input Iterator**: Used for reading data from a container sequentially. It only allows one-way traversal (from beginning to end).

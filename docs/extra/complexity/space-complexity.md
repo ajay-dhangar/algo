@@ -15,6 +15,17 @@ Space complexity is a measure of the amount of working storage an algorithm need
 
 Space complexity is important because the memory that is allocated to the program is limited. If the program uses more memory than the available memory, the program will crash. Therefore, it is important to know the space complexity of the algorithm.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="bQssdSrSGNE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Basics of Time Complexity and Space Complexity | Java | Complete Placement Course | Lecture 9"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How to calculate Space Complexity?
 
 Space complexity is calculated by counting the amount of memory space used by the algorithm. It is calculated by counting the amount of memory space used by the algorithm as a function of the size of the input to the problem.

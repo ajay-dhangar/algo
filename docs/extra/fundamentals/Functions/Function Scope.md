@@ -20,6 +20,16 @@ void function_name() {
 
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="elMQ5YtZPxA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Scope of Variables - Local vs Global"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 ### C++ Example
 ```c++
@@ -46,6 +56,16 @@ def function_name():
 
 
 ```
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="QVdf0LgmICw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Python Tutorial: Variable Scope - Understanding the LEGB rule and global/nonlocal statements"
+  lazyLoad={true}
+  webp
+/>
 
 ## Example
 ### Python Example

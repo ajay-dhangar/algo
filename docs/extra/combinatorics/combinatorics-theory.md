@@ -96,16 +96,53 @@ Dynamic programming often employs combinatorial principles to solve optimization
 
 A classic combinatorial optimization problem where the objective is to find the shortest possible route visiting a set of cities and returning to the origin city.
 
+<LiteYouTubeEmbed
+  id="XaXsJJh-Q5Y"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.7 Traveling Salesperson Problem - Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### 2. **Subset Generation**
 
 Generating all possible subsets of a given set, which is often implemented using backtracking or iterative methods.
+
+<LiteYouTubeEmbed
+  id="REOH22Xwdkk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Subsets - Backtracking - Leetcode 78"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ### 3. **Graph Combinatorics**
 
 Studying properties of graphs through combinatorial methods, including:
 
 - **Graph Coloring**: Assigning colors to vertices so that no two adjacent vertices share the same color.
+
+<LiteYouTubeEmbed
+  id="052VkKhIaQ4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.3 Graph Coloring Problem - Backtracking"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 - **Clique Problems**: Finding complete subgraphs within larger graphs.
+
+<LiteYouTubeEmbed
+  id="qZs767KQcvE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="8.1 NP-Hard Graph Problem - Clique Decision Problem"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Conclusion
 

@@ -22,6 +22,16 @@ Given the head of a linked list and an integer `k`, return the head of the linke
 **Output:**
 - `[1, 4, 3, 2, 5]`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="4LsrgMyQIjQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Swapping Nodes in a Linked List - Leetcode 1721 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ## Solution Explanation
 
 To swap the kth node from the beginning with the kth node from the end:

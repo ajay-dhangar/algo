@@ -21,7 +21,6 @@ Meta Binary Search is an optimized version of the traditional binary search that
 - **Recursive or Iterative:**:
   - Meta binary search can be implemented both recursively or iteratively, just like binary search, making it flexible in terms of implementation.
 
-
 - **Sorted Data Requirement:**:
   - Meta binary search, like traditional binary search, requires the array or dataset to be sorted before searching for the target element.
 
@@ -29,7 +28,17 @@ Meta Binary Search is an optimized version of the traditional binary search that
   - The time complexity remains (logn), similar to the traditional binary search. However, due to the use of bitwise operations, the constant factors involved in execution time might be slightly reduced.
 
 - **Lower-level Optimization:**:
-- It is often used in system-level applications or cases where performance optimization is crucial. It provides a slight optimization over binary search by minimizing overhead from division operations.
+  - It is often used in system-level applications or cases where performance optimization is crucial. It provides a slight optimization over binary search by minimizing overhead from division operations.
+
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="XzRwUmYrqIM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Meta binary search | One-sided binary search - Basic Algorithms Fast (24)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ### Time Complexity:
 

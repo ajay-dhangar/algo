@@ -29,6 +29,17 @@ The Finite State Automaton (FSA) algorithm is a string matching technique that c
   - Once the automaton is constructed, text processing requires minimal additional memory.
   - Each character is processed exactly once without backtracking.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="JF48ymcpEzY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="String Pattern Matching with Finite Automata||Example-1||Design and analysis of algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Preprocessing: $O(m|Σ|)$**

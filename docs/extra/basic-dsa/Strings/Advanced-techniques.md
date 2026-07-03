@@ -9,6 +9,19 @@ tags: [String Manipulation, StringBuilder, Java, Mutable Strings, Performance Op
 
 In addition to the basic string methods, several advanced topics and techniques can enhance your string manipulation skills in Java.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ZLDwskEhIFg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="String Builder | Java Placement Course Lecture 13"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## 1. StringBuilder and StringBuffer
 
 ### StringBuilder

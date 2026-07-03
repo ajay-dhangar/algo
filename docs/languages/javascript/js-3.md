@@ -9,6 +9,16 @@ Operators are symbols that perform operations on operands. JavaScript supports v
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Zg4-uSjxosE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Operators and Conditional Statements | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. **Arithmetic Operators:**
 
 Arithmetic operators are used to perform mathematical calculations.

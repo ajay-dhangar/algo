@@ -12,6 +12,17 @@ Binary Search in a Matrix is an extension of the binary search algorithm used fo
 
 To apply binary search in a matrix, the matrix is treated as a flattened sorted array (while maintaining the row and column structure), and binary search is performed using the virtual array indices.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="enI_KyGLYPo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Binary Search in 2D Arrays"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Implementation
 
 Let us see how to implement binary search in a 2D matrix in Java:

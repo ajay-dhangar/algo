@@ -17,6 +17,17 @@ Given:
 
 The goal is to calculate the total number of ways to paint the fence.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5eFh5CC-8KY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 109: Painting Fence Algorithm || DP Series"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Dynamic Programming Approach
 To solve this problem efficiently, we use dynamic programming. We maintain two variables:
 - **same:** The number of ways to paint the current post the same color as the previous post.

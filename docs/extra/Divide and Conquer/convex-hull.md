@@ -16,6 +16,17 @@ The Convex Hull of a set of points is the smallest convex boundary that can encl
 
 Given a set of points in a 2D plane, find the convex polygon that encloses all the points. Each vertex of this polygon is one of the points from the set, and all the points lie either inside or on the boundary of the polygon.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="EzeYI7p9MjU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2. Divide & Conquer: Convex Hull, Median Finding"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Divide and Conquer Approach
 
 The divide-and-conquer method for solving the Convex Hull problem is efficient for large datasets. This approach is similar to merge sort and works in the following steps:

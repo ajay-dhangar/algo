@@ -22,6 +22,17 @@ Stooge sort is a **recursive sorting algorithm** that operates by comparing the 
 - **Rarely Used in Practice**:
   - Due to its poor performance, Stooge sort is rarely used in real-world applications, but it remains a useful algorithm for theoretical study.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="hDVhmWTKglQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="STOOGE soring ALGORITHM explained"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(n^{2.7095})$ 

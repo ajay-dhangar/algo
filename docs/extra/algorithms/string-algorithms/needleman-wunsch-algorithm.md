@@ -33,6 +33,17 @@ The Needleman-Wunsch Algorithm is a dynamic programming algorithm for global seq
   - Full sequence coverage
   - Optimal alignment
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="ipp-pNRIp4g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Global Sequence Alignment & Needleman-Wunsch || Algorithm and Example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Matrix Computation: $O(m \times n)**

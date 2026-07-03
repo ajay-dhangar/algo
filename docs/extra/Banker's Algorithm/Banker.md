@@ -19,6 +19,17 @@ The Banker's Algorithm is a deadlock avoidance algorithm used in operating syste
 - **Efficient Deadlock Avoidance**:
   - The algorithm helps avoid deadlock by dynamically checking if resources can be safely allocated before fulfilling a process request, ensuring a safe state.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### C Implementation:
 
 ```c

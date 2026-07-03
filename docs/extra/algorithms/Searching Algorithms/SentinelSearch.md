@@ -20,6 +20,16 @@ sidebar_label: Sentinel Search
 - **Single Pass**:
   - The sentinel search performs the search in a single pass through the array, leading to a simplified control structure and fewer checks.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="E4N2qPNp5lo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sentinel Search: Variant of Sequential/Linear Search"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(1)$**

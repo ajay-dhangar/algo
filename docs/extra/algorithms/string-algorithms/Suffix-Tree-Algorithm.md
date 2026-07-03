@@ -8,6 +8,17 @@ description: Construct and search a Suffix Tree efficiently to represent all suf
 
 In computer science, a **suffix tree** is a compressed trie containing all the suffixes of a given text as their keys and positions in the text as their values. Suffix trees allow particularly fast implementations of many important string operations, such as substring search. They are used in bioinformatics applications, such as in the construction of the Burrows–Wheeler transform and in the compression of DNA sequences.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="VA9m_l6LpwI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Creating the Suffix Tree - Conceptually"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ## Description
