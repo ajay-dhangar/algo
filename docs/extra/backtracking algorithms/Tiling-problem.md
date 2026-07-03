@@ -29,7 +29,7 @@ The **Tiling Problem** involves determining the number of ways to tile a given g
   webp
 />
 
-## Time Complexity ⏱️
+## Time Complexity 
 
 - **Best Case: `O(n)`**
   

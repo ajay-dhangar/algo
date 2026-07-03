@@ -24,7 +24,6 @@ Whether you want to build high-performance software, dive into AAA game developm
   webp
 />
 
-## 2. Key Features of C++
 **C++** is a powerful, high-performance, compiled programming language created by **Bjarne Stroustrup** at Bell Labs in 1979. 
 
 Think of it as an upgraded version of the classic **C language**. While it retains the speed and hardware control of C, it introduces **Object-Oriented Programming (OOP)**, allowing developers to write structured, modular, and reusable code for complex applications.
