@@ -216,7 +216,7 @@ const QueueQuiz: React.FC = () => {
 
   useEffect(() => {
     setIsMounted(true);
-    const savedUser = localStorage.getItem("quiz_user_queue");
+    const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
       setHistory(safeJsonParse<AttemptHistory[]>(`quiz_history_${savedUser}_queue`, []));
@@ -243,12 +243,12 @@ const QueueQuiz: React.FC = () => {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
-    localStorage.setItem("quiz_user_queue", usernameInput.trim());
+    localStorage.setItem("quiz_username", usernameInput.trim());
     setUsername(usernameInput.trim());
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("quiz_user_queue");
+    localStorage.removeItem("quiz_username");
     setUsername(null);
     handleRetry();
   };

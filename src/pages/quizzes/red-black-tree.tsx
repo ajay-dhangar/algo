@@ -158,7 +158,7 @@ const RedBlackTreeQuiz: React.FC = () => {
   // Initialize from LocalStorage
   useEffect(() => {
     setIsMounted(true);
-    const savedUser = localStorage.getItem("rbt_quiz_user");
+    const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
       setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${savedUser}`, []));
@@ -186,12 +186,12 @@ const RedBlackTreeQuiz: React.FC = () => {
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
-    localStorage.setItem("rbt_quiz_user", usernameInput.trim());
+    localStorage.setItem("quiz_username", usernameInput.trim());
     setUsername(usernameInput.trim());
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("rbt_quiz_user");
+    localStorage.removeItem("quiz_username");
     setUsername(null);
     handleRetry();
   };

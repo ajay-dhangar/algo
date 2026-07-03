@@ -131,7 +131,7 @@ const ArrayQuiz: React.FC = () => {
 
   useEffect(() => {
     setIsMounted(true);
-    const storedUser = localStorage.getItem("algo_quiz_username");
+    const storedUser = localStorage.getItem("quiz_username");
     if (storedUser) {
       setUsername(storedUser);
       const historyKey = `algo_array_history_${storedUser.toLowerCase()}`;
@@ -166,7 +166,7 @@ const ArrayQuiz: React.FC = () => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
     const cleanName = usernameInput.trim();
-    localStorage.setItem("algo_quiz_username", cleanName);
+    localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
 
     const historyKey = `algo_array_history_${cleanName.toLowerCase()}`;
@@ -174,7 +174,7 @@ const ArrayQuiz: React.FC = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("algo_quiz_username");
+    localStorage.removeItem("quiz_username");
     setUsername(null);
     setUsernameInput("");
     setLocalHistory([]);
