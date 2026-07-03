@@ -67,6 +67,16 @@ export default function AlgorithmVisualizer() {
   const comparisonsRef = useRef(0);
   const swapsRef = useRef(0);
   
+  // Reset live metrics and pseudocode highlight when the algorithm changes,
+  // so stale counters/line-highlight from a previous run aren't shown.
+  useEffect(() => {
+    setComparisons(0);
+    setSwaps(0);
+    comparisonsRef.current = 0;
+    swapsRef.current = 0;
+    setCurrentLine(-1);
+  }, [selectedAlgo]);
+
   useEffect(() => {
     delayRef.current = delay;
   }, [delay]);
