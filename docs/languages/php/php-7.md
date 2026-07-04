@@ -9,6 +9,16 @@ tags: [php, functions, return, parameters]
 
 A function is a block of statements that can be reused repeatedly. php has over 1,000 built-in functions, and you can also create your own.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="8Bfnmeer18M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Functions in Php | PHP Tutorial #16"
+  lazyLoad={true}
+  webp
+/>
+
 ## Creating a Function
 
 A user-defined function starts with the `function` keyword:

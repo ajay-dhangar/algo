@@ -11,6 +11,17 @@ tags: [Sorting Algorithms, Selection Sort]
 
 Selection sort is a simple comparison-based sorting algorithm that repeatedly selects the smallest (or largest) element from the unsorted portion of the array and swaps it with the first unsorted element. It works by dividing the array into a sorted and an unsorted region and systematically reducing the size of the unsorted region.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Jb8AYaYMxq4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Selection Sort Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **In-Place Sorting**:
@@ -24,17 +35,6 @@ Selection sort is a simple comparison-based sorting algorithm that repeatedly se
 
 - **Inefficient for Large Datasets**:
   - Although the algorithm is simple, it is not efficient for large datasets as it requires many comparisons and swaps.
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="Jb8AYaYMxq4"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Selection Sort Algorithm"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

@@ -11,6 +11,17 @@ sidebar_label: Counting Sort
 
 Counting sort is a non-comparative sorting algorithm that sorts elements by counting the number of occurrences of each distinct element in the array. It works by determining the position of each element in the sorted output using a counting array.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="mowMVn9wTnE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.10: Counting Sort | Easiest explanation with examples"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Non-Comparative Sorting**:
@@ -24,17 +35,6 @@ Counting sort is a non-comparative sorting algorithm that sorts elements by coun
 
 - **Not In-Place**:
   - Counting sort requires extra space proportional to the range of the input data, making it not an in-place algorithm.
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="mowMVn9wTnE"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="L-3.10: Counting Sort | Easiest explanation with examples"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

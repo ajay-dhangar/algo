@@ -9,6 +9,16 @@ tags: [php, forms, user-input, validation, security]
 
 Forms are the primary way users submit data to php scripts. php handles form data through the `$_GET` and `$_POST` superglobals.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="PTVECOCyr40"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="PHP Forms Tutorial: GET & POST Requests in php | PHP Tutorial #21"
+  lazyLoad={true}
+  webp
+/>
+
 ## A Simple HTML Form
 
 ```html

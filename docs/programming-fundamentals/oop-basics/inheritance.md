@@ -11,6 +11,16 @@ tags: [Inheritance, Types_of_inheritance, Diamond_problem, basics]
 
 Inheritance is a fundamental feature of Object-Oriented Programming (OOP) that allows a new class (derived class) to acquire properties and behavior (data members and member functions) of an existing class (base class). It promotes code reuse, logical hierarchy, and polymorphism.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RO1ZYW9NAzg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Inheritance & Its Different Types with Examples in C++ | C++ Tutorials for Beginners #36"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Introduction to Inheritance
 
 **Definition:**

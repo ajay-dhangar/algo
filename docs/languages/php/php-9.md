@@ -9,6 +9,16 @@ tags: [php, arrays, indexed-array, multidimensional]
 
 An array stores multiple values in a single variable. php supports indexed arrays, associative arrays, and multidimensional arrays.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="SLqF77h6HLY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="PHP Array Tutorial in Hindi / Urdu"
+  lazyLoad={true}
+  webp
+/>
+
 ## Creating an Array
 
 ```php

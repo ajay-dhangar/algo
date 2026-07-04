@@ -20,6 +20,17 @@ The following example demonstrates concurrent execution by launching three indep
 * **Thread 2:** Computes Triangular Numbers
 * **Thread 3:** Generates Fibonacci Numbers
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="b_h4-_j6JmY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Creating a Thread by Extending Thread class"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 2. C Implementation

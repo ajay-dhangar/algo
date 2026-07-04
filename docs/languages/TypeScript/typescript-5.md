@@ -7,6 +7,16 @@ sidebar_label: "Loops"
 
 Loops allow you to run blocks of code repeatedly until specific bounds or conditional boundaries are met.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5NRXKzi-0HY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="TypeScript for Playwright | Looping Statements| while, do-while, for loops (Session 6)"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Traditional `for` & Conditional Iterations
 
 ```typescript

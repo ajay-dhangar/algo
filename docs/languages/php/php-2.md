@@ -9,6 +9,16 @@ tags: [php, variables, constants]
 
 Variables are containers for storing data values. Constants are identifiers for simple values that cannot be changed during the execution of a script.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="L2kwYV_paRE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="PHP Variables Tutorial in Hindi / Urdu"
+  lazyLoad={true}
+  webp
+/>
+
 ## php Variables
 
 In php, a variable starts with the `$` sign, followed by the name of the variable:

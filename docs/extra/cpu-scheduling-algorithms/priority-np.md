@@ -15,6 +15,17 @@ Priority Scheduling is a CPU scheduling algorithm in which each process is assig
 
 In non-preemptive priority scheduling, once a process begins execution, it continues until completion even if a higher-priority process arrives later.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5xYvFN9OrZs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Non Preemptive Priority Scheduling Algorithm with example | Operating System"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. How It Works
 
 - Each process is assigned a priority level.

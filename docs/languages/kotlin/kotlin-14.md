@@ -7,6 +7,16 @@ sidebar_position: 14
 
 # Classes and Objects
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="SZKZlU2kjNs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Classes & Objects in Kotlin | Object Oriented Programming | CheezyCode #14"
+  lazyLoad={true}
+  webp
+/>
+
 ## Defining a Class
 
 ```kotlin

@@ -20,6 +20,16 @@ Output: `6`
 **Explanation:**
 The optimal subarray is the entire array `[1, 2, 3, 4]`. Its value is `4 - 1 = 3`. We choose this subarray `k = 2` times, yielding a total value of `3 * 2 = 6`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V9162iPEJFc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Maximum Total Subarray Value I | Simple Observation | Leetcode 3689 | codestorywithMIK"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

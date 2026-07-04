@@ -24,6 +24,18 @@ tags:
 1. **Find**: Which set does this element belong to?
 2. **Union**: Merge two sets together.
 
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wU6udHRIkcc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find"
+  lazyLoad={true}
+  webp
+/>
+
+
 ---
 
 ## 🧠 Real-World Analogy

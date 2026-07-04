@@ -31,6 +31,16 @@ Input: `cardPoints = [9,7,7,9,7,7,9]`, `k = 7`
 Output: `55`
 **Explanation:** You have to take all the cards. Your score is the sum of points of all cards.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="pBWCOCS636U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L2. Maximum Points You Can Obtain from Cards | 2 Pointers and Sliding Window Playlist"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

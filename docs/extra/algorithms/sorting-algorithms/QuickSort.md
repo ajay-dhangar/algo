@@ -11,6 +11,17 @@ sidebar_label: Quick Sort
 
 Quick sort is a **divide-and-conquer** sorting algorithm that works by selecting a 'pivot' element from the array and partitioning the other elements into two subarrays, according to whether they are less than or greater than the pivot. The subarrays are then recursively sorted. This process of partitioning and sorting leads to a highly efficient sorting algorithm.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="7h1s2SojIRw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.8.1 QuickSort Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Divide and Conquer**:
@@ -24,17 +35,6 @@ Quick sort is a **divide-and-conquer** sorting algorithm that works by selecting
 
 - **Efficient for Large Datasets**:
   - Quick sort is one of the fastest sorting algorithms in practice, especially for large datasets, and has excellent cache performance.
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="7h1s2SojIRw"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="2.8.1 QuickSort Algorithm"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

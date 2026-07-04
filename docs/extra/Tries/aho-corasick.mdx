@@ -22,6 +22,17 @@ The algorithm consists of two main phases:
 2. **Failure Links Construction**: Broadly speaking, the failure link of a node represents the longest proper suffix of the prefix represented by that node which is also a prefix of some pattern in the Trie. This is built using a Breadth-First Search (BFS) traversal.
 3. **Searching**: The text is parsed character-by-character. If no child matches the current character, the search follows the failure link, avoiding backtracking.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="O7_w001f58c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Advanced Data Structures: Aho-Corasick Automaton"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Complexity
 
 - **Pre-processing Time**: $O(m)$ where $m$ is the sum of the lengths of all patterns.

@@ -18,6 +18,16 @@ Functions help make programs:
 
 In Rust, the `main()` function is the starting point of every program.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="SqT5YglW3qU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Rust Functions Are Weird (But Be Glad)"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 # Basic Function Syntax

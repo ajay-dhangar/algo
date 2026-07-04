@@ -11,6 +11,17 @@ sidebar_label: LCS Algorithm
 
 The Longest Common Subsequence (LCS) Algorithm finds the longest subsequence that is present in two sequences in the same relative order. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. Unlike substrings, subsequences need not be contiguous.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="sSno9rV8Rhg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.9 Longest Common Subsequence (LCS) - Recursion and Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Dynamic Programming**:
@@ -32,17 +43,6 @@ The Longest Common Subsequence (LCS) Algorithm finds the longest subsequence tha
   - Breaks into subproblems
   - Combines local solutions
   - Ensures global optimality
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="sSno9rV8Rhg"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="4.9 Longest Common Subsequence (LCS) - Recursion and Dynamic Programming"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

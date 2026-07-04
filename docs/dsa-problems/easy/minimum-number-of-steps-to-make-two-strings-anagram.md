@@ -29,6 +29,16 @@ Input: `s = "anagram", t = "mangaar"`
 Output: `0`
 **Explanation:** "anagram" and "mangaar" are anagrams.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="dDQTlfWvzqE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Minimum Number of Steps to Make Two Strings Anagram | Simple | Intuitive | Google | Leetcode 1347"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

@@ -11,6 +11,17 @@ sidebar_label: Simon Algorithm
 
 While the Simon Algorithm is historically a quantum computing algorithm, this implementation focuses on the Shift-And Algorithm (also known as Bitap), which is a practical string matching algorithm using bit-parallel operations. The algorithm uses bitwise operations to efficiently find exact and approximate pattern matches in a text string.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="A2WP6Wvjrks"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 8 3 SIMON'S ALGORITHM"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Bit-Parallel Processing**:
@@ -32,17 +43,6 @@ While the Simon Algorithm is historically a quantum computing algorithm, this im
   - Handles k-mismatches
   - Approximate matching
   - Error tolerance
-
-### Video Explanation
-
-<LiteYouTubeEmbed
-  id="A2WP6Wvjrks"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Lecture 8 3 SIMON'S ALGORITHM"
-  poster="maxresdefault"
-  lazyLoad={true}
-  webp
-/>
 
 ### Time Complexity:
 

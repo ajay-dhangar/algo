@@ -15,6 +15,16 @@ Hey there! In this guide, we'll explore **Structs and Interfaces** in Go. Go is 
 
 A struct (short for structure) is a typed collection of fields. They are useful for grouping data together to form records.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="NMTN543WVQY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Structs in golang"
+  lazyLoad={true}
+  webp
+/>
+
 ### Defining a Struct
 
 You define a struct using the `type` and `struct` keywords.
@@ -56,6 +66,16 @@ p1.Age = 31               // Update age
 
 Go does not have classes. However, you can define methods on struct types! A method is simply a function with a special **receiver** argument.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5b8MMXgBnp0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Golang Tutorial #21 - Struct Methods"
+  lazyLoad={true}
+  webp
+/>
+
 ```go
 // Method with a receiver of type Person
 func (p Person) FullName() string {
@@ -82,6 +102,16 @@ func (p *Person) HaveBirthday() {
 Interfaces in Go provide a way to specify the behavior of an object: if something can do *this*, then it can be used *here*.
 
 An interface type is defined as a set of method signatures.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="lh_Uv2imp14"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Golang Tutorial #22 - Interfaces"
+  lazyLoad={true}
+  webp
+/>
 
 ### Defining an Interface
 
