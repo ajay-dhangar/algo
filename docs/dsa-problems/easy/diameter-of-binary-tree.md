@@ -122,6 +122,7 @@ class Solution {
     int maxDiameter = 0;
     
     public int diameterOfBinaryTree(TreeNode root) {
+        maxDiameter = 0;
         calculateHeight(root);
         return maxDiameter;
     }
