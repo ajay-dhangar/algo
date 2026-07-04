@@ -33,6 +33,17 @@ Manacher's Algorithm is a linear-time algorithm developed by Glenn K. Manacher i
   - Uses previous computations
   - Optimizes palindrome detection
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="V-sEwsca1ak"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Longest Palindromic Substring Manacher's Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Overall: $O(n)$**

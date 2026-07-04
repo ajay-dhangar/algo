@@ -6,6 +6,16 @@ description: 'The Disjoint Set Union (DSU) algorithm efficiently manages dynamic
 tags: [dsa, data-structures, DSU, C language]
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="wU6udHRIkcc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find"
+  lazyLoad={true}
+  webp
+/>
+
 ### Solutions:
 
 

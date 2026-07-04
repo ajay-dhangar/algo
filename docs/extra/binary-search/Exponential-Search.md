@@ -16,6 +16,17 @@ The algorithm works in two main phases:
 
 2.Binary Search: Once the appropriate range is determined, Exponential Search transitions to binary search within that range. The binary search efficiently narrows down the position of the target element by repeatedly dividing the search interval in half. This combination allows Exponential Search to achieve a time complexity of O(log n) for the actual search phase, making it particularly effective for large datasets..
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="BDVYtuWXgXE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Exponential Search - better than Binary Search? (Explained)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Implementation
 
 Let us see how to implement Exponential Search in Java:

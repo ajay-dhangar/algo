@@ -27,6 +27,16 @@ Conditionals allow you to execute different blocks of code based on certain cond
 
 In JavaScript, you can use `if-else`, `else-if` ladder, `switch` case, and the ternary operator for conditional statements.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Zg4-uSjxosE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Operators and Conditional Statements | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 #### 1. If-Else Statement
 
 `if-else` statements are used to execute a block of code based on a condition. If the condition is true, the code inside the `if` block is executed; otherwise, the code inside the `else` block is executed.
@@ -95,6 +105,16 @@ console.log(`Can vote: ${canVote}`); // Output: Can vote: Yes
 ### Java Conditionals Overview
 
 Java supports `if-else`, `else-if` ladder, `switch` case, and the ternary operator for conditional statements.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="I5srDu75h_M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Conditional Statements | If-else, Switch Break | Complete Java Placement Course | Lecture 3"
+  lazyLoad={true}
+  webp
+/>
 
 #### 1. If-Else Statement
 
@@ -166,6 +186,16 @@ System.out.println("Can vote: " + canVote); // Output: Can vote: Yes
 
 Python supports `if-else`, `else-if` ladder, and the ternary operator for conditional statements. Python does not have a native `switch` statement, but you can use dictionaries for similar behavior.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="ceiuLR2ysas"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="If Else Conditional Statements in Python | Python Tutorial - Day #14"
+  lazyLoad={true}
+  webp
+/>
+
 #### 1. If-Else Statement
 
 `if-else` statements in Python are used to execute a block of code based on a condition. If the condition is true, the code inside the `if` block is executed; otherwise, the code inside the `else` block is executed.
@@ -228,6 +258,16 @@ print(days.get(day, "Midweek days"))  # Output: Start of the work week
 ### C++ Conditionals Overview
 
 In C++, you can use `if-else`, `else-if` ladder, `switch` case, and the ternary operator for conditional statements.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="qR9U6bKxJ7g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 3: Conditional Statements & Loops | DSA Series by Shradha Ma'am | C++"
+  lazyLoad={true}
+  webp
+/>
 
 #### 1. If-Else Statement
 

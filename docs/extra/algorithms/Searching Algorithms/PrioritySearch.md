@@ -25,6 +25,16 @@ sidebar_label: Priority Search algorithm
 - **Ordered Rectangles**:
   - The rectangles are sorted in terms of their priority values, which enables the search process to be faster and more efficient.
 
+## Video Explanation**
+<LiteYouTubeEmbed
+  id="toqAuY8K0Rg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Introduction and Construction of Piority Search Tree"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Time Complexity ⏱️
 
 - **Best Case: `O(log n)`** 🌟  

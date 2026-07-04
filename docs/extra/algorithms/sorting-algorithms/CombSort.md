@@ -25,6 +25,17 @@ Comb sort is an improvement over bubble sort. It compares elements that are fart
 - **Improvement over Bubble Sort**:
   - By addressing "turtles" early, comb sort can improve upon the O(n²) performance of bubble sort, making it faster for larger datasets.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="n51GFZHXlYY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Comb Sort | GeeksforGeeks"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n log n)**  

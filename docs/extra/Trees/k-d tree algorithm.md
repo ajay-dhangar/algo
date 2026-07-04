@@ -12,6 +12,17 @@ tags: [Data Structures, K-D Tree, Algorithms]
 ## Overview
 A **K-D Tree** (short for k-dimensional tree) is a space-partitioning data structure used for organizing points in a k-dimensional space. K-D Trees are useful for various applications such as range searches and nearest neighbor searches. They are a generalization of binary search trees to multiple dimensions.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="BK5x7IUTIyU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="K-d Trees - Computerphile"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Features
 - **Space Partitioning**: Divides the space into nested half-spaces.
 - **Efficient Searches**: Supports efficient range and nearest neighbor searches.

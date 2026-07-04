@@ -10,6 +10,19 @@ keywords: ["C++ pointers", "dereferencing", "pointer arithmetic", "dynamic memor
 
 Many high-level languages intentionally hide memory management from developers. C++ takes the opposite approach, giving you direct access to the system's hardware memory chips through **Pointers**. 
 
+In this guide, we'll explore pointers in C++, a powerful feature that allows you to directly manage memory and perform low-level programming tasks.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="zuegQmMdy8M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Pointers in C / C++ [Full Course]"
+  lazyLoad={true}
+  webp
+/>
+
+---
 Mastering pointers gives you immense computational power, allowing you to optimize memory usage, build complex dynamic data structures (like linked lists and trees), and interact directly with system hardware.
 
 ## 1. What is a Pointer?

@@ -20,6 +20,16 @@ sidebar_label: Rabin-Karp algorithm
 - **Rolling Hash**:
   - Uses a rolling hash technique to quickly update the hash value for the next substring, enhancing efficiency for large texts.
 
+## Video Explanation**
+<LiteYouTubeEmbed
+  id="qQ8vS2btsxI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9.2 Rabin-Karp String Matching Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Time Complexity ⏱️
 
 - **Best Case: `O(n + m)`** 🌟

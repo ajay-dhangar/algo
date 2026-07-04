@@ -13,6 +13,17 @@ tags: [dsa, data-structures, Method Overriding]
 
 Method overriding allows a derived class to provide a specific implementation of a method that is already defined in its base class. This feature enables runtime polymorphism in object-oriented programming, allowing methods to be called on objects of derived classes even when they are referenced by base class pointers or references.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="RZDVDmbhXXY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-57: C++ Virtual Function & Method Overriding | Run-Time Polymorphism with Real life examples"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Syntax
 
 To override a method, you must define a method in the derived class with the same name, return type, and parameter list as the method in the base class.

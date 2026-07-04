@@ -241,13 +241,6 @@ const LinearSearchQuiz: React.FC = () => {
     }
   }, [userId, fetchAttempts]);
 
-  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleRegister(option);
-    }
-  };
-
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
@@ -461,7 +454,7 @@ const LinearSearchQuiz: React.FC = () => {
                   className="space-y-8"
                 >
                   <div className="bg-slate-50 dark:bg-slate-950 border border-solid border-slate-200 dark:border-slate-800 rounded-2xl p-6 md:p-8 text-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(8,145,178,0.03),transparent_50%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(8,145,178,0.03),transparent_50%)] pointer-events-none" />
                     <h3 className="text-xl font-black text-slate-900 dark:text-white uppercase tracking-tight m-0 mb-4">Quiz Results</h3>
                     <div className="inline-flex items-baseline gap-1 text-5xl font-mono font-black text-teal-600 dark:text-teal-500">
                       {score}

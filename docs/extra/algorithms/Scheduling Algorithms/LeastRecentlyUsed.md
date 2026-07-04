@@ -23,6 +23,16 @@ Consider a cache with a capacity of 3 and the following sequence of page request
 Using the LRU algorithm, the pages will be loaded into the cache as follows:
 - Cache: `[1]` → `[1, 2]` → `[1, 2, 3]` → `[1, 2, 3]` (access 1) → `[2, 3, 4]` (remove 1) → `[3, 4, 2]` (remove 5) → `[4, 2, 5]` (remove 3).
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="dYIoWkCvd6A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-5.25: Least Recently Used Page Replacement Algorithm | Operating System"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Definition
 
 Given a sequence of page requests and a cache size, determine which pages will be evicted using the LRU algorithm.

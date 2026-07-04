@@ -25,6 +25,17 @@ The LPS array helps in determining how much the pattern should be shifted withou
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V5-7GzOfADQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9.1 Knuth-Morris-Pratt KMP String Matching Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Code
 
 ### Code Implementation (Python):

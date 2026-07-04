@@ -16,6 +16,18 @@ description: "Thsi page containes Bucket Sort, with codes in python, java and c+
 
 Bucket sort is a comparison sorting algorithm that distributes elements into a number of "buckets." Each bucket is then sorted individually, either using another sorting algorithm or recursively applying the bucket sort. Finally, the sorted buckets are combined to form the final sorted array. Bucket sort is particularly useful for uniformly distributed data.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="E9OccfF9mpI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.11: Bucket Sort | Easiest explanation with examples | Time Complexity analysis with Pseudocode"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Steps of Bucket Sort
 
 1. **Create Buckets**: Initialize an empty array of buckets.

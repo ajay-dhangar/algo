@@ -25,6 +25,17 @@ Insertion sort is a simple and efficient comparison-based sorting algorithm that
 - **Online Algorithm**:
   - Insertion sort is an online algorithm, meaning it can sort a list as it receives elements one by one.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="oTICKmJhLXI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Insertion Sort By Abdul Bari"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n)**  

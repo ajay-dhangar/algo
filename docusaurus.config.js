@@ -12,8 +12,8 @@ const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-      ? false
-      : (() => {
+    ? false
+    : (() => {
         try {
           if (!fs.existsSync(path.join(__dirname, ".git"))) {
             return false;
@@ -232,6 +232,10 @@ const config = {
                 label: "Algorithm Visualizer",
               },
               {
+                to: "recursion-visualizer",
+                label: "Recursion Visualizer",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
@@ -389,60 +393,78 @@ const config = {
     ],
 
     [
-      '@docusaurus/plugin-google-gtag',
+      "@docusaurus/plugin-google-gtag",
       {
-        trackingID: process.env.GTAG_TRACKING_ID || 'G-N1R880BPS0',
+        trackingID: process.env.GTAG_TRACKING_ID || "G-N1R880BPS0",
         anonymizeIP: true,
       },
     ],
 
     [
-      '@docusaurus/plugin-google-tag-manager',
+      "@docusaurus/plugin-google-tag-manager",
       {
-        containerId: 'GTM-NWMCVM3L',
+        containerId: "GTM-NWMCVM3L",
       },
     ],
 
     [
-      '@docusaurus/plugin-pwa',
+      "@docusaurus/plugin-pwa",
       {
-        debug: true, // Turn off (false) in production
+        debug: false,
         offlineModeActivationStrategies: [
-          'appInstalled',
-          'standalone',
-          'queryString',
+          "always",
+          "appInstalled",
+          "standalone",
+          "queryString",
         ],
+        // swRegister: false,
         swCustom: require.resolve("./src/sw.js"),
         pwaHead: [
           {
-            tagName: 'link',
-            rel: 'icon',
-            href: '/algo/logo/logo.png', // Update to your actual logo path
+            tagName: "link",
+            rel: "icon",
+            href: "/algo/favicon_io/favicon.ico",
           },
           {
-            tagName: 'link',
-            rel: 'manifest',
-            href: '/algo/manifest.json', // Must match the baseUrl
+            tagName: "link",
+            rel: "manifest",
+            href: "/algo/manifest.json",
           },
           {
-            tagName: 'meta',
-            name: 'theme-color',
-            content: '#rgb(37, 194, 160)', // Your brand color
+            tagName: "meta",
+            name: "theme-color",
+            content: "rgb(37, 194, 160)",
           },
           {
-            tagName: 'meta',
-            name: 'apple-mobile-web-app-capable',
-            content: 'yes',
+            tagName: "meta",
+            name: "apple-mobile-web-app-capable",
+            content: "yes",
           },
           {
-            tagName: 'meta',
-            name: 'apple-mobile-web-app-status-bar-style',
-            content: '#000',
+            tagName: "meta",
+            name: "apple-mobile-web-app-status-bar-style",
+            content: "#000",
           },
           {
-            tagName: 'link',
-            rel: 'apple-touch-icon',
-            href: '/algo/logo/logo.png',
+            tagName: "link",
+            rel: "apple-touch-icon",
+            href: "/algo/favicon_io/apple-icon-180x180.png",
+          },
+          {
+            tagName: "link",
+            rel: "mask-icon",
+            href: "/algo/favicon_io/favicon-32x32.png",
+            color: "rgb(62, 204, 94)",
+          },
+          {
+            tagName: "meta",
+            name: "msapplication-TileImage",
+            content: "/algo/favicon_io/ms-icon-144x144.png",
+          },
+          {
+            tagName: "meta",
+            name: "msapplication-TileColor",
+            content: "#000",
           },
         ],
       },

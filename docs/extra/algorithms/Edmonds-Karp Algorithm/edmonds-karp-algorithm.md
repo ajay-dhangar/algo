@@ -12,6 +12,17 @@ tags: [graph-theory, edmonds-karp, maximum-flow, ford-fulkerson, bfs, network-fl
 The **Edmonds-Karp Algorithm** is an implementation of the Ford-Fulkerson method for computing the maximum flow in a flow network. It specifically uses **Breadth-First Search (BFS)** to find augmenting paths and calculate the maximum flow from a source to a sink node in a given network. This algorithm is commonly used in network flow analysis, including applications in transport, logistics, and matching problems.
 
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="-Tl90tNtKvxs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Ford-Fulkerson in 5 minutes"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## Definition
 
 The Edmonds-Karp algorithm finds the maximum flow in a flow network by using the Ford-Fulkerson method with a Breadth-First Search to identify augmenting paths. By repeatedly finding augmenting paths from the source to the sink and updating the flow along these paths, the algorithm determines the maximum amount of flow that can be sent through the network.

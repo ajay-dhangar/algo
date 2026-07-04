@@ -12,6 +12,17 @@ description: "Given k sorted arrays with each of size k arranged in the form of 
 
 The **Merge K Sorted Arrays** problem is an intuitive problem based on Priority Queue where we have to merge k sorted arrays into one final sorted array.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7win3dcgo3k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 15. Partition Equal Subset Sum | DP on Subsequences"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Definition
 
 Given:

@@ -10,6 +10,17 @@ tags: [dsa, data structures, binary trees]
 ## Introduction
 Binary trees are a fundamental data structure used to represent hierarchical relationships between elements. Each node in a binary tree has at most two children, referred to as the left child and the right child. This structure allows for efficient searching, insertion, and deletion operations, making binary trees an essential concept in computer science.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="-DzowlcaUmE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Binary Tree in Data Structures | All about Binary Tree | DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Definition and Structure
 A binary tree consists of nodes, where each node contains:
 - **Data:** The value stored in the node.

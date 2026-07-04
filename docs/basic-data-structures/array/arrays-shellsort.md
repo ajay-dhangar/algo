@@ -33,6 +33,19 @@ import AdsComponent from '@site/src/components/AdsComponent';
 
 **Shell Sort** is a highly efficient in-place sorting algorithm and an improved version of Insertion Sort. It allows the exchange of items that are far apart, unlike Insertion Sort which only exchanges adjacent items. The idea is to arrange the list of elements so that, starting anywhere, taking every $h$-th element produces a sorted list — such a list is said to be **h-sorted**.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="9crZRd8GPWM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.11 Shell Sort | Sorting Algorithms | Full explanation with Code | DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
+
 <AdsComponent />
 
 <ShellSortVisualization />

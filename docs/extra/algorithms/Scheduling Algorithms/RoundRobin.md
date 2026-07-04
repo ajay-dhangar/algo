@@ -22,6 +22,16 @@ Consider three processes with the following burst times:
 
 Using the Round Robin algorithm with a quantum of `2 units`, the processes will be executed in the order of their arrival.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="TxjIlNYRZ5M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.7: Round Robin(RR) CPU Scheduling Algorithm with Example"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Definition
 
 Given a list of processes and their corresponding burst times, calculate the waiting times, turnaround times, average waiting time, and average turnaround time for the processes.

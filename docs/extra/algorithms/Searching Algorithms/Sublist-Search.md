@@ -15,6 +15,16 @@ sidebar_label: Sublist
 - **Sequential Traversal**: Typically traverses the larger list sequentially.
 - **Efficient**: Designed to be optimized for quick matching with minimal backtracking.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="o8f5jgSkst0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sublist Search in C++: Searching for a linked list in another list"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### How Sublist Search Works:
 
 1. **Initialize**: Start with the head of the larger list.

@@ -25,6 +25,17 @@ Selection sort is a simple comparison-based sorting algorithm that repeatedly se
 - **Inefficient for Large Datasets**:
   - Although the algorithm is simple, it is not efficient for large datasets as it requires many comparisons and swaps.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Jb8AYaYMxq4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Selection Sort Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n²)**  

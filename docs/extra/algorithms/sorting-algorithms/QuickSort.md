@@ -25,6 +25,17 @@ Quick sort is a **divide-and-conquer** sorting algorithm that works by selecting
 - **Efficient for Large Datasets**:
   - Quick sort is one of the fastest sorting algorithms in practice, especially for large datasets, and has excellent cache performance.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="7h1s2SojIRw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.8.1 QuickSort Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n log n)**  

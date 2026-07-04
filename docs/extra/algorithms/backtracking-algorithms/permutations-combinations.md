@@ -18,6 +18,16 @@ tags: [backtracking, permutations, combinations, state-tree, dsa]
 
 ## Part 1: Permutations
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="N4gJDGdhpLw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Permutations of an Array/String | Recursion & Backtracking"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Statement (LeetCode 46)
 
 Given an array of **distinct** integers, return all possible permutations.
@@ -157,6 +167,16 @@ def permuteUnique(nums: List[int]) -> List[List[int]]:
 ---
 
 ## Part 2: Combinations
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="jkgZw2WEaqA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Combination Sum Problem | Recursion & Backtracking"
+  lazyLoad={true}
+  webp
+/>
 
 ### Problem Statement (LeetCode 77)
 

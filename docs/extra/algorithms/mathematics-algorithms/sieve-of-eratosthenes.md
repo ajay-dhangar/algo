@@ -11,6 +11,16 @@ tags: [sieve of eratosthenes, prime numbers, algorithms, number theory]
 
 The **Sieve of Eratosthenes** is an ancient algorithm used to find all prime numbers up to a specified integer. It is efficient and easy to implement, making it one of the most popular algorithms for generating a list of primes.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="KdePjukNs98"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 24: Basic Maths for DSA || Sieve || Modular Arithmetics || Euclid's Algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 ## Algorithm
 
 ### Steps:

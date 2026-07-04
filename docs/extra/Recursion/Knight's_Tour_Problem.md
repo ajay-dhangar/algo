@@ -11,6 +11,16 @@ tags: [knights-tour, backtracking, recursion, dsa]
 
 - Problem Statement: The Knight's Tour problem involves moving a knight on an n × n chessboard such that the knight visits every square exactly once. Given an integer `n`, find one possible solution to the problem.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ab_dY3dZFHM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Knight's Tour - Numberphile"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ```cpp
 #include <iostream>

@@ -6,11 +6,21 @@ description: "This problem is a common exercise in understanding array manipulat
 tags: [DSA, algorithms,Problem-Solving]
 ---
 
-
 # Merge Two Sorted Arrays
 
 ## Problem Description
 Given two sorted arrays, the task is to merge them into a single sorted array. The input arrays may contain duplicates, and the final output should also be sorted. This problem is a common exercise in understanding array manipulation and is often used to illustrate the two-pointer technique.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="n7uwj04E0I4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Merge Sorted Arrays Without Extra Space | 2 Optimal Solution"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ### Example
 - **Input**:

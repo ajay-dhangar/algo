@@ -13,6 +13,15 @@ Let’s assume there are n vertices in the graph So, create an array of list of 
 - adjList[0] will have all the nodes which are connected (neighbour) to vertex 0.
 - adjList[1] will have all the nodes which are connected (neighbour) to vertex 1 and so on.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5hPfm_uqXmw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.1 Graph Representation in Data Structure(Graph Theory)|Adjacency Matrix and Adjacency List"
+  lazyLoad={true}
+  webp
+/>
 
 ## Defination
 An adjacency list is a way to represent a graph using an array of linked lists. Each index of the array corresponds to a vertex in the graph, and the linked list at each index contains the vertices that are directly connected to that vertex by an edge.

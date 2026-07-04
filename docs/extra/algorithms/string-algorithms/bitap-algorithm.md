@@ -25,6 +25,17 @@ The Bitap algorithm, also known as the **Shift-Or**, **Shift-And**, or **Bitap f
 - **Linear Search with Errors**:
   - The algorithm scans the text linearly, and the number of allowed errors (insertions, deletions, substitutions) is parameterized, allowing for flexible search criteria.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="jXNj27TMQRU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bitap algorithm for fuzzy matching explained with example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O\left(\frac{n}{w}\right)$**  

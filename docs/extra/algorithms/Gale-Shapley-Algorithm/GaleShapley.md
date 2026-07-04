@@ -10,6 +10,16 @@ The Gale-Shapley algorithm, also known as the **Deferred Acceptance Algorithm** 
 
 This algorithm is widely applied in real-world scenarios such as college admissions, job matching, and organ donation systems.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="Qcv1IqHWAzg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Stable Marriage Problem - Numberphile"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Features:
 - **Stable Pairing**: Ensures no unmatched pair would prefer to be matched together rather than their current partners.
 - **Deferred Acceptance**: Matching is based on proposals made by one side (e.g., men proposing to women) and acceptance is deferred until a stable match is found.

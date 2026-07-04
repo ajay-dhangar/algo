@@ -9,6 +9,17 @@ tags: [pattern matching, string algorithms, brute-force search, naive search, co
 
 In computer science, the **Naive Search Algorithm** (also known as brute-force search) is a basic string matching technique that checks every possible position in the text for the occurrence of a given pattern. Although simple to implement, it is inefficient for large texts and patterns as it performs comparisons one by one without any optimization.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="nK7SLhXcqRo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Naive Algorithm for Pattern Searching | GeeksforGeeks"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ## Overview

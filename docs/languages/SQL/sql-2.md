@@ -15,6 +15,16 @@ Most of the actions you need to perform on a database are done with SQL statemen
 
 SQL statements consist of keywords that are easy to understand.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="vUj-kUEC_oA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-60: All Types of SQL Commands with Example | DDL, DML, DCL, TCL and CONSTRAINTS | DBMS"
+  lazyLoad={true}
+  webp
+/>
+
 ## Database Tables
 
 A database most often contains one or more tables. Each table is identified by a name (e.g., "Customers" or "Orders") and contains records (rows) with data.

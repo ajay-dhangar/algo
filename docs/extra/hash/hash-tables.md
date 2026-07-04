@@ -19,6 +19,16 @@ We will build the Hash Set in 5 steps:
 4. Handling collisions.
 5. The basic Hash Set code example and simulation.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="W5q0xgxmRd8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-6.1: What is hashing with example | Hashing in data structure"
+  lazyLoad={true}
+  webp
+/>
+
 ## Implementation
 
 ### Basic Operations

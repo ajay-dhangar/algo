@@ -9,6 +9,18 @@ tags: [dsa, algorithms, tree]
 ### Problem Statement:
 Given a binary tree, the task is to check if it is a Sum Tree. A Sum Tree is a Binary Tree where the value of a node is equal to the sum of the nodes present in its left subtree and right subtree. An empty tree is Sum Tree and the sum of an empty tree can be considered as 0. A leaf node is also considered a Sum Tree.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="TY6kEejJEM0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Transform to Sum Tree | DSA Series : L.91"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Appraoch
 The approach to checking if a binary tree is a Sum Tree involves recursively traversing the tree, where each node checks if it is `nullptr` or a leaf. The algorithm computes the sums of the left and right subtrees, then verifies if the current node's value equals the combined sum of its children. If all nodes satisfy this condition, the tree is classified as a Sum Tree; otherwise, it is not.
 

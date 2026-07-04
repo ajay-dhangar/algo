@@ -17,6 +17,16 @@ A **function declaration** introduces the function to the program, specifying it
 return_type function_name(parameter1_type parameter1, parameter2_type parameter2);
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="RFLFX1boGwo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Functions & Function Prototypes in C++ | C++ Tutorials for Beginners #15"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Example
 ### C++ Example
@@ -43,6 +53,17 @@ int add(int a, int b) {
 def function_name(parameter1, parameter2):
     # function body
 ```
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="OvTH-7ESoRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 6 : Functions & Recursion in Python | Python Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Example
 ### Python Example

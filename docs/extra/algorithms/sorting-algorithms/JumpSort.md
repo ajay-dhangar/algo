@@ -23,6 +23,17 @@ Jump Sort is a simple comparison-based sorting algorithm that sorts elements by 
 - **Simplicity**:
   - The algorithm is straightforward and easy to implement, although it may not be as efficient as other algorithms for large datasets.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wNOoyZ45SmQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What is Jump Search and how does it work (with CODE)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n)**  

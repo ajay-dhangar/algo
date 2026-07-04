@@ -20,6 +20,17 @@ Odd-Even Sort is a simple parallel sorting algorithm that works by repeatedly pe
 - **Not Stable**:  
   Odd-Even Sort is not stable, meaning that the relative order of equal elements may not be preserved.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Sazh4Y-WlDk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Odd Even Transposition Parallel Formulation || Bubble Sort and it's Variants || Explained in Hindi"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: O(n)**  

@@ -9,6 +9,17 @@ tags: [dsa, algorithms, graph]
 ## Problem Statement:
 Given an adjacency list / matrix representing a graph with V vertices indexed from 0, the task is to determine whether the graph is bipartite or not. You can use queue data structure to check the graph.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="-vu34sct1g8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-17. Bipartite Graph | BFS | C++ | Java"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## Definition:
 A bipartite graph is a type of graph where the set of vertices can be divided into two distinct sets such that no two vertices within the same set are adjacent. In other words, if you were to color the graph using two colors, it would be possible to color it in such a way that no two connected vertices have the same color. This property makes bipartite graphs useful in various applications, including matching problems, scheduling, and network flow analysis, as they can represent relationships where entities can be classified into two categories.
 

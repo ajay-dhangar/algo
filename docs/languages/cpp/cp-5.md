@@ -12,6 +12,16 @@ A **function** is a self-contained block of code that executes a specific task. 
 
 By adhering to the **DRY (Don't Repeat Yourself)** software development principle, functions allow you to define an operation once and execute it anywhere across your codebase.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RFLFX1boGwo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Functions & Function Prototypes in C++ | C++ Tutorials for Beginners #15"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Anatomy of a C++ Function
 
 Every functional block in C++ requires two separate concepts to be recognized by the compiler:

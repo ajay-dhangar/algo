@@ -11,6 +11,16 @@ description: A Caesar Cipher shifts each letter in the input string by a given n
 ## Description
 The Caesar Cipher is a type of substitution cipher where each letter in the plaintext is shifted by a certain number of positions down or up the alphabet. It is one of the simplest and most widely known encryption techniques.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="JtbKh_12ctg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Caesar Cipher (Part 1)"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Definition
 - **Input**: A string `text` and an integer `shift` representing the number of positions each letter should be shifted.
 - **Output**: Return the encrypted string by shifting each letter in the input string by the given shift value. Non-alphabetic characters should remain unchanged.

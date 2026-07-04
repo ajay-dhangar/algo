@@ -11,6 +11,17 @@ tags: [Divisibility, Prime Numbers, number theory, competitive programming]
 
 Understanding divisibility and prime numbers is essential in number theory, with applications in cryptography, algorithm optimization, and more.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="4LqzXF3c06s"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Basics of Maths | Divisibility Rules | Number System Concepts | By Navneet Sir"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Divisibility
 
 Divisibility rules help quickly determine whether a number is divisible by another without performing full division. Here are some basic divisibility rules:

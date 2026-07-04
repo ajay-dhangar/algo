@@ -12,6 +12,17 @@ In this post, we will discuss how to search for a specific value in a **Binary S
 ## Problem Definition
 Given a binary search tree and a target value, the goal is to determine if the target value exists in the tree. If it exists, we return the corresponding node; otherwise, we return `NULL`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="UeRUKRJvPa4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 69: Binary Search Tree & its Implementation || Insertion, Deletion & Searching a Node"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 To search for a value in a BST, we can utilize the properties of the BST. Starting from the root node, we compare the target value with the value of the current node:
 

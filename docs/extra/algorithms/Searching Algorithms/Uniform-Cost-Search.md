@@ -15,6 +15,16 @@ sidebar_label: Uniform-Cost
 - **Optimal**: Guarantees an optimal solution for paths with non-negative weights.
 - **Uninformed**: Does not use heuristics and is a type of uninformed search.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="dRMvK76xQJI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Uniform Cost Search"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### How Uniform-Cost Search Works:
 
 1. **Initialize**: Start with the root node.

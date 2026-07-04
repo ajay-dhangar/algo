@@ -33,6 +33,17 @@ The Suffix Array Algorithm is a space-efficient data structure that stores all s
   - Implicit suffix storage
   - Compact representation
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="zqKlL3ZpTqs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Suffix array introduction"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Construction: $O(n \times log n)$**

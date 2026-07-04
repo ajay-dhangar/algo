@@ -11,6 +11,16 @@ tags: [data science, clustering, K-Means, data visualization, machine learning]
 ### Definition:  
 **K-Means Clustering** is a popular unsupervised machine learning algorithm used to partition a dataset into K distinct clusters. It groups similar data points together based on feature similarity, minimizing the variance within each cluster and maximizing the variance between clusters.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="4b5d3muPQmA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="StatQuest: K-means clustering"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Centroid-Based**:  
   K-Means works by identifying K centroids, which represent the center of each cluster.

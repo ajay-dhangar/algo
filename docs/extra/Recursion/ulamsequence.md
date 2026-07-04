@@ -11,6 +11,17 @@ tags: [UlamSequence, recursion, dsa]
 
 Design a recursive algorithm to generate the Ulam sequence up to a given integer `maxN`. The Ulam sequence begins with two predefined integers, **1** and  **2** , and each subsequent number is the smallest integer that can be expressed uniquely as the sum of two distinct earlier numbers in exactly one way. The task is to implement a recursive function that, given an upper limit `maxN`, generates and outputs the Ulam sequence up to this number.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="JLK4-42iFD8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="(NT06) Ulam Numbers"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Constraints:
 
 * The generated number must only be expressible as a sum of two distinct previous Ulam numbers in exactly one way.

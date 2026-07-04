@@ -23,6 +23,16 @@ Consider four processes with the following arrival and burst times:
 
 Using the SJR algorithm, the processes will be executed based on their remaining times and arrival sequence.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="hoN7_VMzw_g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.5: Shortest Remaining Time First (SJF With Preemption) Scheduling Algorithm with Example | OS"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Definition
 
 Given a list of processes with their corresponding arrival times and burst times, calculate the waiting times, turnaround times, average waiting time, and average turnaround time for the processes.

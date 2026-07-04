@@ -13,6 +13,17 @@ A **Monotonic Stack** is a special type of stack that maintains its elements in 
 
 Monotonic stacks are primarily used in problems related to range queries, like finding the next greater or smaller elements in a sequence, solving problems that involve temperatures, stock prices, or histogram areas.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="e7XQLtOQM3I"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L5. Next Greater Element | Stack and Queue Playlist"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### How the Stack Works
 
 A monotonic stack operates under two variations:

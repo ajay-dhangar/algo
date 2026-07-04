@@ -10,6 +10,16 @@ tags: [dsa, algorithms, greedy algorithms,graphs]
 ### Definition:
 Graph coloring is the process of assigning colors to the vertices of a graph such that no two adjacent vertices share the same color. The greedy algorithm for graph coloring assigns colors to vertices one by one, choosing the smallest available color at each step. While not always optimal, it offers an efficient solution for many graph coloring problems.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="052VkKhIaQ4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.3 Graph Coloring Problem - Backtracking"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Greedy Approach**:  
   Graph coloring can be approached using a greedy algorithm. Vertices are colored one by one, assigning the smallest available color that doesn't violate the condition of adjacent vertices having the same color.

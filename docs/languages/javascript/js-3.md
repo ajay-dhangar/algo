@@ -1,13 +1,23 @@
 ---
 id: operators
 sidebar_position: 3
-title: Operator in JavaScript
-sidebar_label: Operator in JS
+title: Operators in JavaScript
+sidebar_label: Operators in JS
 ---
 
 Operators are symbols that perform operations on operands. JavaScript supports various types of operators, including arithmetic, assignment, comparison, logical, and more. Let's explore some common operators used in JavaScript:
 
 <AdsComponent />
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Zg4-uSjxosE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Operators and Conditional Statements | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
 
 ## 1. **Arithmetic Operators:**
 

@@ -25,6 +25,16 @@ Binary search is an efficient algorithm for finding an element in a **sorted arr
 - **Non-Adaptive**:
   - Binary search does not adjust to find elements more quickly when there are patterns or duplicate elements in the array, unlike some adaptive algorithms.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="V_T5NuccwRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.2 What is Binary Search | Binary Search Algorithm with example | Data Structures Tutorials"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(1)$**  

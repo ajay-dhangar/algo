@@ -13,6 +13,17 @@ Unlike traditional binary search trees, B-Trees are characterized by the large n
 
 B-Trees maintain balance by ensuring that each node has a minimum number of keys, so the tree is always balanced. This balance guarantees that the time complexity for operations such as insertion, deletion, and searching is always **O(log n)**, regardless of the initial shape of the tree.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="aZjYr87r1b8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="10.2 B Trees and B+ Trees. How they are useful in Databases"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Time Complexity of B-Tree: 
 
 | Sr. No. | Algorithm | Time Complexity |

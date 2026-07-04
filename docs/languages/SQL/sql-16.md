@@ -17,6 +17,16 @@ SELECT SUM(Quantity)
 FROM OrderDetails;
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Yr4pHPZCshA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-79: SQL Aggregate Functions - SUM, AVG(n), COUNT, MIN, MAX Functions | DBMS"
+  lazyLoad={true}
+  webp
+/>
+
 ### Syntax
 
 `SELECT SUM(_column_name_)   FROM _table_name_   WHERE _condition_;`

@@ -10,6 +10,17 @@ tags: [dsa, trees, data-structures]
 
 ## Types of Trees
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="YAdLFsTG70w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.1 Tree in Data Structure | Introduction to Trees | Data Structures Tutorials1"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### 1. Binary Tree
 A tree structure in which each node has at most two children, referred to as the left child and the right child. It is the simplest form of a tree and serves as the foundation for more complex tree structures.
 

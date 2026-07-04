@@ -25,6 +25,17 @@ The **Two Pointers** technique is a widely used algorithmic pattern that utilize
   - **Moving Inward**: Both pointers move towards each other (e.g., finding a pair that sums to a target).
   - **Moving Outward**: Both pointers move in the same direction (e.g., finding subarrays or substrings).
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="QzZ7nmouLTI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Common Use Cases:
 
 - **Finding pairs in an array that sum to a target**.
