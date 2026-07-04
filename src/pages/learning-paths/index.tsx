@@ -207,9 +207,6 @@ export const LearningPathsPage: React.FC = () => {
                     key={path.id}
                     path={path}
                     index={index}
-                    onExplore={(pathId) => {
-                      history.push(`/algo/learning-paths/path-details?id=${pathId}`);
-                    }}
                   />
                 ))}
               </motion.div>
