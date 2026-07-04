@@ -164,6 +164,23 @@ export const topics: Topic[] = [
           { name: "Ownership", link: "#" },
         ],
       },
+      // Swift Language
+      {
+        name: "Swift",
+        files: [
+          { name: "Introduction", link: "/docs/languages/swift/swift-introduction" },
+          { name: "Bubble Sort", link: "/docs/languages/swift/swift-bubble-sort" },
+          { name: "Selection Sort", link: "/docs/languages/swift/swift-selection-sort" },
+          { name: "Insertion Sort", link: "/docs/languages/swift/swift-insertion-sort" },
+          { name: "Merge Sort", link: "/docs/languages/swift/swift-merge-sort" },
+          { name: "Quick Sort", link: "/docs/languages/swift/swift-quick-sort" },
+          { name: "Binary Search", link: "/docs/languages/swift/swift-binary-search" },
+          { name: "BFS", link: "/docs/languages/swift/swift-bfs" },
+          { name: "DFS", link: "/docs/languages/swift/swift-dfs" },
+          { name: "Dijkstra's Algorithm", link: "/docs/languages/swift/swift-dijkstra" },
+          { name: "Dynamic Programming", link: "/docs/languages/swift/swift-dynamic-programming" },
+        ],
+      },
     ],
   },
   {
