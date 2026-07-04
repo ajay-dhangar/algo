@@ -172,6 +172,18 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
     icon: "🔤",
     docLink: "/docs/basic-data-structures/Strings",
   },
+    {
+    id: "pointers",
+    title: "Pointers & References",
+    difficulty: "Medium",
+    estimatedTime: 1.5,
+    prerequisites: ["variables-data-types"],
+    interviewRelevance: 4,
+    description:
+      "Master pointer concepts essential for linked lists and advanced DS",
+    icon: "👉",
+    docLink: "/docs/basic-data-structures/pointer",
+  },
   {
     id: "linked-lists",
     title: "Linked Lists",
@@ -183,18 +195,6 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
       "Understand singly/doubly linked lists, operations, and common problems",
     icon: "🔗",
     docLink: "/docs/data-structures",
-  },
-  {
-    id: "pointers",
-    title: "Pointers & References",
-    difficulty: "Medium",
-    estimatedTime: 1.5,
-    prerequisites: ["variables-data-types"],
-    interviewRelevance: 4,
-    description:
-      "Master pointer concepts essential for linked lists and advanced DS",
-    icon: "👉",
-    docLink: "/docs/basic-data-structures/pointer",
   },
   {
     id: "stack",
@@ -235,6 +235,18 @@ const dsaFundamentalsTopics: TopicMetadata[] = [
 ];
 
 const placementPrepTopics: TopicMetadata[] = [
+  {
+    id: "recursion",
+    title: "Recursion",
+    difficulty: "Medium",
+    estimatedTime: 2.5,
+    prerequisites: ["functions"],
+    interviewRelevance: 5,
+    description:
+      "Understand recursion, base cases, and recursive problem-solving",
+    icon: "🔁",
+    docLink: "/docs/dsa-problems",
+  },
   {
     id: "binary-search",
     title: "Binary Search",
@@ -319,18 +331,7 @@ const placementPrepTopics: TopicMetadata[] = [
     icon: "🎓",
     docLink: "/docs/dsa-problems",
   },
-  {
-    id: "recursion",
-    title: "Recursion",
-    difficulty: "Medium",
-    estimatedTime: 2.5,
-    prerequisites: ["functions"],
-    interviewRelevance: 5,
-    description:
-      "Understand recursion, base cases, and recursive problem-solving",
-    icon: "🔁",
-    docLink: "/docs/dsa-problems",
-  },
+  
 ];
 
 const competitiveProgrammingTopics: TopicMetadata[] = [
@@ -475,7 +476,30 @@ export const learningPaths: LearningPath[] = [
       "Confidence building for technical screening rounds",
     ],
   },
+    
+  {
+    id: "competitive-programming",
+    name: "Competitive Programming",
+    description: "Master advanced algorithms and data structures to excel in coding contests.",
+    icon: "🏆",
+    color: "from-yellow-500 to-orange-500",
+    targetAudience: "Advanced programmers and competitive coding aspirants",
+    totalHours: 52,
+    difficulty: "Advanced",
+    topics: [
+      ...dsaFundamentalsTopics,
+      ...placementPrepTopics,
+      ...competitiveProgrammingTopics,
+    ],
+    keyBenefits: [
+      "Master advanced data structures like Segment Trees and Fenwick Trees",
+      "Solve complex mathematical and number theory problems",
+      "Optimize code to run within strict time limits",
+      "Excel in Google Kick Start, Facebook Hacker Cup, and ACM ICPC",
+    ],
+  },
 ];
+
 
 // ====================
 // Helper Functions
