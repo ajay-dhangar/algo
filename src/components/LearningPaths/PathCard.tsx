@@ -131,12 +131,12 @@ export const PathCard: React.FC<PathCardProps> = ({
       </div>
 
       {/* CTA Button */}
-      <button
-        onClick={() => onExplore?.(path.id)}
-        className="w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 dark:from-blue-600 dark:to-blue-700"
+      <Link
+        to={`/learning-paths/path-details?id=${path.id}`}
+        className="block w-full text-center rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 dark:from-blue-600 dark:to-blue-700 hover:text-white hover:no-underline"
       >
         Explore Path →
-      </button>
+      </Link>
     </motion.div>
   );
 };
