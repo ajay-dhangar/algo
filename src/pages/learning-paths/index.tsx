@@ -22,7 +22,6 @@ import { useHistory } from "@docusaurus/router";
 
 export const LearningPathsPage: React.FC = () => {
   const history = useHistory();
-  const [selectedPath, setSelectedPath] = useState<string | null>(null);
   const [filters, setFilters] = useState<FilterState>({
     difficulty: "All",
     sortBy: "newest",
