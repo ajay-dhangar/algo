@@ -167,4 +167,4 @@ export const TopicCard: React.FC<TopicCardProps> = ({
   );
 };
 
-export default TopicCard;
+export default React.memo(TopicCard);
