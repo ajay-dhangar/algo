@@ -141,4 +141,4 @@ export const PathCard: React.FC<PathCardProps> = ({
   );
 };
 
-export default PathCard;
+export default React.memo(PathCard);
