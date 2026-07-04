@@ -1,3 +1,7 @@
 {
-  "label": "DSA Problems"
+  "label": "DSA Problems",
+  "link": {
+    "type": "generated-index",
+    "description": "Exhaustive list of classic and interview-focused DSA problems sorted by difficulty."
+  }
 }
