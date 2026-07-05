@@ -28,11 +28,11 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
   const [activeTab, setActiveTab] = useState<"problem" | "solution">("problem");
   const { runWithCapture } = useConsoleCapture();
 
-  const runCode = useCallback(() => {
+  const runCode = useCallback(async () => {
     setRunning(true);
     setOutput([]);
     setTestResults([]);
-    const logs = runWithCapture(code);
+    const logs = await runWithCapture(code);
     setOutput(logs);
     setRunning(false);
   }, [code, runWithCapture]);
