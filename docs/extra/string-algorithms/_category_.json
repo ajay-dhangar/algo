@@ -3,6 +3,8 @@
   "position": 5,
   "link": {
     "type": "generated-index",
+    "title": "String Algorithms",
+    "slug": "/category/extra-string-algorithms",
     "description": "Comprehensive guide to advanced string algorithms and techniques."
   }
 }
