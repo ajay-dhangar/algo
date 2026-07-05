@@ -184,13 +184,6 @@ const StackQuiz: React.FC = () => {
 
   const selectedOption = userAnswers[currentQuestion] || null;
 
-  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleRegister(option);
-    }
-  };
-
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
