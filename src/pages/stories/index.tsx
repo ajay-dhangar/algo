@@ -33,19 +33,18 @@ export default function StoriesPage(): JSX.Element {
               breakthroughs. Read our community histories—or tell yours.
             </p>
             <div style={{ animation: "fadeInUp 1.2s ease-out" }}>
-              <a
-                href="#contribute"
+              <Link
+                to="#contribute"
                 className="button button--lg button--info margin-right--md shadow--md"
               >
                 Share Your Story
-              </a>
-              <a
-                href="#explore"
+              </Link>
+              <Link
+                to="#explore"
                 className="button button--lg button--outline button--secondary"
               >
                 Read Catalog
-              </a>
-            </div>
+              </Link>
           </div>
         </section>
 
