@@ -22,7 +22,7 @@ export const INITIAL_STORIES: Story[] = [
     metric: "100+ PRs Reviewed",
   },
   {
-    username: "rohan-sharma",
+    username: "#",
     name: "Rohan Sharma",
     role: "B.Tech Learner",
     title: "Conquering Graph Algorithms After 4 Failures",
@@ -32,7 +32,7 @@ export const INITIAL_STORIES: Story[] = [
     metric: "300+ Problems Solved",
   },
   {
-    username: "sarah-jenkins",
+    username: "#",
     name: "Sarah Jenkins",
     role: "Core Contributor",
     title: "Overcoming Imposter Syndrome via Git",
