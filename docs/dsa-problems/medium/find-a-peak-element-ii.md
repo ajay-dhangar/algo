@@ -144,80 +144,64 @@ class Solution {
 
 **Python**
 ```py
-class Solution {
-    public int findMaxRow(int[][] mat, int col) {
-        int maxVal = -1;
-        int maxRow = -1;
-        for (int i = 0; i < mat.length; i++) {
-            if (mat[i][col] > maxVal) {
-                maxVal = mat[i][col];
-                maxRow = i;
-            }
-        }
-        return maxRow;
-    }
-
-    public int[] findPeakGrid(int[][] mat) {
-        int n = mat.length;
-        int m = mat[0].length;
-        int low = 0, high = m - 1;
-
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            int maxRow = findMaxRow(mat, mid);
-
-            int leftVal = mid - 1 >= 0 ? mat[maxRow][mid - 1] : -1;
-            int rightVal = mid + 1 < m ? mat[maxRow][mid + 1] : -1;
-
-            if (mat[maxRow][mid] > leftVal && mat[maxRow][mid] > rightVal) {
-                return new int[]{maxRow, mid};
-            } else if (mat[maxRow][mid] < leftVal) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
-        }
-        return new int[]{-1, -1};
-    }
-}
+class Solution:
+    def findPeakGrid(self, mat: list[list[int]]) -> list[int]:
+        n, m = len(mat), len(mat[0])
+        low, high = 0, m - 1
+        
+        while low <= high:
+            mid = low + (high - low) // 2
+            max_row = 0
+            for i in range(n):
+                if mat[i][mid] > mat[max_row][mid]:
+                    max_row = i
+                    
+            left_val = mat[max_row][mid - 1] if mid - 1 >= 0 else -1
+            right_val = mat[max_row][mid + 1] if mid + 1 < m else -1
+            
+            if mat[max_row][mid] > left_val and mat[max_row][mid] > right_val:
+                return [max_row, mid]
+            elif mat[max_row][mid] < left_val:
+                high = mid - 1
+            else:
+                low = mid + 1
+                
+        return [-1, -1]
 ```
 
 **JavaScript**
 ```js
-class Solution {
-    public int findMaxRow(int[][] mat, int col) {
-        int maxVal = -1;
-        int maxRow = -1;
-        for (int i = 0; i < mat.length; i++) {
-            if (mat[i][col] > maxVal) {
-                maxVal = mat[i][col];
+/**
+ * @param {number[][]} mat
+ * @return {number[]}
+ */
+var findPeakGrid = function(mat) {
+    let n = mat.length;
+    let m = mat[0].length;
+    let low = 0, high = m - 1;
+    
+    while (low <= high) {
+        let mid = Math.floor(low + (high - low) / 2);
+        
+        let maxRow = 0;
+        for (let i = 0; i < n; i++) {
+            if (mat[i][mid] > mat[maxRow][mid]) {
                 maxRow = i;
             }
         }
-        return maxRow;
-    }
-
-    public int[] findPeakGrid(int[][] mat) {
-        int n = mat.length;
-        int m = mat[0].length;
-        int low = 0, high = m - 1;
-
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            int maxRow = findMaxRow(mat, mid);
-
-            int leftVal = mid - 1 >= 0 ? mat[maxRow][mid - 1] : -1;
-            int rightVal = mid + 1 < m ? mat[maxRow][mid + 1] : -1;
-
-            if (mat[maxRow][mid] > leftVal && mat[maxRow][mid] > rightVal) {
-                return new int[]{maxRow, mid};
-            } else if (mat[maxRow][mid] < leftVal) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
+        
+        let leftVal = mid - 1 >= 0 ? mat[maxRow][mid - 1] : -1;
+        let rightVal = mid + 1 < m ? mat[maxRow][mid + 1] : -1;
+        
+        if (mat[maxRow][mid] > leftVal && mat[maxRow][mid] > rightVal) {
+            return [maxRow, mid];
+        } else if (mat[maxRow][mid] < leftVal) {
+            high = mid - 1;
+        } else {
+            low = mid + 1;
         }
-        return new int[]{-1, -1};
     }
-}
+    
+    return [-1, -1];
+};
 ```
