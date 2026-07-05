@@ -67,7 +67,7 @@ export default function StoriesPage(): JSX.Element {
                   gap: "0.5rem",
                 }}
               >
-                {TAGS.map((tag) => (
+                {AVAILABLE_TAGS.map((tag) => (
                   <button
                     key={tag}
                     onClick={() => setSelectedTag(tag)}
