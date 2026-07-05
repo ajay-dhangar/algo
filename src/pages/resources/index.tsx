@@ -87,6 +87,24 @@ const resources: Resource[] = [
     link: "https://drive.google.com/file/d/17RKMqk5KT-1hf4O8wM4VssV_WrG4L7RX/view",
     actionText: "Stream Playlists"
   },
+  {
+    id: 9,
+    title: "Connected Customers Are Repeat Customers",
+    type: "Book",
+    description: "Customer Service Principles and Strategies That Create an Excellent Customer Experience.",
+    link: "https://amzn.to/4gijH3W",
+    actionText: "Buy on Amazon"
+  },
+  {
+    id: 10,
+    title: "Think and Grow Rich by Napoleon Hill",
+    type: "Book",
+    description: "Self-help Classic | Goal Achievement Strategies and Success Philosophy | Personal Development Book for Financial Success | Wealth Creation Strategies | Prosperity Principles | Original Premium Paperback Edition",
+    link: "https://amzn.to/3SYxPFN",
+    actionText: "Buy on Amazon"
+  }
+
+
 ];
 
 const CATEGORIES: ("All" | ResourceType)[] = [
