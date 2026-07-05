@@ -45,6 +45,7 @@ export default function StoriesPage(): JSX.Element {
               >
                 Read Catalog
               </Link>
+            </div>
           </div>
         </section>
 
@@ -70,11 +71,10 @@ export default function StoriesPage(): JSX.Element {
                   <button
                     key={tag}
                     onClick={() => setSelectedTag(tag)}
-                    className={`button ${styles.filterBtn} ${
-                      selectedTag === tag
+                    className={`button ${styles.filterBtn} ${selectedTag === tag
                         ? "button--primary"
                         : "button--outline button--secondary"
-                    }`}
+                      }`}
                   >
                     {tag}
                   </button>

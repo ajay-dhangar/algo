@@ -102,8 +102,16 @@ const resources: Resource[] = [
     description: "Self-help Classic | Goal Achievement Strategies and Success Philosophy | Personal Development Book for Financial Success | Wealth Creation Strategies | Prosperity Principles | Original Premium Paperback Edition",
     link: "https://amzn.to/3SYxPFN",
     actionText: "Buy on Amazon"
-  }
+  },
 
+  {
+    id: 11,
+    title: "Calculus: Early Transcendentals, 9th Edition",
+    type: "Book",
+    description: "Calculus: Early Transcendentals, 9th Edition, is a comprehensive textbook that covers the fundamental concepts of calculus, including limits, derivatives, integrals, and series. It provides clear explanations, numerous examples, and a variety of exercises to help students develop a deep understanding of calculus and its applications.",
+    link: "https://amzn.to/4wr15Dt",
+    actionText: "Buy on Amazon"
+  },
 
 ];
 
