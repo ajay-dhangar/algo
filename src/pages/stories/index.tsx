@@ -1,11 +1,8 @@
 import React, { JSX, useState } from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import { INITIAL_STORIES } from "../../data/storiesData";
+import { INITIAL_STORIES, AVAILABLE_TAGS } from "../../data/storiesData";
 import styles from "./stories.module.css";
-
-// Moved outside the component to prevent recreating the array on every render
-const TAGS = ["All", "Founder", "DSA", "Open Source", "Resilience", "React"];
 
 export default function StoriesPage(): JSX.Element {
   const [selectedTag, setSelectedTag] = useState<string>("All");
