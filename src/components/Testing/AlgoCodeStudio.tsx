@@ -14,9 +14,9 @@ function AlgoCodeStudio() {
     setCode(value);
   };
 
-  const handleExecute = () => {
+  const handleExecute = async () => {
     if (code) {
-      const logs = runWithCapture(code);
+      const logs = await runWithCapture(code);
       setOutput(logs);
     }
   };
