@@ -119,7 +119,7 @@ const programmingFundamentalsTopics: TopicMetadata[] = [
     description:
       "Apply fundamentals to solve real-world programming problems",
     icon: "💡",
-    docLink: "/docs/programming-fundamentals",
+    docLink:  "/docs/category/programming-fundamentals/",
   },
 ];
 
