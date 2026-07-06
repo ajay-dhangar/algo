@@ -234,6 +234,8 @@ const config = {
               {
                 to: "bitwise-visualizer",
                 label: "Bitwise Visualizer",
+              },
+              {
                 to: "recursion-visualizer",
                 label: "Recursion Visualizer",
               },
