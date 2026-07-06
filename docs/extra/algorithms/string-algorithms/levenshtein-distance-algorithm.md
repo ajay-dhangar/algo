@@ -11,6 +11,17 @@ sidebar_label: Levenshtein Distance Algorithm
 
 The Levenshtein Distance Algorithm, also known as Edit Distance, calculates the minimum number of single-character operations (insertions, deletions, or substitutions) required to transform one string into another. Developed by Vladimir Levenshtein in 1965, it is widely used in spell checking, DNA sequence analysis, and natural language processing.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="We3YDTzNXEk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Minimum Edit Distance Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Dynamic Programming**:

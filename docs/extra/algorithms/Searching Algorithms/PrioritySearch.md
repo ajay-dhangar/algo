@@ -11,6 +11,16 @@ sidebar_label: Priority Search algorithm
 
 **Priority search** is a search algorithm that is used for efficiently finding the closest point in a 2D plane to a given query point, using an ordered set of rectangles. It is particularly useful in scenarios where you need to search a large set of rectangles or intervals efficiently. The algorithm works by partitioning a set of 2D rectangles or intervals using priority values, allowing for faster querying than a brute-force search.
 
+## Video Explanation**
+<LiteYouTubeEmbed
+  id="toqAuY8K0Rg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Introduction and Construction of Piority Search Tree"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics ✨
 
 - **Efficient for Rectangles**:
@@ -24,6 +34,7 @@ sidebar_label: Priority Search algorithm
 
 - **Ordered Rectangles**:
   - The rectangles are sorted in terms of their priority values, which enables the search process to be faster and more efficient.
+
 
 ## Time Complexity ⏱️
 

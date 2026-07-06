@@ -1,7 +1,26 @@
+---
+id: tiger-hashing-algorithm
+sidebar_position: 6
+title: Tiger Hashing Algorithm
+sidebar_label: Tiger Hashing Algorithm
+description: "Tiger Hashing Algorithm is optimized for 64-bit platforms and is known for its fast performance and security."
+tags: [algorithms, hashing, data structures]
+---
+
 # Tiger Hashing Algorithm
 
 ## Overview
 The **Tiger Hashing Algorithm** is a cryptographic hash function developed by Ross Anderson and Eli Biham in 1995. It is optimized for 64-bit platforms and is known for its fast performance and security. Tiger is often used in applications where both speed and security are critical, such as file integrity checking, digital signatures, and password hashing.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="9UjXMbKBzl4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="INS Module 2 Tiger Hash"
+  lazyLoad={true}
+  webp
+/>
 
 ## Features
 - **Block size**: 512 bits

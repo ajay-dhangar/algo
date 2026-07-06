@@ -10,6 +10,16 @@ tags: [dsa, algorithms, topological sorting]
 
 Kahn's Algorithm is an efficient method for performing topological sorting on a Directed Acyclic Graph (DAG). It provides a way to order the vertices of the graph such that for every directed edge \( u \rightarrow v \), vertex \( u \) comes before vertex \( v \) in the ordering. This algorithm is particularly useful in scenarios where certain tasks must be completed before others, such as scheduling problems or resolving dependencies.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="73sneFXuTEg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-22. Kahn's Algorithm | Topological Sort Algorithm | BFS"
+  lazyLoad={true}
+  webp
+/>
+
 ### 📝 How Kahn's Algorithm Works
 
 Kahn's Algorithm operates based on the concept of in-degrees of vertices in a directed graph. The in-degree of a vertex is the number of edges directed towards it. The algorithm follows these steps:

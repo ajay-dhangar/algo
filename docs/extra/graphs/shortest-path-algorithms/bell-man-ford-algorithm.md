@@ -13,6 +13,16 @@ tags: [dsa, algorithms, shortest path, graph, bellman-ford, negative weights, dy
 
 The **Bellman-Ford Algorithm** finds the shortest path from a **single source vertex** to all other vertices in a weighted, directed graph. Its key advantage over Dijkstra's Algorithm is that it correctly handles **negative edge weights** and can **detect negative weight cycles**.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="FtN3BYH2Zes"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.4 Bellman Ford Algorithm - Single Source Shortest Path - Dynamic Programming"
+  lazyLoad={true}
+  webp
+/>
+
 ### Why Not Dijkstra's?
 
 Dijkstra's Algorithm uses a greedy approach — once a vertex is finalized, it is never revisited. This fails when a shorter path through a negative edge exists later. Bellman-Ford avoids this by relaxing **all edges repeatedly**, ensuring all possible shorter paths are discovered.

@@ -9,6 +9,17 @@ tags: [backtracking, dynamic-programming, tiling, dsa]
 
 The **Tiling Problem** involves determining the number of ways to tile a given grid using dominoes (or similar tiles) of a fixed size. Specifically, in the **Domino Tiling** problem, the goal is to tile a `2 x n` grid using `1 x 2` dominoes. The dominoes can be placed either horizontally or vertically.
 
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="JdFVS34zh48"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2 X N Tiling | Ways to Tile A Floor | Recursion + Memoisation + Tabulation + Optimization | DP-12 "
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics ✨
 
 - **Grid Tiling**: The problem asks how to completely cover a grid without gaps or overlaps, using tiles of a fixed size.

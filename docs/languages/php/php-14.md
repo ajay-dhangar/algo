@@ -9,6 +9,16 @@ tags: [php, inheritance, oop, extends, parent]
 
 Inheritance lets a class inherit properties and methods from another class. The child class `extends` the parent class.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="X6xY4Ouydas"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4: Visibility And Inheritance In OOP PHP | OOP Scopes | Object Oriented PHP Tutorial | PHP Tutorial"
+  lazyLoad={true}
+  webp
+/>
+
 ## Basic Inheritance
 
 ```php

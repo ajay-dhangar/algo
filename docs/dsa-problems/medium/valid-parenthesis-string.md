@@ -33,6 +33,16 @@ Input: `s = "(*))"`
 Output: `true`
 **Explanation:** The `'*'` can be treated as a left parenthesis `'('`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="cHT6sG_hUZI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L11. Valid Parenthesis String | Multiple Approaches"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

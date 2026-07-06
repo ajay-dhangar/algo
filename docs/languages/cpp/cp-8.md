@@ -12,6 +12,16 @@ keywords: ["C++ classes", "object-oriented programming", "constructors", "destru
 
 C++ was originally engineered as "C with Classes" to bridge low-level system speeds with high-level structural modeling. At the heart of this paradigm lies the **Class**, which serves as user-defined blueprints for objects.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="mlIUKyZIUUU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="OOPs Tutorial in One Shot | Object Oriented Programming | in C++ Language | for Placement Interviews"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Defining a Class and Instantiating Objects
 
 A **Class** is a logical template or blueprint. An **Object** is a physical instance of that class allocated in memory. Classes encapsulate data (attributes) and behaviors (methods) into a single cohesive unit.

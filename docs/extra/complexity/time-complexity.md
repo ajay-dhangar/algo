@@ -15,6 +15,17 @@ Time Complexity is a measure of the amount of time an algorithm takes to solve a
 
 Time Complexity is important because it helps us understand the efficiency of an algorithm. It allows us to compare different algorithms and choose the most efficient one for a given problem. It also helps us analyze the performance of an algorithm as the size of the input grows.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="9TlHvipP5yA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="1.5.1 Time Complexity #1"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Common Notations for Time Complexity
 
 The most common notations used to represent the time complexity of an algorithm are:

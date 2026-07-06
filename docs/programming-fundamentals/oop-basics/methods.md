@@ -11,6 +11,16 @@ tags: [Methods, Functions, OOP, C++, Best-Practices]
 
 In C++, methods (also called member functions) are functions defined inside a class. They define the behavior of objects and are central to Object-Oriented Programming.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="1oOWq4rpXIg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Class Member Functions (aka Methods) | C++ Tutorial"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Introduction to Methods
 
 **Definition:**  

@@ -15,6 +15,17 @@ The Fibonacci sequence is a famous series of numbers where each number is the su
 
 This sequence has numerous applications in mathematics, computer science, and even nature. Here, we'll implement a recursive approach to generate the Fibonacci sequence.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="dxyYP3BSdcQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Fibonacci Sequence - Anatomy of recursion and space complexity analysis"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Recursive Approach
 
 Recursion is a programming technique where a function calls itself. In the context of the Fibonacci sequence, we can define a function that takes an integer `n` as input and returns the `n`th Fibonacci number.

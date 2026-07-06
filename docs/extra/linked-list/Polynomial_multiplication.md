@@ -11,6 +11,16 @@ tags: [C++, Linked Lists, Polynomial Multiplication]
 ## Description
 This program demonstrates how to multiply two polynomials represented by singly linked lists in C++. Each term of a polynomial is stored as a node containing a coefficient and an exponent, and the program outputs the result of the multiplication.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_XjzQzZY2gg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Application of Linked List (Multiplication of Two Polynomials)"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 1. **Node Structure**: Each term of the polynomial is represented by a `Node` struct with fields for coefficient, exponent, and a pointer to the next node.

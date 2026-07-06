@@ -8,6 +8,16 @@ sidebar_label: Multithread in Java
 ## What is a Thread?
 A **thread** is the smallest unit of a process that can be scheduled for execution. It is a lightweight process that shares the same memory and resources of its parent process, allowing multiple tasks to be performed simultaneously. Java provides built-in support for multithreaded programming, which allows applications to perform multiple tasks at the same time, improving performance and responsiveness.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="r_MbozD32eo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Multithreading in Java Explained in 10 Minutes"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Concepts
 - **Process**: An independent program in execution, with its own memory space.
 - **Thread**: A subset of a process that shares the process’s memory and resources.

@@ -100,6 +100,7 @@ Let's go through each pattern one by one.
 - Fruits Into Baskets: Given an array of characters where each character represents a fruit tree, you are given two baskets, and your goal is to put maximum number of fruits in each basket.
 - Longest Substring with K Distinct Characters: Given a string, find the length of the longest substring in it with no more than K distinct characters.
 
+
 ## 5. Merge Intervals
 
 **Description**: The Merge Intervals pattern is a powerful technique used to deal with overlapping intervals or ranges. It involves sorting and then merging intervals based on specific conditions. This pattern is incredibly useful for time-based problems, scheduling, and range manipulation.
@@ -120,6 +121,7 @@ Let's go through each pattern one by one.
 - Merge Intervals: Given a list of intervals, merge all the overlapping intervals to produce a list that has only mutually exclusive intervals.
 - Insert Interval: Given a list of non-overlapping intervals sorted by their start time, insert a given interval at the correct position and merge all necessary intervals to produce a list that has only mutually exclusive intervals.
 - Intervals Intersection: Given two lists of intervals, find the intersection of these two lists. Each list consists of disjoint intervals sorted on their start time.
+
 
 ## 6. Cyclic Sort
 
@@ -142,6 +144,7 @@ Let's go through each pattern one by one.
 - Find all Duplicates: Find all the duplicate numbers (without using extra space and in O(n) runtime).
 - Duplicates In Array: Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 
+
 ## 7. In-place Reversal of a Linked List
 
 **Description**: The In-place Reversal of a Linked List pattern is a technique used to reverse the elements of a linked list without using additional memory. This is achieved by manipulating the pointers of the nodes in the linked list to reverse their direction.
@@ -162,6 +165,7 @@ Let's go through each pattern one by one.
 - Reverse a LinkedList: Given the head of a Singly LinkedList, reverse the LinkedList.
 - Reverse a Sub-list: Given the head of a LinkedList and two positions ‘p’ and ‘q’, reverse the LinkedList from position ‘p’ to ‘q’.
 - Reverse Every K-element Sub-list: Given the head of a LinkedList and a number ‘k’, reverse every ‘k’ sized sub-list starting from the head.
+
 
 ## 8. Tree Breadth First Search
 
@@ -184,6 +188,7 @@ Let's go through each pattern one by one.
 - Reverse Level Order Traversal: Traverse a tree in reverse level order.
 - Zigzag Traversal: Traverse a tree in a zigzag order.
 
+
 ## 9. Tree Depth First Search
 
 **Description**: The Tree Depth First Search (DFS) pattern involves traversing a tree in a depth-first manner, meaning you go as deep as possible down one branch before backing up and exploring other branches. This is typically implemented using recursion or a stack.
@@ -204,6 +209,7 @@ Let's go through each pattern one by one.
 - Binary Tree Path Sum: Given a binary tree and a number ‘S’, find if the tree has a path from root-to-leaf such that the sum of all the node values of that path equals ‘S’.
 - All Paths for a Sum: Find all root-to-leaf paths in a binary tree that have a sum equal to a given number.
 - Count Paths for a Sum: Find the number of paths in a tree that sum up to a given value.
+
 
 ## 10. Two Heaps
 
@@ -226,6 +232,7 @@ Let's go through each pattern one by one.
 - Sliding Window Median: Find the median of all subarrays of size ‘K’ in the array.
 - Maximize Capital: Given a set of investment projects with their respective profits, we need to find the most profitable projects. We are given an initial capital and are allowed to invest only in a fixed number of projects. Our goal is to choose projects that give us the maximum profit.
 
+
 ## 11. Subsets
 
 **Description**: The Subsets pattern involves dealing with problems that require generating all possible combinations or subsets of a set. This pattern is particularly useful when you need to explore all the different ways to combine elements, which is a common scenario in many coding problems.
@@ -246,6 +253,7 @@ Let's go through each pattern one by one.
 - Subsets: Given a set with distinct elements, find all of its distinct subsets.
 - Subsets With Duplicates: Given a set of numbers that might contain duplicates, find all of its distinct subsets.
 - Permutations: Given a set of distinct numbers, find all of its permutations.
+
 
 ## 12. Modified Binary Search
 
@@ -275,6 +283,7 @@ Let's go through each pattern one by one.
 **Usage**:
 - Finding Missing or Duplicate Numbers: Ideal for problems where you need to find a missing number or duplicate numbers
 
+
 ## 14. Top 'K' Elements
 
 **Description**: The Top 'K' Elements pattern involves finding the 'K' largest or smallest elements in an array or stream of data. This pattern is particularly useful when dealing with large datasets and you need to maintain a subset of the data based on certain criteria.
@@ -295,6 +304,7 @@ Let's go through each pattern one by one.
 - **Top 'K' Numbers**: Given an unsorted array of numbers, find the ‘K’ largest numbers in it.
 - **Kth Smallest Number**: Given an unsorted array of numbers, find the Kth smallest number in it.
 - **‘K’ Closest Points to the Origin**: Given an array of points in the a 2D plane, find ‘K’ closest points to the origin.
+
 
 ## 15. K-way Merge
 
@@ -317,6 +327,7 @@ Let's go through each pattern one by one.
 - **Kth Smallest Number in M Sorted Lists**: Given ‘M’ sorted arrays, find the K’th smallest number among all the arrays.
 - **Find the Smallest Range Covering Elements from K Lists**: Given ‘M’ sorted arrays, find the smallest range that includes at least one number from each of the ‘M’ lists.
 
+
 ## 16. Topological Sort
 
 **Description**: Topological Sort is a pattern used for linearly ordering the vertices of a directed graph in such a way that for every directed edge (U, V), vertex U comes before V. This pattern is particularly useful in scenarios where you have a set of tasks and some tasks depend on others.
@@ -337,6 +348,7 @@ Let's go through each pattern one by one.
 - **Topological Sort**: Given a directed graph, find the topological ordering of its vertices.
 - **Tasks Scheduling**: Find if it is possible to schedule all the tasks.
 - **Tasks Scheduling Order**: Find the order of tasks we should pick to finish all tasks.
+
 
 ## 17. Trie
 
@@ -360,6 +372,7 @@ Let's go through each pattern one by one.
 - **Longest Common Prefix**: Find the longest common prefix of a set of strings.
 - **Word Search**: Given a 2D board and a word, find if the word exists in the grid.
 
+
 ## 18. Backtracking
 **Description** : Backtracking is a general algorithmic technique that considers searching through all the possible configurations of a search space in order to solve computational problems. It is particularly useful for optimization problems and when a complete search of the solution space is required. The main idea is to explore each possibility until the solution is found or all possibilities have been exhausted.
 
@@ -378,7 +391,6 @@ Let's go through each pattern one by one.
  - **Subsets** Given a set of numbers, find all of its subsets.
  - **Permutations**  Given a set of distinct numbers, find all of its permutations.
  - **N-Queens**  Place N queens on an N×N chessboard so that no two queens threaten each other.
-
 
 ## 19. Monotonic Stack
 
@@ -400,6 +412,7 @@ Let's go through each pattern one by one.
 - **Next Greater Element**: Given an array, find the next greater element for each element in the array.
 - **Maximum Area Histogram**: Given a histogram, find the largest rectangular area under the histogram.
 - **Largest Rectangle in Histogram**: Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+
 
 ## 20. 0/1 Knapsack (Dynamic Programming)
 

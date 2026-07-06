@@ -7,6 +7,16 @@ sidebar_label: "Functions"
 
 Functions are the core building blocks of program architecture. TypeScript enhances standard functions with strict parameter and return type validation rules.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="jXoSaX_yFh4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="TypeScript Tutorial #8 - Function Basics"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Explicit Type Annotations
 
 Functions require explicit annotations for parameters and final return profiles to ensure total type safety:

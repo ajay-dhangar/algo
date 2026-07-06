@@ -22,6 +22,16 @@ Rust mainly provides two categories of data types:
 1. Scalar Data Types
 2. Compound Data Types
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="t047Hseyj_k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Rust Tutorial #4 - Data Types"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 # 1. Scalar Data Types

@@ -14,6 +14,16 @@ Whether you want to build high-performance software, dive into AAA game developm
 
 ## What is C++?
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="z9bZufPHFLU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="1. Introduction to C++ | Data Structures and Algorithms | College Placement Course | Lecture 1"
+  lazyLoad={true}
+  webp
+/>
+
 **C++** is a powerful, high-performance, compiled programming language created by **Bjarne Stroustrup** at Bell Labs in 1979. 
 
 Think of it as an upgraded version of the classic **C language**. While it retains the speed and hardware control of C, it introduces **Object-Oriented Programming (OOP)**, allowing developers to write structured, modular, and reusable code for complex applications.

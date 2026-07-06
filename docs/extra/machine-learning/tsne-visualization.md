@@ -11,6 +11,16 @@ tags: [machine learning, data visualization, dimensionality reduction, t-SNE, al
 ### Definition:
 **t-Distributed Stochastic Neighbor Embedding (t-SNE)** is a nonlinear dimensionality reduction technique commonly used for visualizing high-dimensional data. By mapping data points to a lower-dimensional space (typically two or three dimensions), t-SNE preserves the local structure of the data, making patterns and clusters more discernible.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="NEaUSP4YerM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="StatQuest: t-SNE, Clearly Explained"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Nonlinear Dimensionality Reduction**:  
   Unlike linear techniques like PCA, t-SNE captures the complex relationships between data points, making it suitable for data with intricate structures.

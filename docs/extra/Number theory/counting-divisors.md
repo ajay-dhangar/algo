@@ -11,6 +11,17 @@ tags: [Counting Divisors, number theory, factorization, divisors]
 
 The **Counting Divisors** algorithm calculates the total number of divisors of a given integer **n**. Divisors are numbers that divide **n** without leaving a remainder. This algorithm is particularly useful in number theory problems, such as perfect number checking, factorization, and determining the structure of numbers.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Ae_Ag_saG9s"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L2. Print all Divisors of a Number | Maths Playlist"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Algorithm to Count Divisors
 
 To count the divisors of a number **n**, iterate through all integers from 1 to √n and check if they divide **n**. If they do, both the divisor and its corresponding pair are counted.

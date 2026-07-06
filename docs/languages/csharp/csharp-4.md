@@ -9,6 +9,16 @@ sidebar_label: "Loops in C#"
 
 Loops in C# allow you to execute a block of code repeatedly based on specific conditions.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="9ozOSKCiO0I"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="How to Program in C# - Loops (E04)"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. For Loop

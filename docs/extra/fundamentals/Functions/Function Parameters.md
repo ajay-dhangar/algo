@@ -17,6 +17,16 @@ tags: [functions, fundamentals, programming fundamentals, parameters]
 return_type function_name(parameter1_type parameter1, parameter2_type parameter2);
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7ThRtb-EMh8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-28: Functions in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 ### C++ Example
 ```c++
@@ -43,6 +53,16 @@ def function_name(parameter1, parameter2):
     # function body
 
 ```
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="uY8QPE0dcSs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Functions with Arguments in Python | Parameters vs Arguments | Python Tutorials for Beginners #lec60"
+  lazyLoad={true}
+  webp
+/>
 
 ## Example
 ### Python Example

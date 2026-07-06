@@ -10,6 +10,16 @@ tags: [dsa, algorithms, graphs, page rank]
 
 The **PageRank algorithm** is a **link analysis algorithm** developed by Larry Page and Sergey Brin, which is used to determine the importance of web pages based on their link structure. The algorithm assigns a numerical value (PageRank score) to each page, indicating its relative importance, with higher scores indicating more important pages.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="P8Kt6Abq_rM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="PageRank Algorithm - Example"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Graph-Based Algorithm**:

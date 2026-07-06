@@ -11,6 +11,17 @@ tags:
 
 The **Sliding Window** technique is one of the most powerful patterns in DSA. It converts an O(n²) brute-force approach into an elegant O(n) solution for problems involving **contiguous subarrays or substrings**.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="9kdHxplyl5I"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L1. Introduction to Sliding Window and 2 Pointers | Templates | Patterns"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 🧠 Core Idea

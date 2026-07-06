@@ -17,9 +17,31 @@ Recursion is a powerful programming technique, but when the recursion depth exce
    - This error occurs when the recursion depth exceeds the available stack size. Each function call uses some memory on the call stack, and if too many calls are made before reaching a base case, the stack runs out of space. 
    - **Symptoms**: Your program may crash or throw an error like `RecursionError: maximum recursion depth exceeded` in Python.
 
+   **Video Explanation**
+
+<LiteYouTubeEmbed
+  id="_6zAAhkU_Iw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What ACTUALLY happens during a Stack Overflow?"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 2. **Infinite Recursion**: 
    - This occurs when the base case is missing or incorrectly implemented. The function keeps calling itself without ever reaching a stopping point, which leads to stack overflow eventually.
    - **Symptoms**: Your program hangs or crashes after a while due to excessive memory usage.
+
+   **Video Explanation**
+
+<LiteYouTubeEmbed
+  id="uRIHR55tyko"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Life in Infinite Recursion"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Solutions
 

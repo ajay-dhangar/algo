@@ -17,6 +17,16 @@ A `data class` is a class designed to hold data. Kotlin automatically generates:
 - `copy()` — create a modified copy
 - `componentN()` — destructuring support
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Z6xj7hta7Ac"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin DATA CLASS. Object Oriented Programming in Kotlin for Android #8.10"
+  lazyLoad={true}
+  webp
+/>
+
 ## Basic Syntax
 
 ```kotlin

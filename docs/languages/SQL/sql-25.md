@@ -13,6 +13,16 @@ With the growing use of JSON (JavaScript Object Notation) for data exchange, man
 ## JSON Data Type
 Many SQL databases, including MySQL, PostgreSQL, and SQL Server, support a `JSON` data type, allowing structured data to be stored in a single column.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="mL7xnMZNYXM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Learning MySQL - JSON in MySQL"
+  lazyLoad={true}
+  webp
+/>
+
 ### Benefits:
 - **Structured Storage**: Store hierarchical data.
 - **Efficient Access**: Query and manipulate JSON data using SQL.

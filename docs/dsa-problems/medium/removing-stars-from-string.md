@@ -22,6 +22,17 @@ Return the string after all stars have been removed.
 - The input will be generated such that the operation is always possible.
 - It can be shown that the resulting string will always be unique.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="pRyFZIaKegA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Removing Stars From a String - Leetcode 2390 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 To solve this problem, we can use a **stack** to keep track of the non-star characters. We iterate through the string, and for each character:

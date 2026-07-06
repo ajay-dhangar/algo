@@ -11,6 +11,16 @@ tags: ["go","golang","channels","concurrency"]
 
 Hey there! In this guide, we'll explore **Channels** in Go. Channels are the pipes that connect concurrent goroutines. You can send values into channels from one goroutine and receive those values into another goroutine. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="B9uR2gLM80E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Go Concurrency Explained: Go Routines & Channels"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. What is a Channel?
 
 A channel is a typed conduit through which you can send and receive values with the channel operator, `<-`. 

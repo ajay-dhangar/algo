@@ -16,6 +16,18 @@ Merkle Tree is a cryptographic data structure used to ensure the integrity and c
 ## Introduction
 A Merkle Tree, also known as a hash tree, is a binary tree where each leaf node contains a hash of data blocks, and each non-leaf node contains a hash of its child nodes. The root node of the Merkle Tree is called the Merkle Root and provides a unique fingerprint of the entire dataset. Merkle Trees enable fast verification of data integrity without requiring access to the entire dataset.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="fB41w3JcR7U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Merkle Tree | Merkle Root | Blockchain"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## Characteristics of Merkle Tree Algorithm
 - **Efficient Verification**: Merkle Trees allow efficient verification of whether a data block belongs to a dataset by providing proof with logarithmic complexity.
 - **Tamper Resistance**: Any modification to the underlying data changes the Merkle Root, ensuring tamper-proof data integrity.

@@ -11,6 +11,17 @@ tags: [dsa, dp, grid problems, matrix]
 
 The Beautiful Subgrids problem involves finding subgrids within a larger 2D grid that possess certain "beautiful" properties, such as symmetry or uniformity in values. The challenge is to efficiently count such subgrids, especially as the grid size increases.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="4Qzo8Fj-XV8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP-8 Grid Problems in Dynamic Programming | Competitive Programming | DSA"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Constraints
 
 - The dimensions of the grid can be large, potentially reaching up to $10^5$ rows and $10^5$ columns.

@@ -11,6 +11,16 @@ sidebar_position: 20
 
 Generics allow you to write **type-safe, reusable code** that works with different data types without sacrificing type safety. Instead of writing separate classes for each type, you write one class with a type parameter.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V-3L2TEdJXs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin Newbie to Pro - GENERICS - Part 29"
+  lazyLoad={true}
+  webp
+/>
+
 ## Generic Functions
 
 ```kotlin

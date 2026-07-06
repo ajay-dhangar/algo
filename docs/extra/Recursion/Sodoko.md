@@ -18,6 +18,17 @@ tags: [sudoku, backtracking, recursion, puzzle-solving]
   2. All the columns should be filled with numbers(1 - 9) exactly once.          
   3. Each 3x3 submatrix should be filled with numbers(1 - 9) exactly once.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="TjFXEUCMqI8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Valid Sudoku - Amazon Interview Question - Leetcode 36 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 
 ## Approach:
 - Let’s see the step by step approach. Our main recursive function(solve()) is going to just do a plain matrix traversal of the sudoku board. When we find an empty cell, we pause and try to put all available numbers(1 - 9) in that particular empty cell.

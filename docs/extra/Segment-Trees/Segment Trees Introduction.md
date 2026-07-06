@@ -11,6 +11,17 @@ tags: [dsa, data structures, segment trees]
 
 ![Segment Tree](Segment-Tree-img.png)
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="-dUiRtJ8ot0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Segment Tree: Build and Query | Live Coding.."
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 
 ## Definition and Structure
 A Segment Tree is a binary tree where each node represents an interval or segment of an array. The leaf nodes represent individual elements of the array, while each internal node represents the aggregation (sum, minimum, maximum, etc.) of its child segments.

@@ -9,6 +9,16 @@ tags: [php, associative-arrays, key-value]
 
 Associative arrays use named keys (strings) that you assign to them. They are like dictionaries or hashmaps in other languages.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="yJNeEGvskpw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Associative Arrays in Php | PHP Tutorial #18"
+  lazyLoad={true}
+  webp
+/>
+
 ## Creating an Associative Array
 
 ```php

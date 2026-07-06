@@ -17,6 +17,16 @@ php is a widely-used open-source server-side scripting language designed especia
 * php is free to download and use
 * php files have the extension `.php`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="a7_WFUlFS94"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="PHP in 100 Seconds"
+  lazyLoad={true}
+  webp
+/>
+
 * * *
 
 ## What Can php Do?

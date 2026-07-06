@@ -13,6 +13,16 @@ Absolute beginners who want a single, deep-dive document covering every common d
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="rzA7UJ-hQn4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Complete Java Collections Framework in 1 Video - Java Collections Framework"
+  lazyLoad={true}
+  webp
+/>
+
 ### 1. Collections Framework Overview
 
 The Java Collections Framework is a unified architecture for storing and manipulating groups of objects. Every structure in this document lives under `java.util`.

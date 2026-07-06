@@ -15,6 +15,16 @@ sidebar_label: Boyer-Moore
 - **Heuristic-Based Skipping**: Uses heuristics to skip mismatching sections.
 - **Backward Matching**: Compares the pattern from right to left.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="4Xyhb72LCX4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="ADS1: Boyer-Moore basics"
+  lazyLoad={true}
+  webp
+/>
+
 ### How Boyer-Moore Works:
 
 1. **Initialize**: Place pattern at the start of the text.

@@ -12,6 +12,17 @@ tags: [Neural Networks, Deep Learning, RNN, Sequence Modeling, NLP]
 ## Overview
 **Recurrent Neural Networks (RNNs)** are a type of neural network architecture tailored for sequential data. Unlike traditional feedforward neural networks, RNNs include cycles that allow them to maintain information across sequence steps. This makes RNNs ideal for tasks such as time-series forecasting, natural language processing (NLP), and other applications where order and context are crucial.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="AsNTP8Kwu80"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Recurrent Neural Networks (RNNs) Clearly Explained!!!"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Description
 - **Input**: A sequence of data points, which may be a series of numbers, words, or any sequential data.
   - Each element depends on the previous ones.

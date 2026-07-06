@@ -15,6 +15,16 @@ sidebar_label: A*
 - **Optimal**: Finds the shortest path if the heuristic is admissible.
 - **Complete**: Ensures a solution is found if one exists.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="ySN5Wnu88nE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="A* (A Star) Search Algorithm - Computerphile"
+  lazyLoad={true}
+  webp
+/>
+
 ### How A\* Works:
 
 1. **Initialize**: Start with the initial node in the open list.

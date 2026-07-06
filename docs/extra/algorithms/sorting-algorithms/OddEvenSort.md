@@ -6,6 +6,17 @@
 
 Odd-Even Sort is a simple comparison-based sorting algorithm, also known as Brick Sort. It works by repeatedly comparing all odd-indexed elements with their next even-indexed neighbor and swapping them if they are out of order. Then, it performs the same comparison for even-indexed elements and continues alternating between these two phases until the list is sorted.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="vXwKKzn6D4E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Brick Sort | Bubble Sort Algorithm | Java plus DSA Placement | FAANG"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Parallel Comparison**:
@@ -19,6 +30,7 @@ Odd-Even Sort is a simple comparison-based sorting algorithm, also known as Bric
 
 - **Simple Implementation**:
   - Odd-Even Sort is easy to implement and can be parallelized since adjacent element comparisons are independent.
+
 
 ### Time Complexity:
 

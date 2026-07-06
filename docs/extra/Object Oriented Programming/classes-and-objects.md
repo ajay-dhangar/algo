@@ -11,6 +11,17 @@ tags: [oops, classes, objects]
 
 In Object-Oriented Programming (OOP), **classes** and **objects** are fundamental concepts that help structure your code.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="HeW-D6KpDwY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 8 : OOPS in Python | Object Oriented Programming | Classes & Objects | Python Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## **What is a Class?**
 
 A **class** is a blueprint or template for creating objects. It defines a datatype by bundling data and methods that work on the data. Classes encapsulate data for the object and define methods for manipulating that data.

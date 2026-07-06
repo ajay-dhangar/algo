@@ -11,6 +11,16 @@ tags: [dsa, algorithms, greedy algorithms, knapsack problem, javascript, c++]
 
 The Fractional Knapsack Problem is a variation of the classic knapsack problem where we can take fractions of an item. The objective is to maximize the total value of items carried in a knapsack with a given capacity. In contrast to the 0/1 Knapsack Problem, where you must either take the entire item or leave it, the fractional knapsack allows you to take any portion of an item.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="xZfmHVi7FMg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Fractional Knapsack Problem using Greedy Method | Example | Data structures and algorithms"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Greedy Approach**:

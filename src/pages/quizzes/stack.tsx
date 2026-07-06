@@ -158,7 +158,7 @@ const StackQuiz: React.FC = () => {
 
   useEffect(() => {
     setIsMounted(true);
-    const storedUser = localStorage.getItem("algo_quiz_username");
+    const storedUser = localStorage.getItem("quiz_username");
     if (storedUser) {
       setUsername(storedUser);
       const historyKey = `algo_quiz_history_${storedUser.toLowerCase()}`;
@@ -184,18 +184,11 @@ const StackQuiz: React.FC = () => {
 
   const selectedOption = userAnswers[currentQuestion] || null;
 
-  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleRegister(option);
-    }
-  };
-
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
     const cleanName = usernameInput.trim();
-    localStorage.setItem("algo_quiz_username", cleanName);
+    localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
 
     const historyKey = `algo_quiz_history_${cleanName.toLowerCase()}`;
@@ -203,7 +196,7 @@ const StackQuiz: React.FC = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("algo_quiz_username");
+    localStorage.removeItem("quiz_username");
     setUsername(null);
     setUsernameInput("");
     setLocalHistory([]);

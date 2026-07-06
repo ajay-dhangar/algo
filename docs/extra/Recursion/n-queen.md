@@ -12,6 +12,17 @@ tags: [n-queen, backtracking, recursion, dsa]
 - Problem Statement: The n-queens is the problem of placing n queens on n × n chessboard such that no two queens can attack each other. Given an integer n, return all distinct solutions to the n -queens puzzle. 
   Each solution contains a distinct boards configuration of the queen's placement, where ‘Q’ and ‘.’ indicate queen and empty space respectively.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="xFv_Hl4B83A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.1 N Queens Problem using Backtracking"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;

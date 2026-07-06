@@ -24,6 +24,16 @@ A string is a data structure that holds a sequence of characters, such as letter
 
 In JavaScript, strings can be enclosed in single quotes (`'`), double quotes (`"`), or template literals (`` ` ``) for multi-line strings and interpolation.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="UmRtFFSDSFo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 3: Loops and Strings | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 #### Declaration and Initialization
 
 ```js title="JavaScript String Example"
@@ -61,6 +71,17 @@ console.log(message.slice(0, 4)); // Output: Java
 
 In Java, strings are objects of the `String` class and are immutable. Java provides a rich set of methods to manipulate strings efficiently.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="vCRD36bG8xQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings | Lecture 12 | Java Placement Series"
+  lazyLoad={true}
+  webp
+/>
+
+
 #### Declaration and Initialization
 
 ```java title="Java String Example"
@@ -95,6 +116,16 @@ System.out.println(text.substring(0, 6)); // Output: Progra
 ### Python Strings Overview
 
 In Python, strings are a built-in data type and are immutable. Python provides various methods to manipulate strings efficiently.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="lIId8IDP6TU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Strings & Conditional Statements | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
 
 #### Declaration and Initialization
 
@@ -132,6 +163,16 @@ print(text.split(", "))  # Output: ['Hello', 'World!']
 ### C++ Strings Overview
 
 In C++, strings can be handled using C-style character arrays or the `std::string` class from the Standard Library.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="MOSjYaVymcU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings & Character Arrays in C++ - Part 1 | DSA Placement Series"
+  lazyLoad={true}
+  webp
+/>
 
 #### Declaration and Initialization
 

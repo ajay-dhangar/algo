@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
+import QuizErrorBoundary from "../../components/Quiz/QuizErrorBoundary";
+import QuizSkeleton from "../../components/Quiz/QuizSkeleton";
+import { useQuizData } from "../../hooks/useQuizData";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -147,7 +150,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
   const [userId, setUserId] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
   const [timeSpent, setTimeSpent] = useState(0);
-  const [attempts, setAttempts] = useState<HistoryAttempt[]>([]);
+  const { attempts, isLoading, fetchAttempts, submitAttempt, setAttempts } = useQuizData({ quizId: "binary-search-tree" });
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -177,33 +180,11 @@ const BinarySearchTreeQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = useCallback((uId: string) => {
-    const historyKey = `quiz_attempts_${uId}_binary-search-tree`;
-    const savedAttempts = localStorage.getItem(historyKey);
-    if (savedAttempts) {
-      try {
-        setAttempts(JSON.parse(savedAttempts));
-      } catch (e) {
-        console.error("Error parsing history attempts:", e);
-        setAttempts([]);
-      }
-    } else {
-      setAttempts([]);
-    }
-  }, []);
-
-  useEffect(() => {
+    useEffect(() => {
     if (userId) {
       fetchAttempts(userId);
     }
   }, [userId, fetchAttempts]);
-
-  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleRegister(option);
-    }
-  };
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -224,24 +205,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
     handleRetry();
   };
 
-  const submitAttempt = (finalAnswers: string[]) => {
-    if (!userId) return;
-    const newAttempt: HistoryAttempt = {
-      id: Math.random().toString(36).substring(2, 9),
-      score: score,
-      totalQuestions: QUESTIONS.length,
-      timeSpent: timeSpent,
-      completedAt: new Date().toISOString()
-    };
-    const historyKey = `quiz_attempts_${userId}_binary-search-tree`;
-    const savedAttempts = localStorage.getItem(historyKey);
-    const existing = savedAttempts ? JSON.parse(savedAttempts) : [];
-    const updated = [newAttempt, ...existing].slice(0, 5);
-    localStorage.setItem(historyKey, JSON.stringify(updated));
-    setAttempts(updated);
-  };
-
-  const handleAnswer = (selected: string) => {
+    const handleAnswer = (selected: string) => {
     setUserAnswers((prev) => {
       const updated = [...prev];
       updated[currentQuestion] = selected;
@@ -256,7 +220,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResult(true);
-      submitAttempt(userAnswers);
+      submitAttempt(userId, score, QUESTIONS.length, timeSpent);
     }
   };
 
@@ -318,6 +282,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
 
   return (
     <Layout title="Binary Search Tree Evaluation Engine">
+      <QuizErrorBoundary>
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans py-12 px-4">
         <div className="max-w-4xl mx-auto">
           
@@ -547,6 +512,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
           </div>
         </div>
       </div>
+          </QuizErrorBoundary>
     </Layout>
   );
 };

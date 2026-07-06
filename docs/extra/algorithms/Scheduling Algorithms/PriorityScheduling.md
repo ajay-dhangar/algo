@@ -25,6 +25,16 @@ Consider four processes with the following burst times and priorities:
 
 Using the Priority Scheduling algorithm, the processes will be executed in the order of their priority: Process 2, Process 1, Process 3, and then Process 4.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="rsDGfFxSgiY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.8: Pre-emptive Priority Scheduling Algorithm with Example | Operating System"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Definition
 
 Given a list of processes along with their burst times and priorities, calculate the waiting times, turnaround times, average waiting time, and average turnaround time for the processes.

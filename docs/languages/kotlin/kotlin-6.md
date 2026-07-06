@@ -7,6 +7,16 @@ sidebar_position: 6
 
 # User Input and Output
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="UTEYWN64m-s"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="#39 Kotlin Tutorial | User Input in Kotlin"
+  lazyLoad={true}
+  webp
+/>
+
 ## Output: Printing to Console
 
 ### `println()` — Print with Newline

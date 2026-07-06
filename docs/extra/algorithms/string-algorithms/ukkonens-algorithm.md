@@ -11,6 +11,17 @@ sidebar_label: Ukkonen's Algorithm
 
 Ukkonen's Algorithm is an online algorithm for constructing suffix trees in linear time. Published by Esko Ukkonen in 1995, it builds a suffix tree for a string by processing characters one by one from left to right. The algorithm is notable for its efficiency and the elegant way it handles suffix links to achieve linear time complexity.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="aPRqocoBsFQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Suffix Tree using Ukkonen's algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Online Processing**:

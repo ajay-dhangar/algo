@@ -10,6 +10,16 @@ tags: [sql, database, mysql, cheatsheet]
 
 This page is a quick reference for commonly used SQL commands and database operations. Whether you're preparing for interviews, learning DBMS, or building backend applications, this cheatsheet covers the essentials.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="HXV3zeQKqGY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="SQL Tutorial - Full Database Course for Beginners"
+  lazyLoad={true}
+  webp
+/>
+
 ## Database Operations
 
 ### Create Database

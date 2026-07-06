@@ -9,6 +9,16 @@ tags: [backtracking, dfs, matrix, trie, dsa]
 
 The **Word Search** problem involves finding whether a given word exists in a 2D character grid by traversing adjacent cells (up, down, left, right). It is a classic application of **DFS with backtracking** on a matrix.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="pfiQ_PS1g8E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Word Search - Backtracking - Leetcode 79 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Statement
 
 ### Word Search I (LeetCode 79)

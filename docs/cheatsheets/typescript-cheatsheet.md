@@ -9,6 +9,16 @@ tags: [typescript, cheatsheet, dsa]
 
 This page is a quick reference for TypeScript patterns that show up constantly in DSA and competitive programming. TypeScript adds static typing to JavaScript, catching errors at compile time. If you're just starting out, don't worry, every snippet here is explained line by line 😊
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="d56mG7DezGs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="TypeScript Tutorial for Beginners"
+  lazyLoad={true}
+  webp
+/>
+
 ## Type Annotations
 
 ### Basic Types

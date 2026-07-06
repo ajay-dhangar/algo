@@ -13,6 +13,16 @@ Java is a general-purpose, class-based, and object-oriented programming language
 minimal implementation dependencies. It is known for its "Write Once, Run Anywhere" philosophy, which means that 
 compiled Java code can run on all platforms that support Java without the need for recompilation.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="yRpLlJmRo2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Introduction to Java Language | Lecture 1 | Complete Placement Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Use Java?
 Java is a powerful and versatile programming language, offering several compelling reasons why developers choose to use it:
 

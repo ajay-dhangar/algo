@@ -11,6 +11,16 @@ Conditional statements allow a program to make decisions based on certain condit
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="lIId8IDP6TU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Strings & Conditional Statements | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## Types of Conditional Statements
 
 ### 1. **if Statement**

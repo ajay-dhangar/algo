@@ -9,6 +9,17 @@ tags: [machine learning, search algorithm, beam search, NLP, transformer]
 ### Definition:
 **Beam Search** is a heuristic search algorithm that is widely used in sequence prediction tasks to find the most likely sequence of outputs by considering multiple candidates at each step. Beam Search is particularly useful in applications like language translation, speech recognition, and image captioning where the goal is to generate coherent, accurate sequences based on probabilities.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="jhoXO1XF6Fk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-18: Beam Search Algorithm | All Imp Points | Heuristic Search Techniques"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Heuristic Search**:  
   Beam Search uses a probabilistic approach, evaluating multiple partial sequences at each time step and discarding less likely candidates.

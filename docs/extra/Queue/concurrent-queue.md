@@ -11,6 +11,17 @@ tags: [data structure, concurrency, multithreading]
 
 A concurrent queue is a thread-safe data structure designed for safe access by multiple threads. It allows efficient queue operations while ensuring data integrity and preventing race conditions.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RlM9AfWf1WU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Concurrency Vs Parallelism!"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Introduction
 
 A concurrent queue follows the First In First Out (FIFO) principle, allowing multiple threads to perform enqueue and dequeue operations safely without explicit locks. This makes it ideal for multithreading environments.

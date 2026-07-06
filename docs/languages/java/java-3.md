@@ -10,6 +10,16 @@ Hey there! In this guide, we'll explore decision-making in Java. Decision-making
 * Decision-making structures allow you to execute different blocks of code based on certain conditions.
 * Java provides several constructs for decision-making, including `if`, `else`, `else if`, and `switch`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="I5srDu75h_M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Conditional Statements | If-else, Switch Break | Complete Java Placement Course | Lecture 3"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. The `if` Statement
 
 ### Syntax:

@@ -12,6 +12,16 @@ tags: [dsa, algorithms, shortest path]
 
 Johnson's Algorithm is a versatile method to find the shortest paths between all pairs of nodes in a weighted graph, including graphs with both positive and negative weights (but no negative cycles). It combines Bellman-Ford and Dijkstra’s algorithms to achieve an efficient solution.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="johyrWospv0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Johnson's Algorithm - All simple cycles in directed graph"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Features:
 - **Time Complexity**: O(V² log V + VE) where V is the number of vertices, and E is the number of edges.
 - **Space Complexity**: O(V²) for storing distances between every pair.

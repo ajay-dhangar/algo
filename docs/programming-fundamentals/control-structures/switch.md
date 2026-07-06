@@ -56,6 +56,16 @@ Let's look at an example to understand how `switch` statements work in practice.
 
     In JavaScript, you can use a `switch` statement to print the name of a day based on the day number:
 
+  ## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Zg4-uSjxosE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Operators and Conditional Statements | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
     ```javascript title="Print the name of a day"
     let dayNumber = 3;
     let dayName;
@@ -91,11 +101,23 @@ Let's look at an example to understand how `switch` statements work in practice.
 
   </TabItem>
 
+
   <TabItem value="java" label="Java">
 
     <h3>Java Switch Example</h3>
 
     In Java, you can use a `switch` statement to print the name of a day based on the day number:
+
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="I5srDu75h_M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Conditional Statements | If-else, Switch Break | Complete Java Placement Course | Lecture 3"
+  lazyLoad={true}
+  webp
+/>
 
     ```java title="Print the name of a day"
     int dayNumber = 3;
@@ -130,11 +152,22 @@ Let's look at an example to understand how `switch` statements work in practice.
     System.out.println("The day is: " + dayName);
     ```
     </TabItem>
+
     <TabItem value="python" label="Python">
 
     <h3>Python Switch Example</h3>
 
     Python does not have a built-in `switch` statement, but you can achieve similar functionality using a dictionary:
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ceiuLR2ysas"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="If Else Conditional Statements in Python | Python Tutorial - Day #14"
+  lazyLoad={true}
+  webp
+/>
 
     ```python title="Print the name of a day"
     day_number = 3
@@ -152,6 +185,8 @@ Let's look at an example to understand how `switch` statements work in practice.
     print(f"The day is: {day_name}")
     ```
     </TabItem>
+
+
 </Tabs>
 
 In the example above, we use a `switch` statement to determine the name of the day based on the `dayNumber`. If the `dayNumber` is `3`, the output will be:

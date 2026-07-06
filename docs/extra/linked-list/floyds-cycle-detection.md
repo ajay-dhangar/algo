@@ -13,6 +13,16 @@ Floyd's Cycle Detection Algorithm, also known as the **Tortoise and Hare** algor
 
 The algorithm efficiently detects cycles with a time complexity of $O(n)$ and does not require extra space, making it a more memory-efficient solution compared to hash-based methods.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="gBTe7lFR3vc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Linked List Cycle - Floyd's Tortoise and Hare - Leetcode 141 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ### How the Algorithm Works
 
 Imagine you have a circular race track, and two runners are running around it. One is slower (the tortoise), and the other is faster (the hare). If the track is circular (i.e., there is a cycle), the faster runner will eventually lap the slower runner. This same concept is applied in Floyd's algorithm for linked lists:

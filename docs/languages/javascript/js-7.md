@@ -15,6 +15,16 @@ Hey everyone! Today, we're diving into Arrays in JavaScript, one of the most fun
 - Arrays can hold a collection of items, such as *numbers*, *strings*, *objects*, or even *other arrays*. 
 - Each element in an array is stored at a specific `index`, starting from `0`, which allows for easy access and manipulation of the data.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="gFWhbjzowrM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 4: Arrays | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Features of Arrays:
 
 - Arrays can hold values of different data types.

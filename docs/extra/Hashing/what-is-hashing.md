@@ -11,6 +11,16 @@ tags: [data structures, algorithms, hashing, hash maps]
 
 Hashing is a technique used in computer science to uniquely identify a specific object from a group of similar objects. It involves the transformation of input data (keys) into a fixed-size hash code using a hash function. This hash code serves as an index in a hash table where the actual data (values) is stored.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="W5q0xgxmRd8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-6.1: What is hashing with example | Hashing in data structure"
+  lazyLoad={true}
+  webp
+/>
+
 ### Importance of Hashing
 
 1. **Fast Data Retrieval**: Hashing allows for quick data retrieval, enabling average-case constant time complexity \(O(1)\) for search, insert, and delete operations.

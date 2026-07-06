@@ -432,7 +432,9 @@ button {
 .algo-signup {
   --ifm-link-hover-color: #fff;
   --ifm-navbar-link-hover-color: #fff;
-  color: #fff;
+  background-color: var(--ifm-color-primary-darker);
+  color: #fff !important;
+  border-radius: 4px;
 }
 
 .algo-signup svg {
@@ -440,7 +442,15 @@ button {
 }
 
 .algo-signup:hover {
-  background-color: var(--ifm-color-primary-darker);
+  background-color: var(--ifm-color-primary-darkest);
+}
+
+/* Fix contrast ratio for KaTeX elements in tables */
+td .katex {
+  color: #000;
+}
+html[data-theme='dark'] td .katex {
+  color: #fff;
 }
 
 .algo-login {

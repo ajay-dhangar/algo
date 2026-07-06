@@ -11,6 +11,17 @@ tags: [graph-theory, hamiltonian-cycle, backtracking]
 
 The **Hamiltonian Path** is a path in an undirected or directed graph that visits each vertex exactly once. A **Hamiltonian Cycle** (or Circuit) is a Hamiltonian Path that starts and ends at the same vertex, forming a cycle. These problems are NP-complete and have numerous applications, particularly in areas such as route optimization, logistics, and bioinformatics.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="dQr4wZCiJJ4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Hamiltonian Cycle - Backtracking"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### What is a Hamiltonian Path?
 
 In simple terms, a Hamiltonian Path is a path in a graph where each vertex is visited exactly once. If such a path exists, the graph is called a Hamiltonian Graph. If the path forms a cycle, where the first and last vertex are the same, it is called a Hamiltonian Cycle.

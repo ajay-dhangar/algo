@@ -13,6 +13,16 @@ The Rabin-Karp algorithm is a string-searching algorithm that uses hashing to fi
 
 The algorithm's main advantage is its use of a **rolling hash function**, which allows it to re-compute hash values efficiently as it slides over the text.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qQ8vS2btsxI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9.2 Rabin-Karp String Matching Algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 ## Use Cases
 - **Plagiarism Detection**: Identifies similar or identical sequences within a document.
 - **DNA Sequence Matching**: Finds specific nucleotide patterns within larger DNA sequences.

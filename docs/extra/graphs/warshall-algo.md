@@ -12,6 +12,16 @@ Warshall's algorithm is a graph-based algorithm used to compute the **transitive
 
 Unlike shortest-path algorithms, Warshall's algorithm is concerned only with reachability, not the distance between vertices.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_-p8zhizock"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Warshall's Algorithm (Finding the Transitive Closure)"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Features:
 
 - **Time Complexity**: O(V³), where V is the number of vertices.

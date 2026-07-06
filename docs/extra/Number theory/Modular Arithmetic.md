@@ -11,6 +11,16 @@ tags: [Modular Arithmetic, number theory, competitive programming]
 
 Modular arithmetic is a system of arithmetic for integers, where numbers wrap around after reaching a certain value—the modulus. It is commonly used in computer science and number theory. Below, we will cover the basics, properties, applications, and examples of modular arithmetic.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="Eg6CTCu8iio"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What is Modular Arithmetic - Introduction to Modular Arithmetic - Cryptography - Lesson 2"
+  lazyLoad={true}
+  webp
+/>
+
 ## Basics of Modular Arithmetic
 
 In modular arithmetic, we work with the remainder when one integer is divided by another. We write:

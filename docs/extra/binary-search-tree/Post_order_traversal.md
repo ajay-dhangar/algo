@@ -12,6 +12,17 @@ In this post, we will discuss how to perform **Post-order Traversal** in a **Bin
 ## Problem Definition
 Given a binary search tree, traverse it using the post-order traversal technique and print the values of the nodes.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="XRcC7bAtL3c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-56: Preorder, Inorder and Postorder in 5 minute | Tree Traversal | Easiest and Shortest Trick"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Approach
 The post-order traversal of a binary tree is a depth-first traversal that visits the left subtree, then the right subtree, and finally the root node.
 

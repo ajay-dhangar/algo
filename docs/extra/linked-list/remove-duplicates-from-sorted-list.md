@@ -21,6 +21,16 @@ Given the head of a sorted linked list, remove all duplicates such that each ele
 **Output:**
 - `[1,2]`
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="7pgs-wT5d4c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 48: Remove Duplicates from a Sorted/UnSorted Linked List"
+  lazyLoad={true}
+  webp
+/>
+
 ### Constraints
 - The list is sorted in non-decreasing order.
 - The output should retain the sorted order with no duplicate values.

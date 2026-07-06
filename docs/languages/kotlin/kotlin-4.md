@@ -7,6 +7,16 @@ sidebar_position: 4
 
 # Variables and Data Types
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="bq-6IJ5-klk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Variables & Data Types in Kotlin Tutorial | var & val | CheezyCode #4"
+  lazyLoad={true}
+  webp
+/>
+
 ## Declaring Variables
 
 Kotlin has two keywords for declaring variables:

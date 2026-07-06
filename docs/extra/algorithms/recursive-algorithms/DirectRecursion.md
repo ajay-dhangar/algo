@@ -9,6 +9,16 @@ sidebar_label: Direct Recursion
 
 Direct recursion is when a function calls itself directly. The function keeps calling itself with a modified argument until a base case is met, which stops the recursion. Direct recursion is used to solve problems that can be broken down into smaller, similar subproblems.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="t9whckmAEq0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Types of Recursion (Part 1) | Direct & Indirect Recursion"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Self-Calling Function:**

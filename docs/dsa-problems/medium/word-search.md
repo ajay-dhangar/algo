@@ -27,6 +27,16 @@ Output: `true`
 Input: `board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]`, `word = "ABCB"`
 Output: `false`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="pfiQ_PS1g8E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Word Search - Backtracking - Leetcode 79 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

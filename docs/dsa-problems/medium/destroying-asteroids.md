@@ -31,6 +31,16 @@ Output: `false`
 - The planet collides with the asteroid of mass 4: 9 + 4 = 13.
 - The planet collides with the asteroid of mass 23. It is destroyed as 13 < 23.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="BRulRQnf6XY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Destroying Asteroids | Simple Approach | Dry Run | Leetcode 2126 | codestorywithMIK"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:
