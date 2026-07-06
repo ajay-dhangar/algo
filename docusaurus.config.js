@@ -233,6 +233,10 @@ const config = {
                 label: "Algorithm Visualizer",
               },
               {
+                to: "bitwise-visualizer",
+                label: "Bitwise Visualizer",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
