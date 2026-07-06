@@ -18,6 +18,16 @@ Input: [3, 2, 1, 5, 6, 4], K = 2
 Output: 5
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Lk-QYXyPL3g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kth smallest element in an array | Kth Largest element in an array | Heap | Priority Queue"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach:
 The optimal solution to this problem involves using a Min Heap. The idea is to maintain a heap of size K which contains the largest K elements. The top of the min heap (the smallest element in the heap) will be the Kth largest element when all elements of the array have been processed.
 

@@ -9,6 +9,19 @@ tags: [String Matching, kmp-algorithm, Substring Search, Algorithm, Pattern Matc
 
 The Knuth-Morris-Pratt (KMP) algorithm is an efficient string-matching algorithm that searches for occurrences of a "pattern" string within a "text" string. It improves the search process by avoiding unnecessary comparisons, thus reducing the time complexity.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V5-7GzOfADQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9.1 Knuth-Morris-Pratt KMP String Matching Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Introduction
 
 In traditional substring search algorithms, such as the naive approach, the time complexity can be as high as **O(n * m)**, where **n** is the length of the text and **m** is the length of the pattern. The KMP algorithm optimizes this by preprocessing the pattern to determine the longest prefix which is also a suffix, allowing it to skip unnecessary comparisons.

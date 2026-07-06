@@ -7,6 +7,16 @@ sidebar_label: "Operators in C#"
 
 Operators in C# allow you to perform various operations on variables and values, such as arithmetic, comparison, logical, and more. This guide introduces the different types of operators available in C# and provides examples to help you understand how to use them.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ky7_ZoAEX2g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="C# - Operators | Arithmetic, Relational, Logical, Equality, Ternary & Incr/decr Operators"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Types of Operators in C#
 
 C# supports various operators, which can be broadly categorized as follows:

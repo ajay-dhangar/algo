@@ -11,6 +11,16 @@ Loops are used to execute the same block of code repeatedly as long as a conditi
 
 ## The `while` Loop
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="86tJIr6qpNQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="While Loops in php | PHP Tutorial #12"
+  lazyLoad={true}
+  webp
+/>
+
 Executes code as long as the condition is true:
 
 ```php
@@ -28,6 +38,16 @@ while ($i <= 5) {
 * * *
 
 ## The `do...while` Loop
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="LMhQAErF8J0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="do-While Loops in php | PHP Tutorial #14"
+  lazyLoad={true}
+  webp
+/>
 
 Executes the code block **once** before checking the condition, then repeats while true:
 
@@ -47,6 +67,16 @@ do {
 * * *
 
 ## The `for` Loop
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="GVGolpfz-ms"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="For Loops in php | PHP Tutorial #13"
+  lazyLoad={true}
+  webp
+/>
 
 Used when you know in advance how many times to loop:
 
@@ -68,6 +98,16 @@ for (initialization; condition; increment) {
 * * *
 
 ## The `foreach` Loop
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="sFjRRRJ-j8Y"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="foreach Loops in php | PHP Tutorial #15"
+  lazyLoad={true}
+  webp
+/>
 
 Used to loop through arrays:
 

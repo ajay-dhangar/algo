@@ -7,6 +7,16 @@ sidebar_position: 5
 
 # Operators
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="iPdVy8sAzX8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin Operators Tutorial | Arithmetic & Relational Operators Kotlin | CheezyCode #5"
+  lazyLoad={true}
+  webp
+/>
+
 ## Arithmetic Operators
 
 ```kotlin

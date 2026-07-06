@@ -12,6 +12,17 @@ tags: [recursion, algorithms, dsa,unwinding]
 
 **Unwinding** in recursion refers to the phase in which the recursive calls start returning back up the call stack. This process is crucial for understanding how recursive functions complete their execution. When a function makes a recursive call, it typically "winds up" by going deeper into successive calls until it hits a base case. Once the base case is reached, the function begins "unwinding," resolving each call step by step in reverse order.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="yVdKa8dnKiE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Re 1. Introduction to Recursion | Recursion Tree | Stack Space | Strivers A2Z DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Unwinding in Practical Terms
 
 1. **Winding Phase**: The function keeps making recursive calls until it reaches the simplest case, usually called the base case.

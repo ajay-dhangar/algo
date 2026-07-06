@@ -13,6 +13,17 @@ Hey there! In this guide, we'll explore classes in Python. Classes are a fundame
 * Python supports object-oriented programming, and classes are a fundamental part of this paradigm.
 
 * A class is a blueprint for creating objects, defining their attributes and methods.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ZDa-Z5JzLYM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Python OOP Tutorial 1: Classes and Instances"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Creating a Simple Class
 
 

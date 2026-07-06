@@ -27,3 +27,14 @@ There are two main approaches to solving DP problems:
   - **Cons**: Can be less intuitive to implement for some problems compared to the top-down approach.
   
   **Example**: Solving the 0/1 Knapsack problem using tabulation.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="tyB0ztf0DNY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 1. Introduction to Dynamic Programming | Memoization | Tabulation | Space Optimization Techniques"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>

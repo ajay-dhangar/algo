@@ -11,6 +11,17 @@ tags: [machine learning, deep learning, autoencoders, neural networks, unsupervi
 ### Definition:
 **Autoencoders** are a type of artificial neural network used to learn efficient representations of data in an unsupervised manner. Their goal is to map input data to a compressed representation (encoding) and then reconstruct the input data from this representation (decoding). Autoencoders are widely used for dimensionality reduction, feature learning, and data denoising.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="qiUEgSCyY5o"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What are Autoencoders?"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Unsupervised Learning**:  
   Autoencoders do not require labeled data, making them ideal for unsupervised learning tasks like dimensionality reduction and anomaly detection.

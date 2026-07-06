@@ -12,6 +12,16 @@ In programming, **loops** are used to execute a block of code repeatedly until a
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="0r1SfRoLuzU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Loops in Java | Java Placement Full Course | Lecture 4"
+  lazyLoad={true}
+  webp
+/>
+
 ## Types of Loops
 
 ### 1. **For Loop**

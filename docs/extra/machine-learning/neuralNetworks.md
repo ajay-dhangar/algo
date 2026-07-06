@@ -11,6 +11,16 @@ tags: [machine learning, neural networks, deep learning, data visualization, fee
 ### Definition:  
 **Neural Networks** are a class of machine learning algorithms inspired by the human brain. They consist of interconnected layers of nodes (neurons) that process data by learning patterns and relationships from examples. Neural networks are the foundation of deep learning, used in various domains, including computer vision, natural language processing, and reinforcement learning.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="aircAruvnKk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="But what is a neural network? | Deep learning chapter 1"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Layered Architecture**:  
   Neural networks are typically organized into layers — an input layer, one or more hidden layers, and an output layer.

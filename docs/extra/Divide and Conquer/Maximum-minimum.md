@@ -13,6 +13,17 @@ This C program implements a divide-and-conquer algorithm to efficiently find the
 ### Problem Statement:
 Given an array X[] of size n, write a program to find the maximum and minimum element in the array. Our goal would be to solve this problem using minimum number of comparisons. Use divide and conquer apporach to solve the problem.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="f5X-V2oWdmI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="c program to find maximum and minimum element of array | Learn coding"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Algorithm Steps:
 
 1. Divide the array into two halves until only one or two elements remain in each subarray.                       

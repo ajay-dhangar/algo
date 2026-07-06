@@ -26,6 +26,17 @@ std::function<T(T)> compose(std::function<T(T)> f, std::function<T(T)> g) {
 
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="swU3c34d2NQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Programming Terms: Closures - How to Use Them and Why They Are Useful"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 ### C++ Example
 ```c++
@@ -69,6 +80,17 @@ def compose(f, g):
     return lambda x: f(g(x))
 
 ```
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="swU3c34d2NQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Programming Terms: Closures - How to Use Them and Why They Are Useful"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Example
 ### Python Example

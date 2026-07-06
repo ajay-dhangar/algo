@@ -14,6 +14,17 @@ The goal of this program is to check if an expression containing parentheses is 
                                         
 An expression is said to be balanced if every opening parenthesis has a corresponding closing parenthesis in the correct order.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="WTzjTskDFMg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Valid Parentheses - Stack - Leetcode 20 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Approach
 This program uses a stack data structure to solve the problem of checking whether the parentheses in an expression are balanced. The stack is ideal for this task as it allows tracking unmatched opening parentheses, which are then compared with the closing parentheses.
 

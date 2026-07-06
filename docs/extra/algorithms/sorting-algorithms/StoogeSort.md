@@ -11,6 +11,17 @@ tags: [stooge sort, algorithms, sorting algorithms]
 
 Stooge sort is a **recursive sorting algorithm** that operates by comparing the first and last elements of a sequence and swapping them if necessary. It then recursively applies the same procedure to overlapping subarrays. While Stooge sort is notable for its academic interest, it is inefficient for practical use due to its high time complexity.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="hDVhmWTKglQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="STOOGE soring ALGORITHM explained"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Recursive Algorithm**:

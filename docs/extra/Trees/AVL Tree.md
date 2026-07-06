@@ -11,6 +11,16 @@ tags: [data structures, trees, algorithms]
 
 An AVL tree is a self-balancing binary search tree where the difference between the heights of left and right subtrees cannot be more than one for all nodes. This property ensures that the tree remains balanced, leading to efficient search, insertion, and deletion operations.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="E9DOBLNB-aE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Introduction to AVL Tree in Data Structure with Examples | All Imp Points of AVL"
+  lazyLoad={true}
+  webp
+/>
+
 ## Properties of AVL Trees
 
 1. **Balance Factor**: For any node in the tree, the balance factor is defined as the height of the left subtree minus the height of the right subtree. It can take values of -1, 0, or +1.

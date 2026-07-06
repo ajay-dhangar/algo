@@ -1,0 +1,124 @@
+.storiesHero {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(
+    135deg,
+    #3ea900, rgba(117, 233, 82, 0.79)
+  ), url("/img/background-img.svg");
+  animation: waveX 10s linear infinite, waveY 10s linear infinite;
+  animation-play-state: paused;
+}
+
+.storiesHero:hover {
+  animation-play-state: running;
+}
+
+@keyframes waveX {
+  0% {
+    background-position-x: 100%, 0;
+  }
+  100% {
+    background-position-x: 100%, 33rem;
+  }
+}
+
+@keyframes waveY {
+  100% {
+    background-position-y: 100%, 0;
+  }
+  0% {
+    background-position-y: 100%, 33rem;
+  }
+}
+
+.animatedHeading {
+  animation: fadeInUp 0.8s ease-out;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+}
+
+.animatedSubheading {
+  animation: fadeInUp 1s ease-out;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  font-style: italic;
+}
+
+.filterBtn {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin: 0.25rem;
+}
+
+.filterBtn:hover {
+  transform: translateY(-2px);
+}
+
+.storyCardWrapper {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ifm-card-background-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.storyCardWrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(var(--ifm-color-primary-rgb), 0.15);
+  border-color: var(--ifm-color-primary);
+}
+
+.interactiveAvatar {
+  border: 2px solid var(--ifm-color-primary);
+  transition: transform 0.3s ease;
+}
+
+.storyCardWrapper:hover .interactiveAvatar {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.sequenceSection {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+}
+
+.nativeStepCard {
+  background: var(--ifm-background-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--ifm-color-primary);
+  box-shadow: var(--ifm-global-shadow-sm);
+}
+
+.nativeStepBadge {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}

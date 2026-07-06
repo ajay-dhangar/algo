@@ -9,6 +9,17 @@ tags: [pattern matching, string algorithms, competitive programming]
 
 In computer science, the **Z-Algorithm** is an efficient linear-time algorithm used for pattern matching in strings. It computes an array Z for a given string S, where Z[i] contains the length of the longest substring starting from S[i] that is also a prefix of S. The Z-Algorithm is widely used in competitive programming and string matching applications.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="CpZh4eF8QBw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Z Algorithm Z values"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ## Definition:

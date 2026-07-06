@@ -7,6 +7,16 @@ sidebar_label: "Interfaces & Type Aliases"
 
 Interfaces and Type Aliases define structured contracts for complex data structures and objects.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Idf0zh9f3qQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Why I use Type and not Interface in TypeScript"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Interfaces vs Type Aliases
 
 - **Interfaces**: Primarily designed to shape object declarations; support structural merging (extending properties with duplicate names).

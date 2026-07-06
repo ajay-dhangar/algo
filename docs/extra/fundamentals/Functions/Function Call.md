@@ -19,6 +19,17 @@ A **function call** is the process of invoking a function in a program. When a f
 function_name(argument1, argument2, ...);
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="oQbyN-vDghA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Call by Value & Call by Reference in C++ | C++ Tutorials for Beginners #16"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 ### C++ Example
 ```c++
@@ -46,6 +57,17 @@ Python does not separate function declarations from function definitions. The fu
 def function_name(parameter1, parameter2):
     # function body
 ```
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="OvTH-7ESoRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 6 : Functions & Recursion in Python | Python Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Example
 ### Python Example

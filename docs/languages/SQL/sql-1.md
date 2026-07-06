@@ -18,6 +18,16 @@ Our SQL tutorial will teach you how to use SQL in: MySQL, SQL Server, MS Access,
 * SQL lets you access and manipulate databases
 * SQL became a standard of the American National Standards Institute (ANSI) in 1986, and of the International Organization for Standardization (ISO) in 1987
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="h0nxCDiD-zg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="SQL Tutorial for Beginners"
+  lazyLoad={true}
+  webp
+/>
+
 * * *
 
 ## What Can SQL do?

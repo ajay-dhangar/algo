@@ -10,6 +10,15 @@ tags: [Competitive Programming,top-K,priority queue]
 
 A **Heap** is a specialized tree-based data structure that satisfies the **Heap Property**. Heaps are commonly used to implement priority queues and ensure efficient retrieval of the minimum or maximum element.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="HqPJF2L5h9U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.6.3 Heap - Heap Sort - Heapify - Priority Queues"
+  lazyLoad={true}
+  webp
+/>
 
 ## Introduction
 

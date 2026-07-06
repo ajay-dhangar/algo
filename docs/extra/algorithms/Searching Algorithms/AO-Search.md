@@ -15,6 +15,16 @@ sidebar_label: AO*
 - **Heuristic-Based**: Uses heuristics for efficient traversal.
 - **Backtracking**: Updates cost estimates and paths dynamically.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="u_TE42-uWD0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-22: AO* algorithm in AI (artificial intelligence) in HINDI | AO* Algorithm with example"
+  lazyLoad={true}
+  webp
+/>
+
 ### How AO* Works:
 
 1. **Initialize**: Start with the root node.

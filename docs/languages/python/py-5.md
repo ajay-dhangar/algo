@@ -13,6 +13,17 @@ Hey there! In this guide, we'll explore sets in Python. Sets are unordered colle
 * Sets are unordered collections of unique elements.
 
 * They are mutable, which means you can change their contents after creation.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="078tYSD7K8E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 4 : Dictionary & Set in Python | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Creating a Set
 
 

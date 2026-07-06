@@ -17,6 +17,17 @@ Dynamic Programming is an optimization approach that solves problems by storing 
 - **Tabulation**: Iteratively building a table of results for subproblems, starting from the smallest subproblems.
 - **State Space Reduction**: Reducing the amount of memory required by storing only necessary states.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="tyB0ztf0DNY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 1. Introduction to Dynamic Programming | Memoization | Tabulation | Space Optimization Techniques"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. Common DP Problems
 
 ### a. Knapsack Problem

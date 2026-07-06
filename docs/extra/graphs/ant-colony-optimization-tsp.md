@@ -9,6 +9,16 @@ tags: [dsa, algorithms, TSP, ant colony, graphs]
 ### Definition:
 The **Ant Colony Optimization (ACO) algorithm** is a **probabilistic optimization algorithm** inspired by the foraging behavior of ants. It is widely applied to solve combinatorial optimization problems such as the Travelling Salesman Problem (TSP), where the goal is to find the shortest possible route that visits each city exactly once and returns to the origin city.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="783ZtAF4j5g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="How the Ant Colony Optimization algorithm works"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Swarm Intelligence**:
   - ACO is based on the collective behavior of ants that deposit pheromones on paths as they search for food, guiding other ants toward shorter paths over time.

@@ -16,6 +16,17 @@ The idea is to use a recursive approach to find the position of the safe person.
 Recursive Solution
 The idea is to use a recursive approach to find the position of the safe person. We know that when only one person remains, the safe position is 0. Then we build the solution backwards, considering the elimination of every k-th person.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="uCsD3ZGzMgE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="The Josephus Problem - Numberphile"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### C++ implementation
 ```cpp
 #include <bits/stdc++.h>

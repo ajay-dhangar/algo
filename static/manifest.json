@@ -5,43 +5,65 @@
   "theme_color": "#2196f3",
   "background_color": "#424242",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./index.html",
+  "orientation": "portrait",
+  "scope": "/algo/",
+  "start_url": "/algo/",
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://ajay-dhangar.github.io/algo///manifest.json"
+      "url": "https://ajay-dhangar.github.io/algo/manifest.json"
     }
   ],
   "icons": [
     {
-      "src": "logo/logo.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "logo/logo.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "logo/logo.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "logo/logo.png",
+      "src": "favicon_io/favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
     },
     {
-      "src": "logo/logo.png",
+      "src": "favicon_io/favicon-32x32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "logo/logo.png",
+      "src": "favicon_io/android-icon-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_io/android-icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_io/android-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_io/android-icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_io/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_io/android-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon_io/android-icon-192x192.png",
       "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon_io/apple-icon-180x180.png",
+      "sizes": "180x180",
       "type": "image/png"
     }
   ]

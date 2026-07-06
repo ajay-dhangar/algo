@@ -14,6 +14,17 @@ tags: [Algorithm, Problem, Binary Search]
 🎯 The Goal
 - Minimize the maximum time taken by any painter to finish the job, given that boards must be assigned in a continuous manner.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="YTTdLgyqOLY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 15: Book Allocation Problem || Aggressive Cows Problem || Binary Search Advanced Problems"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Binary Search
 - The answer (minimum time) lies within a defined, sorted range.
 - **Monotonicity**: If a job can be done in time $T$, it can definitely be done in any time greater than $T$.

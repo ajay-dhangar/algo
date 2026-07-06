@@ -12,6 +12,16 @@ In C++, data types specify the type and size of data that a variable can store. 
 
 Understanding how data types map to memory allocation is foundational to writing optimized, high-performance C++ applications.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="cnT1oW5_ePM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.1 Data Types & Type Modifiers | Data Structures & Algorithms Course in C++ | Lecture 2.1"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Declaring and Initializing Variables
 
 A **variable** is a named storage location in memory. To use a variable, you must first declare it. You can also optionally initialize it (assign an initial value) at the same time.

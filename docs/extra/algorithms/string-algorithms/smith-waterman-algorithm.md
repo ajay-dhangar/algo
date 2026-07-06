@@ -11,6 +11,17 @@ sidebar_label: Smith-Waterman Algorithm
 
 The Smith-Waterman Algorithm is a dynamic programming algorithm for local sequence alignment, calculating the optimal local alignment between two strings. Developed by Temple F. Smith and Michael S. Waterman in 1981, it identifies similar regions between sequences by comparing segments of all possible lengths and optimizing similarity scores.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="lu9ScxSejSE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Local Sequence Alignment & Smith-Waterman || Algorithm and Example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Local Alignment**:

@@ -12,6 +12,17 @@ In this post, we will discuss how to delete a specific value from a **Binary Sea
 ## Problem Definition
 Given a binary search tree and a value to delete, the goal is to remove the node containing the value from the tree while maintaining the BST properties. If the value does not exist in the tree, we do nothing.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="cySVml6e_Fc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.10 Binary Search Trees (BST) - Insertion and Deletion | DSA Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 To delete a value from a BST, we need to consider three scenarios based on the node to be deleted:
 

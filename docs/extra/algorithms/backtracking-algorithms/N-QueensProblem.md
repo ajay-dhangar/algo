@@ -6,6 +6,15 @@ sidebar_position: 1
 description: "The N-Queens Problem is a classic problem where the objective is to place `N` queens on an `N x N` chessboard such that no two queens can attack each other. A queen can attack any other piece in the same row, column, or diagonal, making it challenging to place all `N` queens without conflict."
 tags: [backtracking, algorithms]
 ---
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="xFv_Hl4B83A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.1 N Queens Problem using Backtracking"
+  lazyLoad={true}
+  webp
+/>
 
 ## Problem Definition
 

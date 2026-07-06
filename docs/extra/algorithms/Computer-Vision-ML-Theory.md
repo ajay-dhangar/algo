@@ -12,6 +12,17 @@ tags: [Computer Vision, Deep Learning, Image Processing, Object Detection, Image
 ## Overview
 **Computer Vision (CV)** is a field of artificial intelligence that enables computers to interpret and process visual information from the world, simulating human vision. CV techniques involve extracting features from images or videos, recognizing objects, and understanding spatial arrangements, which are fundamental to applications such as object detection, facial recognition, and autonomous driving.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="IA3WxTTPXqQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Deep Learning for Computer Vision with Python and TensorFlow - Complete Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Description
 - **Input**: Visual data, typically in the form of images or video frames.
   - Each pixel or region in an image contains meaningful information, such as color, intensity, or texture.

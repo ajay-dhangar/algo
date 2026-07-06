@@ -33,6 +33,16 @@ Output: `[[2,2,2,2],[2,3,3],[3,5]]`
 Input: `candidates = [2], target = 1`
 Output: `[]`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="OyZFFqQtu98"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L8. Combination Sum | Recursion | Leetcode | C++ | Java"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

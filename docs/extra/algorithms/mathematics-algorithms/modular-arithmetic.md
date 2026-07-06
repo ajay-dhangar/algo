@@ -11,6 +11,17 @@ tags: [modular arithmetic, cryptography, number theory, algorithms]
 
 **Modular Arithmetic** is a system of arithmetic for integers where numbers wrap around after reaching a certain value called the modulus. It is a crucial concept in various fields, especially in cryptography and number theory.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="Eg6CTCu8iio"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What is Modular Arithmetic - Introduction to Modular Arithmetic - Cryptography - Lesson 2"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## Core Concepts
 
 ### Modulus

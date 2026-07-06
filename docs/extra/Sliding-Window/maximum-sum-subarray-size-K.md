@@ -13,6 +13,17 @@ tags: [dsa, algorithms, sliding window, arrays]
 
 Given an array of integers, the goal is to find the **maximum sum** of any contiguous subarray of size `K`. This is a common problem that can be solved efficiently using the **Sliding Window Algorithm**.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="KtpqeN0Goro"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Maximum Sum Subarray of size K | Sliding Window"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Example:
 
 Let's consider an array:  

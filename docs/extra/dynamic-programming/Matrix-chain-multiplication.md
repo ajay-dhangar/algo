@@ -5,9 +5,21 @@ sidebar_label: Matrix-chain-multiplication
 description: The program finds the optimal multiplication order for a matrix chain, minimizing scalar multiplications using dynamic programming for efficiency.
 tags: [Dynamic Programming,Algorithm, DSA]
 ---
-# SHORTEST PATH IN MULTISTAGE GRAPH
+# MATRIX CHAIN MULTIPLICATION
 ### Description
 Given a chain of matrices with specified dimensions, the algorithm computes the optimal order to perform matrix multiplications, minimizing computational cost. The solution uses a dynamic programming table to store intermediate results, which avoids redundant calculations and improves efficiency. Users input the number of matrices and their respective dimensions, and the program outputs the minimum multiplication cost required to multiply the entire chain.
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="_WncuhSJZyA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="[New] Matrix Chain Multiplication using Dynamic Programming Formula"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Approach
 The Matrix Chain Multiplication program uses dynamic programming to determine the optimal order for multiplying a sequence of matrices. It builds a 2D table where each entry stores the minimum multiplication cost for a specific subchain of matrices, avoiding redundant calculations. For each possible subchain length, the algorithm evaluates different split points to find the one that yields the lowest cost by recursively considering left and right subchains. The final result in the table provides the minimum cost for multiplying the entire matrix chain, ensuring computational efficiency and optimal performance.
 ### Algorithm Overview

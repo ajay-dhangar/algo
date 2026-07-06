@@ -12,6 +12,17 @@ tags: [dsa, algorithms, greedy algorithms, scheduling]
 
 Job Sequencing is a problem in which we aim to schedule a set of jobs, each with a deadline and profit, to maximize the total profit while ensuring that all scheduled jobs are completed before their respective deadlines. It uses a greedy approach to prioritize jobs with higher profits and attempts to place each job within the latest possible available time slot, avoiding conflicts.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="zPtI8q9gvX8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.2 Job Sequencing with Deadlines - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Characteristics:
 
 - **Greedy Approach**:  

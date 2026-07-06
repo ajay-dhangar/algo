@@ -9,6 +9,16 @@ sidebar_label: Dutch National Flag Sorting
 
 The **Dutch National Flag Algorithm** is a highly efficient technique to sort an array containing only the elements 0, 1, and 2 in linear time. It utilizes a three-pointer strategy and performs sorting directly on the array, optimizing both time and space.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="tp8JIuCXBaU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sort an array of 0's 1's & 2's | Intuition of Algo🔥 | C++ Java Python | Brute-Better-Optimal"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Features:
 
 - **Three Pointers Strategy**:  

@@ -21,6 +21,16 @@ This means that raising `a` to the power of `p-2` modulo `p` gives you the modul
 
 
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="3Cb0ys-jppU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Fermat's Little Theorem"
+  lazyLoad={true}
+  webp
+/>
+
 ### Code
 **Code Implementation (Python):**
 

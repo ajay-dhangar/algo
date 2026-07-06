@@ -15,6 +15,17 @@ In computer science, the **KMP (Knuth-Morris-Pratt) Algorithm** is an efficient 
 
 The KMP (Knuth-Morris-Pratt) algorithm is an efficient pattern-matching algorithm that searches for occurrences of a pattern in a text in O(n) time, where `n` is the length of the text. It achieves this by precomputing an auxiliary array called the LPS (Longest Prefix Suffix) array, which is used to skip unnecessary comparisons during the search.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V5-7GzOfADQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9.1 Knuth-Morris-Pratt KMP String Matching Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Explanation:
 
 Given a pattern and a text, the KMP algorithm precomputes the LPS array, which stores the length of the longest proper prefix of the pattern that is also a suffix for each position in the pattern. This allows the algorithm to avoid rechecking characters that have already been matched, resulting in efficient string searching.

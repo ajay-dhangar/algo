@@ -7,7 +7,7 @@ description: 'Operator overloading allows you to redefine the way operators work
 tags: [dsa, data-structures, Operator Overloading]
 ---
 
-## 2 Operator Overloading
+## Operator Overloading
 
 ### Introduction 
 
@@ -19,6 +19,17 @@ Overloading an operator does not change:
 - the arity of the operator, or
 - the meaning of how the operator works on objects of
 built-in types.
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="_SrCMbCsn2w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-58: Operator overloading in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
+
 
 ### Syntax
 An overloaded operator is implemented as a special member function with the keyword `operator` followed by the symbol of the operator being overloaded.

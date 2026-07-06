@@ -21,6 +21,17 @@ tags: [letter-combinations, backtracking, recursion, dsa]
   Input: digits = "2" and Output: ["a", "b", "c"]
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="0snEunUacZY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Letter Combinations of a Phone Number - Backtracking - Leetcode 17"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### C++ Implementation
 
 ```cpp

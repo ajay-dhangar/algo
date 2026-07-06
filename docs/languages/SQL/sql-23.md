@@ -25,6 +25,16 @@ SELECT column_name(s)
 FROM table_name AS alias_name;
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="ZnAydTqCtFU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Limit + Aliasing in MySQL | MySQL Beginner Series"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Points
 * Aliases are created using the AS keyword, although the keyword is optional in most databases.
 * Column aliases are useful for renaming columns in the result set.

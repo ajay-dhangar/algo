@@ -15,6 +15,17 @@ Given a node in a binary search tree, find its in-order predecessor. If the give
 - The in-order traversal of a binary tree visits the nodes in ascending order (left → root → right).
 - The in-order predecessor of a node is the largest node that is smaller than the given node.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="SXKAD2svfmI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L49. Inorder Successor/Predecessor in BST | 3 Methods"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 To find the in-order predecessor of a node in a BST, we need to consider two cases:
 

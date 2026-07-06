@@ -9,6 +9,16 @@ tags: [dsa, algorithms, greedy algorithms, optimization problems]
 ### Definition:
 The Fractional Knapsack Problem is an optimization problem that aims to maximize the total value of items placed in a knapsack of fixed capacity, where the items can be divided into smaller fractions. Unlike the 0/1 Knapsack Problem, where items must either be fully taken or left, in the fractional version, parts of an item can be taken to fill the knapsack optimally.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="xZfmHVi7FMg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Fractional Knapsack Problem using Greedy Method | Example | Data structures and algorithms"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Greedy Approach**:  
   The fractional knapsack problem is solved using a greedy algorithm. Items are selected based on their value-to-weight ratio, prioritizing items with the highest ratio until the knapsack is full.

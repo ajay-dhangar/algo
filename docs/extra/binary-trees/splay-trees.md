@@ -15,6 +15,17 @@ A **Splay Tree** is a self-adjusting binary search tree (BST) that performs basi
 
 Splay trees are particularly effective when access patterns exhibit locality of reference, meaning that recently accessed elements are likely to be accessed again soon.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qMmqOHr75b8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.19 Splay Tree Introduction | Data structure & Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Properties of Splay Trees
 
 1. **Self-adjusting**: The most recently accessed node is moved to the root of the tree.

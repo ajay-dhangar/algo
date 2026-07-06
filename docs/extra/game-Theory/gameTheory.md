@@ -10,6 +10,16 @@ tags: [dsa, algorithms, game theory algorithms]
 
 **Game Theory** is a mathematical framework used to study decision-making in situations where multiple players (or agents) interact. Each player’s outcome depends not only on their own actions but also on the actions of other players. Game theory helps in analyzing strategies and predicting outcomes in competitive situations.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="mScpHTIi-kM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="This game theory problem will change the way you see the world"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Concepts
 
 ### 1. **Game**

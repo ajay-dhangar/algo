@@ -13,6 +13,16 @@ At its core, programming is about two things: managing information and solving p
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="O9v10jQkm5c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Data Structures Explained for Beginners - How I Wish I was Taught"
+  lazyLoad={true}
+  webp
+/>
+
 ## What Are Data Structures?
 
 A data structure is a specialized format for organizing, storing, and managing data in a computer's memory. 

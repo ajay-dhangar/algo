@@ -9,6 +9,16 @@ tags: [python, cheatsheet, dsa]
 
 This page is a quick reference for Python concepts and methods that show up constantly in DSA and competitive programming. If you're just starting out, don't worry, every snippet here is explained line by line 😊
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="UrsmFxEIp5k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Python Tutorial For Beginners in Hindi | Complete Python Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## Core Syntax
 
 ### Swap, Unpacking, Multiple Assignment

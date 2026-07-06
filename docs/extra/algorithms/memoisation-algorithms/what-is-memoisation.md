@@ -20,6 +20,16 @@ Memoization is vital for several reasons:
 3. **Simplifying Recursive Algorithms**: Memoization allows complex recursive algorithms to be implemented more straightforwardly, enhancing readability and maintainability of the code.
 4. **Foundation for Dynamic Programming**: Understanding memoization is essential for grasping dynamic programming concepts, which are critical for solving many algorithmic challenges.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="P8Xa2BitN3I"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Algorithms: Memoization and Dynamic Programming"
+  lazyLoad={true}
+  webp
+/>
+
 ### Common Problems Utilizing Memoization
 
 Here are some commonly encountered problems that can be efficiently solved using memoization:
@@ -34,6 +44,16 @@ Here are some commonly encountered problems that can be efficiently solved using
 #### 1. **Fibonacci Sequence**
 
 **Problem**: Compute the n-th Fibonacci number using memoization.
+
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="UxICsjrdlJA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Fibonacci Sequence - Recursion with memoization"
+  lazyLoad={true}
+  webp
+/>
 
 **Python Implementation**:
 ```python
@@ -74,6 +94,17 @@ int main() {
 #### 2. **Longest Common Subsequence**
 
 **Problem**: Find the length of the longest common subsequence between two strings.
+
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="sSno9rV8Rhg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.9 Longest Common Subsequence (LCS) - Recursion and Dynamic Programming"
+  lazyLoad={true}
+  webp
+/>
+
 **Python Implementation**:
 ```python
 def lcs(x, y, m, n, memo={}):
@@ -127,6 +158,16 @@ int main() {
 
 **Problem**: Find the maximum value that can be obtained in a knapsack of a given capacity.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="nLmhmB6NzcM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.5 0/1 Knapsack - Two Methods - Dynamic Programming"
+  lazyLoad={true}
+  webp
+/>
+
 **Python Implementation**:
 ```python
 def knapsack(weights, values, capacity, n, memo={}):
@@ -138,7 +179,7 @@ def knapsack(weights, values, capacity, n, memo={}):
         memo[(n, capacity)] = knapsack(weights, values, capacity, n - 1, memo)
     else:
         memo[(n, capacity)] = max(values[n - 1] + knapsack(weights, values, capacity - weights[n - 1], n - 1, memo),
-                                   knapsack(weights, values, capacity, n - 1, memo))
+        knapsack(weights, values, capacity, n - 1, memo))
     return memo[(n, capacity)]
 
 # Example usage

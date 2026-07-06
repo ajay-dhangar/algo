@@ -11,6 +11,16 @@ tags: [backtracking, graph-coloring, constraint satisfaction]
 
 The M-Coloring problem is a classic constraint satisfaction problem where the task is to color the vertices of a graph using at most M colors such that no two adjacent vertices have the same color. This problem can be solved using backtracking by exploring all possible color assignments and ensuring that constraints are not violated.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="052VkKhIaQ4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.3 Graph Coloring Problem - Backtracking"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Definition
 
 Given an undirected graph with **N** vertices and **E** edges, the task is to find a way to assign colors to each vertex such that no two adjacent vertices share the same color. You are allowed to use a maximum of **M** different colors.

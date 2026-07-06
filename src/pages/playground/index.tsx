@@ -11,7 +11,11 @@ import {
   FaCode,
   FaTerminal,
   FaLightbulb,
+  FaShareAlt,
+  FaDownload,
 } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Language configuration
 type LanguageType = "javascript" | "python" | "cpp" | "java" | "rust" | "go";
@@ -925,6 +929,83 @@ const PlaygroundContent: React.FC = () => {
     selectionLength: 0,
   });
 
+  // Load shared code from URL query parameters if present
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const urlLang = params.get("lang") as LanguageType | null;
+      const urlCode = params.get("code");
+
+      if (urlLang && LANGUAGE_CONFIGS[urlLang]) {
+        setLanguage(urlLang);
+        if (urlCode) {
+          try {
+            const binString = atob(urlCode);
+            const bytes = Uint8Array.from(binString, (m) => m.codePointAt(0)!);
+            const decoded = new TextDecoder().decode(bytes);
+            setCode(decoded);
+            setTemplate("custom");
+            setEditorTelemetry((prev) => ({
+              ...prev,
+              totalLines: getLineCount(decoded),
+              characterCount: decoded.length,
+            }));
+          } catch (e) {
+            console.error("Failed to decode shared code:", e);
+          }
+        } else {
+          setCode(TEMPLATES[urlLang].binarySearch);
+        }
+      }
+    }
+  }, []);
+
+  const handleShare = async () => {
+    try {
+      const bytes = new TextEncoder().encode(code);
+      const binString = Array.from(bytes, (byte) => String.fromCodePoint(byte)).join("");
+      const encodedCode = btoa(binString);
+      const shareUrl = `${window.location.origin}${window.location.pathname}?lang=${encodeURIComponent(language)}&code=${encodedCode}`;
+      await navigator.clipboard.writeText(shareUrl);
+      toast.success("🚀 Share URL copied to clipboard!", {
+        position: "top-right",
+        autoClose: 3000,
+        className: "dark:bg-neutral-900 dark:text-cyan-400 font-mono border dark:border-neutral-800 text-xs",
+      });
+    } catch (err) {
+      console.error("Failed to generate share URL:", err);
+      toast.error("⚠️ Failed to generate share URL.", {
+        className: "dark:bg-neutral-900 dark:text-rose-400 font-mono border dark:border-neutral-800 text-xs"
+      });
+    }
+  };
+
+  const handleExport = () => {
+    try {
+      const fileExtension = LANGUAGE_CONFIGS[language].fileExtension;
+      const fileName = `playground_code${fileExtension}`;
+      const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      toast.success(`💾 Exported successfully as ${fileName}!`, {
+        position: "top-right",
+        autoClose: 3000,
+        className: "dark:bg-neutral-900 dark:text-green-400 font-mono border dark:border-neutral-800 text-xs",
+      });
+    } catch (err) {
+      console.error("Failed to export code:", err);
+      toast.error("⚠️ Failed to export code.", {
+        className: "dark:bg-neutral-900 dark:text-rose-400 font-mono border dark:border-neutral-800 text-xs"
+      });
+    }
+  };
+
   const workerRef = useRef<Worker | null>(null);
   const consolePanelRef = useRef<HTMLDivElement | null>(null);
   const editorDisposablesRef = useRef<Array<{ dispose: () => void }>>([]);
@@ -1283,6 +1364,7 @@ const PlaygroundContent: React.FC = () => {
 
   return (
     <div className="bg-gray-50 dark:bg-[#1b1b1d] min-h-screen py-10 px-4 md:px-8">
+      <ToastContainer theme={colorMode === "dark" ? "dark" : "light"} position="top-right" toastClassName="font-mono text-xs" />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -1331,6 +1413,7 @@ const PlaygroundContent: React.FC = () => {
                 <option value="bubbleSort">Bubble Sort</option>
                 <option value="reverseList">Reverse Linked List</option>
                 <option value="fibonacci">Fibonacci Series</option>
+                {template === "custom" && <option value="custom">Custom Code</option>}
               </select>
             </div>
           </div>
@@ -1430,6 +1513,20 @@ const PlaygroundContent: React.FC = () => {
                 className="flex items-center gap-1.5 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-semibold transition border-none cursor-pointer text-sm"
               >
                 <FaTrash /> Clear
+              </button>
+
+              <button
+                onClick={handleShare}
+                className="flex items-center gap-1.5 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+              >
+                <FaShareAlt /> Share Code
+              </button>
+
+              <button
+                onClick={handleExport}
+                className="flex items-center gap-1.5 px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+              >
+                <FaDownload /> Export
               </button>
 
               {execTime !== null && (

@@ -9,6 +9,16 @@ sidebar_label: "Functions in C#"
 
 Functions, also known as methods, in C# are blocks of code that perform a specific task. They help modularize code and promote reusability.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="IPpEefuFiVM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="C# methods 📞"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. Structure of a Function

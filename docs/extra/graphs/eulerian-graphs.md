@@ -13,6 +13,16 @@ An **Eulerian Graph** is a graph in which we can traverse every edge exactly onc
 1. **Eulerian Circuit (Cycle)**: A path in a graph that visits every edge exactly once and ends at the starting vertex.
 2. **Eulerian Path**: A path that visits every edge exactly once but doesn't necessarily return to the starting vertex.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="tuitCMLwPAE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Graph Theory | Eulerian Graph & Hamiltonian Graph - Walk,Trail,Path | Discrete Mathematics by GP Sir"
+  lazyLoad={true}
+  webp
+/>
+
 ### Conditions for Eulerian Path and Circuit
 
 - **Eulerian Circuit**:

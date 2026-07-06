@@ -12,6 +12,17 @@ tags: [Data Structures, Balanced Tree, Algorithms]
 ## Overview
 A **Balanced Tree** is a data structure that automatically keeps its height (depth) small in comparison to the number of nodes. This ensures that operations such as insertion, deletion, and search can be performed efficiently, typically in **O(log n)** time. Common types of balanced trees include **AVL trees**, **Red-Black trees**, and **B-trees**.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="QfJsau0ItOY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Balanced Binary Tree - Leetcode 110 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Features
 - **Height-Balancing**: Maintains a balanced height to ensure operations remain efficient.
 - **Self-Balancing**: Automatically adjusts structure during insertion and deletion to maintain balance.

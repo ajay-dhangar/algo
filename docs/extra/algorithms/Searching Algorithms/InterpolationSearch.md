@@ -24,6 +24,16 @@ Interpolation search is an optimized variant of binary search that works based o
 - **Stable Search**:  
   It preserves the relative order of equal elements during the search process.
 
+## Video Explanation**
+<LiteYouTubeEmbed
+  id="hF9iJEPegNc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Interpolation Search algorithm (with Example & CODE)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity
 
 - **Best Case: $O(1)$**  

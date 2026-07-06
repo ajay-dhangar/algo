@@ -31,10 +31,11 @@ function fibonacci(n) {
   return memo[n];
 }
 ```
-### Tail Recursion
+## Tail Recursion
 Tail recursion is when a function calls itself as its last action. Some programming languages can optimize tail recursive calls to avoid adding a new stack frame.
 
-#### Example: Tail Recursive Factorial
+
+### Example: Tail Recursive Factorial
 ```javascript
 function factorial(n, accumulator = 1) {
   if (n <= 1) return accumulator;
