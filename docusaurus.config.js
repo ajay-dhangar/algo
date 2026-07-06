@@ -39,6 +39,16 @@ const config = {
 
   onBrokenLinks: "throw",
 
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'impact-site-verification',
+        content: '1e9bf198-a4f7-4132-b77d-46b34e45f6ad',
+      },
+    },
+  ],
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "hi"], // Add 'hi' here
