@@ -1,5 +1,5 @@
 ---
-id: function-expressions-tutorial
+id: function-expressions
 title: "Function Expressions"
 sidebar_label: "Function Expressions"
 sidebar_position: 2
