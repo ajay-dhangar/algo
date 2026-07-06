@@ -9,6 +9,17 @@ tags: [dsa, algorithms, problem-solving, math]
 ## Problem Statement
 Given a signed 32-bit integer `x`, return `x` with its digits reversed. If reversing `x` causes the value to go outside the signed 32-bit integer range `[-2^31, 2^31 - 1]`, then return `0`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="0fwrMYPcGQ0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 7: LeetCode Problem Solving Session"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 To reverse an integer, we can repeatedly extract the last digit using the modulo operator (`% 10`) and append it to our reversed number by multiplying the current reversed number by 10 and adding the extracted digit. 
 

@@ -11,6 +11,17 @@ sidebar_label: Insertion Sort
 
 Insertion sort is a simple and efficient comparison-based sorting algorithm that builds the final sorted array one element at a time. It works similarly to how people sort playing cards in their hands. The algorithm starts with one element and repeatedly inserts the next element into its correct position within the already sorted portion of the array.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="oTICKmJhLXI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Insertion Sort By Abdul Bari"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **In-Place Sorting**:

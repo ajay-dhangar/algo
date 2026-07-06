@@ -9,6 +9,17 @@ tags: [dsa, algorithms, stack]
 ## Problem Statement:
 Write a program to reverse a string using stack data structure.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="hNP72JdOIgY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Reverse a string or linked list using stack."
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Defination
 The program reverses a given string using the stack data structure. The program reads a string input from the user, pushes each character onto a stack, and then pops the characters from the stack to display the string in reverse order.
 

@@ -19,6 +19,16 @@ Jump search is a **search algorithm** for **sorted arrays**. It works by jumping
 - **Linear Search in Identified Block**:
   - Once the target block is identified, a linear search is performed within that block.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="wNOoyZ45SmQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What is Jump Search and how does it work (with CODE)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(1)$**  

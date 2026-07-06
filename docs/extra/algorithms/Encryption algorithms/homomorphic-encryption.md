@@ -11,6 +11,16 @@ sidebar_label: Homomorphic Encryption
 
 Homomorphic encryption is an encryption scheme that allows computations to be performed on ciphertext without needing to decrypt it first. This enables data to remain encrypted while still allowing operations such as addition or multiplication to be executed. Once the encrypted result is decrypted, it matches the result of operations as if they were performed on the plaintext.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="7IUS-ixypos"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What is Homomorphic Encryption Explained | Paillier Cryptosystem | PHE | SHE | FHE"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Computation on Encrypted Data**:

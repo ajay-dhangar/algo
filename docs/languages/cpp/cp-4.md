@@ -12,6 +12,16 @@ In programming, **iteration statements** (commonly known as loops) are used to e
 
 Using loops eliminates the need to write redundant code, reduces system memory footprint, and allows applications to process dynamic sequences or collections of data effectively.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="a7dfSBrTZtE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="For, While and do-while loops in C++ | C++ Tutorials for Beginners #10"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. The `for` Loop
 
 The `for` loop is an **entry-controlled** loop structure. It is ideal when you know the exact number of times you need to iterate before entering the loop block.

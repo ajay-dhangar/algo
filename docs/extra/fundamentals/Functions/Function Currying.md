@@ -22,6 +22,17 @@ function add(a) {
   
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="vQcCNpuaJO8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Currying in Javascript | JS Interview Questions"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 ### JavaScript Example
 ```JavaScript
@@ -50,6 +61,17 @@ def add(a):
     return inner
 
 ```
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="psmu_VAuiag"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Curried Functions - Computerphile"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Example
 ### Python Example

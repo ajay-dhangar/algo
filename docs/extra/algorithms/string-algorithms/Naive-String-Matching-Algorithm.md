@@ -12,6 +12,17 @@ description: Simple method to find all occurrences of a pattern within a text by
 
 The **Naive String Matching Algorithm** is a straightforward method for finding all occurrences of a pattern (substring) within a given text (string). This algorithm works by checking for the presence of the pattern at each possible position in the text. It does this by comparing characters one by one, making it easy to understand and implement, but it is not the most efficient approach for larger datasets.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="nK7SLhXcqRo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Naive Algorithm for Pattern Searching | GeeksforGeeks"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Definition
 
 - **Input**:

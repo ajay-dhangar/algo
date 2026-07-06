@@ -15,6 +15,17 @@ It is commonly used when tasks have dependencies and must be performed in a spec
 Topological Sort is only possible in a Directed Acyclic Graph (DAG). If the graph contains a cycle, a valid topological ordering does not exist.
 :::
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="dis_c84ejhQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.10 Topological Sorting (with Examples) | How to find all Topological Orderings of a Graph"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## How It Works

@@ -9,6 +9,16 @@ tags: [php, operators, arithmetic, comparison]
 
 Operators are used to perform operations on variables and values. php divides operators into several groups.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="xLc70TTz88Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Operators in Php | PHP Tutorial #9"
+  lazyLoad={true}
+  webp
+/>
+
 ## Arithmetic Operators
 
 Used to perform common mathematical operations:

@@ -13,6 +13,17 @@ In this post, we will discuss how to calculate the **minimum depth** of a binary
 ## Problem Definition
 Given a binary tree, the **minimum depth** is defined as the length of the shortest path from the root to a leaf. In other words, it represents the number of nodes along the shortest path from the root node down to the closest leaf node.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="tZS4VHtbYoo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Minimum Depth of Binary Tree (LeetCode 111) | Full solution w/graphical examples | Study Algorithms"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 
 ## Approach
 To calculate the minimum depth of a binary tree, we can use a recursive approach. At each node, we need to determine the depth of the left subtree and the right subtree. The minimum depth is the smaller of the two, but we need to be careful when one of the subtrees is missing (i.e., `NULL`), in which case we must consider only the non-`NULL` subtree.

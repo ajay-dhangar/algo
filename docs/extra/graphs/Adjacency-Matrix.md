@@ -11,6 +11,16 @@ Write a program in to create adjacency matrix of a given graph. If a graph has n
 - if there is an edge from vertex i to j, mark adj[i][j] as 1. i.e. adj[i][j] == 1
 - if there is no edge from vertex i to j, mark adj[i][j] as 0. i.e. adj[i][j] == 0
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5hPfm_uqXmw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.1 Graph Representation in Data Structure(Graph Theory)|Adjacency Matrix and Adjacency List"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach:
 The approach constructs a graph using an adjacency matrix, initialized to 0, where each user-specified neighbor for a node sets the corresponding matrix entry to 1, visually representing edges between nodes when displayed.
 

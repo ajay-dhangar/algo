@@ -21,6 +21,16 @@ Input: [1->4->5], [1->3->4], [2->6]
 Output: 1->1->2->3->4->4->5->6
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="q5a5OiGbT6Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Merge K Sorted Lists - Leetcode 23 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ### Approach:
 Using a Min Heap:
 - Use a Min Heap to keep track of the minimum element from each list.

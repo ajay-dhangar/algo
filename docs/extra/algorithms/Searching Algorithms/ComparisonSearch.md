@@ -28,16 +28,44 @@ A **comparison search** algorithm is one that relies on comparing elements to de
    - **Definition**: Linear search is a basic comparison search that checks each element one by one until the target is found or the array is exhausted.
    - **Time Complexity**: $O(n)$ for both best, worst, and average cases.
    - **When to Use**: Linear search is used for unsorted datasets or small arrays where other algorithms are not worth the overhead.
+   - **Video Explanation**
+
+<LiteYouTubeEmbed
+  id="C46QfTjVCNU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.1 Linear Search Algorithm | Linear Search in C | Data Structures Tutorials"
+  lazyLoad={true}
+  webp
+/>
+
 
 #### 2. **Binary Search**:
    - **Definition**: Binary search is a divide-and-conquer algorithm that works on sorted data. It repeatedly divides the search space in half and compares the middle element with the target.
    - **Time Complexity**: $O(log n)$ in the average and worst case.
    - **When to Use**: Best suited for large, sorted arrays or data structures with random access like arrays.
+   - **Video Explanation**
+
+<LiteYouTubeEmbed
+  id="V_T5NuccwRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.2 What is Binary Search | Binary Search Algorithm with example | Data Structures Tutorials"
+  lazyLoad={true}
+  webp
+/>
 
 #### 3. **Ternary Search**:
    - **Definition**: Ternary search is similar to binary search but divides the array into three parts instead of two. It checks two midpoints in each iteration.
    - **Time Complexity**: $O(log3 n)$, which is still logarithmic but often slower than binary search in practice due to the additional comparisons.
    - **When to Use**: Useful in unimodal functions where there's a single peak, making ternary search more applicable.
+   - **Video Explanation**
+
+<LiteYouTubeEmbed
+  id="WyWL1PBNvb8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Ternary Search | Ternary Search with example | Easy explanation of Ternary Search"
+  lazyLoad={true}
+  webp
+/>
 
 ### Time Complexity of Comparison-Based Searches:
 

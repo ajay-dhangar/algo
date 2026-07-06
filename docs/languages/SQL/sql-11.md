@@ -24,6 +24,16 @@ In this example, the `INSERT INTO` statement adds a new row with specific values
 
 ---
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Dndsh1dcx-U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="SQL - INSERT INTO Statement - W3Schools.com"
+  lazyLoad={true}
+  webp
+/>
+
 ### Syntax
 
 For inserting data into **all columns**:

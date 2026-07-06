@@ -12,6 +12,17 @@ tags: [Modular Arithmetic, Exponentiation, Algorithms, Number Theory, Recursion]
 ## Overview
 **Modular Exponentiation** is an efficient algorithm for computing large powers modulo a number. This algorithm is widely used in cryptography and number theory, where dealing with large numbers is common, and directly calculating powers can lead to overflow. Instead of calculating `base^exp` first and then taking the modulo, **modular exponentiation** computes `(base^exp) % mod` efficiently using the **exponentiation by squaring** method, reducing the time complexity to logarithmic.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_gYUlvcnjs0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Modular Exponentiation (Part 1)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Description
 - **Input**: Three integers, `base`, `exp`, and `mod`, where:
   - `base` is the base number to be raised to the power.

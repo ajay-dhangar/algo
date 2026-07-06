@@ -24,6 +24,16 @@ Consider three processes with the following burst times and deadlines:
 
 Using the EDF algorithm, the processes will be executed in the order of their deadlines: Process 2, Process 3, and then Process 1.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="ejPXTOcMRPA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Earliest Deadline First (EDF)"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Definition
 
 Given a list of processes along with their burst times and deadlines, calculate the waiting times, turnaround times, average waiting time, and average turnaround time for the processes.

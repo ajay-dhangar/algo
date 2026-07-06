@@ -11,6 +11,17 @@ tags: [number-theory, gcd, algorithms]
 
 The Euclidean Algorithm is an efficient method for finding the Greatest Common Divisor (GCD) of two integers. It uses the principle that the GCD of two numbers does not change if the larger number is replaced by its remainder when divided by the smaller number.
 
+
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="1xNbjMdbjug"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Basic Maths for DSA | Euclidean Algorithm | Strivers A2Z DSA Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## Steps to Implement
 1. Divide the larger number by the smaller number and find the remainder.
 2. Replace the larger number with the smaller number and the smaller number with the remainder.

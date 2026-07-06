@@ -14,6 +14,17 @@ Note that you do not have any change in hand at first.
 
 Given an integer array `bills` where `bills[i]` is the bill the $i^{th}$ customer pays, return `true` *if you can provide every customer with the correct change, or* `false` *otherwise*.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="n_tmibEhO6Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L2. Lemonade Change | Greedy Algorithm Playlist"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Example 1:**
 Input: `bills = [5, 5, 5, 10, 20]`
 Output: `true`

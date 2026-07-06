@@ -14,6 +14,16 @@ A **variable** is a container that holds data that can be used and modified thro
 - **Name**: A unique identifier used to refer to it.
 - **Value**: The data or information stored in the variable.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="LusTv0RlnSU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Variables in Java | Input Output | Complete Placement Course | Lecture 2"
+  lazyLoad={true}
+  webp
+/>
+
 ### Syntax
 
 ```java

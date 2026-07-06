@@ -13,6 +13,16 @@ tags: [prime numbers, number theory, sieve, competitive programming]
 
 The **Sieve of Eratosthenes** is an efficient algorithm for finding all prime numbers up to a given limit `n`. It works by iteratively marking the multiples of each prime starting from 2, the first prime number. The algorithm runs in `O(n log log n)` time, making it much faster than checking each number individually for primality.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="KdePjukNs98"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 24: Basic Maths for DSA || Sieve || Modular Arithmetics || Euclid's Algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 ## Explanation:
 
 The algorithm works by maintaining an array of boolean values where each index represents a number, and the value is `True` if the number is prime and `False` if it is not. It starts with the first prime (2) and marks all of its multiples as non-prime. Then it moves to the next number, and if it's still marked as prime, it marks all of its multiples, and so on, up to the square root of `n`.

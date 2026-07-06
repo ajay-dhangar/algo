@@ -11,6 +11,16 @@ tags: [java, Functional Programming, Lambda, Streams]
 
 Functional Programming in Java is a style of writing code where you focus on functions and immutability (not changing things). It is a way of programming that treats computation like a mathematical function and avoids changing data or using variables that can change over time.. Java introduced functional programming features in Java 8, including lambdas, streams, and functional interfaces.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="UfJ0lCH7FMM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java 8 Tutorial | Functional Programming in Java | Java 8 Features in One Video | 4 Hours Course 🔥"
+  lazyLoad={true}
+  webp
+/>
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Key Concepts](#key-concepts)

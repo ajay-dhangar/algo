@@ -20,6 +20,17 @@ A **Dynamic Segment Tree** is a type of segment tree where nodes are created **o
 ### Example Use Case  
 Suppose you need to manage a large range of values, such as from `1` to `10^9`, but only a small fraction of the elements within the range are relevant. A **dynamic segment tree** only creates the necessary nodes, making it space-efficient.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="-dUiRtJ8ot0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Segment Tree: Build and Query | Live Coding.."
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approach

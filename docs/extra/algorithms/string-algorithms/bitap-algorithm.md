@@ -11,6 +11,17 @@ sidebar_label: Bitap Algorithm
 
 The Bitap algorithm, also known as the **Shift-Or**, **Shift-And**, or **Bitap for Approximate String Matching**, is a string matching algorithm that efficiently finds patterns in a text with possible mismatches or errors. The algorithm leverages bitwise operations to perform both exact and approximate string matching, making it ideal for fuzzy searching.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="jXNj27TMQRU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bitap algorithm for fuzzy matching explained with example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Bitwise Matching**:

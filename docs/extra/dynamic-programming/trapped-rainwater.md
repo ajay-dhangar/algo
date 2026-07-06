@@ -9,6 +9,17 @@ tags: [dsa, algorithms, dynamic programming, rainwater, arrays]
 ### Definition:
 The **Trapped Rainwater problem** involves finding the amount of water that can be trapped after rainfall between bars of different heights, represented by an array. Each bar's width is assumed to be 1, and rainwater is trapped in the valleys between bars.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="ZI2z5pq0TqA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Trapping Rain Water - Google Interview Question - Leetcode 42"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Dynamic Programming**:
   - This solution uses dynamic programming to calculate the maximum heights to the left and right of each bar, allowing us to determine the trapped water efficiently.

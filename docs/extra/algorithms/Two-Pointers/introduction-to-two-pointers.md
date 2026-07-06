@@ -13,6 +13,17 @@ tags: [dsa, algorithms, two pointers]
 
 The **Two Pointers** technique is a widely used algorithmic pattern that utilizes two pointers (or indices) to traverse a data structure, usually an array or a string. This approach is particularly useful for problems that require searching, comparing, or modifying elements based on specific conditions.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="QzZ7nmouLTI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics:
 
 - **Pointer Definition**:

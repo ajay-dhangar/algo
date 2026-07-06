@@ -11,6 +11,16 @@ tags: [go, golang, cheatsheet, dsa, programming]
 
 A quick reference for Go syntax and patterns commonly used in Data Structures and Algorithms.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="YS4e4q9oBaU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Learn Go Programming - Golang Tutorial for Beginners"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Hello World

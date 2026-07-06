@@ -6,6 +6,22 @@ description: "Merge Sort is a divide-and-conquer sorting algorithm that divides 
 tags: [dsa, arrays, sorting, merge-sort, algorithm of merge-sort, pseudocode of merge-sort, complexity of merge-sort, example of merge-sort, live example of merge-sort, explanation of merge-sort, conclusion of merge-sort]
 ---
 
+import AdsComponent from '@site/src/components/AdsComponent';
+
+
+**Merge Sort** is an efficient, stable, comparison-based, divide and conquer sorting algorithm. It divides the unsorted list into `n` sublists, each containing one element, and then repeatedly merges sublists to produce new sorted sublists until there is only one sublist remaining.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="tn9hxD8gx2M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.3: How Merge Sort Works?? Full explanation with example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 **Merge Sort** is a divide-and-conquer sorting algorithm that divides the array into smaller subarrays, sorts them recursively, and then merges them back together in sorted order. It is a <mark>stable</mark> and <mark>comparison-based</mark> algorithm that guarantees $O(n log n)$ time complexity in all cases. Although it requires additional space for temporary arrays during merging, it is highly efficient for sorting large datasets and is commonly used in practical applications.

@@ -8,6 +8,16 @@ tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 
 A Minimum Spanning Tree (MST) of a connected, undirected graph is a spanning tree that has the smallest possible total edge weight among all spanning trees. An MST connects all vertices in the graph without cycles and with the minimum sum of edge weights.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="h6cUkkaKNHw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.7: What is Spanning Tree with Examples in Hindi | Algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ## Characteristics:

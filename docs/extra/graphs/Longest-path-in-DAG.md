@@ -9,6 +9,16 @@ tags: [dsa, algorithms, graph]
 ## Definition:
 This program finds the longest path from a given source vertex in a Directed Acyclic Graph (DAG) with weighted edges. It accomplishes this by performing a topological sort on the vertices and then using dynamic programming to calculate the longest path distances. 
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="TXkDpqjDMHA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Shortest/Longest path on a Directed Acyclic Graph (DAG) | Graph Theory"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Statement:
 Given a weighted directed acyclic graph (DAG) and a source vertex, find the cost of the longest path from the source vertex to all other vertices present in the graph. If the vertex can’t be reached from the given source vertex, print its distance as infinity.
 

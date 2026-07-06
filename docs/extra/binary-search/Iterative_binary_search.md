@@ -13,6 +13,17 @@ Iterative Binary Search is powerful algorithm that is essential for efficiently 
 
 Iterative binary search is a highly efficient algorithm used to find an element in a sorted array. It works by repeatedly dividing the search interval in half, using an iterative approach. If the value of the search key is less than the item in the middle of the interval, the algorithm narrows the interval to the lower half. Otherwise, it narrows it to the upper half. The process continues until the search key is found or the interval is empty.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="C2apEw9pgtw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.6.1 Binary Search Iterative Method"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 In pseudo-code, iterative binary search is defined as follows:
 
 ```cpp

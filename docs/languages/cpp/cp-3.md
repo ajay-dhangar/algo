@@ -12,6 +12,16 @@ By default, instructions in a C++ program execute sequentially—line by line. H
 
 **Control Statements** (or selection statements) evaluate conditional expressions to determine the directional flow of program execution.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qR9U6bKxJ7g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 3: Conditional Statements & Loops | DSA Series by Shradha Ma'am | C++"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. The `if` Statement
 
 The `if` statement evaluates a boolean expression. If the condition resolves to `true`, the inner code block executes. If it resolves to `false`, the compiler skips the block entirely.

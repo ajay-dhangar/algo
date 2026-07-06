@@ -6,12 +6,24 @@ description: "Learn about Bubble Sort, a simple comparison-based sorting algorit
 tags: [dsa, algorithms, sorting]
 ---
 import BubbleSortVisualization from "@site/src/components/DSA/arrays/BubbleSortVisualization";
+import PracticeProblems from "@site/src/components/PracticeProblems";
 
 <AdsComponent />
 
 Bubble Sort is one of the most fundamental and simplest sorting algorithms. It works by repeatedly stepping through the list to be sorted, comparing adjacent elements, and swapping them if they are in the wrong order. This process is repeated until the list is fully sorted.
 
 The algorithm gets its name because smaller or larger elements "bubble" to the top or bottom of the list (depending on the sorting order) with each iteration, similar to air bubbles rising in water.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="o4bAoo_gFBU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.3 Bubble Sort Algorithm| Data Structures Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ### How it Works:
 1. **Start at the beginning**: The algorithm begins at the first index of the array.
@@ -142,3 +154,27 @@ int main() {
     return 0;
 }
 ```
+
+## Practice Problems
+
+<PracticeProblems problems={[
+  {
+    name: "Sort Colors (Dutch National Flag)",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/sort-colors/"
+  },
+  {
+    name: "Bubble Sort",
+    platform: "GeeksforGeeks",
+    difficulty: "Easy",
+    link: "https://www.geeksforgeeks.org/problems/bubble-sort/1"
+  },
+  {
+    name: "Sort an Array",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/sort-an-array/"
+  }
+]} />
+

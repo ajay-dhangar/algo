@@ -12,6 +12,17 @@ tags: [recursion, algorithms, dsa]
 ## Introduction
 Recursion is a programming technique in which a function calls itself directly or indirectly to solve a problem. It involves breaking down a problem into smaller sub-problems that are easier to solve. Recursion is widely used in problems involving trees, graphs, backtracking, and dynamic programming.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="yVdKa8dnKiE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Re 1. Introduction to Recursion | Recursion Tree | Stack Space | Strivers A2Z DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How Recursion Works
 Every recursive function consists of two main parts:
 1. **Base Case**: This condition stops the recursion. It prevents the function from calling itself indefinitely.

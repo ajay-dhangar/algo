@@ -11,6 +11,17 @@ sidebar_label: Knuth-Morris-Pratt Algorithm
 
 The Knuth-Morris-Pratt (KMP) Algorithm is a string matching algorithm developed by Donald Knuth, James H. Morris, and Vaughan Pratt. It improves upon naive string matching by utilizing information about previous character matches to avoid unnecessary comparisons, making it particularly efficient for patterns containing repeating subsequences.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="V5-7GzOfADQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9.1 Knuth-Morris-Pratt KMP String Matching Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example with Explanation
 
 Consider a scenario where we have the following:

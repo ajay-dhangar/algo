@@ -9,6 +9,16 @@ sidebar_label: "Arrays in C#"
 
 Arrays in C# are used to store multiple values of the same type in a single variable. They are a fundamental data structure for handling collections of data.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="YiE0oetGMAg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="How to Program in C# - Arrays (E05)"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. Declaring and Initializing Arrays

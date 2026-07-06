@@ -11,6 +11,16 @@ tags: [hashing, data structures, update]
 
 The update operation involves modifying the value associated with an existing key in a hash table. If the key is not present, it may require an insertion.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="MKlnZbWEnNQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Hash Table Update Operation | Data Structure"
+  lazyLoad={true}
+  webp
+/>
+
 ### Steps for Update
 
 1. **Hash the Key**: Use a hash function to find the index.

@@ -5,12 +5,24 @@ sidebar_label: Product of Array Except Self
 description: "The Product of Array Except Self problem requires calculating the product of all elements in an array except for the element at the current index. The challenge is to perform this without using division and in O(n) time complexity."
 tags: [dsa, arrays, product-of-array, pseudocode, Implementation, explanation, conclusion]
 ---
-
 <AdsComponent />
 
 ## Product of Array Except Self
 
 The **Product of Array Except Self** problem involves computing an output array such that `output[i]` is equal to the product of all the elements of the input array except for `input[i]`. 
+
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="TW2m8m_FNJE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Product of Array Except Self | Brute to Optimal Solution | LeetCode 238"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 
 ### Problem Statement
 

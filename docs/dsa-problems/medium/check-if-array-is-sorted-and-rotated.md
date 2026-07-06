@@ -31,6 +31,16 @@ Output: `true`
 **Explanation:** `[1, 2, 3]` is the original sorted array.
 You can rotate the array by x = 0 positions (i.e. no rotation) to make `nums`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Z7_nMTHROZo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture21: Solving LeetCode/CodeStudio Questions [Arrays]"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

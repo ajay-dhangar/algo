@@ -11,6 +11,15 @@ sidebar_label: Ternary Search
 
 Ternary search is a **divide-and-conquer** algorithm similar to binary search, but instead of dividing the array into two halves, it divides it into three parts. The array is split by examining two midpoints, and the search continues in the section where the target value lies. Ternary search is particularly useful in unimodal functions (functions that increase then decrease).
 
+### Video Explanation
+<LiteYouTubeEmbed
+  id="WyWL1PBNvb8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Ternary Search | Ternary Search with example | Easy explanation of Ternary Search"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Divides into Three Parts**:

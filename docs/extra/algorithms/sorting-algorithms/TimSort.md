@@ -11,6 +11,17 @@ sidebar_label: Tim Sort
 
 Tim Sort is a hybrid, stable sorting algorithm derived from merge sort and insertion sort. It is designed to perform well on real-world data, which often contains certain order. The algorithm splits the array into small pieces (called "runs"), sorts each run using insertion sort, and then merges the runs using a merge sort technique. It is the default sorting algorithm in Python and Java's standard libraries.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="emeME__917E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="The FASTEST sorting algorithm: Part 1 - TimSort"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Hybrid Sorting**:

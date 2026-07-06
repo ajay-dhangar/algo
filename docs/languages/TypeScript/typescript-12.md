@@ -9,7 +9,17 @@ Polymorphism enables separate objects to expose uniform method signatures while 
 
 ## 1. Abstract Class Structural Blueprints
 
-Abstract classes act as base validation blueprints. They cannot be instantiated directly and can declare abstract method stubs that subclasses must implement:
+Abstract classes act as base validation blueprints. They cannot be instantiated directly and can declare abstract method stubs that subclasses must implement
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="PTlCq7GEpCo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Abstract class in Typescript"
+  lazyLoad={true}
+  webp
+/>
 
 ```typescript
 abstract class AbstractDatabaseConnector {
@@ -25,6 +35,16 @@ abstract class AbstractDatabaseConnector {
 ```
 
 ## 2. Implementing Polymorphic Database Drivers
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Sn6K57YSuwU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="TypeScript Basics 14 - Inheritance and Polymorphism In TypeScript"
+  lazyLoad={true}
+  webp
+/>
 
 ```typescript
 class PostgresDriver extends AbstractDatabaseConnector {

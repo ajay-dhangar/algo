@@ -44,6 +44,16 @@ Output:
 **Explanation:** In 2015-01-02, the temperature was higher than the previous day (10 -> 25).
 In 2015-01-04, the temperature was higher than the previous day (20 -> 30).
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="CJQCRcpLVZk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Rising Temperature | Leetcode 197 | Crack SQL Interviews in 50 Qs #mysql #leetcode"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

@@ -9,6 +9,16 @@ sidebar_label: "Interfaces in Java"
 
 Hey there! In this guide, we'll explore the concept of interfaces in Java. Interfaces are used to define abstract methods that classes can implement, allowing for multiple inheritance and flexibility in designing systems. Let's get started!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="kHBji-fom6k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Interface in Java | Learn Coding"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. What is an Interface?

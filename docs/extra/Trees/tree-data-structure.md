@@ -18,6 +18,17 @@ A **Tree** is a widely used data structure that simulates a hierarchical tree st
 - **Depth**: The number of edges from the root to the node.
 - **Height**: The number of edges in the longest path from a node to a leaf.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="YAdLFsTG70w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.1 Tree in Data Structure | Introduction to Trees | Data Structures Tutorials1"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Types of Trees
 
 1. **Binary Tree**: A tree where each node has at most two children.

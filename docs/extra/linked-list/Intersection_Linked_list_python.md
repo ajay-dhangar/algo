@@ -13,6 +13,16 @@ tags: [dsa, linked-lists, intersection,python,hash-set]
 
 In a linked list, the intersection of two lists occurs when two linked lists share a common node. Given two linked lists, this problem aims to find the node where the two lists intersect. If they do not intersect, the result should be `None`.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="u4FWXfgS8jw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Intersection point of two Linked Lists | Amazon | Microsoft | Brute | Better | Optimal1 | Optimal2"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example
 
 Consider the following two linked lists:

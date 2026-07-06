@@ -24,6 +24,17 @@ When analyzing the efficiency of an algorithm, we often consider two key factors
 | 5.      | Analysis      | Analyzed by counting the number of operations an algorithm performs. | Analyzed by counting the memory used by an algorithm. |
 | 6.      | Examples      | Sorting algorithms, searching algorithms, etc. | Data structures like arrays, linked lists, etc. |
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="bQssdSrSGNE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Basics of Time Complexity and Space Complexity | Java | Complete Placement Course | Lecture 9"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity
 
 Time complexity refers to the amount of time an algorithm takes to run as a function of the length of the input. It helps us understand how an algorithm scales with input size and provides insights into its efficiency.

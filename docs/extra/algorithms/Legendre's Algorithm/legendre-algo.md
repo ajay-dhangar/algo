@@ -26,6 +26,17 @@ This algorithm is especially valuable because calculating n! directly for large 
 
 ---
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="sOf_G3gQvf8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Legendre Formula Explained"
+  lazyLoad={true}
+  webp
+/>
+
+---
 
 ## Understanding the Problem for Prime k 
 

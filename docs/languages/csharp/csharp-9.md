@@ -7,6 +7,17 @@ sidebar_label: "Interfaces in C#"
 
 In C#, an interface is a contract that defines a set of methods and properties that a class must implement, without providing the implementation itself. Interfaces are fundamental to achieving abstraction, polymorphism, and multiple inheritance in C#. They allow classes to share a common contract, which helps in designing flexible and scalable applications.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="D6d8CIVoYSI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Part 30 - C# Tutorial - Interfaces in c#.avi"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## 1. What is an Interface?
 
 An interface defines a set of methods, properties, events, or indexers without implementing them. Classes or structs that implement an interface are required to provide an implementation for each member defined in the interface.

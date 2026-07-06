@@ -16,6 +16,17 @@ The **Binary Lifting** technique is an advanced approach that leverages **Dynami
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_-QHfMDde90"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L27. Lowest Common Ancestor in Binary Tree | LCA | C++ | Java"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## The Core Intuition: Jumping in Powers of 2
 
 Instead of climbing up the tree one step at a time (which takes $\mathcal{O}(N)$ in the worst case), binary lifting allows us to "jump" up the tree in powers of 2 ($1, 2, 4, 8, 16, \dots$). 

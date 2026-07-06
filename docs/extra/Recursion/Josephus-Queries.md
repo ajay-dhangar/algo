@@ -10,6 +10,17 @@ tags: [dsa, recursion, josephus]
 ## Problem Statement
 You are given `n` children numbered from `1` to `n` standing in a circle. Every second child is removed until no children are left. The task is to process `q` queries, where each query specifies `n` and `k`, and you need to determine which child is the `k`-th to be removed.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="uCsD3ZGzMgE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="The Josephus Problem - Numberphile"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Objective
 - For each query, return the position of the `k`-th child that will be removed.
 

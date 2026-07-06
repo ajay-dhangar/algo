@@ -22,6 +22,16 @@ The K-th largest element algorithm using a min heap is particularly useful when 
 
 The key idea is to maintain a min heap of size K, where the smallest element (root) represents the Kth largest element seen so far.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="iiYmgrD4h6M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Heap - 3: Find Kth Largest Value in given array | Using Min Heap | Using Max Heap"
+  lazyLoad={true}
+  webp
+/>
+
 ## Algorithm Overview
 
 ### Basic Concept

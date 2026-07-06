@@ -25,6 +25,16 @@ Output: `75`
 Input: `hour = 3`, `minutes = 15`
 Output: `7.5`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="FK_wnA0ERBQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Angle Between Hands of a Clock | LeetCode 1344 | C++, Java, Python"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

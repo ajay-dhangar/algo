@@ -14,6 +14,17 @@ tags: [linked list]
 
 In a linked list, the goal is to rearrange the nodes such that all even-valued nodes appear before all odd-valued nodes. The relative order of the even and odd nodes should remain the same as in the original list. For example, given the linked list `1 -> 2 -> 3 -> 4 -> 5`, the output should be `2 -> 4 -> 1 -> 3 -> 5`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qf6qp7GzD5Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L6. Odd Even Linked List | Multiple Approaches"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 To segregate even and odd nodes, we can use the following approach:

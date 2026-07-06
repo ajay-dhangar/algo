@@ -15,6 +15,17 @@ The rules are:
 - Stack and input queue must be empty at the end.
 - Only enqueue to the output queue.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="q4CbTMLogyk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Stack Permutations | Problem of the Day : 07/09/22 | Yash Dwivedi"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Statement:
 Given two integer arrays, `input` and `output`, each containing unique elements and both of the same length `n`, determine if it is possible to achieve the output sequence using only stack operations on the input sequence. In other words, we start with the input array and can perform a series of stack operations: we may push elements from input onto a stack in their original order and pop them off the stack to match the output sequence. The task is to write a program that checks if the output sequence is a valid stack permutation of the input sequence. If it's possible to generate the output using these stack operations, print "Yes"; otherwise, print "No"
 

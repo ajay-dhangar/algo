@@ -11,6 +11,16 @@ tags: [classification, data visualization, machine learning, SVM, hyperplane, su
 ### Definition:  
 **Support Vector Machine (SVM)** is a supervised machine learning algorithm primarily used for classification tasks. It aims to find the optimal hyperplane that maximally separates different classes in the dataset. By using kernel tricks, SVM can also handle non-linearly separable data in higher dimensions.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="_PwhiWxHK8o"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="16. Learning: Support Vector Machines"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Linear and Non-Linear Classification**:  
   SVM can perform both linear and non-linear classification by choosing appropriate kernel functions. Linear SVMs are faster but less flexible, while non-linear SVMs (using kernels) can handle complex data structures.

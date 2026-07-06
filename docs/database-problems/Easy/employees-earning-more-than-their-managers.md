@@ -38,6 +38,16 @@ Output:
 
 **Explanation:** Joe is the only employee who earns more than his manager.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="4gvaCmSqEU8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Employees👨‍💻 Taking More Salary🤑 than their Managers👨‍✈️| SQL INTERVIEW QUERIES"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Platform Core | Algo</title>
+    <meta
+      name="description"
+      content="This is an isolated static core layout for the Algo platform, running independently of the core Docusaurus engine framework."
+    />
+    <link rel="icon" href="/algo/img/logo.png" type="image/png" />
+    <style>
+      :root {
+        --primary: #2196f3;
+        --secondary: #25c2a0;
+        --bg: #1e1e1e;
+        --card-bg: #2d2d2d;
+        --text: #f3f4f6;
+        --text-muted: #9ca3af;
+      }
+
+      body {
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        padding: 2.5rem 3rem;
+        max-width: 600px;
+        text-align: center;
+        border: 1px solid #3e3e3e;
+      }
+
+      h1 {
+        color: var(--primary);
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      p {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      pre {
+        background: #111;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        border: 1px solid #333;
+        margin: 1.5rem 0;
+      }
+
+      code {
+        font-family: "Fira Code", monospace;
+        color: var(--secondary);
+        font-size: 0.95rem;
+      }
+
+      a.button {
+        display: inline-block;
+        text-decoration: none;
+        background: var(--primary);
+        color: white;
+        padding: 0.8rem 1.8rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 14px rgba(33, 150, 243, 0.4);
+      }
+
+      a.button:hover {
+        background: #1976d2;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(33, 150, 243, 0.6);
+      }
+
+      footer {
+        margin-top: 2.5rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        border-top: 1px solid #3e3e3e;
+        padding-top: 1.5rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Static Engine Core 🧩</h1>
+      <p>
+        This is an isolated, production-grade static HTML workspace bypass template operating safely outside your dynamic React layout system.
+      </p>
+      
+      <p>You can reference or link directly to this layout out-of-bounds using:</p>
+      <pre><code>pathname:///static-page.html</code></pre>
+      
+      <p>
+        Perfect for running high-frequency runtime dashboards, custom interactive visualization loops, or processing metrics without loading the heavy client-side JavaScript engine bundles.
+      </p>
+      
+      <a href="/algo/" class="button">← Back to Algo Platform</a>
+
+      <footer>
+        &copy; <span id="year"></span> Algo Ecosystem. System Core Live // Operational.
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

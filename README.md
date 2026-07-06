@@ -171,7 +171,7 @@ To manually invoke Gemini Code Assist, you can use the following commands in the
 |`/gemini`| Manually invokes Gemini Code Assist in comments |
 |`/gemini help` | Overview of the available commands |
 
-
+<!--
 ## 📈 Repository Analytics
 
 <table width="100%">
@@ -192,6 +192,8 @@ To manually invoke Gemini Code Assist, you can use the following commands in the
     </td>
   </tr>
 </table>
+
+-->
 
 ## Resources for Guidance
 
