@@ -9,6 +9,16 @@ tags: [nodejs, javascript, backend, cheatsheet]
 
 Modern Node.js (v18+ to v26) – Updated 2026
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="TlB_eWDSMt4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Node.js Tutorial for Beginners: Learn Node in 1 Hour"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Basic Setup
 
 ```bash

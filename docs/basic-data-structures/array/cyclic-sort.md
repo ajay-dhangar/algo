@@ -8,6 +8,18 @@ tags: [dsa, arrays, sorting, cyclicsort, sorting-algorithms]
 
 *Cyclic Sort* is a highly specialized, in-place sorting algorithm that achieves an incredible $O(n)$ time complexity. It is used exclusively when the elements of an array belong to a specific continuous range, such as $1$ to $N$ (where $N$ is the size of the array).
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="JfinxytTYFQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Cycle Sort - Amazon, Google, Microsoft Interview Questions"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## How Cyclic Sort Works
 Because the numbers are strictly bounded from $1$ to $N$, we inherently know the exact correct index for every number. The number `1` belongs at index `0`, the number `2` belongs at index `1`, and the number `k` belongs at index `k-1`.
 

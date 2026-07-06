@@ -27,6 +27,17 @@ Valid strictly increasing subsequences include:
 
 **Optimal Evaluation:** $4$
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ekcwMsSIzVc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 41. Longest Increasing Subsequence | Memoization"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Combinatorial Brute Force Intuition

@@ -8,6 +8,16 @@ tags: [Competitive Programming,top-K,priority queue]
 ---
 # Heap Data Structure Operations Examples
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="NEtwJASLU8Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.8 Max Heap Insertion and Deletion | Heap Tree Insertion and Deletion with example| Data Structure"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example 1: Insert and Peek Operations
 
 - Inserting 40, 60, 20, 10, 50: The heap is reorganized after every insertion to maintain the max heap property.

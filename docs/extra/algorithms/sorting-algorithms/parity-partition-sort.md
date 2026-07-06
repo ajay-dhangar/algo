@@ -13,6 +13,17 @@ tags: [sorting, dsa, algorithms, programming, parity sort, partition sort, parit
 
 Parity Partition Sort is a sorting algorithm that initially partitions an array into two subarrays: one containing even numbers and the other containing odd numbers. It then sorts each subarray independently using a standard sorting algorithm like Merge Sort or Insertion Sort. Finally, the two sorted subarrays are merged to form the final sorted array.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="QC4c9fyr8As"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sort Array by Parity - Leetcode 905 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Algorithm**
 
 1. **Partition:**

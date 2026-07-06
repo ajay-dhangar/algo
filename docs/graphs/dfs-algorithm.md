@@ -13,6 +13,16 @@ tags: [graph, search, dfs, backtracking, recursion, dsa]
 DFS is extremely useful for **topological sorting**, **detecting cycles**, and solving **mazes or puzzles** with a single solution.
 :::
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="pcKY4hjDrxk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.1 Graph Traversals - BFS & DFS -Breadth First Search and Depth First Search"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## How It Works

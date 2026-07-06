@@ -11,6 +11,17 @@ sidebar_label: Finite State Automaton Algorithm
 
 The Finite State Automaton (FSA) algorithm is a string matching technique that constructs a mathematical model of states to perform pattern searching. It builds a state machine from the pattern, where each state represents a prefix of the pattern matched so far. The algorithm then processes the text character by character, transitioning between states to identify matches.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="JF48ymcpEzY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="String Pattern Matching with Finite Automata||Example-1||Design and analysis of algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **State-Based Matching**:

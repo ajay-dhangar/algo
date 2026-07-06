@@ -30,6 +30,17 @@ Most programming languages support the following types of operators:
 
 JavaScript supports a wide range of operators that help you perform various tasks:
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Zg4-uSjxosE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Operators and Conditional Statements | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
+
 #### 1. Arithmetic Operators
 These operators are used to perform mathematical operations.
 
@@ -79,6 +90,16 @@ graph TD
 
 In Java, operators work similarly but come with strict typing:
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="pnn2VTSr1Ko"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java Tutorial: Operators, Types of Operators & Expressions in Java"
+  lazyLoad={true}
+  webp
+/>
+
 #### 1. Arithmetic Operators
 ```java
 int a = 15;
@@ -124,6 +145,16 @@ Operator precedence in Java follows a strict hierarchy:
 
 Python operators are straightforward and easy to use:
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="v5MR5JnKcZI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="#11 Python Tutorial for Beginners | Operators in Python"
+  lazyLoad={true}
+  webp
+/>
+
 #### 1. Arithmetic Operators
 ```python
 a = 20
@@ -165,6 +196,16 @@ print(not x)   # False
 ### C++ Operators Overview
 
 C++ operators are powerful and similar to those in Java:
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="JBgZxnAj4hg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.3 Operators in C++ Programming | Guaranteed Placement Course | 3.3"
+  lazyLoad={true}
+  webp
+/>
 
 #### 1. Arithmetic Operators
 ```cpp

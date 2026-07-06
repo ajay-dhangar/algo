@@ -11,6 +11,16 @@ sidebar_label: Asymmetric Encryption
 
 Asymmetric encryption, also known as public-key cryptography, is a type of encryption that uses a pair of keys: a public key and a private key. The public key is used for encryption, while the private key is used for decryption. This allows secure communication without the need to share a secret key.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="AQDCe585Lnc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Assymetric Encryption - Simply explained"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Key Pair**:

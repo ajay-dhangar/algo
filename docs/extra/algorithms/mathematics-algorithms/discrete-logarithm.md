@@ -21,6 +21,16 @@ $[x = \log_a b \ (\text{mod} \ p)]$
 
 This problem is considered **computationally hard** for large values of \( p \), which forms the basis of several cryptographic systems, such as the **Diffie-Hellman Key Exchange** and the **ElGamal encryption system**.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="za9azzh4v9A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="The Discrete Logarithm Problem"
+  lazyLoad={true}
+  webp
+/>
+
 ### Code
 **Code Implementation in Python:**
 

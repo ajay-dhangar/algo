@@ -61,6 +61,16 @@ Output:
 
 **Explanation:** In the IT department: Max earns the highest, Joe and Randy both earn the second-highest, and Will earns the third-highest. In the Sales department: Henry earns the highest and Sam earns the second-highest.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="wN22OtC5w6w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Top 3 Highest Salary in every Department | 🔝Interview Questions SQL"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

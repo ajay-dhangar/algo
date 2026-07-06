@@ -12,6 +12,17 @@ Hey there! In this guide, we'll explore decision-making in Python. Decision-maki
 * Python supports several decision-making constructs that allow you to execute code based on conditions.
 
 * We will go over the different decision-making options available in Python.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ceiuLR2ysas"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="If Else Conditional Statements in Python | Python Tutorial - Day #14"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. If Statements
 
 

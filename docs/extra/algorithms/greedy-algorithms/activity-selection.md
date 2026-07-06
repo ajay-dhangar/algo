@@ -10,6 +10,16 @@ tags: [dsa, algorithms, greedy algorithms, activity selection]
 
 The Activity Selection Problem is about selecting the maximum number of activities that don't overlap, given their start and finish times. The goal is to maximize the number of activities that can be performed by a single person or machine.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="poWB2UCuozA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Greedy Algorithms | Set 1 (Activity Selection Problem) | GeeksforGeeks"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Greedy Approach**:

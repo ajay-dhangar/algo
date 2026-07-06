@@ -21,6 +21,17 @@ This documentation provides the implementations of a circular buffer in Java, C+
 
 ---
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="uvD9_Wdtjtw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Circular Buffer | Circular Buffer Implementation in C"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Java Code
 
 ```java

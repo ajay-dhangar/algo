@@ -15,3 +15,14 @@ To identify whether a problem can be solved using Dynamic Programming (DP), you 
 ### Overlapping Subproblems:
 
 - A problem has overlapping subproblems if the same subproblems are solved multiple times during the computation of the solution. DP is useful when the same calculations are needed multiple times, and it allows you to store and reuse these solutions to avoid redundant work.
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="aPQY__2H3tE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5 Simple Steps for Solving Dynamic Programming Problems"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>

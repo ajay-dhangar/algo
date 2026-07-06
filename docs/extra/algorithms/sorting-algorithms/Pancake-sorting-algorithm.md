@@ -12,6 +12,17 @@ tags: [Sorting Algorithms, pancake-sorting-algorithm, Algorithm]
 ## Overview
 Pancake sorting is a sorting algorithm in which the only allowed operation is to reverse the elements of a prefix of the array. The goal is to sort the array using a minimal number of prefix reversals. This problem is a classic example of a **sorting** algorithm that limits the available operations.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="AFtXLUn_TZg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Pancake Sorting | LeetCode 969 | C++, Java, Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Introduction
 In **Pancake Sorting**, we are given a stack of pancakes of varying sizes and we want to sort them in order of size, with the largest pancake at the bottom and the smallest pancake on top. However, the only allowed operation is a **flip**, which reverses the order of the top `k` pancakes in the stack. The algorithm aims to sort the pancakes using the fewest number of flips.
 

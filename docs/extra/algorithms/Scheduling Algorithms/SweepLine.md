@@ -17,6 +17,16 @@ Given an array of intervals where `intervals[i] = [start_i, end_i]`, merge all o
 **Output**: `[[1,6],[8,10],[15,18]]`  
 **Explanation**: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="YnIxejYW7cE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sweep Line Algorithm Explanation"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 This approach uses a **sweep line algorithm**. Here's how it works:

@@ -15,9 +15,17 @@ In C++, both references and pointers are used to refer to memory locations, but 
 - **References**: An alias for another variable.
 - **Pointers**: A variable that holds the memory address of another variable.
 
+## 2. Video Explanation
 
+<LiteYouTubeEmbed
+  id="qYEjR6M0wSk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Pointers in C++ | In Detail | DSA Series by Shradha Ma'am"
+  lazyLoad={true}
+  webp
+/>
 
-## 2. Declaring References and Pointers
+## 3. Declaring References and Pointers
 
 ### Declaring References
 
@@ -70,7 +78,7 @@ int main() {
 }
 ```
 
-## 3. Differences Between References and Pointers
+## 4. Differences Between References and Pointers
 
 ### 1. Syntax and Usage
 
@@ -147,7 +155,7 @@ cout << "Address using ref: " << &ref << endl;
 cout << "Address using ptr: " << ptr << endl;
 ```
 
-## 4. When to Use References and Pointers
+## 5. When to Use References and Pointers
 
 ### Use References:
 - When you need an alias for another variable.
@@ -159,7 +167,7 @@ cout << "Address using ptr: " << ptr << endl;
 - When you need to implement data structures like linked lists, trees, etc.
 - When you need to use null values to indicate "no object".
 
-## 5. Examples
+## 6. Examples
 
 ### Example 1: Using References
 
@@ -193,6 +201,6 @@ int main() {
 }
 ```
 
-## 6. Conclusion
+## 7. Conclusion
 
 Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming

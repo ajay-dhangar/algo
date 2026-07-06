@@ -24,6 +24,18 @@ There are two types of Priority Scheduling:
 
 ---
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="rsDGfFxSgiY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.8: Pre-emptive Priority Scheduling Algorithm with Example | Operating System"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Example of Priority Scheduling:
 
 ### Example Process Table

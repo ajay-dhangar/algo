@@ -17,6 +17,16 @@ SQL NULL functions are used to handle `NULL` values in SQL queries. Since `NULL`
 4. **IFNULL**: Returns an alternative value if the expression is `NULL` (specific to certain databases like MySQL).
 5. **NULLIF**: Returns `NULL` if two expressions are equal; otherwise, it returns the first expression.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="X_cPXHV2NQ4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="SQL NULL Functions | COALESCE, ISNULL, NULLIF, IS (NOT) NULL | #SQL Course 18"
+  lazyLoad={true}
+  webp
+/>
+
 ### Syntax
 
 Using `IS NULL` and `IS NOT NULL`:

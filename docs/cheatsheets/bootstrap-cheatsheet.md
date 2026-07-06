@@ -9,6 +9,16 @@ tags: [bootstrap, css, frontend, web-development]
 
 This guide acts as a rapid production reference for Bootstrap 5 syntax structures. Whether you are scaffolding a layout or overriding a component pattern, look up structural boilerplate samples below.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="vpAJ0s5S2t0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bootstrap Tutorial In Hindi"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Quick Start Boilerplate
 
 To use Bootstrap 5 without local packaging configurations, include the compiled minified CSS and responsive JavaScript Bundle via the official jsDelivr CDN.

@@ -7,8 +7,21 @@ description: "Reversing a string is the process of rearranging the characters in
 tags: [String, reverse, inbuilt function, StringBuilder, Java, C++, Python, JavaScript]
 ---
 
+
 ## Description:
 Reversing a string is the process of rearranging the characters in a string so that they appear in the opposite order. For example, if the original string is "Hello", the reversed string would be "olleH". This operation is commonly used in programming for tasks such as checking for palindromes, manipulating text, or preparing data for display.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RitppzIdMCo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings - Part 4 | Reverse Words in String | DSA Placement Series"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 
 ## Key Points
 - Input: A string (e.g., "Hello, World!")

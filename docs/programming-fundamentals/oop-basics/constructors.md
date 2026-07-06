@@ -20,6 +20,16 @@ tags: [Constructors, Default_Constructor, Parameterized_Constructor, Copy_Constr
 
 Constructors are special member functions in C++ that are automatically invoked when an object of a class is created. They are primarily used to  *initialize** the data members of the class.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="y9KRmJAmmN4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="constructor and destructor in c++ | constructor and destructor in hindi | constructor in c++"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. Introduction to Constructors

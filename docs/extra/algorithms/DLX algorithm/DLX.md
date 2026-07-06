@@ -11,6 +11,16 @@ sidebar_label: Dancing Links
 
 The **Dancing Links (DLX)** algorithm is a highly efficient implementation of the **Exact Cover Problem**. It is based on a technique known as **dancing links**, which is a way of representing a sparse matrix with linked lists to facilitate fast row and column removals and restorations during the backtracking process.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="_cR9zDlvP88"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Stanford Lecture: Don Knuth - 'Dancing Links' (2018)"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics
 
 - **Algorithm Type**: Exact Cover, Backtracking

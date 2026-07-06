@@ -11,6 +11,17 @@ tags: [string, pattern matching, suffix automaton, competitive programming]
 
 A **Suffix Automaton** is a powerful directed acyclic word graph representing all suffixes of a given string in linear time and space.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="hTN5U7fY5hU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="But what is Suffix Automaton"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Complexity
 
 - **Construction Time:** O(N)

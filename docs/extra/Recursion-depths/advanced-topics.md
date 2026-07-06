@@ -39,6 +39,17 @@ def fibonacci(n, memo={}):
 Beyond simple recursive functions, recursion depth plays a role in complex algorithms. Topics covered:
 - **Dynamic Programming**: Optimizing recursive algorithms with overlapping subproblems.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="oBt53YbR9Kk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Dynamic Programming - Learn to Solve Algorithmic Problems & Coding Challenges"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Example**: Calculating Fibonacci numbers can be optimized using dynamic programming:
 ```python
 def fibonacci(n, memo={}):
@@ -54,6 +65,17 @@ def fibonacci(n, memo={}):
 
 
 - **Divide and Conquer**: Depth in algorithms that split data (e.g., merge sort).
+
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="2Rr2tW9zvRg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2 Divide And Conquer"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 - The algorithm divides the problem into smaller parts (the "divide" step), solves each part recursively (the "conquer" step), and then combines the results (the "combine" step).
 Example: Merge Sort is a classic example of a divide-and-conquer algorithm:
@@ -97,6 +119,17 @@ These approaches minimize excessive depth and improve performance.
 
 Key Concepts:
 Backtracking is used in scenarios where there are multiple choices to explore (e.g., the N-Queens problem, solving mazes, generating permutations).
+
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="DKCbsiDBN6c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6 Introduction to Backtracking - Brute Force Approach"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 **Example**: The N-Queens problem seeks to place N queens on an N×N chessboard so that no two queens threaten each other. A backtracking solution might look like this:
 

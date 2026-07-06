@@ -9,6 +9,16 @@ tags: [php, control-flow, if-else, switch, match]
 
 Control statements allow you to make decisions in your code. php supports `if`, `else`, `elseif`, `switch`, and the modern `match` expression.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="EBrUfyRO3Y0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="If Else Conditionals in Php | PHP Tutorial #10"
+  lazyLoad={true}
+  webp
+/>
+
 ## The `if` Statement
 
 Executes code if a condition is true:

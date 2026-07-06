@@ -19,6 +19,16 @@ SQL logical operators are used to combine multiple conditions in a query. They h
 6. **ANY**: Returns true if any of the values match the condition.
 7. **ALL**: Returns true only if all values match the condition.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="lScJW5Qz_5k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="MySQL logical operators are easy"
+  lazyLoad={true}
+  webp
+/>
+
 ### Syntax
 
 Using `AND` and `OR`:

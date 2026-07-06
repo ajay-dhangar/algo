@@ -15,6 +15,16 @@ In a linked list with an even number of nodes (size n), certain nodes are design
 
 For example, in a linked list of 4 nodes, node 0 is the twin of node 3, and node 1 is the twin of node 2. Each pair has a "twin sum," which is simply the sum of the values of the two nodes in the pair. The goal is to find the maximum twin sum among all such twin pairs in the linked list.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="doj95MelfSA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Maximum Twin Sum of a Linked List - Leetcode 2130 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example
 
 **Input:**

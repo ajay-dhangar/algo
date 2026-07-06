@@ -11,6 +11,16 @@ tags: [data structures, algorithms, hashset, sets, hashing, C++]
 
 A **HashSet** is a data structure that stores a collection of unique elements, ensuring no duplicates. Unlike a **HashMap**, which maps keys to values, a **HashSet** only stores the keys (elements) and guarantees uniqueness. Internally, a **HashSet** uses hashing to provide efficient operations.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="eJiGN1h8XzM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="HashSet in Java | Hashing | Java Placement Course | Data Structures & Algorithms"
+  lazyLoad={true}
+  webp
+/>
+
 ### Importance of HashSets
 
 1. **Unique Elements**: The main purpose of a **HashSet** is to ensure all elements are unique. If you try to add a duplicate element, the set will reject it.

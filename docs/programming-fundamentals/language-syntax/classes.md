@@ -24,6 +24,16 @@ A class is a template for creating objects (instances) that share common propert
 
 JavaScript introduced class syntax in ES6. While it is syntactic sugar over JavaScript’s existing prototype-based inheritance, it provides a clear and readable way to create objects.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="N-O4w6PynGY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 11 : Classes & Objects | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 #### Class Declaration
 
 ```js title="JavaScript Class Example"
@@ -71,6 +81,16 @@ employee1.describeJob(); // Output: I am a Software Developer.
 ### Java Classes Overview
 
 In Java, classes are the building blocks of OOP. They encapsulate data (fields) and behavior (methods).
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="bSrm9RXwBaI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java OOPs in One Shot | Object Oriented Programming | Java Language | Placement Course"
+  lazyLoad={true}
+  webp
+/>
 
 #### Class Declaration
 
@@ -134,6 +154,16 @@ public class Main {
 
 In Python, classes are easy to define and work with, thanks to its simple and intuitive syntax.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="ZDa-Z5JzLYM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Python OOP Tutorial 1: Classes and Instances"
+  lazyLoad={true}
+  webp
+/>
+
 #### Class Declaration
 
 ```python title="Python Class Example"
@@ -174,6 +204,16 @@ employee1.describe_job()  # Output: I am a Software Developer.
 ### C++ Classes Overview
 
 C++ provides robust support for OOP, allowing you to create complex programs using classes.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="mlIUKyZIUUU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="OOPs Tutorial in One Shot | Object Oriented Programming | in C++ Language | for Placement Interviews"
+  lazyLoad={true}
+  webp
+/>
 
 #### Class Declaration
 

@@ -14,6 +14,18 @@ tags: [dsa, data-structures, Conversions , C language]
         #include<string.h>
         #include<ctype.h>
 ```
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="PAceaOSnxQs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.6 Infix to Postfix using Stack | Data Structure and Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Operations on Stack
 
 **Structure of stack**

@@ -30,6 +30,19 @@ An array is a collection of items stored at contiguous memory locations. It is a
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="55l-aZ7_F24"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Definition of Array"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Visualizations of Arrays in Data Structures and Algorithms (DSA)
 
 <ArrayVisualizations />

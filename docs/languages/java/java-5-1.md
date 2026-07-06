@@ -7,6 +7,16 @@ sidebar_label: "Strings In Java"
 
 Hello! In this guide, we'll explore how to work with strings in Java. Strings are a crucial part of Java programming as they allow you to manipulate and process text easily. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="vCRD36bG8xQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings | Lecture 12 | Java Placement Series"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Java Strings
 
 In Java, strings are objects of the `String` class, which is part of the Java standard library. Unlike C-style strings, Java strings are immutable, meaning once a string object is created, it cannot be changed.

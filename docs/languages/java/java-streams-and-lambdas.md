@@ -56,6 +56,16 @@ Both produce `[4, 8, 12]`. The stream version reads like a sentence: *filter eve
 
 A **lambda expression** is an anonymous function — a block of code you can pass around without declaring a full class or method.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="tj5sLSFjVj4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lambda Expressions in Java - Full Simple Tutorial"
+  lazyLoad={true}
+  webp
+/>
+
 ### Basic Syntax
 
 ```java
@@ -164,6 +174,17 @@ Source  →  [Filter, Map, Sorted, ...]  →  Terminal Operation
  List       Intermediate (Lazy)            collect, reduce, forEach
 
 ```
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="tklkyVa7KZo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Stream API in Java"
+  lazyLoad={true}
+  webp
+/>
+
 
 ### Key Properties
 

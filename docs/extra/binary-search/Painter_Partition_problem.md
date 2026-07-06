@@ -12,6 +12,17 @@ tags: [binary search, greedy, algorithms, c++]
 ## Problem Statement
 You are given an array `boards[]` where `boards[i]` represents the length of the i-th board. You have `k` painters and each painter takes 1 unit of time to paint 1 unit length of the board. Each painter can only paint continuous sections of boards. Your task is to minimize the time taken to paint all the boards.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="srsFN5OHBgw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Painter's Partition Problem | DSA Placement Series - Binary Search | Lecture 22"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 This problem can be solved using **Binary Search** on the time range and a **Greedy approach** to allocate boards to painters.
 

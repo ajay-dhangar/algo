@@ -20,6 +20,17 @@ sidebar_label: DFS
 - **Complete Exploration:**
   DFS continues to search until all the nodes of the graph are visited.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="pcKY4hjDrxk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.1 Graph Traversals - BFS & DFS - Breadth First Search and Depth First Search"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Types of DFS:
 
 1. **Recursive DFS:**

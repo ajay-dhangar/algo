@@ -158,7 +158,7 @@ const RedBlackTreeQuiz: React.FC = () => {
   // Initialize from LocalStorage
   useEffect(() => {
     setIsMounted(true);
-    const savedUser = localStorage.getItem("rbt_quiz_user");
+    const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
       setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${savedUser}`, []));
@@ -176,23 +176,19 @@ const RedBlackTreeQuiz: React.FC = () => {
     return userAnswers.reduce((acc, ans, idx) => (ans === QUESTIONS[idx]?.answer ? acc + 1 : acc), 0);
   }, [userAnswers]);
 
-  const handleKeyDown = (e: React.KeyboardEvent, option: string) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      handleRegister(option);
-    }
-  };
-
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     if (!usernameInput.trim()) return;
-    localStorage.setItem("rbt_quiz_user", usernameInput.trim());
-    setUsername(usernameInput.trim());
+    const cleanName = usernameInput.trim();
+    localStorage.setItem("quiz_username", cleanName);
+    setUsername(cleanName);
+    setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${cleanName}`, []));
   };
-
   const handleLogout = () => {
-    localStorage.removeItem("rbt_quiz_user");
+    localStorage.removeItem("quiz_username");
     setUsername(null);
+    setUsernameInput("");
+    setHistory([]);
     handleRetry();
   };
 

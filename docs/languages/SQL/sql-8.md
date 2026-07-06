@@ -21,6 +21,16 @@ WHERE NOT Country = 'Spain';
 
 In the example above, the `NOT` operator is used in combination with the `=` operator, but it can be used in combination with other comparison and/or logical operators. See examples below.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="CJRl5kBWlgI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="SQL - NOT Operator - W3Schools.com"
+  lazyLoad={true}
+  webp
+/>
+
 * * *
 
 ### Syntax

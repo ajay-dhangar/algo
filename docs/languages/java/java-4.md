@@ -10,6 +10,16 @@ Hey there! In this guide, we'll explore loops in Java. Loops are used to execute
 * Java provides several types of loops that allow you to execute a block of code multiple times based on specific conditions.
 * The main types of loops in Java are `for`, `while`, and `do-while`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="0r1SfRoLuzU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Loops in Java | Java Placement Full Course | Lecture 4"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. For Loop
 The for loop is used when you know how many times you want to execute a statement or a block of statements.
 #### Syntax:

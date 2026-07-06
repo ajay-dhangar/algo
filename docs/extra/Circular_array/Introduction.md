@@ -13,6 +13,17 @@ A **circular array** (or circular buffer) is a linear data structure that wraps 
 It is used in scenarios where we need a fixed-size buffer that can overwrite old data with new data, such as in queue operations 
 or buffering systems.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="uvD9_Wdtjtw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Circular Buffer | Circular Buffer Implementation in C"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Features
 - **Fixed Size:** The array has a fixed capacity.
 - **Circular Nature:** When you reach the end, the next element is placed at the beginning of the array.

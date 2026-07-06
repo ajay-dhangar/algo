@@ -15,6 +15,17 @@ The input consists of an array `costs` where `costs[i] = [aCost, bCost]`, which 
 ### Objective
 - Return the minimum total cost to send `N` people to each city.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="d-B_gk_gJtQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Two City Scheduling - Leetcode 1029 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example
 ```plaintext
 Input: costs = [[10,20],[30,200],[50,30],[200,500]]

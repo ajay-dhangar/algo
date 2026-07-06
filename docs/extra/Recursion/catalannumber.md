@@ -10,6 +10,17 @@ tags: [CatalanNumber, recursion, dsa]
 
 Catalan numbers are a sequence of natural numbers with numerous applications in combinatorics. They are defined based on recursive relationships and can be interpreted in problems involving counting structures like valid sequences of parentheses, binary search trees, paths in grids, and polygon triangulations.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="fczN0BCx0xs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Catalan Numbers - Numberphile"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 For example:
 
 **Balanced Parentheses:** The nth Catalan number counts how many valid ways to arrange `n` pairs of parentheses. For `n = 3`, there are 5 valid sequences: `((())), ()(()), (())(), ()()(), (()())`.

@@ -11,6 +11,16 @@ sidebar_label: Elliptic Curve Cryptography
 
 Elliptic Curve Cryptography (ECC) is a form of public-key cryptography based on the algebraic structure of elliptic curves over finite fields. ECC provides a high level of security with smaller key sizes compared to other asymmetric encryption methods, making it efficient for use in various applications, particularly in mobile and embedded systems.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="dCvB-mhkT0w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Elliptic Curve Cryptography Overview"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Key Size Efficiency**:

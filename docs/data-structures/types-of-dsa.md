@@ -13,6 +13,16 @@ Data Structures and Algorithms (DSA) are broadly classified by how they organize
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="oz9cEqFynHU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Data Structures and Algorithms in 15 Minutes"
+  lazyLoad={true}
+  webp
+/>
+
 ## Types of Data Structures
 
 Data structures are all about organization. Choose the right one, and your code runs at lightning speed. Choose the wrong one, and your app crawls.

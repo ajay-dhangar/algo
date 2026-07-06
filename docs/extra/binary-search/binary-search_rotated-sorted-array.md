@@ -22,6 +22,17 @@ A rotated sorted array is an array that was originally sorted in ascending order
 - **Time Complexity**: O(log n)
 - **Space Complexity**: O(1)
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5qGrJbHhqFs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="BS-4. Search Element in Rotated Sorted Array - I"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Algorithm Overview
 
 The algorithm uses a modified binary search approach that takes into account the rotation of the array. The key insight is that at least one half of the array (either left or right) will always be sorted.

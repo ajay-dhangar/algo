@@ -7,6 +7,16 @@ sidebar_position: 2
 
 # Installation and Setup
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="9leyWhWpZc8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Run Kotlin on VSCode for Windows: Configure VSCode for Kotlin Development on Windows."
+  lazyLoad={true}
+  webp
+/>
+
 ## Prerequisites
 
 Before installing Kotlin, make sure you have the following:

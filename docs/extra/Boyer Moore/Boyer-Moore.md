@@ -11,6 +11,17 @@ tags: [Algorithm, Boyer-Moore, Pattern Matching, String Searching]
 ## Overview
 The Boyer-Moore algorithm is one of the most efficient string-searching algorithms, especially when the pattern is significantly shorter than the text. It leverages two key heuristics — the **Bad Character** and **Good Suffix** rules — to skip sections of the text, making it faster than other naive search methods, especially on large datasets.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="4Xyhb72LCX4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="ADS1: Boyer-Moore basics"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Use Cases
 - **Text Processing and Search Engines**: Fast search within large texts, files, or logs.
 - **DNA and Protein Sequence Matching**: Effective for finding specific genetic patterns in bioinformatics.

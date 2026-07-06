@@ -18,6 +18,17 @@ The three allowed operations are:
 - **Delete** a character
 - **Replace** a character
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="We3YDTzNXEk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Minimum Edit Distance Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example
 
 Transform `"horse"` → `"ros"`:

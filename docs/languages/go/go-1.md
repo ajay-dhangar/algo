@@ -11,6 +11,16 @@ tags: ["go","golang","introduction"]
 
 Welcome to the world of Go! In this guide, we'll explore the fundamentals of Go (often referred to as Golang), a powerful and efficient programming language developed by Google. Let's get started!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="446E-r0rXHI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Go in 100 Seconds"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. What is Go?
 
 Go is an open-source, statically typed, compiled programming language designed at Google in 2007 by Robert Griesemer, Rob Pike, and Ken Thompson. It was built to improve programming productivity in an era of multicore, networked machines, and large codebases.
