@@ -1,5 +1,5 @@
 ---
-id: z-algorithm
+id: z-algorithm-hub
 title: Z-Algorithm
 sidebar_label: Z-Algorithm
 sidebar_position: 1

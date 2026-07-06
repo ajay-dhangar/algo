@@ -1,5 +1,5 @@
 ---
-id: manachers-algorithm
+id: manachers-algorithm-hub
 title: Manacher's Algorithm
 sidebar_label: Manacher's Algorithm
 sidebar_position: 4
