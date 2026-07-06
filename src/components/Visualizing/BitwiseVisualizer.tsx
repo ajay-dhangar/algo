@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useColorMode } from "@docusaurus/theme-common";
 import { 
   Play, 
   Pause, 
@@ -143,7 +144,6 @@ export default function BitwiseVisualizer() {
   const [stepIndex, setStepIndex] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [playbackSpeed, setPlaybackSpeed] = useState<number>(600); // ms delay
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Helper: Calculate bounds
   const getBounds = useCallback(() => {
@@ -310,23 +310,17 @@ export default function BitwiseVisualizer() {
 
   // Playback engine
   useEffect(() => {
-    if (isPlaying) {
-      timerRef.current = setInterval(() => {
-        setStepIndex((prev) => {
-          if (prev < steps.length - 1) return prev + 1;
-          setIsPlaying(false);
-          return prev;
-        });
-      }, playbackSpeed);
-    } else {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
-    }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
+    if (!isPlaying) return;
+
+    const timer = setInterval(() => {
+      setStepIndex((prev) => {
+        if (prev < steps.length - 1) return prev + 1;
+        setIsPlaying(false);
+        return prev;
+      });
+    }, playbackSpeed);
+
+    return () => clearInterval(timer);
   }, [isPlaying, steps.length, playbackSpeed]);
 
   const handleBitClick = (operand: "A" | "B", bitIdx: number) => {
@@ -345,6 +339,12 @@ export default function BitwiseVisualizer() {
 
   const handleDecimalChange = (operand: "A" | "B", input: string) => {
     setIsPlaying(false);
+    if (input === "") {
+      if (operand === "A") setOperandA(0);
+      else setOperandB(0);
+      setActiveRecipe("");
+      return;
+    }
     const parsed = parseInt(input, 10);
     if (isNaN(parsed)) return;
     
@@ -358,8 +358,19 @@ export default function BitwiseVisualizer() {
 
   const handleHexChange = (operand: "A" | "B", input: string) => {
     setIsPlaying(false);
+    if (input === "") {
+      if (operand === "A") setOperandA(0);
+      else setOperandB(0);
+      setActiveRecipe("");
+      return;
+    }
     const cleaned = input.replace(/[^0-9A-Fa-f]/g, "");
-    if (!cleaned) return;
+    if (!cleaned) {
+      if (operand === "A") setOperandA(0);
+      else setOperandB(0);
+      setActiveRecipe("");
+      return;
+    }
     
     let parsed = parseInt(cleaned, 16);
     if (isNaN(parsed)) return;
@@ -400,7 +411,8 @@ export default function BitwiseVisualizer() {
   const runningResultBits = toBinaryArray(currentStep ? currentStep.resultVal : 0, bitWidth);
 
   // Dark/Light theme helper
-  const isDark = typeof document !== "undefined" && document.documentElement.getAttribute("data-theme") === "dark";
+  const { colorMode } = useColorMode();
+  const isDark = colorMode === "dark";
 
   return (
     <div style={{ padding: "8px", fontFamily: "var(--ifm-font-family-base)", color: "var(--ifm-font-color-base)" }}>
@@ -537,7 +549,7 @@ export default function BitwiseVisualizer() {
             <div 
               style={{
                 display: "grid",
-                gridTemplateColumns: `repeat(${bitWidth === 8 ? 8 : 8}, 1fr)`,
+                gridTemplateColumns: "repeat(8, 1fr)",
                 gap: "6px",
               }}
             >
@@ -700,7 +712,7 @@ export default function BitwiseVisualizer() {
               <div 
                 style={{
                   display: "grid",
-                  gridTemplateColumns: `repeat(${bitWidth === 8 ? 8 : 8}, 1fr)`,
+                  gridTemplateColumns: "repeat(8, 1fr)",
                   gap: "6px",
                 }}
               >

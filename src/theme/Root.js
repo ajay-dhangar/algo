@@ -10,7 +10,10 @@ import SidebarUpdater from '../components/ProgressTracker/SidebarUpdater';
 import { AuthProvider } from "../contexts/AuthContext";
 
 if (typeof window !== "undefined") {
-  window.gtag = window.gtag || function () {};
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () {
+    window.dataLayer.push(arguments);
+  };
 }
 
 export default function Root({ children }) {
