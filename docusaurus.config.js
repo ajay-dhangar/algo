@@ -234,6 +234,8 @@ const config = {
               {
                 to: "backtracking-visualizer",
                 label: "Backtracking Visualizer",
+              },
+              {
                 to: "recursion-visualizer",
                 label: "Recursion Visualizer",
               },

@@ -9,10 +9,6 @@ import PageProgressIndicator from "../components/PageProgressIndicator";
 import SidebarUpdater from '../components/ProgressTracker/SidebarUpdater';
 import { AuthProvider } from "../contexts/AuthContext";
 
-if (typeof window !== "undefined" && typeof window.gtag !== "function") {
-  window.gtag = function () {};
-}
-
 export default function Root({ children }) {
   const location = useLocation();
   const { siteConfig } = useDocusaurusContext();
