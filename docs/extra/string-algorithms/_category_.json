@@ -1,5 +1,6 @@
 {
   "label": "String Algorithms",
+  "key": "extra-string-algorithms-category",
   "position": 5,
   "link": {
     "type": "generated-index",
