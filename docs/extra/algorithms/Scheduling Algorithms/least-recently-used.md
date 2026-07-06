@@ -20,6 +20,16 @@ LRU (Least Recently Used) is a cache replacement algorithm that removes the leas
 2. **Access or Add New Item:** Move the accessed item to the front of the cache.
 3. **Update Order:** Reorder the items so that the most recently used item is at the front and the least recently used is at the end.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="dYIoWkCvd6A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-5.25: Least Recently Used Page Replacement Algorithm | Operating System"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 
 Consider a cache with a capacity of 3:

@@ -17,6 +17,16 @@ FROM table_name
 WHERE column_name LIKE pattern;
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="iug2vvLQ9B8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-76: Like Command in SQL with example in Hindi | Learn SQL in Easiest Way| DBMS"
+  lazyLoad={true}
+  webp
+/>
+
 ### Pattern Matching
 
 You can use the following wildcard characters in the pattern:

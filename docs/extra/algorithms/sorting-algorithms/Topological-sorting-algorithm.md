@@ -15,6 +15,17 @@ Topological Sorting is a graph-based algorithm used to order vertices of a **Dir
 ## Introduction
 In **Topological Sorting**, vertices of a DAG are arranged in a sequence such that every directed edge points from an earlier vertex to a later one in the sequence. This algorithm is applicable only for **DAGs**, as the presence of a cycle would violate the ordering.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="dis_c84ejhQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.10 Topological Sorting (with Examples) | How to find all Topological Orderings of a Graph"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics of Topological Sorting Algorithm
 - **Linear Ordering**: Topological sorting produces a linear sequence that respects the directed edges.
 - **Acyclic Graph**: Works only with **DAGs** (Directed Acyclic Graphs).

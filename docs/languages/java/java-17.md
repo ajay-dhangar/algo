@@ -9,6 +9,16 @@ sidebar_label: "Exception Handling in Java"
 
 Hey there! In this guide, we'll explore exception handling in Java. Exception handling helps manage runtime errors and prevents abrupt termination of programs, making applications more reliable and easier to debug.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="bxcZ7cXbDI0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Exception Handling in Java | ArithmeticException"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. What is Exception Handling?

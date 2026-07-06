@@ -8,6 +8,7 @@ tags: [DP, Longest common subsequence ]
 ---
 
 import { DPTable } from '@site/src/components/DSA/DP/DPTable';
+import PracticeProblems from '@site/src/components/PracticeProblems';
 
 # Longest Common Subsequence (LCS)
 
@@ -36,6 +37,17 @@ Below is an interactive transition grid for the LCS algorithm. You can type in c
 ## Problem Definition
 
 Given two sequences (X and Y), the goal is to find the length of the longest subsequence that is common to both sequences.
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="sSno9rV8Rhg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.9 Longest Common Subsequence (LCS) - Recursion and Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Dynamic Programming Approach
 
@@ -139,3 +151,33 @@ int main() {
 ## Conclusion
 
 The Longest Common Subsequence (LCS) is a key problem in dynamic programming with various applications, including file comparison and DNA sequence analysis. The approach described here utilizes a 2D table to efficiently solve the problem, allowing for easy retrieval of the LCS length.
+
+## Practice Problems
+
+<PracticeProblems problems={[
+  {
+    name: "Longest Common Subsequence",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/longest-common-subsequence/"
+  },
+  {
+    name: "Longest Palindromic Subsequence",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/longest-palindromic-subsequence/"
+  },
+  {
+    name: "Edit Distance",
+    platform: "LeetCode",
+    difficulty: "Hard",
+    link: "https://leetcode.com/problems/edit-distance/"
+  },
+  {
+    name: "Shortest Common Supersequence",
+    platform: "LeetCode",
+    difficulty: "Hard",
+    link: "https://leetcode.com/problems/shortest-common-supersequence/"
+  }
+]} />
+

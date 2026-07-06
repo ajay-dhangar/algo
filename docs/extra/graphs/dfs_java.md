@@ -10,6 +10,16 @@ tags: [dsa, algorithms, graph, traversal]
 
 Depth-First Search (DFS) is a graph traversal algorithm used to explore vertices and edges in a depthward motion, meaning it goes as deep as possible into a graph before backtracking. DFS starts from a source node and follows paths until there are no unvisited nodes left in that path. Once it reaches a dead-end (i.e., no more unvisited neighbors), it backtracks to explore other paths. It is widely applied in graph-related problems like pathfinding, cycle detection, and solving mazes.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Qzf1a--rhp8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-6. Depth-First Search (DFS) | C++ and Java | Traversal Technique in Graphs"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Recursive or Stack-Based Traversal**:

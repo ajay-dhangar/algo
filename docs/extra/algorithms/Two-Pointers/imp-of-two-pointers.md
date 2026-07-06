@@ -23,6 +23,17 @@ The Two Pointers technique is a powerful algorithmic approach widely used in com
 4. **Versatility**:
    - This approach can be applied to various problems, including searching, sorting, and manipulating arrays or linked lists, establishing it as a fundamental technique in algorithm design.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="QzZ7nmouLTI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Two Pointers in 7 minutes | LeetCode Pattern"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Common Applications of Two Pointers
 
 1. **Pair Sum Problems**:

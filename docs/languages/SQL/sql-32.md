@@ -19,6 +19,16 @@ CREATE TABLE table_name (
 );
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="oReH2vO8Izc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="SQL Tutorial - 9: Create Table Statement"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Points
 
 * Table and Column Names: Table names and column names should be unique within the database.

@@ -12,6 +12,17 @@ Hey there! In this guide, we'll explore loops in Python. Loops are used to execu
 * Loops allow you to repeatedly execute a block of code while certain conditions are true.
 
 * Python provides two primary types of loops: `for` loops and `while` loops.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="S73thl0AyFU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 5 : Loops in Python | While & For Loops | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. For Loop
 
 

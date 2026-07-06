@@ -9,6 +9,16 @@ tags: [sql, dbms, database, case, conditional]
 
 The `CASE` expression in SQL is used to apply conditional logic within a query. It allows you to return different values based on specific conditions, similar to an `if-else` statement in programming.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="Twusw__OzA8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Intermediate SQL Tutorial | Case Statement | Use Cases"
+  lazyLoad={true}
+  webp
+/>
+
 ### Syntax
 
 There are two main formats for the `CASE` expression: **Simple CASE** and **Searched CASE**.

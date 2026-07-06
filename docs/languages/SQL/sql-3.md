@@ -16,6 +16,16 @@ Here, column1, column2, ... are the _field names_ of the table you want to selec
 
 The `table_name` represents the name of the _table_ you want to select data from.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="HYD8KjPB9F8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Select Statement in MySQL | Beginner MySQL Series"
+  lazyLoad={true}
+  webp
+/>
+
 * * *
 
 ## Demo Database

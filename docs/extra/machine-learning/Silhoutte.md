@@ -11,6 +11,16 @@ tags: [machine learning, clustering, unsupervised learning, silhouette score, ev
 ### Definition:
 **Silhouette Score** is an evaluation metric used in unsupervised learning, specifically for clustering algorithms. It helps assess the quality of clusters by measuring how similar each data point is to its own cluster compared to other clusters. A higher silhouette score indicates that data points are well-matched to their own clusters and poorly matched to neighboring clusters, suggesting a good clustering structure.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="FGXkbawTHRQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="How to Compute Silhouette Coefficient – K Means Clustering in Machine Learning by Mahesh Huddar"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Cohesion and Separation**:  
   The silhouette score balances two critical aspects in clustering:

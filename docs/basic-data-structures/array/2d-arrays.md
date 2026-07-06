@@ -31,8 +31,20 @@ In this guide, we will cover the fundamentals of two-dimensional arrays, their a
 - [ ] Solved matrix-based problems
 
 ---
+## 1. Video Explanation
 
-## 1. What is a Two-Dimensional Array?
+<LiteYouTubeEmbed
+  id="J1aQ9JN4vZY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Introduction to Two-Dimensional (2D) Arrays"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
+## 2. What is a Two-Dimensional Array?
 
 A two-dimensional array is an array that consists of a collection of elements arranged in rows and columns. Each element can be accessed using two indices – one representing the row and the other representing the column.
 
@@ -47,7 +59,7 @@ A two-dimensional array is an array that consists of a collection of elements ar
 
 Here, each row is an individual array, and all rows combined form the 2D array.
 
-## 2. Declaration and Initialization of 2D Arrays
+## 3. Declaration and Initialization of 2D Arrays
 
 ### Declaration:
 
@@ -74,7 +86,7 @@ int arr[2][3] = {
 };
 ```
 
-## 3. Accessing and Modifying Elements in a 2D Array
+## 4. Accessing and Modifying Elements in a 2D Array
 
 Each element in a 2D array is accessed using two indices – the first for the row and the second for the column.
 
@@ -92,7 +104,7 @@ element = arr[1][2]
 arr[0][1] = 10
 ```
 
-## 4. Traversing a 2D Array
+## 5. Traversing a 2D Array
 
 Traversing a 2D array involves visiting each element of the array. Typically, this is done using nested loops, where the outer loop iterates over the rows, and the inner loop iterates over the columns.
 
@@ -118,7 +130,7 @@ for row in arr:
 
 ---
 
-## 5. Common Operations on 2D Arrays
+## 6. Common Operations on 2D Arrays
 
 ### a. Matrix Addition
 
@@ -161,7 +173,7 @@ for (int i = 0; i < rows; i++) {
 
 ---
 
-## 6. Applications of 2D Arrays in DSA
+## 7. Applications of 2D Arrays in DSA
 
 - **Dynamic Programming**: Many DP problems such as "Knapsack", "Longest Common Subsequence", and "Edit Distance" utilize 2D arrays to store solutions to subproblems.
 - **Graph Representation**: Adjacency matrices use 2D arrays to represent graphs.
@@ -171,7 +183,7 @@ for (int i = 0; i < rows; i++) {
 
 ---
 
-## 7. Example Problems
+## 8. Example Problems
 
 ### Problem 1: Rotating a Matrix by 90 Degrees
 

@@ -11,6 +11,17 @@ tags: [Ackerman , recursion, dsa]
 
 The **Ackermann function** is a mathematical recursive function with two non-negative integer inputs, m and n, which grows rapidly and far exceeds the growth rate of most commonly known functions like exponentiation or factorials. The problem at hand is to  compute the Ackermann function for given values of m and n , based on its recursive definition. This function provides an interesting challenge due to its steep growth, making it both a theoretical tool in studying recursion and a practical test of a system's recursion limits.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="iSs-WZ7ZQ0k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="ackermann function in hindi | Data Structures | Niharika Panda"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Detailed Problem Breakdown:**
 
 1. **Recursive Definition:**

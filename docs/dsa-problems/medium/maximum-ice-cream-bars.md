@@ -34,6 +34,16 @@ Input: `costs = [1,6,3,1,2,5]`, `coins = 20`
 Output: `6`
 **Explanation:** The boy can buy all the ice cream bars for a total price of 1 + 6 + 3 + 1 + 2 + 5 = 18.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="uY3mWwJvRkA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Maximum Ice Cream Bars | Leetcode 1833 | Simple Approach | codestorywithMIK"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

@@ -11,6 +11,17 @@ tags: [dsa, algorithms, problem-solving]
 ## Problem Statement
 Determine if a linked list is a palindrome.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qf6qp7GzD5Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L6. Odd Even Linked List | Multiple Approaches"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 To check if the linked list is a palindrome, we can use the fast and slow pointer technique to find the middle of the list, then reverse the second half and compare it with the first half.
 

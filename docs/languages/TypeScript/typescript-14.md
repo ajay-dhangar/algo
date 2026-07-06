@@ -18,6 +18,16 @@ To compile decorators safely, ensure the `experimentalDecorators` flag is enable
 ```
 :::
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="O6A-u_FoEX8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="The Magic of TypeScript Decorators"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Class Decorator Implementations
 
 A class decorator runs when the class is declared, giving you direct access to modify or extend its constructor blueprint:

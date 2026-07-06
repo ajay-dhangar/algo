@@ -15,6 +15,16 @@ The `DROP DATABASE` statement in SQL is used to delete an existing database, alo
 DROP DATABASE database_name;
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="TuxuHHacIWU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Creating altering and dropping a database - Part 2"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Points
 * Permanent Deletion: The database and all its data are permanently deleted.
 * Permissions Required: Dropping a database generally requires administrative privileges.

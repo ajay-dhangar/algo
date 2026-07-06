@@ -9,6 +9,16 @@ tags: [dsa, algorithms, linked-list]
 ### Problem Statement:
  Write a program in C++ to add two polynomials using a linked list. Each node of the linked list will represent a term in the polynomial, containing the coefficient and exponent of the term. The program will take two polynomials as input, add them, and output the resulting polynomial in simplified form.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="cFHZ-a87Vp4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Application of Linked List (Addition of Two Polynomials)"
+  lazyLoad={true}
+  webp
+/>
+
 ### Features
 
 - Input two polynomials from the user.                   

@@ -12,6 +12,17 @@ tags: [Data Structures, heap-tree-algorithm, Priority Queue, Sorting, Algorithms
 ## Overview
 A Heap Tree is a specialized binary tree-based data structure that satisfies the heap property. It is widely used in implementing priority queues and for heap sort algorithms. The heap property ensures that the parent node is always greater than or equal to (in a max-heap) or less than or equal to (in a min-heap) its child nodes.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="uuot9ItgTEI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-3.13: Introduction to Heap Tree with examples | Max Min Heap"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Introduction
 A Heap Tree can be either a max-heap or a min-heap:
 - **Max-Heap**: The value of each node is greater than or equal to the values of its children.

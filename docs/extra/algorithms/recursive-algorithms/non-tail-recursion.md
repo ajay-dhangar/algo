@@ -12,6 +12,16 @@ tags: [recursion, algorithms, programming]
 ## Definition
 Non-tail recursion occurs when a recursive function performs some operations **after** making the recursive call. In contrast to tail recursion, where the recursive call is the final action in the function, non-tail recursion does not allow for optimization techniques like tail-call optimization because the function needs to retain its current state until further operations are completed.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="HIt_GPuD7wk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Types of Recursion (Part 2) | Tail & Non-tail Recursion"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why It Is Useful
 - **Post-processing**: Non-tail recursion is useful in scenarios where the function needs to do some work after the recursive call, such as aggregating results or performing cleanup.
 - **Natural fit for divide-and-conquer**: Algorithms like merge sort or tree traversal require post-processing, making non-tail recursion essential.

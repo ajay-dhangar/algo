@@ -18,6 +18,16 @@ SQL Joins are used to combine rows from two or more tables based on a related co
 3. **RIGHT JOIN**: Returns all records from the right table and the matched records from the left table. If there is no match, the result is NULL from the left side.
 4. **FULL JOIN**: Returns all records when there is a match in either left or right table records. If there is no match, the result is NULL on the side that does not have a match.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="zYH-e6tUYbw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-43: Introduction to Joins and its types | Need of Joins with example | DBMS"
+  lazyLoad={true}
+  webp
+/>
+
 ### INNER JOIN 
 
 - **Description**:Retrieve a list of all products with their supplier names.

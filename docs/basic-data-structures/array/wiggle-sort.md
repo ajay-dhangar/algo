@@ -11,6 +11,17 @@ tags: [array, java, dsa, algorithms, sorting]
 
 Wiggle Sort is an algorithm that reorders an array such that the elements alternate between being smaller and larger than their adjacent elements. The final array satisfies the condition: `arr[0] <= arr[1] >= arr[2] <= arr[3]...`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="vGsyTE4s34w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Wiggle Sort - Leetcode 280 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Characteristics
 - **Time Complexity:** $O(N)$. The array is traversed exactly once, swapping adjacent elements if they violate the wiggle condition.
 - **Space Complexity:** $O(1)$, as the sorting is done entirely in-place.

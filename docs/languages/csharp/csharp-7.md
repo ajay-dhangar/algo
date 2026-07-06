@@ -9,6 +9,16 @@ sidebar_label: "Classes in C#"
 
 In C#, a class is a blueprint for creating objects. It defines properties, methods, and events that represent the characteristics and behaviors of an object.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ZqDtPFrUonQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="C# Classes Tutorial | Mosh"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. What is a Class?

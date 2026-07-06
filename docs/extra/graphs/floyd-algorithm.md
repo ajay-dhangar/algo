@@ -12,6 +12,16 @@ Floyd's algorithm, also known as the **Floyd-Warshall algorithm**, is a dynamic 
 
 The algorithm iteratively improves the solution by checking if a path between two vertices can be improved by going through an intermediate vertex. It uses a 2D matrix to store the shortest path distances between every pair of vertices.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="oNI0rf2P9gE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.2 All Pairs Shortest Path (Floyd-Warshall) - Dynamic Programming"
+  lazyLoad={true}
+  webp
+/>
+
 ## Key Features:
 
 - **Time Complexity**: O(V³), where V is the number of vertices.

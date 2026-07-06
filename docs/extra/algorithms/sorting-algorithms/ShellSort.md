@@ -11,6 +11,17 @@ sidebar_label: Shell Sort
 
 Shell sort is an extension of insertion sort that allows the exchange of far-apart elements to move elements towards their correct position faster. It starts by sorting pairs of elements far apart, then progressively reduces the gap between elements to be compared. This makes Shell sort more efficient than insertion sort, especially for larger datasets.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="9crZRd8GPWM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.11 Shell Sort | Sorting Algorithms | Full explanation with Code | DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Gap-based Sorting**:

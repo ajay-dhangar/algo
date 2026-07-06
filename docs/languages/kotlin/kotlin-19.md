@@ -7,6 +7,17 @@ sidebar_position: 19
 
 # File Handling
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="MSeI7XVzrvo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Working With Files In Kotlin - IO Essentials"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## Reading Files
 
 ### Read Entire File as a String

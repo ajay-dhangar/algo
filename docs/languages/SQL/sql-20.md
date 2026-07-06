@@ -18,6 +18,17 @@ WHERE condition
 GROUP BY column_name(s)
 HAVING condition;
 ```
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="iPEmGpI3OGU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-71: SQL Queries and Subqueries (part-4) | Having clause | Database Management System"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Points
 
 * The HAVING clause is similar to the WHERE clause, but it is applied to groups rather than individual rows.

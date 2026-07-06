@@ -8,6 +8,16 @@ tags: [dsa, algorithms, graph algorithms, minimum spanning tree]
 
 Kruskal's algorithm is a greedy algorithm used to find the Minimum Spanning Tree (MST) of a connected, undirected graph. It works by sorting all edges in the graph in increasing order of weight and adding them one by one to the MST, provided they don't form a cycle.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="4ZlRH0eK-qQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.5 Prims and Kruskals Algorithms - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ### Characteristics:

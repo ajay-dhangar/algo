@@ -20,6 +20,16 @@ SELECT \* FROM Customers
 WHERE Country='Mexico';
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="MARn_mssG4A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Where Clause in MySQL | Beginner MySQL Series"
+  lazyLoad={true}
+  webp
+/>
+
 * * *
 
 ### Syntax

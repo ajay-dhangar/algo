@@ -13,6 +13,17 @@ The **Stone-Paper-Scissors Game** is a widely recognized hand game that requires
 
 In this implementation, the goal is to develop an engaging online version of the Stone-Paper-Scissors game that allows users to play against a computer opponent or against other players. The system should support multiple rounds of play, keeping track of wins and losses to determine an overall winner.
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="_V33HCZWLDQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 10 : MiniProject - Stone, Paper & Scissors Game | JavaScript Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
  **Key Requirements** :
 
 1. **User Input** : Allow players to select their choice (Stone, Paper, or Scissors) through an intuitive interface.

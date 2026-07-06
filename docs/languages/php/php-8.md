@@ -9,6 +9,16 @@ tags: [php, strings, string-functions]
 
 A string is a sequence of characters. In php, strings can be written inside single quotes, double quotes, heredoc, or nowdoc syntax.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="BlSlJNulc6w"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="String in PHP (Hindi)"
+  lazyLoad={true}
+  webp
+/>
+
 ## Creating Strings
 
 ```php

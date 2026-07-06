@@ -13,6 +13,17 @@ Binary trees are a fundamental data structure used to represent hierarchical rel
 ## Problem Definition
 Given a postfix expression, construct an expression tree from the given expression, where operators are internal nodes, and operands are leaf nodes. When you perform an inorder traversal on this tree, it should yield the corresponding infix expression of the postfix input.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="2Z6g3kNymd0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.12 Expression Trees | Binary Expression Tree | Data Structures Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 ### 1. Initialize a Stack
    - Create an empty stack to store tree nodes.

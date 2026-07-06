@@ -11,6 +11,17 @@ tags: [bitonic sort, algorithms, sorting algorithms]
 
 Bitonic sort is a **parallel sorting algorithm** that can sort a sequence of numbers into bitonic sequences and then merge them in a manner that results in a completely sorted sequence. It is primarily used in **parallel computing environments**.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="GEQ8y26blEY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bitonic sort (retake)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Bitonic Sequence**:

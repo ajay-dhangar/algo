@@ -25,6 +25,16 @@ Memoization is a powerful optimization technique primarily used in algorithms th
 4. **Dynamic Programming Foundation**:
    - Memoization is a critical concept in dynamic programming, serving as the basis for many dynamic programming algorithms that optimize recursive solutions.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="P8Xa2BitN3I"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Algorithms: Memoization and Dynamic Programming"
+  lazyLoad={true}
+  webp
+/>
+
 ### Common Applications of Memoization
 
 - **Fibonacci Sequence**:

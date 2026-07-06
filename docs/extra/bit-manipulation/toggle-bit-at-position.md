@@ -13,6 +13,17 @@ Tags: [dsa, bit manipulation, algorithm, toggle bit, binary operations]
 
 The **Bit Toggle Operation** allows flipping a bit at a given position in the binary form of an integer. This technique is efficient and widely used in fields requiring precise control over binary data, such as in graphics processing, low-level systems programming, and cryptographic algorithms.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="nttpF8kwgd4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L2. Must Know Tricks in Bit Manipulation | Swap two numbers without third variable"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How it Works
 
 The idea behind toggling a bit is to use the XOR operation. By XORing a number with a bitmask where only the target bit is set, the bit at that position flips its state. This technique is efficient and performs in constant time.

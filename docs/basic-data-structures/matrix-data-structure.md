@@ -9,6 +9,20 @@ tags: [dsa, Matrix, DataStructure]
 
 A **matrix** is a two-dimensional data structure that consists of rows and columns, forming a rectangular arrangement of numbers or other elements. Matrices are widely used in mathematics, computer science, engineering, and various applications such as graphics, machine learning, and optimization.
 
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="WrhQ-dIZ3nk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Deep Dive into the Matrix Data Structure"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+---
+
 ## Key Characteristics
 
 1. **Dimensions**: A matrix is defined by its dimensions, expressed as `m x n`, where `m` is the number of rows and `n` is the number of columns. For example, a matrix with 3 rows and 4 columns is referred to as a `3 x 4` matrix.

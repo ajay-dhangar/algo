@@ -15,6 +15,17 @@ Given a binary matrix, the goal is to find the minimum number of flips required 
 - **Input**: A binary matrix `matrix`.
 - **Output**: Return the minimum number of flips required to convert the matrix to all zeroes.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Ng54H_TkgZY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Leetcode 1284. Minimum Number of Flips to Convert Binary Matrix to Zero Matrix"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 - **Input**: 
   - `matrix = [[0,0,1],[1,0,0],[0,1,0]]`

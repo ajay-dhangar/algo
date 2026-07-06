@@ -12,6 +12,17 @@ tags: [Data Structures, Hashing, Hash Functions, Hash Tables, Algorithms]
 ## Overview
 **Hashing** is a widely used technique in computer science for mapping large data of variable length into smaller, fixed-size values. This process is performed using a **hash function** that converts data (like strings or integers) into a hash value, typically an integer. Hashing is fundamental in **hash tables**, a popular data structure used in algorithms for fast data retrieval, insertion, and deletion.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="W5q0xgxmRd8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-6.1: What is hashing with example | Hashing in data structure"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Introduction
 At the core of hashing is the **hash function**, which transforms input data into a hash value. This value corresponds to a location in a **hash table** where the actual data is stored. Hashing is efficient for operations such as **lookup**, **insert**, and **delete**, making it crucial in areas like databases, caches, and cryptography.
 

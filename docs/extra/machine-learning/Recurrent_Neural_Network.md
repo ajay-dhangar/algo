@@ -11,6 +11,16 @@ tags: [machine learning, deep learning, rnn, neural networks, time series, NLP]
 ### Definition:
 **Recurrent Neural Networks (RNNs)** are a class of artificial neural networks designed for modeling sequential data by introducing loops that allow information to persist across time steps. They are widely used for tasks like time-series forecasting, natural language processing (NLP), and speech recognition because of their ability to process and maintain information from previous inputs.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="AsNTP8Kwu80"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Recurrent Neural Networks (RNNs), Clearly Explained!!!"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Sequential Data Handling**:  
   RNNs excel at learning from and making predictions based on sequential data, where the order and context of the input are crucial.

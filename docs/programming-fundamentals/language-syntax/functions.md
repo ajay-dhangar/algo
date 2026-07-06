@@ -29,6 +29,16 @@ A function is a reusable block of code that performs a specific task. Functions 
 
 JavaScript supports both function declarations and expressions.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="P0XMXqDGttU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 5: Functions & Methods | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 #### Function Declaration
 
 ```js title="Declaring a function in JavaScript"
@@ -86,6 +96,16 @@ inner(); // Output: I'm outer
 
 In Java, functions are defined within classes and are called methods. They have a return type, a name, and can have parameters.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="UfJ0lCH7FMM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java 8 Tutorial | Functional Programming in Java | Java 8 Features in One Video | 4 Hours Course 🔥"
+  lazyLoad={true}
+  webp
+/>
+
 #### Method Declaration
 
 ```java title="Declaring a method in Java"
@@ -117,6 +137,16 @@ public static int add(int a, int b) {
 ### Python Functions Overview
 
 Python functions are simple to define and use. The `def` keyword is used for defining functions.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="OvTH-7ESoRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 6 : Functions & Recursion in Python | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
 
 #### Function Declaration
 
@@ -154,6 +184,16 @@ print(add(2, 3))  # Output: 5
 ### C++ Functions Overview
 
 In C++, functions can be declared outside or inside a class. They need to specify a return type, name, and optionally, parameters.
+
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="RFLFX1boGwo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Functions & Function Prototypes in C++ | C++ Tutorials for Beginners #15"
+  lazyLoad={true}
+  webp
+/>
 
 #### Function Declaration
 

@@ -23,6 +23,16 @@ Return an integer array `answer` where `answer[i]` is the value of the next grea
 **Output:**
 - `[5,5,0]`
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wVsGnpXoxPI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="LeetCode Next Greater Node In Linked List Solution Explained - Java"
+  lazyLoad={true}
+  webp
+/>
+
 ### Constraints
 - The linked list can have up to `10^4` nodes.
 - Each node contains a non-negative integer value.

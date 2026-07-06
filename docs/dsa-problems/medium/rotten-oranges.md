@@ -17,6 +17,17 @@ The Rotten Oranges problem is a grid-based problem that involves determining the
 1: a fresh orange
 2: a rotten orange
 
+**Video Explanation**
+
+<LiteYouTubeEmbed
+  id="yf3oUhkvqA0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-10. Rotten Oranges | C++ | Java"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 **Objective:** Return the minimum number of minutes needed for all fresh oranges to become rotten. If all oranges can’t rot, return -1.
 Algorithm Overview
 

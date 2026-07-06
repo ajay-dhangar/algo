@@ -15,6 +15,17 @@ Round Robin (RR) is a preemptive CPU scheduling algorithm designed for time-shar
 
 This ensures fair CPU allocation among all processes.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="TxjIlNYRZ5M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.7: Round Robin(RR) CPU Scheduling Algorithm with Example"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. How It Works
 
 - Processes are placed in a ready queue.

@@ -20,6 +20,17 @@ SELECT \*
 FROM Customers  
 WHERE Country = 'Spain' AND CustomerName LIKE 'G%';
 ```
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="r1V39Iia4j0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="SQL - AND Operator - W3Schools.com"
+  lazyLoad={true}
+  webp
+/>
+
 * * *
 
 ### Syntax

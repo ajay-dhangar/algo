@@ -10,6 +10,16 @@ tags: [dsa, algorithms, maximum matching]
 
 The **Hopcroft-Karp algorithm** is an efficient algorithm used to find the maximum matching in a bipartite graph. It works in two phases: finding augmenting paths using BFS and then updating the matching using DFS.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="lM5eIpF0xjA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Hopcroft–Karp algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Bipartite Graph**: 

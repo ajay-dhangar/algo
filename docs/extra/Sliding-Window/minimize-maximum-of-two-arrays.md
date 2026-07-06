@@ -13,6 +13,17 @@ tags: [dsa, algorithms, binary search, arrays]
 
 You are given two sorted arrays of integers, and the task is to minimize the maximum element between the two arrays after selecting exactly one element from each array. The goal is to **minimize the maximum** of these two selected elements.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="AeHMvcKuR0Y"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Minimize Maximum of Array - Leetcode 2439 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example:
 
 Let's consider two sorted arrays:

@@ -16,6 +16,17 @@ The **Lowest Common Ancestor (LCA)** of two nodes `p` and `q` in a binary tree i
 
 Given a binary tree and two nodes `p` and `q`, find their lowest common ancestor.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_-QHfMDde90"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L27. Lowest Common Ancestor in Binary Tree | LCA | C++ | Java"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Node Class Representation
 
 **C++ Class Definition**:

@@ -21,6 +21,17 @@ tags: [perfect-sum, recursion, dynamic-programming, dsa]
 
 - Expected Auxiliary Space: 𝑂(𝑛×sum)
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="fWX9xDmIzRI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 14. Subset Sum Equals to Target | Identify DP on Subsequences and Ways to Solve them"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### C++ Implementation
 
 ```cpp

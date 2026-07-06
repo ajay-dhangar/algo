@@ -7,6 +7,16 @@ sidebar_position: 15
 
 # Inheritance
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Bzk0BhVrTWw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Inheritance in Kotlin with Examples | OOPS in Kotlin Tutorial CheezyCode #18"
+  lazyLoad={true}
+  webp
+/>
+
 ## The `open` Keyword
 
 In Kotlin, classes are **final** by default. Use `open` to allow inheritance:

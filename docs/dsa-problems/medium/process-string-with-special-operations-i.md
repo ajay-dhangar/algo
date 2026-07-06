@@ -36,6 +36,16 @@ Return the final string `result` after processing all characters in `s`.
   2. `'*'` -> Remove last: `""`
   3. `'#'` -> Duplicate: `""`
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="SDE8xan15Nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Process String with Special Operations I | Simple Simulation | Leetcode 3612 | codestorywithMIK"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approach: Simulation

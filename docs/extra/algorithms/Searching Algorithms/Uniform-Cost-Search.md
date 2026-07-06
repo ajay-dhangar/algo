@@ -9,11 +9,22 @@ sidebar_label: Uniform-Cost
 
 **Uniform-Cost Search (UCS)** is a search algorithm that expands the node with the lowest cost first, ensuring that it finds the least-cost path in weighted graphs. UCS is similar to Dijkstra's algorithm but is often applied in AI and pathfinding scenarios.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="dRMvK76xQJI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Uniform Cost Search"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Lowest Cost Path**: Always expands the node with the lowest path cost.
 - **Optimal**: Guarantees an optimal solution for paths with non-negative weights.
 - **Uninformed**: Does not use heuristics and is a type of uninformed search.
+
 
 ### How Uniform-Cost Search Works:
 

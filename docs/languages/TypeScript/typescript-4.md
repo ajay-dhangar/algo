@@ -9,6 +9,16 @@ tags: [typescript, control-flow, conditional, loops, programming]
 
 Control structures route program execution dynamically based on real-time runtime conditions.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="jI_WrjcEVO4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="TypeScript for Playwright | Conditional Statements | If, if-else & if-else if (Session 5)"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. The `if...else if...else` Statement Pattern
 
 ```typescript

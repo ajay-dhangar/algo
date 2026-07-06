@@ -7,6 +7,16 @@ sidebar_label: "Variables in C#"
 
 In C#, variables are used to store data that can be referenced and manipulated within a program. Understanding how to declare and use variables is fundamental to programming in C#. This guide covers the basics of variables, including types, naming conventions, and examples.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="g-9Jp4dmOBo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="How to Program in C# - Variables (E02)"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. What is a Variable?
 
 A variable is a named memory location used to store a value. In C#, variables have a specific type, which determines what kind of data they can hold, such as integers, floating-point numbers, or strings.
