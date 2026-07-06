@@ -246,6 +246,10 @@ const config = {
                 label: "Recursion Visualizer",
               },
               {
+                to: "dp-visualizer",
+                label: "DP Grid Visualizer",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
