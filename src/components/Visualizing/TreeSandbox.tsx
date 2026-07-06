@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import Translate, { translate } from "@docusaurus/Translate";
 import { useColorMode } from "@docusaurus/theme-common";
 import { 
   Play, 
@@ -54,37 +55,6 @@ interface RotationRecipe {
   type: "LL" | "RR" | "LR" | "RL";
   description: string;
 }
-
-const ROTATION_RECIPES: RotationRecipe[] = [
-  {
-    id: "avl_ll",
-    name: "Left-Left (LL) Single Rotation",
-    keys: [30, 20, 10],
-    type: "LL",
-    description: "Inserting 10 into a left-skewed path (30 -> 20) triggers a single Right Rotation around node 30 to restore balance."
-  },
-  {
-    id: "avl_rr",
-    name: "Right-Right (RR) Single Rotation",
-    keys: [10, 20, 30],
-    type: "RR",
-    description: "Inserting 30 into a right-skewed path (10 -> 20) triggers a single Left Rotation around node 10 to restore balance."
-  },
-  {
-    id: "avl_lr",
-    name: "Left-Right (LR) Double Rotation",
-    keys: [30, 10, 20],
-    type: "LR",
-    description: "Inserting 20 into the right child of left child (30 -> 10 -> 20) requires a Left Rotation around 10, followed by a Right Rotation around 30."
-  },
-  {
-    id: "avl_rl",
-    name: "Right-Left (RL) Double Rotation",
-    keys: [10, 30, 20],
-    type: "RL",
-    description: "Inserting 20 into the left child of right child (10 -> 30 -> 20) requires a Right Rotation around 30, followed by a Left Rotation around 10."
-  }
-];
 
 export default function TreeSandbox() {
   const { colorMode } = useColorMode();
@@ -226,6 +196,10 @@ export default function TreeSandbox() {
   // --- INTERACTION: SEARCH ---
   const triggerSearch = (key: number) => {
     setIsPlaying(false);
+    if (isNaN(key) || key < 1 || key > 99) {
+      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      return;
+    }
     if (!rootId) return;
 
     const searchSteps: SimulationStep[] = [];
@@ -240,7 +214,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      `Starting search for key ${key} at the root.`,
+      translate({
+        message: "Starting search for key {key} at the root.",
+        values: { key }
+      }),
       [],
       key
     );
@@ -258,7 +235,10 @@ export default function TreeSandbox() {
           [currId],
           [],
           [],
-          `Found node ${key}!`,
+          translate({
+            message: "Found node {key}!",
+            values: { key }
+          }),
           [],
           key
         );
@@ -273,7 +253,15 @@ export default function TreeSandbox() {
         [],
         [],
         [],
-        `Inspecting node ${node.key}. Since ${key} ${key < node.key ? "<" : ">"} ${node.key}, branch ${key < node.key ? "left" : "right"}.`,
+        translate({
+          message: "Inspecting node {nodeKey}. Since {key} {operator} {nodeKey}, branch {direction}.",
+          values: {
+            nodeKey: node.key,
+            key,
+            operator: key < node.key ? "<" : ">",
+            direction: key < node.key ? translate({ message: "left" }) : translate({ message: "right" })
+          }
+        }),
         [],
         key
       );
@@ -289,7 +277,10 @@ export default function TreeSandbox() {
           [],
           [],
           [],
-          `Reached a leaf. Key ${key} is not in the tree.`,
+          translate({
+            message: "Reached a leaf. Key {key} is not in the tree.",
+            values: { key }
+          }),
           [],
           key
         );
@@ -304,11 +295,15 @@ export default function TreeSandbox() {
   // --- INTERACTION: INSERT ---
   const triggerInsert = (key: number) => {
     setIsPlaying(false);
+    if (isNaN(key) || key < 1 || key > 99) {
+      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      return;
+    }
 
     // Prevent duplicate entries
     const exists = Object.values(treeMap).some((n) => n.key === key);
     if (exists) {
-      alert(`Key ${key} already exists in the tree!`);
+      alert(translate({ message: "Key {key} already exists in the tree!", values: { key } }));
       return;
     }
 
@@ -324,7 +319,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      `Preparing to insert key ${key}.`,
+      translate({
+        message: "Preparing to insert key {key}.",
+        values: { key }
+      }),
       [],
       key
     );
@@ -352,7 +350,10 @@ export default function TreeSandbox() {
           [newNode.id],
           [],
           [],
-          `Inserted new leaf node ${key}.`,
+          translate({
+            message: "Inserted new leaf node {key}.",
+            values: { key }
+          }),
           [],
           key
         );
@@ -368,7 +369,15 @@ export default function TreeSandbox() {
         [],
         [],
         [],
-        `Comparing key ${key} with ${node.key}. Since ${key} ${key < node.key ? "<" : ">"} ${node.key}, go ${key < node.key ? "left" : "right"}.`,
+        translate({
+          message: "Comparing key {key} with {nodeKey}. Since {key} {operator} {nodeKey}, go {direction}.",
+          values: {
+            nodeKey: node.key,
+            key,
+            operator: key < node.key ? "<" : ">",
+            direction: key < node.key ? translate({ message: "left" }) : translate({ message: "right" })
+          }
+        }),
         [],
         key
       );
@@ -391,7 +400,10 @@ export default function TreeSandbox() {
           [],
           Math.abs(bf) > 1 ? [nodeId] : [],
           [],
-          `Inspecting balance factor of node ${node.key}: Height = ${node.height}, Balance Factor = ${bf}.`,
+          translate({
+            message: "Inspecting balance factor of node {nodeKey}: Height = {height}, Balance Factor = {bf}.",
+            values: { nodeKey: node.key, height: node.height, bf }
+          }),
           [],
           key
         );
@@ -411,7 +423,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.leftId!, leftNode.leftId!],
-              `Unbalance detected! Left-Left (LL) case at node ${node.key}. Perform a Right Rotation.`,
+              translate({
+                message: "Unbalance detected! Left-Left (LL) case at node {nodeKey}. Perform a Right Rotation.",
+                values: { nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -431,7 +446,10 @@ export default function TreeSandbox() {
               [rotated],
               [],
               [],
-              `Right rotation around node ${node.key} completed successfully. Heights re-calculated.`,
+              translate({
+                message: "Right rotation around node {nodeKey} completed successfully. Heights re-calculated.",
+                values: { nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -447,7 +465,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.leftId!, leftNode.rightId!],
-              `Unbalance detected! Left-Right (LR) case at node ${node.key}. Perform Left Rotation on left child, then Right Rotation.`,
+              translate({
+                message: "Unbalance detected! Left-Right (LR) case at node {nodeKey}. Perform Left Rotation on left child, then Right Rotation.",
+                values: { nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -462,7 +483,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [],
-              `Stage 1: Left rotated child ${leftNode.key}. Now preparing to Right Rotate parent ${node.key}.`,
+              translate({
+                message: "Stage 1: Left rotated child {childKey}. Now preparing to Right Rotate parent {nodeKey}.",
+                values: { childKey: leftNode.key, nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -484,7 +508,10 @@ export default function TreeSandbox() {
               [rotated],
               [],
               [],
-              `Stage 2: Right rotation around node ${node.key} completed. Tree successfully balanced.`,
+              translate({
+                message: "Stage 2: Right rotation around node {nodeKey} completed. Tree successfully balanced.",
+                values: { nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -507,7 +534,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.rightId!, rightNode.rightId!],
-              `Unbalance detected! Right-Right (RR) case at node ${node.key}. Perform a Left Rotation.`,
+              translate({
+                message: "Unbalance detected! Right-Right (RR) case at node {nodeKey}. Perform a Left Rotation.",
+                values: { nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -527,7 +557,10 @@ export default function TreeSandbox() {
               [rotated],
               [],
               [],
-              `Left rotation around node ${node.key} completed successfully. Heights re-calculated.`,
+              translate({
+                message: "Left rotation around node {nodeKey} completed successfully. Heights re-calculated.",
+                values: { nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -543,7 +576,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.rightId!, rightNode.leftId!],
-              `Unbalance detected! Right-Left (RL) case at node ${node.key}. Perform Right Rotation on right child, then Left Rotation.`,
+              translate({
+                message: "Unbalance detected! Right-Left (RL) case at node {nodeKey}. Perform Right Rotation on right child, then Left Rotation.",
+                values: { nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -558,7 +594,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [],
-              `Stage 1: Right rotated child ${rightNode.key}. Now preparing to Left Rotate parent ${node.key}.`,
+              translate({
+                message: "Stage 1: Right rotated child {childKey}. Now preparing to Left Rotate parent {nodeKey}.",
+                values: { childKey: rightNode.key, nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -580,7 +619,10 @@ export default function TreeSandbox() {
               [rotated],
               [],
               [],
-              `Stage 2: Left rotation around node ${node.key} completed. Tree successfully balanced.`,
+              translate({
+                message: "Stage 2: Left rotation around node {nodeKey} completed. Tree successfully balanced.",
+                values: { nodeKey: node.key }
+              }),
               [],
               key
             );
@@ -643,10 +685,14 @@ export default function TreeSandbox() {
   // --- INTERACTION: DELETE ---
   const triggerDelete = (key: number) => {
     setIsPlaying(false);
+    if (isNaN(key) || key < 1 || key > 99) {
+      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      return;
+    }
 
     const exists = Object.values(treeMap).some((n) => n.key === key);
     if (!exists) {
-      alert(`Key ${key} does not exist in the tree!`);
+      alert(translate({ message: "Key {key} does not exist in the tree!", values: { key } }));
       return;
     }
 
@@ -662,7 +708,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      `Preparing to delete key ${key}.`,
+      translate({
+        message: "Preparing to delete key {key}.",
+        values: { key }
+      }),
       [],
       key
     );
@@ -676,7 +725,12 @@ export default function TreeSandbox() {
       return curr.key;
     };
 
-    const deleteHelper = (nodeId: string | null, parentId: string | null, isLeft: boolean): string | null => {
+    const deleteHelper = (
+      nodeId: string | null,
+      parentId: string | null,
+      isLeft: boolean,
+      keyToDelete: number
+    ): string | null => {
       if (!nodeId) return null;
 
       const node = tempMap[nodeId];
@@ -688,15 +742,18 @@ export default function TreeSandbox() {
         [],
         [],
         [],
-        `Comparing key ${key} with ${node.key}.`,
+        translate({
+          message: "Comparing key {keyToDelete} with {nodeKey}.",
+          values: { keyToDelete, nodeKey: node.key }
+        }),
         [],
-        key
+        keyToDelete
       );
 
-      if (key < node.key) {
-        node.leftId = deleteHelper(node.leftId, nodeId, true);
-      } else if (key > node.key) {
-        node.rightId = deleteHelper(node.rightId, nodeId, false);
+      if (keyToDelete < node.key) {
+        node.leftId = deleteHelper(node.leftId, nodeId, true, keyToDelete);
+      } else if (keyToDelete > node.key) {
+        node.rightId = deleteHelper(node.rightId, nodeId, false, keyToDelete);
       } else {
         // Node found!
         pushStep(
@@ -707,9 +764,12 @@ export default function TreeSandbox() {
           [],
           [nodeId],
           [],
-          `Found node ${key} to delete. Evaluating children structure...`,
+          translate({
+            message: "Found node {keyToDelete} to delete. Evaluating children structure...",
+            values: { keyToDelete }
+          }),
           [],
-          key
+          keyToDelete
         );
 
         // Node with 0 or 1 child
@@ -734,9 +794,12 @@ export default function TreeSandbox() {
               [],
               [],
               [],
-              `Removed leaf node ${key}.`,
+              translate({
+                message: "Removed leaf node {keyToDelete}.",
+                values: { keyToDelete }
+              }),
               [],
-              key
+              keyToDelete
             );
             return null;
           } else {
@@ -757,9 +820,12 @@ export default function TreeSandbox() {
               [tempChild],
               [],
               [],
-              `Replaced node ${key} with its only child node ${tempMap[tempChild].key}.`,
+              translate({
+                message: "Replaced node {keyToDelete} with its only child node {childKey}.",
+                values: { keyToDelete, childKey: tempMap[tempChild].key }
+              }),
               [],
-              key
+              keyToDelete
             );
             return tempChild;
           }
@@ -774,9 +840,12 @@ export default function TreeSandbox() {
             [],
             [],
             [],
-            `Node ${key} has two children. Finding minimum value in right subtree (In-order successor): ${successorKey}.`,
+            translate({
+              message: "Node {keyToDelete} has two children. Finding minimum value in right subtree (successor): {successorKey}.",
+              values: { keyToDelete, successorKey }
+            }),
             [],
-            key
+            keyToDelete
           );
 
           // Copy successor value
@@ -789,32 +858,16 @@ export default function TreeSandbox() {
             [nodeId],
             [],
             [],
-            `Copied successor key ${successorKey} to target node. Now recursively deleting successor from right subtree.`,
+            translate({
+              message: "Copied successor key {successorKey} to target node. Now recursively deleting successor from right subtree.",
+              values: { successorKey }
+            }),
             [],
-            key
+            keyToDelete
           );
 
-          // Delete successor
-          // Temporarily modify target key to delete helper
-          const savedKey = key;
-          // Set search key to successorKey so helper deletes the duplicate
-          // trick to avoid complex parameter drilling
-          // We can call deleteHelper directly
-          const deleteSuccessorNode = (subRootId: string, subParentId: string): string | null => {
-            const n = tempMap[subRootId];
-            if (successorKey < n.key) {
-              n.leftId = deleteSuccessorNode(n.leftId!, subRootId);
-            } else if (successorKey > n.key) {
-              n.rightId = deleteSuccessorNode(n.rightId!, subRootId);
-            } else {
-              const child = n.leftId ? n.leftId : n.rightId;
-              delete tempMap[subRootId];
-              return child;
-            }
-            updateHeight(subRootId, tempMap);
-            return subRootId;
-          };
-          node.rightId = deleteSuccessorNode(node.rightId, nodeId);
+          // Delete successor recursively and update rightId
+          node.rightId = deleteHelper(node.rightId, nodeId, false, successorKey);
         }
       }
 
@@ -831,9 +884,12 @@ export default function TreeSandbox() {
           [],
           Math.abs(bf) > 1 ? [nodeId] : [],
           [],
-          `Inspecting balance of node ${node.key} on way up: Height = ${node.height}, Balance Factor = ${bf}.`,
+          translate({
+            message: "Inspecting balance of node {nodeKey} on way up: Height = {height}, Balance Factor = {bf}.",
+            values: { nodeKey: node.key, height: node.height, bf }
+          }),
           [],
-          key
+          keyToDelete
         );
 
         if (bf > 1) {
@@ -847,9 +903,11 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.leftId!],
-              `Unbalance detected! Left-Left (LL) case. Perform a Right Rotation.`,
+              translate({
+                message: "Unbalance detected! Left-Left (LL) case. Perform a Right Rotation."
+              }),
               [],
-              key
+              keyToDelete
             );
             const rotated = rotateRight(nodeId, tempMap);
             return rotated;
@@ -862,9 +920,11 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.leftId!],
-              `Unbalance detected! Left-Right (LR) case. Left rotating child, then Right rotating parent.`,
+              translate({
+                message: "Unbalance detected! Left-Right (LR) case. Left rotating child, then Right rotating parent."
+              }),
               [],
-              key
+              keyToDelete
             );
             node.leftId = rotateLeft(node.leftId!, tempMap);
             return rotateRight(nodeId, tempMap);
@@ -882,9 +942,11 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.rightId!],
-              `Unbalance detected! Right-Right (RR) case. Perform a Left Rotation.`,
+              translate({
+                message: "Unbalance detected! Right-Right (RR) case. Perform a Left Rotation."
+              }),
               [],
-              key
+              keyToDelete
             );
             const rotated = rotateLeft(nodeId, tempMap);
             return rotated;
@@ -897,9 +959,11 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.rightId!],
-              `Unbalance detected! Right-Left (RL) case. Right rotating child, then Left rotating parent.`,
+              translate({
+                message: "Unbalance detected! Right-Left (RL) case. Right rotating child, then Left rotating parent."
+              }),
               [],
-              key
+              keyToDelete
             );
             node.rightId = rotateRight(node.rightId!, tempMap);
             return rotateLeft(nodeId, tempMap);
@@ -910,7 +974,7 @@ export default function TreeSandbox() {
       return nodeId;
     };
 
-    deleteHelper(tempRoot, null, false);
+    deleteHelper(tempRoot, null, false, key);
 
     setSteps(deleteSteps);
     setCurrentStepIdx(0);
@@ -928,7 +992,6 @@ export default function TreeSandbox() {
 
     const traversalSteps: SimulationStep[] = [];
     const visitedKeys: number[] = [];
-    const activePath: string[] = [];
 
     pushStep(
       traversalSteps,
@@ -938,7 +1001,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      `Starting ${type.toUpperCase()} traversal on root.`,
+      translate({
+        message: "Starting {type} traversal on root.",
+        values: { type: type.toUpperCase() }
+      }),
       []
     );
 
@@ -955,7 +1021,10 @@ export default function TreeSandbox() {
           [nodeId],
           [],
           [],
-          `PRE-ORDER: Visit root node [${node.key}]. Append to result.`,
+          translate({
+            message: "PRE-ORDER: Visit root node [{key}]. Append to result.",
+            values: { key: node.key }
+          }),
           visitedKeys
         );
         traverse(node.leftId);
@@ -976,7 +1045,10 @@ export default function TreeSandbox() {
           [nodeId],
           [],
           [],
-          `IN-ORDER: Left subtree visited. Visit root node [${node.key}]. Append to result.`,
+          translate({
+            message: "IN-ORDER: Left subtree visited. Visit root node [{key}]. Append to result.",
+            values: { key: node.key }
+          }),
           visitedKeys
         );
         traverse(node.rightId);
@@ -997,7 +1069,10 @@ export default function TreeSandbox() {
           [nodeId],
           [],
           [],
-          `POST-ORDER: Left and Right subtrees visited. Visit root node [${node.key}]. Append to result.`,
+          translate({
+            message: "POST-ORDER: Left and Right subtrees visited. Visit root node [{key}]. Append to result.",
+            values: { key: node.key }
+          }),
           visitedKeys
         );
       };
@@ -1017,7 +1092,10 @@ export default function TreeSandbox() {
           [currId],
           [],
           [],
-          `LEVEL-ORDER (BFS): Dequeue front element and visit [${node.key}].`,
+          translate({
+            message: "LEVEL-ORDER (BFS): Dequeue front element and visit [{key}].",
+            values: { key: node.key }
+          }),
           visitedKeys
         );
 
@@ -1034,7 +1112,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      `Traversal completed! Full sequence: [${visitedKeys.join(", ")}].`,
+      translate({
+        message: "Traversal completed! Full sequence: [{sequence}].",
+        values: { sequence: visitedKeys.join(", ") }
+      }),
       visitedKeys
     );
 
@@ -1080,7 +1161,10 @@ export default function TreeSandbox() {
 
     // Prompt user to trigger insertion of 3rd key
     setInputKey(recipe.keys[2].toString());
-    alert(`Recipe loaded! Click 'Insert' to add key ${recipe.keys[2]} and watch the AVL ${recipe.type} rotation rebalancing animation!`);
+    alert(translate({
+      message: "Recipe loaded! Click 'Insert' to add key {key} and watch the AVL {type} rotation rebalancing animation!",
+      values: { key: recipe.keys[2], type: recipe.type }
+    }));
   };
 
   const loadRandomTree = () => {
@@ -1146,6 +1230,37 @@ export default function TreeSandbox() {
   // Compute node locations
   const nodePositions = calculateNodePositions(currentRoot, currentMap);
 
+  const rotationRecipesList: RotationRecipe[] = [
+    {
+      id: "avl_ll",
+      name: translate({ message: "Left-Left (LL) Single Rotation" }),
+      keys: [30, 20, 10],
+      type: "LL",
+      description: translate({ message: "Inserting 10 into a left-skewed path (30 -> 20) triggers a single Right Rotation around node 30 to restore balance." })
+    },
+    {
+      id: "avl_rr",
+      name: translate({ message: "Right-Right (RR) Single Rotation" }),
+      keys: [10, 20, 30],
+      type: "RR",
+      description: translate({ message: "Inserting 30 into a right-skewed path (10 -> 20) triggers a single Left Rotation around node 10 to restore balance." })
+    },
+    {
+      id: "avl_lr",
+      name: translate({ message: "Left-Right (LR) Double Rotation" }),
+      keys: [30, 10, 20],
+      type: "LR",
+      description: translate({ message: "Inserting 20 into the right child of left child (30 -> 10 -> 20) requires a Left Rotation around 10, followed by a Right Rotation around 30." })
+    },
+    {
+      id: "avl_rl",
+      name: translate({ message: "Right-Left (RL) Double Rotation" }),
+      keys: [10, 30, 20],
+      type: "RL",
+      description: translate({ message: "Inserting 20 into the left child of right child (10 -> 30 -> 20) requires a Right Rotation around 30, followed by a Left Rotation around 10." })
+    }
+  ];
+
   return (
     <div style={{ padding: "8px", fontFamily: "var(--ifm-font-family-base)", color: "var(--ifm-font-color-base)" }}>
       
@@ -1153,11 +1268,15 @@ export default function TreeSandbox() {
       <div style={{ textAlign: "center", marginBottom: "24px" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: "rgba(99, 102, 241, 0.1)", borderRadius: "30px", marginBottom: "8px" }}>
           <Cpu size={16} color="#6366f1" />
-          <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "#6366f1", letterSpacing: "1px", textTransform: "uppercase" }}>Tree Sandbox Labs</span>
+          <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "#6366f1", letterSpacing: "1px", textTransform: "uppercase" }}>
+            <Translate>Tree Sandbox Labs</Translate>
+          </span>
         </div>
-        <h2 style={{ fontSize: "1.9rem", fontWeight: 800, margin: "0 0 6px 0", letterSpacing: "-0.5px" }}>BST & AVL Self-Balancing Tree Sandbox</h2>
+        <h2 style={{ fontSize: "1.9rem", fontWeight: 800, margin: "0 0 6px 0", letterSpacing: "-0.5px" }}>
+          <Translate>BST & AVL Self-Balancing Tree Sandbox</Translate>
+        </h2>
         <p style={{ margin: 0, fontSize: "0.95rem", color: "var(--ifm-color-emphasis-600)" }}>
-          Insert, search, or delete nodes and trace balance factors and rotations step-by-step.
+          <Translate>Insert, search, or delete nodes and trace balance factors and rotations step-by-step.</Translate>
         </p>
       </div>
 
@@ -1178,7 +1297,9 @@ export default function TreeSandbox() {
       >
         {/* Toggle Mode */}
         <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
-          <span style={{ fontSize: "0.85rem", fontWeight: 700, marginRight: "4px" }}>Algorithm:</span>
+          <span style={{ fontSize: "0.85rem", fontWeight: 700, marginRight: "4px" }}>
+            <Translate>Algorithm:</Translate>
+          </span>
           {["BST", "AVL"].map((mode) => (
             <button
               key={mode}
@@ -1197,7 +1318,7 @@ export default function TreeSandbox() {
                 transition: "all 0.15s ease",
               }}
             >
-              {mode === "BST" ? "Binary Search Tree" : "AVL Tree"}
+              {mode === "BST" ? translate({ message: "Binary Search Tree" }) : translate({ message: "AVL Tree" })}
             </button>
           ))}
         </div>
@@ -1231,7 +1352,7 @@ export default function TreeSandbox() {
               cursor: "pointer"
             }}
           >
-            Insert
+            <Translate>Insert</Translate>
           </button>
           <button
             onClick={() => triggerDelete(Number(inputKey))}
@@ -1245,7 +1366,7 @@ export default function TreeSandbox() {
               cursor: "pointer"
             }}
           >
-            Delete
+            <Translate>Delete</Translate>
           </button>
           <button
             onClick={() => triggerSearch(Number(inputKey))}
@@ -1259,7 +1380,7 @@ export default function TreeSandbox() {
               cursor: "pointer"
             }}
           >
-            Search
+            <Translate>Search</Translate>
           </button>
         </div>
 
@@ -1276,7 +1397,7 @@ export default function TreeSandbox() {
               fontWeight: 600
             }}
           >
-            Random
+            <Translate>Random</Translate>
           </button>
           <button
             onClick={handleClear}
@@ -1290,7 +1411,7 @@ export default function TreeSandbox() {
               fontWeight: 600
             }}
           >
-            Clear
+            <Translate>Clear</Translate>
           </button>
         </div>
       </div>
@@ -1314,8 +1435,12 @@ export default function TreeSandbox() {
             {Object.keys(currentMap).length === 0 ? (
               <div style={{ height: "360px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px", color: "var(--ifm-color-emphasis-500)" }}>
                 <HelpCircle size={40} strokeWidth={1.5} style={{ marginBottom: "12px", opacity: 0.7 }} />
-                <span style={{ fontWeight: 700, fontSize: "1rem" }}>Empty Canvas</span>
-                <span style={{ fontSize: "0.85rem", marginTop: "4px" }}>Insert keys or load a preset AVL recipe below to begin.</span>
+                <span style={{ fontWeight: 700, fontSize: "1rem" }}>
+                  <Translate>Empty Canvas</Translate>
+                </span>
+                <span style={{ fontSize: "0.85rem", marginTop: "4px" }}>
+                  <Translate>Insert keys or load a preset AVL recipe below to begin.</Translate>
+                </span>
               </div>
             ) : (
               <svg width="100%" height="360" style={{ display: "block" }}>
@@ -1345,7 +1470,6 @@ export default function TreeSandbox() {
                               ? 3
                               : 2
                           }
-                          transition="all 0.3s ease"
                         />
                       )}
                       {node.rightId && nodePositions[node.rightId] && (
@@ -1367,7 +1491,6 @@ export default function TreeSandbox() {
                               ? 3
                               : 2
                           }
-                          transition="all 0.3s ease"
                         />
                       )}
                     </g>
@@ -1419,7 +1542,7 @@ export default function TreeSandbox() {
                         fill={nodeBg}
                         stroke={borderCol}
                         strokeWidth="2.5"
-                        style={{ filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.06))", transition: "all 0.3s ease" }}
+                        style={{ filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.06))" }}
                       />
                       
                       {/* Key Value */}
@@ -1487,7 +1610,7 @@ export default function TreeSandbox() {
               {/* Range Slider */}
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--ifm-color-emphasis-600)", minWidth: "40px" }}>
-                  Step {currentStepIdx}
+                  <Translate>Step</Translate> {currentStepIdx}
                 </span>
                 <input
                   type="range"
@@ -1501,7 +1624,7 @@ export default function TreeSandbox() {
                   style={{ flexGrow: 1, accentColor: "var(--ifm-color-primary)" }}
                 />
                 <span style={{ fontSize: "0.75rem", fontWeight: 800, color: "var(--ifm-color-emphasis-600)", minWidth: "40px", textAlign: "right" }}>
-                  Total {steps.length - 1}
+                  <Translate>Total</Translate> {steps.length - 1}
                 </span>
               </div>
 
@@ -1521,7 +1644,7 @@ export default function TreeSandbox() {
                       color: "#000000",
                       cursor: "pointer",
                     }}
-                    title="Reset Simulation"
+                    title={translate({ message: "Reset Simulation" })}
                   >
                     <RotateCcw size={14} />
                   </button>
@@ -1560,7 +1683,7 @@ export default function TreeSandbox() {
                     }}
                   >
                     {isPlaying ? <Pause size={14} /> : <Play size={14} />}
-                    {isPlaying ? "Pause" : "Play"}
+                    {isPlaying ? translate({ message: "Pause" }) : translate({ message: "Play" })}
                   </button>
                   <button
                     onClick={() => {
@@ -1584,7 +1707,9 @@ export default function TreeSandbox() {
 
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Sliders size={14} color="var(--ifm-color-emphasis-600)" />
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700 }}>Interval:</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700 }}>
+                    <Translate>Interval:</Translate>
+                  </span>
                   <input
                     type="range"
                     min={400}
@@ -1638,7 +1763,9 @@ export default function TreeSandbox() {
           >
             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
               <BookOpen size={16} color="#6366f1" />
-              <span style={{ fontWeight: 800, fontSize: "0.9rem", textTransform: "uppercase" }}>Animate Traversals</span>
+              <span style={{ fontWeight: 800, fontSize: "0.9rem", textTransform: "uppercase" }}>
+                <Translate>Animate Traversals</Translate>
+              </span>
             </div>
             
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
@@ -1716,7 +1843,7 @@ export default function TreeSandbox() {
             {activeStep && activeStep.visitedKeys.length > 0 && (
               <div style={{ marginTop: "14px" }}>
                 <span style={{ fontSize: "0.75rem", fontWeight: 800, textTransform: "uppercase", color: "var(--ifm-color-emphasis-500)", display: "block", marginBottom: "6px" }}>
-                  Traversal Path Result
+                  <Translate>Traversal Path Result</Translate>
                 </span>
                 <div 
                   style={{
@@ -1739,7 +1866,6 @@ export default function TreeSandbox() {
                         color: idx === activeStep.visitedKeys.length - 1 ? "#ffffff" : "var(--ifm-font-color-base)",
                         borderRadius: "4px",
                         fontWeight: "bold",
-                        transition: "all 0.2s ease"
                       }}
                     >
                       {k}
@@ -1766,11 +1892,13 @@ export default function TreeSandbox() {
             >
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <Flame size={16} color="#a855f7" />
-                <span style={{ fontWeight: 800, fontSize: "0.9rem", textTransform: "uppercase" }}>AVL Rotation Tutorials</span>
+                <span style={{ fontWeight: 800, fontSize: "0.9rem", textTransform: "uppercase" }}>
+                  <Translate>AVL Rotation Tutorials</Translate>
+                </span>
               </div>
               
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                {ROTATION_RECIPES.map((recipe) => (
+                {rotationRecipesList.map((recipe) => (
                   <div
                     key={recipe.id}
                     onClick={() => applyRecipe(recipe)}
