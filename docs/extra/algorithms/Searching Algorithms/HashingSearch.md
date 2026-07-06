@@ -25,6 +25,16 @@ sidebar_label: Hashing Search
 - **Dynamic Resizing**:
   - Hash tables often resize when they reach a certain load factor to maintain efficient performance, typically doubling the size of the table and rehashing existing keys.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="W5q0xgxmRd8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-6.1: What is hashing with example | Hashing in data structure"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(1)$**  

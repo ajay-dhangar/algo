@@ -15,6 +15,17 @@ A mountain is called stable if the mountain just before it (if it exists) has a 
 
 Return an array containing the indices of all stable mountains in any order.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="1ky1usXAW-U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Leetcode | 3285. Find Indices of Stable Mountains | Easy | Java Solution"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example 1:
 
 **Input:** height = [1,2,3,4,5], threshold = 2

@@ -13,6 +13,16 @@ tags: [recursion, algorithms, programming]
 ## Definition
 Mutual recursion occurs when two or more functions recursively call each other. This means that the execution of one function depends on the execution of another, allowing for a collaborative approach to solving problems.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="IhY2cNaFktw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Mutual Recursion"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why It Is Useful
 Mutual recursion is useful for problems where two or more related tasks need to be handled in tandem. It is particularly applicable in:
 - Algorithms that involve alternating behaviours, such as even and odd calculations.

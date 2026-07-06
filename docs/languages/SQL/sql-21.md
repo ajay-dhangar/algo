@@ -18,6 +18,16 @@ GROUP BY Country
 HAVING COUNT(CustomerID) > 5;
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="apNmMWgFFRg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-69: SQL Queries and Subqueries (part-3) | Group By clause | Database Management System"
+  lazyLoad={true}
+  webp
+/>
+
 ### Key Points
 
 * The GROUP BY statement groups rows that have the same values in specified columns.

@@ -11,6 +11,17 @@ tags: [STL, data-structures, libraries]
 
 The **C++ Standard Template Library (STL)** provides a rich set of algorithms that work on containers. These algorithms are implemented as template functions and can perform a variety of tasks such as searching, sorting, manipulating, and more. The key advantage is that the same algorithm can work with different types of containers.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="zBhVZzi5RdU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Learn C++ STL in 45 minutes | Containers | Algorithms | Comparators | Competitive Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Categories of Algorithms

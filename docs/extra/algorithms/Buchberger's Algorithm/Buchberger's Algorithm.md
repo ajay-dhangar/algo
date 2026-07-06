@@ -11,6 +11,17 @@ sidebar_label: Buchberger's Algorithm
 
 **Buchberger's Algorithm** is used to compute the Gröbner Basis for an ideal in a polynomial ring, which is essential in solving systems of polynomial equations and performing symbolic algebraic computations. The algorithm iteratively computes the S-polynomial of polynomial pairs and reduces it until a basis for the ideal is found.
 
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="q4L_f7BMOOM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What are...Grobner bases?"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics
 
 - **Algorithm Type**: Symbolic computation, Gröbner Basis computation.

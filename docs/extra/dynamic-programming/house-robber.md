@@ -24,6 +24,17 @@ The maximum amount you can rob without alerting the police is `12`, which can be
 
 Given an array of non-negative integers representing the amount of money at each house, the objective is to calculate the maximum amount of money you can rob without robbing two adjacent houses.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="GrMBfJNk_NY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="DP 5. Maximum Sum of Non-Adjacent Elements | House Robber | 1D | DP on Subsequences"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Dynamic Programming Approach
 
 To solve the House Robber problem, we can use dynamic programming by maintaining a `dp` array where `dp[i]` represents the maximum amount of money that can be robbed up to the i-th house.

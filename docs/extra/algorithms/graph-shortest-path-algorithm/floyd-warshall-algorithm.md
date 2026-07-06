@@ -26,6 +26,16 @@ The algorithm works for:
 
 However, it does **not** work correctly for graphs containing **negative weight cycles**.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="oNI0rf2P9gE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.2 All Pairs Shortest Path (Floyd-Warshall) - Dynamic Programming"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Dynamic Programming Concept

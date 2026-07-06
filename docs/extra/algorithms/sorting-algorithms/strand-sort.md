@@ -9,6 +9,17 @@ tags: [sorting, dsa, algorithms, programming, strand sort]
 
 **Strand Sort** is a recursive sorting algorithm that repeatedly extracts sorted sublists (strands) from the unsorted list and merges them to create a sorted list.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="t8r6wyG8eAU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strand Sort Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Steps:
 
 1. **Extract a strand**: Start from the first element of the list. Extract elements in order as long as they are larger than the last extracted one.
@@ -86,7 +97,16 @@ Let’s take an unsorted list:
 The sorted list is:  
 `[1, 2, 3, 4, 5, 6, 7, 8, 9]`
 
+## Video Explanation
 
+<LiteYouTubeEmbed
+  id="t8r6wyG8eAU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strand Sort Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Time Complexity
 - Best Case: O(n) (When the array is already sorted, only one strand is extracted and no merging is needed)

@@ -30,6 +30,16 @@ Input: `text = "leetcode"`
 Output: `0`
 **Explanation:** We cannot form the word "balloon".
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="G9xeB2-7PqY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Maximum Number of Balloons - Leetcode 1189 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

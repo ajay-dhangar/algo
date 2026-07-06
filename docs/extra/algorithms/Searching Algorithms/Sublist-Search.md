@@ -9,11 +9,22 @@ sidebar_label: Sublist
 
 **Sublist Search** is a pattern-matching algorithm used to search for a sequence of nodes (sublist) within a larger list or sequence. It is particularly useful in text search, DNA sequence matching, and linked list matching.
 
+### Video Explanation**
+<LiteYouTubeEmbed
+  id="o8f5jgSkst0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sublist Search in C++: Searching for a linked list in another list"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Pattern Matching**: Searches for a smaller sequence in a larger sequence.
 - **Sequential Traversal**: Typically traverses the larger list sequentially.
 - **Efficient**: Designed to be optimized for quick matching with minimal backtracking.
+
 
 ### How Sublist Search Works:
 

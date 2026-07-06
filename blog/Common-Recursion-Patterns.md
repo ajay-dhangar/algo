@@ -13,8 +13,6 @@ In this blog, we'll explore:
 
 - **Tree Traversal**: How to traverse tree structures using recursion.
 - **Backtracking**: An approach to solve problems by trying multiple possibilities.
-  
----
 
 ## What are Recursion Patterns?
 

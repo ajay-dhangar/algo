@@ -9,6 +9,17 @@ tags: [dsa, algorithms, stack]
 ### Definition:
 Reversing a stack means rearranging the elements in such a way that the last element added becomes the first element to be removed, effectively flipping the order of the stack.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="V2reKQOgE88"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Reverse a Stack | C++ Placement Course | Lecture 23.3"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Statement:
 Given a stack of integers, the task is to reverse the stack using recursion. The function should return the stack with the order of elements reversed, without using any additional data structures except for the recursion stack.
 

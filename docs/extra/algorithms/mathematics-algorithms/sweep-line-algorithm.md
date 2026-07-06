@@ -14,6 +14,16 @@ The Sweep Line Algorithm is a powerful approach used in computational geometry t
 1. Event Points: These are the key positions in the plane where important changes happen. These might include the start or end of a line, or an intersection between two objects.
 2. Active Set: As the sweep line moves, it maintains an active set of objects (e.g., lines, segments) that intersect the current position of the sweep line.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="YnIxejYW7cE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sweep Line Algorithm Explanation"
+  lazyLoad={true}
+  webp
+/>
+
 
 ### Code Implementation
 

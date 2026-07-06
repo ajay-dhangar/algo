@@ -12,6 +12,16 @@ An **operator** is a symbol that tells the compiler to perform specific mathemat
 
 C++ provides a rich set of built-in operators classified by their functionality and the number of operands they require (unary, binary, or ternary).
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="JBgZxnAj4hg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.3 Operators in C++ Programming | Guaranteed Placement Course | 3.3"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Arithmetic Operators
 
 Arithmetic operators execute standard mathematical operations. These require numerical operands.

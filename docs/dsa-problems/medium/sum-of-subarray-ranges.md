@@ -37,6 +37,16 @@ Output: `4`
 [1,3,3], range = 3 - 1 = 2
 So the sum of all ranges is 0 + 0 + 0 + 2 + 0 + 2 = 4.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="gIrMptNPf5M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L10. Sum of subarray ranges | Stack and Queue Playlist"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

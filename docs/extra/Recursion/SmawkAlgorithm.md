@@ -19,6 +19,17 @@ Given an m×n matrix that meets the total monotonicity property, the objective i
 
 The SMAWK algorithm's efficient approach, with a time complexity of  **O(m + n)** , makes it a powerful tool for developers and researchers needing to perform minimum value searches in structured datasets. The solution will provide a comprehensive implementation that adheres to best practices in computational efficiency and usability.
 
+#### Video Explanation
+
+<LiteYouTubeEmbed
+  id="pbmOkYql3HY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="16. S.M.A.W.K Algorithm (Java)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 #### Explanation:
 
 The **SMAWK algorithm** is a powerful and efficient technique for locating row minima in  **totally monotone matrices** . A matrix is defined as totally monotone if the entries in each row and column are non-increasing or non-decreasing. This special property allows the SMAWK algorithm to significantly reduce the computational complexity involved in finding minimum values across large datasets.

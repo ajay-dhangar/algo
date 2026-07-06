@@ -10,6 +10,16 @@ tags: [dsa, algorithms, game theory algorithms]
 ## 1. Prisoner's Dilemma
 In this example, we simulate a simple Prisoner's Dilemma game where two players either confess or stay silent.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7Cqv_gdTkg4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Prisoner’s Dilemma in Game Theory"
+  lazyLoad={true}
+  webp
+/>
+
 ```cpp
 Copy code
 #include <iostream>
@@ -43,6 +53,16 @@ int main() {
 ## 2. Matching Pennies
 The Matching Pennies game simulates two players choosing heads or tails. The game checks whether the players' choices match.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Sa9jLWKrX0c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Penney's Game - Numberphile"
+  lazyLoad={true}
+  webp
+/>
+
 ```cpp
 Copy code
 #include <iostream>
@@ -71,6 +91,16 @@ int main() {
 ```
 ## 3. Stag Hunt
 In this example, two hunters choose whether to hunt a Stag together or hunt a Rabbit alone. The game outputs their payoffs based on their choices.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="stzPcqmyhI4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Game Theory 101 (#4): Pure Strategy Nash Equilibrium and the Stag Hunt"
+  lazyLoad={true}
+  webp
+/>
 
 ```cpp
 Copy code

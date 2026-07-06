@@ -17,6 +17,17 @@ For example, starting with "1":
 - The following term is "21" (two 1s).
 - The next term is "1211" (one 2, one 1), and so on.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="ea7lJkEhytA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Look-and-Say Numbers (feat John Conway) - Numberphile"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Statement
 
 Given an integer `n`, return the `n`th term of the Look and Say sequence.

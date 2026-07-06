@@ -11,6 +11,17 @@ tags: [heap sort, algorithms, sorting algorithms]
 
 Heap sort is a **comparison-based** sorting algorithm that uses a binary heap data structure to efficiently find the largest or smallest element, depending on the heap type. It is an **in-place** and **non-stable** sorting algorithm that operates by first building a max heap and then extracting elements from it.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="HqPJF2L5h9U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.6.3 Heap - Heap Sort - Heapify - Priority Queues"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Binary Heap**:

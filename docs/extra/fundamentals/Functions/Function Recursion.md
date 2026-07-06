@@ -23,6 +23,16 @@ return_type function_name(parameters) {
 
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="JRKs3s15Kjc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Recursions & Recursive Functions in C++ | C++ Tutorials for Beginners #18"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example
 ### C++ Example
 ```c++
@@ -57,6 +67,16 @@ def function_name(parameters):
     return function_name(modified_parameters)  # Recursive call
 
 ```
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="OvTH-7ESoRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 6 : Functions & Recursion in Python | Python Full Course"
+  lazyLoad={true}
+  webp
+/>
 
 ## Example
 ### Python Example

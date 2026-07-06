@@ -18,6 +18,17 @@ This problem can be solved efficiently using the Two-Pointer Technique along wit
   - `LMin[]`: Stores the minimum value from the start of the array up to index `i`.
   - `RMax[]`: Stores the maximum value from index `j` to the end of the array.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="J0yYlj_oVTI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Maximum Distance in Arrays - LeetCode 624 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Solution in C++:
 
 ```cpp

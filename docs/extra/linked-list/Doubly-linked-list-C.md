@@ -12,6 +12,16 @@ A **Doubly Linked List (DLL)** is a type of linked list where each node has thre
 
 In **C**, doubly linked lists are implemented using structs and pointers. Each node is dynamically allocated using memory functions, such as **malloc()**, allowing the list to grow or shrink in size as needed. This data structure is particularly useful when you need efficient manipulation of a sequence of elements and quick access in both directions.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="H8-IuKKiQeo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.10 Implementation of Doubly Linked List - Data Structures"
+  lazyLoad={true}
+  webp
+/>
+
 ### Doubly Linked list Structure in C
 
  ```text

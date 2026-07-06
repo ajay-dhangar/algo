@@ -18,6 +18,16 @@ The **waviness** of a number is defined as the total count of its peaks and vall
 
 **Objective:** Return the total sum of waviness for all numbers in the range `[num1, num2]`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="rPbjKtn3vOg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Total Waviness of Numbers in Range I | Simple | Leetcode 3751 | codestorywithMIK"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

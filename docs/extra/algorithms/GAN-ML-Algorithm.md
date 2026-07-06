@@ -12,6 +12,17 @@ tags: [Generative Models, Deep Learning, Image Generation, Data Augmentation, GA
 ## Overview
 **Generative Adversarial Networks (GANs)** are a class of deep learning models designed to generate realistic data samples. Introduced by Ian Goodfellow in 2014, GANs consist of two neural networks—the Generator and the Discriminator—that are trained in opposition to each other to produce high-quality, realistic outputs, such as images, text, or audio.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Sw9r8CL98N0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Generative Adversial Networks (GANs) - Computerphile"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Description
 - **Input**: Random noise vector, typically sampled from a uniform or Gaussian distribution.
   - The noise vector serves as the seed input for the Generator to create synthetic data samples.

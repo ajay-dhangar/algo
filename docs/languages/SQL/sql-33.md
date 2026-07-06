@@ -9,6 +9,16 @@ tags: [sql, dbms, database, views, virtual tables]
 
 A **View** in SQL is a virtual table based on a result set of a `SELECT` query. Views can simplify complex queries, enhance security by limiting data access, and provide a more user-friendly way to access data.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="QngqhdLd1SE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-125: View in Database | Oracle, SQL Server Views | Types of Views"
+  lazyLoad={true}
+  webp
+/>
+
 ### Advantages of Views
 
 - **Simplicity**: Abstract complex queries, allowing easier access to data.

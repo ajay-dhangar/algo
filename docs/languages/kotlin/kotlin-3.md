@@ -7,6 +7,16 @@ sidebar_position: 3
 
 # Your First Kotlin Program
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="CStQjHj119g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="'Hello World' in Kotlin - Your First Kotlin Program"
+  lazyLoad={true}
+  webp
+/>
+
 ## Hello, World!
 
 Every programming journey begins with a simple "Hello, World!" program. In Kotlin, it takes just two lines.

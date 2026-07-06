@@ -15,6 +15,16 @@ sidebar_label: BFS
   
 - **Priority Queue:**
   BFS uses a priority queue (often a min-heap) to keep track of nodes, where the node with the lowest heuristic value is given priority for exploration.
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="7ffDUDjwz5E"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-11: Best First Search Algorithm | How it Works | All Important Points (Pros & Cons)"
+  lazyLoad={true}
+  webp
+/>
+
 ### How BFS Works:
 1. **Initialize the Priority Queue:**
    Start by adding the initial node to the priority queue, assigning it a heuristic value based on how close it appears to be to the goal.

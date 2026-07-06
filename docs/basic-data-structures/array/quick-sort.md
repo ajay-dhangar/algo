@@ -10,6 +10,18 @@ tags: [dsa, arrays, sorting, quicksort, sorting-algorithms]
 
 **Quick Sort** is a highly efficient sorting algorithm that employs a divide-and-conquer strategy. It divides the input array into smaller sub-arrays, recursively sorting them. It is commonly used because of its average-case efficiency on large datasets. 
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="7h1s2SojIRw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.8.1 QuickSort Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 <QuickSortVisualization />
 
 ### How Quick Sort Works:

@@ -15,6 +15,16 @@ In **bit manipulation**, we deal with data at the bit level. Operations such as 
 
 *NOTE: In programming, when you read a series of bits (binary sequence), you start from the right. The last bit on the right is called the Least Significant Bit (LSB), and the first bit on the left is the Most Significant Bit (MSB).*
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qQd-ViW7bfk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L1. Introduction to Bit Manipulation | 1's 2's Compliment | Bit Operators"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## 2. Basics of bit manipulation: 
 

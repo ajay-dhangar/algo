@@ -13,6 +13,17 @@ In object-oriented programming, both **interfaces** and **abstract classes** are
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="nNwZN3mOVcw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Difference between Interface and Absract Class"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## **1. What is an Abstract Class?**
 
 An **abstract class** is a class that cannot be instantiated on its own and is meant to be subclassed. It can contain both abstract methods (without implementation) and concrete methods (with implementation). Abstract classes are used to provide a common base for derived classes.

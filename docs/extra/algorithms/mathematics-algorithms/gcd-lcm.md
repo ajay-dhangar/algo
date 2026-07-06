@@ -17,6 +17,16 @@ The **Greatest Common Divisor (GCD)** and **Least Common Multiple (LCM)** are fu
 
 The **GCD** of two integers is the largest positive integer that divides both numbers without leaving a remainder. It is often used to simplify fractions and solve problems involving divisibility.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="JUzYl1TYMcU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="How to Find the Greatest Common Divisor by Using the Euclidian Algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 ### Algorithm
 
 The **Euclidean algorithm** is the most efficient method for computing the GCD. It works on the principle that the GCD of two numbers also divides their difference.
@@ -37,6 +47,16 @@ The **LCM** of two integers is the smallest positive integer that is divisible b
 The LCM can be calculated using the GCD with the following formula:
 
 $LCM(a, b)$ = $\dfrac{a \times b}{\text{GCD}(a, b)}$.
+
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="utZcJ0leZ_g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="GCD and LCM using Euclid's Algorithm With Applications | CP Course | EP 53"
+  lazyLoad={true}
+  webp
+/>
 
 ## Implementations
 

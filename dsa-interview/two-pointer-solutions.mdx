@@ -19,6 +19,16 @@ Below is the theoretical breakdown and pure Java code for two classic interview 
 
 **Problem Statement:** Given a 1-indexed array of integers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="UXDSeD9mN-k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2 Sum Problem | 2 types of the same problem for Interviews | Brute-Better-Optimal"
+  lazyLoad={true}
+  webp
+/>
+
 ### Theory & Intuition
 Because the array is **sorted**, we do not need to use a HashMap or check every possible combination. We can leverage the sorted property by placing a `left` pointer at the start (the smallest value) and a `right` pointer at the end (the largest value).
 
@@ -62,6 +72,16 @@ public class TwoSumIISolution {
 ## 2. 3Sum
 
 **Problem Statement:** Given an integer array `nums`, return all the triplets `[nums[i], nums[j], nums[k]]` such that they add up to 0. The solution set must not contain duplicate triplets.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="jzZsG8n2R9A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3Sum - Leetcode 15 - Python"
+  lazyLoad={true}
+  webp
+/>
 
 ### Theory & Intuition
 The brute force way to solve 3Sum is to use three nested loops, which takes $O(N^3)$ time and will instantly fail an interview. Instead, we can reduce this to $O(N^2)$ by utilizing the Two-Pointer technique.

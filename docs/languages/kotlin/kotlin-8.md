@@ -7,6 +7,16 @@ sidebar_position: 8
 
 # Loops
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="RmqXF8cn0p4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin For Loop, Ranges & String Templating Tutorial | CheezyCode #10"
+  lazyLoad={true}
+  webp
+/>
+
 ## `for` Loop
 
 The `for` loop is used to iterate over ranges, arrays, or collections.

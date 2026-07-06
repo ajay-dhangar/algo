@@ -9,6 +9,16 @@ sidebar_label: "Objects in C#"
 
 In C#, objects are instances of classes, allowing us to bundle data and methods together to represent real-world entities.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="t2SPg6IuT3k"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6: How To Create Classes And Objects In C# | C# Tutorial For Beginners | C Sharp Tutorial"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 1. What is an Object?

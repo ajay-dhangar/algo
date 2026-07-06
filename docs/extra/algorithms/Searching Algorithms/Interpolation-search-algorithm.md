@@ -27,6 +27,16 @@ sidebar_label: Interpolation search algorithm
     ```
     where `low` and `high` are the bounds of the search range.
 
+## Video Explanation**
+<LiteYouTubeEmbed
+  id="hF9iJEPegNc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Interpolation Search algorithm (with Example & CODE)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Time Complexity ⏱️
 
 - **Best Case: `O(1)`** 🌟

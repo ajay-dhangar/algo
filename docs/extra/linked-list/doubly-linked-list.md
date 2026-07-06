@@ -13,6 +13,16 @@ A **Doubly LinkedList** is a variation of a linked list where the last node poin
 
 ![alt text](DoublyLL.png)
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="H8-IuKKiQeo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.10 Implementation of Doubly Linked List - Data Structures"
+  lazyLoad={true}
+  webp
+/>
+
 
 ### Doubly LinkedList Operations
 

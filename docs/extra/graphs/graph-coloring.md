@@ -6,6 +6,16 @@ description: "In this document, we explore the graph coloring problem and provid
 tags: [dsa, algorithms, graph coloring]
 ---
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="052VkKhIaQ4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.3 Graph Coloring Problem - Backtracking"
+  lazyLoad={true}
+  webp
+/>
+
 ### C Code: Graph Coloring using Greedy Algorithm
 
 ```c

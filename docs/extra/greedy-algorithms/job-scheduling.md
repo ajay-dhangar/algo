@@ -11,6 +11,16 @@ The Job Scheduling problem is a classical optimization problem where a set of jo
 - A deadline by which it must be completed.
 - A profit associated with it.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="zPtI8q9gvX8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.2 Job Sequencing with Deadlines - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Statement:
 Given n jobs, each with a deadline and a profit, the objective is to maximize the total profit by selecting jobs that can be completed within their deadlines.
 

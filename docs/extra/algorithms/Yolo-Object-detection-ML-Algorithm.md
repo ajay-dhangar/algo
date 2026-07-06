@@ -12,6 +12,18 @@ tags: [Computer Vision, Object Detection, Deep Learning, YOLO, CNN]
 ## Overview
 **YOLO (You Only Look Once)** is a high-performance, real-time object detection algorithm that processes an image in one shot. Unlike traditional sliding window approaches, YOLO divides the image into grid cells, with each cell predicting bounding boxes and class probabilities. This approach achieves high speed and accuracy, making YOLO ideal for real-time applications.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ag3DLKsl2vk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="What is YOLO algorithm? | Deep Learning Tutorial 31 (Tensorflow, Keras & Python)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## Problem Description
 - **Input**: An image containing multiple objects to be detected.
   - Each object belongs to a predefined class.

@@ -7,6 +7,16 @@ sidebar_position: 11
 
 # Strings
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="IKitRTLRUSM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin Tutorial for Beginners - Kotlin String Function (With Example)"
+  lazyLoad={true}
+  webp
+/>
+
 ## Creating Strings
 
 ```kotlin

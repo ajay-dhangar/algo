@@ -50,6 +50,16 @@ print(c)     # output: 7
 ```
 This function takes two numbers, a and b, and returns their sum.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="uY8QPE0dcSs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Functions with Arguments in Python | Parameters vs Arguments | Python Tutorials for Beginners #lec60"
+  lazyLoad={true}
+  webp
+/>
+
 
 ### 2.2 In C
 
@@ -85,6 +95,15 @@ int main(){
 
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="_ztGoCKDLHs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Function Parameters VS. Arguments | C Programming Tutorial"
+  lazyLoad={true}
+  webp
+/>
 
 ### 2.3 In C++
 
@@ -181,6 +200,15 @@ int main() {
 }
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7ThRtb-EMh8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lec-28: Functions in C++ Programming | C++ programming for beginners | C++ by Varun sir"
+  lazyLoad={true}
+  webp
+/>
 
 ## 3. Default Parameters
 

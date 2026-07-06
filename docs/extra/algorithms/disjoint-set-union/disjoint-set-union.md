@@ -16,6 +16,16 @@ The **Disjoint Set Union (DSU)**, also known as **Union Find**, is a data struct
 
 DSU is widely used in graph algorithms, particularly in **Kruskal's Minimum Spanning Tree Algorithm**, connected component detection, and dynamic connectivity problems.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="wU6udHRIkcc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="1.12 Disjoint Sets Data Structure - Weighted Union and Collapsing Find"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 * **Efficient Set Management**

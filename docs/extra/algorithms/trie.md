@@ -20,6 +20,17 @@ tags:
 
 A **Trie** (pronounced "try", from re**trie**val) is a tree-based data structure designed for storing and searching strings with shared prefixes. Unlike a HashMap, a Trie lets you search by **prefix** in O(m) time where m is the length of the word — making it the backbone of search autocomplete, spell checkers, and IP routing.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="zIjfhVPRZCg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Data Structures: Tries"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## 🧠 Why Trie? — Comparison with Other Structures

@@ -30,6 +30,16 @@ Output: `[0]`
 **Explanation:** The array `leftSum` is `[0]` and the array `rightSum` is `[0]`.
 The array `answer` is `[|0 - 0|] = [0]`.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="zXk7CPqDGDc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2574. Left and Right Sum Differences - JAVA - Weekly Contest 334 (Detailed explanation + coding)"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

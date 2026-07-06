@@ -11,6 +11,17 @@ sidebar_label: Bogo Sort
 
 Bogo Sort (also known as permutation sort, stupid sort, or slow sort) is a highly inefficient sorting algorithm based on the generate-and-test paradigm. The algorithm generates random permutations of the array until it finds one that is sorted. It is not practical for large arrays, as its average-case time complexity is extremely poor.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="DaPJkYo2quc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Bogo Sort"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Generate-and-Test**:

@@ -11,6 +11,17 @@ sidebar_label: Sunday Algorithm
 
 The Sunday Algorithm is a string matching algorithm developed by Daniel M. Sunday in 1990. It extends the Boyer-Moore approach by examining the character immediately following the pattern's alignment window to determine shift distances. This modification often results in larger shifts, making it particularly efficient for short patterns and large alphabets.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="jzi5ui9uc7o"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sunday Algorithms"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Next Character Rule**:

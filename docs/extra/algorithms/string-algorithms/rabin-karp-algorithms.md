@@ -9,6 +9,17 @@ tags: [pattern matching, string algorithms, competitive programming]
 
 Robins-Karp Algorithm is a string-searching algorithm that uses hashing to find an exact match of a pattern in a text. By comparing hash values of the pattern with the hash values of substrings of the text, it achieves an average time complexity of O(n + m), where `n` is the length of the text and `m` is the length of the pattern.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="qQ8vS2btsxI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="9.2 Rabin-Karp String Matching Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 <AdsComponent />
 
 ## Explanation:

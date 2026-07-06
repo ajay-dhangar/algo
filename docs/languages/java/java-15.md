@@ -14,6 +14,16 @@ Java supports two main types of polymorphism:
 - Compile-time Polymorphism (Method Overloading)
 - Runtime Polymorphism (Method Overriding)
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="bSrm9RXwBaI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java OOPs in One Shot | Object Oriented Programming | Java Language | Placement Course"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 # Method Overloading

@@ -9,6 +9,17 @@ tags: [dsa, algorithms, stack]
 ### Definition:
 The Stock Span Problem is defined as follows: Given a list of daily stock prices, the span of the stock's price on a given day is defined as the maximum number of consecutive days (including the current day) for which the price of the stock was less than or equal to the price on the given day.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="p9T-fE1g1pU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6 Stock Span Problem"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Statement:
 You are given an array of stock prices, where each element represents the stock price on a particular day. Your task is to compute an array of the same size, where each element at index `i` contains the span of the stock price on day `i`. 
 

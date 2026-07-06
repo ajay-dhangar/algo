@@ -8,6 +8,17 @@ tags: [operating systems, algorithms, deadlock prevention]
 
 The Banker's Algorithm is a deadlock avoidance algorithm used in operating systems. It allocates resources to processes in a safe manner by verifying that the system can allocate resources in a way that avoids deadlocks. It ensures a "safe state" where resources can be allocated without risk of deadlock, based on maximum and current allocations.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="7gMLNiEz3nw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-4.5: Deadlock Avoidance Banker's Algorithm with Example |With English Subtutles"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Safety Check**:

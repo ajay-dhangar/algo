@@ -15,6 +15,17 @@ Given a singly linked list, group all the nodes with odd indices together follow
 ### Note:
 - The head of the odd indexed list should point to the head of the even indexed list after rearranging.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="qf6qp7GzD5Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L6. Odd Even Linked List | Multiple Approaches"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 
 To solve this problem, we can use two pointers to separate the odd and even indexed nodes while maintaining their relative order. The approach involves:

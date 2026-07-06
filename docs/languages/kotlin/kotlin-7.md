@@ -7,6 +7,16 @@ sidebar_position: 7
 
 # Conditionals
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="mOhBUWJ9HSM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin Conditions - What are the Conditional Statements in Kotlin | Kotlin Android Tutorial"
+  lazyLoad={true}
+  webp
+/>
+
 ## `if` Statement
 
 The basic `if` statement executes a block of code when the condition is true.

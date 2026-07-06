@@ -18,6 +18,16 @@ Input: nums = [1,1,1,2,2,3], K = 2
 Output: [1,2]
 ```
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="EBNPu0GgM64"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Top K Frequent Elements (LeetCode 347) | Full solution with examples | Interview | Study Algorithms"
+  lazyLoad={true}
+  webp
+/>
+
 ### Approach:
 To find the K most frequent elements efficiently, we can use a hash map to count the frequency of each element, and then a min heap (priority queue) to keep track of the top K elements based on their frequency.
 

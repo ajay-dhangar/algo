@@ -15,6 +15,17 @@ Shortest Job First (SJF) is a CPU scheduling algorithm that selects the process 
 
 In the non-preemptive version of SJF, once a process starts executing, it continues until it finishes.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="VCIVXPoiLpU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.4: Shortest Job First(SJF) Scheduling Algorithm with Example | Operating System"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. How It Works
 
 - Processes arrive in the ready queue.

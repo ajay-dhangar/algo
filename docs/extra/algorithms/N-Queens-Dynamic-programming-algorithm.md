@@ -12,6 +12,17 @@ tags: [Backtracking, N-Queens, Algorithms, Recursion, Combinatorics]
 ## Overview
 The **N-Queens problem** is a classic combinatorial problem where the objective is to place `N` queens on an `N×N` chessboard so that no two queens can attack each other. In chess, a queen can attack another queen if it is on the same row, column, or diagonal. The challenge is to place all queens in a way that none of them threaten each other.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="xFv_Hl4B83A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.1 N Queens Problem using Backtracking"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Problem Description
 - **Input**: An integer `N` representing the size of the chessboard and the number of queens.
 - **Output**: All possible ways to place `N` queens on an `N×N` board such that no two queens threaten each other.

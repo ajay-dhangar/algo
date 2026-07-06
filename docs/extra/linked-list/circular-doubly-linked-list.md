@@ -19,6 +19,15 @@ A **Circular Doubly Linked List** is a variation of a doubly linked list in whic
 
 ![alt text](CircularDoubly.png)
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="eBCTtS_sptM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.19 Implementation of Doubly Circular Linked List| Creation and Display | Data Structures"
+  lazyLoad={true}
+  webp
+/>
 
 ### Circular Doubly Linked List Operations
 

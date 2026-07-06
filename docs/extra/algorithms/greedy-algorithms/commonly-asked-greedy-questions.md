@@ -11,6 +11,16 @@ tags: [dsa, faq, algorithms, greedy algorithms]
 ### Definition:
 Huffman Coding is a method used for lossless data compression. It assigns variable-length codes to input characters, with shorter codes assigned to more frequent characters.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="co4_ahEDCho"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.4 Huffman Coding - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Building a Min-Heap**: Create a min-heap to store characters and their frequencies.
 - **Tree Structure**: Combine the two least frequent nodes iteratively to build a binary tree.
@@ -26,6 +36,16 @@ Huffman Coding is a method used for lossless data compression. It assigns variab
 
 ### Definition:
 Prim’s Algorithm finds the Minimum Spanning Tree (MST) for a weighted undirected graph.
+
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="4ZlRH0eK-qQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.5 Prims and Kruskals Algorithms - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
 
 ### Characteristics:
 - **Start with a Single Vertex**: Initialize the tree with one vertex.
@@ -43,6 +63,16 @@ Prim’s Algorithm finds the Minimum Spanning Tree (MST) for a weighted undirect
 ### Definition:
 Kruskal’s Algorithm is another method to find the Minimum Spanning Tree of a graph.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="4ZlRH0eK-qQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.5 Prims and Kruskals Algorithms - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Sort Edges**: Begin by sorting all edges in ascending order of their weight.
 - **Add Edges**: Add edges to the MST one by one, ensuring no cycles are formed using union-find data structures.
@@ -58,6 +88,16 @@ Kruskal’s Algorithm is another method to find the Minimum Spanning Tree of a g
 
 ### Definition:
 The Fractional Knapsack Problem allows taking fractions of an item to maximize the total value in a knapsack.
+
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="xZfmHVi7FMg"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Fractional Knapsack Problem using Greedy Method | Example | Data structures and algorithms"
+  lazyLoad={true}
+  webp
+/>
 
 ### Characteristics:
 - **Value-to-Weight Ratio**: Calculate the ratio for each item.
@@ -75,6 +115,16 @@ The Fractional Knapsack Problem allows taking fractions of an item to maximize t
 ### Definition:
 The Coin Change Problem aims to find the minimum number of coins needed to make a certain amount using given denominations.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="mVg9CfJvayM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Minimum Coins | Greedy Algorithms"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Greedy Approach**: Use the largest denomination first.
 - **Reduction**: Continue until the remaining amount is zero.
@@ -91,6 +141,16 @@ The Coin Change Problem aims to find the minimum number of coins needed to make 
 ### Definition:
 The Minimum Number of Platforms problem determines how many platforms are required at a railway station to accommodate all trains at their arrival and departure times.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="dxVcMDI7vyI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Minimum Platforms | Greedy Algorithms"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Sorting Events**: Sort arrival and departure times.
 - **Tracking Platforms**: Use a greedy approach to track the number of trains at any given time and update the platform requirement.
@@ -105,6 +165,17 @@ The Minimum Number of Platforms problem determines how many platforms are requir
 
 ### Definition:
 The Staircase Problem involves finding the number of ways to reach the top of a staircase with `N` steps when you can take either 1 or 2 steps at a time.
+
+
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="CFQk7OQO_xM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Staircase Problem Fibonacci Series"
+  lazyLoad={true}
+  webp
+/>
 
 ### Characteristics:
 - **Recurrence Relation**: The number of ways to reach the nth step can be defined as `ways(n) = ways(n-1) + ways(n-2)`.
@@ -121,6 +192,16 @@ The Staircase Problem involves finding the number of ways to reach the top of a 
 ### Definition:
 This problem involves determining the maximum profit you can achieve by buying and selling a stock once, given an array of stock prices.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="1pkOgXD63yU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sliding Window: Best Time to Buy and Sell Stock - Leetcode 121 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 - **Tracking Minimum Price**: Keep track of the minimum price encountered so far.
 - **Calculating Profit**: For each price, calculate the potential profit and update the maximum profit if it exceeds the current maximum.
@@ -135,6 +216,17 @@ This problem involves determining the maximum profit you can achieve by buying a
 
 ### Definition:
 Given a set of workers and tasks, this problem aims to assign tasks in a way that minimizes the maximum distance any worker has to travel.
+
+
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="kMSBvlZ-_HA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="BS-20. Minimise Maximum Distance between Gas Stations | 3 Approaches | Heap | Binary Search"
+  lazyLoad={true}
+  webp
+/>
 
 ### Characteristics:
 - **Sorting**: Sort workers and tasks based on their distances.

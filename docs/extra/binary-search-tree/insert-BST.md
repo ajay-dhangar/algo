@@ -12,6 +12,17 @@ In this post, we will discuss how to insert a specific value into a **Binary Sea
 ## Problem Definition
 Given a binary search tree and a value to insert, the goal is to place the value in the correct position in the tree while maintaining the BST properties. If the value already exists in the tree, we do not insert it again.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="cySVml6e_Fc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.10 Binary Search Trees (BST) - Insertion and Deletion | DSA Full Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Approach
 To insert a value in a BST, we can utilize the properties of the BST. Starting from the root node, we compare the value to insert with the value of the current node:
 

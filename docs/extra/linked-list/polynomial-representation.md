@@ -15,6 +15,16 @@ This tutorial provides a C++ implementation to represent and perform operations 
 
 Represent a polynomial as a linked list, where each node contains two fields: one for the coefficient and another for the exponent of a polynomial term. This setup allows for efficient storage and manipulation of polynomial expressions, particularly for addition and multiplication.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="hM-rvbVJ4Po"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Polynomial Representation Using A Linked List"
+  lazyLoad={true}
+  webp
+/>
+
 ### Approach:
 
 The approach involves the following steps:
