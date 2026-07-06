@@ -1,6 +1,6 @@
 import React from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import type { AlgorithmType } from './AlgorithmVisualizer';
+import type { AlgorithmType } from './algorithms/types';
 
 interface AlgorithmVisualizerWrapperProps {
   algorithm: AlgorithmType;

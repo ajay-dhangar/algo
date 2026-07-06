@@ -6,7 +6,7 @@ description: "In this blog post, we'll explore Breadth-First Search (BFS), a gra
 tags: [dsa, algorithms, graph, traversal]
 ---
 
-import { AlgorithmVisualizer } from "@site/src/components";
+import { AlgorithmVisualizer, PracticeProblems } from "@site/src/components";
 
 ### Definition:
 

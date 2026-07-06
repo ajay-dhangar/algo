@@ -1,30 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-export type AlgorithmType = 'bubble-sort' | 'binary-search' | 'bfs' | 'dfs';
+import { AlgorithmType, Step } from './algorithms/types';
+import { generateBubbleSortSteps } from './algorithms/bubbleSort';
+import { generateBinarySearchSteps } from './algorithms/binarySearch';
+import { generateBfsSteps, generateDfsSteps } from './algorithms/graphSearch';
 
-interface AlgorithmVisualizerProps {
+export interface AlgorithmVisualizerProps {
   algorithm: AlgorithmType;
-}
-
-interface Step {
-  description: string;
-  variables: Record<string, any>;
-  // For sorting/search
-  array?: number[];
-  highlights?: {
-    active?: number[];
-    compared?: number[];
-    sorted?: number[];
-    low?: number;
-    high?: number;
-    mid?: number;
-  };
-  // For graph (BFS/DFS)
-  graphState?: {
-    activeNode: number | null;
-    visited: number[];
-    structure: number[]; // queue or stack elements
-  };
 }
 
 export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerProps) {
@@ -65,216 +47,16 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
   const generateSteps = () => {
     setIsPlaying(false);
     setCurrentStep(0);
-    const newSteps: Step[] = [];
+    let newSteps: Step[] = [];
 
     if (algorithm === 'bubble-sort') {
-      const arr = [29, 10, 14, 37, 13];
-      newSteps.push({
-        description: 'Initialize array to be sorted.',
-        array: [...arr],
-        variables: { i: 0, j: 0, swapped: 'false' },
-        highlights: { sorted: [] },
-      });
-
-      const n = arr.length;
-      let tempArr = [...arr];
-
-      for (let i = 0; i < n - 1; i++) {
-        let swapped = false;
-        for (let j = 0; j < n - i - 1; j++) {
-          newSteps.push({
-            description: `Comparing elements at index ${j} (${tempArr[j]}) and index ${j + 1} (${tempArr[j + 1]}).`,
-            array: [...tempArr],
-            variables: { i, j, swapped: swapped ? 'true' : 'false' },
-            highlights: { compared: [j, j + 1] },
-          });
-
-          if (tempArr[j] > tempArr[j + 1]) {
-            const temp = tempArr[j];
-            tempArr[j] = tempArr[j + 1];
-            tempArr[j + 1] = temp;
-            swapped = true;
-
-            newSteps.push({
-              description: `Swapped: ${tempArr[j + 1]} and ${tempArr[j]} since ${tempArr[j + 1]} was greater than ${tempArr[j]}.`,
-              array: [...tempArr],
-              variables: { i, j, swapped: 'true' },
-              highlights: { active: [j, j + 1] },
-            });
-          }
-        }
-        // At the end of outer loop, index n-i-1 is sorted
-        const sortedIndices = Array.from({ length: i + 1 }, (_, k) => n - 1 - k);
-        newSteps.push({
-          description: `Pass completed. Largest element in unsorted portion moved to index ${n - i - 1}.`,
-          array: [...tempArr],
-          variables: { i, j: 'N/A', swapped: swapped ? 'true' : 'false' },
-          highlights: { sorted: sortedIndices },
-        });
-
-        if (!swapped) {
-          newSteps.push({
-            description: 'No swaps occurred in this pass. Array is sorted!',
-            array: [...tempArr],
-            variables: { i, j: 'N/A', swapped: 'false' },
-            highlights: { sorted: Array.from({ length: n }, (_, k) => k) },
-          });
-          break;
-        }
-      }
-      // Add final sorted state
-      newSteps.push({
-        description: 'Array is completely sorted.',
-        array: [...tempArr],
-        variables: { i: 'N/A', j: 'N/A', swapped: 'N/A' },
-        highlights: { sorted: Array.from({ length: n }, (_, k) => k) },
-      });
+      newSteps = generateBubbleSortSteps();
     } else if (algorithm === 'binary-search') {
-      const arr = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91];
-      const target = 23;
-      let low = 0;
-      let high = arr.length - 1;
-
-      newSteps.push({
-        description: `Target to search: ${target}. Initialize Search Range.`,
-        array: [...arr],
-        variables: { low, high, mid: 'N/A', target },
-        highlights: { low, high },
-      });
-
-      while (low <= high) {
-        const mid = Math.floor((low + high) / 2);
-        newSteps.push({
-          description: `Calculate mid index: Math.floor((${low} + ${high}) / 2) = ${mid}. Value at mid is ${arr[mid]}.`,
-          array: [...arr],
-          variables: { low, high, mid, target },
-          highlights: { low, high, mid },
-        });
-
-        if (arr[mid] === target) {
-          newSteps.push({
-            description: `Target ${target} matches element at index ${mid}! Search successful.`,
-            array: [...arr],
-            variables: { low, high, mid, target },
-            highlights: { mid, sorted: [mid] },
-          });
-          break;
-        } else if (arr[mid] < target) {
-          newSteps.push({
-            description: `Since ${arr[mid]} < ${target}, target must lie in the right half. Move low to ${mid + 1}.`,
-            array: [...arr],
-            variables: { low, high, mid, target },
-            highlights: { low, high, mid },
-          });
-          low = mid + 1;
-        } else {
-          newSteps.push({
-            description: `Since ${arr[mid]} > ${target}, target must lie in the left half. Move high to ${mid - 1}.`,
-            array: [...arr],
-            variables: { low, high, mid, target },
-            highlights: { low, high, mid },
-          });
-          high = mid - 1;
-        }
-      }
-
-      if (low > high) {
-        newSteps.push({
-          description: 'Search range is empty. Target is not in the array.',
-          array: [...arr],
-          variables: { low, high, mid: 'N/A', target },
-          highlights: {},
-        });
-      }
-    } else if (algorithm === 'bfs' || algorithm === 'dfs') {
-      // 0 - 1 - 2
-      // |   |
-      // 3 - 4
-      const graph: Record<number, number[]> = {
-        0: [1, 3],
-        1: [0, 2, 4],
-        2: [1],
-        3: [0, 4],
-        4: [1, 3],
-      };
-
-      if (algorithm === 'bfs') {
-        const visited: number[] = [];
-        const queue: number[] = [0];
-        visited.push(0);
-
-        newSteps.push({
-          description: 'Start BFS traversal. Enqueue starting node 0 and mark it as visited.',
-          variables: { queue: '[0]', visited: '[0]' },
-          graphState: { activeNode: 0, visited: [...visited], structure: [...queue] },
-        });
-
-        while (queue.length > 0) {
-          const curr = queue.shift()!;
-          newSteps.push({
-            description: `Dequeue node ${curr} and process it.`,
-            variables: { queue: JSON.stringify(queue), visited: JSON.stringify(visited) },
-            graphState: { activeNode: curr, visited: [...visited], structure: [...queue] },
-          });
-
-          for (const neighbor of graph[curr]) {
-            if (!visited.includes(neighbor)) {
-              visited.push(neighbor);
-              queue.push(neighbor);
-              newSteps.push({
-                description: `Neighbor ${neighbor} of node ${curr} is unvisited. Enqueue and mark visited.`,
-                variables: { queue: JSON.stringify(queue), visited: JSON.stringify(visited) },
-                graphState: { activeNode: curr, visited: [...visited], structure: [...queue] },
-              });
-            }
-          }
-        }
-        newSteps.push({
-          description: 'BFS Queue is empty. Graph traversal completed.',
-          variables: { queue: '[]', visited: JSON.stringify(visited) },
-          graphState: { activeNode: null, visited: [...visited], structure: [] },
-        });
-      } else {
-        // DFS
-        const visited: number[] = [];
-        const stack: number[] = [0];
-
-        newSteps.push({
-          description: 'Start DFS traversal. Push starting node 0 to stack.',
-          variables: { stack: '[0]', visited: '[]' },
-          graphState: { activeNode: 0, visited: [...visited], structure: [...stack] },
-        });
-
-        while (stack.length > 0) {
-          const curr = stack.pop()!;
-          if (!visited.includes(curr)) {
-            visited.push(curr);
-            newSteps.push({
-              description: `Pop node ${curr} from stack. Mark as visited.`,
-              variables: { stack: JSON.stringify(stack), visited: JSON.stringify(visited) },
-              graphState: { activeNode: curr, visited: [...visited], structure: [...stack] },
-            });
-
-            // Push unvisited neighbors in reverse order to explore left-to-right
-            const neighbors = [...graph[curr]].reverse();
-            for (const neighbor of neighbors) {
-              if (!visited.includes(neighbor)) {
-                stack.push(neighbor);
-                newSteps.push({
-                  description: `Push unvisited neighbor ${neighbor} of node ${curr} to stack.`,
-                  variables: { stack: JSON.stringify(stack), visited: JSON.stringify(visited) },
-                  graphState: { activeNode: curr, visited: [...visited], structure: [...stack] },
-                });
-              }
-            }
-          }
-        }
-        newSteps.push({
-          description: 'DFS Stack is empty. Graph traversal completed.',
-          variables: { stack: '[]', visited: JSON.stringify(visited) },
-          graphState: { activeNode: null, visited: [...visited], structure: [] },
-        });
-      }
+      newSteps = generateBinarySearchSteps();
+    } else if (algorithm === 'bfs') {
+      newSteps = generateBfsSteps();
+    } else if (algorithm === 'dfs') {
+      newSteps = generateDfsSteps();
     }
 
     setSteps(newSteps);
