@@ -19,9 +19,9 @@ A **chessboard board** is a board where no `0`'s and no `1`'s are 4-directionall
 Input: `board = [[0,1,1,0],[0,1,1,0],[1,0,0,1],[1,0,0,1]]`
 Output: `2`
 **Explanation:** One potential sequence of moves is as follows:
-Swap row 0 with row 1 to get: `[[0,1,1,0],[0,1,1,0],[1,0,0,1],[1,0,0,1]]`
-Swap col 1 with col 2 to get: `[[0,1,0,1],[0,1,0,1],[1,0,1,0],[1,0,1,0]]`
-The first move actually didn't change anything, so the minimum number of moves is 2 (swapping row 1 with row 2, then col 1 with col 2).
+Swap column 0 with column 1 to get: `[[1,0,1,0],[1,0,1,0],[0,1,0,1],[0,1,0,1]]`
+Swap row 1 with row 2 to get: `[[1,0,1,0],[0,1,0,1],[1,0,1,0],[0,1,0,1]]`
+The board is now a valid chessboard, and the minimum number of moves is 2.
 
 **Example 2:**
 
