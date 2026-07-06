@@ -41,6 +41,8 @@ interface ArrowData {
   label?: string;
 }
 
+const cloneMatrix = (matrix: (number | null)[][]) => matrix.map((row) => [...row]);
+
 function DPVisualizer() {
   const [algo, setAlgo] = useState<AlgorithmType>("lcs");
 
@@ -64,7 +66,7 @@ function DPVisualizer() {
   const [arrows, setArrows] = useState<ArrowData[]>([]);
 
   // Parse knapsack items helper
-  const getKnapsackData = () => {
+  const getKnapsackData = React.useCallback(() => {
     const weights = knapsackWeights
       .split(",")
       .map((x) => Number(x.trim()))
@@ -74,7 +76,7 @@ function DPVisualizer() {
       .map((x) => Number(x.trim()))
       .filter((x) => !isNaN(x) && x >= 0);
     return { weights, values };
-  };
+  }, [knapsackWeights, knapsackValues]);
 
   // Generate trace based on selected algorithm and inputs
   const generateTrace = () => {
@@ -124,14 +126,20 @@ function DPVisualizer() {
     const interval = setInterval(() => {
       setCurrentStepIdx((prev) => {
         if (prev >= steps.length - 1) {
-          setIsPlaying(false);
           return prev;
         }
         return prev + 1;
       });
     }, speed);
     return () => clearInterval(interval);
-  }, [isPlaying, steps, speed]);
+  }, [isPlaying, speed, steps.length]);
+
+  // Stop playing when we reach the end
+  useEffect(() => {
+    if (currentStepIdx >= steps.length - 1 && steps.length > 0) {
+      setIsPlaying(false);
+    }
+  }, [currentStepIdx, steps.length]);
 
   // Handle Play/Pause
   const handlePlayPause = () => {
@@ -173,7 +181,7 @@ function DPVisualizer() {
 
     // Base initial state
     trace.push({
-      matrix: JSON.parse(JSON.stringify(matrix)),
+      matrix: cloneMatrix(matrix),
       activeCell: null,
       dependencies: [],
       description: `Initialize a ${R}x${C} table for matching String A ("${A}") and String B ("${B}").`,
@@ -186,7 +194,7 @@ function DPVisualizer() {
     for (let j = 0; j < C; j++) {
       matrix[0][j] = 0;
       trace.push({
-        matrix: JSON.parse(JSON.stringify(matrix)),
+        matrix: cloneMatrix(matrix),
         activeCell: [0, j],
         dependencies: [],
         description: `Base Case: dp[0][${j}] = 0. An empty prefix of String A has 0 common subsequence with String B prefix "${B.slice(0, j)}".`,
@@ -200,7 +208,7 @@ function DPVisualizer() {
     for (let i = 1; i < R; i++) {
       matrix[i][0] = 0;
       trace.push({
-        matrix: JSON.parse(JSON.stringify(matrix)),
+        matrix: cloneMatrix(matrix),
         activeCell: [i, 0],
         dependencies: [],
         description: `Base Case: dp[${i}][0] = 0. An empty prefix of String B has 0 common subsequence with String A prefix "${A.slice(0, i)}".`,
@@ -237,11 +245,11 @@ function DPVisualizer() {
           : `dp[${i}][${j}] = max(dp[${i - 1}][${j}], dp[${i}][${j - 1}]) = max(${topVal}, ${leftVal}) = ${Math.max(topVal, leftVal)}`;
 
         const eqStr = isMatch
-          ? `dp[i][j] = dp[i-1][j-1] + 1`
-          : `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`;
+          ? `dp[i][j] = dp[i-1][j-1]`
+          : `dp[i][j] = max(dp[i-1][j], dp[i-1][j-1])`;
 
         trace.push({
-          matrix: JSON.parse(JSON.stringify(matrix)),
+          matrix: cloneMatrix(matrix),
           activeCell: [i, j],
           dependencies: deps,
           description: stepDescription,
@@ -256,7 +264,7 @@ function DPVisualizer() {
 
     // Final result
     trace.push({
-      matrix: JSON.parse(JSON.stringify(matrix)),
+      matrix: cloneMatrix(matrix),
       activeCell: null,
       dependencies: [],
       description: `Tabulation complete! The length of the Longest Common Subsequence is ${matrix[R - 1][C - 1]}.`,
@@ -278,7 +286,7 @@ function DPVisualizer() {
 
     // Base initial state
     trace.push({
-      matrix: JSON.parse(JSON.stringify(matrix)),
+      matrix: cloneMatrix(matrix),
       activeCell: null,
       dependencies: [],
       description: `Initialize table for calculating minimum Edit Distance to convert "${A}" into "${B}".`,
@@ -291,7 +299,7 @@ function DPVisualizer() {
     for (let j = 0; j < C; j++) {
       matrix[0][j] = j;
       trace.push({
-        matrix: JSON.parse(JSON.stringify(matrix)),
+        matrix: cloneMatrix(matrix),
         activeCell: [0, j],
         dependencies: [],
         description: `Base Case: dp[0][${j}] = ${j}. To build "${B.slice(0, j)}" from empty string requires ${j} insertions.`,
@@ -305,7 +313,7 @@ function DPVisualizer() {
     for (let i = 1; i < R; i++) {
       matrix[i][0] = i;
       trace.push({
-        matrix: JSON.parse(JSON.stringify(matrix)),
+        matrix: cloneMatrix(matrix),
         activeCell: [i, 0],
         dependencies: [],
         description: `Base Case: dp[${i}][0] = ${i}. To convert "${A.slice(0, i)}" to empty string requires ${i} deletions.`,
@@ -348,7 +356,7 @@ function DPVisualizer() {
           : `dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])`;
 
         trace.push({
-          matrix: JSON.parse(JSON.stringify(matrix)),
+          matrix: cloneMatrix(matrix),
           activeCell: [i, j],
           dependencies: deps,
           description: stepDescription,
@@ -363,7 +371,7 @@ function DPVisualizer() {
 
     // Final result
     trace.push({
-      matrix: JSON.parse(JSON.stringify(matrix)),
+      matrix: cloneMatrix(matrix),
       activeCell: null,
       dependencies: [],
       description: `Tabulation complete! The minimum Edit Distance is ${matrix[R - 1][C - 1]} operations.`,
@@ -390,7 +398,7 @@ function DPVisualizer() {
 
     // Base initial state
     trace.push({
-      matrix: JSON.parse(JSON.stringify(matrix)),
+      matrix: cloneMatrix(matrix),
       activeCell: null,
       dependencies: [],
       description: `Initialize a ${R}x${C} table for Knapsack Capacity = ${capacity} with ${N} items.`,
@@ -403,7 +411,7 @@ function DPVisualizer() {
     for (let j = 0; j < C; j++) {
       matrix[0][j] = 0;
       trace.push({
-        matrix: JSON.parse(JSON.stringify(matrix)),
+        matrix: cloneMatrix(matrix),
         activeCell: [0, j],
         dependencies: [],
         description: `Base Case: dp[0][${j}] = 0. Selecting from 0 items gives a value of 0.`,
@@ -417,7 +425,7 @@ function DPVisualizer() {
     for (let i = 1; i < R; i++) {
       matrix[i][0] = 0;
       trace.push({
-        matrix: JSON.parse(JSON.stringify(matrix)),
+        matrix: cloneMatrix(matrix),
         activeCell: [i, 0],
         dependencies: [],
         description: `Base Case: dp[${i}][0] = 0. A knapsack capacity of 0 can hold a maximum value of 0.`,
@@ -458,7 +466,7 @@ function DPVisualizer() {
           : `dp[i][j] = max(dp[i-1][j], dp[i-1][j-wt] + val)`;
 
         trace.push({
-          matrix: JSON.parse(JSON.stringify(matrix)),
+          matrix: cloneMatrix(matrix),
           activeCell: [i, j],
           dependencies: deps,
           description: stepDescription,
@@ -473,7 +481,7 @@ function DPVisualizer() {
 
     // Final result
     trace.push({
-      matrix: JSON.parse(JSON.stringify(matrix)),
+      matrix: cloneMatrix(matrix),
       activeCell: null,
       dependencies: [],
       description: `Tabulation complete! The maximum value matching the constraints is ${matrix[R - 1][C - 1]}.`,
@@ -487,7 +495,7 @@ function DPVisualizer() {
 
   // --- DEPENDENCY RESOLUTION FOR HOVER & CURRENT STEP ---
 
-  const getActiveCellDependencies = (r: number, c: number): [number, number][] => {
+  const getActiveCellDependencies = React.useCallback((r: number, c: number): [number, number][] => {
     if (r === 0 || c === 0) return [];
     if (algo === "lcs") {
       const isMatch = strA.toUpperCase()[r - 1] === strB.toUpperCase()[c - 1];
@@ -504,7 +512,7 @@ function DPVisualizer() {
         return [[r - 1, c], [r - 1, c - wt]];
       }
     }
-  };
+  }, [algo, strA, strB, getKnapsackData]);
 
   const getHoveredCellFormula = (r: number, c: number, val: number | null) => {
     if (val === null) return { formula: "", explanation: "Not calculated yet." };
@@ -525,14 +533,14 @@ function DPVisualizer() {
     if (algo === "lcs") {
       const isMatch = strA.toUpperCase()[r - 1] === strB.toUpperCase()[c - 1];
       if (isMatch) {
-        const diagVal = lastStepMatrix[r - 1][c - 1] ?? 0;
+        const diagVal = lastStepMatrix[r - 1]?.[c - 1] ?? 0;
         return {
           formula: `dp[${r}][${c}] = dp[${r - 1}][${c - 1}] + 1 = ${diagVal} + 1 = ${val}`,
           explanation: `Match ('${strA[r - 1]}')`
         };
       } else {
-        const topVal = lastStepMatrix[r - 1][c] ?? 0;
-        const leftVal = lastStepMatrix[r][c - 1] ?? 0;
+        const topVal = lastStepMatrix[r - 1]?.[c] ?? 0;
+        const leftVal = lastStepMatrix[r]?.[c - 1] ?? 0;
         return {
           formula: `dp[${r}][${c}] = max(dp[${r - 1}][${c}], dp[${r}][${c - 1}]) = max(${topVal}, ${leftVal}) = ${val}`,
           explanation: `Mismatch ('${strA[r - 1]}' != '${strB[c - 1]}')`
@@ -541,15 +549,15 @@ function DPVisualizer() {
     } else if (algo === "editDistance") {
       const isMatch = strA.toLowerCase()[r - 1] === strB.toLowerCase()[c - 1];
       if (isMatch) {
-        const diagVal = lastStepMatrix[r - 1][c - 1] ?? 0;
+        const diagVal = lastStepMatrix[r - 1]?.[c - 1] ?? 0;
         return {
           formula: `dp[${r}][${c}] = dp[${r - 1}][${c - 1}] = ${val}`,
           explanation: `Match ('${strA[r - 1]}')`
         };
       } else {
-        const replaceVal = lastStepMatrix[r - 1][c - 1] ?? 0;
-        const deleteVal = lastStepMatrix[r - 1][c] ?? 0;
-        const insertVal = lastStepMatrix[r][c - 1] ?? 0;
+        const replaceVal = lastStepMatrix[r - 1]?.[c - 1] ?? 0;
+        const deleteVal = lastStepMatrix[r - 1]?.[c] ?? 0;
+        const insertVal = lastStepMatrix[r]?.[c - 1] ?? 0;
         return {
           formula: `dp[${r}][${c}] = 1 + min(Replace: ${replaceVal}, Delete: ${deleteVal}, Insert: ${insertVal}) = ${val}`,
           explanation: `Mismatch ('${strA[r - 1]}' != '${strB[c - 1]}')`
@@ -560,14 +568,14 @@ function DPVisualizer() {
       const wt = weights[r - 1] || 0;
       const itemVal = values[r - 1] || 0;
       if (wt > c) {
-        const topVal = lastStepMatrix[r - 1][c] ?? 0;
+        const topVal = lastStepMatrix[r - 1]?.[c] ?? 0;
         return {
           formula: `dp[${r}][${c}] = dp[${r - 1}][${c}] = ${val}`,
           explanation: `Item ${r} (weight: ${wt}) cannot fit in capacity ${c}`
         };
       } else {
-        const topVal = lastStepMatrix[r - 1][c] ?? 0;
-        const subVal = lastStepMatrix[r - 1][c - wt] ?? 0;
+        const topVal = lastStepMatrix[r - 1]?.[c] ?? 0;
+        const subVal = lastStepMatrix[r - 1]?.[c - wt] ?? 0;
         return {
           formula: `dp[${r}][${c}] = max(Exclude: ${topVal}, Include: ${subVal} + ${itemVal} = ${subVal + itemVal}) = ${val}`,
           explanation: `Item ${r} (weight: ${wt}, value: ${itemVal}) fits in capacity ${c}`
@@ -588,10 +596,16 @@ function DPVisualizer() {
     highlights: {}
   };
 
-  const activeCell = hoveredCell || currentStep.activeCell;
-  const dependencies = hoveredCell
-    ? getActiveCellDependencies(hoveredCell[0], hoveredCell[1])
-    : currentStep.dependencies;
+  const activeCell = React.useMemo(() => {
+    return hoveredCell || currentStep.activeCell;
+  }, [hoveredCell, currentStep.activeCell]);
+
+  const dependencies = React.useMemo(() => {
+    if (hoveredCell) {
+      return getActiveCellDependencies(hoveredCell[0], hoveredCell[1]);
+    }
+    return currentStep.dependencies;
+  }, [hoveredCell, currentStep.dependencies, getActiveCellDependencies]);
 
   useEffect(() => {
     const container = document.getElementById("grid-container");
@@ -725,15 +739,15 @@ function DPVisualizer() {
         "border-purple-600 bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-300 ring-2 ring-purple-500 scale-105 z-10 shadow-md"
       );
     }
-    if (isDependency) {
+    if (isDependency && activeCell) {
       // Find what dependency type it is
       let depColor =
         "border-amber-500 bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400";
       if (algo === "editDistance") {
-        if (r === activeCell![0] - 1 && c === activeCell![1] - 1) {
+        if (r === activeCell[0] - 1 && c === activeCell[1] - 1) {
           depColor =
             "border-blue-500 bg-blue-50/80 dark:bg-blue-950/20 text-blue-700 dark:text-blue-400";
-        } else if (r === activeCell![0] - 1 && c === activeCell![1]) {
+        } else if (r === activeCell[0] - 1 && c === activeCell[1]) {
           depColor =
             "border-red-500 bg-red-50/80 dark:bg-red-950/20 text-red-700 dark:text-red-400";
         } else {
@@ -741,7 +755,7 @@ function DPVisualizer() {
             "border-emerald-500 bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400";
         }
       } else if (algo === "knapsack") {
-        if (c === activeCell![1]) {
+        if (c === activeCell[1]) {
           depColor =
             "border-red-500 bg-red-50/80 dark:bg-red-950/20 text-red-700 dark:text-red-400";
         } else {
@@ -749,7 +763,7 @@ function DPVisualizer() {
             "border-emerald-500 bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400";
         }
       } else if (algo === "lcs") {
-        if (r === activeCell![0] - 1 && c === activeCell![1] - 1) {
+        if (r === activeCell[0] - 1 && c === activeCell[1] - 1) {
           depColor =
             "border-emerald-500 bg-emerald-50/80 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400";
         } else {
