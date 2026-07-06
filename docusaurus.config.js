@@ -233,6 +233,10 @@ const config = {
                 label: "Algorithm Visualizer",
               },
               {
+                to: "tree-sandbox",
+                label: "Tree Sandbox",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
