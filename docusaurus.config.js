@@ -234,6 +234,8 @@ const config = {
               {
                 to: "tree-sandbox",
                 label: "Tree Sandbox",
+              },
+              {
                 to: "recursion-visualizer",
                 label: "Recursion Visualizer",
               },
