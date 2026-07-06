@@ -233,6 +233,10 @@ const config = {
                 label: "Algorithm Visualizer",
               },
               {
+                to: "backtracking-visualizer",
+                label: "Backtracking Visualizer",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
