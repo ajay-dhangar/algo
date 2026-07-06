@@ -44,7 +44,7 @@ const config = {
       tagName: 'meta',
       attributes: {
         name: 'impact-site-verification',
-        content: '45b1e3f2-9692-4da5-af16-0bb7bfdcf7fe',
+        content: '1e9bf198-a4f7-4132-b77d-46b34e45f6ad',
       },
     },
   ],
