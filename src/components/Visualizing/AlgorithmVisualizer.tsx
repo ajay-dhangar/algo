@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-type AlgorithmType = 'bubble-sort' | 'binary-search' | 'bfs' | 'dfs';
+export type AlgorithmType = 'bubble-sort' | 'binary-search' | 'bfs' | 'dfs';
 
 interface AlgorithmVisualizerProps {
   algorithm: AlgorithmType;
