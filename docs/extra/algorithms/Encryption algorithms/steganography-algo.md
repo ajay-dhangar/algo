@@ -11,6 +11,16 @@ sidebar_label: Steganography
 
 Steganography is the practice of hiding secret data within a non-secret file or message in such a way that only the intended recipient can detect the presence of the hidden data. The most common use of steganography is concealing information within digital media, such as images, audio, or video files.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="TWEXCYQKyDc"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Secrets Hidden in Images (Steganography) - Computerphile"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Hidden Information**:

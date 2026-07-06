@@ -13,6 +13,17 @@ Tags: [dsa, bit manipulation, algorithm, power of two, efficiency]
 
 The **Power of Two Check** is a bit manipulation technique to determine if an integer is a power of two. Powers of two are integers like 1, 2, 4, 8, etc., where only one bit is set in their binary representation. This property allows for a quick and efficient check using a single bitwise operation.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="0fwrMYPcGQ0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 7: LeetCode Problem Solving Session"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## How it Works
 
 The key to this technique is understanding that for any power of two (e.g., 1, 2, 4, 8), the binary representation has exactly one set bit, and subtracting 1 from a power of two flips all bits to the right of that set bit. Using the expression `n & (n - 1)`, we can check for this unique property.

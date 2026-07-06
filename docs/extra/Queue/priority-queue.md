@@ -13,6 +13,17 @@ A priority queue is an abstract data type that operates similarly to a regular q
 
 ![alt text](Priority-queue.png)
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="HqPJF2L5h9U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.6.3 Heap - Heap Sort - Heapify - Priority Queues"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Priority Queue Operations
 
 1. **Insert**: Add an element to the priority queue with a specified priority.

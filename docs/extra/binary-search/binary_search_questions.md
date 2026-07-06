@@ -16,6 +16,17 @@ Welcome to this in-depth exploration of binary search patterns! This guide is de
 
 Binary search is a fundamental algorithm in computer science that efficiently locates an element in a sorted array. By repeatedly dividing the search interval in half, binary search achieves a time complexity of O(log n), making it significantly faster than linear search for large datasets.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="V_T5NuccwRA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.2 What is Binary Search | Binary Search Algorithm with example | Data Structures Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Master Binary Search?
 
 Understanding binary search is crucial for several reasons:

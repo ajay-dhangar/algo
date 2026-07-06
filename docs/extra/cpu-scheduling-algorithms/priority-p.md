@@ -15,6 +15,17 @@ Priority Scheduling assigns each process a priority value, and the CPU is alloca
 
 This ensures that important processes receive CPU time as soon as possible.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="rsDGfFxSgiY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.8: Pre-emptive Priority Scheduling Algorithm with Example | Operating System"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. How It Works
 
 - Each process is assigned a priority level.

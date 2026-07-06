@@ -10,6 +10,17 @@ tags: [dsa, algorithms, dynamic programming, subarray]
 
 Kadane's algorithm is a **dynamic programming algorithm** used to find the maximum sum of a contiguous subarray within a one-dimensional array of numbers. It efficiently calculates the largest sum that can be obtained by adding consecutive elements in the array.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="9IZYqostl2M"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kadene's Algorithm | Maximum Subarray Sum | DSA Series by Shradha Ma'am"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Dynamic Programming Approach**:

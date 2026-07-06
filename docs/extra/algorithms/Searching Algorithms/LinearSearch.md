@@ -28,6 +28,15 @@ Linear search, also known as sequential search, is the simplest searching algori
 - **Works with All Data Types**:
   - Linear search can be applied to any data type that supports comparison, making it universally applicable.
 
+### Video Explanation
+<LiteYouTubeEmbed
+  id="C46QfTjVCNU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="7.1 Linear Search Algorithm | Linear Search in C | Data Structures Tutorials"
+  lazyLoad={true}
+  webp
+/>
+
 ### Time Complexity:
 
 - **Best Case: $O(1)$**  

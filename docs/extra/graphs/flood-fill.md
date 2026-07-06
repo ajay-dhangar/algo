@@ -12,6 +12,16 @@ tags: [dsa, algorithms, graphics, connected components]
 
 The **Flood Fill Algorithm** is a method used in computer graphics to determine connected regions in a two-dimensional array (or grid) of pixels. It is commonly utilized for tasks such as filling areas in images, similar to the paint bucket tool in graphics editing software. The algorithm can also be applied in game development for tasks like determining the area of influence for a character or object.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="C-2_uSRli8o"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="G-9. Flood Fill Algorithm | C++ | Java"
+  lazyLoad={true}
+  webp
+/>
+
 ## How Flood Fill Works
 
 Flood fill operates by exploring adjacent pixels (or nodes) that share the same color or value as the starting pixel. The process can be performed using either a **recursive** or **iterative** approach.

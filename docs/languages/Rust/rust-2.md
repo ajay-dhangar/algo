@@ -11,6 +11,16 @@ Variables are used to store data in memory.
 
 In Rust, variables are immutable by default, which means their values cannot be changed after creation.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="xYgfW8cIbMA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Rust Tutorial #3 - Variables, Constants and Shadowing"
+  lazyLoad={true}
+  webp
+/>
+
 ## Declaring a Variable
 
 ```rust

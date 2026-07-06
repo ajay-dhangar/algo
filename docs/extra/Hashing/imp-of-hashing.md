@@ -11,6 +11,16 @@ tags: [algorithms, hashing, data structures]
 
 Hashing is a fundamental technique in data structures and algorithms (DSA) that involves mapping data to a fixed-size value (hash code) using a hash function. This technique provides efficient ways to store, retrieve, and manage data, making it particularly useful in applications requiring quick lookups, insertions, and deletions.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="W5q0xgxmRd8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-6.1: What is hashing with example | Hashing in data structure"
+  lazyLoad={true}
+  webp
+/>
+
 ### Importance of Hashing
 
 1. **Fast Data Retrieval**:

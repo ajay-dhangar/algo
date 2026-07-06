@@ -9,6 +9,17 @@ sidebar_label: Gnome Sort
 
 Gnome Sort is a simple comparison-based sorting algorithm that sorts an array by iterating through it and swapping adjacent elements if they are in the wrong order. If a swap occurs, the algorithm moves one position back; otherwise, it moves one position forward. The algorithm continues until the entire array is sorted.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="9cIjvXEeOhQ"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Gnome Sort Algorithm, Child of Insertion and Bubble sort in 3 minutes!"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Swapping**:  

@@ -7,6 +7,16 @@ sidebar_label: "Generics"
 
 Generics let you write flexible, reusable code components that work with a variety of data types while maintaining strict compile-time type safety.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="EcCTIExsqmI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Learn TypeScript Generics In 13 Minutes"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. The Core Purpose of Generics
 
 Without generics, supporting multiple data types requires falling back to loose types like `any`, which breaks compiler verification layers. Generics use an explicit placeholder type token (commonly `<T>`) to preserve structural integrity across inputs and outputs:

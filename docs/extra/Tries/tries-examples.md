@@ -10,6 +10,17 @@ tags: [dsa, data structures, tries]
 
 This repository contains several examples of how to use a Trie (prefix tree) for common tasks such as word insertion, search, autocomplete, and prefix matching.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="dBGUmUQhjaM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L1. Implement TRIE | INSERT | SEARCH | STARTSWITH"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Example 1: Inserting Words into a Trie
 
 This example demonstrates how to insert words into a Trie and how to search for words.

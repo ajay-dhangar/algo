@@ -14,6 +14,16 @@ Hey everyone! Today, we're going to explore how decision-making works in JavaScr
 
 * The most common decision-making statements are `if`, `if-else`, `else if`, and `switch` statements.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Zg4-uSjxosE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Lecture 2 : Operators and Conditional Statements | JavaScript Full Course"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. If Statements
 
 

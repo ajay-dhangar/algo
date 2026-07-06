@@ -11,6 +11,16 @@ tags: [DSA, algorithms, heaps, time complexity]
 
 A **binary heap** is a complete binary tree often used to implement priority queues. It can be a **min-heap** (parent nodes are smaller than their children) or a **max-heap** (parent nodes are larger). Binary heaps support several key operations, such as insertion, deletion, and more. Below is a breakdown of these operations, their time complexities, and detailed explanations.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="fM7MjvQO0lo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Heap-6 | Time & Space Complexity | 🔥 Beginner, Medium & Advanced Level"
+  lazyLoad={true}
+  webp
+/>
+
 ### 1. Insertion (Insert a New Element)
 
 - **Time Complexity:** **O(log n)**

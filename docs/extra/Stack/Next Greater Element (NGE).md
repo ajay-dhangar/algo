@@ -11,6 +11,17 @@ tags: [algorithm, stack, C++]
 
 This documentation explains how to find the Next Greater Element (NGE) for each element in an array using a stack-based approach in C++.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="e7XQLtOQM3I"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L5. Next Greater Element | Stack and Queue Playlist"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Algorithm Overview
 The Next Greater Element algorithm finds the next greater element for each element in an array. For an element, the NGE is the first greater element on its right in the array.
 

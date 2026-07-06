@@ -7,6 +7,16 @@ sidebar_position: 10
 
 # Arrays
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="1maBb3B2LRo"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Arrays in Kotlin With Examples | CheezyCode #13"
+  lazyLoad={true}
+  webp
+/>
+
 ## Creating Arrays
 
 ### Using `arrayOf()`

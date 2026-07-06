@@ -9,6 +9,16 @@ tags: [csharp, cheatsheet, dsa]
 
 This page is a quick reference for C# patterns that commonly appear in DSA, competitive programming, and technical interviews.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="GhQdlIFylQ8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="C# Tutorial - Full Course for Beginners"
+  lazyLoad={true}
+  webp
+/>
+
 ## Basic Syntax
 
 ### Hello World

@@ -10,6 +10,16 @@ sidebar_label: "Generics in Java"
 
 Generics in Java allow you to write more flexible, reusable, and type-safe code. With generics, you can define classes, interfaces, and methods with type parameters, so you can create code that works with any type of data, while still maintaining type safety.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="K1iu1kXkVoA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Generics In Java - Full Simple Tutorial"
+  lazyLoad={true}
+  webp
+/>
+
 ## Table of Contents
 1. [What Are Generics?](#what-are-generics)
 2. [Why Use Generics?](#why-use-generics)

@@ -9,6 +9,17 @@ Hey there! In this guide, we'll explore the concept of inheritance in Java. Inhe
 
 <AdsComponent />
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="bSrm9RXwBaI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java OOPs in One Shot | Object Oriented Programming | Java Language | Placement Course"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## 1. What is Inheritance?
 
 Inheritance is a mechanism in object-oriented programming that allows one class (called the **subclass** or **child class**) to inherit properties and behaviors (fields and methods) from another class (called the **superclass** or **parent class**).

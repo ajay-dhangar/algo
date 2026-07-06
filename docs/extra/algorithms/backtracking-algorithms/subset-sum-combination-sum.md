@@ -23,6 +23,17 @@ tags: [backtracking, subset-sum, combination-sum, decision-tree, dsa]
 
 ## Part 1: All Subsets (Power Set)
 
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="kyLxTdsT8ws"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6.2 Sum of Subsets Probelm - Backtracking"
+  lazyLoad={true}
+  webp
+/>
+
 ### Problem Statement (LeetCode 78)
 
 Given an integer array of **unique** elements, return all possible subsets (the power set).
@@ -126,6 +137,16 @@ function subsets(nums) {
 ---
 
 ## Part 2: Combination Sum I (LeetCode 39)
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="jkgZw2WEaqA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Combination Sum Problem | Recursion & Backtracking"
+  lazyLoad={true}
+  webp
+/>
 
 ### Problem Statement
 

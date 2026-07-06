@@ -11,6 +11,17 @@ sidebar_label: Manacher's Algorithm
 
 Manacher's Algorithm is a linear-time algorithm developed by Glenn K. Manacher in 1975 for finding all palindromic substrings in a string. It efficiently solves the problem by utilizing previously computed palindrome lengths and symmetry properties, avoiding redundant comparisons through the use of an auxiliary array.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="V-sEwsca1ak"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Longest Palindromic Substring Manacher's Algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Linear Time Processing**:

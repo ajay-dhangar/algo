@@ -14,6 +14,17 @@ This program calculates the shortest path from a given source node to a target n
 - **Input**: The adjacency Cost Matrix.
 - **Output**: Minimum cost path and Minimum Cost.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="9iE9Mj4m8jk"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.1 MultiStage Graph - Dynamic Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example
 - **Input**: 
   - Enter the number of vertices in the graph: 12                              

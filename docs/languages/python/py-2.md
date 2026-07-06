@@ -16,6 +16,16 @@ Hey there! In this guide, we'll explore the concept of variables in Python. Vari
 * They are used to store values that can be referenced and manipulated throughout a program. 
 * Python is dynamically typed, which means you do not need to declare the type of a variable when creating one.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="t2_Q2BRzeEE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Python Full Course❤️ | Variables & Data Types | Lecture 1"
+  lazyLoad={true}
+  webp
+/>
+
 ## Variable Declaration
 In Python, variables are created when you assign a value to them. No explicit declaration is required.
 

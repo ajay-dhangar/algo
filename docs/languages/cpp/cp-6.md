@@ -12,6 +12,17 @@ Text data processing in C++ is managed through two fundamentally different imple
 
 Understanding the trade-offs, utility functions, and boundary mechanics of text manipulation is essential for writing secure and efficient programs.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="MOSjYaVymcU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Strings & Character Arrays in C++ - Part 1 | DSA Placement Series"
+  lazyLoad={true}
+  webp
+/>
+
+---
 ## 1. Legacy C-Style Strings
 
 Inherited from the C language, a C-style string is an ordinary sequence array of elements of type `char`. The absolute boundary of the string is defined by a hidden trailing control block called the **Null Terminator Character (`\0`)**.

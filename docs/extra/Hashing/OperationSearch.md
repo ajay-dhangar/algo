@@ -11,6 +11,16 @@ tags: [hashing, data structures, search]
 
 The search operation involves retrieving the value associated with a key in a hash table. Hashing ensures efficient lookups based on the key.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="fPMLuIUwkXY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Search Operation in Hash Table | Data Structure"
+  lazyLoad={true}
+  webp
+/>
+
 ### Steps for Search
 
 1. **Hash the Key**: Use the hash function to determine the index.

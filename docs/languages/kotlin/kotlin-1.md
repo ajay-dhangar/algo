@@ -11,6 +11,16 @@ sidebar_position: 1
 
 Kotlin is a modern, statically typed programming language developed by JetBrains. It runs on the Java Virtual Machine (JVM) and can also be compiled to JavaScript or native code. Kotlin is fully interoperable with Java and is the preferred language for Android development.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="xT8oP0wy-A0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin in 100 Seconds"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why Learn Kotlin?
 
 - **Concise**: Reduces boilerplate code significantly compared to Java.

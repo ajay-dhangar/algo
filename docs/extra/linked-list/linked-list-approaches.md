@@ -13,6 +13,16 @@ A **Linked List** is a linear data structure that allows dynamic memory manageme
 
 ---
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="6wXZ_m3SbEs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="2.4 Linked List Implementation in C/C++ | Creation and Display | DSA Tutorials"
+  lazyLoad={true}
+  webp
+/>
+
 ## Common Linked List Operations
 
 The primary operations on linked lists include:

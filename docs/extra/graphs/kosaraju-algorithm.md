@@ -10,6 +10,16 @@ tags: [dsa, algorithms, strongly connected components]
 
 Kosaraju's Algorithm is an efficient **depth-first search (DFS)-based** algorithm used to find all **Strongly Connected Components (SCCs)** in a directed graph. A strongly connected component is a maximal subgraph where every vertex is reachable from every other vertex in that subgraph.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5wFyZJ8yH9Q"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kosaraju's Algorithm - Strongly Connected Components | GeeksforGeeks"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Strongly Connected Components (SCCs)**:

@@ -9,6 +9,16 @@ tags: [hashing, data structures, deletion]
 
 The deletion operation in a hash table involves removing a key-value pair using the key. If the key is not present, no operation is performed.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="quophQt76Gs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Delete Operation in Hash Table | Data Structure"
+  lazyLoad={true}
+  webp
+/>
+
 ### Steps for Deletion
 
 1. **Hash the Key**: Use a hash function to find the index of the key.

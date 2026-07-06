@@ -9,6 +9,16 @@ sidebar_label: Post-Quantum Encryption
 
 Post-quantum encryption (PQE) refers to cryptographic algorithms designed to withstand the threat posed by quantum computers. Quantum computers can potentially break current encryption methods (e.g., RSA and ECC) using quantum algorithms like Shor's algorithm. PQE ensures data remains secure in a future where quantum computers are powerful enough to compromise existing cryptography.
 
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="uE_Y1C4QPU8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Post-Quantum Cryptography: the Good, the Bad, and the Powerful"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - *Quantum-Resistant*:

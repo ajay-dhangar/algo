@@ -21,6 +21,16 @@ Given two sorted linked lists, the task is to merge them into one sorted linked 
 **Output:**
 - `Merged List: 1 -> 1 -> 2 -> 3 -> 4 -> 4`
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="XIdigk956u0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Merge Two Sorted Lists - Leetcode 21 - Python"
+  lazyLoad={true}
+  webp
+/>
+
 ### Constraints
 - Both lists are sorted in non-decreasing order.
 - The output should maintain the sorted order by merging nodes directly from the input lists.

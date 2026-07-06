@@ -7,6 +7,16 @@ sidebar_label: "Inheritance in C#"
 
 Inheritance is a core concept in object-oriented programming that allows one class to inherit the properties and methods of another class. In C#, inheritance is implemented using a class hierarchy, enabling code reuse, better organization, and the creation of complex relationships between classes.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="OLTk0xAVY00"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Inheritance in C# Sharp"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. What is Inheritance?
 
 Inheritance enables a class (called the **derived class**) to inherit members (fields, methods, properties, etc.) from another class (called the **base class**). This provides the derived class with the capabilities of the base class, while also allowing it to define its own unique members.

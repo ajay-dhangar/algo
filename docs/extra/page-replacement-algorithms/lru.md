@@ -13,6 +13,17 @@ tags: [Page Replacement, LRU, Algorithm]
 
 LRU (Least Recently Used) is a page replacement algorithm that removes the page that has not been used for the longest period of time. It is based on the assumption that pages used recently are more likely to be used again in the near future.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="dYIoWkCvd6A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-5.25: Least Recently Used Page Replacement Algorithm | Operating System"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. Working
 
 - Whenever a page is accessed, its usage information is updated.

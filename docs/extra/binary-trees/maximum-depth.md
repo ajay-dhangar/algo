@@ -13,6 +13,17 @@ In this post, we will discuss how to calculate the **maximum depth** (also known
 ## Problem Definition
 Given a binary tree, the **maximum depth** is defined as the length of the longest path from the root to a leaf. In other words, it represents the number of nodes along the longest path from the root node down to the deepest leaf node.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="eD3tmO66aBA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L14. Maximum Depth in Binary Tree | Height of Binary Tree | C++ | Java"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Example
 Consider the following binary tree:
 

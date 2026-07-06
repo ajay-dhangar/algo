@@ -19,6 +19,16 @@ As a member of a disaster relief team, you need to pack a truck with supplies wh
 
 The goal is to maximize the total priority score of the supplies loaded into the truck without exceeding the weight limit.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="nLmhmB6NzcM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="4.5 0/1 Knapsack - Two Methods - Dynamic Programming"
+  lazyLoad={true}
+  webp
+/>
+
 ### Input
 
 - `W` (integer): The maximum weight capacity of the truck.

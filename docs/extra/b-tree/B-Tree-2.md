@@ -15,6 +15,18 @@ In the previous post, we introduced B-Trees and discussed the `search()` and `tr
 
 ![BTreeSplit](./image/BTreeSplit-1024x321.jpg)
 
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="aNU9XYYCHu8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="5.27 Insertion in B-Tree of Order 4 (Data Structure)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 As discussed, to insert a new key, we go down from the root to the leaf. Before traversing down to a node, we first check if the node is full. If the node is full, we split it to create space. The complete algorithm is as follows:
 
 ### Insertion Algorithm  

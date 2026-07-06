@@ -71,6 +71,14 @@ const QUIZZES_CONFIG: QuizCardConfig[] = [
     questionCount: 12
   },
   {
+    id: "sorting",
+    title: "Quiz on Sorting Algorithms",
+    category: "Linear",
+    description: "Challenge your sorting skills: stability behaviors, complexity bounds (best/average/worst cases), in-place operations, and hybrid algorithms.",
+    path: "/quizzes/sorting",
+    questionCount: 12
+  },
+  {
     id: "recursion",
     title: "Quiz on Recursion Fundamentals",
     category: "Linear",

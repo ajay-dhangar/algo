@@ -22,6 +22,17 @@ Stacks are widely used in various computing applications, including:
 
 ![alt text](Introduction_to_Stack.png)
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="bxRVz8zklWM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.1 Stack in Data Structure | Introduction to Stack | Data Structures Tutorials"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Stack Operations
 
 A stack typically supports the following operations:

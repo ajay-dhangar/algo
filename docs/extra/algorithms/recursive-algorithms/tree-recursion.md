@@ -12,6 +12,16 @@ tags: [recursion, algorithms, programming]
 ## Definition
 Tree recursion is a type of recursion where a function makes multiple recursive calls, creating a branching structure similar to a tree. Each recursive call can further lead to multiple other calls, resulting in a tree-like structure of calls.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="bJg_sv7PV-g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-2.9: Recurrence Relation [T(n)=2T(n/2)+cn] | Recursive Tree method | Algorithm"
+  lazyLoad={true}
+  webp
+/>
+
 ## Why It Is Useful
 Tree recursion is useful for solving problems that can be broken down into smaller subproblems, particularly in scenarios where the solution to the problem involves considering all possible combinations or arrangements. Common applications include:
 - Generating permutations and combinations

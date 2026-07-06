@@ -164,6 +164,23 @@ export const topics: Topic[] = [
           { name: "Ownership", link: "#" },
         ],
       },
+      // Swift Language
+      {
+        name: "Swift",
+        files: [
+          { name: "Introduction", link: "/docs/languages/swift/swift-introduction" },
+          { name: "Bubble Sort", link: "/docs/languages/swift/swift-bubble-sort" },
+          { name: "Selection Sort", link: "/docs/languages/swift/swift-selection-sort" },
+          { name: "Insertion Sort", link: "/docs/languages/swift/swift-insertion-sort" },
+          { name: "Merge Sort", link: "/docs/languages/swift/swift-merge-sort" },
+          { name: "Quick Sort", link: "/docs/languages/swift/swift-quick-sort" },
+          { name: "Binary Search", link: "/docs/languages/swift/swift-binary-search" },
+          { name: "BFS", link: "/docs/languages/swift/swift-bfs" },
+          { name: "DFS", link: "/docs/languages/swift/swift-dfs" },
+          { name: "Dijkstra's Algorithm", link: "/docs/languages/swift/swift-dijkstra" },
+          { name: "Dynamic Programming", link: "/docs/languages/swift/swift-dynamic-programming" },
+        ],
+      },
     ],
   },
   {
@@ -318,6 +335,9 @@ export const topics: Topic[] = [
           { name: "Introduction", link: "#" },
           { name: "Queue Operations", link: "#" },
           { name: "Implementing Queue", link: "#" },
+          { name: "Deque (Double-Ended Queue)", link: "#" },
+          { name: "Priority Queue", link: "#" },
+          { name: "Circular Queue", link: "#" },
           { name: "Applications", link: "#" },
         ],
       },
@@ -442,6 +462,33 @@ export const topics: Topic[] = [
           { name: "Optimization", link: "#" },
         ],
       },
+      {
+        name: "Counting Sort",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Algorithm", link: "#" },
+          { name: "Complexity", link: "#" },
+          { name: "Implementation", link: "#" },
+        ],
+      },
+      {
+        name: "Radix Sort",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Algorithm", link: "#" },
+          { name: "Complexity", link: "#" },
+          { name: "Implementation", link: "#" },
+        ],
+      },
+      {
+        name: "Bucket Sort",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Algorithm", link: "#" },
+          { name: "Complexity", link: "#" },
+          { name: "Implementation", link: "#" },
+        ],
+      },
     ],
   },
   {
@@ -464,7 +511,32 @@ export const topics: Topic[] = [
           { name: "Algorithm", link: "#" },
           { name: "Complexity", link: "#" },
           { name: "Implementation", link: "#" },
+          { name: "Variations", link: "#" },
           { name: "Optimization", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Prefix Sum & Array Techniques",
+    folders: [
+      {
+        name: "Prefix Sum",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "1D Prefix Sum", link: "#" },
+          { name: "2D Prefix Sum", link: "#" },
+          { name: "Difference Array", link: "#" },
+          { name: "Practice Problems", link: "#" },
+        ],
+      },
+      {
+        name: "Two Pointers",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Same Direction", link: "#" },
+          { name: "Opposite Direction", link: "#" },
+          { name: "Practice Problems", link: "#" },
         ],
       },
     ],
@@ -478,6 +550,8 @@ export const topics: Topic[] = [
           { name: "What is Recursion?", link: "#" },
           { name: "How Recursion Works?", link: "#" },
           { name: "Recursion vs Iteration", link: "#" },
+          { name: "Tail Recursion", link: "#" },
+          { name: "Backtracking Basics", link: "#" },
         ],
       },
     ],
@@ -489,8 +563,48 @@ export const topics: Topic[] = [
         name: "Introduction",
         files: [
           { name: "What are Trees?", link: "#" },
-          { name: "Binary Trees", link: "#" },
-          { name: "Binary Search Trees", link: "#" },
+          { name: "Tree Terminology", link: "#" },
+          { name: "Types of Trees", link: "#" },
+        ],
+      },
+      {
+        name: "Binary Trees",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Inorder Traversal", link: "#" },
+          { name: "Preorder Traversal", link: "#" },
+          { name: "Postorder Traversal", link: "#" },
+          { name: "Level Order Traversal", link: "#" },
+          { name: "Height & Depth", link: "#" },
+        ],
+      },
+      {
+        name: "Binary Search Trees",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Insertion", link: "#" },
+          { name: "Deletion", link: "#" },
+          { name: "Searching", link: "#" },
+          { name: "Balancing", link: "#" },
+        ],
+      },
+      {
+        name: "Heaps",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Min Heap", link: "#" },
+          { name: "Max Heap", link: "#" },
+          { name: "Heap Operations", link: "#" },
+          { name: "Priority Queue using Heap", link: "#" },
+        ],
+      },
+      {
+        name: "Advanced Trees",
+        files: [
+          { name: "AVL Trees", link: "#" },
+          { name: "Red-Black Trees", link: "#" },
+          { name: "Segment Trees", link: "#" },
+          { name: "Fenwick Trees (BIT)", link: "#" },
         ],
       },
     ],
@@ -503,6 +617,105 @@ export const topics: Topic[] = [
         files: [
           { name: "What are Graphs?", link: "#" },
           { name: "Graph Representation", link: "#" },
+          { name: "Adjacency Matrix", link: "#" },
+          { name: "Adjacency List", link: "#" },
+        ],
+      },
+      {
+        name: "Graph Traversal",
+        files: [
+          { name: "Breadth-First Search (BFS)", link: "#" },
+          { name: "Depth-First Search (DFS)", link: "#" },
+          { name: "Connected Components", link: "#" },
+          { name: "Cycle Detection", link: "#" },
+          { name: "Topological Sort", link: "#" },
+        ],
+      },
+      {
+        name: "Shortest Path",
+        files: [
+          { name: "Dijkstra's Algorithm", link: "#" },
+          { name: "Bellman-Ford Algorithm", link: "#" },
+          { name: "Floyd-Warshall Algorithm", link: "#" },
+        ],
+      },
+      {
+        name: "Minimum Spanning Tree",
+        files: [
+          { name: "Kruskal's Algorithm", link: "#" },
+          { name: "Prim's Algorithm", link: "#" },
+        ],
+      },
+      {
+        name: "Union Find (Disjoint Set Union)",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Union by Rank", link: "#" },
+          { name: "Path Compression", link: "#" },
+          { name: "Applications", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Dynamic Programming",
+    folders: [
+      {
+        name: "Introduction",
+        files: [
+          { name: "What is Dynamic Programming?", link: "#" },
+          { name: "Memoization vs Tabulation", link: "#" },
+          { name: "Identifying DP Problems", link: "#" },
+        ],
+      },
+      {
+        name: "1D DP",
+        files: [
+          { name: "Fibonacci Series", link: "#" },
+          { name: "Climbing Stairs", link: "#" },
+          { name: "House Robber", link: "#" },
+          { name: "Coin Change", link: "#" },
+        ],
+      },
+      {
+        name: "2D DP",
+        files: [
+          { name: "Longest Common Subsequence", link: "#" },
+          { name: "Edit Distance", link: "#" },
+          { name: "Unique Paths", link: "#" },
+          { name: "0/1 Knapsack", link: "#" },
+        ],
+      },
+      {
+        name: "Advanced DP",
+        files: [
+          { name: "DP on Trees", link: "#" },
+          { name: "DP on Graphs", link: "#" },
+          { name: "Bitmask DP", link: "#" },
+          { name: "Interval DP", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "String Algorithms",
+    folders: [
+      {
+        name: "Basics",
+        files: [
+          { name: "String Manipulation", link: "#" },
+          { name: "Pattern Matching", link: "#" },
+          { name: "Anagram Detection", link: "#" },
+        ],
+      },
+      {
+        name: "Advanced",
+        files: [
+          { name: "KMP Algorithm", link: "#" },
+          { name: "Rabin-Karp Algorithm", link: "#" },
+          { name: "Z Algorithm", link: "#" },
+          { name: "Trie-Based Search", link: "#" },
+          { name: "Suffix Array", link: "#" },
         ],
       },
     ],
@@ -515,6 +728,16 @@ export const topics: Topic[] = [
         files: [
           { name: "Introduction", link: "#" },
           { name: "Implementing Trie", link: "#" },
+          { name: "Applications", link: "#" },
+        ],
+      },
+      {
+        name: "Monotonic Stack & Queue",
+        files: [
+          { name: "Monotonic Stack", link: "#" },
+          { name: "Monotonic Queue", link: "#" },
+          { name: "Next Greater Element", link: "#" },
+          { name: "Sliding Window Maximum", link: "#" },
         ],
       },
     ],
@@ -549,7 +772,87 @@ export const topics: Topic[] = [
         name: "Sliding Window",
         files: [
           { name: "What is Sliding Window?", link: "#" },
+          { name: "Fixed Size Window", link: "#" },
+          { name: "Variable Size Window", link: "#" },
           { name: "Sliding Window Problems", link: "#" },
+        ],
+      },
+      {
+        name: "Greedy Algorithms",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Activity Selection", link: "#" },
+          { name: "Fractional Knapsack", link: "#" },
+          { name: "Huffman Coding", link: "#" },
+        ],
+      },
+      {
+        name: "Divide and Conquer",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Merge Sort", link: "#" },
+          { name: "Quick Sort", link: "#" },
+          { name: "Closest Pair of Points", link: "#" },
+        ],
+      },
+      {
+        name: "Backtracking",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "N-Queens Problem", link: "#" },
+          { name: "Sudoku Solver", link: "#" },
+          { name: "Subset Sum", link: "#" },
+        ],
+      },
+      {
+        name: "Bit Manipulation",
+        files: [
+          { name: "Introduction", link: "#" },
+          { name: "Common Bit Tricks", link: "#" },
+          { name: "Power of Two", link: "#" },
+          { name: "Counting Set Bits", link: "#" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Practice Milestones",
+    folders: [
+      {
+        name: "Phase 1: Fundamentals (Weeks 1–3)",
+        files: [
+          { name: "Solve 20 Array problems", link: "#" },
+          { name: "Solve 10 String problems", link: "#" },
+          { name: "Solve 10 Sorting problems", link: "#" },
+          { name: "Implement Stack & Queue from scratch", link: "#" },
+        ],
+      },
+      {
+        name: "Phase 2: Intermediate (Weeks 4–7)",
+        files: [
+          { name: "Solve 15 Linked List problems", link: "#" },
+          { name: "Solve 15 Binary Tree problems", link: "#" },
+          { name: "Solve 10 Binary Search problems", link: "#" },
+          { name: "Solve 10 Two Pointer problems", link: "#" },
+          { name: "Solve 10 Sliding Window problems", link: "#" },
+        ],
+      },
+      {
+        name: "Phase 3: Advanced (Weeks 8–12)",
+        files: [
+          { name: "Solve 15 Graph problems", link: "#" },
+          { name: "Solve 20 Dynamic Programming problems", link: "#" },
+          { name: "Solve 10 Backtracking problems", link: "#" },
+          { name: "Solve 5 Trie problems", link: "#" },
+          { name: "Solve 5 Greedy problems", link: "#" },
+        ],
+      },
+      {
+        name: "Revision Cycle",
+        files: [
+          { name: "Re-solve Week 1–3 problems", link: "#" },
+          { name: "Re-solve Week 4–7 problems", link: "#" },
+          { name: "Timed mock interviews", link: "#" },
         ],
       },
     ],
@@ -562,8 +865,49 @@ export const topics: Topic[] = [
         files: [
           { name: "Introduction", link: "#" },
           { name: "How to Practice", link: "#" },
+          { name: "Top 75 Problems", link: "/practice" },
+        ],
+      },
+      {
+        name: "Other Platforms",
+        files: [
+          { name: "HackerRank", link: "https://www.hackerrank.com/" },
+          { name: "Codeforces", link: "https://codeforces.com/" },
+          { name: "GeeksforGeeks", link: "https://www.geeksforgeeks.org/" },
+          { name: "CodeChef", link: "https://www.codechef.com/" },
+          { name: "AtCoder", link: "https://atcoder.jp/" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Capstone Projects",
+    folders: [
+      {
+        name: "Beginner Projects",
+        files: [
+          { name: "Build a Calculator with Expression Parsing", link: "#" },
+          { name: "Implement an LRU Cache", link: "#" },
+          { name: "Text Autocomplete using Trie", link: "#" },
+        ],
+      },
+      {
+        name: "Intermediate Projects",
+        files: [
+          { name: "Social Network Graph (BFS/DFS)", link: "#" },
+          { name: "Pathfinding Visualizer (Dijkstra/A*)", link: "#" },
+          { name: "File System Simulator (Trees)", link: "#" },
+        ],
+      },
+      {
+        name: "Advanced Projects",
+        files: [
+          { name: "Database Index Simulator (B+ Trees)", link: "#" },
+          { name: "Route Optimizer (Graphs + DP)", link: "#" },
+          { name: "Compression Tool (Huffman Coding)", link: "#" },
         ],
       },
     ],
   },
 ];
+

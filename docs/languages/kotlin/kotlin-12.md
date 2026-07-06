@@ -17,6 +17,16 @@ Kotlin collections come in two flavors:
 | Set        | `setOf()`       | `mutableSetOf()`     |
 | Map        | `mapOf()`       | `mutableMapOf()`     |
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="N4CpLxGJlq0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin Advanced Tutorial: Collection Operations"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## List

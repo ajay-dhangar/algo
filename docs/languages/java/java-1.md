@@ -10,6 +10,16 @@ Hey there! In this guide, we'll explore the different data types available in Ja
 * In Java, variables are containers that hold data and are defined by specifying a type followed by the variable name.
 * Variables must be declared before use and can hold various data types.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="X0zdAG7gfgs"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java Tutorial: Variables and Data Types in Java Programming"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Declaring Variables in Java
 
 - To declare a variable in Java, you specify its type, followed by the variable's name.

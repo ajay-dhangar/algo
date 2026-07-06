@@ -17,6 +17,17 @@ Tags: [dsa, bit manipulation, algorithm, counting bits, efficiency]
 
 The key insight of the algorithm is based on the fact that subtracting 1 from a number flips all the bits after the rightmost set bit (including the set bit itself). By performing a bitwise AND between the number and `n - 1`, the rightmost set bit is cleared. This operation can be repeated until the number becomes 0, with each iteration representing one set bit.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="I475waWiTK4"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kernighan's Algorithm | Count Set Bits in an Integer | Bit Manipulation and Competitive Programming"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Steps in the Algorithm:
 1. Initialize a `count` variable to 0.
 2. While `n` is not zero:

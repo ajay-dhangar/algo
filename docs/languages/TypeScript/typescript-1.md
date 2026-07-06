@@ -13,6 +13,16 @@ TypeScript is a strongly typed, open-source programming language developed by Mi
 
 TypeScript does not run directly in browsers; instead, the TypeScript compiler (`tsc`) transpiles your type-checked code into clean, standard JavaScript.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ahCwqrYpIuM"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="TypeScript - The Basics"
+  lazyLoad={true}
+  webp
+/>
+
 ## 2. Key Architectural Features
 
 - **Static Type Checking:** Errors are caught at compile-time inside your IDE before the code ever reaches production.

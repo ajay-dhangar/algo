@@ -29,6 +29,16 @@ Output: `11`
 - All three rabbits that answered "10" could be the same color. 
 - If they are all the same color, there must be 11 rabbits of that color in total.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="9mEUIdP4ytw"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Rabbits in Forest (Leetcode 781) | Hashmap Interview Question Playlist"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ## Approaches:

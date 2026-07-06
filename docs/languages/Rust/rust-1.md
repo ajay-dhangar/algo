@@ -11,6 +11,16 @@ Rust is a modern systems programming language focused on speed, memory safety, a
 
 It helps developers build fast and reliable software while preventing common programming errors like null pointer dereferencing and memory leaks.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="5C_HPTJg5ek"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Rust in 100 Seconds"
+  lazyLoad={true}
+  webp
+/>
+
 ## Features of Rust
 
 - Fast and memory-efficient

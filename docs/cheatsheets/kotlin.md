@@ -9,6 +9,16 @@ tags: [kotlin, cheatsheet, dsa]
 
 This guide is a fast, practical reference for Kotlin patterns that show up constantly in Data Structures, Algorithms, and competitive programming. Every snippet is structured to be optimized for execution speed and clean readability.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="F9UC9DY-vIU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Kotlin Course - Tutorial for Beginners"
+  lazyLoad={true}
+  webp
+/>
+
 ## Basic Syntax & Control Flow
 
 ### Data Types

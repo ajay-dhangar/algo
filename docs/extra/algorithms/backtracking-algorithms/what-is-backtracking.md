@@ -11,6 +11,16 @@ tags: [backtracking, memoisation, pruning]
 
 Backtracking is a systematic algorithmic method for solving problems where you need to explore all possible configurations (solution candidates) and discard those that fail to satisfy the given constraints. It is widely used to solve constraint satisfaction problems such as puzzles, combinatorial optimization problems, and decision problems.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="DKCbsiDBN6c"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="6 Introduction to Backtracking - Brute Force Approach"
+  lazyLoad={true}
+  webp
+/>
+
 ### What is Backtracking?
 
 Backtracking works by building a solution incrementally, one piece at a time, and removes those solutions that fail to satisfy the constraints of the problem at any stage. This process is repeated until the algorithm either finds a solution or exhausts all possibilities. It is often implemented using recursion, exploring each branch of a problem space and "backtracking" once a dead-end is encountered.

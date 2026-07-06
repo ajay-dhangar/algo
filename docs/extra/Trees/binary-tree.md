@@ -7,10 +7,23 @@ description: "A Binary Tree is a data structure in which each node has at most t
 tags: [Data Structures, binary-tree-algorithm, Algorithms]
 ---
 
+import PracticeProblems from "@site/src/components/PracticeProblems";
+
 # Binary Tree Algorithm
 
 ## Overview
 A Binary Tree is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child. It is widely used for various applications, including search algorithms, expression parsing, and organizing data.
+
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="-DzowlcaUmE"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Binary Tree in Data Structures | All about Binary Tree | DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
 
 ## Introduction
 A Binary Tree can take various forms, including:
@@ -117,5 +130,43 @@ graph TB
 
 The Binary Tree Algorithm is a fundamental data structure used in various applications ranging from searching and sorting to hierarchical data representation. Understanding Binary Trees is crucial for anyone working in data structures and algorithm design.
 
-```
+## Practice Problems
 
+<PracticeProblems problems={[
+  {
+    name: "Binary Tree Inorder Traversal",
+    platform: "LeetCode",
+    difficulty: "Easy",
+    link: "https://leetcode.com/problems/binary-tree-inorder-traversal/"
+  },
+  {
+    name: "Maximum Depth of Binary Tree",
+    platform: "LeetCode",
+    difficulty: "Easy",
+    link: "https://leetcode.com/problems/maximum-depth-of-binary-tree/"
+  },
+  {
+    name: "Invert Binary Tree",
+    platform: "LeetCode",
+    difficulty: "Easy",
+    link: "https://leetcode.com/problems/invert-binary-tree/"
+  },
+  {
+    name: "Binary Tree Level Order Traversal",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/binary-tree-level-order-traversal/"
+  },
+  {
+    name: "Lowest Common Ancestor of a Binary Tree",
+    platform: "LeetCode",
+    difficulty: "Medium",
+    link: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/"
+  },
+  {
+    name: "Binary Tree Maximum Path Sum",
+    platform: "LeetCode",
+    difficulty: "Hard",
+    link: "https://leetcode.com/problems/binary-tree-maximum-path-sum/"
+  }
+]} />

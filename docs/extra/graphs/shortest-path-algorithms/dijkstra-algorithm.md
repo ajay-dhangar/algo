@@ -11,6 +11,16 @@ tags: [dsa, algorithms, shortest path]
 ## Introduction
 Dijkstra's Algorithm is a popular algorithm used to find the shortest path from a source node to all other nodes in a weighted graph. It guarantees the shortest path only when all edge weights are non-negative. The algorithm uses a greedy approach and is commonly used in network routing protocols and GPS systems.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="XB4MIexjvY0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.6 Dijkstra Algorithm - Single Source Shortest Path - Greedy Method"
+  lazyLoad={true}
+  webp
+/>
+
 <DijkstraVisuzalizations />
 
 ## Implementation

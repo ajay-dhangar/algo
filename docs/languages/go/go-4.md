@@ -11,6 +11,16 @@ tags: ["go","golang","arrays","slices"]
 
 Hey there! In this guide, we'll explore **Arrays and Slices** in Go. These are the primary ways to group multiple values of the same type together. Let's dive in!
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="Arb-LjPg7FA"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Go (Golang) Tutorial #5 - Arrays & Slices"
+  lazyLoad={true}
+  webp
+/>
+
 ## 1. Arrays in Go
 
 An array is a numbered sequence of elements of a specific length. In Go, the size of an array is part of its type, which means arrays cannot be resized once they are created.

@@ -11,6 +11,17 @@ sidebar_label: Shift-Or Algorithm
 
 The Shift-Or algorithm, also known as the **Bitap algorithm for exact matching**, is a string matching technique that uses bitwise operations to perform efficient pattern searching. It is particularly suitable for exact matching tasks and handles fixed-length patterns by representing them as bitmasks. The algorithm processes the text and the pattern in parallel, allowing for quick and efficient searches.
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="uycvdEtavK0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="String Algorithms - SHIFT and OR algorithm"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### Characteristics:
 
 - **Bitwise Matching**:

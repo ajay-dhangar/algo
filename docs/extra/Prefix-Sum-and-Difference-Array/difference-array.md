@@ -23,6 +23,17 @@ This is the **dual** of Prefix Sum:
 - Prefix Sum: fast range *queries*, slow range *updates*
 - Difference Array: fast range *updates*, fast final *reconstruction*
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="96RG7EBF8LI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Difference Array Technique | Tutorial | Range Updates | Competitive Programming Tricks Part 1"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ---
 
 ### Core Concept

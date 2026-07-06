@@ -22,6 +22,17 @@ Example
 
 In our daily lives, we all use an ATM for cash withdrawals, money transfers, retrieving min-statements, etc. But we don't know internally what things are happening inside ATM when you insert an ATM card for performing any kind of operations.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="iSP60D5UZ8U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Abstraction in Java || what is abstract class and abstract methods in Java (Hindi)"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ## Abstraction in Java
 
 There are two ways to achieve abstraction in Java. They are as follows:

@@ -21,6 +21,16 @@ Given a stream of integers, implement a data structure that supports the followi
 Input: addNum(1) addNum(2) findMedian() -> 1.5 addNum(3) findMedian() -> 2
 ```
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="itmhHWaHupI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Find Median from Data Stream - Heap & Priority Queue - Leetcode 295"
+  lazyLoad={true}
+  webp
+/>
+
 ### Approach:
 Using Two Heaps:
 - Maintain two heaps:

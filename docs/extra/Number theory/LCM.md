@@ -13,6 +13,16 @@ tags: [lcm, number theory, competitive programming]
 
 The **LCM (Least Common Multiple)** of two integers is the smallest positive integer that is divisible by both numbers. It is commonly used in problems involving multiple periods, cycles, or when finding a common denominator for fractions.
 
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="utZcJ0leZ_g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="GCD and LCM using Euclid's Algorithm With Applications | CP Course | EP 53"
+  lazyLoad={true}
+  webp
+/>
+
 ## Explanation:
 
 The relationship between **LCM** and **GCD (Greatest Common Divisor)** is a key concept in number theory. Given two integers `a` and `b`, the LCM can be computed using the formula:

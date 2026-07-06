@@ -6,6 +6,18 @@ description: 'Evaluation of expressions using a stack is a common technique, esp
 tags: [dsa, data-structures, Evaluation , C language]
 ---
 
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="o6vj5l_W2h8"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="3.9 Evaluation of Prefix and Postfix expressions using Stack | Data Structures"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+
 ### Postfix Evaluation
 ```text
     int Eval(int x,int y, char t)

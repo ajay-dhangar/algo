@@ -11,6 +11,16 @@ tags: [java, Serialization, File Handling, I/O Streams]
 
 In Java, reading from and writing to external sources (like files, network connections, or the console) is handled via I/O Streams. An I/O Stream represents an input source or an output destination.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="ScUJx4aWRi0"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java File Input/Output - It's Way Easier Than You Think"
+  lazyLoad={true}
+  webp
+/>
+
 ## Byte Streams vs. Character Streams
 
 - **Byte Streams** (`InputStream` / `OutputStream`): Used to perform reading and writing of 8-bit bytes. Useful for binary data like images or audio files.

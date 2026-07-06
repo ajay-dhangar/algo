@@ -8,6 +8,17 @@ sidebar_label: Objects
 ## Overview
 In Java, objects are fundamental to the concept of object-oriented programming (OOP). They represent real-world entities with attributes (properties) and behaviors (methods). Objects provide a way to model and organize code by grouping related data and functionality. Understanding how to create and work with objects is crucial for mastering Java and OOP principles.
 
+## Video Explanation
+
+<LiteYouTubeEmbed
+  id="bSrm9RXwBaI"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Java OOPs in One Shot | Object Oriented Programming | Java Language | Placement Course"
+  lazyLoad={true}
+  webp
+/>
+
+
 ## What Are Objects?
 An object is an instance of a class, which is a blueprint or template that defines the properties (fields) and behaviors (methods) of that object. While a class specifies what an object will look like and how it will behave, an object is a concrete realization of that class. In simpler terms, if a class is a blueprint for a house, then an object is an actual house built using that blueprint.
 

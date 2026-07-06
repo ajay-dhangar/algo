@@ -22,6 +22,16 @@ sidebar_label: Fibonacci Search
 - **Non-Recursive**:
   - Fibonacci search operates iteratively and does not require recursion, making it more memory-efficient for certain applications.
 
+### Video Explanation
+<LiteYouTubeEmbed
+  id="0tqAEn7O0hY"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Fibonacci Search Method"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
 ### How Fibonacci Search Works:
 
 1. **Initialize** the Fibonacci numbers and compare the element at the Fibonacci index with the target.
