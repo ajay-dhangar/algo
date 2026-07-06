@@ -57,7 +57,8 @@ To solve this in $O(N^2)$ time, we need to recognize the strict mathematical pro
 
 1. **The Corner Property:** In a valid chessboard, any $2 \times 2$ subgrid formed by intersecting 2 rows and 2 columns will have corners that either sum to an even number of 1s (0, 2, or 4). Mathematically, this means `board[0][0] ^ board[i][0] ^ board[0][j] ^ board[i][j] == 0` for all $i$ and $j$. If this fails, a chessboard is impossible.
 2. **Row/Col Constraints:** In a valid chessboard, half the elements in each row and column must be 1, and half must be 0. If $N$ is odd, the count difference can be at most 1.
-3. **Calculating Swaps:** - A row or column is valid if it alternates `0, 1, 0, 1...` or `1, 0, 1, 0...`.
+3. **Calculating Swaps:**
+   - A row or column is valid if it alternates `0, 1, 0, 1...` or `1, 0, 1, 0...`.
    - We count how many elements are out of place compared to an idealized row/col starting with 1.
    - If $N$ is even, we can either match the pattern starting with 1 or starting with 0. We take the minimum swaps required.
    - If $N$ is odd, only one pattern is possible (the one that has an even number of out-of-place elements, since each swap fixes 2 elements).
