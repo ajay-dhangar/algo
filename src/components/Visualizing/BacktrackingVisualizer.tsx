@@ -113,14 +113,11 @@ function BacktrackingVisualizer() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [playbackSpeed, setPlaybackSpeed] = useState<number>(300); // ms delay per step
   
-  const timerRef = useRef<any>(null);
-  const isMounted = useRef<boolean>(true);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    isMounted.current = true;
     return () => {
-      isMounted.current = false;
-      if (timerRef.current) window.clearInterval(timerRef.current);
+      if (timerRef.current) clearInterval(timerRef.current);
     };
   }, []);
 
@@ -249,7 +246,7 @@ function BacktrackingVisualizer() {
       val = 0,
       conflicts: [number, number][] = []
     ) => {
-      if (stepCount >= MAX_STEPS) return;
+      if (stepCount >= MAX_STEPS && type !== "finished") return;
       stepCount++;
       steps.push({
         type,
@@ -414,7 +411,7 @@ function BacktrackingVisualizer() {
 
   useEffect(() => {
     if (isPlaying) {
-      timerRef.current = window.setInterval(() => {
+      timerRef.current = setInterval(() => {
         if (activeTab === "nqueens") {
           setNQueensStepIndex((prev) => {
             if (prev < nQueensSteps.length - 1) return prev + 1;
@@ -431,17 +428,18 @@ function BacktrackingVisualizer() {
       }, playbackSpeed);
     } else {
       if (timerRef.current) {
-        window.clearInterval(timerRef.current);
+        clearInterval(timerRef.current);
         timerRef.current = null;
       }
     }
 
     return () => {
-      if (timerRef.current) window.clearInterval(timerRef.current);
+      if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [isPlaying, activeTab, nQueensSteps.length, sudokuSteps.length, playbackSpeed]);
 
   const handlePresetChange = (presetName: string) => {
+    if (!(presetName in SUDOKU_PRESETS)) return;
     setSudokuPreset(presetName);
     const newBoard = SUDOKU_PRESETS[presetName as keyof typeof SUDOKU_PRESETS].map((r: number[]) => [...r]);
     setSudokuInitialGrid(newBoard);
@@ -1044,9 +1042,9 @@ function BacktrackingVisualizer() {
                   }}
                   title="Step Forward"
                   disabled={
-                    activeTab === "nqueens" 
-                      ? nQueensStepIndex === nQueensSteps.length - 1 
-                      : sudokuStepIndex === sudokuSteps.length - 1
+                    activeTab === "nqueens"
+                      ? nQueensSteps.length === 0 || nQueensStepIndex === nQueensSteps.length - 1
+                      : sudokuSteps.length === 0 || sudokuStepIndex === sudokuSteps.length - 1
                   }
                   style={{
                     padding: "8px 12px",
@@ -1056,9 +1054,9 @@ function BacktrackingVisualizer() {
                     color: "var(--ifm-font-color-base)",
                     cursor: "pointer",
                     opacity: (
-                      activeTab === "nqueens" 
-                        ? nQueensStepIndex === nQueensSteps.length - 1 
-                        : sudokuStepIndex === sudokuSteps.length - 1
+                      activeTab === "nqueens"
+                        ? nQueensSteps.length === 0 || nQueensStepIndex === nQueensSteps.length - 1
+                        : sudokuSteps.length === 0 || sudokuStepIndex === sudokuSteps.length - 1
                     ) ? 0.5 : 1,
                   }}
                 >
