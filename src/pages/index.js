@@ -27,9 +27,7 @@ export default function Home() {
           custom-element="amp-auto-ads"
           src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
         />
-        {/* 3rd part... cookies */}
-        {/* <script src="https://app.secureprivacy.ai/script/6a40bb4e4918bc215a63f02b.js" /> */}
-        {/*  */}
+        <meta name='impact-site-verification' value='1e9bf198-a4f7-4132-b77d-46b34e45f6ad' />
       </Head>
       <main>
         <Homepage />
