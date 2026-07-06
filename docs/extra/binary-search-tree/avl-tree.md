@@ -300,10 +300,10 @@ AVL Trees use four types of rotations to maintain balance.
 
 | Rotation | Condition | Fix |
 |----------|-----------|-----|
-| LL | Left subtree of left child becomes heavy | Right Rotation |
-| RR | Right subtree of right child becomes heavy | Left Rotation |
-| LR | Right subtree of left child becomes heavy | Left Rotation followed by Right Rotation |
-| RL | Left subtree of right child becomes heavy | Right Rotation followed by Left Rotation |
+| LL | Left child is left-heavy (or insertion in left child's left subtree) | Right Rotation |
+| RR | Right child is right-heavy (or insertion in right child's right subtree) | Left Rotation |
+| LR | Left child is right-heavy (or insertion in left child's right subtree) | Left Rotation followed by Right Rotation |
+| RL | Right child is left-heavy (or insertion in right child's left subtree) | Right Rotation followed by Left Rotation |
 
 Maintaining balance ensures that all search, insertion, and deletion operations continue to run in **O(log n)** time.
 
