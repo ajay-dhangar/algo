@@ -8,7 +8,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 docusaurus build --no-minify",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=6144 docusaurus build --no-minify",
     "swizzle": "docusaurus swizzle",
     "deploy": "gh-pages -d build",
     "clear": "docusaurus clear",
