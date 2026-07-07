@@ -9,9 +9,17 @@ export default function useConsoleCapture() {
           const logs = [];
           
           const serialize = (arg) => {
+            if (arg instanceof Error) {
+              return arg.stack || (arg.name + ": " + arg.message);
+            }
             if (typeof arg === "object" && arg !== null) {
               try {
-                return JSON.stringify(arg, null, 2);
+                return JSON.stringify(arg, (key, value) => {
+                  if (value instanceof Error) {
+                    return value.stack || (value.name + ": " + value.message);
+                  }
+                  return value;
+                }, 2);
               } catch (err) {
                 return String(arg);
               }
