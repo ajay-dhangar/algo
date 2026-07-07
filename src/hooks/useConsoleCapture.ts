@@ -7,14 +7,29 @@ export default function useConsoleCapture() {
         self.onmessage = function(e) {
           const { code } = e.data;
           const logs = [];
-          const origLog = console.log;
-          const origError = console.error;
           
+          const serialize = (arg) => {
+            if (typeof arg === "object" && arg !== null) {
+              try {
+                return JSON.stringify(arg, null, 2);
+              } catch (err) {
+                return String(arg);
+              }
+            }
+            return String(arg);
+          };
+
           console.log = (...args) => {
-            logs.push(args.map(String).join(" "));
+            logs.push(args.map(serialize).join(" "));
           };
           console.error = (...args) => {
-            logs.push("❌ Error: " + args.map(String).join(" "));
+            logs.push("❌ Error: " + args.map(serialize).join(" "));
+          };
+          console.warn = (...args) => {
+            logs.push("⚠️ Warn: " + args.map(serialize).join(" "));
+          };
+          console.info = (...args) => {
+            logs.push("ℹ️ Info: " + args.map(serialize).join(" "));
           };
 
           try {
@@ -23,9 +38,6 @@ export default function useConsoleCapture() {
           } catch (err) {
             const msg = err instanceof Error ? err.message : String(err);
             logs.push("❌ Error: " + msg);
-          } finally {
-            console.log = origLog;
-            console.error = origError;
           }
           
           self.postMessage({ logs });
