@@ -35,6 +35,7 @@
     "@heroicons/react": "^2.1.5",
     "@mdx-js/react": "^3.0.0",
     "@monaco-editor/react": "^4.7.0",
+    "@supabase/supabase-js": "^2.110.1",
     "axios": "^1.7.7",
     "clsx": "^2.0.0",
     "framer-motion": "^11.9.0",
