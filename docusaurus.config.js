@@ -238,16 +238,8 @@ const config = {
                 label: "Code Playground",
               },
               {
-                to: "algorithm-visualizer",
+                to: "visualization",
                 label: "Algorithm Visualizer",
-              },
-              {
-                to: "recursion-visualizer",
-                label: "Recursion Visualizer",
-              },
-              {
-                to: "dp-visualizer",
-                label: "DP Grid Visualizer",
               },
               {
                 to: "stories",
