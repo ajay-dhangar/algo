@@ -87,7 +87,7 @@ export default function AlgoComingSoon() {
                         {/* Clean Functional Action Rows */}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 border-t border-[var(--ifm-toc-border-color)] pt-8">
                             <Link
-                                to="/algo/visualization"
+                                to="/visualization"
                                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition-all border border-transparent bg-[var(--ifm-color-primary)] text-white hover:text-white hover:bg-[var(--ifm-color-primary-dark)] no-underline hover:no-underline shadow-sm"
                             >
                                 <ArrowLeft className="h-4 w-4" />
