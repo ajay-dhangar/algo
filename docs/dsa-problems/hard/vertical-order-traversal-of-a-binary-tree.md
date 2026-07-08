@@ -152,7 +152,7 @@ class Solution {
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         // TreeMap to sort by col -> TreeMap to sort by row -> PriorityQueue to sort values
         TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new TreeMap<>();
-        Queue<Tuple> q = new LinkedList<>();
+        Queue<Tuple> q = new ArrayDeque<>();
         
         if (root != null) q.offer(new Tuple(root, 0, 0));
         
