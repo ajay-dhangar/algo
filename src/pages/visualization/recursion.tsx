@@ -1,7 +1,6 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import RecursionVisualizer from "../../components/Visualizing/RecursionVisualizer";
-// Import lucide-react icons for the quick-guide ribbon items
 import { Layers, GitFork, Code2, Repeat } from "lucide-react";
 
 export default function RecursionVisualizerPage() {
