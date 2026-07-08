@@ -139,7 +139,7 @@ public:
  * }
  */
 class Solution {
-    class Tuple {
+    static class Tuple {
         TreeNode node;
         int row, col;
         public Tuple(TreeNode node, int row, int col) {
