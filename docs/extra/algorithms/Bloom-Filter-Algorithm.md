@@ -5,6 +5,19 @@ sidebar_label: Algorithm for Bloom Filters
 sidebar_position: 21
 description: "Bloom Filters are probabilistic data structures used in applications where space efficiency is crucial, and approximate answers are acceptable, like database caching and network filtering."
 tags: [Data Structures, Algorithms, Bloom Filter, Probabilistic Data Structures, Space Efficiency, Membership Testing, False Positives, Hashing, Big Data, Caching, Network Security, Database Optimization, Data Science, Computer Science]
+category: Data Structures
+subcategory: Probabilistic Data Structures
+difficulty: Advanced
+time_complexity: O(k)
+space_complexity: O(m)
+languages:
+  - Python
+  - Java
+  - C++
+prerequisites:
+  - Hashing
+  - Bit Manipulation
+  - Probability Basics
 ---
 
 # Bloom Filter Algorithm

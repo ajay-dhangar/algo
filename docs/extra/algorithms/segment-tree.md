@@ -3,7 +3,19 @@ id: segment-tree
 title: Segment Tree
 sidebar_label: Segment Tree
 description: "A comprehensive guide to Segment Trees with visual diagrams, build/query/update operations, lazy propagation, code templates in Python, Java, and C++, and practice problems."
-
+category: Advanced Data Structures
+subcategory: Range Query
+difficulty: Advanced
+time_complexity: O(n log n)
+space_complexity: O(n)
+languages:
+  - Python
+  - Java
+  - C++
+prerequisites:
+  - Arrays
+  - Recursion
+  - Divide and Conquer
 tags:
   - segment-tree
   - algorithms

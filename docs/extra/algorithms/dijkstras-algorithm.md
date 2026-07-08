@@ -5,6 +5,16 @@ title: Dijkstra's Algorithm
 sidebar_label: Dijkstra's Algorithm 
 description: "This post covers Dijkstra's Algorithm for finding the shortest paths in a graph, with code examples and explanations." 
 tags: [dsa, graph, dijkstra, shortest path, c++]
+category: Graph Algorithms
+subcategory: Shortest Path
+difficulty: Intermediate
+time_complexity: O(E log V)
+space_complexity: O(V)
+languages:
+  - C++
+prerequisites:
+  - Graph Representation
+  - BFS
 ---
 
 

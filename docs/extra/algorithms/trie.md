@@ -3,6 +3,19 @@ id: trie
 title: Trie (Prefix Tree)
 sidebar_label: Trie (Prefix Tree)
 description: "A comprehensive guide to the Trie (Prefix Tree) data structure with visual diagrams, Insert, Search, Delete, and AutoComplete implementations in Python, Java, and C++, and practice problems."
+category: Advanced Data Structures
+subcategory: String Data Structures
+difficulty: Intermediate
+time_complexity: O(m)
+space_complexity: O(ALPHABET_SIZE * m * n)
+languages:
+  - Python
+  - Java
+  - C++
+prerequisites:
+  - Trees
+  - Strings
+  - Recursion
 tags:
   [
     trie,

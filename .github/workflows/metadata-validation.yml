@@ -1,0 +1,47 @@
+name: Metadata Validation
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'docs/**/*.md'
+      - 'docs/**/*.mdx'
+      - 'scripts/validateMetadata.js'
+      - 'scripts/generateStats.js'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'docs/**/*.md'
+      - 'docs/**/*.mdx'
+      - 'scripts/validateMetadata.js'
+      - 'scripts/generateStats.js'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-metadata:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate metadata schema
+        run: node scripts/validateMetadata.js
+
+      - name: Generate documentation coverage stats
+        if: always()
+        run: node scripts/generateStats.js
