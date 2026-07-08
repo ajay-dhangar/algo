@@ -44,7 +44,7 @@ export default function GraphVisualizerPage() {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
             {/* BFS Card */}
-            <div style={{ padding: '1.25rem', border: '1px solid var(--ifm-color-emphasis-300)', borderRadius: '8px', backgroundColor: 'var(--ifm-background-color-color)' }}>
+            <div style={{ padding: '1.25rem', border: '1px solid var(--ifm-color-emphasis-300)', borderRadius: '8px', backgroundColor: 'var(--ifm-background-color)' }}>
               <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--ifm-color-primary)' }}>
                 Breadth-First Search (BFS)
               </h4>
