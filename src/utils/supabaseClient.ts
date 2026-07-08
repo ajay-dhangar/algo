@@ -11,7 +11,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     persistSession: !isNode,
   },
-  global: {
-    WebSocket: isNode ? require('ws') : undefined,
+  realtime: {
+    transport: isNode ? require('ws') : undefined,
   },
 });
