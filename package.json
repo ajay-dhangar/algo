@@ -55,7 +55,8 @@
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "styled-components": "^6.4.2",
-    "swiper": "^12.2.0"
+    "swiper": "^12.2.0",
+    "ws": "^8.21.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
