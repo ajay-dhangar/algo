@@ -91,7 +91,7 @@ function readAccounts(): StoredAccount[] {
   }
 
   try {
-    const raw = scope.localStorage.getItem(ACCOUNTS_KEY);
+    const raw = scope.sessionStorage.getItem(ACCOUNTS_KEY);
     if (!raw) {
       return [];
     }
@@ -108,7 +108,7 @@ function writeAccounts(accounts: StoredAccount[]) {
     return;
   }
 
-  scope.localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
+  scope.sessionStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
 }
 
 function readSession(): AuthSession | null {
@@ -118,7 +118,7 @@ function readSession(): AuthSession | null {
   }
 
   try {
-    const raw = scope.localStorage.getItem(SESSION_KEY);
+    const raw = scope.sessionStorage.getItem(SESSION_KEY);
     if (!raw) {
       return null;
     }
@@ -139,11 +139,11 @@ function writeSession(session: AuthSession | null) {
   }
 
   if (!session) {
-    scope.localStorage.removeItem(SESSION_KEY);
+    scope.sessionStorage.removeItem(SESSION_KEY);
     return;
   }
 
-  scope.localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+  scope.sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
