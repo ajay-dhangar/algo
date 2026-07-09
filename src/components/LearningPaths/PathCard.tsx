@@ -11,13 +11,11 @@ import { LearningPath } from "../../data/learningPaths";
 interface PathCardProps {
   path: LearningPath;
   index: number;
-  onExplore?: (pathId: string) => void;
 }
 
 export const PathCard: React.FC<PathCardProps> = ({
   path,
   index,
-  onExplore,
 }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
