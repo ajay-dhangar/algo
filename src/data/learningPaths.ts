@@ -248,18 +248,6 @@ const placementPrepTopics: TopicMetadata[] = [
     docLink: "/docs/dsa-problems",
   },
   {
-    id: "recursion",
-    title: "Recursion",
-    difficulty: "Medium",
-    estimatedTime: 2.5,
-    prerequisites: ["functions"],
-    interviewRelevance: 5,
-    description:
-      "Understand recursion, base cases, and recursive problem-solving",
-    icon: "🔁",
-    docLink: "/docs/dsa-problems",
-  },
-  {
     id: "binary-search",
     title: "Binary Search",
     difficulty: "Medium",
