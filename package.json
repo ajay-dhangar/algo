@@ -71,7 +71,11 @@
   "overrides": {
     "react-simple-chatbot": {
       "styled-components": "$styled-components"
-    }
+    },
+    "serialize-javascript": "^6.0.2",
+    "dompurify": "^3.1.6",
+    "uuid": "^11.1.1",
+    "http-proxy-middleware": "^3.0.0"
   },
   "browserslist": {
     "production": [
