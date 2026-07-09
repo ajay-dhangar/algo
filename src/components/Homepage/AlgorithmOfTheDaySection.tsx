@@ -39,9 +39,22 @@ const AlgorithmOfTheDaySection: React.FC = () => {
   // Structural placeholder state layout during compilation to eliminate hydration layout shifting
   if (!isMounted || !algo) {
     return (
-      <div className="min-h-[400px] flex items-center justify-center bg-slate-50 dark:bg-gray-950">
-        <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-[var(--ifm-color-primary)] animate-spin" />
-      </div>
+      <section className="relative overflow-hidden py-24 bg-gradient-to-b from-white via-slate-50/50 to-white dark:from-gray-950 dark:via-gray-900/20 dark:to-gray-950">
+        <div className="absolute top-1/2 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/[0.03] dark:bg-indigo-500/[0.02] blur-[140px] pointer-events-none" />
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/50 dark:bg-gray-800 border border-transparent text-transparent text-xs font-bold uppercase tracking-wider mb-4 animate-pulse">
+              <span className="flex h-1.5 w-1.5 rounded-full bg-transparent" />
+              Loading Instance...
+            </div>
+            <div className="h-10 bg-slate-200 dark:bg-gray-800 rounded-lg w-3/4 mx-auto mb-4 animate-pulse"></div>
+            <div className="h-4 bg-slate-200 dark:bg-gray-800 rounded mx-auto w-1/2 animate-pulse"></div>
+          </div>
+          <div className="max-w-5xl mx-auto bg-white dark:bg-gray-900/40 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-800/80 shadow-md h-[400px] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-[var(--ifm-color-primary)] animate-spin" />
+          </div>
+        </div>
+      </section>
     );
   }
 
