@@ -151,10 +151,11 @@ const PathDetailsContent: React.FC<PathDetailsContentProps> = ({ path }) => {
     progress[topicId] = nextState;
     const topicObj = path.topics.find((t) => t.id === topicId);
     if (topicObj) {
-      progress[`${topicId}_title`] = topicObj.title;
+      try {
+      localStorage.setItem("algo_progress", JSON.stringify(progress));
+    } catch (e) {
+      console.warn("[Algo] Failed to save progress to localStorage:", e);
     }
-    progress[`${topicId}_updatedAt`] = new Date().toISOString();
-    localStorage.setItem("algo_progress", JSON.stringify(progress));
 
     // Dispatch standard telemetry update event
     if (typeof window !== "undefined") {
