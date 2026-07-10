@@ -5,9 +5,10 @@ import { useHistory } from "@docusaurus/router";
 interface UseKeyboardShortcutsProps {
   onOpenHelp: () => void;
   onCloseHelp: () => void;
-  onToggleTheme?: () => void;     // Optional callback for theme toggling
-  onResetLayout?: () => void;     // Optional callback for resetting layout/code
-  onCollapseAll?: () => void;     // Optional callback for collapsing panes
+  onOpenChallengeSearch?: () => void; // ← NEW: opens the challenge search modal
+  onToggleTheme?: () => void;
+  onResetLayout?: () => void;
+  onCollapseAll?: () => void;
 }
 
 type SequentialShortcuts = Record<string, string>;
@@ -20,18 +21,14 @@ const SEQUENTIAL_SHORTCUTS: SequentialShortcuts = {
   gl: "/leaderboard",
   gb: "/blog",
   gq: "/quizzes",
-  gs: "/settings", // Added matching key from the modal configuration
+  gc: "/challenges", // ← NEW: g then c → go to challenges
+  gs: "/settings",
 };
-
-const SEARCH_SELECTORS: string[] = [
-  ".DocSearch-Button", // Docusaurus Algolia button
-  ".DocSearch-Input",
-  'input[type="search"]',
-];
 
 export default function useKeyboardShortcuts({
   onOpenHelp,
   onCloseHelp,
+  onOpenChallengeSearch,
   onToggleTheme,
   onResetLayout,
   onCollapseAll,
@@ -41,26 +38,11 @@ export default function useKeyboardShortcuts({
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Helper to safely trigger the search box
-    const focusOrClickSearch = (event: KeyboardEvent): void => {
-      event.preventDefault();
-      const searchInput = SEARCH_SELECTORS.reduce<HTMLElement | null>(
-        (el, selector) => el || document.querySelector(selector),
-        null
-      );
-
-      if (searchInput) {
-        searchInput.focus();
-        if (searchInput.tagName === "BUTTON") {
-          searchInput.click();
-        }
-      }
-    };
-
     const handler = (event: KeyboardEvent): void => {
       const active = document.activeElement as HTMLElement | null;
 
-      // Enhanced check to prevent stealing focus from input nodes or text editors
+      // Detect if the user is already typing somewhere
+      // (but we still intercept Ctrl+K even while typing)
       const isTyping =
         active &&
         (["INPUT", "TEXTAREA", "SELECT"].includes(active.tagName) ||
@@ -69,41 +51,50 @@ export default function useKeyboardShortcuts({
       const { key, shiftKey, metaKey, ctrlKey, altKey } = event;
       const lowerKey = key.toLowerCase();
 
-      // 1. Global Command: Cmd/Ctrl + K (Trigger even if typing)
+      // ── 1. Ctrl/Cmd + K  →  Open Challenge Search ──────────────────────────
+      // Intercepts even while typing so it's truly global
       if ((metaKey || ctrlKey) && lowerKey === "k") {
-        focusOrClickSearch(event);
+        event.preventDefault();
+        if (onOpenChallengeSearch) {
+          onOpenChallengeSearch();
+        }
         return;
       }
 
+      // All remaining shortcuts are suppressed while the user is typing
       if (isTyping) return;
 
-      // 2. Global Command: Cmd/Ctrl + Shift + D (Theme Toggle)
+      // ── 2. Ctrl/Cmd + Shift + D  →  Toggle theme ────────────────────────────
       if ((metaKey || ctrlKey) && shiftKey && lowerKey === "d" && onToggleTheme) {
         event.preventDefault();
         onToggleTheme();
         return;
       }
 
-      // 3. Simple Single-key / Matchers
+      // ── 3. Shift + ?  →  Open keyboard shortcuts modal ──────────────────────
       if (shiftKey && key === "?") {
         event.preventDefault();
         onOpenHelp();
         return;
       }
 
+      // ── 4. Escape  →  Close modals / double-esc collapses sidebar ───────────
       if (key === "Escape") {
         event.preventDefault();
         onCloseHelp();
-        
+
         if (keyBuffer.current[keyBuffer.current.length - 1] === "escape") {
-          // Double escape: Collapse all panes
           if (onCollapseAll) {
             onCollapseAll();
           } else {
-            const expandedItems = document.querySelectorAll<HTMLElement>('.menu__list-item:not(.menu__list-item--collapsed)');
-            expandedItems.forEach(item => {
-              const caret = item.querySelector<HTMLElement>(':scope > .menu__list-item-collapsible > .menu__caret') || 
-                            item.querySelector<HTMLElement>('.menu__caret');
+            const expandedItems = document.querySelectorAll<HTMLElement>(
+              ".menu__list-item:not(.menu__list-item--collapsed)"
+            );
+            expandedItems.forEach((item) => {
+              const caret =
+                item.querySelector<HTMLElement>(
+                  ":scope > .menu__list-item-collapsible > .menu__caret"
+                ) || item.querySelector<HTMLElement>(".menu__caret");
               if (caret) caret.click();
             });
           }
@@ -118,56 +109,51 @@ export default function useKeyboardShortcuts({
         return;
       }
 
-      if (lowerKey === "j" && !shiftKey && !metaKey && !ctrlKey && !altKey) {
-        const nextLink = document.querySelector<HTMLElement>('.pagination-nav__link--next');
-        if (nextLink) {
-          event.preventDefault();
-          nextLink.click();
+      // ── 5.  /  →  Open Challenge Search (single slash, no modifier) ─────────
+      if (key === "/" && !shiftKey && !metaKey && !ctrlKey && !altKey) {
+        event.preventDefault();
+        if (onOpenChallengeSearch) {
+          onOpenChallengeSearch();
         }
+        return;
+      }
+
+      // ── 6. j / k  →  Next/prev doc pagination ───────────────────────────────
+      if (lowerKey === "j" && !shiftKey && !metaKey && !ctrlKey && !altKey) {
+        const nextLink = document.querySelector<HTMLElement>(
+          ".pagination-nav__link--next"
+        );
+        if (nextLink) { event.preventDefault(); nextLink.click(); }
         return;
       }
 
       if (lowerKey === "k" && !shiftKey && !metaKey && !ctrlKey && !altKey) {
-        const prevLink = document.querySelector<HTMLElement>('.pagination-nav__link--prev');
-        if (prevLink) {
-          event.preventDefault();
-          prevLink.click();
-        }
+        const prevLink = document.querySelector<HTMLElement>(
+          ".pagination-nav__link--prev"
+        );
+        if (prevLink) { event.preventDefault(); prevLink.click(); }
         return;
       }
 
-      if (key === "/") {
-        focusOrClickSearch(event);
-        return;
-      }
-
-      // 4. Global Modifier: Alt + R (Reset layout/inputs)
+      // ── 7. Alt + R  →  Reset layout/inputs ──────────────────────────────────
       if (altKey && lowerKey === "r" && onResetLayout) {
         event.preventDefault();
         onResetLayout();
         return;
       }
 
-      // 5. Sequential Combo Handling (e.g., 'g' then 'h')
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      // ── 8. Sequential combos (g + h, g + d, etc.) ───────────────────────────
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
       keyBuffer.current.push(lowerKey);
-
-      // Enforce maximum buffer layout depth (2 character sequences max)
-      if (keyBuffer.current.length > 2) {
-        keyBuffer.current.shift();
-      }
+      if (keyBuffer.current.length > 2) keyBuffer.current.shift();
 
       const combo = keyBuffer.current.join("");
 
-      // Check for route map matches
       if (SEQUENTIAL_SHORTCUTS[combo]) {
         history.push(SEQUENTIAL_SHORTCUTS[combo]);
         keyBuffer.current = [];
       } else {
-        // Break buffer chain window seamlessly after 1000ms
         timeoutRef.current = setTimeout(() => {
           keyBuffer.current = [];
         }, 1000);
@@ -175,10 +161,17 @@ export default function useKeyboardShortcuts({
     };
 
     document.addEventListener("keydown", handler);
-
     return () => {
       document.removeEventListener("keydown", handler);
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [history, onOpenHelp, onCloseHelp, onToggleTheme, onResetLayout, onCollapseAll]);
+  }, [
+    history,
+    onOpenHelp,
+    onCloseHelp,
+    onOpenChallengeSearch,
+    onToggleTheme,
+    onResetLayout,
+    onCollapseAll,
+  ]);
 }
