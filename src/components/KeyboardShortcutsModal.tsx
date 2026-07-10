@@ -16,16 +16,16 @@ interface KeyboardShortcutsModalProps {
 }
 
 const SHORTCUTS_DATA: ShortcutItem[] = [
-  { action: "Open shortcuts help", keys: ["Shift", "/"] },
+  { action: "Open shortcuts help", keys: ["Shift", "?"] },
   { action: "Close modal", keys: ["Esc"] },
-  { action: "Focus search", keys: ["⌘K", "or", "/"] },
+  { action: "Search challenges (global)", keys: ["⌘K", "or", "/"] },
   { action: "Go to Home", keys: ["g", "h"] },
   { action: "Go to Docs", keys: ["g", "d"] },
+  { action: "Go to Challenges", keys: ["g", "c"] },
   { action: "Go to Playground", keys: ["g", "p"] },
   { action: "Go to Leaderboard", keys: ["g", "l"] },
   { action: "Go to Blog", keys: ["g", "b"] },
   { action: "Go to Quizzes", keys: ["g", "q"] },
-
   { action: "Toggle dark mode", keys: ["⌘", "Shift", "D"] },
   { action: "Next item / Next step", keys: ["j"] },
   { action: "Previous item / Previous step", keys: ["k"] },
