@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import type { DPChallenge } from "../data/dpChallengesData";
 import Editor from "@monaco-editor/react";
+import useConsoleCapture from "../hooks/useConsoleCapture";
 
 const DIFF_COLORS = {
   Easy: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
@@ -25,24 +26,16 @@ export default function DPChallengeLayout({ challenge }: Props) {
   const [showSolution, setShowSolution] = useState(false);
   const [running, setRunning] = useState(false);
   const [activeTab, setActiveTab] = useState<"problem" | "solution">("problem");
+  const { runWithCapture } = useConsoleCapture();
 
-  const runCode = useCallback(() => {
+  const runCode = useCallback(async () => {
     setRunning(true);
     setOutput([]);
     setTestResults([]);
-    const logs: string[] = [];
-    const origLog = console.log;
-    console.log = (...args) => { logs.push(args.map(String).join(" ")); };
-    try {
-      // eslint-disable-next-line no-new-func
-      new Function(code)();
-    } catch (e: any) {
-      logs.push("❌ Error: " + e.message);
-    }
-    console.log = origLog;
+    const logs = await runWithCapture(code);
     setOutput(logs);
     setRunning(false);
-  }, [code]);
+  }, [code, runWithCapture]);
 
   return (
     <Layout title={challenge.title} description={challenge.description}>
