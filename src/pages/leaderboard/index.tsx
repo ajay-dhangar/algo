@@ -1,5 +1,6 @@
 // @ts-nocheck
 import Layout from "@theme/Layout";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
@@ -428,7 +429,7 @@ const Leaderboard: React.FC = () => {
   // ─── Derived values ────────────────────────────────────────────────────────
   const ghPodium  = useMemo(() => leaders.slice(0, 3), [leaders]);
   const ghRoster  = useMemo(() => leaders.slice(3).filter(l => l.username.toLowerCase().includes(searchQuery.toLowerCase())), [leaders, searchQuery]);
-  const ghMaxScore = useMemo(() => Math.max(...leaders.map(l => l.totalScore), 1), [leaders]);
+  const ghMaxScore = useMemo(() => leaders.length === 0 ? 1 : Math.max(...leaders.map(l => l.totalScore), 1), [leaders]);
 
   const chPodium  = useMemo(() => challengePlayers.slice(0, 3), [challengePlayers]);
   const chRoster  = useMemo(() => {
@@ -438,11 +439,25 @@ const Leaderboard: React.FC = () => {
       return matchSearch && matchDiff;
     });
   }, [challengePlayers, challengeSearch, filterDiff]);
-  const chMaxXp   = useMemo(() => Math.max(...challengePlayers.map(p => p.xp), 1), [challengePlayers]);
+  const chMaxXp   = useMemo(() => challengePlayers.length === 0 ? 1 : Math.max(...challengePlayers.map(p => p.xp), 1), [challengePlayers]);
 
   // ─── Render ────────────────────────────────────────────────────────────────
   return (
     <Layout title="ALGO ARENA // LEADERBOARD" description="Competitive rankings for GitHub contributors and challenge solvers.">
+      <BrowserOnly
+        fallback={
+          // Shown during SSG/SSR - a lightweight static shell with no client APIs
+          <main className="min-h-screen bg-slate-50 dark:bg-black flex items-center justify-center">
+            <div className="text-center space-y-4">
+              <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto" />
+              <p className="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">
+                Loading Arena Rankings…
+              </p>
+            </div>
+          </main>
+        }
+      >
+        {() => (
       <main className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white font-mono relative overflow-hidden pb-32 transition-colors duration-300 selection:bg-cyan-500 selection:text-black">
 
         {/* Background mesh */}
@@ -678,6 +693,8 @@ const Leaderboard: React.FC = () => {
           )}
         </AnimatePresence>
       </main>
+        )}
+      </BrowserOnly>
     </Layout>
   );
 };
