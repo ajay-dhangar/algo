@@ -7,6 +7,7 @@ import React, {
   useMemo,
 } from "react";
 import { useHistory } from "@docusaurus/router";
+import Link from "@docusaurus/Link";
 import challengeData from "../data/challengeData";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
