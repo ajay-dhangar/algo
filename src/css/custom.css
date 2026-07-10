@@ -462,6 +462,41 @@ html[data-theme='dark'] td .katex {
   margin-top: 1rem;
 }
 
+/* Prevent navbar items from wrapping on desktop */
+.navbar__item,
+.navbar__link {
+  white-space: nowrap;
+}
+
+/* Adjust navbar spacing on medium desktop screens to prevent overflow/overlap */
+@media screen and (min-width: 997px) and (max-width: 1280px) {
+  .navbar__item {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.85rem;
+  }
+  
+  .navbar__link--active {
+    padding: 0.4rem 0.8rem !important;
+  }
+  
+  .algo-link {
+    margin: 0 0.25rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+
+  .navbar__brand {
+    margin-right: 0.5rem !important;
+  }
+  
+  .navbar__search-input {
+    width: 120px !important;
+  }
+  
+  .navbar__search-input:focus {
+    width: 150px !important;
+  }
+}
+
 /* ==========================================================================
    Print Layout Styling & Fixes (Docusaurus Docs)
    ========================================================================== */
