@@ -144,7 +144,7 @@ class Solution:
  * @param {number[]} nums
  * @return {number}
  */
-var rob = function(nums) {
+const rob = function(nums) {
     const n = nums.length;
     if (n === 1) return nums[0];
     
