@@ -394,13 +394,13 @@ export default function ChallengeSearchModal({
               close
             </span>
           </div>
-          <a
-            href="/challenges"
+          <Link
+            to="/challenges"
             onClick={onClose}
             className="text-[10px] font-bold text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors no-underline"
           >
             Browse all challenges →
-          </a>
+          </Link>
         </div>
       </div>
     </div>
