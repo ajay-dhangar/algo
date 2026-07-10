@@ -75,8 +75,8 @@ export default function AchievementsPage(): React.ReactElement {
 
   const achievements = useMemo(() => {
     const completedTitles = snapshot.completedTitles.map((title) => title.toLowerCase());
-    const treeMatches = completedTitles.filter((title) => title.includes('tree') || title.includes('trees')).length;
-    const graphMatches = completedTitles.filter((title) => title.includes('graph') || title.includes('graphs')).length;
+    const treeMatches = completedTitles.filter((title) => title.includes('tree')).length;
+    const graphMatches = completedTitles.filter((title) => title.includes('graph')).length;
 
     return [
       {
