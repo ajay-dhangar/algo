@@ -97,6 +97,91 @@ Node* insert(Node* root, int key) {
     return balance(root);
 }
 ```
+## Insertion Dry Run
+
+Consider inserting the following values into an empty AVL Tree:
+
+```text
+30, 20, 10
+```
+
+### Step 1
+
+Insert **30**
+
+```mermaid
+graph TD
+    A[30]
+```
+
+Balance Factor:
+
+```text
+BF(30) = 0
+```
+
+The tree is balanced.
+
+---
+
+### Step 2
+
+Insert **20**
+
+```mermaid
+graph TD
+    A[30]
+    A --> B[20]
+```
+
+Balance Factors:
+
+```text
+BF(30) = +1
+BF(20) = 0
+```
+
+The tree remains balanced.
+
+---
+
+### Step 3
+
+Insert **10**
+
+```mermaid
+graph TD
+    A[30]
+    A --> B[20]
+    B --> C[10]
+```
+
+Balance Factors:
+
+```text
+BF(30) = +2
+```
+
+The tree becomes unbalanced (LL Case).
+
+Perform a **Right Rotation** on node **30**.
+
+After rotation:
+
+```mermaid
+graph TD
+    B[20]
+    B --> C[10]
+    B --> A[30]
+```
+
+The AVL Tree is balanced again.
+
+:::note
+Whenever the balance factor becomes greater than **1** or less than **-1**, AVL Trees perform rotations to restore balance.
+:::
+
+---
 
 ### 2. Searching
 Searching in an AVL tree is similar to searching in a standard BST due to its structure:
@@ -164,6 +249,74 @@ Node* deleteNode(Node* root, int key) {
     return balance(root);
 }
 ```
+## Deletion Dry Run
+
+Consider the following AVL Tree.
+
+```mermaid
+graph TD
+    A[20]
+    A --> B[10]
+    A --> C[30]
+    C --> D[40]
+```
+
+Delete node **10**.
+
+### Before Deletion
+
+```text
+        20
+       /  \
+     10    30
+             \
+             40
+```
+
+After deleting **10**:
+
+```mermaid
+graph TD
+    A[20]
+    A --> C[30]
+    C --> D[40]
+```
+
+Now,
+
+```text
+BF(20) = -2
+```
+
+The tree becomes unbalanced.
+
+Since the imbalance occurs in the **Right-Right (RR)** case, perform a **Left Rotation**.
+
+After rotation:
+
+```mermaid
+graph TD
+    C[30]
+    C --> A[20]
+    C --> D[40]
+```
+
+The AVL Tree becomes balanced again.
+
+---
+
+## Rotation Summary
+
+AVL Trees use four types of rotations to maintain balance.
+
+| Rotation | Condition | Fix |
+|----------|-----------|-----|
+| LL | Left child is left-heavy (or insertion in left child's left subtree) | Right Rotation |
+| RR | Right child is right-heavy (or insertion in right child's right subtree) | Left Rotation |
+| LR | Left child is right-heavy (or insertion in left child's right subtree) | Left Rotation followed by Right Rotation |
+| RL | Right child is left-heavy (or insertion in right child's left subtree) | Right Rotation followed by Left Rotation |
+
+Maintaining balance ensures that all search, insertion, and deletion operations continue to run in **O(log n)** time.
 
 ## Advantages and Disadvantages
 ### Advantages:

@@ -653,7 +653,9 @@ const GraphVisualizer: React.FC = () => {
         </select>
 
         <div className="speed-control">
-          <label htmlFor="speed">Speed:</label>
+          <label htmlFor="speed" className="form-label">
+            Speed:
+          </label>
           <input
             id="speed"
             type="range"
@@ -714,14 +716,16 @@ const GraphVisualizer: React.FC = () => {
         <div className="svg-container">
           <svg
             ref={svgRef}
-            width="520"
-            height="360"
+            width="auto"
+            height="400"
             onDoubleClick={handleSvgDoubleClick}
             onMouseMove={handleSvgMouseMove}
             onMouseUp={handleSvgMouseUp}
             onMouseLeave={handleSvgMouseUp}
+            role="application"
+            aria-label="Interactive Graph Visualizer Canvas"
           >
-            {/* Draw edge lines */}
+            {/* Draw edge lines and weight badges */}
             {edges.map((e, idx) => {
               const u = nodes.find((n) => n.id === e.u);
               const v = nodes.find((n) => n.id === e.v);
@@ -729,9 +733,10 @@ const GraphVisualizer: React.FC = () => {
 
               const midX = (u.x + v.x) / 2;
               const midY = (u.y + v.y) / 2;
+              const edgeKey = `edge-${e.u}-${e.v}-${idx}`;
 
               return (
-                <g key={`edge-group-${idx}`}>
+                <g key={edgeKey}>
                   <line
                     x1={u.x}
                     y1={u.y}
@@ -740,12 +745,19 @@ const GraphVisualizer: React.FC = () => {
                     className={getEdgeClass(e.u, e.v)}
                   />
                   {/* Clickable Edge Weight Badges */}
-                  <g onClick={(ev) => handleWeightClick(ev, e.u, e.v)}>
+                  <g
+                    onClick={(ev) => handleWeightClick(ev, e.u, e.v)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Edge weight ${e.weight} between node ${e.u} and node ${e.v}`}
+                    onKeyDown={(ev) => ev.key === 'Enter' && handleWeightClick(ev, e.u, e.v)}
+                    className="clickable-badge"
+                  >
                     <rect
                       x={midX - 12}
                       y={midY - 9}
-                      width="24"
-                      height="18"
+                      width="16"
+                      height="12"
                       className="weight-rect"
                     />
                     <text x={midX} y={midY} className="weight-text">
@@ -763,6 +775,10 @@ const GraphVisualizer: React.FC = () => {
                 className="node-group"
                 onClick={(e) => handleNodeClick(e, n.id)}
                 onMouseDown={(e) => handleNodeMouseDown(e, n.id)}
+                role="button"
+                tabIndex={0}
+                aria-label={`Node ${n.id}`}
+                onKeyDown={(e) => e.key === 'Enter' && handleNodeClick(e, n.id)}
               >
                 <circle
                   cx={n.x}
@@ -778,7 +794,6 @@ const GraphVisualizer: React.FC = () => {
           </svg>
         </div>
 
-        {/* Dynamic Sidebar Console logs */}
         <div className="ds-container">
           <div className="ds-header">
             {algorithm === "BFS" && "Queue (BFS)"}
@@ -789,18 +804,20 @@ const GraphVisualizer: React.FC = () => {
           </div>
           <div className="ds-items">
             {dataStructure.map((item, idx) => (
-              <div key={`${item}-${idx}`} className="ds-item">
+              <div key={`ds-item-${item}-${idx}`} className="ds-item">
                 {item}
               </div>
             ))}
+
             {dataStructure.length === 0 && (
-              <div style={{ textAlign: "center", color: "var(--ifm-color-emphasis-500)", marginTop: "20px" }}>
+              <div className="ds-empty-state">
                 Empty (Idle)
               </div>
             )}
           </div>
         </div>
       </div>
+
     </div>
   );
 };
