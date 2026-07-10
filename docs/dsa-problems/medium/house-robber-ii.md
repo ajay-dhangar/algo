@@ -80,7 +80,7 @@ public:
     }
     
 private:
-    int robLinear(vector<int>& nums, int start, int end) {
+    int robLinear(const vector<int>& nums, int start, int end) {
         int prev1 = 0; // Max loot up to the previous house
         int prev2 = 0; // Max loot up to two houses ago
         
