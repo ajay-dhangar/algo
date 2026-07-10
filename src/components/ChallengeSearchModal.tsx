@@ -131,7 +131,7 @@ function ResultRow({
 
   return (
     <div
-      onMouseEnter={onHover}
+      onMouseMove={onHover}
       onClick={onClick}
       className={`group flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors duration-100 ${
         isActive
