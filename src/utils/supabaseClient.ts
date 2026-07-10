@@ -1,9 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
+import siteConfig from '@generated/docusaurus.config';
 
-// Docusaurus requires client-side env vars to be prefixed, or exposed in docusaurus.config.js
-// We use a placeholder to prevent the app from crashing during build or local dev without keys.
-const supabaseUrl = process.env.SUPABASE_URL || 'https://placeholder-project.supabase.co';
-const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || 'placeholder-anon-key';
+const { customFields = {} } = siteConfig;
+const supabaseUrl = (customFields.SUPABASE_URL as string) || 'https://placeholder-project.supabase.co';
+const supabaseAnonKey = (customFields.SUPABASE_ANON_KEY as string) || 'placeholder-anon-key';
 
 const isNode = typeof window === 'undefined';
 
