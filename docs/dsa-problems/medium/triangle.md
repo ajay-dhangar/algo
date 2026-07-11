@@ -30,7 +30,7 @@ Output: `-10`
 
 ---
 
-## Video Explantion:
+## Video Explanation:
 
 <LiteYouTubeEmbed
   id="SrP-PiLSYC0"
