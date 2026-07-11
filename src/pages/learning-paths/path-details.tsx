@@ -147,25 +147,32 @@ const PathDetailsContent: React.FC<PathDetailsContentProps> = ({ path }) => {
     setCompletedTopics(newCompletedSet);
 
     // Sync to localStorage
-    const progress = safeJsonParse<{ [key: string]: any }>("algo_progress", {});
+    const progress = safeJsonParse<Record<string, boolean>>("algo_progress", {});
     progress[topicId] = nextState;
-    const topicObj = path.topics.find((t) => t.id === topicId);
-    if (topicObj) {
-      try {
-      localStorage.setItem("algo_progress", JSON.stringify(progress));
-    } catch (e) {
-      console.warn("[Algo] Failed to save progress to localStorage:", e);
-    }
 
-    // Dispatch standard telemetry update event
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(
-        new CustomEvent("progressUpdated", {
-          detail: { topicId, completed: nextState, title: topicObj?.title || "" },
-        })
-      );
-    }
-  };
+    const topicObj = path.topics.find((t) => t.id === topicId);
+
+if (topicObj) {
+  try {
+    localStorage.setItem("algo_progress", JSON.stringify(progress));
+  } catch (e) {
+    console.warn("[Algo] Failed to save progress to localStorage:", e);
+  }
+
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(
+      new CustomEvent("progressUpdated", {
+        detail: {
+          topicId,
+          completed: nextState,
+          title: topicObj.title,
+        },
+      })
+    );
+  }
+}
+
+}; 
 
   const toggleInProgress = (topicId: string) => {
     const nextState = !inProgressTopics.has(topicId);
@@ -417,6 +424,7 @@ export const PathDetailsPage: React.FC = () => {
   // Key-binding the presenter to path.id ensures React completely unmounts and remounts
   // when navigating between different learning paths. This resolves dynamic routing and state bugs.
   return <PathDetailsContent key={path.id} path={path} />;
+
 };
 
 export default PathDetailsPage;
