@@ -306,9 +306,9 @@ export const TOPICS: Record<string, TopicData> = {
         { id: 621, title: "Task Scheduler", slug: "task-scheduler" },
       ],
       Hard: [
-        { id: 406, title: "Queue Reconstruction by Height", slug: "queue-reconstruction-by-height" },
-        { id: 435, title: "Non-overlapping Intervals", slug: "non-overlapping-intervals" },
-        { id: 452, title: "Minimum Number of Arrows to Burst Balloons", slug: "minimum-number-of-arrows-to-burst-balloons" },
+        { id: 135, title: "Candy", slug: "candy" },
+        { id: 502, title: "IPO", slug: "ipo" },
+        { id: 630, title: "Course Schedule III", slug: "course-schedule-iii" },
       ],
     },
   },
