@@ -171,7 +171,7 @@ export default function FintechExecutionConsole() {
                 placeholder="Search matrix..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-900 dark:text-zinc-50 placeholder-slate-400 focus:outline-hidden focus:border-[var(--ifm-color-primary)] font-mono"
+                className="w-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-lg pl-8 pr-3 py-1.5 text-xs text-slate-900 dark:text-zinc-50 placeholder-slate-400 focus:outline-none focus:border-[var(--ifm-color-primary)] font-mono"
               />
             </div>
 
