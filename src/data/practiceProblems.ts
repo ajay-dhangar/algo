@@ -232,4 +232,84 @@ export const TOPICS: Record<string, TopicData> = {
       ],
     },
   },
+  Trees: {
+    icon: "⟁",
+    problems: {
+      Easy: [
+        { id: 94, title: "Binary Tree Inorder Traversal", slug: "binary-tree-inorder-traversal" },
+        { id: 110, title: "Balanced Binary Tree", slug: "balanced-binary-tree" },
+        { id: 700, title: "Search in a Binary Search Tree", slug: "search-in-a-binary-search-tree" },
+      ],
+      Medium: [
+        { id: 105, title: "Construct Binary Tree from Preorder and Inorder Traversal", slug: "construct-binary-tree-from-preorder-and-inorder-traversal" },
+        { id: 236, title: "Lowest Common Ancestor of a Binary Tree", slug: "lowest-common-ancestor-of-a-binary-tree" },
+        { id: 230, title: "Kth Smallest Element in a BST", slug: "kth-smallest-element-in-a-bst" },
+      ],
+      Hard: [
+        { id: 129, title: "Sum Root to Leaf Numbers", slug: "sum-root-to-leaf-numbers" },
+        { id: 337, title: "House Robber III", slug: "house-robber-iii" },
+        { id: 987, title: "Vertical Order Traversal of a Binary Tree", slug: "vertical-order-traversal-of-a-binary-tree" },
+      ],
+    },
+  },
+  Graphs: {
+    icon: "↔",
+    problems: {
+      Easy: [
+        { id: 997, title: "Find the Town Judge", slug: "find-the-town-judge" },
+        { id: 797, title: "All Paths From Source to Target", slug: "all-paths-from-source-to-target" },
+        { id: 133, title: "Clone Graph", slug: "clone-graph" },
+      ],
+      Medium: [
+        { id: 261, title: "Graph Valid Tree", slug: "graph-valid-tree" },
+        { id: 207, title: "Course Schedule", slug: "course-schedule" },
+        { id: 547, title: "Number of Provinces", slug: "number-of-provinces" },
+      ],
+      Hard: [
+        { id: 210, title: "Course Schedule II", slug: "course-schedule-ii" },
+        { id: 329, title: "Longest Increasing Path in a Matrix", slug: "longest-increasing-path-in-a-matrix" },
+        { id: 310, title: "Minimum Height Trees", slug: "minimum-height-trees" },
+      ],
+    },
+  },
+  "Dynamic Programming": {
+    icon: "Δ",
+    problems: {
+      Easy: [
+        { id: 70, title: "Climbing Stairs", slug: "climbing-stairs" },
+        { id: 121, title: "Best Time to Buy and Sell Stock", slug: "best-time-to-buy-and-sell-stock" },
+        { id: 198, title: "House Robber", slug: "house-robber" },
+      ],
+      Medium: [
+        { id: 62, title: "Unique Paths", slug: "unique-paths" },
+        { id: 221, title: "Maximal Square", slug: "maximal-square" },
+        { id: 300, title: "Longest Increasing Subsequence", slug: "longest-increasing-subsequence" },
+      ],
+      Hard: [
+        { id: 10, title: "Regular Expression Matching", slug: "regular-expression-matching" },
+        { id: 72, title: "Edit Distance", slug: "edit-distance" },
+        { id: 1143, title: "Longest Common Subsequence", slug: "longest-common-subsequence" },
+      ],
+    },
+  },
+  Greedy: {
+    icon: "⚡",
+    problems: {
+      Easy: [
+        { id: 455, title: "Assign Cookies", slug: "assign-cookies" },
+        { id: 605, title: "Can Place Flowers", slug: "can-place-flowers" },
+        { id: 860, title: "Lemonade Change", slug: "lemonade-change" },
+      ],
+      Medium: [
+        { id: 435, title: "Non-overlapping Intervals", slug: "non-overlapping-intervals" },
+        { id: 452, title: "Minimum Number of Arrows to Burst Balloons", slug: "minimum-number-of-arrows-to-burst-balloons" },
+        { id: 621, title: "Task Scheduler", slug: "task-scheduler" },
+      ],
+      Hard: [
+        { id: 135, title: "Candy", slug: "candy" },
+        { id: 502, title: "IPO", slug: "ipo" },
+        { id: 630, title: "Course Schedule III", slug: "course-schedule-iii" },
+      ],
+    },
+  },
 };
