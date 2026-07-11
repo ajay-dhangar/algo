@@ -252,7 +252,7 @@ export default function FintechExecutionConsole() {
                     </span>
                   </div>
                   
-                  {sponsor.link ? (
+                  {sponsor.link && sponsor.link !== '#' ? (
                     <a 
                       href={sponsor.link}
                       target="_blank"
