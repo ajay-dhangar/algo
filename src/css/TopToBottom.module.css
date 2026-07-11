@@ -2,11 +2,13 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #28a745;
+  background-color: rgb(52 211 153 / 1);;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  padding: 0px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s;
@@ -15,7 +17,7 @@
 }
 
 .scrollToBottomButton:hover {
-  background-color: #218838;
+  background-color: rgb(36, 196, 71);
   opacity: 1;
 }
 

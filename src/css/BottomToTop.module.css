@@ -1,12 +1,14 @@
 .scrollToTopButton {
   position: fixed;
-  bottom: 80px;
+  bottom: 100px;
   right: 20px;
-  background-color: #007bff;
+  background-color: rgb(69 208 255 / 1);
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: 50%;
+  width: 55px;         
+height: 55px;  
+  padding: 0px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s;
@@ -15,7 +17,7 @@
 }
 
 .scrollToTopButton:hover {
-  background-color: #0056b3;
+  background-color: #0fcfec;
   opacity: 1;
 }
 
