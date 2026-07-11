@@ -429,6 +429,8 @@ const SectionBlock: React.FC<{
   <div style={{ marginBottom: 6 }}>
     <button
       onClick={onToggle}
+      aria-expanded={isOpen}
+      className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifm-color-primary)]"
       style={{
         width: "100%",
         display: "flex",
@@ -725,7 +727,17 @@ const DSALearningRoadmap: React.FC = () => {
               >
                 {/* Header */}
                 <div
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={isOpen}
                   onClick={() => toggleStage(stage.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggleStage(stage.id);
+                    }
+                  }}
+                  className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifm-color-primary)] rounded-t-xl transition-all"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -777,6 +789,10 @@ const DSALearningRoadmap: React.FC = () => {
                     </span>
                     <button
                       onClick={(e) => toggleComplete(stage.id, e)}
+                      role="checkbox"
+                      aria-checked={isDone}
+                      aria-label={`Mark Stage ${stage.id} as complete`}
+                      className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifm-color-primary)] focus-visible:ring-offset-2"
                       style={{
                         width: 24,
                         height: 24,
@@ -848,6 +864,7 @@ const DSALearningRoadmap: React.FC = () => {
                             <Link
                               key={li}
                               to={link.url}
+                              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ifm-color-primary)]"
                               style={{
                                 display: "inline-flex",
                                 alignItems: "center",
