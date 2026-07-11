@@ -181,7 +181,7 @@ export default function FintechExecutionConsole() {
               <select 
                 value={filterType} 
                 onChange={(e) => setFilterType(e.target.value as any)}
-                className="bg-transparent border-0 text-xs text-slate-700 dark:text-zinc-300 font-mono focus:outline-hidden cursor-pointer"
+                className="bg-transparent border-0 text-xs text-slate-700 dark:text-zinc-300 font-mono focus:outline-none cursor-pointer"
               >
                 <option value="all">ALL PIPELINES</option>
                 <option value="github">GITHUB CHANNEL</option>
