@@ -4,6 +4,7 @@ import Layout from "@theme/Layout";
 import { TOPICS } from "../../data/practiceProblems";
 import type { Difficulty, Problem, TopicData } from "../../data/practiceProblems";
 import { safeJsonParse } from "../../utils/safeStorage";
+import DailyChallengeWidget from "../../components/DailyChallengeWidget";
 
 const LEETCODE_BASE = "https://leetcode.com/problems/";
 
@@ -427,6 +428,10 @@ const Practice: React.FC = () => {
               </svg>
               View Analytics
             </button>
+          </div>
+
+          <div className="mb-6">
+            <DailyChallengeWidget />
           </div>
 
           {/* Filtering Controls Infrastructure Area */}

@@ -10,6 +10,7 @@ import ContributeSection from "./ContributeSection";
 import GetInvolvedSection from "./GetInvolvedSection";
 import CallToActionSection from "./CallToActionSection";
 import CookieConsent from "./CookieConsent";
+import DailyChallengeWidget from "../DailyChallengeWidget";
 
 const Homepage: React.FC = () => {
   return (
@@ -21,6 +22,11 @@ const Homepage: React.FC = () => {
 
         {/* PHASE 2: IMMEDIATE VALUE */}
         <AlgorithmOfTheDaySection />
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <DailyChallengeWidget />
+          </div>
+        </section>
         <PopularAlgorithmsSection />
 
         {/* PHASE 3: INTERACTION FLOW */}
