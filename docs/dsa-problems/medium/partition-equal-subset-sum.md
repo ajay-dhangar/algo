@@ -133,6 +133,8 @@ class Solution:
             # Traverse backwards to avoid reusing the same number
             for j in range(target, num - 1, -1):
                 dp[j] = dp[j] or dp[j - num]
+            if dp[target]:
+                return True
                 
         return dp[target]
 ```
