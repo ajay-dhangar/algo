@@ -6,21 +6,15 @@ description: "In this blog post, we'll explore Breadth-First Search (BFS), a gra
 tags: [dsa, algorithms, graph, traversal]
 ---
 
-import PracticeProblems from "@site/src/components/PracticeProblems";
+import { AlgorithmVisualizer, PracticeProblems } from "@site/src/components";
 
 ### Definition:
 
 Breadth-First Search (BFS) is a **graph traversal algorithm** that explores vertices level by level. Starting from a source vertex, BFS explores all its direct neighbors before moving to the next level of neighbors. It is useful for traversing or searching graph data structures and can be applied to both directed and undirected graphs.
 
-### Video Explanation
+## BFS Visualization
 
-<LiteYouTubeEmbed
-  id="pcKY4hjDrxk"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="5.1 Graph Traversals - BFS & DFS -Breadth First Search and Depth First Search"
-  lazyLoad={true}
-  webp
-/>
+<AlgorithmVisualizer algorithm="bfs" />
 
 ### Characteristics:
 
