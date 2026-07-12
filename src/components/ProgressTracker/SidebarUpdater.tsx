@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { safeJsonParse } from '../../utils/safeStorage';
+import { safeJsonParse, syncAlgoProgress } from '../../utils/safeStorage';
 
 
 interface ProgressData {
@@ -17,7 +17,10 @@ const SidebarUpdater: React.FC = () => {
         console.error(e);
       }
     };
-    load();
+    
+    // Initial fetch from supabase if authenticated
+    syncAlgoProgress().then(load).catch(load);
+
     window.addEventListener('progressUpdated', load);
     return () => window.removeEventListener('progressUpdated', load);
   }, []);

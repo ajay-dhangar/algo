@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 import { FiCheckCircle, FiCircle, FiTrendingUp, FiAward } from 'react-icons/fi';
-import { safeJsonParse } from '../../utils/safeStorage';
+import { safeJsonParse, writeAlgoProgress } from '../../utils/safeStorage';
 
 interface Props {
   topicId: string;
@@ -38,7 +38,7 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
       progress[`${topicId}_title`] = topicTitle;
       progress[`${topicId}_updatedAt`] = new Date().toISOString();
       
-      localStorage.setItem('algo_progress', JSON.stringify(progress));
+      writeAlgoProgress(progress);
 
       // Dispatch unified pipeline context updates across component domains
       window.dispatchEvent(
