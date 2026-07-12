@@ -56,8 +56,8 @@ const DSARoadmap: React.FC = () => {
     setActiveTopicIdx(idx);
   };
 
-  const toggleFolder = (tIdx: number, fIdx: number, e: React.MouseEvent) => {
-    e.stopPropagation();
+  const toggleFolder = (tIdx: number, fIdx: number, e?: React.MouseEvent | React.KeyboardEvent) => {
+    if (e) e.stopPropagation();
     const key = `${tIdx}-${fIdx}`;
     setExpandedFolders(prev => ({ ...prev, [key]: !prev[key] }));
   };
@@ -101,13 +101,13 @@ const DSARoadmap: React.FC = () => {
             <div className="flex items-center gap-2 self-stretch sm:self-auto justify-end">
               <button
                 onClick={() => setMassState(true)}
-                className="flex items-center gap-1.5 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 rounded-lg cursor-pointer shadow-sm text-slate-700 dark:text-zinc-300 transition-all"
+                className="flex items-center gap-1.5 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-slate-300 dark:hover:border-zinc-700 rounded-lg cursor-pointer shadow-sm text-slate-700 dark:text-zinc-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
               >
                 <FaExpandArrowsAlt /> Expand All
               </button>
               <button
                 onClick={() => setMassState(false)}
-                className="flex items-center gap-1.5 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-red-200 dark:hover:border-red-950/40 hover:text-red-500 rounded-lg cursor-pointer shadow-sm text-slate-400 transition-all"
+                className="flex items-center gap-1.5 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-wider bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 hover:border-red-200 dark:hover:border-red-950/40 hover:text-red-500 rounded-lg cursor-pointer shadow-sm text-slate-400 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
               >
                 <FaCompress /> Collapse
               </button>
@@ -146,8 +146,19 @@ const DSARoadmap: React.FC = () => {
                   >
                     {/* Module Controller Header */}
                     <div
+                      role="button"
+                      tabIndex={0}
+                      aria-expanded={isTopicOpen}
                       onClick={(e) => { e.stopPropagation(); toggleTopic(tIdx); }}
-                      className="w-full flex items-center justify-between p-4 cursor-pointer select-none group"
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          toggleTopic(tIdx);
+                        }
+                      }}
+                      className={`w-full flex items-center justify-between p-4 cursor-pointer select-none group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 ${
+                        isTopicOpen ? "rounded-t-xl" : "rounded-xl"
+                      }`}
                     >
                       <div className="flex items-center gap-3 min-w-0">
                         <div className={`w-6 h-6 rounded-md font-mono text-[11px] font-bold flex items-center justify-center transition-colors ${
@@ -184,8 +195,17 @@ const DSARoadmap: React.FC = () => {
                             return (
                               <div key={fIdx} className="relative pl-4 border-l-2 border-slate-200 dark:border-zinc-800/80 ml-2">
                                 <div 
+                                  role="button"
+                                  tabIndex={0}
+                                  aria-expanded={isFolderOpen}
                                   onClick={(e) => toggleFolder(tIdx, fIdx, e)}
-                                  className="flex items-center justify-between p-2.5 bg-white dark:bg-[#121820] border border-slate-200/60 dark:border-zinc-800/60 rounded-lg hover:border-slate-300 dark:hover:border-zinc-700 cursor-pointer transition-all"
+                                  onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                      e.preventDefault();
+                                      toggleFolder(tIdx, fIdx, e);
+                                    }
+                                  }}
+                                  className="flex items-center justify-between p-2.5 bg-white dark:bg-[#121820] border border-slate-200/60 dark:border-zinc-800/60 rounded-lg hover:border-slate-300 dark:hover:border-zinc-700 cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                                 >
                                   <div className="flex items-center gap-2 text-xs font-medium">
                                     {isFolderOpen ? (
@@ -208,7 +228,7 @@ const DSARoadmap: React.FC = () => {
                                         <li key={fileIdx} className="m-0">
                                           <Link
                                             to={file.link}
-                                            className="flex items-center text-xs font-mono text-slate-600 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors py-1 group/item"
+                                            className="flex items-center text-xs font-mono text-slate-600 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors py-1 group/item focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded px-1"
                                             style={{ textDecoration: "none" }}
                                           >
                                             <FaFileCode className="mr-2 text-slate-300 dark:text-zinc-700 group-hover/item:text-red-400 transition-colors" />
