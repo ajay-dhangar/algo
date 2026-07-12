@@ -183,14 +183,14 @@ function MiniChart({ timeBigO, spaceBigO }: MiniChartProps) {
 
       {/* Legend */}
       <div className="flex flex-wrap gap-4">
-        {curves.map(({ label, color, dash }) => (
-          <div key={label} className="flex items-center gap-1.5">
+        {curves.map(({ type, label, color, dash }) => (
+          <div key={type} className="flex items-center gap-1.5">
             <svg width={24} height={10}>
               <line x1={0} y1={5} x2={24} y2={5} stroke={color} strokeWidth={2}
                 strokeDasharray={dash === "none" ? undefined : dash} />
             </svg>
             <span className="text-[10px] font-mono text-slate-400">
-              {label === timeBigO ? `Time: ${label}` : `Space: ${label}`}
+              {type === "time" ? `Time: ${label}` : `Space: ${label}`}
             </span>
           </div>
         ))}
