@@ -59,6 +59,10 @@ We can solve this using a 1D Dynamic Programming array to optimize space:
 
 **C++**
 ```cpp
+#include <vector>
+
+using namespace std;
+
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {
