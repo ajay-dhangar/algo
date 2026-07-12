@@ -1,0 +1,11 @@
+{
+  "label": "Memory Allocation Algorithms",
+  "key": "extra-memory-allocation-algorithms-category",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "title": "Memory Allocation Algorithms",
+    "slug": "/category/extra-memory-allocation-algorithms",
+    "description": "Comprehensive guide to Memory Allocation Strategies (First Fit, Best Fit, Worst Fit) with explanations and implementations."
+  }
+}
