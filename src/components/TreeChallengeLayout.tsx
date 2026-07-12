@@ -9,6 +9,7 @@ import {
 import type { TreeChallenge } from "../data/treeChallengesData";
 import Editor from "@monaco-editor/react";
 import useConsoleCapture from "../hooks/useConsoleCapture";
+import ComplexityDeepDive from "./ComplexityDeepDive";
 
 const DIFF_COLORS = {
   Easy: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
@@ -140,6 +141,12 @@ export default function TreeChallengeLayout({ challenge }: Props) {
                       </div>
                     </div>
                   </div>
+
+                  <ComplexityDeepDive
+                    timeComplexity={challenge.timeComplexity}
+                    spaceComplexity={challenge.spaceComplexity}
+                    challengeTitle={challenge.title}
+                  />
 
                   {/* Hint */}
                   <div>

@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import type { GraphChallenge } from "../data/graphChallengesData";
 import useConsoleCapture from "../hooks/useConsoleCapture";
+import ComplexityDeepDive from "./ComplexityDeepDive";
 import DijkstraVisualizations from "./DSA/graphs/DijkstraVisualizations";
 import FloydWarshallVisualizations from "./DSA/graphs/FloydWarshallVisualizations";
 
@@ -520,6 +521,12 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                     </div>
                   </div>
                 </div>
+
+                <ComplexityDeepDive
+                  timeComplexity={challenge.timeComplexity}
+                  spaceComplexity={challenge.spaceComplexity}
+                  challengeTitle={challenge.title}
+                />
 
                 <div>
                   <button
