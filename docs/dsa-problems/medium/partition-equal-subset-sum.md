@@ -79,6 +79,7 @@ public:
             for (int j = target; j >= num; j--) {
                 dp[j] = dp[j] || dp[j - num];
             }
+            if (dp[target]) return true;
         }
         
         return dp[target];
