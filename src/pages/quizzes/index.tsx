@@ -84,7 +84,13 @@ function statusIcon(status: string) {
 
 // ─── Progress Dashboard ───────────────────────────────────────────────────────
 
-function ProgressDashboard({ globalStats, userId, loaded }) {
+interface ProgressDashboardProps {
+  globalStats: GlobalQuizStats;
+  userId: string | null;
+  loaded: boolean;
+}
+
+function ProgressDashboard({ globalStats, userId, loaded }: ProgressDashboardProps) {
   if (!loaded) return null;
 
   const progressPct = globalStats.totalQuizzes > 0
