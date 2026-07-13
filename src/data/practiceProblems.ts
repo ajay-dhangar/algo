@@ -4,6 +4,9 @@ export interface Problem {
   id: number;
   title: string;
   slug: string;
+  timeComplexity?: string;
+  spaceComplexity?: string;
+  category?: string;
 }
 
 export interface TopicData {
