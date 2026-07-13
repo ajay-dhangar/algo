@@ -9,7 +9,7 @@ import {
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import BrowserOnly from "@docusaurus/BrowserOnly";
-import { useQuizProgress } from "../../hooks/useQuizProgress";
+import { useQuizProgress, QuizStat, GlobalQuizStats } from "../../hooks/useQuizProgress";
 
 // ─── Quiz config ──────────────────────────────────────────────────────────────
 
