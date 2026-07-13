@@ -50,9 +50,10 @@ function inferComplexity(problem: Problem, topicName: string) {
 }
 
 function getProblemMeta(problem: Problem, topicName: string) {
-  const timeComplexity = normalizeComplexity(problem.timeComplexity) === "Other"
+  const normalizedTime = normalizeComplexity(problem.timeComplexity);
+  const timeComplexity = normalizedTime === "Other"
     ? inferComplexity(problem, topicName)
-    : normalizeComplexity(problem.timeComplexity);
+    : normalizedTime;
 
   return {
     timeComplexity,
