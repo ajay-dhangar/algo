@@ -249,7 +249,7 @@ const ProblemRow: React.FC<{
   const done = solved.has(key);
   const url  = `${LEETCODE_BASE}${problem.slug}/`;
   const cfg  = DIFFICULTY_CONFIG[difficulty];
-  const meta = getProblemMeta(problem, topic);
+  const meta = useMemo(() => getProblemMeta(problem, topic), [problem, topic]);
   const timeValue = meta.timeComplexity === "Other" ? "—" : meta.timeComplexity;
   const spaceValue = meta.spaceComplexity === "Other" ? "—" : meta.spaceComplexity;
 
