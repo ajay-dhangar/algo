@@ -91,7 +91,7 @@ function readAccounts(): StoredAccount[] {
   }
 
   try {
-    const raw = scope.sessionStorage.getItem(ACCOUNTS_KEY);
+    const raw = scope.localStorage.getItem(ACCOUNTS_KEY);
     if (!raw) {
       return [];
     }
@@ -108,7 +108,7 @@ function writeAccounts(accounts: StoredAccount[]) {
     return;
   }
 
-  scope.sessionStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
+  scope.localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(accounts));
 }
 
 function readSession(): AuthSession | null {
