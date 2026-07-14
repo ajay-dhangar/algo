@@ -36,7 +36,7 @@ export const algorithmsData: Algorithm[] = [
     name: "Dijkstra's Algorithm",
     category: "Graph",
     description: "Finds the shortest path from a source node to all other nodes in a weighted graph. It uses a priority queue to explore the graph, always expanding the node with the smallest known distance from the source. Dijkstra's Algorithm is efficient for graphs with non-negative edge weights and has a time complexity of O((V + E) log V) when implemented with a binary heap.",
-    timeComplexity: { best: "O(V²)", average: "O(V²)", worst: "O(V²)" },
+    timeComplexity: { best: "O((V + E) log V)", average: "O((V + E) log V)", worst: "O((V + E) log V)" },
     spaceComplexity: "O(V)",
     docLink: "/docs/graphs/dijkstra-algorithm",
   },
