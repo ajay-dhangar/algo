@@ -11,7 +11,7 @@ let audioCtx: AudioContext | null = null;
 function playTone(frequency: number, duration: number = 0.1) {
   if (typeof window === 'undefined') return;
   try {
-    if (!audioCtx) {
+    if (!audioCtx || audioCtx.state === 'closed') {
       audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
     }
     if (audioCtx.state === 'suspended') {
