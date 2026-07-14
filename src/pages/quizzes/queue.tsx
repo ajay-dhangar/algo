@@ -239,7 +239,7 @@ const QueueQuiz: React.FC = () => {
     const cleanName = usernameInput.trim();
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
-    setHistory(safeJsonParse<AttemptHistory[]>(`quiz_attempts_${cleanName}_queues`, []));
+    setHistory(safeJsonParse<AttemptHistory[]>("quiz_attempts_" + cleanName.toLowerCase() + "_queues", []));
   };
   const handleLogout = () => {
     localStorage.removeItem("quiz_username");
