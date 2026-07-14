@@ -1,8 +1,8 @@
 ---
 id: ezraft-and-array-2246b
-title: "ezraft and Array"
-sidebar_label: ezraft and Array
-description: "Solution for Codeforces 2246B: ezraft and Array, utilizing a greedy constructive approach."
+title: "Ezraft and Array"
+sidebar_label: Ezraft and Array
+description: "Solution for Codeforces 2246B: Ezraft and Array, utilizing a greedy constructive approach."
 tags: [Codeforces, constructive-algorithms, math]
 ---
 
