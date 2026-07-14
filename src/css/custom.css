@@ -643,3 +643,32 @@ html[data-theme='dark'] td .katex {
   size: letter; /* Options: A4, letter */
   margin: 1.5cm;
 }
+
+/* .tableOfContents_bqdL .thin-scrollbar .theme-doc-toc-desktop */
+/* .table-of-contents .table-of-contents__left-border */
+/* .table-of-contents_link */
+
+.theme-doc-toc-desktop {
+  padding: 2px;
+  background: linear-gradient(60deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
+  background-size: 300% 300%;
+  animation: borderRotate 4s linear infinite;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+  max-height: calc(100vh - var(--ifm-navbar-height) - 4rem);
+  overflow-y: auto;
+}
+
+.theme-doc-toc-desktop .table-of-contents {
+  background: var(--ifm-background-color, #fff);
+  padding: 16px;
+  border-radius: 9px;
+}
+
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
