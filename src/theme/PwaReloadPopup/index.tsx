@@ -1,4 +1,5 @@
 import React, { JSX } from 'react';
+import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export default function PwaReloadPopup({ onReload }: { onReload: () => void }): JSX.Element | null {
