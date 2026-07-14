@@ -103,10 +103,11 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
         }
       }
 
-      if (elementsToPlay.length > 0 && step.array) {
+      const { array } = step;
+      if (elementsToPlay.length > 0 && array) {
         const uniqueIndices = Array.from(new Set(elementsToPlay));
         uniqueIndices.forEach((idx) => {
-          const val = step.array![idx];
+          const val = array[idx];
           if (val !== undefined) {
             const freq = 200 + val * 12;
             playTone(freq, 0.15);
