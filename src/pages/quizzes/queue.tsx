@@ -263,7 +263,7 @@ const QueueQuiz: React.FC = () => {
       const newAttempt = { score, timeSpent, completedAt: new Date().toISOString() };
       const updatedHistory = [newAttempt, ...history].slice(0, 5);
       setHistory(updatedHistory);
-      localStorage.setItem(`quiz_attempts_${username}_queues`, JSON.stringify(updatedHistory));
+      localStorage.setItem("quiz_attempts_" + username?.toLowerCase() + "_queues", JSON.stringify(updatedHistory));
     }
   };
 
