@@ -219,7 +219,7 @@ const QueueQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
-      setHistory(safeJsonParse<AttemptHistory[]>(`quiz_attempts_${savedUser}_queues`, []));
+      setHistory(safeJsonParse<AttemptHistory[]>("quiz_attempts_" + savedUser.toLowerCase() + "_queues", []));
     }
   }, []);
 
