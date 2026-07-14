@@ -161,7 +161,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
-      setHistory(safeJsonParse<AttemptRecord[]>(`quiz_attempts_${savedUser}_red-black-trees`, []));
+      setHistory(safeJsonParse<AttemptRecord[]>("quiz_attempts_" + savedUser.toLowerCase() + "_red-black-trees", []));
     }
   }, []);
 
