@@ -1,9 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 
 import { AlgorithmType, Step } from './algorithms/types';
 import { generateBubbleSortSteps } from './algorithms/bubbleSort';
 import { generateBinarySearchSteps } from './algorithms/binarySearch';
 import { generateBfsSteps, generateDfsSteps } from './algorithms/graphSearch';
+
+let audioCtx: AudioContext | null = null;
+
+function playTone(frequency: number, duration: number = 0.1) {
+  if (typeof window === 'undefined') return;
+  try {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+    
+    // Smooth gain ramp to avoid clicking/popping
+    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+    
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+  } catch (e) {
+    console.error("Audio error:", e);
+  }
+}
 
 export interface AlgorithmVisualizerProps {
   algorithm: AlgorithmType;
@@ -14,6 +46,7 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(1000); // ms per step
+  const [isAudioEnabled, setIsAudioEnabled] = useState(false);
   const timerRef = useRef<any>(null);
 
   // Generate steps for the selected algorithm
@@ -43,6 +76,51 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [isPlaying, speed, currentStep, steps.length]);
+
+  // Play sound on step change if audio is enabled
+  useEffect(() => {
+    if (!isAudioEnabled || currentStep === 0) return;
+    const step = steps[currentStep];
+    if (!step) return;
+
+    if (algorithm === 'bubble-sort' || algorithm === 'binary-search') {
+      const highlights = step.highlights || {};
+      let elementsToPlay: number[] = [];
+
+      if (algorithm === 'bubble-sort') {
+        const comparedIdxs = highlights.compared || [];
+        const activeIdxs = highlights.active || [];
+        elementsToPlay = [...comparedIdxs, ...activeIdxs];
+      } else if (algorithm === 'binary-search') {
+        if (highlights.mid !== undefined) {
+          elementsToPlay.push(highlights.mid);
+        }
+        if (highlights.low !== undefined) {
+          elementsToPlay.push(highlights.low);
+        }
+        if (highlights.high !== undefined) {
+          elementsToPlay.push(highlights.high);
+        }
+      }
+
+      if (elementsToPlay.length > 0 && step.array) {
+        const uniqueIndices = Array.from(new Set(elementsToPlay));
+        uniqueIndices.forEach((idx) => {
+          const val = step.array![idx];
+          if (val !== undefined) {
+            const freq = 200 + val * 12;
+            playTone(freq, 0.15);
+          }
+        });
+      }
+    } else if (algorithm === 'bfs' || algorithm === 'dfs') {
+      const activeNode = step.graphState?.activeNode;
+      if (activeNode !== undefined && activeNode !== null) {
+        const freq = 300 + activeNode * 100;
+        playTone(freq, 0.2);
+      }
+    }
+  }, [currentStep, isAudioEnabled, algorithm, steps]);
 
   const generateSteps = () => {
     setIsPlaying(false);
@@ -98,12 +176,22 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
         <h3 style={{ margin: 0, textTransform: 'capitalize' }}>
           {algorithm.replace('-', ' ')} Visualizer
         </h3>
-        <button
-          onClick={handleReset}
-          className="button button--secondary button--sm"
-        >
-          Reset
-        </button>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <button
+            onClick={() => setIsAudioEnabled(!isAudioEnabled)}
+            className={`button button--sm ${isAudioEnabled ? 'button--primary' : 'button--outline button--secondary'}`}
+            style={{ display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            {isAudioEnabled ? <FaVolumeUp /> : <FaVolumeMute />}
+            {isAudioEnabled ? 'Audio On' : 'Audio Off'}
+          </button>
+          <button
+            onClick={handleReset}
+            className="button button--secondary button--sm"
+          >
+            Reset
+          </button>
+        </div>
       </div>
 
       {/* Main visualization area */}
@@ -134,10 +222,6 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
                 } else if (highlights.sorted?.includes(idx)) {
                   bgColor = 'var(--ifm-color-success)';
                 }
-              } else if (algorithm === 'binary-search') {
-                const low = highlights.low;
-                const high = highlights.high;
-                const mid = highlights.mid;
               } else if (algorithm === 'binary-search') {
                 const hasRange = highlights.low !== undefined && highlights.high !== undefined;
                 if (highlights.mid === idx) {
