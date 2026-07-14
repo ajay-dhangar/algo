@@ -29,7 +29,7 @@ If there are multiple solutions, print any of them.
 <LiteYouTubeEmbed
   id="rTcYFlk4X3s"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Codeforces 2246B: ezraft and Array (Div 2)"
+  title="Codeforces 2246B: Ezraft and Array (Div 2)"
   poster="maxresdefault"
   webp
 />
