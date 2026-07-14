@@ -27,9 +27,9 @@ interface RBTQuestion {
 }
 
 interface AttemptRecord {
-  timestamp: number;
   score: number;
   timeSpent: number;
+  completedAt: string;
 }
 
 const QUESTIONS: RBTQuestion[] = [
@@ -161,7 +161,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
-      setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${savedUser}`, []));
+      setHistory(safeJsonParse<AttemptRecord[]>("quiz_attempts_" + savedUser.toLowerCase() + "_red-black-trees", []));
     }
   }, []);
 
@@ -182,7 +182,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const cleanName = usernameInput.trim();
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
-    setHistory(safeJsonParse<AttemptRecord[]>(`rbt_history_${cleanName}`, []));
+    setHistory(safeJsonParse<AttemptRecord[]>("quiz_attempts_" + cleanName.toLowerCase() + "_red-black-trees", []));
   };
   const handleLogout = () => {
     localStorage.removeItem("quiz_username");
@@ -203,10 +203,10 @@ const RedBlackTreeQuiz: React.FC = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResult(true);
-      const newAttempt = { timestamp: Date.now(), score, timeSpent };
+      const newAttempt = { score, timeSpent, completedAt: new Date().toISOString() };
       const updatedHistory = [newAttempt, ...history].slice(0, 5);
       setHistory(updatedHistory);
-      localStorage.setItem(`rbt_history_${username}`, JSON.stringify(updatedHistory));
+      localStorage.setItem("quiz_attempts_" + username?.toLowerCase() + "_red-black-trees", JSON.stringify(updatedHistory));
     }
   };
 

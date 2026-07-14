@@ -26,10 +26,9 @@ interface Question {
 }
 
 interface LocalAttempt {
-  timestamp: number;
-  answers: string[];
   score: number;
   timeSpent: number;
+  completedAt: string;
 }
 
 const QUESTIONS: Question[] = [
@@ -161,7 +160,7 @@ const StackQuiz: React.FC = () => {
     const storedUser = localStorage.getItem("quiz_username");
     if (storedUser) {
       setUsername(storedUser);
-      const historyKey = `algo_quiz_history_${storedUser.toLowerCase()}`;
+      const historyKey = `quiz_attempts_${storedUser.toLowerCase()}_stacks`;
       setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
     }
   }, []);
@@ -191,7 +190,7 @@ const StackQuiz: React.FC = () => {
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
 
-    const historyKey = `algo_quiz_history_${cleanName.toLowerCase()}`;
+    const historyKey = `quiz_attempts_${cleanName.toLowerCase()}_stacks`;
     setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
   };
 
@@ -220,15 +219,14 @@ const StackQuiz: React.FC = () => {
       // Persist results locally
       if (username) {
         const newAttempt: LocalAttempt = {
-          timestamp: Date.now(),
-          answers: userAnswers,
           score: score,
-          timeSpent: timeSpent
+          timeSpent: timeSpent,
+          completedAt: new Date().toISOString()
         };
         const updatedHistory = [newAttempt, ...localHistory].slice(0, 5);
         setLocalHistory(updatedHistory);
         localStorage.setItem(
-          "algo_quiz_history_" + username.toLowerCase(),
+          `quiz_attempts_${username.toLowerCase()}_stacks`,
           JSON.stringify(updatedHistory)
         );
       }
