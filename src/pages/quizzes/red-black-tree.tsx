@@ -182,7 +182,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const cleanName = usernameInput.trim();
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
-    setHistory(safeJsonParse<AttemptRecord[]>(`quiz_attempts_${cleanName}_red-black-trees`, []));
+    setHistory(safeJsonParse<AttemptRecord[]>("quiz_attempts_" + cleanName.toLowerCase() + "_red-black-trees", []));
   };
   const handleLogout = () => {
     localStorage.removeItem("quiz_username");
