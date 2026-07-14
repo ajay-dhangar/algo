@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
+import Translate from '@docusaurus/Translate';
 
 import { AlgorithmType, Step } from './algorithms/types';
 import { generateBubbleSortSteps } from './algorithms/bubbleSort';
