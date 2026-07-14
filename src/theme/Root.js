@@ -4,8 +4,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import KeyboardShortcutsModal from "../components/KeyboardShortcutsModal";
 import ChallengeSearchModal from "../components/ChallengeSearchModal";
 import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
-import BottomToTop from "../components/Scroller/BottomToTop/BottomToTop";
-import TopToBottom from "../components/Scroller/TopToBottom/TopToBottom";
 import PageProgressIndicator from "../components/PageProgressIndicator";
 import SidebarUpdater from '../components/ProgressTracker/SidebarUpdater';
 import { AuthProvider } from "../contexts/AuthContext";
@@ -16,12 +14,10 @@ export default function Root({ children }) {
   const isHomepage = location.pathname === siteConfig.baseUrl;
   const isDocsPage = location.pathname.includes("/docs/");
  
-  // Keyboard shortcuts modal
   const onOpenHelp  = useCallback(() => setShowKeyboardModal(true), []);
   const onCloseHelp = useCallback(() => setShowKeyboardModal(false), []);
   const [showKeyboardModal, setShowKeyboardModal] = useState(false);
  
-  // Challenge search modal
   const onOpenSearch  = useCallback(() => setShowChallengeSearch(true), []);
   const onCloseSearch = useCallback(() => setShowChallengeSearch(false), []);
   const [showChallengeSearch, setShowChallengeSearch] = useState(false);
@@ -46,8 +42,6 @@ export default function Root({ children }) {
           isOpen={showChallengeSearch}
           onClose={onCloseSearch}
         />
-        {!isHomepage && <BottomToTop />}
-        {!isHomepage && <TopToBottom />}
       </AuthProvider>
     </>
   );

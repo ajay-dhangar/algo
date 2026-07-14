@@ -23,6 +23,7 @@ import Ads from "@site/src/components/AdsComponent/Ads";
 import EdgeCases from "@site/src/components/EdgeCases";
 import Link from "@docusaurus/Link";
 import RelatedTopics from '@site/src/components/RelatedTopics';
+import DocCardList from '@theme/DocCardList';
 
 export default {
   // Re-use the default mapping
@@ -44,6 +45,7 @@ export default {
   ShellSortVisualization,
 //   Image,
   LiteYouTubeEmbed,
+  DocCardList,
 //   LinearSearchVisualizer,
   AdsComponent,
   GiscusComponent,
