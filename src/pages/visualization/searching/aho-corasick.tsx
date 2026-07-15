@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import AhoCorasickVisualizer from "../../../components/Visualizing/AhoCorasickVisualizer";
+import { AhoCorasickVisualizer } from "../../../components/Visualizing/AhoCorasickVisualizer";
 import { ArrowLeft, Network, Spline, Zap } from "lucide-react";
 
 export default function AhoCorasickVisualizerPage() {
