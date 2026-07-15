@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import TrieVisualizer from "../../../components/Visualizing/TrieVisualizer";
+import { TrieVisualizer } from "../../../components/Visualizing/TrieVisualizer";
 import { ArrowLeft, Type, Search, Zap } from "lucide-react";
 
 export default function TrieVisualizerPage() {
