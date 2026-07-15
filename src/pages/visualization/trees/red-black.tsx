@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import RedBlackTreeVisualizer from "../../../components/Visualizing/RedBlackTreeVisualizer";
+import { RedBlackTreeVisualizer } from "../../../components/Visualizing/RedBlackTreeVisualizer";
 import { ArrowLeft, GitFork, RotateCw, Shield } from "lucide-react";
 
 export default function RedBlackTreeVisualizerPage() {
