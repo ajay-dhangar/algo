@@ -1,91 +1,116 @@
-import React from 'react';
-import Layout from '@theme/Layout';
-import GraphVisualizer from '../../../components/Visualizing/GraphVisualizer';
-import 'katex/dist/katex.min.css';
-import { InlineMath } from 'react-katex';
+import React from "react";
+import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
+import { ArrowLeft, Share2, Map, RefreshCw, Cpu } from "lucide-react";
 
-export default function GraphVisualizerPage() {
+type GraphEntry = {
+  title: string;
+  description: string;
+  to: string;
+  Icon: React.ComponentType<{ className?: string }>;
+  accent: string;
+  badge: string;
+};
+
+const entries: GraphEntry[] = [
+  {
+    title: "Graph Traversal (BFS / DFS)",
+    description: "Breadth-First and Depth-First traversals on interactive graphs. Track frontiers and visited sets in real time.",
+    to: "/visualization/graphs/bfs-dfs",
+    Icon: Share2,
+    accent: "from-sky-500 to-blue-400",
+    badge: "bg-sky-500/10 text-sky-600 dark:text-sky-300 border-sky-500/20",
+  },
+  {
+    title: "A* Pathfinding",
+    description: "Heuristic grid pathfinder combining g + h costs. Draw walls and watch the frontier expand toward the goal.",
+    to: "/visualization/graphs/a-star",
+    Icon: Map,
+    accent: "from-indigo-500 to-sky-400",
+    badge: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 border-indigo-500/20",
+  },
+  {
+    title: "Bellman-Ford",
+    description: "Shortest paths with negative-weight edges via repeated edge relaxation. Detects negative cycles automatically.",
+    to: "/visualization/graphs/bellman-ford",
+    Icon: RefreshCw,
+    accent: "from-orange-500 to-red-400",
+    badge: "bg-orange-500/10 text-orange-600 dark:text-orange-300 border-orange-500/20",
+  },
+  {
+    title: "Dijkstra",
+    description: "Greedy shortest-path algorithm on non-negative weighted graphs using a priority queue.",
+    to: "/visualization/graphs/dijkstra",
+    Icon: Cpu,
+    accent: "from-teal-500 to-emerald-400",
+    badge: "bg-teal-500/10 text-teal-600 dark:text-teal-300 border-teal-500/20",
+  },
+];
+
+export default function GraphsVisualizationHub() {
   return (
-    <Layout 
-      title="Graph Algorithms Visualizer" 
-      description="Interactive Graph Algorithms Visualizer demonstrating BFS, DFS, and traversal mechanics step-by-step."
+    <Layout
+      title="Graph & Pathfinding Visualizers"
+      description="Explore BFS, DFS, A*, Bellman-Ford, and Dijkstra through live interactive visualizations."
     >
-      <main className="container margin-vert--xl" style={{ maxWidth: '1280px' }}>
-        
-        {/* Header Section */}
-        <header style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-          <h1 style={{ fontWeight: '800', fontSize: '2.75rem', marginBottom: '0.5rem' }}>
-            Graph Algorithms Visualizer
+      <header className="relative border-b border-[var(--ifm-toc-border-color)] overflow-hidden bg-[var(--ifm-background-surface-color)]">
+        <div
+          className="absolute inset-0 opacity-[0.25] dark:opacity-[0.1]"
+          style={{
+            backgroundImage: `linear-gradient(to right, var(--ifm-toc-border-color) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--ifm-toc-border-color) 1px, transparent 1px)`,
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="container py-14 px-4 md:py-20 text-center flex flex-col items-center relative z-10">
+          <Link
+            to="/visualization"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--ifm-color-emphasis-600)] hover:text-[var(--ifm-color-primary)] no-underline hover:no-underline mb-5 transition-colors"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" /> Back to Hub
+          </Link>
+          <span className="inline-flex items-center gap-1.5 bg-sky-500/10 text-sky-600 dark:text-sky-300 px-3 py-1 rounded-full font-bold text-xs mb-4 border border-sky-500/20">
+            <Share2 className="h-3.5 w-3.5" /> Graph & Pathfinding
+          </span>
+          <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-4 text-[var(--ifm-heading-color)]">
+            Graph <span className="text-[var(--ifm-color-primary)]">Visualizers</span>
           </h1>
-          <p style={{ color: 'var(--ifm-color-emphasis-700)', fontSize: '1.15rem', maxWidth: '800px', margin: '0 auto' }}>
-            Watch Breadth-First Search (BFS) and Depth-First Search (DFS) traverse the graph step-by-step. 
-            Track frontiers, visited sets, and traversal trees in real-time.
+          <p className="text-base md:text-lg text-[var(--ifm-color-emphasis-700)] max-w-2xl m-0 leading-relaxed">
+            Navigate complex graphs and grids with live pathfinding sandboxes. Select an algorithm below to launch its interactive engine.
           </p>
-        </header>
+        </div>
+      </header>
 
-        <section>
-          <GraphVisualizer />
-        </section>
-
-        <hr style={{ backgroundColor: 'var(--ifm-hr-border-color)', height: '1px', border: 'none', margin: '3rem 0' }} />
-
-        {/* Educational Info Section */}
-        <section style={{margin: '0 auto', lineHeight: '1.6' }}>
-          <h2 style={{ fontSize: '1.8rem', fontWeight: '700', marginBottom: '1rem' }}>
-            Understanding Graph Traversals
-          </h2>
-          <p>
-            A graph is mathematically represented as <InlineMath math="G = (V, E)" />, where <InlineMath math="V" /> is the set of vertices (nodes) and <InlineMath math="E" /> is the set of edges connecting them. Searching or traversing a graph means visiting every node exactly once in a systematic order.
-          </p>
-
-          <h3 style={{ fontSize: '1.4rem', fontWeight: '600', marginTop: '2rem', marginBottom: '0.75rem' }}>
-            Core Traversal Strategies
-          </h3>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-            {/* BFS Card */}
-            <div style={{ padding: '1.25rem', border: '1px solid var(--ifm-color-emphasis-300)', borderRadius: '8px', backgroundColor: 'var(--ifm-background-color)' }}>
-              <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--ifm-color-primary)' }}>
-                Breadth-First Search (BFS)
-              </h4>
-              <p style={{ margin: '0 0 1rem 0', fontSize: '0.95rem' }}>
-                Explores the graph level-by-level, visiting all immediate neighbors before moving deeper.
-              </p>
-              <ul style={{ paddingLeft: '1.2rem', fontSize: '0.9rem', margin: 0 }}>
-                <li><strong>Data Structure:</strong> Queue (FIFO)</li>
-                <li><strong>Time Complexity:</strong> <InlineMath math="O(|V| + |E|)" /></li>
-                <li><strong>Use Case:</strong> Finding the shortest path on unweighted graphs.</li>
-              </ul>
-            </div>
-
-            {/* DFS Card */}
-            <div style={{ padding: '1.25rem', border: '1px solid var(--ifm-color-emphasis-300)', borderRadius: '8px', backgroundColor: 'var(--ifm-background-color)' }}>
-              <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--ifm-color-primary)' }}>
-                Depth-First Search (DFS)
-              </h4>
-              <p style={{ margin: '0 0 1rem 0', fontSize: '0.95rem' }}>
-                Explores as deep as possible along each branch before backtracking to explore side options.
-              </p>
-              <ul style={{ paddingLeft: '1.2rem', fontSize: '0.9rem', margin: 0 }}>
-                <li><strong>Data Structure:</strong> Stack (LIFO) or Recursion</li>
-                <li><strong>Time Complexity:</strong> <InlineMath math="O(|V| + |E|)" /></li>
-                <li><strong>Use Case:</strong> Topological sorting, cycle detection, and maze solving.</li>
-              </ul>
-            </div>
-          </div>
-
-          <h3 style={{ fontSize: '1.4rem', fontWeight: '600', marginBottom: '0.75rem' }}>
-            How to Analyze the Visualizer
-          </h3>
-          <ol style={{ paddingLeft: '1.5rem' }}>
-            <li style={{ marginBottom: "0.5rem" }}>
-              <strong>Observe the State Colors:</strong> Nodes typically change state from <em>Unvisited</em> to <em>Discovered</em> (currently in the queue/stack frontier), and finally to <em>Processed</em>.
-            </li>
-            <li style={{ marginBottom: "0.5rem" }}>
-              <strong>Track the Tree Edges:</strong> Notice how the algorithm dynamically highlights the exact edges that form the final traversal tree.
-            </li>
-          </ol>
-        </section>
+      <main className="container margin-vert--xl px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {entries.map((entry) => {
+            const EntryIcon = entry.Icon;
+            return (
+              <Link
+                key={entry.to}
+                to={entry.to}
+                className="group flex flex-col gap-4 p-6 rounded-2xl border border-[var(--ifm-toc-border-color)] bg-[var(--ifm-background-surface-color)] hover:border-[var(--ifm-color-primary-light)] transition-all duration-200 no-underline hover:no-underline shadow-sm hover:shadow-md"
+              >
+                <div className="flex items-start justify-between">
+                  <div className={`p-2.5 rounded-xl bg-gradient-to-br ${entry.accent} bg-opacity-10 text-white`}>
+                    <EntryIcon className="w-5 h-5" />
+                  </div>
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${entry.badge}`}>
+                    Live
+                  </span>
+                </div>
+                <div>
+                  <h2 className="text-base font-bold m-0 text-[var(--ifm-heading-color)] group-hover:text-[var(--ifm-color-primary)] transition-colors">
+                    {entry.title}
+                  </h2>
+                  <p className="text-sm text-[var(--ifm-color-emphasis-600)] mt-1 m-0 leading-relaxed">
+                    {entry.description}
+                  </p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </main>
     </Layout>
   );
