@@ -51,6 +51,12 @@ export interface AchievementSnapshot {
   completedTitles: string[];
   streak: number;
   lastActiveAt: string | null;
+  /** Number of quizzes where best score >= 70% */
+  quizzesPassed: number;
+  /** Number of quizzes where best score >= 90% */
+  quizzesMastered: number;
+  /** Total quiz IDs found in localStorage */
+  totalQuizzesAttempted: number;
 }
 
 export function safeJsonParse<T>(key: string, fallback: T): T {
@@ -136,6 +142,69 @@ function computeStreak(progress: AlgoProgressData): number {
   return streak;
 }
 
+/** All known quiz IDs — must stay in sync with QUIZZES_CONFIG in quizzes/index.tsx */
+const ALL_QUIZ_IDS = [
+  'arrays', 'stacks', 'queues', 'linked-lists', 'deques', 'priority-queues',
+  'linear-search', 'sorting', 'recursion', 'binary-trees', 'bst', 'graphs',
+  'avl-trees', 'red-black-trees', 'b-trees', 'bplus-trees', 'isam',
+  'hash-indexing', 'external-hashing',
+];
+
+const QUIZ_QUESTION_COUNTS: Record<string, number> = {
+  arrays: 10, stacks: 8, queues: 16, 'linked-lists': 12, deques: 12,
+  'priority-queues': 12, 'linear-search': 12, sorting: 12, recursion: 12,
+  'binary-trees': 12, bst: 10, graphs: 12, 'avl-trees': 8,
+  'red-black-trees': 8, 'b-trees': 10, 'bplus-trees': 12, isam: 12,
+  'hash-indexing': 12, 'external-hashing': 12,
+};
+
+interface QuizAttemptRecord {
+  score: number;
+  totalQuestions?: number;
+  completedAt?: string;
+}
+
+function computeQuizStats(): { passed: number; mastered: number; attempted: number } {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return { passed: 0, mastered: 0, attempted: 0 };
+  }
+
+  const uid =
+    localStorage.getItem('quiz_userId') ||
+    localStorage.getItem('quiz_username') ||
+    null;
+
+  let passed = 0;
+  let mastered = 0;
+  let attempted = 0;
+
+  // Try both uid-based and username-based keys to cover all quiz pages
+  const prefixes = uid ? [uid, uid.toLowerCase()] : [];
+
+  // Also scan all localStorage keys that match the quiz_attempts_ pattern
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key || !key.startsWith('quiz_attempts_')) continue;
+
+    const attempts = safeJsonParse<QuizAttemptRecord[]>(key, []);
+    if (!Array.isArray(attempts) || attempts.length === 0) continue;
+
+    // Extract quiz id from key: quiz_attempts_<uid>_<quizId>
+    const parts = key.replace('quiz_attempts_', '').split('_');
+    const quizId = parts.slice(1).join('_') || parts[0];
+    const total = QUIZ_QUESTION_COUNTS[quizId] ?? 10;
+
+    const bestScore = Math.max(...attempts.map((a) => (typeof a.score === 'number' ? a.score : 0)));
+    const bestPercent = Math.round((bestScore / total) * 100);
+
+    attempted++;
+    if (bestPercent >= 70) passed++;
+    if (bestPercent >= 90) mastered++;
+  }
+
+  return { passed, mastered, attempted };
+}
+
 export function getAchievementSnapshot(progress: AlgoProgressData = readAlgoProgress()): AchievementSnapshot {
   const completedTopics = Object.entries(progress)
     .filter(([key, value]) => typeof value === 'boolean' && value === true && !key.endsWith('_title') && !key.endsWith('_updatedAt'))
@@ -148,11 +217,17 @@ export function getAchievementSnapshot(progress: AlgoProgressData = readAlgoProg
   const streak = computeStreak(progress);
   const lastActiveAt = typeof progress.lastActiveAt === 'string' ? progress.lastActiveAt : null;
 
+  const quizStats = computeQuizStats();
+
   return {
     completedCount: completedTopics.length,
     completedTopics,
     completedTitles,
     streak,
     lastActiveAt,
+    quizzesPassed: quizStats.passed,
+    quizzesMastered: quizStats.mastered,
+    totalQuizzesAttempted: quizStats.attempted,
   };
 }
+
