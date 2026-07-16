@@ -225,7 +225,7 @@ We search for the target value `23` in the array.
 - **Search Space**: Index `0` to `9` (entire array).
 - **Pointers**: `low = 0`, `high = 9`
 - **Midpoint Calculation**:
-  $$\text{mid} = \text{low} + \frac{\text{high} - \text{low}}{2} = 0 + \frac{9 - 0}{2} = 4$$
+  $\text{mid} = \text{low} + \frac{\text{high} - \text{low}}{2} = 0 + \frac{9 - 0}{2} = 4$
 - **Middle Element**: `arr[mid] = arr[4] = 16`
 - **Visual Representation**:
   ```text
