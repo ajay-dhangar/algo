@@ -36,6 +36,7 @@ export default function TreeChallengeLayout({ challenge }: Props) {
       <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] flex flex-col">
         {/* Navigation Info Bar */}
         <ChallengeHeader 
+          id={challenge.id}
           title={challenge.title} 
           difficulty={challenge.difficulty} 
           timeLimit={challenge.timeLimit} 
