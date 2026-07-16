@@ -67,7 +67,7 @@ export default function TreeChallengeLayout({ challenge }: Props) {
               {activeTab === "problem" ? (
                 <ProblemTab challenge={challenge} />
               ) : (
-                <SolutionTab hint={challenge.hint} solution={challenge.solution} />
+                <SolutionTab hint={challenge.hint} solution={challenge.solution} userCode={code} />
               )}
             </div>
           </div>
