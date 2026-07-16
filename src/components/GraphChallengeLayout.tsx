@@ -589,7 +589,7 @@ export default function GraphChallengeLayout({ challenge }: Props) {
 
             {/* ── Solution tab ── */}
             {activeTab === "solution" && (
-              <div className="p-6 space-y-4 flex-1 flex flex-col overflow-y-auto">
+              <div className="p-6 space-y-4 flex-1 flex flex-col overflow-hidden">
                 <div className="flex items-center justify-between shrink-0">
                   <h2 className="text-lg font-black text-slate-900 dark:text-white m-0">Solution</h2>
                   <button
