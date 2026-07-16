@@ -589,8 +589,8 @@ export default function GraphChallengeLayout({ challenge }: Props) {
 
             {/* ── Solution tab ── */}
             {activeTab === "solution" && (
-              <div className="p-6 space-y-4 flex-1 overflow-y-auto">
-                <div className="flex items-center justify-between">
+              <div className="p-6 space-y-4 flex-1 flex flex-col overflow-y-auto">
+                <div className="flex items-center justify-between shrink-0">
                   <h2 className="text-lg font-black text-slate-900 dark:text-white m-0">Solution</h2>
                   <button
                     onClick={() => setShowSolution(v => !v)}
@@ -600,14 +600,39 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                   </button>
                 </div>
                 {showSolution ? (
-                  <>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">{challenge.hint}</p>
-                    <pre className="bg-slate-950 rounded-xl p-4 text-emerald-400 text-xs overflow-x-auto leading-relaxed whitespace-pre-wrap">
-                      {challenge.solution}
-                    </pre>
-                  </>
+                  <div className="flex-1 flex flex-col overflow-hidden min-h-[500px]">
+                    <p className="text-sm text-slate-600 dark:text-slate-400 shrink-0">{challenge.hint}</p>
+                    <div className="flex-1 mt-2 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 flex flex-col">
+                      <div className="bg-slate-900 px-4 py-2 flex items-center justify-between border-b border-slate-800 shrink-0">
+                        <span className="text-xs font-mono text-slate-400">Your Code (Left) vs Solution (Right)</span>
+                      </div>
+                      <div className="flex-1 relative">
+                        <BrowserOnly fallback={<div className="p-4 text-slate-400 text-xs font-mono">Loading diff editor...</div>}>
+                          {() => {
+                            const { DiffEditor } = require("@monaco-editor/react");
+                            return (
+                              <DiffEditor
+                                original={code || ""}
+                                modified={challenge.solution}
+                                language="javascript"
+                                theme="vs-dark"
+                                options={{
+                                  readOnly: true,
+                                  minimap: { enabled: false },
+                                  fontSize: 13,
+                                  renderSideBySide: true,
+                                  scrollBeyondLastLine: false,
+                                  automaticLayout: true,
+                                }}
+                              />
+                            );
+                          }}
+                        </BrowserOnly>
+                      </div>
+                    </div>
+                  </div>
                 ) : (
-                  <div className="text-center py-16 text-slate-400 text-sm font-mono">
+                  <div className="text-center py-16 text-slate-400 text-sm font-mono shrink-0">
                     Click "Reveal" to see the solution after attempting the problem.
                   </div>
                 )}
