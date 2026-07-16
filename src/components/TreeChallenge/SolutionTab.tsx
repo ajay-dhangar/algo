@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import BrowserOnly from "@docusaurus/BrowserOnly";
+import { DiffEditor } from "@monaco-editor/react";
 
 interface SolutionTabProps {
   hint: string;
