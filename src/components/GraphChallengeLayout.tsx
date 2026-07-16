@@ -6,7 +6,7 @@ import Layout from "@theme/Layout";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import Link from "@docusaurus/Link";
 import {
-  FaArrowLeft, FaLightbulb, FaPlay,
+  FaArrowLeft, FaLightbulb, FaPlay, FaCheck,
   FaEye, FaEyeSlash, FaClock, FaChevronRight,
   FaProjectDiagram,
 } from "react-icons/fa";
@@ -441,7 +441,20 @@ export default function GraphChallengeLayout({ challenge }: Props) {
           <span className="text-slate-700 dark:text-slate-300 text-sm font-mono font-bold truncate">
             {challenge.title}
           </span>
-          <span className={`ml-auto px-3 py-1 rounded-full text-xs font-bold border ${DIFF_COLORS[challenge.difficulty]}`}>
+<button
+  onClick={() => {
+    const progress = readAlgoProgress();
+    progress[challenge.id] = true;
+    progress[`${challenge.id}_title`] = challenge.title;
+    progress[`${challenge.id}_updatedAt`] = new Date().toISOString();
+    writeAlgoProgress(progress);
+    alert("Marked as solved!");
+  }}
+  className="ml-auto flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"
+>
+  <FaCheck /> Mark as Solved ✅
+</button>
+          <span className={`px-3 py-1 rounded-full text-xs font-bold border ${DIFF_COLORS[challenge.difficulty]}`}>
             {challenge.difficulty}
           </span>
           <span className="flex items-center gap-1.5 text-xs font-mono text-slate-400">
