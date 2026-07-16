@@ -204,6 +204,156 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+### Dry Run Examples
+
+We will walk through two detailed dry run examples using the following sample sorted array:
+
+```text
+Indices:   0   1   2   3   4   5   6   7   8   9
+Array:   [ 2,  5,  8, 12, 16, 23, 38, 56, 72, 91 ]
+```
+
+---
+
+#### Example 1: Target Element Exists (Target = 23)
+
+We search for the target value `23` in the array.
+
+##### **Step-by-Step Execution**
+
+###### **Iteration 1**
+- **Search Space**: Index `0` to `9` (entire array).
+- **Pointers**: `low = 0`, `high = 9`
+- **Midpoint Calculation**:
+  $\text{mid} = \text{low} + \frac{\text{high} - \text{low}}{2} = 0 + \frac{9 - 0}{2} = 4$
+- **Middle Element**: `arr[mid] = arr[4] = 16`
+- **Visual Representation**:
+  ```text
+  Indices:    0   1   2   3  [4]   5   6   7   8   9
+  Array:    [ 2,  5,  8, 12,  16, 23, 38, 56, 72, 91 ]
+              ^                ^                   ^
+             low              mid                 high
+  ```
+- **Comparison & Decision**:
+  - `arr[mid]` ($16$) is **less than** target ($23$).
+  - Since the array is sorted, the target must reside in the right half of the current search space.
+  - We discard the left half by updating: `low = mid + 1 = 5`.
+
+###### **Iteration 2**
+- **Search Space**: Index `5` to `9`.
+- **Pointers**: `low = 5`, `high = 9`
+- **Midpoint Calculation**:
+  $$\text{mid} = 5 + \frac{9 - 5}{2} = 7$$
+- **Middle Element**: `arr[mid] = arr[7] = 56`
+- **Visual Representation**:
+  ```text
+  Indices:    0   1   2   3   4   5   6  [7]   8   9
+  Array:    [ -   -   -   -   -  23, 38,  56, 72, 91 ]
+                                 ^       ^       ^
+                                low     mid     high
+  ```
+- **Comparison & Decision**:
+  - `arr[mid]` ($56$) is **greater than** target ($23$).
+  - The target must reside in the left half of the remaining search space.
+  - We discard the right half by updating: `high = mid - 1 = 6`.
+
+###### **Iteration 3**
+- **Search Space**: Index `5` to `6`.
+- **Pointers**: `low = 5`, `high = 6`
+- **Midpoint Calculation**:
+  $$\text{mid} = 5 + \frac{6 - 5}{2} = 5$$
+- **Middle Element**: `arr[mid] = arr[5] = 23`
+- **Visual Representation**:
+  ```text
+  Indices:    0   1   2   3   4  [5]   6   7   8   9
+  Array:    [ -   -   -   -   -  23, 38,  -   -   -  ]
+                                 ^   ^
+                             low,mid high
+  ```
+- **Comparison & Decision**:
+  - `arr[mid]` ($23$) is **equal to** target ($23$).
+  - Target is found! We return index `5`.
+
+##### **Summary of Execution (Success Case)**
+
+| Iteration | Low | High | Mid | Mid Value (`arr[mid]`) | Comparison | Action taken |
+| :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **1** | 0 | 9 | 4 | 16 | `16 < 23` | Target is larger. Search right half: `low = mid + 1 = 5` |
+| **2** | 5 | 9 | 7 | 56 | `56 > 23` | Target is smaller. Search left half: `high = mid - 1 = 6` |
+| **3** | 5 | 6 | 5 | 23 | `23 == 23` | **Target found at index 5!** |
+
+---
+
+#### Example 2: Target Element Does Not Exist (Target = 10)
+
+We search for the target value `10` in the same array.
+
+##### **Step-by-Step Execution**
+
+###### **Iteration 1**
+- **Pointers**: `low = 0`, `high = 9`
+- **Midpoint**: `mid = 4`, `arr[mid] = 16`
+- **Visual**:
+  ```text
+  Indices:    0   1   2   3  [4]   5   6   7   8   9
+  Array:    [ 2,  5,  8, 12,  16, 23, 38, 56, 72, 91 ]
+              ^                ^                   ^
+             low              mid                 high
+  ```
+- **Comparison**: `16 > 10`. Target is smaller, so search left half: `high = mid - 1 = 3`.
+
+###### **Iteration 2**
+- **Pointers**: `low = 0`, `high = 3`
+- **Midpoint**: `mid = 0 + (3 - 0) / 2 = 1`, `arr[mid] = arr[1] = 5`
+- **Visual**:
+  ```text
+  Indices:    0  [1]   2   3   4   5   6   7   8   9
+  Array:    [ 2,  5,  8, 12,  -   -   -   -   -   -  ]
+              ^    ^       ^
+             low  mid     high
+  ```
+- **Comparison**: `5 < 10`. Target is larger, so search right half: `low = mid + 1 = 2`.
+
+###### **Iteration 3**
+- **Pointers**: `low = 2`, `high = 3`
+- **Midpoint**: `mid = 2 + (3 - 2) / 2 = 2`, `arr[mid] = arr[2] = 8`
+- **Visual**:
+  ```text
+  Indices:    0   1  [2]   3   4   5   6   7   8   9
+  Array:    [ -   -   8, 12,  -   -   -   -   -   -  ]
+                      ^    ^
+                  low,mid high
+  ```
+- **Comparison**: `8 < 10`. Target is larger, so search right half: `low = mid + 1 = 3`.
+
+###### **Iteration 4**
+- **Pointers**: `low = 3`, `high = 3`
+- **Midpoint**: `mid = 3`, `arr[mid] = arr[3] = 12`
+- **Visual**:
+  ```text
+  Indices:    0   1   2  [3]   4   5   6   7   8   9
+  Array:    [ -   -   -  12,  -   -   -   -   -   -  ]
+                          ^
+                     low,mid,high
+  ```
+- **Comparison**: `12 > 10`. Target is smaller, so search left half: `high = mid - 1 = 2`.
+
+##### **Termination**
+- **State**: `low = 3`, `high = 2`.
+- Since `low > high`, the search space has collapsed completely, meaning the target element `10` is not present in the array.
+
+##### **Summary of Execution (Failure Case)**
+
+| Iteration | Low | High | Mid | Mid Value (`arr[mid]`) | Comparison | Action taken |
+| :---: | :---: | :---: | :---: | :---: | :---: | :--- |
+| **1** | 0 | 9 | 4 | 16 | `16 > 10` | Target is smaller. Search left half: `high = mid - 1 = 3` |
+| **2** | 0 | 3 | 1 | 5 | `5 < 10` | Target is larger. Search right half: `low = mid + 1 = 2` |
+| **3** | 2 | 3 | 2 | 8 | `8 < 10` | Target is larger. Search right half: `low = mid + 1 = 3` |
+| **4** | 3 | 3 | 3 | 12 | `12 > 10` | Target is smaller. Search left half: `high = mid - 1 = 2` |
+| **End** | 3 | 2 | - | - | `low > high` | **Loop terminates. Target not found.** |
+
+---
+
 ### Variations of Binary Search:
 
 - **Finding the First or Last Occurrence**:

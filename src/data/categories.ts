@@ -21,7 +21,7 @@ export const categories: VisCategory[] = [
   {
     title: 'Sorting Algorithms',
     description: 'Bubble, Merge, Quick, Insertion, Selection and more. Watch elements rearrange into perfect order.',
-    to: '#', // '/algo/visualization/sorting'
+    to: '/visualization/sorting',
     Icon: Binary,
     featured: true,
     colorClass: {
@@ -33,10 +33,9 @@ export const categories: VisCategory[] = [
   },
   {
     title: 'Graph & Pathfinding',
-    description: 'Dijkstra, BFS, DFS, A*. Watch pathfinders navigate complex grids and discover shortest alternative paths.',
-    to: '#', // '/algo/visualization/graphs'
+    description: 'Dijkstra, BFS, DFS, A*, Bellman-Ford. Watch pathfinders navigate complex grids and discover shortest paths.',
+    to: '/visualization/graphs',
     Icon: Share2,
-    // featured: true,
     colorClass: {
       iconBg: 'bg-sky-500/10 border-sky-500/20',
       iconText: 'text-sky-600 dark:text-sky-400',
@@ -46,8 +45,8 @@ export const categories: VisCategory[] = [
   },
   {
     title: 'Searching Algorithms',
-    description: 'Linear vs. Binary Search. Visualize step-by-step target findings within sorted arrays.',
-    to: '#', // '/algo/visualization/searching'
+    description: 'Linear, Binary Search, Sliding Window, and Aho-Corasick. Visualize step-by-step target findings.',
+    to: '/visualization/searching',
     Icon: Search,
     colorClass: {
       iconBg: 'bg-emerald-500/10 border-emerald-500/20',
@@ -58,8 +57,8 @@ export const categories: VisCategory[] = [
   },
   {
     title: 'Tree Structures',
-    description: 'Binary Search Trees (BST), AVL, and traversals. Watch nodes branch, balance, and flow.',
-    to: '#', // '/algo/visualization/trees'
+    description: 'BST, AVL, Red-Black Trees, and Tries. Watch nodes branch, balance, recolor, and flow.',
+    to: '/visualization/trees',
     Icon: FolderTree,
     colorClass: {
       iconBg: 'bg-amber-500/10 border-amber-500/20',
@@ -71,7 +70,7 @@ export const categories: VisCategory[] = [
   {
     title: 'Linked Lists',
     description: 'Singly, Doubly, and Circular lists. Watch pointers update and nodes connect dynamically.',
-    to: '#', // '/algo/visualization/linked-lists'
+    to: '/visualization/linked-lists',
     Icon: Layers3,
     colorClass: {
       iconBg: 'bg-fuchsia-500/10 border-fuchsia-500/20',
@@ -83,7 +82,7 @@ export const categories: VisCategory[] = [
   {
     title: 'Recursion & Backtracking',
     description: 'See function calls stack up and backtrack. Visualize Fibonacci, N-Queens, and Sudoku solvers.',
-    to: '#', // '/algo/visualization/recursion'
+    to: '/visualization/recursion',
     Icon: Repeat,
     colorClass: {
       iconBg: 'bg-rose-500/10 border-rose-500/20',
@@ -94,8 +93,8 @@ export const categories: VisCategory[] = [
   },
   {
     title: 'Data Structures',
-    description: 'Stacks, Queues, Hash Tables. Watch elements push, pop, enqueue, and hash in real-time.',
-    to: '#', // '/algo/visualization/data-structures'
+    description: 'Stacks, Queues, Hash Tables, and Tries. Watch elements push, pop, enqueue, and hash in real-time.',
+    to: '/visualization/data-structures',
     Icon: Braces,
     colorClass: {
       iconBg: 'bg-slate-500/10 border-slate-500/20',
@@ -107,7 +106,7 @@ export const categories: VisCategory[] = [
   {
     title: 'Dynamic Programming',
     description: 'Memoization and Tabulation. Watch optimal sub-problems solve complex algorithms efficiently.',
-    to: '#', // '/algo/visualization/dynamic-programming'
+    to: '/visualization/dynamic-programming',
     Icon: BrainCircuit,
     colorClass: {
       iconBg: 'bg-indigo-500/10 border-indigo-500/20',

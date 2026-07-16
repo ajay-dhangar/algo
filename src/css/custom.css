@@ -649,13 +649,11 @@ html[data-theme='dark'] td .katex {
 /* .table-of-contents_link */
 
 .theme-doc-toc-desktop {
-  position: relative;
   padding: 2px;
   background: linear-gradient(60deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
   background-size: 300% 300%;
   animation: borderRotate 4s linear infinite;
   border-radius: 12px;
-  overflow: hidden;
   margin-bottom: 20px;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 2rem);

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import { Trophy, Users, Rocket, Award, ArrowRight, Terminal } from 'lucide-react';
+import { Trophy, Users, Rocket, Award, ArrowRight, Terminal, CheckCircle, BookOpen, Star } from 'lucide-react';
 import { getAchievementSnapshot, readAlgoProgress, type AchievementSnapshot } from '../utils/safeStorage';
 
 interface AchievementCardProps {
@@ -66,10 +66,12 @@ export default function AchievementsPage(): React.ReactElement {
     syncSnapshot();
     window.addEventListener('progressUpdated', syncSnapshot);
     window.addEventListener('storage', syncSnapshot);
+    window.addEventListener('quizCompleted', syncSnapshot);
 
     return () => {
       window.removeEventListener('progressUpdated', syncSnapshot);
       window.removeEventListener('storage', syncSnapshot);
+      window.removeEventListener('quizCompleted', syncSnapshot);
     };
   }, []);
 
@@ -111,8 +113,41 @@ export default function AchievementsPage(): React.ReactElement {
         category: 'Consistency',
         isUnlocked: snapshot.streak >= 7,
       },
+      {
+        title: 'Quiz Novice',
+        description: 'Pass your first algorithm quiz with a score of 70% or higher.',
+        icon: <CheckCircle className="w-5 h-5" />,
+        badgeText: snapshot.quizzesPassed >= 1 ? 'Unlocked' : 'Pending',
+        category: 'Assessment',
+        isUnlocked: snapshot.quizzesPassed >= 1,
+      },
+      {
+        title: 'Quiz Master',
+        description: 'Pass all 19 algorithm and data structure quizzes.',
+        icon: <BookOpen className="w-5 h-5" />,
+        badgeText: snapshot.quizzesPassed >= 19 ? 'Unlocked' : `Need ${Math.max(0, 19 - snapshot.quizzesPassed)} more`,
+        category: 'Assessment',
+        isUnlocked: snapshot.quizzesPassed >= 19,
+      },
+      {
+        title: 'Perfectionist',
+        description: 'Master a quiz by getting a score of 90% or higher.',
+        icon: <Star className="w-5 h-5" />,
+        badgeText: snapshot.quizzesMastered >= 1 ? 'Unlocked' : 'Pending',
+        category: 'Excellence',
+        isUnlocked: snapshot.quizzesMastered >= 1,
+      },
+      {
+        title: 'Dedicated Scholar',
+        description: 'Complete 10 different practice topics across the platform.',
+        icon: <Trophy className="w-5 h-5" />,
+        badgeText: snapshot.completedCount >= 10 ? 'Unlocked' : `Need ${Math.max(0, 10 - snapshot.completedCount)} more`,
+        category: 'Dedication',
+        isUnlocked: snapshot.completedCount >= 10,
+      }
     ];
   }, [snapshot]);
+
 
   const unlockedCount = achievements.filter((achievement) => achievement.isUnlocked).length;
 

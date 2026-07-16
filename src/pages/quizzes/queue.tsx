@@ -219,7 +219,7 @@ const QueueQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
-      setHistory(safeJsonParse<AttemptHistory[]>(`quiz_history_${savedUser}_queue`, []));
+      setHistory(safeJsonParse<AttemptHistory[]>("quiz_attempts_" + savedUser.toLowerCase() + "_queues", []));
     }
   }, []);
 
@@ -239,7 +239,7 @@ const QueueQuiz: React.FC = () => {
     const cleanName = usernameInput.trim();
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
-    setHistory(safeJsonParse<AttemptHistory[]>(`quiz_history_${cleanName}_queue`, []));
+    setHistory(safeJsonParse<AttemptHistory[]>("quiz_attempts_" + cleanName.toLowerCase() + "_queues", []));
   };
   const handleLogout = () => {
     localStorage.removeItem("quiz_username");
@@ -260,10 +260,10 @@ const QueueQuiz: React.FC = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResult(true);
-      const newAttempt = { timestamp: Date.now(), score, timeSpent };
+      const newAttempt = { score, timeSpent, completedAt: new Date().toISOString() };
       const updatedHistory = [newAttempt, ...history].slice(0, 5);
       setHistory(updatedHistory);
-      localStorage.setItem(`quiz_history_${username}_queue`, JSON.stringify(updatedHistory));
+      localStorage.setItem("quiz_attempts_" + username?.toLowerCase() + "_queues", JSON.stringify(updatedHistory));
     }
   };
 
