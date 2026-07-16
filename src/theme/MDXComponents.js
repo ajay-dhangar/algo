@@ -24,6 +24,7 @@ import EdgeCases from "@site/src/components/EdgeCases";
 import Link from "@docusaurus/Link";
 import RelatedTopics from '@site/src/components/RelatedTopics';
 import DocCardList from '@theme/DocCardList';
+import ComingSoon from '@site/src/components/ComingSoon';
 
 export default {
   // Re-use the default mapping
@@ -52,5 +53,6 @@ export default {
   Ads,
   EdgeCases,
   Link,
-  RelatedTopics
+  RelatedTopics,
+  ComingSoon
 };
