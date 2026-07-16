@@ -247,22 +247,6 @@ html[data-theme='dark'] header.doc-header-banner {
   background-color: #000;
 }
 
-.ktt10-btn {
-  position: absolute;
-  bottom: 0;
-  left: 0.5rem;
-  background-color: #3b82f6;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.ktt10-flt {
-  position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  z-index: 1000;
-}
 
 button {
   cursor: pointer;
