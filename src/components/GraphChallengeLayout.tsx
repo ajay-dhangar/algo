@@ -401,7 +401,13 @@ interface Props { challenge: GraphChallenge; }
 
 // ─── Main layout ──────────────────────────────────────────────────────────────
 export default function GraphChallengeLayout({ challenge }: Props) {
-  const [code, setCode]             = useState(challenge.starterCode);
+  const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
+  const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
+  const code = codeMap[activeLanguage] ?? "";
+  
+  const handleCodeChange = (val: string | undefined) => {
+    setCodeMap((prev) => ({ ...prev, [activeLanguage]: val ?? "" }));
+  };
   const [output, setOutput]         = useState<string[]>([]);
   const [showHint, setShowHint]     = useState(false);
   const [showSolution, setShowSolution] = useState(false);
@@ -657,22 +663,41 @@ export default function GraphChallengeLayout({ challenge }: Props) {
           <div className="w-full lg:w-[55%] flex flex-col">
 
             <div className="bg-slate-900 px-4 py-2 flex items-center justify-between border-b border-slate-800">
-              <span className="text-xs font-mono text-slate-400">JavaScript</span>
-              <button
-                onClick={runCode}
-                disabled={running}
-                className="flex items-center gap-2 px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-800 text-white rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"
-              >
-                <FaPlay /> {running ? "Running..." : "Run Code"}
-              </button>
-            </div>
+                <select
+                  value={activeLanguage}
+                  onChange={(e) => setActiveLanguage(e.target.value)}
+                  className="bg-slate-800 text-slate-300 text-xs font-mono rounded border border-slate-700 px-2 py-1 outline-none focus:border-slate-500 cursor-pointer"
+                >
+                  <option value="javascript">JavaScript</option>
+                  <option value="python">Python</option>
+                  <option value="cpp">C++</option>
+                  <option value="java">Java</option>
+                  <option value="rust">Rust</option>
+                  <option value="go">Go</option>
+                </select>
+                <div className="flex items-center gap-2">
+                  {activeLanguage !== "javascript" && (
+                    <span className="text-slate-500 text-[10px] font-mono mr-2">
+                      (Run disabled for {activeLanguage})
+                    </span>
+                  )}
+                  <button
+                    onClick={runCode}
+                    disabled={running || activeLanguage !== "javascript"}
+                    className="flex items-center gap-2 px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 disabled:text-slate-500 text-white rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"
+                  >
+                    <FaPlay /> {running ? "Running..." : "Run Code"}
+                  </button>
+                </div>
+              </div>
 
             <div className="flex-1 overflow-hidden">
               <BrowserOnly
                 fallback={
                   <textarea
+                    aria-label="Code Editor Fallback"
                     value={code}
-                    onChange={e => setCode(e.target.value)}
+                    onChange={(e) => handleCodeChange(e.target.value)}
                     className="w-full h-full bg-slate-950 text-slate-200 font-mono text-sm p-4 resize-none border-none outline-none"
                     spellCheck={false}
                   />
@@ -683,9 +708,9 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                   return (
                     <Editor
                       height="100%"
-                      defaultLanguage="javascript"
+                      language={activeLanguage}
                       value={code}
-                      onChange={val => setCode(val ?? "")}
+                      onChange={handleCodeChange}
                       theme="vs-dark"
                       options={{
                         fontSize: 13,

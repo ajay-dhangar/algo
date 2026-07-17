@@ -17,6 +17,7 @@ export interface GreedyChallenge {
   examples: { input: string; output: string; explanation: string }[];
   constraints: string[];
   starterCode: string;
+  starterCodes?: Record<string, string>;
   solution: string;
   testCases: TestCase[];
   timeComplexity: string;
@@ -47,6 +48,20 @@ function findContentChildren(g, s) {
   // Write your code here
   
 }`,
+    starterCodes: {
+      python: `def find_content_children(g, s):
+    # Write your code here
+    pass
+`,
+      cpp: `#include <vector>
+using namespace std;
+
+int findContentChildren(vector<int>& g, vector<int>& s) {
+    // Write your code here
+    return 0;
+}
+`
+    },
     solution: `function findContentChildren(g, s) {
   g.sort((a, b) => a - b);
   s.sort((a, b) => a - b);
