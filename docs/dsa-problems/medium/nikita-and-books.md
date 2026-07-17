@@ -170,6 +170,8 @@ def solve():
             required = (i * (i + 1)) // 2
             if sum_val < required:
                 possible = False
+                idx += (n - i)
+                break
                 
         print("YES" if possible else "NO")
 
