@@ -73,6 +73,7 @@ Since their signs can be chosen completely independently, the optimal strategy t
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
