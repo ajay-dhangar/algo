@@ -15,6 +15,7 @@ export type VisCategory = {
     badge: string;
   };
   featured?: boolean;
+  implemented?: boolean;
 };
 
 export const categories: VisCategory[] = [
@@ -24,6 +25,7 @@ export const categories: VisCategory[] = [
     to: '/visualization/sorting',
     Icon: Binary,
     featured: true,
+    implemented: false,
     colorClass: {
       iconBg: 'bg-teal-500/10 border-teal-500/20',
       iconText: 'text-teal-600 dark:text-teal-400',
@@ -72,6 +74,7 @@ export const categories: VisCategory[] = [
     description: 'Singly, Doubly, and Circular lists. Watch pointers update and nodes connect dynamically.',
     to: '/visualization/linked-lists',
     Icon: Layers3,
+    implemented: false,
     colorClass: {
       iconBg: 'bg-fuchsia-500/10 border-fuchsia-500/20',
       iconText: 'text-fuchsia-600 dark:text-fuchsia-400',
@@ -96,6 +99,7 @@ export const categories: VisCategory[] = [
     description: 'Stacks, Queues, Hash Tables, and Tries. Watch elements push, pop, enqueue, and hash in real-time.',
     to: '/visualization/data-structures',
     Icon: Braces,
+    implemented: false,
     colorClass: {
       iconBg: 'bg-slate-500/10 border-slate-500/20',
       iconText: 'text-slate-600 dark:text-slate-400',
