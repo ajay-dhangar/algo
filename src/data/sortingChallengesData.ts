@@ -17,6 +17,7 @@ export interface SortingChallenge {
   examples: { input: string; output: string; explanation: string }[];
   constraints: string[];
   starterCode: string;
+  starterCodes?: Record<string, string>;
   solution: string;
   pseudocode?: string[];
   testCases: TestCase[];
@@ -47,6 +48,20 @@ function bubbleSort(arr) {
   // Write your code here
   
 }`,
+    starterCodes: {
+      python: `def bubble_sort(arr):
+    # Write your code here
+    pass
+`,
+      cpp: `#include <vector>
+using namespace std;
+
+vector<int> bubbleSort(vector<int>& arr) {
+    // Write your code here
+    return arr;
+}
+`
+    },
     solution: `function bubbleSort(arr) {
   let isSorted = false;
   let counter = 0;

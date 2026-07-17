@@ -17,6 +17,7 @@ export interface DPChallenge {
   examples: { input: string; output: string; explanation: string }[];
   constraints: string[];
   starterCode: string;
+  starterCodes?: Record<string, string>;
   testCases: TestCase[];
   timeComplexity: string;
   spaceComplexity: string;
@@ -50,6 +51,20 @@ function fib(n) {
 
 console.log(fib(4)); // Expected: 3
 `,
+    starterCodes: {
+      python: `def fib(n):
+    # Your code here
+    pass
+`,
+      cpp: `#include <vector>
+using namespace std;
+
+int fib(int n) {
+    // Your code here
+    return 0;
+}
+`
+    },
     testCases: [
       { input: "0", expected: "0", description: "Base case F(0)" },
       { input: "1", expected: "1", description: "Base case F(1)" },

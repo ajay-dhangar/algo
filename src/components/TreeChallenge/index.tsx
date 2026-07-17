@@ -15,7 +15,13 @@ interface Props {
 }
 
 export default function TreeChallengeLayout({ challenge }: Props) {
-  const [code, setCode] = useState(challenge.starterCode);
+  const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
+  const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
+  const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
+  
+  const handleCodeChange = (val: string) => {
+    setCodeMap((prev) => ({ ...prev, [activeLanguage]: val }));
+  };
   const [output, setOutput] = useState<string[]>([]);
   const [running, setRunning] = useState(false);
   const [activeTab, setActiveTab] = useState<"problem" | "solution" | "pseudocode">("problem");
@@ -78,8 +84,10 @@ export default function TreeChallengeLayout({ challenge }: Props) {
           {/* Right Side: Execution Environment and logs panel */}
           <div className="w-full lg:w-[55%] flex flex-col overflow-hidden">
             <CodeEditorPanel 
-              code={code} 
-              onChange={setCode} 
+              code={code}
+              activeLanguage={activeLanguage}
+              onLanguageChange={setActiveLanguage}
+              onChange={handleCodeChange} 
               onRun={handleRunCode} 
               running={running} 
             />

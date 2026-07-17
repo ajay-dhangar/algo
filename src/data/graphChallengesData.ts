@@ -17,6 +17,7 @@ export interface GraphChallenge {
   examples: { input: string; output: string; explanation: string }[];
   constraints: string[];
   starterCode: string;
+  starterCodes?: Record<string, string>;
   testCases: GraphTestCase[];
   timeComplexity: string;
   spaceComplexity: string;
@@ -65,6 +66,21 @@ function buildGraph(n, edges) {
 console.log(JSON.stringify(buildGraph(4, [[0,1],[1,2],[2,3]])));
 // Expected list: [[1],[0,2],[1,3],[2]]
 `,
+    starterCodes: {
+      python: `def build_graph(n, edges):
+    # Your code here
+    pass
+`,
+      cpp: `#include <vector>
+#include <map>
+using namespace std;
+
+map<string, vector<vector<int>>> buildGraph(int n, vector<vector<int>>& edges) {
+    // Your code here
+    return {};
+}
+`
+    },
     testCases: [
       { input: "n=4 edges=[[0,1],[1,2],[2,3]]", expected: '{"list":[[1],[0,2],[1,3],[2]],"matrix":[[0,1,0,0],[1,0,1,0],[0,1,0,1],[0,0,1,0]]}', description: "Path graph" },
       { input: "n=1 edges=[]", expected: '{"list":[[]],"matrix":[[0]]}', description: "Single isolated vertex" },
