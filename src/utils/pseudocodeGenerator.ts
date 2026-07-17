@@ -20,7 +20,7 @@ export function generatePseudocode(code: string): string[] {
       .replace(/Math\.max/g, 'max')
       .replace(/Math\.min/g, 'min')
       .replace(/Math\.floor/g, 'floor')
-      .replace(/console\.log\(.*\)/g, 'print');
+      .replace(/console\\.log\\((.*?)\\)/g, 'print($1)');
       
     if (pLine.trim()) {
        pseudocode.push(pLine.trimEnd());
