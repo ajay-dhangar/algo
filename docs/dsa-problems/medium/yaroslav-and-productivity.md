@@ -103,7 +103,7 @@ void solve() {
         for (int j = last_idx; j < b[i]; j++) {
             block_sum += a[j];
         }
-        total_sum += abs(block_sum);
+        total_sum += std::abs(block_sum);
         last_idx = b[i];
     }
     
