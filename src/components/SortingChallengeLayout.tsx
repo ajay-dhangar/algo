@@ -10,6 +10,7 @@ import type { SortingChallenge } from "../data/sortingChallengesData";
 import Editor from "@monaco-editor/react";
 import useConsoleCapture from "../hooks/useConsoleCapture";
 import ComplexityDeepDive from "./ComplexityDeepDive";
+import { readAlgoProgress, writeAlgoProgress } from "../utils/safeStorage";
 
 const DIFF_COLORS = {
   Easy: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
@@ -20,7 +21,13 @@ const DIFF_COLORS = {
 interface Props { challenge: SortingChallenge; }
 
 export default function SortingChallengeLayout({ challenge }: Props) {
-  const [code, setCode] = useState(challenge.starterCode);
+  const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
+  const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
+  const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
+  
+  const handleCodeChange = (val: string | undefined) => {
+    setCodeMap((prev) => ({ ...prev, [activeLanguage]: val ?? "" }));
+  };
   const [output, setOutput] = useState<string[]>([]);
   const [testResults, setTestResults] = useState<{ pass: boolean; msg: string }[]>([]);
   const [showHint, setShowHint] = useState(false);
@@ -238,21 +245,36 @@ export default function SortingChallengeLayout({ challenge }: Props) {
             {/* Editor */}
             <div className="flex-1 overflow-hidden">
               <div className="bg-slate-900 px-4 py-2 flex items-center justify-between border-b border-slate-800">
-                <span className="text-xs font-mono text-slate-400">JavaScript</span>
-                <button
-                  onClick={runCode}
-                  disabled={running}
-                  className="flex items-center gap-2 px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-800 text-white rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"
+                <select
+                  value={activeLanguage}
+                  onChange={(e) => setActiveLanguage(e.target.value)}
+                  className="bg-slate-800 text-slate-300 text-xs font-mono rounded border border-slate-700 px-2 py-1 outline-none focus:border-slate-500 cursor-pointer"
                 >
-                  <FaPlay /> {running ? "Running..." : "Run Code"}
-                </button>
+                  <option value="javascript">JavaScript</option>
+                  <option value="python">Python</option>
+                  <option value="cpp">C++</option>
+                </select>
+                <div className="flex items-center gap-2">
+                  {activeLanguage !== "javascript" && (
+                    <span className="text-slate-500 text-[10px] font-mono mr-2">
+                      (Run disabled for {activeLanguage})
+                    </span>
+                  )}
+                  <button
+                    onClick={runCode}
+                    disabled={running || activeLanguage !== "javascript"}
+                    className="flex items-center gap-2 px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 disabled:text-slate-500 text-white rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"
+                  >
+                    <FaPlay /> {running ? "Running..." : "Run Code"}
+                  </button>
+                </div>
               </div>
               <BrowserOnly
                 fallback={
                   <textarea
                     aria-label="Code Editor Fallback"
                     value={code}
-                    onChange={(e) => setCode(e.target.value)}
+                    onChange={(e) => handleCodeChange(e.target.value)}
                     className="w-full h-full bg-slate-950 text-slate-200 font-mono text-sm p-4 resize-none border-none outline-none"
                     spellCheck={false}
                   />
@@ -261,9 +283,9 @@ export default function SortingChallengeLayout({ challenge }: Props) {
                 {() => { return (
                     <Editor
                       height="100%"
-                      defaultLanguage="javascript"
+                      language={activeLanguage}
                       value={code}
-                      onChange={(val: string | undefined) => setCode(val ?? "")}
+                      onChange={handleCodeChange}
                       theme="vs-dark"
                       options={{
                         fontSize: 13,

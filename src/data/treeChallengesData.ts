@@ -17,6 +17,7 @@ export interface TreeChallenge {
   examples: { input: string; output: string; explanation: string }[];
   constraints: string[];
   starterCode: string;
+  starterCodes?: Record<string, string>;
   testCases: TestCase[];
   timeComplexity: string;
   spaceComplexity: string;
@@ -92,6 +93,39 @@ const root = buildTree([1, null, 2, 3]);
 console.log(JSON.stringify(treeTraversals(root)));
 // Expected: {"inorder":[1,3,2],"preorder":[1,2,3],"postorder":[3,2,1]}
 `,
+    starterCodes: {
+      python: `# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+def tree_traversals(root):
+    # Your code here
+    pass
+`,
+      cpp: `/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+#include <vector>
+#include <map>
+using namespace std;
+
+map<string, vector<int>> treeTraversals(TreeNode* root) {
+    // Your code here
+    return {};
+}
+`
+    },
     testCases: [
       { input: "[1, null, 2, 3]", expected: '{"inorder":[1,3,2],"preorder":[1,2,3],"postorder":[3,2,1]}', description: "Basic tree" },
       { input: "[]", expected: '{"inorder":[],"preorder":[],"postorder":[]}', description: "Empty tree" },
