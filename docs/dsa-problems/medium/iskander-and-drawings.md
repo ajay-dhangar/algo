@@ -185,7 +185,7 @@ if __name__ == "__main__":
 const fs = require('fs');
 
 function main() {
-    const input = fs.readFileSync('/dev/stdin', 'utf-8').trim().split(/\s+/);
+    const input = fs.readFileSync(0, 'utf-8').trim().split(/\s+/);
     if (input.length === 0 || input[0] === '') return;
     
     let t = parseInt(input[0], 10);
