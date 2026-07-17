@@ -18,6 +18,7 @@ export interface GreedyChallenge {
   constraints: string[];
   starterCode: string;
   solution: string;
+  pseudocode?: string[];
   testCases: TestCase[];
   timeComplexity: string;
   spaceComplexity: string;
