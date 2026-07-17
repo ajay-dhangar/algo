@@ -103,7 +103,7 @@ export default function VisualizerComingSoon({
 
             {/* Complexity / key facts grid */}
             {facts.length > 0 && (
-              <div className={`grid grid-cols-${Math.min(facts.length, 3)} gap-3 max-w-md mx-auto mb-10`}>
+              <div className={"grid " + (facts.length === 1 ? "grid-cols-1" : facts.length === 2 ? "grid-cols-2" : "grid-cols-3") + " gap-3 max-w-md mx-auto mb-10"}>
                 {facts.map((f) => (
                   <div
                     key={f.label}
