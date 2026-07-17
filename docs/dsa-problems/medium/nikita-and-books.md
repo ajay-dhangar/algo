@@ -70,13 +70,13 @@ using namespace std;
 void solve() {
     int n;
     cin >> n;
-    vector<long long> a(n);
     long long sum = 0;
     bool possible = true;
     
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        sum += a[i];
+        long long val;
+        cin >> val;
+        sum += val;
         
         // Sum of first (i+1) integers
         long long required = (long long)(i + 1) * (i + 2) / 2;
