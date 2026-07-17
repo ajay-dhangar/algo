@@ -253,9 +253,6 @@ export default function DPChallengeLayout({ challenge }: Props) {
                   <option value="javascript">JavaScript</option>
                   <option value="python">Python</option>
                   <option value="cpp">C++</option>
-                  <option value="java">Java</option>
-                  <option value="rust">Rust</option>
-                  <option value="go">Go</option>
                 </select>
                 <div className="flex items-center gap-2">
                   {activeLanguage !== "javascript" && (
