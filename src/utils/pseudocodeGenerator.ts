@@ -11,7 +11,7 @@ export function generatePseudocode(code: string): string[] {
     // Replace JS syntax with pseudocode equivalents
     let pLine = line
       .replace(/function\s+(\w+)/g, 'procedure $1')
-      .replace(/let |const |var /g, '')
+      .replace(/\\b(let|const|var)\\s+/g, '')
       .replace(/===|==/g, '=')
       .replace(/!==|!=/g, '≠')
       .replace(/=>/g, '→')
