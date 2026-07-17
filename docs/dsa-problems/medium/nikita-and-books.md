@@ -200,6 +200,8 @@ function main() {
             let required = (j * (j + 1)) / 2;
             if (sum < required) {
                 possible = false;
+                idx += (n - j);
+                break;
             }
         }
         
