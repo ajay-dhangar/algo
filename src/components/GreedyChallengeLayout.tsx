@@ -10,6 +10,8 @@ import type { GreedyChallenge } from "../data/greedyChallengesData";
 import Editor from "@monaco-editor/react";
 import useConsoleCapture from "../hooks/useConsoleCapture";
 import ComplexityDeepDive from "./ComplexityDeepDive";
+import PseudocodeTab from "./PseudocodeTab";
+import { readAlgoProgress, writeAlgoProgress } from "../utils/safeStorage";
 
 const DIFF_COLORS = {
   Easy: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
@@ -32,7 +34,7 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [running, setRunning] = useState(false);
-  const [activeTab, setActiveTab] = useState<"problem" | "solution">("problem");
+  const [activeTab, setActiveTab] = useState<"problem" | "solution" | "pseudocode">("problem");
   const { runWithCapture } = useConsoleCapture();
 
   const runCode = useCallback(async () => {
@@ -85,7 +87,7 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
           <div className="w-full lg:w-[45%] overflow-y-auto border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             {/* Tabs */}
             <div className="flex border-b border-slate-200 dark:border-slate-800">
-              {(["problem", "solution"] as const).map((tab) => (
+              {(["problem", "solution", "pseudocode"] as const).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
@@ -186,7 +188,7 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
                     </div>
                   </div>
                 </>
-              ) : (
+              ) : activeTab === "solution" ? (
                 <div className="space-y-4 flex flex-col h-full">
                   <div className="flex items-center justify-between shrink-0">
                     <h2 className="text-lg font-black text-slate-900 dark:text-white m-0">Solution</h2>
@@ -235,6 +237,8 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
                     </div>
                   )}
                 </div>
+              ) : (
+                <PseudocodeTab solution={challenge.solution} customPseudocode={challenge.pseudocode} />
               )}
             </div>
           </div>

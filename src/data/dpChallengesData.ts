@@ -23,6 +23,7 @@ export interface DPChallenge {
   spaceComplexity: string;
   hint: string;
   solution: string;
+  pseudocode?: string[];
 }
 
 export const DP_CHALLENGES: DPChallenge[] = [

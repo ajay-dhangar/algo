@@ -13,6 +13,9 @@ import {
 import type { GraphChallenge } from "../data/graphChallengesData";
 import useConsoleCapture from "../hooks/useConsoleCapture";
 import ComplexityDeepDive from "./ComplexityDeepDive";
+import PseudocodeTab from "./PseudocodeTab";
+import { readAlgoProgress, writeAlgoProgress } from "../utils/safeStorage";
+
 import DijkstraVisualizations from "./DSA/graphs/DijkstraVisualizations";
 import FloydWarshallVisualizations from "./DSA/graphs/FloydWarshallVisualizations";
 
@@ -412,7 +415,7 @@ export default function GraphChallengeLayout({ challenge }: Props) {
   const [showHint, setShowHint]     = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [running, setRunning]       = useState(false);
-  const [activeTab, setActiveTab]   = useState<"problem" | "visualize" | "solution">("problem");
+  const [activeTab, setActiveTab]   = useState<"problem" | "visualize" | "solution" | "pseudocode">("problem");
   const { runWithCapture }          = useConsoleCapture();
 
   const hasDedicated = Boolean(DEDICATED_VISUALIZER[challenge.id]);
@@ -425,10 +428,11 @@ export default function GraphChallengeLayout({ challenge }: Props) {
     setRunning(false);
   }, [code, runWithCapture]);
 
-  const TABS: { key: "problem" | "visualize" | "solution"; label: string; icon?: string }[] = [
-    { key: "problem",   label: "Problem" },
+  const TABS: { key: "problem" | "visualize" | "solution" | "pseudocode"; label: string }[] = [
+    { key: "problem",    label: "Problem" },
     { key: "visualize", label: hasDedicated ? "Visualize ✨" : "Visualize" },
     { key: "solution",  label: "Solution" },
+    { key: "pseudocode", label: "Pseudocode" },
   ];
 
   return (
@@ -655,6 +659,13 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                     Click "Reveal" to see the solution after attempting the problem.
                   </div>
                 )}
+              </div>
+            )}
+
+            {/* ── Pseudocode tab ── */}
+            {activeTab === "pseudocode" && (
+              <div className="p-6 flex-1 overflow-y-auto">
+                <PseudocodeTab solution={challenge.solution} customPseudocode={challenge.pseudocode} />
               </div>
             )}
           </div>

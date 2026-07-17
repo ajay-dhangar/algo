@@ -23,6 +23,7 @@ export interface TreeChallenge {
   spaceComplexity: string;
   hint: string;
   solution: string;
+  pseudocode?: string[];
 }
 
 export const TREE_CHALLENGES: TreeChallenge[] = [

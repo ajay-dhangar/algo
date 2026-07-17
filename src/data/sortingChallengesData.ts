@@ -19,6 +19,7 @@ export interface SortingChallenge {
   starterCode: string;
   starterCodes?: Record<string, string>;
   solution: string;
+  pseudocode?: string[];
   testCases: TestCase[];
   timeComplexity: string;
   spaceComplexity: string;

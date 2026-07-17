@@ -23,6 +23,7 @@ export interface GraphChallenge {
   spaceComplexity: string;
   hint: string;
   solution: string;
+  pseudocode?: string[];
 }
 
 export const GRAPH_CHALLENGES: GraphChallenge[] = [

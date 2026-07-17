@@ -8,6 +8,7 @@ import ProblemTab from "./ProblemTab";
 import SolutionTab from "./SolutionTab";
 import CodeEditorPanel from "./CodeEditorPanel";
 import OutputPanel from "./OutputPanel";
+import PseudocodeTab from "../PseudocodeTab";
 
 interface Props {
   challenge: TreeChallenge;
@@ -23,7 +24,7 @@ export default function TreeChallengeLayout({ challenge }: Props) {
   };
   const [output, setOutput] = useState<string[]>([]);
   const [running, setRunning] = useState(false);
-  const [activeTab, setActiveTab] = useState<"problem" | "solution" >("problem");
+  const [activeTab, setActiveTab] = useState<"problem" | "solution" | "pseudocode">("problem");
   const { runWithCapture } = useConsoleCapture();
 
   const handleRunCode = useCallback(async () => {
@@ -54,7 +55,7 @@ export default function TreeChallengeLayout({ challenge }: Props) {
           {/* Left Side: Metadata Markdown & Answers Panels */}
           <div className="w-full lg:w-[45%] overflow-y-auto border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col">
             <div className="flex border-b border-slate-200 dark:border-slate-800 sticky top-0 bg-white dark:bg-slate-900 z-10">
-              {(["problem", "solution"] as const).map((tab) => (
+              {(["problem", "solution", "pseudocode"] as const).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
@@ -72,8 +73,10 @@ export default function TreeChallengeLayout({ challenge }: Props) {
             <div className="p-6 flex-1">
               {activeTab === "problem" ? (
                 <ProblemTab challenge={challenge} />
-              ) : (
+              ) : activeTab === "solution" ? (
                 <SolutionTab hint={challenge.hint} solution={challenge.solution} userCode={code} />
+              ) : (
+                <PseudocodeTab solution={challenge.solution} customPseudocode={challenge.pseudocode} />
               )}
             </div>
           </div>
