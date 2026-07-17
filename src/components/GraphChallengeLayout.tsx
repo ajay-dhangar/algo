@@ -403,7 +403,7 @@ interface Props { challenge: GraphChallenge; }
 export default function GraphChallengeLayout({ challenge }: Props) {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
-  const code = codeMap[activeLanguage] ?? "";
+  const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
   
   const handleCodeChange = (val: string | undefined) => {
     setCodeMap((prev) => ({ ...prev, [activeLanguage]: val ?? "" }));
