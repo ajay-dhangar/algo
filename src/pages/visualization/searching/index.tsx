@@ -10,6 +10,7 @@ type SearchEntry = {
   Icon: React.ComponentType<{ className?: string }>;
   accent: string;
   badge: string;
+  implemented?: boolean;
 };
 
 const entries: SearchEntry[] = [
@@ -20,6 +21,7 @@ const entries: SearchEntry[] = [
     Icon: Search,
     accent: "from-emerald-500 to-teal-400",
     badge: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 border-emerald-500/20",
+    implemented: false,
   },
   {
     title: "Linear Search",
@@ -28,6 +30,7 @@ const entries: SearchEntry[] = [
     Icon: Search,
     accent: "from-slate-500 to-gray-400",
     badge: "bg-slate-500/10 text-slate-600 dark:text-slate-300 border-slate-500/20",
+    implemented: false,
   },
   {
     title: "Sliding Window",
@@ -85,22 +88,35 @@ export default function SearchingVisualizationHub() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {entries.map((entry) => {
             const EntryIcon = entry.Icon;
+            const isComingSoon = entry.implemented === false;
             return (
               <Link
                 key={entry.to}
-                to={entry.to}
-                className="group flex flex-col gap-4 p-6 rounded-2xl border border-[var(--ifm-toc-border-color)] bg-[var(--ifm-background-surface-color)] hover:border-[var(--ifm-color-primary-light)] transition-all duration-200 no-underline hover:no-underline shadow-sm hover:shadow-md"
+                to={isComingSoon ? '#' : entry.to}
+                onClick={(e) => {
+                  if (isComingSoon) {
+                    e.preventDefault();
+                  }
+                }}
+                className={`group flex flex-col gap-4 p-6 rounded-2xl border border-[var(--ifm-toc-border-color)] bg-[var(--ifm-background-surface-color)] transition-all duration-200 no-underline hover:no-underline ${isComingSoon ? 'opacity-60 cursor-not-allowed' : 'hover:border-[var(--ifm-color-primary-light)] shadow-sm hover:shadow-md'}`}
+                aria-disabled={isComingSoon}
               >
                 <div className="flex items-start justify-between">
                   <div className={`p-2.5 rounded-xl bg-gradient-to-br ${entry.accent} bg-opacity-10 text-white`}>
                     <EntryIcon className="w-5 h-5" />
                   </div>
-                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${entry.badge}`}>
-                    Live
-                  </span>
+                  {isComingSoon ? (
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border bg-gray-500/10 text-gray-500 border-gray-500/20">
+                      Coming Soon
+                    </span>
+                  ) : (
+                    <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${entry.badge}`}>
+                      Live
+                    </span>
+                  )}
                 </div>
                 <div>
-                  <h2 className="text-base font-bold m-0 text-[var(--ifm-heading-color)] group-hover:text-[var(--ifm-color-primary)] transition-colors">
+                  <h2 className={`text-base font-bold m-0 transition-colors ${isComingSoon ? 'text-[var(--ifm-heading-color)]' : 'text-[var(--ifm-heading-color)] group-hover:text-[var(--ifm-color-primary)]'}`}>
                     {entry.title}
                   </h2>
                   <p className="text-sm text-[var(--ifm-color-emphasis-600)] mt-1 m-0 leading-relaxed">
