@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
 
 const DataStructuresQuiz: React.FC = () => {
@@ -165,22 +165,24 @@ const DataStructuresQuiz: React.FC = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes in seconds
-  const [timerId, setTimerId] = useState(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [timeSpent, setTimeSpent] = useState(0); // To store the time spent on solving the quiz
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
   // Timer logic
   useEffect(() => {
-    if (timeLeft > 0) {
-      const id = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
-      }, 1000);
-      setTimerId(id);
-    } else {
-      handleFinishQuiz(); // Automatically finish the quiz when time runs out
+    if (timeLeft <= 0) {
+      handleFinishQuiz();
+      return;
     }
-
-    return () => clearInterval(timerId); // Clean up timer on unmount
+    timerRef.current = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, [timeLeft]);
 
   // Handle option selection
@@ -189,7 +191,7 @@ const DataStructuresQuiz: React.FC = () => {
 
     setSelectedOption(option);
     if (option === questions[currentQuestionIndex].answer) {
-      setCorrectAnswers(correctAnswers + 1);
+      setCorrectAnswers(prev => prev + 1);
     }
     const updatedAnswers = [...userAnswers];
     updatedAnswers[currentQuestionIndex] = option;
@@ -206,8 +208,10 @@ const DataStructuresQuiz: React.FC = () => {
 
   // Function to finish the quiz
   const handleFinishQuiz = () => {
-    clearInterval(timerId); // Stop the timer when the quiz is finished
-    setTimeSpent(1800 - timeLeft); // Calculate time spent
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    setTimeSpent(1800 - timeLeft); 
     setShowResult(true);
   };
 
