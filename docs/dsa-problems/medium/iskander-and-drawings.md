@@ -19,8 +19,8 @@ Each second, Iskander erases 1 centimeter from the right end of the line, and Yu
 Yura wants to choose a line so that, together with Iskander, they erase it for as long as possible. Help him determine this maximum time. If there are no lines on the page, the answer is 0 seconds.
 
 **Input**
-The first line contains a single integer `t` (1 <= `t` <= 2500) — the number of test cases.
-The first line of each test case contains an integer `n` (1 <= `n` <= 10) — the length of the string `s`.
+The first line contains a single integer `t (1 <= t <= 2500)` — the number of test cases.
+The first line of each test case contains an integer `n (1 <= n <= 10)` — the length of the string `s`.
 The second line of each test case contains a string `s` of length `n`, consisting of characters `#` and `*`.
 
 **Output**
