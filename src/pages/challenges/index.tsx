@@ -323,7 +323,7 @@ const Challenges: React.FC = () => {
                       : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
                   }`}
                 >
-                  {cat === "Trees" ? "🌳 " : cat === "DP" ? "🧩 " : cat === "Sorting" ? "📊 " : cat === "Graphs" ? "🕸️ " : cat === "Greedy" ? "💰 " : ""}{cat}
+                  {({ Trees: "🌳 ", DP: "🧩 ", Sorting: "📊 ", Graphs: "🕸️ ", Greedy: "💰 " }[cat] || "")}{cat}
                 </button>
               ))}
             </div>
