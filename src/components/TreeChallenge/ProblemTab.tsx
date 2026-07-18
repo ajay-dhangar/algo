@@ -61,7 +61,7 @@ export default function ProblemTab({ challenge }: ProblemTabProps) {
           <div className="bg-purple-50 dark:bg-purple-900/10 rounded-lg p-3 border border-purple-200/50 dark:border-purple-800/30">
             <div className="text-xs font-mono text-purple-400 mb-1">Space</div>
             <div className="text-sm font-bold text-purple-700 dark:text-purple-300">{challenge.spaceComplexity.split("—")[0].trim()}</div>
-            {challenge.spaceComplexity.split("—")[1] && (
+            {challenge.spaceComplexity.split("—")[1]?.trim() && (
               <div className="text-xs text-slate-500 mt-1">{challenge.spaceComplexity.split("—")[1].trim()}</div>
             )}
           </div>
