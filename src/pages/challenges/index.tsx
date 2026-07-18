@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
 import {
@@ -30,6 +30,14 @@ const Challenges: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [activeDifficulty, setActiveDifficulty] = useState<string>("All");
   const [search, setSearch] = useState<string>("");
+  const [streak, setStreak] = useState<number>(0);
+
+  useEffect(() => {
+    const savedStreak = localStorage.getItem("algo_streak");
+    if (savedStreak) {
+      setStreak(parseInt(savedStreak, 10) || 0);
+    }
+  }, []);
 
   const treeChallenges = useMemo(
     () => (challengeData as any[]).filter((c) => c.category === "Trees"),
@@ -126,7 +134,7 @@ const Challenges: React.FC = () => {
               <div className="px-5 py-4">
                 <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Streak</span>
                 <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
-                  <FaFire className="text-amber-500 text-sm" /> 5 <span className="text-xs text-slate-400 font-normal">days</span>
+                  <FaFire className="text-amber-500 text-sm" /> {streak} <span className="text-xs text-slate-400 font-normal">day{streak !== 1 ? 's' : ''}</span>
                 </span>
               </div>
             </div>
