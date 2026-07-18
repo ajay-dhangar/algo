@@ -46,11 +46,11 @@ const DataStructuresQuiz = () => {
       question: "6. Which of the following statement is true for an AVL tree?",
       options: [
         "The AVL tree must be a B-tree",
-        "The AVL tree must be a Binary Search Tree.",
-        "The difference between the heights of left and right subtrees for any node cannot be more than one.",
-        "The AVL Tree is a self-balancing tree.",
+        "The height of an AVL tree can grow unbounded relative to log n",
+        "The difference between the heights of left and right subtrees for any node cannot be more than one",
+        "An AVL tree does not need to be a Binary Search Tree",
       ],
-      answer: "P2, P3 And P4.",
+      answer: "The difference between the heights of left and right subtrees for any node cannot be more than one",
     },
     {
       question:
@@ -121,15 +121,14 @@ const DataStructuresQuiz = () => {
       answer: "Depth-first - search",
     },
     {
-      question:
-        "15. Which of the following statements are true about Trie Data structure?",
+      question: "15. Which of the following statements is true about Trie data structure?",
       options: [
-        "P1: There is one root node in each Trie.",
-        "P2: Each path from the root to any node represents a word or string.",
-        "P3: We can not do prefix search (or auto-complete) with Trie.",
-        "P4: There is no overhead of Hash functions in a Trie data structure.",
+        "A Trie can have more than one root node",
+        "Each path from the root to a node represents a word or string prefix",
+        "Prefix search (auto-complete) is not possible with a Trie",
+        "A Trie relies on hash functions to locate child nodes",
       ],
-      answer: "P1, P2 and P4",
+      answer: "Each path from the root to a node represents a word or string prefix",
     },
     {
       question: "16. What is a generic tree?",
@@ -225,14 +224,14 @@ const DataStructuresQuiz = () => {
       answer: "B+ tree",
     },
     {
-      question: "26. Which of the following statement is true for an AVL tree?",
+      question: "26. What is the worst-case time complexity of the union operation in a disjoint-set data structure using union by rank with path compression?",
       options: [
-        "The AVL tree must be a B-tree",
-        "The AVL tree must be a Binary Search Tree.",
-        "The difference between the heights of left and right subtrees for any node cannot be more than one.",
-        "The AVL Tree is a self-balancing tree.",
+        "O(1)",
+        "O(log n)",
+        "O(α(n)) (inverse Ackermann function)",
+        "O(n)",
       ],
-      answer: "P2, P3 And P4.",
+      answer: "O(α(n)) (inverse Ackermann function)",
     },
     {
       question:
@@ -274,7 +273,7 @@ const DataStructuresQuiz = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [timeLeft, setTimeLeft] = useState(3600); // 60 minutes in seconds
-  const timerRef = useRef(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [timeSpent, setTimeSpent] = useState(0); // To store the time spent on solving the quiz
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
@@ -287,7 +286,11 @@ const DataStructuresQuiz = () => {
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => prev - 1);
     }, 1000);
-    return () => clearInterval(timerRef.current);
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, [timeLeft]);
 
 
@@ -314,8 +317,10 @@ const DataStructuresQuiz = () => {
 
   // Function to finish the quiz
   const handleFinishQuiz = () => {
-    clearInterval(timerRef.current); // Stop the timer when the quiz is finished
-    setTimeSpent(3600 - timeLeft); // Calculate time spent
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    setTimeSpent(3600 - timeLeft); 
     setShowResult(true);
   };
 

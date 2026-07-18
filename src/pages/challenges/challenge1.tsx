@@ -165,7 +165,7 @@ const DataStructuresQuiz: React.FC = () => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [timeLeft, setTimeLeft] = useState(1800); // 30 minutes in seconds
-  const timerRef = useRef(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [timeSpent, setTimeSpent] = useState(0); // To store the time spent on solving the quiz
   const [userAnswers, setUserAnswers] = useState<string[]>([]);
 
@@ -178,7 +178,11 @@ const DataStructuresQuiz: React.FC = () => {
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => prev - 1);
     }, 1000);
-    return () => clearInterval(timerRef.current);
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, [timeLeft]);
 
   // Handle option selection
@@ -204,8 +208,10 @@ const DataStructuresQuiz: React.FC = () => {
 
   // Function to finish the quiz
   const handleFinishQuiz = () => {
-    clearInterval(timerRef.current); // Stop the timer when the quiz is finished
-    setTimeSpent(1800 - timeLeft); // Calculate time spent
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    setTimeSpent(1800 - timeLeft); 
     setShowResult(true);
   };
 
