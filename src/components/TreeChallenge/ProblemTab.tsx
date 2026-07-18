@@ -54,12 +54,16 @@ export default function ProblemTab({ challenge }: ProblemTabProps) {
           <div className="bg-blue-50 dark:bg-blue-900/10 rounded-lg p-3 border border-blue-200/50 dark:border-blue-800/30">
             <div className="text-xs font-mono text-blue-400 mb-1">Time</div>
             <div className="text-sm font-bold text-blue-700 dark:text-blue-300">{challenge.timeComplexity.split("—")[0].trim()}</div>
-            <div className="text-xs text-slate-500 mt-1">{challenge.timeComplexity.split("—")[1]}</div>
+            {challenge.timeComplexity.split("—")[1] && (
+              <div className="text-xs text-slate-500 mt-1">{challenge.timeComplexity.split("—")[1].trim()}</div>
+            )}
           </div>
           <div className="bg-purple-50 dark:bg-purple-900/10 rounded-lg p-3 border border-purple-200/50 dark:border-purple-800/30">
             <div className="text-xs font-mono text-purple-400 mb-1">Space</div>
             <div className="text-sm font-bold text-purple-700 dark:text-purple-300">{challenge.spaceComplexity.split("—")[0].trim()}</div>
-            <div className="text-xs text-slate-500 mt-1">{challenge.spaceComplexity.split("—")[1]}</div>
+            {challenge.spaceComplexity.split("—")[1] && (
+              <div className="text-xs text-slate-500 mt-1">{challenge.spaceComplexity.split("—")[1].trim()}</div>
+            )}
           </div>
         </div>
       </div>
