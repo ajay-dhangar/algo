@@ -13,9 +13,6 @@ import {
 import type { GraphChallenge } from "../data/graphChallengesData";
 import useConsoleCapture from "../hooks/useConsoleCapture";
 import ComplexityDeepDive from "./ComplexityDeepDive";
-import PseudocodeTab from "./PseudocodeTab";
-import { readAlgoProgress, writeAlgoProgress } from "../utils/safeStorage";
-
 import DijkstraVisualizations from "./DSA/graphs/DijkstraVisualizations";
 import FloydWarshallVisualizations from "./DSA/graphs/FloydWarshallVisualizations";
 
@@ -404,18 +401,12 @@ interface Props { challenge: GraphChallenge; }
 
 // ─── Main layout ──────────────────────────────────────────────────────────────
 export default function GraphChallengeLayout({ challenge }: Props) {
-  const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
-  const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
-  const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
-  
-  const handleCodeChange = (val: string | undefined) => {
-    setCodeMap((prev) => ({ ...prev, [activeLanguage]: val ?? "" }));
-  };
+  const [code, setCode]             = useState(challenge.starterCode);
   const [output, setOutput]         = useState<string[]>([]);
   const [showHint, setShowHint]     = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [running, setRunning]       = useState(false);
-  const [activeTab, setActiveTab]   = useState<"problem" | "visualize" | "solution" | "pseudocode">("problem");
+  const [activeTab, setActiveTab]   = useState<"problem" | "visualize" | "solution">("problem");
   const { runWithCapture }          = useConsoleCapture();
 
   const hasDedicated = Boolean(DEDICATED_VISUALIZER[challenge.id]);
@@ -428,11 +419,10 @@ export default function GraphChallengeLayout({ challenge }: Props) {
     setRunning(false);
   }, [code, runWithCapture]);
 
-  const TABS: { key: "problem" | "visualize" | "solution" | "pseudocode"; label: string }[] = [
-    { key: "problem",    label: "Problem" },
+  const TABS: { key: "problem" | "visualize" | "solution"; label: string; icon?: string }[] = [
+    { key: "problem",   label: "Problem" },
     { key: "visualize", label: hasDedicated ? "Visualize ✨" : "Visualize" },
     { key: "solution",  label: "Solution" },
-    { key: "pseudocode", label: "Pseudocode" },
   ];
 
   return (
@@ -535,12 +525,12 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                     <div className="bg-blue-50 dark:bg-blue-900/10 rounded-lg p-3 border border-blue-200/50 dark:border-blue-800/30">
                       <div className="text-xs font-mono text-blue-400 mb-1">Time</div>
                       <div className="text-sm font-bold text-blue-700 dark:text-blue-300">{challenge.timeComplexity.split("—")[0].trim()}</div>
-                      <div className="text-xs text-slate-500 mt-1">{challenge.timeComplexity.split("—")[1]}</div>
+                      <div className="text-xs text-slate-500 mt-1">{challenge.timeComplexity.split("—")[1] ?? ""}</div>
                     </div>
                     <div className="bg-purple-50 dark:bg-purple-900/10 rounded-lg p-3 border border-purple-200/50 dark:border-purple-800/30">
                       <div className="text-xs font-mono text-purple-400 mb-1">Space</div>
                       <div className="text-sm font-bold text-purple-700 dark:text-purple-300">{challenge.spaceComplexity.split("—")[0].trim()}</div>
-                      <div className="text-xs text-slate-500 mt-1">{challenge.spaceComplexity.split("—")[1]}</div>
+                      <div className="text-xs text-slate-500 mt-1">{challenge.spaceComplexity.split("—")[1] ?? ""}</div>
                     </div>
                   </div>
                 </div>
@@ -661,51 +651,28 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                 )}
               </div>
             )}
-
-            {/* ── Pseudocode tab ── */}
-            {activeTab === "pseudocode" && (
-              <div className="p-6 flex-1 overflow-y-auto">
-                <PseudocodeTab solution={challenge.solution} customPseudocode={challenge.pseudocode} />
-              </div>
-            )}
           </div>
 
           {/* ── Right panel: Monaco editor + output ── */}
           <div className="w-full lg:w-[55%] flex flex-col">
 
             <div className="bg-slate-900 px-4 py-2 flex items-center justify-between border-b border-slate-800">
-                <select
-                  value={activeLanguage}
-                  onChange={(e) => setActiveLanguage(e.target.value)}
-                  className="bg-slate-800 text-slate-300 text-xs font-mono rounded border border-slate-700 px-2 py-1 outline-none focus:border-slate-500 cursor-pointer"
-                >
-                  <option value="javascript">JavaScript</option>
-                  <option value="python">Python</option>
-                  <option value="cpp">C++</option>
-                </select>
-                <div className="flex items-center gap-2">
-                  {activeLanguage !== "javascript" && (
-                    <span className="text-slate-500 text-[10px] font-mono mr-2">
-                      (Run disabled for {activeLanguage})
-                    </span>
-                  )}
-                  <button
-                    onClick={runCode}
-                    disabled={running || activeLanguage !== "javascript"}
-                    className="flex items-center gap-2 px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 disabled:text-slate-500 text-white rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"
-                  >
-                    <FaPlay /> {running ? "Running..." : "Run Code"}
-                  </button>
-                </div>
-              </div>
+              <span className="text-xs font-mono text-slate-400">JavaScript</span>
+              <button
+                onClick={runCode}
+                disabled={running}
+                className="flex items-center gap-2 px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-800 text-white rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"
+              >
+                <FaPlay /> {running ? "Running..." : "Run Code"}
+              </button>
+            </div>
 
             <div className="flex-1 overflow-hidden">
               <BrowserOnly
                 fallback={
                   <textarea
-                    aria-label="Code Editor Fallback"
                     value={code}
-                    onChange={(e) => handleCodeChange(e.target.value)}
+                    onChange={e => setCode(e.target.value)}
                     className="w-full h-full bg-slate-950 text-slate-200 font-mono text-sm p-4 resize-none border-none outline-none"
                     spellCheck={false}
                   />
@@ -716,9 +683,9 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                   return (
                     <Editor
                       height="100%"
-                      language={activeLanguage}
+                      defaultLanguage="javascript"
                       value={code}
-                      onChange={handleCodeChange}
+                      onChange={val => setCode(val ?? "")}
                       theme="vs-dark"
                       options={{
                         fontSize: 13,
