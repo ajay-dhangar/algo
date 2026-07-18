@@ -30,13 +30,7 @@ For each test case, output a single integer — the maximum time required to era
 
 ## Video Explanation:
 
-<LiteYouTubeEmbed
-  id="0KFlUD16v2M"
-  params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="Iskander and Drawings (Codeforces 2244A)"
-  poster="maxresdefault"
-  webp
-/>
+<LiteYouTubeEmbed id="0KFlUD16v2M" params="autoplay=1&amp;autohide=1&amp;showinfo=0&amp;rel=0" title="Iskander and Drawings (Codeforces 2244A)" poster="maxresdefault" webp={true} />
 
 ---
 
