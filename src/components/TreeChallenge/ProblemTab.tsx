@@ -54,7 +54,7 @@ export default function ProblemTab({ challenge }: ProblemTabProps) {
           <div className="bg-blue-50 dark:bg-blue-900/10 rounded-lg p-3 border border-blue-200/50 dark:border-blue-800/30">
             <div className="text-xs font-mono text-blue-400 mb-1">Time</div>
             <div className="text-sm font-bold text-blue-700 dark:text-blue-300">{challenge.timeComplexity.split("—")[0].trim()}</div>
-            {challenge.timeComplexity.split("—")[1] && (
+            {challenge.timeComplexity.split("—")[1]?.trim() && (
               <div className="text-xs text-slate-500 mt-1">{challenge.timeComplexity.split("—")[1].trim()}</div>
             )}
           </div>
