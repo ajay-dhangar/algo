@@ -267,7 +267,7 @@ const Challenges: React.FC = () => {
         )}
 
         {/* Greedy Banner */}
-        {(activeCategory === "All" || activeCategory === "Greedy") && (
+        {activeCategory === "Greedy" && (
           <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-6 md:px-12 py-4">
             <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-4 justify-between">
               <div className="flex items-center gap-3">
