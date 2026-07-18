@@ -218,3 +218,10 @@ Use Quick Sort when:
 - Incorrect partition logic causing unsorted output → verify Lomuto/Hoare boundary conditions
 - Deep recursion causing stack overflow for large datasets → apply **tail recursion elimination** (recurse on smaller partition only)
 - Not handling duplicate values efficiently → consider 3-way partition for duplicate-heavy data
+
+## Common Interview Questions
+
+- **Kth Largest Element in an Array (LeetCode 215)**: Solve using the QuickSelect algorithm (based on Quick Sort's partitioning steps). [Problem Link](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+- **Sort Colors (LeetCode 75)**: Sort an array with 0s, 1s, and 2s using 3-way Quick Sort partitioning. [Problem Link](https://leetcode.com/problems/sort-colors/)
+- **K Closest Points to Origin (LeetCode 973)**: Find the $k$ closest points using QuickSelect for $O(n)$ average time complexity. [Problem Link](https://leetcode.com/problems/k-closest-points-to-origin/)
+

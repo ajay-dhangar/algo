@@ -121,3 +121,11 @@ int main() {
 ### Summary:
 
 Heap sort is an efficient, in-place sorting algorithm that works by building a max heap from the input array and then repeatedly extracting the largest element. Its consistent time complexity of O(n log n) makes it useful for many applications, although its non-stability and in-place nature make it less ideal for sorting data that requires maintaining the relative order of equal elements.
+
+## Common Interview Questions
+
+- **Merge k Sorted Lists (LeetCode 23)**: Merge $k$ sorted linked lists into one sorted list using a min-heap. [Problem Link](https://leetcode.com/problems/merge-k-sorted-lists/)
+- **Find Median from Data Stream (LeetCode 295)**: Maintain the median of a streaming dataset using two heaps (min-heap and max-heap). [Problem Link](https://leetcode.com/problems/find-median-from-data-stream/)
+- **Top K Frequent Elements (LeetCode 347)**: Find the $k$ most frequent elements in an array using a min-heap. [Problem Link](https://leetcode.com/problems/top-k-frequent-elements/)
+- **Kth Largest Element in an Array (LeetCode 215)**: Find the $k$-th largest element in an unsorted array using a heap in $O(n \log k)$ time. [Problem Link](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+
