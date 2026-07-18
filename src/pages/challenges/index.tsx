@@ -241,7 +241,7 @@ const Challenges: React.FC = () => {
         )}
 
         {/* Graphs Banner */}
-        {(activeCategory === "All" || activeCategory === "Graphs") && (
+        {activeCategory === "Graphs" && (
           <div className="bg-gradient-to-r from-cyan-600 to-blue-600 px-6 md:px-12 py-4">
             <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-4 justify-between">
               <div className="flex items-center gap-3">
