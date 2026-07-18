@@ -357,7 +357,7 @@ function BookCards() {
               }}
               className={styles.BookHeader}
             >
-              <Translate id="Book.usersList.allUsers">All sites</Translate>
+              <Translate id="Book.usersList.allUsers">All books</Translate>
             </motion.h2>
             <motion.ul
               initial={{ opacity: 0}}
