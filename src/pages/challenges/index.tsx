@@ -4,6 +4,7 @@ import Layout from "@theme/Layout";
 import {
   FaCode, FaTerminal, FaFire, FaTrophy, FaLayerGroup,
   FaTree, FaFilter, FaSearch, FaBrain, FaSortAmountUp,
+  FaProjectDiagram, FaCoins,
 } from "react-icons/fa";
 import ChallengeCard from "../../components/ChallengeCard";
 import challengeData from "../../data/challengeData";
@@ -54,6 +55,22 @@ const Challenges: React.FC = () => {
   const sortingEasy = sortingChallenges.filter((c) => c.difficulty === "Easy").length;
   const sortingMedium = sortingChallenges.filter((c) => c.difficulty === "Medium").length;
   const sortingHard = sortingChallenges.filter((c) => c.difficulty === "Hard").length;
+
+  const graphsChallenges = useMemo(
+    () => (challengeData as any[]).filter((c) => c.category === "Graphs"),
+    []
+  );
+  const graphsEasy = graphsChallenges.filter((c) => c.difficulty === "Easy").length;
+  const graphsMedium = graphsChallenges.filter((c) => c.difficulty === "Medium").length;
+  const graphsHard = graphsChallenges.filter((c) => c.difficulty === "Hard").length;
+
+  const greedyChallenges = useMemo(
+    () => (challengeData as any[]).filter((c) => c.category === "Greedy"),
+    []
+  );
+  const greedyEasy = greedyChallenges.filter((c) => c.difficulty === "Easy").length;
+  const greedyMedium = greedyChallenges.filter((c) => c.difficulty === "Medium").length;
+  const greedyHard = greedyChallenges.filter((c) => c.difficulty === "Hard").length;
 
   const filtered = useMemo(() => {
     return (challengeData as any[]).filter((item) => {
@@ -121,6 +138,18 @@ const Challenges: React.FC = () => {
                 <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Sorting</span>
                 <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
                   <FaSortAmountUp className="text-indigo-500 text-sm" /> {sortingChallenges.length}
+                </span>
+              </div>
+              <div className="px-5 py-4 border-r border-slate-200 dark:border-slate-800">
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Graphs</span>
+                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
+                  <FaProjectDiagram className="text-cyan-500 text-sm" /> {graphsChallenges.length}
+                </span>
+              </div>
+              <div className="px-5 py-4 border-r border-slate-200 dark:border-slate-800">
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">Greedy</span>
+                <span className="text-2xl font-black font-mono text-slate-900 dark:text-white flex items-center gap-1.5 mt-0.5">
+                  <FaCoins className="text-amber-400 text-sm" /> {greedyChallenges.length}
                 </span>
               </div>
               <div className="px-5 py-4">
@@ -211,6 +240,58 @@ const Challenges: React.FC = () => {
           </div>
         )}
 
+        {/* Graphs Banner */}
+        {(activeCategory === "All" || activeCategory === "Graphs") && (
+          <div className="bg-gradient-to-r from-cyan-600 to-blue-600 px-6 md:px-12 py-4">
+            <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-4 justify-between">
+              <div className="flex items-center gap-3">
+                <FaProjectDiagram className="text-white text-xl" />
+                <div>
+                  <span className="text-white font-bold text-sm">🕸️ Graphs Track Now Live!</span>
+                  <span className="text-cyan-100 text-xs ml-2">{graphsChallenges.length} new challenges added</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {[
+                  { label: "Easy", count: graphsEasy, style: "bg-emerald-500/30 text-white border-emerald-400/30" },
+                  { label: "Medium", count: graphsMedium, style: "bg-amber-500/30 text-white border-amber-400/30" },
+                  { label: "Hard", count: graphsHard, style: "bg-red-500/30 text-white border-red-400/30" },
+                ].map((d) => (
+                  <span key={d.label} className={`px-3 py-1 rounded-full text-xs font-bold font-mono border ${d.style}`}>
+                    {d.label}: {d.count}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Greedy Banner */}
+        {(activeCategory === "All" || activeCategory === "Greedy") && (
+          <div className="bg-gradient-to-r from-amber-500 to-orange-500 px-6 md:px-12 py-4">
+            <div className="max-w-6xl mx-auto flex flex-wrap items-center gap-4 justify-between">
+              <div className="flex items-center gap-3">
+                <FaCoins className="text-white text-xl" />
+                <div>
+                  <span className="text-white font-bold text-sm">💰 Greedy Algorithms Track Now Live!</span>
+                  <span className="text-amber-100 text-xs ml-2">{greedyChallenges.length} new challenges added</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {[
+                  { label: "Easy", count: greedyEasy, style: "bg-emerald-500/30 text-white border-emerald-400/30" },
+                  { label: "Medium", count: greedyMedium, style: "bg-amber-500/30 text-white border-amber-400/30" },
+                  { label: "Hard", count: greedyHard, style: "bg-red-500/30 text-white border-red-400/30" },
+                ].map((d) => (
+                  <span key={d.label} className={`px-3 py-1 rounded-full text-xs font-bold font-mono border ${d.style}`}>
+                    {d.label}: {d.count}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         <section className="py-10 px-6 md:px-12 max-w-6xl mx-auto space-y-6">
 
           {/* Filter Bar */}
@@ -242,7 +323,7 @@ const Challenges: React.FC = () => {
                       : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
                   }`}
                 >
-                  {cat === "Trees" ? "🌳 " : cat === "DP" ? "🧩 " : cat === "Sorting" ? "📊 " : ""}{cat}
+                  {cat === "Trees" ? "🌳 " : cat === "DP" ? "🧩 " : cat === "Sorting" ? "📊 " : cat === "Graphs" ? "🕸️ " : cat === "Greedy" ? "💰 " : ""}{cat}
                 </button>
               ))}
             </div>
