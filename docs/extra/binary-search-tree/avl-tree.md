@@ -345,7 +345,7 @@ After learning AVL Trees, try solving these interview-style problems to strength
 Use a post-order traversal to calculate the height of each subtree while checking whether the balance factor of every node lies between **-1** and **+1**.
 
 **Practice:**
-- LeetCode 110 – Balanced Binary Tree
+- [LeetCode 110 – Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)
 
 ---
 
