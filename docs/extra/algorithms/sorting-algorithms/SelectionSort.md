@@ -145,3 +145,10 @@ int main() {
 ### Summary:
 
 Selection sort is a simple, easy-to-understand algorithm that can be useful for small datasets or when memory space is limited. However, its quadratic time complexity makes it inefficient for large datasets. The algorithm iteratively selects the minimum element from the unsorted portion of the array and swaps it into place. The iterative and recursive implementations both perform the same function, with the recursive version offering a cleaner, although slightly more complex, approach.
+
+## Common Interview Questions
+
+- **Kth Largest Element in an Array (LeetCode 215)**: Find the $k$-th largest element in an unsorted array (can be conceptually related to partial Selection Sort). [Problem Link](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+- **Minimum Swaps to Sort**: Find the minimum number of swaps required to sort an array (relates to Selection Sort's property of performing at most $O(n)$ swaps).
+- **Sort an Array (LeetCode 912)**: General sorting challenge to compare selection sort's performance against optimal algorithms (note: Selection Sort will Time Limit Exceeded (TLE) due to its $O(n^2)$ complexity). [Problem Link](https://leetcode.com/problems/sort-an-array/)
+

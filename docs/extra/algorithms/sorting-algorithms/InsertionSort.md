@@ -136,3 +136,10 @@ int main() {
 ### Summary:
 
 Insertion sort is a simple yet efficient algorithm for small or nearly sorted datasets. It works by building a sorted array one element at a time, inserting each element into its correct position. Although it has a quadratic time complexity for average and worst-case scenarios, its linear time complexity in the best case makes it advantageous for sorting small datasets or datasets that are already nearly sorted. The iterative version is more common and easier to understand, while the recursive version provides a more elegant solution at the cost of slightly more overhead.
+
+## Common Interview Questions
+
+- **Insertion Sort List (LeetCode 147)**: Sort a singly linked list using insertion sort. [Problem Link](https://leetcode.com/problems/insertion-sort-list/)
+- **Sort a K-Sorted (Nearly Sorted) Array**: Sort an array where each element is at most $k$ positions away from its target position (highly efficient with Insertion Sort in $O(n k)$ time).
+- **Kth Largest Element in a Stream (LeetCode 703)**: Maintain a sorted list of elements dynamically as new elements arrive. [Problem Link](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
+
