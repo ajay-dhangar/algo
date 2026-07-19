@@ -365,7 +365,7 @@ Insert the node following Binary Search Tree rules, update the heights of affect
 Delete the node as in a Binary Search Tree, update the heights of ancestor nodes, and rebalance the tree using the appropriate rotation if the balance factor becomes invalid.
 
 **Practice:**
-- GeeksforGeeks – AVL Tree Deletion
+- [GeeksforGeeks – AVL Tree Deletion](https://www.geeksforgeeks.org/avl-tree-set-2-deletion/)
 
 ---
 
