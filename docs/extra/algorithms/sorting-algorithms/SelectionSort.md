@@ -150,5 +150,5 @@ Selection sort is a simple, easy-to-understand algorithm that can be useful for 
 
 - **Kth Largest Element in an Array (LeetCode 215)**: Find the $k$-th largest element in an unsorted array (can be conceptually related to partial Selection Sort). [Problem Link](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 - **Minimum Swaps to Sort**: Find the minimum number of swaps required to sort an array (relates to Selection Sort's property of performing at most $O(n)$ swaps).
-- **Sort an Array (LeetCode 912)**: General sorting challenge to compare selection sort's performance against optimal algorithms. [Problem Link](https://leetcode.com/problems/sort-an-array/)
+- **Sort an Array (LeetCode 912)**: General sorting challenge to compare selection sort's performance against optimal algorithms (note: Selection Sort will Time Limit Exceeded (TLE) due to its $O(n^2)$ complexity). [Problem Link](https://leetcode.com/problems/sort-an-array/)
 
