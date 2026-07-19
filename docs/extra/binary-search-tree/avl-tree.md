@@ -355,7 +355,7 @@ Use a post-order traversal to calculate the height of each subtree while checkin
 Insert the node following Binary Search Tree rules, update the heights of affected nodes, compute balance factors, and perform the required rotation (LL, RR, LR, or RL) whenever the tree becomes unbalanced.
 
 **Practice:**
-- GeeksforGeeks – AVL Tree Insertion
+- [GeeksforGeeks – AVL Tree Insertion](https://www.geeksforgeeks.org/avl-tree-set-1-insertion/)
 
 ---
 
