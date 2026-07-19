@@ -151,7 +151,7 @@ class Solution:
  * @param {number[][]} isConnected
  * @return {number}
  */
-var findCircleNum = function(isConnected) {
+const findCircleNum = function(isConnected) {
     const n = isConnected.length;
     let provinces = 0;
     const visit = new Array(n).fill(false);
