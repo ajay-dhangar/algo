@@ -22,11 +22,6 @@ export default function Home() {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5832817025080991"
           crossorigin="anonymous"
         />
-        <script
-          async
-          custom-element="amp-auto-ads"
-          src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
-        />
         <meta name='impact-site-verification' value='1e9bf198-a4f7-4132-b77d-46b34e45f6ad' />
       </Head>
       <main>
