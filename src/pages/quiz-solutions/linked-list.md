@@ -99,6 +99,7 @@ hide_table_of_contents: true
    - A) Store all nodes in an array, then access the middle index
    - B) Use a hash map to store node positions
    - C) Use the slow/fast pointer technique, where fast moves twice as fast as slow  
+   - D) Traverse the list twice to count and then retrieve the middle node  
    **Answer:** C) Use the slow/fast pointer technique, where fast moves twice as fast as slow  
    **Explanation:** The slow/fast (tortoise and hare) pointer technique advances slow by 1 step and fast by 2 steps per iteration. When fast reaches the end, slow is at the middle — achieved in a single pass with O(1) extra space, unlike array-based or hashmap-based approaches which use O(n) space.
 
