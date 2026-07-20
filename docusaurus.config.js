@@ -242,6 +242,30 @@ const config = {
                 label: "Algorithm Visualizer",
               },
               {
+                to: "backtracking-visualizer",
+                label: "Backtracking & Grid Solver",
+              },
+              {
+                to: "bitwise-visualizer",
+                label: "Bitwise Operations",
+              },
+              {
+                to: "n-queens-visualizer",
+                label: "N-Queens Visualizer",
+              },
+              {
+                to: "largest-rectangle-visualizer",
+                label: "Largest Rectangle (Histogram)",
+              },
+              {
+                to: "maximal-rectangle-visualizer",
+                label: "Maximal Rectangle (Matrix)",
+              },
+              {
+                to: "maximum-building-height-visualizer",
+                label: "Max Building Height",
+              },
+              {
                 to: "stories",
                 label: "Success Stories",
               },
