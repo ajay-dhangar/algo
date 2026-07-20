@@ -84,7 +84,7 @@ hide_table_of_contents: true
    - B) Yes, an ascending sorted sequence proves it is a valid BST.
    - C) No, because the values do not contain negative integers.
    - D) Yes, because 7 is positioned as the exact numerical median value.  
-   **Answer:** A) No, because we do not know if the structural layout satisfies binary tree requirements.  
-   **Explanation:** An ascending in-order traversal sequence is expected from a BST, but it is only half the check. If the structural arrangement violates simple binary rules (like a node holding 3 children), it is not a valid BST.
+    **Answer:** B) Yes, an ascending sorted sequence proves it is a valid BST.  
+    **Explanation:** For any binary tree, if its in-order traversal is strictly increasing (sorted and without duplicates), it mathematically guarantees that for every node, all elements in its left subtree are smaller and all elements in its right subtree are larger. Thus, it is a valid BST.
 
 </main>
