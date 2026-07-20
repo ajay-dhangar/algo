@@ -8,7 +8,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     // Corrected target path pointing directly to the official GitHub Developer REST API endpoint
-    fetch("https://github.com/ajay-dhangar/algo")
+    fetch("https://api.github.com/repos/ajay-dhangar/algo")
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not OK");
         return res.json();
