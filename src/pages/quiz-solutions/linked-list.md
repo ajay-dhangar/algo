@@ -98,8 +98,7 @@ hide_table_of_contents: true
 12. **Given a singly linked list, what is the most space-efficient way to find the middle node in a single pass?**
    - A) Store all nodes in an array, then access the middle index
    - B) Use a hash map to store node positions
-   - C) Use the slow/fast pointer technique, where fast moves twice as fast as slow
-   - D) Recursively count nodes from the tail backward  
+   - C) Use the slow/fast pointer technique, where fast moves twice as fast as slow  
    **Answer:** C) Use the slow/fast pointer technique, where fast moves twice as fast as slow  
    **Explanation:** The slow/fast (tortoise and hare) pointer technique advances slow by 1 step and fast by 2 steps per iteration. When fast reaches the end, slow is at the middle — achieved in a single pass with O(1) extra space, unlike array-based or hashmap-based approaches which use O(n) space.
 

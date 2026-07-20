@@ -2,7 +2,7 @@ const quizData = [
   {
     title: "Array Quiz Solutions",
     description: "Test your knowledge on array operations and algorithms.",
-    link: "/quiz-solutions/array/",
+    link: "/quiz-solutions/arrays/",
     category: "Linear",
   },
   {
@@ -16,49 +16,56 @@ const quizData = [
     title: "Queues Quiz Solutions",
     description:
       "Challenge your knowledge on queue implementations and their use cases.",
-    link: "/quiz-solutions/queues/",
+    link: "/quiz-solutions/queue/",
     category: "Linear",
   },
   {
     title: "Binary Trees Quiz Solutions",
     description:
       "Test your understanding of Binary Tree structures and traversals.",
-    link: "/quiz-solutions/binary-trees/",
+    link: "/quiz-solutions/binary-tree/",
     category: "Trees",
   },
   {
     title: "Binary Search Trees (BST) Quiz Solutions",
     description:
       "Evaluate your knowledge of Binary Search Tree properties and operations.",
-    link: "/quiz-solutions/binary-search-trees/",
+    link: "/quiz-solutions/binary-search-tree/",
+    category: "Trees",
+  },
+  {
+    title: "AVL Trees Quiz Solutions",
+    description:
+      "Examine self-balancing data structures, compute strict height imbalance factors, and trace complex Single/Double node rotation loops.",
+    link: "/quiz-solutions/avl-tree/",
     category: "Trees",
   },
   {
     title: "Red-Black Trees Quiz Solutions",
     description:
       "Challenge your understanding of the properties and algorithms of Red-Black Trees.",
-    link: "/quiz-solutions/red-black-trees/",
+    link: "/quiz-solutions/red-black-tree/",
     category: "Trees",
   },
   {
     title: "Linked Lists Quiz Solutions",
     description:
       "Test your grasp of singly, doubly, and circular linked list structures and operations.",
-    link: "/quiz-solutions/linked-lists/",
+    link: "/quiz-solutions/linked-list/",
     category: "Linear",
   },
   {
     title: "Deque Quiz Solutions",
     description:
       "Evaluate your understanding of double-ended queue operations and applications.",
-    link: "/quiz-solutions/deques/",
+    link: "/quiz-solutions/deque/",
     category: "Linear",
   },
   {
     title: "Priority Queue Quiz Solutions",
     description:
       "Test your knowledge of heap-based priority scheduling and real-world applications.",
-    link: "/quiz-solutions/priority-queues/",
+    link: "/quiz-solutions/priority-queue/",
     category: "Linear",
   },
   {
@@ -66,6 +73,13 @@ const quizData = [
     description:
       "Assess your understanding of sequential search mechanics and complexity analysis.",
     link: "/quiz-solutions/linear-search/",
+    category: "Algorithms",
+  },
+  {
+    title: "Sorting Quiz Solutions",
+    description:
+      "Challenge your sorting skills: stability behaviors, complexity bounds (best/average/worst cases), in-place operations, and hybrid algorithms.",
+    link: "/quiz-solutions/sorting/",
     category: "Algorithms",
   },
   {
@@ -79,14 +93,14 @@ const quizData = [
     title: "B-Trees Quiz Solutions",
     description:
       "Test your understanding of B-Tree properties and their applications.",
-    link: "/quiz-solutions/b-trees/",
+    link: "/quiz-solutions/b-tree/",
     category: "Trees",
   },
   {
     title: "B+ Tree Quiz Solutions",
     description:
       "Test your knowledge of internal vs leaf node organization, range queries, and database indexing.",
-    link: "/quiz-solutions/bplus-trees/",
+    link: "/quiz-solutions/bplus-tree/",
     category: "Trees",
   },
   {

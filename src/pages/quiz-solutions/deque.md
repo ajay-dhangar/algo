@@ -80,27 +80,27 @@ hide_table_of_contents: true
    **Explanation:** A fixed-size circular array deque has a maximum capacity. Attempting to insert when full results in an overflow condition that the implementation must detect and handle (e.g., by rejecting the insert or resizing if using a dynamic array).
 
 10. **Which data structure choice is most appropriate for implementing an efficient Deque with O(1) amortized insertion/removal at both ends, while also supporting dynamic resizing?**
-   - A) A singly linked list with only a head pointer
-   - B) A static, fixed-size array
-   - C) A doubly linked list, or a dynamic circular array (resizable ring buffer)
-   - D) A binary search tree  
-   **Answer:** C) A doubly linked list, or a dynamic circular array (resizable ring buffer)  
-   **Explanation:** Both a doubly linked list and a dynamic circular array (ring buffer that resizes when full) support O(1) operations at both ends. A doubly linked list avoids resizing overhead but uses more memory per element due to pointers; a dynamic array is more memory-efficient but requires occasional O(n) resizing (amortized O(1)).
+    - A) A singly linked list with only a head pointer
+    - B) A static, fixed-size array
+    - C) A doubly linked list, or a dynamic circular array (resizable ring buffer)
+    - D) A binary search tree  
+    **Answer:** C) A doubly linked list, or a dynamic circular array (resizable ring buffer)  
+    **Explanation:** Both a doubly linked list and a dynamic circular array (ring buffer that resizes when full) support O(1) operations at both ends. A doubly linked list avoids resizing overhead but uses more memory per element due to pointers; a dynamic array is more memory-efficient but requires occasional O(n) resizing (amortized O(1)).
 
 11. **How can a Deque be used to implement an efficient algorithm for the 'maximum of all subarrays of size k' problem, and what is its time complexity?**
-   - A) By sorting each window — O(n log k)
-   - B) By maintaining a monotonically decreasing deque of indices, achieving O(n) overall
-   - C) By comparing every pair within the window — O(n·k)
-   - D) It cannot be solved using a deque  
-   **Answer:** B) By maintaining a monotonically decreasing deque of indices, achieving O(n) overall  
-   **Explanation:** The deque stores indices of elements in decreasing order of value. For each new element, pop smaller elements from the rear before pushing (since they can never be the max while the new larger one is in the window), and pop from the front when the index falls outside the window. Each element is pushed and popped at most once, giving O(n) total time.
+    - A) By sorting each window — O(n log k)
+    - B) By maintaining a monotonically decreasing deque of indices, achieving O(n) overall
+    - C) By comparing every pair within the window — O(n·k)
+    - D) It cannot be solved using a deque  
+    **Answer:** B) By maintaining a monotonically decreasing deque of indices, achieving O(n) overall  
+    **Explanation:** The deque stores indices of elements in decreasing order of value. For each new element, pop smaller elements from the rear before pushing (since they can never be the max while the new larger one is in the window), and pop from the front when the index falls outside the window. Each element is pushed and popped at most once, giving O(n) total time.
 
 12. **In a multi-threaded environment, what is a key challenge when using a Deque shared across threads (e.g., as in work-stealing schedulers)?**
-   - A) Deques cannot be used in multi-threaded contexts at all
-   - B) Ensuring thread-safe concurrent access at both ends, often requiring lock-free or fine-grained locking strategies to avoid contention
-   - C) Deques automatically handle all concurrency without any synchronization
-   - D) Multi-threading has no effect on deque behavior  
-   **Answer:** B) Ensuring thread-safe concurrent access at both ends, often requiring lock-free or fine-grained locking strategies to avoid contention  
-   **Explanation:** Work-stealing schedulers use deques where a thread pushes/pops from one end (its own work) while other threads 'steal' work from the opposite end. This requires careful concurrent design — often lock-free algorithms — to prevent race conditions while minimizing contention between the owning thread and stealing threads.
+    - A) Deques cannot be used in multi-threaded contexts at all
+    - B) Ensuring thread-safe concurrent access at both ends, often requiring lock-free or fine-grained locking strategies to avoid contention
+    - C) Deques automatically handle all concurrency without any synchronization
+    - D) Multi-threading has no effect on deque behavior  
+    **Answer:** B) Ensuring thread-safe concurrent access at both ends, often requiring lock-free or fine-grained locking strategies to avoid contention  
+    **Explanation:** Work-stealing schedulers use deques where a thread pushes/pops from one end (its own work) while other threads 'steal' work from the opposite end. This requires careful concurrent design — often lock-free algorithms — to prevent race conditions while minimizing contention between the owning thread and stealing threads.
 
 </main>
