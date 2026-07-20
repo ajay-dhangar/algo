@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "./HeroSection";
 import FeaturesSection from "./FeaturesSection";
+import LearningPathsSection from "./LearningPathsSection";
 import AlgorithmOfTheDaySection from "./AlgorithmOfTheDaySection";
 import PopularAlgorithmsSection from "./PopularAlgorithmsSection";
 import HowItWorksSection from "./HowItWorksSection";
@@ -19,6 +20,9 @@ const Homepage: React.FC = () => {
         {/* PHASE 1: AWARENESS */}
         <HeroSection />
         <FeaturesSection />
+
+        {/* GUIDED LEARNING PATHS */}
+        <LearningPathsSection />
 
         {/* PHASE 2: IMMEDIATE VALUE */}
         <AlgorithmOfTheDaySection />

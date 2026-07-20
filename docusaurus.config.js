@@ -142,6 +142,11 @@ const config = {
             label: "Tutorials",
           },
           {
+            to: "learning-paths",
+            position: "left",
+            label: "Learning Paths",
+          },
+          {
             type: "dropdown",
             label: "Interview Engine",
             position: "left",
@@ -151,6 +156,10 @@ const config = {
                 type: "html",
                 value:
                   '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">System Preparation</div>',
+              },
+              {
+                to: "learning-paths",
+                label: "Guided Learning Paths",
               },
               {
                 to: "roadmap",
