@@ -1,7 +1,9 @@
 import { 
-  Binary, Share2, Layers3, FolderTree, Braces, BrainCircuit, Repeat, Search 
+  Binary, Share2, Layers3, FolderTree, Braces, BrainCircuit, Repeat, Search,
+  Crown, Cpu, BarChart2, LayoutGrid, Building2
 } from 'lucide-react';
 import React from 'react';
+
 
 export type VisCategory = {
   title: string;
@@ -119,4 +121,82 @@ export const categories: VisCategory[] = [
       badge: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-300 border-indigo-500/20'
     },
   },
-];
+  {
+    title: 'N-Queens Problem',
+    description: 'Watch the backtracking algorithm place queens, detect row/column/diagonal conflicts, and unwind step-by-step until all solutions are found.',
+    to: '/n-queens-visualizer',
+    Icon: Crown,
+    implemented: true,
+    colorClass: {
+      iconBg: 'bg-violet-500/10 border-violet-500/20',
+      iconText: 'text-violet-600 dark:text-violet-400',
+      glow: 'hover:shadow-violet-500/5 hover:border-violet-500/30',
+      badge: 'bg-violet-500/10 text-violet-600 dark:text-violet-300 border-violet-500/20'
+    },
+  },
+  {
+    title: 'Backtracking & Grid Solver',
+    description: 'Animate N-Queens placement and Sudoku solving. See conflicts flash red and the recursion physically backtrack on dead ends.',
+    to: '/backtracking-visualizer',
+    Icon: Repeat,
+    implemented: true,
+    colorClass: {
+      iconBg: 'bg-rose-500/10 border-rose-500/20',
+      iconText: 'text-rose-600 dark:text-rose-400',
+      glow: 'hover:shadow-rose-500/5 hover:border-rose-500/30',
+      badge: 'bg-rose-500/10 text-rose-600 dark:text-rose-300 border-rose-500/20'
+    },
+  },
+  {
+    title: 'Bitwise Operations',
+    description: 'Interactive bit-manipulation playground. Watch AND, OR, XOR, NOT, and shift operations transform binary representations in real-time.',
+    to: '/bitwise-visualizer',
+    Icon: Cpu,
+    implemented: true,
+    colorClass: {
+      iconBg: 'bg-green-500/10 border-green-500/20',
+      iconText: 'text-green-600 dark:text-green-400',
+      glow: 'hover:shadow-green-500/5 hover:border-green-500/30',
+      badge: 'bg-green-500/10 text-green-600 dark:text-green-300 border-green-500/20'
+    },
+  },
+  {
+    title: 'Largest Rectangle in Histogram',
+    description: 'See a monotonic stack expand and contract as bars are processed, revealing the maximum rectangular area under the histogram.',
+    to: '/largest-rectangle-visualizer',
+    Icon: BarChart2,
+    implemented: true,
+    colorClass: {
+      iconBg: 'bg-orange-500/10 border-orange-500/20',
+      iconText: 'text-orange-600 dark:text-orange-400',
+      glow: 'hover:shadow-orange-500/5 hover:border-orange-500/30',
+      badge: 'bg-orange-500/10 text-orange-600 dark:text-orange-300 border-orange-500/20'
+    },
+  },
+  {
+    title: 'Maximal Rectangle (Matrix)',
+    description: 'Watch each row of a binary matrix become a histogram, then apply the stack-based rectangle algorithm to find the maximum all-ones sub-rectangle.',
+    to: '/maximal-rectangle-visualizer',
+    Icon: LayoutGrid,
+    implemented: true,
+    colorClass: {
+      iconBg: 'bg-cyan-500/10 border-cyan-500/20',
+      iconText: 'text-cyan-600 dark:text-cyan-400',
+      glow: 'hover:shadow-cyan-500/5 hover:border-cyan-500/30',
+      badge: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-300 border-cyan-500/20'
+    },
+  },
+  {
+    title: 'Maximum Building Height',
+    description: 'Visualize the two-pass greedy sweep that computes the tallest possible height for each building given a set of height restrictions.',
+    to: '/maximum-building-height-visualizer',
+    Icon: Building2,
+    implemented: true,
+    colorClass: {
+      iconBg: 'bg-blue-500/10 border-blue-500/20',
+      iconText: 'text-blue-600 dark:text-blue-400',
+      glow: 'hover:shadow-blue-500/5 hover:border-blue-500/30',
+      badge: 'bg-blue-500/10 text-blue-600 dark:text-blue-300 border-blue-500/20'
+    },
+  },
+];
