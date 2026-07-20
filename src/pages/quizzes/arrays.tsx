@@ -13,7 +13,7 @@ import {
   FaChevronRight, 
   FaHistory 
 } from "react-icons/fa";
-import { safeJsonParse } from "../../utils/safeStorage";
+import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
 
 interface ArrayQuestion {
   id: number;
@@ -195,10 +195,7 @@ const ArrayQuiz: React.FC = () => {
         };
         const updatedHistory = [newAttempt, ...localHistory].slice(0, 5);
         setLocalHistory(updatedHistory);
-        localStorage.setItem(
-          `quiz_attempts_${username.toLowerCase()}_arrays`,
-          JSON.stringify(updatedHistory)
-        );
+        saveQuizAttemptLocal(username.toLowerCase(), "arrays", newAttempt);
       }
     }
   };
@@ -485,7 +482,7 @@ const ArrayQuiz: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {localHistory.map((att, idx) => (
                     <div 
-                      key={att.timestamp || idx} 
+                      key={att.completedAt || idx} 
                       className="bg-slate-50 dark:bg-slate-950 border border-solid border-slate-200 dark:border-slate-800/60 rounded-xl p-4 flex justify-between items-center text-xs"
                     >
                       <div className="space-y-1">
@@ -493,7 +490,7 @@ const ArrayQuiz: React.FC = () => {
                           Execution Sequence #{localHistory.length - idx}
                         </div>
                         <div className="text-[10px] text-slate-400">
-                          {new Date(att.timestamp).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' })}
+                          {new Date(att.completedAt).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' })}
                         </div>
                       </div>
                       <div className="text-right space-y-1">

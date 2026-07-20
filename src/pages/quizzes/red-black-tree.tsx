@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 
 // Existing custom quiz sub-components (assumed available in your project)
-import { safeJsonParse } from "../../utils/safeStorage";
+import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
 
 interface RBTQuestion {
   id: number;
@@ -206,7 +206,9 @@ const RedBlackTreeQuiz: React.FC = () => {
       const newAttempt = { score, timeSpent, completedAt: new Date().toISOString() };
       const updatedHistory = [newAttempt, ...history].slice(0, 5);
       setHistory(updatedHistory);
-      localStorage.setItem("quiz_attempts_" + username?.toLowerCase() + "_red-black-trees", JSON.stringify(updatedHistory));
+      if (username) {
+        saveQuizAttemptLocal(username.toLowerCase(), "red-black-trees", newAttempt);
+      }
     }
   };
 
@@ -359,7 +361,7 @@ const RedBlackTreeQuiz: React.FC = () => {
                   {history.map((h, i) => (
                     <div key={i} className="bg-slate-100/50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 flex justify-between items-center group hover:border-red-600/30 transition-all">
                       <div className="space-y-1">
-                        <div className="text-[10px] font-mono text-slate-400 uppercase tracking-tighter">{new Date(h.timestamp).toLocaleString(undefined, {dateStyle: 'short', timeStyle: 'short'})}</div>
+                        <div className="text-[10px] font-mono text-slate-400 uppercase tracking-tighter">{new Date(h.completedAt).toLocaleString(undefined, {dateStyle: 'short', timeStyle: 'short'})}</div>
                         <div className="text-xs font-black text-slate-700 dark:text-slate-200 uppercase">RUN_#{history.length - i}</div>
                       </div>
                       <div className="text-right">

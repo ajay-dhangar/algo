@@ -14,7 +14,7 @@ import {
   FaHistory,
   FaLayerGroup
 } from "react-icons/fa";
-import { safeJsonParse } from "../../utils/safeStorage";
+import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
 
 interface QueueQuestion {
   id: number;
@@ -27,9 +27,9 @@ interface QueueQuestion {
 }
 
 interface AttemptHistory {
-  timestamp: number;
   score: number;
   timeSpent: number;
+  completedAt: string;
 }
 
 const QUESTIONS: QueueQuestion[] = [
@@ -263,7 +263,9 @@ const QueueQuiz: React.FC = () => {
       const newAttempt = { score, timeSpent, completedAt: new Date().toISOString() };
       const updatedHistory = [newAttempt, ...history].slice(0, 5);
       setHistory(updatedHistory);
-      localStorage.setItem("quiz_attempts_" + username?.toLowerCase() + "_queues", JSON.stringify(updatedHistory));
+      if (username) {
+        saveQuizAttemptLocal(username.toLowerCase(), "queues", newAttempt);
+      }
     }
   };
 
@@ -415,7 +417,7 @@ const QueueQuiz: React.FC = () => {
                   {history.map((h, i) => (
                     <div key={i} className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex justify-between items-center transition-all hover:border-indigo-500/30">
                       <div>
-                        <div className="text-[10px] font-mono text-slate-400">{new Date(h.timestamp).toLocaleDateString()}</div>
+                        <div className="text-[10px] font-mono text-slate-400">{new Date(h.completedAt).toLocaleDateString()}</div>
                         <div className="text-xs font-bold text-slate-700 dark:text-slate-200">Attempt #{history.length - i}</div>
                       </div>
                       <div className="text-right">

@@ -15,6 +15,7 @@ import {
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
+import { saveQuizAttemptLocal } from "../../utils/safeStorage";
 
 interface SortingQuestion {
   id: number;
@@ -278,21 +279,8 @@ const SortingQuiz: React.FC = () => {
       timeSpent: timeSpent,
       completedAt: new Date().toISOString()
     };
-    const historyKey = `quiz_attempts_${userId}_sorting`;
-    const savedAttempts = localStorage.getItem(historyKey);
-    let existing: HistoryAttempt[] = [];
-    if (savedAttempts) {
-      try {
-        existing = JSON.parse(savedAttempts);
-        if (!Array.isArray(existing)) {
-          existing = [];
-        }
-      } catch (e) {
-        console.error("Error parsing history attempts:", e);
-      }
-    }
-    const updated = [newAttempt, ...existing].slice(0, 5);
-    localStorage.setItem(historyKey, JSON.stringify(updated));
+    saveQuizAttemptLocal(userId, "sorting", newAttempt);
+    const updated = [newAttempt, ...attempts].slice(0, 5);
     setAttempts(updated);
   };
 

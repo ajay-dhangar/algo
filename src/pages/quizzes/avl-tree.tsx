@@ -16,7 +16,7 @@ import {
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
-import { safeJsonParse } from "../../utils/safeStorage";
+import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
 
 interface AVLQuestion {
   id: number;
@@ -214,10 +214,7 @@ const AVLTreeQuiz: React.FC = () => {
         };
         const updatedHistory = [newAttempt, ...localHistory].slice(0, 5);
         setLocalHistory(updatedHistory);
-        localStorage.setItem(
-          `quiz_attempts_${username.toLowerCase()}_avl-trees`,
-          JSON.stringify(updatedHistory)
-        );
+        saveQuizAttemptLocal(username.toLowerCase(), "avl-trees", newAttempt);
       }
     }
   };
@@ -479,7 +476,7 @@ const AVLTreeQuiz: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {localHistory.map((att, idx) => (
                     <div 
-                      key={att.timestamp || idx} 
+                      key={att.completedAt || idx} 
                       className="bg-slate-50 dark:bg-slate-950 border border-solid border-slate-200 dark:border-slate-800/60 rounded-xl p-4 flex justify-between items-center text-xs"
                     >
                       <div className="space-y-1">
@@ -487,7 +484,7 @@ const AVLTreeQuiz: React.FC = () => {
                           Compilation Cycle #{localHistory.length - idx}
                         </div>
                         <div className="text-[10px] text-slate-400">
-                          {new Date(att.timestamp).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' })}
+                          {new Date(att.completedAt).toLocaleString(undefined, { dateStyle: 'short', timeStyle: 'short' })}
                         </div>
                       </div>
                       <div className="text-right space-y-1">

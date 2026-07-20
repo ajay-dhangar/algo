@@ -11,7 +11,7 @@ import Editor from "@monaco-editor/react";
 import useConsoleCapture from "../hooks/useConsoleCapture";
 import ComplexityDeepDive from "./ComplexityDeepDive";
 import PseudocodeTab from "./PseudocodeTab";
-import { readAlgoProgress, writeAlgoProgress } from "../utils/safeStorage";
+import { markChallengeSolved } from "../utils/safeStorage";
 
 const DIFF_COLORS = {
   Easy: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
@@ -63,11 +63,7 @@ export default function DPChallengeLayout({ challenge }: Props) {
           </span>
 <button
   onClick={() => {
-    const progress = readAlgoProgress();
-    progress[challenge.id] = true;
-    progress[`${challenge.id}_title`] = challenge.title;
-    progress[`${challenge.id}_updatedAt`] = new Date().toISOString();
-    writeAlgoProgress(progress);
+    markChallengeSolved(challenge.id, challenge.title);
     alert("Marked as solved!");
   }}
   className="ml-auto flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"

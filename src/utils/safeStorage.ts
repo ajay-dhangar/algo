@@ -86,6 +86,7 @@ export function writeAlgoProgress(progress: AlgoProgressData): void {
   }
 
   window.localStorage.setItem('algo_progress', JSON.stringify(progress));
+  window.dispatchEvent(new Event('progressUpdated'));
 
   const userId = getUserId();
   if (userId) {
@@ -98,6 +99,68 @@ export function writeAlgoProgress(progress: AlgoProgressData): void {
       }
     });
   }
+}
+
+/** Maps page-level quiz ids to canonical ids used by achievements + quiz index. */
+const QUIZ_ID_ALIASES: Record<string, string> = {
+  graph: 'graphs',
+  'binary-tree': 'binary-trees',
+  'binary-search-tree': 'bst',
+  'linked-list': 'linked-lists',
+  deque: 'deques',
+  'priority-queue': 'priority-queues',
+  'bplus-tree': 'bplus-trees',
+  'b-tree': 'b-trees',
+};
+
+export function normalizeQuizId(quizId: string): string {
+  return QUIZ_ID_ALIASES[quizId] ?? quizId;
+}
+
+export function getQuizAttemptStorageKey(userId: string, quizId: string): string {
+  const uid = userId.toLowerCase();
+  return `quiz_attempts_${uid}_${normalizeQuizId(quizId)}`;
+}
+
+export function markChallengeSolved(challengeId: string, title: string): void {
+  const progress = readAlgoProgress();
+  const now = new Date().toISOString();
+
+  progress[challengeId] = true;
+  progress[`${challengeId}_title`] = title;
+  progress[`${challengeId}_updatedAt`] = now;
+  progress.lastActiveAt = now;
+
+  writeAlgoProgress(progress);
+
+  window.dispatchEvent(
+    new CustomEvent('progressUpdated', {
+      detail: { topicId: challengeId, completed: true, title },
+    })
+  );
+}
+
+export function saveQuizAttemptLocal(
+  userId: string,
+  quizId: string,
+  attempt: QuizAttemptRecord
+): void {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return;
+  }
+
+  const canonicalId = normalizeQuizId(quizId);
+  const key = getQuizAttemptStorageKey(userId, quizId);
+  const existing = safeJsonParse<QuizAttemptRecord[]>(key, []);
+  const updated = [attempt, ...existing].slice(0, 5);
+
+  localStorage.setItem(key, JSON.stringify(updated));
+
+  window.dispatchEvent(
+    new CustomEvent('quizCompleted', {
+      detail: { quizId: canonicalId, userId, score: attempt.score },
+    })
+  );
 }
 
 function computeStreak(progress: AlgoProgressData): number {
@@ -158,9 +221,10 @@ const QUIZ_QUESTION_COUNTS: Record<string, number> = {
   'hash-indexing': 12, 'external-hashing': 12,
 };
 
-interface QuizAttemptRecord {
+export interface QuizAttemptRecord {
   score: number;
   totalQuestions?: number;
+  timeSpent?: number;
   completedAt?: string;
 }
 
@@ -169,19 +233,12 @@ function computeQuizStats(): { passed: number; mastered: number; attempted: numb
     return { passed: 0, mastered: 0, attempted: 0 };
   }
 
-  const uid =
-    localStorage.getItem('quiz_userId') ||
-    localStorage.getItem('quiz_username') ||
-    null;
-
   let passed = 0;
   let mastered = 0;
   let attempted = 0;
 
-  // Try both uid-based and username-based keys to cover all quiz pages
-  const prefixes = uid ? [uid, uid.toLowerCase()] : [];
+  const bestByQuiz = new Map<string, number>();
 
-  // Also scan all localStorage keys that match the quiz_attempts_ pattern
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     if (!key || !key.startsWith('quiz_attempts_')) continue;
@@ -191,16 +248,23 @@ function computeQuizStats(): { passed: number; mastered: number; attempted: numb
 
     // Extract quiz id from key: quiz_attempts_<uid>_<quizId>
     const parts = key.replace('quiz_attempts_', '').split('_');
-    const quizId = parts.slice(1).join('_') || parts[0];
+    const quizId = normalizeQuizId(parts.slice(1).join('_') || parts[0]);
     const total = QUIZ_QUESTION_COUNTS[quizId] ?? 10;
 
     const bestScore = Math.max(...attempts.map((a) => (typeof a.score === 'number' ? a.score : 0)));
     const bestPercent = Math.round((bestScore / total) * 100);
+    const previousBest = bestByQuiz.get(quizId) ?? 0;
 
+    if (bestPercent > previousBest) {
+      bestByQuiz.set(quizId, bestPercent);
+    }
+  }
+
+  Array.from(bestByQuiz.values()).forEach((bestPercent) => {
     attempted++;
     if (bestPercent >= 70) passed++;
     if (bestPercent >= 90) mastered++;
-  }
+  });
 
   return { passed, mastered, attempted };
 }
