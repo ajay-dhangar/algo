@@ -80,27 +80,27 @@ hide_table_of_contents: true
    **Explanation:** Since internal nodes hold only keys (no data payload), more keys fit per disk block, increasing fan-out and reducing tree height. The minor redundancy of storing a key in both an internal node and a leaf is a worthwhile trade-off for faster traversal and efficient range scans.
 
 10. **How does a B+ Tree achieve efficient sequential (in-order) traversal of all stored records, and how does this compare to a B-Tree?**
-   - A) Both B-Trees and B+ Trees require a full in-order tree traversal starting from the root every time
-   - B) A B+ Tree only needs to find the first leaf and then follow leaf-to-leaf linked list pointers, avoiding repeated root-to-leaf traversals required by a plain B-Tree
-   - C) Neither structure supports sequential traversal at all
-   - D) B-Trees are always faster for sequential traversal than B+ Trees  
-   **Answer:** B) A B+ Tree only needs to find the first leaf and then follow leaf-to-leaf linked list pointers, avoiding repeated root-to-leaf traversals required by a plain B-Tree  
-   **Explanation:** Because B+ Tree leaves are linked sequentially, a full scan or range query needs only one descent to the starting leaf, then a simple linked-list walk. A standard B-Tree (without linked leaves) would require repeated tree traversals or complex in-order logic to visit all records, making B+ Trees significantly better suited for range-heavy database workloads.
+    - A) Both B-Trees and B+ Trees require a full in-order tree traversal starting from the root every time
+    - B) A B+ Tree only needs to find the first leaf and then follow leaf-to-leaf linked list pointers, avoiding repeated root-to-leaf traversals required by a plain B-Tree
+    - C) Neither structure supports sequential traversal at all
+    - D) B-Trees are always faster for sequential traversal than B+ Trees  
+    **Answer:** B) A B+ Tree only needs to find the first leaf and then follow leaf-to-leaf linked list pointers, avoiding repeated root-to-leaf traversals required by a plain B-Tree  
+    **Explanation:** Because B+ Tree leaves are linked sequentially, a full scan or range query needs only one descent to the starting leaf, then a simple linked-list walk. A standard B-Tree (without linked leaves) would require repeated tree traversals or complex in-order logic to visit all records, making B+ Trees significantly better suited for range-heavy database workloads.
 
 11. **In a database system, why might a composite (multi-column) index implemented as a B+ Tree still perform poorly for queries that filter only on the second column of the index?**
-   - A) B+ Trees cannot store composite keys at all
-   - B) Because keys are ordered primarily by the first column, filtering only on the second column cannot leverage the sorted order, often forcing a broader scan rather than a precise lookup
-   - C) Composite indexes are always faster than single-column indexes for every type of query
-   - D) B+ Trees automatically reorder columns to optimize any query pattern  
-   **Answer:** B) Because keys are ordered primarily by the first column, filtering only on the second column cannot leverage the sorted order, often forcing a broader scan rather than a precise lookup  
-   **Explanation:** A composite B+ Tree index on (A, B) sorts entries primarily by A, then by B within each A value. A query filtering only on B cannot binary-search effectively, since matching B values are scattered across different A groups — this is why column order in composite indexes matters significantly for query performance.
+    - A) B+ Trees cannot store composite keys at all
+    - B) Because keys are ordered primarily by the first column, filtering only on the second column cannot leverage the sorted order, often forcing a broader scan rather than a precise lookup
+    - C) Composite indexes are always faster than single-column indexes for every type of query
+    - D) B+ Trees automatically reorder columns to optimize any query pattern  
+    **Answer:** B) Because keys are ordered primarily by the first column, filtering only on the second column cannot leverage the sorted order, often forcing a broader scan rather than a precise lookup  
+    **Explanation:** A composite B+ Tree index on (A, B) sorts entries primarily by A, then by B within each A value. A query filtering only on B cannot binary-search effectively, since matching B values are scattered across different A groups — this is why column order in composite indexes matters significantly for query performance.
 
 12. **What is a key trade-off when increasing the order (fan-out) of a B+ Tree to reduce tree height?**
-   - A) There is no trade-off; higher fan-out is always strictly better with no downsides
-   - B) Larger nodes mean more keys must be scanned or compared within each node during traversal, and each node may not fit as cleanly within a single disk block if too large
-   - C) Increasing fan-out always decreases search time to O(1) regardless of size
-   - D) Higher fan-out eliminates the need for leaf node linking  
-   **Answer:** B) Larger nodes mean more keys must be scanned or compared within each node during traversal, and each node may not fit as cleanly within a single disk block if too large  
-   **Explanation:** While higher fan-out reduces tree height (fewer disk seeks), each node becomes larger and may require more in-node comparisons (mitigated in practice by binary search within the node). Critically, node size is usually tuned to match the disk block size — making it too large would mean a single node spans multiple disk blocks, increasing I/O cost per node access and negating the benefit.
+    - A) There is no trade-off; higher fan-out is always strictly better with no downsides
+    - B) Larger nodes mean more keys must be scanned or compared within each node during traversal, and each node may not fit as cleanly within a single disk block if too large
+    - C) Increasing fan-out always decreases search time to O(1) regardless of size
+    - D) Higher fan-out eliminates the need for leaf node linking  
+    **Answer:** B) Larger nodes mean more keys must be scanned or compared within each node during traversal, and each node may not fit as cleanly within a single disk block if too large  
+    **Explanation:** While higher fan-out reduces tree height (fewer disk seeks), each node becomes larger and may require more in-node comparisons (mitigated in practice by binary search within the node). Critically, node size is usually tuned to match the disk block size — making it too large would mean a single node spans multiple disk blocks, increasing I/O cost per node access and negating the benefit.
 
 </main>
