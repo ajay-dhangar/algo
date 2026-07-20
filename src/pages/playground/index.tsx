@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import * as acorn from "acorn";
 import Layout from "@theme/Layout";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import { useColorMode } from "@docusaurus/theme-common";
@@ -13,6 +14,10 @@ import {
   FaLightbulb,
   FaShareAlt,
   FaDownload,
+  FaPause,
+  FaStepBackward,
+  FaStepForward,
+  FaRedo,
 } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -913,6 +918,510 @@ type MonacoEditorLike = {
 
 const getLineCount = (value: string): number => Math.max(1, value.split(/\r\n|\r|\n/).length);
 
+function instrumentJavaScript(code: string): string {
+  let ast: any;
+  try {
+    ast = acorn.parse(code, { ecmaVersion: 2020, locations: true });
+  } catch (err: any) {
+    throw new Error(`Parse error: ${err.message}`);
+  }
+
+  const inserts: Array<{ index: number; text: string }> = [];
+  let currentScope: any = { vars: new Set<string>(), parent: null };
+
+  function pushScope() {
+    currentScope = { vars: new Set<string>(), parent: currentScope };
+  }
+
+  function popScope() {
+    if (currentScope.parent) {
+      currentScope = currentScope.parent;
+    }
+  }
+
+  function addVar(name: string) {
+    currentScope.vars.add(name);
+  }
+
+  function getActiveVars(): string[] {
+    const vars = new Set<string>();
+    let s = currentScope;
+    while (s) {
+      for (const v of s.vars) {
+        vars.add(v);
+      }
+      s = s.parent;
+    }
+    return Array.from(vars);
+  }
+
+  function prePopulateFunctions(body: any) {
+    if (!body) return;
+    const nodes = Array.isArray(body) ? body : [body];
+    for (const node of nodes) {
+      if (node && node.type === "FunctionDeclaration" && node.id && node.id.type === "Identifier") {
+        addVar(node.id.name);
+      }
+    }
+  }
+
+  function walk(node: any) {
+    if (!node) return;
+
+    const isStatement = [
+      "VariableDeclaration",
+      "ExpressionStatement",
+      "ReturnStatement",
+      "BreakStatement",
+      "ContinueStatement",
+    ].includes(node.type);
+
+    if (isStatement) {
+      const activeVars = getActiveVars();
+      const line = node.loc.start.line;
+      const varMap = activeVars.map((v) => `${v}:${v}`).join(", ");
+      const dbgCall = `__dbg__(${line}, {${varMap}}); `;
+      inserts.push({ index: node.start, text: dbgCall });
+    }
+
+    if (node.type === "VariableDeclaration") {
+      for (const decl of node.declarations) {
+        if (decl.id.type === "Identifier") {
+          addVar(decl.id.name);
+        }
+      }
+    } else if (node.type === "FunctionDeclaration") {
+      if (node.id && node.id.type === "Identifier") {
+        addVar(node.id.name);
+      }
+    }
+
+    if (
+      node.type === "FunctionDeclaration" ||
+      node.type === "FunctionExpression" ||
+      node.type === "ArrowFunctionExpression"
+    ) {
+      pushScope();
+      for (const param of node.params) {
+        if (param.type === "Identifier") {
+          addVar(param.name);
+        }
+      }
+      if (node.body && node.body.type === "BlockStatement") {
+        prePopulateFunctions(node.body.body);
+      }
+      walk(node.body);
+      popScope();
+    } else if (node.type === "BlockStatement") {
+      pushScope();
+      prePopulateFunctions(node.body);
+      for (const stmt of node.body) {
+        walk(stmt);
+      }
+      popScope();
+    } else if (node.type === "IfStatement") {
+      const activeVars = getActiveVars();
+      const line = node.loc.start.line;
+      const varMap = activeVars.map((v) => `${v}:${v}`).join(", ");
+
+      const testStart = node.test.start;
+      const testEnd = node.test.end;
+      inserts.push({ index: testStart, text: `__dbg_cond__(${line}, (` });
+      inserts.push({ index: testEnd, text: `), {${varMap}})` });
+
+      walk(node.consequent);
+      walk(node.alternate);
+    } else if (node.type === "WhileStatement") {
+      const activeVars = getActiveVars();
+      const line = node.loc.start.line;
+      const varMap = activeVars.map((v) => `${v}:${v}`).join(", ");
+
+      const testStart = node.test.start;
+      const testEnd = node.test.end;
+      inserts.push({ index: testStart, text: `__dbg_cond__(${line}, (` });
+      inserts.push({ index: testEnd, text: `), {${varMap}})` });
+
+      walk(node.body);
+    } else if (node.type === "ForStatement") {
+      pushScope();
+      walk(node.init);
+
+      if (node.test) {
+        const activeVars = getActiveVars();
+        const line = node.loc.start.line;
+        const varMap = activeVars.map((v) => `${v}:${v}`).join(", ");
+
+        const testStart = node.test.start;
+        const testEnd = node.test.end;
+        inserts.push({ index: testStart, text: `__dbg_cond__(${line}, (` });
+        inserts.push({ index: testEnd, text: `), {${varMap}})` });
+      }
+
+      walk(node.body);
+      walk(node.update);
+      popScope();
+    } else {
+      for (const key in node) {
+        if (node[key] && typeof node[key] === "object") {
+          if (Array.isArray(node[key])) {
+            for (const child of node[key]) {
+              if (child && typeof child.type === "string") {
+                walk(child);
+              }
+            }
+          } else if (typeof node[key].type === "string") {
+            walk(node[key]);
+          }
+        }
+      }
+    }
+  }
+
+  prePopulateFunctions(ast.body);
+
+  for (const stmt of ast.body) {
+    walk(stmt);
+  }
+
+  inserts.sort((a, b) => b.index - a.index);
+
+  let instrumented = code;
+  for (const ins of inserts) {
+    instrumented =
+      instrumented.slice(0, ins.index) +
+      ins.text +
+      instrumented.slice(ins.index);
+  }
+
+  return instrumented;
+}
+
+function transpileCppToJs(code: string): string {
+  const lines = code.split("\n");
+  const result = lines.map((line) => {
+    let l = line;
+    if (l.trim().startsWith("#include") || l.trim().startsWith("using namespace")) {
+      return "// " + l;
+    }
+    // Struct/Class replacements
+    if (l.includes("struct ListNode") || l.includes("class ListNode")) {
+      return "class ListNode {";
+    }
+    if (l.includes("ListNode(int x)")) {
+      return "    constructor(x) { this.val = x; this.next = null; }";
+    }
+    if (l.trim() === "};") {
+      return "}";
+    }
+    if (l.trim() === "int val;" || l.trim() === "ListNode* next;") {
+      return "// " + l;
+    }
+
+    // Function declarations
+    l = l.replace(/\b(int|void|double|float|bool|ListNode\*|vector<\w+>&?)\s+(\w+)\s*\(([^)]*)\)\s*\{/g, 'function $2($3) {');
+    // Parameter types in function signatures
+    l = l.replace(/\b(vector<\w+>&?|int|double|float|bool|ListNode\*)\s+(\w+)/g, '$2');
+    // Variable declarations (excluding function calls/definitions)
+    l = l.replace(/\b(int|double|float|bool|auto|char|string|ListNode\*|vector<\w+>)\s+(\w+)\b(?!\s*\()/g, 'let $2');
+    
+    l = l.replace(/\bNULL\b/g, 'null');
+    l = l.replace(/->/g, '.');
+    
+    if (l.includes("cout")) {
+      const parts = l.split("<<").map(p => p.trim());
+      parts.shift();
+      const cleanParts = parts.filter(p => p !== "endl" && p !== "endl;");
+      l = `console.log(${cleanParts.join(" + ")});`;
+    }
+    
+    l = l.replace(/for\s*\(\s*let\s+(\w+)\s*:\s*(\w+)\)/g, 'for (let $1 of $2)');
+    l = l.replace(/for\s*\(\s*(int|double|float|bool|auto)\s+(\w+)\s*:\s*(\w+)\)/g, 'for (let $2 of $3)');
+    l = l.replace(/\.size\(\)/g, '.length');
+    l = l.replace(/\.push_back\(/g, '.push(');
+    l = l.replace(/(left\s*\+\s*\(right\s*-\s*left\)\s*\/\s*2)/g, 'Math.floor($1)');
+    l = l.replace(/\bswap\s*\(\s*([^,]+)\s*,\s*([^)]+)\s*\)/g, '[$1, $2] = [$2, $1]');
+    
+    return l;
+  });
+  
+  if (code.includes("int main(")) {
+    result.push("main();");
+  }
+  return result.join("\n");
+}
+
+function transpileJavaToJs(code: string): string {
+  const lines = code.split("\n");
+  let insideListNode = false;
+  const result = lines.map((line) => {
+    let l = line;
+    if (l.trim().startsWith("import ") || l.trim().startsWith("package ")) {
+      return "// " + l;
+    }
+    if (l.includes("class ListNode")) {
+      insideListNode = true;
+      return "    class ListNode {";
+    }
+    if (insideListNode && l.includes("ListNode(int x)")) {
+      return "        constructor(x) { this.val = x; this.next = null; }";
+    }
+    if (insideListNode && l.trim() === "}") {
+      insideListNode = false;
+      return "    }";
+    }
+    if (insideListNode && (l.trim() === "int val;" || l.trim() === "ListNode next;")) {
+      return "        // " + l.trim();
+    }
+
+    if (l.trim().startsWith("public class ") || (l.trim().startsWith("class ") && !l.includes("ListNode"))) {
+      return "// " + l;
+    }
+    
+    // Replace methods
+    l = l.replace(/\bpublic\s+static\s+(int|void|ListNode|List<Integer>|\[\]int|int\[\])\s+(\w+)\s*\(([^)]*)\)/g, 'function $2($3)');
+    l = l.replace(/\bpublic\s+static\s+void\s+main\s*\(([^)]*)\)/g, 'function main($1)');
+    
+    // Strip parameter types
+    l = l.replace(/\b(ListNode|List<Integer>|int\[\]|int|String\[\]|String)\s+(\w+)/g, '$2');
+    
+    // Replace variable declarations
+    l = l.replace(/\b(int|boolean|ListNode|List<Integer>|int\[\]|List)\s+(\w+)\b(?!\s*\()/g, 'let $2');
+    
+    l = l.replace(/new\s+ArrayList<>\(\)/g, '[]');
+    l = l.replace(/new\s+ListNode\((\d+)\)/g, 'new ListNode($1)');
+    l = l.replace(/=\s*new\s+int\[\]\s*\{([^}]+)\}/g, '= [$1]');
+    l = l.replace(/=\s*\{([^}]+)\}/g, '= [$1]');
+    
+    l = l.replace(/System\.out\.println\(([^)]*)\)/g, 'console.log($2)');
+    l = l.replace(/System\.out\.print\(([^)]*)\)/g, 'console.log($2)');
+    
+    l = l.replace(/\.add\(([^)]*)\)/g, '.push($1)');
+    l = l.replace(/\.get\(([^)]*)\)/g, '[$1]');
+    l = l.replace(/\.size\(\)/g, '.length');
+    l = l.replace(/(left\s*\+\s*\(right\s*-\s*left\)\s*\/\s*2)/g, 'Math.floor($1)');
+    
+    return l;
+  });
+  
+  // Comment out the very last closing brace of the class
+  for (let i = result.length - 1; i >= 0; i--) {
+    if (result[i].trim() === "}") {
+      result[i] = "// }";
+      break;
+    }
+  }
+
+  if (code.includes("public static void main")) {
+    result.push("main([]);");
+  }
+  return result.join("\n");
+}
+
+function transpileRustToJs(code: string): string {
+  const lines = code.split("\n");
+  let insideListNode = false;
+  let insideImpl = false;
+  let insideNew = false;
+
+  const result = lines.map((line) => {
+    let l = line;
+    if (l.trim().startsWith("#[derive")) {
+      return "// " + l;
+    }
+    
+    // Struct / Impl replacements
+    if (l.includes("struct ListNode")) {
+      insideListNode = true;
+      return "class ListNode {";
+    }
+    if (insideListNode && l.trim() === "}") {
+      insideListNode = false;
+      return "}";
+    }
+    if (insideListNode && (l.includes("val:") || l.includes("next:"))) {
+      return "    // " + l.trim();
+    }
+
+    if (l.includes("impl ListNode")) {
+      insideImpl = true;
+      return "// impl ListNode {";
+    }
+    if (insideImpl && l.includes("fn new(")) {
+      insideNew = true;
+      return "    constructor(val) { this.val = val; this.next = null; } /*";
+    }
+    if (insideImpl && insideNew && l.trim() === "}") {
+      insideNew = false;
+      return "    */ }";
+    }
+    if (insideImpl && !insideNew && l.trim() === "}") {
+      insideImpl = false;
+      return "// }";
+    }
+    if (insideImpl && insideNew) {
+      return "    // " + l.trim();
+    }
+
+    // Function declarations fn binary_search(...) -> i32 {
+    l = l.replace(/\bfn\s+(\w+)\s*\(([^)]*)\)\s*(->\s*[\w<>:()]+)?\s*\{/g, 'function $1($2) {');
+    
+    // Parameter signatures: x: type
+    l = l.replace(/(\w+)\s*:\s*&?mut?\s*[\w\[\]<>:]+/g, '$1');
+    l = l.replace(/(\w+)\s*:\s*[\w\[\]<>:]+/g, '$1');
+
+    // let mut x = ... -> let x = ...
+    l = l.replace(/\blet\s+mut\s+(\w+)/g, 'let $1');
+    
+    // println! and print!
+    if (l.includes("print!")) {
+      l = l.replace(/println!\s*\(\s*"([^"]*)",\s*([^)]*)\)/g, (_, fmt, args) => {
+        const argList = args.split(",").map((a: string) => a.trim());
+        let out = fmt;
+        for (const arg of argList) {
+          out = out.replace("{}", `" + ${arg} + "`);
+          out = out.replace("{:?}", `" + ${arg} + "`);
+        }
+        return `console.log("${out}");`;
+      });
+      l = l.replace(/println!\s*\(\s*"([^"]*)"\s*\)/g, 'console.log("$1")');
+      l = l.replace(/print!\s*\(\s*"([^"]*)",\s*([^)]*)\)/g, (_, fmt, args) => {
+        const argList = args.split(",").map((a: string) => a.trim());
+        let out = fmt;
+        for (const arg of argList) {
+          out = out.replace("{}", `" + ${arg} + "`);
+        }
+        return `console.log("${out}");`;
+      });
+      l = l.replace(/print!\s*\(\s*"([^"]*)"\s*\)/g, 'console.log("$1")');
+    }
+
+    // Rust loops
+    l = l.replace(/for\s+(\w+)\s+in\s+2\.\.n/g, 'for (let $1 = 2; $1 < n; $1++)');
+    l = l.replace(/for\s+(\w+)\s+in\s+0\.\.n\s*-\s*1/g, 'for (let $1 = 0; $1 < n - 1; $1++)');
+    l = l.replace(/for\s+(\w+)\s+in\s+0\.\.n\s*-\s*i\s*-\s*1/g, 'for (let $1 = 0; $1 < n - i - 1; $1++)');
+    l = l.replace(/for\s*\(\s*(\w+)\s*,\s*&?(\w+)\s*\)\s*in\s*(\w+)\.iter\(\)\.enumerate\(\)/g, 'for (let $1 = 0; $1 < $3.length; $1++) { let $2 = $3[$1];');
+    
+    // Implicit returns
+    l = l.replace(/^\s*(-1|prev|series)\s*$/g, (match) => 'return ' + match.trim() + ';');
+
+    // Helpers
+    l = l.replace(/vec!\[/g, '[');
+    l = l.replace(/\.len\(\)/g, '.length');
+    l = l.replace(/\.clone\(\)/g, '');
+    l = l.replace(/\.take\(\)/g, '');
+    l = l.replace(/\.is_some\(\)/g, '');
+    l = l.replace(/\bNone\b/g, 'null');
+    l = l.replace(/Some\((\w+)\)/g, '$1');
+    l = l.replace(/Some\(([^)]+)\)/g, '$1');
+    l = l.replace(/as\s+(i32|usize)/g, '');
+    l = l.replace(/&/g, '');
+    l = l.replace(/\*/g, '');
+    
+    // while let Some(...)
+    l = l.replace(/while\s+let\s+Some\(mut\s+(\w+)\)\s*=\s*(\w+)\s*\{/g, 'while ($2) { let $1 = $2;');
+    l = l.replace(/while\s+let\s+Some\((\w+)\)\s*=\s*(\w+)\s*\{/g, 'while ($2) { let $1 = $2;');
+
+    return l;
+  });
+
+  if (code.includes("fn main()")) {
+    result.push("main();");
+  }
+  return result.join("\n");
+}
+
+function transpileGoToJs(code: string): string {
+  const lines = code.split("\n");
+  let insideListNode = false;
+
+  const result = lines.map((line) => {
+    let l = line;
+    if (l.trim().startsWith("package ") || l.trim().startsWith("import ")) {
+      return "// " + l;
+    }
+    
+    // Struct replacement
+    if (l.includes("type ListNode struct")) {
+      insideListNode = true;
+      return `class ListNode {
+        constructor(config = {}) {
+          this.Val = config.Val !== undefined ? config.Val : 0;
+          this.Next = config.Next !== undefined ? config.Next : null;
+          this.val = this.Val;
+          this.next = this.Next;
+        }
+      } /*`;
+    }
+    if (insideListNode && l.trim() === "}") {
+      insideListNode = false;
+      return "*/";
+    }
+    if (insideListNode) {
+      return "    // " + l.trim();
+    }
+
+    // Function declarations
+    l = l.replace(/\bfunc\s+(\w+)\s*\(([^)]*)\)\s*([^*{\s]+)?\s*\{/g, 'function $1($2) {');
+    
+    // Parameter types
+    l = l.replace(/(\w+)\s+(\[\]\w+|\*\w+|\w+)/g, '$1');
+    
+    // := assignment
+    l = l.replace(/\b(\w+)\s*:=\s*([^;]+)/g, 'let $1 = $2');
+    
+    // Multiple assignment for bubbleSort
+    l = l.replace(/(\w+\[[^\]]+\])\s*,\s*(\w+\[[^\]]+\])\s*=\s*(\w+\[[^\]]+\])\s*,\s*(\w+\[[^\]]+\])/g, '[$1, $2] = [$3, $4]');
+
+    // Go struct initialization replacement: &ListNode{Val: 1} -> new ListNode({Val: 1})
+    if (l.includes("ListNode{")) {
+      l = l.replace(/&ListNode\{/g, 'new ListNode({');
+      l = l.replace(/ListNode\{/g, 'new ListNode({');
+      l = l.replace(/\}/g, '})');
+    }
+
+    l = l.replace(/fmt\.Println\(([^)]*)\)/g, 'console.log($2)');
+    l = l.replace(/fmt\.Printf\(([^)]*)\)/g, 'console.log($2)');
+    l = l.replace(/fmt\.Print\(([^)]*)\)/g, 'console.log($2)');
+    
+    l = l.replace(/\blen\(([^)]*)\)/g, '$1.length');
+    l = l.replace(/\bnil\b/g, 'null');
+    
+    // Slice append: series = append(series, ...)
+    l = l.replace(/(\w+)\s*=\s*append\((\w+)\s*,\s*([^)]+)\)/g, '$1.push($3)');
+
+    // Go loop: for i, num := range fib
+    if (l.includes("range")) {
+      l = l.replace(/for\s+(\w+)\s*,\s*(\w+)\s*:=\s*range\s*(\w+)/g, 'for (let $1 = 0; $1 < $3.length; $1++) { let $2 = $3[$1];');
+    }
+
+    return l;
+  });
+
+  if (code.includes("func main()")) {
+    result.push("main();");
+  }
+  return result.join("\n");
+}
+
+function transpileToJS(code: string, lang: LanguageType): string {
+  switch (lang) {
+    case "javascript":
+      return code;
+    case "python":
+      return code;
+    case "cpp":
+      return transpileCppToJs(code);
+    case "java":
+      return transpileJavaToJs(code);
+    case "rust":
+      return transpileRustToJs(code);
+    case "go":
+      return transpileGoToJs(code);
+    default:
+      return code;
+  }
+}
+
 // Moving the core workspace content to a separate inner component
 const PlaygroundContent: React.FC = () => {
   const [language, setLanguage] = useState<LanguageType>("javascript");
@@ -928,6 +1437,171 @@ const PlaygroundContent: React.FC = () => {
     characterCount: TEMPLATES.javascript.binarySearch.length,
     selectionLength: 0,
   });
+
+  // Debugger specific states
+  const [debugSteps, setDebugSteps] = useState<any[]>([]);
+  const [currentStepIdx, setCurrentStepIdx] = useState<number>(-1);
+  const [isDebugMode, setIsDebugMode] = useState<boolean>(false);
+  const [playbackSpeed, setPlaybackSpeed] = useState<number>(1);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const editorRef = useRef<any>(null);
+  const monacoRef = useRef<any>(null);
+  const decorationsRef = useRef<string[]>([]);
+
+  const handlePrevStep = () => {
+    setIsPlaying(false);
+    if (currentStepIdx > 0) {
+      setCurrentStepIdx(currentStepIdx - 1);
+    }
+  };
+
+  const handleNextStep = () => {
+    setIsPlaying(false);
+    if (currentStepIdx < debugSteps.length - 1) {
+      setCurrentStepIdx(currentStepIdx + 1);
+    }
+  };
+
+  const handleRestartDebug = () => {
+    setIsPlaying(false);
+    setCurrentStepIdx(0);
+  };
+
+  const handleExitDebug = () => {
+    setIsPlaying(false);
+    setIsDebugMode(false);
+    setDebugSteps([]);
+    setCurrentStepIdx(-1);
+    clearDecorations();
+    setLogs(["// Debugger session exited."]);
+  };
+
+  const clearDecorations = () => {
+    if (editorRef.current && decorationsRef.current.length > 0) {
+      decorationsRef.current = editorRef.current.deltaDecorations(decorationsRef.current, []);
+    }
+  };
+
+  const highlightLine = (line: number) => {
+    if (!editorRef.current || !monacoRef.current) return;
+    const editor = editorRef.current;
+    const monaco = monacoRef.current;
+
+    decorationsRef.current = editor.deltaDecorations(decorationsRef.current, [
+      {
+        range: new monaco.Range(line, 1, line, 1),
+        options: {
+          isWholeLine: true,
+          className: "bg-yellow-500/20 dark:bg-yellow-500/10 border-l-4 border-yellow-500",
+        },
+      },
+    ]);
+    editor.revealLineInCenterIfOutsideViewport(line);
+  };
+
+  const getLineDescription = (lineNum: number) => {
+    if (!code) return "";
+    const lines = code.split("\n");
+    if (lineNum <= 0 || lineNum > lines.length) return "Executing next statement.";
+    const lineText = lines[lineNum - 1].trim();
+
+    if (lineText.startsWith("//")) {
+      return `Reading comment: "${lineText}"`;
+    }
+    if (lineText.includes("function ")) {
+      const funcName = lineText.match(/function\s+(\w+)/)?.[1] || "function";
+      return `Entering function ${funcName}()`;
+    }
+    if (lineText.startsWith("while")) {
+      return `Evaluating loop condition: \`${lineText}\``;
+    }
+    if (lineText.startsWith("for")) {
+      return `Evaluating loop initialization/iteration: \`${lineText}\``;
+    }
+    if (lineText.startsWith("if")) {
+      return `Evaluating conditional check: \`${lineText}\``;
+    }
+    if (lineText.startsWith("return")) {
+      return `Returning value: \`${lineText}\``;
+    }
+    if (lineText.includes("console.log")) {
+      return `Executing console log statement to print output`;
+    }
+    if (lineText.includes("let ") || lineText.includes("const ") || lineText.includes("var ")) {
+      return `Declaring local variable(s): \`${lineText}\``;
+    }
+    if (lineText.includes(" = ")) {
+      return `Updating variable/array value: \`${lineText}\``;
+    }
+    return `Executing statement: \`${lineText}\``;
+  };
+
+  const formatVariableValue = (val: any): string => {
+    if (val === null) return "null";
+    if (val === undefined) return "undefined";
+    if (typeof val === "object") {
+      // Premium visual formatter for Linked Lists (ListNodes)
+      const isListNode = (val.val !== undefined && val.next !== undefined) ||
+                         (val.Val !== undefined && val.Next !== undefined);
+      if (isListNode) {
+        const parts: string[] = [];
+        let curr = val;
+        const visited = new Set<any>(); // Prevent circular/infinite references
+        while (curr && !visited.has(curr)) {
+          visited.add(curr);
+          const v = curr.val !== undefined ? curr.val : curr.Val;
+          parts.push(String(v));
+          curr = curr.next !== undefined ? curr.next : curr.Next;
+        }
+        if (curr) {
+          parts.push("... (Circular)");
+        }
+        return parts.join(" -> ");
+      }
+      try {
+        return JSON.stringify(val);
+      } catch (e) {
+        return "[Object]";
+      }
+    }
+    if (typeof val === "string") {
+      return `"${val}"`;
+    }
+    return String(val);
+  };
+
+  // Playback timer effect
+  useEffect(() => {
+    let intervalId: any;
+    if (isPlaying && isDebugMode && debugSteps.length > 0) {
+      const baseDelay = 1000; // 1 second base
+      const delay = baseDelay / playbackSpeed;
+      intervalId = setInterval(() => {
+        setCurrentStepIdx((prev) => {
+          if (prev < debugSteps.length - 1) {
+            return prev + 1;
+          } else {
+            setIsPlaying(false);
+            return prev;
+          }
+        });
+      }, delay);
+    }
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [isPlaying, isDebugMode, debugSteps, playbackSpeed]);
+
+  // Decoration sync effect
+  useEffect(() => {
+    if (isDebugMode && debugSteps.length > 0 && currentStepIdx >= 0 && currentStepIdx < debugSteps.length) {
+      const step = debugSteps[currentStepIdx];
+      highlightLine(step.line);
+    } else {
+      clearDecorations();
+    }
+  }, [currentStepIdx, isDebugMode, debugSteps]);
 
   // Load shared code from URL query parameters if present
   useEffect(() => {
@@ -1048,6 +1722,10 @@ const PlaygroundContent: React.FC = () => {
     setCode(TEMPLATES[selectedLanguage].binarySearch);
     setLogs([]);
     setExecTime(null);
+    setIsDebugMode(false);
+    setDebugSteps([]);
+    setCurrentStepIdx(-1);
+    clearDecorations();
     setEditorTelemetry({
       lineNumber: 1,
       column: 1,
@@ -1061,6 +1739,10 @@ const PlaygroundContent: React.FC = () => {
     const selected = e.target.value;
     setTemplate(selected);
     setCode(TEMPLATES[language][selected]);
+    setIsDebugMode(false);
+    setDebugSteps([]);
+    setCurrentStepIdx(-1);
+    clearDecorations();
     setEditorTelemetry({
       lineNumber: 1,
       column: 1,
@@ -1075,6 +1757,10 @@ const PlaygroundContent: React.FC = () => {
     setCode(resetCode);
     setLogs(["// Editor reset to original template."]);
     setExecTime(null);
+    setIsDebugMode(false);
+    setDebugSteps([]);
+    setCurrentStepIdx(-1);
+    clearDecorations();
     setEditorTelemetry({
       lineNumber: 1,
       column: 1,
@@ -1085,8 +1771,12 @@ const PlaygroundContent: React.FC = () => {
   };
 
   const handleClear = () => {
-    setLogs([]);
-    setExecTime(null);
+    if (isDebugMode) {
+      handleExitDebug();
+    } else {
+      setLogs([]);
+      setExecTime(null);
+    }
   };
 
   const handleRun = async () => {
@@ -1095,6 +1785,10 @@ const PlaygroundContent: React.FC = () => {
     setIsRunning(true);
     setLogs(["// Starting execution...", ""]);
     setExecTime(null);
+    setIsDebugMode(false);
+    setDebugSteps([]);
+    setCurrentStepIdx(-1);
+    clearDecorations();
 
     const startTime = performance.now();
 
@@ -1114,6 +1808,239 @@ const PlaygroundContent: React.FC = () => {
         `❌ Error: ${error instanceof Error ? error.message : String(error)}`,
         "",
         `// Program finished with error in ${(endTime - startTime).toFixed(2)}ms.`,
+      ]);
+    }
+  };
+
+  const handleDebug = async () => {
+    if (isRunning) return;
+
+    setIsRunning(true);
+    setExecTime(null);
+    setIsDebugMode(false);
+    setDebugSteps([]);
+    setCurrentStepIdx(-1);
+
+    const startTime = performance.now();
+
+    try {
+      if (language === "python") {
+        setLogs(["// Launching Pyodide Python AST Debugger...", ""]);
+        if (!(window as any).loadPyodide) {
+          await new Promise<void>((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js";
+            script.onload = () => resolve();
+            script.onerror = () => reject(new Error("Failed to load Pyodide."));
+            document.body.appendChild(script);
+          });
+        }
+        if (!(window as any).pyodideInstance) {
+          (window as any).pyodideInstance = await (window as any).loadPyodide({
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
+          });
+        }
+        const pyodide = (window as any).pyodideInstance;
+
+        const pythonTracer = `
+import sys
+import json
+
+user_code = ${JSON.stringify(code)}
+
+__trace__ = []
+__console_logs__ = []
+
+import builtins
+_orig_print = builtins.print
+def _custom_print(*args, **kwargs):
+    import io
+    f = io.StringIO()
+    _orig_print(*args, file=f, **kwargs)
+    val = f.getvalue()
+    __console_logs__.append(val.rstrip('\\r\\n'))
+builtins.print = _custom_print
+
+def __trace_func__(frame, event, arg):
+    if event == 'line':
+        co = frame.f_code
+        filename = co.co_filename
+        name = co.co_name
+        if name in ['_custom_print', '__trace_func__'] or 'encodings' in filename or 'io.py' in filename or 'json' in filename:
+            return __trace_func__
+        if filename != '<string>':
+            return __trace_func__
+
+        local_vars = {}
+        for k, v in frame.f_locals.items():
+            if k.startswith('__') or k in ['_orig_print', '_custom_print', 'sys', 'json', 'builtins']:
+                continue
+            try:
+                local_vars[k] = json.loads(json.dumps(v))
+            except Exception:
+                local_vars[k] = str(v)
+                
+        __trace__.append({
+            'line': frame.f_lineno,
+            'vars': local_vars,
+            'console': list(__console_logs__)
+        })
+    return __trace_func__
+
+sys.settrace(__trace_func__)
+
+try:
+    exec(user_code, {})
+except Exception as e:
+    __trace__.append({
+        'line': getattr(e, 'lineno', 0) or 0,
+        'error': str(e),
+        'vars': {},
+        'console': list(__console_logs__) + ["❌ Error: " + str(e)]
+    })
+finally:
+    sys.settrace(None)
+
+builtins.print = _orig_print
+
+import json
+json.dumps(__trace__)
+`;
+        const resultJson = await pyodide.runPythonAsync(pythonTracer);
+        const trace = JSON.parse(resultJson);
+
+        setIsRunning(false);
+        if (trace.length === 0) {
+          toast.warn("⚠️ No statements were executed.");
+          setLogs(["// Debugger executed but no steps were recorded."]);
+          return;
+        }
+
+        setIsDebugMode(true);
+        setDebugSteps(trace);
+        setCurrentStepIdx(0);
+        setLogs([]);
+        
+        const endTime = performance.now();
+        setExecTime(endTime - startTime);
+      } else {
+        setLogs([`// Launching AST Debugger for ${LANGUAGE_CONFIGS[language].name}...`, ""]);
+        // Transpile to JS
+        const transpiledJs = transpileToJS(code, language);
+        
+        // 1. Instrument JavaScript code
+        const instrumented = instrumentJavaScript(transpiledJs);
+
+        // 2. Prepend tracing structures and wrap execution
+        const fullCode = `
+          const __trace__ = [];
+          const __console_logs__ = [];
+          const __orig_log__ = console.log;
+          console.log = (...args) => {
+            const msg = args.map(arg => {
+              if (arg === null) return 'null';
+              if (arg === undefined) return 'undefined';
+              if (typeof arg === 'object') {
+                try { return JSON.stringify(arg); } catch (e) { return '[Circular Object]'; }
+              }
+              return String(arg);
+            }).join(' ');
+            __console_logs__.push(msg);
+            __orig_log__(...args);
+          };
+          function __dbg__(line, vars) {
+            const clonedVars = {};
+            for (const [k, v] of Object.entries(vars)) {
+              if (v === null || v === undefined) {
+                clonedVars[k] = v;
+              } else if (typeof v === 'function') {
+                clonedVars[k] = '[Function]';
+              } else if (typeof v === 'object') {
+                try {
+                  clonedVars[k] = JSON.parse(JSON.stringify(v));
+                } catch (e) {
+                  clonedVars[k] = String(v);
+                }
+              } else {
+                clonedVars[k] = v;
+              }
+            }
+            if (__trace__.length > 2000) {
+              throw new Error("Debugger capped at 2000 steps to prevent infinite loop memory issues.");
+            }
+            __trace__.push({
+              line,
+              vars: clonedVars,
+              console: [...__console_logs__]
+            });
+          }
+          function __dbg_cond__(line, val, vars) {
+            __dbg__(line, vars);
+            return val;
+          }
+
+          try {
+            ${instrumented}
+          } catch (err) {
+            console.error(err.message || err);
+            __trace__.push({
+              line: err.lineNumber || 0,
+              error: err.message || String(err),
+              vars: {},
+              console: [...__console_logs__, "❌ Error: " + (err.message || err)]
+            });
+          }
+          
+          self.postMessage({ type: 'trace', trace: __trace__ });
+        `;
+
+        // 3. Create Web Worker
+        const blob = new Blob([fullCode], { type: "text/javascript" });
+        const worker = new Worker(URL.createObjectURL(blob));
+        workerRef.current = worker;
+
+        const timeoutId = setTimeout(() => {
+          if (workerRef.current) {
+            workerRef.current.terminate();
+            setIsRunning(false);
+            setLogs((prev) => [...prev, "❌ [Timeout] Debugger session timed out after 10 seconds."]);
+          }
+        }, 10000);
+
+        worker.onmessage = (e) => {
+          const data = e.data;
+          if (data.type === "trace") {
+            clearTimeout(timeoutId);
+            setIsRunning(false);
+            
+            if (data.trace.length === 0) {
+              toast.warn("⚠️ No statements were executed.");
+              setLogs(["// Debugger executed but no steps were recorded."]);
+              return;
+            }
+
+            setIsDebugMode(true);
+            setDebugSteps(data.trace);
+            setCurrentStepIdx(0);
+            setLogs([]);
+            
+            const endTime = performance.now();
+            setExecTime(endTime - startTime);
+
+            worker.terminate();
+            workerRef.current = null;
+          }
+        };
+      }
+
+    } catch (error: any) {
+      const endTime = performance.now();
+      setIsRunning(false);
+      setLogs((prev) => [
+        ...prev,
+        `❌ Debugger Error: ${error.message || String(error)}`,
+        "",
+        `// Debugger failed to launch in ${(endTime - startTime).toFixed(2)}ms.`,
       ]);
     }
   };
@@ -1335,11 +2262,14 @@ const PlaygroundContent: React.FC = () => {
     }
   };
 
-  const handleEditorMount = (editor: MonacoEditorLike) => {
+  const handleEditorMount = (editor: any, monaco: any) => {
+    editorRef.current = editor;
+    monacoRef.current = monaco;
+
     editorDisposablesRef.current.forEach((disposable) => disposable.dispose());
     editorDisposablesRef.current = [];
 
-    const cursorDisposable = editor.onDidChangeCursorPosition((event) => {
+    const cursorDisposable = editor.onDidChangeCursorPosition((event: any) => {
       setEditorTelemetry((prev) => ({
         ...prev,
         lineNumber: event.position.lineNumber,
@@ -1347,7 +2277,7 @@ const PlaygroundContent: React.FC = () => {
       }));
     });
 
-    const selectionDisposable = editor.onDidChangeCursorSelection((event) => {
+    const selectionDisposable = editor.onDidChangeCursorSelection((event: any) => {
       const model = editor.getModel();
       const selectionLength = model ? model.getValueInRange(event.selection).length : 0;
 
@@ -1361,6 +2291,23 @@ const PlaygroundContent: React.FC = () => {
 
     editorDisposablesRef.current = [cursorDisposable, selectionDisposable];
   };
+
+  const currentStep = isDebugMode && debugSteps[currentStepIdx] ? debugSteps[currentStepIdx] : null;
+  const currentStepVars = currentStep ? currentStep.vars : {};
+
+  const getLogsToDisplay = () => {
+    if (isDebugMode) {
+      const step = debugSteps[currentStepIdx];
+      if (!step) return [];
+      const stepLogs = [...step.console];
+      if (step.error) {
+        stepLogs.push(`❌ Error: ${step.error}`);
+      }
+      return stepLogs;
+    }
+    return logs;
+  };
+  const activeLogs = getLogsToDisplay();
 
   return (
     <div className="bg-gray-50 dark:bg-[#1b1b1d] min-h-screen py-10 px-4 md:px-8">
@@ -1490,51 +2437,200 @@ const PlaygroundContent: React.FC = () => {
 
           {/* Right side: Execution and Console Output */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            {/* Controls Box */}
-            <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md flex flex-wrap gap-3 items-center">
-              {!isRunning ? (
+            {isDebugMode ? (
+              /* Debug Mode Controls */
+              <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md flex flex-col gap-4">
+                <div className="flex flex-wrap items-center gap-3">
+                  {/* Control Buttons */}
+                  <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
+                    <button
+                      onClick={handlePrevStep}
+                      disabled={currentStepIdx <= 0}
+                      className="p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 rounded disabled:opacity-40 border-none bg-transparent cursor-pointer"
+                      title="Previous Step"
+                    >
+                      <FaStepBackward size={14} />
+                    </button>
+
+                    {isPlaying ? (
+                      <button
+                        onClick={() => setIsPlaying(false)}
+                        className="p-2 text-amber-600 dark:text-amber-400 hover:bg-gray-200 dark:hover:bg-gray-600 rounded border-none bg-transparent cursor-pointer"
+                        title="Pause Autoplay"
+                      >
+                        <FaPause size={14} />
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => setIsPlaying(true)}
+                        disabled={currentStepIdx >= debugSteps.length - 1}
+                        className="p-2 text-green-600 dark:text-green-400 hover:bg-gray-200 dark:hover:bg-gray-600 rounded disabled:opacity-40 border-none bg-transparent cursor-pointer"
+                        title="Play Autoplay"
+                      >
+                        <FaPlay size={14} />
+                      </button>
+                    )}
+
+                    <button
+                      onClick={handleNextStep}
+                      disabled={currentStepIdx >= debugSteps.length - 1}
+                      className="p-2 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 rounded disabled:opacity-40 border-none bg-transparent cursor-pointer"
+                      title="Next Step"
+                    >
+                      <FaStepForward size={14} />
+                    </button>
+
+                    <button
+                      onClick={handleRestartDebug}
+                      className="p-2 text-blue-600 dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 rounded border-none bg-transparent cursor-pointer"
+                      title="Restart Debugging"
+                    >
+                      <FaRedo size={14} />
+                    </button>
+                  </div>
+
+                  {/* Speed Selector */}
+                  <div className="flex items-center gap-1.5 text-xs">
+                    <span className="text-gray-500 font-semibold">Speed:</span>
+                    <select
+                      value={playbackSpeed}
+                      onChange={(e) => setPlaybackSpeed(Number(e.target.value))}
+                      className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 border-none rounded px-2 py-1 cursor-pointer font-bold focus:outline-none"
+                    >
+                      <option value={0.5}>0.5x</option>
+                      <option value={1}>1.0x</option>
+                      <option value={2}>2.0x</option>
+                      <option value={5}>5.0x</option>
+                    </select>
+                  </div>
+
+                  {/* Exit Button */}
+                  <button
+                    onClick={handleExitDebug}
+                    className="flex items-center gap-1.5 px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-lg font-bold border-none cursor-pointer text-xs ml-auto"
+                  >
+                    Exit Debugger
+                  </button>
+                </div>
+
+                {/* Timeline Slider */}
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] font-mono text-gray-500 font-bold min-w-[50px]">
+                    Step {currentStepIdx + 1}/{debugSteps.length}
+                  </span>
+                  <input
+                    type="range"
+                    min={0}
+                    max={debugSteps.length - 1}
+                    value={currentStepIdx}
+                    onChange={(e) => {
+                      setIsPlaying(false);
+                      setCurrentStepIdx(Number(e.target.value));
+                    }}
+                    className="flex-grow h-1.5 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-600 animate-none"
+                  />
+                </div>
+
+                {/* Step Explanation Banner */}
+                <div className="bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/50 dark:border-blue-900/30 rounded-lg p-3 text-xs flex flex-col gap-1">
+                  <span className="font-bold text-blue-700 dark:text-blue-400 uppercase tracking-wider text-[10px]">
+                    Current Operation
+                  </span>
+                  <p className="text-gray-700 dark:text-gray-300 m-0 font-medium">
+                    {getLineDescription(debugSteps[currentStepIdx]?.line)}
+                  </p>
+                </div>
+              </div>
+            ) : (
+              /* Regular Controls Box */
+              <div className="bg-white dark:bg-gray-800 p-4 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md flex flex-wrap gap-3 items-center">
+                {!isRunning ? (
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleRun}
+                      className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+                    >
+                      <FaPlay /> Run Code
+                    </button>
+                    <button
+                      onClick={handleDebug}
+                      className="flex items-center gap-2 px-5 py-2.5 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+                    >
+                      ⚡ Debug Code
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={handleStop}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+                  >
+                    <FaStop /> Stop Program
+                  </button>
+                )}
+
                 <button
-                  onClick={handleRun}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+                  onClick={handleClear}
+                  className="flex items-center gap-1.5 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-semibold transition border-none cursor-pointer text-sm"
                 >
-                  <FaPlay /> Run Code
+                  <FaTrash /> Clear
                 </button>
-              ) : (
+
                 <button
-                  onClick={handleStop}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+                  onClick={handleShare}
+                  className="flex items-center gap-1.5 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
                 >
-                  <FaStop /> Stop Program
+                  <FaShareAlt /> Share Code
                 </button>
-              )}
 
-              <button
-                onClick={handleClear}
-                className="flex items-center gap-1.5 px-4 py-2.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg font-semibold transition border-none cursor-pointer text-sm"
-              >
-                <FaTrash /> Clear
-              </button>
+                <button
+                  onClick={handleExport}
+                  className="flex items-center gap-1.5 px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
+                >
+                  <FaDownload /> Export
+                </button>
 
-              <button
-                onClick={handleShare}
-                className="flex items-center gap-1.5 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
-              >
-                <FaShareAlt /> Share Code
-              </button>
+                {execTime !== null && (
+                  <span className="text-xs font-mono font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-full ml-auto">
+                    Time: {execTime.toFixed(1)}ms
+                  </span>
+                )}
+              </div>
+            )}
 
-              <button
-                onClick={handleExport}
-                className="flex items-center gap-1.5 px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition transform active:scale-95 shadow-md border-none cursor-pointer text-sm"
-              >
-                <FaDownload /> Export
-              </button>
-
-              {execTime !== null && (
-                <span className="text-xs font-mono font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-full ml-auto">
-                  Time: {execTime.toFixed(1)}ms
-                </span>
-              )}
-            </div>
+            {isDebugMode && (
+              /* Variable Inspection Panel */
+              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-md">
+                <div className="bg-gray-100 dark:bg-gray-750 px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+                  <span className="text-xs font-bold text-gray-700 dark:text-gray-300 font-mono">
+                    🔍 VARIABLE INSPECTOR
+                  </span>
+                </div>
+                <div className="p-4 max-h-[220px] overflow-y-auto font-mono text-xs">
+                  {Object.keys(currentStepVars).length === 0 ? (
+                    <div className="text-gray-500 italic">No variables in scope at this step.</div>
+                  ) : (
+                    <table className="w-full text-left border-collapse">
+                      <thead>
+                        <tr className="border-b border-gray-200 dark:border-gray-700 text-gray-500">
+                          <th className="pb-2 font-semibold">Name</th>
+                          <th className="pb-2 font-semibold">Value</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Object.entries(currentStepVars).map(([name, val]) => (
+                          <tr key={name} className="border-b last:border-b-0 border-gray-100 dark:border-gray-800">
+                            <td className="py-2 font-semibold text-blue-600 dark:text-cyan-400">{name}</td>
+                            <td className="py-2 text-gray-800 dark:text-gray-300 whitespace-pre-wrap break-all font-medium">
+                              {formatVariableValue(val)}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                </div>
+              </div>
+            )}
 
             {/* Console Output Panel */}
             <div ref={consolePanelRef} className="flex-grow flex flex-col bg-gray-950 border border-gray-800 rounded-xl overflow-hidden shadow-lg h-[400px] lg:h-auto">
@@ -1551,12 +2647,12 @@ const PlaygroundContent: React.FC = () => {
               </div>
 
               <div className="flex-grow p-4 overflow-y-auto font-mono text-sm leading-relaxed text-gray-300 bg-gray-950 space-y-1.5 select-text selection:bg-gray-800">
-                {logs.length === 0 ? (
+                {activeLogs.length === 0 ? (
                   <div className="text-gray-600 italic select-none">
                     Console is empty. Click "Run Code" to view program output...
                   </div>
                 ) : (
-                  logs.map((log, idx) => {
+                  activeLogs.map((log, idx) => {
                     let colorClass = "text-gray-300";
                     if (log.startsWith("❌")) {
                       colorClass = "text-red-400 font-semibold";
