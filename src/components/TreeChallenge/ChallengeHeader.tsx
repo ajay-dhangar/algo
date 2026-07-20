@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 import { FaArrowLeft, FaChevronRight, FaClock, FaCheck } from "react-icons/fa";
+import { markChallengeSolved } from "../../utils/safeStorage";
 import type { TreeChallenge } from "../../data/treeChallengesData";
 
 const DIFF_COLORS = {
@@ -31,11 +32,7 @@ export default function ChallengeHeader({ id, title, difficulty, timeLimit }: Ch
       </span>
 <button
   onClick={() => {
-    const progress = readAlgoProgress();
-    progress[id] = true;
-    progress[`${id}_title`] = title;
-    progress[`${id}_updatedAt`] = new Date().toISOString();
-    writeAlgoProgress(progress);
+    markChallengeSolved(id, title);
     alert("Marked as solved!");
   }}
   className="ml-auto flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"

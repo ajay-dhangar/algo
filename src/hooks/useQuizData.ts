@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { toast } from "react-toastify";
+import { saveQuizAttemptLocal } from "../utils/safeStorage";
 import { supabase } from "../utils/supabaseClient";
 
 interface DBAttempt {
@@ -71,6 +72,13 @@ export function useQuizData({ quizId }: UseQuizDataOptions) {
       if (sbError) {
         throw sbError;
       }
+
+      saveQuizAttemptLocal(userId, quizId, {
+        score,
+        totalQuestions,
+        timeSpent,
+        completedAt: newAttempt.completedAt,
+      });
       
       toast.success("Quiz submitted successfully!");
       setAttempts((prev) => {
@@ -79,8 +87,24 @@ export function useQuizData({ quizId }: UseQuizDataOptions) {
       });
     } catch (e: any) {
       console.error("Failed to submit quiz attempt:", e);
+      saveQuizAttemptLocal(userId, quizId, {
+        score,
+        totalQuestions,
+        timeSpent,
+        completedAt: new Date().toISOString(),
+      });
+      setAttempts((prev) => {
+        const fallbackAttempt = {
+          id: Math.random().toString(),
+          score,
+          totalQuestions,
+          timeSpent,
+          completedAt: new Date().toISOString(),
+        };
+        return [fallbackAttempt as DBAttempt, ...prev].slice(0, 5);
+      });
       setError(e.message || "Failed to save attempt.");
-      toast.error("Failed to save your result.");
+      toast.error("Saved locally, but cloud sync failed.");
     } finally {
       setIsLoading(false);
     }
