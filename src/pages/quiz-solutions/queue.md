@@ -72,8 +72,8 @@ hide_table_of_contents: true
    - B) Θ(n + k)
    - C) Θ(nk)
    - D) Θ(n²)  
-   **Answer:** B) Θ(n + k)  
-   **Explanation:** While a single operation might take O(k), an element can only be dequeued if it was first enqueued. In a sequence of n operations, the total number of dequeues cannot exceed the total number of enqueues, leading to amortized linear time.
+   **Answer:** A) Θ(n)  
+   **Explanation:** Since the queue is initially empty, the total number of actual dequeue operations across all n operations is bounded by the total number of enqueue operations (at most n). Even if MultiDequeue is called with a large k, it will immediately terminate when the queue is empty. Thus, the total time complexity for n operations is Θ(n), making the amortized time per operation Θ(1).
 
 7. **Identify the purpose of the following function 'fun' which utilizes an integer queue 'q'. What is the final output sequence?**
    ```c
