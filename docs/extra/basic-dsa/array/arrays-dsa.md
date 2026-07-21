@@ -552,6 +552,18 @@ The maximum and minimum elements in an array can be found by iterating through t
 :::
 
 
+## Complexity Cheat Sheet
+
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Access (by index)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Search (Unsorted)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Search (Sorted)** | $O(1)$ | $O(\log n)$ | $O(\log n)$ | $O(1)$ |
+| **Insertion (End)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Insertion (Start/Middle)** | $O(n)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Deletion (End)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Deletion (Start/Middle)** | $O(n)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+
 ## Conclusion
 
 In this tutorial, we learned about arrays in data structures and algorithms. We learned how to declare an array, access an array, update an array, find the length of an array, iterate through an array, and find the maximum and minimum elements in an array. Arrays are an important data structure that is used in many algorithms and data structures.

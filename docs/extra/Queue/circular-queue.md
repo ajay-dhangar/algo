@@ -370,18 +370,16 @@ int main() {
 }
 
 ```
-### Complexity
+### Complexity Cheat Sheet
 
-- **Time Complexity**:
-
-  - Enqueue: $O(1)$
-  - Dequeue: $O(1)$
-  - Peek: $O(1)$
-  - isEmpty: $O(1)$
-  - isFull: $O(1)$
-  - Size: $O(1)$
-
-- **Space Complexity**: $O(n)$, where $n$ is the number of elements that can be stored in the circular queue.
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Enqueue** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Dequeue** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Peek** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **isEmpty / isFull** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Size** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Overall Queue Storage** | - | - | - | $O(n)$ |
 
 ### Example
 
