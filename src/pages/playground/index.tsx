@@ -965,7 +965,7 @@ function instrumentJavaScript(code: string): string {
     }
   }
 
-  function walk(node: any) {
+   function walk(node: any, isForInit = false) {
     if (!node) return;
 
     const isStatement = [
@@ -976,11 +976,11 @@ function instrumentJavaScript(code: string): string {
       "ContinueStatement",
     ].includes(node.type);
 
-    if (isStatement) {
+    if (isStatement && !isForInit) {
       const activeVars = getActiveVars();
       const line = node.loc.start.line;
-      const varMap = activeVars.map((v) => `${v}:${v}`).join(", ");
-      const dbgCall = `__dbg__(${line}, {${varMap}}); `;
+      const varMap = activeVars.map((v) => `\${v}:\${v}`).join(", ");
+      const dbgCall = `__dbg__(\${line}, {\${varMap}}); `;
       inserts.push({ index: node.start, text: dbgCall });
     }
 
@@ -988,11 +988,22 @@ function instrumentJavaScript(code: string): string {
       for (const decl of node.declarations) {
         if (decl.id.type === "Identifier") {
           addVar(decl.id.name);
-        }
+        } 
       }
     } else if (node.type === "FunctionDeclaration") {
       if (node.id && node.id.type === "Identifier") {
         addVar(node.id.name);
+      }
+    }
+
+    function walkAndEnsureBlock(child: any) {
+      if (!child) return;
+      if (child.type !== "BlockStatement") {
+        inserts.push({ index: child.start, text: "{" });
+        walk(child);
+        inserts.push({ index: child.end, text: "}" });
+      } else {
+        walk(child);
       }
     }
 
@@ -1022,43 +1033,49 @@ function instrumentJavaScript(code: string): string {
     } else if (node.type === "IfStatement") {
       const activeVars = getActiveVars();
       const line = node.loc.start.line;
-      const varMap = activeVars.map((v) => `${v}:${v}`).join(", ");
+      const varMap = activeVars.map((v) => `\${v}:\${v}`).join(", ");
 
       const testStart = node.test.start;
       const testEnd = node.test.end;
-      inserts.push({ index: testStart, text: `__dbg_cond__(${line}, (` });
-      inserts.push({ index: testEnd, text: `), {${varMap}})` });
+      inserts.push({ index: testStart, text: `__dbg_cond__(\${line}, (` });
+      inserts.push({ index: testEnd, text: `), {\${varMap}})` });
 
-      walk(node.consequent);
-      walk(node.alternate);
+      walkAndEnsureBlock(node.consequent);
+      walkAndEnsureBlock(node.alternate);
     } else if (node.type === "WhileStatement") {
       const activeVars = getActiveVars();
       const line = node.loc.start.line;
-      const varMap = activeVars.map((v) => `${v}:${v}`).join(", ");
+      const varMap = activeVars.map((v) => `\${v}:\${v}`).join(", ");
 
       const testStart = node.test.start;
       const testEnd = node.test.end;
-      inserts.push({ index: testStart, text: `__dbg_cond__(${line}, (` });
-      inserts.push({ index: testEnd, text: `), {${varMap}})` });
+      inserts.push({ index: testStart, text: `__dbg_cond__(\${line}, (` });
+      inserts.push({ index: testEnd, text: `), {\${varMap}})` });
 
-      walk(node.body);
+      walkAndEnsureBlock(node.body);
     } else if (node.type === "ForStatement") {
       pushScope();
-      walk(node.init);
+      walk(node.init, true);
 
       if (node.test) {
         const activeVars = getActiveVars();
         const line = node.loc.start.line;
-        const varMap = activeVars.map((v) => `${v}:${v}`).join(", ");
+        const varMap = activeVars.map((v) => `\${v}:\${v}`).join(", ");
 
         const testStart = node.test.start;
         const testEnd = node.test.end;
-        inserts.push({ index: testStart, text: `__dbg_cond__(${line}, (` });
-        inserts.push({ index: testEnd, text: `), {${varMap}})` });
+        inserts.push({ index: testStart, text: `__dbg_cond__(\${line}, (` });
+        inserts.push({ index: testEnd, text: `), {\${varMap}})` });
       }
 
-      walk(node.body);
+      walkAndEnsureBlock(node.body);
       walk(node.update);
+      popScope();
+    } else if (node.type === "ForInStatement" || node.type === "ForOfStatement") {
+      pushScope();
+      walk(node.left, true);
+      walk(node.right);
+      walkAndEnsureBlock(node.body);
       popScope();
     } else {
       for (const key in node) {
@@ -1080,11 +1097,19 @@ function instrumentJavaScript(code: string): string {
   prePopulateFunctions(ast.body);
 
   for (const stmt of ast.body) {
-    walk(stmt);
-  }
+     const getPriority = (text: string) => {
+    if (text.startsWith("__dbg__") || text.startsWith("__dbg_cond__")) return 3;
+    if (text === "}") return 2;
+    if (text === "{") return 1;
+    return 0;
+  };
 
-  inserts.sort((a, b) => b.index - a.index);
-
+  inserts.sort((a, b) => {
+    if (b.index !== a.index) {
+      return b.index - a.index;
+    }
+    return getPriority(b.text) - getPriority(a.text);
+  });
   let instrumented = code;
   for (const ins of inserts) {
     instrumented =
@@ -1192,8 +1217,8 @@ function transpileJavaToJs(code: string): string {
     l = l.replace(/=\s*new\s+int\[\]\s*\{([^}]+)\}/g, '= [$1]');
     l = l.replace(/=\s*\{([^}]+)\}/g, '= [$1]');
     
-    l = l.replace(/System\.out\.println\(([^)]*)\)/g, 'console.log($2)');
-    l = l.replace(/System\.out\.print\(([^)]*)\)/g, 'console.log($2)');
+     l = l.replace(/System\\.out\\.println\\(([^)]*)\\)/g, 'console.log($1)');
+    l = l.replace(/System\\.out\\.print\\(([^)]*)\\)/g, 'console.log($1)');
     
     l = l.replace(/\.add\(([^)]*)\)/g, '.push($1)');
     l = l.replace(/\.get\(([^)]*)\)/g, '[$1]');
@@ -1273,7 +1298,7 @@ function transpileRustToJs(code: string): string {
     l = l.replace(/\blet\s+mut\s+(\w+)/g, 'let $1');
     
     // println! and print!
-    if (l.includes("print!")) {
+     if (l.includes("print")) {
       l = l.replace(/println!\s*\(\s*"([^"]*)",\s*([^)]*)\)/g, (_, fmt, args) => {
         const argList = args.split(",").map((a: string) => a.trim());
         let out = fmt;
@@ -1379,9 +1404,9 @@ function transpileGoToJs(code: string): string {
       l = l.replace(/\}/g, '})');
     }
 
-    l = l.replace(/fmt\.Println\(([^)]*)\)/g, 'console.log($2)');
-    l = l.replace(/fmt\.Printf\(([^)]*)\)/g, 'console.log($2)');
-    l = l.replace(/fmt\.Print\(([^)]*)\)/g, 'console.log($2)');
+     l = l.replace(/fmt\\.Println\\(([^)]*)\\)/g, 'console.log($1)');
+    l = l.replace(/fmt\\.Printf\\(([^)]*)\\)/g, 'console.log($1)');
+    l = l.replace(/fmt\\.Print\\(([^)]*)\\)/g, 'console.log($1)');
     
     l = l.replace(/\blen\(([^)]*)\)/g, '$1.length');
     l = l.replace(/\bnil\b/g, 'null');
@@ -1995,17 +2020,23 @@ json.dumps(__trace__)
         `;
 
         // 3. Create Web Worker
-        const blob = new Blob([fullCode], { type: "text/javascript" });
-        const worker = new Worker(URL.createObjectURL(blob));
+                const blob = new Blob([fullCode], { type: "text/javascript" });
+        const workerUrl = URL.createObjectURL(blob);
+        const worker = new Worker(workerUrl);
+        URL.revokeObjectURL(workerUrl);
         workerRef.current = worker;
-
         const timeoutId = setTimeout(() => {
           if (workerRef.current) {
             workerRef.current.terminate();
             setIsRunning(false);
             setLogs((prev) => [...prev, "❌ [Timeout] Debugger session timed out after 10 seconds."]);
-          }
-        }, 10000);
+                  worker.onerror = (err) => {
+          clearTimeout(timeoutId);
+          setIsRunning(false);
+          setLogs((prev) => [...prev, `❌ Debugger Compilation Error: \${err.message}`]);
+          worker.terminate();
+          workerRef.current = null;
+        };
 
         worker.onmessage = (e) => {
           const data = e.data;
