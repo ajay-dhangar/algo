@@ -33,6 +33,7 @@ const ScrollTopToBottom: React.FC = () => {
                     onClick={scrollToBottom}
                     className={styles.scrollToBottomButton}
                     aria-label="Scroll to bottom"
+                    title="Scroll to bottom"
                 >
                     <FaArrowDown aria-hidden="true" />
                 </button>

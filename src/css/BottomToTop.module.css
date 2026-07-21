@@ -1,25 +1,49 @@
 .scrollToTopButton {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
+  bottom: 78px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.3s;
-  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.25s ease,
+              box-shadow 0.25s ease,
+              opacity 0.25s ease;
+  opacity: 0.9;
   z-index: 1000;
 }
 
 .scrollToTopButton:hover {
-  background-color: #0056b3;
+  background-color: var(--ifm-color-primary-dark);
   opacity: 1;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.scrollToTopButton:active {
+  transform: translateY(-1px) scale(0.95);
 }
 
 .scrollToTopButton:focus-visible {
-  outline: 3px solid #ffffff;
+  outline: 2px solid var(--ifm-color-primary);
   outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .scrollToTopButton {
+    bottom: 70px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }

@@ -25,15 +25,16 @@ const ScrollBottomToTop: React.FC = () => {
     }, []);
 
     return (
-        showButton && (
+        showButton ? (
             <button
                 onClick={scrollToTop}
                 className={styles.scrollToTopButton}
                 aria-label="Scroll to top"
+                title="Scroll to top"
             >
                 <FaArrowUp aria-hidden="true" />
             </button>
-        )
+        ) : null
     );
 };
 
