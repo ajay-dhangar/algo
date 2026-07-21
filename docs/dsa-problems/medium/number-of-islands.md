@@ -167,7 +167,7 @@ class Solution:
  * @param {character[][]} grid
  * @return {number}
  */
-var numIslands = function(grid) {
+const numIslands = function(grid) {
     if (!grid || grid.length === 0) return 0;
     
     let count = 0;
