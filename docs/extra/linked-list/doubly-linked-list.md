@@ -403,16 +403,17 @@ public class Main {
 
 ```
 
-### Complexity
+### Complexity Cheat Sheet
 
-- **Time Complexity**:
-
-  - Insertion : $O(1)$
-  - Deletion: $O(1)$
-  - Search: $O(n)$	
-  - Traversal: $O(n)$
-
-- **Space Complexity**: $O(1)$
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Insertion (Head / Tail with pointer)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Insertion (Given Node)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Deletion (Head / Tail with pointer)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Deletion (Given Node Pointer)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Search (By Value)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Traversal (Forward / Backward)** | $O(n)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Overall Storage** | - | - | - | $O(n)$ |
 
 
 ### Conclusion
