@@ -18,9 +18,9 @@ Tarjan's Algorithm finds all SCCs in a single DFS traversal of the graph. It ach
 ## Video Explanation
 
 <LiteYouTubeEmbed
-  id="qrAub5z8FeA"
+  id="TyWtx7q2D7s"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
-  title="G-55. Bridges in Graph - Using Tarjan's Algorithm of time in and low time"
+  title="Tarjan's Strongly Connected Component (SCC) Algorithm"
   lazyLoad={true}
   webp
 />
@@ -76,8 +76,8 @@ graph TD
 7. From `3`, visit neighbor `4`: `index[4] = low[4] = 5`. Stack: `[0, 1, 2, 3, 4]`
 8. Neighbor of `4` is `3` (visited & on stack). Update `low[4] = min(low[4], index[3]) = min(5, 4) = 4`.
 9. Backtrack to `3`. Update `low[3] = min(low[3], low[4]) = min(4, 4) = 4`.
-10. For node `4`, `low[4] === index[4] === 5`. Pop stack until `4`. **SCC found: {4}** (Wait, stack was `[0, 1, 2, 3, 4]`, pop `4`). Stack becomes `[0, 1, 2, 3]`.
-11. For node `3`, `low[3] === index[3] === 4`. Pop stack until `3`. **SCC found: {3}**. Stack becomes `[0, 1, 2]`.
+10. For node `4`, `low[4]` (4) is not equal to `index[4]` (5), so it is not an SCC root. Backtrack to `3`.
+11. For node `3`, `low[3] === index[3] === 4`. Pop stack until `3`. **SCC found: {4, 3}**. Stack becomes `[0, 1, 2]`.
 12. Backtrack to `1`. Neighbors done. `low[1] === 1` but `index[1] === 2`. (No SCC root yet).
 13. Backtrack to `0`. Neighbors done. `low[0] === index[0] === 1`. Pop stack until `0`. **SCC found: {2, 1, 0}**. Stack: `[]`.
 
@@ -136,6 +136,7 @@ class TarjanSCC:
             result.append(scc)
 
     def find_sccs(self):
+        self.time = 0
         disc = [-1] * self.V
         low = [-1] * self.V
         stack_member = [False] * self.V
@@ -180,7 +181,7 @@ public class TarjanSCC {
         adj.get(u).add(v);
     }
 
-    private void sccUtil(int u, int[] low, int[] disc, boolean[] stackMember, Stack<Integer> st, List<List<Integer>> result) {
+    private void sccUtil(int u, int[] low, int[] disc, boolean[] stackMember, Deque<Integer> st, List<List<Integer>> result) {
         disc[u] = low[u] = ++time;
         st.push(u);
         stackMember[u] = true;
@@ -207,12 +208,13 @@ public class TarjanSCC {
     }
 
     public List<List<Integer>> findSCCs() {
+        this.time = 0;
         int[] disc = new int[V];
         int[] low = new int[V];
         Arrays.fill(disc, -1);
         Arrays.fill(low, -1);
         boolean[] stackMember = new boolean[V];
-        Stack<Integer> st = new Stack<>();
+        Deque<Integer> st = new ArrayDeque<>();
         List<List<Integer>> result = new ArrayList<>();
 
         for (int i = 0; i < V; i++) {
@@ -275,6 +277,7 @@ public:
     }
 
     vector<vector<int>> findSCCs() {
+        time = 0;
         vector<int> disc(V, -1);
         vector<int> low(V, -1);
         vector<bool> stackMember(V, false);
@@ -332,6 +335,7 @@ class TarjanSCC {
     }
 
     findSCCs() {
+        this.time = 0;
         const disc = new Array(this.V).fill(-1);
         const low = new Array(this.V).fill(-1);
         const stackMember = new Array(this.V).fill(false);
