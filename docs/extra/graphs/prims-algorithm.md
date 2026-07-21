@@ -65,86 +65,19 @@ graph TB
 
 The final MST includes edges **(A-D)**, **(A-B)**, and **(A-C)** with a total weight of **7**.
 
-## Dry Run Example
+## Step-by-Step Dry Run
 
-Consider the graph shown above.
+Consider the graph shown above. We start from vertex **A**.
 
-### Edge Selection Process
+| Step | Visited Vertices | Available Edges | Smallest Valid Edge | Current MST |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | `{A}` | A-D (1), A-B (2), A-C (4) | **A-D (1)** | `(A-D)` |
+| 2 | `{A, D}` | A-B (2), D-B (3), A-C (4), D-C (5) | **A-B (2)** | `(A-D), (A-B)` |
+| 3 | `{A, B, D}` | B-C (4), A-C (4), D-C (5) | **A-C (4)** | `(A-D), (A-B), (A-C)` |
 
-Start from vertex **A**.
+All vertices `{A, B, C, D}` are now included in the MST. 
 
-### Step 1
-
-Available edges:
-
-| Edge | Weight |
-|------|--------|
-| A-D | 1 |
-| A-B | 2 |
-| A-C | 4 |
-
-Choose the smallest edge.
-
-✅ Select **A-D (1)**
-
-Current MST:
-
-```text
-(A-D)
-```
-
-### Step 2
-
-Visited vertices: `{A, D}`
-
-Available edges:
-
-| Edge | Weight |
-|------|--------|
-| A-B | 2 |
-| D-B | 3 |
-| A-C | 4 |
-| D-C | 5 |
-
-Choose the smallest edge.
-
-✅ Select **A-B (2)**
-
-Current MST:
-
-```text
-(A-D), (A-B)
-```
-
-### Step 3
-
-Visited vertices: `{A, B, D}`
-
-Available edges:
-
-| Edge | Weight |
-|------|--------|
-| B-C | 4 |
-| A-C | 4 |
-| D-C | 5 |
-
-Choose the smallest valid edge.
-
-✅ Select **A-C (4)**
-
-Current MST:
-
-```text
-(A-D), (A-B), (A-C)
-```
-
-All vertices are now included in the MST.
-
-### Final MST Weight
-
-```text
-1 + 2 + 4 = 7
-```
+**Final MST Weight:** `1 + 2 + 4 = 7`
 
 ---
 
