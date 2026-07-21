@@ -559,7 +559,7 @@ The maximum and minimum elements in an array can be found by iterating through t
 | **Access (by index)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
 | **Search (Unsorted)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
 | **Search (Sorted)** | $O(1)$ | $O(\log n)$ | $O(\log n)$ | $O(1)$ |
-| **Insertion (End)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Insertion (End)** | $O(1)$ | $O(1)$ | $O(n)$ | $O(1)$ |
 | **Insertion (Start/Middle)** | $O(n)$ | $O(n)$ | $O(n)$ | $O(1)$ |
 | **Deletion (End)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
 | **Deletion (Start/Middle)** | $O(n)$ | $O(n)$ | $O(n)$ | $O(1)$ |
