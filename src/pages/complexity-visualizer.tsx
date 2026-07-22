@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 
-const COMPLEXITIES = [
+export const COMPLEXITIES = [
   { id: 'O(1)', label: ' - Constant', math: 'O(1)', color: '#10b981', fn: (n: number) => 1 },
   { id: 'O(log n)', label: ' - Logarithmic', math: 'O(\\log n)', color: '#3b82f6', fn: (n: number) => Math.log2(n || 1) },
   { id: 'O(n)', label: ' - Linear', math: 'O(n)', color: '#eab308', fn: (n: number) => n },
