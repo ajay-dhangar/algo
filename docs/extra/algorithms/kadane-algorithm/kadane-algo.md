@@ -94,3 +94,9 @@ int main() {
     return 0;
 }
 ```
+
+## Related Topics
+
+- **[Moore's Voting Algorithm](../moores-voting-algorithm/moore-voting-algo.md)**: Optimal $O(N)$ algorithm for majority element detection.
+- **[Two Pointers & Sliding Window](../two-pointers-sliding-window.md)**: Techniques for subarray and window processing ($O(N)$).
+- **[Monotonic Stack & Queue](../monotonic-stack-queue.md)**: Efficient structure for next greater element and sliding window maximum ($O(N)$).
