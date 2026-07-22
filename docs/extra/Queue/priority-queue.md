@@ -317,17 +317,15 @@ public class PriorityQueue {
 }
 ```
 
-### Complexity
+### Complexity Cheat Sheet
 
-- **Time Complexity**:
-
-  - Insert: $O(n \log n)$ (due to sorting)
-  - Remove: $O(n)$ (removing the first element)
-  - Peek: $O(1)$
-  - isEmpty: $O(1)$
-  - Size: $O(1)$
-
-- **Space Complexity**: $O(n)$, where $n$ is the number of elements in the priority queue.
+| Operation | Binary Heap | Unsorted Array | Sorted Array | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Insert / Enqueue** | $O(\log n)$ | $O(1)$ | $O(n)$ | $O(1)$ |
+| **Delete Min/Max (Extract)** | $O(\log n)$ | $O(n)$ | $O(1)$ | $O(1)$ |
+| **Peek (Get Min/Max)** | $O(1)$ | $O(n)$ | $O(1)$ | $O(1)$ |
+| **isEmpty / Size** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Overall Queue Storage** | - | - | - | $O(n)$ |
 
 ### Example
 

@@ -286,18 +286,16 @@ public class Stack {
 }
 ```
 
-### Complexity
+### Complexity Cheat Sheet
 
-- **Time Complexity**:
-
-  - Push: $O(1)$
-  - Pop: $O(1)$
-  - Peek: $O(1)$
-  - isEmpty: $O(1)$
-  - isFull: $O(1)$
-  - Size: $O(1)$
-
-- **Space Complexity**: $O(n)$, where $n$ is the number of elements that can be stored in the stack.
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Push** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Pop** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Peek / Top** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **isEmpty / isFull** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Size** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Overall Storage** | - | - | - | $O(n)$ |
 
 ### Example
 
