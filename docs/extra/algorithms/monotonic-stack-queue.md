@@ -556,6 +556,14 @@ Each element is pushed once and popped once → max 12 operations
 
 ---
 
+## 🔗 Related Topics
+
+- **[Two Pointers & Sliding Window](./two-pointers-sliding-window.md)**: Efficient subarray and window processing techniques ($O(N)$).
+- **[Segment Tree](./segment-tree.md)**: Dynamic range queries and point/range updates ($O(\log N)$).
+- **[Disjoint Set Union (DSU)](./disjoint-set-union.md)**: Dynamic graph connectivity and component tracking ($O(\alpha(N))$).
+
+---
+
 ## 🔗 References
 
 - [Monotonic Stack - GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-monotonic-stack-2/)

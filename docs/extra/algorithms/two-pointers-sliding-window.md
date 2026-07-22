@@ -414,6 +414,14 @@ Total: 9 operations ✅ Faster!
 
 ---
 
+## 🔗 Related Topics
+
+- **[Monotonic Stack & Queue](./monotonic-stack-queue.md)**: Efficient technique for next greater element and sliding window maximum ($O(N)$).
+- **[Trie](./trie.md)**: Tree structure specialized for prefix lookups and string processing ($O(K)$).
+- **[Dijkstra's Algorithm](./dijkstras-algorithm.md)**: Shortest path algorithm for non-negative weighted graphs ($O((V+E) \log V)$).
+
+---
+
 ## 🔗 References
 
 - [Sliding Window - GeeksforGeeks](https://www.geeksforgeeks.org/window-sliding-technique/)

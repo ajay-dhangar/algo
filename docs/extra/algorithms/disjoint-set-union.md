@@ -557,6 +557,14 @@ Problem: Check if nodes A and B are connected after Q union operations
 
 ---
 
+## 🔗 Related Topics
+
+- **[Dijkstra's Algorithm](./dijkstras-algorithm.md)**: Shortest path algorithm for non-negative weighted graphs ($O((V+E) \log V)$).
+- **[Segment Tree](./segment-tree.md)**: Advanced tree structure for range queries and updates ($O(\log N)$).
+- **[Trie](./trie.md)**: Prefix tree for efficient string matching and autocomplete ($O(K)$).
+
+---
+
 ## 🔗 References
 
 - [DSU - CP-Algorithms](https://cp-algorithms.com/data_structures/disjoint_set_union.html)
