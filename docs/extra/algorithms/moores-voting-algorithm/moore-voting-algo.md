@@ -117,6 +117,8 @@ int main() {
 
     // Print the majority element
     if (majority != -1) {
+        cout << "The majority element is: " << majority << endl;
+    } else {
         cout << "No majority element exists." << endl;
     }
 
