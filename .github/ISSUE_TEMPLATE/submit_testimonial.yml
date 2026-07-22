@@ -1,0 +1,40 @@
+name: Submit a Testimonial
+description: Share your feedback and review to be featured on our Wall of Love!
+title: "[Testimonial]: <Your Name>"
+labels: ["testimonial", "community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to share your review! We'll use this information to add your testimonial to our Wall of Love.
+  - type: input
+    id: name
+    attributes:
+      label: Full Name
+      description: How would you like to be credited?
+      placeholder: e.g. John Doe
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: Current Role / Title
+      description: e.g. Software Engineer, Full Stack Developer
+    validations:
+      required: true
+  - type: input
+    id: avatar
+    attributes:
+      label: Avatar URL (or GitHub Username)
+      description: We will use this to fetch your profile picture.
+      placeholder: e.g. octocat
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Your Testimonial / Feedback
+      description: What did you think about the platform?
+      placeholder: This platform helped me master algorithms...
+    validations:
+      required: true
