@@ -1,0 +1,8 @@
+{
+  "label": "Graphs",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about Graphs and Graph Algorithms. Graph representation, traversal (BFS/DFS), shortest paths, topological sorting, and more."
+  }
+}

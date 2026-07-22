@@ -157,6 +157,10 @@ const config = {
                 label: "Verification Roadmap",
               },
               {
+                to: "learning-paths",
+                label: "Learning Paths",
+              },
+              {
                 to: "dsa-interview",
                 label: "Core Matrix Questions",
               },
