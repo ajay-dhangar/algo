@@ -34,7 +34,8 @@ export default function StoriesPage(): JSX.Element {
             </p>
             <div style={{ animation: "fadeInUp 1.2s ease-out" }}>
               <Link
-                to="#contribute"
+                to="https://github.com/ajay-dhangar/algo/issues/new?template=submit_story.yml"
+                target="_blank"
                 className="button button--lg button--info margin-right--md shadow--md"
               >
                 Share Your Story
@@ -318,7 +319,7 @@ export default function StoriesPage(): JSX.Element {
                       }}
                     >
                       <strong style={{ fontSize: "1.1rem" }}>
-                        Fork & Clone
+                        Click "Submit Story"
                       </strong>
                       <span className={styles.nativeStepBadge}>Step One</span>
                     </div>
@@ -329,8 +330,7 @@ export default function StoriesPage(): JSX.Element {
                         color: "var(--ifm-color-emphasis-700)",
                       }}
                     >
-                      Fork the repository `ajay-dhangar/algo` to your personal
-                      GitHub account and check out a clean working branch.
+                      Head over to our <Link to="https://github.com/ajay-dhangar/algo/issues/new?template=submit_story.yml" target="_blank">Issue Tracker</Link> and select the Community Story template.
                     </p>
                   </div>
 
@@ -344,7 +344,7 @@ export default function StoriesPage(): JSX.Element {
                       }}
                     >
                       <strong style={{ fontSize: "1.1rem" }}>
-                        Initialize the Entry
+                        Fill Out the Form
                       </strong>
                       <span className={styles.nativeStepBadge}>Step Two</span>
                     </div>
@@ -355,9 +355,7 @@ export default function StoriesPage(): JSX.Element {
                         color: "var(--ifm-color-emphasis-700)",
                       }}
                     >
-                      Copy the standard template file from your
-                      `story/_template.md` and drop it straight into the
-                      `/story/` system directory.
+                      Share your background, what you struggled with, and what you eventually achieved. The form provides straightforward fields to make it quick and easy.
                     </p>
                   </div>
 
@@ -371,7 +369,7 @@ export default function StoriesPage(): JSX.Element {
                       }}
                     >
                       <strong style={{ fontSize: "1.1rem" }}>
-                        Name the File
+                        Submit the Issue
                       </strong>
                       <span className={styles.nativeStepBadge}>Step Three</span>
                     </div>
@@ -382,35 +380,7 @@ export default function StoriesPage(): JSX.Element {
                         color: "var(--ifm-color-emphasis-700)",
                       }}
                     >
-                      Name your file `your-github-username.mdx` so it mounts
-                      cleanly directly to the custom landing parameters layout.
-                    </p>
-                  </div>
-
-                  <div className={styles.nativeStepCard}>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      <strong style={{ fontSize: "1.1rem" }}>
-                        Open the PR
-                      </strong>
-                      <span className={styles.nativeStepBadge}>Step Four</span>
-                    </div>
-                    <p
-                      style={{
-                        margin: 0,
-                        fontSize: "0.9rem",
-                        color: "var(--ifm-color-emphasis-700)",
-                      }}
-                    >
-                      Push your adjustments and submit your pull request. Once
-                      validated, your profile will be automatically built and
-                      rendered inside our live matrix.
+                      Once you hit submit, our community maintainers will review your story, format it, and add it directly into our live matrix!
                     </p>
                   </div>
                 </div>

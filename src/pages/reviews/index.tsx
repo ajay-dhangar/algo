@@ -71,16 +71,28 @@ const ReviewsPage: React.FC = () => {
               "Algo has transformed my coding workflow. The real-time feedback and community support are unparalleled!" - Alex D.
             </p>
             
-            {/* Interactive Cyber Button */}
-            <button 
-              onClick={scrollToDiscussion}
-              className="group relative mt-8 px-8 py-4 font-bold text-sm uppercase tracking-wider text-white bg-slate-900 dark:bg-gradient-to-r dark:from-cyan-500 dark:to-blue-600 rounded-xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] active:translate-y-0"
-            >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-              <span className="flex items-center gap-2 justify-center">
-                <FaTerminal className="w-4 h-4 animate-pulse" /> Initialize Review Input
-              </span>
-            </button>
+            {/* Interactive Cyber Buttons */}
+            <div className="flex justify-center gap-4 mt-8 flex-wrap">
+              <a 
+                href="https://github.com/ajay-dhangar/algo/issues/new?template=submit_testimonial.yml"
+                target="_blank"
+                rel="noreferrer"
+                className="group relative px-8 py-4 font-bold text-sm uppercase tracking-wider text-white bg-slate-900 dark:bg-gradient-to-r dark:from-cyan-500 dark:to-blue-600 rounded-xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] active:translate-y-0"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                <span className="flex items-center gap-2 justify-center">
+                  <FaAward className="w-4 h-4" /> Submit Testimonial
+                </span>
+              </a>
+              <button 
+                onClick={scrollToDiscussion}
+                className="group relative px-8 py-4 font-bold text-sm uppercase tracking-wider text-slate-900 dark:text-white bg-white dark:bg-slate-800 border-2 border-slate-900 dark:border-cyan-500 rounded-xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] active:translate-y-0"
+              >
+                <span className="flex items-center gap-2 justify-center">
+                  <FaTerminal className="w-4 h-4 animate-pulse" /> Live Discussion
+                </span>
+              </button>
+            </div>
           </div>
 
           {/* HUD Metric Analytics Bar */}
