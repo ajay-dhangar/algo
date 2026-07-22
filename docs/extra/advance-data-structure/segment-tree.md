@@ -232,6 +232,16 @@ function update(node, start, end, idx, val):
        
 ```
 
+## Complexity Cheat Sheet
+
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tree Construction (Build)** | $O(n)$ | $O(n)$ | $O(n)$ | $O(n)$ |
+| **Point Update** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **Range Query** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **Lazy Propagation Update** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **Overall Storage** | - | - | - | $O(4n)$ |
+
 ## Conclusion
 
 Segment Trees are an essential data structure for efficiently handling dynamic array queries and updates. They provide a systematic approach to managing ranges and are widely used in algorithmic competitions and software development.
