@@ -5,13 +5,18 @@ import Translate from '@docusaurus/Translate';
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 import { autoComplexities, ComplexityItem } from '../data/complexityData';
-
+import { motion } from 'framer-motion';
+import { COMPLEXITIES } from './complexity-visualizer';
 export default function ComplexityDashboard() {
   const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [riskFilter, setRiskFilter] = useState<string>('All');
   const [selectedAsset, setSelectedAsset] = useState<ComplexityItem>(autoComplexities[0]);
   const [animateProgress, setAnimateProgress] = useState(false);
+  const [viewMode, setViewMode] = useState<'matrix' | 'compare'>('matrix');
+  const [compareA, setCompareA] = useState<string>(autoComplexities[0].title);
+  const [compareB, setCompareB] = useState<string>(autoComplexities[1]?.title || autoComplexities[0].title);
+  const [compareN, setCompareN] = useState<number>(50);
 
   // Trigger internal bar chart micro-animations on mount or selection shift
   useEffect(() => {
@@ -55,6 +60,46 @@ export default function ComplexityDashboard() {
     }
   };
 
+  const itemA = autoComplexities.find(a => a.title === compareA) || autoComplexities[0];
+  const itemB = autoComplexities.find(a => a.title === compareB) || autoComplexities[1] || autoComplexities[0];
+  const complexityA = COMPLEXITIES.find(c => c.math === itemA.time_average);
+  const complexityB = COMPLEXITIES.find(c => c.math === itemB.time_average);
+
+  const chartWidth = 800;
+  const chartHeight = 400;
+  const padding = 50;
+
+  const activeComplexities = [
+    complexityA ? { ...complexityA, color: '#3b82f6', labelId: 'A' } : null,
+    complexityB ? { ...complexityB, color: '#ef4444', labelId: 'B' } : null
+  ].filter(Boolean) as (typeof COMPLEXITIES[0] & { labelId: string })[];
+
+  const maxY = useMemo(() => {
+    if (activeComplexities.length === 0) return 100;
+    let maxVal = 0;
+    for (const c of activeComplexities) {
+      const val = c.fn(compareN);
+      if (val > maxVal) maxVal = val;
+    }
+    return Math.max(1, Math.min(maxVal, 1e6));
+  }, [activeComplexities, compareN]);
+
+  const generatePath = (fn: (n: number) => number) => {
+    const points = [];
+    const steps = 60;
+    for (let i = 0; i <= steps; i++) {
+      const currentN = (i / steps) * compareN;
+      const x = padding + (i / steps) * (chartWidth - 2 * padding);
+      let yVal = fn(currentN);
+      if (yVal > maxY) yVal = maxY;
+      const y = chartHeight - padding - (yVal / maxY) * (chartHeight - 2 * padding);
+      points.push(`${i === 0 ? 'M' : 'L'} ${x} ${y}`);
+    }
+    return points.join(' ');
+  };
+
+  const nTableValues = [10, 100, 1000, 1000000];
+
   return (
     <Layout
       title="Architecture Matrix Console"
@@ -72,6 +117,11 @@ export default function ComplexityDashboard() {
             <div className="font-code small text--muted">
               Active Registry: <span className="text--primary">{filteredItems.length} active metrics</span>
             </div>
+          </div>
+          
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+            <button className={`button ${viewMode === 'matrix' ? 'button--primary' : 'button--secondary'}`} onClick={() => setViewMode('matrix')}>Matrix View</button>
+            <button className={`button ${viewMode === 'compare' ? 'button--primary' : 'button--secondary'}`} onClick={() => setViewMode('compare')}>Compare Mode</button>
           </div>
         </div>
 
@@ -136,9 +186,9 @@ export default function ComplexityDashboard() {
           </div>
         </div>
 
-        {/* Split Console Dashboard Architecture */}
+        {viewMode === 'matrix' ? (
         <div className="row">
-          
+          {/* Split Console Dashboard Architecture */}
           {/* Main Left Controller Area (Data Table/Cards) */}
           <div className="col col--8 margin-bottom--xl">
             
@@ -293,6 +343,134 @@ export default function ComplexityDashboard() {
           </div>
 
         </div>
+        ) : (
+          <div className="row">
+            <div className="col col--12">
+              <div className="card shadow--md padding--md margin-bottom--xl" style={{ borderRadius: '12px', border: '1px solid var(--ifm-color-emphasis-200)' }}>
+                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                  <div style={{ flex: '1 1 300px' }}>
+                    <h3 className="margin-bottom--md">Select Algorithms</h3>
+                    <div className="margin-bottom--md">
+                      <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }} className="text--primary">Algorithm A (Blue)</label>
+                      <select 
+                        className="button button--secondary" 
+                        style={{ width: '100%', textAlign: 'start' }} 
+                        value={compareA} 
+                        onChange={(e) => setCompareA(e.target.value)}
+                      >
+                        {autoComplexities.map(a => <option key={a.title} value={a.title}>{a.title}</option>)}
+                      </select>
+                    </div>
+                    <div className="margin-bottom--lg">
+                      <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }} className="text--danger">Algorithm B (Red)</label>
+                      <select 
+                        className="button button--secondary" 
+                        style={{ width: '100%', textAlign: 'start' }} 
+                        value={compareB} 
+                        onChange={(e) => setCompareB(e.target.value)}
+                      >
+                        {autoComplexities.map(a => <option key={a.title} value={a.title}>{a.title}</option>)}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="font-code small text--uppercase text--muted" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 'bold' }}>
+                        Dataset Footprint Scale (N): <span className="text--primary">{compareN}</span>
+                      </label>
+                      <input 
+                        type="range" 
+                        min="2" 
+                        max="100" 
+                        value={compareN} 
+                        onChange={(e) => setCompareN(Number(e.target.value))}
+                        style={{ cursor: 'pointer', width: '100%', display: 'block' }}
+                      />
+                    </div>
+                  </div>
+
+                  <div style={{ flex: '2 1 600px' }}>
+                    <div style={{ width: '100%', overflowX: 'auto' }}>
+                      <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} width="100%" height="auto" style={{ display: 'block', minWidth: '600px', background: 'var(--ifm-background-surface-color)' }}>
+                        <g stroke="var(--ifm-color-emphasis-200)" strokeWidth="1" strokeDasharray="4 4">
+                          {[...Array(6)].map((_, i) => {
+                            const y = padding + (i / 5) * (chartHeight - 2 * padding);
+                            return <line key={`h-${i}`} x1={padding} y1={y} x2={chartWidth - padding} y2={y} />;
+                          })}
+                          {[...Array(6)].map((_, i) => {
+                            const x = padding + (i / 5) * (chartWidth - 2 * padding);
+                            return <line key={`v-${i}`} x1={x} y1={padding} x2={x} y2={chartHeight - padding} />;
+                          })}
+                        </g>
+                        <g stroke="var(--ifm-font-color-base)" strokeWidth="2" strokeLinecap="round">
+                          <line x1={padding} y1={chartHeight - padding} x2={chartWidth - padding} y2={chartHeight - padding} />
+                          <line x1={padding} y1={padding} x2={padding} y2={chartHeight - padding} />
+                        </g>
+                        <text x={chartWidth / 2} y={chartHeight - 10} fill="var(--ifm-font-color-base)" textAnchor="middle" fontWeight="600" fontSize="13">Elements Input Volume (N)</text>
+                        <text x={18} y={chartHeight / 2} fill="var(--ifm-font-color-base)" textAnchor="middle" fontWeight="600" fontSize="13" transform={`rotate(-90 18 ${chartHeight / 2})`}>Operational Run Overhead</text>
+                        <text x={chartWidth - padding} y={chartHeight - padding + 22} fill="var(--ifm-color-primary)" fontWeight="700" textAnchor="middle" fontSize="12" className="font-code">N={compareN}</text>
+                        <text x={padding - 12} y={padding + 4} fill="var(--ifm-font-color-base)" textAnchor="end" fontSize="11" className="font-code text--muted">{maxY >= 1e6 ? '1M+' : Math.round(maxY).toLocaleString()}</text>
+                        {activeComplexities.map(c => (
+                          <motion.path
+                            key={`${c.id}-${compareN}-${c.labelId}`}
+                            d={generatePath(c.fn)}
+                            fill="none"
+                            stroke={c.color}
+                            strokeWidth="3.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            initial={{ pathLength: 0, opacity: 0.4 }}
+                            animate={{ pathLength: 1, opacity: 1 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                          />
+                        ))}
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card shadow--md" style={{ borderRadius: '12px', border: '1px solid var(--ifm-color-emphasis-200)', overflow: 'hidden' }}>
+                <table className="table margin--none" style={{ borderCollapse: 'collapse', width: '100%' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '2px solid var(--ifm-color-emphasis-300)', background: 'var(--ifm-color-emphasis-100)' }}>
+                      <th style={{ padding: '1rem' }}>Dataset Size (N)</th>
+                      <th style={{ padding: '1rem' }} className="text--primary">{itemA.title} Time <br/><span className="text--muted small"><InlineMath math={itemA.time_average} /></span></th>
+                      <th style={{ padding: '1rem' }} className="text--danger">{itemB.title} Time <br/><span className="text--muted small"><InlineMath math={itemB.time_average} /></span></th>
+                      <th style={{ padding: '1rem' }}>Comparison</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {nTableValues.map(n => {
+                      const valA = complexityA ? complexityA.fn(n) : 0;
+                      const valB = complexityB ? complexityB.fn(n) : 0;
+                      
+                      const formatVal = (v: number) => {
+                        if (v > 1e9) return '> 1 Billion ops';
+                        if (v > 1e6) return `${(v / 1e6).toFixed(1)}M ops`;
+                        if (v > 1000) return `${(v / 1000).toFixed(1)}K ops`;
+                        return `${Math.round(v)} ops`;
+                      };
+
+                      const winner = valA < valB ? itemA.title : (valB < valA ? itemB.title : 'Tie');
+                      const diff = Math.abs(valA - valB);
+
+                      return (
+                        <tr key={n} style={{ borderBottom: '1px solid var(--ifm-color-emphasis-200)' }}>
+                          <td style={{ padding: '1rem', fontWeight: 'bold' }}>N = {n.toLocaleString()}</td>
+                          <td style={{ padding: '1rem' }} className="font-code">{formatVal(valA)}</td>
+                          <td style={{ padding: '1rem' }} className="font-code">{formatVal(valB)}</td>
+                          <td style={{ padding: '1rem' }}>
+                            {winner === 'Tie' ? <span className="badge badge--secondary">Equal Performance</span> : 
+                             <span className={`badge ${winner === itemA.title ? 'badge--primary' : 'badge--danger'}`}>{winner} is faster</span>}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </Layout>
   );
