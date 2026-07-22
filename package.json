@@ -36,8 +36,6 @@
     "@heroicons/react": "^2.1.5",
     "@mdx-js/react": "^3.0.0",
     "@monaco-editor/react": "^4.7.0",
-    "@popperjs/core": "^2.11.8",
-    "@rollup/rollup-win32-x64-msvc": "^4.62.2",
     "@supabase/supabase-js": "^2.110.2",
     "acorn": "^8.17.0",
     "axios": "^1.7.7",
