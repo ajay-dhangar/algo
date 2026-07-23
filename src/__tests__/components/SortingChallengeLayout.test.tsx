@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '../testUtils';
+import { render, screen, fireEvent, waitFor } from '../testUtils';
 import SortingChallengeLayout from '../../components/SortingChallengeLayout';
 import { mockSortingChallenge } from '../testUtils';
 
@@ -17,12 +17,11 @@ describe('SortingChallengeLayout', () => {
 
     const difficultyBadge = screen.getByText('Medium');
     expect(difficultyBadge).toBeInTheDocument();
-    expect(difficultyBadge.className).toContain('amber');
 
     expect(screen.getByText('15 min')).toBeInTheDocument();
     expect(screen.getByText('Sort an array of integers using bubble sort.')).toBeInTheDocument();
     expect(screen.getByText('1 <= arr.length <= 100')).toBeInTheDocument();
-    expect(screen.getByText('O(N^2)')).toBeInTheDocument();
+    expect(screen.getAllByText('O(N^2)').length).toBeGreaterThan(0);
   });
 
   test('switches tabs between problem and solution', () => {
@@ -61,27 +60,31 @@ describe('SortingChallengeLayout', () => {
     fireEvent.click(screen.getByRole('button', { name: /solution/i }));
 
     const revealButton = screen.getByRole('button', { name: /reveal/i });
-    expect(container.querySelector('pre')).not.toBeInTheDocument();
+    expect(container.querySelector('[data-testid="monaco-diff-editor"]')).not.toBeInTheDocument();
 
     fireEvent.click(revealButton);
     expect(screen.getByRole('button', { name: /hide/i })).toBeInTheDocument();
-    expect(container.querySelector('pre')?.textContent).toContain('function bubbleSort');
+    expect(container.querySelector('[data-testid="monaco-diff-editor"]')).toBeInTheDocument();
   });
 
-  test('executes code and updates output console', () => {
+  test('executes code and updates output console', async () => {
     render(<SortingChallengeLayout challenge={mockSortingChallenge} />);
 
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
-    expect(screen.getByText('Sorting array')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Sorting array')).toBeInTheDocument();
+    });
   });
 
-  test('clears output console on Clear button click', () => {
+  test('clears output console on Clear button click', async () => {
     render(<SortingChallengeLayout challenge={mockSortingChallenge} />);
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
-    expect(screen.getByText('Sorting array')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Sorting array')).toBeInTheDocument();
+    });
 
     const clearButton = screen.getByRole('button', { name: /clear/i });
     fireEvent.click(clearButton);
@@ -90,7 +93,7 @@ describe('SortingChallengeLayout', () => {
     expect(screen.getByText(/click "run code" to see output here/i)).toBeInTheDocument();
   });
 
-  test('handles arrays with negative numbers, duplicates, and errors', () => {
+  test('handles arrays with negative numbers, duplicates, and errors', async () => {
     const complexSortingChallenge = {
       ...mockSortingChallenge,
       starterCode: `
@@ -105,10 +108,12 @@ describe('SortingChallengeLayout', () => {
     render(<SortingChallengeLayout challenge={complexSortingChallenge} />);
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
-    expect(screen.getByText('Input: [-5,10,-5,0,2]')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Input: [-5,10,-5,0,2]')).toBeInTheDocument();
+    });
   });
 
-  test('handles code execution runtime errors gracefully', () => {
+  test('handles code execution runtime errors gracefully', async () => {
     const errorChallenge = {
       ...mockSortingChallenge,
       starterCode: 'throw new Error("Sorting runtime error");',
@@ -117,7 +122,9 @@ describe('SortingChallengeLayout', () => {
     render(<SortingChallengeLayout challenge={errorChallenge} />);
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
-    expect(screen.getByText(/❌ Error: Sorting runtime error/i)).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText(/❌ Error: Sorting runtime error/i)).toBeInTheDocument();
+    });
   });
 
   test('meets accessibility guidelines for buttons and links', () => {

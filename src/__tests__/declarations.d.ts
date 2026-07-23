@@ -10,4 +10,5 @@ declare module '@theme/Layout' {
 
 declare module '@docusaurus/*';
 declare module '@theme/*';
+declare module '@generated/*';
 declare module '@monaco-editor/react';

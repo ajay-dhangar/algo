@@ -16,3 +16,12 @@ export default function Editor({ value, onChange }: EditorProps) {
     />
   );
 }
+
+export function DiffEditor({ original, modified }: { original?: string; modified?: string }) {
+  return (
+    <div data-testid="monaco-diff-editor">
+      <pre data-testid="diff-original">{original}</pre>
+      <pre data-testid="diff-modified">{modified}</pre>
+    </div>
+  );
+}

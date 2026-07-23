@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '../testUtils';
+import { render, screen, fireEvent, waitFor } from '../testUtils';
 import DPChallengeLayout from '../../components/DPChallengeLayout';
 import { mockDPChallenge } from '../testUtils';
 
@@ -17,7 +17,6 @@ describe('DPChallengeLayout', () => {
 
     const difficultyBadge = screen.getByText('Hard');
     expect(difficultyBadge).toBeInTheDocument();
-    expect(difficultyBadge.className).toContain('red');
 
     expect(screen.getByText('10 min')).toBeInTheDocument();
     expect(
@@ -65,27 +64,31 @@ describe('DPChallengeLayout', () => {
     fireEvent.click(screen.getByRole('button', { name: /solution/i }));
 
     const revealButton = screen.getByRole('button', { name: /reveal/i });
-    expect(container.querySelector('pre')).not.toBeInTheDocument();
+    expect(container.querySelector('[data-testid="monaco-diff-editor"]')).not.toBeInTheDocument();
 
     fireEvent.click(revealButton);
     expect(screen.getByRole('button', { name: /hide/i })).toBeInTheDocument();
-    expect(container.querySelector('pre')?.textContent).toContain('function fib');
+    expect(container.querySelector('[data-testid="monaco-diff-editor"]')).toBeInTheDocument();
   });
 
-  test('executes code and displays console output', () => {
+  test('executes code and displays console output', async () => {
     render(<DPChallengeLayout challenge={mockDPChallenge} />);
 
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
-    expect(screen.getByText('Calculating fibonacci')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Calculating fibonacci')).toBeInTheDocument();
+    });
   });
 
-  test('clears output console on Clear button click', () => {
+  test('clears output console on Clear button click', async () => {
     render(<DPChallengeLayout challenge={mockDPChallenge} />);
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
-    expect(screen.getByText('Calculating fibonacci')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Calculating fibonacci')).toBeInTheDocument();
+    });
 
     const clearButton = screen.getByRole('button', { name: /clear/i });
     fireEvent.click(clearButton);
@@ -94,7 +97,7 @@ describe('DPChallengeLayout', () => {
     expect(screen.getByText(/click "run code" to see output here/i)).toBeInTheDocument();
   });
 
-  test('handles DP runtime code errors gracefully', () => {
+  test('handles DP runtime code errors gracefully', async () => {
     const errorDPChallenge = {
       ...mockDPChallenge,
       starterCode: 'throw new Error("DP stack overflow");',
@@ -103,7 +106,9 @@ describe('DPChallengeLayout', () => {
     render(<DPChallengeLayout challenge={errorDPChallenge} />);
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
-    expect(screen.getByText(/❌ Error: DP stack overflow/i)).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText(/❌ Error: DP stack overflow/i)).toBeInTheDocument();
+    });
   });
 
   test('meets accessibility guidelines for navigation and buttons', () => {

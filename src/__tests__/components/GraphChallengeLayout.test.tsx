@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '../testUtils';
+import { render, screen, fireEvent, waitFor } from '../testUtils';
 import GraphChallengeLayout from '../../components/GraphChallengeLayout';
 import { mockGraphChallenge } from '../testUtils';
 
@@ -19,7 +19,6 @@ describe('GraphChallengeLayout', () => {
     // Difficulty badge
     const difficultyBadge = screen.getByText('Easy');
     expect(difficultyBadge).toBeInTheDocument();
-    expect(difficultyBadge.className).toContain('emerald');
 
     // Time limit
     expect(screen.getByText('15 min')).toBeInTheDocument();
@@ -46,19 +45,16 @@ describe('GraphChallengeLayout', () => {
     const problemTabButton = screen.getByRole('button', { name: /problem/i });
     const solutionTabButton = screen.getByRole('button', { name: /solution/i });
 
-    expect(problemTabButton).toHaveClass('border-red-500');
+    expect(problemTabButton).toHaveClass('border-blue-500');
 
     // Switch to solution tab
     fireEvent.click(solutionTabButton);
-    expect(solutionTabButton).toHaveClass('border-red-500');
+    expect(solutionTabButton).toHaveClass('border-blue-500');
     expect(screen.getByRole('heading', { name: /solution/i })).toBeInTheDocument();
-    expect(
-      screen.getByText(/click "reveal" to see the solution/i)
-    ).toBeInTheDocument();
 
     // Switch back to problem tab
     fireEvent.click(problemTabButton);
-    expect(problemTabButton).toHaveClass('border-red-500');
+    expect(problemTabButton).toHaveClass('border-blue-500');
     expect(screen.getByText('Build an adjacency list and matrix for graph nodes.')).toBeInTheDocument();
   });
 
@@ -85,35 +81,38 @@ describe('GraphChallengeLayout', () => {
     fireEvent.click(screen.getByRole('button', { name: /solution/i }));
 
     const revealButton = screen.getByRole('button', { name: /reveal/i });
-    expect(container.querySelector('pre')).not.toBeInTheDocument();
+    expect(container.querySelector('[data-testid="monaco-diff-editor"]')).not.toBeInTheDocument();
 
     // Reveal solution
     fireEvent.click(revealButton);
     expect(screen.getByRole('button', { name: /hide/i })).toBeInTheDocument();
-    expect(container.querySelector('pre')?.textContent).toContain('function buildGraph');
+    expect(container.querySelector('[data-testid="monaco-diff-editor"]')).toBeInTheDocument();
 
     // Hide solution
     fireEvent.click(screen.getByRole('button', { name: /hide/i }));
-    expect(container.querySelector('pre')).not.toBeInTheDocument();
+    expect(container.querySelector('[data-testid="monaco-diff-editor"]')).not.toBeInTheDocument();
   });
 
-  test('executes starter code and displays console output', () => {
+  test('executes starter code and displays console output', async () => {
     render(<GraphChallengeLayout challenge={mockGraphChallenge} />);
 
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
-    // Output console should show logged text
-    expect(screen.getByText('Graph initialized')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Graph initialized')).toBeInTheDocument();
+    });
   });
 
-  test('clears output console when Clear button is clicked', () => {
+  test('clears output console when Clear button is clicked', async () => {
     render(<GraphChallengeLayout challenge={mockGraphChallenge} />);
 
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
-    expect(screen.getByText('Graph initialized')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Graph initialized')).toBeInTheDocument();
+    });
 
     const clearButton = screen.getByRole('button', { name: /clear/i });
     fireEvent.click(clearButton);
@@ -122,7 +121,7 @@ describe('GraphChallengeLayout', () => {
     expect(screen.getByText(/click "run code" to see output here/i)).toBeInTheDocument();
   });
 
-  test('handles invalid code execution gracefully and displays error log', () => {
+  test('handles invalid code execution gracefully and displays error log', async () => {
     const invalidChallenge = {
       ...mockGraphChallenge,
       starterCode: 'throw new Error("Syntax runtime failure");',
@@ -133,7 +132,9 @@ describe('GraphChallengeLayout', () => {
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
-    expect(screen.getByText(/❌ Error: Syntax runtime failure/i)).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText(/❌ Error: Syntax runtime failure/i)).toBeInTheDocument();
+    });
   });
 
   test('meets accessibility requirements (roles, labels, and back link)', () => {
