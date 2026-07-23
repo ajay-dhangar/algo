@@ -724,6 +724,14 @@ public:
 
 ---
 
+## 🔗 Related Topics
+
+- **[Disjoint Set Union (DSU)](./disjoint-set-union.md)**: Manages dynamic connectivity and equivalence relations ($O(\alpha(N))$).
+- **[Trie](./trie.md)**: Tree structure specialized for efficient prefix lookup and string operations ($O(K)$).
+- **[Dijkstra's Algorithm](./dijkstras-algorithm.md)**: Priority-queue based shortest path algorithm on graphs ($O((V+E) \log V)$).
+
+---
+
 ## 🔗 References
 
 - [Segment Tree - CP-Algorithms](https://cp-algorithms.com/data_structures/segment_tree.html)

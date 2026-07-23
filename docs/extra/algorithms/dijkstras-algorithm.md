@@ -182,9 +182,16 @@ It does not handle negative weight cycles, as Dijkstra's Algorithm is not suitab
 * Social Network Analysis
 
 
+## Related Topics
+
+- **[Bellman-Ford Algorithm](./bellman-ford-algorithm)**: Solves single-source shortest path problem on graphs with negative edge weights ($O(V \cdot E)$).
+- **[Disjoint Set Union (DSU)](./disjoint-set-union.md)**: Fundamental data structure used in Minimum Spanning Tree algorithms like Kruskal's.
+- **[Segment Tree](./segment-tree.md)**: Advanced tree data structure for range queries and point updates ($O(\log N)$).
+
 ## Conclusion
 
 Dijkstra's Algorithm is a fundamental algorithm in computer science for finding the shortest paths in a weighted graph. Its efficiency and effectiveness make it applicable in various real-world scenarios where optimization is required.
+
 
 
 

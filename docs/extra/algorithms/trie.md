@@ -737,6 +737,14 @@ Speedup: ~1,600x faster ✅
 
 ---
 
+## 🔗 Related Topics
+
+- **[Segment Tree](./segment-tree.md)**: Tree structure specialized for range queries and updates ($O(\log N)$).
+- **[Disjoint Set Union (DSU)](./disjoint-set-union.md)**: Manages dynamic connectivity and equivalence relations ($O(\alpha(N))$).
+- **[Two Pointers & Sliding Window](./two-pointers-sliding-window.md)**: Efficient subarray and substring processing techniques ($O(N)$).
+
+---
+
 ## 🔗 References
 
 - [Trie - GeeksforGeeks](https://www.geeksforgeeks.org/trie-insert-and-search/)

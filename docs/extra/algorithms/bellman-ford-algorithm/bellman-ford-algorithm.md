@@ -404,6 +404,12 @@ if __name__ == "__main__":
 - The algorithm does **not** work correctly if a negative weight cycle is reachable from the source (it reports the cycle instead).
 - If no negative cycle is present, the shortest path is guaranteed after `V - 1` iterations.
 
+## Related Topics
+
+- **[Dijkstra's Algorithm](../dijkstras-algorithm.md)**: Shortest path algorithm for non-negative weighted graphs ($O((V+E) \log V)$).
+- **[Disjoint Set Union (DSU)](../disjoint-set-union.md)**: Dynamic graph connectivity and component tracking ($O(\alpha(N))$).
+- **[Segment Tree](../segment-tree.md)**: Dynamic range queries and updates ($O(\log N)$).
+
 ## Conclusion
 
 The Bellman-Ford Algorithm is a versatile and powerful shortest-path algorithm that extends beyond the limitations of Dijkstra's Algorithm by supporting negative edge weights and detecting negative cycles. While it is slower than Dijkstra's for graphs with non-negative weights, it is the go-to algorithm whenever negative weights or cycle detection are involved, making it indispensable in domains like network routing and financial graph analysis.

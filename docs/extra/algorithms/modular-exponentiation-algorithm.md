@@ -89,5 +89,12 @@ The time complexity of the modular exponentiation algorithm is significantly red
 - **Number Theory**: Many problems in number theory, especially those related to prime numbers and modular arithmetic, rely on modular exponentiation.
 - **Efficient Computation**: This algorithm is used in any scenario where large powers need to be computed modulo a number without causing overflow or performance issues.
 
+## Related Topics
+
+- **[Trie](./trie.md)**: Tree data structure for efficient prefix-based string matching and autocomplete ($O(K)$).
+- **[Disjoint Set Union (DSU)](./disjoint-set-union.md)**: Dynamic connectivity and set tracking structure ($O(\alpha(N))$).
+- **[Segment Tree](./segment-tree.md)**: Range queries and dynamic updates on linear arrays ($O(\log N)$).
+
 ## Conclusion
 The Modular Exponentiation Algorithm provides an efficient way to compute large powers modulo a number. It leverages the technique of exponentiation by squaring to reduce the number of operations from exponential to logarithmic time. This algorithm is crucial in fields like cryptography and number theory, where operations with large numbers are common and need to be performed efficiently.
+
