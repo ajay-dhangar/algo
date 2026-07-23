@@ -86,6 +86,17 @@ Matrices are used in various fields and applications, including:
 - **Physics and Engineering**: To model systems and solve equations.
 - **Statistics**: In multivariate analysis and data representation.
 
+## Complexity Cheat Sheet
+
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Element Access `[r][c]`** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Element Search (Unsorted)** | $O(1)$ | $O(R \times C)$ | $O(R \times C)$ | $O(1)$ |
+| **Matrix Addition / Subtraction** | $O(R \times C)$ | $O(R \times C)$ | $O(R \times C)$ | $O(R \times C)$ |
+| **Matrix Multiplication** | $O(N^3)$ | $O(N^3)$ | $O(N^3)$ | $O(N^2)$ |
+| **Matrix Transpose** | $O(R \times C)$ | $O(R \times C)$ | $O(R \times C)$ | $O(R \times C)$ |
+| **Overall Matrix Storage** | - | - | - | $O(R \times C)$ |
+
 ## Conclusion
 
 Matrices are fundamental data structures in both theoretical and applied contexts. Understanding how to manipulate and utilize matrices is essential for many fields in computer science and mathematics.

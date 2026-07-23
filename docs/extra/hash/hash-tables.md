@@ -124,11 +124,16 @@ struct DataItem* deleteItem(struct DataItem* item) {
     return NULL;
 }
 ```
-### Time Complexity
-For lookup, insertion, and deletion operations, hash tables have an average-case time complexity of O(1). However, these operations may, in the worst case, require O(n) time, where n is the number of elements in the table.
-### Space Complexity
-The space complexity of a hash table is O(n), where n is the number of elements in the
-table. This is because each element is stored in a separate cell in the array.
+### Complexity Cheat Sheet
+
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Insertion** | $O(1)$ | $O(1)$ | $O(n)$ | $O(1)$ |
+| **Search / Lookup** | $O(1)$ | $O(1)$ | $O(n)$ | $O(1)$ |
+| **Deletion** | $O(1)$ | $O(1)$ | $O(n)$ | $O(1)$ |
+| **Overall Storage** | - | - | - | $O(n)$ |
+
+> Worst-case $O(n)$ occurs when all keys hash to the same index (collision).
 
 ### Applications of Hash Table
 Hash tables are frequently used for indexing and searching massive volumes of data. A search engine might use a hash table to store the web pages that it has indexed.

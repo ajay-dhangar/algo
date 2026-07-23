@@ -626,23 +626,18 @@ class CircularLinkedList {
 }
 ```
 
-### Complexity
+### Complexity Cheat Sheet
 
-- **Time Complexity**:
-
-  - Insertion at the Beginning: $O(n)$
-  - Insertion at the End: $O(n)$
-  - Insert After Node: $O(n)$
-  - Delete from Beginning: $O(n)$	
-  - Delete from End: $O(n)$	
-  - Delete by Key: $O(n)$	
-  - Search: $O(n)$	
-  - Traversal: $O(n)$
-
-- **Space Complexity**: 
-
-- Operations typically use $O(1) $ extra space as they only involve manipulating existing nodes.
-- In Python's display method, storing node data in a list requires O(n) space.
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Insertion (Beginning)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Insertion (End)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Insertion (After Node)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Deletion (Beginning / End)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Deletion (By Key)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Search (By Value)** | $O(1)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Cyclic Traversal** | $O(n)$ | $O(n)$ | $O(n)$ | $O(1)$ |
+| **Overall Storage** | - | - | - | $O(n)$ |
 
 
 ### Conclusion

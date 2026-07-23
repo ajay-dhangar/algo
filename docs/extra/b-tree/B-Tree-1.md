@@ -425,6 +425,18 @@ if __name__ == "__main__":
 ```
 
 
+## Complexity Cheat Sheet
+
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Search** | $O(1)$ | $O(\log_t n)$ | $O(\log_t n)$ | $O(1)$ |
+| **Insertion** | $O(\log_t n)$ | $O(\log_t n)$ | $O(\log_t n)$ | $O(\log_t n)$ |
+| **Deletion** | $O(\log_t n)$ | $O(\log_t n)$ | $O(\log_t n)$ | $O(\log_t n)$ |
+| **Traversal** | $O(n)$ | $O(n)$ | $O(n)$ | $O(n)$ |
+| **Overall Tree Storage** | - | - | - | $O(n)$ |
+
+> Here $t$ is the minimum degree of the B-Tree.
+
 ## Applications of B-Trees
 
 -   Used in large databases to access data stored on the disk.

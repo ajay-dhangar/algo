@@ -318,6 +318,16 @@ AVL Trees use four types of rotations to maintain balance.
 
 Maintaining balance ensures that all search, insertion, and deletion operations continue to run in **O(log n)** time.
 
+## Complexity Cheat Sheet
+
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Search** | $O(1)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **Insertion** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **Deletion** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| **Rotation (Single / Double)** | $O(1)$ | $O(1)$ | $O(1)$ | $O(1)$ |
+| **Overall Storage** | - | - | - | $O(n)$ |
+
 ## Advantages and Disadvantages
 ### Advantages:
 - Ensures O(log n) time complexity for search, insertion, and deletion due to strict balancing.

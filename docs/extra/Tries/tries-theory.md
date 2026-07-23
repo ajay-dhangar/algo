@@ -147,3 +147,15 @@ int main() {
     return 0;
 }
 ```
+
+## Complexity Cheat Sheet
+
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Insertion** | $O(k)$ | $O(k)$ | $O(k)$ | $O(k)$ |
+| **Search** | $O(k)$ | $O(k)$ | $O(k)$ | $O(1)$ |
+| **Prefix Search** | $O(p)$ | $O(p)$ | $O(p)$ | $O(1)$ |
+| **Deletion** | $O(k)$ | $O(k)$ | $O(k)$ | $O(k)$ |
+| **Overall Trie Storage** | - | - | - | $O(N \times k)$ |
+
+> Here $k$ is the length of the key/word, $p$ is the prefix length, and $N$ is the number of keys stored.

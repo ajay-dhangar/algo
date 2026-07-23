@@ -139,6 +139,16 @@ function query(index):
     return sum
 ```
 
+## Complexity Cheat Sheet
+
+| Operation | Best Case | Average Case | Worst Case | Space Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Point Update** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(1)$ |
+| **Prefix Sum Query** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(1)$ |
+| **Range Sum Query** | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ | $O(1)$ |
+| **Tree Construction** | $O(n)$ | $O(n)$ | $O(n)$ | $O(n)$ |
+| **Overall Storage** | - | - | - | $O(n)$ |
+
 ## Conclusion
 
 The Fenwick Tree (Binary Indexed Tree) is a powerful data structure for efficiently managing cumulative frequency tables and performing range queries. Its ability to update and query sums in logarithmic time makes it a valuable tool in various algorithmic applications.
