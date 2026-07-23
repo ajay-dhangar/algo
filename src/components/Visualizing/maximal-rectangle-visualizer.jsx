@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { withVisualizerErrorBoundary } from './VisualizerErrorBoundary';
+import { useAriaAnnouncer } from '../../hooks/useAriaAnnouncer';
 
 function MaximalRectangleVisualizer() {
   const [grid, setGrid] = useState([
@@ -9,6 +10,7 @@ function MaximalRectangleVisualizer() {
     ['1', '0', '0', '1', '0'],
   ]);
   const [result, setResult] = useState(null);
+  const { announce } = useAriaAnnouncer();
 
   const toggleCell = (r, c) => {
     setGrid(prevGrid =>
@@ -61,6 +63,7 @@ function MaximalRectangleVisualizer() {
     }
 
     setResult({ maxArea, bestRect });
+    announce(`Maximal rectangle calculated. Maximum area is ${maxArea}.`);
   };
 
   const isHighlighted = (r, c) => {
@@ -70,7 +73,11 @@ function MaximalRectangleVisualizer() {
   };
 
   return (
-    <div className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm bg-white dark:bg-gray-800 my-6">
+    <div
+      role="region"
+      aria-label="Maximal Rectangle Visualizer"
+      className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm bg-white dark:bg-gray-800 my-6"
+    >
       <div className="mb-6 text-center">
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Interactive Visualizer</h3>
         <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -78,15 +85,17 @@ function MaximalRectangleVisualizer() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-1 mb-6 items-center">
+      <div className="flex flex-col gap-1 mb-6 items-center" role="grid" aria-label="Matrix Grid">
         {grid.map((row, r) => (
-          <div key={r} className="flex gap-1 justify-center">
+          <div key={r} className="flex gap-1 justify-center" role="row">
             {row.map((cell, c) => {
               const highlight = isHighlighted(r, c);
               return (
                 <button
+                  type="button"
                   key={c}
                   onClick={() => toggleCell(r, c)}
+                  aria-label={`Row ${r + 1}, Column ${c + 1}, value ${cell}. Click to toggle.`}
                   className={`w-12 h-12 flex items-center justify-center border-2 font-bold text-lg rounded transition-all duration-200
                     ${
                       cell === '1'
@@ -107,13 +116,15 @@ function MaximalRectangleVisualizer() {
 
       <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
         <button
+          type="button"
           onClick={calculateMaxRectangle}
+          aria-label="Calculate Maximal Rectangle Area"
           className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded shadow transition-colors"
         >
           Calculate Rectangle
         </button>
         {result && (
-          <div className="text-lg font-bold text-gray-900 dark:text-white">
+          <div className="text-lg font-bold text-gray-900 dark:text-white" aria-live="polite">
             Max Area: <span className="text-green-500 text-2xl ml-2">{result.maxArea}</span>
           </div>
         )}

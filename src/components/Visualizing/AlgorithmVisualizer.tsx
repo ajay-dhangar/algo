@@ -7,6 +7,9 @@ import { generateBubbleSortSteps } from './algorithms/bubbleSort';
 import { generateBinarySearchSteps } from './algorithms/binarySearch';
 import { generateBfsSteps, generateDfsSteps } from './algorithms/graphSearch';
 
+import { useAriaAnnouncer } from '../../hooks/useAriaAnnouncer';
+import { isInteractiveInput } from './AccessibleVisualizerWrapper';
+
 let audioCtx: AudioContext | null = null;
 
 function playTone(frequency: number, duration: number = 0.1) {
@@ -49,6 +52,41 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
   const [speed, setSpeed] = useState(1000); // ms per step
   const [isAudioEnabled, setIsAudioEnabled] = useState(false);
   const timerRef = useRef<any>(null);
+  const { announce } = useAriaAnnouncer();
+
+  // Announce step transitions for screen readers
+  useEffect(() => {
+    if (steps[currentStep]?.description) {
+      announce(`Step ${currentStep + 1} of ${steps.length}. ${steps[currentStep].description}`);
+    }
+  }, [currentStep, steps, announce]);
+
+  // Keyboard navigation shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isInteractiveInput(document.activeElement)) return;
+
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setCurrentStep((prev) => Math.max(0, prev - 1));
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        setCurrentStep((prev) => Math.min(steps.length - 1, prev + 1));
+      } else if (e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        setIsPlaying((prev) => !prev);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        setCurrentStep(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        setCurrentStep(steps.length - 1);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [steps.length]);
 
   // Generate steps for the selected algorithm
   useEffect(() => {
@@ -390,21 +428,27 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', gap: '12px' }}>
           <button
+            type="button"
             onClick={handleStepBackward}
             disabled={currentStep === 0}
+            aria-label="Previous step"
             className="button button--outline button--primary"
           >
             ⏮️ Step Back
           </button>
           <button
+            type="button"
             onClick={() => setIsPlaying(!isPlaying)}
+            aria-label={isPlaying ? 'Pause visualization' : 'Play visualization'}
             className={`button ${isPlaying ? 'button--warning' : 'button--success'}`}
           >
             {isPlaying ? '⏸️ Pause' : '▶️ Play'}
           </button>
           <button
+            type="button"
             onClick={handleStepForward}
             disabled={currentStep === steps.length - 1}
+            aria-label="Next step"
             className="button button--outline button--primary"
           >
             Step Forward ⏭️
@@ -414,19 +458,26 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
         {/* Speed slider & Step indicators */}
         <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Speed:</label>
+            <label htmlFor="algo-speed-slider" style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Speed:</label>
             <input
+              id="algo-speed-slider"
               type="range"
               min="300"
               max="2000"
               step="100"
               value={speed}
               onChange={(e) => setSpeed(Number(e.target.value))}
+              role="slider"
+              aria-label="Playback speed"
+              aria-valuemin={300}
+              aria-valuemax={2000}
+              aria-valuenow={speed}
+              aria-valuetext={`${speed} milliseconds per step`}
               style={{ cursor: 'pointer' }}
             />
           </div>
 
-          <div style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>
+          <div style={{ fontSize: '0.9rem', fontWeight: 'bold' }} aria-live="polite">
             Step: {currentStep + 1} / {steps.length}
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { withVisualizerErrorBoundary } from './VisualizerErrorBoundary';
+import { useAriaAnnouncer } from '../../hooks/useAriaAnnouncer';
+import { isInteractiveInput } from './AccessibleVisualizerWrapper';
 
 const NQueensVisualizer = () => {
   const [n, setN] = useState(4);
@@ -12,6 +14,7 @@ const NQueensVisualizer = () => {
   const speed = 800;
   const intervalRef = useRef(null);
   const isMounted = useRef(true);
+  const { announce } = useAriaAnnouncer();
 
   useEffect(() => {
     isMounted.current = true;
@@ -19,6 +22,33 @@ const NQueensVisualizer = () => {
       isMounted.current = false;
     };
   }, []);
+
+  // Keyboard navigation shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (isInteractiveInput(document.activeElement)) return;
+
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setCurrentStep((prev) => Math.max(0, prev - 1));
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        setCurrentStep((prev) => Math.min(simulationSteps.length - 1, prev + 1));
+      } else if (e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        setIsPaused((prev) => !prev);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        setCurrentStep(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        setCurrentStep(simulationSteps.length - 1);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [simulationSteps.length]);
 
   const generateSimulationSteps = useCallback((boardSize) => {
     const steps = [];
@@ -110,6 +140,13 @@ const NQueensVisualizer = () => {
 
   const step = simulationSteps[currentStep] || {};
 
+  // Announce step description for screen readers
+  useEffect(() => {
+    if (step.description) {
+      announce(`Step ${currentStep + 1} of ${simulationSteps.length}. ${step.description}`);
+    }
+  }, [currentStep, simulationSteps.length, step.description, announce]);
+
   const renderBoard = () => {
     if (!step.queens) return null;
 
@@ -190,29 +227,37 @@ const NQueensVisualizer = () => {
             <span className="text-xs text-gray-500 mt-1">Warning: Values above 8 may cause performance issues.</span>
           </div>
 
-          <div className="flex items-center gap-2 mt-1 sm:mt-0 flex-wrap">
+          <div className="flex items-center gap-2 mt-1 sm:mt-0 flex-wrap" role="group" aria-label="Visualizer Controls">
             <button
+              type="button"
               onClick={() => setCurrentStep(0)}
+              aria-label="Reset visualization to start"
               className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
             >
               Reset
             </button>
             <button
+              type="button"
               onClick={() => setCurrentStep((prev) => Math.max(0, prev - 1))}
               disabled={currentStep === 0}
+              aria-label="Previous step"
               className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
             >
               Prev
             </button>
             <button
+              type="button"
               onClick={() => setIsPaused(!isPaused)}
+              aria-label={isPaused ? 'Play visualization' : 'Pause visualization'}
               className="px-6 py-1.5 text-sm font-bold bg-indigo-600 text-white rounded shadow hover:bg-indigo-700 transition-colors"
             >
               {isPaused ? 'Play' : 'Pause'}
             </button>
             <button
+              type="button"
               onClick={() => setCurrentStep((prev) => Math.min(simulationSteps.length - 1, prev + 1))}
               disabled={currentStep >= simulationSteps.length - 1}
+              aria-label="Next step"
               className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
             >
               Next

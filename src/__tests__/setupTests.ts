@@ -35,8 +35,11 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
-// Global window.scrollTo Mock
+// Global window.scrollTo & Element.prototype.scrollIntoView Mocks
 window.scrollTo = jest.fn();
+if (typeof Element.prototype.scrollIntoView !== 'function') {
+  Element.prototype.scrollIntoView = jest.fn();
+}
 
 // Global URL.createObjectURL & URL.revokeObjectURL Mocks for JSDOM
 if (typeof URL.createObjectURL !== 'function') {
