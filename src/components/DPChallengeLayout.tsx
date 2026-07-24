@@ -11,6 +11,7 @@ import Editor from "@monaco-editor/react";
 import useConsoleCapture from "../hooks/useConsoleCapture";
 import ComplexityDeepDive from "./ComplexityDeepDive";
 import PseudocodeTab from "./PseudocodeTab";
+import RealWorldUsesTab from "./RealWorldUsesTab";
 import { markChallengeSolved } from "../utils/safeStorage";
 
 const DIFF_COLORS = {
@@ -34,7 +35,7 @@ export default function DPChallengeLayout({ challenge }: Props) {
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [running, setRunning] = useState(false);
-  const [activeTab, setActiveTab] = useState<"problem" | "solution" | "pseudocode">("problem");
+  const [activeTab, setActiveTab] = useState<"problem" | "solution" | "pseudocode" | "real-world">("problem");
   const { runWithCapture } = useConsoleCapture();
 
   const runCode = useCallback(async () => {
@@ -82,18 +83,23 @@ export default function DPChallengeLayout({ challenge }: Props) {
           {/* Left Panel: Problem / Solution */}
           <div className="w-full lg:w-[45%] overflow-y-auto border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             {/* Tabs */}
-            <div className="flex border-b border-slate-200 dark:border-slate-800">
-              {(["problem", "solution", "pseudocode"] as const).map((tab) => (
+            <div className="flex border-b border-slate-200 dark:border-slate-800 overflow-x-auto">
+              {([
+                { key: "problem",    label: "Problem" },
+                { key: "solution",   label: "Solution" },
+                { key: "pseudocode", label: "Pseudocode" },
+                { key: "real-world", label: "🌐 Real-World" },
+              ] as const).map(({ key, label }) => (
                 <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-6 py-3 text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer ${
-                    activeTab === tab
+                  key={key}
+                  onClick={() => setActiveTab(key)}
+                  className={`shrink-0 px-5 py-3 text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+                    activeTab === key
                       ? "border-b-2 border-red-500 text-red-500"
                       : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
                   }`}
                 >
-                  {tab}
+                  {label}
                 </button>
               ))}
             </div>
@@ -233,8 +239,10 @@ export default function DPChallengeLayout({ challenge }: Props) {
                     </div>
                   )}
                 </div>
-              ) : (
+              ) : activeTab === "pseudocode" ? (
                 <PseudocodeTab solution={challenge.solution} customPseudocode={challenge.pseudocode} />
+              ) : (
+                <RealWorldUsesTab challengeTitle={challenge.title} category="dp" />
               )}
             </div>
           </div>

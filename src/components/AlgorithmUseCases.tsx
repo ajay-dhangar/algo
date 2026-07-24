@@ -624,6 +624,16 @@ const AlgorithmUseCases: React.FC = () => {
   const [selected, setSelected] = useState<string>(keys[0]);
   const [expandedApps, setExpandedApps] = useState<Record<string, boolean>>({});
 
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const algoParam = params.get("algo");
+      if (algoParam && algorithmData[algoParam]) {
+        setSelected(algoParam);
+      }
+    }
+  }, []);
+
   const activeData = algorithmData[selected];
 
   const toggleExpand = (appTitle: string) => {

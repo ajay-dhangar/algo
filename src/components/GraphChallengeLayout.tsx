@@ -14,6 +14,7 @@ import type { GraphChallenge } from "../data/graphChallengesData";
 import useConsoleCapture from "../hooks/useConsoleCapture";
 import ComplexityDeepDive from "./ComplexityDeepDive";
 import PseudocodeTab from "./PseudocodeTab";
+import RealWorldUsesTab from "./RealWorldUsesTab";
 import { markChallengeSolved } from "../utils/safeStorage";
 
 import DijkstraVisualizations from "./DSA/graphs/DijkstraVisualizations";
@@ -415,7 +416,7 @@ export default function GraphChallengeLayout({ challenge }: Props) {
   const [showHint, setShowHint]     = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [running, setRunning]       = useState(false);
-  const [activeTab, setActiveTab]   = useState<"problem" | "visualize" | "solution" | "pseudocode">("problem");
+  const [activeTab, setActiveTab]   = useState<"problem" | "visualize" | "solution" | "pseudocode" | "real-world">("problem");
   const { runWithCapture }          = useConsoleCapture();
 
   const hasDedicated = Boolean(DEDICATED_VISUALIZER[challenge.id]);
@@ -428,11 +429,12 @@ export default function GraphChallengeLayout({ challenge }: Props) {
     setRunning(false);
   }, [code, runWithCapture]);
 
-  const TABS: { key: "problem" | "visualize" | "solution" | "pseudocode"; label: string }[] = [
+  const TABS: { key: "problem" | "visualize" | "solution" | "pseudocode" | "real-world"; label: string }[] = [
     { key: "problem",    label: "Problem" },
     { key: "visualize", label: hasDedicated ? "Visualize ✨" : "Visualize" },
     { key: "solution",  label: "Solution" },
     { key: "pseudocode", label: "Pseudocode" },
+    { key: "real-world", label: "🌐 Real-World" },
   ];
 
   return (
@@ -474,12 +476,12 @@ export default function GraphChallengeLayout({ challenge }: Props) {
           <div className="w-full lg:w-[45%] overflow-y-auto border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col">
 
             {/* Three-tab switcher */}
-            <div className="flex border-b border-slate-200 dark:border-slate-800 shrink-0">
+            <div className="flex border-b border-slate-200 dark:border-slate-800 shrink-0 overflow-x-auto">
               {TABS.map(({ key, label }) => (
                 <button
                   key={key}
                   onClick={() => setActiveTab(key)}
-                  className={`flex-1 px-4 py-3 text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer whitespace-nowrap ${
+                  className={`shrink-0 px-4 py-3 text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer whitespace-nowrap ${
                     activeTab === key
                       ? "border-b-2 border-blue-500 text-blue-500 dark:text-blue-400"
                       : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
@@ -662,6 +664,13 @@ export default function GraphChallengeLayout({ challenge }: Props) {
             {activeTab === "pseudocode" && (
               <div className="p-6 flex-1 overflow-y-auto">
                 <PseudocodeTab solution={challenge.solution} customPseudocode={challenge.pseudocode} />
+              </div>
+            )}
+
+            {/* ── Real-World tab ── */}
+            {activeTab === "real-world" && (
+              <div className="flex-1 overflow-y-auto">
+                <RealWorldUsesTab challengeTitle={challenge.title} category="graph" />
               </div>
             )}
           </div>
