@@ -1,0 +1,114 @@
+/* Breadcrumb-Based "You Are Here" Navigation Trail Styling */
+
+.breadcrumbTrailContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+[data-theme='dark'] .breadcrumbTrailContainer {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.youAreHereBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .youAreHereBadge {
+  background: var(--ifm-color-primary-dark);
+  color: var(--ifm-color-emphasis-0);
+  border: 1px solid var(--ifm-color-primary);
+}
+
+.youAreHereIcon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.breadcrumbsList {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.88rem;
+}
+
+.breadcrumbItem {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.breadcrumbItem + .breadcrumbItem::before {
+  content: '/';
+  margin: 0 0.45rem;
+  color: var(--ifm-color-emphasis-400);
+  font-weight: 400;
+}
+
+.breadcrumbLink {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.breadcrumbLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+}
+
+.activeItem {
+  color: var(--ifm-color-primary-dark);
+  font-weight: 600;
+}
+
+[data-theme='dark'] .activeItem {
+  color: var(--ifm-color-primary-light);
+}
+
+@media (max-width: 768px) {
+  .breadcrumbTrailContainer {
+    padding: 0.4rem 0.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .youAreHereBadge {
+    font-size: 0.72rem;
+    padding: 0.15rem 0.45rem;
+    margin-right: 0.5rem;
+  }
+
+  .breadcrumbsList {
+    font-size: 0.82rem;
+  }
+}
