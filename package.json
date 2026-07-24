@@ -15,7 +15,9 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "validate:docs": "node scripts/validate-frontmatter.js"
+    "validate:docs": "node scripts/validate-frontmatter.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@docusaurus/core": "^3.5.2",
@@ -63,14 +65,22 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
     "@docusaurus/types": "3.5.2",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^14.3.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
     "cross-env": "^10.1.0",
     "gh-pages": "^6.1.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "pa11y-ci": "^4.1.1",
     "postcss": "^8.4.47",
     "start-server-and-test": "^3.0.11",
-    "tailwindcss": "^3.4.13"
+    "tailwindcss": "^3.4.13",
+    "ts-jest": "^29.1.5",
+    "typescript": "^5.4.5"
   },
   "overrides": {
     "react-simple-chatbot": {

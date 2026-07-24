@@ -11,7 +11,7 @@ const DijkstraVisualizations: React.FC = () => {
   const [priorityQueue, setPriorityQueue] = useState<Array<[number, number, number]>>([]);
   const [distances, setDistances] = useState<number[][]>([]);
   const [visited, setVisited] = useState<boolean[][]>([]);
-  const [previous, setPrevious] = useState<Array<[number, number] | null>>([]);
+  const [previous, setPrevious] = useState<Array<Array<[number, number] | null>>>([]);
   const [currentStep, setCurrentStep] = useState<[number, number] | null>(null);
 
   useEffect(() => {
@@ -48,25 +48,17 @@ const DijkstraVisualizations: React.FC = () => {
       return;
     }
 
-    // Always sort the queue to get the minimum distance node
+    // Sort queue based on distance (Min-Heap behavior)
     priorityQueue.sort((a, b) => a[0] - b[0]);
     const [currentDist, x, y] = priorityQueue.shift()!;
 
-    // If this node has already been visited, skip it
-    if (visited[x][y]) {
-      nextStep();
-      return;
-    }
+    if (visited[x][y]) return;
 
-    // Mark this node as visited
-    setVisited((prevVisited) => {
-      const newVisited = prevVisited.map((row) => [...row]);
-      newVisited[x][y] = true; 
-      return newVisited;
-    });
+    visited[x][y] = true;
+    setVisited([...visited]);
 
-    // Update distances and previous paths
-    const directions: [number, number][] = [
+    // Check all 4 direction neighbors (Up, Down, Left, Right)
+    const directions = [
       [-1, 0],
       [1, 0],
       [0, -1],
@@ -100,7 +92,7 @@ const DijkstraVisualizations: React.FC = () => {
 
     // Check if we reached the end node
     if (x === endNode![0] && y === endNode![1]) {
-      const path = reconstructPath(previous, startNode, endNode);
+      const path = reconstructPath(previous, startNode!, endNode!);
       setShortestPath(path);
       setIsRunning(false);
       return;
@@ -110,7 +102,7 @@ const DijkstraVisualizations: React.FC = () => {
   };
 
   const reconstructPath = (
-    previous: Array<[number, number] | null>,
+    previous: Array<Array<[number, number] | null>>,
     startNode: [number, number],
     endNode: [number, number]
   ) => {
