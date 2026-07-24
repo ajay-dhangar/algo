@@ -103,3 +103,9 @@ Each vertex and edge is visited exactly once, making the algorithm linear.
 ## Conclusion
 Topological Sorting is a fundamental algorithm used in many real-world applications such as task scheduling, dependency resolution, and compiler optimization. Understanding how to implement and apply this algorithm is essential for working with Directed Acyclic Graphs (DAGs) in graph theory and computer science. Its linear time complexity makes it efficient for large-scale problems, and its ability to detect cycles ensures that tasks are organized correctly in the absence of cyclic dependencies.
 
+
+## Related Topics
+
+- **[Depth-First Search (DFS)](../../algorithms/Searching Algorithms/Depth-First-Search-(DFS)-Algo.md)**: DFS-based approach drives the recursive topological sort ($O(V + E)$).
+- **[Breadth-First Search (BFS)](../../algorithms/Searching Algorithms/Breadth-First-Search-(BFS)-Algo.md)**: Kahn's algorithm uses BFS with in-degree tracking ($O(V + E)$).
+- **[Disjoint Set Union (DSU)](../disjoint-set-union.md)**: Used for cycle detection in directed graphs ($O(\alpha(N))$).

@@ -115,3 +115,9 @@ int main() {
 
 Counting sort is a highly efficient algorithm for sorting integers within a limited range. It performs in linear time, O(n + k), making it faster than comparison-based algorithms like quicksort or mergesort in certain situations. However, the space complexity, O(n + k), means it requires significant extra memory, making it less suitable for large datasets with a wide range of input values. Counting sort is often used as a subroutine in more advanced algorithms like radix sort, and it works best when the range of input data is small relative to the dataset size.
 
+
+## Related Topics
+
+- **[Radix Sort](./RadixSort.md)**: Non-comparison integer sorting using Counting Sort as a subroutine ($O(d \cdot (N + K))$).
+- **[Bucket Sort](./BucketSort.md)**: Distribution sort that divides elements into buckets ($O(N + K)$ average).
+- **[Quick Sort](./QuickSort.md)**: Comparison-based sorting algorithm ($O(N \log N)$ average).

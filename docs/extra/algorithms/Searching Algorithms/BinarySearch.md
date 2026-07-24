@@ -406,3 +406,9 @@ We search for the target value `10` in the same array.
 ### Summary:
 
 Binary search is an efficient and widely-used algorithm for searching through large, sorted datasets. It operates in O(log n) time complexity, making it far superior to linear search for large arrays. Binary search is well-suited for scenarios where the dataset is static or sorted in advance, such as in databases or ordered lists. While it is not suitable for unsorted data or linked lists, its power in sorted datasets makes it a fundamental algorithm in computer science.
+
+## Related Topics
+
+- **[Linear Search](./LinearSearch.md)**: Sequential search algorithm for unsorted arrays ($O(N)$).
+- **[Binary Search Tree](../../binary-search-tree/Binary search tree.md)**: Tree structure enabling $O(\log N)$ dynamic search, insertion, and deletion.
+- **[Two Pointers & Sliding Window](../two-pointers-sliding-window.md)**: Array traversal techniques closely linked to binary search on answer spaces.

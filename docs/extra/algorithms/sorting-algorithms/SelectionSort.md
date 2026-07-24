@@ -152,3 +152,9 @@ Selection sort is a simple, easy-to-understand algorithm that can be useful for 
 - **Minimum Swaps to Sort**: Find the minimum number of swaps required to sort an array (relates to Selection Sort's property of performing at most $O(n)$ swaps).
 - **Sort an Array (LeetCode 912)**: General sorting challenge to compare selection sort's performance against optimal algorithms (note: Selection Sort will Time Limit Exceeded (TLE) due to its $O(n^2)$ complexity). [Problem Link](https://leetcode.com/problems/sort-an-array/)
 
+
+## Related Topics
+
+- **[Bubble Sort](./BubbleSort.mdx)**: Comparison sort with similar $O(N^2)$ complexity and simpler swap logic.
+- **[Insertion Sort](./InsertionSort.md)**: Adaptive $O(N^2)$ sort that performs better on nearly sorted arrays.
+- **[Heap Sort](./HeapSort.md)**: Generalizes Selection Sort using a heap for $O(N \log N)$ performance.

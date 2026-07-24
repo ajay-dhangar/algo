@@ -149,3 +149,9 @@ BFS helps identify connected components in undirected graphs.
 
 ### Summary:
 BFS is a fundamental algorithm for graph traversal and plays a crucial role in various applications like shortest path finding and level-order traversal. Its systematic approach ensures that all nodes at the current level are explored before moving deeper, making it invaluable for many graph-related
+
+## Related Topics
+
+- **[Depth-First Search (DFS)](./Depth-First-Search-(DFS)-Algo.md)**: Graph traversal exploring deeply along branches using stacks/recursion ($O(V + E)$).
+- **[Dijkstra's Algorithm](../dijkstras-algorithm.md)**: Weighted shortest path algorithm extending BFS with priority queues ($O((V + E) \log V)$).
+- **[Queue Data Structure](../../Queue/circular-queue.md)**: FIFO data structure underlying Breadth-First Search.
