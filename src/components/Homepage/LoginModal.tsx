@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { FiX, FiArrowRight, FiLogIn, FiUserPlus, FiCompass, FiTerminal } from "react-icons/fi";
 import { useHistory } from "@docusaurus/router";
 import { useAuth } from "../../contexts/AuthContext";
+import { useFocusTrap } from "../../hooks/useFocusTrap";
 
 interface CTAActionModalProps {
   isOpen: boolean;
@@ -32,12 +33,17 @@ const CTAActionModal: React.FC<CTAActionModalProps> = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
+  useFocusTrap(modalRef, { isOpen, onClose });
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/70 backdrop-blur-md px-4 transition-all duration-300">
       <div
         ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Login & Onboarding"
         className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-slate-100 dark:border-slate-800/80 shadow-2xl transition-all duration-300"
       >
         {/* Tech-Layer Grid Styling Backgrounds */}

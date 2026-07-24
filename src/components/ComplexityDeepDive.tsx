@@ -105,8 +105,8 @@ function MiniChart({ timeBigO, spaceBigO }: MiniChartProps) {
 
   const curves = useMemo(() => {
     const entries = [
-      { label: timeBigO,  fn: resolveFn(timeBigO),  color: resolveColor(timeBigO),  dash: "none", width: 3 },
-      { label: spaceBigO, fn: resolveFn(spaceBigO), color: resolveColor(spaceBigO), dash: "6,3",  width: 2 },
+      { type: "time", label: timeBigO,  fn: resolveFn(timeBigO),  color: resolveColor(timeBigO),  dash: "none", width: 3 },
+      { type: "space", label: spaceBigO, fn: resolveFn(spaceBigO), color: resolveColor(spaceBigO), dash: "6,3",  width: 2 },
     ].filter((e, i, arr) => arr.findIndex(x => x.label === e.label) === i); // deduplicate if same
 
     // compute maxY across all curves
@@ -118,7 +118,7 @@ function MiniChart({ timeBigO, spaceBigO }: MiniChartProps) {
     });
     maxY = Math.max(maxY, 1);
 
-    return entries.map(({ label, fn, color, dash, width }) => {
+    return entries.map(({ type, label, fn, color, dash, width }) => {
       const steps = 50;
       const pts = Array.from({ length: steps + 1 }, (_, i) => {
         const n = (i / steps) * nValue;
@@ -128,7 +128,7 @@ function MiniChart({ timeBigO, spaceBigO }: MiniChartProps) {
         const yPx = H - PAD - (y / maxY) * (H - 2 * PAD);
         return `${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${yPx.toFixed(1)}`;
       });
-      return { label, color, dash, width, d: pts.join(" ") };
+      return { type, label, color, dash, width, d: pts.join(" ") };
     });
   }, [timeBigO, spaceBigO, nValue]);
 

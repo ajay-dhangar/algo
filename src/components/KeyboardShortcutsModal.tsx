@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useFocusTrap } from "../hooks/useFocusTrap";
 
 interface ShortcutItem {
   action: string;
@@ -39,7 +40,6 @@ const ShortcutRow: React.FC<ShortcutRowProps> = ({ action, keys }) => (
     </span>
     <div className="flex items-center gap-1.5">
       {keys.map((key, index) => {
-    
         if (key === "or" || key === "+") {
           return (
             <span key={index} className="text-xs text-slate-400 font-normal px-0.5">
@@ -64,6 +64,9 @@ export default function KeyboardShortcutsModal({
   isOpen,
   onClose,
 }: KeyboardShortcutsModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(modalRef, { isOpen, onClose });
+
   if (!isOpen) return null;
 
   return (
@@ -72,17 +75,20 @@ export default function KeyboardShortcutsModal({
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm p-4"
     >
       <div
+        ref={modalRef}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="shortcuts-modal-title"
+        aria-describedby="shortcuts-modal-description"
         className="w-full max-w-lg bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-2xl shadow-2xl border border-slate-200/50 dark:border-slate-800 flex flex-col max-h-[85vh]"
       >
         <div className="flex justify-between items-start p-6 border-b border-slate-100 dark:border-slate-800">
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">
+            <h2 id="shortcuts-modal-title" className="text-xl font-semibold tracking-tight">
               Keyboard Shortcuts
             </h2>
-            <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+            <p id="shortcuts-modal-description" className="mt-1 text-sm text-slate-500 dark:text-slate-400">
               Navigate Algo faster with keyboard shortcuts
             </p>
           </div>

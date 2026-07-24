@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { withVisualizerErrorBoundary } from './VisualizerErrorBoundary';
+import { useAriaAnnouncer } from '../../hooks/useAriaAnnouncer';
+import { isInteractiveInput } from './AccessibleVisualizerWrapper';
 
 const LargestRectangleInHistogramVisualizer = () => {
   const [heights, setHeights] = useState([2, 1, 5, 6, 2, 3]);
@@ -10,6 +12,7 @@ const LargestRectangleInHistogramVisualizer = () => {
   const speed = 1000; 
   const intervalRef = useRef(null);
   const isMounted = useRef(true);
+  const { announce } = useAriaAnnouncer();
 
   useEffect(() => {
     isMounted.current = true;
@@ -17,6 +20,33 @@ const LargestRectangleInHistogramVisualizer = () => {
       isMounted.current = false;
     };
   }, []);
+
+  // Keyboard navigation shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (isInteractiveInput(document.activeElement)) return;
+
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setCurrentStep((prev) => Math.max(0, prev - 1));
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        setCurrentStep((prev) => Math.min(simulationSteps.length - 1, prev + 1));
+      } else if (e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        setIsPaused((prev) => !prev);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        setCurrentStep(0);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        setCurrentStep(simulationSteps.length - 1);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [simulationSteps.length]);
 
   const generateSimulationSteps = useCallback((hArray) => {
     const steps = [];
@@ -111,6 +141,12 @@ const LargestRectangleInHistogramVisualizer = () => {
 
   const step = simulationSteps[currentStep] || {};
 
+  // Announce step description for screen readers
+  useEffect(() => {
+    if (step.description) {
+      announce(`Step ${currentStep + 1} of ${simulationSteps.length}. ${step.description}`);
+    }
+  }, [currentStep, simulationSteps.length, step.description, announce]);
 
   const renderHistogram = () => {
     const maxH = Math.max(...heights, 1);
@@ -187,6 +223,7 @@ const LargestRectangleInHistogramVisualizer = () => {
                 <div className="flex-grow w-full sm:w-auto flex flex-col">
                     <input 
                         type="text" 
+                        aria-label="Histogram Heights Array (JSON)"
                         defaultValue={JSON.stringify(heights)}
                         onKeyDown={(e) => { if (e.key === 'Enter') handleArrayChange(e); }}
                         onBlur={handleArrayChange}
@@ -194,11 +231,11 @@ const LargestRectangleInHistogramVisualizer = () => {
                     />
                     {error && <span className="text-red-500 text-xs mt-1">{error}</span>}
                 </div>
-                <div className="flex items-center gap-2 mt-1 sm:mt-0">
-                    <button onClick={() => setCurrentStep(0)} className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Reset</button>
-                    <button onClick={() => setCurrentStep(prev => Math.max(0, prev - 1))} disabled={currentStep === 0} className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Prev</button>
-                    <button onClick={() => setIsPaused(!isPaused)} className="px-6 py-1.5 text-sm font-bold bg-indigo-600 text-white rounded shadow hover:bg-indigo-700 transition-colors">{isPaused ? 'Play' : 'Pause'}</button>
-                    <button onClick={() => setCurrentStep(prev => Math.min(simulationSteps.length - 1, prev + 1))} disabled={currentStep >= simulationSteps.length - 1} className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Next</button>
+                <div className="flex items-center gap-2 mt-1 sm:mt-0" role="group" aria-label="Visualizer Controls">
+                    <button type="button" onClick={() => setCurrentStep(0)} aria-label="Reset visualization to start" className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Reset</button>
+                    <button type="button" onClick={() => setCurrentStep(prev => Math.max(0, prev - 1))} disabled={currentStep === 0} aria-label="Previous step" className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Prev</button>
+                    <button type="button" onClick={() => setIsPaused(!isPaused)} aria-label={isPaused ? 'Play visualization' : 'Pause visualization'} className="px-6 py-1.5 text-sm font-bold bg-indigo-600 text-white rounded shadow hover:bg-indigo-700 transition-colors">{isPaused ? 'Play' : 'Pause'}</button>
+                    <button type="button" onClick={() => setCurrentStep(prev => Math.min(simulationSteps.length - 1, prev + 1))} disabled={currentStep >= simulationSteps.length - 1} aria-label="Next step" className="px-4 py-1.5 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Next</button>
                 </div>
             </div>
             {renderHistogram()}

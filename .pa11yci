@@ -14,6 +14,9 @@
   },
   "urls": [
     "http://localhost:3000/algo/",
+    "http://localhost:3000/algo/challenges",
+    "http://localhost:3000/algo/visualizer",
+    "http://localhost:3000/algo/n-queens-visualizer",
     "http://localhost:3000/algo/quizzes/arrays",
     "http://localhost:3000/algo/complexity-comparison",
     "http://localhost:3000/algo/docs/intro"
