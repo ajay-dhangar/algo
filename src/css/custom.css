@@ -142,7 +142,6 @@
   color: var(--ifm-color-primary);
 }
 
-
 .close {
   display: flex;
   align-items: center;
@@ -632,27 +631,59 @@ html[data-theme='dark'] td .katex {
 /* .table-of-contents .table-of-contents__left-border */
 /* .table-of-contents_link */
 
+/* Container wrapper setup */
 .theme-doc-toc-desktop {
-  padding: 2px;
-  background: linear-gradient(60deg, #ff007f, #7f00ff, #00f0ff, #ff007f);
-  background-size: 300% 300%;
-  animation: borderRotate 4s linear infinite;
-  border-radius: 12px;
-  margin-bottom: 20px;
   position: sticky;
   top: calc(var(--ifm-navbar-height) + 2rem);
-  max-height: calc(100vh - var(--ifm-navbar-height) - 4rem);
-  overflow-y: auto;
+  border-radius: 12px;
+  padding: 1px;
+  overflow: hidden;
+  scrollbar-width: none;
+}
+
+.theme-doc-toc-desktop::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 40%,
+    #3b82f6 70%,
+    #06b6d4 85%,
+    transparent 100%
+  );
+  animation: spin 4s linear infinite;
+  z-index: 0;
+}
+
+[data-theme='dark'] .theme-doc-toc-desktop::before,
+html.dark .theme-doc-toc-desktop::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 40%,
+    #3b82f6 60%,
+    #a855f7 80%,
+    transparent 100%
+  );
 }
 
 .theme-doc-toc-desktop .table-of-contents {
+  position: relative;
+  z-index: 1;
   background: var(--ifm-background-color, #fff);
   padding: 16px;
-  border-radius: 9px;
+  border-radius: 11px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  max-height: inherit;
+  overflow-y: auto;
 }
 
-@keyframes borderRotate {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
