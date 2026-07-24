@@ -1,0 +1,74 @@
+---
+id: topological-sort
+title: "Topological Sort & Kahn's Algorithm"
+sidebar_label: "5. Topological Sorting"
+sidebar_position: 5
+description: "Master linear ordering of vertices in Directed Acyclic Graphs (DAGs) using Kahn's BFS Algorithm and DFS Post-order traversal."
+tags: [graph, topological-sort, dag, kahns-algorithm, dfs]
+---
+
+import { TopologicalSortVisualizer } from '@site/src/components/GraphLearningHub';
+
+# 🔄 Topological Sorting (DAGs)
+
+A **Topological Sort** of a Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge $u \rightarrow v$, vertex $u$ comes before $v$ in the ordering.
+
+:::note Prerequisite
+Topological sorting is **only possible** on Directed Acyclic Graphs (DAGs). If a graph contains a cycle, no valid linear ordering exists.
+:::
+
+---
+
+## 🎨 Interactive Topological Sort Visualizer (Kahn's Algorithm)
+
+<TopologicalSortVisualizer />
+
+---
+
+## ⚙️ Algorithms for Topological Sort
+
+### 1. Kahn's Algorithm (BFS In-Degree Method)
+1. Calculate the **in-degree** (number of incoming edges) for every vertex.
+2. Initialize a Queue with all vertices having `in-degree == 0`.
+3. While Queue is not empty:
+   - Dequeue vertex $u$ and append to topological order.
+   - For each neighbor $v$ of $u$, decrement `in-degree[v]` by 1.
+   - If `in-degree[v]` becomes 0, enqueue $v$.
+4. If topological order contains fewer than $V$ vertices, the graph contains a **cycle**!
+
+```python
+from collections import deque
+
+def kahns_topological_sort(v, adj):
+    in_degree = [0] * v
+    for u in range(v):
+        for neighbor in adj[u]:
+            in_degree[neighbor] += 1
+
+    queue = deque([i for i in range(v) if in_degree[i] == 0])
+    topo_order = []
+
+    while queue:
+        u = queue.popleft()
+        topo_order.append(u)
+
+        for neighbor in adj[u]:
+            in_degree[neighbor] -= 1
+            if in_degree[neighbor] == 0:
+                queue.append(neighbor)
+
+    if len(topo_order) != v:
+        raise ValueError("Graph contains a cycle! No valid topological sort.")
+
+    return topo_order
+```
+
+### 2. DFS-Based Topological Sort
+Perform a DFS traversal and push vertices onto a stack after all outgoing edges/descendants are processed (post-order). Reverse the stack result.
+
+---
+
+## 💡 Practical Applications
+- **Build Automation Systems**: Resolving compilation target dependencies (e.g. `make`, `npm`).
+- **Course Prerequisites**: Generating valid semester course sequences.
+- **Task Scheduling**: Ordering jobs with prerequisite constraints.

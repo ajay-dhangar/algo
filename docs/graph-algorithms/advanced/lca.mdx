@@ -1,0 +1,84 @@
+---
+id: lca
+title: "Lowest Common Ancestor (LCA via Binary Lifting)"
+sidebar_label: "Lowest Common Ancestor (LCA)"
+sidebar_position: 2
+description: "Compute the lowest common ancestor of two nodes in a tree using binary lifting pointers."
+tags: [graph, trees, lca, binary-lifting, competitive-programming]
+---
+
+# 🌲 Lowest Common Ancestor (LCA)
+
+The **Lowest Common Ancestor (LCA)** of two nodes $u$ and $v$ in a rooted tree is the deepest node that is an ancestor of both $u$ and $v$.
+
+---
+
+## ⚡ Binary Lifting Technique
+
+Precompute a table `up[u][i]` representing the $2^i$-th ancestor of node $u$.
+
+- `up[u][0] = parent[u]`
+- `up[u][i] = up[up[u][i - 1]][i - 1]`
+
+### Query Steps ($O(\log N)$)
+1. Lift the deeper node until both nodes are at the same depth.
+2. If $u == v$, return $u$.
+3. Lift both nodes together using powers of 2 from $i = \lfloor \log_2 N \rfloor$ down to $0$ as long as `up[u][i] != up[v][i]`.
+4. The parent `up[u][0]` is the LCA!
+
+```cpp
+#include <vector>
+#include <cmath>
+
+class LCA {
+    int n, LOG;
+    std::vector<int> depth;
+    std::vector<std::vector<int>> up, adj;
+
+public:
+    LCA(int n, const std::vector<std::vector<int>>& graph, int root = 0) 
+        : n(n), adj(graph) {
+        LOG = std::log2(n) + 1;
+        depth.resize(n, 0);
+        up.assign(n, std::vector<int>(LOG, 0));
+        dfs(root, root, 0);
+    }
+
+    void dfs(int u, int p, int d) {
+        depth[u] = d;
+        up[u][0] = p;
+        for (int i = 1; i < LOG; ++i) {
+            up[u][i] = up[up[u][i - 1]][i - 1];
+        }
+        for (int v : adj[u]) {
+            if (v != p) dfs(v, u, d + 1);
+        }
+    }
+
+    int query(int u, int v) {
+        if (depth[u] < depth[v]) std::swap(u, v);
+
+        for (int i = LOG - 1; i >= 0; --i) {
+            if (depth[u] - (1 << i) >= depth[v]) {
+                u = up[u][i];
+            }
+        }
+        if (u == v) return u;
+
+        for (int i = LOG - 1; i >= 0; --i) {
+            if (up[u][i] != up[v][i]) {
+                u = up[u][i];
+                v = up[v][i];
+            }
+        }
+        return up[u][0];
+    }
+};
+```
+
+---
+
+## ⚡ Complexity
+
+- **Preprocessing**: $O(N \log N)$ time and space.
+- **Query Time**: $O(\log N)$ per LCA query.

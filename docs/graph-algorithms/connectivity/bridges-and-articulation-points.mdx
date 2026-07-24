@@ -1,0 +1,76 @@
+---
+id: bridges-and-articulation-points
+title: "Bridges & Articulation Points (Cut Vertices)"
+sidebar_label: "Bridges & Cut Vertices"
+sidebar_position: 2
+description: "Identify single points of failure in undirected networks using DFS discovery times and low-link values."
+tags: [graph, connectivity, bridges, articulation-points, tarjan]
+---
+
+# 🔗 Bridges & Articulation Points (Cut Vertices)
+
+In network connectivity analysis, identifying **Single Points of Failure** is critical:
+
+- **Articulation Point (Cut Vertex)**: A vertex whose removal increases the number of connected components in the graph.
+- **Bridge (Cut Edge)**: An edge whose removal increases the number of connected components in the graph.
+
+---
+
+## ⚙️ Tarjan's Low-Link Condition
+
+Using DFS, maintain `tin[u]` (discovery timestamp) and `low[u]` (lowest discovery time reachable from $u$ using back-edges).
+
+### 1. Bridge Condition
+An edge $(u, v)$ is a **Bridge** if:
+
+$$\text{low}[v] > \text{tin}[u]$$
+
+This implies that node $v$ has no back-edge reaching vertex $u$ or any ancestor of $u$.
+
+### 2. Articulation Point Condition
+A non-root vertex $u$ is an **Articulation Point** if it has a child $v$ such that:
+
+$$\text{low}[v] \ge \text{tin}[u]$$
+
+For the **root of the DFS tree**, it is an articulation point if and only if it has **more than one child in the DFS tree**.
+
+---
+
+## 💻 Code Implementation (Bridge Detection)
+
+```python
+def find_bridges(v, adj):
+    timer = 0
+    tin = [-1] * v
+    low = [-1] * v
+    bridges = []
+
+    def dfs(u, p=-1):
+        nonlocal timer
+        tin[u] = low[u] = timer
+        timer += 1
+
+        for v_node in adj[u]:
+            if v_node == p:
+                continue
+            if tin[v_node] != -1:
+                low[u] = min(low[u], tin[v_node])
+            else:
+                dfs(v_node, u)
+                low[u] = min(low[u], low[v_node])
+                if low[v_node] > tin[u]:
+                    bridges.append((u, v_node))
+
+    for i in range(v):
+        if tin[i] == -1:
+            dfs(i)
+
+    return bridges
+```
+
+---
+
+## ⚡ Complexity
+
+- **Time Complexity**: $O(V + E)$
+- **Space Complexity**: $O(V)$

@@ -1,0 +1,51 @@
+---
+id: floyd-warshall
+title: "Floyd-Warshall All-Pairs Shortest Path"
+sidebar_label: "Floyd-Warshall Algorithm"
+sidebar_position: 3
+description: "All-pairs shortest path algorithm using 3D/2D dynamic programming for dense graphs."
+tags: [graph, shortest-path, floyd-warshall, all-pairs, dynamic-programming]
+---
+
+# 🛣️ Floyd-Warshall All-Pairs Shortest Path
+
+The **Floyd-Warshall Algorithm** finds shortest path distances between **every pair of vertices** in a weighted graph (with positive or negative edge weights, provided no negative cycles exist).
+
+---
+
+## ⚙️ Dynamic Programming State Transition
+
+Let $D^{(k)}[i][j]$ be the shortest path distance from vertex $i$ to vertex $j$ using only intermediate vertices from the set $\{0, 1, \dots, k\}$.
+
+$$\text{dist}[i][j] = \min(\text{dist}[i][j], \, \text{dist}[i][k] + \text{dist}[k][j])$$
+
+---
+
+## 💻 Code Implementation
+
+```cpp
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
+const int INF = 1e9;
+
+void floydWarshall(int V, std::vector<std::vector<int>>& dist) {
+    for (int k = 0; k < V; ++k) {
+        for (int i = 0; i < V; ++i) {
+            for (int j = 0; j < V; ++j) {
+                if (dist[i][k] < INF && dist[k][j] < INF) {
+                    dist[i][j] = std::min(dist[i][j], dist[i][k] + dist[k][j]);
+                }
+            }
+        }
+    }
+}
+```
+
+---
+
+## ⚡ Complexity
+
+- **Time Complexity**: $O(V^3)$
+- **Space Complexity**: $O(V^2)$

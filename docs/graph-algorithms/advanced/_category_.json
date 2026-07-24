@@ -1,0 +1,8 @@
+{
+  "label": "Advanced Graph Algorithms",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Master advanced graph structures and tree techniques: Disjoint Set Union (DSU), Lowest Common Ancestor (LCA), Heavy-Light Decomposition (HLD), Centroid Decomposition, and Euler Tour."
+  }
+}

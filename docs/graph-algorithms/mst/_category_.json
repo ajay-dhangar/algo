@@ -1,0 +1,8 @@
+{
+  "label": "Minimum Spanning Tree (MST)",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn Minimum Spanning Tree algorithms (Kruskal and Prim) with DSU cycle prevention and interactive visualizers."
+  }
+}

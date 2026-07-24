@@ -1,0 +1,8 @@
+{
+  "label": "Shortest Path Algorithms",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn Single-Source and All-Pairs Shortest Path algorithms: Dijkstra, Bellman-Ford, and Floyd-Warshall with interactive comparisons."
+  }
+}

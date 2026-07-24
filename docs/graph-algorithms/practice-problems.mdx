@@ -1,0 +1,55 @@
+---
+id: practice-problems
+title: "Competitive Programming Patterns & Practice Problems"
+sidebar_label: "8. CP Practice Roadmap"
+sidebar_position: 8
+description: "Curated practice problem patterns, problem-solving strategies, and problem lists for graph algorithms."
+tags: [graph, competitive-programming, leetcode, codeforces, practice]
+---
+
+# 🎯 Competitive Programming Patterns & Practice Roadmap
+
+This curated practice roadmap categorizes competitive programming graph problems by underlying algorithmic pattern. Master these core patterns to recognize graph problem signatures in technical interviews and contests.
+
+---
+
+## 📌 Problem Classification Matrix
+
+| Pattern Category | Key Identification Clues | Benchmark Complexity | Target Algorithm |
+| :--- | :--- | :--- | :--- |
+| **Grid Traversal / Unweighted** | 2D matrix, 4-directional moves, minimum steps | $O(R \times C)$ | BFS |
+| **Cycle Detection / Ordering** | Prerequisites, task scheduling, dependency DAG | $O(V + E)$ | Topological Sort (Kahn's / DFS) |
+| **Single-Source Shortest Path** | Weighted edges $\ge 0$, minimum cost path | $O((V + E) \log V)$ | Dijkstra's Algorithm |
+| **Negative Edge Weights** | Currency arbitrage, negative weight edges, cycle detection | $O(V \times E)$ | Bellman-Ford Algorithm |
+| **Network Redundancy / MST** | Connecting all cities with minimum total cable length | $O(E \log E)$ | Kruskal / Prim |
+| **Dynamic Connectivity** | Connecting components on the fly, redundant connections | $O(\alpha(N))$ | Disjoint Set Union (DSU) |
+| **Single Point of Failure** | Critical connections, network disconnection | $O(V + E)$ | Tarjan's Cut Vertices / Bridges |
+
+---
+
+## 📚 Curated Problem List by Category
+
+### 1. Graph Traversal (BFS / DFS)
+- **LeetCode 200**: Number of Islands *(Connected Components)*
+- **LeetCode 733**: Flood Fill *(Matrix Traversal)*
+- **LeetCode 841**: Keys and Rooms *(Reachability BFS)*
+
+### 2. Shortest Path Algorithms
+- **LeetCode 743**: Network Delay Time *(Dijkstra's Algorithm)*
+- **LeetCode 787**: Cheapest Flights Within K Stops *(Bellman-Ford / Shortest Path)*
+- **LeetCode 1334**: Find the City With the Smallest Number of Neighbors *(Floyd-Warshall)*
+
+### 3. Minimum Spanning Tree (MST)
+- **LeetCode 1584**: Min Cost to Connect All Points *(Kruskal / Prim)*
+- **LeetCode 1135**: Connecting Cities With Minimum Cost *(Kruskal with DSU)*
+
+### 4. Topological Sorting
+- **LeetCode 207**: Course Schedule *(Cycle Detection / Kahn's)*
+- **LeetCode 210**: Course Schedule II *(Topological Ordering)*
+
+### 5. Disjoint Set Union (DSU)
+- **LeetCode 547**: Number of Provinces *(Component Merging)*
+- **LeetCode 684**: Redundant Connection *(Cycle Detection in Undirected Graph)*
+
+### 6. Strongly Connected Components & Connectivity
+- **LeetCode 1192**: Critical Connections in a Network *(Tarjan's Bridge Detection)*

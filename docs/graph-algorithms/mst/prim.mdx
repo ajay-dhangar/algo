@@ -1,0 +1,68 @@
+---
+id: prim
+title: "Prim's Algorithm (Minimum Spanning Tree)"
+sidebar_label: "Prim's Algorithm"
+sidebar_position: 2
+description: "Node-centric Minimum Spanning Tree algorithm using Priority Queues for dense graphs."
+tags: [graph, mst, prim, priority-queue, greedy]
+---
+
+# 🌲 Prim's Minimum Spanning Tree Algorithm
+
+**Prim's Algorithm** grows a single **Minimum Spanning Tree** vertex by vertex. Starting from an arbitrary root node, it greedily selects the minimum weight edge connecting a visited vertex to an unvisited vertex.
+
+---
+
+## ⚙️ Algorithm Steps
+
+1. Select an arbitrary start node. Mark it visited.
+2. Insert all outgoing edges from start node into a Min-Priority Queue `(weight, u, v)`.
+3. While PQ is not empty and MST has $< V - 1$ edges:
+   - Pop minimum edge `(w, u, v)`.
+   - If $v$ is already visited, skip.
+   - Otherwise, mark $v$ visited, add edge to MST, and push all unvisited neighbors of $v$ into PQ.
+
+---
+
+## 💻 Code Implementation
+
+```python
+import heapq
+
+def prim(n, graph, start_node=0):
+    # graph: dict of u -> list of (v, weight)
+    visited = set([start_node])
+    pq = []
+    
+    for neighbor, weight in graph[start_node]:
+        heapq.heappush(pq, (weight, start_node, neighbor))
+
+    mst = []
+    total_weight = 0
+
+    while pq and len(visited) < n:
+        w, u, v = heapq.heappop(pq)
+        if v in visited:
+            continue
+
+        visited.add(v)
+        mst.append((u, v, w))
+        total_weight += w
+
+        for next_v, weight in graph[v]:
+            if next_v not in visited:
+                heapq.heappush(pq, (weight, v, next_v))
+
+    return mst, total_weight
+```
+
+---
+
+## ⚡ Comparison: Prim vs. Kruskal
+
+| Feature | Kruskal's Algorithm | Prim's Algorithm |
+| :--- | :--- | :--- |
+| **Approach** | Edge-centric (sorting all edges) | Vertex-centric (expanding tree boundary) |
+| **Best For** | Sparse Graphs ($E \ll V^2$) | Dense Graphs ($E \approx V^2$) |
+| **Data Structure** | Disjoint Set Union (DSU) | Min-Priority Queue |
+| **Time Complexity** | $O(E \log E)$ | $O(E \log V)$ |

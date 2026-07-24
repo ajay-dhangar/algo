@@ -1,0 +1,118 @@
+---
+id: scc
+title: "Strongly Connected Components (Kosaraju & Tarjan)"
+sidebar_label: "Strongly Connected Components"
+sidebar_position: 1
+description: "Decompose directed graphs into maximal strongly connected subgraphs using Kosaraju and Tarjan algorithms."
+tags: [graph, connectivity, scc, tarjan, kosaraju]
+---
+
+# 🔗 Strongly Connected Components (SCC)
+
+A **Strongly Connected Component (SCC)** of a directed graph is a maximal subgraph where **every vertex is reachable from every other vertex** in the component.
+
+---
+
+## ⚙️ 1. Kosaraju's Algorithm (2-Pass DFS)
+
+Kosaraju's algorithm finds all SCCs in $O(V + E)$ time using two DFS traversals and a transposed graph $G^T$.
+
+### Steps
+1. Perform DFS on graph $G$ and push nodes to a stack based on their finish time.
+2. Transpose graph $G$ to obtain $G^T$ (reverse direction of all edges).
+3. Pop nodes from the stack; if not visited in $G^T$, run DFS on $G^T$ starting from that node to collect all nodes in its SCC.
+
+```python
+def kosaraju(v, adj):
+    visited = [False] * v
+    stack = []
+
+    def dfs1(u):
+        visited[u] = True
+        for neighbor in adj[u]:
+            if not visited[neighbor]:
+                dfs1(neighbor)
+        stack.append(u)
+
+    for i in range(v):
+        if not visited[i]:
+            dfs1(i)
+
+    # Transpose graph
+    adj_rev = [[] for _ in range(v)]
+    for u in range(v):
+        for neighbor in adj[u]:
+            adj_rev[neighbor].append(u)
+
+    visited = [False] * v
+    sccs = []
+
+    def dfs2(u, current_scc):
+        visited[u] = True
+        current_scc.append(u)
+        for neighbor in adj_rev[u]:
+            if not visited[neighbor]:
+                dfs2(neighbor, current_scc)
+
+    while stack:
+        node = stack.pop()
+        if not visited[node]:
+            scc = []
+            dfs2(node, scc)
+            sccs.append(scc)
+
+    return sccs
+```
+
+---
+
+## ⚙️ 2. Tarjan's Algorithm (Single-Pass Low-Link)
+
+Tarjan's algorithm uses a single DFS pass by tracking `discovery_time` and `low_link` values (minimum reachable discovery time) using a stack.
+
+```python
+def tarjan_scc(v, adj):
+    timer = 0
+    disc = [-1] * v
+    low = [-1] * v
+    on_stack = [False] * v
+    stack = []
+    sccs = []
+
+    def dfs(u):
+        nonlocal timer
+        disc[u] = low[u] = timer
+        timer += 1
+        stack.append(u)
+        on_stack[u] = True
+
+        for neighbor in adj[u]:
+            if disc[neighbor] == -1:
+                dfs(neighbor)
+                low[u] = min(low[u], low[neighbor])
+            elif on_stack[neighbor]:
+                low[u] = min(low[u], disc[neighbor])
+
+        if low[u] == disc[u]:
+            scc = []
+            while True:
+                node = stack.pop()
+                on_stack[node] = False
+                scc.append(node)
+                if node == u:
+                    break
+            sccs.append(scc)
+
+    for i in range(v):
+        if disc[i] == -1:
+            dfs(i)
+
+    return sccs
+```
+
+---
+
+## ⚡ Complexity
+
+- **Kosaraju**: Time $O(V + E)$, Space $O(V + E)$
+- **Tarjan**: Time $O(V + E)$, Space $O(V)$

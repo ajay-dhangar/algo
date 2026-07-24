@@ -1,0 +1,76 @@
+---
+id: kruskal
+title: "Kruskal's Algorithm (Minimum Spanning Tree)"
+sidebar_label: "Kruskal's Algorithm"
+sidebar_position: 1
+description: "Edge-centric Minimum Spanning Tree algorithm using greedy sorting and Disjoint Set Union (DSU)."
+tags: [graph, mst, kruskal, dsu, greedy]
+---
+
+import { KruskalVisualizer } from '@site/src/components/GraphLearningHub';
+
+# 🌲 Kruskal's Minimum Spanning Tree Algorithm
+
+**Kruskal's Algorithm** is a greedy algorithm that finds a **Minimum Spanning Tree (MST)** for a connected, undirected weighted graph. It sorts all edges by weight and adds edges one by one, using **Disjoint Set Union (DSU)** to ensure no cycles are formed.
+
+---
+
+## 🎨 Interactive Kruskal Visualizer
+
+<KruskalVisualizer />
+
+---
+
+## ⚙️ Algorithm Steps
+
+1. Sort all edges in non-decreasing order of weight.
+2. Initialize a DSU structure for all $V$ vertices.
+3. For each sorted edge $(u, v, w)$:
+   - Check if $u$ and $v$ belong to different components (`find(u) != find(v)`).
+   - If different, include edge in MST and merge components (`union(u, v)`).
+   - If same, skip (adding this edge would form a cycle).
+
+---
+
+## 💻 Code Implementation
+
+```python
+class DSU:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        
+    def find(self, i):
+        if self.parent[i] == i:
+            return i
+        self.parent[i] = self.find(self.parent[i])
+        return self.parent[i]
+
+    def union(self, i, j):
+        root_i = self.find(i)
+        root_j = self.find(j)
+        if root_i != root_j:
+            self.parent[root_i] = root_j
+            return True
+        return False
+
+def kruskal(n, edges):
+    # edges: list of (u, v, weight)
+    edges.sort(key=lambda x: x[2])
+    dsu = DSU(n)
+    mst = []
+    total_weight = 0
+
+    for u, v, w in edges:
+        if dsu.union(u, v):
+            mst.append((u, v, w))
+            total_weight += w
+
+    return mst, total_weight
+```
+
+---
+
+## ⚡ Complexity Analysis
+
+- **Time Complexity**: $O(E \log E)$ for sorting edges + $O(E \cdot \alpha(V))$ for DSU operations.
+- **Space Complexity**: $O(V + E)$ for storing edges and DSU parents.

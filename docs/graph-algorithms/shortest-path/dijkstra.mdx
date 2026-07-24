@@ -1,0 +1,64 @@
+---
+id: dijkstra
+title: "Dijkstra's Shortest Path Algorithm"
+sidebar_label: "Dijkstra's Algorithm"
+sidebar_position: 1
+description: "Single-source shortest path algorithm for non-negative weighted graphs using Min-Priority Queues."
+tags: [graph, shortest-path, dijkstra, priority-queue, greedy]
+---
+
+# 🛣️ Dijkstra's Shortest Path Algorithm
+
+**Dijkstra's Algorithm** finds the shortest path from a single source node to all other nodes in a weighted graph with **non-negative edge weights**.
+
+:::warning Constraint Warning
+Dijkstra's algorithm assumes edge weights are $\ge 0$. If negative edge weights exist, greedy edge selection fails. Use **Bellman-Ford Algorithm** instead.
+:::
+
+---
+
+## ⚙️ How It Works (Greedy Min-Priority Queue)
+
+1. Initialize `dist[source] = 0` and `dist[v] = ∞` for all $v \neq \text{source}$.
+2. Insert `(0, source)` into a **Min-Priority Queue**.
+3. Extract min `(d, u)` from PQ.
+4. If $d > \text{dist}[u]$, skip (outdated pair).
+5. For each neighbor $v$ with edge weight $w$:
+   - If $\text{dist}[u] + w < \text{dist}[v]$:
+     - Update $\text{dist}[v] = \text{dist}[u] + w$.
+     - Push `(dist[v], v)` into PQ.
+
+---
+
+## 💻 Code Implementation
+
+```python
+import heapq
+
+def dijkstra(graph, source):
+    # graph: dict of node -> list of (neighbor, weight)
+    distances = {node: float('inf') for node in graph}
+    distances[source] = 0
+    pq = [(0, source)]
+
+    while pq:
+        current_dist, u = heapq.heappop(pq)
+
+        if current_dist > distances[u]:
+            continue
+
+        for v, weight in graph[u]:
+            distance = current_dist + weight
+            if distance < distances[v]:
+                distances[v] = distance
+                heapq.heappush(pq, (distance, v))
+
+    return distances
+```
+
+---
+
+## ⚡ Complexity
+
+- **Time Complexity**: $O((V + E) \log V)$ with Binary Min-Heap.
+- **Space Complexity**: $O(V + E)$ for graph representation and priority queue.

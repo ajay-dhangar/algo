@@ -1,0 +1,39 @@
+---
+id: tree-decompositions
+title: "Heavy-Light & Centroid Decompositions"
+sidebar_label: "Tree Decompositions & Euler Tour"
+sidebar_position: 3
+description: "Decompose complex tree paths into linear segments for range queries using Heavy-Light Decomposition, Centroid Decomposition, and Euler Tour."
+tags: [graph, trees, hld, centroid-decomposition, euler-tour]
+---
+
+# 🌲 Advanced Tree Decompositions
+
+When performing path queries and subtree updates on arbitrary trees, standard tree traversals become bottlenecks. Advanced tree decomposition techniques map tree structures into linear arrays, enabling $O(\log N)$ or $O(\log^2 N)$ queries via Segment Trees or Fenwick Trees.
+
+---
+
+## ⚡ 1. Heavy-Light Decomposition (HLD)
+
+Heavy-Light Decomposition partitions tree edges into **Heavy edges** (pointing to the child with the largest subtree size) and **Light edges**.
+
+- **Property**: Any path from node $u$ to node $v$ contains at most $O(\log N)$ light edges.
+- **Usage**: Map heavy chains into contiguous ranges in a Segment Tree to answer path queries (e.g. max path value, path sum) in $O(\log^2 N)$ time.
+
+---
+
+## ⚡ 2. Centroid Decomposition
+
+A **Centroid** of a tree is a node whose removal splits the tree into subtrees, each having size at most $\lfloor N / 2 \rfloor$.
+
+- **Centroid Tree Depth**: $O(\log N)$ recursively.
+- **Usage**: Solve distance-based tree path problems (e.g. count paths with length $k$).
+
+---
+
+## ⚡ 3. Euler Tour Technique (Flattening Trees)
+
+The **Euler Tour Technique** records entering and exiting timestamps during a DFS traversal (`in[u]` and `out[u]`).
+
+- **Key Property**: The entire subtree rooted at $u$ corresponds to a contiguous range `[in[u], out[u]]` in the traversal array!
+- **Usage**: Transform subtree updates and queries into simple Range Updates on a 1D Segment Tree.

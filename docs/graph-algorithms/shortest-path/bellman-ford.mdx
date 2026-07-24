@@ -1,0 +1,58 @@
+---
+id: bellman-ford
+title: "Bellman-Ford Shortest Path Algorithm"
+sidebar_label: "Bellman-Ford Algorithm"
+sidebar_position: 2
+description: "Single-source shortest path algorithm capable of handling negative edge weights and detecting negative weight cycles."
+tags: [graph, shortest-path, bellman-ford, dynamic-programming, negative-weights]
+---
+
+# 🛣️ Bellman-Ford Shortest Path Algorithm
+
+The **Bellman-Ford Algorithm** computes single-source shortest paths in a weighted digraph. Unlike Dijkstra, Bellman-Ford supports **negative edge weights** and can detect **negative weight cycles**.
+
+---
+
+## ⚙️ Dynamic Programming Formulation
+
+Shortest paths can contain at most $V - 1$ edges (without repeating vertices). Thus, relaxing all edges $V - 1$ times guarantees shortest distance convergence.
+
+### Algorithm Steps
+1. Set `dist[source] = 0` and all other `dist[v] = ∞`.
+2. Repeat $V - 1$ times:
+   - For every edge $(u, v)$ with weight $w$:
+     - If `dist[u] + w < dist[v]`, update `dist[v] = dist[u] + w`.
+3. Check for Negative Cycles:
+   - Perform a $V$-th pass across all edges.
+   - If any `dist[u] + w < dist[v]`, a **Negative Weight Cycle** exists!
+
+---
+
+## 💻 Code Implementation
+
+```python
+def bellman_ford(num_vertices, edges, source):
+    # edges: list of (u, v, weight)
+    dist = [float('inf')] * num_vertices
+    dist[source] = 0
+
+    # Relax all edges V - 1 times
+    for _ in range(num_vertices - 1):
+        for u, v, w in edges:
+            if dist[u] != float('inf') and dist[u] + w < dist[v]:
+                dist[v] = dist[u] + w
+
+    # Check for negative weight cycles
+    for u, v, w in edges:
+        if dist[u] != float('inf') and dist[u] + w < dist[v]:
+            raise ValueError("Graph contains a negative weight cycle!")
+
+    return dist
+```
+
+---
+
+## ⚡ Complexity Analysis
+
+- **Time Complexity**: $O(V \times E)$
+- **Space Complexity**: $O(V)$

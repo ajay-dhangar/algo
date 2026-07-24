@@ -1,0 +1,91 @@
+---
+id: bfs
+title: "Breadth-First Search (BFS)"
+sidebar_label: "Breadth-First Search (BFS)"
+sidebar_position: 1
+description: "Master Breadth-First Search (BFS) graph traversal using FIFO Queues with step-by-step interactive visualizers and multi-language implementations."
+tags: [graph, traversal, bfs, queue, shortest-path]
+---
+
+import { BFSVisualizer } from '@site/src/components/GraphLearningHub';
+
+# 🌐 Breadth-First Search (BFS)
+
+**Breadth-First Search (BFS)** is a graph traversal algorithm that explores vertices level-by-level, starting from a given source node and visiting all of its 1-hop neighbors before moving on to 2-hop neighbors.
+
+---
+
+## 🎨 Interactive BFS Visualizer
+
+Step through the execution of BFS using the interactive widget below:
+
+<BFSVisualizer />
+
+---
+
+## ⚙️ Algorithm Steps
+
+1. Maintain a **Queue (FIFO)** and a **Visited Set**.
+2. Enqueue the starting vertex `source` and mark it as visited.
+3. While the Queue is not empty:
+   - Dequeue vertex `u`.
+   - Iterate through all unvisited neighbors `v` of `u`.
+   - Mark `v` as visited and enqueue `v`.
+
+---
+
+## 💻 Code Implementations
+
+```python
+from collections import deque
+
+def bfs(graph, start_node):
+    visited = set([start_node])
+    queue = deque([start_node])
+    traversal_order = []
+
+    while queue:
+        node = queue.popleft()
+        traversal_order.append(node)
+
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
+                
+    return traversal_order
+```
+
+```javascript
+function bfs(graph, startNode) {
+  const visited = new Set([startNode]);
+  const queue = [startNode];
+  const order = [];
+
+  while (queue.length > 0) {
+    const node = queue.shift();
+    order.push(node);
+
+    for (const neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push(neighbor);
+      }
+    }
+  }
+
+  return order;
+}
+```
+
+---
+
+## ⚡ Complexity & Applications
+
+- **Time Complexity**: $O(V + E)$ where $V$ is number of vertices and $E$ is number of edges.
+- **Space Complexity**: $O(V)$ for the queue and visited set.
+
+### Key Use Cases
+1. **Unweighted Shortest Path**: Finds the minimum edge-count path between two nodes.
+2. **Connected Components**: Finds all reachable nodes in an undirected graph.
+3. **Bipartite Graph Verification**: Color nodes alternatingly level by level.

@@ -1,0 +1,58 @@
+---
+id: dsu
+title: "Disjoint Set Union (DSU / Union-Find)"
+sidebar_label: "Disjoint Set Union (DSU)"
+sidebar_position: 1
+description: "Optimized set partition data structure featuring path compression and union by rank/size."
+tags: [graph, advanced, dsu, union-find, data-structures]
+---
+
+# 🌐 Disjoint Set Union (DSU / Union-Find)
+
+**Disjoint Set Union (DSU)** efficiently maintains a collection of disjoint sets, supporting two primary operations:
+
+1. `find(i)`: Find the representative (root) of the set containing element `i`.
+2. `union(i, j)`: Merge the sets containing `i` and `j`.
+
+---
+
+## ⚡ Optimizations
+
+### 1. Path Compression
+During `find(i)`, update parent pointers of all visited nodes along the path directly to point to the root.
+
+### 2. Union by Rank / Size
+Attach the smaller tree under the root of the larger tree to keep tree depth flat.
+
+```python
+class DisjointSet:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.size = [1] * n
+
+    def find(self, i):
+        if self.parent[i] == i:
+            return i
+        self.parent[i] = self.find(self.parent[i])  # Path compression
+        return self.parent[i]
+
+    def union(self, i, j):
+        root_i = self.find(i)
+        root_j = self.find(j)
+
+        if root_i != root_j:
+            # Union by size
+            if self.size[root_i] < self.size[root_j]:
+                root_i, root_j = root_j, root_i
+            self.parent[root_j] = root_i
+            self.size[root_i] += self.size[root_j]
+            return True
+        return False
+```
+
+---
+
+## ⚡ Complexity
+
+- **Time Complexity**: Nearly $O(1)$ amortized per operation ($O(\alpha(N))$ where $\alpha$ is the Inverse Ackermann function).
+- **Space Complexity**: $O(N)$

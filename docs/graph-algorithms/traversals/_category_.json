@@ -1,0 +1,8 @@
+{
+  "label": "Graph Traversals",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn Breadth-First Search (BFS) and Depth-First Search (DFS) graph traversal strategies, implementations, interactive visualizations, and application patterns."
+  }
+}

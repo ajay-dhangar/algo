@@ -1,0 +1,84 @@
+---
+id: dfs
+title: "Depth-First Search (DFS)"
+sidebar_label: "Depth-First Search (DFS)"
+sidebar_position: 2
+description: "Master Depth-First Search (DFS) traversal using recursion and LIFO stacks with step-by-step interactive visualizers and multi-language implementations."
+tags: [graph, traversal, dfs, stack, recursion]
+---
+
+import { DFSVisualizer } from '@site/src/components/GraphLearningHub';
+
+# 🌲 Depth-First Search (DFS)
+
+**Depth-First Search (DFS)** traverses a graph by exploring as far as possible along each branch before backtracking. It relies on a LIFO structure (either the call stack via recursion or an explicit `std::stack`).
+
+---
+
+## 🎨 Interactive DFS Visualizer
+
+Step through the execution of DFS using the interactive visualizer below:
+
+<DFSVisualizer />
+
+---
+
+## ⚙️ Algorithm Variants
+
+### 1. Recursive Implementation
+```python
+def dfs_recursive(graph, node, visited=None):
+    if visited is None:
+        visited = set()
+    
+    visited.add(node)
+    print(f"Visited: {node}")
+
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            dfs_recursive(graph, neighbor, visited)
+            
+    return visited
+```
+
+### 2. Iterative Implementation (Explicit Stack)
+```cpp
+#include <vector>
+#include <stack>
+#include <unordered_set>
+
+void dfsIterative(const std::vector<std::vector<int>>& adj, int start) {
+    std::unordered_set<int> visited;
+    std::stack<int> st;
+
+    st.push(start);
+
+    while (!st.empty()) {
+        int node = st.top();
+        st.pop();
+
+        if (visited.find(node) == visited.end()) {
+            visited.insert(node);
+            
+            for (auto it = adj[node].rbegin(); it != adj[node].rend(); ++it) {
+                if (visited.find(*it) == visited.end()) {
+                    st.push(*it);
+                }
+            }
+        }
+    }
+}
+```
+
+---
+
+## ⚡ Complexity & Applications
+
+- **Time Complexity**: $O(V + E)$
+- **Space Complexity**: $O(V)$ stack space in worst-case (linear tree path).
+
+### Key Applications
+1. **Cycle Detection**: Detect back-edges in directed and undirected graphs.
+2. **Topological Ordering**: Order tasks based on post-order finish times in DAGs.
+3. **Path Finding**: Find any path between source and target.
+4. **Maze Generation & Solving**: Backtracking through search spaces.
