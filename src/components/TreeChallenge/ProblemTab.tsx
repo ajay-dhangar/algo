@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "@docusaurus/Link";
 import { FaLightbulb } from "react-icons/fa";
 import type { TreeChallenge } from "../../data/treeChallengesData";
 import ComplexityDeepDive from "../ComplexityDeepDive";
@@ -12,7 +13,15 @@ export default function ProblemTab({ challenge }: ProblemTabProps) {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-xl font-black text-slate-900 dark:text-white">{challenge.title}</h1>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <h1 className="text-xl font-black text-slate-900 dark:text-white m-0">{challenge.title}</h1>
+        <Link
+          to="/tree-sandbox"
+          className="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-mono font-bold transition-colors no-underline shrink-0"
+        >
+          Try in Tree Sandbox →
+        </Link>
+      </div>
 
       {/* Description lines breakdown */}
       <div className="prose prose-sm dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed">
