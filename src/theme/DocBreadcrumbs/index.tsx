@@ -53,7 +53,7 @@ export default function DocBreadcrumbs(): ReactNode {
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();
 
-  if (!breadcrumbs) {
+  if (!breadcrumbs || breadcrumbs.length === 0) {
     return null;
   }
 
