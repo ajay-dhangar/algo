@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import clsx from 'clsx';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import TagsListInline from '@theme/TagsListInline';
-import type { Props } from '@theme/DocItem/Footer';
+// Props type is not exported by the current Docusaurus version
+type Props = Record<string, never>;
 import ProgressTracker from '@site/src/components/ProgressTracker';
+import DocInlineQuiz from '@site/src/components/DocInlineQuiz';
 
 export default function DocItemFooter(props: Props): JSX.Element | null {
   const { metadata } = useDoc();
@@ -17,6 +19,7 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
   if (!canRenderTags) {
     return (
       <>
+        <DocInlineQuiz />
         <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
       </>
     );
@@ -24,7 +27,8 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
 
   return (
     <>
-    
+      <DocInlineQuiz />
+
       <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
 
       <footer
@@ -41,3 +45,4 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
     </>
   );
 }
+
