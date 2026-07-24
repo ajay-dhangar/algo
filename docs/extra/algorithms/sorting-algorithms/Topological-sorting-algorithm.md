@@ -106,6 +106,6 @@ Topological Sorting is a fundamental algorithm used in many real-world applicati
 
 ## Related Topics
 
-- **[Depth-First Search (DFS)](../../algorithms/Searching Algorithms/Depth-First-Search-(DFS)-Algo.md)**: DFS-based approach drives the recursive topological sort ($O(V + E)$).
-- **[Breadth-First Search (BFS)](../../algorithms/Searching Algorithms/Breadth-First-Search-(BFS)-Algo.md)**: Kahn's algorithm uses BFS with in-degree tracking ($O(V + E)$).
+- **[Depth-First Search (DFS)](../../algorithms/Searching%20Algorithms/Depth-First-Search-%28DFS%29-Algo.md)**: DFS-based approach drives the recursive topological sort ($O(V + E)$).
+- **[Breadth-First Search (BFS)](../../algorithms/Searching%20Algorithms/Breadth-First-Search-%28BFS%29-Algo.md)**: Kahn's algorithm uses BFS with in-degree tracking ($O(V + E)$).
 - **[Disjoint Set Union (DSU)](../disjoint-set-union.md)**: Used for cycle detection in directed graphs ($O(\alpha(N))$).

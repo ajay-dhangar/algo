@@ -192,4 +192,4 @@ The Fractional Knapsack Problem is a classic example of a greedy algorithm. It e
 
 - **[Huffman Coding](./Huffman-coding.md)**: Optimal prefix code construction using greedy choice principles ($O(N \log N)$).
 - **[Job Sequencing Problem](./Job-sequencing-problem.md)**: Deadline-based profit maximization greedy algorithm.
-- **[Prim's Minimum Spanning Tree](./Prim's-Minimum-Spanning-Tree.md)**: Greedy MST algorithm for weighted graphs ($O((V + E) \log V)$).
+- **[Prim's Minimum Spanning Tree](./Prim’s-Minimum-Spanning-Tree.md)**: Greedy MST algorithm for weighted graphs ($O((V + E) \log V)$).

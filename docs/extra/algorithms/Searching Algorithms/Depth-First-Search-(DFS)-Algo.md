@@ -155,6 +155,6 @@ DFS is an essential algorithm for graph traversal and problem-solving in various
 
 ## Related Topics
 
-- **[Breadth-First Search (BFS)](./Breadth-First-Search-(BFS)-Algo.md)**: Level-order graph traversal algorithm using queues ($O(V + E)$).
+- **[Breadth-First Search (BFS)](./Breadth-First-Search-%28BFS%29-Algo.md)**: Level-order graph traversal algorithm using queues ($O(V + E)$).
 - **[Topological Sort](../sorting-algorithms/Topological-sorting-algorithm.md)**: Linear ordering of DAG vertices using DFS recursion or Kahn's algorithm ($O(V + E)$).
 - **[Stack Data Structure](../../Stack/introduction-to-stack.md)**: LIFO structure underlying Depth-First Search.

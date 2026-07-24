@@ -152,6 +152,6 @@ BFS is a fundamental algorithm for graph traversal and plays a crucial role in v
 
 ## Related Topics
 
-- **[Depth-First Search (DFS)](./Depth-First-Search-(DFS)-Algo.md)**: Graph traversal exploring deeply along branches using stacks/recursion ($O(V + E)$).
+- **[Depth-First Search (DFS)](./Depth-First-Search-%28DFS%29-Algo.md)**: Graph traversal exploring deeply along branches using stacks/recursion ($O(V + E)$).
 - **[Dijkstra's Algorithm](../dijkstras-algorithm.md)**: Weighted shortest path algorithm extending BFS with priority queues ($O((V + E) \log V)$).
 - **[Queue Data Structure](../../Queue/circular-queue.md)**: FIFO data structure underlying Breadth-First Search.

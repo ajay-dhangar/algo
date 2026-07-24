@@ -385,5 +385,5 @@ The algorithm's versatility in handling different requirements through customiza
 ## Related Topics
 
 - **[LCS Algorithm](./lcs-algorithm.md)**: Longest Common Subsequence — related DP approach for string similarity.
-- **[Dynamic Programming](../../dynamic-programming/dynamic-programming.md)**: Levenshtein is a classic 2D DP problem ($O(N \cdot M)$).
+- **[Dynamic Programming](../../dynamic-programming/how-to-identify.md)**: Levenshtein is a classic 2D DP problem ($O(N \cdot M)$).
 - **[Needleman-Wunsch Algorithm](./needleman-wunsch-algorithm.md)**: Sequence alignment extension of edit distance used in bioinformatics.

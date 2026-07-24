@@ -1,5 +1,5 @@
 ---
-id: rabin-karp-algorithm
+id: rabin-karp-pattern-searching
 title: "Rabin-Karp Algorithm for Pattern Searching"
 sidebar_label: "Rabin-Karp Algorithm"
 sidebar_position: 1

@@ -344,4 +344,4 @@ The ability to handle different requirements through various implementation opti
 
 - **[Levenshtein Distance](./levenshtein-distance-algorithm.md)**: Edit distance DP measuring insert/delete/replace cost between strings ($O(N \cdot M)$).
 - **[KMP Algorithm](./kmp-algorithm.md)**: Pattern matching using failure function; LCS used in diff tools.
-- **[Dynamic Programming](../../dynamic-programming/dynamic-programming.md)**: LCS is a canonical 2D DP problem ($O(N \cdot M)$).
+- **[Dynamic Programming](../../dynamic-programming/how-to-identify.md)**: LCS is a canonical 2D DP problem ($O(N \cdot M)$).
