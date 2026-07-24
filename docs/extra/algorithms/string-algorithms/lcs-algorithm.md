@@ -339,3 +339,9 @@ The algorithm's strength lies in its ability to handle non-contiguous matches wh
 The practical applications of LCS extend beyond simple sequence matching to areas such as version control systems, DNA sequence analysis, and plagiarism detection. Its versatility and reliability make it a crucial tool in various fields where sequence comparison and analysis are essential.
 
 The ability to handle different requirements through various implementation options (basic, space-optimized, all-solutions) makes it adaptable to different use cases while maintaining its fundamental efficiency in finding the longest common subsequence between strings.
+
+## Related Topics
+
+- **[Levenshtein Distance](./levenshtein-distance-algorithm.md)**: Edit distance DP measuring insert/delete/replace cost between strings ($O(N \cdot M)$).
+- **[KMP Algorithm](./kmp-algorithm.md)**: Pattern matching using failure function; LCS used in diff tools.
+- **[Dynamic Programming](../../dynamic-programming/dynamic-programming.md)**: LCS is a canonical 2D DP problem ($O(N \cdot M)$).

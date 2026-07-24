@@ -381,3 +381,9 @@ The algorithm's strength lies in its ability to handle different types of string
 The practical applications span multiple domains, from text processing and spell checking to bioinformatics and natural language processing. Its ability to quantify string similarity makes it a fundamental tool in many modern applications requiring fuzzy string matching or error tolerance.
 
 The algorithm's versatility in handling different requirements through customizable operation costs and various implementation options makes it adaptable to different use cases while maintaining its fundamental efficiency in measuring string similarity and edit distances.
+
+## Related Topics
+
+- **[LCS Algorithm](./lcs-algorithm.md)**: Longest Common Subsequence — related DP approach for string similarity.
+- **[Dynamic Programming](../../dynamic-programming/dynamic-programming.md)**: Levenshtein is a classic 2D DP problem ($O(N \cdot M)$).
+- **[Needleman-Wunsch Algorithm](./needleman-wunsch-algorithm.md)**: Sequence alignment extension of edit distance used in bioinformatics.

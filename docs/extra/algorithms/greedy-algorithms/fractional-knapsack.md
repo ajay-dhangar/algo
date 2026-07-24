@@ -187,3 +187,9 @@ console.log("Maximum value we can obtain: " + maxValue);
 ### Summary:
 
 The Fractional Knapsack Problem is a classic example of a greedy algorithm. It efficiently maximizes the value of the items that can be carried in the knapsack by selecting items based on their value-to-weight ratio. This algorithm is especially useful when fractional items can be taken and provides the optimal solution with a time complexity of $O(N log N)$. The fractional knapsack finds applications in resource allocation, budget management, and similar optimization problems.
+
+## Related Topics
+
+- **[Huffman Coding](./Huffman-coding.md)**: Optimal prefix code construction using greedy choice principles ($O(N \log N)$).
+- **[Job Sequencing Problem](./Job-sequencing-problem.md)**: Deadline-based profit maximization greedy algorithm.
+- **[Prim's Minimum Spanning Tree](./Prim's-Minimum-Spanning-Tree.md)**: Greedy MST algorithm for weighted graphs ($O((V + E) \log V)$).

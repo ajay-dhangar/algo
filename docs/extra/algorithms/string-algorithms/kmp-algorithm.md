@@ -409,3 +409,9 @@ The Knuth-Morris-Pratt Algorithm represents a significant advancement in string 
 The algorithm's efficiency comes from its ability to preprocess the pattern and build a failure function that enables optimal shifts during the matching phase. While it requires additional space for preprocessing, the KMP algorithm's guarantee of linear-time performance and its ability to handle repetitive patterns make it a valuable tool in various applications, from text processing to bioinformatics.
 
 The implementation combines elegant theoretical concepts with practical efficiency, making it a fundamental algorithm in computer science. Its consistent performance characteristics and lack of text backtracking make it particularly suitable for real-time applications and streaming data processing.
+
+## Related Topics
+
+- **[Rabin-Karp Algorithm](./rabin-karp-algorithms.md)**: Hash-based multi-pattern string matching ($O(N + M)$ average).
+- **[Z Algorithm](./Z-Algorithm.md)**: Linear string matching using a Z-array for prefix matching ($O(N + M)$).
+- **[Aho-Corasick Algorithm](./aho-corasick-algorithm.md)**: Multi-pattern generalization of KMP using a finite automaton.

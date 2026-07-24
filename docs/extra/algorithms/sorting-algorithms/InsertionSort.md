@@ -143,3 +143,9 @@ Insertion sort is a simple yet efficient algorithm for small or nearly sorted da
 - **Sort a K-Sorted (Nearly Sorted) Array**: Sort an array where each element is at most $k$ positions away from its target position (highly efficient with Insertion Sort in $O(n k)$ time).
 - **Kth Largest Element in a Stream (LeetCode 703)**: Maintain a sorted list of elements dynamically as new elements arrive. [Problem Link](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
 
+
+## Related Topics
+
+- **[Bubble Sort](./BubbleSort.mdx)**: Adjacent-swap comparison sort with similar $O(N^2)$ complexity.
+- **[Selection Sort](./SelectionSort.md)**: In-place comparison sort that always makes exactly $N-1$ swaps.
+- **[Tim Sort](./TimSort.md)**: Hybrid sort combining Insertion Sort with Merge Sort for real-world data.

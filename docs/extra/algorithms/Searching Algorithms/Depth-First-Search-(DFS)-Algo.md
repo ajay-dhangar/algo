@@ -152,3 +152,9 @@ DFS helps in finding paths and checking connectivity in graphs.
 
 ### Summary:
 DFS is an essential algorithm for graph traversal and problem-solving in various domains. Its memory efficiency, ability to find deep solutions, and use in applications like topological sorting and cycle detection make it valuable. While it may not always find the shortest path, it provides an efficient approach to exploring graph structures in depth-first order.
+
+## Related Topics
+
+- **[Breadth-First Search (BFS)](./Breadth-First-Search-(BFS)-Algo.md)**: Level-order graph traversal algorithm using queues ($O(V + E)$).
+- **[Topological Sort](../sorting-algorithms/Topological-sorting-algorithm.md)**: Linear ordering of DAG vertices using DFS recursion or Kahn's algorithm ($O(V + E)$).
+- **[Stack Data Structure](../../Stack/introduction-to-stack.md)**: LIFO structure underlying Depth-First Search.

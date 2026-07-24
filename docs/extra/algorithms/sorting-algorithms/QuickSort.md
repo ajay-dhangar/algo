@@ -225,3 +225,9 @@ Use Quick Sort when:
 - **Sort Colors (LeetCode 75)**: Sort an array with 0s, 1s, and 2s using 3-way Quick Sort partitioning. [Problem Link](https://leetcode.com/problems/sort-colors/)
 - **K Closest Points to Origin (LeetCode 973)**: Find the $k$ closest points using QuickSelect for $O(n)$ average time complexity. [Problem Link](https://leetcode.com/problems/k-closest-points-to-origin/)
 
+
+## Related Topics
+
+- **[Merge Sort](./MergeSort.mdx)**: Stable divide-and-conquer sort with guaranteed $O(N \log N)$ worst case.
+- **[Heap Sort](./HeapSort.md)**: In-place $O(N \log N)$ sort using a binary heap.
+- **[Selection Sort](./SelectionSort.md)**: Simple in-place comparison sort ($O(N^2)$) useful for small arrays.
