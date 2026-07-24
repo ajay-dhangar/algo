@@ -9,6 +9,7 @@ import React, {
 import { useHistory } from "@docusaurus/router";
 import Link from "@docusaurus/Link";
 import challengeData from "../data/challengeData";
+import { useFocusTrap } from "../hooks/useFocusTrap";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -259,6 +260,9 @@ export default function ChallengeSearchModal({
     }
   }, [activeIndex]);
 
+  const modalRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(modalRef, { isOpen, onClose });
+
   if (!isOpen) return null;
 
   const hasQuery = query.trim().length > 0;
@@ -269,6 +273,7 @@ export default function ChallengeSearchModal({
       className="fixed inset-0 z-[9998] flex items-start justify-center pt-[12vh] px-4 bg-slate-900/50 dark:bg-black/70 backdrop-blur-sm"
     >
       <div
+        ref={modalRef}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"

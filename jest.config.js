@@ -8,6 +8,7 @@ module.exports = {
     '^@docusaurus/Link$': '<rootDir>/src/__tests__/__mocks__/LinkMock.tsx',
     '^@docusaurus/BrowserOnly$': '<rootDir>/src/__tests__/__mocks__/BrowserOnlyMock.tsx',
     '^@docusaurus/useDocusaurusContext$': '<rootDir>/src/__tests__/__mocks__/useDocusaurusContextMock.ts',
+    '^@docusaurus/router$': '<rootDir>/src/__tests__/__mocks__/routerMock.js',
     '^@docusaurus/(.*)$': '<rootDir>/src/__tests__/__mocks__/docusaurusMock.js',
     '^@generated/(.*)$': '<rootDir>/src/__tests__/__mocks__/generatedMock.js',
     '^@monaco-editor/react$': '<rootDir>/src/__tests__/__mocks__/monacoEditorMock.tsx',

@@ -1,11 +1,17 @@
 import React, { ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
+import { AuthProvider } from '../contexts/AuthContext';
+import { AriaAnnouncerProvider } from '../contexts/AriaAnnouncerContext';
 import type { GraphChallenge } from '../data/graphChallengesData';
 import type { SortingChallenge } from '../data/sortingChallengesData';
 import type { DPChallenge } from '../data/dpChallengesData';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>;
+  return (
+    <AuthProvider>
+      <AriaAnnouncerProvider>{children}</AriaAnnouncerProvider>
+    </AuthProvider>
+  );
 };
 
 const customRender = (
