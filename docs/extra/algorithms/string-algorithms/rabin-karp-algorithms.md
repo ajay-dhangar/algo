@@ -32,27 +32,27 @@ The algorithm works by computing a hash value for the pattern and each substring
 <Tabs>
     <TabItem value="Python" lang="python">
     ```python
-    def rabin_karp(text: str, pattern: str) -> list:
-        def hash_string(s: str) -> int:
-            return sum(ord(s[i]) * 101 ** i for i in range(len(s)))
+def rabin_karp(text: str, pattern: str) -> list:
+    def hash_string(s: str) -> int:
+        return sum(ord(s[i]) * 101 ** i for i in range(len(s)))
 
-        n, m = len(text), len(pattern)
-        pattern_hash = hash_string(pattern)
-        text_hash = hash_string(text[:m])
-        indices = []
+    n, m = len(text), len(pattern)
+    pattern_hash = hash_string(pattern)
+    text_hash = hash_string(text[:m])
+    indices = []
 
-        for i in range(n - m + 1):
-            if pattern_hash == text_hash and text[i:i + m] == pattern:
-                indices.append(i)
-            if i < n - m:
-                text_hash = (text_hash - ord(text[i]) * 101 ** (m - 1)) * 101 + ord(text[i + m])
+    for i in range(n - m + 1):
+        if pattern_hash == text_hash and text[i:i + m] == pattern:
+            indices.append(i)
+        if i < n - m:
+            text_hash = (text_hash - ord(text[i]) * 101 ** (m - 1)) * 101 + ord(text[i + m])
 
-        return indices
+    return indices
 
-    # Example Usage
-    text = "ABCCDABCDABCD"
-    pattern = "ABCD"
-    print("Pattern found at indices:", rabin_karp(text, pattern))
+# Example Usage
+text = "ABCCDABCDABCD"
+pattern = "ABCD"
+print("Pattern found at indices:", rabin_karp(text, pattern))
     ```
     </TabItem>
 

@@ -1,10 +1,10 @@
 ---
-
 id: insertion-sort-algo  
 sidebar_position: 3 
 title: Insertion Sort  
-sidebar_label: Insertion Sort  
-
+sidebar_label: Insertion Sort
+description: "Detailed explanation and implementation of Insertion Sort algorithm."
+tags: [sorting algorithms, insertion sort, dsa, algorithms]
 ---
 
 ### Definition:

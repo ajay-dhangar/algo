@@ -1,10 +1,10 @@
 ---
-
 id: manachers-algorithm
 sidebar_position: 15
 title: Manacher's Algorithm
 sidebar_label: Manacher's Algorithm
-
+description: "Complete guide to Manacher algorithm for finding longest palindromic substring."
+tags: [string algorithms, manacher algorithm, palindromes, dsa]
 ---
 
 ### Definition:

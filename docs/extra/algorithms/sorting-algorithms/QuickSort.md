@@ -1,10 +1,10 @@
 ---
-
 id: quick-sort-algo  
 sidebar_position: 5  
 title: Quick Sort  
-sidebar_label: Quick Sort  
-
+sidebar_label: Quick Sort
+description: "Complete guide on Quick Sort divide-and-conquer sorting algorithm implementation."
+tags: [sorting algorithms, quick sort, dsa, algorithms]
 ---
 
 ### Definition:

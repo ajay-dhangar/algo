@@ -2,7 +2,9 @@
 id: dfs-algo  
 sidebar_position: 7
 title: Depth-First Search  
-sidebar_label: DFS 
+sidebar_label: DFS
+description: "Overview and implementation of Depth-First Search (DFS) graph traversal algorithm."
+tags: [searching algorithms, dfs, graph algorithms, dsa]
 ---
 
 ### Definition:

@@ -1,10 +1,10 @@
 ---
-
 id: bucket-sort-algo  
 sidebar_position: 9  
 title: Bucket Sort  
-sidebar_label: Bucket Sort  
-
+sidebar_label: Bucket Sort
+description: "Comprehensive guide to Bucket Sort algorithm implementation and time complexity."
+tags: [sorting algorithms, bucket sort, dsa, algorithms]
 ---
 
 ### Definition:

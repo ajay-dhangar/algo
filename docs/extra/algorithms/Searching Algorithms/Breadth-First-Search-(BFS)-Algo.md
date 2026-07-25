@@ -2,7 +2,9 @@
 id: bfs-algo  
 sidebar_position: 6
 title: Breadth-First Search  
-sidebar_label: BFS  
+sidebar_label: BFS
+description: "Overview and implementation of Breadth-First Search (BFS) graph traversal algorithm."
+tags: [searching algorithms, bfs, graph algorithms, dsa]
 ---
 
 ### Definition:

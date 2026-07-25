@@ -1,10 +1,10 @@
 ---
-
 id: binary-search-algo  
 sidebar_position: 2  
 title: Binary Search  
-sidebar_label: Binary Search  
-
+sidebar_label: Binary Search
+description: "Comprehensive guide to Binary Search algorithm implementation, complexity, and applications."
+tags: [searching algorithms, binary search, dsa, algorithms]
 ---
 
 ### Definition:

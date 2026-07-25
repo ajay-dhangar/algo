@@ -1,10 +1,10 @@
 ---
-
 id: longest-common-subsequence-algorithm
 sidebar_position: 16
 title: Longest Common Subsequence (LCS) Algorithm
 sidebar_label: LCS Algorithm
-
+description: "Overview and dynamic programming implementation of Longest Common Subsequence."
+tags: [string algorithms, lcs, dynamic programming, dsa]
 ---
 
 ### Definition:

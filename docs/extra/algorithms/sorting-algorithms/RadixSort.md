@@ -1,10 +1,10 @@
 ---
-
 id: radix-sort-algo 
 sidebar_position: 7  
 title: Radix Sort  
-sidebar_label: Radix Sort  
-
+sidebar_label: Radix Sort
+description: "Detailed guide on Radix Sort non-comparative sorting algorithm implementation."
+tags: [sorting algorithms, radix sort, dsa, algorithms]
 ---
 
 

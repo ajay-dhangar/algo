@@ -1,10 +1,10 @@
 ---
-
 id: knuth-morris-pratt-algorithm
 sidebar_position: 11
 title: Knuth-Morris-Pratt Algorithm
 sidebar_label: Knuth-Morris-Pratt Algorithm
-
+description: "Comprehensive guide to Knuth-Morris-Pratt pattern matching algorithm."
+tags: [string algorithms, kmp, pattern matching, dsa]
 ---
 
 ### Definition:
