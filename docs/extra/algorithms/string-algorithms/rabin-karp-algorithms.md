@@ -32,27 +32,27 @@ The algorithm works by computing a hash value for the pattern and each substring
 <Tabs>
     <TabItem value="Python" lang="python">
     ```python
-    def rabin_karp(text: str, pattern: str) -> list:
-        def hash_string(s: str) -> int:
-            return sum(ord(s[i]) * 101 ** i for i in range(len(s)))
+def rabin_karp(text: str, pattern: str) -> list:
+    def hash_string(s: str) -> int:
+        return sum(ord(s[i]) * 101 ** i for i in range(len(s)))
 
-        n, m = len(text), len(pattern)
-        pattern_hash = hash_string(pattern)
-        text_hash = hash_string(text[:m])
-        indices = []
+    n, m = len(text), len(pattern)
+    pattern_hash = hash_string(pattern)
+    text_hash = hash_string(text[:m])
+    indices = []
 
-        for i in range(n - m + 1):
-            if pattern_hash == text_hash and text[i:i + m] == pattern:
-                indices.append(i)
-            if i < n - m:
-                text_hash = (text_hash - ord(text[i]) * 101 ** (m - 1)) * 101 + ord(text[i + m])
+    for i in range(n - m + 1):
+        if pattern_hash == text_hash and text[i:i + m] == pattern:
+            indices.append(i)
+        if i < n - m:
+            text_hash = (text_hash - ord(text[i]) * 101 ** (m - 1)) * 101 + ord(text[i + m])
 
-        return indices
+    return indices
 
-    # Example Usage
-    text = "ABCCDABCDABCD"
-    pattern = "ABCD"
-    print("Pattern found at indices:", rabin_karp(text, pattern))
+# Example Usage
+text = "ABCCDABCDABCD"
+pattern = "ABCD"
+print("Pattern found at indices:", rabin_karp(text, pattern))
     ```
     </TabItem>
 
@@ -149,3 +149,9 @@ It is widely used for finding substrings within large text data, especially in a
 ## Conclusion
 
 The Rabin-Karp Algorithm is a powerful tool for pattern matching in strings, offering a balance between time complexity and practicality. By leveraging hashing and the rolling hash technique, it efficiently finds occurrences of a pattern in a text, making it a valuable algorithm in competitive programming and real-world applications.
+
+## Related Topics
+
+- **[KMP Algorithm](./kmp-algorithm.md)**: Deterministic $O(N + M)$ string matching using failure function.
+- **[Z Algorithm](./Z-Algorithm.md)**: Linear-time string matching via Z-array prefix computation.
+- **[Hashing Algorithms](../Hashing-algorithm.md)**: Rolling hash technique underlying Rabin-Karp matching.

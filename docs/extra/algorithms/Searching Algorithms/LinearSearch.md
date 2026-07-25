@@ -1,10 +1,10 @@
 ---
-
 id: linear-search-algo  
 sidebar_position: 1  
 title: Linear Search  
-sidebar_label: Linear Search  
-
+sidebar_label: Linear Search
+description: "Detailed guide on Linear Search algorithm implementation and complexity."
+tags: [searching algorithms, linear search, dsa, algorithms]
 ---
 
 ### Definition:
@@ -233,3 +233,9 @@ int sentinelSearch(int arr[], int size, int target) {
 ### Summary:
 
 Linear search is the most basic and straightforward search algorithm, making it suitable for small or unsorted datasets. Its simplicity is its greatest strength, but its inefficiency for larger datasets is a major drawback. While it's not the most optimal choice for sorted or large data, it remains an essential algorithm for scenarios where simplicity or sequential checking is required. Though linear search has a time complexity of O(n), it can be implemented with constant space, making it useful for memory-constrained environments.
+
+## Related Topics
+
+- **[Binary Search](./BinarySearch.md)**: Logarithmic search algorithm for sorted datasets ($O(\log N)$).
+- **[Sentinel Search](./SentinelSearch.md)**: Optimized linear search reducing loop comparison overhead.
+- **[Hashing Algorithms](../Hashing-algorithm.md)**: Enables average $O(1)$ constant-time key lookups.

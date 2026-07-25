@@ -129,3 +129,9 @@ Heap sort is an efficient, in-place sorting algorithm that works by building a m
 - **Top K Frequent Elements (LeetCode 347)**: Find the $k$ most frequent elements in an array using a min-heap. [Problem Link](https://leetcode.com/problems/top-k-frequent-elements/)
 - **Kth Largest Element in an Array (LeetCode 215)**: Find the $k$-th largest element in an unsorted array using a heap in $O(n \log k)$ time. [Problem Link](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 
+
+## Related Topics
+
+- **[Quick Sort](./QuickSort.md)**: Cache-friendly in-place sort ($O(N \log N)$ average, $O(N^2)$ worst).
+- **[Merge Sort](./MergeSort.mdx)**: Stable $O(N \log N)$ sort — better for linked lists and external sort.
+- **[Heap Basics](../../heap/heap-basics.md)**: Priority queue / min-heap structure underlying Heap Sort.

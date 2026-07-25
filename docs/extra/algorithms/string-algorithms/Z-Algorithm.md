@@ -180,3 +180,9 @@ Efficiently find all occurrences of a pattern in a string, which is useful in so
 
 ### Prefix-Suffix Problems:
 Can be used to find all prefixes of a string that are also suffixes, which is helpful in problems like finding palindromes and string periodicity.
+
+## Related Topics
+
+- **[KMP Algorithm](./kmp-algorithm.md)**: Equivalent linear-time matching using failure function instead of Z-array.
+- **[Manacher's Algorithm](./manacher-algorithm.md)**: Linear-time palindrome detection using similar prefix-expansion logic.
+- **[Rabin-Karp Algorithm](./rabin-karp-algorithms.md)**: Hash-based string matching alternative ($O(N + M)$ average).

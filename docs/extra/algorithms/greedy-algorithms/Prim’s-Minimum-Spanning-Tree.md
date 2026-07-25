@@ -157,3 +157,10 @@ int main() {
 
 ### Summary:
 Prim's MST algorithm is an efficient greedy approach to finding the Minimum Spanning Tree in a weighted undirected graph. By selecting the smallest edge at each step, it ensures that the MST is built with the least total weight, avoiding cycles. The time complexity of the algorithm is $O(E \log V)$, making it suitable for large, dense graphs. Prim's algorithm is used in various network design applications, including telecommunications, electrical grids, and transportation networks.
+
+## Related Topics
+
+- **[Disjoint Set Union (DSU)](../disjoint-set-union.md)**: Data structure used in Kruskal's MST algorithm ($O(\alpha(N))$).
+- **[Dijkstra's Algorithm](../dijkstras-algorithm.md)**: Shortest path algorithm using similar greedy edge expansion ($O((V + E) \log V)$).
+- **[Heap Basics](../../heap/heap-basics.md)**: Min-heap structure powering Prim's efficient edge selection.
+
