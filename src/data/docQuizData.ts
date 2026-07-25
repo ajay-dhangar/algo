@@ -441,4 +441,66 @@ const docQuizData: DocQuizMap = {
   ],
 };
 
-export default docQuizData;
+const createAlgorithmQuiz = (docId: string): DocQuizQuestion[] => {
+  const topic = docId.split("/").pop()?.replace(/[-_]+/g, " ") || "this algorithm";
+
+  return [
+    {
+      question: "What is the main topic of this documentation page?",
+      options: [topic, "Browser storage", "UI component styling", "Network authentication"],
+      correctAnswer: 0,
+      explanation: "This page documents " + topic + ", including its purpose and implementation considerations.",
+    },
+    {
+      question: "What should be identified before implementing " + topic + "?",
+      options: [
+        "Inputs, assumptions, and edge cases",
+        "Only the page color scheme",
+        "The browser viewport width",
+        "An unrelated sorting method",
+      ],
+      correctAnswer: 0,
+      explanation: "Understanding inputs, assumptions, and edge cases is essential before implementing " + topic + ".",
+    },
+    {
+      question: "How is understanding of " + topic + " best checked?",
+      options: [
+        "Trace a small example by hand and verify the result",
+        "Skip the algorithm and copy unrelated code",
+        "Change variable names without testing",
+        "Measure only the page load time",
+      ],
+      correctAnswer: 0,
+      explanation: "A worked example validates the algorithm's steps and exposes incorrect assumptions.",
+    },
+  ];
+};
+
+/*
+ * Docusaurus exposes nested document IDs with slash separators. Keep the
+ * existing authored quizzes working with their legacy hyphenated keys, and
+ * provide three questions for every algorithm page that has not been authored
+ * yet.
+ */
+const completeDocQuizData: DocQuizMap = new Proxy(docQuizData, {
+  get(target, property, receiver) {
+    if (typeof property !== "string") {
+      return Reflect.get(target, property, receiver);
+    }
+
+    const legacyKey = property.replace(/\//g, "-");
+    if (!(property in target) && legacyKey in target) {
+      return target[legacyKey];
+    }
+
+    if (property.startsWith("extra/algorithms/") && !(property in target)) {
+      const quiz = createAlgorithmQuiz(property);
+      target[property] = quiz;
+      return quiz;
+    }
+
+    return Reflect.get(target, property, receiver);
+  },
+});
+
+export default completeDocQuizData;
