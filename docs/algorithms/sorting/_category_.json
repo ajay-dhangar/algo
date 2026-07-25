@@ -1,0 +1,8 @@
+{
+  "label": "Sorting Algorithms",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Comprehensive guide to sorting algorithms including Quick Sort, Merge Sort, and Dutch National Flag algorithm."
+  }
+}
