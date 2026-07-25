@@ -11,7 +11,7 @@ export function generatePseudocode(code: string): string[] {
     // Replace JS syntax with pseudocode equivalents
     let pLine = line
       .replace(/function\s+(\w+)/g, 'procedure $1')
-      .replace(/\\b(let|const|var)\\s+/g, '')
+      .replace(/\b(let|const|var)\s+/g, '')
       .replace(/===|==/g, '=')
       .replace(/!==|!=/g, '≠')
       .replace(/=>/g, '→')
@@ -20,7 +20,7 @@ export function generatePseudocode(code: string): string[] {
       .replace(/Math\.max/g, 'max')
       .replace(/Math\.min/g, 'min')
       .replace(/Math\.floor/g, 'floor')
-      .replace(/console\\.log\\((.*?)\\)/g, 'print($1)');
+      .replace(/console\.log\((.*?)\)/g, 'print($1)');
       
     if (pLine.trim()) {
        pseudocode.push(pLine.trimEnd());
