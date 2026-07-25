@@ -3,8 +3,9 @@ import Layout from "@theme/Layout";
 import { motion, AnimatePresence } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { supabase } from "../../utils/supabaseClient";
 
-export default function Contact(): JSX.Element {
+export default function Contact(): React.ReactElement {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,16 +43,30 @@ export default function Contact(): JSX.Element {
 
     if (isValid) {
       setIsSubmitting(true);
-      // Simulate pipeline stream processing latency safely
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      
-      toast.success("🚀 TRANSMISSION DISPATCHED TO MAIN FRAME!", {
-        className: "dark:bg-neutral-900 dark:text-cyan-400 font-mono border dark:border-neutral-800 text-xs",
-        progressClassName: "bg-gradient-to-r from-blue-500 to-cyan-400"
-      });
-      
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
+      try {
+        const { error } = await supabase.from("contact_messages").insert({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+        });
+
+        if (error) {
+          throw error;
+        }
+        toast.success("🚀 TRANSMISSION DISPATCHED TO MAIN FRAME!", {
+          className: "dark:bg-neutral-900 dark:text-cyan-400 font-mono border dark:border-neutral-800 text-xs",
+          progressClassName: "bg-gradient-to-r from-blue-500 to-cyan-400"
+        });
+
+        setFormData({ name: "", email: "", message: "" });
+      } catch (error) {
+        console.error("[Algo] Failed to submit contact message:", error);
+        toast.error("TRANSMISSION FAILED. PLEASE TRY AGAIN.", {
+          className: "dark:bg-neutral-900 dark:text-rose-400 font-mono border dark:border-neutral-800 text-xs"
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
     } else {
       toast.error("⚠️ DATA BUFFER INVALID. CHECK ERRORS.", {
         className: "dark:bg-neutral-900 dark:text-rose-400 font-mono border dark:border-neutral-800 text-xs"
@@ -197,7 +212,7 @@ export default function Contact(): JSX.Element {
             >
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0 border border-amber-500/20">
                 <svg className="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.622k" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-6 15h9" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-6 15h9" />
                 </svg>
               </div>
               <div className="min-w-0">
