@@ -194,6 +194,44 @@ const config = {
                 to: "quiz-solutions",
                 label: "Compiled Solutions",
               },
+              {
+                type: "html",
+                value:
+                  '<hr style="margin: 0.4rem 0; border: none; border-top: 1px solid var(--ifm-contents-border-color, #e2e8f0); opacity: 0.6;"/>',
+              },
+              {
+                type: "html",
+                value:
+                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Visualizers</div>',
+              },
+              {
+                to: "visualization",
+                label: "Algorithm Visualizer",
+              },
+              {
+                to: "backtracking-visualizer",
+                label: "Backtracking & Grid Solver",
+              },
+              {
+                to: "bitwise-visualizer",
+                label: "Bitwise Operations",
+              },
+              {
+                to: "n-queens-visualizer",
+                label: "N-Queens Visualizer",
+              },
+              {
+                to: "largest-rectangle-visualizer",
+                label: "Largest Rectangle (Histogram)",
+              },
+              {
+                to: "maximal-rectangle-visualizer",
+                label: "Maximal Rectangle (Matrix)",
+              },
+              {
+                to: "maximum-building-height-visualizer",
+                label: "Max Building Height",
+              },
             ],
           },
           {
@@ -240,30 +278,6 @@ const config = {
               {
                 to: "visualization",
                 label: "Algorithm Visualizer",
-              },
-              {
-                to: "backtracking-visualizer",
-                label: "Backtracking & Grid Solver",
-              },
-              {
-                to: "bitwise-visualizer",
-                label: "Bitwise Operations",
-              },
-              {
-                to: "n-queens-visualizer",
-                label: "N-Queens Visualizer",
-              },
-              {
-                to: "largest-rectangle-visualizer",
-                label: "Largest Rectangle (Histogram)",
-              },
-              {
-                to: "maximal-rectangle-visualizer",
-                label: "Maximal Rectangle (Matrix)",
-              },
-              {
-                to: "maximum-building-height-visualizer",
-                label: "Max Building Height",
               },
               {
                 to: "stories",
