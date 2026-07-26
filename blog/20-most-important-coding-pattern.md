@@ -3,6 +3,7 @@ slug: 20-most-important-coding-pattern
 title: '20 Most Essential Coding Patterns'
 authors: [Rishi-Verma]
 tags: [coding, interview, dsa, C++,Rishi-Verma, java, python, programming,sliding window, two pointers, fast and slow pointers, merge intervals, cyclic sort]
+date: 2024-10-23
 ---
 
 
