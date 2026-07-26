@@ -17,7 +17,7 @@ export default function NotFound() {
       />
 
       <Layout>
-        <main className="min-h-[80vh] flex items-center justify-center px-4 sm:px-6 py-4 relative overflow-hidden bg-slate-50 dark:bg-gray-950">
+        <main role="main" className="min-h-[80vh] flex items-center justify-center px-4 sm:px-6 py-4 relative overflow-hidden bg-slate-50 dark:bg-gray-950">
           
           {/* Subtle Decorative Structural Grid Background Elements */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none" />
@@ -28,6 +28,8 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
+            role="region"
+            aria-label="Page not found"
           >
             {/* Warning Tech Badge Accent */}
             <motion.div 
@@ -67,7 +69,7 @@ export default function NotFound() {
             </div>
 
             {/* Mock Algorithm Terminal Trace Component Block */}
-            <div className="bg-slate-950 rounded-xl p-4 text-left font-mono text-[11px] sm:text-xs text-emerald-400 shadow-inner border border-slate-800/80 mb-8 max-w-lg mx-auto overflow-x-auto">
+            <div role="alert" className="bg-slate-950 rounded-xl p-4 text-left font-mono text-[11px] sm:text-xs text-emerald-400 shadow-inner border border-slate-800/80 mb-8 max-w-lg mx-auto overflow-x-auto">
               <div className="flex items-center gap-1.5 border-b border-slate-800 pb-2 mb-2 text-slate-300 font-sans font-bold uppercase tracking-wider">
                 <FiTerminal className="w-3.5 h-3.5 text-slate-300" />
                 Stack Trace Diagnostic
@@ -81,6 +83,7 @@ export default function NotFound() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 to="/"
+                aria-current="page"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[var(--ifm-color-primary)] hover:bg-[var(--ifm-color-primary-dark)] text-white hover:text-white font-bold text-sm sm:text-base transition-all duration-200 shadow-lg shadow-blue-500/10 hover:-translate-y-0.5 no-underline hover:no-underline"
               >
                 <FiHome className="w-4 h-4" />
