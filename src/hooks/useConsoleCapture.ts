@@ -31,13 +31,13 @@ export default function useConsoleCapture() {
             logs.push(args.map(serialize).join(" "));
           };
           console.error = (...args) => {
-            logs.push("❌ Error: " + args.map(serialize).join(" "));
+            logs.push("[ERROR] " + args.map(serialize).join(" "));
           };
           console.warn = (...args) => {
-            logs.push("⚠️ Warn: " + args.map(serialize).join(" "));
+            logs.push("[WARN] " + args.map(serialize).join(" "));
           };
           console.info = (...args) => {
-            logs.push("ℹ️ Info: " + args.map(serialize).join(" "));
+            logs.push("[INFO] " + args.map(serialize).join(" "));
           };
 
           try {
@@ -45,7 +45,7 @@ export default function useConsoleCapture() {
             new Function(code)();
           } catch (err) {
             const msg = err instanceof Error ? err.message : String(err);
-            logs.push("❌ Error: " + msg);
+            logs.push("[ERROR] " + msg);
           }
           
           self.postMessage({ logs });
@@ -63,7 +63,7 @@ export default function useConsoleCapture() {
           isDone = true;
           worker.terminate();
           URL.revokeObjectURL(workerUrl);
-          resolve(["❌ Error: Execution timed out (Possible infinite loop)"]);
+          resolve(["[ERROR] Execution timed out (Possible infinite loop)"]);
         }
       }, 3000); // 3 seconds timeout
 
@@ -83,7 +83,7 @@ export default function useConsoleCapture() {
           clearTimeout(timeoutId);
           worker.terminate();
           URL.revokeObjectURL(workerUrl);
-          resolve(["❌ Error: Worker execution failed"]);
+          resolve(["[ERROR] Worker execution failed"]);
         }
       };
 
