@@ -9,7 +9,6 @@ on: [pull_request]
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
   dependency-review:
@@ -19,7 +18,3 @@ jobs:
         uses: actions/checkout@v4
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v4
-        continue-on-error: true
-        with:
-          fail-on-severity: 'critical'
-          comment-summary-in-pr: always
