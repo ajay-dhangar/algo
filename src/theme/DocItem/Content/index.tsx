@@ -45,8 +45,6 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
         docsPluginId="default"
       />
 
-      {isCheatSheet && <CheatSheetExport title={title} />}
-
       <MDXContent>{children}</MDXContent>
     </div>
   );
