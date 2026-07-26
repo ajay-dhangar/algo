@@ -17,11 +17,13 @@ type SequentialShortcuts = Record<string, string>;
 const SEQUENTIAL_SHORTCUTS: SequentialShortcuts = {
   gh: "/",
   gd: "/docs",
+  ga: "/docs/dsa-problems", // g then a -> go to DSA problems docs
+  ge: "/events", // g then e -> go to events page
   gp: "/playground",
   gl: "/leaderboard",
   gb: "/blog",
   gq: "/quizzes",
-  gc: "/challenges", // ← NEW: g then c → go to challenges
+  gc: "/challenges", // g then c -> go to challenges
   gs: "/settings",
 };
 
