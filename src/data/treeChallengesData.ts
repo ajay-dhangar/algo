@@ -31,6 +31,14 @@ export const TREE_CHALLENGES: TreeChallenge[] = [
   {
     id: "tree-01",
     title: "Tree Traversals (Inorder, Preorder, Postorder)",
+    pseudocode: [
+      "Initialize empty inorder, preorder, and postorder arrays.",
+      "If the current node is null, return from the traversal.",
+      "Add the node to preorder, then recursively visit its left subtree.",
+      "Add the node to inorder between the left and right subtree visits.",
+      "Recursively visit the right subtree, then add the node to postorder.",
+      "Return all three traversal arrays.",
+    ],
     slug: "tree-traversals",
     difficulty: "Easy",
     category: "Trees",
@@ -153,6 +161,13 @@ map<string, vector<int>> treeTraversals(TreeNode* root) {
   {
     id: "tree-02",
     title: "Maximum Depth of Binary Tree",
+    pseudocode: [
+      "If the node is null, return depth 0.",
+      "Recursively find the depth of the left subtree.",
+      "Recursively find the depth of the right subtree.",
+      "Return 1 plus the larger subtree depth.",
+      "Use the root's returned value as the maximum depth.",
+    ],
     slug: "maximum-depth-binary-tree",
     difficulty: "Easy",
     category: "Trees",
@@ -211,6 +226,13 @@ console.log(maxDepth(root)); // Expected: 3
   {
     id: "tree-03",
     title: "Count Leaf Nodes",
+    pseudocode: [
+      "If the node is null, return 0.",
+      "If the node has no left or right child, return 1.",
+      "Count the leaves in the left subtree recursively.",
+      "Count the leaves in the right subtree recursively.",
+      "Return the sum of both subtree counts.",
+    ],
     slug: "count-leaf-nodes",
     difficulty: "Easy",
     category: "Trees",
@@ -269,6 +291,13 @@ console.log(countLeafNodes(root)); // Expected: 3
   {
     id: "tree-04",
     title: "Sum of All Nodes",
+    pseudocode: [
+      "If the node is null, return sum 0.",
+      "Recursively calculate the sum of the left subtree.",
+      "Recursively calculate the sum of the right subtree.",
+      "Add the current node value to both subtree sums.",
+      "Return the resulting total.",
+    ],
     slug: "sum-of-all-nodes",
     difficulty: "Easy",
     category: "Trees",
@@ -326,6 +355,13 @@ console.log(sumOfAllNodes(root)); // Expected: 15
   {
     id: "tree-05",
     title: "Level Order Traversal",
+    pseudocode: [
+      "Create an empty result array and a queue containing the root.",
+      "While the queue is not empty, record its current size as the level size.",
+      "Remove each node in the current level and add its value to that level.",
+      "Add every non-null left and right child to the queue.",
+      "Append the completed level to the result and return all levels.",
+    ],
     slug: "level-order-traversal",
     difficulty: "Medium",
     category: "Trees",
@@ -392,6 +428,13 @@ console.log(JSON.stringify(levelOrder(root))); // Expected: [[3],[9,20],[15,7]]
   {
     id: "tree-06",
     title: "Lowest Common Ancestor",
+    pseudocode: [
+      "If the node is null or equals either target, return the node.",
+      "Search for the first target in the left subtree.",
+      "Search for the second target in the right subtree.",
+      "If both searches succeed, the current node is the ancestor.",
+      "Otherwise return whichever non-null search result exists.",
+    ],
     slug: "lowest-common-ancestor",
     difficulty: "Medium",
     category: "Trees",
@@ -460,6 +503,13 @@ console.log(lowestCommonAncestor(root, 5, 4)); // Expected: 5
   {
     id: "tree-07",
     title: "Validate Binary Search Tree",
+    pseudocode: [
+      "Start a recursive validation with bounds of negative and positive infinity.",
+      "If the node is null, it satisfies the current bounds.",
+      "Reject the node if its value is not strictly inside the bounds.",
+      "Validate the left subtree with the upper bound set to this value.",
+      "Validate the right subtree with the lower bound set to this value.",
+    ],
     slug: "validate-binary-search-tree",
     difficulty: "Medium",
     category: "Trees",
@@ -521,6 +571,13 @@ console.log(isValidBST(buildTree([5,1,4,null,null,3,6]))); // false
   {
     id: "tree-08",
     title: "Diameter of Binary Tree",
+    pseudocode: [
+      "Initialize the best diameter to zero.",
+      "For a null node, return height zero.",
+      "Recursively compute the left and right subtree heights.",
+      "Update the best diameter with left height plus right height.",
+      "Return one plus the larger height to the parent.",
+    ],
     slug: "diameter-binary-tree",
     difficulty: "Medium",
     category: "Trees",
@@ -585,6 +642,13 @@ console.log(diameterOfBinaryTree(buildTree([1,2]))); // 1
   {
     id: "tree-09",
     title: "Left View / Right View of Binary Tree",
+    pseudocode: [
+      "Traverse the tree level by level with a queue.",
+      "For each level, note its first node for the left view.",
+      "Note its last node for the right view.",
+      "Queue each non-null child for the next level.",
+      "Return the collected left-view and right-view arrays.",
+    ],
     slug: "left-right-view-binary-tree",
     difficulty: "Medium",
     category: "Trees",
@@ -656,6 +720,13 @@ console.log(JSON.stringify(treeViews(root)));
   {
     id: "tree-10",
     title: "Serialize and Deserialize Binary Tree",
+    pseudocode: [
+      "Serialize with preorder traversal, writing a marker for every null child.",
+      "Separate the visited values and markers into a sequence.",
+      "During deserialization, read the next sequence item.",
+      "Return null for a null marker or create a node for a value.",
+      "Recursively build the node's left and right children and return the node.",
+    ],
     slug: "serialize-deserialize-binary-tree",
     difficulty: "Hard",
     category: "Trees",
@@ -761,6 +832,13 @@ function deserialize(data) {
   {
     id: "tree-11",
     title: "Vertical Order Traversal",
+    pseudocode: [
+      "Traverse the tree with each node's row and column coordinates.",
+      "Store each value in a bucket keyed by its column.",
+      "Process nodes level by level so rows remain ordered.",
+      "Sort values sharing a row and column as required.",
+      "Read buckets from the smallest column to the largest and return them.",
+    ],
     slug: "vertical-order-traversal",
     difficulty: "Hard",
     category: "Trees",
@@ -836,6 +914,13 @@ console.log(JSON.stringify(verticalTraversal(root)));
   {
     id: "tree-12",
     title: "Construct Tree from Traversal Arrays",
+    pseudocode: [
+      "Use the next preorder value as the root of the current subtree.",
+      "Find that root value's position in the inorder array.",
+      "Values to the left belong to the left subtree.",
+      "Values to the right belong to the right subtree.",
+      "Recursively construct both subtrees and return the root.",
+    ],
     slug: "construct-tree-from-traversals",
     difficulty: "Hard",
     category: "Trees",
@@ -906,6 +991,13 @@ console.log(JSON.stringify(treeToLevelOrder(root)));
   {
     id: "tree-13",
     title: "Binary Tree Maximum Path Sum",
+    pseudocode: [
+      "Initialize the best path sum to negative infinity.",
+      "For each node, recursively compute the best downward gain from both children.",
+      "Clamp negative child gains to zero because they reduce a path sum.",
+      "Update the best sum using left gain, node value, and right gain.",
+      "Return the node value plus its larger child gain to its parent.",
+    ],
     slug: "binary-tree-max-path-sum",
     difficulty: "Hard",
     category: "Trees",
@@ -972,6 +1064,13 @@ console.log(maxPathSum(buildTree([-10,9,20,null,null,15,7]))); // 42
   {
     id: "tree-14",
     title: "Recover Binary Search Tree",
+    pseudocode: [
+      "Perform inorder traversal while tracking the previous node.",
+      "Record the first node where the current value is smaller than the previous value.",
+      "Record the later misplaced node whenever another inversion appears.",
+      "Swap the values of the two recorded nodes.",
+      "Return the repaired tree.",
+    ],
     slug: "recover-binary-search-tree",
     difficulty: "Hard",
     category: "Trees",
@@ -1045,6 +1144,13 @@ console.log(JSON.stringify(inorderArray(root))); // Expected: [1,2,3]
   {
     id: "tree-15",
     title: "Symmetric Tree",
+    pseudocode: [
+      "Compare the root's left and right subtrees as a pair.",
+      "If both nodes are null, they are mirror-equal.",
+      "If only one is null or their values differ, return false.",
+      "Compare the left node's left child with the right node's right child.",
+      "Compare the left node's right child with the right node's left child and combine both results.",
+    ],
     slug: "symmetric-tree",
     difficulty: "Easy",
     category: "Trees",

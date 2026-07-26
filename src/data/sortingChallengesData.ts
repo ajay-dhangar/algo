@@ -31,6 +31,13 @@ const SORTING_CHALLENGES: SortingChallenge[] = [
   {
     id: "so-01",
     title: "Implement Bubble Sort",
+    pseudocode: [
+      "Repeat passes over the unsorted portion of the array.",
+      "Compare each pair of adjacent values.",
+      "Swap the pair when the left value is greater than the right value.",
+      "Stop early if a complete pass makes no swaps.",
+      "Return the sorted array.",
+    ],
     slug: "bubble-sort",
     difficulty: "Easy",
     category: "Sorting",
@@ -93,6 +100,13 @@ vector<int> bubbleSort(vector<int>& arr) {
   {
     id: "so-02",
     title: "Implement Selection Sort",
+    pseudocode: [
+      "Start at the first unsorted position.",
+      "Scan the remaining array to find its smallest value.",
+      "Swap that value into the current position.",
+      "Advance the boundary of the sorted prefix.",
+      "Repeat until every position is sorted and return the array.",
+    ],
     slug: "selection-sort",
     difficulty: "Easy",
     category: "Sorting",
@@ -142,6 +156,13 @@ function selectionSort(arr) {
   {
     id: "so-03",
     title: "Implement Insertion Sort",
+    pseudocode: [
+      "Treat the first element as a sorted prefix.",
+      "Take the next value as the key to insert.",
+      "Shift larger sorted-prefix values one position to the right.",
+      "Place the key into the created gap.",
+      "Repeat for every value and return the sorted array.",
+    ],
     slug: "insertion-sort",
     difficulty: "Easy",
     category: "Sorting",
@@ -186,6 +207,13 @@ function insertionSort(arr) {
   {
     id: "so-04",
     title: "Sort an Array",
+    pseudocode: [
+      "Choose a sorting strategy suitable for the input constraints.",
+      "Divide or partition the array into smaller sortable portions.",
+      "Sort each portion recursively or iteratively.",
+      "Combine the sorted portions while preserving ascending order.",
+      "Return the fully sorted array.",
+    ],
     slug: "sort-an-array",
     difficulty: "Easy",
     category: "Sorting",
@@ -240,6 +268,13 @@ function merge(left, right) {
   {
     id: "so-05",
     title: "Check if an Array is Sorted",
+    pseudocode: [
+      "Scan the array from the second element onward.",
+      "Compare each value with the value immediately before it.",
+      "Return false if any previous value is greater.",
+      "Continue through the final pair.",
+      "Return true when no inversion is found.",
+    ],
     slug: "check-array-sorted",
     difficulty: "Easy",
     category: "Sorting",
@@ -282,6 +317,13 @@ function isSorted(arr) {
   {
     id: "so-06",
     title: "Implement Merge Sort",
+    pseudocode: [
+      "If the array has zero or one item, return it as sorted.",
+      "Split the array into two halves.",
+      "Recursively sort both halves.",
+      "Merge the halves by repeatedly taking their smaller front value.",
+      "Append remaining values and return the merged array.",
+    ],
     slug: "merge-sort",
     difficulty: "Medium",
     category: "Sorting",
@@ -340,6 +382,13 @@ function merge(left, right) {
   {
     id: "so-07",
     title: "Implement Quick Sort",
+    pseudocode: [
+      "If the range has fewer than two values, stop.",
+      "Choose a pivot and partition values into less-than and greater-than groups.",
+      "Place the pivot between the two groups.",
+      "Recursively quick-sort the left and right ranges.",
+      "Return the combined sorted range.",
+    ],
     slug: "quick-sort",
     difficulty: "Medium",
     category: "Sorting",
@@ -406,6 +455,13 @@ function swap(i, j, arr) {
   {
     id: "so-08",
     title: "Implement Heap Sort",
+    pseudocode: [
+      "Build a max heap from the entire array.",
+      "Swap the heap root with the last unsorted element.",
+      "Shrink the heap boundary by one.",
+      "Sift the new root down to restore the max-heap property.",
+      "Repeat until the heap is empty and return the array.",
+    ],
     slug: "heap-sort",
     difficulty: "Medium",
     category: "Sorting",
@@ -476,6 +532,13 @@ function swap(i, j, arr) {
   {
     id: "so-09",
     title: "Sort Colors",
+    pseudocode: [
+      "Set pointers for the next zero, current value, and next two.",
+      "If the current value is zero, swap it to the zero region and advance both pointers.",
+      "If it is two, swap it to the two region without advancing current.",
+      "If it is one, advance current only.",
+      "Continue until current reaches the two pointer.",
+    ],
     slug: "sort-colors",
     difficulty: "Medium",
     category: "Sorting",
@@ -532,6 +595,13 @@ function sortColors(nums) {
   {
     id: "so-10",
     title: "Merge Two Sorted Arrays",
+    pseudocode: [
+      "Create a result array and pointers at both input starts.",
+      "Compare the pointed values and append the smaller one.",
+      "Advance the pointer whose value was appended.",
+      "Append all remaining values from either array.",
+      "Return the merged sorted array.",
+    ],
     slug: "merge-two-sorted-arrays",
     difficulty: "Medium",
     category: "Sorting",
@@ -589,6 +659,13 @@ function mergeSortedArrays(nums1, m, nums2, n) {
   {
     id: "so-11",
     title: "Kth Largest Element in an Array",
+    pseudocode: [
+      "Maintain a min-heap containing at most k values.",
+      "Insert every array value into the heap.",
+      "When the heap grows beyond k, remove its smallest value.",
+      "The heap root is the kth largest value after all values are processed.",
+      "Return that root.",
+    ],
     slug: "kth-largest-element",
     difficulty: "Medium",
     category: "Sorting",
@@ -653,6 +730,13 @@ function findKthLargest(nums, k) {
   {
     id: "so-12",
     title: "Relative Sort Array",
+    pseudocode: [
+      "Count the frequency of every value in the first array.",
+      "Visit values in the order given by the second array.",
+      "Append each value according to its remaining frequency.",
+      "Append leftover values in ascending order.",
+      "Return the relative-sorted result.",
+    ],
     slug: "relative-sort-array",
     difficulty: "Medium",
     category: "Sorting",
@@ -704,6 +788,13 @@ function relativeSortArray(arr1, arr2) {
   {
     id: "so-13",
     title: "Count Inversions in an Array",
+    pseudocode: [
+      "Split the array recursively as in merge sort.",
+      "Count inversions within the left and right halves.",
+      "Merge the halves in sorted order.",
+      "Whenever a right value precedes remaining left values, add their count.",
+      "Return the total inversion count.",
+    ],
     slug: "count-inversions",
     difficulty: "Hard",
     category: "Sorting",
@@ -771,6 +862,13 @@ function countInversions(arr) {
   {
     id: "so-14",
     title: "External Sorting Concepts",
+    pseudocode: [
+      "Read the large input in chunks that fit into memory.",
+      "Sort each chunk in memory.",
+      "Write every sorted chunk as a temporary run.",
+      "Open the runs and use a min-heap to repeatedly select the smallest front value.",
+      "Write selected values to the final output file.",
+    ],
     slug: "external-sorting",
     difficulty: "Hard",
     category: "Sorting",
@@ -833,6 +931,13 @@ function mergeTwoArrays(l1, l2) {
   {
     id: "so-15",
     title: "Merge K Sorted Arrays",
+    pseudocode: [
+      "Insert the first value from every non-empty array into a min-heap.",
+      "Remove the smallest heap entry and append its value.",
+      "Insert the removed entry's next value from the same array.",
+      "Repeat until the heap is empty.",
+      "Return the merged sorted array.",
+    ],
     slug: "merge-k-sorted-arrays",
     difficulty: "Hard",
     category: "Sorting",
@@ -886,6 +991,13 @@ function mergeKArrays(arrays) {
   {
     id: "so-16",
     title: "Merge K Sorted Linked Lists",
+    pseudocode: [
+      "Insert the head node of every non-empty list into a min-heap.",
+      "Remove the smallest node and append it to the merged list.",
+      "Insert that node's next node if one exists.",
+      "Continue until no list nodes remain in the heap.",
+      "Return the merged list head.",
+    ],
     slug: "merge-k-sorted-lists",
     difficulty: "Hard",
     category: "Sorting",
@@ -928,6 +1040,13 @@ function mergeKLists(lists) {
   {
     id: "so-17",
     title: "Top K Frequent Elements",
+    pseudocode: [
+      "Count the frequency of each distinct element.",
+      "Place elements into buckets indexed by frequency.",
+      "Scan buckets from highest frequency to lowest.",
+      "Collect elements until k values have been selected.",
+      "Return the collected values.",
+    ],
     slug: "top-k-frequent-elements",
     difficulty: "Hard",
     category: "Sorting",
@@ -980,6 +1099,13 @@ function topKFrequent(nums, k) {
   {
     id: "so-18",
     title: "Sort Characters by Frequency",
+    pseudocode: [
+      "Count how often each character appears.",
+      "Group characters by their frequencies.",
+      "Process frequencies from largest to smallest.",
+      "Append each character repeated by its frequency.",
+      "Return the constructed string.",
+    ],
     slug: "sort-characters-by-frequency",
     difficulty: "Hard",
     category: "Sorting",
@@ -1026,6 +1152,13 @@ function frequencySort(s) {
   {
     id: "so-19",
     title: "Median of Two Sorted Arrays",
+    pseudocode: [
+      "Binary-search the shorter array for a partition point.",
+      "Derive the matching partition in the other array so the left side has half the values.",
+      "Check that the largest left values do not exceed the smallest right values.",
+      "If the partition is too far left or right, adjust the binary-search bounds.",
+      "Compute and return the median from the partition boundaries.",
+    ],
     slug: "median-of-two-sorted-arrays",
     difficulty: "Hard",
     category: "Sorting",

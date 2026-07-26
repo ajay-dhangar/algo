@@ -31,6 +31,13 @@ const GREEDY_CHALLENGES: GreedyChallenge[] = [
   {
     id: "gr-01",
     title: "Assign Cookies",
+    pseudocode: [
+      "Sort children by greed and cookies by size.",
+      "Use pointers for the next child and smallest available cookie.",
+      "If the cookie satisfies the child, assign it and advance both pointers.",
+      "Otherwise advance the cookie pointer to try a larger cookie.",
+      "Return the number of satisfied children.",
+    ],
     slug: "assign-cookies",
     difficulty: "Easy",
     category: "Greedy",
@@ -92,6 +99,13 @@ int findContentChildren(vector<int>& g, vector<int>& s) {
   {
     id: "gr-02",
     title: "Maximum Number of Meetings",
+    pseudocode: [
+      "Sort meetings by increasing finish time.",
+      "Select the first meeting and record its finish time.",
+      "Scan the remaining meetings in finish-time order.",
+      "Select a meeting when its start is after the last finish.",
+      "Return the number of selected non-overlapping meetings.",
+    ],
     slug: "maximum-number-of-meetings",
     difficulty: "Easy",
     category: "Greedy",
@@ -142,6 +156,13 @@ function maxMeetings(start, end) {
   {
     id: "gr-03",
     title: "Lemonade Change",
+    pseudocode: [
+      "Track the number of five- and ten-dollar bills.",
+      "For a five-dollar customer, keep the bill as change.",
+      "For a ten-dollar customer, give one five and keep the ten.",
+      "For a twenty-dollar customer, prefer one ten plus one five; otherwise use three fives.",
+      "Return false if exact change is unavailable, otherwise true.",
+    ],
     slug: "lemonade-change",
     difficulty: "Easy",
     category: "Greedy",
@@ -199,6 +220,13 @@ function lemonadeChange(bills) {
   {
     id: "gr-04",
     title: "Can Place Flowers",
+    pseudocode: [
+      "Scan each flowerbed position from left to right.",
+      "Check that the current position and both neighbors are empty or outside the bed.",
+      "Plant a flower and decrement the number still needed when placement is valid.",
+      "Skip positions that are occupied or blocked by a neighbor.",
+      "Return whether all requested flowers were planted.",
+    ],
     slug: "can-place-flowers",
     difficulty: "Easy",
     category: "Greedy",
@@ -247,6 +275,13 @@ function canPlaceFlowers(flowerbed, n) {
   {
     id: "gr-05",
     title: "Minimum Absolute Difference",
+    pseudocode: [
+      "Sort the numbers in ascending order.",
+      "Compare only adjacent values because they can form the smallest gaps.",
+      "Track the smallest absolute difference found.",
+      "Collect every adjacent pair that has that difference.",
+      "Return the pairs in sorted order.",
+    ],
     slug: "minimum-absolute-difference",
     difficulty: "Easy",
     category: "Greedy",
@@ -293,6 +328,13 @@ function minimumAbsDifference(arr) {
   {
     id: "gr-06",
     title: "Activity Selection Problem",
+    pseudocode: [
+      "Sort activities by their finishing time.",
+      "Select the earliest-finishing activity.",
+      "Scan the remaining activities in sorted order.",
+      "Select an activity when its start is not before the last selected finish.",
+      "Return the maximum compatible activity set or its size.",
+    ],
     slug: "activity-selection-problem",
     difficulty: "Medium",
     category: "Greedy",
@@ -339,6 +381,13 @@ function activitySelection(start, finish) {
   {
     id: "gr-07",
     title: "Fractional Knapsack",
+    pseudocode: [
+      "Compute each item's value-to-weight ratio.",
+      "Sort items by decreasing ratio.",
+      "Take the whole item when it fits in the remaining capacity.",
+      "Otherwise take the fraction that fills the remaining capacity and stop.",
+      "Return the accumulated value.",
+    ],
     slug: "fractional-knapsack",
     difficulty: "Medium",
     category: "Greedy",
@@ -396,6 +445,13 @@ function fractionalKnapsack(W, values, weights) {
   {
     id: "gr-08",
     title: "Jump Game",
+    pseudocode: [
+      "Set the farthest reachable index to zero.",
+      "Scan indices up to the current reachable boundary.",
+      "Extend the boundary with index plus its jump length.",
+      "Return true as soon as the last index is reachable.",
+      "Return false if the scan cannot advance to the end.",
+    ],
     slug: "jump-game",
     difficulty: "Medium",
     category: "Greedy",
@@ -443,6 +499,13 @@ function canJump(nums) {
   {
     id: "gr-09",
     title: "Gas Station",
+    pseudocode: [
+      "Compute total gas minus total cost and reject if it is negative.",
+      "Track the current tank and a candidate starting station.",
+      "Add each station's net gas to the tank.",
+      "When the tank becomes negative, choose the next station as the candidate and reset the tank.",
+      "Return the candidate start after the full circuit is scanned.",
+    ],
     slug: "gas-station",
     difficulty: "Medium",
     category: "Greedy",
@@ -493,6 +556,13 @@ function canCompleteCircuit(gas, cost) {
   {
     id: "gr-10",
     title: "Non-overlapping Intervals",
+    pseudocode: [
+      "Sort intervals by increasing end time.",
+      "Keep the interval with the earliest end as the current selected interval.",
+      "Select each later interval that starts at or after the current end.",
+      "Count intervals that overlap instead of selecting them.",
+      "Return the number of removals required.",
+    ],
     slug: "non-overlapping-intervals",
     difficulty: "Medium",
     category: "Greedy",
@@ -543,6 +613,13 @@ function eraseOverlapIntervals(intervals) {
   {
     id: "gr-11",
     title: "Minimum Number of Arrows to Burst Balloons",
+    pseudocode: [
+      "Sort balloon intervals by their ending coordinate.",
+      "Fire an arrow at the end of the first balloon.",
+      "Skip every balloon whose start is at or before that arrow position.",
+      "When a balloon starts after it, fire another arrow at the new balloon's end.",
+      "Return the total number of arrows.",
+    ],
     slug: "minimum-arrows-to-burst-balloons",
     difficulty: "Medium",
     category: "Greedy",
@@ -590,6 +667,13 @@ function findMinArrowShots(points) {
   {
     id: "gr-12",
     title: "Partition Labels",
+    pseudocode: [
+      "Record the last index where each character appears.",
+      "Scan the string while tracking the farthest last occurrence in the current partition.",
+      "When the scan index reaches that farthest position, close the partition.",
+      "Record its length and start the next partition.",
+      "Return all partition lengths.",
+    ],
     slug: "partition-labels",
     difficulty: "Medium",
     category: "Greedy",
@@ -643,6 +727,13 @@ function partitionLabels(s) {
   {
     id: "gr-13",
     title: "Job Sequencing with Deadlines",
+    pseudocode: [
+      "Sort jobs by decreasing profit.",
+      "Create a schedule slot for each available deadline position.",
+      "For each job, search backward from its deadline for a free slot.",
+      "Schedule the job in the latest free slot and add its profit.",
+      "Return the number of jobs and total profit.",
+    ],
     slug: "job-sequencing-deadlines",
     difficulty: "Hard",
     category: "Greedy",
@@ -706,6 +797,13 @@ function jobScheduling(id, deadline, profit) {
   {
     id: "gr-14",
     title: "Huffman Coding",
+    pseudocode: [
+      "Create a leaf node for each character and insert all nodes into a min-heap by frequency.",
+      "Remove the two least frequent nodes.",
+      "Create a parent node with their combined frequency.",
+      "Insert the parent back into the heap and repeat until one root remains.",
+      "Traverse left as zero and right as one to produce each character's code.",
+    ],
     slug: "huffman-coding",
     difficulty: "Hard",
     category: "Greedy",
@@ -762,6 +860,13 @@ function huffmanEncodingLength(s) {
   {
     id: "gr-15",
     title: "Minimum Platforms Required",
+    pseudocode: [
+      "Sort arrival times and departure times independently.",
+      "Use pointers to the next arrival and departure.",
+      "When an arrival is earlier than the next departure, increment platforms in use.",
+      "Otherwise process a departure and decrement platforms in use.",
+      "Track and return the maximum platforms in use.",
+    ],
     slug: "minimum-platforms",
     difficulty: "Hard",
     category: "Greedy",
@@ -818,6 +923,13 @@ function findPlatform(arr, dep) {
   {
     id: "gr-16",
     title: "Minimum Cost to Connect Ropes",
+    pseudocode: [
+      "Insert every rope length into a min-heap.",
+      "Remove the two shortest ropes.",
+      "Connect them and add their sum to the total cost.",
+      "Insert the combined rope back into the heap.",
+      "Repeat until one rope remains and return the total cost.",
+    ],
     slug: "minimum-cost-ropes",
     difficulty: "Hard",
     category: "Greedy",
@@ -870,6 +982,13 @@ function minCost(arr) {
   {
     id: "gr-17",
     title: "Reorganize String",
+    pseudocode: [
+      "Count each character and place counts in a max-heap.",
+      "Repeatedly remove the two most frequent characters.",
+      "Append them in alternating order so equal neighbors are avoided.",
+      "Decrease their counts and return remaining entries to the heap.",
+      "If one character remains with too large a count, return failure; otherwise return the string.",
+    ],
     slug: "reorganize-string",
     difficulty: "Hard",
     category: "Greedy",
@@ -939,6 +1058,13 @@ function reorganizeString(s) {
   {
     id: "gr-18",
     title: "Remove K Digits",
+    pseudocode: [
+      "Scan digits from left to right with a monotonic stack.",
+      "While the top digit is larger than the current digit and removals remain, pop it.",
+      "Push the current digit onto the stack.",
+      "If removals remain, remove digits from the end of the stack.",
+      "Strip leading zeros and return zero for an empty result.",
+    ],
     slug: "remove-k-digits",
     difficulty: "Hard",
     category: "Greedy",
@@ -991,6 +1117,13 @@ function removeKdigits(num, k) {
   {
     id: "gr-19",
     title: "Course Schedule III",
+    pseudocode: [
+      "Sort courses by increasing deadline.",
+      "Maintain the selected durations in a max-heap and track total time.",
+      "Add each course and its duration to the schedule.",
+      "If total time exceeds the deadline, remove the longest selected course.",
+      "Return the number of courses remaining in the heap.",
+    ],
     slug: "course-schedule-iii",
     difficulty: "Hard",
     category: "Greedy",
