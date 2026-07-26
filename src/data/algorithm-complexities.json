@@ -1,0 +1,137 @@
+{
+  "Bubble Sort": {
+    "category": "Sorting",
+    "best": "O(n)",
+    "average": "O(n²)",
+    "worst": "O(n²)",
+    "space": "O(1)",
+    "stable": true,
+    "inPlace": true
+  },
+  "Selection Sort": {
+    "category": "Sorting",
+    "best": "O(n²)",
+    "average": "O(n²)",
+    "worst": "O(n²)",
+    "space": "O(1)",
+    "stable": false,
+    "inPlace": true
+  },
+  "Insertion Sort": {
+    "category": "Sorting",
+    "best": "O(n)",
+    "average": "O(n²)",
+    "worst": "O(n²)",
+    "space": "O(1)",
+    "stable": true,
+    "inPlace": true
+  },
+  "Merge Sort": {
+    "category": "Sorting",
+    "best": "O(n log n)",
+    "average": "O(n log n)",
+    "worst": "O(n log n)",
+    "space": "O(n)",
+    "stable": true,
+    "inPlace": false
+  },
+  "Quick Sort": {
+    "category": "Sorting",
+    "best": "O(n log n)",
+    "average": "O(n log n)",
+    "worst": "O(n²)",
+    "space": "O(log n)",
+    "stable": false,
+    "inPlace": true
+  },
+  "Heap Sort": {
+    "category": "Sorting",
+    "best": "O(n log n)",
+    "average": "O(n log n)",
+    "worst": "O(n log n)",
+    "space": "O(1)",
+    "stable": false,
+    "inPlace": true
+  },
+  "Counting Sort": {
+    "category": "Sorting",
+    "best": "O(n + k)",
+    "average": "O(n + k)",
+    "worst": "O(n + k)",
+    "space": "O(k)",
+    "stable": true,
+    "inPlace": false
+  },
+  "Radix Sort": {
+    "category": "Sorting",
+    "best": "O(d(n + k))",
+    "average": "O(d(n + k))",
+    "worst": "O(d(n + k))",
+    "space": "O(n + k)",
+    "stable": true,
+    "inPlace": false
+  },
+  "Linear Search": {
+    "category": "Searching",
+    "best": "O(1)",
+    "average": "O(n)",
+    "worst": "O(n)",
+    "space": "O(1)",
+    "stable": null,
+    "inPlace": null
+  },
+  "Binary Search": {
+    "category": "Searching",
+    "best": "O(1)",
+    "average": "O(log n)",
+    "worst": "O(log n)",
+    "space": "O(1)",
+    "stable": null,
+    "inPlace": null
+  },
+  "Breadth First Search": {
+    "category": "Graph",
+    "best": "O(V + E)",
+    "average": "O(V + E)",
+    "worst": "O(V + E)",
+    "space": "O(V)",
+    "stable": null,
+    "inPlace": null
+  },
+  "Depth First Search": {
+    "category": "Graph",
+    "best": "O(V + E)",
+    "average": "O(V + E)",
+    "worst": "O(V + E)",
+    "space": "O(V)",
+    "stable": null,
+    "inPlace": null
+  },
+  "Dijkstra Algorithm": {
+    "category": "Graph",
+    "best": "O((V + E) log V)",
+    "average": "O((V + E) log V)",
+    "worst": "O((V + E) log V)",
+    "space": "O(V)",
+    "stable": null,
+    "inPlace": null
+  },
+  "Bellman-Ford Algorithm": {
+    "category": "Graph",
+    "best": "O(VE)",
+    "average": "O(VE)",
+    "worst": "O(VE)",
+    "space": "O(V)",
+    "stable": null,
+    "inPlace": null
+  },
+  "Floyd-Warshall Algorithm": {
+    "category": "Graph",
+    "best": "O(V³)",
+    "average": "O(V³)",
+    "worst": "O(V³)",
+    "space": "O(V²)",
+    "stable": null,
+    "inPlace": null
+  }
+}

@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write # Required to create releases and upload assets
+
+jobs:
+  release:
+    name: Build and Release Algo Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Upgraded to Node 20 (LTS) for better performance
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci # Use 'ci' for faster, more reliable builds in CI/CD
+
+      - name: Build Algo site
+        run: npm run build
+
+      - name: Archive build
+        run: tar -czf algo-site.tar.gz build/ # Packaging as .tar.gz is standard for Unix/Linux
+
+      - name: Generate Release Notes
+        id: release_notes
+        uses: release-drafter/release-drafter@v6
+        with:
+          config-name: 'release-drafter.yml'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          body: ${{ steps.release_notes.outputs.body }}
+          files: algo-site.tar.gz
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

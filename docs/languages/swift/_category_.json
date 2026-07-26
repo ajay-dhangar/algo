@@ -1,0 +1,11 @@
+{
+  "label": "Swift",
+  "position": 13,
+  "customProps": {
+    "description": "Swift is a powerful and intuitive programming language developed by Apple for building iOS, macOS, watchOS, and tvOS apps."
+  },
+  "link": {
+    "type": "generated-index",
+    "description": "Comprehensive Swift programming language guide, algorithms, recommended folder structures, and implementation examples."
+  }
+}

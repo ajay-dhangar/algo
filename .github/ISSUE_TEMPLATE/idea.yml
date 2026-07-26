@@ -1,0 +1,46 @@
+name: "💡 Idea"
+description: "Submit an idea for Algo."
+title: "[Idea]: <Your idea title>"
+labels: ["idea", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This template is for submitting new ideas or enhancements for Algo.
+
+  - type: input
+    id: idea_title
+    attributes:
+      label: "Idea Title"
+      description: "Provide a short title for your idea."
+      placeholder: "E.g., Add a new sorting algorithm visualization"
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea_description
+    attributes:
+      label: "Idea Description"
+      description: "Describe your idea in detail. Explain the problem it solves or the value it adds."
+      placeholder: "Provide a detailed description of your idea..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: benefits
+    attributes:
+      label: "Potential Benefits"
+      description: "What benefits does your idea bring?"
+      options:
+        - label: "Improves user experience"
+        - label: "Enhances learning"
+        - label: "Adds a new feature"
+        - label: "Improves code quality"
+        - label: "Other"
+
+  - type: textarea
+    id: implementation_suggestions
+    attributes:
+      label: "Implementation Suggestions (Optional)"
+      description: "If you have any suggestions on how to implement your idea, share them here."
+      placeholder: "Provide your thoughts on implementation..."

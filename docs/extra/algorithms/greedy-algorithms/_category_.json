@@ -1,0 +1,8 @@
+{
+    "label": "Greedy Algorithms",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "Greedy algorithms are a paradigm for solving optimization problems. The main idea behind a greedy algorithm is to make a sequence of choices, each of which looks the best at the moment. It chooses the optimal solution at every step with the hope that these local optimal choices will lead to a global optimal solution."
+    }
+}

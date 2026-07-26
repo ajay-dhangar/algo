@@ -1,0 +1,53 @@
+.heap-sort-visualization {
+    padding: 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+  }
+  
+  .heap-sort-visualization button {
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 0.5;
+    cursor: pointer;
+  }
+  
+  .heap-sort-visualization button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .heap-sort-visualization .array-bar {
+    width: 15px;
+    margin: 0 2px;
+    background-color: #4caf50;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+  }
+  
+  .heap-sort-visualization .array-bar.heap-index {
+    background-color: #e91e63;  /* Pink color for heap root */
+  }
+  
+  .heap-sort-visualization .array-bar.comparing-index {
+    background-color: #2196f3;  /* Blue color for elements being compared */
+  }
+  
+  /* Optional: Add a subtle pulse animation for the heap root */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .heap-sort-visualization .array-bar.heap-index {
+    animation: pulse 1s infinite;
+  }

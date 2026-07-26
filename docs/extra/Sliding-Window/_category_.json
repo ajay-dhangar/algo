@@ -1,0 +1,8 @@
+{
+    "label": "Sliding Window",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "The Sliding Window is an efficient technique used to solve problems involving arrays or strings where we need to find a subrange that satisfies a particular condition. Instead of recomputing the entire range from scratch every time, we slide a window over the array/string and update the solution incrementally."
+    }
+}

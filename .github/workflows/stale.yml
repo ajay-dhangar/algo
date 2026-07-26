@@ -1,0 +1,38 @@
+name: "Mark Stale Issues and PRs"
+
+on:
+  schedule:
+    # Runs daily at midnight
+    - cron: "0 0 * * *"
+  workflow_dispatch: # Allows you to run it manually for testing
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: "Close Stale Issues and PRs"
+        uses: actions/stale@v9
+        with:
+          # Increased duration for thoughtful algorithmic work
+          days-before-stale: 60
+          days-before-close: 14
+          
+          # Docusaurus/Docs specific labels to exempt
+          exempt-issue-labels: "pinned,documentation,help wanted,good first issue"
+          exempt-pr-labels: "pinned,status: waiting for upstream,docs"
+          
+          # Custom messaging for your Algo project
+          stale-issue-message: "This issue has been marked as stale because it has not had recent activity. If this is still relevant to the algorithm or documentation, please leave a comment!"
+          close-issue-message: "This issue has been closed due to inactivity. If you believe this is still a valid issue for the project, please feel free to reopen it."
+          
+          stale-pr-message: "This PR has been marked as stale due to inactivity. Please update the branch or comment if you intend to continue work."
+          close-pr-message: "This PR has been closed due to inactivity."
+          
+          # Ensures updates to docs or code reset the timer
+          remove-stale-when-updated: true
+          
+          # Logging
+          debug-only: false

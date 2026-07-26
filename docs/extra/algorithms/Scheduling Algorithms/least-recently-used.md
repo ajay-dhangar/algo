@@ -1,0 +1,168 @@
+---
+id: least-recently-used-scheduling
+title: Least Recently used Scheduling
+sidebar_label: "Least Recently used Scheduling"
+sidebar_position: 6
+description: An overview of Least Recently Used Scheduling and its applications in programming.
+tags: [CPU Scheduling, algorithms, programming, LRU]
+---
+
+LRU (Least Recently Used) is a cache replacement algorithm that removes the least recently accessed item when the cache reaches its maximum capacity. It tracks the order in which items are used, ensuring that the most recently accessed items remain in the cache while the least recently accessed are evicted.
+
+- **Key Idea:** When a new item is accessed or added to the cache, it is moved to the front, and when the cache is full, the item at the end (least recently used) is removed.
+
+## Where It Is Used
+- Used in systems where limited memory is allocated for caching frequently accessed data (e.g., web browsers, CPU cache, database management).
+- Operating systems implement it for paging to replace the least recently used memory pages.
+
+## Steps to Implement LRU
+1. **Check Cache Size:** If the cache is full, remove the least recently used item.
+2. **Access or Add New Item:** Move the accessed item to the front of the cache.
+3. **Update Order:** Reorder the items so that the most recently used item is at the front and the least recently used is at the end.
+
+## Video Explanation 
+
+<LiteYouTubeEmbed
+  id="dYIoWkCvd6A"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="L-5.25: Least Recently Used Page Replacement Algorithm | Operating System"
+  lazyLoad={true}
+  webp
+/>
+
+## Example
+
+Consider a cache with a capacity of 3:
+- **Initial Cache:** `[]`
+- **Access 1:** Cache becomes `[1]`
+- **Access 2:** Cache becomes `[2, 1]`
+- **Access 3:** Cache becomes `[3, 2, 1]`
+- **Access 1:** Cache becomes `[1, 3, 2]` (1 is most recently used)
+- **Access 4:** Cache becomes `[4, 1, 3]` (2 is evicted)
+
+## Time Complexity
+- Best Case: O(1)
+- Average Case: O(1)
+- Worst Case: O(1)
+for access and update operations when implemented efficiently using a Hash Map and a Doubly Linked List. (Note: A naive array or list-based approach would be `O(n)`).
+
+## Space Complexity
+- O(N)
+where `N` is the capacity of the cache. The hash map stores `N` key-node pairs, and the doubly linked list stores `N` nodes.
+
+## Explanation
+An efficient LRU Cache utilizes a Hash Map to locate elements in `O(1)` time and a Doubly Linked List to maintain the usage order and execute fast `O(1)` inserts and deletes at the boundaries. Accessing an element involves a hash map lookup followed by moving the corresponding list node to the head. Evicting an item drops the tail node of the list and deletes the corresponding key from the hash map. Both operations execute in constant time, while using space directly proportional to the cache capacity.
+
+## Advantages
+- **Efficient for Cache Replacement:** Quickly identifies and removes the least recently used items.
+- **Simple to Implement:** LRU logic is relatively simple when using appropriate data structures (hash map + linked list).
+
+## Disadvantages
+- **Memory Overhead:** Requires additional memory to maintain the linked list and hash map.
+- **Complexity in Implementation:** Requires careful implementation to ensure efficient `O(1)` access and modification times.
+
+## C Implementation
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#define CAPACITY 3
+
+struct Node {
+    int key;
+    struct Node* prev;
+    struct Node* next;
+};
+
+struct LRUCache {
+    struct Node* head;
+    struct Node* tail;
+    int size;
+};
+
+struct LRUCache* createCache() {
+    struct LRUCache* cache = (struct LRUCache*) malloc(sizeof(struct LRUCache));
+    cache->head = NULL;
+    cache->tail = NULL;
+    cache->size = 0;
+    return cache;
+}
+
+void accessCache(struct LRUCache* cache, int key) {
+    // Implementation to access and reorder the cache items
+    // Code omitted for brevity
+}
+
+int main() {
+    struct LRUCache* cache = createCache();
+    accessCache(cache, 1);
+    accessCache(cache, 2);
+    accessCache(cache, 3);
+    accessCache(cache, 4);  // Evicts least recently used item
+    return 0;
+}
+```
+## Python Implementation
+
+```c
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cache = {}
+        self.capacity = capacity
+        self.order = []
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            self.order.remove(key)
+            self.order.insert(0, key)
+            return self.cache[key]
+        return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            self.order.remove(key)
+        elif len(self.cache) == self.capacity:
+            lru = self.order.pop()
+            del self.cache[lru]
+        self.order.insert(0, key)
+        self.cache[key] = value
+
+# Example usage:
+cache = LRUCache(3)
+cache.put(1, 1)
+cache.put(2, 2)
+cache.put(3, 3)
+cache.get(1)  # Access 1, makes it most recently used
+cache.put(4, 4)  # Evicts 2
+
+```
+## Java Implementation
+
+```c
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+class LRUCache extends LinkedHashMap<Integer, Integer> {
+    private int capacity;
+
+    public LRUCache(int capacity) {
+        super(capacity, 0.75f, true);
+        this.capacity = capacity;
+    }
+
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+        return size() > capacity;
+    }
+
+    public static void main(String[] args) {
+        LRUCache cache = new LRUCache(3);
+        cache.put(1, 1);
+        cache.put(2, 2);
+        cache.put(3, 3);
+        cache.get(1);  // Accesses 1, makes it most recently used
+        cache.put(4, 4);  // Evicts 2
+    }
+}
+
+```

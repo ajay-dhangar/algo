@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "एल्गो सफलता की कहानियां (Algo Success Stories)",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "एल्गोरिदम की दुनिया में जीत और विकास की प्रेरक यात्राएँ। जानें कि कैसे शिक्षार्थियों ने चुनौतियों पर विजय प्राप्त की, मील के पत्थर हासिल किए, और समर्पण और दृढ़ता के माध्यम से अपने कौशल को बदला।",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "हालिया सफलता की कहानियां",
+    "description": "The label for the left sidebar"
+  }
+}

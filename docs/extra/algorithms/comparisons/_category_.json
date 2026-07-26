@@ -1,0 +1,8 @@
+{
+  "label": "Algorithm Comparisons",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "description": "Side-by-side comparisons of popular data structures and algorithms to help you choose the right approach."
+  }
+}

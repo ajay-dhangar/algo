@@ -1,0 +1,82 @@
+/* style.css */
+.visualizer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f6fa;
+    min-height: 100vh;
+  }
+  
+  .controls {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .controls button:hover {
+    background-color: #2980b9;
+  }
+  
+  .controls button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  .speed-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .speed-control label {
+    font-size: 16px;
+    color: #2c3e50;
+  }
+  
+  .speed-control input {
+    width: 150px;
+  }
+  
+  .array-container {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .array-bar {
+    margin: 0 1px;
+    transition: height 0.3s ease, background-color 0.3s ease;
+  }
+  
+  @media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .controls button {
+      width: 100%;
+    }
+    
+    .speed-control {
+      width: 100%;
+    }
+  }

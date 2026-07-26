@@ -1,0 +1,288 @@
+---
+id: custom-page
+title: "Custom Page for Testing and Documentation"
+sidebar_label: Custom Page
+custom_edit_url: null
+sidebar_position: 999
+description: "This is a custom page that can be used to provide additional information or testing components. You can use this page to add any content you want, such as text, images, or code snippets. It can also be used to test out new features or components before adding them to the main documentation."
+tags: ["custom", "page", "documentation"]
+---
+
+import AlgoQuiz from '@site/src/components/AlgoQuiz';
+
+## Try Quiz Component
+
+<AlgoQuiz 
+  question="What is the worst-case time complexity of a lookup in a perfectly balanced Binary Search Tree (BST)?"
+  options={["O(1)", "O(log n)", "O(n)", "O(n log n)"]}
+  correctAnswer={1}
+  explanation="In a perfectly balanced BST, each step down the tree splits the search space in half, resulting in logarithmic execution paths."
+/>
+
+
+## Try Live Code Component
+
+```jsx live
+function ArrayVisualizer() {
+  const arr =[5, 3, 8, 1, 2];
+  const sorted = [...arr].sort((a, b) => a - b);
+  
+  return (
+    <div>
+      <p><b>Original: </b> {JSON.stringify(arr)}</p>
+      <p><b>Sorted: </b> {JSON.stringify(sorted)}</p>
+    </div>
+  );
+}
+```
+
+## Try Sorting Algorithm Visualizer
+
+import React, { useState, useEffect, useRef } from 'react';
+
+```jsx live
+function SortVisualizer() {
+  const [array, setArray] = useState([45, 20, 80, 50, 10, 90, 30, 70, 60]);
+  const [sorting, setSorting] = useState(false);
+  const arrayRef = useRef(array);
+
+  useEffect(() => { arrayRef.current = array; }, [array]);
+
+  const bubbleSort = async () => {
+    setSorting(true);
+    let arr = [...arrayRef.current];
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          let temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+          setArray([...arr]);
+          await new Promise((r) => setTimeout(r, 150)); // Frame step delay
+        }
+      }
+    }
+    setSorting(false);
+  };
+
+  return (
+    <div style={{ padding: '1.5rem', background: '#1e1e1e', borderRadius: '8px', border: '1px solid #333' }}>
+      <div style={{ display: 'flex', alignItems: 'flex-end', height: '120px', gap: '8px', paddingBottom: '1rem', borderBottom: '1px solid #444' }}>
+        {array.map((val, idx) => (
+          <div key={idx} style={{ height: `${val}%`, width: '100%', background: '#2196f3', borderRadius: '4px 4px 0 0', display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
+            <span style={{ fontSize: '10px', color: '#fff', marginBottom: '2px' }}>{val}</span>
+          </div>
+        ))}
+      </div>
+      <button onClick={bubbleSort} disabled={sorting} style={{ marginTop: '1rem', background: '#25c2a0', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>
+        {sorting ? 'Visualizing...' : 'Run Bubble Sort Simulation'}
+      </button>
+    </div>
+  );
+}
+```
+
+## Try Complexity Speed Runner Game
+
+```jsx live
+function SpeedRunner() {
+  const [gameStarted, setGameStarted] = useState(false);
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [score, setScore] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(10);
+  const [gameOver, setGameOver] = useState(false);
+
+  const challengePool = [
+  { code: 'for (let i = 0; i < n; i++) {\n  console.log(i);\n}', ans: 'O(n)' },
+  { code: 'for (let i = 0; i < n; i++) {\n  for (let j = 0; j < n; j++) {\n    matrix[i][j] = 0;\n  }\n}', ans: 'O(n²)' },
+  { code: 'let mid = Math.floor((low + high) / 2);\nif (arr[mid] === target) return mid;', ans: 'O(log n)' },
+  { code: 'return array[0];', ans: 'O(1)' },
+  { code: 'arr.sort(); // Standard Merge/Quick Sort', ans: 'O(n log n)' }
+];
+
+  useEffect(() => {
+    if (!gameStarted || gameOver) return;
+    if (timeLeft === 0) {
+      setGameOver(true);
+      return;
+    }
+    const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [timeLeft, gameStarted, gameOver]);
+
+  const handleAnswer = (selected) => {
+    if (selected === challengePool[currentIdx].ans) {
+      setScore(score + 10);
+      setTimeLeft((prev) => Math.min(prev + 3, 15)); // Reward extra time
+    } else {
+      setTimeLeft((prev) => Math.max(prev - 4, 0)); // Penalise wrong choice
+    }
+    
+    if (currentIdx < challengePool.length - 1) {
+      setCurrentIdx(currentIdx + 1);
+    } else {
+      setCurrentIdx(0); // Loop pool for infinite survival play
+    }
+  };
+
+  const restartGame = () => {
+    setScore(0);
+    setCurrentIdx(0);
+    setTimeLeft(10);
+    setGameOver(false);
+    setGameStarted(true);
+  };
+
+  return (
+    <div style={{ background: '#141416', padding: '2rem', borderRadius: '12px', border: '2px solid #32363e', textAlign: 'center', margin: '2rem 0' }}>
+      <h2>🎮 Complexity Speed Runner</h2>
+      
+      {!gameStarted && !gameOver && (
+        <button onClick={() => setGameStarted(true)} style={{ background: '#2196f3', color: '#fff', border: 'none', padding: '0.8rem 2rem', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', fontSize: '1.1rem' }}>
+          Start Time Attack ⚡
+        </button>
+      )}
+
+      {gameStarted && !gameOver && (
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', fontWeight: 'bold' }}>
+            <span style={{ color: '#ffb703' }}>Score: {score}</span>
+            <span style={{ color: timeLeft <= 3 ? '#e63946' : '#25c2a0' }}>⏰ Time Left: {timeLeft}s</span>
+          </div>
+          <pre style={{ background: '#1e1e1e', textAlign: 'left', padding: '1rem', borderRadius: '8px', border: '1px solid #333' }}>
+            <code>{challengePool[currentIdx].code}</code>
+          </pre>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginTop: '1.5rem' }}>
+            {['O(1)', 'O(log n)', 'O(n)', 'O(n²)'].map((op) => (
+              <button key={op} onClick={() => handleAnswer(op)} style={{ background: '#2d3139', color: '#fff', border: '1px solid #4f5666', padding: '0.7rem', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>
+                {op}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {gameOver && (
+        <div>
+          <h3 style={{ color: '#e63946' }}>💥 Game Over!</h3>
+          <p style={{ fontSize: '1.3rem' }}>Final Score: <b>{score} points</b></p>
+          <button onClick={restartGame} style={{ background: '#25c2a0', color: '#fff', border: 'none', padding: '0.6rem 1.5rem', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>
+            Play Again 🔄
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Try Binary Search Pointer Arena
+
+```jsx live
+function PointerArena() {
+  const [array] = useState([12, 24, 35, 47, 59, 68, 81, 95]);
+  const [low, setLow] = useState(0);
+  const [high, setHigh] = useState(7);
+  const [target] = useState(68);
+  const [message, setMessage] = useState('Find 68. Click the correct structural Middle index!');
+  const [won, setWon] = useState(false);
+
+  const checkIndex = (idx) => {
+    if (won) return;
+    const correctMid = Math.floor((low + high) / 2);
+    
+    if (idx !== correctMid) {
+      setMessage('❌ Wrong index evaluation! That is not the middle pointer path.');
+      return;
+    }
+
+    if (array[idx] === target) {
+      setMessage('🎉 Success! Target identified cleanly.');
+      setWon(true);
+    } else if (array[idx] < target) {
+      setLow(idx + 1);
+      setMessage('⬆️ Higher! The middle value was too low. Calculate the new middle.');
+    } else {
+      setHigh(idx - 1);
+      setMessage('⬇️ Lower! The middle value was too high. Calculate the new middle.');
+    }
+  };
+
+  return (
+    <div style={{ background: '#1a1d24', padding: '1.5rem', borderRadius: '12px', border: '1px solid #383f4d', margin: '2rem 0' }}>
+      <h3>🧩 Binary Search: Manual Tracer</h3>
+      <p style={{ color: '#a0aec0', minHeight: '24px' }}>{message}</p>
+      
+      <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', margin: '2rem 0' }}>
+        {array.map((val, idx) => {
+          let isSearchRange = idx >= low && idx <= high;
+          return (
+            <button
+              key={idx}
+              onClick={() => checkIndex(idx)}
+              disabled={!isSearchRange || won}
+              style={{
+                width: '50px',
+                height: '50px',
+                background: won && array[idx] === target ? '#25c2a0' : isSearchRange ? '#2196f3' : '#2d3748',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '6px',
+                fontWeight: 'bold',
+                cursor: isSearchRange && !won ? 'pointer' : 'not-allowed',
+                transform: isSearchRange && !won ? 'scale(1)' : 'scale(0.95)',
+                opacity: isSearchRange ? 1 : 0.4,
+                transition: 'all 0.2s'
+              }}
+            >
+              {val}
+            </button>
+          );
+        })}
+      </div>
+      
+      {won && (
+        <button onClick={() => { setLow(0); setHigh(7); setWon(false); setMessage('Find 68. Click the correct structural Middle index!'); }} style={{ background: '#4a5568', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: '4px', cursor: 'pointer' }}>
+          Reset Puzzle 🔄
+        </button>
+      )}
+    </div>
+  );
+}
+```
+
+## Try Reward Panel Component
+
+```jsx live
+function RewardPanel() {
+  const [xp, setXp] = useState(0);
+
+  useEffect(() => {
+    const currentXp = parseInt(localStorage.getItem('algo_user_xp') || '0', 10);
+    setXp(currentXp);
+  }, []);
+
+  const claimDailyBonus = () => {
+    const nextXp = xp + 50;
+    setXp(nextXp);
+    localStorage.setItem('algo_user_xp', String(nextXp));
+  };
+
+  return (
+    <div style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #311042 100%)', padding: '1.5rem', borderRadius: '12px', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '2rem 0', border: '1px solid #581c87' }}>
+      <div>
+        <h4 style={{ margin: 0, letterSpacing: '1px', color: '#c084fc' }}>ALGO RANK COMPLIANCE</h4>
+        <p style={{ fontSize: '1.8rem', fontWeight: 'bold', margin: '0.2rem 0' }}>⚡ {xp} Total XP</p>
+        <div style={{ display: 'flex', gap: '8px', marginTop: '0.5rem' }}>
+          <span style={{ fontSize: '12px', background: xp >= 50 ? '#25c2a0' : '#4b5563', padding: '2px 8px', borderRadius: '999px' }}>🥉 Code Cadet</span>
+          <span style={{ fontSize: '12px', background: xp >= 200 ? '#2196f3' : '#4b5563', padding: '2px 8px', borderRadius: '999px' }}>🥈 Sorting Knight</span>
+          <span style={{ fontSize: '12px', background: xp >= 500 ? '#ffb703' : '#4b5563', padding: '2px 8px', borderRadius: '999px' }}>👑 Big-O Grandmaster</span>
+        </div>
+      </div>
+      <button onClick={claimDailyBonus} style={{ background: '#c084fc', color: '#1e1b4b', border: 'none', padding: '0.6rem 1.2rem', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', transition: 'transform 0.2s' }}>
+        Claim Daily 50 XP 💎
+      </button>
+    </div>
+  );
+}
+```
