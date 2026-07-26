@@ -1,0 +1,65 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  background: var(--ifm-background-surface-color);
+  cursor: pointer;
+  color: var(--ifm-font-color-base);
+  transition: background 0.2s;
+  font-size: 0.9rem;
+}
+
+.trigger:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.shareIcon {
+  font-size: 1rem;
+}
+
+.menu {
+  display: block; /* Managed by React conditional mounting now */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.4rem;
+  padding: 0.4rem 0;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 20;
+  list-style: none;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  font-size: 0.9rem;
+}
+
+.menuItem:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--hover-color);
+  text-decoration: none;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+}

@@ -1,0 +1,98 @@
+name: "🐞 Bug Report"
+description: "Report a bug or unexpected behavior in Algo."
+title: "[Bug]: <Brief description of the bug>"
+labels: ["bug", "status: needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug in **Algo**. Please fill out the details below to help us understand and resolve the issue as quickly as possible.
+
+  - type: input
+    id: bug_summary
+    attributes:
+      label: "Bug Summary"
+      description: "Provide a summary of the bug."
+      placeholder: "E.g., Array index out-of-bounds error in binary search algorithm"
+    validations:
+      required: true
+
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: "Bug Description"
+      description: "Describe the bug in detail. Include what you expected to happen and what happened."
+      placeholder: "Provide a detailed description of the bug, including steps to reproduce..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: "Steps to Reproduce"
+      description: "List the steps to reproduce the bug. Provide as much detail as possible."
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: "Expected Behavior"
+      description: "Describe what you expected to happen when following the steps above."
+      placeholder: "Describe the expected behaviour..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: "Actual Behavior"
+      description: "Describe what happened instead."
+      placeholder: "Describe the actual behaviour..."
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots or Logs (Optional)"
+      description: "If applicable, add screenshots or log files to help explain the problem."
+      placeholder: "Provide links or attachments..."
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity"
+      description: "How severe is the bug?"
+      options:
+        - "Critical - prevents the use of the system"
+        - "Major - impacts significant functionality"
+        - "Minor - cosmetic or minor issue"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "Check all environments where the bug occurs."
+      options:
+        - label: "Local Development"
+        - label: "Staging"
+        - label: "Production"
+        - label: "Other"
+
+  - type: textarea
+    id: system_information
+    attributes:
+      label: "System Information (Optional)"
+      description: "Provide details about the environment where the bug occurred (e.g., OS, browser, Node.js version)."
+      placeholder: "OS: Windows 10, Browser: Chrome, Node.js: v14.17.0..."
+
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you for reporting this bug!** We will review your report and get back to you soon. 🐛

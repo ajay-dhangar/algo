@@ -1,0 +1,27 @@
+---
+id: complexity-table-generator
+title: Complexity Table Generator
+sidebar_label: Complexity Table Generator
+description: Reusable MDX component for generating algorithm complexity comparison tables.
+---
+
+import ComplexityTable from '@site/src/components/ComplexityTable';
+
+# Complexity Table Generator
+
+The Complexity Table Generator provides a reusable way to display standardized algorithm complexity information across the documentation.
+
+Instead of manually writing comparison tables repeatedly, contributors can add metadata once in a centralized JSON file and reuse it through an MDX component.
+
+## Example Usage
+
+```mdx
+import ComplexityTable from '@site/src/components/ComplexityTable';
+
+<ComplexityTable
+  algorithms={[
+    "Bubble Sort",
+    "Merge Sort",
+    "Quick Sort"
+  ]}
+/>

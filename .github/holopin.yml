@@ -1,0 +1,10 @@
+organization: "ajaydhangar"
+defaultSticker: "clirmpr4i11330flbnsphkwzy" 
+
+stickers:
+  - id: "12346"
+    alias: "contributor"
+  - id: "12347"
+    alias: "bug-hunter"
+  - id: "12348"
+    alias: "review-hero"

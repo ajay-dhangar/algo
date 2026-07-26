@@ -1,0 +1,8 @@
+{
+    "label": "Mathematical Algorithms",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "Mathematical algorithms are essential in computer science for solving problems that require mathematical computations and reasoning. These algorithms are foundational in various applications, from cryptography to statistical analysis, and play a significant role in competitive programming."
+    }
+}

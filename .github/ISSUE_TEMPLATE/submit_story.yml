@@ -1,0 +1,78 @@
+name: Submit a Community Story
+description: Share your journey, struggles, and triumphs with the community!
+title: "[Story]: <Your Name>"
+labels: ["story", "community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to share your story! We'll use this information to add your story to the Community Stories page.
+  - type: input
+    id: name
+    attributes:
+      label: Full Name or Nickname
+      description: How would you like to be credited?
+      placeholder: e.g. John Doe
+    validations:
+      required: true
+  - type: input
+    id: username
+    attributes:
+      label: GitHub Username
+      description: We will use this to fetch your profile picture.
+      placeholder: e.g. octocat
+    validations:
+      required: true
+  - type: input
+    id: role
+    attributes:
+      label: Current Role / Title
+      description: e.g. Self-taught Developer, First-year CS Student, Senior Engineer
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Story Title / Quote
+      description: A short, catchy title or quote for your story.
+      placeholder: e.g. From 100 rejections to a FAANG offer
+    validations:
+      required: true
+  - type: dropdown
+    id: tags
+    attributes:
+      label: Field / Category
+      description: Which area best describes your journey?
+      multiple: true
+      options:
+        - Web Development
+        - Competitive Programming
+        - Machine Learning
+        - Open Source
+        - Game Development
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: metric
+    attributes:
+      label: Key Achievement / Metric
+      description: e.g. Landed a job after 6 months, Contributed 50 PRs, Solved 500 LeetCode problems
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Your Story (Summary)
+      description: A brief paragraph describing your background, struggle, and eventual triumph.
+      placeholder: Tell us what you went through...
+    validations:
+      required: true
+  - type: textarea
+    id: full_story
+    attributes:
+      label: Full Route (Optional)
+      description: If you want a dedicated page, share your full, detailed journey here.
+      placeholder: Once upon a time...
+    validations:
+      required: false

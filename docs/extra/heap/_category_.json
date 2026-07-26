@@ -1,0 +1,8 @@
+{
+    "label": "Heap",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "A Heap is a specialized tree-based data structure that satisfies the **Heap Property**. Heaps are commonly used to implement priority queues and ensure efficient retrieval of the minimum or maximum element."
+    }
+}

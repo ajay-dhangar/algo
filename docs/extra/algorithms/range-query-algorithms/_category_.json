@@ -1,0 +1,8 @@
+{
+  "label": "Range Query Algorithms",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn offline and online range query techniques used in arrays, competitive programming, and interview problem solving."
+  }
+}

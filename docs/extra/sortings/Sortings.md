@@ -1,0 +1,1219 @@
+---
+id: sortings
+title: Sortings Data Structure
+sidebar_label: Introduction to Sortings
+description: 'Sorting algorithms are fundamental in computer science, used to arrange data in a particular order, typically ascending or descending. Various sorting techniques are designed to optimize performance based on factors like time complexity, space complexity.'
+tags: [dsa, Sortings, Bubble sort, Insertion sort, Selection sort, Merge sort, Quick sort , C, Java, Python, C++, Heap Sort]
+---
+
+### Introduction to Sortings
+
+Sorting algorithms play a crucial role in organizing data for efficient access and manipulation. Different algorithms are optimized for various use cases based on their time complexity, space complexity, and stability.
+
+In this page we will learn about **Bubble Sort** , **Selection Sort** , **Insertion Sort** , **Merge Sort** and **Quick Sort**.
+
+### Video Explanation
+
+<LiteYouTubeEmbed
+  id="HGk_ypEuS24"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Sorting - Part 1 | Selection Sort, Bubble Sort, Insertion Sort | Strivers A2Z DSA Course"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+### Bubble Sort
+
+Bubble sort is a simple, comparison-based sorting algorithm. It works by repeatedly stepping through the list, comparing adjacent elements, and swapping them if they are in the wrong order. This process is repeated until no more swaps are needed, indicating that the list is sorted.
+
+**Algorithm**
+
+  - Start at the beginning of the array.
+  - Compare each pair of adjacent elements and then swap them if they are in the wrong order.
+  - Repeat the process for the entire list until no swaps are made during a pass.
+
+### Solution in C
+  ```c
+        #include <stdio.h>
+
+// Function to display array elements
+void display(int a[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
+
+// Function to perform bubble sort on an array
+void bubble_sort(int a[], int n) {
+    int i, j, temp;
+    for (i = 1; i < n; i++) {
+        for (j = 0; j < n - i; j++) {
+            if (a[j] > a[j + 1]) {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+    display(a, n);  // Calling `display` after sorting
+}
+
+int main() {
+    int a[] = {5, 2, 9, 1, 5, 6};
+    int n = sizeof(a) / sizeof(a[0]);
+    bubble_sort(a, n);
+    return 0;
+}
+
+  ```
+
+### Solution in Java
+```java
+import java.util.*;
+
+public class Main{
+	
+	//function to print array
+	public static void printArray(int arr[]){
+		for(int i=0; i<arr.length; i++){
+			System.out.print(arr[i]+" ");
+		}
+	}
+	
+	//main function
+	public static void main(String[] args){
+		int[] arr = {7, 8, 3, 1, 2};
+		
+		//bubble sort
+		for(int i=0; i<arr.length-1; i++){
+			//loop to ignore the sorted elements in previous itertions
+			for(int j=0; j<arr.length-i-1; j++){
+				if(arr[j] > arr[j+1]){
+					//swap
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		
+		printArray(arr);
+	}
+}
+```
+
+### Solution in JavaScript
+
+```javascript
+// Function to print array
+function printArray(arr) {
+  console.log(...arr);
+}
+
+// Bubble sort function
+function bubbleSort(arr) {
+  let n = arr.length;
+  for (let i = 0; i < n - 1; i++) {
+    // Loop to ignore sorted elements from previous iterations
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // Swap elements using destructuring
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+  return arr;
+}
+
+// Main function
+function main() {
+  let arr = [7, 8, 3, 1, 2];
+
+  // Perform bubble sort
+  let sortedArr = bubbleSort(arr);
+
+  // Print sorted array
+  printArray(sortedArr);
+}
+
+// Call main function
+main();
+```
+
+### Solution in Python
+```python
+def bubble_sort(arr):
+    n = len(arr)
+    
+    for i in range(n):
+        swapped = False
+        # Last i elements are already sorted
+        for j in range(n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        # If no swaps, array is sorted
+        if not swapped:
+            break
+    return arr
+
+if __name__ == "__main__":
+    arr = [64, 34, 25, 12, 22, 11, 90]
+    print("Original:", arr)
+    print("Sorted:", bubble_sort(arr.copy()))
+```
+
+### Solution in C++
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void bubbleSort(vector<int>& arr) {
+
+    int n = arr.size();
+    
+    for (int i = 0; i < n; i++) {
+        bool swapped = false;
+        // Last i elements are already sorted
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                swapped = true;
+            }
+        }
+        // If no swaps, array is sorted
+        if (!swapped) break;
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
+    
+    cout << "Original: ";
+    for (int val : arr) cout << val << " ";
+    
+    bubbleSort(arr);
+    
+    cout << "\nSorted: ";
+    for (int val : arr) cout << val << " ";
+    cout << endl;
+    
+    return 0;
+}
+```
+
+**Time Complexity**
+    - **Worst Case**: O(n²) – when the array is sorted in reverse order.
+    - **Best Case**: O(n) – when the array is already sorted.
+    
+**Space Complexity**
+   - O(1) – sorts the list in place without extra space.
+
+**Stability**
+   - Stable – equal elements remain in the same relative order after sorting.
+
+**Usage**
+   - Not used in practical applications due to its inefficiency, but useful for educational purposes.
+
+### Selection Sort
+
+Selection sort divides the array into a sorted and an unsorted region. It works by repeatedly selecting the smallest (or largest) element from the unsorted region and swapping it with the first unsorted element. This process continues until the entire array is sorted.
+
+**Algorithm**
+
+  - Start at the beginning of the array.
+  - Find the minimum element from the unsorted portion of the array.
+  - Swap it with the first element in the unsorted portion and move forward.
+  - Repeat until the array is fully sorted.
+
+### Solution in C
+   ```text
+        void selection_sort(int a[],int n) 
+        {
+            int i,j,k,temp,temper; 
+            for(i=0;i<n;i++) 
+            { 
+                k=0; 
+                temp=a[i]; 
+                for(j=i+1;j<n;j++) 
+                    if(temp>a[j]) 
+                    {
+                        k=j; 
+                        temp=a[j]; 
+                    } 
+                if(k!=0){ 
+                    temper=a[i]; 
+                    a[i]=a[k]; 
+                    a[k]=temper; 
+                } 
+            } 
+        display(a,n); 
+        }
+   ```
+
+### Solution in Java
+```java
+import java.util.*;
+
+public class Main{
+	
+	//function to print array
+	public static void printArray(int arr[]){
+		for(int i=0; i<arr.length; i++){
+			System.out.print(arr[i]+" ");
+		}
+	}
+	
+	//main function
+	public static void main(String[] args){
+		int[] arr = {7, 8, 3, 1, 2};
+		
+		//selection sort
+		for(int i=0; i<arr.length-1; i++){
+			int smallest = i;
+			//inner loop to ignore the sorted elements
+			for(int j = i+1; j<arr.length; j++){
+				if(arr[smallest] > arr[j]){
+					smallest = j;
+				}
+			}
+			//swapping after checking for each iteration
+			int temp = arr[smallest];
+			arr[smallest] = arr[i];
+			arr[i] = temp;
+		}
+		
+		printArray(arr);
+	}
+}
+```
+
+### Solution in Python
+```python
+def selection_sort(arr):
+
+    n = len(arr)
+    
+    for i in range(n):
+        # Find minimum element in unsorted part
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        # Swap found minimum with first element of unsorted part
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    
+    return arr
+
+if __name__ == "__main__":
+    arr = [64, 34, 25, 12, 22, 11, 90]
+    print("Original:", arr)
+    print("Sorted:", selection_sort(arr.copy()))
+```
+
+### Solution in C++
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void selectionSort(vector<int>& arr) {
+
+    int n = arr.size();
+    
+    for (int i = 0; i < n; i++) {
+        // Find minimum element in unsorted part
+        int min_idx = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j;
+            }
+        }
+        // Swap found minimum with first element of unsorted part
+        swap(arr[i], arr[min_idx]);
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
+    
+    cout << "Original: ";
+    for (int val : arr) cout << val << " ";
+    
+    selectionSort(arr);
+    
+    cout << "\nSorted: ";
+    for (int val : arr) cout << val << " ";
+    cout << endl;
+    
+    return 0;
+}
+```
+
+**Time Complexity**
+    - **Worst Case**: O(n²) – as it performs n comparisons for each element.
+    - **Best Case**: O(n²) – as it performs the same number of comparisons regardless of the array's initial order.
+    
+**Space Complexity**
+    - O(1) – in-place sorting.
+
+**Stability**
+    - Unstable – equal elements may be swapped, changing their relative order.
+
+**Usage**
+    - Useful when memory space is limited due to its in-place nature. Not efficient for large datasets.
+
+
+### Insertion Sort
+
+Insertion sort works similarly to how people arrange playing cards in their hands. It builds the sorted list one element at a time by inserting each new element into its proper position relative to the elements already sorted.
+
+**Algorithm**
+
+  - Start at the beginning of the array.
+  - Assume the first element is sorted and pick the next element.
+  - Compare it to the elements in the sorted portion and shift elements larger than it to the right and insert the element in its correct position.
+  - Repeat until the array is fully sorted.
+
+### Solution in C
+  ```text
+        void insertion_sort(int a[],int n) 
+        { 
+            int i,j,temp; 
+            for(i=1;i<n;i++) 
+            { 
+                temp=a[i]; 
+                for(j=i-1;j>=0&&a[j]>temp;j--) 
+                { 
+                    a[j+1]=a[j]; 
+                    a[j]=temp; 
+                } 
+            } 
+        display(a,n); 
+        }
+  ```
+
+### Solution in Java
+```java
+import java.util.*;
+
+public class Main{
+	
+	//function to print array
+	public static void printArray(int arr[]){
+		for(int i=0; i<arr.length; i++){
+			System.out.print(arr[i]+" ");
+		}
+	}
+	
+	//main function
+	public static void main(String[] args){
+		int[] arr = {7, 8, 3, 1, 2};
+		
+		//insertion sort
+		//loop through unsorted part
+		for(int i=1; i<arr.length; i++){
+			int current = arr[i] // element to be sorted
+			int j = i-1; //last element of sorted part
+			//loop til j reaches 1st element
+			while(j >= 0 && current < arr[j]){
+				//element are pushed forward to make space for current element
+				arr[j+1] = arr[j];
+				j--;
+			}
+			
+			//placement of current element after comparison has been done
+			arr[j+1] = current;
+		}
+		
+		printArray(arr);
+	}
+}
+```
+
+### Solution in Python
+```python
+def insertion_sort(arr):
+
+    for i in range(1, len(arr)):
+        key = arr[i]  # Element to be inserted
+        j = i - 1
+        
+        # Shift elements greater than key to the right
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        
+        # Insert key at correct position
+        arr[j + 1] = key
+    
+    return arr
+
+if __name__ == "__main__":
+    arr = [64, 34, 25, 12, 22, 11, 90]
+    print("Original:", arr)
+    print("Sorted:", insertion_sort(arr.copy()))
+```
+
+### Solution in C++
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void insertionSort(vector<int>& arr) {
+
+    int n = arr.size();
+    
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];  // Element to be inserted
+        int j = i - 1;
+        
+        // Shift elements greater than key to the right
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        
+        // Insert key at correct position
+        arr[j + 1] = key;
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
+    
+    cout << "Original: ";
+    for (int val : arr) cout << val << " ";
+    
+    insertionSort(arr);
+    
+    cout << "\nSorted: ";
+    for (int val : arr) cout << val << " ";
+    cout << endl;
+    
+    return 0;
+}
+```
+
+**Time Complexity**
+    - **Worst Case**: O(n²) – when the array is sorted in reverse order.
+    - **Best Case**: O(n) – when the array is already sorted.
+    
+**Space Complexity**
+    - O(1) – in-place sorting.
+
+**Stability**
+    - Stable – maintains the relative order of equal elements.
+
+**Usage**
+    - Useful when memory space is limited due to its in-place nature. 
+    - Efficient for small datasets or nearly sorted data. 
+    - Commonly used in hybrid algorithms like Timsort.
+
+### Merge Sort
+
+Merge sort is a divide-and-conquer algorithm. It splits the array into two halves, recursively sorts each half, and then merges the sorted halves to produce the sorted array.
+
+**Algorithm**
+
+  - Start at the beginning of the array.
+  - Divide the array into two halves.
+  - Recursively sort each half and merge the sorted halves into a single sorted array.
+  - Repeat until the array is fully sorted.
+
+### Solution in C
+  ```text
+
+    //fUNCTION FOR MERGING 
+
+       void merge(int a[],int l,int mid,int u) 
+        { 
+            int i=l; 
+            int j=mid+1; 
+            int x=0; 
+            int c[10]; 
+            while(i<=mid&&j<=u) 
+            { 
+                if(a[i]<=a[j]) 
+                { 
+                    c[x]=a[i]; 
+                    i++; 
+                    x++; 
+                } 
+                else 
+                { 
+                    c[x]=a[j]; 
+                    j++; 
+                    x++; 
+                } 
+            } 
+            while(i<=mid) 
+            { 
+                c[x]=a[i]; 
+                i++;x++; 
+            } 
+            while(j<=u) 
+            { 
+                c[x]=a[j]; 
+                j++;x++; 
+            } 
+            for(i=0,j=l;i<x;i++,j++) 
+                a[j]=c[i]; 
+        } 
+  ```
+  ```text
+        //FUNCTION FOR SPLITING AND CALLING MERGE FUNCTION
+
+        void merge_sort(int a[],int l,int u) 
+        { 
+            int mid; 
+            if(l<u) 
+            { 
+                mid=l+(u-l)/2; 
+                merge_sort(a,l,mid); 
+                merge_sort(a,mid+1,u); 
+                merge(a,l,mid,u); 
+            } 
+        }
+  ```
+
+### Solution in Java
+```java
+public class Main{
+	
+	public static void conquer(int[] arr, int si, int mid, int ei){
+		int[] merged = new int[ei - si + 1];
+		
+		int idx1 = si; //track 1st array
+		int idx2 = mid+1; //track 2nd array
+		int x = 0; //track merged array
+		
+		while(idx1 <= mid && idx2 <= ei){
+			if(arr[idx1] <= arr[idx2]){
+				merged[x] = arr[idx1];
+				x++; idx++;
+			}
+			else{
+				merged[x] = arr[idx2];
+				x++; idx2++;
+			}
+		}
+		
+		while(idx1 <= mid){ //if elements in left arr remain
+			merged[x] = arr[idx1];
+			x++; idx++;
+		}
+		
+		while(idx2 <= ei){ //if elements in right arr remain
+			merged[x] = arr[idx2];
+			x++; idx2++;
+		}
+		
+		for(int i=0, j=si; i<merged.length; i++, j++){ //copy sorted elements into our 'merged' array
+			arr[j] = merged[i];
+		}
+	}
+	
+	public static void divide(int[] arr, int si, int ei){
+		if(si >= ei){ //either single element left or reached end of array
+			return;
+		}
+		int mid = si + (ei - si) / 2; // (si+ei)/2 might give TC for larger test cases
+		divide(arr, si, mid);
+		divide(arr, mid+1, ei);
+		
+		conquer(arr, si, mid, ei);
+	}
+
+	public static void main(String[] args){
+		int[] arr = {6, 3, 9, 5, 2, 8};
+		int n = arr.length;
+		
+		divide(arr, 0, n-1);
+		for(int i=0; i<n; i++){
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+	}
+}
+```
+
+### Solution in Python
+```python
+def merge_sort(arr):
+
+    if len(arr) <= 1:
+        return arr
+    
+    # Divide array into two halves
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    
+    # Merge sorted halves
+    return merge(left, right)
+
+def merge(left, right):
+    """Helper function to merge two sorted arrays"""
+    result = []
+    i = j = 0
+    
+    # Compare elements from both arrays and add smaller one
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    
+    # Add remaining elements
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
+if __name__ == "__main__":
+    arr = [64, 34, 25, 12, 22, 11, 90]
+    print("Original:", arr)
+    print("Sorted:", merge_sort(arr.copy()))
+```
+
+### Solution in C++
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void merge(vector<int>& arr, int left, int mid, int right) {
+
+    vector<int> temp(right - left + 1);
+    int i = left, j = mid + 1, k = 0;
+    
+    // Compare and merge elements
+    while (i <= mid && j <= right) {
+        if (arr[i] <= arr[j]) {
+            temp[k++] = arr[i++];
+        } else {
+            temp[k++] = arr[j++];
+        }
+    }
+    
+    // Copy remaining elements
+    while (i <= mid) temp[k++] = arr[i++];
+    while (j <= right) temp[k++] = arr[j++];
+    
+    // Copy back to original array
+    for (int i = 0; i < temp.size(); i++) {
+        arr[left + i] = temp[i];
+    }
+}
+
+void mergeSort(vector<int>& arr, int left, int right) {
+
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+        
+        // Sort first and second halves
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+        
+        // Merge sorted halves
+        merge(arr, left, mid, right);
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
+    
+    cout << "Original: ";
+    for (int val : arr) cout << val << " ";
+    
+    mergeSort(arr, 0, arr.size() - 1);
+    
+    cout << "\nSorted: ";
+    for (int val : arr) cout << val << " ";
+    cout << endl;
+    
+    return 0;
+}
+```
+
+**Time Complexity**
+    - O(n log n) – consistently for all cases (worst, average, and best).
+    
+**Space Complexity**
+    - O(n) – requires additional space for temporary arrays during the merge process.
+
+**Stability**
+    - Stable – equal elements maintain their relative order.
+
+**Usage**
+    - Suitable for large datasets and linked lists.
+
+
+### Quick Sort
+
+Quick sort is a divide-and-conquer algorithm. It selects a **pivot (IN THIS IT IS DENOTED BY PI)** element and partitions the array such that elements less than the pivot are on the left and those greater than the pivot are on the right. This process is recursively applied to the subarrays.
+
+**Alogrithm**
+
+  - Choose a pivot 
+  - Rearrange the array such that elements smaller than the pivot are on its left and larger elements on its right.
+  - Recursively apply the process to the left and right subarrays.
+  - Repeat until the array is fully sorted.
+
+### Solution in C
+  ```text
+    //FUNCTION FOR SORTING THE PARTITIONED ARRAY
+       int partition(int a[],int l,int u) 
+        { 
+            int pi,i,j,temp; 
+            pi=a[l]; 
+            i=l; 
+            j=u+1; 
+            do 
+            { 
+                do 
+                i++; 
+                while(a[i]<pi&&i<=u); 
+                do 
+                j--; 
+                while(a[j]>pi); 
+                if(i<j) 
+                { 
+                    temp=a[i]; 
+                    a[i]=a[j]; 
+                    a[j]=temp; 
+                } 
+            } 
+            while(i<j); 
+            a[l]=a[j]; 
+            a[j]=pi; 
+            return(j); 
+        } 
+  ```
+  ```text
+    //FUNCTION FOR PARTITION THE ARRAY IN TWO SUBPARTS LEFT AND RIGHT BY RECURSIVE CALL
+    void quick_sort(int a[],int l,int u) 
+    { 
+        int x,i; 
+        if(l<u) 
+        { 
+            x=partition(a,l,u); 
+            quick_sort(a,l,x-1); 
+            quick_sort(a,x+1,u); 
+        } 
+    }
+  ```
+
+ ### Solution in Java
+```java
+public class Main{
+	private static void swap(int[] arr, int i, int j){
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+	
+	private static int medianOfThree(int[] arr, int low, int high){
+		int mid = low + (high - low) / 2;
+		if(arr[low] > arr[mid]) swap(arr, low, mid);
+		if(arr[low] > arr[high]) swap(arr, low, high);
+		if(arr[mid] > arr[high]) swap(arr, mid, high);
+		swap(arr, mid, high);
+		return arr[high];
+	}
+	
+	public static int partition(int[] arr, int low, int high){
+		int pivot = medianOfThree(arr, low, high);
+		int i = low - 1;
+		
+		for(int j=low; j<high; j++){
+			if(arr[j] <= pivot){
+				i++;
+				swap(arr, i, j);
+			}
+		}
+		
+		swap(arr, i + 1, high);
+		return i + 1;
+	}
+	
+	public static void quickSort(int[] arr, int low, int high){
+		while(low < high){
+			int pivotIndex = partition(arr, low, high);
+			if(pivotIndex - low < high - pivotIndex){
+				quickSort(arr, low, pivotIndex - 1);
+				low = pivotIndex + 1;
+			} else {
+				quickSort(arr, pivotIndex + 1, high);
+				high = pivotIndex - 1;
+			}
+		}
+	}
+	
+	public static void main(String[] args){
+		int[] arr = {6, 3, 9, 5, 2, 8};
+		quickSort(arr, 0, arr.length - 1);
+		
+		for(int i=0; i<arr.length; i++){
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
+}
+```
+
+### Solution in Python
+```python
+def quick_sort(arr, low=0, high=None):
+
+    if high is None:
+        high = len(arr) - 1
+    
+    if low < high:
+        # Partition array and get pivot index
+        pivot_idx = partition(arr, low, high)
+        
+        # Recursively sort elements before and after pivot
+        quick_sort(arr, low, pivot_idx - 1)
+        quick_sort(arr, pivot_idx + 1, high)
+    
+    return arr
+
+def partition(arr, low, high):
+
+    pivot = arr[high]  # Choose last element as pivot
+    i = low - 1  # Index for smaller element
+    
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    # Place pivot in correct position
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
+
+# Test the code
+if __name__ == "__main__":
+    arr = [64, 34, 25, 12, 22, 11, 90]
+    print("Original:", arr)
+    print("Sorted:", quick_sort(arr.copy()))
+
+```
+
+### Solution in C++
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int partition(vector<int>& arr, int low, int high) {
+
+    int pivot = arr[high];  // Choose last element as pivot
+    int i = low - 1;  // Index for smaller element
+    
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    
+    // Place pivot in correct position
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+
+void quickSort(vector<int>& arr, int low, int high) {
+
+    if (low < high) {
+        // Partition array and get pivot index
+        int pivot_idx = partition(arr, low, high);
+        
+        // Recursively sort elements before and after pivot
+        quickSort(arr, low, pivot_idx - 1);
+        quickSort(arr, pivot_idx + 1, high);
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
+    
+    cout << "Original: ";
+    for (int val : arr) cout << val << " ";
+    
+    quickSort(arr, 0, arr.size() - 1);
+    
+    cout << "\nSorted: ";
+    for (int val : arr) cout << val << " ";
+    cout << endl;
+    
+    return 0;
+}
+```
+
+**Time Complexity**
+    - **Worst Case**: O(n²) – mitigated by median-of-three pivot and tail recursion optimization (implemented in the Java version).
+    
+**Space Complexity**
+    - O(log n) – due to recursive calls, but in-place sorting.
+
+**Stability**
+    - Unstable – the relative order of equal elements may change.
+
+**Usage**
+    - Variants like randomized quicksort and 3-way quicksort improve performance in the worst case.
+
+### Main Function (for C solutions)
+```text
+// Display function
+void display(int a[],int n) 
+{ 
+  int i; 
+  printf("\nArray is:"); 
+  for(i=0;i<n;i++) 
+  printf("%d\t",a[i]); 
+}
+```
+```text
+//main funcion
+void main() 
+{ 
+  int a[50],i,n,x; 
+  clrscr(); 
+  printf("Sortings\n"); 
+
+  //creation of array
+  
+  printf("\nenter no. of elements in array:"); 
+  scanf("%d",&n); 
+  for(i=0;i<n;i++) 
+  { 
+    printf("\nEnter no.:"); 
+    scanf("%d",&x); 
+    a[i]=x; 
+  } 
+display(a,n);
+
+//Function calling
+
+printf("\nInsertion sorting:\n"); 
+insertion_sort(a,n); 
+printf("\nBubble sortimg:\n"); 
+bubble_sort(a,n); 
+printf("\nSelection sorting:\n"); 
+selection_sort(a,n); 
+printf("\nQuick sorting:\n"); 
+quick_sort(a,0,n-1); 
+display(a,n); 
+printf("\nMerge sorting:\n"); 
+merge_sort(a,0,n-1); 
+display(a,n); 
+getch(); 
+} 
+```
+
+### Heap Sort
+Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It first builds a max heap and then repeatedly extracts the largest element (root of the heap) and places it at the end of the array, reducing the heap size and repeating the process until all elements are sorted.
+
+**Algorithm**
+1. Build a max heap from the input array.
+2. Swap the root (largest element) with the last element of the heap.
+3. Reduce the heap size by one and heapify the root.
+4. Repeat steps 2 and 3 until the heap size is reduced to 1.
+
+**Code:**
+```
+// FUNCTION TO BUILD MAX HEAP
+void heapify(int arr[], int n, int i) {
+    int largest = i; 
+    int left = 2 * i + 1; 
+    int right = 2 * i + 2;
+
+    if (left < n && arr[left] > arr[largest])
+        largest = left;
+
+    if (right < n && arr[right] > arr[largest])
+        largest = right;
+
+    if (largest != i) {
+        swap(&arr[i], &arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+// HEAP SORT FUNCTION
+void heapSort(int arr[], int n) {
+    for (int i = n / 2 - 1; i >= 0; i--){
+        heapify(arr, n, i);
+    }
+
+    for (int i = n - 1; i > 0; i--) {
+        swap(&arr[0], &arr[i]);
+        heapify(arr, i, 0);
+    }
+}
+
+// FUNCTION TO SWAP TWO ELEMENTS
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+```
+
+### Solution in Python
+```python
+def heap_sort(arr):
+
+    n = len(arr)
+    
+    # Build max heap
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+    
+    # Extract elements one by one
+    for i in range(n - 1, 0, -1):
+        # Move current root to end
+        arr[0], arr[i] = arr[i], arr[0]
+        # Heapify reduced heap
+        heapify(arr, i, 0)
+    
+    return arr
+
+def heapify(arr, n, i):
+
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+    
+    # Find largest among root, left, right
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+    
+    # If largest is not root, swap and continue heapifying
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+# Test the code
+if __name__ == "__main__":
+    arr = [64, 34, 25, 12, 22, 11, 90]
+    print("Original:", arr)
+    print("Sorted:", heap_sort(arr.copy()))
+```
+
+### Solution in C++
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void heapify(vector<int>& arr, int n, int i) {
+
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+    
+    // Find largest among root, left, right
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left;
+    }
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right;
+    }
+    
+    // If largest is not root, swap and continue heapifying
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        heapify(arr, n, largest);
+    }
+}
+
+void heapSort(vector<int>& arr) {
+
+    int n = arr.size();
+    
+    // Build max heap
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+    
+    // Extract elements one by one
+    for (int i = n - 1; i > 0; i--) {
+        // Move current root to end
+        swap(arr[0], arr[i]);
+        // Heapify reduced heap
+        heapify(arr, i, 0);
+    }
+}
+
+int main() {
+    vector<int> arr = {64, 34, 25, 12, 22, 11, 90};
+    
+    cout << "Original: ";
+    for (int val : arr) cout << val << " ";
+    
+    heapSort(arr);
+    
+    cout << "\nSorted: ";
+    for (int val : arr) cout << val << " ";
+    cout << endl;
+    
+    return 0;
+}
+```
+
+**Time Complexity**
+O(n log n) – consistently for all cases.
+
+**Space Complexity**
+O(1) – in-place sorting, no extra space required.
+
+**Stability**
+Unstable – the relative order of equal elements may change.
+
+**Usage**
+Used in applications where a guarantee of O(n log n) time is necessary and space is limited.
+
+### Comparison of Sorting Algorithms
+
+| Algorithm      | Best Time Complexity | Average Time Complexity | Worst Time Complexity | Space Complexity | Stable |
+|----------------|----------------------|--------------------------|------------------------|------------------|---------|
+| Bubble Sort    | O(n)                 | O(n²)                    | O(n²)                  | O(1)             | Yes     |
+| Selection Sort | O(n²)                | O(n²)                    | O(n²)                  | O(1)             | No      |
+| Insertion Sort | O(n)                 | O(n²)                    | O(n²)                  | O(1)             | Yes     |
+| Merge Sort     | O(n log n)           | O(n log n)               | O(n log n)             | O(n)             | Yes     |
+| Quick Sort     | O(n log n)           | O(n log n)               | O(n²)                  | O(log n)         | No      |
+| Heap Sort      | O(n log n)           | O(n log n)               | O(n log n)             | O(1)             | No      |
+
+### Advantages of Sorting Algorithms
+
+- Improves searching efficiency
+- Helps organize data systematically
+- Widely used in databases and data analysis
+- Essential for many optimization problems
+- Used in ranking, scheduling, and reporting systems
+
+### Real-World Applications of Sorting
+
+- Database indexing and searching
+- E-commerce product filtering
+- Student ranking systems
+- Organizing files and folders
+- Search engine result ordering
+- Data analytics and reporting systems
+
+### Conclusion
+
+Choosing the right sorting algorithm ensures optimal performance, especially in applications involving large datasets or time-sensitive operations. Understanding these techniques allows developers to make informed decisions and write efficient code for a variety of sorting tasks.
+
+When implementing sorting in C, the standard library provides built-in functions like qsort() in stdlib.h, or you can create custom algorithms depending on the requirements.

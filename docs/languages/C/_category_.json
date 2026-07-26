@@ -1,0 +1,11 @@
+{
+  "label": "C",
+  "position": 9,
+  "customProps": {
+    "description": "The language that started it all! It is super fast, incredibly powerful, and helps you learn exactly how computers work under the hood."
+  },
+  "link": {
+    "type": "generated-index",
+    "description": "Explore the C programming language, a foundational and highly efficient procedural language."
+  }
+}

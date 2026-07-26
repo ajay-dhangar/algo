@@ -1,0 +1,11 @@
+{
+  "label": "Java",
+  "position": 5,
+  "customProps": {
+    "description": "Write once, run anywhere! A rock-solid, enterprise-level language used to power huge corporate systems, web servers, and native Android mobile apps."
+  },
+  "link": {
+    "type": "generated-index",
+    "description": "Discover Java, a robust, object-oriented language widely used for enterprise, web, and mobile development."
+  }
+} 
