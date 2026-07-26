@@ -1,0 +1,60 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem 0 1.5rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ifm-font-color-base);
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+.errorText {
+  font-size: 0.8rem;
+  color: var(--ifm-color-danger);
+}
+
+.spin {
+  animation: cheatsheet-export-spin 0.9s linear infinite;
+}
+
+@keyframes cheatsheet-export-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Keep the toolbar out of the printed/exported output as an extra safety net
+   alongside the html2canvas ignoreElements check. */
+@media print {
+  .toolbar {
+    display: none;
+  }
+}

@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import MDXContent from '@theme/MDXContent';
 import Heading from '@theme/Heading';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
-import type { Props } from '@theme/DocItem/Content';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
+import CheatSheetExport from '../../../components/CheatSheetExport';
 
-export default function DocItemContent({ children }: Props): JSX.Element {
+export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
   const [readingTimeInWords, setReadingTimeInWords] = useState<string>('');
   
@@ -14,6 +14,10 @@ export default function DocItemContent({ children }: Props): JSX.Element {
 
   // We hide the default title if specified by front matter
   const hideTitle = frontMatter.hide_title;
+
+  // Cheat sheet pages get quick "Download PDF" / "Copy as image" actions so
+  // readers can save an offline, print-friendly reference without leaving the site.
+  const isCheatSheet = metadata.id.startsWith('cheatsheets/');
 
   useEffect(() => {
     if (contentRef.current) {
@@ -40,6 +44,8 @@ export default function DocItemContent({ children }: Props): JSX.Element {
         title={title}
         docsPluginId="default"
       />
+
+      {isCheatSheet && <CheatSheetExport title={title} />}
 
       <MDXContent>{children}</MDXContent>
     </div>

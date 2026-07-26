@@ -25,7 +25,8 @@ import Link from "@docusaurus/Link";
 import RelatedTopics from '@site/src/components/RelatedTopics';
 import DocCardList from '@theme/DocCardList';
 import ComingSoon from '@site/src/components/ComingSoon';
-
+import CheatSheetExport from '@site/src/components/CheatSheetExport';
+ 
 export default {
   // Re-use the default mapping
   ...MDXComponents,
@@ -54,5 +55,6 @@ export default {
   EdgeCases,
   Link,
   RelatedTopics,
-  ComingSoon
+  ComingSoon,
+  CheatSheetExport
 };
