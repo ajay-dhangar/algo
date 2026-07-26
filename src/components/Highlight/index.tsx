@@ -1,11 +1,17 @@
 import React from 'react';
 
-function getContrastColor(color) {
+interface HighlightProps {
+  children: React.ReactNode;
+  color?: string;
+  textColor?: string;
+}
+
+function getContrastColor(color: string | undefined): string {
   if (!color) return '#fff';
   
   let hex = color.trim().toLowerCase();
   
-  const namedColors = {
+  const namedColors: Record<string, string> = {
     yellow: '#ffff00',
     cyan: '#00ffff',
     white: '#ffffff',
@@ -53,7 +59,7 @@ function getContrastColor(color) {
   return '#fff';
 }
 
-export default function Highlight({ children, color, textColor }) {
+const Highlight: React.FC<HighlightProps> = ({ children, color, textColor }) => {
   const finalTextColor = textColor || getContrastColor(color);
 
   return (
@@ -67,4 +73,6 @@ export default function Highlight({ children, color, textColor }) {
       {children}
     </span>
   );
-}
+};
+
+export default Highlight;
