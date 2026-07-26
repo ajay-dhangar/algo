@@ -31,6 +31,13 @@ export const DP_CHALLENGES: DPChallenge[] = [
   {
     id: "dp-01",
     title: "Fibonacci Number",
+    pseudocode: [
+      "If n is zero, return 0; if n is one, return 1.",
+      "Set the previous two Fibonacci values to 0 and 1.",
+      "Iterate from 2 through n and compute the next sum.",
+      "Shift the two stored values forward after each iteration.",
+      "Return the final value.",
+    ],
     slug: "fibonacci-number",
     difficulty: "Easy",
     category: "DP",
@@ -89,6 +96,13 @@ int fib(int n) {
   {
     id: "dp-02",
     title: "Climbing Stairs",
+    pseudocode: [
+      "If there is one stair, return one way.",
+      "Set ways for zero and one stairs to 1.",
+      "For each stair from 2 to n, add the ways for the previous two stairs.",
+      "Store the new total as the latest stair count.",
+      "Return the number of ways for n stairs.",
+    ],
     slug: "climbing-stairs",
     difficulty: "Easy",
     category: "DP",
@@ -133,6 +147,13 @@ console.log(climbStairs(3)); // Expected: 3
   {
     id: "dp-03",
     title: "Min Cost Climbing Stairs",
+    pseudocode: [
+      "Append a zero-cost step representing the top of the staircase.",
+      "Initialize the cheapest cost to reach the first two positions.",
+      "For each later step, add its cost to the cheaper of the previous two costs.",
+      "Keep only the two most recent costs.",
+      "Return the cheaper cost of reaching the final two positions.",
+    ],
     slug: "min-cost-climbing-stairs",
     difficulty: "Easy",
     category: "DP",
@@ -175,6 +196,13 @@ console.log(minCostClimbingStairs([10, 15, 20])); // Expected: 15
   {
     id: "dp-04",
     title: "House Robber",
+    pseudocode: [
+      "Track the best amount when skipping the previous house and when considering it.",
+      "For each house, choose between skipping it or robbing it plus the amount two houses back.",
+      "Update the two rolling best values.",
+      "Never select adjacent houses together.",
+      "Return the best amount after the final house.",
+    ],
     slug: "house-robber",
     difficulty: "Easy",
     category: "DP",
@@ -219,6 +247,13 @@ console.log(rob([1, 2, 3, 1])); // Expected: 4
   {
     id: "dp-05",
     title: "Coin Change (Minimum Coins)",
+    pseudocode: [
+      "Create a DP array of size amount plus one filled with infinity.",
+      "Set the cost for amount zero to zero coins.",
+      "For each total, try every coin that does not exceed it.",
+      "Update the total with one coin plus the best remainder cost.",
+      "Return the target cost or negative one if it remains unreachable.",
+    ],
     slug: "coin-change",
     difficulty: "Easy",
     category: "DP",
@@ -267,6 +302,13 @@ console.log(coinChange([1, 2, 5], 11)); // Expected: 3
   {
     id: "dp-06",
     title: "Longest Increasing Subsequence (LIS)",
+    pseudocode: [
+      "Set the subsequence length ending at every element to one.",
+      "For each element, compare it with every earlier element.",
+      "If the earlier value is smaller, extend its best subsequence.",
+      "Store the largest length ending at the current element.",
+      "Return the maximum length in the DP array.",
+    ],
     slug: "longest-increasing-subsequence",
     difficulty: "Medium",
     category: "DP",
@@ -313,6 +355,13 @@ console.log(lengthOfLIS([10,9,2,5,3,7,101,18])); // Expected: 4
   {
     id: "dp-07",
     title: "Longest Common Subsequence (LCS)",
+    pseudocode: [
+      "Create a DP table for all prefixes of the two strings.",
+      "Initialize the first row and column to zero.",
+      "If the current characters match, take the diagonal value plus one.",
+      "Otherwise take the larger value from the top or left cell.",
+      "Return the bottom-right table value.",
+    ],
     slug: "longest-common-subsequence",
     difficulty: "Medium",
     category: "DP",
@@ -360,6 +409,13 @@ console.log(longestCommonSubsequence("abcde", "ace")); // Expected: 3
   {
     id: "dp-08",
     title: "0/1 Knapsack",
+    pseudocode: [
+      "Create a DP array indexed by capacity and initialize it to zero.",
+      "Process each item once.",
+      "Iterate capacities downward so an item cannot be reused.",
+      "Update capacity with the better of skipping or taking the item.",
+      "Return the value stored at the maximum capacity.",
+    ],
     slug: "knapsack-0-1",
     difficulty: "Medium",
     category: "DP",
@@ -402,6 +458,13 @@ console.log(knapsack([60, 100, 120], [10, 20, 30], 50)); // Expected: 220
   {
     id: "dp-09",
     title: "Partition Equal Subset Sum",
+    pseudocode: [
+      "Compute the total sum and reject immediately if it is odd.",
+      "Set the target to half of the total and mark sum zero as reachable.",
+      "For every number, scan reachable sums downward.",
+      "Mark a sum reachable when the current number can complete it.",
+      "Return whether the target sum is reachable.",
+    ],
     slug: "partition-equal-subset-sum",
     difficulty: "Medium",
     category: "DP",
@@ -446,6 +509,13 @@ console.log(canPartition([1, 5, 11, 5])); // Expected: true
   {
     id: "dp-10",
     title: "Decode Ways",
+    pseudocode: [
+      "Create DP values for the empty prefix and the first character.",
+      "For each position, add the previous value when the current digit is nonzero.",
+      "Add the value two positions back when the two-digit number is between 10 and 26.",
+      "Set invalid positions to zero.",
+      "Return the DP value for the full string.",
+    ],
     slug: "decode-ways",
     difficulty: "Medium",
     category: "DP",
@@ -496,6 +566,13 @@ console.log(numDecodings("226")); // Expected: 3
   {
     id: "dp-11",
     title: "Unique Paths",
+    pseudocode: [
+      "Create a grid DP table and set the first row and column to one.",
+      "Visit each remaining cell row by row.",
+      "Set its paths to the paths from above plus the paths from the left.",
+      "Continue until the bottom-right cell is filled.",
+      "Return the bottom-right value.",
+    ],
     slug: "unique-paths",
     difficulty: "Medium",
     category: "DP",
@@ -537,6 +614,13 @@ console.log(uniquePaths(3, 7)); // Expected: 28
   {
     id: "dp-12",
     title: "Edit Distance",
+    pseudocode: [
+      "Create a table for prefixes of both strings.",
+      "Initialize empty-prefix distances to insertion or deletion counts.",
+      "For matching characters, copy the diagonal value.",
+      "For different characters, take one plus the minimum insert, delete, or replace cost.",
+      "Return the distance in the bottom-right cell.",
+    ],
     slug: "edit-distance",
     difficulty: "Medium",
     category: "DP",
@@ -591,6 +675,13 @@ console.log(minDistance("horse", "ros")); // Expected: 3
   {
     id: "dp-13",
     title: "Coin Change II",
+    pseudocode: [
+      "Create a DP array with one way to make amount zero.",
+      "Process coins one at a time.",
+      "For each coin, scan amounts from the coin value upward.",
+      "Add the ways to make the remaining amount to the current count.",
+      "Return the number of ways to make the target amount.",
+    ],
     slug: "coin-change-ii",
     difficulty: "Hard",
     category: "DP",
@@ -633,6 +724,13 @@ console.log(change(5, [1, 2, 5])); // Expected: 4
   {
     id: "dp-14",
     title: "Matrix Chain Multiplication",
+    pseudocode: [
+      "Let dp[i][j] be the minimum multiplication cost for matrices i through j.",
+      "Initialize intervals of length one to zero.",
+      "Process increasing interval lengths.",
+      "Try every split point and combine its left cost, right cost, and multiplication cost.",
+      "Store the cheapest split and return dp for the full interval.",
+    ],
     slug: "matrix-chain-multiplication",
     difficulty: "Hard",
     category: "DP",
@@ -680,6 +778,13 @@ console.log(matrixChainOrder([40, 20, 30, 10, 30])); // Expected: 26000
   {
     id: "dp-15",
     title: "Longest Palindromic Subsequence",
+    pseudocode: [
+      "Create a DP table for every substring and set single characters to length one.",
+      "Process substrings from shorter lengths to longer lengths.",
+      "If the end characters match, use the inner length plus two.",
+      "Otherwise use the larger result after dropping either end.",
+      "Return the value for the complete string.",
+    ],
     slug: "longest-palindromic-subsequence",
     difficulty: "Hard",
     category: "DP",
@@ -726,6 +831,13 @@ console.log(longestPalindromeSubseq("bbbab")); // Expected: 4
   {
     id: "dp-16",
     title: "Burst Balloons",
+    pseudocode: [
+      "Add virtual balloons with value one at both ends.",
+      "Define dp[left][right] as the best score for an open interval.",
+      "Choose each balloon in the interval as the last balloon to burst.",
+      "Combine the left score, right score, and coins from the boundary balloons.",
+      "Return the score for the interval containing all original balloons.",
+    ],
     slug: "burst-balloons",
     difficulty: "Hard",
     category: "DP",
@@ -773,6 +885,13 @@ console.log(maxCoins([3, 1, 5, 8])); // Expected: 167
   {
     id: "dp-17",
     title: "Rod Cutting Problem",
+    pseudocode: [
+      "Create a DP array where dp[length] is the best price for that length.",
+      "Set the value for a rod of length zero to zero.",
+      "For each length, try every first cut that fits.",
+      "Update the best value with cut price plus the best remaining length value.",
+      "Return the best value for the full rod length.",
+    ],
     slug: "rod-cutting",
     difficulty: "Hard",
     category: "DP",
@@ -815,6 +934,13 @@ console.log(cutRod([1, 5, 8, 9, 10, 17, 17, 20], 8)); // Expected: 22
   {
     id: "dp-18",
     title: "Egg Dropping Puzzle",
+    pseudocode: [
+      "Create a DP state for the number of eggs and floors being tested.",
+      "Set zero floors to zero trials and one floor to one trial.",
+      "For each possible drop floor, consider the egg-breaking and egg-surviving cases.",
+      "Choose the drop floor minimizing the worst of those cases plus one.",
+      "Return the minimum trials for all eggs and floors.",
+    ],
     slug: "egg-dropping",
     difficulty: "Hard",
     category: "DP",
@@ -859,6 +985,13 @@ console.log(superEggDrop(2, 6)); // Expected: 3
   {
     id: "dp-19",
     title: "DP on Trees",
+    pseudocode: [
+      "For a null node, return the base DP state.",
+      "Recursively compute the state for the left child.",
+      "Recursively compute the state for the right child.",
+      "Combine both child states with the current node's value and constraints.",
+      "Return the combined state to the parent and read the root answer.",
+    ],
     slug: "dp-on-trees",
     difficulty: "Hard",
     category: "DP",
@@ -924,6 +1057,13 @@ console.log(robTree(buildTree([3,2,3,null,3,null,1]))); // Expected: 7
   {
     id: "dp-20",
     title: "DP with Bitmasking",
+    pseudocode: [
+      "Represent the chosen or visited items with a bitmask.",
+      "Initialize the DP value for the empty mask.",
+      "For every mask, try each item whose bit is not set.",
+      "Set that bit and update the new state with the transition cost or value.",
+      "Return the best value for the mask representing all required items.",
+    ],
     slug: "dp-with-bitmasking",
     difficulty: "Hard",
     category: "DP",

@@ -31,6 +31,13 @@ export const GRAPH_CHALLENGES: GraphChallenge[] = [
   {
     id: "graph-01",
     title: "Graph Representation (Adjacency List & Matrix)",
+    pseudocode: [
+      "Create an empty adjacency list for every vertex.",
+      "For each edge, add its endpoint to the appropriate neighbor list.",
+      "For an undirected graph, add both directions.",
+      "Create an n by n matrix initialized with false or zero.",
+      "Mark each edge in the matrix and return both representations.",
+    ],
     slug: "graph-representation",
     difficulty: "Easy",
     category: "Graphs",
@@ -104,6 +111,13 @@ map<string, vector<vector<int>>> buildGraph(int n, vector<vector<int>>& edges) {
   {
     id: "graph-02",
     title: "Depth First Search (DFS)",
+    pseudocode: [
+      "Create a visited set and an empty traversal order.",
+      "Mark the starting vertex visited and add it to the order.",
+      "For each unvisited neighbor, recursively run DFS.",
+      "Skip neighbors already in the visited set.",
+      "Return the traversal order after all reachable vertices are explored.",
+    ],
     slug: "depth-first-search",
     difficulty: "Easy",
     category: "Graphs",
@@ -154,6 +168,13 @@ console.log(JSON.stringify(dfs([[1,2],[0,3],[0,3],[1,2]], 0)));
   {
     id: "graph-03",
     title: "Breadth First Search (BFS)",
+    pseudocode: [
+      "Create a queue containing the starting vertex and mark it visited.",
+      "While the queue is not empty, remove its front vertex.",
+      "Add the removed vertex to the traversal order.",
+      "Enqueue each unvisited neighbor and mark it immediately.",
+      "Return the order after the queue has been exhausted.",
+    ],
     slug: "breadth-first-search",
     difficulty: "Easy",
     category: "Graphs",
@@ -206,6 +227,13 @@ console.log(JSON.stringify(bfs([[1,2],[0,3],[0,3],[1,2]], 0)));
   {
     id: "graph-04",
     title: "Number of Connected Components",
+    pseudocode: [
+      "Create a visited set and set the component count to zero.",
+      "Visit every vertex in the graph.",
+      "When an unvisited vertex is found, increment the count.",
+      "Run DFS or BFS from it to mark its entire component visited.",
+      "Return the final component count.",
+    ],
     slug: "number-of-connected-components",
     difficulty: "Easy",
     category: "Graphs",
@@ -253,6 +281,13 @@ console.log(countComponents(5, [[0,1],[1,2],[3,4]])); // Expected: 2
   {
     id: "graph-05",
     title: "Find Path Between Two Nodes",
+    pseudocode: [
+      "Start DFS or BFS from the source and mark it visited.",
+      "If the current vertex is the target, report that a path exists.",
+      "Explore each unvisited neighbor recursively or through the queue.",
+      "Stop when the target is found or all reachable vertices are processed.",
+      "Return whether the target was reached.",
+    ],
     slug: "find-path-between-two-nodes",
     difficulty: "Easy",
     category: "Graphs",
@@ -314,6 +349,13 @@ console.log(JSON.stringify(findPath([[1],[0,2],[1,3],[2]], 0, 3)));
   {
     id: "graph-06",
     title: "Detect Cycle in an Undirected Graph",
+    pseudocode: [
+      "Create a visited set and inspect every disconnected component.",
+      "Traverse from an unvisited vertex while passing its parent vertex.",
+      "For each neighbor, skip the edge back to the parent.",
+      "If a visited neighbor is encountered, a cycle exists.",
+      "Return false only after every component is checked.",
+    ],
     slug: "detect-cycle-undirected-graph",
     difficulty: "Medium",
     category: "Graphs",
@@ -368,6 +410,13 @@ console.log(hasCycleUndirected(4, [[0,1],[1,2],[2,3]])); // false
   {
     id: "graph-07",
     title: "Detect Cycle in a Directed Graph",
+    pseudocode: [
+      "Track vertices as unvisited, visiting, or completely processed.",
+      "Start DFS from every unvisited vertex.",
+      "Mark a vertex visiting before exploring its outgoing edges.",
+      "If an edge reaches another visiting vertex, return true.",
+      "Mark the vertex processed after its neighbors and return false if no cycle appears.",
+    ],
     slug: "detect-cycle-directed-graph",
     difficulty: "Medium",
     category: "Graphs",
@@ -420,6 +469,13 @@ console.log(hasCycleDirected(3, [[0,1],[1,2]])); // false
   {
     id: "graph-08",
     title: "Topological Sort",
+    pseudocode: [
+      "Compute the indegree of every vertex.",
+      "Add all zero-indegree vertices to a queue.",
+      "Remove a vertex, append it to the ordering, and reduce its neighbors' indegrees.",
+      "Queue neighbors whose indegree becomes zero.",
+      "Return the ordering if it contains every vertex; otherwise report a cycle.",
+    ],
     slug: "topological-sort",
     difficulty: "Medium",
     category: "Graphs",
@@ -473,6 +529,13 @@ console.log(JSON.stringify(topologicalSort(4, [[0,1],[0,2],[1,3],[2,3]])));
   {
     id: "graph-09",
     title: "Bipartite Graph Check",
+    pseudocode: [
+      "Initialize every vertex with no color.",
+      "For each uncolored component, color its starting vertex red and enqueue it.",
+      "Color each uncolored neighbor with the opposite color.",
+      "If an edge connects equal colors, the graph is not bipartite.",
+      "Return true after all components pass the check.",
+    ],
     slug: "bipartite-graph-check",
     difficulty: "Medium",
     category: "Graphs",
@@ -527,6 +590,13 @@ console.log(isBipartite([[1,2,3],[0,2],[0,1,3],[0,2]])); // false
   {
     id: "graph-10",
     title: "Shortest Path in Unweighted Graph",
+    pseudocode: [
+      "Set every distance to infinity and set the source distance to zero.",
+      "Enqueue the source vertex.",
+      "Remove vertices in FIFO order and inspect their neighbors.",
+      "Assign an unvisited neighbor distance current distance plus one and enqueue it.",
+      "Return the target distance or indicate that the target is unreachable.",
+    ],
     slug: "shortest-path-unweighted-graph",
     difficulty: "Medium",
     category: "Graphs",
@@ -578,6 +648,13 @@ console.log(JSON.stringify(shortestPathUnweighted([[1,2],[0,3],[0,3],[1,2]], 0))
   {
     id: "graph-11",
     title: "Dijkstra's Algorithm",
+    pseudocode: [
+      "Set all distances to infinity and the source distance to zero.",
+      "Insert the source into a min-priority queue by distance.",
+      "Remove the closest unprocessed vertex.",
+      "Relax every outgoing edge and update the queue when a shorter route is found.",
+      "Repeat until the queue is empty and return the distance table.",
+    ],
     slug: "dijkstras-algorithm",
     difficulty: "Hard",
     category: "Graphs",
@@ -634,6 +711,13 @@ console.log(JSON.stringify(dijkstra(4, [[0,1,4],[0,2,1],[2,1,2],[1,3,1],[2,3,5]]
   {
     id: "graph-12",
     title: "Bellman-Ford Algorithm",
+    pseudocode: [
+      "Initialize source distance to zero and every other distance to infinity.",
+      "Repeat V minus 1 times over every edge.",
+      "Relax an edge when its source is reachable and gives a shorter distance.",
+      "Run one additional pass over all edges.",
+      "If a distance still improves, report a negative cycle; otherwise return distances.",
+    ],
     slug: "bellman-ford-algorithm",
     difficulty: "Hard",
     category: "Graphs",
@@ -688,6 +772,13 @@ console.log(bellmanFord(3, [[0,1,1],[1,2,-1],[2,0,-1]], 0));
   {
     id: "graph-13",
     title: "Floyd-Warshall Algorithm",
+    pseudocode: [
+      "Initialize a distance matrix with direct edge weights and zero on the diagonal.",
+      "Choose each vertex as an allowed intermediate vertex in turn.",
+      "For every pair of endpoints, compare the direct route with the route through the intermediate.",
+      "Store the smaller of the two distances.",
+      "Return the completed all-pairs distance matrix.",
+    ],
     slug: "floyd-warshall-algorithm",
     difficulty: "Hard",
     category: "Graphs",
@@ -736,6 +827,13 @@ console.log(result[0][2]); // Expected: 4
   {
     id: "graph-14",
     title: "Minimum Spanning Tree (Kruskal's & Prim's)",
+    pseudocode: [
+      "For Kruskal, sort all edges by increasing weight and initialize disjoint sets.",
+      "Add an edge when it joins two different components.",
+      "For Prim, start with one vertex and a min-priority queue of crossing edges.",
+      "Repeatedly add the cheapest edge leading to an unvisited vertex.",
+      "Return the selected edges and their total weight.",
+    ],
     slug: "minimum-spanning-tree",
     difficulty: "Hard",
     category: "Graphs",
@@ -790,6 +888,13 @@ console.log(minimumSpanningTree(4, [[0,1,1],[1,2,2],[2,3,3],[0,3,4],[0,2,5]])); 
   {
     id: "graph-15",
     title: "Strongly Connected Components (Kosaraju/Tarjan)",
+    pseudocode: [
+      "For Kosaraju, run DFS and push each vertex after its outgoing edges finish.",
+      "Reverse every directed edge to build the transpose graph.",
+      "Process vertices in reverse finishing order and collect each DFS tree as a component.",
+      "Alternatively, Tarjan tracks discovery times and low-link values with a stack.",
+      "When a root's low-link equals its discovery time, pop one strongly connected component.",
+    ],
     slug: "strongly-connected-components",
     difficulty: "Hard",
     category: "Graphs",
