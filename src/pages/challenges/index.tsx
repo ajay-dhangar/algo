@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+import { useLocation } from "@docusaurus/router";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
 import {
@@ -29,9 +30,18 @@ const DIFF_PILL: Record<string, string> = {
 };
 
 const Challenges: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const location = useLocation();
+  const categoryFromQuery = new URLSearchParams(location.search).get("category");
+  const initialCategory = CATEGORIES.find(
+    (category) => category.toLowerCase() === categoryFromQuery?.toLowerCase()
+  ) || "All";
+  const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
   const [activeDifficulty, setActiveDifficulty] = useState<string>("All");
   const [search, setSearch] = useState<string>("");
+
+  useEffect(() => {
+    setActiveCategory(initialCategory);
+  }, [initialCategory]);
 
   const treeChallenges = useMemo(
     () => (challengeData as any[]).filter((c) => c.category === "Trees"),

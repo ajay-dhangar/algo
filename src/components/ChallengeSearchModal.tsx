@@ -31,7 +31,7 @@ interface ChallengeSearchModalProps {
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const ALL_CHALLENGES: Challenge[] = (challengeData as Challenge[]).filter(
-  (c) => c.category // only show categorised challenges, skip the old 3 generic ones
+  (c) => c.category && !/^\/challenges\/challenge[123]$/i.test(c.link)
 );
 
 const DIFF_STYLES = {
@@ -56,6 +56,14 @@ const CATEGORY_COLORS: Record<string, string> = {
   DP:                   "text-purple-600 dark:text-purple-400",
   Greedy:               "text-amber-600 dark:text-amber-400",
   Sorting:              "text-cyan-600 dark:text-cyan-400",
+};
+
+const CATEGORY_LINKS: Record<string, string> = {
+  Trees: "/challenges?category=Trees",
+  Graphs: "/challenges?category=Graphs",
+  DP: "/challenges?category=DP",
+  Greedy: "/challenges?category=Greedy",
+  Sorting: "/challenges?category=Sorting",
 };
 
 const QUICK_FILTERS = [
@@ -220,6 +228,14 @@ export default function ChallengeSearchModal({
       .slice(0, 12); // max 12 results
   }, [query, activeFilter]);
 
+  const groupedResults = useMemo(() => {
+    return results.reduce<Record<string, Challenge[]>>((groups, challenge) => {
+      const category = challenge.category || "Other";
+      (groups[category] ||= []).push(challenge);
+      return groups;
+    }, {});
+  }, [results]);
+
   // ── Reset active index when results change ──
   useEffect(() => {
     setActiveIndex(0);
@@ -348,17 +364,46 @@ export default function ChallengeSearchModal({
                 </p>
               </div>
 
-              {results.map((challenge, i) => (
-                <div key={challenge.link} data-active={i === activeIndex}>
-                  <ResultRow
-                    challenge={challenge}
-                    query={query}
-                    isActive={i === activeIndex}
-                    onHover={() => setActiveIndex(i)}
-                    onClick={() => navigate(challenge)}
-                  />
-                </div>
-              ))}
+              {Object.entries(groupedResults).map(([category, challenges]) => {
+                const startIndex = results.indexOf(challenges[0]);
+                const categoryLink = CATEGORY_LINKS[category];
+
+                return (
+                  <section key={category} aria-labelledby={`search-category-${category}`}>
+                    <div className="flex items-center justify-between px-4 pt-3 pb-1">
+                      <p
+                        id={`search-category-${category}`}
+                        className="text-[10px] font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase m-0"
+                      >
+                        {CATEGORY_ICONS[category] || "📋"} {category}
+                      </p>
+                      {categoryLink && (
+                        <Link
+                          to={categoryLink}
+                          onClick={onClose}
+                          className="text-[10px] font-semibold text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 no-underline"
+                        >
+                          Show all {category} →
+                        </Link>
+                      )}
+                    </div>
+                    {challenges.map((challenge, offset) => {
+                      const index = startIndex + offset;
+                      return (
+                        <div key={challenge.link} data-active={index === activeIndex}>
+                          <ResultRow
+                            challenge={challenge}
+                            query={query}
+                            isActive={index === activeIndex}
+                            onHover={() => setActiveIndex(index)}
+                            onClick={() => navigate(challenge)}
+                          />
+                        </div>
+                      );
+                    })}
+                  </section>
+                );
+              })}
             </>
           ) : (
             /* Empty state */
