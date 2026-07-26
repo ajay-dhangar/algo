@@ -23,7 +23,7 @@ export interface UseFocusTrapOptions {
 export function useFocusTrap<T extends HTMLElement = HTMLElement>(
   containerRef: React.RefObject<T>,
   options: UseFocusTrapOptions
-) {
+): void {
   const { isOpen, onClose, autoFocus = true } = options;
   const previousActiveElementRef = useRef<HTMLElement | null>(null);
 
@@ -46,11 +46,10 @@ export function useFocusTrap<T extends HTMLElement = HTMLElement>(
       return elements.filter((el) => {
         if (typeof window === 'undefined') return true;
         const style = window.getComputedStyle(el);
-        return (
-          style.display !== 'none' &&
-          style.visibility !== 'hidden' &&
-          el.getAttribute('aria-hidden') !== 'true'
-        );
+        const isHidden = el.getAttribute('aria-hidden') === 'true';
+        const isNotVisible = style.display === 'none' || style.visibility === 'hidden';
+        const hasNoOffset = el.offsetParent === null && !el.hasAttribute('aria-modal');
+        return !isHidden && !isNotVisible && !hasNoOffset;
       });
     };
 
