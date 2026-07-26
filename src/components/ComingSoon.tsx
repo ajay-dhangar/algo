@@ -41,6 +41,9 @@ export default function ComingSoon(): JSX.Element {
     <div 
       className="relative min-h-[25vh] w-full overflow-hidden flex flex-col items-center justify-center p-4 md:p-6 lg:p-8 transition-colors duration-300 rounded-2xl my-6 border border-[var(--ifm-color-emphasis-200)] dark:border-[var(--ifm-color-emphasis-300)]"
       style={{ backgroundColor: 'var(--ifm-background-color)' }}
+      role="region"
+      aria-label="Coming soon countdown"
+      tabIndex={0}
     >
       <div 
         className="absolute inset-0 pointer-events-none opacity-25 dark:opacity-[0.12]"
@@ -84,7 +87,12 @@ export default function ComingSoon(): JSX.Element {
         </p>
         {isMounted && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-lg mx-auto mb-10">
-            {Object.entries(timeLeft).map(([label, value]) => (
+            <div aria-live="polite" aria-atomic="true" className="sr-only">
+          {Object.entries(timeLeft).map(([label, value]) => (
+            <span key={label}>{label}: {value} </span>
+          ))}
+        </div>
+        {Object.entries(timeLeft).map(([label, value]) => (
               <div 
                 key={label}
                 className="flex flex-col items-center justify-center p-4 rounded-xl border transition-all duration-300"
@@ -125,6 +133,7 @@ export default function ComingSoon(): JSX.Element {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             to="https://github.com/ajay-dhangar/algo"
+            aria-label="Track repository on GitHub"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center p-2 rounded-xl font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
@@ -139,6 +148,7 @@ export default function ComingSoon(): JSX.Element {
             Track Repository
           </Link>
           <button
+            aria-label="Return to previous page"
             onClick={() => window.history.back()}
             className="inline-flex items-center justify-center p-3 rounded-xl font-semibold border transition-all duration-200 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300"
             style={{ borderColor: 'var(--ifm-color-emphasis-300)' }}
