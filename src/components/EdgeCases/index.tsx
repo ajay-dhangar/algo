@@ -171,7 +171,7 @@ const EdgeCases: React.FC<EdgeCasesProps> = ({ cases = defaultEdgeCases }) => {
 
         <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded">
           <p className="text-sm text-blue-900 dark:text-blue-200">
-            <strong>💡 Tip:</strong> Always test your implementation against these edge cases before considering it complete. Edge cases are a critical part of technical interviews and real-world software development.
+            <strong>[TIP]</strong> Always test your implementation against these edge cases before considering it complete. Edge cases are a critical part of technical interviews and real-world software development.
           </p>
         </div>
       </div>
