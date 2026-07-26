@@ -2,8 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import MDXContent from '@theme/MDXContent';
 import Heading from '@theme/Heading';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
-import type { Props } from '@theme/DocItem/Content';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
+import CheatSheetExportActions from '../../../components/CheatSheetExportActions';
+
+interface Props {
+  children: React.ReactNode;
+}
 
 export default function DocItemContent({ children }: Props): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -11,6 +15,7 @@ export default function DocItemContent({ children }: Props): JSX.Element {
   
   const { metadata } = useDoc();
   const { title, editUrl, lastUpdatedAt, lastUpdatedBy, frontMatter } = metadata;
+  const isCheatSheet = metadata.id.startsWith('cheatsheets/');
 
   // We hide the default title if specified by front matter
   const hideTitle = frontMatter.hide_title;
@@ -25,7 +30,7 @@ export default function DocItemContent({ children }: Props): JSX.Element {
   }, [children]);
 
   return (
-    <div ref={contentRef} className="markdown">
+    <div ref={contentRef} className="markdown" data-cheatsheet-export-surface={isCheatSheet ? true : undefined}>
       {!hideTitle && (
         <header className="doc-header-banner">
           <Heading as="h1">{title}</Heading>
@@ -40,6 +45,8 @@ export default function DocItemContent({ children }: Props): JSX.Element {
         title={title}
         docsPluginId="default"
       />
+
+      {isCheatSheet && <CheatSheetExportActions targetRef={contentRef} />}
 
       <MDXContent>{children}</MDXContent>
     </div>
