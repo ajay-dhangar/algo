@@ -1,0 +1,33 @@
+name: Auto Comment on PR
+
+on:
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Comment to Pull Request
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const contributor = context.payload.pull_request.user.login;
+            
+            const commentBody = `Thank you for submitting your pull request, @${contributor}! 🙌 
+            
+            We'll review it as soon as possible. If there are any specific instructions or feedback regarding your PR, we'll provide them here. 
+            
+            Thanks again for your contribution to our Algo project! 😊`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: commentBody
+            });

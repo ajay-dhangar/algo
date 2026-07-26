@@ -1,0 +1,200 @@
+/**
+ * analyze-complexity.js
+ *
+ * Statically analyzes JS algorithm submissions to estimate their Big-O Time
+ * and Space complexity by analyzing loop nesting, variable allocations, and recursion.
+ */
+
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const { createClient } = require('redis');
+
+function analyzeFile(filePath) {
+  if (!fs.existsSync(filePath)) return null;
+  const content = fs.readFileSync(filePath, 'utf8');
+  return analyzeCode(content);
+}
+
+function analyzeCode(code) {
+  let timeComplexity = 'O(1)';
+  let spaceComplexity = 'O(1)';
+  const details = [];
+
+  // 1. Analyze Time Complexity (nested loops depth)
+  // Simple lexical nesting check for for/while loops
+  const lines = code.split('\n');
+  let currentLoopDepth = 0;
+  let maxLoopDepth = 0;
+  let hasRecursion = false;
+
+  // Check if function name matches recursive calls
+  const funcMatch = code.match(/function\s+(\w+)\s*\(/) || code.match(/const\s+(\w+)\s*=\s*\([^)]*\)\s*=>/);
+  const funcName = funcMatch ? funcMatch[1] : null;
+
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+
+    // Check loops opening
+    if (/\b(for|while)\s*\(/.test(trimmed)) {
+      currentLoopDepth++;
+      if (currentLoopDepth > maxLoopDepth) {
+        maxLoopDepth = currentLoopDepth;
+      }
+    }
+
+    // Check brackets closing (approximated loop closing)
+    if (trimmed === '}' || trimmed.endsWith('}')) {
+      if (currentLoopDepth > 0) {
+        currentLoopDepth--;
+      }
+    }
+
+    // Check recursion
+    if (funcName && trimmed.includes(funcName) && !trimmed.includes('function ') && !trimmed.includes('const ')) {
+      hasRecursion = true;
+    }
+  });
+
+  // Calculate Time Complexity Big-O
+  if (maxLoopDepth === 1) {
+    timeComplexity = 'O(N)';
+    details.push('Single loop detected (Linear time).');
+  } else if (maxLoopDepth === 2) {
+    timeComplexity = 'O(N^2)';
+    details.push('Double nested loops detected (Quadratic time).');
+  } else if (maxLoopDepth > 2) {
+    timeComplexity = `O(N^${maxLoopDepth})`;
+    details.push(`${maxLoopDepth} levels of nested loops detected.`);
+  }
+
+  if (hasRecursion) {
+    if (timeComplexity === 'O(1)') {
+      timeComplexity = 'O(2^N) / O(N log N)';
+      details.push('Recursion detected without loops (typically exponential or divide-and-conquer).');
+    } else {
+      timeComplexity += ' [Recursive]';
+      details.push('Recursion detected inside looping context.');
+    }
+  }
+
+  if (timeComplexity === 'O(1)' && details.length === 0) {
+    details.push('No loops or recursion detected (Constant time).');
+  }
+
+  // 2. Analyze Space Complexity (allocations)
+  if (/\bnew\s+(Array|Map|Set)\b|\[\s*\]/.test(code)) {
+    spaceComplexity = 'O(N)';
+    details.push('Dynamic array/hash-map allocation detected (Linear space).');
+  } else if (/\bnew\s+Matrix\b|\[\s*\[\s*\]\s*\]/.test(code)) {
+    spaceComplexity = 'O(N^2)';
+    details.push('Matrix/2D grid allocation detected (Quadratic space).');
+  } else {
+    details.push('No dynamic collection allocations detected (Constant auxiliary space).');
+  }
+
+  return {
+    timeComplexity,
+    spaceComplexity,
+    maxLoopDepth,
+    hasRecursion,
+    details
+  };
+}
+
+async function main() {
+  const args = process.argv.slice(2);
+  if (args.length === 0) {
+    console.log("Usage: node scripts/analyze-complexity.js <file-path-or-code>");
+    process.exit(1);
+  }
+
+  const target = args[0];
+  let code = '';
+  
+  if (fs.existsSync(target)) {
+    code = fs.readFileSync(target, 'utf8');
+  } else {
+    code = target;
+  }
+
+  const hash = crypto.createHash('md5').update(code).digest('hex');
+  const cacheKey = `complexity-cache:${hash}`;
+  let analysis = null;
+  let cacheHit = false;
+
+  // Initialize and connect Redis client
+  const client = createClient({
+    url: process.env.REDIS_URL || 'redis://127.0.0.1:6379'
+  });
+
+  let redisAvailable = false;
+  let timeoutId;
+  try {
+    // Graceful Redis connection with 1.5s timeout
+    const connectPromise = client.connect();
+    const timeoutPromise = new Promise((_, reject) => {
+      timeoutId = setTimeout(() => reject(new Error('Redis connection timeout')), 1500);
+    });
+    await Promise.race([connectPromise, timeoutPromise]);
+    redisAvailable = true;
+  } catch (err) {
+    console.log("⚠️ Redis caching server not available. Running analysis without cache.");
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+
+  if (redisAvailable) {
+    try {
+      const cachedData = await client.get(cacheKey);
+      if (cachedData) {
+        analysis = JSON.parse(cachedData);
+        cacheHit = true;
+        console.log("⚡ Cache Hit! Retrieved AST analysis from Redis.");
+      }
+    } catch (err) {
+      console.log("⚠️ Error reading from Redis cache:", err.message);
+    }
+  }
+
+  if (!analysis) {
+    if (fs.existsSync(target)) {
+      console.log(`🔍 Analyzing file: ${target}...`);
+      analysis = analyzeFile(target);
+    } else {
+      console.log("🔍 Analyzing raw code snippet...");
+      analysis = analyzeCode(target);
+    }
+
+    if (analysis && redisAvailable) {
+      try {
+        // Save to cache with 24 hours TTL
+        await client.setEx(cacheKey, 86400, JSON.stringify(analysis));
+      } catch (err) {
+        console.log("⚠️ Error writing to Redis cache:", err.message);
+      }
+    }
+  }
+
+  if (analysis) {
+    console.log("\n==============================================");
+    console.log("🚀 STATIC ALGORITHM COMPLEXITY REPORT" + (cacheHit ? " [CACHED]" : ""));
+    console.log("==============================================");
+    console.log(`⏱️ Estimated Time Complexity:  ${analysis.timeComplexity}`);
+    console.log(`💾 Estimated Space Complexity: ${analysis.spaceComplexity}`);
+    console.log("----------------------------------------------");
+    console.log("📝 Details & Metrics:");
+    analysis.details.forEach(detail => console.log(`  - ${detail}`));
+    console.log("==============================================\n");
+  }
+
+  try {
+    await client.disconnect();
+  } catch (e) {}
+}
+
+if (require.main === module) {
+  main();
+}

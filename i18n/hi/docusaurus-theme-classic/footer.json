@@ -1,0 +1,18 @@
+{
+  "link.title.Docs": {
+    "message": "दस्तावेज़ (Docs)",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.item.label.Tutorial": {
+    "message": "ट्यूटोरियल",
+    "description": "The label of footer link with label=Tutorial linking to /docs/"
+  },
+  "copyright": {
+    "message": "कॉपीराइट © 2026 एल्गो, इंक. (Algo, Inc.) डोक्यूसौरस द्वारा निर्मित।",
+    "description": "The footer copyright"
+  },
+  "logo.alt": {
+    "message": "अजय धनगर",
+    "description": "The alt text of footer logo"
+  }
+}

@@ -1,0 +1,154 @@
+---
+id: gcd-lcm
+sidebar_position: 4
+title: Greatest Common Divisor (GCD) and Least Common Multiple (LCM)
+sidebar_label: GCD and LCM
+description: "Greatest Common Divisor (GCD) and Least Common Multiple (LCM) are fundamental algorithms for divisibility."
+tags: [gcd, lcm, number theory, algorithms]
+---
+
+# Greatest Common Divisor (GCD) and Least Common Multiple (LCM)
+
+The **Greatest Common Divisor (GCD)** and **Least Common Multiple (LCM)** are fundamental algorithms in number theory used to determine the divisibility relationships between integers.
+
+## Greatest Common Divisor (GCD)
+
+### Definition
+
+The **GCD** of two integers is the largest positive integer that divides both numbers without leaving a remainder. It is often used to simplify fractions and solve problems involving divisibility.
+
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="JUzYl1TYMcU"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="How to Find the Greatest Common Divisor by Using the Euclidian Algorithm"
+  lazyLoad={true}
+  webp
+/>
+
+### Algorithm
+
+The **Euclidean algorithm** is the most efficient method for computing the GCD. It works on the principle that the GCD of two numbers also divides their difference.
+
+#### Steps:
+1. Given two integers $a$ and  $b$ :
+   - If $b$ = 0, then $GCD(a, b)$ = a
+   - Otherwise, $GCD(a, b)$ = $GCD(b,a \  mod \ b ).$
+
+## Least Common Multiple (LCM)
+
+### Definition
+
+The **LCM** of two integers is the smallest positive integer that is divisible by both numbers. It is often used in problems involving fractions and synchronization of cycles.
+
+### Relationship with GCD
+
+The LCM can be calculated using the GCD with the following formula:
+
+$LCM(a, b)$ = $\dfrac{a \times b}{\text{GCD}(a, b)}$.
+
+### Video Explanation 
+
+<LiteYouTubeEmbed
+  id="utZcJ0leZ_g"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="GCD and LCM using Euclid's Algorithm With Applications | CP Course | EP 53"
+  lazyLoad={true}
+  webp
+/>
+
+## Implementations
+
+### C++
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int lcm(int a, int b) {
+    return (a / gcd(a, b)) * b;
+}
+
+int main() {
+    int a = 12, b = 15;
+    cout << "GCD: " << gcd(a, b) << endl;
+    cout << "LCM: " << lcm(a, b) << endl;
+    return 0;
+}
+```
+### Java
+```java
+public class GCDLCM {
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public static int lcm(int a, int b) {
+        return (a / gcd(a, b)) * b;
+    }
+
+    public static void main(String[] args) {
+        int a = 12, b = 15;
+        System.out.println("GCD: " + gcd(a, b));
+        System.out.println("LCM: " + lcm(a, b));
+    }
+}
+```
+### Python
+```python
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def lcm(a, b):
+    return abs(a * b) // gcd(a, b)
+
+a = 12
+b = 15
+print("GCD:", gcd(a, b))
+print("LCM:", lcm(a, b))
+```
+### Pseudo Code
+```
+function gcd(a, b):
+    while b != 0:
+        temp = b
+        b = a mod b
+        a = temp
+    return a
+
+function lcm(a, b):
+    return (a / gcd(a, b)) * b
+```
+
+## Time Complexity
+- Best Case: O(1)
+- Average Case: O(log(min(a, b)))
+- Worst Case: O(log(min(a, b)))
+where `a` and `b` are the two integers.
+
+## Space Complexity
+- O(1)
+for the iterative implementations since they only require a few variables for computation.
+
+## Explanation
+The Euclidean algorithm effectively computes the Greatest Common Divisor in logarithmic time `O(log(min(a, b)))` by continually replacing the larger number by the remainder of the two numbers. The Least Common Multiple relies directly on the GCD and takes the same time. The space complexity is constant `O(1)` because the iterative version uses minimal auxiliary memory.
+
+### Conclusion
+The Greatest Common Divisor (GCD) and Least Common Multiple (LCM) are essential algorithms in number theory that help in understanding the divisibility of integers. Their efficient computation using the Euclidean algorithm and the relationship between GCD and LCM makes them powerful tools in both theoretical and practical applications.

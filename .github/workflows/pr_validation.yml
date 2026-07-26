@@ -1,0 +1,55 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR Description
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const body = pr.body || "";
+            
+            // Regex to check for common closing keywords followed by an issue number
+            const issuePattern = /(Fixes|Close|Closes|Closed|Fix|Fixed|Resolve|Resolves)\s+#\d+/i;
+            
+            const isBodyEmpty = body.trim().length === 0;
+            const hasIssueRef = issuePattern.test(body);
+            
+            let message = "";
+            let isValid = true;
+            
+            if (isBodyEmpty) {
+              message = "❌ **Error:** PR description cannot be empty.";
+              isValid = false;
+            } else if (!hasIssueRef) {
+              message = "❌ **Error:** PR must reference an issue (e.g., 'Fixes #123').";
+              isValid = false;
+            } else {
+              message = "✅ **Success:** PR description is valid!";
+            }
+            
+            // Post comment
+            try {
+              await github.rest.issues.createComment({
+                issue_number: pr.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: message
+              });
+            } catch (error) {
+              console.log("Could not post comment (this is expected for PRs from forks due to read-only token permissions):", error.message);
+            }
+            
+            if (!isValid) {
+              core.setFailed(message);
+            }

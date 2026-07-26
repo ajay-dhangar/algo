@@ -1,0 +1,16 @@
+.cardDescription {
+  margin: 0;
+  padding-top: 4px;
+  font-size: 0.875rem; 
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--ifm-color-emphasis-600);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  transition: color 0.2s ease;
+}

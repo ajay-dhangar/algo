@@ -1,0 +1,8 @@
+{
+    "label": "Prefix Sum & Difference Array",
+    "position": 9,
+    "link": {
+        "type": "generated-index",
+        "description": "Prefix Sum and Difference Array are foundational range-query techniques used extensively in competitive programming and DSA interviews. Master efficient range sum queries, range updates, and complex array manipulation problems."
+    }
+}

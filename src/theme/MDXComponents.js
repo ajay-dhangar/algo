@@ -1,0 +1,58 @@
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import AdsComponent from "@site/src/components/AdsComponent";
+// import BrowserWindow from "@site/src/components/BrowserWindow";
+import ArrayVisualizations from "@site/src/components/DSA/arrays/ArrayVisualizations";
+import BubbleSortVisualization from "@site/src/components/DSA/arrays/BubbleSortVisualization";
+import InsertionSortVisualization from "@site/src/components/DSA/arrays/InsertionSortVisualization";
+import QuickSortVisualization from "@site/src/components/DSA/arrays/QuickSortVisualization";
+import HeapSortVisualization from "@site/src/components/DSA/arrays/HeapSortVisualization";
+import MergeSortVisualization from "@site/src/components/DSA/arrays/MergeSortVisualization";
+import ShellSortVisualization from "@site/src/components/DSA/arrays/ShellSortVisualization";
+import SelectionSortVisualization from "@site/src/components/DSA/arrays/SelectionSortVisualization";
+import DijkstraVisuzalizations from "@site/src/components/DSA/graphs/DijkstraVisualizations";
+import FloydWarshallVisualizations from "@site/src/components/DSA/graphs/FloydWarshallVisualizations";
+import Highlight from "@site/src/components/Highlight";
+import MDXComponents from "@theme-original/MDXComponents";
+// import Image from "@theme/IdealImage";
+import TabItem from "@theme/TabItem";
+import Tabs from "@theme/Tabs";
+import { FaReact } from "react-icons/fa";
+import LiteYouTubeEmbed from "react-lite-youtube-embed";
+import GiscusComponent from "../components/GiscusComponent";
+import Ads from "@site/src/components/AdsComponent/Ads";
+import EdgeCases from "@site/src/components/EdgeCases";
+import Link from "@docusaurus/Link";
+import RelatedTopics from '@site/src/components/RelatedTopics';
+import DocCardList from '@theme/DocCardList';
+import ComingSoon from '@site/src/components/ComingSoon';
+
+export default {
+  // Re-use the default mapping
+  ...MDXComponents,
+  // custom
+  Tabs,
+  TabItem,
+  Highlight,
+  ArrayVisualizations,
+  BubbleSortVisualization,
+  SelectionSortVisualization,
+  FaReact,
+  DijkstraVisuzalizations,
+  FloydWarshallVisualizations,
+  InsertionSortVisualization,
+  QuickSortVisualization,
+  HeapSortVisualization,
+  MergeSortVisualization,
+  ShellSortVisualization,
+//   Image,
+  LiteYouTubeEmbed,
+  DocCardList,
+//   LinearSearchVisualizer,
+  AdsComponent,
+  GiscusComponent,
+  Ads,
+  EdgeCases,
+  Link,
+  RelatedTopics,
+  ComingSoon
+};

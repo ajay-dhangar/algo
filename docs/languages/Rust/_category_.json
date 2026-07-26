@@ -1,0 +1,11 @@
+{
+  "label": "Rust",
+  "position": 6,
+  "customProps": {
+    "description": "The modern superhero of safety and speed! Loved by developers for building insanely fast system software without the frustrating bugs."
+  },
+  "link": {
+    "type": "generated-index",
+    "description": "Welcome to the world of Rust! a systems programming language focused on speed, memory safety, and parallelism."
+  }
+}  

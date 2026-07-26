@@ -1,0 +1,8 @@
+{
+    "label": "Memoization Algorithms",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "Memoization is an optimization technique used primarily to speed up recursive algorithms by caching previously computed results. It is widely used in dynamic programming to avoid redundant calculations, significantly improving performance for problems such as the Fibonacci sequence, shortest paths, and other combinatorial problems."
+    }
+}

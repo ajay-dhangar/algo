@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "config:recommended",
+    "config:recommended",
+    ":dependencyDashboard"
+  ],
+  "schedule": [
+    "at any time"
+  ],
+  "packageRules": [
+    {
+      "groupName": "all dependencies",
+      "groupSlug": "all",
+      "matchPackageNames": [
+        "*"
+      ]
+    }
+  ],
+  "automerge": false,
+  "automergeType": "pr",
+  "prHourlyLimit": 24,
+  "prConcurrentLimit": 10,
+  "labels": [
+    "dependencies"
+  ],
+  "reviewers": [
+    "ajay-dhangar"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "algo-scripts",
+    "description": "These are the scripts used in various places of CodeHarborHub to automate tasks.",
+    "private": true,
+    "license": "MIT",
+    "type": "module",
+    "version": "1.0.0",
+    "main": "formatLighthouseReport.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "ajay-dhangar"
+  }

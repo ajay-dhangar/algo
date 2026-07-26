@@ -1,0 +1,8 @@
+{
+    "label": "Stacks",
+    "position": 7,
+    "link": {
+        "type": "generated-index",
+        "description": "A stack is a linear data structure that follows the Last In First Out (LIFO) principle. It allows operations to be performed at one end, called the top of the stack, making it efficient for scenarios such as expression evaluation, backtracking algorithms, and function call management."
+    }
+}

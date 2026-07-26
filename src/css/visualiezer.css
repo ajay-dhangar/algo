@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 0 20px 30px 0;
+    line-height: 1.4;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 400px;
+    justify-content: center;
+    align-items: flex-end; /* Aligns bars from the bottom */
+    transition: 2s all ease;
+}
+
+.flex-item {
+    background: cyan;
+    border: 1pt solid #000;
+    width: 10px;
+    transition: 0.1s all ease;
+}
+
+#input {
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+.h1,
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    padding: 10px 15px; /* Padding */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.btn:disabled {
+    background-color: #ccc; /* Light gray for disabled buttons */
+    cursor: not-allowed; /* Not allowed cursor for disabled buttons */
+}
+
+@media screen and (max-width: 600px) {
+    .col #input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .col span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .row {
+        display: inline;
+        text-align: center;
+    }
+
+    .flex-container {
+        margin-top: 0;
+    }
+
+    #input {
+        display: inline;
+        text-align: center;
+    }
+
+    .justify-content-end {
+        margin-top: 0;
+    }
+
+    .btn {
+        margin-bottom: 10px;
+    }
+}
