@@ -1,0 +1,363 @@
+---
+id: lru-cache
+title: "LRU Cache"
+sidebar_label: "LRU Cache"
+sidebar_position: 20
+description: "A complete guide to LRU (Least Recently Used) Cache -- a caching strategy using doubly linked lists and hash maps to achieve O(1) get and put operations."
+tags: [data-structures, cache, lru, doubly-linked-list, hashmap, dsa]
+---
+
+**LRU Cache (Least Recently Used Cache)** is a caching strategy that evicts the **least recently used** item when the cache reaches its capacity limit.
+
+It is one of the most commonly used cache replacement policies in computer systems, databases, and web browsers to keep frequently accessed data readily available.
+
+:::info Key Feature
+LRU Cache efficiently supports O(1) get and put operations by combining a **HashMap** (for O(1) key lookup) with a **Doubly Linked List** (for O(1) insertion/deletion to track usage order).
+:::
+
+---
+
+## How It Works
+
+The LRU cache maintains items in order of recency of use:
+
+- **Most Recently Used (MRU)** items are kept at the front.
+- **Least Recently Used (LRU)** items are at the back.
+- When capacity is reached, the LRU item at the back is evicted.
+
+### Operations
+
+**Get(key)**:
+1. Look up the key in the hash map.
+2. If found, move the item to the front (most recently used) and return its value.
+3. If not found, return -1.
+
+**Put(key, value)**:
+1. If the key exists, update its value and move it to the front.
+2. If the key does not exist:
+   - If the cache is at capacity, remove the LRU item (back of the list).
+   - Insert the new item at the front.
+   - Add the key to the hash map.
+
+---
+
+## Architecture
+
+```
+HashMap (key -> Node)
+Doubly Linked List (MRU <-> ... <-> LRU)
+
+                HashMap
+               +--------+
+  get("b") --> | "b" | -----> Node(key=b, val=2)
+               | "a" | -----> Node(key=a, val=1)
+               | "c" | -----> Node(key=c, val=3)
+               +--------+
+
+Doubly Linked List:
+[ MRU: c ] <-> [ a ] <-> [ b: LRU ]
+```
+
+---
+
+## Complexity Analysis
+
+| Operation | Time Complexity | Space Complexity |
+|-----------|-----------------|------------------|
+| Get       | O(1)            | O(1)             |
+| Put       | O(1)            | O(capacity)      |
+| Overall   | O(1) amortized  | O(n)             |
+
+---
+
+## Implementation
+
+### Python
+
+```python
+class LRUCache:
+    class Node:
+        def __init__(self, key=0, val=0):
+            self.key = key
+            self.val = val
+            self.prev = None
+            self.next = None
+
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.cache = {}  # key -> Node
+        # Sentinel head (MRU side) and tail (LRU side)
+        self.head = self.Node()
+        self.tail = self.Node()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def _remove(self, node):
+        """Remove a node from the doubly linked list."""
+        node.prev.next = node.next
+        node.next.prev = node.prev
+
+    def _add_to_front(self, node):
+        """Insert a node right after the head (MRU position)."""
+        node.next = self.head.next
+        node.prev = self.head
+        self.head.next.prev = node
+        self.head.next = node
+
+    def get(self, key):
+        if key not in self.cache:
+            return -1
+        node = self.cache[key]
+        self._remove(node)
+        self._add_to_front(node)
+        return node.val
+
+    def put(self, key, value):
+        if key in self.cache:
+            node = self.cache[key]
+            node.val = value
+            self._remove(node)
+            self._add_to_front(node)
+        else:
+            if len(self.cache) == self.capacity:
+                # Evict LRU node (just before tail)
+                lru = self.tail.prev
+                self._remove(lru)
+                del self.cache[lru.key]
+            new_node = self.Node(key, value)
+            self.cache[key] = new_node
+            self._add_to_front(new_node)
+
+# Example
+cache = LRUCache(2)
+cache.put(1, 1)
+cache.put(2, 2)
+print(cache.get(1))    # Returns 1, list: [1, 2] (MRU->LRU)
+cache.put(3, 3)        # Evicts key 2, list: [3, 1]
+print(cache.get(2))    # Returns -1 (not found)
+cache.put(4, 4)        # Evicts key 1, list: [4, 3]
+print(cache.get(1))    # Returns -1
+print(cache.get(3))    # Returns 3
+print(cache.get(4))    # Returns 4
+```
+
+### Java
+
+```java
+import java.util.*;
+
+public class LRUCache {
+    private class Node {
+        int key, val;
+        Node prev, next;
+        Node(int key, int val) {
+            this.key = key;
+            this.val = val;
+        }
+    }
+
+    private final int capacity;
+    private final Map<Integer, Node> cache;
+    private final Node head, tail;
+
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        this.cache = new HashMap<>();
+        this.head = new Node(0, 0);
+        this.tail = new Node(0, 0);
+        head.next = tail;
+        tail.prev = head;
+    }
+
+    private void remove(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    private void addToFront(Node node) {
+        node.next = head.next;
+        node.prev = head;
+        head.next.prev = node;
+        head.next = node;
+    }
+
+    public int get(int key) {
+        Node node = cache.get(key);
+        if (node == null) return -1;
+        remove(node);
+        addToFront(node);
+        return node.val;
+    }
+
+    public void put(int key, int value) {
+        if (cache.containsKey(key)) {
+            Node node = cache.get(key);
+            node.val = value;
+            remove(node);
+            addToFront(node);
+        } else {
+            if (cache.size() == capacity) {
+                Node lru = tail.prev;
+                remove(lru);
+                cache.remove(lru.key);
+            }
+            Node newNode = new Node(key, value);
+            cache.put(key, newNode);
+            addToFront(newNode);
+        }
+    }
+}
+```
+
+### C++
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+class LRUCache {
+    struct Node {
+        int key, val;
+        Node *prev, *next;
+        Node(int k, int v) : key(k), val(v), prev(nullptr), next(nullptr) {}
+    };
+
+    int capacity;
+    unordered_map<int, Node*> cache;
+    Node *head, *tail;
+
+    void remove(Node* node) {
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+    }
+
+    void addToFront(Node* node) {
+        node->next = head->next;
+        node->prev = head;
+        head->next->prev = node;
+        head->next = node;
+    }
+
+public:
+    LRUCache(int cap) : capacity(cap) {
+        head = new Node(0, 0);
+        tail = new Node(0, 0);
+        head->next = tail;
+        tail->prev = head;
+    }
+
+    int get(int key) {
+        if (!cache.count(key)) return -1;
+        Node* node = cache[key];
+        remove(node);
+        addToFront(node);
+        return node->val;
+    }
+
+    void put(int key, int value) {
+        if (cache.count(key)) {
+            Node* node = cache[key];
+            node->val = value;
+            remove(node);
+            addToFront(node);
+        } else {
+            if ((int)cache.size() == capacity) {
+                Node* lru = tail->prev;
+                remove(lru);
+                cache.erase(lru->key);
+                delete lru;
+            }
+            Node* node = new Node(key, value);
+            cache[key] = node;
+            addToFront(node);
+        }
+    }
+};
+```
+
+### JavaScript
+
+```javascript
+class LRUCache {
+    constructor(capacity) {
+        this.capacity = capacity;
+        this.cache = new Map();  // Map preserves insertion order in JS
+
+        // For true O(1) operations, use explicit DLL + Map
+        this.head = { key: null, val: null, prev: null, next: null };
+        this.tail = { key: null, val: null, prev: null, next: null };
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
+    }
+
+    _remove(node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    _addToFront(node) {
+        node.next = this.head.next;
+        node.prev = this.head;
+        this.head.next.prev = node;
+        this.head.next = node;
+    }
+
+    get(key) {
+        if (!this.cache.has(key)) return -1;
+        const node = this.cache.get(key);
+        this._remove(node);
+        this._addToFront(node);
+        return node.val;
+    }
+
+    put(key, value) {
+        if (this.cache.has(key)) {
+            const node = this.cache.get(key);
+            node.val = value;
+            this._remove(node);
+            this._addToFront(node);
+        } else {
+            if (this.cache.size === this.capacity) {
+                const lru = this.tail.prev;
+                this._remove(lru);
+                this.cache.delete(lru.key);
+            }
+            const node = { key, val: value, prev: null, next: null };
+            this.cache.set(key, node);
+            this._addToFront(node);
+        }
+    }
+}
+```
+
+---
+
+## LRU Cache vs Other Cache Policies
+
+| Policy  | Description                        | Use Case                        |
+|---------|------------------------------------|---------------------------------|
+| LRU     | Evict least recently used          | General purpose, web caches     |
+| LFU     | Evict least frequently used       | Frequency-based workloads       |
+| FIFO    | Evict oldest entry                 | Simple bounded buffers          |
+| Random  | Random eviction                    | Avoiding access pattern issues   |
+
+---
+
+## Applications
+
+- **CPU Cache**: L1/L2/L3 cache in processors.
+- **Web Browsers**: Browser page cache.
+- **Databases**: Buffer pool management.
+- **CDN (Content Delivery Networks)**: Caching frequently accessed content.
+- **Operating Systems**: Page replacement in virtual memory.
+- **Application-Level Caching**: Redis, Memcached (LRU/LFU policies).
+
+---
+
+## Key Takeaways
+
+- LRU Cache combines a HashMap (O(1) lookup) with a Doubly Linked List (O(1) insert/delete).
+- Sentinel head and tail nodes simplify boundary handling.
+- The most recently used item is always at the front; LRU is always at the back.
+- When capacity is full, the LRU item is removed from both the map and the list.
+- O(1) get and put operations make it suitable for high-performance caching scenarios.
