@@ -1,0 +1,351 @@
+---
+id: aho-corasick-algorithm
+title: "Aho-Corasick Algorithm"
+sidebar_label: "Aho-Corasick Algorithm"
+sidebar_position: 19
+description: "A complete guide to the Aho-Corasick algorithm for efficient multi-pattern string matching using a Trie and failure links, with implementations."
+tags: [algorithms, string-matching, aho-corasick, trie, automaton, pattern-matching, dsa]
+---
+
+**Aho-Corasick Algorithm** is an efficient **multi-pattern string matching algorithm** that finds all words in a set of patterns simultaneously within a given text. It was invented by Alfred V. Aho and Margaret J. Corasick in 1975.
+
+The algorithm builds a **finite state machine** (similar to a Trie) combined with **failure links** to enable linear-time matching of all patterns simultaneously.
+
+:::info Key Feature
+Aho-Corasick finds all occurrences of all patterns in O(n + m + z) time, where n is the text length, m is the total pattern length, and z is the number of matches. This is far more efficient than running a single-pattern search for each pattern.
+:::
+
+---
+
+## How It Works
+
+The algorithm operates in three phases:
+
+### Phase 1: Build the Trie
+
+Insert all patterns into a Trie structure. Each node represents a prefix of some pattern.
+
+### Phase 2: Build Failure Links (BFS)
+
+Failure links point from a node to the longest proper suffix of the current node that is also a prefix of some pattern. These links enable efficient backtracking when a mismatch occurs.
+
+### Phase 3: Search
+
+Traverse the text character by character. For each character:
+1. Follow trie edges from the current state.
+2. If no edge exists, follow failure links until a match is found or root is reached.
+3. Report all patterns ending at the current position (via output links).
+
+---
+
+## Failure Links
+
+```
+Trie for patterns: "he", "she", "his", "hers"
+
+root
+ ├── h ── e ── [output: "he"]
+ │       │
+ │       └── i ── s ── [output: "his"]
+ │                   └── [output: "she"]
+ └── s
+         └── h ── e ── r ── s ── [output: "hers"]
+                     └── [output: "she"]
+```
+
+Failure links (dashed):
+- Node "she" failure -> Node "he" (longest proper suffix of "she" that is a prefix)
+- Node "hers" failure -> Node "ers" -> root (no match)
+
+---
+
+## Complexity Analysis
+
+| Phase            | Time Complexity | Space Complexity |
+|------------------|-----------------|------------------|
+| Build Trie       | O(m)            | O(m * ALPHABET)  |
+| Build Failure Links | O(m * ALPHABET) | O(m)           |
+| Search           | O(n + z)        | O(1) per char    |
+| **Total**        | **O(n + m + z)** | **O(m * ALPHABET)** |
+
+---
+
+## Implementation
+
+### Python
+
+```python
+from collections import deque
+
+class AhoCorasick:
+    def __init__(self):
+        self.adj = [{'next': {}, 'fail': 0, 'output': []}]
+
+    def add_pattern(self, pattern):
+        node = 0
+        for ch in pattern:
+            if ch not in self.adj[node]['next']:
+                self.adj[node]['next'][ch] = len(self.adj)
+                self.adj.append({'next': {}, 'fail': 0, 'output': []})
+            node = self.adj[node]['next'][ch]
+        self.adj[node]['output'].append(pattern)
+
+    def build(self):
+        queue = deque()
+        # Set fail links of depth-1 nodes to root (0)
+        for ch, nxt in self.adj[0]['next'].items():
+            queue.append(nxt)
+            self.adj[nxt]['fail'] = 0
+
+        # BFS to compute failure links
+        while queue:
+            r = queue.popleft()
+            for ch, nxt in self.adj[r]['next'].items():
+                queue.append(nxt)
+                # Follow failure links to find the correct fail state
+                f = self.adj[r]['fail']
+                while f != 0 and ch not in self.adj[f]['next']:
+                    f = self.adj[f]['fail']
+                self.adj[nxt]['fail'] = self.adj[f]['next'].get(ch, 0)
+                # Merge output links
+                self.adj[nxt]['output'].extend(self.adj[self.adj[nxt]['fail']]['output'])
+
+    def search(self, text):
+        node = 0
+        results = []  # (position, pattern)
+        for i, ch in enumerate(text):
+            while node != 0 and ch not in self.adj[node]['next']:
+                node = self.adj[node]['fail']
+            node = self.adj[node]['next'].get(ch, 0)
+            for pattern in self.adj[node]['output']:
+                results.append((i - len(pattern) + 1, pattern))
+        return results
+
+# Example usage
+ac = AhoCorasick()
+patterns = ["he", "she", "his", "hers"]
+for p in patterns:
+    ac.add_pattern(p)
+ac.build()
+
+text = "ahishers"
+matches = ac.search(text)
+print("Matches found:", matches)
+# Output: [(1, 'his'), (2, 'she'), (4, 'he'), (4, 'hers')]
+```
+
+### Java
+
+```java
+import java.util.*;
+
+class AhoCorasick {
+    static class Node {
+        Map<Character, Integer> next = new HashMap<>();
+        int fail = 0;
+        List<String> output = new ArrayList<>();
+    }
+
+    List<Node> nodes = new ArrayList<>();
+
+    AhoCorasick() { nodes.add(new Node()); }
+
+    void addPattern(String pattern) {
+        int node = 0;
+        for (char ch : pattern.toCharArray()) {
+            nodes.get(node).next.putIfAbsent(ch, nodes.size());
+            node = nodes.get(node).next.get(ch);
+        }
+        nodes.get(node).output.add(pattern);
+    }
+
+    void build() {
+        Queue<Integer> q = new LinkedList<>();
+        for (char ch : nodes.get(0).next.keySet()) {
+            int child = nodes.get(0).next.get(ch);
+            nodes.get(child).fail = 0;
+            q.add(child);
+        }
+
+        while (!q.isEmpty()) {
+            int r = q.poll();
+            for (Map.Entry<Character, Integer> e : nodes.get(r).next.entrySet()) {
+                char ch = e.getKey();
+                int nxt = e.getValue();
+                q.add(nxt);
+                int f = nodes.get(r).fail;
+                while (f != 0 && !nodes.get(f).next.containsKey(ch))
+                    f = nodes.get(f).fail;
+                nodes.get(nxt).fail = nodes.get(f).next.getOrDefault(ch, 0);
+                nodes.get(nxt).output.addAll(nodes.get(nodes.get(nxt).fail).output);
+            }
+        }
+    }
+
+    List<String> search(String text) {
+        int node = 0;
+        List<String> results = new ArrayList<>();
+        for (char ch : text.toCharArray()) {
+            while (node != 0 && !nodes.get(node).next.containsKey(ch))
+                node = nodes.get(node).fail;
+            node = nodes.get(node).next.getOrDefault(ch, 0);
+            results.addAll(nodes.get(node).output);
+        }
+        return results;
+    }
+}
+```
+
+### C++
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    unordered_map<char, int> next;
+    int fail = 0;
+    vector<string> output;
+};
+
+class AhoCorasick {
+    vector<Node> nodes;
+public:
+    AhoCorasick() { nodes.emplace_back(); }
+
+    void addPattern(const string& pattern) {
+        int node = 0;
+        for (char ch : pattern) {
+            if (!nodes[node].next.count(ch)) {
+                nodes[node].next[ch] = nodes.size();
+                nodes.emplace_back();
+            }
+            node = nodes[node].next[ch];
+        }
+        nodes[node].output.push_back(pattern);
+    }
+
+    void build() {
+        queue<int> q;
+        for (auto& [ch, nxt] : nodes[0].next) {
+            nodes[nxt].fail = 0;
+            q.push(nxt);
+        }
+
+        while (!q.empty()) {
+            int r = q.front(); q.pop();
+            for (auto& [ch, nxt] : nodes[r].next) {
+                q.push(nxt);
+                int f = nodes[r].fail;
+                while (f && !nodes[f].next.count(ch))
+                    f = nodes[f].fail;
+                nodes[nxt].fail = nodes[f].next.count(ch) ? nodes[f].next[ch] : 0;
+                for (const string& s : nodes[nodes[nxt].fail].output)
+                    nodes[nxt].output.push_back(s);
+            }
+        }
+    }
+
+    vector<string> search(const string& text) {
+        int node = 0;
+        vector<string> results;
+        for (char ch : text) {
+            while (node && !nodes[node].next.count(ch))
+                node = nodes[node].fail;
+            node = nodes[node].next.count(ch) ? nodes[node].next[ch] : 0;
+            for (const string& s : nodes[node].output)
+                results.push_back(s);
+        }
+        return results;
+    }
+};
+```
+
+### JavaScript
+
+```javascript
+class AhoCorasick {
+    constructor() {
+        this.nodes = [{ next: {}, fail: 0, output: [] }];
+    }
+
+    addPattern(pattern) {
+        let node = 0;
+        for (const ch of pattern) {
+            if (!this.nodes[node].next[ch]) {
+                this.nodes[node].next[ch] = this.nodes.length;
+                this.nodes.push({ next: {}, fail: 0, output: [] });
+            }
+            node = this.nodes[node].next[ch];
+        }
+        this.nodes[node].output.push(pattern);
+    }
+
+    build() {
+        const queue = [];
+        for (const ch of Object.keys(this.nodes[0].next)) {
+            const child = this.nodes[0].next[ch];
+            this.nodes[child].fail = 0;
+            queue.push(child);
+        }
+
+        while (queue.length > 0) {
+            const r = queue.shift();
+            for (const ch of Object.keys(this.nodes[r].next)) {
+                const nxt = this.nodes[r].next[ch];
+                queue.push(nxt);
+                let f = this.nodes[r].fail;
+                while (f !== 0 && !this.nodes[f].next[ch])
+                    f = this.nodes[f].fail;
+                this.nodes[nxt].fail = this.nodes[f].next[ch] ?? 0;
+                this.nodes[nxt].output.push(...this.nodes[this.nodes[nxt].fail].output);
+            }
+        }
+    }
+
+    search(text) {
+        let node = 0;
+        const results = [];
+        for (const ch of text) {
+            while (node !== 0 && !this.nodes[node].next[ch])
+                node = this.nodes[node].fail;
+            node = this.nodes[node].next[ch] ?? 0;
+            results.push(...this.nodes[node].output);
+        }
+        return results;
+    }
+}
+```
+
+---
+
+## Applications
+
+- **DNA Sequence Analysis**: Finding all occurrences of multiple gene sequences in a genome.
+- **Plagiarism Detection**: Scanning documents for matches against a database of known sources.
+- **Intrusion Detection Systems**: Detecting signatures of known attacks in network traffic.
+- **Search Engines**: Indexing documents for multiple keyword matches simultaneously.
+- **Spam Filters**: Checking email content against a database of spam keywords.
+- ** spell Checkers**: Verifying words against a large dictionary.
+- **Virus Scanners**: Detecting patterns of known malicious code.
+
+---
+
+## Comparison: Aho-Corasick vs Multiple KMP
+
+| Aspect                | Aho-Corasick              | Multiple KMP               |
+|-----------------------|---------------------------|----------------------------|
+| Time Complexity       | O(n + m + z)              | O(n * p) (p = number of patterns) |
+| Space (patterns)      | O(m)                      | O(m)                       |
+| Best for              | Many short patterns       | Few long patterns          |
+| Implementation        | More complex (Trie + BFS) | Simpler (per-pattern KMP)  |
+
+---
+
+## Key Takeaways
+
+- Aho-Corasick builds a Trie and computes failure links in O(m) time.
+- Searching is linear in the text length, regardless of the number of patterns.
+- All matches are reported in a single pass through the text.
+- The failure function enables efficient backtracking without character-by-character Trie traversal.
+- It is a foundational algorithm for rule-based text processing systems.
