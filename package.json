@@ -7,8 +7,11 @@
   },
   "scripts": {
     "docusaurus": "docusaurus",
+    "prestart": "npm run generate:dsa-index",
     "start": "docusaurus start",
+    "prebuild": "npm run generate:dsa-index",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=6144 docusaurus build --no-minify",
+    "generate:dsa-index": "node scripts/generate-dsa-problems-index.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "gh-pages -d build",
     "clear": "docusaurus clear",
