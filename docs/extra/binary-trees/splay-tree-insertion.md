@@ -1,11 +1,9 @@
----
 id: splay-tree-insertion
 title: "Splay Tree Insertion"
 sidebar_label: "Splay Tree Insertion"
 sidebar_position: 6
 description: "A guide to splay tree insertion using zig, zig-zig, and zig-zag rotations with amortized O(log n) time complexity using the potential method analysis."
 tags: ["dsa", "data-structures", "trees", "splay-tree"]
----
 
 # Splay Tree Insertion
 
@@ -22,7 +20,7 @@ Splaying moves a node to the root through a series of rotations based on pattern
 **Zig (Node is child of root)**:
 ```
     Root                x
-     |        ->        / \
+     |        →        / \
      x                 a  Root
     / \                    |
    a   b                   b
@@ -31,7 +29,7 @@ Splaying moves a node to the root through a series of rotations based on pattern
 **Zig-Zig (Node and parent are both left/right children)**:
 ```
     G                     x
-   / \        ->         / \
+   / \        →         / \
   P   c                a   P
  / \                      / \
 x   b                   b   G
@@ -42,7 +40,7 @@ a   e                        c
 **Zig-Zag (Node and parent are opposite children)**:
 ```
     G                     x
-   / \        ->         / \
+   / \        →         / \
   P   c                P   G
  / \                  / \   \
 a   x                 a   b   c
@@ -80,10 +78,10 @@ The key to Splay Tree's O(log n) amortized bound is the **potential method**:
 
 ### Rank Definition
 - Each node has rank `r(x) = log2(size(x))` where size(x) is subtree size
-- Potential of tree: `Phi(T) = Sigma r(x)` for all nodes x
+- Potential of tree: `Φ(T) = Σ r(x)` for all nodes x
 
 ### Amortized Cost
-Amortized cost = Actual cost + DeltaPotential
+Amortized cost = Actual cost + ΔPotential
 
 ### Key Theorem (Splay Theorem)
 **The amortized cost of splaying a node x in a tree of size n is at most 3 * (r(x) - r(root)) + 1 = O(log n)**
@@ -511,7 +509,6 @@ console.log(`\nAfter delete 10: [${tree.inorder()}]`);
 ## Comparison with AVL and BST
 
 | Aspect | BST | AVL Tree | Splay Tree |
-|--------|-----|----------|------------|
 | Search complexity | O(log n) avg | O(log n) | O(log n) amortized |
 | Insert complexity | O(log n) avg | O(log n) | O(log n) amortized |
 | Delete complexity | O(log n) avg | O(log n) | O(log n) amortized |
