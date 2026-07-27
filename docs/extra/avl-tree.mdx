@@ -1,0 +1,275 @@
+---
+id: avl-tree
+title: "AVL Tree"
+sidebar_label: "AVL Tree"
+sidebar_position: 15
+description: "A complete guide to AVL Trees -- the first self-balancing binary search tree with height balancing, rotations, and implementations in multiple languages."
+tags: [data-structures, tree, avl, self-balancing, bst, dsa]
+---
+
+**AVL Tree** (named after inventors Adelson-Velsky and Landis) is a **self-balancing binary search tree** where the heights of the left and right subtrees of every node differ by at most one.
+
+AVL trees were the first dynamically balanced binary search tree to be invented, and they guarantee O(log n) time complexity for search, insertion, and deletion operations.
+
+:::info Key Feature
+After every insertion and deletion, an AVL tree rebalances itself through rotations to maintain the AVL invariant: the balance factor (height of left subtree minus height of right subtree) of every node is in the range [-1, 0, 1].
+:::
+
+---
+
+## How It Works
+
+Each node in an AVL tree stores its **balance factor**:
+
+```
+balance_factor(node) = height(left_subtree) - height(right_subtree)
+```
+
+An AVL tree is valid if every node's balance factor is -1, 0, or +1.
+
+When an insertion or deletion violates this property, the tree is rebalanced using **rotations**:
+
+| Case            | Situation                                             | Rotation    |
+|-----------------|-------------------------------------------------------|-------------|
+| Left-Left (LL)  | Left child is heavy, insertion in left subtree        | Right旋     |
+| Left-Right (LR) | Left child is light, insertion in right subtree of left| Left + Right|
+| Right-Right (RR)| Right child is heavy, insertion in right subtree      | Left旋      |
+| Right-Left (RL) | Right child is light, insertion in left subtree of right| Right + Left|
+
+---
+
+## Rotations
+
+### Right Rotation (for LL case)
+
+```
+    z                  y
+   / \                / \
+  y   T4     =>      x   z
+ / \                   / \
+x   T3                 T3 T4
+```
+
+### Left Rotation (for RR case)
+
+```
+  z                    y
+ / \                  / \
+T1  y      =>        z   x
+   / \              / \
+  T2  x            T1 T2
+```
+
+### Left-Right Rotation (for LR case)
+
+```
+  z                  z                x
+ / \                / \              / \
+y   T4    LL rot   x   T4   RR rot  y   z
+/ \      =>       / \      =>      / \ / \
+T1  x            y  T3            T1 T2 T3 T4
+   / \          / \
+  T2 T3        T1 T2
+```
+
+### Right-Left Rotation (for RL case)
+
+```
+y                  y                   x
+/ \               / \                 / \
+T1  z     RR rot  T1  x     LL rot   y   z
+   / \   =>          / \   =>       / \ / \
+  x   T4             T2  z         T1 T2 T3 T4
+ / \                    / \
+T2  T3                 T3 T4
+```
+
+---
+
+## Complexity Analysis
+
+| Operation | Average | Worst Case |
+|-----------|---------|------------|
+| Search    | O(log n)| O(log n)   |
+| Insert    | O(log n)| O(log n)   |
+| Delete    | O(log n)| O(log n)   |
+| Space     | O(n)    | O(n)       |
+
+The AVL invariant guarantees logarithmic height, so all operations are guaranteed O(log n).
+
+---
+
+## Implementation
+
+### Python
+
+```python
+class AVLNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+        self.height = 1
+
+class AVLTree:
+    def height(self, node):
+        return node.height if node else 0
+
+    def balance(self, node):
+        return self.height(node.left) - self.height(node.right) if node else 0
+
+    def right_rotate(self, y):
+        x = y.left
+        T2 = x.right
+        x.right = y
+        y.left = T2
+        y.height = 1 + max(self.height(y.left), self.height(y.right))
+        x.height = 1 + max(self.height(x.left), self.height(x.right))
+        return x
+
+    def left_rotate(self, x):
+        y = x.right
+        T2 = y.left
+        y.left = x
+        x.right = T2
+        x.height = 1 + max(self.height(x.left), self.height(x.right))
+        y.height = 1 + max(self.height(y.left), self.height(y.right))
+        return y
+
+    def insert(self, root, key):
+        # Standard BST insert
+        if not root:
+            return AVLNode(key)
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+        elif key > root.key:
+            root.right = self.insert(root.right, key)
+        else:
+            return root
+
+        # Update height
+        root.height = 1 + max(self.height(root.left), self.height(root.height))
+
+        # Get balance and rebalance
+        bal = self.balance(root)
+
+        # LL case
+        if bal > 1 and key < root.left.key:
+            return self.right_rotate(root)
+        # RR case
+        if bal < -1 and key > root.right.key:
+            return self.left_rotate(root)
+        # LR case
+        if bal > 1 and key > root.left.key:
+            root.left = self.left_rotate(root.left)
+            return self.right_rotate(root)
+        # RL case
+        if bal < -1 and key < root.right.key:
+            root.right = self.right_rotate(root.right)
+            return self.left_rotate(root)
+
+        return root
+
+    def preorder(self, root):
+        if root:
+            print(root.key, end=' ')
+            self.preorder(root.left)
+            self.preorder(root.right)
+```
+
+### Java
+
+```java
+class AVLNode {
+    int key, height;
+    AVLNode left, right;
+    AVLNode(int key) {
+        this.key = key;
+        this.height = 1;
+    }
+}
+
+class AVLTree {
+    int height(AVLNode n) { return n == null ? 0 : n.height; }
+
+    int balance(AVLNode n) { return n == null ? 0 : height(n.left) - height(n.right); }
+
+    AVLNode rightRotate(AVLNode y) {
+        AVLNode x = y.left;
+        AVLNode T2 = x.right;
+        x.right = y;
+        y.left = T2;
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+        return x;
+    }
+
+    AVLNode leftRotate(AVLNode x) {
+        AVLNode y = x.right;
+        AVLNode T2 = y.left;
+        y.left = x;
+        x.right = T2;
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+        return y;
+    }
+
+    AVLNode insert(AVLNode node, int key) {
+        if (node == null) return new AVLNode(key);
+        if (key < node.key) node.left = insert(node.left, key);
+        else if (key > node.key) node.right = insert(node.right, key);
+        else return node;
+
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+        int bal = balance(node);
+
+        // LL
+        if (bal > 1 && key < node.left.key)
+            return rightRotate(node);
+        // RR
+        if (bal < -1 && key > node.right.key)
+            return leftRotate(node);
+        // LR
+        if (bal > 1 && key > node.left.key) {
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
+        }
+        // RL
+        if (bal < -1 && key < node.right.key) {
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
+        return node;
+    }
+
+    void preorder(AVLNode node) {
+        if (node != null) {
+            System.out.print(node.key + " ");
+            preorder(node.left);
+            preorder(node.right);
+        }
+    }
+}
+```
+
+---
+
+## Comparison: AVL vs Red-Black Tree
+
+| Aspect              | AVL Tree               | Red-Black Tree          |
+|---------------------|------------------------|-------------------------|
+| Balance Factor      | Strict (height diff <=1)| Approximate (coloring) |
+| Search Performance  | Better (more balanced) | Slightly worse          |
+| Insert/Delete       | More rotations         | Fewer rotations         |
+| Height (worst)      | ~1.44 log n            | ~2 log n                |
+| Use Case            | Read-heavy workloads   | General-purpose, Java TreeMap |
+
+---
+
+## Key Takeaways
+
+- AVL trees maintain strict balance through balance factors and rotations.
+- Every operation is guaranteed O(log n) due to the height invariant.
+- Four rotation patterns handle all imbalance scenarios: LL, RR, LR, RL.
+- AVL trees are more balanced than Red-Black trees, making them better for read-heavy workloads.
+- Insertion may require at most 2 rotations; deletion may require up to log n rotations.
