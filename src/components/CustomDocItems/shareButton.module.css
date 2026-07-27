@@ -58,8 +58,39 @@
   text-decoration: none;
 }
 
+/* Button-style menu item (Download PDF / Copy as Image) */
+.menuButton {
+  width: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.menuButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Divider between action items and social links */
+.divider {
+  height: 1px;
+  background: var(--ifm-color-emphasis-200);
+  margin: 0.3rem 0;
+}
+
 .icon {
   display: inline-flex;
   align-items: center;
   font-size: 1rem;
+}
+
+/* Spinner animation for loading state */
+.spin {
+  animation: shareBtn-spin 0.9s linear infinite;
+}
+
+@keyframes shareBtn-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
