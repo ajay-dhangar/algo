@@ -1,0 +1,286 @@
+---
+id: bloom-filter
+title: "Bloom Filter"
+sidebar_label: "Bloom Filter"
+sidebar_position: 18
+description: "A complete guide to Bloom Filter -- a probabilistic data structure for membership testing with space efficiency, false positives, and practical applications."
+tags: [data-structures, bloom-filter, probabilistic, space-efficient, set-membership, dsa]
+---
+
+**Bloom Filter** is a **probabilistic data structure** invented by Burton Howard Bloom in 1970. It is used to test whether an element is a member of a set with **space efficiency** and **constant-time lookups**.
+
+A Bloom filter can answer two types of queries:
+- **Definitely not in the set** -- guaranteed correct.
+- **Probably in the set** -- may be a false positive.
+
+:::info Key Feature
+Bloom filters use k hash functions to map elements to positions in a bit array. They achieve space savings by accepting a small probability of false positives in exchange for memory efficiency.
+:::
+
+---
+
+## How It Works
+
+### Data Structure
+
+- A Bloom filter consists of:
+  - **Bit Array** of size m bits, all initially set to 0.
+  - **k Hash Functions**, each mapping an element to one of the m positions.
+
+### Operations
+
+**Insertion**:
+1. For each of the k hash functions, compute the position h_i(element).
+2. Set all k positions in the bit array to 1.
+
+**Membership Query**:
+1. For each of the k hash functions, compute the position h_i(element).
+2. If **all** k positions are 1, the element is **probably in the set**.
+3. If **any** position is 0, the element is **definitely not in the set**.
+
+---
+
+## Mathematical Analysis
+
+### False Positive Probability
+
+The probability of a false positive after inserting n elements into a filter of size m with k hash functions is:
+
+```
+p = (1 - e^(-kn/m))^k
+```
+
+### Optimal Number of Hash Functions
+
+```
+k = (m / n) * ln(2)
+```
+
+### Optimal Bit Array Size
+
+Given desired false positive probability p and expected elements n:
+
+```
+m = - (n * ln(p)) / (ln(2)^2)
+```
+
+### Space-Performance Trade-off
+
+| Elements (n) | Bits (m) | Hash Functions (k) | False Positive Rate |
+|-------------|----------|--------------------|---------------------|
+| 10,000      | 100,000  | 7                  | ~1%                 |
+| 10,000      | 200,000  | 7                  | ~0.1%               |
+| 100,000     | 1,000,000| 7                  | ~1%                 |
+| 100,000     | 2,000,000| 7                  | ~0.1%               |
+
+---
+
+## Implementation
+
+### Python
+
+```python
+import math
+import mmh3  # MurmurHash3, pip install mmh3
+
+class BloomFilter:
+    def __init__(self, size, hash_count):
+        self.size = size
+        self.hash_count = hash_count
+        self.bit_array = [0] * size
+
+    def add(self, item):
+        for seed in range(self.hash_count):
+            index = mmh3.hash(item, seed) % self.size
+            self.bit_array[index] = 1
+
+    def check(self, item):
+        for seed in range(self.hash_count):
+            index = mmh3.hash(item, seed) % self.size
+            if self.bit_array[index] == 0:
+                return False
+        return True
+
+    @staticmethod
+    def optimal_size(n, p):
+        """Calculate optimal bit array size given n elements and desired false positive rate p."""
+        m = - (n * math.log(p)) / (math.log(2) ** 2)
+        return int(m)
+
+    @staticmethod
+    def optimal_hash_count(size, n):
+        """Calculate optimal number of hash functions."""
+        k = (size / n) * math.log(2)
+        return int(k)
+
+# Example: 10000 elements, 1% false positive rate
+n = 10000
+p = 0.01
+size = BloomFilter.optimal_size(n, p)
+hash_count = 7
+print(f"Optimal size: {size} bits, hash functions: {hash_count}")
+
+bf = BloomFilter(size, hash_count)
+bf.add("apple")
+bf.add("banana")
+print(bf.check("apple"))   # True
+print(bf.check("orange"))  # False (definitely not)
+```
+
+### Python (Without External Library)
+
+```python
+import hashlib
+
+class BloomFilterSimple:
+    def __init__(self, size):
+        self.size = size
+        self.bit_array = [0] * size
+
+    def _hashes(self, item):
+        """Generate k hash values using SHA-256 variants."""
+        for i in range(self.hash_count):
+            h = hashlib.sha256(f"{item}{i}".encode()).digest()
+            yield int.from_bytes(h[:4], 'big') % self.size
+
+    def __init__(self, size, hash_count=7):
+        self.size = size
+        self.hash_count = hash_count
+        self.bit_array = [0] * size
+
+    def add(self, item):
+        for index in self._hashes(item):
+            self.bit_array[index] = 1
+
+    def check(self, item):
+        return all(self.bit_array[index] == 1 for index in self._hashes(item))
+```
+
+### Java
+
+```java
+import java.util.BitSet;
+
+public class BloomFilter {
+    private final BitSet bitArray;
+    private final int size;
+    private final int hashCount;
+
+    public BloomFilter(int size, int hashCount) {
+        this.size = size;
+        this.hashCount = hashCount;
+        this.bitArray = new BitSet(size);
+    }
+
+    public void add(String item) {
+        for (int i = 0; i < hashCount; i++) {
+            int index = Math.abs(hash(item, i)) % size;
+            bitArray.set(index);
+        }
+    }
+
+    public boolean mightContain(String item) {
+        for (int i = 0; i < hashCount; i++) {
+            int index = Math.abs(hash(item, i)) % size;
+            if (!bitArray.get(index))
+                return false;
+        }
+        return true;
+    }
+
+    private int hash(String item, int seed) {
+        int h = item.hashCode() ^ (seed * 0xdeadbeef);
+        return h ^ (h >>> 16);
+    }
+
+    public static void main(String[] args) {
+        BloomFilter bf = new BloomFilter(100000, 7);
+        bf.add("hello");
+        bf.add("world");
+        System.out.println(bf.mightContain("hello"));  // true
+        System.out.println(bf.mightContain("foo"));     // false (or possibly true -- false positive)
+    }
+}
+```
+
+### JavaScript
+
+```javascript
+class BloomFilter {
+    constructor(size, hashCount) {
+        this.size = size;
+        this.hashCount = hashCount;
+        this.bitArray = new Uint8Array(Math.ceil(size / 8));
+    }
+
+    _setBit(index) {
+        const byteIndex = Math.floor(index / 8);
+        const bitIndex = index % 8;
+        this.bitArray[byteIndex] |= (1 << bitIndex);
+    }
+
+    _getBit(index) {
+        const byteIndex = Math.floor(index / 8);
+        const bitIndex = index % 8;
+        return (this.bitArray[byteIndex] & (1 << bitIndex)) !== 0;
+    }
+
+    _hash(item, seed) {
+        let h = 0;
+        const str = item + seed;
+        for (let i = 0; i < str.length; i++) {
+            h = Math.imul(31, h) + str.charCodeAt(i) | 0;
+        }
+        return Math.abs(h);
+    }
+
+    add(item) {
+        for (let i = 0; i < this.hashCount; i++) {
+            const index = this._hash(item, i) % this.size;
+            this._setBit(index);
+        }
+    }
+
+    check(item) {
+        for (let i = 0; i < this.hashCount; i++) {
+            const index = this._hash(item, i) % this.size;
+            if (!this._getBit(index))
+                return false;
+        }
+        return true;
+    }
+}
+```
+
+---
+
+## Variations of Bloom Filters
+
+| Variation             | Feature                                                  |
+|-----------------------|----------------------------------------------------------|
+| Counting Bloom Filter | Supports deletions (uses counters instead of bits)      |
+| Scalable Bloom Filter | Dynamically grows as elements are added                  |
+| Cuckoo Filter         | Better space efficiency, supports deletion, no false negatives |
+| Reverse Bloom Filter  | Answers "what elements might have caused this false positive?"|
+
+---
+
+## Applications
+
+- **Web Browsers**: Checking if a URL is malicious before checking the database.
+- **Databases**: Preventing unnecessary disk lookups for non-existent keys.
+- **Spell Checkers**: Quickly ruling out misspelled words.
+- **Network Routers**: IPv6 routing lookups.
+- **Bitcoin/Blockchain**: Checking if a transaction hash has been seen.
+- **Medium/Quora**: Filtering out articles users have already read.
+- **Password Checkers**: Checking if a password was part of a known breach.
+
+---
+
+## Key Takeaways
+
+- Bloom filters guarantee no false negatives but allow false positives.
+- Space efficiency comes from using bits instead of storing full elements.
+- The false positive rate decreases with more bits and increases with more elements.
+- They are read-only by default; variations support deletions.
+- Optimal configuration: k = (m/n) * ln(2) hash functions.
