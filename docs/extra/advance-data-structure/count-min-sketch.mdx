@@ -1,0 +1,149 @@
+---
+id: count-min-sketch
+sidebar_position: 51
+title: "Count-Min Sketch"
+sidebar_label: "Count-Min Sketch"
+description: "A guide to the Count-Min Sketch - a probabilistic data structure for estimating frequencies in data streams using sub-linear space."
+tags: [dsa, data structures, probabilistic, streaming]
+---
+
+# Count-Min Sketch
+
+## Introduction
+
+The **Count-Min Sketch** (CM Sketch) is a probabilistic data structure introduced by Graham Cormode and S. Muthukrishnan in 2005. It is designed to estimate the frequency of elements in a data stream using sub-linear space. It is particularly useful in scenarios where processing large volumes of streaming data is required, and exact counts are less important than relative frequencies.
+
+The data structure was developed to address the problem of tracking frequencies in data streams where storing exact counts for all elements would be prohibitively expensive in memory.
+
+## Key Properties
+
+1. **Sub-linear Space**: Uses O(w * d) space where w and d are parameters chosen at construction time.
+2. **Probabilistic**: Provides an upper bound on the estimated count with configurable error probability.
+3. **Additive Overestimates**: The estimated count is always greater than or equal to the true count.
+4. **No False Negatives**: If the sketch says a count is X, the true count is at most X.
+
+## How It Works
+
+The Count-Min Sketch consists of a 2-dimensional array of width w and depth d:
+
+- **w (width)**: Number of columns - determines the probability of collision
+- **d (depth)**: Number of hash functions - determines the confidence level
+
+### Hash Functions
+
+Each of the d hash functions maps an element to one of w positions in its corresponding row. All hash functions must be independent and map to a uniform distribution over [0, w-1].
+
+### Adding an Element
+
+When an element x is observed:
+1. For each hash function h_i, compute h_i(x)
+2. Increment the cell at row i, column h_i(x) by 1
+
+### Estimating Frequency
+
+When querying the frequency of element x:
+1. For each hash function h_i, compute h_i(x)
+2. Return the minimum value among all d cells: estimate = min(cells[i][h_i(x)])
+
+The minimum is returned because different elements may hash to the same positions (collisions), and the true count is always less than or equal to the estimated count.
+
+## Mathematical Guarantees
+
+Let:
+- e = 2.71828... (Euler's number)
+- epsilon = width parameter (controls accuracy)
+- delta = depth parameter (controls confidence)
+
+After processing n items, with epsilon = 2/w and delta = 1/d:
+
+```
+P(estimated_count >= true_count + epsilon * n) <= delta
+```
+
+## Code Implementation
+
+```javascript
+class CountMinSketch {
+  constructor(width, depth) {
+    this.width = width;
+    this.depth = depth;
+    this.table = Array.from({ length: depth }, () => new Array(width).fill(0));
+    // Generate random hash function parameters a and b for each row
+    this.hashParams = Array.from({ length: depth }, () => ({
+      a: Math.floor(Math.random() * (width - 1)) + 1,
+      b: Math.floor(Math.random() * width)
+    }));
+  }
+
+  // Simple hash function using polynomial hashing
+  hash(x, a, b) {
+    const str = String(x);
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = (h * 31 + str.charCodeAt(i)) >>> 0;
+    }
+    return ((a * h + b) % this.width);
+  }
+
+  // Add an element
+  add(x) {
+    for (let i = 0; i < this.depth; i++) {
+      const j = this.hash(x, this.hashParams[i].a, this.hashParams[i].b);
+      this.table[i][j]++;
+    }
+  }
+
+  // Estimate frequency of an element
+  estimate(x) {
+    let min = Infinity;
+    for (let i = 0; i < this.depth; i++) {
+      const j = this.hash(x, this.hashParams[i].a, this.hashParams[i].b);
+      min = Math.min(min, this.table[i][j]);
+    }
+    return min === Infinity ? 0 : min;
+  }
+}
+
+// Usage
+const sketch = new CountMinSketch(1000, 5);
+sketch.add("apple");
+sketch.add("banana");
+sketch.add("apple");
+console.log(sketch.estimate("apple")); // Output: 2
+console.log(sketch.estimate("orange")); // Output: 0
+```
+
+## Comparison: Count-Min Sketch vs Bloom Filter
+
+| Property | Count-Min Sketch | Bloom Filter |
+|----------|-----------------|--------------|
+| Purpose | Frequency estimation | Set membership |
+| Space | O(w * d) | O(m) bits |
+| Error Type | May overestimate | May have false positives |
+| Operations | Increment, estimate | Add, check |
+
+## Use Cases
+
+1. **Network Traffic Monitoring**: Tracking the number of packets from each IP address in real-time.
+2. **Database Query Optimization**: Estimating query result sizes without executing the query.
+3. **Search Engine Ranking**: Estimating term frequencies across documents.
+4. **Streaming Analytics**: Counting events in data pipelines where storing all events is impractical.
+5. **Recommendation Systems**: Tracking item popularity in real-time.
+
+## Advantages and Disadvantages
+
+### Advantages
+- Extremely space-efficient for streaming data
+- Simple to implement and parallelize
+- Provides strong theoretical guarantees
+
+### Disadvantages
+- Only provides approximate counts (upper bound)
+- Cannot delete elements (use Count-Min-Dec sketch for that)
+- Memory usage grows with the width parameter
+
+## Practice Problems
+
+1. Implement a Count-Min Sketch and verify frequency estimates.
+2. Compare estimates with actual counts on a real dataset.
+3. Implement a Count-Min-Dec Sketch that supports deletions.
