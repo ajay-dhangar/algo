@@ -1,0 +1,160 @@
+---
+id: manachers-algorithm
+sidebar_position: 20
+title: "Manacher's Algorithm"
+sidebar_label: "Manacher's Algorithm"
+description: "A guide to Manacher's Algorithm - finding the longest palindromic substring in O(n) time using palindromic symmetry."
+tags: [dsa, algorithms, string, palindrome]
+---
+
+# Manacher's Algorithm
+
+## Introduction
+
+**Manacher's Algorithm** is an elegant linear-time algorithm that finds the longest palindromic substring in a given string. It was discovered by Glenn K. Manacher in 1975 and achieves O(n) time complexity, making it significantly faster than the naive O(n^3) approach or the dynamic programming O(n^2) approach.
+
+The key insight of the algorithm is to exploit the symmetry property of palindromes to avoid redundant computations.
+
+## The Core Insight: Palindromic Symmetry
+
+When we find a palindrome centered at some position, we know that the substring immediately to the right (inside the palindrome) has a mirrored counterpart to the left. This symmetry allows us to use previously computed information to skip work.
+
+Consider a palindrome "aba" centered at index 1:
+- Index 0: a
+- Index 1: b (center)
+- Index 2: a
+
+The palindrome centered at index 2 would have the same radius (length) as the one centered at index 0.
+
+## Algorithm Steps
+
+### Step 1: Transform the String
+
+To handle even-length palindromes uniformly, transform the string by inserting a special character (e.g., '#') between every character and at the boundaries:
+
+```
+Original: "babad"
+Transformed: "^#b#a#b#a#d#$"
+```
+
+This ensures all palindromes have a center at a single character.
+
+### Step 2: Use Two Key Variables
+
+- **center**: The center of the most recently computed palindrome
+- **right**: The rightmost boundary of this palindrome
+
+### Step 3: Iterate and Exploit Symmetry
+
+For each position i:
+1. If i is within the current palindrome (i < right), use the mirror property.
+2. Try to expand beyond the mirrored palindrome.
+3. Update center and right boundary as needed.
+
+## Code Implementation
+
+```javascript
+function manacher(s) {
+  // Step 1: Transform the string
+  const t = "^#" + s.split("").join("#") + "#$";
+  const n = t.length;
+
+  // Array to store the radius (half-length) of palindrome at each center
+  const P = new Array(n).fill(0);
+
+  let center = 0; // center of the current rightmost palindrome
+  let right = 0;  // right boundary of the current rightmost palindrome
+
+  for (let i = 1; i < n - 1; i++) {
+    // Step 2: Use mirror of i relative to center
+    // If i is within the current palindrome, we can start with the mirrored radius
+    if (i < right) {
+      const mirror = 2 * center - i;
+      P[i] = Math.min(right - i, P[mirror]);
+    }
+
+    // Step 3: Expand around center i
+    while (t[i + 1 + P[i]] === t[i - 1 - P[i]]) {
+      P[i]++;
+    }
+
+    // Step 4: Update center and right boundary if needed
+    if (i + P[i] > right) {
+      center = i;
+      right = i + P[i];
+    }
+  }
+
+  // Step 4: Find the maximum palindrome
+  let maxLen = 0;
+  let maxCenter = 0;
+  for (let i = 1; i < n - 1; i++) {
+    if (P[i] > maxLen) {
+      maxLen = P[i];
+      maxCenter = i;
+    }
+  }
+
+  // Extract the actual palindrome from the original string
+  const start = Math.floor((maxCenter - maxLen) / 2);
+  return s.substring(start, start + maxLen);
+}
+
+// Usage
+console.log(manacher("babad")); // "bab" or "aba"
+console.log(manacher("cbbd"));  // "bb"
+console.log(manacher("aaaa"));  // "aaaa"
+```
+
+## Complexity Analysis
+
+| Aspect | Complexity |
+|--------|------------|
+| Time | O(n) - each character is processed at most twice |
+| Space | O(n) - for the transformed string and P array |
+
+### Why O(n)?
+
+Each character in the transformed string is:
+1. Used to initialize P[i] from the mirrored palindrome (constant time)
+2. Expanded at most once when trying to extend the palindrome
+
+The `right` pointer moves only forward, never backward. So each expansion step is paid for at most once across the entire algorithm.
+
+## Visual Walkthrough
+
+For string "babad":
+- Transformed: "^#b#a#b#a#d#$"
+- P array after processing: [0,0,1,0,1,4,1,0,1,0,0]
+- Maximum P value: 4 at center index 5
+- Original palindrome: positions (5-4)/2 to (5+4)/2 = 0 to 2 => "bab"
+
+## Advantages of Manacher's Algorithm
+
+1. **Optimal time complexity**: O(n) is the theoretical lower bound for this problem.
+2. **Single pass**: Only one pass through the string.
+3. **Elegant use of symmetry**: Demonstrates the power of reusing computed information.
+
+## Comparison with Other Approaches
+
+| Algorithm | Time | Space | Notes |
+|-----------|------|-------|-------|
+| Naive | O(n^3) | O(1) | Check all substrings |
+| DP | O(n^2) | O(n^2) | Build table of palindromes |
+| Expand Around Center | O(n^2) | O(1) | Check each center |
+| Manacher | O(n) | O(n) | Optimal, handles both parities |
+
+## Applications
+
+1. **Text editors**: Finding palindromes for "find and replace" operations
+2. **Bioinformatics**: Finding palindromic sequences in DNA
+3. **Competitive programming**: Essential for palindrome-related problems
+4. **String processing**: Palindrome detection in large texts
+
+## Practice Problems
+
+1. Implement Manacher's algorithm from scratch.
+2. Find all palindromic substrings in a string.
+3. Count the number of palindromic substrings.
+4. Find the longest palindromic subsequence (not substring).
+5. Check if a string can be rearranged into a palindrome.

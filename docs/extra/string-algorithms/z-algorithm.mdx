@@ -1,0 +1,164 @@
+---
+id: z-algorithm
+sidebar_position: 21
+title: "Z Algorithm"
+sidebar_label: "Z Algorithm"
+description: "A guide to the Z Algorithm - computing longest prefix matches in linear time for efficient string pattern matching."
+tags: [dsa, algorithms, string, pattern matching]
+---
+
+# Z Algorithm
+
+## Introduction
+
+The **Z Algorithm** is a linear-time string algorithm that, given a string S, computes an array Z where Z[i] represents the length of the longest substring starting at position i that is also a prefix of S.
+
+In other words, Z[i] tells us how many characters starting from position i match the prefix of the string, starting from position 0.
+
+For pattern matching, we construct a concatenated string "pattern + $ + text" and compute Z on it. Z values equal to the pattern length indicate a match.
+
+## Key Concept: Z-Box
+
+The **Z-box** (or Z-box) is the interval [l, r] maintained during the algorithm where:
+- l = left boundary of the Z-box
+- r = right boundary (inclusive) of the rightmost Z-box found so far
+- Z[l] = r - l + 1 (the length of the Z-box)
+
+When processing position i:
+- If i <= r: we can use the previously computed value Z[i - l]
+- If i > r: we must compare characters one by one to find Z[i]
+
+## The Algorithm
+
+For i from 1 to n-1:
+1. If i <= r: Z[i] = min(Z[i - l], r - i + 1)
+2. Otherwise, set l = r = i
+3. While r < n and S[r] == S[r - i]: r++
+4. Set Z[i] = r - i, and if Z[i] > 0, set l = i
+
+## Code Implementation
+
+```javascript
+// Compute Z-array for a string
+function computeZ(s) {
+  const n = s.length;
+  const Z = new Array(n).fill(0);
+
+  let l = 0; // left boundary of Z-box
+  let r = 0; // right boundary of Z-box
+
+  for (let i = 1; i < n; i++) {
+    if (i <= r) {
+      // i is within the current Z-box
+      Z[i] = Math.min(r - i + 1, Z[i - l]);
+    }
+
+    // Try to extend the Z-box
+    while (i + Z[i] < n && s[Z[i]] === s[i + Z[i]]) {
+      Z[i]++;
+    }
+
+    // Update the Z-box if we extended past r
+    if (i + Z[i] - 1 > r) {
+      l = i;
+      r = i + Z[i] - 1;
+    }
+  }
+
+  return Z;
+}
+
+// Pattern matching using Z-algorithm
+function zPatternMatch(text, pattern) {
+  // Create concatenated string: pattern + $ + text
+  const combined = pattern + "$" + text;
+  const Z = computeZ(combined);
+  const matches = [];
+
+  // Z values at positions > pattern.length indicate a match
+  const patternLen = pattern.length;
+  for (let i = patternLen + 1; i < combined.length; i++) {
+    if (Z[i] >= patternLen) {
+      // Match found at position (i - patternLen - 1) in text
+      matches.push(i - patternLen - 1);
+    }
+  }
+
+  return matches;
+}
+
+// Usage
+const text = "AABAACAADAABAABA";
+const pattern = "AABA";
+const matches = zPatternMatch(text, pattern);
+console.log("Pattern found at positions:", matches); // [0, 9, 12]
+
+// Full Z-array
+const s = "aabxaabx";
+const Z = computeZ(s);
+console.log("Z-array:", Z); // [0, 1, 0, 3, 1, 0]
+```
+
+## Complexity Analysis
+
+| Aspect | Complexity |
+|--------|------------|
+| Time | O(n) |
+| Space | O(n) |
+
+### Why O(n)?
+
+The key insight is that the right boundary `r` always moves forward and never moves backward. Each character is compared at most twice:
+1. When initially within a Z-box (using the mirror value)
+2. When extending the Z-box (at most once per position)
+
+## Z-Array Example
+
+For string "aabxaabx":
+```
+Index:  0 1 2 3 4 5 6 7
+Char:   a a b x a a b x
+Z:      0 1 0 3 1 0
+```
+
+- Z[1] = 1: substring "a" starting at 1 matches prefix "a"
+- Z[3] = 3: substring "aabx" starting at 3 matches prefix "aabx"
+- Z[4] = 1: substring "a" starting at 4 matches prefix "a"
+
+## Applications
+
+### 1. Pattern Matching
+
+As shown above, the Z-algorithm can find all occurrences of a pattern in a text in O(n + m) time.
+
+### 2. String Decomposition
+
+Divide a string into the minimum number of prefixes where each prefix is also a prefix of the original string.
+
+### 3. Finding the Longest Prefix That Appears More Than Once
+
+The maximum value in the Z-array tells us the longest substring that also appears elsewhere.
+
+### 4. Comparison with KMP
+
+| Feature | Z-Algorithm | KMP |
+|---------|-------------|-----|
+| Preprocessing | O(n) | O(n) |
+| Matching | O(n) | O(n) |
+| Space | O(n) | O(n) |
+| Construction | Simpler | More complex |
+| Concept | Z-box | Failure function |
+
+## Advantages of Z-Algorithm
+
+1. **Simpler than KMP**: Easier to understand and implement.
+2. **Versatile**: Can be used for many string problems.
+3. **Linear time**: Optimal time complexity.
+
+## Practice Problems
+
+1. Compute the Z-array for any given string.
+2. Find all occurrences of a pattern in a text using Z-algorithm.
+3. Find the longest substring that is also a prefix.
+4. Count distinct substrings using Z-algorithm.
+5. Solve the "String Equality" problem using Z-algorithm.
