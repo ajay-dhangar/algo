@@ -1,0 +1,187 @@
+---
+id: huffman-coding
+sidebar_position: 30
+title: "Huffman Coding"
+sidebar_label: "Huffman Coding"
+description: "A comprehensive guide to Huffman Coding - a greedy algorithm for lossless data compression using variable-length prefix-free codes."
+tags: [dsa, algorithms, greedy, compression]
+---
+
+# Huffman Coding
+
+## Introduction
+
+**Huffman Coding** is a lossless data compression algorithm developed by David A. Huffman in 1952. It is a greedy algorithm that assigns variable-length codes to characters based on their frequency of occurrence in a given text. More frequent characters receive shorter codes, while less frequent characters receive longer codes.
+
+Huffman coding is the foundation of many compression formats including JPEG (image), MP3 (audio), and ZIP (file) compression, though these formats use more advanced techniques on top of Huffman coding.
+
+## Key Concepts
+
+### Prefix-Free Codes
+
+A crucial property of Huffman codes is that no code is a prefix of another code. This is called the **prefix-free property** and it ensures that the encoded message can be uniquely decoded without ambiguity.
+
+For example, if 'A' is coded as "0", then no other character can have a code starting with "0". This prevents codes like "01" for 'B' (since "0" is already a prefix).
+
+### Variable-Length Coding
+
+In fixed-length coding (like ASCII), every character takes the same number of bits (8 bits). In Huffman coding, characters are assigned codes of varying lengths based on their frequency:
+- Most frequent character: shortest code
+- Least frequent character: longest code
+
+This results in average code length close to the entropy of the source.
+
+## The Huffman Algorithm
+
+The algorithm builds an optimal prefix-free code using a greedy approach:
+
+1. **Create a leaf node** for each character with its frequency.
+2. **Build a min-heap** of all leaf nodes.
+3. **Repeat while heap has more than one node**:
+   - Extract two nodes with minimum frequency (x and y).
+   - Create a new internal node with frequency = x.freq + y.freq.
+   - The new node's left child = x, right child = y.
+   - Insert the new node back into the heap.
+4. The remaining node is the **root of the Huffman tree**.
+
+### Assigning Codes
+
+Once the tree is built:
+- Traverse left from the root: append '0'
+- Traverse right from the root: append '1'
+- The code for a character is the path from the root to its leaf
+
+## Code Implementation
+
+```javascript
+// Node for Huffman Tree
+class HuffmanNode {
+  constructor(char, freq) {
+    this.char = char;
+    this.freq = freq;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+// Custom comparator for min-heap (using array as heap)
+function heapify(arr, n, i) {
+  let smallest = i;
+  const left = 2 * i + 1;
+  const right = 2 * i + 2;
+
+  if (left < n && arr[left].freq < arr[smallest].freq)
+    smallest = left;
+  if (right < n && arr[right].freq < arr[smallest].freq)
+    smallest = right;
+
+  if (smallest !== i) {
+    [arr[i], arr[smallest]] = [arr[smallest], arr[i]];
+    heapify(arr, n, smallest);
+  }
+}
+
+function buildHuffmanTree(text) {
+  // Step 1: Calculate frequency of each character
+  const freqMap = {};
+  for (const char of text) {
+    freqMap[char] = (freqMap[char] || 0) + 1;
+  }
+
+  // Step 2: Create leaf nodes and build min-heap
+  const heap = Object.entries(freqMap).map(([char, freq]) => new HuffmanNode(char, freq));
+  const n = heap.length;
+
+  // Build min-heap
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+    heapify(heap, n, i);
+  }
+
+  // Step 3: Build Huffman tree
+  while (heap.length > 1) {
+    heapify(heap, heap.length, 0);
+    const left = heap.shift();
+    heapify(heap, heap.length, 0);
+    const right = heap.shift();
+
+    const merged = new HuffmanNode(null, left.freq + right.freq);
+    merged.left = left;
+    merged.right = right;
+    heap.push(merged);
+    heapify(heap, heap.length, 0);
+  }
+
+  return heap[0];
+}
+
+function generateCodes(root, code = "", codes = {}) {
+  if (!root) return;
+  if (root.char !== null) {
+    codes[root.char] = code || "0";
+    return;
+  }
+  generateCodes(root.left, code + "0", codes);
+  generateCodes(root.right, code + "1", codes);
+  return codes;
+}
+
+function encode(text) {
+  const tree = buildHuffmanTree(text);
+  const codes = generateCodes(tree);
+  return {
+    encoded: text.split("").map(c => codes[c]).join(""),
+    codes: codes,
+    tree: tree
+  };
+}
+
+function decode(encoded, root) {
+  let result = "";
+  let node = root;
+  for (const bit of encoded) {
+    node = bit === "0" ? node.left : node.right;
+    if (node.char !== null) {
+      result += node.char;
+      node = root;
+    }
+  }
+  return result;
+}
+
+// Usage
+const text = "this is an example for huffman encoding";
+const { encoded, codes, tree } = encode(text);
+console.log("Codes:", codes);
+console.log("Original bits:", text.length * 8);
+console.log("Encoded bits:", encoded.length);
+console.log("Decoded:", decode(encoded, tree));
+```
+
+## Time and Space Complexity
+
+| Aspect | Complexity |
+|--------|------------|
+| Building frequency map | O(n) |
+| Building Huffman tree | O(n log n) |
+| Encoding | O(n) |
+| Decoding | O(n) |
+| Space | O(n) for the tree |
+
+## Advantages
+
+1. **Optimal compression**: For a given set of character frequencies, no other prefix-free code can produce a shorter encoded message.
+2. **Lossless**: Original data is perfectly reconstructed.
+3. **Simple and efficient**: Greedy approach works optimally for this problem.
+
+## Disadvantages
+
+1. **Two-pass approach needed**: First pass for frequency counting, second for encoding.
+2. **Code table overhead**: The code table must be stored or transmitted with the encoded data.
+3. **Not adaptive**: Must rebuild the tree for different datasets.
+
+## Applications
+
+1. **File compression formats**: ZIP, GZIP, BZIP2
+2. **Multimedia**: JPEG image compression, MP3 audio compression
+3. **Network protocols**: Fax compression, some encryption schemes
+4. **Text editors**: Auto-completion based on character frequency
