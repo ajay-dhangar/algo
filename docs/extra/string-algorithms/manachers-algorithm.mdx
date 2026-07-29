@@ -1,0 +1,118 @@
+---
+id: manachers-algorithm
+sidebar_position: 20
+title: "Manacher's Algorithm"
+sidebar_label: "Manacher's Algorithm"
+description: "A guide to Manacher's Algorithm - finding the longest palindromic substring in O(n) time using palindromic symmetry."
+tags: [dsa, algorithms, string, palindrome]
+---
+
+# Manacher's Algorithm
+
+## Introduction
+
+**Manacher's Algorithm** is an elegant linear-time algorithm that finds the longest palindromic substring in a given string. It was discovered by Glenn K. Manacher in 1975 and achieves O(n) time complexity, making it significantly faster than the naive O(n^3) approach or the dynamic programming O(n^2) approach.
+
+The key insight of the algorithm is to exploit the symmetry property of palindromes to avoid redundant computations.
+
+## The Core Insight: Palindromic Symmetry
+
+When we find a palindrome centered at some position, we know that the substring immediately to the right (inside the palindrome) has a mirrored counterpart to the left. This symmetry allows us to use previously computed information to skip work.
+
+## Algorithm Steps
+
+### Step 1: Transform the String
+
+To handle even-length palindromes uniformly, transform the string by inserting a special character (e.g., '#') between every character and at the boundaries:
+
+```
+Original: "babad"
+Transformed: "^#b#a#b#a#d#$"
+```
+
+This ensures all palindromes have a center at a single character.
+
+### Step 2: Use Two Key Variables
+
+- **center**: The center of the most recently computed palindrome
+- **right**: The rightmost boundary of this palindrome
+
+### Step 3: Iterate and Exploit Symmetry
+
+For each position i:
+1. If i is within the current palindrome (i < right), use the mirror property.
+2. Try to expand beyond the mirrored palindrome.
+3. Update center and right boundary as needed.
+
+## Code Implementation
+
+```javascript
+function manacher(s) {
+  const t = "^#" + s.split("").join("#") + "#$";
+  const n = t.length;
+  const P = new Array(n).fill(0);
+
+  let center = 0;
+  let right = 0;
+
+  for (let i = 1; i < n - 1; i++) {
+    if (i < right) {
+      const mirror = 2 * center - i;
+      P[i] = Math.min(right - i, P[mirror]);
+    }
+    while (t[i + 1 + P[i]] === t[i - 1 - P[i]]) {
+      P[i]++;
+    }
+    if (i + P[i] > right) {
+      center = i;
+      right = i + P[i];
+    }
+  }
+
+  let maxLen = 0;
+  let maxCenter = 0;
+  for (let i = 1; i < n - 1; i++) {
+    if (P[i] > maxLen) {
+      maxLen = P[i];
+      maxCenter = i;
+    }
+  }
+
+  const start = Math.floor((maxCenter - maxLen) / 2);
+  return s.substring(start, start + maxLen);
+}
+
+console.log(manacher("babad"));
+console.log(manacher("cbbd"));
+```
+
+## Complexity Analysis
+
+| Aspect | Complexity |
+|--------|------------|
+| Time | O(n) |
+| Space | O(n) |
+
+## Comparison with Other Approaches
+
+| Algorithm | Time | Space |
+|-----------|------|-------|
+| Naive | O(n^3) | O(1) |
+| DP | O(n^2) | O(n^2) |
+| Expand Around Center | O(n^2) | O(1) |
+| Manacher | O(n) | O(n) |
+
+## Applications
+
+1. **Text editors**: Finding palindromes for find and replace
+2. **Bioinformatics**: Finding palindromic sequences in DNA
+3. **Competitive programming**: Essential for palindrome problems
+4. **String processing**: Palindrome detection in large texts
+
+## Practice Problems
+
+1. Implement Manacher's algorithm from scratch.
+2. Find all palindromic substrings in a string.
+3. Count the number of palindromic substrings.
+4. Find the longest palindromic subsequence.
+5. Check if a string can be rearranged into a palindrome.
