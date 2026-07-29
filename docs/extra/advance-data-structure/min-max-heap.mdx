@@ -1,0 +1,206 @@
+---
+id: min-max-heap
+sidebar_position: 52
+title: "Min-Max Heap"
+sidebar_label: "Min-Max Heap"
+description: "A guide to the Min-Max Heap - a data structure that supports both min and max operations in O(1) time."
+tags: [dsa, data structures, heap, min-max]
+---
+
+# Min-Max Heap
+
+## Introduction
+
+A **Min-Max Heap** is a specialized heap data structure that was introduced by M. D. Atkinson, J.-R. Sack, N. Santoro, and T. Strothotte in 1986. Unlike a regular binary heap that supports only a min-heap or max-heap, the min-max heap supports simultaneous retrieval and removal of both the minimum and maximum elements in O(1) time, with all other operations in O(log n) time.
+
+This makes min-max heaps ideal for implementing double-ended priority queues, where you need fast access to both the smallest and largest elements.
+
+## Structure
+
+The min-max heap is a complete binary tree with a special ordering property:
+
+- **Levels alternate**: Even levels (root at level 0) are "min-levels" and odd levels are "max-levels".
+- **Min-level property**: Nodes at min-levels have values less than or equal to all descendants.
+- **Max-level property**: Nodes at max-levels have values greater than or equal to all descendants.
+
+This dual-level ordering means:
+- The root (level 0) always contains the minimum element.
+- The root's children (level 1, max-level) contain the maximum element(s).
+
+## Operations
+
+### 1. Insert
+
+Insertion into a min-max heap:
+1. Place the new element at the next available position (maintaining completeness).
+2. If the new element violates the min-max ordering, bubble it up.
+3. For min-level nodes: bubble up until the min-level property is satisfied.
+4. For max-level nodes: bubble up until the max-level property is satisfied.
+
+Time complexity: O(log n)
+
+### 2. Extract Minimum
+
+1. Remove the root (minimum element).
+2. Move the last element to the root.
+3. Perform a trickle-down operation at the root (which is a min-level).
+4. At min-levels: swap with the smaller of the children. If a grandchild is smaller, swap with the smallest grandchild.
+5. At max-levels: swap with the larger of the children. If a grandchild is larger, swap with the largest grandchild.
+
+Time complexity: O(log n)
+
+### 3. Extract Maximum
+
+1. The maximum is one of the root's children (at max-level).
+2. Identify the larger of the two children.
+3. Apply a trickle-down similar to extract-min, but starting at the max-level.
+4. If no grandchildren are larger, compare with the smaller child.
+
+Time complexity: O(log n)
+
+### 4. Get Min and Get Max
+
+- Get Min: Return the root. Time: O(1)
+- Get Max: Return the larger of the root's two children. Time: O(1)
+
+## Code Implementation
+
+```javascript
+class MinMaxHeap {
+  constructor() {
+    this.heap = [];
+  }
+
+  parent(i) { return Math.floor((i - 1) / 2); }
+  leftChild(i) { return 2 * i + 1; }
+  rightChild(i) { return 2 * i + 2; }
+
+  isMinLevel(i) {
+    return Math.floor(Math.log2(i + 1)) % 2 === 0;
+  }
+
+  swap(i, j) {
+    [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]];
+  }
+
+  // Get minimum (root)
+  getMin() {
+    return this.heap.length > 0 ? this.heap[0] : null;
+  }
+
+  // Get maximum (larger of root's children)
+  getMax() {
+    if (this.heap.length === 0) return null;
+    if (this.heap.length === 1) return this.heap[0];
+    return this.heap[1] > this.heap[2] ? this.heap[1] : this.heap[2];
+  }
+
+  insert(value) {
+    this.heap.push(value);
+    this.bubbleUp(this.heap.length - 1);
+  }
+
+  bubbleUp(i) {
+    while (i > 0) {
+      const p = this.parent(i);
+      if (this.isMinLevel(i)) {
+        if (this.heap[i] > this.heap[p]) {
+          this.swap(i, p);
+          i = p;
+        } else {
+          break;
+        }
+      } else {
+        if (this.heap[i] < this.heap[p]) {
+          this.swap(i, p);
+          i = p;
+        } else {
+          break;
+        }
+      }
+    }
+  }
+
+  extractMin() {
+    if (this.heap.length === 0) return null;
+    const min = this.heap[0];
+    const last = this.heap.pop();
+    if (this.heap.length > 0) {
+      this.heap[0] = last;
+      this.trickleDown(0, true); // true = start at min-level
+    }
+    return min;
+  }
+
+  trickleDown(i, isMinLevel) {
+    while (true) {
+      if (isMinLevel) {
+        let minChild = this.leftChild(i);
+        if (minChild >= this.heap.length) break;
+        // Find smaller child
+        const right = this.rightChild(i);
+        if (right < this.heap.length && this.heap[right] < this.heap[minChild]) {
+          minChild = right;
+        }
+        if (this.heap[minChild] < this.heap[i]) {
+          this.swap(i, minChild);
+          i = minChild;
+          isMinLevel = !isMinLevel;
+        } else {
+          break;
+        }
+      } else {
+        let maxChild = this.leftChild(i);
+        if (maxChild >= this.heap.length) break;
+        const right = this.rightChild(i);
+        if (right < this.heap.length && this.heap[right] > this.heap[maxChild]) {
+          maxChild = right;
+        }
+        if (this.heap[maxChild] > this.heap[i]) {
+          this.swap(i, maxChild);
+          i = maxChild;
+          isMinLevel = !isMinLevel;
+        } else {
+          break;
+        }
+      }
+    }
+  }
+}
+
+// Usage
+const mmHeap = new MinMaxHeap();
+mmHeap.insert(5);
+mmHeap.insert(10);
+mmHeap.insert(1);
+console.log(mmHeap.getMin()); // 1
+console.log(mmHeap.getMax()); // 10
+```
+
+## Time Complexity Summary
+
+| Operation | Time Complexity |
+|-----------|----------------|
+| Insert | O(log n) |
+| Extract Min | O(log n) |
+| Extract Max | O(log n) |
+| Get Min | O(1) |
+| Get Max | O(1) |
+| Delete | O(log n) |
+
+## Advantages
+
+1. **Dual access**: Both min and max accessible in O(1)
+2. **Space efficient**: Same as a regular binary heap
+3. **Versatile**: Suitable for implementing priority queues that need both ends
+
+## Disadvantages
+
+1. **Complex implementation**: More complex than regular heaps
+2. **Less known**: Not as widely available in standard libraries
+
+## Use Cases
+
+1. **Double-ended priority queues**: When you need both smallest and largest priorities.
+2. **Scheduling algorithms**: Where both highest and lowest priority tasks need fast access.
+3. **Event simulation**: Managing both earliest and latest scheduled events.
