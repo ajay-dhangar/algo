@@ -1,3 +1,12 @@
+declare module '@theme/DocCard' {
+  import type { PropSidebarItemCategory, PropSidebarItemLink } from '@docusaurus/plugin-content-docs';
+  import React from 'react';
+  export interface Props {
+    item: PropSidebarItemLink | PropSidebarItemCategory;
+  }
+  export default function DocCard(props: Props): React.ReactNode;
+}
+
 declare module '@theme/Layout' {
   import React from 'react';
   export interface Props {

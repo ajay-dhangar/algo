@@ -1,5 +1,10 @@
 const React = require('react');
+
+const Layout = ({ children, title }) =>
+  React.createElement('div', { 'data-testid': 'docusaurus-layout', 'data-title': title }, children);
+
 module.exports = {
-  Layout: ({ children, title }) =>
-    React.createElement('div', { 'data-testid': 'docusaurus-layout', 'data-title': title }, children),
+  __esModule: true,
+  default: Layout,
+  Layout,
 };
