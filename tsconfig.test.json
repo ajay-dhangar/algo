@@ -12,6 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "allowJs": true,
     "baseUrl": "."
   },
   "include": ["src/**/*", "jest.config.js"]
