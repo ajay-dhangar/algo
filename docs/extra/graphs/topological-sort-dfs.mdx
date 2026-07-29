@@ -1,0 +1,220 @@
+---
+id: topological-sort-dfs
+sidebar_position: 30
+title: "Topological Sort using DFS"
+sidebar_label: "Topological Sort (DFS)"
+description: "A guide to Topological Sorting using Depth-First Search - an elegant recursive approach to ordering vertices in a DAG."
+tags: [dsa, algorithms, graphs, topological sort, dfs]
+---
+
+# Topological Sort using DFS
+
+## Introduction
+
+**Topological Sort** is an ordering of vertices in a Directed Acyclic Graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v in the ordering.
+
+We previously covered [Kahn's Algorithm](/docs/graphs/kahn-algo) which uses BFS and a queue. This article covers the **DFS-based approach**, which is often simpler to implement and produces the same ordering (in reverse).
+
+Both algorithms have O(V + E) time complexity, but the DFS approach is more intuitive when you already understand depth-first search.
+
+## The Key Insight
+
+During a DFS traversal of a DAG, if we record the finishing time of each vertex and then sort vertices by decreasing finishing time, we get a topological ordering.
+
+Why does this work?
+- When a vertex finishes (all its descendants have been explored), it means all vertices that depend on it have been visited.
+- So it is safe to place this vertex at the end of the topological order.
+- Recording vertices in reverse order of their DFS finishing times gives the topological sort.
+
+## Algorithm Steps
+
+1. Perform DFS on the graph, tracking visited vertices.
+2. For each vertex, mark it as "in progress" when entering and "completed" when all descendants are visited.
+3. When a vertex is marked "completed", add it to the result stack.
+4. After DFS completes, pop all vertices from the stack - this is the topological order.
+
+## Code Implementation
+
+```javascript
+// Topological Sort using DFS
+function topologicalSortDFS(numCourses, prerequisites) {
+  // Build adjacency list
+  const adj = Array.from({ length: numCourses }, () => []);
+  for (const [dest, src] of prerequisites) {
+    adj[src].push(dest);
+  }
+
+  const visited = new Array(numCourses).fill(false);  // 0 = unvisited
+  const inProgress = new Array(numCourses).fill(false); // 1 = in progress
+  const stack = []; // Stores completed vertices
+
+  function dfs(v) {
+    if (inProgress[v]) {
+      // Cycle detected - not a DAG
+      return false;
+    }
+    if (visited[v]) {
+      return true; // Already fully processed
+    }
+
+    visited[v] = true;
+    inProgress[v] = true;
+
+    for (const neighbor of adj[v]) {
+      if (!dfs(neighbor)) {
+        return false;
+      }
+    }
+
+    inProgress[v] = false;
+    stack.push(v); // Add to stack when completely processed
+    return true;
+  }
+
+  // Run DFS from every unvisited vertex
+  for (let v = 0; v < numCourses; v++) {
+    if (!visited[v]) {
+      if (!dfs(v)) {
+        return []; // Cycle detected - no valid topological order
+      }
+    }
+  }
+
+  // Pop from stack to get topological order
+  return stack.reverse();
+}
+
+// Usage
+const numCourses = 6;
+const prerequisites = [
+  [1, 0], [2, 1], [2, 5],
+  [0, 3], [5, 3], [5, 4],
+  [3, 4]
+];
+console.log(topologicalSortDFS(numCourses, prerequisites));
+// Possible output: [0, 1, 2, 5, 3, 4]
+```
+
+### Generic DFS Topological Sort
+
+```javascript
+class TopologicalSorter {
+  constructor(numVertices) {
+    this.numVertices = numVertices;
+    this.adj = Array.from({ length: numVertices }, () => []);
+  }
+
+  addEdge(u, v) {
+    this.adj[u].push(v);
+  }
+
+  sort() {
+    const visited = new Set();
+    const result = [];
+
+    const dfs = (v) => {
+      if (visited.has(v)) return;
+      visited.add(v);
+
+      for (const neighbor of this.adj[v]) {
+        dfs(neighbor);
+      }
+
+      // Post-order: add after exploring all descendants
+      result.push(v);
+    };
+
+    for (let v = 0; v < this.numVertices; v++) {
+      if (!visited.has(v)) {
+        dfs(v);
+      }
+    }
+
+    return result.reverse();
+  }
+
+  hasCycle() {
+    const WHITE = 0, GRAY = 1, BLACK = 2;
+    const color = new Array(this.numVertices).fill(WHITE);
+
+    const dfs = (v) => {
+      color[v] = GRAY;
+      for (const neighbor of this.adj[v]) {
+        if (color[neighbor] === GRAY) return true; // Back edge = cycle
+        if (color[neighbor] === WHITE && dfs(neighbor)) return true;
+      }
+      color[v] = BLACK;
+      return false;
+    };
+
+    for (let v = 0; v < this.numVertices; v++) {
+      if (color[v] === WHITE && dfs(v)) return true;
+    }
+    return false;
+  }
+}
+
+// Usage
+const graph = new TopologicalSorter(6);
+[[0,3],[1,3],[2,4],[3,5],[4,5]].forEach(([u,v]) => graph.addEdge(u, v));
+console.log(graph.sort()); // [0, 1, 2, 3, 4, 5] (one possible order)
+console.log(graph.hasCycle()); // false
+```
+
+## Complexity Analysis
+
+| Aspect | Complexity |
+|--------|------------|
+| Time | O(V + E) - each vertex and edge is visited once |
+| Space | O(V) - for visited array, recursion stack, and result array |
+
+## Comparison: DFS vs Kahn's Algorithm
+
+| Aspect | DFS Topo Sort | Kahn's Algorithm |
+|--------|--------------|------------------|
+| Approach | Depth-first search | BFS with queue |
+| Order produced | Reverse finishing times | Forward from sources |
+| Cycle detection | Detected during DFS | No sources = cycle |
+| Space | O(V) recursion stack | O(V) for queue |
+| Ease of implementation | Simpler recursive | Moderate |
+| Parallelism | Less natural | Natural (sources can be processed in parallel) |
+
+## Visual Walkthrough
+
+For the graph with edges: 0 -> 1, 0 -> 2, 1 -> 3, 2 -> 3, 3 -> 4, 4 -> 5
+
+DFS traversal order (one possible):
+```
+0 -> 1 -> 3 -> 4 -> 5 (backtrack)
+  -> 2 -> 3 (already visited, backtrack)
+```
+
+Finishing order: 5, 4, 3, 2, 1, 0
+
+Topological sort (reverse): 0, 1, 2, 3, 4, 5
+
+This is correct because every edge (u, v) has u appearing before v in the result.
+
+## Applications
+
+1. **Build systems**: Determining the order of compilation (Make, Ant)
+2. **Course scheduling**: Determining valid course completion orders
+3. **Dependency resolution**: Package managers resolving dependencies
+4. **Task scheduling**: Ordering tasks with prerequisites
+5. **Instruction scheduling**: CPU instruction ordering with data dependencies
+
+## Key Points to Remember
+
+1. Topological sort only exists for DAGs (Directed Acyclic Graphs)
+2. DFS-based approach records vertices in **post-order** (after exploring all descendants)
+3. The result is the **reverse** of the post-order traversal
+4. If a back edge is found during DFS, the graph has a cycle and no topological sort exists
+5. Multiple valid topological orderings may exist
+
+## Practice Problems
+
+1. Implement topological sort for a course prerequisite graph.
+2. Detect if a graph is a DAG using DFS.
+3. Find the lexicographically smallest topological ordering.
+4. Print all valid topological orderings of a DAG.
+5. Solve the "Course Schedule II" problem (LeetCode 210).
