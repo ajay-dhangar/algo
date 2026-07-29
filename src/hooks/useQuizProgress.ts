@@ -12,7 +12,7 @@
  */
 
 import { useState, useEffect, useCallback } from "react";
-import { safeJsonParse } from "../utils/safeStorage";
+import { readAlgoProgress, getUserId, normalizeQuizId } from "../utils/safeStorage";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -71,7 +71,7 @@ export function useQuizProgress(quizIds: string[], questionCounts: Record<string
   const refresh = useCallback(() => {
     if (typeof window === "undefined") return;
 
-    const uid = localStorage.getItem("quiz_userId");
+    const uid = getUserId();
     setUserId(uid);
 
     if (!uid) {
@@ -108,9 +108,12 @@ export function useQuizProgress(quizIds: string[], questionCounts: Record<string
     const strongTopics: string[] = [];
     const weakTopics: string[] = [];
 
+    const progress = readAlgoProgress();
+
     quizIds.forEach(quizId => {
-      const key = `quiz_attempts_${uid}_${quizId}`;
-      const attempts = safeJsonParse<QuizAttempt[]>(key, []);
+      const canonicalId = normalizeQuizId(quizId);
+      const key = `quiz_attempts_${canonicalId}`;
+      const attempts = Array.isArray(progress[key]) ? (progress[key] as QuizAttempt[]) : [];
       const total = questionCounts[quizId] ?? 10;
 
       if (attempts.length === 0) {

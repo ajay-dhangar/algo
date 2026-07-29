@@ -117,10 +117,7 @@ export function normalizeQuizId(quizId: string): string {
   return QUIZ_ID_ALIASES[quizId] ?? quizId;
 }
 
-export function getQuizAttemptStorageKey(userId: string, quizId: string): string {
-  const uid = userId.toLowerCase();
-  return `quiz_attempts_${uid}_${normalizeQuizId(quizId)}`;
-}
+
 
 export function markChallengeSolved(challengeId: string, title: string): void {
   const progress = readAlgoProgress();
@@ -145,16 +142,19 @@ export function saveQuizAttemptLocal(
   quizId: string,
   attempt: QuizAttemptRecord
 ): void {
-  if (typeof window === 'undefined' || !window.localStorage) {
+  if (typeof window === 'undefined') {
     return;
   }
 
   const canonicalId = normalizeQuizId(quizId);
-  const key = getQuizAttemptStorageKey(userId, quizId);
-  const existing = safeJsonParse<QuizAttemptRecord[]>(key, []);
+  const progressKey = `quiz_attempts_${canonicalId}`;
+  
+  const progress = readAlgoProgress();
+  const existing = Array.isArray(progress[progressKey]) ? (progress[progressKey] as QuizAttemptRecord[]) : [];
   const updated = [attempt, ...existing].slice(0, 5);
 
-  localStorage.setItem(key, JSON.stringify(updated));
+  progress[progressKey] = updated;
+  writeAlgoProgress(progress);
 
   window.dispatchEvent(
     new CustomEvent('quizCompleted', {
@@ -228,27 +228,21 @@ export interface QuizAttemptRecord {
   completedAt?: string;
 }
 
-function computeQuizStats(): { passed: number; mastered: number; attempted: number } {
-  if (typeof window === 'undefined' || !window.localStorage) {
-    return { passed: 0, mastered: 0, attempted: 0 };
-  }
-
+function computeQuizStats(progress: AlgoProgressData = readAlgoProgress()): { passed: number; mastered: number; attempted: number } {
   let passed = 0;
   let mastered = 0;
   let attempted = 0;
 
   const bestByQuiz = new Map<string, number>();
 
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (!key || !key.startsWith('quiz_attempts_')) continue;
+  for (const [key, value] of Object.entries(progress)) {
+    if (!key.startsWith('quiz_attempts_')) continue;
 
-    const attempts = safeJsonParse<QuizAttemptRecord[]>(key, []);
+    const attempts = value as QuizAttemptRecord[];
     if (!Array.isArray(attempts) || attempts.length === 0) continue;
 
-    // Extract quiz id from key: quiz_attempts_<uid>_<quizId>
-    const parts = key.replace('quiz_attempts_', '').split('_');
-    const quizId = normalizeQuizId(parts.slice(1).join('_') || parts[0]);
+    // Extract quiz id from key: quiz_attempts_<quizId>
+    const quizId = normalizeQuizId(key.replace('quiz_attempts_', ''));
     const total = QUIZ_QUESTION_COUNTS[quizId] ?? 10;
 
     const bestScore = Math.max(...attempts.map((a) => (typeof a.score === 'number' ? a.score : 0)));
@@ -281,7 +275,7 @@ export function getAchievementSnapshot(progress: AlgoProgressData = readAlgoProg
   const streak = computeStreak(progress);
   const lastActiveAt = typeof progress.lastActiveAt === 'string' ? progress.lastActiveAt : null;
 
-  const quizStats = computeQuizStats();
+  const quizStats = computeQuizStats(progress);
 
   return {
     completedCount: completedTopics.length,

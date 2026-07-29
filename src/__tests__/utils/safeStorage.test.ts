@@ -3,7 +3,6 @@ import {
   readAlgoProgress,
   writeAlgoProgress,
   normalizeQuizId,
-  getQuizAttemptStorageKey,
   markChallengeSolved,
   saveQuizAttemptLocal,
   getUserId,
@@ -56,16 +55,11 @@ describe('safeStorage', () => {
     });
   });
 
-  describe('normalizeQuizId & getQuizAttemptStorageKey', () => {
+  describe('normalizeQuizId', () => {
     test('normalizes alias quiz IDs', () => {
       expect(normalizeQuizId('graph')).toBe('graphs');
       expect(normalizeQuizId('binary-tree')).toBe('binary-trees');
       expect(normalizeQuizId('custom-quiz')).toBe('custom-quiz');
-    });
-
-    test('constructs proper storage key', () => {
-      const key = getQuizAttemptStorageKey('User123', 'graph');
-      expect(key).toBe('quiz_attempts_user123_graphs');
     });
   });
 
@@ -92,8 +86,8 @@ describe('safeStorage', () => {
 
       saveQuizAttemptLocal('user1', 'arrays', { score: 9, totalQuestions: 10 });
 
-      const key = getQuizAttemptStorageKey('user1', 'arrays');
-      const attempts = safeJsonParse(key, []);
+      const progress = readAlgoProgress();
+      const attempts = progress['quiz_attempts_arrays'] as any[];
       expect(attempts).toHaveLength(1);
       expect(attempts[0].score).toBe(9);
 
