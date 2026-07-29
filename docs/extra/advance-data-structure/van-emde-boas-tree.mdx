@@ -1,0 +1,164 @@
+---
+id: van-emde-boas-tree
+sidebar_position: 50
+title: "Van Emde Boas Tree"
+sidebar_label: "Van Emde Boas Tree"
+description: "A comprehensive guide to the Van Emde Boas Tree - the fastest data structure for predecessor and successor queries with O(log log u) operations."
+tags: [dsa, data structures, advanced, vEB tree]
+---
+
+# Van Emde Boas Tree
+
+## Introduction
+
+The **Van Emde Boas Tree** (also called a **vEB Tree**) is a specialized data structure that supports all operations of an ordered dictionary in O(log log u) time, where u is the size of the universe of keys. It was invented by Peter van Emde Boas in 1977 and is one of the fastest known data structures for predecessor and successor queries.
+
+Unlike balanced BSTs that guarantee O(log n) time, vEB trees achieve O(log log n) when the universe size is known and not too large relative to the number of elements.
+
+## Key Properties
+
+1. **Universe Size**: The vEB tree is defined over a universe of size u = 2^k. All keys must be in the range [0, u-1].
+2. **Space Complexity**: O(u) which is its main drawback for sparse universes.
+3. **Time Complexity**: O(log log u) for insert, delete, search, predecessor, and successor operations.
+4. **No Balancing Required**: The structure is implicitly balanced based on the recursive partitioning of the universe.
+
+## Structure
+
+A vEB tree for universe size u is organized as follows:
+
+- **Summary**: A pointer to a vEB tree of size sqrt(u) that tracks which children (clusters) are non-empty.
+- **Clusters**: An array of sqrt(u) pointers, each pointing to a vEB tree of size sqrt(u).
+
+For a universe u = 2^k, the tree has height h = log_2(u), but due to the clustering, the actual number of recursive levels is log_2(u) / log_2(sqrt(u)) = log_2(u) / (k/2) = 2.
+
+## Operations
+
+### 1. Minimum
+Returns the minimum key stored in the tree in O(log log u) time.
+
+### 2. Maximum
+Returns the maximum key stored in the tree in O(log log u) time.
+
+### 3. Insert
+Inserts a key into the vEB tree. The algorithm:
+- Inserts the key into the high-order cluster
+- Marks the cluster as non-empty in the summary
+- Recursively inserts into the appropriate cluster if it was empty
+
+### 4. Delete
+Removes a key from the tree, potentially restructuring if the cluster becomes empty.
+
+### 5. Search
+Checks whether a key exists in the tree in O(log log u) time.
+
+### 6. Successor
+Finds the smallest key greater than a given key in O(log log u) time.
+
+### 7. Predecessor
+Finds the largest key smaller than a given key in O(log log u) time.
+
+## Advantages and Disadvantages
+
+### Advantages
+- Extremely fast operations: O(log log u)
+- No comparison-based sorting needed
+- Excellent for dense datasets with known universe size
+
+### Disadvantages
+- High space complexity: O(u)
+- Complex implementation
+- Only works with integer keys in a bounded universe
+
+## Code Implementation
+
+```javascript
+// Van Emde Boas Tree - Basic Structure
+class VEBTree {
+  constructor(u) {
+    this.u = u;
+    this.min = null;
+    this.max = null;
+    if (u > 2) {
+      this.cluster = new Array(Math.ceil(Math.sqrt(u))).fill(null);
+      this.summary = null;
+    }
+  }
+
+  // Helper to get high and low bits
+  high(x) {
+    return Math.floor(x / Math.ceil(Math.sqrt(this.u)));
+  }
+
+  low(x) {
+    return x % Math.ceil(Math.sqrt(this.u));
+  }
+
+  // Insert a key
+  insert(x) {
+    if (this.min === null) {
+      this.min = x;
+      this.max = x;
+      return;
+    }
+    if (x < this.min) {
+      const temp = this.min;
+      this.min = x;
+      x = temp;
+    }
+    if (this.u > 2) {
+      const hi = this.high(x);
+      const lo = this.low(x);
+      if (this.cluster[hi] === null) {
+        this.cluster[hi] = new VEBTree(Math.ceil(Math.sqrt(this.u)));
+      }
+      this.cluster[hi].insert(lo);
+    }
+    if (x > this.max) {
+      this.max = x;
+    }
+  }
+
+  // Search for a key
+  search(x) {
+    if (this.min === null) return false;
+    if (x === this.min) return true;
+    if (this.u === 2) return false;
+    const hi = this.high(x);
+    const lo = this.low(x);
+    if (this.cluster[hi] === null) return false;
+    return this.cluster[hi].search(lo);
+  }
+
+  // Find minimum in cluster
+  minimum() {
+    return this.min;
+  }
+
+  // Find maximum in cluster
+  maximum() {
+    return this.max;
+  }
+}
+```
+
+## Comparison with Other Data Structures
+
+| Operation | vEB Tree | Red-Black Tree | B-Tree |
+|-----------|----------|----------------|--------|
+| Search    | O(log log u) | O(log n) | O(log n) |
+| Insert    | O(log log u) | O(log n) | O(log n) |
+| Delete    | O(log log u) | O(log n) | O(log n) |
+| Space     | O(u) | O(n) | O(n) |
+
+## When to Use vEB Trees
+
+- When the universe size is known and relatively small
+- When O(log log u) performance is critical
+- For predecessor and successor queries in dense datasets
+- In competitive programming for integer universe range queries
+
+## Practice Problems
+
+1. Implement a vEB tree and verify all operations.
+2. Solve the "Predecessor Problem" using a vEB tree.
+3. Compare performance of vEB tree vs balanced BST on sorted integer data.
