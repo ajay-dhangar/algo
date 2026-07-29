@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '../testUtils';
+import { act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ProblemFilterGrid from '../../components/ProblemFilterGrid';
 import type { DsaProblemsIndex } from '../../data/dsaProblemsTypes';
@@ -59,7 +60,9 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await user.click(screen.getByRole('button', { name: 'Easy' }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Easy' }));
+    });
 
     expect(screen.getByText('Two Sum')).toBeInTheDocument();
     expect(screen.queryByText('Course Schedule')).not.toBeInTheDocument();
@@ -70,7 +73,9 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await user.click(screen.getByRole('button', { name: 'Graph' }));
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Graph' }));
+    });
 
     expect(screen.getByText('Course Schedule')).toBeInTheDocument();
     expect(screen.queryByText('Two Sum')).not.toBeInTheDocument();
@@ -81,9 +86,11 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await user.click(screen.getByRole('button', { name: 'Hard' }));
-    await user.click(screen.getByRole('button', { name: 'DP' }));
-    await user.type(screen.getByPlaceholderText(/search problems/i), 'Edit');
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Hard' }));
+      await user.click(screen.getByRole('button', { name: 'DP' }));
+      await user.type(screen.getByPlaceholderText(/search problems/i), 'Edit');
+    });
 
     expect(screen.getByText('Edit Distance')).toBeInTheDocument();
     expect(screen.queryByText('Two Sum')).not.toBeInTheDocument();
@@ -94,11 +101,15 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await user.type(screen.getByPlaceholderText(/search problems/i), 'nonexistent problem');
+    await act(async () => {
+      await user.type(screen.getByPlaceholderText(/search problems/i), 'nonexistent problem');
+    });
 
     expect(screen.getByText(/no problems match these filters/i)).toBeInTheDocument();
 
-    await user.click(screen.getAllByRole('button', { name: /clear filters/i })[0]);
+    await act(async () => {
+      await user.click(screen.getAllByRole('button', { name: /clear filters/i })[0]);
+    });
 
     expect(screen.getByText('Two Sum')).toBeInTheDocument();
     expect(screen.getByText('Course Schedule')).toBeInTheDocument();
