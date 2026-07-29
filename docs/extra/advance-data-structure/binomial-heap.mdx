@@ -1,0 +1,252 @@
+---
+id: binomial-heap
+sidebar_position: 53
+title: "Binomial Heap"
+sidebar_label: "Binomial Heap"
+description: "A guide to Binomial Heaps - an elegant heap data structure with fast merge operations and logarithmic time for all priority queue operations."
+tags: [dsa, data structures, heap, binomial]
+---
+
+# Binomial Heap
+
+## Introduction
+
+A **Binomial Heap** is a collection of binomial trees that satisfies the binomial heap properties. It was discovered by Jean Vuillemin in 1978 and provides an efficient way to implement a priority queue where fast merging of two heaps is required.
+
+Unlike binary heaps, binomial heaps support efficient merge operations, making them ideal for applications where multiple priority queues need to be combined frequently.
+
+## Binomial Trees
+
+A **Binomial Tree** B_k is a recursive structure:
+- B_0: A single node
+- B_k: Made by linking two B_(k-1) trees, where one becomes the leftmost child of the root of the other
+
+Properties of B_k:
+- Has exactly 2^k nodes
+- Height is k
+- Has exactly k children
+- Has exactly C(k, i) nodes at depth i
+
+```
+B_0:  o
+B_1:  o         (two B_0 trees linked)
+      |
+      o
+B_2:  o         (two B_1 trees linked)
+     /|
+    o o
+    |
+    o
+```
+
+## Binomial Heap Structure
+
+A binomial heap is a collection of binomial trees where:
+1. No two trees have the same order (no duplicate B_k trees)
+2. Each binomial tree follows the min-heap (or max-heap) property
+
+For a heap with n nodes, the structure is uniquely determined by the binary representation of n.
+
+## Operations
+
+### 1. Find Minimum
+
+The minimum element is at the root of one of the binomial trees. We simply check all roots.
+Time: O(log n) worst case, O(1) amortized
+
+### 2. Merge (Union)
+
+Merging two binomial heaps:
+1. Merge the root lists, maintaining sorted order by degree
+2. For each pair of trees with the same degree, link them (smaller root becomes parent)
+3. Repeat until no two trees have the same degree
+
+Time: O(log n)
+
+```javascript
+function mergeForest(forest1, forest2) {
+  // Merge two root arrays sorted by degree
+  const result = [];
+  let i = 0, j = 0;
+
+  while (i < forest1.length && j < forest2.length) {
+    if (forest1[i].degree <= forest2[j].degree) {
+      result.push(forest1[i++]);
+    } else {
+      result.push(forest2[j++]);
+    }
+  }
+
+  while (i < forest1.length) result.push(forest1[i++]);
+  while (j < forest2.length) result.push(forest2[j++]);
+
+  return result;
+}
+```
+
+### 3. Insert
+
+1. Create a new heap with a single node (B_0)
+2. Merge it with the existing heap
+
+Time: O(log n) worst case, O(1) amortized
+
+### 4. Extract Minimum
+
+1. Find and remove the tree with minimum root
+2. Split the heap into: H1 (before the removed tree) and H2 (children of removed tree, reversed)
+3. Merge H1 and H2
+
+Time: O(log n)
+
+### 5. Decrease Key
+
+1. Find the node and decrease its value
+2. Bubble up until heap property is restored
+
+Time: O(log n)
+
+## Code Implementation
+
+```javascript
+class BinomialHeapNode {
+  constructor(key) {
+    this.key = key;
+    this.degree = 0;
+    this.parent = null;
+    this.child = null; // leftmost child
+    this.sibling = null; // right sibling
+  }
+}
+
+class BinomialHeap {
+  constructor() {
+    this.roots = []; // list of root nodes (trees)
+  }
+
+  // Link two trees of same degree: make y a child of z
+  link(y, z) {
+    y.parent = z;
+    y.sibling = z.child;
+    z.child = y;
+    z.degree++;
+  }
+
+  // Merge two binomial heaps
+  merge(other) {
+    const merged = new BinomialHeap();
+    const roots1 = this.roots;
+    const roots2 = other.roots;
+    const all = [...roots1, ...roots2].sort((a, b) => a.degree - b.degree);
+
+    merged.roots = [];
+    let i = 0;
+    while (i < all.length) {
+      const curr = all[i];
+
+      if (merged.roots.length > 0) {
+        const lastRoot = merged.roots[merged.roots.length - 1];
+        if (lastRoot.degree === curr.degree) {
+          // Three trees of same degree: keep last two, merge with curr
+          merged.roots.pop();
+          const mergedTree = this.mergeTwoTrees(lastRoot, curr);
+          merged.roots.push(mergedTree);
+          i++;
+          continue;
+        }
+      }
+
+      merged.roots.push(curr);
+      i++;
+    }
+
+    return merged;
+  }
+
+  mergeTwoTrees(a, b) {
+    if (a.key > b.key) [a, b] = [b, a];
+    this.link(b, a);
+    return a;
+  }
+
+  insert(key) {
+    const node = new BinomialHeapNode(key);
+    const single = new BinomialHeap();
+    single.roots = [node];
+    return this.merge(single);
+  }
+
+  findMin() {
+    if (this.roots.length === 0) return null;
+    return this.roots.reduce((min, root) =>
+      root.key < min.key ? root : min, this.roots[0]);
+  }
+
+  extractMin() {
+    if (this.roots.length === 0) return null;
+
+    // Find tree with minimum root
+    let minIdx = 0;
+    for (let i = 1; i < this.roots.length; i++) {
+      if (this.roots[i].key < this.roots[minIdx].key) {
+        minIdx = i;
+      }
+    }
+
+    const minTree = this.roots[minIdx];
+    this.roots.splice(minIdx, 1);
+
+    // Reverse children of minTree
+    const children = [];
+    let child = minTree.child;
+    while (child) {
+      children.push(child);
+      child = child.sibling;
+    }
+    children.reverse().forEach(c => { c.parent = null; c.sibling = null; });
+
+    const childHeap = new BinomialHeap();
+    childHeap.roots = children;
+    return this.merge(childHeap);
+  }
+}
+
+// Usage
+const heap = new BinomialHeap();
+heap.insert(5);
+heap.insert(3);
+heap.insert(7);
+heap.insert(1);
+console.log(heap.findMin().key); // 1
+```
+
+## Comparison with Binary Heap
+
+| Operation | Binary Heap | Binomial Heap | Fibonacci Heap |
+|-----------|-------------|---------------|----------------|
+| Insert | O(log n) | O(log n) | O(1) |
+| Find Min | O(1) | O(log n)* | O(1) |
+| Extract Min | O(log n) | O(log n) | O(log n) |
+| Merge | O(n) | O(log n) | O(1) |
+| Decrease Key | O(log n) | O(log n) | O(1) |
+
+*Amortized O(1) if we track the minimum
+
+## Advantages
+
+1. **Fast merge**: O(log n) vs O(n) for binary heap
+2. **Elegant structure**: Binomial trees have well-defined properties
+3. **Versatile**: Supports all priority queue operations efficiently
+
+## Disadvantages
+
+1. **More complex** than binary heaps
+2. **Slower individual operations** than Fibonacci heaps
+3. **Not cache-friendly** due to pointer-based structure
+
+## Applications
+
+1. **Minimum spanning tree algorithms**: Used in Boruvka's algorithm
+2. **Scheduling systems**: Where priority queues are merged frequently
+3. **Event simulation**: Where events are managed in priority queues
+4. **Network routing**: Dijkstra's algorithm with mergeable priority queues
