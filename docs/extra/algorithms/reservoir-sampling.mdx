@@ -1,0 +1,164 @@
+---
+id: reservoir-sampling
+sidebar_position: 31
+title: "Reservoir Sampling"
+sidebar_label: "Reservoir Sampling"
+description: "A guide to Reservoir Sampling - algorithms for randomly selecting k items from a stream of unknown or infinite size."
+tags: [dsa, algorithms, randomized, streaming]
+---
+
+# Reservoir Sampling
+
+## Introduction
+
+**Reservoir Sampling** is a family of randomized algorithms used to select a representative sample of k items from a stream of n items, where n is either unknown or very large (potentially infinite). The goal is to maintain a uniformly random sample of size k at any point in the stream.
+
+The algorithm is particularly useful when:
+- The total number of items is not known in advance
+- The data does not fit in memory
+- Processing must be done in a single pass
+
+## Algorithm R (Standard Reservoir Sampling)
+
+The most common approach, Algorithm R, works as follows:
+
+1. Keep the first k items in the reservoir.
+2. For each subsequent item i (where i > k), generate a random number j uniformly from [0, i-1].
+3. If j < k, replace the j-th item in the reservoir with the i-th item.
+
+This ensures that every item in the stream has an equal probability of being in the final reservoir.
+
+### Proof of Uniformity
+
+For any item at position i (i > k):
+- Probability it is selected = k/i (the random index falls in [0, k-1])
+- This is independent of previous steps
+
+For items already in the reservoir (positions 1 to k):
+- Probability it survives to position i = k/i
+- The probability decreases as more items are processed
+
+### Algorithm R Code
+
+```javascript
+function reservoirSample(stream, k) {
+  const reservoir = [];
+
+  for (let i = 0; i < stream.length; i++) {
+    if (i < k) {
+      // First k items: add to reservoir
+      reservoir.push(stream[i]);
+    } else {
+      // Generate random index [0, i]
+      const j = Math.floor(Math.random() * (i + 1));
+      if (j < k) {
+        // Replace element at j
+        reservoir[j] = stream[i];
+      }
+    }
+  }
+
+  return reservoir;
+}
+
+// Usage
+const stream = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const sample = reservoirSample(stream, 3);
+console.log(sample); // Random 3 items from the stream
+```
+
+## Algorithm L (Linear-Time Sampling)
+
+Algorithm L (also called Algorithm X) is a more efficient variant that processes items in chunks, reducing the number of random number generations. It uses the formula:
+
+```
+t = exp(log(random()) / k)
+skip = floor(t)
+```
+
+This skips multiple items at once while maintaining the same statistical properties.
+
+## Weighted Reservoir Sampling
+
+When items have different weights (priorities), **weighted reservoir sampling** ensures that each item is selected with probability proportional to its weight.
+
+### A-Res Algorithm
+
+The A-Res (Algorithm for Weighted Sampling) approach:
+1. For each item with weight w, compute a key = random()^(1/w)
+2. Maintain a max-heap of top k keys
+3. When a new item arrives, if its key is higher than the smallest in the heap, replace it
+
+```javascript
+class WeightedReservoirSampler {
+  constructor(k) {
+    this.k = k;
+    this.heap = []; // min-heap of {key, item}
+  }
+
+  // Generate random key for weight w
+  randomKey(w) {
+    return Math.pow(Math.random(), 1 / w);
+  }
+
+  add(item, weight) {
+    const key = this.randomKey(weight);
+    if (this.heap.length < this.k) {
+      this.heap.push({ key, item });
+      this.heap.sort((a, b) => a.key - b.key);
+    } else if (key > this.heap[0].key) {
+      this.heap[0] = { key, item };
+      this.heap.sort((a, b) => a.key - b.key);
+    }
+  }
+
+  getSample() {
+    return this.heap.map(h => h.item);
+  }
+}
+
+// Usage
+const sampler = new WeightedReservoirSampler(3);
+sampler.add("itemA", 5); // weight 5
+sampler.add("itemB", 10); // weight 10
+sampler.add("itemC", 2); // weight 2
+console.log(sampler.getSample());
+```
+
+## Distributed Reservoir Sampling
+
+In distributed systems (like MapReduce), reservoir sampling is adapted to work across multiple nodes:
+1. Each node samples locally using Algorithm R/L
+2. A coordinator merges samples from all nodes
+3. Final sample is uniformly distributed across all data
+
+## Time and Space Complexity
+
+| Aspect | Algorithm R | Algorithm L |
+|--------|-------------|-------------|
+| Time per item | O(1) | O(1) amortized |
+| Total time | O(n) | O(n) |
+| Space | O(k) | O(k) |
+| Random operations | O(n) | O(n/k) |
+
+## Applications
+
+1. **Database query optimization**: Sampling rows for approximate query processing
+2. **Streaming analytics**: Real-time analysis of high-volume data streams
+3. **Recommendation systems**: Randomly sampling user interactions
+4. **Load testing**: Sampling requests from production traffic for testing
+5. **Data mining**: Extracting representative samples from large datasets
+6. **Machine learning**: Mini-batch selection for online learning
+
+## Advantages
+
+1. **Single pass**: Only one pass through the data
+2. **Constant memory**: Uses only O(k) space regardless of stream size
+3. **Uniform distribution**: Each item has equal probability of selection
+4. **Online**: Can start before seeing all data
+
+## Disadvantages
+
+1. **Higher variance** than batch sampling for small reservoir sizes
+2. **Sequential access required**: Cannot jump to random positions in the stream
+3. **Algorithm L complexity**: More complex to implement correctly
