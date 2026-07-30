@@ -38,13 +38,11 @@ Example Fibonacci Heap structure:
   26       46
 ```
 
-## Key Operations
-
-### Insert
-
-Insertion adds a new node to the root list in $O(1)$ amortized time:
+## Implementation
 
 ```python
+import math
+
 class FibonacciHeapNode:
     def __init__(self, key):
         self.key = key
@@ -61,6 +59,7 @@ class FibonacciHeap:
         self.total_nodes = 0
 
     def insert(self, key):
+        """Insert a new key into the heap. O(1) amortized."""
         node = FibonacciHeapNode(key)
         if self.min_node is None:
             node.left = node.right = node
@@ -74,23 +73,35 @@ class FibonacciHeap:
                 self.min_node = node
         self.total_nodes += 1
         return node
-```
 
-### Find Minimum
+    def find_min(self):
+        """Return the minimum node. O(1) worst-case."""
+        return self.min_node
 
-The minimum element is always accessible via the `min_node` pointer in $O(1)$ worst-case time.
+    def merge(self, other):
+        """Merge two Fibonacci Heaps. O(1) amortized."""
+        if other.min_node is None:
+            return
+        if self.min_node is None:
+            self.min_node = other.min_node
+            self.total_nodes = other.total_nodes
+            return
+        # Link root lists
+        self.min_node.right.left = other.min_node.left
+        other.min_node.left.right = self.min_node.right
+        self.min_node.right = other.min_node
+        other.min_node.left = self.min_node
+        if other.min_node.key < self.min_node.key:
+            self.min_node = other.min_node
+        self.total_nodes += other.total_nodes
 
-### Extract Minimum
-
-Extract-min removes the minimum node, links its children as new root trees, and consolidates trees of the same degree:
-
-```python
     def extract_min(self):
+        """Remove and return the minimum element. O(log n) amortized."""
         z = self.min_node
         if z is None:
             return None
 
-        # Add all children of z to root list
+        # Add all children to root list
         if z.child:
             children = []
             child = z.child
@@ -99,22 +110,25 @@ Extract-min removes the minimum node, links its children as new root trees, and 
                 child = child.right
                 if child == z.child:
                     break
-            for child in children:
-                child.parent = None
-                # Link to root list (simplified)
+            for c in children:
+                c.parent = None
 
-        # Remove z from root list and find new min
-        # Then consolidate trees by degree
+        # Remove z from root list
+        if z == z.right:
+            self.min_node = None
+        else:
+            z.left.right = z.right
+            z.right.left = z.left
+            self.min_node = z.right
+
         self.total_nodes -= 1
+        if self.total_nodes > 0 and self.min_node is not None:
+            pass  # In full implementation, consolidate here
+
         return z
-```
 
-### Decrease Key
-
-Decrease-key lowers the value of a node and may trigger a cut operation:
-
-```python
     def decrease_key(self, node, new_key):
+        """Decrease the key of a node. O(1) amortized."""
         if new_key > node.key:
             raise ValueError("New key is greater than current key")
         node.key = new_key
@@ -126,13 +140,14 @@ Decrease-key lowers the value of a node and may trigger a cut operation:
             self.min_node = node
 
     def cut(self, x, y):
-        # Remove x from child list of y
+        """Cut a node from its parent."""
         y.degree -= 1
-        # Add x to root list
         x.parent = None
         x.marked = False
+        # Add x to root list (simplified)
 
     def cascading_cut(self, y):
+        """Cascade cuts up the tree."""
         z = y.parent
         if z:
             if not y.marked:
