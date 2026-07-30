@@ -1,9 +1,10 @@
 ---
-id: kadanes-algorithm
-title: Kadane's Algorithm
+id: kadanes-maximum-subarray
+title: Kadane's Algorithm (Maximum Subarray)
 sidebar_label: Kadane's Algorithm
 description: "A guide to Kadane's Algorithm for finding the maximum subarray sum in O(n) time, one of the most elegant dynamic programming solutions."
 tags: [dynamic-programming, kadane, subarray, sliding-window, algorithms]
+sidebar_position: 15
 ---
 
 # Kadane's Algorithm
