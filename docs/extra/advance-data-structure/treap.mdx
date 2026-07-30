@@ -1,0 +1,172 @@
+---
+id: treap
+title: Treap
+sidebar_label: Treap
+sidebar_position: 18
+description: "A comprehensive guide to Treap - a randomized BST that combines properties of Binary Search Trees and heaps for self-balancing."
+tags: [data-structures, treap, randomized, bst, heap]
+---
+
+# Treap
+
+A **Treap** (Tree + Heap) is a randomized binary search tree that combines the properties of a BST (maintaining sorted order) and a heap (priority-based structure). Each node has both a key and a priority, satisfying BST ordering by key and heap ordering by priority.
+
+## Introduction
+
+Treap was introduced by Cecilia R. Aragon and Raimund Seidel in 1989. By randomly assigning priorities to keys and maintaining the heap property on priorities, a treap achieves expected $O(\log n)$ height without the complex rebalancing operations required by AVL or Red-Black trees.
+
+:::info Key Feature
+Treap provides expected $O(\log n)$ time for all operations while being dramatically simpler to implement than balanced BSTs. The randomized priorities make worst-case behavior astronomically unlikely.
+:::
+
+## Structure
+
+A Treap node stores:
+- **Key**: Maintains BST property (left < node < right)
+- **Priority**: Randomly assigned, maintains heap property (parent priority > child priority)
+- **Left/Right child pointers**
+
+```
+Treap Example:
+
+Key:    5       10      15      20
+         \       |       /
+Priority: 0.8   0.3    0.6     0.9
+
+        (5,0.8)
+           |
+      (3,0.5)
+           \
+        (10,0.3)
+           / \
+    (7,0.2)  (15,0.6)
+                \
+               (20,0.9)
+```
+
+## Implementation
+
+```python
+import random
+
+class TreapNode:
+    def __init__(self, key):
+        self.key = key
+        self.priority = random.random()
+        self.left = None
+        self.right = None
+
+class Treap:
+    def rotate_right(self, y):
+        x = y.left
+        y.left = x.right
+        x.right = y
+        return x
+
+    def rotate_left(self, x):
+        y = x.right
+        x.right = y.left
+        y.left = x
+        return y
+
+    def insert(self, root, key):
+        if root is None:
+            return TreapNode(key)
+
+        if key < root.key:
+            root.left = self.insert(root.left, key)
+            if root.left.priority < root.priority:
+                root = self.rotate_right(root)
+        elif key > root.key:
+            root.right = self.insert(root.right, key)
+            if root.right.priority < root.priority:
+                root = self.rotate_left(root)
+        return root
+
+    def search(self, root, key):
+        if root is None or root.key == key:
+            return root
+        if key < root.key:
+            return self.search(root.left, key)
+        return self.search(root.right, key)
+
+    def delete(self, root, key):
+        if root is None:
+            return None
+        if key < root.key:
+            root.left = self.delete(root.left, key)
+        elif key > root.key:
+            root.right = self.delete(root.right, key)
+        else:
+            if root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+            else:
+                if root.left.priority < root.right.priority:
+                    root = self.rotate_right(root)
+                    root.right = self.delete(root.right, key)
+                else:
+                    root = self.rotate_left(root)
+                    root.left = self.delete(root.left, key)
+        return root
+
+    def inorder(self, root):
+        if root:
+            self.inorder(root.left)
+            print(root.key, end=" ")
+            self.inorder(root.right)
+```
+
+## Complexity Analysis
+
+| Operation | Expected Time | Notes |
+|-----------|--------------|-------|
+| Search    | $O(\log n)$  | BST traversal |
+| Insert    | $O(\log n)$  | Expected, with rotations |
+| Delete    | $O(\log n)$  | Expected, with rotations |
+| Space     | $O(n)$       | One node per element |
+
+## Why Randomized Priorities Work
+
+Since priorities are independent and randomly distributed, the probability that a treap becomes significantly unbalanced is extremely low. Mathematically, the expected height of a treap with $n$ nodes is approximately $2 \ln n$, similar to optimally balanced BSTs.
+
+The proof uses the fact that the treap structure is equivalent to a random binary search tree, which has well-studied height properties.
+
+## Implicit Treap
+
+An important variant of treap is the **Implicit Treap**, where the key is replaced by the position (size of left subtree). This enables efficient operations on sequences:
+- Split by position
+- Merge sequences
+- Range queries (sum, min, max)
+- Range updates
+
+```python
+class ImplicitTreapNode:
+    def __init__(self, val):
+        self.val = val
+        self.priority = random.random()
+        self.size = 1
+        self.left = None
+        self.right = None
+```
+
+## Advantages
+
+1. **Simpler than balanced BSTs**: No need to track balance factors or colors
+2. **No worst-case guarantees needed**: Randomization provides probabilistic guarantees
+3. **Supports implicit treap**: Enables sequence manipulation
+4. **Easy to implement**: Less than 100 lines of code
+
+## Disadvantages
+
+1. $O(\log n)$ is expected, not guaranteed
+2. Priority source must be sufficiently random (not truly $O(\log n)$ with poor RNG)
+3. Extra memory for priority per node
+
+## Practical Applications
+
+- **Ordered maps/sets** with better practical performance than std::map in C++
+- **Sequence manipulation** (implicit treap in competitive programming)
+- **Randomized testing** of algorithms requiring ordered structures
+- **Priority search queues**
