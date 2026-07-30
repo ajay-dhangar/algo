@@ -1,0 +1,152 @@
+---
+id: merge-sort
+title: Merge Sort
+sidebar_label: Merge Sort
+description: "Learn about Merge Sort, a stable divide-and-conquer sorting algorithm with O(n log n) time complexity in all cases, ideal for linked lists and external sorting."
+tags: [dsa, algorithms, sorting, merge-sort]
+---
+
+# Merge Sort
+
+**Merge Sort** is a stable, divide-and-conquer sorting algorithm that divides the input array into two halves, recursively sorts them, and then merges the sorted halves. It guarantees $O(n \log n)$ time complexity in all cases (best, average, and worst), making it predictable and reliable.
+
+## How It Works
+
+1. **Divide** the array into two halves (approximately equal size)
+2. **Recursively** apply Merge Sort to each half
+3. **Merge** the two sorted halves into a single sorted array
+
+### Step-by-Step Walkthrough
+
+Given array: `[38, 27, 43, 3, 9, 82, 10]`
+
+**Divide**: Split into `[38, 27, 43, 3]` and `[9, 82, 10]`
+**Divide further**: `[38, 27]` and `[43, 3]`; `[9, 82]` and `[10]`
+**Base case reached**: Each sub-array has one element
+
+**Merge step**:
+- `[38]` and `[27]` -> `[27, 38]`
+- `[43]` and `[3]` -> `[3, 43]`
+- `[27, 38]` and `[3, 43]` -> `[3, 27, 38, 43]`
+- `[9, 82]` and `[10]` -> `[9, 10, 82]`
+- `[3, 27, 38, 43]` and `[9, 10, 82]` -> `[3, 9, 10, 27, 38, 43, 82]`
+
+## Implementation
+
+### Python
+
+```python
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    return merge(left, right)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
+# Example usage
+arr = [38, 27, 43, 3, 9, 82, 10]
+sorted_arr = merge_sort(arr)
+print(sorted_arr)  # Output: [3, 9, 10, 27, 38, 43, 82]
+```
+
+### JavaScript
+
+```javascript
+function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+    const mid = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0, mid));
+    const right = mergeSort(arr.slice(mid));
+    return merge(left, right);
+}
+
+function merge(left, right) {
+    const result = [];
+    let i = 0, j = 0;
+    while (i < left.length && j < right.length) {
+        if (left[i] <= right[j]) {
+            result.push(left[i++]);
+        } else {
+            result.push(right[j++]);
+        }
+    }
+    return result.concat(left.slice(i)).concat(right.slice(j));
+}
+```
+
+## Complexity Analysis
+
+| Case        | Time Complexity | Space Complexity |
+|-------------|----------------|-----------------|
+| Best Case   | $O(n \log n)$  | $O(n)$          |
+| Average Case| $O(n \log n)$  | $O(n)$          |
+| Worst Case  | $O(n \log n)$  | $O(n)$          |
+
+### Why O(n log n) in All Cases?
+
+The array is divided $\log n$ times (halving each time), and each level performs $O(n)$ merge work. Therefore, the total time is $O(n \log n)$ regardless of the input order.
+
+## When to Use Merge Sort
+
+- **When stability is required** (equal elements maintain their relative order)
+- **Linked lists** (can be sorted in O(n log n) without extra space)
+- **External sorting** (when data does not fit in memory)
+- **Guaranteed performance** needed regardless of input distribution
+- **Counting inversions** problems (can be computed during merge)
+
+## Key Properties
+
+| Property | Value |
+|----------|-------|
+| Stable | Yes |
+| In-place | No |
+| Recursive | Yes |
+| Adaptive | No |
+
+## Comparison with Other Sorting Algorithms
+
+| Feature          | Merge Sort | Quick Sort | Heap Sort |
+|------------------|------------|------------|-----------|
+| Time (Worst)     | $O(n \log n)$ | $O(n^2)$    | $O(n \log n)$ |
+| Space            | $O(n)$      | $O(\log n)$  | $O(1)$      |
+| Stable           | Yes         | No           | No          |
+
+## Pseudocode
+
+```
+function mergeSort(A, left, right):
+    if left < right:
+        mid = (left + right) / 2
+        mergeSort(A, left, mid)
+        mergeSort(A, mid + 1, right)
+        merge(A, left, mid, right)
+
+function merge(A, left, mid, right):
+    create temporary arrays L and R
+    copy A[left..mid] to L
+    copy A[mid+1..right] to R
+    i = j = 0, k = left
+    while i < len(L) and j < len(R):
+        if L[i] <= R[j]:
+            A[k] = L[i]; i++
+        else:
+            A[k] = R[j]; j++
+        k++
+    copy remaining elements of L to A
+    copy remaining elements of R to A
+```
