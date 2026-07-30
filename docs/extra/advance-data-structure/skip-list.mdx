@@ -1,0 +1,159 @@
+---
+id: skip-list
+title: Skip List
+sidebar_label: Skip List
+sidebar_position: 17
+description: "A comprehensive guide to Skip List - a probabilistic data structure providing O(log n) search, insert, and delete operations."
+tags: [data-structures, skip-list, probabilistic, balanced-bst]
+---
+
+# Skip List
+
+A **Skip List** is a probabilistic data structure that allows for fast search, insert, and delete operations. It extends a sorted linked list with multiple layers of express lanes, enabling $O(\log n)$ average-time complexity comparable to balanced binary search trees, but with a much simpler implementation.
+
+## Introduction
+
+Skip List was invented by William Pugh in 1989. Instead of balancing tree nodes, it uses randomization to maintain balance: each node in the list has a randomly assigned "height" (number of layers), and faster "express lanes" skip over many intermediate nodes.
+
+:::info Key Feature
+Skip List provides $O(\log n)$ average-case performance for search, insert, and delete operations without requiring complex tree rebalancing, making it significantly easier to implement correctly than balanced BSTs.
+:::
+
+## How It Works
+
+Think of a skip list as a highway system:
+- **Level 0**: The base road with every stop (the regular sorted linked list)
+- **Higher levels**: Express lanes that skip over many intermediate stops
+- Each element randomly chooses its height when inserted
+
+```
+Skip List Example:
+
+Level 3:  HEAD ------------------------> +inf
+Level 2:  HEAD --------> 30 ---------> +inf
+Level 1:  HEAD ----> 10 ----> 30 ----> +inf
+Level 0:  HEAD -> 5 -> 10 -> 20 -> 30 -> 40 -> +inf
+```
+
+## Implementation
+
+```python
+import random
+
+class SkipListNode:
+    def __init__(self, key, level):
+        self.key = key
+        self.forward = [None] * (level + 1)
+
+class SkipList:
+    MAX_LEVEL = 16
+
+    def __init__(self):
+        self.header = SkipListNode(float('inf'), SkipList.MAX_LEVEL)
+        self.level = 0
+
+    def random_level(self):
+        level = 0
+        while random.random() < 0.5 and level < self.MAX_LEVEL:
+            level += 1
+        return level
+
+    def search(self, key):
+        current = self.header
+        for i in range(self.level, -1, -1):
+            while current.forward[i] and current.forward[i].key < key:
+                current = current.forward[i]
+        current = current.forward[0]
+        if current and current.key == key:
+            return current
+        return None
+
+    def insert(self, key):
+        update = [None] * (self.MAX_LEVEL + 1)
+        current = self.header
+        for i in range(self.level, -1, -1):
+            while current.forward[i] and current.forward[i].key < key:
+                current = current.forward[i]
+            update[i] = current
+
+        current = current.forward[0]
+        if current is None or current.key != key:
+            new_level = self.random_level()
+            if new_level > self.level:
+                for i in range(self.level + 1, new_level + 1):
+                    update[i] = self.header
+                self.level = new_level
+
+            new_node = SkipListNode(key, new_level)
+            for i in range(new_level + 1):
+                new_node.forward[i] = update[i].forward[i]
+                update[i].forward[i] = new_node
+
+    def delete(self, key):
+        update = [None] * (self.MAX_LEVEL + 1)
+        current = self.header
+        for i in range(self.level, -1, -1):
+            while current.forward[i] and current.forward[i].key < key:
+                current = current.forward[i]
+            update[i] = current
+
+        current = current.forward[0]
+        if current and current.key == key:
+            for i in range(self.level + 1):
+                if update[i].forward[i] != current:
+                    break
+                update[i].forward[i] = current.forward[i]
+
+            while self.level > 0 and self.header.forward[self.level] is None:
+                self.level -= 1
+
+    def __str__(self):
+        result = []
+        for i in range(self.level + 1):
+            level_str = f"Level {i}: "
+            current = self.header.forward[i]
+            while current:
+                level_str += f"{current.key} -> "
+                current = current.forward[i]
+            level_str += "None"
+            result.append(level_str)
+        return "\n".join(result)
+```
+
+## Complexity Analysis
+
+| Operation | Average Case | Worst Case |
+|-----------|-------------|------------|
+| Search    | $O(\log n)$ | $O(n)$     |
+| Insert    | $O(\log n)$ | $O(n)$     |
+| Delete    | $O(\log n)$ | $O(n)$     |
+| Space     | $O(n)$      | $O(n \log n)$ |
+
+The probability of worst-case $O(n)$ behavior is astronomically small for reasonable values of $n$.
+
+## Why Randomization Works
+
+Each node's level is chosen randomly with probability $p = 1/2$ at each level. The expected number of nodes at level $k$ is $n \cdot p^k$. This creates a structure where:
+- The height of the list is $O(\log n)$ with high probability
+- Each level contains approximately half the nodes of the level below
+- The number of pointers to follow is $O(\log n)$ on average
+
+## Practical Applications
+
+- **Redis Sorted Sets**: Redis uses skip lists for ordered data types
+- **LevelDB / RocksDB**: Used in memtable implementations
+- **Lucene**: Used for maintaining sorted indices
+- **In-memory databases**: As an alternative to B-trees
+
+## Advantages Over Balanced BSTs
+
+1. **Simpler implementation**: No need for complex rebalancing operations
+2. **Concurrent-friendly**: Lock-free implementations are simpler than BSTs
+3. **More cache-friendly**: Sequential memory access patterns in lower levels
+4. **Predictable performance**: No worst-case tree degeneration
+
+## Disadvantages
+
+1. $O(\log n)$ is average-case, not guaranteed (though worst case is extremely rare)
+2. Requires more memory per node than a simple linked list
+3. Slower than well-tuned binary heaps for priority queue use cases
