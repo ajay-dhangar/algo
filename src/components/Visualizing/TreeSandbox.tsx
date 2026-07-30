@@ -214,10 +214,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      translate({
-        message: "Starting search for key {key} at the root.",
-        values: { key }
-      }),
+      translate(
+        { message: "Starting search for key {key} at the root." },
+        { key }
+      ),
       [],
       key
     );
@@ -235,10 +235,10 @@ export default function TreeSandbox() {
           [currId],
           [],
           [],
-          translate({
-            message: "Found node {key}!",
-            values: { key }
-          }),
+          translate(
+            { message: "Found node {key}!" },
+            { key }
+          ),
           [],
           key
         );
@@ -253,15 +253,15 @@ export default function TreeSandbox() {
         [],
         [],
         [],
-        translate({
-          message: "Inspecting node {nodeKey}. Since {key} {operator} {nodeKey}, branch {direction}.",
-          values: {
+        translate(
+          { message: "Inspecting node {nodeKey}. Since {key} {operator} {nodeKey}, branch {direction}." },
+          {
             nodeKey: node.key,
             key,
             operator: key < node.key ? "<" : ">",
             direction: key < node.key ? translate({ message: "left" }) : translate({ message: "right" })
           }
-        }),
+        ),
         [],
         key
       );
@@ -277,10 +277,10 @@ export default function TreeSandbox() {
           [],
           [],
           [],
-          translate({
-            message: "Reached a leaf. Key {key} is not in the tree.",
-            values: { key }
-          }),
+          translate(
+            { message: "Reached a leaf. Key {key} is not in the tree." },
+            { key }
+          ),
           [],
           key
         );
@@ -303,7 +303,7 @@ export default function TreeSandbox() {
     // Prevent duplicate entries
     const exists = Object.values(treeMap).some((n) => n.key === key);
     if (exists) {
-      alert(translate({ message: "Key {key} already exists in the tree!", values: { key } }));
+      alert(translate({ message: "Key {key} already exists in the tree!" }, { key }));
       return;
     }
 
@@ -319,10 +319,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      translate({
-        message: "Preparing to insert key {key}.",
-        values: { key }
-      }),
+      translate(
+        { message: "Preparing to insert key {key}." },
+        { key }
+      ),
       [],
       key
     );
@@ -350,10 +350,10 @@ export default function TreeSandbox() {
           [newNode.id],
           [],
           [],
-          translate({
-            message: "Inserted new leaf node {key}.",
-            values: { key }
-          }),
+          translate(
+            { message: "Inserted new leaf node {key}." },
+            { key }
+          ),
           [],
           key
         );
@@ -369,15 +369,15 @@ export default function TreeSandbox() {
         [],
         [],
         [],
-        translate({
-          message: "Comparing key {key} with {nodeKey}. Since {key} {operator} {nodeKey}, go {direction}.",
-          values: {
+        translate(
+          { message: "Comparing key {key} with {nodeKey}. Since {key} {operator} {nodeKey}, go {direction}." },
+          {
             nodeKey: node.key,
             key,
             operator: key < node.key ? "<" : ">",
             direction: key < node.key ? translate({ message: "left" }) : translate({ message: "right" })
           }
-        }),
+        ),
         [],
         key
       );
@@ -400,10 +400,10 @@ export default function TreeSandbox() {
           [],
           Math.abs(bf) > 1 ? [nodeId] : [],
           [],
-          translate({
-            message: "Inspecting balance factor of node {nodeKey}: Height = {height}, Balance Factor = {bf}.",
-            values: { nodeKey: node.key, height: node.height, bf }
-          }),
+          translate(
+            { message: "Inspecting balance factor of node {nodeKey}: Height = {height}, Balance Factor = {bf}." },
+            { nodeKey: node.key, height: node.height, bf }
+          ),
           [],
           key
         );
@@ -423,10 +423,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.leftId!, leftNode.leftId!],
-              translate({
-                message: "Unbalance detected! Left-Left (LL) case at node {nodeKey}. Perform a Right Rotation.",
-                values: { nodeKey: node.key }
-              }),
+              translate(
+                { message: "Unbalance detected! Left-Left (LL) case at node {nodeKey}. Perform a Right Rotation." },
+                { nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -446,10 +446,10 @@ export default function TreeSandbox() {
               [rotated],
               [],
               [],
-              translate({
-                message: "Right rotation around node {nodeKey} completed successfully. Heights re-calculated.",
-                values: { nodeKey: node.key }
-              }),
+              translate(
+                { message: "Right rotation around node {nodeKey} completed successfully. Heights re-calculated." },
+                { nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -465,10 +465,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.leftId!, leftNode.rightId!],
-              translate({
-                message: "Unbalance detected! Left-Right (LR) case at node {nodeKey}. Perform Left Rotation on left child, then Right Rotation.",
-                values: { nodeKey: node.key }
-              }),
+              translate(
+                { message: "Unbalance detected! Left-Right (LR) case at node {nodeKey}. Perform Left Rotation on left child, then Right Rotation." },
+                { nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -483,10 +483,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [],
-              translate({
-                message: "Stage 1: Left rotated child {childKey}. Now preparing to Right Rotate parent {nodeKey}.",
-                values: { childKey: leftNode.key, nodeKey: node.key }
-              }),
+              translate(
+                { message: "Stage 1: Left rotated child {childKey}. Now preparing to Right Rotate parent {nodeKey}." },
+                { childKey: leftNode.key, nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -508,10 +508,10 @@ export default function TreeSandbox() {
               [rotated],
               [],
               [],
-              translate({
-                message: "Stage 2: Right rotation around node {nodeKey} completed. Tree successfully balanced.",
-                values: { nodeKey: node.key }
-              }),
+              translate(
+                { message: "Stage 2: Right rotation around node {nodeKey} completed. Tree successfully balanced." },
+                { nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -534,10 +534,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.rightId!, rightNode.rightId!],
-              translate({
-                message: "Unbalance detected! Right-Right (RR) case at node {nodeKey}. Perform a Left Rotation.",
-                values: { nodeKey: node.key }
-              }),
+              translate(
+                { message: "Unbalance detected! Right-Right (RR) case at node {nodeKey}. Perform a Left Rotation." },
+                { nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -557,10 +557,10 @@ export default function TreeSandbox() {
               [rotated],
               [],
               [],
-              translate({
-                message: "Left rotation around node {nodeKey} completed successfully. Heights re-calculated.",
-                values: { nodeKey: node.key }
-              }),
+              translate(
+                { message: "Left rotation around node {nodeKey} completed successfully. Heights re-calculated." },
+                { nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -576,10 +576,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [nodeId, node.rightId!, rightNode.leftId!],
-              translate({
-                message: "Unbalance detected! Right-Left (RL) case at node {nodeKey}. Perform Right Rotation on right child, then Left Rotation.",
-                values: { nodeKey: node.key }
-              }),
+              translate(
+                { message: "Unbalance detected! Right-Left (RL) case at node {nodeKey}. Perform Right Rotation on right child, then Left Rotation." },
+                { nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -594,10 +594,10 @@ export default function TreeSandbox() {
               [],
               [nodeId],
               [],
-              translate({
-                message: "Stage 1: Right rotated child {childKey}. Now preparing to Left Rotate parent {nodeKey}.",
-                values: { childKey: rightNode.key, nodeKey: node.key }
-              }),
+              translate(
+                { message: "Stage 1: Right rotated child {childKey}. Now preparing to Left Rotate parent {nodeKey}." },
+                { childKey: rightNode.key, nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -619,10 +619,10 @@ export default function TreeSandbox() {
               [rotated],
               [],
               [],
-              translate({
-                message: "Stage 2: Left rotation around node {nodeKey} completed. Tree successfully balanced.",
-                values: { nodeKey: node.key }
-              }),
+              translate(
+                { message: "Stage 2: Left rotation around node {nodeKey} completed. Tree successfully balanced." },
+                { nodeKey: node.key }
+              ),
               [],
               key
             );
@@ -692,7 +692,7 @@ export default function TreeSandbox() {
 
     const exists = Object.values(treeMap).some((n) => n.key === key);
     if (!exists) {
-      alert(translate({ message: "Key {key} does not exist in the tree!", values: { key } }));
+      alert(translate({ message: "Key {key} does not exist in the tree!" }, { key }));
       return;
     }
 
@@ -708,10 +708,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      translate({
-        message: "Preparing to delete key {key}.",
-        values: { key }
-      }),
+      translate(
+        { message: "Preparing to delete key {key}." },
+        { key }
+      ),
       [],
       key
     );
@@ -742,10 +742,10 @@ export default function TreeSandbox() {
         [],
         [],
         [],
-        translate({
-          message: "Comparing key {keyToDelete} with {nodeKey}.",
-          values: { keyToDelete, nodeKey: node.key }
-        }),
+        translate(
+          { message: "Comparing key {keyToDelete} with {nodeKey}." },
+          { keyToDelete, nodeKey: node.key }
+        ),
         [],
         keyToDelete
       );
@@ -764,10 +764,10 @@ export default function TreeSandbox() {
           [],
           [nodeId],
           [],
-          translate({
-            message: "Found node {keyToDelete} to delete. Evaluating children structure...",
-            values: { keyToDelete }
-          }),
+          translate(
+            { message: "Found node {keyToDelete} to delete. Evaluating children structure..." },
+            { keyToDelete }
+          ),
           [],
           keyToDelete
         );
@@ -794,10 +794,10 @@ export default function TreeSandbox() {
               [],
               [],
               [],
-              translate({
-                message: "Removed leaf node {keyToDelete}.",
-                values: { keyToDelete }
-              }),
+              translate(
+                { message: "Removed leaf node {keyToDelete}." },
+                { keyToDelete }
+              ),
               [],
               keyToDelete
             );
@@ -820,10 +820,10 @@ export default function TreeSandbox() {
               [tempChild],
               [],
               [],
-              translate({
-                message: "Replaced node {keyToDelete} with its only child node {childKey}.",
-                values: { keyToDelete, childKey: tempMap[tempChild].key }
-              }),
+              translate(
+                { message: "Replaced node {keyToDelete} with its only child node {childKey}." },
+                { keyToDelete, childKey: tempMap[tempChild].key }
+              ),
               [],
               keyToDelete
             );
@@ -840,10 +840,10 @@ export default function TreeSandbox() {
             [],
             [],
             [],
-            translate({
-              message: "Node {keyToDelete} has two children. Finding minimum value in right subtree (successor): {successorKey}.",
-              values: { keyToDelete, successorKey }
-            }),
+            translate(
+              { message: "Node {keyToDelete} has two children. Finding minimum value in right subtree (successor): {successorKey}." },
+              { keyToDelete, successorKey }
+            ),
             [],
             keyToDelete
           );
@@ -858,10 +858,10 @@ export default function TreeSandbox() {
             [nodeId],
             [],
             [],
-            translate({
-              message: "Copied successor key {successorKey} to target node. Now recursively deleting successor from right subtree.",
-              values: { successorKey }
-            }),
+            translate(
+              { message: "Copied successor key {successorKey} to target node. Now recursively deleting successor from right subtree." },
+              { successorKey }
+            ),
             [],
             keyToDelete
           );
@@ -884,10 +884,10 @@ export default function TreeSandbox() {
           [],
           Math.abs(bf) > 1 ? [nodeId] : [],
           [],
-          translate({
-            message: "Inspecting balance of node {nodeKey} on way up: Height = {height}, Balance Factor = {bf}.",
-            values: { nodeKey: node.key, height: node.height, bf }
-          }),
+          translate(
+            { message: "Inspecting balance of node {nodeKey} on way up: Height = {height}, Balance Factor = {bf}." },
+            { nodeKey: node.key, height: node.height, bf }
+          ),
           [],
           keyToDelete
         );
@@ -1001,10 +1001,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      translate({
-        message: "Starting {type} traversal on root.",
-        values: { type: type.toUpperCase() }
-      }),
+      translate(
+        { message: "Starting {type} traversal on root." },
+        { type: type.toUpperCase() }
+      ),
       []
     );
 
@@ -1021,10 +1021,10 @@ export default function TreeSandbox() {
           [nodeId],
           [],
           [],
-          translate({
-            message: "PRE-ORDER: Visit root node [{key}]. Append to result.",
-            values: { key: node.key }
-          }),
+          translate(
+            { message: "PRE-ORDER: Visit root node [{key}]. Append to result." },
+            { key: node.key }
+          ),
           visitedKeys
         );
         traverse(node.leftId);
@@ -1045,10 +1045,10 @@ export default function TreeSandbox() {
           [nodeId],
           [],
           [],
-          translate({
-            message: "IN-ORDER: Left subtree visited. Visit root node [{key}]. Append to result.",
-            values: { key: node.key }
-          }),
+          translate(
+            { message: "IN-ORDER: Left subtree visited. Visit root node [{key}]. Append to result." },
+            { key: node.key }
+          ),
           visitedKeys
         );
         traverse(node.rightId);
@@ -1069,10 +1069,10 @@ export default function TreeSandbox() {
           [nodeId],
           [],
           [],
-          translate({
-            message: "POST-ORDER: Left and Right subtrees visited. Visit root node [{key}]. Append to result.",
-            values: { key: node.key }
-          }),
+          translate(
+            { message: "POST-ORDER: Left and Right subtrees visited. Visit root node [{key}]. Append to result." },
+            { key: node.key }
+          ),
           visitedKeys
         );
       };
@@ -1092,10 +1092,10 @@ export default function TreeSandbox() {
           [currId],
           [],
           [],
-          translate({
-            message: "LEVEL-ORDER (BFS): Dequeue front element and visit [{key}].",
-            values: { key: node.key }
-          }),
+          translate(
+            { message: "LEVEL-ORDER (BFS): Dequeue front element and visit [{key}]." },
+            { key: node.key }
+          ),
           visitedKeys
         );
 
@@ -1112,10 +1112,10 @@ export default function TreeSandbox() {
       [],
       [],
       [],
-      translate({
-        message: "Traversal completed! Full sequence: [{sequence}].",
-        values: { sequence: visitedKeys.join(", ") }
-      }),
+      translate(
+        { message: "Traversal completed! Full sequence: [{sequence}]." },
+        { sequence: visitedKeys.join(", ") }
+      ),
       visitedKeys
     );
 
@@ -1161,10 +1161,10 @@ export default function TreeSandbox() {
 
     // Prompt user to trigger insertion of 3rd key
     setInputKey(recipe.keys[2].toString());
-    alert(translate({
-      message: "Recipe loaded! Click 'Insert' to add key {key} and watch the AVL {type} rotation rebalancing animation!",
-      values: { key: recipe.keys[2], type: recipe.type }
-    }));
+    alert(translate(
+      { message: "Recipe loaded! Click 'Insert' to add key {key} and watch the AVL {type} rotation rebalancing animation!" },
+      { key: recipe.keys[2], type: recipe.type }
+    ));
   };
 
   const loadRandomTree = () => {
