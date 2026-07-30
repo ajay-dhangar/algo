@@ -1,0 +1,178 @@
+---
+id: radix-sort
+title: Radix Sort
+sidebar_label: Radix Sort
+description: "Learn about Radix Sort, a non-comparison sorting algorithm that sorts integers digit by digit using Counting Sort as a subroutine, achieving O(nk) time complexity."
+tags: [dsa, algorithms, sorting, radix-sort]
+---
+
+# Radix Sort
+
+**Radix Sort** is a non-comparison sorting algorithm that sorts integers by processing each digit separately. It can be implemented in two variants: Least Significant Digit (LSD) and Most Significant Digit (MSD). Radix Sort uses Counting Sort as a subroutine to sort by each digit, achieving $O(nk)$ time complexity where $k$ is the number of digits.
+
+## How It Works (LSD Variant)
+
+1. **Determine the number of digits** in the maximum element
+2. **For each digit position** (from least significant to most significant):
+   - Use Counting Sort to sort elements based on the current digit
+3. **Result** is a fully sorted array
+
+### Step-by-Step Walkthrough (LSD)
+
+Given array: `[170, 45, 75, 90, 802, 24, 2, 66]`
+
+**Pass 1** (ones place, mod 10):
+- Values: 170, 45, 75, 90, 802, 24, 2, 66
+- Sorted by ones digit: `[170, 90, 802, 2, 24, 45, 75, 66]`
+
+**Pass 2** (tens place):
+- Values: 170, 90, 802, 2, 24, 45, 75, 66
+- Sorted by tens digit: `[802, 2, 24, 45, 66, 170, 75, 90]`
+
+**Pass 3** (hundreds place):
+- Values: 802, 2, 24, 45, 66, 170, 75, 90
+- Sorted by hundreds digit: `[2, 24, 45, 66, 75, 90, 170, 802]`
+
+## Implementation
+
+### Python (LSD)
+
+```python
+def counting_sort_by_digit(arr, exp):
+    n = len(arr)
+    output = [0] * n
+    count = [0] * 10
+
+    # Count occurrences of digits at position exp
+    for i in range(n):
+        digit = (arr[i] // exp) % 10
+        count[digit] += 1
+
+    # Prefix sum
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+
+    # Build output array (traverse from right for stability)
+    for i in range(n - 1, -1, -1):
+        digit = (arr[i] // exp) % 10
+        output[count[digit] - 1] = arr[i]
+        count[digit] -= 1
+
+    return output
+
+def radix_sort(arr):
+    if not arr:
+        return arr
+    max_val = max(arr)
+    exp = 1
+    while max_val // exp > 0:
+        arr = counting_sort_by_digit(arr, exp)
+        exp *= 10
+    return arr
+
+# Example usage
+arr = [170, 45, 75, 90, 802, 24, 2, 66]
+print(radix_sort(arr))  # Output: [2, 24, 45, 66, 75, 90, 170, 802]
+```
+
+### JavaScript (LSD)
+
+```javascript
+function countingSortByDigit(arr, exp) {
+    const n = arr.length;
+    const output = new Array(n);
+    const count = new Array(10).fill(0);
+
+    for (let i = 0; i < n; i++) {
+        const digit = Math.floor(arr[i] / exp) % 10;
+        count[digit]++;
+    }
+
+    for (let i = 1; i < 10; i++) {
+        count[i] += count[i - 1];
+    }
+
+    for (let i = n - 1; i >= 0; i--) {
+        const digit = Math.floor(arr[i] / exp) % 10;
+        output[count[digit] - 1] = arr[i];
+        count[digit]--;
+    }
+
+    return output;
+}
+
+function radixSort(arr) {
+    if (arr.length === 0) return arr;
+    const maxVal = Math.max(...arr);
+    let exp = 1;
+    while (Math.floor(maxVal / exp) > 0) {
+        arr = countingSortByDigit(arr, exp);
+        exp *= 10;
+    }
+    return arr;
+}
+```
+
+## Complexity Analysis
+
+| Variant | Time Complexity | Space Complexity | Stable |
+|---------|---------------|----------------|--------|
+| LSD     | $O(nk)$       | $O(n + k)$     | Yes    |
+| MSD     | $O(nk)$       | $O(n + k)$     | Yes    |
+
+Where $n$ is the number of elements and $k$ is the number of digits (logarithmic in the maximum value).
+
+## When to Use Radix Sort
+
+- **Integer sorting** when $k$ (number of digits) is small relative to $n$
+- **Fixed-width integers** like 32-bit or 64-bit values
+- **String sorting** (MSD variant, treating each character as a digit)
+- **When Comparison Sort's lower bound** of $O(n \log n)$ is a concern for bounded inputs
+
+## LSD vs MSD Radix Sort
+
+| Aspect | LSD (Least Significant Digit) | MSD (Most Significant Digit) |
+|--------|-------------------------------|------------------------------|
+| Order  | Sorts from least significant digit first | Sorts from most significant digit first |
+| Approach | Iterative, straightforward | Recursive, natural for strings |
+| Use case | Integer sorting | String sorting, dictionary order |
+
+## Comparison with Other Sorting Algorithms
+
+| Feature          | Radix Sort | Counting Sort | Comparison Sorts |
+|------------------|------------|---------------|-----------------|
+| Time (Avg)       | $O(nk)$    | $O(n + k)$    | $O(n \log n)$   |
+| Comparison-based | No         | No            | Yes             |
+| Stable           | Yes        | Yes           | Depends         |
+| Works on floats  | With adaptation | No (direct) | Yes          |
+
+## Pseudocode (LSD)
+
+```
+function radixSort(A):
+    maxVal = maximum value in A
+    exp = 1
+    while maxVal / exp > 0:
+        A = countingSortByDigit(A, exp)
+        exp = exp * 10
+    return A
+
+function countingSortByDigit(A, exp):
+    n = length(A)
+    output = new array of size n
+    count = new array of size 10, all zeros
+
+    for i = 0 to n-1:
+        digit = (A[i] / exp) mod 10
+        count[digit]++
+
+    for i = 1 to 9:
+        count[i] += count[i - 1]
+
+    for i = n-1 downto 0:
+        digit = (A[i] / exp) mod 10
+        output[count[digit] - 1] = A[i]
+        count[digit]--
+
+    return output
+```
