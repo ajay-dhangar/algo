@@ -1,5 +1,4 @@
 ---
----
 id: red-black-tree
 title: "Red-Black Tree"
 sidebar_label: "Red-Black Tree"
@@ -8,7 +7,7 @@ description: "A complete guide to Red-Black Trees -- self-balancing binary searc
 tags: [data-structures, tree, red-black, self-balancing, bst, dsa]
 ---
 
-**Red-Black Tree** is a **self-balancing binary search tree** that uses color attributes (red/black) on nodes to maintain approximate balance. It guarantees O(log n) worst-case time for search, insertion, and deletion operations.
+**Red-Black Tree** is a **self-balancing binary search tree** that uses color attributes (red/black) on nodes to maintain approximate balance. It guarantees $O(\log n)$ worst-case time for search, insertion, and deletion operations.
 
 Red-Black trees are widely used in practice: they are the underlying data structure for Java's `TreeMap`, C++'s `std::map` and `std::set`, and the Linux kernel's completely fair scheduler.
 
@@ -28,7 +27,7 @@ A binary search tree is a Red-Black tree if it satisfies the following propertie
 4. **Red nodes cannot have red children (no two consecutive red nodes).**
 5. **Every path from a node to its descendant NIL leaves has the same number of black nodes (black-height).**
 
-These five properties guarantee that the height of the tree is at most 2 * log2(n + 1), ensuring O(log n) operations.
+These five properties guarantee that the height of the tree is at most 2 * $log_2(n + 1)$, ensuring $O(\log n)$ operations.
 
 ---
 
@@ -74,10 +73,10 @@ New nodes are always inserted as **red** nodes. If this violates the red-black p
 
 | Operation | Time Complexity | Notes                                   |
 |-----------|-----------------|-----------------------------------------|
-| Search    | O(log n)        | Worst-case guaranteed                   |
-| Insert    | O(log n)        | At most 2 rotations + recolorings       |
-| Delete    | O(log n)        | At most 3 rotations                     |
-| Space     | O(n)            | One extra bit per node                  |
+| Search    | $O(\log n)$     | Worst-case guaranteed                   |
+| Insert    | $O(\log n)$     | At most 2 rotations + recolorings       |
+| Delete    | $O(\log n)$     | At most 3 rotations                     |
+| Space     | $O(n)$          | One extra bit per node                  |
 
 ---
 
@@ -207,7 +206,7 @@ class RedBlackTree:
 
 ## Key Takeaways
 
-- Red-Black trees use color attributes to maintain balance with O(log n) guarantees.
+- Red-Black trees use color attributes to maintain balance with $O(\log n)$ guarantees.
 - Five properties ensure the tree never becomes too unbalanced.
 - Insertions require at most 2 rotations; deletions require at most 3.
 - The relaxed balance constraints make Red-Black trees more efficient for frequent insertions/deletions.
