@@ -1,0 +1,196 @@
+---
+id: merge-sort
+title: Merge Sort
+sidebar_label: Merge Sort
+description: "Learn about Merge Sort, a stable divide-and-conquer sorting algorithm that guarantees O(n log n) performance in all cases."
+tags: [dsa, algorithms, sorting, divide-and-conquer, merge-sort]
+---
+
+# Merge Sort
+
+**Merge Sort** is a stable, divide-and-conquer sorting algorithm that divides the input array into two halves, recursively sorts them, and then merges the sorted halves. It guarantees $O(n \log n)$ time complexity in all cases, making it a reliable choice for worst-case performance requirements.
+
+## How It Works
+
+1. **Divide**: Split the array into two approximately equal halves
+2. **Conquer**: Recursively sort each half
+3. **Merge**: Combine the two sorted halves into one sorted array
+
+```
+Merge Sort Visualization:
+
+[38, 27, 43, 3, 9, 82, 10]
+        |  divide
+[38, 27, 43, 3]  [9, 82, 10]
+       |  divide
+[38, 27]  [43, 3]  [9, 82]  [10]
+    |      |        |       |
+[38] [27] [43] [3] [9] [82] [10]
+    |      |        |       |
+[27, 38] [3, 43] [9, 82] [10]
+       \      |      /
+   [3, 27, 38, 43]  [9, 10, 82]
+              |
+      [3, 9, 10, 27, 38, 43, 82]
+```
+
+## Implementation
+
+### Python (Top-Down / Recursive)
+
+```python
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+
+    return merge(left, right)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
+# Example usage
+arr = [38, 27, 43, 3, 9, 82, 10]
+sorted_arr = merge_sort(arr)
+print(sorted_arr)  # Output: [3, 9, 10, 27, 38, 43, 82]
+```
+
+### Python (Bottom-Up / Iterative)
+
+```python
+def merge_sort_iterative(arr):
+    n = len(arr)
+    result = [x for x in arr]
+
+    width = 1
+    while width < n:
+        i = 0
+        while i < n:
+            left = i
+            mid = min(i + width, n)
+            right = min(i + 2 * width, n)
+            merge_two(result, left, mid, right)
+            i += 2 * width
+        width *= 2
+
+    return result
+
+def merge_two(arr, left, mid, right):
+    i, j, k = left, mid, left
+    left_copy = arr[left:mid]
+    right_copy = arr[mid:right]
+
+    while i < mid and j < right:
+        if left_copy[i - left] <= right_copy[j - mid]:
+            arr[k] = left_copy[i - left]
+            i += 1
+        else:
+            arr[k] = right_copy[j - mid]
+            j += 1
+        k += 1
+
+    while i < mid:
+        arr[k] = left_copy[i - left]
+        i += 1
+        k += 1
+
+    while j < right:
+        arr[k] = right_copy[j - mid]
+        j += 1
+        k += 1
+```
+
+## Complexity Analysis
+
+| Case        | Time Complexity | Space Complexity |
+|-------------|-----------------|------------------|
+| Best Case   | $O(n \log n)$   | $O(n)$           |
+| Average Case| $O(n \log n)$   | $O(n)$           |
+| Worst Case  | $O(n \log n)$   | $O(n)$           |
+
+### Why O(n log n)?
+
+The array is divided $\log n$ times (halving until size 1), and at each level, $n$ elements are processed during merging. This gives $n \times \log n$ total operations.
+
+## Key Properties
+
+### Stable Sort
+
+Merge Sort is stable: equal elements maintain their relative order from the original array. This is crucial when sorting records by multiple keys.
+
+### External Sorting
+
+Merge Sort is the algorithm of choice for external sorting (when data doesn't fit in memory):
+- Divide data into chunks that fit in memory
+- Sort each chunk individually
+- Merge sorted chunks in multiple passes
+
+### Linked Lists
+
+Merge Sort is particularly efficient for linked lists because it doesn't require random access. It can sort linked lists in $O(n \log n)$ time with $O(1)$ auxiliary space.
+
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def merge_sort_list(head):
+    if not head or not head.next:
+        return head
+
+    # Find middle using slow/fast pointers
+    prev, slow, fast = None, head, head
+    while fast and fast.next:
+        prev = slow
+        slow = slow.next
+        fast = fast.next.next
+
+    prev.next = None
+    left = merge_sort_list(head)
+    right = merge_sort_list(slow)
+
+    return merge_two_lists(left, right)
+```
+
+## When to Use Merge Sort
+
+- **Worst-case guarantees required**: When $O(n \log n)$ worst-case is mandatory
+- **Stable sorting needed**: When relative order of equal elements matters
+- **Linked lists**: No random access needed
+- **External sorting**: When data spans multiple storage devices
+- **Parallel processing**: Easy to parallelize due to independent subproblems
+
+## Comparison with Quick Sort
+
+| Feature        | Merge Sort      | Quick Sort       |
+|----------------|-----------------|------------------|
+| Time (best)    | $O(n \log n)$   | $O(n \log n)$    |
+| Time (worst)   | $O(n \log n)$   | $O(n^2)$         |
+| Space          | $O(n)$          | $O(\log n)$      |
+| Stable         | Yes             | No               |
+| Data access    | Sequential      | Random access    |
+| Cache perf.    | Good            | Better           |
+
+## Applications
+
+- **Java's Arrays.sort()**: Uses Merge Sort for object arrays
+- **Python's Timsort**: A hybrid based on Merge Sort and Insertion Sort
+- **External sorting**: Used in database and file system operations
+- **Inversion counting**: Merge Sort can count inversions in $O(n \log n)$
