@@ -3,7 +3,14 @@
  * Prevents Reflected Cross-Site Scripting (XSS) attacks in search URL query parameters.
  */
 
-export function sanitizeSearchQuery(query: string | null | undefined): string {
+/**
+ * Sanitizes search query string to prevent Reflected XSS.
+ * Caps length to 100 characters and applies HTML entity encoding.
+ * 
+ * @param {string} query - Raw search query string from URL parameters
+ * @returns {string} Sanitized, safe search query string
+ */
+export function sanitizeSearchQuery(query) {
   if (!query || typeof query !== 'string') {
     return '';
   }
@@ -16,7 +23,7 @@ export function sanitizeSearchQuery(query: string | null | undefined): string {
   sanitized = sanitized.replace(/\s+on[a-z0-9_\-]+\s*=/gi, '');
 
   // 3. Perform HTML Entity Encoding
-  const htmlEntityMap: Record<string, string> = {
+  const htmlEntityMap = {
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
