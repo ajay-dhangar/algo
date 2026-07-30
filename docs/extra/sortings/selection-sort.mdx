@@ -1,0 +1,140 @@
+---
+id: selection-sort
+title: Selection Sort
+sidebar_label: Selection Sort
+description: "Learn about Selection Sort, a simple comparison-based sorting algorithm that repeatedly selects the minimum element from the unsorted portion."
+tags: [dsa, algorithms, sorting, selection-sort]
+---
+
+# Selection Sort
+
+**Selection Sort** is a straightforward comparison-based sorting algorithm that divides the array into two parts: sorted and unsorted. It repeatedly selects the smallest (or largest) element from the unsorted portion and moves it to the sorted portion.
+
+## How It Works
+
+1. Find the minimum element in the unsorted portion
+2. Swap it with the first unsorted element
+3. Expand the boundary between sorted and unsorted portions
+4. Repeat until the entire array is sorted
+
+### Step-by-Step Walkthrough
+
+Given array: `[64, 25, 12, 22, 11]`
+
+**Pass 1**: Find minimum `11`, swap with `64` -> `[11, 25, 12, 22, 64]`
+**Pass 2**: Find minimum `12` (in unsorted), swap with `25` -> `[11, 12, 25, 22, 64]`
+**Pass 3**: Find minimum `22`, swap with `25` -> `[11, 12, 22, 25, 64]`
+**Pass 4**: Find minimum `25`, already in place -> `[11, 12, 22, 25, 64]`
+
+## Implementation
+
+### Python
+
+```python
+def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+
+# Example usage
+arr = [64, 25, 12, 22, 11]
+selection_sort(arr)
+print(arr)  # Output: [11, 12, 22, 25, 64]
+```
+
+### JavaScript
+
+```javascript
+function selectionSort(arr) {
+    let n = arr.length;
+    for (let i = 0; i < n; i++) {
+        let minIdx = i;
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIdx]) {
+                minIdx = j;
+            }
+        }
+        [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+    }
+    return arr;
+}
+```
+
+## Complexity Analysis
+
+| Case        | Time Complexity | Space Complexity |
+|-------------|-----------------|------------------|
+| Best Case   | $O(n^2)$        | $O(1)$           |
+| Average Case| $O(n^2)$        | $O(1)$           |
+| Worst Case  | $O(n^2)$        | $O(1)$           |
+
+Selection Sort always performs $n(n-1)/2$ comparisons, regardless of input order, giving it consistent $O(n^2)$ behavior.
+
+## Key Characteristics
+
+### Swaps
+
+One key advantage of Selection Sort is that it performs at most $n-1$ swaps, making it excellent when write operations are expensive (e.g., flash memory, where each write wears the memory).
+
+### Not Adaptive
+
+Unlike Insertion Sort, Selection Sort does not benefit from partially sorted input. The number of comparisons is always $n(n-1)/2$.
+
+### Not Stable
+
+The standard Selection Sort is not stable. When swapping equal elements, their relative order may change.
+
+### Stable Variant
+
+A stable version can be implemented by shifting elements instead of swapping:
+
+```python
+def stable_selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        # Shift elements right to make room
+        key = arr[min_idx]
+        k = min_idx
+        while k > i:
+            arr[k] = arr[k - 1]
+            k -= 1
+        arr[i] = key
+    return arr
+```
+
+## When to Use Selection Sort
+
+- **Write-heavy environments**: When swapping is expensive and comparisons are cheap
+- **Educational purposes**: Simple to understand and implement
+- **Memory-constrained systems**: $O(1)$ space overhead
+- **Small datasets**: Acceptable for datasets up to ~1000 elements
+
+## Comparison with Other O(n^2) Algorithms
+
+| Feature          | Selection Sort | Insertion Sort | Bubble Sort |
+|------------------|---------------|----------------|-------------|
+| Time (best)       | $O(n^2)$      | $O(n)$         | $O(n)$      |
+| Time (worst)      | $O(n^2)$      | $O(n^2)$       | $O(n^2)$    |
+| Adaptive          | No            | Yes            | Yes         |
+| Stable           | No (can be)   | Yes            | Yes         |
+| Swaps (worst)     | $O(n)$        | $O(n^2)$       | $O(n^2)$    |
+
+## Pseudocode
+
+```
+for i = 0 to n-2:
+    min_idx = i
+    for j = i+1 to n-1:
+        if A[j] < A[min_idx]:
+            min_idx = j
+    swap A[i] and A[min_idx]
+```
