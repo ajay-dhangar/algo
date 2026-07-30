@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-26T12:51:07.470Z",
-  "count": 84,
+  "generatedAt": "2026-07-30T04:19:21.208Z",
+  "count": 85,
   "difficulties": [
     "Easy",
     "Medium",
@@ -74,6 +74,10 @@
     {
       "value": "dfs",
       "label": "DFS"
+    },
+    {
+      "value": "dijkstras",
+      "label": "Dijkstras"
     },
     {
       "value": "divide-and-conquer",
@@ -914,6 +918,21 @@
       ],
       "companies": [],
       "url": "/docs/dsa-problems/medium/partition-equal-subset-sum"
+    },
+    {
+      "id": "path-with-minimum-effort",
+      "title": "Path With Minimum Effort",
+      "description": "Solution for LeetCode 1631: Path With Minimum Effort, utilizing Dijkstra's Algorithm with a Min-Priority Queue on a 2D grid.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dijkstras",
+        "shortest-path",
+        "matrix",
+        "binary-search"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/path-with-minimum-effort"
     },
     {
       "id": "plus-one",
