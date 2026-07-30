@@ -228,6 +228,35 @@ export interface QuizAttemptRecord {
   completedAt?: string;
 }
 
+export function extractQuizIdFromStorageKey(key: string): string | null {
+  if (!key || !key.startsWith('quiz_attempts_')) return null;
+  const raw = key.slice('quiz_attempts_'.length).replace(/_+$/, '');
+  if (!raw) return null;
+
+  const knownCandidates = [
+    ...ALL_QUIZ_IDS,
+    ...Object.keys(QUIZ_ID_ALIASES),
+    ...Object.values(QUIZ_ID_ALIASES),
+  ];
+
+  let bestMatch: string | null = null;
+  for (const candidate of knownCandidates) {
+    if (raw === candidate || raw.endsWith('_' + candidate)) {
+      if (!bestMatch || candidate.length > bestMatch.length) {
+        bestMatch = candidate;
+      }
+    }
+  }
+
+  if (bestMatch) {
+    return normalizeQuizId(bestMatch);
+  }
+
+  const lastUnderscoreIndex = raw.lastIndexOf('_');
+  const trailing = lastUnderscoreIndex !== -1 ? raw.slice(lastUnderscoreIndex + 1) : raw;
+  return trailing ? normalizeQuizId(trailing) : null;
+}
+
 function computeQuizStats(): { passed: number; mastered: number; attempted: number } {
   if (typeof window === 'undefined' || !window.localStorage) {
     return { passed: 0, mastered: 0, attempted: 0 };
@@ -246,9 +275,9 @@ function computeQuizStats(): { passed: number; mastered: number; attempted: numb
     const attempts = safeJsonParse<QuizAttemptRecord[]>(key, []);
     if (!Array.isArray(attempts) || attempts.length === 0) continue;
 
-    // Extract quiz id from key: quiz_attempts_<uid>_<quizId>
-    const parts = key.replace('quiz_attempts_', '').split('_');
-    const quizId = normalizeQuizId(parts.slice(1).join('_') || parts[0]);
+    const quizId = extractQuizIdFromStorageKey(key);
+    if (!quizId) continue;
+
     const total = QUIZ_QUESTION_COUNTS[quizId] ?? 10;
 
     const bestScore = Math.max(...attempts.map((a) => (typeof a.score === 'number' ? a.score : 0)));

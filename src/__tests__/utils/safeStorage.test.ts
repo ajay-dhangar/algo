@@ -7,6 +7,7 @@ import {
   markChallengeSolved,
   saveQuizAttemptLocal,
   getUserId,
+  extractQuizIdFromStorageKey,
   getAchievementSnapshot,
 } from '../../utils/safeStorage';
 
@@ -14,6 +15,40 @@ describe('safeStorage', () => {
   beforeEach(() => {
     localStorage.clear();
     jest.clearAllMocks();
+  });
+
+  describe('extractQuizIdFromStorageKey', () => {
+    test('extracts quiz ID for normal user ID without underscores', () => {
+      expect(extractQuizIdFromStorageKey('quiz_attempts_user1_arrays')).toBe('arrays');
+      expect(extractQuizIdFromStorageKey('quiz_attempts_john_graphs')).toBe('graphs');
+    });
+
+    test('extracts quiz ID for user ID with one underscore', () => {
+      expect(extractQuizIdFromStorageKey('quiz_attempts_john_doe_arrays')).toBe('arrays');
+      expect(extractQuizIdFromStorageKey('quiz_attempts_user_123_sorting')).toBe('sorting');
+    });
+
+    test('extracts quiz ID for user ID with multiple underscores', () => {
+      expect(extractQuizIdFromStorageKey('quiz_attempts_guest_user_1_arrays')).toBe('arrays');
+      expect(extractQuizIdFromStorageKey('quiz_attempts_usr_test_account_99_recursion')).toBe('recursion');
+    });
+
+    test('extracts hyphenated quiz IDs and normalizes aliases', () => {
+      expect(extractQuizIdFromStorageKey('quiz_attempts_user_123_binary-trees')).toBe('binary-trees');
+      expect(extractQuizIdFromStorageKey('quiz_attempts_guest_user_1_binary-tree')).toBe('binary-trees');
+      expect(extractQuizIdFromStorageKey('quiz_attempts_john_doe_priority-queues')).toBe('priority-queues');
+    });
+
+    test('handles unknown quiz IDs safely', () => {
+      expect(extractQuizIdFromStorageKey('quiz_attempts_user_123_custom-algo-quiz')).toBe('custom-algo-quiz');
+    });
+
+    test('handles malformed keys and empty inputs without throwing', () => {
+      expect(extractQuizIdFromStorageKey('')).toBeNull();
+      expect(extractQuizIdFromStorageKey('quiz_attempts_')).toBeNull();
+      expect(extractQuizIdFromStorageKey('quiz_attempts_user_')).toBe('user');
+      expect(extractQuizIdFromStorageKey('invalid_prefix_key')).toBeNull();
+    });
   });
 
   describe('safeJsonParse', () => {
@@ -134,6 +169,27 @@ describe('safeStorage', () => {
       expect(snapshot.completedTopics).toContain('topic-1');
       expect(snapshot.completedTopics).toContain('topic-2');
       expect(snapshot.totalQuizzesAttempted).toBeGreaterThanOrEqual(1);
+    });
+
+    test('correctly calculates quiz stats for user IDs containing underscores and hyphenated quiz IDs', () => {
+      saveQuizAttemptLocal('john_doe', 'arrays', { score: 10 });
+      saveQuizAttemptLocal('guest_user_1', 'binary-tree', { score: 12 }); // 12/12 = 100% (mastered)
+
+      const snapshot = getAchievementSnapshot();
+      expect(snapshot.totalQuizzesAttempted).toBe(2);
+      expect(snapshot.quizzesPassed).toBe(2);
+      expect(snapshot.quizzesMastered).toBe(2);
+    });
+
+    test('handles empty storage and malformed keys gracefully', () => {
+      localStorage.clear();
+      localStorage.setItem('quiz_attempts_', JSON.stringify([{ score: 10 }]));
+      localStorage.setItem('quiz_attempts_user_', JSON.stringify([{ score: 10 }]));
+      localStorage.setItem('corrupt_quiz_key', 'invalid json');
+
+      const snapshot = getAchievementSnapshot();
+      expect(snapshot.totalQuizzesAttempted).toBe(1); // 'user' fallback
+      expect(snapshot.quizzesPassed).toBe(1);
     });
   });
 });
