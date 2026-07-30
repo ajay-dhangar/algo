@@ -1,0 +1,180 @@
+---
+id: quick-sort
+title: Quick Sort
+sidebar_label: Quick Sort
+description: "Learn about Quick Sort, one of the most efficient sorting algorithms using divide-and-conquer with an average O(n log n) time complexity."
+tags: [dsa, algorithms, sorting, divide-and-conquer, quick-sort]
+---
+
+# Quick Sort
+
+**Quick Sort** is a highly efficient divide-and-conquer sorting algorithm that works by selecting a 'pivot' element and partitioning the array around it, such that elements smaller than the pivot are on the left and elements greater are on the right.
+
+## How It Works
+
+1. **Choose a pivot** element from the array
+2. **Partition**: Rearrange elements so that smaller elements are left of pivot, larger elements are right
+3. **Recursively apply** Quick Sort to the left and right subarrays
+4. **Base case**: Arrays of size 0 or 1 are already sorted
+
+:::info Historical Note
+Quick Sort was developed by Tony Hoare in 1959 and remains one of the most widely used sorting algorithms in practice due to its excellent average performance and cache efficiency.
+:::
+
+## Pivot Selection Strategies
+
+The choice of pivot significantly affects Quick Sort's performance:
+
+| Strategy     | Description                              | Best For          |
+|-------------|------------------------------------------|-------------------|
+| First element | Always pick the first element            | Random data       |
+| Last element  | Pick the last element (Lomuto scheme)  | Common convention |
+| Random       | Pick a random element                   | Guarding against worst case |
+| Median-of-three | Median of first, middle, last        | Better partition balance |
+
+## Implementation
+
+### Python (Lomuto Partition Scheme)
+
+```python
+def quick_sort(arr, low=0, high=None):
+    if high is None:
+        high = len(arr) - 1
+
+    if low < high:
+        pivot_idx = partition(arr, low, high)
+        quick_sort(arr, low, pivot_idx - 1)
+        quick_sort(arr, pivot_idx + 1, high)
+    return arr
+
+def partition(arr, low, high):
+    """
+    Lomuto partition scheme.
+    Chooses last element as pivot.
+    Returns index of pivot after partitioning.
+    """
+    pivot = arr[high]
+    i = low - 1
+
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
+
+# Example usage
+arr = [10, 7, 8, 9, 1, 5]
+quick_sort(arr)
+print(arr)  # Output: [1, 5, 7, 8, 9, 10]
+```
+
+### Python (Hoare Partition Scheme)
+
+```python
+def hoare_partition(arr, low, high):
+    pivot = arr[low]
+    i = low - 1
+    j = high + 1
+
+    while True:
+        do:
+            i += 1
+        while arr[i] < pivot
+
+        do:
+            j -= 1
+        while arr[j] > pivot
+
+        if i >= j:
+            return j
+
+        arr[i], arr[j] = arr[j], arr[i]
+
+def quick_sort_hoare(arr, low, high):
+    if low < high:
+        p = hoare_partition(arr, low, high)
+        quick_sort_hoare(arr, low, p)
+        quick_sort_hoare(arr, p + 1, high)
+```
+
+## Complexity Analysis
+
+| Case        | Time Complexity | Space Complexity |
+|-------------|-----------------|------------------|
+| Best Case   | $O(n \log n)$   | $O(\log n)$      |
+| Average Case| $O(n \log n)$   | $O(\log n)$      |
+| Worst Case  | $O(n^2)$        | $O(n)$           |
+
+### Why O(n^2) Worst Case?
+
+The worst case occurs when the pivot is always the smallest or largest element (e.g., already sorted array with first/last pivot). This creates highly unbalanced partitions.
+
+### Space Complexity
+
+Space is used for the recursion stack. Best/average case: $O(\log n)$ (balanced partitions). Worst case: $O(n)$ (unbalanced partitions).
+
+## Iterative Quick Sort
+
+To avoid stack overflow on large arrays, an iterative version using an explicit stack:
+
+```python
+def quick_sort_iterative(arr):
+    stack = [(0, len(arr) - 1)]
+
+    while stack:
+        low, high = stack.pop()
+        if low < high:
+            pivot_idx = partition(arr, low, high)
+            stack.append((low, pivot_idx - 1))
+            stack.append((pivot_idx + 1, high))
+    return arr
+```
+
+## When to Use Quick Sort
+
+- **General-purpose sorting**: Excellent average performance
+- **In-memory sorting**: Cache-friendly due to in-place partitioning
+- **Large datasets**: Outperforms Merge Sort for arrays that fit in cache
+- **When stability is not required**: Not stable, but faster than stable alternatives
+
+## Quick Sort vs Merge Sort
+
+| Feature        | Quick Sort       | Merge Sort        |
+|----------------|-----------------|-------------------|
+| Time (avg)     | $O(n \log n)$   | $O(n \log n)$     |
+| Time (worst)   | $O(n^2)$        | $O(n \log n)$     |
+| Space          | $O(\log n)$     | $O(n)$            |
+| Stable         | No              | Yes               |
+| In-place       | Yes             | No                |
+| Cache perf.    | Better          | Good              |
+| Pivot needed   | Yes             | No                |
+
+## Optimization: Three-Way Partition
+
+For arrays with many equal elements, three-way partitioning (Dutch National Flag) improves performance:
+
+```python
+def three_way_quicksort(arr, low, high):
+    if low >= high:
+        return
+
+    lt, gt = low, high
+    pivot = arr[low]
+    i = low
+
+    while i <= gt:
+        if arr[i] < pivot:
+            arr[lt], arr[i] = arr[i], arr[lt]
+            lt += 1
+            i += 1
+        elif arr[i] > pivot:
+            arr[gt], arr[i] = arr[i], arr[gt]
+            gt -= 1
+        else:
+            i += 1
+
+    three_way_quicksort(arr, low, lt - 1)
+    three_way_quicksort(arr, gt + 1, high)
+```
