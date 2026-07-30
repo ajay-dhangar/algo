@@ -1,0 +1,155 @@
+---
+id: b-tree
+title: B-Tree
+sidebar_label: B-Tree
+description: "A comprehensive guide to B-Trees - self-balancing search trees optimized for disk access, widely used in databases and file systems."
+tags: [data-structures, trees, b-tree, database, dsa]
+---
+
+# B-Tree
+
+A **B-Tree** is a self-balancing search tree designed to work efficiently on disk storage or other direct-access secondary storage devices. Unlike binary search trees, B-Trees can have multiple children per node, making them ideal for read/write operations on large datasets where minimizing disk accesses is critical.
+
+## Introduction
+
+B-Trees were introduced by Rudolf Bayer and Eduard McCreight in 1971. They are optimized for systems that read and write large blocks of data, which is why they are the primary indexing structure in relational databases and file systems.
+
+:::info Key Advantage
+A B-Tree of order $m$ can store thousands of keys in a single node, reducing tree height and minimizing disk I/O operations from $O(\log n)$ disk reads to $O(1)$ disk reads per level.
+:::
+
+## Properties of B-Tree
+
+For a B-Tree of order $m$:
+
+1. Every node has at most $m$ children
+2. Every internal node (non-leaf) has at least $\lceil m/2 \rceil$ children
+3. The root has at least 2 children (unless it is a leaf)
+4. A non-leaf node with $k$ children contains $k - 1$ keys
+5. All leaves appear at the same level and contain no children
+6. A node with $k$ keys has $k + 1$ children
+
+## Searching in B-Tree
+
+Searching in a B-Tree is similar to binary search but extended to $k - 1$ keys per node:
+
+1. Start at the root
+2. In the current node, find the smallest key $\geq$ the search key
+3. If the key matches, return it
+4. If the key is between two keys, recurse into the corresponding child
+5. If no child corresponds, the key is not in the tree
+
+## Implementation
+
+### Python
+
+```python
+class BTreeNode:
+    def __init__(self, t, leaf=False):
+        self.t = t  # Minimum degree
+        self.leaf = leaf
+        self.keys = []
+        self.children = []
+
+    def traverse(self):
+        result = []
+        for i in range(len(self.keys)):
+            if not self.leaf:
+                result.extend(self.children[i].traverse())
+            result.append(self.keys[i])
+        if not self.leaf:
+            result.extend(self.children[-1].traverse())
+        return result
+
+    def search(self, k):
+        i = 0
+        while i < len(self.keys) and k > self.keys[i]:
+            i += 1
+        if i < len(self.keys) and self.keys[i] == k:
+            return (self, i)
+        if self.leaf:
+            return None
+        return self.children[i].search(k)
+
+    def insert_non_full(self, k):
+        i = len(self.keys) - 1
+        if self.leaf:
+            self.keys.append(None)
+            while i >= 0 and self.keys[i] > k:
+                self.keys[i + 1] = self.keys[i]
+                i -= 1
+            self.keys[i + 1] = k
+        else:
+            while i >= 0 and self.keys[i] > k:
+                i -= 1
+            i += 1
+            if len(self.children[i].keys) == 2 * self.t - 1:
+                self.split_child(i, self.children[i])
+                if self.keys[i] < k:
+                    i += 1
+            self.children[i].insert_non_full(k)
+
+    def split_child(self, i, y):
+        t = y.t
+        z = BTreeNode(t, y.leaf)
+        z.keys = y.keys[t:]
+        if not y.leaf:
+            z.children = y.children[t:]
+        y.keys = y.keys[:t - 1]
+        if not y.leaf:
+            y.children = y.children[:t]
+        self.children.insert(i + 1, z)
+        self.keys.insert(i, y.keys[-1])
+```
+
+## Complexity Analysis
+
+| Operation | Time Complexity | Notes |
+|-----------|----------------|-------|
+| Search    | $O(\log n)$    | Disk reads: $O(\log_m n)$ where $m$ is order |
+| Insert    | $O(\log n)$    | May trigger node splits |
+| Delete    | $O(\log n)$    | May trigger node merges |
+
+### Disk Access Analysis
+
+The height of a B-Tree is $O(\log_m n)$ where $m$ is the order (branching factor). Since $m$ can be in the hundreds for disk-based trees, the tree height is very small even for millions of records.
+
+## B-Tree vs Binary Search Tree
+
+| Feature          | B-Tree          | Binary Search Tree |
+|------------------|-----------------|-------------------|
+| Children per node | Up to $m$       | Maximum 2         |
+| Height           | $O(\log_m n)$   | $O(\log_2 n)$     |
+| Disk I/O         | Optimized       | Not optimized     |
+| Balance          | Self-balancing  | Varies            |
+| Primary use      | Databases, files | In-memory data    |
+
+## Use Cases
+
+- **Database indexing**: MySQL InnoDB, PostgreSQL use B-Trees (and B+ Trees)
+- **File systems**: NTFS, HFS+, ext4 use B-Tree variants
+- **Key-value stores**: Many NoSQL databases use B-Trees
+- **Associative arrays**: Implementing ordered maps with range queries
+
+## B+ Tree (Common Variant)
+
+B+ Trees are a popular variant where:
+- All data (values/records) are stored only in leaf nodes
+- Internal nodes store only keys for routing
+- Leaf nodes are linked for efficient range queries
+- This variant is even more common in database implementations
+
+## Pseudocode (Search)
+
+```
+function BTreeSearch(x, k):
+    i = 0
+    while i < x.n and k > x.keys[i]:
+        i = i + 1
+    if i < x.n and k == x.keys[i]:
+        return (x, i)
+    if x.leaf:
+        return null
+    diskRead(x.children[i])
+    return BTreeSearch(x.children[i], k)
+```
