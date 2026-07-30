@@ -469,7 +469,7 @@ const IsamQuiz: React.FC = () => {
                             ? "Good effort! Review overflow page handling and how ISAM compares to dynamically balanced structures."
                             : "Keep practicing! Focus on why ISAM's static index degrades over time and how reorganization restores performance."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="ISAM" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">

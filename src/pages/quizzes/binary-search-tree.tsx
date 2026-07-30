@@ -423,7 +423,7 @@ const BinarySearchTreeQuiz: React.FC = () => {
                       {score === QUESTIONS.length ? "Perfect state invariants! Your binary search tree algorithms are flawlessly organized." : score >= 6 ? "Solid baseline metrics! You understand lookups, sorting logic, and average path behavior well." : "Asymmetry found. Spend extra time analyzing leaf assignments, worst-case linear degressions, and node removal processes."}
                     </p>
 
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Binary Search Tree" score={score} total={QUESTIONS.length} />
                   </div>
 
                   {/* Debug Log Trace Details */}

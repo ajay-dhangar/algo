@@ -469,7 +469,7 @@ const BPlusTreeQuiz: React.FC = () => {
                             ? "Good effort! Review leaf-node linking, split/merge behavior, and how B+ Trees differ from B-Trees."
                             : "Keep practicing! Focus on the difference between internal and leaf nodes, and how range queries are handled."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="B+ Tree" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">

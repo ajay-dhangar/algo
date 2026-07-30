@@ -493,7 +493,7 @@ const SortingQuiz: React.FC = () => {
                             ? "Good effort! Review stable vs unstable sorts and fallback mechanisms in hybrid sorts."
                             : "Keep practicing! Focus on worst-case complexities, heap operations, and recursive partitions."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Sorting Algorithms" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">
