@@ -1,0 +1,211 @@
+---
+id: splay-tree
+title: Splay Tree
+sidebar_label: Splay Tree
+description: "A comprehensive guide to Splay Trees - a self-balancing binary search tree that brings recently accessed elements to the root using splay operations."
+tags: [data-structures, trees, splay-tree, self-balancing, dsa]
+---
+
+# Splay Tree
+
+A **Splay Tree** is a self-balancing binary search tree where every operation (search, insert, delete) is followed by a **splay** operation that moves the accessed node to the root. While individual operations can take $O(n)$ time, the amortized cost of each operation is $O(\log n)$.
+
+## Introduction
+
+Splay Trees were introduced by Daniel Sleator and Robert Tarjan in 1985. Unlike AVL Trees or Red-Black Trees which maintain explicit balance conditions, Splay Trees achieve balance through the implicit effect of the splay operation. A key property of Splay Trees is that recently accessed elements are quickly accessible again, making them ideal for cache-like access patterns.
+
+:::info Key Property
+After accessing any node in a Splay Tree, that node is moved to the root of the tree via a series of rotations called splaying.
+:::
+
+## The Splay Operation
+
+Splaying a node means moving it to the root through a sequence of rotations. There are three types of rotations:
+
+### Zig (Single Rotation)
+
+Used when the node is a child of the root (one step from root).
+
+```
+    p                    x
+   /        -->        / \
+  x                    p   T3
+ /
+T1
+```
+
+### Zig-Zig (Double Rotation)
+
+Used when the node and its parent are both left children (or both right children). Both the parent and the node rotate right (or left).
+
+```
+    g                    x
+   / \                 / \
+  p   T4      -->     p   g
+ / \                 / \ / \
+x  T3               T1 T2 T3 T4
+/
+T1 T2
+```
+
+### Zig-Zag (Double Rotation)
+
+Used when the node is a left child of a right child (or vice versa). Both the parent and the node rotate in opposite directions.
+
+```
+    g                    x
+   / \                 / \
+  p   T4      -->     p   g
+ / \                 / \ / \
+T1  x               T1 T2 T3 T4
+   / \
+  T2 T3
+```
+
+## Implementation
+
+### Python
+
+```python
+class SplayNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+        self.parent = None
+
+class SplayTree:
+    def rotate_right(self, x):
+        y = x.parent
+        x.parent = y.parent
+        if y.parent:
+            if y == y.parent.left:
+                y.parent.left = x
+            else:
+                y.parent.right = x
+        y.left = x.right
+        if x.right:
+            x.right.parent = y
+        x.right = y
+        y.parent = x
+
+    def rotate_left(self, x):
+        y = x.parent
+        x.parent = y.parent
+        if y.parent:
+            if y == y.parent.left:
+                y.parent.left = x
+            else:
+                y.parent.right = x
+        y.right = x.left
+        if x.left:
+            x.left.parent = y
+        x.left = y
+        y.parent = x
+
+    def splay(self, x):
+        while x.parent:
+            y = x.parent
+            g = y.parent
+            if not g:
+                # Zig
+                if x == y.left:
+                    self.rotate_right(x)
+                else:
+                    self.rotate_left(x)
+            elif (x == y.left) == (y == g.left):
+                # Zig-Zig
+                if x == y.left:
+                    self.rotate_right(y)
+                    self.rotate_right(x)
+                else:
+                    self.rotate_left(y)
+                    self.rotate_left(x)
+            else:
+                # Zig-Zag
+                if x == y.left:
+                    self.rotate_right(x)
+                    self.rotate_left(x)
+                else:
+                    self.rotate_left(x)
+                    self.rotate_right(x)
+
+    def search(self, root, key):
+        if not root:
+            return None
+        if key == root.key:
+            self.splay(root)
+            return root
+        elif key < root.key and root.left:
+            return self.search(root.left, key)
+        elif key > root.key and root.right:
+            return self.search(root.right, key)
+        # Key not found, splay the last accessed node
+        self.splay(root)
+        return None
+```
+
+## Amortized Analysis
+
+The amortized cost of splaying a node in a tree of size $n$ is $O(\log n)$. This is proved using the **Potential Method**:
+
+The potential of a tree is defined as the sum of the logs of the sizes of all subtrees containing the accessed node. The amortized cost of each splay step is at most $3 \times (\text{new potential} - \text{old potential}) + 1$.
+
+### Key Result
+
+| Operation      | Amortized Time |
+|---------------|----------------|
+| Search        | $O(\log n)$    |
+| Insert        | $O(\log n)$    |
+| Delete        | $O(\log n)$    |
+| Find Min/Max  | $O(\log n)$    |
+
+## Comparison with Other Balanced BSTs
+
+| Property          | Splay Tree      | AVL Tree        | Red-Black Tree  |
+|-------------------|-----------------|-----------------|-----------------|
+| Balance guarantee | Amortized       | Strict          | Strict          |
+| Search performance | Good for locality | Uniform        | Uniform         |
+| Rotations         | More            | Fewer           | Fewer           |
+| Memory            | Minimal         | Stores height   | Stores color    |
+| Cache-friendly    | Yes (locality)  | No              | No              |
+
+## Use Cases
+
+- **Cache implementation**: recently used items are always near the root
+- **Dynamic order statistics**: splay trees can implement join and split efficiently
+- **Unix virtual memory**: the Linux kernel uses splay trees in some memory management routines
+- **Data compression**: used in some Lempel-Ziv variants
+
+## Splay Tree Properties
+
+| Property | Description |
+|----------|------------|
+| All BST properties | Maintained |
+| Balance | Implicit via splaying |
+| Amortized depth | $O(\log n)$ |
+| Working set property | Accessing $k$ items takes $O(k \log n + \log n)$ |
+| Static optimality | Asymptotically optimal for known access frequencies |
+
+## Pseudocode (Splay Operation)
+
+```
+function splay(x):
+    while x.parent != null:
+        y = x.parent
+        g = y.parent
+        if g == null:
+            // Zig
+            if x == y.left:
+                rotate_right(x)
+            else:
+                rotate_left(x)
+        else if (x == y.left) == (y == g.left):
+            // Zig-Zig
+            rotate_right(y)
+            rotate_right(x)
+        else:
+            // Zig-Zag
+            rotate_right(x)
+            rotate_left(x)
+```
