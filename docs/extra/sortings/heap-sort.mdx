@@ -1,0 +1,168 @@
+---
+id: heap-sort
+title: Heap Sort
+sidebar_label: Heap Sort
+description: "Learn about Heap Sort, an in-place comparison-based sorting algorithm with O(n log n) time complexity that uses a binary heap data structure."
+tags: [dsa, algorithms, sorting, heap-sort]
+---
+
+# Heap Sort
+
+**Heap Sort** is an in-place comparison-based sorting algorithm that uses a binary heap data structure. It builds a max-heap from the input array and then repeatedly extracts the maximum element, building the sorted array from end to beginning. It guarantees $O(n \log n)$ time complexity in all cases.
+
+## How It Works
+
+Heap Sort operates in two main phases:
+1. **Build a max-heap** from the unsorted array
+2. **Repeatedly extract** the maximum element (root of the heap) and rebuild the heap with the remaining elements
+
+### What is a Max-Heap?
+
+A max-heap is a complete binary tree where every parent node has a value greater than or equal to its children. The root always contains the maximum element.
+
+### Step-by-Step Walkthrough
+
+Given array: `[4, 10, 3, 5, 1]`
+
+**Phase 1 - Build Max-Heap**:
+Array representation: `[4, 10, 3, 5, 1]`
+
+After heapify operations, max-heap structure:
+```
+        10
+       /  \
+      5    3
+     / \
+    4   1
+```
+Array: `[10, 5, 3, 4, 1]`
+
+**Phase 2 - Extract and Rebuild**:
+- Swap root (10) with last element (1): `[1, 5, 3, 4, 10]`
+- Heapify root: `[5, 4, 3, 1, 10]`
+- Swap root (5) with last unsorted (4): `[1, 4, 3, 5, 10]`
+- Continue until sorted...
+
+Final sorted array: `[1, 3, 4, 5, 10]`
+
+## Implementation
+
+### Python
+
+```python
+def heap_sort(arr):
+    n = len(arr)
+
+    # Build max heap
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+    # Extract elements from heap one by one
+    for i in range(n - 1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]  # Move max to end
+        heapify(arr, i, 0)
+    return arr
+
+def heapify(arr, n, i):
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+
+    if left < n and arr[left] > arr[largest]:
+        largest = left
+    if right < n and arr[right] > arr[largest]:
+        largest = right
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        heapify(arr, n, largest)
+
+# Example usage
+arr = [4, 10, 3, 5, 1]
+heap_sort(arr)
+print(arr)  # Output: [1, 3, 4, 5, 10]
+```
+
+### JavaScript
+
+```javascript
+function heapSort(arr) {
+    const n = arr.length;
+
+    // Build max heap
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    // Extract elements
+    for (let i = n - 1; i > 0; i--) {
+        [arr[0], arr[i]] = [arr[i], arr[0]];
+        heapify(arr, i, 0);
+    }
+    return arr;
+}
+
+function heapify(arr, n, i) {
+    let largest = i;
+    const left = 2 * i + 1;
+    const right = 2 * i + 2;
+
+    if (left < n && arr[left] > arr[largest]) largest = left;
+    if (right < n && arr[right] > arr[largest]) largest = right;
+    if (largest !== i) {
+        [arr[i], arr[largest]] = [arr[largest], arr[i]];
+        heapify(arr, n, largest);
+    }
+}
+```
+
+## Complexity Analysis
+
+| Case        | Time Complexity | Space Complexity |
+|-------------|----------------|-----------------|
+| Best Case   | $O(n \log n)$  | $O(1)$          |
+| Average Case| $O(n \log n)$  | $O(1)$          |
+| Worst Case  | $O(n \log n)$  | $O(1)$          |
+
+The $O(n \log n)$ bound holds in all cases because heapify takes $O(\log n)$ time and is called $O(n)$ times.
+
+## When to Use Heap Sort
+
+- **Memory-constrained environments** due to $O(1)$ auxiliary space
+- **Finding the k-th largest/smallest element** (can be done in $O(n + k \log n)$)
+- **Priority queue implementations** where heap structure is already needed
+- **When worst-case guarantee** is needed without the $O(n)$ space of Merge Sort
+
+## Comparison with Other O(n log n) Algorithms
+
+| Feature          | Heap Sort | Merge Sort | Quick Sort |
+|------------------|-----------|------------|------------|
+| Time (Worst)     | $O(n \log n)$ | $O(n \log n)$ | $O(n^2)$    |
+| Space            | $O(1)$      | $O(n)$      | $O(\log n)$  |
+| Stable           | No          | Yes         | No          |
+| Cache-friendly   | Moderate    | Moderate    | Yes         |
+
+## Pseudocode
+
+```
+function heapSort(A):
+    n = length(A)
+    // Build max heap
+    for i = n/2 - 1 downto 0:
+        heapify(A, n, i)
+    // Extract elements
+    for i = n-1 downto 1:
+        swap A[0] and A[i]
+        heapify(A, i, 0)
+
+function heapify(A, n, i):
+    largest = i
+    left = 2*i + 1
+    right = 2*i + 2
+    if left < n and A[left] > A[largest]:
+        largest = left
+    if right < n and A[right] > A[largest]:
+        largest = right
+    if largest != i:
+        swap A[i] and A[largest]
+        heapify(A, n, largest)
+```
