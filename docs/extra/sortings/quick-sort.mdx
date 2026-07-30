@@ -1,0 +1,145 @@
+---
+id: quick-sort
+title: Quick Sort
+sidebar_label: Quick Sort
+description: "Learn about Quick Sort, a highly efficient divide-and-conquer sorting algorithm with an average time complexity of O(n log n), widely used in practice."
+tags: [dsa, algorithms, sorting, quick-sort]
+---
+
+# Quick Sort
+
+**Quick Sort** is a highly efficient divide-and-conquer sorting algorithm that works by selecting a pivot element and partitioning the array around it. Elements smaller than the pivot are placed to the left, and elements greater than the pivot are placed to the right. This process is then recursively applied to the sub-arrays.
+
+## How It Works
+
+1. **Select a pivot** from the array (common strategies: first element, last element, random, median-of-three)
+2. **Partition** the array so that all elements smaller than the pivot are on the left, and all elements greater are on the right
+3. **Recursively** apply Quick Sort to the left and right sub-arrays
+4. **Base case**: when a sub-array has one or zero elements, it is already sorted
+
+### Step-by-Step Walkthrough
+
+Given array: `[10, 7, 8, 9, 1, 5]`
+
+**Pivot selection**: Last element = `5`
+
+**Partition**: Move all smaller elements to the left of `5`:
+- Result: `[1, 5, 8, 9, 10, 7]`, pivot at index 1
+
+**Left sub-array** `[1]`: already sorted
+**Right sub-array** `[8, 9, 10, 7]`: recursively sort
+
+Continue recursively until all sub-arrays are sorted.
+
+## Implementation
+
+### Python
+
+```python
+def quick_sort(arr, low, high):
+    if low < high:
+        pivot_index = partition(arr, low, high)
+        quick_sort(arr, low, pivot_index - 1)
+        quick_sort(arr, pivot_index + 1, high)
+    return arr
+
+def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
+
+# Example usage
+arr = [10, 7, 8, 9, 1, 5]
+quick_sort(arr, 0, len(arr) - 1)
+print(arr)  # Output: [1, 5, 7, 8, 9, 10]
+```
+
+### JavaScript
+
+```javascript
+function quickSort(arr, low = 0, high = arr.length - 1) {
+    if (low < high) {
+        const pivotIndex = partition(arr, low, high);
+        quickSort(arr, low, pivotIndex - 1);
+        quickSort(arr, pivotIndex + 1, high);
+    }
+    return arr;
+}
+
+function partition(arr, low, high) {
+    const pivot = arr[high];
+    let i = low - 1;
+    for (let j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+    [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
+    return i + 1;
+}
+```
+
+## Complexity Analysis
+
+| Case        | Time Complexity | Space Complexity |
+|-------------|----------------|-----------------|
+| Best Case   | $O(n \log n)$  | $O(\log n)$     |
+| Average Case| $O(n \log n)$  | $O(\log n)$     |
+| Worst Case  | $O(n^2)$       | $O(n)$          |
+
+### Worst Case
+Occurs when the pivot always lands at the extreme (e.g., already sorted array with last element as pivot). Use randomized pivot selection or median-of-three to avoid.
+
+### Average Case
+Quick Sort performs $O(n \log n)$ comparisons on average because the expected depth of the recursion tree is $O(\log n)$.
+
+## When to Use Quick Sort
+
+- **General-purpose sorting** when average performance matters more than worst-case guarantees
+- **Large datasets** where in-place sorting saves memory
+- **Systems with memory constraints** as it requires only $O(\log n)$ auxiliary space
+- **Arrays** (not linked lists) due to random access efficiency
+
+## Pivot Selection Strategies
+
+| Strategy       | Description                                    | Pros/Cons                          |
+|----------------|------------------------------------------------|------------------------------------|
+| First Element  | Always pick the first element                  | Simple but vulnerable to sorted input |
+| Last Element   | Pick the last element                          | Simple but same vulnerability       |
+| Random         | Pick a random element as pivot                  | Avoids worst case on average        |
+| Median-of-Three| Pick median of first, middle, last elements   | Good balance, avoids extremes      |
+
+## Comparison with Other Sorting Algorithms
+
+| Feature          | Quick Sort | Merge Sort | Heap Sort |
+|------------------|------------|------------|-----------|
+| Time (Average)   | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ |
+| Space            | $O(\log n)$  | $O(n)$      | $O(1)$     |
+| Stable           | No          | Yes         | No         |
+| In-place         | Yes         | No          | Yes        |
+
+## Pseudocode
+
+```
+function quickSort(A, low, high):
+    if low < high:
+        pivotIndex = partition(A, low, high)
+        quickSort(A, low, pivotIndex - 1)
+        quickSort(A, pivotIndex + 1, high)
+
+function partition(A, low, high):
+    pivot = A[high]
+    i = low - 1
+    for j = low to high - 1:
+        if A[j] <= pivot:
+            i = i + 1
+            swap A[i] and A[j]
+    swap A[i + 1] and A[high]
+    return i + 1
+```
