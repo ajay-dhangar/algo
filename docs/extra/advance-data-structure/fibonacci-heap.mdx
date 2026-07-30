@@ -1,0 +1,177 @@
+---
+id: fibonacci-heap
+title: Fibonacci Heap
+sidebar_label: Fibonacci Heap
+sidebar_position: 16
+description: "A comprehensive guide to Fibonacci Heap - a heap data structure with amortized O(1) insert and merge operations, used in advanced graph algorithms."
+tags: [data-structures, heap, fibonacci-heap, advanced-dsa, priority-queue]
+---
+
+# Fibonacci Heap
+
+A **Fibonacci Heap** is a collection of min-heap-ordered trees that supports a set of operations including insert, merge, decrease-key, and extract-min. It is particularly known for its amortized efficiency, making it ideal for algorithms like Dijkstra's shortest path where many decrease-key operations are needed.
+
+## Introduction
+
+Fibonacci Heap was introduced by Michael L. Fredman and Robert E. Tarjan in 1984. Unlike binary heaps which have a fixed tree structure, Fibonacci Heaps use a forest of trees with a relaxed structure that defers work until needed.
+
+:::info Key Advantage
+Fibonacci Heap provides amortized $O(1)$ time for insert and merge operations, and amortized $O(\log n)$ for extract-min, making it superior to binary heaps for certain applications.
+:::
+
+## Structure
+
+A Fibonacci Heap consists of:
+- A **circular doubly linked list** of root-level trees (called the root list)
+- Each node contains pointers to its parent and first/last child
+- A **degree counter** tracking the number of children
+- A **mark bit** for decrease-key support
+- A pointer to the **minimum node** (root of the minimum tree)
+
+```
+Example Fibonacci Heap structure:
+
+      17
+     / | \
+   23  24  30
+   |       |
+  26       46
+```
+
+## Key Operations
+
+### Insert
+
+Insertion adds a new node to the root list in $O(1)$ amortized time:
+
+```python
+class FibonacciHeapNode:
+    def __init__(self, key):
+        self.key = key
+        self.degree = 0
+        self.marked = False
+        self.parent = None
+        self.child = None
+        self.left = None
+        self.right = None
+
+class FibonacciHeap:
+    def __init__(self):
+        self.min_node = None
+        self.total_nodes = 0
+
+    def insert(self, key):
+        node = FibonacciHeapNode(key)
+        if self.min_node is None:
+            node.left = node.right = node
+            self.min_node = node
+        else:
+            node.right = self.min_node
+            node.left = self.min_node.left
+            self.min_node.left.right = node
+            self.min_node.left = node
+            if key < self.min_node.key:
+                self.min_node = node
+        self.total_nodes += 1
+        return node
+```
+
+### Find Minimum
+
+The minimum element is always accessible via the `min_node` pointer in $O(1)$ worst-case time.
+
+### Extract Minimum
+
+Extract-min removes the minimum node, links its children as new root trees, and consolidates trees of the same degree:
+
+```python
+    def extract_min(self):
+        z = self.min_node
+        if z is None:
+            return None
+
+        # Add all children of z to root list
+        if z.child:
+            children = []
+            child = z.child
+            while True:
+                children.append(child)
+                child = child.right
+                if child == z.child:
+                    break
+            for child in children:
+                child.parent = None
+                # Link to root list (simplified)
+
+        # Remove z from root list and find new min
+        # Then consolidate trees by degree
+        self.total_nodes -= 1
+        return z
+```
+
+### Decrease Key
+
+Decrease-key lowers the value of a node and may trigger a cut operation:
+
+```python
+    def decrease_key(self, node, new_key):
+        if new_key > node.key:
+            raise ValueError("New key is greater than current key")
+        node.key = new_key
+        y = node.parent
+        if y and node.key < y.key:
+            self.cut(node, y)
+            self.cascading_cut(y)
+        if node.key < self.min_node.key:
+            self.min_node = node
+
+    def cut(self, x, y):
+        # Remove x from child list of y
+        y.degree -= 1
+        # Add x to root list
+        x.parent = None
+        x.marked = False
+
+    def cascading_cut(self, y):
+        z = y.parent
+        if z:
+            if not y.marked:
+                y.marked = True
+            else:
+                self.cut(y, z)
+                self.cascading_cut(z)
+```
+
+## Complexity Analysis
+
+| Operation | Amortized Time | Worst-Case Time |
+|-----------|---------------|-----------------|
+| Insert    | $O(1)$        | $O(n)$          |
+| Find Min  | $O(1)$        | $O(1)$          |
+| Extract Min | $O(\log n)$ | $O(n)$         |
+| Decrease Key | $O(1)$     | $O(n)$          |
+| Merge     | $O(1)$        | $O(1)$          |
+| Delete    | $O(\log n)$   | $O(n)$          |
+
+## Why "Fibonacci"?
+
+The name comes from the Fibonacci numbers. A key property of Fibonacci Heaps is that any node of degree $k$ has at least $F_{k+2}$ nodes in its subtree, where $F_k$ is the $k$-th Fibonacci number. This bound ensures that the maximum degree of any node is $O(\log n)$.
+
+## Practical Applications
+
+- **Dijkstra's Algorithm**: The classic use case, where decrease-key is called $O(|V| + |E|)$ times
+- **Prim's MST Algorithm**: Similar to Dijkstra's, benefiting from efficient decrease-key
+- **Huffman Coding**: Can be adapted for efficient priority queue operations
+
+## Limitations
+
+- High constant factors make it slower than binary heaps for small inputs
+- Complex implementation compared to binary/radix heaps
+- Not cache-friendly due to pointer-based structure
+
+## When to Use Fibonacci Heap
+
+Fibonacci Heaps are best used when:
+- The number of operations is very large
+- Decrease-key operations are frequent (as in graph algorithms)
+- The theoretical amortized bounds matter more than practical constant factors
