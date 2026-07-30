@@ -79,17 +79,18 @@ def hoare_partition(arr, low, high):
     j = high + 1
 
     while True:
-        do:
+        # Find leftmost element greater than or equal to pivot
+        i += 1
+        while arr[i] < pivot:
             i += 1
-        while arr[i] < pivot
-
-        do:
+        # Find rightmost element less than or equal to pivot
+        j -= 1
+        while arr[j] > pivot:
             j -= 1
-        while arr[j] > pivot
-
+        # If two pointers cross, return
         if i >= j:
             return j
-
+        # Swap elements at crossed positions
         arr[i], arr[j] = arr[j], arr[i]
 
 def quick_sort_hoare(arr, low, high):
