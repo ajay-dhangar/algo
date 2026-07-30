@@ -1,0 +1,174 @@
+---
+id: sparse-table
+title: Sparse Table
+sidebar_label: Sparse Table
+description: "A comprehensive guide to Sparse Tables - a data structure for answering static range queries in O(1) time after O(n log n) preprocessing."
+tags: [data-structures, range-query, sparse-table, rmq, dsa]
+---
+
+# Sparse Table
+
+A **Sparse Table** is a data structure designed to answer range queries on static arrays in $O(1)$ time after $O(n \log n)$ preprocessing. It is particularly effective for idempotent and associative operations like Range Minimum Query (RMQ), Range Maximum Query, and Range GCD Query.
+
+## Introduction
+
+Sparse Tables exploit the fact that for certain operations (called idempotent operations), the answer to a range query can be computed by combining two overlapping subranges. The key insight is that the range $[l, r]$ can be split into two intervals of equal power-of-two length that overlap only at their boundary.
+
+:::info Key Insight
+For idempotent functions (where $f(x, x) = x$), we can answer a range query $[l, r]$ as $f(\text{query}(l, 2^k), \text{query}(r - 2^k + 1, 2^k))$ where both subranges overlap.
+:::
+
+## Construction
+
+The Sparse Table is built using dynamic programming:
+```
+st[i][j] = the answer for the range starting at index i with length 2^j
+st[i][j] = combine(st[i][j-1], st[i + 2^{j-1}][j-1])
+```
+
+## Implementation
+
+### Python
+
+```python
+import math
+
+def build_sparse_table(arr):
+    n = len(arr)
+    k = math.floor(math.log2(n)) + 1
+    st = [[0] * k for _ in range(n)]
+
+    # Base case: ranges of length 1
+    for i in range(n):
+        st[i][0] = arr[i]
+
+    # Build table
+    j = 1
+    while (1 << j) <= n:
+        for i in range(n - (1 << j) + 1):
+            st[i][j] = min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1])
+        j += 1
+
+    return st
+
+def rmq_query(st, arr, l, r):
+    """Range Minimum Query on arr[l..r] (inclusive)"""
+    k = math.floor(math.log2(r - l + 1))
+    return min(st[l][k], st[r - (1 << k) + 1][k])
+
+# Example usage
+arr = [7, 2, 3, 0, 5, 10, 3, 12, 18]
+st = build_sparse_table(arr)
+print(rmq_query(st, arr, 2, 6))  # Output: 0
+```
+
+### JavaScript
+
+```javascript
+function buildSparseTable(arr) {
+    const n = arr.length;
+    const k = Math.floor(Math.log2(n)) + 1;
+    const st = Array.from({ length: n }, () => new Array(k).fill(0));
+
+    for (let i = 0; i < n; i++) {
+        st[i][0] = arr[i];
+    }
+
+    for (let j = 1; (1 << j) <= n; j++) {
+        for (let i = 0; i + (1 << j) <= n; i++) {
+            st[i][j] = Math.min(st[i][j - 1], st[i + (1 << (j - 1))][j - 1]);
+        }
+    }
+
+    return st;
+}
+
+function rmqQuery(st, arr, l, r) {
+    const k = Math.floor(Math.log2(r - l + 1));
+    return Math.min(st[l][k], st[r - (1 << k) + 1][k]);
+}
+```
+
+## Complexity Analysis
+
+| Operation       | Time Complexity | Space Complexity |
+|-----------------|----------------|-----------------|
+| Preprocessing   | $O(n \log n)$  | $O(n \log n)$   |
+| Query (RMQ)     | $O(1)$         | N/A             |
+
+### Why O(1) Query?
+
+For any range $[l, r]$ of length $len = r - l + 1$, let $k = \lfloor \log_2 len \rfloor$. Then:
+- Range 1: $[l, l + 2^k - 1]$
+- Range 2: $[r - 2^k + 1, r]$
+
+Since $\min$ is idempotent ($\min(x, x) = x$), overlapping elements do not affect the result.
+
+## Limitations
+
+| Limitation | Description |
+|------------|-------------|
+| Static data only | Does not support updates (insertions/deletions) |
+| Idempotent operations only | Only works for min, max, gcd (not sum) |
+| Higher memory | $O(n \log n)$ vs $O(n)$ for Segment Trees |
+
+## Sparse Table vs Segment Tree
+
+| Feature          | Sparse Table   | Segment Tree    |
+|------------------|---------------|-----------------|
+| Preprocessing    | $O(n \log n)$ | $O(n)$          |
+| Query            | $O(1)$        | $O(\log n)$     |
+| Update           | Not supported | $O(\log n)$     |
+| Space            | $O(n \log n)$ | $O(n)$          |
+| Works for sum    | No            | Yes             |
+| Use case         | Static RMQ     | Dynamic queries |
+
+## Use Cases
+
+- **RMQ problems** in competitive programming
+- **LCA (Lowest Common Ancestor)** computation using Euler Tour + Sparse Table
+- **Static range minimum/maximum queries** in databases and analytics
+- **Image processing** (min/max filters over sliding windows)
+
+## GCD Sparse Table
+
+Sparse Tables can also be used for Range GCD queries (GCD is associative but not idempotent, so the O(1) trick does not work for GCD):
+
+```python
+def build_gcd_sparse_table(arr):
+    n = len(arr)
+    k = math.floor(math.log2(n)) + 1
+    st = [[0] * k for _ in range(n)]
+    for i in range(n):
+        st[i][0] = arr[i]
+    for j in range(1, k):
+        for i in range(n - (1 << j) + 1):
+            st[i][j] = math.gcd(st[i][j-1], st[i + (1 << (j-1))][j-1])
+    return st
+
+def rgcd_query(st, l, r):
+    k = math.floor(math.log2(r - l + 1))
+    return math.gcd(st[l][k], st[r - (1 << k) + 1][k])
+```
+
+## Pseudocode
+
+```
+function buildSparseTable(A):
+    n = length(A)
+    K = floor(log2(n)) + 1
+    st[n][K]
+
+    for i = 0 to n-1:
+        st[i][0] = A[i]
+
+    for j = 1 to K-1:
+        for i = 0 to n - 2^j:
+            st[i][j] = min(st[i][j-1], st[i + 2^(j-1)][j-1])
+
+    return st
+
+function rmq(st, l, r):
+    k = floor(log2(r - l + 1))
+    return min(st[l][k], st[r - 2^k + 1][k])
+```
