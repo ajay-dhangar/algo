@@ -1,0 +1,161 @@
+---
+id: bucket-sort
+title: Bucket Sort
+sidebar_label: Bucket Sort
+description: "Learn about Bucket Sort, a distribution-based sorting algorithm that distributes elements into buckets and sorts each bucket individually, achieving O(n) average case."
+tags: [dsa, algorithms, sorting, bucket-sort]
+---
+
+# Bucket Sort
+
+**Bucket Sort** (also known as bin sort) is a distribution-based sorting algorithm that works by distributing elements into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm or by recursively applying Bucket Sort. Finally, the sorted buckets are concatenated to produce the sorted output.
+
+## How It Works
+
+1. **Create buckets**: Set up $n$ empty buckets (or a reasonable number based on input size)
+2. **Distribute elements**: Place each element into its corresponding bucket based on a mapping function
+3. **Sort each bucket**: Sort the elements within each bucket (commonly using Insertion Sort for small datasets)
+4. **Concatenate**: Merge all buckets in order to get the final sorted array
+
+### Mapping Function
+
+The mapping function determines which bucket an element belongs to. A common choice is:
+```
+bucket_index = floor(element * num_buckets / max_value)
+```
+
+### Step-by-Step Walkthrough
+
+Given array: `[0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68]`
+Using 5 buckets:
+
+**Distribute**:
+- Bucket 0: [0.12, 0.17, 0.21, 0.23]
+- Bucket 1: [0.26]
+- Bucket 2: [0.39]
+- Bucket 3: [0.68, 0.72]
+- Bucket 4: [0.78, 0.94]
+
+**Sort each bucket** (already sorted in this case):
+
+**Concatenate**: `[0.12, 0.17, 0.21, 0.23, 0.26, 0.39, 0.68, 0.72, 0.78, 0.94]`
+
+## Implementation
+
+### Python
+
+```python
+def bucket_sort(arr):
+    if not arr:
+        return arr
+    num_buckets = len(arr)
+    min_val = min(arr)
+    max_val = max(arr)
+    range_val = max_val - min_val + 1 if max_val != min_val else 1
+
+    # Create buckets
+    buckets = [[] for _ in range(num_buckets)]
+
+    # Distribute elements into buckets
+    for num in arr:
+        bucket_index = int((num - min_val) / range_val * (num_buckets - 1))
+        buckets[bucket_index].append(num)
+
+    # Sort each bucket and concatenate
+    sorted_arr = []
+    for bucket in buckets:
+        bucket.sort()
+        sorted_arr.extend(bucket)
+
+    return sorted_arr
+
+# Example usage
+arr = [0.78, 0.17, 0.39, 0.26, 0.72, 0.94, 0.21, 0.12, 0.23, 0.68]
+print(bucket_sort(arr))
+# Output: [0.12, 0.17, 0.21, 0.23, 0.26, 0.39, 0.68, 0.72, 0.78, 0.94]
+```
+
+### JavaScript
+
+```javascript
+function bucketSort(arr) {
+    if (arr.length === 0) return arr;
+    const numBuckets = arr.length;
+    const minVal = Math.min(...arr);
+    const maxVal = Math.max(...arr);
+    const range = maxVal !== minVal ? maxVal - minVal : 1;
+
+    // Create buckets
+    const buckets = Array.from({ length: numBuckets }, () => []);
+
+    // Distribute elements
+    for (const num of arr) {
+        const bucketIndex = Math.floor(((num - minVal) / range) * (numBuckets - 1));
+        buckets[bucketIndex].push(num);
+    }
+
+    // Sort each bucket and concatenate
+    const sortedArr = [];
+    for (const bucket of buckets) {
+        bucket.sort((a, b) => a - b);
+        sortedArr.push(...bucket);
+    }
+
+    return sortedArr;
+}
+```
+
+## Complexity Analysis
+
+| Case        | Time Complexity | Space Complexity |
+|-------------|----------------|-----------------|
+| Best Case   | $O(n + k)$     | $O(n + k)$      |
+| Average Case| $O(n)$         | $O(n + k)$      |
+| Worst Case  | $O(n^2)$       | $O(n)$          |
+
+The worst case $O(n^2)$ occurs when all elements fall into a single bucket and are sorted with a quadratic algorithm.
+
+## When to Use Bucket Sort
+
+- **Uniformly distributed data** across a known range (e.g., floating-point numbers between 0 and 1)
+- **External sorting** when data can be partitioned into ranges
+- **Histogram construction** problems
+- **Floating-point numbers** that cannot be handled directly by Counting Sort or Radix Sort
+
+## Bucket Sort vs Counting Sort vs Radix Sort
+
+| Feature          | Bucket Sort | Counting Sort | Radix Sort |
+|------------------|-------------|---------------|------------|
+| Input type       | Floats, uniform distribution | Integers with small range | Integers (fixed-width) |
+| Time (Avg)       | $O(n)$      | $O(n + k)$    | $O(nk)$    |
+| Space            | $O(n + k)$  | $O(k)$        | $O(n + k)$ |
+| Stable          | Yes         | Yes           | Yes        |
+
+## Choosing the Number of Buckets
+
+| Scenario | Recommended Buckets |
+|----------|-------------------|
+| $n$ elements | $n$ buckets (one per element on average) |
+| Known range | Proportional to range size |
+| Small $n$ | Fixed small number (e.g., 10) |
+
+## Pseudocode
+
+```
+function bucketSort(A):
+    n = length(A)
+    create n empty buckets
+    minVal = minimum(A)
+    maxVal = maximum(A)
+    range = maxVal - minVal
+
+    for each element x in A:
+        bucketIndex = floor((x - minVal) / range * (n - 1))
+        add x to buckets[bucketIndex]
+
+    for each bucket B:
+        sort B using insertion sort
+
+    concatenate all buckets in order
+    return concatenated result
+```
