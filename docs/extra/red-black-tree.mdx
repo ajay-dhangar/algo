@@ -1,0 +1,213 @@
+---
+id: red-black-tree
+title: "Red-Black Tree"
+sidebar_label: "Red-Black Tree"
+sidebar_position: 16
+description: "A complete guide to Red-Black Trees -- self-balancing binary search trees with color-based balancing, properties, rotations, and implementations."
+tags: [data-structures, tree, red-black, self-balancing, bst, dsa]
+---
+
+**Red-Black Tree** is a **self-balancing binary search tree** that uses color attributes (red/black) on nodes to maintain approximate balance. It guarantees $O(\log n)$ worst-case time for search, insertion, and deletion operations.
+
+Red-Black trees are widely used in practice: they are the underlying data structure for Java's `TreeMap`, C++'s `std::map` and `std::set`, and the Linux kernel's completely fair scheduler.
+
+:::info Key Feature
+Red-Black trees maintain balance through five properties rather than strict height constraints. This makes insertions and deletions cheaper than AVL trees while still guaranteeing logarithmic performance.
+:::
+
+---
+
+## Red-Black Tree Properties
+
+A binary search tree is a Red-Black tree if it satisfies the following properties:
+
+1. **Every node is either red or black.**
+2. **The root is black.**
+3. **All leaves (NIL/null children) are black.**
+4. **Red nodes cannot have red children (no two consecutive red nodes).**
+5. **Every path from a node to its descendant NIL leaves has the same number of black nodes (black-height).**
+
+These five properties guarantee that the height of the tree is at most 2 * $log_2(n + 1)$, ensuring $O(\log n)$ operations.
+
+---
+
+## Rotations and Recoloring
+
+Red-Black trees use two operations to restore balance after insertions and deletions:
+
+### Left Rotation
+
+```
+    p                   q
+   / \                / \
+  x   q     =>      p   r
+     / \            / \
+    y   r          x   y
+```
+
+### Right Rotation
+
+Mirror of left rotation.
+
+### Recoloring
+
+Change node colors (typically when a red-red conflict occurs and the uncle is red).
+
+---
+
+## Insertion
+
+New nodes are always inserted as **red** nodes. If this violates the red-black properties, fix-up operations restore balance.
+
+### Fix-Up Cases
+
+| Case | Parent | Uncle | Action                        |
+|------|--------|-------|-------------------------------|
+| 1    | Red    | Red   | Recolor parent/uncle to black, grandparent to red |
+| 2    | Red    | Black (zig-zag) | Rotate parent in direction of grandparent |
+| 3    | Red    | Black (straight) | Rotate grandparent in opposite direction |
+
+---
+
+## Complexity Analysis
+
+| Operation | Time Complexity | Notes                                   |
+|-----------|-----------------|-----------------------------------------|
+| Search    | $O(\log n)$     | Worst-case guaranteed                   |
+| Insert    | $O(\log n)$     | At most 2 rotations + recolorings       |
+| Delete    | $O(\log n)$     | At most 3 rotations                     |
+| Space     | $O(n)$          | One extra bit per node                  |
+
+---
+
+## Implementation
+
+### Python
+
+```python
+class RBNode:
+    def __init__(self, key, color='RED'):
+        self.key = key
+        self.color = color
+        self.left = None
+        self.right = None
+        self.parent = None
+
+BLACK = 'BLACK'
+RED = 'RED'
+
+class RedBlackTree:
+    def __init__(self):
+        self.NIL = RBNode(key=None, color=BLACK)
+        self.NIL.left = self.NIL.right = self.NIL
+        self.root = self.NIL
+
+    def left_rotate(self, x):
+        y = x.right
+        x.right = y.left
+        if y.left != self.NIL:
+            y.left.parent = x
+        y.parent = x.parent
+        if x.parent is None:
+            self.root = y
+        elif x == x.parent.left:
+            x.parent.left = y
+        else:
+            x.parent.right = y
+        y.left = x
+        x.parent = y
+
+    def right_rotate(self, x):
+        y = x.left
+        x.left = y.right
+        if y.right != self.NIL:
+            y.right.parent = x
+        y.parent = x.parent
+        if x.parent is None:
+            self.root = y
+        elif x == x.parent.right:
+            x.parent.right = y
+        else:
+            x.parent.left = y
+        y.right = x
+        x.parent = y
+
+    def insert_fixup(self, z):
+        while z.parent and z.parent.color == RED:
+            if z.parent == z.parent.parent.left:
+                y = z.parent.parent.right
+                if y.color == RED:
+                    z.parent.color = BLACK
+                    y.color = BLACK
+                    z.parent.parent.color = RED
+                    z = z.parent.parent
+                else:
+                    if z == z.parent.right:
+                        z = z.parent
+                        self.left_rotate(z)
+                    z.parent.color = BLACK
+                    z.parent.parent.color = RED
+                    self.right_rotate(z.parent.parent)
+            else:
+                y = z.parent.parent.left
+                if y.color == RED:
+                    z.parent.color = BLACK
+                    y.color = BLACK
+                    z.parent.parent.color = RED
+                    z = z.parent.parent
+                else:
+                    if z == z.parent.left:
+                        z = z.parent
+                        self.right_rotate(z)
+                    z.parent.color = BLACK
+                    z.parent.parent.color = RED
+                    self.left_rotate(z.parent.parent)
+        self.root.color = BLACK
+
+    def insert(self, key):
+        z = RBNode(key)
+        z.left = z.right = self.NIL
+        y = None
+        x = self.root
+        while x != self.NIL:
+            y = x
+            if z.key < x.key:
+                x = x.left
+            else:
+                x = x.right
+        z.parent = y
+        if y is None:
+            self.root = z
+        elif z.key < y.key:
+            y.left = z
+        else:
+            y.right = z
+        self.insert_fixup(z)
+
+    def inorder(self, node):
+        if node != self.NIL:
+            self.inorder(node.left)
+            print(node.key, end=' ')
+            self.inorder(node.right)
+```
+
+---
+
+## AVL vs Red-Black: When to Use
+
+| Factor              | AVL Tree               | Red-Black Tree           |
+|---------------------|------------------------|--------------------------|
+| Strictness          | Stricter balance       | Approximate balance      |
+| Search performance   | Optimal                | Slightly suboptimal      |
+| Insert/delete cost  | Higher (more rotations)| Lower (fewer rotations)  |
+| Typical use         | Read-heavy databases   | General-purpose maps      |
+
+---
+
+## Key Takeaways
+
+- Red-Black trees use color attributes to maintain balance with $O(\log n)$ guarantees.
+- Five properties ensure the tree never becomes too unbalanced.
+- Insertions require at most 2 rotations; deletions require at most 3.
+- The relaxed balance constraints make Red-Black trees more efficient for frequent insertions/deletions.
+- They are the workhorse of associative containers in major language standard libraries.
