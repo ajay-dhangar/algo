@@ -454,7 +454,7 @@ const BTreeQuiz: React.FC = () => {
                       {score === QUESTIONS.length ? "Invariants fully satisfied! All node capacity guidelines and structural divisions executed perfectly." : score >= 6 ? "Good evaluation trace! You have a solid grasp on disk-optimized tree metrics." : "Imbalance detected. Review minimum structural constraints, boundary degree calculations, and parent-promotion operations."}
                     </p>
 
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="B-Tree" score={score} total={QUESTIONS.length} />
                   </div>
 
                   {/* Solutions list */}

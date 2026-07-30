@@ -1,0 +1,134 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  width: 100%;
+  max-width: 640px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-toc-border-color);
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.preview {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  line-height: 0;
+}
+
+.preview svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.button:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+.twitterButton:hover {
+  border-color: #000;
+  color: #000;
+}
+
+:global([data-theme='dark']) .twitterButton:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+.linkedinButton:hover {
+  border-color: #0a66c2;
+  color: #0a66c2;
+}
+
+.errorText {
+  font-size: 0.8rem;
+  color: var(--ifm-color-danger);
+  margin: 10px 0 0;
+}
+
+.spin {
+  animation: share-result-spin 0.9s linear infinite;
+}
+
+@keyframes share-result-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

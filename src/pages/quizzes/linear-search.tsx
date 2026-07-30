@@ -469,7 +469,7 @@ const LinearSearchQuiz: React.FC = () => {
                             ? "Good effort! Review best/average/worst case scenarios and how linear search compares to other algorithms."
                             : "Keep practicing! Focus on time/space complexity fundamentals and when linear search is appropriate."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Linear Search" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">

@@ -469,7 +469,7 @@ const PriorityQueueQuiz: React.FC = () => {
                             ? "Good effort! Review heap operations and the difference between priority queues and regular queues."
                             : "Keep practicing! Focus on heap-based insertion, extraction, and real-world scheduling use cases."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Priority Queue" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">

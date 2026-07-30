@@ -469,7 +469,7 @@ const DequeQuiz: React.FC = () => {
                             ? "Good effort! Review deque operations and sliding window applications."
                             : "Keep practicing! Focus on the difference between deques, stacks, and queues."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Deque" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">

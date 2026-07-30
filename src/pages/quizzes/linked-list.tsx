@@ -466,7 +466,7 @@ const LinkedListQuiz: React.FC = () => {
                             ? "Good effort! Review pointer manipulation and complexity trade-offs."
                             : "Keep practicing! Focus on singly vs doubly linked list operations and traversal techniques."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Linked List" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">

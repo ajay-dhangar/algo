@@ -474,7 +474,7 @@ const GraphQuiz: React.FC = () => {
                             ? "Good effort! Review cycle detection, adjacency representations, and Dijkstra's algorithm."
                             : "Keep practicing! Focus on graph basics, BFS vs DFS differences, and adjacency list vs matrix."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Graph Algorithms" score={score} total={QUESTIONS.length} />
                   </div>
 
                   {/* Detailed Breakdown */}

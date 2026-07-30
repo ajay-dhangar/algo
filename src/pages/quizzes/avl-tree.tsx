@@ -418,7 +418,7 @@ const AVLTreeQuiz: React.FC = () => {
                       {score === QUESTIONS.length ? "Perfect balance metrics verified! Rotations perfectly managed across every case configuration." : score >= 6 ? "Solid conceptual comprehension of AVL conditions. Your height bounds look secure." : "Imbalance detected in sub-nodes. Trace rotation strategies and re-verify calculation parameters."}
                     </p>
 
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="AVL Tree" score={score} total={QUESTIONS.length} />
                   </div>
 
                   {/* Static Explanatory Logs */}

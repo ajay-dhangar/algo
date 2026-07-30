@@ -469,7 +469,7 @@ const ExternalHashingQuiz: React.FC = () => {
                             ? "Good effort! Review bucket/overflow block organization and how load factor affects disk I/O."
                             : "Keep practicing! Focus on why disk-block-aligned buckets matter and how overflow chains impact performance."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="External Hashing" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">

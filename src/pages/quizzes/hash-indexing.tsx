@@ -469,7 +469,7 @@ const HashIndexingQuiz: React.FC = () => {
                             ? "Good effort! Review collision handling techniques and how extendible/linear hashing manage growth."
                             : "Keep practicing! Focus on the difference between static and dynamic hashing, and why hash indexes don't suit range queries."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Hash Indexing" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">

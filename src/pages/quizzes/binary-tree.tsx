@@ -417,7 +417,7 @@ const BinaryTreeQuiz: React.FC = () => {
                       {score === QUESTIONS.length ? "Structural integrity complete. All pointers, leaf paths, and look-up runtimes match their target specifications exactly." : score >= 7 ? "High tree balance density verified! Your logic surrounding depth tracking and common ancestors is highly proficient." : "Asymmetry encountered. Review standard tree-height definitions, complete layout constraints, and descending reverse pathways."}
                     </p>
 
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Binary Tree" score={score} total={QUESTIONS.length} />
                   </div>
 
                   {/* Solutions Trace Mapping Stack */}

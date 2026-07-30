@@ -466,7 +466,7 @@ const RecursionQuiz: React.FC = () => {
                             ? "Good effort! Review base cases, recursive cases, and how the call stack manages recursive calls."
                             : "Keep practicing! Focus on tracing the call stack and analyzing recursive time/space complexity."}
                     </p>
-                    <QuizResultActions onRetry={handleRetry} />
+                    <QuizResultActions onRetry={handleRetry} topic="Recursion" score={score} total={QUESTIONS.length} />
                   </div>
 
                   <div className="text-left space-y-6">
