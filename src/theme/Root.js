@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { useLocation } from "@docusaurus/router";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Head from "@docusaurus/Head";
 import KeyboardShortcutsModal from "../components/KeyboardShortcutsModal";
 import ChallengeSearchModal from "../components/ChallengeSearchModal";
 import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
@@ -30,6 +30,11 @@ export default function Root({ children }) {
  
   return (
     <>
+      <Head>
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https:; frame-ancestors 'self';" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </Head>
       <AuthProvider>
         <SidebarUpdater />
         {isDocsPage && <PageProgressIndicator />}
