@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import clsx from 'clsx';
-import { Search, X } from 'lucide-react';
+import { Bookmark, Search, X } from 'lucide-react';
 import ProblemCard from './ProblemCard';
 import type { DsaProblemsIndex } from '../data/dsaProblemsTypes';
+import { useBookmarks } from '../hooks/useBookmarks';
 
 interface ProblemFilterGridProps {
   data: DsaProblemsIndex;
@@ -24,6 +25,9 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
   const [selectedDifficulties, setSelectedDifficulties] = useState<Set<string>>(new Set());
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   const [showAllTags, setShowAllTags] = useState(false);
+  const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
+
+  const { bookmarks, isBookmarked, toggleBookmark } = useBookmarks();
 
   const tagLabels = useMemo(() => new Map(data.tags.map((t) => [t.value, t.label])), [data.tags]);
 
@@ -62,12 +66,16 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
     setQuery('');
     setSelectedDifficulties(new Set());
     setSelectedTags(new Set());
+    setShowOnlyBookmarks(false);
   };
 
   const filteredProblems = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
 
     return data.problems.filter((problem) => {
+      if (showOnlyBookmarks && !bookmarks.has(problem.id)) {
+        return false;
+      }
       if (selectedDifficulties.size > 0 && !selectedDifficulties.has(problem.difficulty)) {
         return false;
       }
@@ -79,9 +87,10 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
       }
       return true;
     });
-  }, [data.problems, query, selectedDifficulties, selectedTags]);
+  }, [data.problems, query, selectedDifficulties, selectedTags, showOnlyBookmarks, bookmarks]);
 
-  const hasActiveFilters = query.trim() !== '' || selectedDifficulties.size > 0 || selectedTags.size > 0;
+  const hasActiveFilters =
+    query.trim() !== '' || selectedDifficulties.size > 0 || selectedTags.size > 0 || showOnlyBookmarks;
 
   return (
     <div>
@@ -159,6 +168,37 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
         )}
       </div>
 
+      {/* My Bookmarks chip */}
+      <div className="flex flex-wrap items-center gap-2 mt-3 mb-2">
+        <span className="text-xs font-bold uppercase tracking-wider text-[var(--ifm-color-emphasis-600)] mr-1">
+          Saved
+        </span>
+        <button
+          type="button"
+          aria-pressed={showOnlyBookmarks}
+          onClick={() => setShowOnlyBookmarks((v) => !v)}
+          className={clsx(
+            'inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors',
+            showOnlyBookmarks
+              ? 'bg-amber-400/15 text-amber-600 border-amber-400/40 dark:text-amber-400'
+              : 'border-[var(--ifm-toc-border-color)] text-[var(--ifm-color-emphasis-700)] hover:border-amber-400',
+          )}
+        >
+          <Bookmark className="h-3.5 w-3.5" fill={showOnlyBookmarks ? 'currentColor' : 'none'} strokeWidth={2} />
+          My Bookmarks
+          {bookmarks.size > 0 && (
+            <span
+              className={clsx(
+                'ml-0.5 rounded-full px-1.5 py-0 text-[10px] font-bold',
+                showOnlyBookmarks ? 'bg-amber-400/30' : 'bg-[var(--ifm-color-emphasis-200)]',
+              )}
+            >
+              {bookmarks.size}
+            </span>
+          )}
+        </button>
+      </div>
+
       {hasActiveFilters && (
         <button
           type="button"
@@ -179,7 +219,13 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
       {filteredProblems.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {filteredProblems.map((problem) => (
-            <ProblemCard key={problem.url} problem={problem} tagLabels={tagLabels} />
+            <ProblemCard
+              key={problem.url}
+              problem={problem}
+              tagLabels={tagLabels}
+              isBookmarked={isBookmarked(problem.id)}
+              onToggleBookmark={toggleBookmark}
+            />
           ))}
         </div>
       ) : (
