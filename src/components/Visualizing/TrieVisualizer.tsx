@@ -82,7 +82,7 @@ function deleteWord(root: TrieNode, word: string): TrieNode {
 function collectWords(node: TrieNode, prefix: string): string[] {
   const words: string[] = [];
   if (node.isEnd) words.push(prefix);
-  const sortedKeys = Array.from(node.children.keys()).sort();
+  const sortedKeys = Array.from(node.children.keys()).sort((a, b) => a - b);
   for (const ch of sortedKeys) {
     words.push(...collectWords(node.children.get(ch)!, prefix + ch));
   }
@@ -106,7 +106,7 @@ const NODE_RADIUS = 20;
 const LEVEL_HEIGHT = 70;
 
 function computeLayout(node: TrieNode, char: string): LayoutNode {
-  const sortedKeys = Array.from(node.children.keys()).sort();
+  const sortedKeys = Array.from(node.children.keys()).sort((a, b) => a - b);
   const childLayouts = sortedKeys.map((ch) =>
     computeLayout(node.children.get(ch)!, ch)
   );
