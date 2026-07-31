@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { describe, it, expect } from 'vitest';
 
 describe('Anti-Clickjacking & Strict Origin Security Tests (#3251)', () => {
   const headersFilePath = path.join(process.cwd(), 'static', '_headers');
