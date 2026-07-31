@@ -48,8 +48,7 @@ export function useFocusTrap<T extends HTMLElement = HTMLElement>(
         const style = window.getComputedStyle(el);
         const isHidden = el.getAttribute('aria-hidden') === 'true';
         const isNotVisible = style.display === 'none' || style.visibility === 'hidden';
-        const hasNoOffset = el.offsetParent === null && !el.hasAttribute('aria-modal');
-        return !isHidden && !isNotVisible && !hasNoOffset;
+        return !isHidden && !isNotVisible;
       });
     };
 
