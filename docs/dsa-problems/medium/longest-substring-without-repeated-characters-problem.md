@@ -4,6 +4,7 @@ title: "Longest Substring Without Repeating Characters"
 sidebar_label: Longest Substring Without Repeating Characters
 description: "This document explains the 'Longest Substring Without Repeating Characters' problem, including its description, approach, and implementation."
 tags: [dsa, algorithms, problem-solving]
+companies: [Amazon, Google, Meta]
 ---
 
 # Longest Substring Without Repeating Characters

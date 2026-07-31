@@ -4,6 +4,7 @@ title: "Merge Intervals"
 sidebar_label: Merge Intervals
 description: "This document explains the Merge Intervals problem, including its description, approach, and implementation."
 tags: [dsa, algorithms, problem-solving]
+companies: [Google, Amazon, Meta]
 ---
 
 # Merge Intervals

@@ -14,7 +14,7 @@ const mockData: DsaProblemsIndex = {
     { value: 'graph', label: 'Graph' },
     { value: 'dp', label: 'DP' },
   ],
-  companies: [],
+  companies: ['Amazon', 'Google', 'Meta'],
   problems: [
     {
       id: 'two-sum',
@@ -22,7 +22,7 @@ const mockData: DsaProblemsIndex = {
       description: 'Find two numbers that add up to a target.',
       difficulty: 'Easy',
       tags: ['array'],
-      companies: [],
+      companies: ['Google', 'Amazon', 'Meta'],
       url: '/docs/dsa-problems/easy/two-sum',
     },
     {
@@ -31,7 +31,7 @@ const mockData: DsaProblemsIndex = {
       description: 'Determine if you can finish all courses given prerequisites.',
       difficulty: 'Medium',
       tags: ['graph'],
-      companies: [],
+      companies: ['Google'],
       url: '/docs/dsa-problems/medium/course-schedule',
     },
     {
@@ -40,7 +40,7 @@ const mockData: DsaProblemsIndex = {
       description: 'Find the minimum number of operations to convert one string to another.',
       difficulty: 'Hard',
       tags: ['dp', 'array'],
-      companies: [],
+      companies: ['Amazon'],
       url: '/docs/dsa-problems/hard/edit-distance',
     },
   ],
@@ -62,6 +62,19 @@ describe('ProblemFilterGrid', () => {
 
     await act(async () => {
       await user.click(screen.getByRole('button', { name: 'Easy' }));
+    });
+
+    expect(screen.getByText('Two Sum')).toBeInTheDocument();
+    expect(screen.queryByText('Course Schedule')).not.toBeInTheDocument();
+    expect(screen.queryByText('Edit Distance')).not.toBeInTheDocument();
+  });
+
+  test('filters by company tag', async () => {
+    const user = userEvent.setup();
+    render(<ProblemFilterGrid data={mockData} />);
+
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: 'Meta' }));
     });
 
     expect(screen.getByText('Two Sum')).toBeInTheDocument();
