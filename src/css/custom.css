@@ -879,3 +879,107 @@ html.dark .theme-doc-toc-desktop::before {
     transform: rotate(360deg);
   }
 }
+
+/* ==========================================================================
+   Accent Themes
+   Opt-in color palettes layered on top of light/dark via the
+   [data-accent-theme] attribute on <html>, set by src/components/ThemePicker
+   and persisted to localStorage (see src/utils/accentTheme.ts). These rules
+   are intentionally placed last so they win the cascade over the plain
+   [data-theme="light"/"dark"] blocks above for any variable they redefine.
+   ========================================================================== */
+
+/* --- High Contrast: WCAG-AAA-oriented palette for low-vision users --- */
+:root[data-accent-theme="high-contrast"] {
+  --ifm-color-primary: #ffff00;
+  --ifm-color-primary-dark: #e6e600;
+  --ifm-color-primary-darker: #cccc00;
+  --ifm-color-primary-darkest: #999900;
+  --ifm-color-primary-light: #ffff33;
+  --ifm-color-primary-lighter: #ffff66;
+  --ifm-color-primary-lightest: #ffffb3;
+
+  --ifm-background-color: #000000;
+  --ifm-background-surface-color: #000000;
+  --ifm-font-color-base: #ffffff;
+  --ifm-heading-color: #ffffff;
+  --ifm-card-background-color: #000000;
+
+  --ifm-color-emphasis-100: #000000;
+  --ifm-color-emphasis-200: #1a1a1a;
+  --ifm-color-emphasis-300: #333333;
+  --ifm-color-emphasis-400: #666666;
+  --ifm-color-emphasis-500: #999999;
+  --ifm-color-emphasis-600: #e6e6e6;
+  --ifm-color-emphasis-700: #ffffff;
+
+  --ifm-toc-border-color: #ffffff;
+  --ifm-color-content: #ffffff;
+  --ifm-link-color: #ffff00;
+  --ifm-code-background: #1a1a1a;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 0, 0.25);
+}
+
+:root[data-accent-theme="high-contrast"] a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+:root[data-accent-theme="high-contrast"] * {
+  border-color: #ffffff !important;
+}
+
+:root[data-accent-theme="high-contrast"] button,
+:root[data-accent-theme="high-contrast"] .button {
+  outline: 2px solid transparent;
+}
+
+:root[data-accent-theme="high-contrast"] *:focus-visible {
+  outline: 3px solid #ffff00 !important;
+  outline-offset: 2px !important;
+}
+
+/* --- Neon: cyberpunk cyan/purple accent, matching the leaderboard's aesthetic --- */
+:root[data-accent-theme="neon"] {
+  --ifm-color-primary: #22d3ee;
+  --ifm-color-primary-dark: #06b6d4;
+  --ifm-color-primary-darker: #0891b2;
+  --ifm-color-primary-darkest: #0e7490;
+  --ifm-color-primary-light: #67e8f9;
+  --ifm-color-primary-lighter: #a5f3fc;
+  --ifm-color-primary-lightest: #cffafe;
+
+  --ifm-background-color: #05050f;
+  --ifm-background-surface-color: #0a0a1a;
+  --ifm-font-color-base: #e2e8ff;
+  --ifm-heading-color: #f5f3ff;
+  --ifm-card-background-color: rgba(15, 15, 35, 0.85);
+
+  --ifm-color-emphasis-100: #0a0a1a;
+  --ifm-color-emphasis-200: #14142b;
+  --ifm-color-emphasis-300: #23234a;
+  --ifm-color-emphasis-400: #4c4c8a;
+  --ifm-color-emphasis-500: #8484c9;
+  --ifm-color-emphasis-600: #b3b3e6;
+  --ifm-color-emphasis-700: #e2e2ff;
+
+  --ifm-toc-border-color: #23234a;
+  --ifm-link-color: #22d3ee;
+  --docusaurus-highlighted-code-line-bg: rgba(168, 85, 247, 0.15);
+
+  --accent-neon-gradient: linear-gradient(90deg, #22d3ee, #a855f7);
+}
+
+:root[data-accent-theme="neon"] h1,
+:root[data-accent-theme="neon"] h2,
+:root[data-accent-theme="neon"] h3 {
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.35);
+}
+
+:root[data-accent-theme="neon"] a:hover {
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+}
+
+:root[data-accent-theme="neon"] code {
+  color: #f0abfc;
+}

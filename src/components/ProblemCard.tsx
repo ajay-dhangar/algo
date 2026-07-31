@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Star } from 'lucide-react';
 import type { DsaProblem } from '../data/dsaProblemsTypes';
 
 const DIFFICULTY_STYLES: Record<string, string> = {
@@ -15,9 +15,11 @@ const MAX_VISIBLE_TAGS = 3;
 interface ProblemCardProps {
   problem: DsaProblem;
   tagLabels: Map<string, string>;
+  isBookmarked: boolean;
+  onToggleBookmark: (id: string) => void;
 }
 
-export default function ProblemCard({ problem, tagLabels }: ProblemCardProps) {
+export default function ProblemCard({ problem, tagLabels, isBookmarked, onToggleBookmark }: ProblemCardProps) {
   const visibleTags = problem.tags.slice(0, MAX_VISIBLE_TAGS);
   const extraTagCount = problem.tags.length - visibleTags.length;
 
@@ -42,6 +44,30 @@ export default function ProblemCard({ problem, tagLabels }: ProblemCardProps) {
             >
               {problem.difficulty}
             </span>
+
+            {/* Bookmark star — stops the Link navigation */}
+            <button
+              type="button"
+              aria-label={isBookmarked ? `Remove ${problem.title} from bookmarks` : `Bookmark ${problem.title}`}
+              aria-pressed={isBookmarked}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onToggleBookmark(problem.id);
+              }}
+              className={clsx(
+                'flex-shrink-0 p-0.5 rounded transition-colors',
+                isBookmarked
+                  ? 'text-amber-400'
+                  : 'text-[var(--ifm-color-emphasis-400)] hover:text-amber-400',
+              )}
+            >
+              <Star
+                className="h-4 w-4 transition-transform duration-150 group-hover:scale-100"
+                fill={isBookmarked ? 'currentColor' : 'none'}
+                strokeWidth={2}
+              />
+            </button>
           </div>
 
           <h3 className="m-0 text-base font-bold tracking-tight transition-colors text-[var(--ifm-heading-color)] group-hover:text-[var(--ifm-color-primary)]">

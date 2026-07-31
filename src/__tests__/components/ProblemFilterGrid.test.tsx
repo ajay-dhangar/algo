@@ -46,6 +46,10 @@ const mockData: DsaProblemsIndex = {
   ],
 };
 
+beforeEach(() => {
+  localStorage.clear();
+});
+
 describe('ProblemFilterGrid', () => {
   test('renders all problems by default', () => {
     render(<ProblemFilterGrid data={mockData} />);
@@ -127,5 +131,29 @@ describe('ProblemFilterGrid', () => {
     expect(screen.getByText('Two Sum')).toBeInTheDocument();
     expect(screen.getByText('Course Schedule')).toBeInTheDocument();
     expect(screen.getByText('Edit Distance')).toBeInTheDocument();
+  });
+
+  test('renders a "My Bookmarks" filter chip', () => {
+    render(<ProblemFilterGrid data={mockData} />);
+    expect(screen.getByRole('button', { name: /my bookmarks/i })).toBeInTheDocument();
+  });
+
+  test('bookmarking a problem then toggling My Bookmarks shows only that problem', async () => {
+    const user = userEvent.setup();
+    render(<ProblemFilterGrid data={mockData} />);
+
+    // Bookmark "Two Sum" via its star button
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /bookmark two sum/i }));
+    });
+
+    // Activate the My Bookmarks chip
+    await act(async () => {
+      await user.click(screen.getByRole('button', { name: /my bookmarks/i }));
+    });
+
+    expect(screen.getByText('Two Sum')).toBeInTheDocument();
+    expect(screen.queryByText('Course Schedule')).not.toBeInTheDocument();
+    expect(screen.queryByText('Edit Distance')).not.toBeInTheDocument();
   });
 });
