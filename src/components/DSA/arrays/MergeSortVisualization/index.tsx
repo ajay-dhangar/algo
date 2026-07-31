@@ -146,7 +146,7 @@ const MergeSortVisualizer: React.FC = () => {
             min="10"
             max="200"
             value={speed}
-            onChange={(e) => setSpeed(200 - parseInt(e.target.value))}
+            onChange={(e) => setSpeed(200 - parseInt(e.target.value,10))}
             disabled={isRunning}
           />
         </div>
