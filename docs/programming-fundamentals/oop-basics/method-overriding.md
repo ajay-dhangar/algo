@@ -1,10 +1,10 @@
 ---
 id: method-overriding
 title: Method Overriding
-sidebar_label: Introduction to Method Overriding
-sidebar_position: 2
+sidebar_label: Method Overriding
+sidebar_position: 11
 description: 'Method overriding allows a derived class to provide a specific implementation of a method that is already defined in its base class. This feature enables runtime polymorphism in object-oriented programming.'
-tags: [dsa, data-structures, Method Overriding]
+tags: [oop, cpp, method-overriding, polymorphism, programming-fundamentals]
 ---
 
 ## Method Overriding

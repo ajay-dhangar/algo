@@ -23,7 +23,8 @@ const Homepage: React.FC = () => {
         {/* PHASE 2: IMMEDIATE VALUE */}
         <AlgorithmOfTheDaySection />
         <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-3xl" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <ContinueLearningWidget />
             <DailyChallengeWidget />
             </div>
           </section>

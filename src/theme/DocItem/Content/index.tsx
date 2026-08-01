@@ -10,7 +10,19 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
   const [readingTimeInWords, setReadingTimeInWords] = useState<string>('');
   
   const { metadata } = useDoc();
-  const { title, editUrl, lastUpdatedAt, lastUpdatedBy, frontMatter } = metadata;
+
+const {
+  title,
+  editUrl,
+  lastUpdatedAt,
+  lastUpdatedBy,
+  frontMatter,
+} = metadata;
+
+const difficulty =
+  typeof (frontMatter as any).difficulty === "string"
+    ? (frontMatter as any).difficulty
+    : undefined;
 
   // We hide the default title if specified by front matter
   const hideTitle = frontMatter.hide_title;
@@ -41,6 +53,16 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
       {!hideTitle && (
         <header className="doc-header-banner">
           <Heading as="h1">{title}</Heading>
+
+{difficulty && (
+  <div style={{ marginTop: "10px" }}>
+    <span
+      className={`difficulty-badge ${difficulty?.toLowerCase()}`}
+    >
+      {difficulty}
+    </span>
+  </div>
+)}
         </header>
       )}
 
