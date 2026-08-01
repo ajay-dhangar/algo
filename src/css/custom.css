@@ -983,3 +983,43 @@ html.dark .theme-doc-toc-desktop::before {
 :root[data-accent-theme="neon"] code {
   color: #f0abfc;
 }
+/* ==========================================================
+   Difficulty Badge
+   ========================================================== */
+
+.difficulty-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  margin-top: 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.difficulty-badge.easy {
+  background-color: #16a34a;
+}
+
+.difficulty-badge.medium {
+  background-color: #f59e0b;
+}
+
+.difficulty-badge.hard {
+  background-color: #dc2626;
+}
+
+[data-theme='dark'] .difficulty-badge.easy {
+  background-color: #22c55e;
+}
+
+[data-theme='dark'] .difficulty-badge.medium {
+  background-color: #fbbf24;
+}
+
+[data-theme='dark'] .difficulty-badge.hard {
+  background-color: #ef4444;
+}
