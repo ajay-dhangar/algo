@@ -10,7 +10,7 @@ permissions:
 jobs:
   assign-issue:
     # Ensures the workflow only runs for comments on open issues, not pull requests
-    if: ${{ !github.event.issue.pull_request && (contains(github.event.comment.body, '.take') || contains(github.event.comment.body, '!assign')) }}
+    if: ${{ !github.event.issue.pull_request && (contains(github.event.comment.body, '/assign') || contains(github.event.comment.body, '!assign')) }}
     runs-on: ubuntu-latest
     
     steps:
