@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: ExternalHashingQuestion[] = [
+export const QUESTIONS: ExternalHashingQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

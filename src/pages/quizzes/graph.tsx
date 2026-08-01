@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: GraphQuestion[] = [
+export const QUESTIONS: GraphQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

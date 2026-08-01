@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: IsamQuestion[] = [
+export const QUESTIONS: IsamQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

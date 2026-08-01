@@ -37,7 +37,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: BSTQuestion[] = [
+export const QUESTIONS: BSTQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
