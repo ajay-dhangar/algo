@@ -345,6 +345,18 @@ const Quizzes: React.FC = () => {
             >
               Benchmark your parsing parameters. Evaluate your deep knowledge of linear arrays, memory allocation trees, node link operations, and space/time execution metrics.
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+              className="pt-2"
+            >
+              <Link
+                to="/mock-exam"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all no-underline"
+              >
+                <FaPlayCircle size={16} />
+                Try Timed Mock Exam Mode
+              </Link>
+            </motion.div>
           </div>
         </section>
 
