@@ -97,6 +97,19 @@ export default function ProblemCard({ problem, tagLabels, isBookmarked, onToggle
               )}
             </div>
           )}
+
+          {problem.companies && problem.companies.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mt-2">
+              {problem.companies.map((company) => (
+                <span
+                  key={company}
+                  className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20"
+                >
+                  {company}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="flex items-center gap-1 font-semibold text-xs transition-colors text-[var(--ifm-color-emphasis-600)] group-hover:text-[var(--ifm-color-primary)]">

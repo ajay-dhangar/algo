@@ -24,6 +24,7 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
   const [query, setQuery] = useState('');
   const [selectedDifficulties, setSelectedDifficulties] = useState<Set<string>>(new Set());
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+  const [selectedCompanies, setSelectedCompanies] = useState<Set<string>>(new Set());
   const [showAllTags, setShowAllTags] = useState(false);
   const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
 
@@ -62,6 +63,15 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
     });
   };
 
+  const toggleCompany = (company: string) => {
+    setSelectedCompanies((prev) => {
+      const next = new Set(prev);
+      if (next.has(company)) next.delete(company);
+      else next.add(company);
+      return next;
+    });
+  };
+
   const clearFilters = () => {
     setQuery('');
     setSelectedDifficulties(new Set());
@@ -80,6 +90,12 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
         return false;
       }
       if (selectedTags.size > 0 && !Array.from(selectedTags).every((tag) => problem.tags.includes(tag))) {
+        return false;
+      }
+      if (
+        selectedCompanies.size > 0 &&
+        !Array.from(selectedCompanies).some((c) => problem.companies?.includes(c))
+      ) {
         return false;
       }
       if (normalizedQuery && !problem.title.toLowerCase().includes(normalizedQuery)) {
@@ -132,6 +148,34 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
           );
         })}
       </div>
+
+      {/* Company chips */}
+      {data.companies && data.companies.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <span className="text-xs font-bold uppercase tracking-wider text-[var(--ifm-color-emphasis-600)] mr-1">
+            Company
+          </span>
+          {data.companies.map((company) => {
+            const active = selectedCompanies.has(company);
+            return (
+              <button
+                key={company}
+                type="button"
+                aria-pressed={active}
+                onClick={() => toggleCompany(company)}
+                className={clsx(
+                  'text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors',
+                  active
+                    ? 'bg-[var(--ifm-color-primary)] text-white border-[var(--ifm-color-primary)]'
+                    : 'border-[var(--ifm-toc-border-color)] text-[var(--ifm-color-emphasis-700)] hover:border-[var(--ifm-color-primary)]',
+                )}
+              >
+                {company}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       {/* Tag chips */}
       <div className="flex flex-wrap items-center gap-2 mb-2">

@@ -4,6 +4,7 @@ title: "Number of Islands"
 sidebar_label: Number of Islands
 description: "Solution for LeetCode 200: Number of Islands, utilizing Graph Traversal (DFS) to count connected components in a matrix."
 tags: [DSA, leetcode, graph, dfs, bfs, matrix]
+companies: [Amazon, Google, Meta]
 ---
 
 ## Description:
