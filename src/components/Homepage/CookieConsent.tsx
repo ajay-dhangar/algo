@@ -22,11 +22,7 @@ const CookieConsent: React.FC = () => {
     localStorage.setItem(COOKIE_KEY, type || "essential");
     setVisible(false);
 
-    if (type === "all") {
-      console.log("All cookies accepted (analytics enabled)");
-    } else {
-      console.log("Only essential cookies enabled");
-    }
+
   };
 
   return (

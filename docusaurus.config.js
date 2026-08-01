@@ -1,5 +1,5 @@
 import { themes as prismThemes } from "prism-react-renderer";
-// import remarkPlugin from 'remark-plugin';
+
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");

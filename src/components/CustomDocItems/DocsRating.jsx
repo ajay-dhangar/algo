@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
-// import { useColorMode } from "@docusaurus/theme-common";
+
 import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
 import styles from "./styles.module.css";
 
@@ -9,7 +9,7 @@ const DocsRating = ({ label }) => {
   if (!ExecutionEnvironment.canUseDOM) return null;
 
   const location = useLocation();
-  // const { colorMode } = useColorMode();
+
   const DiscordInviteURL = "https://discord.gg/8p9Z6jkVru";
   const openDocIssueURL =
     `https://github.com/ajay-dhangar/algo/issues/new?assignees=&labels=&template=---doc-error-report.md&title=Issue with ajay-dhangar.github.io/algo${encodeURIComponent(location.pathname)}`;

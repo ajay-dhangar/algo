@@ -1,6 +1,6 @@
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 import AdsComponent from "@site/src/components/AdsComponent";
-// import BrowserWindow from "@site/src/components/BrowserWindow";
+
 import ArrayVisualizations from "@site/src/components/DSA/arrays/ArrayVisualizations";
 import BubbleSortVisualization from "@site/src/components/DSA/arrays/BubbleSortVisualization";
 import InsertionSortVisualization from "@site/src/components/DSA/arrays/InsertionSortVisualization";
@@ -13,7 +13,7 @@ import DijkstraVisuzalizations from "@site/src/components/DSA/graphs/DijkstraVis
 import FloydWarshallVisualizations from "@site/src/components/DSA/graphs/FloydWarshallVisualizations";
 import Highlight from "@site/src/components/Highlight";
 import MDXComponents from "@theme-original/MDXComponents";
-// import Image from "@theme/IdealImage";
+
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import { FaReact } from "react-icons/fa";
@@ -45,10 +45,10 @@ export default {
   HeapSortVisualization,
   MergeSortVisualization,
   ShellSortVisualization,
-//   Image,
+
   LiteYouTubeEmbed,
   DocCardList,
-//   LinearSearchVisualizer,
+
   AdsComponent,
   GiscusComponent,
   Ads,
