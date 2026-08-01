@@ -185,12 +185,7 @@ export default function RelatedProblems(): React.ReactElement | null {
             </p>
           </div>
         </div>
-        <Link
-          to="/docs/dsa-problems"
-          className="text-xs font-bold font-mono text-blue-600 dark:text-blue-400 hover:underline no-underline shrink-0 hidden sm:block"
-        >
-          View All Problems ?
-        </Link>
+
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
