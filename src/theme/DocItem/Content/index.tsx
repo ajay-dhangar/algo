@@ -4,7 +4,7 @@ import Heading from '@theme/Heading';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
-
+import ReadingProgressBar from "../../../components/ReadingProgressBar";
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
   const [readingTimeInWords, setReadingTimeInWords] = useState<string>('');
@@ -29,6 +29,8 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
   }, [children]);
 
   return (
+    <>
+    <ReadingProgressBar />
     <div ref={contentRef} className="markdown">
       {!hideTitle && (
         <header className="doc-header-banner">
@@ -46,6 +48,7 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
       />
 
       <MDXContent>{children}</MDXContent>
-    </div>
-  );
+        </div>
+  </>
+);
 }

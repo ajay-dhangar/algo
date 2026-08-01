@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-31T11:55:26.492Z",
-  "count": 85,
+  "generatedAt": "2026-08-01T06:19:59.608Z",
+  "count": 86,
   "difficulties": [
     "Easy",
     "Medium",
@@ -1277,6 +1277,19 @@
       ],
       "companies": [],
       "url": "/docs/dsa-problems/easy/weighted-word-mapping"
+    },
+    {
+      "id": "word-ladder",
+      "title": "Word Ladder",
+      "description": "Solution for LeetCode 127: Word Ladder, utilizing Breadth-First Search (BFS) to find the shortest transformation sequence.",
+      "difficulty": "Hard",
+      "tags": [
+        "graph",
+        "bfs",
+        "hash-table"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/hard/word-ladder"
     },
     {
       "id": "word-search",
