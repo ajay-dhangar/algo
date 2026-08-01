@@ -50,10 +50,23 @@ function DocsInfo({ docsPluginId, ...props }) {
               </span>
             )}
             {props.readingTimeInWords && (
-              <span className={styles.metaItem}>
-                <FiClock className={styles.icon} /> {props.readingTimeInWords}
-              </span>
-            )}
+  <span
+    className={styles.metaItem}
+    style={{
+      background: "rgba(37, 99, 235, 0.1)",
+      border: "1px solid rgba(37, 99, 235, 0.25)",
+      borderRadius: "9999px",
+      padding: "6px 12px",
+      fontWeight: 600,
+      display: "inline-flex",
+      alignItems: "center",
+      gap: "6px",
+    }}
+  >
+    <FiClock className={styles.icon} />
+    Estimated: {props.readingTimeInWords}
+  </span>
+)}
             {props.lastUpdatedBy && (
               <span className={styles.metaItem}>
                 <FiUser className={styles.icon} />
