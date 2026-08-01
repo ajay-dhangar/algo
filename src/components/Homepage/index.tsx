@@ -11,7 +11,7 @@ import GetInvolvedSection from "./GetInvolvedSection";
 import CallToActionSection from "./CallToActionSection";
 import CookieConsent from "./CookieConsent";
 import DailyChallengeWidget from "../DailyChallengeWidget";
-
+import RecentlyViewedAlgorithms from "../RecentlyViewedAlgorithms";
 const Homepage: React.FC = () => {
   return (
     <>
@@ -25,9 +25,13 @@ const Homepage: React.FC = () => {
         <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <DailyChallengeWidget />
-          </div>
-        </section>
-        <PopularAlgorithmsSection />
+            </div>
+          </section>
+          <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+            <RecentlyViewedAlgorithms />
+          </section>
+
+          <PopularAlgorithmsSection />
 
         {/* PHASE 3: INTERACTION FLOW */}
         <HowItWorksSection />
@@ -38,10 +42,7 @@ const Homepage: React.FC = () => {
 
         {/* PHASE 5: ECOSYSTEM CONVERSION */}
         <ContributeSection />
-        <GetInvolvedSection
-          title="Get Involved"
-          description="Explore ways to contribute, join the community, and help shape the future of our platform."
-        />
+        <GetInvolvedSection/>
         <CallToActionSection />
       </main>
 
