@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "@docusaurus/Link";
 import { FaCookieBite, FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
@@ -21,12 +21,6 @@ const CookieConsent: React.FC = () => {
   const saveConsent = (type: ConsentType) => {
     localStorage.setItem(COOKIE_KEY, type || "essential");
     setVisible(false);
-
-    if (type === "all") {
-      console.log("All cookies accepted (analytics enabled)");
-    } else {
-      console.log("Only essential cookies enabled");
-    }
   };
 
   return (
@@ -89,7 +83,7 @@ const CookieConsent: React.FC = () => {
                 to="/cookies"
                 className="flex items-center gap-2 text-sm font-semibold text-[var(--ifm-color-primary)] hover:underline mt-2 md:mt-0"
               >
-                View Cookie Policy →
+                View Cookie Policy â†’
               </Link>
             </div>
           </div>
