@@ -34,7 +34,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: SortingQuestion[] = [
+export const QUESTIONS: SortingQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

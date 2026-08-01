@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: BPlusTreeQuestion[] = [
+export const QUESTIONS: BPlusTreeQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
