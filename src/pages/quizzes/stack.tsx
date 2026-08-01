@@ -31,7 +31,7 @@ interface LocalAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: Question[] = [
+export const QUESTIONS: Question[] = [
   {
     id: 1,
     difficulty: "Easy",

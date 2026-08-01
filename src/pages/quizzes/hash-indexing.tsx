@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: HashIndexingQuestion[] = [
+export const QUESTIONS: HashIndexingQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

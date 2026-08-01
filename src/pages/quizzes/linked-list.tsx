@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: LinkedListQuestion[] = [
+export const QUESTIONS: LinkedListQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
