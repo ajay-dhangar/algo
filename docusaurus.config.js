@@ -1,5 +1,4 @@
-import { themes as prismThemes } from "prism-react-renderer";
-// import remarkPlugin from 'remark-plugin';
+﻿import { themes as prismThemes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
@@ -66,7 +65,7 @@ const config = {
     locales: ["en", "hi"], // Add 'hi' here
     localeConfigs: {
       en: { label: "English" },
-      hi: { label: "हिन्दी" }, // Label for the dropdown
+      hi: { label: "à¤¹à¤¿à¤¨à¥à¤¦à¥€" }, // Label for the dropdown
     },
   },
  
@@ -128,7 +127,7 @@ const config = {
       announcementBar: {
         id: "star_us_announcement",
         content:
-          '🌟 Loving the project? Support our open-source journey with a <b><a target="_blank" rel="noopener noreferrer" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b>!',
+          'ðŸŒŸ Loving the project? Support our open-source journey with a <b><a target="_blank" rel="noopener noreferrer" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b>!',
         textColor: "var(--announcement-text)",
         isCloseable: true,
       },
@@ -353,7 +352,7 @@ const config = {
           src: "/logo/ft-copy.png",
           href: "https://github.com/ajay-dhangar",
         },
-        copyright: `Copyright © ${new Date().getFullYear()} Algo, Inc. Built with Docusaurus.`,
+        copyright: `Copyright Â© ${new Date().getFullYear()} Algo, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
