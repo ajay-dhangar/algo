@@ -10,6 +10,7 @@ import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import { useQuizProgress, QuizStat, GlobalQuizStats } from "../../hooks/useQuizProgress";
+import QuizStreakWidget from "../../components/QuizStreakWidget";
 import { QUIZZES_CONFIG, QUESTION_COUNTS, QUIZ_IDS, type QuizCardConfig } from "../../data/quizzesConfig";
 
 const FILTER_CATEGORIES = ["All", "Linear", "Non-Linear", "Balanced Tree", "Disk Storage"] as const;
@@ -64,7 +65,7 @@ function ProgressDashboard({ globalStats, userId, loaded }: ProgressDashboardPro
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35 }}
-      className="max-w-7xl mx-auto px-4 mt-10 mb-2"
+      className="w-full"
     >
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
 
@@ -355,7 +356,14 @@ const Quizzes: React.FC = () => {
               const { stats, globalStats, userId, loaded } = useQuizProgress(QUIZ_IDS, QUESTION_COUNTS);
               return (
                 <>
-                  <ProgressDashboard globalStats={globalStats} userId={userId} loaded={loaded} />
+                  <div className="max-w-7xl mx-auto px-4 mt-10 mb-2 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                    <div className="lg:col-span-2">
+                      <ProgressDashboard globalStats={globalStats} userId={userId} loaded={loaded} />
+                    </div>
+                    <div className="lg:col-span-1">
+                      <QuizStreakWidget />
+                    </div>
+                  </div>
 
                   {/* Search + filters */}
                   <div className="max-w-7xl mx-auto px-4 mt-8 space-y-6">
