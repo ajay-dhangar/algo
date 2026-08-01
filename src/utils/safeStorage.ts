@@ -156,11 +156,134 @@ export function saveQuizAttemptLocal(
 
   localStorage.setItem(key, JSON.stringify(updated));
 
+  const quizTitle = canonicalId.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  recordLastVisited({
+    id: canonicalId,
+    title: `Quiz on ${quizTitle}`,
+    url: `/quizzes/${canonicalId}`,
+    type: 'quiz',
+    readingTime: '5 min quiz',
+    isCompleted: true,
+  });
+
   window.dispatchEvent(
     new CustomEvent('quizCompleted', {
       detail: { quizId: canonicalId, userId, score: attempt.score },
     })
   );
+}
+
+export interface LastVisitedItem {
+  id: string;
+  title: string;
+  url: string;
+  visitedAt: string; // ISO string
+  type: 'doc' | 'quiz';
+  readingTime?: string;
+  isCompleted?: boolean;
+}
+
+export function recordLastVisited(item: Omit<LastVisitedItem, 'visitedAt'> & { visitedAt?: string }): void {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+  const fullItem: LastVisitedItem = {
+    ...item,
+    visitedAt: item.visitedAt || new Date().toISOString(),
+  };
+  localStorage.setItem('algo_last_visited', JSON.stringify(fullItem));
+  window.dispatchEvent(new CustomEvent('lastVisitedUpdated', { detail: fullItem }));
+}
+
+export function getLastVisited(): LastVisitedItem | null {
+  if (typeof window === 'undefined' || !window.localStorage) return null;
+
+  // 1. Check direct last_visited record
+  const recorded = safeJsonParse<LastVisitedItem | null>('algo_last_visited', null);
+
+  // 2. Scan algo_progress for doc activity timestamps
+  const progress = readAlgoProgress();
+  let latestDocTopic: { id: string; title: string; updatedAt: string; url: string; isCompleted: boolean } | null = null;
+
+  for (const [key, value] of Object.entries(progress)) {
+    if (key.endsWith('_updatedAt') && typeof value === 'string') {
+      const topicId = key.slice(0, -'_updatedAt'.length);
+      const title = typeof progress[`${topicId}_title`] === 'string' ? (progress[`${topicId}_title`] as string) : topicId;
+      const isCompleted = !!progress[topicId];
+      const updatedAt = value;
+
+      if (!latestDocTopic || new Date(updatedAt).getTime() > new Date(latestDocTopic.updatedAt).getTime()) {
+        let url = `/docs/${topicId.replace(/-/g, '/')}`;
+        if (topicId.includes('dsa-problems')) {
+          url = `/docs/${topicId.replace(/^dsa-problems-/, 'dsa-problems/')}`;
+        }
+        latestDocTopic = { id: topicId, title, updatedAt, url, isCompleted };
+      }
+    }
+  }
+
+  // 3. Scan quiz_attempts_* keys for quiz activity timestamps
+  let latestQuiz: { id: string; title: string; updatedAt: string; url: string } | null = null;
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key || !key.startsWith('quiz_attempts_')) continue;
+
+    const attempts = safeJsonParse<Array<{ completedAt?: string }>>(key, []);
+    if (!Array.isArray(attempts) || attempts.length === 0) continue;
+
+    const quizId = extractQuizIdFromStorageKey(key);
+    if (!quizId) continue;
+
+    for (const attempt of attempts) {
+      if (!attempt.completedAt) continue;
+      const attemptTime = new Date(attempt.completedAt).getTime();
+      if (!Number.isNaN(attemptTime)) {
+        if (!latestQuiz || attemptTime > new Date(latestQuiz.updatedAt).getTime()) {
+          const formattedTitle = `Quiz on ${quizId.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`;
+          latestQuiz = {
+            id: quizId,
+            title: formattedTitle,
+            updatedAt: attempt.completedAt,
+            url: `/quizzes/${quizId}`,
+          };
+        }
+      }
+    }
+  }
+
+  const candidates: LastVisitedItem[] = [];
+
+  if (recorded && recorded.title && recorded.url) {
+    candidates.push(recorded);
+  }
+
+  if (latestDocTopic) {
+    candidates.push({
+      id: latestDocTopic.id,
+      title: latestDocTopic.title,
+      url: latestDocTopic.url,
+      visitedAt: latestDocTopic.updatedAt,
+      type: 'doc',
+      readingTime: '4 min read',
+      isCompleted: latestDocTopic.isCompleted,
+    });
+  }
+
+  if (latestQuiz) {
+    candidates.push({
+      id: latestQuiz.id,
+      title: latestQuiz.title,
+      url: latestQuiz.url,
+      visitedAt: latestQuiz.updatedAt,
+      type: 'quiz',
+      readingTime: '5 min quiz',
+      isCompleted: true,
+    });
+  }
+
+  if (candidates.length === 0) return null;
+
+  candidates.sort((a, b) => new Date(b.visitedAt).getTime() - new Date(a.visitedAt).getTime());
+  return candidates[0];
 }
 
 function computeStreak(progress: AlgoProgressData): number {
