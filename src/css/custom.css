@@ -50,6 +50,9 @@
 }
 
 [data-theme="dark"] {  
+  /* Night Mode CSS Filter Optimizations for SVG Algorithm Diagrams (#3389) */
+  --svg-filter-invert: invert(0.92) hue-rotate(180deg);
+
   --ifm-color-primary: #eab308;
   --ifm-color-primary-dark: #ca8a04;
   --ifm-color-primary-darker: #a16207;
@@ -983,3 +986,11 @@ html.dark .theme-doc-toc-desktop::before {
 :root[data-accent-theme="neon"] code {
   color: #f0abfc;
 }
+
+/* Night Mode CSS Filter Optimizations for SVG Algorithm Diagrams (#3389) */
+[data-theme="dark"] .markdown img[src$=".svg"]:not(.no-invert),
+[data-theme="dark"] .markdown svg:not(.no-invert) {
+  filter: var(--svg-filter-invert, invert(0.92) hue-rotate(180deg));
+  transition: filter 0.3s ease;
+}
+
