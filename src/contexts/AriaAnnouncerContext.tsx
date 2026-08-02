@@ -19,7 +19,7 @@ export const AriaAnnouncerProvider: React.FC<{ children: React.ReactNode }> = ({
   const lastAnnounceTimeRef = useRef<number>(0);
 
   const announce = useCallback((message: string, politeness: Politeness = 'polite') => {
-    if (!message || message.trim() === '') return;
+    if (!message || message.trim().length === 0) return;
 
     const now = Date.now();
     // Throttle duplicate/rapid messages within 150ms

@@ -39,7 +39,7 @@ export function formatTagLabel(tagValue: string): string {
   if (TAG_LABEL_MAP[tagValue]) return TAG_LABEL_MAP[tagValue];
   return tagValue
     .split('-')
-    .map((w) => (w ? w.charAt(0).toUpperCase() + w.slice(1) : ''))
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : ''))
     .join(' ');
 }
 
