@@ -7,6 +7,7 @@ import CheatSheetExport from '../../../components/CheatSheetExport';
 import BookmarkButton from '../../../components/BookmarkButton';
 import ReadingProgressBar from '../../../components/ReadingProgressBar';
 
+import ReadingProgressBar from "../../../components/ReadingProgressBar";
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
   const [readingTimeInWords, setReadingTimeInWords] = useState<string>('');
@@ -25,6 +26,18 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
     typeof (frontMatter as any).difficulty === "string"
       ? (frontMatter as any).difficulty
       : undefined;
+const {
+  title,
+  editUrl,
+  lastUpdatedAt,
+  lastUpdatedBy,
+  frontMatter,
+} = metadata;
+
+const difficulty =
+  typeof (frontMatter as any).difficulty === "string"
+    ? (frontMatter as any).difficulty
+    : undefined;
 
   // We hide the default title if specified by front matter
   const hideTitle = frontMatter.hide_title;
@@ -43,6 +56,8 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
   }, [children]);
 
   return (
+    <>
+    <ReadingProgressBar />
     <div ref={contentRef} className="markdown">
       {!hideTitle && (
         <header className="doc-header-banner">
@@ -62,6 +77,15 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
               </span>
             </div>
           )}
+{difficulty && (
+  <div style={{ marginTop: "10px" }}>
+    <span
+      className={`difficulty-badge ${difficulty?.toLowerCase()}`}
+    >
+      {difficulty}
+    </span>
+  </div>
+)}
         </header>
       )}
 
@@ -77,4 +101,8 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
       <MDXContent>{children}</MDXContent>
     </div>
   );
+}
+        </div>
+  </>
+);
 }

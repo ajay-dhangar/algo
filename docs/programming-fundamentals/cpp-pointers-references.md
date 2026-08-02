@@ -1,10 +1,10 @@
 ---
-id: programming-fundamentals
-title:  References and Pointers in C++
-sidebar_label: Introduction to  References and Pointers
-sidebar_position: 2
-description: 'Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming'
-tags: [dsa, data-structures,  Pointers]
+id: cpp-pointers-references
+title: References and Pointers in C++
+sidebar_label: Pointers and References
+sidebar_position: 5
+description: 'Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming.'
+tags: [cpp, pointers, references, memory, programming-fundamentals]
 ---
 
 ## Learning Information
@@ -141,7 +141,7 @@ int *ptr = &a;  // Pointer to a
 ptr = &b;       // Pointer reassigned to b
 ```
 
-### 5. Null Values
+### 4. Null Values
 
 - **References**: Cannot be null.
 - **Pointers**: Can be null (useful to indicate that they are not pointing to any valid memory).
@@ -156,7 +156,7 @@ int *ptr = nullptr;  // Pointer can be null
 ptr = &a;            // Pointer assigned to a valid address
 ```
 
-### 6. Memory Address
+### 5. Memory Address
 
 - **References**: Implicitly provide the memory address of the referenced variable.
 - **Pointers**: Explicitly hold and can be used to manipulate memory addresses.
@@ -173,7 +173,7 @@ cout << "Address using ref: " << &ref << endl;
 cout << "Address using ptr: " << ptr << endl;
 ```
 
-## 7. When to Use References and Pointers
+## 5. When to Use References and Pointers
 
 ### Use References:
 - When you need an alias for another variable.
@@ -185,7 +185,7 @@ cout << "Address using ptr: " << ptr << endl;
 - When you need to implement data structures like linked lists, trees, etc.
 - When you need to use null values to indicate "no object".
 
-## 8. Examples
+## 6. Examples
 
 ### Example 1: Using References
 
@@ -204,13 +204,17 @@ int main() {
     return 0;
 }
 ```
+
 ### Example 2: Using Pointers
+
 ```cpp
 #include <iostream>
 using namespace std;
+
 void increment(int *ptr) {
     (*ptr)++;
 }
+
 int main() {
     int a = 10;
     increment(&a);
@@ -219,6 +223,6 @@ int main() {
 }
 ```
 
-## 9. Conclusion
+## 7. Conclusion
 
-Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming
+Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming.

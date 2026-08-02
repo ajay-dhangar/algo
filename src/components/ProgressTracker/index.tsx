@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
 import { FiCheckCircle, FiCircle, FiTrendingUp, FiAward } from 'react-icons/fi';
-import { safeJsonParse, writeAlgoProgress } from '../../utils/safeStorage';
+import { safeJsonParse, writeAlgoProgress, recordLastVisited } from '../../utils/safeStorage';
 
 interface Props {
   topicId: string;
@@ -16,11 +16,22 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
   useEffect(() => {
     try {
       const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
-      setIsCompleted(!!progress[topicId]);
+      const completed = !!progress[topicId];
+      setIsCompleted(completed);
+
+      // Record this doc as last visited so the homepage widget can surface it
+      recordLastVisited({
+        id: topicId,
+        title: topicTitle,
+        url: typeof window !== 'undefined' ? window.location.pathname : `/docs/${topicId}`,
+        type: 'doc',
+        readingTime: '4 min read',
+        isCompleted: completed,
+      });
     } catch (error) {
       console.error('[Algo Progress] Failed to parse engine storage state:', error);
     }
-  }, [topicId]);
+  }, [topicId, topicTitle]);
 
   // Handle local state modification and sync globally
   const toggleProgress = useCallback(() => {
@@ -39,6 +50,16 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
       progress[`${topicId}_updatedAt`] = new Date().toISOString();
       
       writeAlgoProgress(progress);
+
+      // Update last visited whenever the user interacts with this doc
+      recordLastVisited({
+        id: topicId,
+        title: topicTitle,
+        url: typeof window !== 'undefined' ? window.location.pathname : `/docs/${topicId}`,
+        type: 'doc',
+        readingTime: '4 min read',
+        isCompleted: nextState,
+      });
 
       // Dispatch unified pipeline context updates across component domains
       window.dispatchEvent(
