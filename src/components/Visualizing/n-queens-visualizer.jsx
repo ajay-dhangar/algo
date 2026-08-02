@@ -195,7 +195,7 @@ const NQueensVisualizer = () => {
 
   const renderControls = () => {
     const handleNChange = () => {
-      const val = parseInt(inputValue);
+      const val = parseInt(inputValue, 10);
       if (isNaN(val) || val < 1 || val > 8) {
         setError('N must be an integer between 1 and 8');
       } else {
