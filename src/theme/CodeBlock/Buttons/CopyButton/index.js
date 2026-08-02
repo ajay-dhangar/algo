@@ -46,39 +46,4 @@ function useCopyButton() {
   const copyTimeout = useRef(undefined);
   const copyCode = useCallback(() => {
     copyToClipboard(code).then(() => {
-      setIsCopied(true);
-      copyTimeout.current = window.setTimeout(() => {
-        setIsCopied(false);
-      }, 2500);
-    });
-    // Errors are intentionally not caught so they remain unhandled and can
-    // be captured by observability tools (e.g. Sentry, PostHog).
-  }, [code]);
-  useEffect(() => () => window.clearTimeout(copyTimeout.current), []);
-  return {copyCode, isCopied};
-}
-export default function CopyButton({className}) {
-  const {copyCode, isCopied} = useCopyButton();
-  return (
-    <Button
-      aria-label={ariaLabel(isCopied)}
-      title={title()}
-      className={clsx(
-        className,
-        styles.copyButton,
-        isCopied && styles.copyButtonCopied,
-      )}
-      onClick={copyCode}>
-      <>
-  <span className={styles.copyButtonIcons} aria-hidden="true">
-    <IconCopy className={styles.copyButtonIcon} />
-    <IconSuccess className={styles.copyButtonSuccessIcon} />
-  </span>
-
-  <span className={styles.copyButtonText}>
-    {isCopied ? "Copied!" : "Copy"}
-  </span>
-</>
-    </Button>
-  );
-}
+    .catch(err => console.error(err))
