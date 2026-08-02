@@ -11,8 +11,10 @@ import ContributeSection from "./ContributeSection";
 import GetInvolvedSection from "./GetInvolvedSection";
 import CallToActionSection from "./CallToActionSection";
 import CookieConsent from "./CookieConsent";
+import ContinueLearningWidget from "./ContinueLearningWidget";
 import DailyChallengeWidget from "../DailyChallengeWidget";
 import RecentlyViewedAlgorithms from "../RecentlyViewedAlgorithms";
+
 const Homepage: React.FC = () => {
   return (
     <>
@@ -23,21 +25,25 @@ const Homepage: React.FC = () => {
 
         {/* PHASE 2: IMMEDIATE VALUE */}
         <AlgorithmOfTheDaySection />
+
         <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div
+            className="mx-auto max-w-3xl"
+            style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+          >
             <ContinueLearningWidget />
             <DailyChallengeWidget />
-            </div>
-          </section>
-          <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-            <RecentlyViewedAlgorithms />
-          </section>
-
-          <PopularAlgorithmsSection />
-            <TrendingSearchesWidget />
           </div>
         </section>
-        <PopularAlgorithmsSection />
+
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <RecentlyViewedAlgorithms />
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <PopularAlgorithmsSection />
+          <TrendingSearchesWidget />
+        </section>
 
         {/* PHASE 3: INTERACTION FLOW */}
         <HowItWorksSection />
@@ -48,7 +54,7 @@ const Homepage: React.FC = () => {
 
         {/* PHASE 5: ECOSYSTEM CONVERSION */}
         <ContributeSection />
-        <GetInvolvedSection/>
+        <GetInvolvedSection />
         <CallToActionSection />
       </main>
 
