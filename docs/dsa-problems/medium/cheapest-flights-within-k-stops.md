@@ -50,9 +50,11 @@ Since the number of stops increments by exactly 1 with each flight taken, **Brea
 * **Time Complexity:** $O(V + E)$ where $V$ is the number of cities (`n`) and $E$ is the number of flights (`flights.length`). Since we explore level-by-level up to at most `k` stops and only push neighbors into the queue when a cheaper path is found, each edge is processed efficiently without redundant cycles.
 * **Space Complexity:** $O(V + E)$ to store the adjacency list graph, the `minCost` array, and the queue elements.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -92,7 +94,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
@@ -138,8 +142,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 from collections import deque
 
 class Solution:
@@ -170,8 +176,10 @@ class Solution:
         return minCost[dst] if minCost[dst] != float('inf') else -1
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number} n
  * @param {number[][]} flights
@@ -211,3 +219,6 @@ var findCheapestPrice = function(n, flights, src, dst, k) {
     return minCost[dst] === Infinity ? -1 : minCost[dst];
 };
 ```
+
+  </TabItem>
+</Tabs>

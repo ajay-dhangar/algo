@@ -58,9 +58,11 @@ We can optimize the standard depth-finding algorithm to calculate the diameter s
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -101,7 +103,9 @@ private:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -146,8 +150,10 @@ class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -177,8 +183,10 @@ class Solution:
         return self.max_diameter
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -215,3 +223,6 @@ var diameterOfBinaryTree = function(root) {
     return maxDiameter;
 };
 ```
+
+  </TabItem>
+</Tabs>

@@ -40,9 +40,11 @@ The most intuitive and optimal way to find the maximum depth of a binary tree is
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -73,7 +75,9 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -107,8 +111,10 @@ class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -129,8 +135,10 @@ class Solution:
         return 1 + max(left_depth, right_depth)
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -157,3 +165,6 @@ var maxDepth = function(root) {
     return 1 + Math.max(leftDepth, rightDepth);
 };
 ```
+
+  </TabItem>
+</Tabs>

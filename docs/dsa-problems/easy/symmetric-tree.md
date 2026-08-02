@@ -39,7 +39,29 @@ To determine if a binary tree is symmetric, we can use a **recursive approach**.
 
 2. **Main Function**: In the main function, call the checker function with the left and right children of the root.
 
-## Java Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if (!root) return true;
+        return isMirror(root->left, root->right);
+    }
+    
+    bool isMirror(TreeNode* t1, TreeNode* t2) {
+        if (!t1 && !t2) return true;
+        if (!t1 || !t2) return false;
+        return (t1->val == t2->val) && isMirror(t1->right, t2->left) && isMirror(t1->left, t2->right);
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
 
 ```java
 /**
@@ -159,10 +181,38 @@ class Solution:
         return self.checker(p.left, q.right) and self.checker(p.right, q.left)
 ```
 
-## Time Complexity
-Time Complexity : O(n)
+  </TabItem>
+  <TabItem value="python" label="Python">
 
-The time complexity is O(n) since we traverse each node in the binary tree once.
-## Space  Complexity
-Space Complexity: O(h)
-The space complexity is O(h), where h is the height of the tree. This space is used by the recursive stack. In the worst case (unbalanced tree), it can go up to O(n).
+```python
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        def isMirror(t1, t2):
+            if not t1 and not t2:
+                return True
+            if not t1 or not t2:
+                return False
+            return (t1.val == t2.val) and isMirror(t1.right, t2.left) and isMirror(t1.left, t2.right)
+        
+        return isMirror(root.left, root.right) if root else True
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var isSymmetric = function(root) {
+    if (!root) return true;
+    
+    function isMirror(t1, t2) {
+        if (!t1 && !t2) return true;
+        if (!t1 || !t2) return false;
+        return (t1.val === t2.val) && isMirror(t1.right, t2.left) && isMirror(t1.left, t2.right);
+    }
+    
+    return isMirror(root.left, root.right);
+};
+```
+
+  </TabItem>
+</Tabs>

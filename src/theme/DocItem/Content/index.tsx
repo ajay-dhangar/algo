@@ -5,6 +5,8 @@ import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
 import { addRecentAlgorithm } from '../../../utils/recentAlgorithms';
+import BookmarkButton from '../../../components/BookmarkButton';
+
 import ReadingProgressBar from "../../../components/ReadingProgressBar";
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -56,6 +58,10 @@ const difficulty =
       {!hideTitle && (
         <header className="doc-header-banner">
           <Heading as="h1">{title}</Heading>
+          <BookmarkButton
+            title={title}
+            path={metadata.permalink}
+          />
 
 {difficulty && (
   <div style={{ marginTop: "10px" }}>

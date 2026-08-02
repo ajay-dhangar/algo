@@ -41,7 +41,49 @@ To solve this problem, we can use a **stack** to keep track of the non-star char
 
 Finally, the remaining elements in the stack represent the string after all stars and corresponding characters have been removed.
 
-## Python Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    string removeStars(string s) {
+        string res = "";
+        for (char c : s) {
+            if (c == '*') {
+                if (!res.empty()) res.pop_back();
+            } else {
+                res.push_back(c);
+            }
+        }
+        return res;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+class Solution {
+    public String removeStars(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (c == '*') {
+                sb.deleteCharAt(sb.length() - 1);
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
 
 ```python
 class Solution:
@@ -57,5 +99,23 @@ class Solution:
         
         return ''.join(stack)
 ```
-Time Complexity: O(n) <br />
-Space Complexity: O(n)
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var removeStars = function(s) {
+    const stack = [];
+    for (const char of s) {
+        if (char === '*') {
+            stack.pop();
+        } else {
+            stack.push(char);
+        }
+    }
+    return stack.join('');
+};
+```
+
+  </TabItem>
+</Tabs>

@@ -41,7 +41,55 @@ We can use the `sliding window technique` along with a `hash map` to track the c
 3. **Return**:  
    - Return the maximum length found.
 
-## Python Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int> charMap;
+        int left = 0, maxLen = 0;
+        for (int right = 0; right < s.length(); right++) {
+            if (charMap.count(s[right]) && charMap[s[right]] >= left) {
+                left = charMap[s[right]] + 1;
+            }
+            charMap[s[right]] = right;
+            maxLen = max(maxLen, right - left + 1);
+        }
+        return maxLen;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        int left = 0, maxLen = 0;
+        for (int right = 0; right < s.length(); right++) {
+            char c = s.charAt(right);
+            if (map.containsKey(c) && map.get(c) >= left) {
+                left = map.get(c) + 1;
+            }
+            map.put(c, right);
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+        return maxLen;
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
 
 ```python
 class Solution:
@@ -57,9 +105,26 @@ class Solution:
             max_length = max(max_length, i - start + 1)
 
         return max_length
-
 ```
-Time Complexity: O(n) <br /> 
-Space Complexity: O(min(n, m)) (where m is the size of the character set)
 
-    
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var lengthOfLongestSubstring = function(s) {
+    const map = new Map();
+    let left = 0, maxLen = 0;
+    for (let right = 0; right < s.length; right++) {
+        const c = s.charAt(right);
+        if (map.has(c) && map.get(c) >= left) {
+            left = map.get(c) + 1;
+        }
+        map.set(c, right);
+        maxLen = Math.max(maxLen, right - left + 1);
+    }
+    return maxLen;
+};
+```
+
+  </TabItem>
+</Tabs>

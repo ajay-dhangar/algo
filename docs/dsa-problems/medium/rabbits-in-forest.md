@@ -60,9 +60,11 @@ If a rabbit says there are `k` other rabbits with the same color, it means that 
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <unordered_map>
 #include <vector>
@@ -89,7 +91,9 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.HashMap;
 import java.util.Map;
@@ -117,8 +121,10 @@ class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 from collections import Counter
 import math
 
@@ -136,8 +142,10 @@ class Solution:
         return total_rabbits
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} answers
  * @return {number}
@@ -159,3 +167,6 @@ const numRabbits = function(answers) {
     return totalRabbits;
 };
 ```
+
+  </TabItem>
+</Tabs>

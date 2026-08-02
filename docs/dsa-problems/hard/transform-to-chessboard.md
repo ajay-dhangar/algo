@@ -67,9 +67,11 @@ To solve this in $O(N^2)$ time, we need to recognize the strict mathematical pro
 * **Time Complexity:** $O(N^2)$ where $N$ is the dimension of the board. We traverse the entire matrix once to validate the corner property and count misplacements.
 * **Space Complexity:** $O(1)$ as we only maintain a few integer counters regardless of the board size.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -107,7 +109,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int movesToChessboard(int[][] board) {
@@ -144,8 +148,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def movesToChessboard(self, board: list[list[int]]) -> int:
         n = len(board)
@@ -180,8 +186,10 @@ class Solution:
         return (col_swap + row_swap) // 2
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[][]} board
  * @return {number}
@@ -218,3 +226,6 @@ var movesToChessboard = function(board) {
     return (colSwap + rowSwap) / 2;
 };
 ```
+
+  </TabItem>
+</Tabs>

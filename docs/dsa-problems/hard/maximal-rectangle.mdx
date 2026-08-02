@@ -56,9 +56,11 @@ This problem is an extension of the "Largest Rectangle in Histogram" problem. We
 * **Time Complexity:** $O(R \times C)$ where $R$ is the number of rows and $C$ is the number of columns. We visit each cell a constant number of times while updating heights and processing the stack.
 * **Space Complexity:** $O(C)$ because we use an array of size $C + 1$ to store the heights and a stack that can grow up to size $C$.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -91,7 +93,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int maximalRectangle(char[][] matrix) {
@@ -126,8 +130,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def maximalRectangle(self, matrix: List[List[str]]) -> int:
         if not matrix or not matrix[0]: 
@@ -152,8 +158,10 @@ class Solution:
         return max_area
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {character[][]} matrix
  * @return {number}
@@ -184,3 +192,6 @@ const maximalRectangle = function(matrix) {
     return maxArea;
 };
 ```
+
+  </TabItem>
+</Tabs>
