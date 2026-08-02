@@ -230,7 +230,7 @@ export default function RelatedProblems(): React.ReactElement | null {
 
               <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] font-mono font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-0.5 transition-transform">
                 <span>Solve Problem</span>
-                <span>?</span>
+                <span>→</span>
               </div>
             </Link>
           );
