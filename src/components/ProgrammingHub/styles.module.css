@@ -1,0 +1,333 @@
+.container {
+  padding: 1.5rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: var(--ifm-font-family-base);
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 1.5rem;
+  background: var(--ifm-card-background-color, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--ifm-color-emphasis-200, rgba(0, 0, 0, 0.1));
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.heroTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-darker));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: var(--ifm-color-content-secondary, #666);
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.6;
+}
+
+/* Roadmap Banner */
+.roadmapSection {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: var(--ifm-color-primary-lightest, rgba(37, 194, 160, 0.08));
+  border-left: 5px solid var(--ifm-color-primary);
+  border-radius: 12px;
+}
+
+.roadmapTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary-darkest);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.roadmapSteps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.roadmapStep {
+  background: var(--ifm-background-color, #fff);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.stepNumber {
+  display: inline-block;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.stepTitle {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.stepDesc {
+  font-size: 0.85rem;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.4;
+}
+
+/* Filter & Controls */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.searchBox {
+  flex: 1;
+  min-width: 260px;
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border-radius: 30px;
+  border: 1px solid var(--ifm-color-emphasis-300, #ccc);
+  background: var(--ifm-background-color, #fff);
+  color: var(--ifm-font-color-base, #333);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 194, 160, 0.2);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ifm-color-emphasis-500);
+}
+
+.filterTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterBtn {
+  background: var(--ifm-color-emphasis-100, #f0f0f0);
+  color: var(--ifm-font-color-base, #333);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.filterBtnActive {
+  background: var(--ifm-color-primary) !important;
+  color: #fff !important;
+}
+
+/* Cards Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--ifm-card-background-color, #fff);
+  border: 1px solid var(--ifm-color-emphasis-200, #e5e7eb);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--ifm-color-primary-light);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.langInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.langIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.langTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ifm-heading-color);
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badgeBeginner {
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+}
+
+.badgeIntermediate {
+  background: rgba(234, 179, 8, 0.15);
+  color: #ca8a04;
+}
+
+.badgeAdvanced {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+}
+
+.cardBody {
+  margin-bottom: 1.25rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.metaSection {
+  margin-bottom: 0.75rem;
+}
+
+.metaLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.35rem;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tag {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-content);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+/* Code Snippet Accordion */
+.codeToggle {
+  background: none;
+  border: none;
+  color: var(--ifm-color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.codeBlock {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+.cardFooter {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cardBtn {
+  background: var(--ifm-color-primary);
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 0.55rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s ease;
+}
+
+.cardBtn:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+.noResults {
+  text-align: center;
+  padding: 3rem;
+  color: var(--ifm-color-content-secondary);
+}
