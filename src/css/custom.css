@@ -983,6 +983,111 @@ html.dark .theme-doc-toc-desktop::before {
 :root[data-accent-theme="neon"] code {
   color: #f0abfc;
 }
+
+/* ====================================================================
+   Code Block Themes
+   Opt-in syntax color palettes scoped to CodeBlock elements via the
+   [data-code-theme] attribute on <html>, set by src/components/CodeThemePicker
+   and persisted to localStorage (see src/utils/codeTheme.ts).
+   ==================================================================== */
+
+:root[data-code-theme="midnight"] .theme-code-block {
+  --prism-background-color: #0b1220;
+  --prism-color: #e2e8f0;
+}
+
+:root[data-code-theme="midnight"] .theme-code-block .prism-code {
+  background-color: var(--prism-background-color) !important;
+  color: var(--prism-color) !important;
+}
+
+:root[data-code-theme="midnight"] .theme-code-block .token.comment,
+:root[data-code-theme="midnight"] .theme-code-block .token.prolog,
+:root[data-code-theme="midnight"] .theme-code-block .token.doctype,
+:root[data-code-theme="midnight"] .theme-code-block .token.cdata,
+:root[data-code-theme="midnight"] .theme-code-block .token.punctuation {
+  color: #6b7b95 !important;
+}
+
+:root[data-code-theme="midnight"] .theme-code-block .token.keyword,
+:root[data-code-theme="midnight"] .theme-code-block .token.property,
+:root[data-code-theme="midnight"] .theme-code-block .token.selector,
+:root[data-code-theme="midnight"] .theme-code-block .token.tag,
+:root[data-code-theme="midnight"] .theme-code-block .token.operator {
+  color: #7c3aed !important;
+}
+
+:root[data-code-theme="midnight"] .theme-code-block .token.function,
+:root[data-code-theme="midnight"] .theme-code-block .token.class-name,
+:root[data-code-theme="midnight"] .theme-code-block .token.constant,
+:root[data-code-theme="midnight"] .theme-code-block .token.variable {
+  color: #38bdf8 !important;
+}
+
+:root[data-code-theme="midnight"] .theme-code-block .token.string,
+:root[data-code-theme="midnight"] .theme-code-block .token.char,
+:root[data-code-theme="midnight"] .theme-code-block .token.attr-value,
+:root[data-code-theme="midnight"] .theme-code-block .token.regex {
+  color: #22d3ee !important;
+}
+
+:root[data-code-theme="midnight"] .theme-code-block .token.number,
+:root[data-code-theme="midnight"] .theme-code-block .token.deleted,
+:root[data-code-theme="midnight"] .theme-code-block .token.builtin {
+  color: #f59e0b !important;
+}
+
+:root[data-code-theme="solarized"] .theme-code-block {
+  --prism-background-color: #fdf6e3;
+  --prism-color: #586e75;
+}
+
+:root[data-code-theme="solarized"] .theme-code-block .prism-code {
+  background-color: var(--prism-background-color) !important;
+  color: var(--prism-color) !important;
+}
+
+:root[data-code-theme="solarized"] .theme-code-block .token.comment,
+:root[data-code-theme="solarized"] .theme-code-block .token.prolog,
+:root[data-code-theme="solarized"] .theme-code-block .token.doctype,
+:root[data-code-theme="solarized"] .theme-code-block .token.cdata,
+:root[data-code-theme="solarized"] .theme-code-block .token.punctuation {
+  color: #93a1a1 !important;
+}
+
+:root[data-code-theme="solarized"] .theme-code-block .token.keyword,
+:root[data-code-theme="solarized"] .theme-code-block .token.property,
+:root[data-code-theme="solarized"] .theme-code-block .token.selector,
+:root[data-code-theme="solarized"] .theme-code-block .token.tag,
+:root[data-code-theme="solarized"] .theme-code-block .token.operator {
+  color: #859900 !important;
+}
+
+:root[data-code-theme="solarized"] .theme-code-block .token.function,
+:root[data-code-theme="solarized"] .theme-code-block .token.class-name,
+:root[data-code-theme="solarized"] .theme-code-block .token.constant,
+:root[data-code-theme="solarized"] .theme-code-block .token.variable {
+  color: #268bd2 !important;
+}
+
+:root[data-code-theme="solarized"] .theme-code-block .token.string,
+:root[data-code-theme="solarized"] .theme-code-block .token.char,
+:root[data-code-theme="solarized"] .theme-code-block .token.attr-value,
+:root[data-code-theme="solarized"] .theme-code-block .token.regex {
+  color: #2aa198 !important;
+}
+
+:root[data-code-theme="solarized"] .theme-code-block .token.number,
+:root[data-code-theme="solarized"] .theme-code-block .token.deleted,
+:root[data-code-theme="solarized"] .theme-code-block .token.builtin {
+  color: #b58900 !important;
+}
+
+:root[data-code-theme="midnight"] .theme-code-block .codeBlockContainer,
+:root[data-code-theme="solarized"] .theme-code-block .codeBlockContainer {
+  background: var(--prism-background-color) !important;
+}
+
 /* ==========================================================
    Difficulty Badge
    ========================================================== */
