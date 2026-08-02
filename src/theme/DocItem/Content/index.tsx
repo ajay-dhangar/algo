@@ -45,6 +45,10 @@ const difficulty =
       {!hideTitle && (
         <header className="doc-header-banner">
           <Heading as="h1">{title}</Heading>
+          <BookmarkButton
+            title={title}
+            path={metadata.permalink}
+          />
 
 {difficulty && (
   <div style={{ marginTop: "10px" }}>
