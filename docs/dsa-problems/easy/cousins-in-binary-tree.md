@@ -1,9 +1,15 @@
 ---
 id: cousins-in-binary-tree
-title: "Cousins in Binary Tree"
-sidebar_label: "Cousins in Binary Tree"
-description: "This document includes the solution to the problem of determining if two nodes in a binary tree are cousins, along with the approach and implementation."
-tags: [binary tree, cousins]
+title: Cousins in Binary Tree
+sidebar_label: Cousins in Binary Tree
+description: >-
+  This document includes the solution to the problem of determining if two nodes
+  in a binary tree are cousins, along with the approach and implementation.
+tags:
+  - binary tree
+  - cousins
+companies:
+  - Apple
 ---
 
 # Cousins in Binary Tree

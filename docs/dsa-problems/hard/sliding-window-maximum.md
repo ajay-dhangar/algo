@@ -2,9 +2,22 @@
 id: sliding-window-maximum
 title: Sliding Window Maximum
 sidebar_label: Sliding Window Maximum
-tags: [LeetCode , Arrays, Queue , Sliding Window , Heap (Priority Queue) , Monotonic Queue]
-companies: [Google, Amazon, Meta]
-description: "Given array of integers nums , with sliding window of size k which is moving from the very left of the array to the very right.Return the max for each sliding window."
+tags:
+  - LeetCode
+  - Arrays
+  - Queue
+  - Sliding Window
+  - Heap (Priority Queue)
+  - Monotonic Queue
+companies:
+  - Amazon
+  - Google
+  - Meta
+  - Netflix
+description: >-
+  Given array of integers nums , with sliding window of size k which is moving
+  from the very left of the array to the very right.Return the max for each
+  sliding window.
 ---
 
 # Sliding Window Maximum (LeetCode 239)

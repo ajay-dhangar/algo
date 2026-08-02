@@ -1,9 +1,17 @@
 ---
 id: house-robber-ii
-title: "House Robber II"
+title: House Robber II
 sidebar_label: House Robber II
-description: "Solving the House Robber II problem using Dynamic Programming with space optimization."
-tags: [DSA, leetcode, dynamic-programming, array]
+description: >-
+  Solving the House Robber II problem using Dynamic Programming with space
+  optimization.
+tags:
+  - DSA
+  - leetcode
+  - dynamic-programming
+  - array
+companies:
+  - Meta
 ---
 
 ## Description:

@@ -1,9 +1,18 @@
 ---
 id: sum-of-subarray-ranges
-title: "Sum of Subarray Ranges"
+title: Sum of Subarray Ranges
 sidebar_label: Sum of Subarray Ranges
-description: "The Sum of Subarray Ranges problem involves finding the sum of the difference between the maximum and minimum elements of all subarrays using a Monotonic Stack."
-tags: [DSA, leetcode, array, monotonic-stack]
+description: >-
+  The Sum of Subarray Ranges problem involves finding the sum of the difference
+  between the maximum and minimum elements of all subarrays using a Monotonic
+  Stack.
+tags:
+  - DSA
+  - leetcode
+  - array
+  - monotonic-stack
+companies:
+  - Apple
 ---
 
 ## Description:

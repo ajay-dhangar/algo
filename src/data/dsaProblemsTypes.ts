@@ -20,4 +20,5 @@ export interface DsaProblemsIndex {
   tags: DsaTag[];
   companies: string[];
   problems: DsaProblem[];
+  problemsById?: Record<string, DsaProblem>;
 }

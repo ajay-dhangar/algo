@@ -1,9 +1,19 @@
 ---
 id: number-of-operations-to-make-network-connected
-title: "Number of Operations to Make Network Connected"
+title: Number of Operations to Make Network Connected
 sidebar_label: Make Network Connected
-description: "Solution for LeetCode 1319: Number of Operations to Make Network Connected, utilizing Graph Traversal (DFS) to count connected components."
-tags: [DSA, leetcode, graph, dfs, bfs, union-find]
+description: >-
+  Solution for LeetCode 1319: Number of Operations to Make Network Connected,
+  utilizing Graph Traversal (DFS) to count connected components.
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - dfs
+  - bfs
+  - union-find
+companies:
+  - Microsoft
 ---
 
 ## Description:

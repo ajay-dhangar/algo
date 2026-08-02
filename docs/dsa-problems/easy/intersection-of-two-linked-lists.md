@@ -1,9 +1,17 @@
 ---
 id: intersection-of-two-linked-lists
-title: "Intersection of Two Linked Lists"
+title: Intersection of Two Linked Lists
 sidebar_label: Intersection of Two Linked Lists
-description: "Solving the Intersection of Two Linked Lists problem using an optimal two-pointer approach."
-tags: [DSA, leetcode, linked-list, two-pointers]
+description: >-
+  Solving the Intersection of Two Linked Lists problem using an optimal
+  two-pointer approach.
+tags:
+  - DSA
+  - leetcode
+  - linked-list
+  - two-pointers
+companies:
+  - Amazon
 ---
 
 ## Description:

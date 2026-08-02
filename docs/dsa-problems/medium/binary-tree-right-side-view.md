@@ -1,9 +1,19 @@
 ---
 id: binary-tree-right-side-view
-title: "Binary Tree Right Side View"
+title: Binary Tree Right Side View
 sidebar_label: Binary Tree Right Side View
-description: "Solving the Binary Tree Right Side View problem using a Depth-First Search (DFS) approach."
-tags: [DSA, leetcode, binary-tree, dfs, recursion]
+description: >-
+  Solving the Binary Tree Right Side View problem using a Depth-First Search
+  (DFS) approach.
+tags:
+  - DSA
+  - leetcode
+  - binary-tree
+  - dfs
+  - recursion
+companies:
+  - Google
+  - Microsoft
 ---
 
 ## Description:

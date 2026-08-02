@@ -2,8 +2,16 @@
 id: plus-one
 title: Plus One
 sidebar_label: Plus One
-description: The "Plus One" dsa problem is a classic algorithm challenge that involves manipulating an array of digits. The goal is to add one to a number represented by an array of its digits.
-tags: [dsa, algorithms, problem-solving]
+description: >-
+  The "Plus One" dsa problem is a classic algorithm challenge that involves
+  manipulating an array of digits. The goal is to add one to a number
+  represented by an array of its digits.
+tags:
+  - dsa
+  - algorithms
+  - problem-solving
+companies:
+  - Microsoft
 ---
 
 # Plus One

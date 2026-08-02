@@ -1,9 +1,17 @@
 ---
 id: flattening-a-linked-list
-title: "Flattening a linked list involves converting a multi-level linked list into a single-level linked list."
-sidebar_label: "flattening a linked list"
-description: "Flattening a linked list involves converting a multi-level linked list into a single-level linked list."
-tags: [linked list,flattening]
+title: >-
+  Flattening a linked list involves converting a multi-level linked list into a
+  single-level linked list.
+sidebar_label: flattening a linked list
+description: >-
+  Flattening a linked list involves converting a multi-level linked list into a
+  single-level linked list.
+tags:
+  - linked list
+  - flattening
+companies:
+  - LinkedIn
 ---
 
 # Flattening a Linked List

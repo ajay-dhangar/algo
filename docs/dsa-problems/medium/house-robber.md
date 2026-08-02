@@ -2,9 +2,21 @@
 id: house-robber-algorithm
 title: House Robber Algorithm
 sidebar_label: House Robber
-tags: [Leetcode, Dynamic Programming, DSA, House Robber]
-companies: [Google, Amazon]
-description: Solve the House Robber problem using dynamic programming to maximize the amount of money that can be robbed from houses without robbing two adjacent houses.
+tags:
+  - Leetcode
+  - Dynamic Programming
+  - DSA
+  - House Robber
+companies:
+  - Amazon
+  - Google
+  - LinkedIn
+  - Microsoft
+  - Netflix
+description: >-
+  Solve the House Robber problem using dynamic programming to maximize the
+  amount of money that can be robbed from houses without robbing two adjacent
+  houses.
 ---
 
 # House Robber Algorithm

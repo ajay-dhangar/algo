@@ -1,9 +1,19 @@
 ---
 id: rotten-oranges
-title: "Rotten Oranges Algorithm"
-sidebar_label: "RottenOranges algorithm"
-tags: [Leetcode, BFS, Graph, DSA, Rotten Oranges]
-description: "Solve the Rotten Oranges problem using Breadth-First Search (BFS) to determine the minimum time required for all fresh oranges to rot."
+title: Rotten Oranges Algorithm
+sidebar_label: RottenOranges algorithm
+tags:
+  - Leetcode
+  - BFS
+  - Graph
+  - DSA
+  - Rotten Oranges
+description: >-
+  Solve the Rotten Oranges problem using Breadth-First Search (BFS) to determine
+  the minimum time required for all fresh oranges to rot.
+companies:
+  - Meta
+  - Netflix
 ---
 
 The Rotten Oranges problem is a grid-based problem that involves determining the minimum time required for all fresh oranges to rot given an initial configuration of fresh and rotten oranges.

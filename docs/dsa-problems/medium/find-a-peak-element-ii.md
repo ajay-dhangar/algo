@@ -1,9 +1,16 @@
 ---
 id: find-a-peak-element-ii
-title: "Find a Peak Element II"
+title: Find a Peak Element II
 sidebar_label: Find a Peak Element II
-description: "Solving the Find a Peak Element II problem using Binary Search on a 2D Matrix."
-tags: [DSA, leetcode, matrix, binary-search, divide-and-conquer]
+description: Solving the Find a Peak Element II problem using Binary Search on a 2D Matrix.
+tags:
+  - DSA
+  - leetcode
+  - matrix
+  - binary-search
+  - divide-and-conquer
+companies:
+  - Apple
 ---
 
 ## Description:

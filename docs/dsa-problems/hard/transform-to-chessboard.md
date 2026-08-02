@@ -1,9 +1,17 @@
 ---
 id: transform-to-chessboard
-title: "Transform to Chessboard"
+title: Transform to Chessboard
 sidebar_label: Transform to Chessboard
-description: "Solving the Transform to Chessboard problem using Math and Matrix properties."
-tags: [DSA, leetcode, math, array, bit-manipulation, matrix]
+description: Solving the Transform to Chessboard problem using Math and Matrix properties.
+tags:
+  - DSA
+  - leetcode
+  - math
+  - array
+  - bit-manipulation
+  - matrix
+companies:
+  - Apple
 ---
 
 ## Description:

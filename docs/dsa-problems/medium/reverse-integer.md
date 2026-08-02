@@ -1,9 +1,17 @@
 ---
 id: reverse-integer
-title: "Reverse Integer"
+title: Reverse Integer
 sidebar_label: Reverse Integer
-description: "This document explains the Reverse Integer problem, including its description, approach, and implementation."
-tags: [dsa, algorithms, problem-solving, math]
+description: >-
+  This document explains the Reverse Integer problem, including its description,
+  approach, and implementation.
+tags:
+  - dsa
+  - algorithms
+  - problem-solving
+  - math
+companies:
+  - Apple
 ---
 
 ## Problem Statement

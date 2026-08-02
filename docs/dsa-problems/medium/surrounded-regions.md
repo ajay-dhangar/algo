@@ -1,9 +1,20 @@
 ---
 id: surrounded-regions
-title: "Surrounded Regions"
+title: Surrounded Regions
 sidebar_label: Surrounded Regions
-description: "Solution for LeetCode 130: Surrounded Regions, utilizing Graph Traversal (DFS) on the boundaries to capture enclosed components."
-tags: [DSA, leetcode, graph, dfs, bfs, matrix]
+description: >-
+  Solution for LeetCode 130: Surrounded Regions, utilizing Graph Traversal (DFS)
+  on the boundaries to capture enclosed components.
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - dfs
+  - bfs
+  - matrix
+companies:
+  - LinkedIn
+  - Meta
 ---
 
 ## Description:

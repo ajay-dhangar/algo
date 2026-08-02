@@ -1,9 +1,16 @@
 ---
 id: odd-even-linked-list
-title: "Odd Even Linked List"
+title: Odd Even Linked List
 sidebar_label: Odd Even Linked List
-description: "This document explains the Odd Even Linked List problem, including its description, approach, and implementation."
-tags: [dsa, algorithms, problem-solving]
+description: >-
+  This document explains the Odd Even Linked List problem, including its
+  description, approach, and implementation.
+tags:
+  - dsa
+  - algorithms
+  - problem-solving
+companies:
+  - Meta
 ---
 
 # Odd Even Linked List

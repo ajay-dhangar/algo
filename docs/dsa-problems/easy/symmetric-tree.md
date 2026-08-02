@@ -1,9 +1,18 @@
 ---
 id: symmetric-tree
-title: "Symmetric Tree"
-sidebar_label: "Symmetric"
-description: "This document includes the solution to the problem of checking whether a binary tree is symmetric around its center, along with the approach and implementation."
-tags: [binary tree, symmetric]
+title: Symmetric Tree
+sidebar_label: Symmetric
+description: >-
+  This document includes the solution to the problem of checking whether a
+  binary tree is symmetric around its center, along with the approach and
+  implementation.
+tags:
+  - binary tree
+  - symmetric
+companies:
+  - Apple
+  - Meta
+  - Microsoft
 ---
 
 # Symmetric Tree

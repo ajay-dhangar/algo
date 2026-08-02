@@ -1,9 +1,16 @@
 ---
 id: combination-sum
-title: "Combination Sum"
+title: Combination Sum
 sidebar_label: Combination Sum
-description: "Solving the Combination Sum problem using a recursive backtracking approach."
-tags: [DSA, leetcode, array, backtracking, recursion]
+description: Solving the Combination Sum problem using a recursive backtracking approach.
+tags:
+  - DSA
+  - leetcode
+  - array
+  - backtracking
+  - recursion
+companies:
+  - Amazon
 ---
 
 ## Description:

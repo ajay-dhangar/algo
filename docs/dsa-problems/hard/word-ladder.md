@@ -1,9 +1,20 @@
 ---
 id: word-ladder
-title: "Word Ladder"
+title: Word Ladder
 sidebar_label: Word Ladder
-description: "Solution for LeetCode 127: Word Ladder, utilizing Breadth-First Search (BFS) to find the shortest transformation sequence."
-tags: [DSA, leetcode, graph, bfs, hash-table]
+description: >-
+  Solution for LeetCode 127: Word Ladder, utilizing Breadth-First Search (BFS)
+  to find the shortest transformation sequence.
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - bfs
+  - hash-table
+companies:
+  - Amazon
+  - LinkedIn
+  - Microsoft
 ---
 
 ## Description:

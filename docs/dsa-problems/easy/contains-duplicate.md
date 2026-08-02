@@ -1,10 +1,20 @@
 ---
 id: contains-duplicate-leetcode-217
-title: "Contains Duplicate"
+title: Contains Duplicate
 sidebar_label: Contains Duplicate
-tags: [Leetcode, Array, DSA, Contains duplicate]
-companies: [Amazon, Apple, Google]
-description: "Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct."
+tags:
+  - Leetcode
+  - Array
+  - DSA
+  - Contains duplicate
+companies:
+  - Amazon
+  - Apple
+  - Google
+  - Netflix
+description: >-
+  Given an integer array nums, return true if any value appears at least twice
+  in the array, and return false if every element is distinct.
 ---
 
 ## 217. Contains Duplicate

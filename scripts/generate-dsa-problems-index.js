@@ -129,7 +129,13 @@ function collectProblems() {
  
 function main() {
   const { problems, tags, companies } = collectProblems();
- 
+
+  // Build a lookup map for quick problem access by ID (used by company tracks)
+  const problemsById = {};
+  problems.forEach((p) => {
+    problemsById[p.id] = p;
+  });
+
   const output = {
     generatedAt: new Date().toISOString(),
     count: problems.length,
@@ -137,11 +143,12 @@ function main() {
     tags,
     companies,
     problems,
+    problemsById,
   };
- 
+
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2) + '\n');
- 
+
   console.log(`✅ Indexed ${problems.length} DSA problems -> ${path.relative(process.cwd(), OUTPUT_FILE)}`);
 }
  

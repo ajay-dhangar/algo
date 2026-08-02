@@ -1,9 +1,18 @@
 ---
 id: partition-equal-subset-sum
-title: "Partition Equal Subset Sum"
+title: Partition Equal Subset Sum
 sidebar_label: Partition Equal Subset Sum
-description: "Solving the Partition Equal Subset Sum problem using Space-Optimized Dynamic Programming."
-tags: [DSA, leetcode, dynamic-programming, array, knapsack]
+description: >-
+  Solving the Partition Equal Subset Sum problem using Space-Optimized Dynamic
+  Programming.
+tags:
+  - DSA
+  - leetcode
+  - dynamic-programming
+  - array
+  - knapsack
+companies:
+  - Google
 ---
 
 ## Description:

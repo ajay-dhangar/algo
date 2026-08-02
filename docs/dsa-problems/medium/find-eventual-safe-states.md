@@ -1,9 +1,19 @@
 ---
 id: find-eventual-safe-states
-title: "Find Eventual Safe States"
+title: Find Eventual Safe States
 sidebar_label: Find Eventual Safe States
-description: "Solution for LeetCode 802: Find Eventual Safe States, utilizing Graph Traversal (DFS Cycle Detection) and BFS (Kahn's Algorithm)."
-tags: [DSA, leetcode, graph, dfs, bfs, topological-sort]
+description: >-
+  Solution for LeetCode 802: Find Eventual Safe States, utilizing Graph
+  Traversal (DFS Cycle Detection) and BFS (Kahn's Algorithm).
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - dfs
+  - bfs
+  - topological-sort
+companies:
+  - Netflix
 ---
 
 ## Description:

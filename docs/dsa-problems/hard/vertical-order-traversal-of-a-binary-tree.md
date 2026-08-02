@@ -1,9 +1,20 @@
 ---
 id: vertical-order-traversal-of-a-binary-tree
-title: "Vertical Order Traversal of a Binary Tree"
+title: Vertical Order Traversal of a Binary Tree
 sidebar_label: Vertical Order Traversal of a Binary Tree
-description: "Solving the Vertical Order Traversal of a Binary Tree problem using Coordinate Mapping and Sorting."
-tags: [DSA, leetcode, binary-tree, bfs, dfs, sorting, hash-table]
+description: >-
+  Solving the Vertical Order Traversal of a Binary Tree problem using Coordinate
+  Mapping and Sorting.
+tags:
+  - DSA
+  - leetcode
+  - binary-tree
+  - bfs
+  - dfs
+  - sorting
+  - hash-table
+companies:
+  - Meta
 ---
 
 ## Description:
