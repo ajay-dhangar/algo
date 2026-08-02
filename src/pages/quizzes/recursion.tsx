@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: RecursionQuestion[] = [
+export const QUESTIONS: RecursionQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

@@ -6,6 +6,7 @@ import TagsListInline from '@theme/TagsListInline';
 type Props = Record<string, never>;
 import ProgressTracker from '@site/src/components/ProgressTracker';
 import DocInlineQuiz from '@site/src/components/DocInlineQuiz';
+import RelatedProblems from '@site/src/components/RelatedProblems';
 
 export default function DocItemFooter(props: Props): JSX.Element | null {
   const { metadata } = useDoc();
@@ -21,6 +22,7 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
       <>
         <DocInlineQuiz />
         <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
+        <RelatedProblems />
       </>
     );
   }
@@ -30,6 +32,8 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
       <DocInlineQuiz />
 
       <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
+
+      <RelatedProblems />
 
       <footer
         className={clsx(

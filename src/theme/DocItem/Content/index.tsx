@@ -6,6 +6,7 @@ import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
 import BookmarkButton from '../../../components/BookmarkButton';
 
+import ReadingProgressBar from "../../../components/ReadingProgressBar";
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
   const [readingTimeInWords, setReadingTimeInWords] = useState<string>('');
@@ -42,6 +43,8 @@ const difficulty =
   }, [children]);
 
   return (
+    <>
+    <ReadingProgressBar />
     <div ref={contentRef} className="markdown">
       {!hideTitle && (
         <header className="doc-header-banner">
@@ -73,6 +76,7 @@ const difficulty =
       />
 
       <MDXContent>{children}</MDXContent>
-    </div>
-  );
+        </div>
+  </>
+);
 }

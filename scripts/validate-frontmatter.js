@@ -2,8 +2,21 @@
 
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter');
 const { execSync } = require('child_process');
+
+// Preflight check: ensure gray-matter is available before proceeding.
+// This gives a clear, actionable error instead of a raw module-not-found crash.
+let matter;
+try {
+  matter = require('gray-matter');
+} catch (e) {
+  console.error(
+    '\n❌ Missing dependency: gray-matter\n' +
+    '   This package is required to validate documentation frontmatter.\n' +
+    '   Please run "npm install" in the project root and try again.\n'
+  );
+  process.exit(1);
+}
 
 const DOCS_DIR = path.join(__dirname, '../docs');
 const REQUIRED_FIELDS = ['id', 'title', 'sidebar_label', 'description', 'tags'];
