@@ -4,6 +4,7 @@ import Heading from '@theme/Heading';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
+import BookmarkButton from '../../../components/BookmarkButton';
 
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
