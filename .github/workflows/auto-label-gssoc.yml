@@ -1,0 +1,85 @@
+name: "Auto Assign GSSoC Label"
+
+on:
+  issues:
+    types: [opened]
+    
+  workflow_dispatch:
+
+jobs:
+  add-gssoc-label:
+    name: Add gssoc-26 Label to New Issues
+    
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+
+    steps:
+      - name: Ensure label and add to issue
+      
+        uses: actions/github-script@v7
+        with:
+        
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = context.payload.issue.number;
+            
+            const labelName = 'gssoc-26';
+            const color = 'F9D0C4'; // Clean hex color for GSSoC label
+            
+            const description = 'Official label for all GSSoC 2026 related issues and pull requests.';
+
+            try {
+              // Check if the label exists in the repo
+              
+              await github.rest.issues.getLabel({
+                owner,
+                repo,
+                name: labelName
+              });
+              
+              console.log(`Label "${labelName}" exists.`);
+              
+            } catch (err) {
+            
+              // If label is missing (404), create it automatically
+              
+              if (err.status === 404) {
+                try {
+                  await github.rest.issues.createLabel({
+                    owner,
+                    repo,
+                    name: labelName,
+                    color,
+                    description
+                  });
+                  
+                  console.log(`Successfully created missing label: "${labelName}"`);
+                  
+                } catch (createErr) {
+                  if (createErr.status !== 422) {
+                    throw createErr;
+                  }
+                }
+              } else {
+                throw err;
+              }
+            }
+
+            // Apply the label to the newly opened issue
+            
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number,
+              labels: [labelName]
+            });
+
+            console.log(`Successfully labeled Issue #${issue_number} with "${labelName}"`);
+
+
+
+
+            
