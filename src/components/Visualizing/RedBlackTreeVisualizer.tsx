@@ -108,7 +108,7 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
 
   const handleInsert = (e: React.FormEvent) => {
     e.preventDefault();
-    const val = parseInt(inputValue);
+    const val = parseInt(inputValue, 10);
     if (isNaN(val)) return;
 
     setLog((prev) => [...prev, `Inserting node: ${val}`]);
