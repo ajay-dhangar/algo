@@ -51,9 +51,11 @@ Instead of summing the edge weights (as in standard Dijkstra's), our path cost i
 * **Time Complexity:** $O(E \log V) = O((R \times C) \log(R \times C))$ where $R$ is the number of rows and $C$ is the number of columns. Each cell has at most 4 edges, and pushing/popping from the priority queue takes logarithmic time relative to the number of cells.
 * **Space Complexity:** $O(R \times C)$ to store the `dist` matrix and the elements inside the priority queue.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -106,7 +108,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int minimumEffortPath(int[][] heights) {
@@ -156,8 +160,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import heapq
 
 class Solution:
@@ -191,8 +197,10 @@ class Solution:
         return 0
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[][]} heights
  * @return {number}
@@ -237,3 +245,6 @@ var minimumEffortPath = function(heights) {
     return 0;
 };
 ```
+
+  </TabItem>
+</Tabs>

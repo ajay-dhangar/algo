@@ -66,9 +66,11 @@ Since their signs can be chosen completely independently, the optimal strategy t
 * **Time Complexity:** $O(n \log n)$ per testcase because we must sort the array $b$. The subsequent iterations to sum the blocks take linear $O(n)$ time.
 * **Space Complexity:** $O(n)$ or $O(m)$ auxiliary space depending on the language's sort implementation and input storage.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -131,7 +133,9 @@ int main() {
 }
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Scanner;
 import java.util.Arrays;
@@ -190,8 +194,10 @@ public class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import sys
 
 def solve():
@@ -234,8 +240,10 @@ if __name__ == "__main__":
     solve()
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 const fs = require('fs');
 
 function main() {
@@ -288,3 +296,6 @@ function main() {
 
 main();
 ```
+
+  </TabItem>
+</Tabs>

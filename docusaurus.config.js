@@ -59,6 +59,18 @@ const config = {
         } catch (e) {}
       })();`,
     },
+    {
+      tagName: "script",
+      attributes: { id: "algo-code-theme-init" },
+      innerHTML: `(function() {
+        try {
+          var theme = window.localStorage.getItem('algo-code-theme');
+          if (theme === 'midnight' || theme === 'solarized') {
+            document.documentElement.setAttribute('data-code-theme', theme);
+          }
+        } catch (e) {}
+      })();`,
+    },
   ],
  
   i18n: {
@@ -326,6 +338,10 @@ const config = {
           },
           {
             type: "custom-themePicker",
+            position: "right",
+          },
+          {
+            type: "custom-codeThemePicker",
             position: "right",
           },
           {

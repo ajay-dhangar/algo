@@ -74,7 +74,8 @@ Using a list or character array is typically more efficient for these operations
 
 ## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
 ```cpp
 #include <string>
@@ -104,7 +105,8 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
 
 ```java
 class Solution {
@@ -128,9 +130,10 @@ class Solution {
 }
 ```
 
-### Python
+  </TabItem>
+  <TabItem value="python" label="Python">
 
-```py
+```python
 class Solution:
     def processStr(self, s: str) -> str:
         ans = []
@@ -147,9 +150,10 @@ class Solution:
         return "".join(ans)
 ```
 
-### JavaScript
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
 
-```js
+```javascript
 /**
  * @param {string} s
  * @return {string}
@@ -172,3 +176,6 @@ var processStr = function(s) {
     return ans.join("");
 };
 ```
+
+  </TabItem>
+</Tabs>

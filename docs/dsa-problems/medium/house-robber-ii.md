@@ -66,9 +66,11 @@ The overall maximum loot will simply be the maximum of these two linear scenario
 * **Time Complexity:** $O(N)$ where $N$ is the number of houses. We iterate through the array roughly twice (once for each sub-problem), which simplifies to linear time.
 * **Space Complexity:** $O(1)$. We only use a few variables (`prev1`, `prev2`, `temp`) to keep track of the maximums, requiring no extra auxiliary arrays.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -95,7 +97,9 @@ private:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int rob(int[] nums) {
@@ -120,8 +124,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def rob(self, nums: list[int]) -> int:
         if len(nums) == 1:
@@ -138,8 +144,10 @@ class Solution:
         return max(rob_linear(0, len(nums) - 2), rob_linear(1, len(nums) - 1))
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} nums
  * @return {number}
@@ -164,3 +172,6 @@ const rob = function(nums) {
     return Math.max(robLinear(0, n - 2), robLinear(1, n - 1));
 };
 ```
+
+  </TabItem>
+</Tabs>

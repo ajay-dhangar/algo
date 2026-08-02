@@ -49,7 +49,10 @@ Objective:
 - **Time Complexity**: $O(K^2\* log(K))$, where insertion and deletion in a Min Heap requires log K time and for all $K^2$ elements it takes $(K^2 \* log(K))$ time
 - **Space Complexity**: $O(K)$ for the result array.
 
-### C++ Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
 ```cpp
 #include <vector>
@@ -106,6 +109,131 @@ class Solution
         return ans;
     }
 };
-
-
 ```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+import java.util.PriorityQueue;
+
+class Solution {
+    static class Element {
+        int val, r, c;
+        Element(int val, int r, int c) {
+            this.val = val;
+            this.r = r;
+            this.c = c;
+        }
+    }
+    
+    public static int[] mergeKArrays(int[][] arr, int K) {
+        PriorityQueue<Element> minHeap = new PriorityQueue<>((a, b) -> a.val - b.val);
+        int totalElements = 0;
+        for (int i = 0; i < K; i++) {
+            if (arr[i].length > 0) {
+                minHeap.add(new Element(arr[i][0], i, 0));
+                totalElements += arr[i].length;
+            }
+        }
+        int[] result = new int[totalElements];
+        int idx = 0;
+        while (!minHeap.isEmpty()) {
+            Element curr = minHeap.poll();
+            result[idx++] = curr.val;
+            if (curr.c + 1 < arr[curr.r].length) {
+                minHeap.add(new Element(arr[curr.r][curr.c + 1], curr.r, curr.c + 1));
+            }
+        }
+        return result;
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+import heapq
+
+class Solution:
+    def mergeKArrays(self, arr: List[List[int]], K: int) -> List[int]:
+        min_heap = []
+        for i in range(K):
+            if arr[i]:
+                heapq.heappush(min_heap, (arr[i][0], i, 0))
+        
+        result = []
+        while min_heap:
+            val, r, c = heapq.heappop(min_heap)
+            result.append(val)
+            if c + 1 < len(arr[r]):
+                heapq.heappush(min_heap, (arr[r][c + 1], r, c + 1))
+        
+        return result
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+class MinHeap {
+    constructor() { this.heap = []; }
+    push(val) {
+        this.heap.push(val);
+        this._up(this.heap.length - 1);
+    }
+    pop() {
+        if (this.heap.length === 0) return null;
+        const top = this.heap[0];
+        const bottom = this.heap.pop();
+        if (this.heap.length > 0) {
+            this.heap[0] = bottom;
+            this._down(0);
+        }
+        return top;
+    }
+    _up(i) {
+        while (i > 0) {
+            const p = (i - 1) >> 1;
+            if (this.heap[i].val < this.heap[p].val) {
+                [this.heap[i], this.heap[p]] = [this.heap[p], this.heap[i]];
+                i = p;
+            } else break;
+        }
+    }
+    _down(i) {
+        const n = this.heap.length;
+        while ((i << 1) + 1 < n) {
+            let left = (i << 1) + 1, right = left + 1, smallest = i;
+            if (left < n && this.heap[left].val < this.heap[smallest].val) smallest = left;
+            if (right < n && this.heap[right].val < this.heap[smallest].val) smallest = right;
+            if (smallest !== i) {
+                [this.heap[i], this.heap[smallest]] = [this.heap[smallest], this.heap[i]];
+                i = smallest;
+            } else break;
+        }
+    }
+}
+
+var mergeKArrays = function(arr, K) {
+    const minHeap = new MinHeap();
+    for (let i = 0; i < K; i++) {
+        if (arr[i].length > 0) {
+            minHeap.push({ val: arr[i][0], r: i, c: 0 });
+        }
+    }
+    const result = [];
+    while (minHeap.heap.length > 0) {
+        const { val, r, c } = minHeap.pop();
+        result.push(val);
+        if (c + 1 < arr[r].length) {
+            minHeap.push({ val: arr[r][c + 1], r: r, c: c + 1 });
+        }
+    }
+    return result;
+};
+```
+
+  </TabItem>
+</Tabs>

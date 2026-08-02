@@ -1,5 +1,5 @@
 ---
-id: n-queens
+id: n-queens-backtracking
 title: N-Queens Algorithm using Backtracking
 sidebar_label: N-Queens
 sidebar_position: 1

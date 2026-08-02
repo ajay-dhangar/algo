@@ -46,93 +46,11 @@ One of the most efficient methods for detecting a loop in a linked list is **Flo
 
 ## Implementation
 
-## Java
-```java
-class Node {
-    int value;
-    Node next;
+## Solutions
 
-    Node(int value) {
-        this.value = value;
-        this.next = null;
-    }
-}
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
-class LinkedList {
-    Node head;
-
-    // Detect loop using Floyd's Cycle-Finding Algorithm
-    public Node detectLoop() {
-        Node slow = head;
-        Node fast = head;
-
-        // Phase 1: Detect loop
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if (slow == fast) { // Loop detected
-                break;
-            }
-        }
-
-        // No loop
-        if (fast == null || fast.next == null) {
-            return null;
-        }
-
-        // Phase 2: Find the start of the loop
-        slow = head;
-        while (slow != fast) {
-            slow = slow.next;
-            fast = fast.next;
-        }
-
-        return slow; // Start of the loop
-    }
-
-    // Method to create a loop for testing
-    public void createLoop(int loopStartIndex) {
-        Node loopStartNode = head;
-        Node lastNode = head;
-        int index = 0;
-
-        // Find the loop start node
-        while (index < loopStartIndex) {
-            loopStartNode = loopStartNode.next;
-            index++;
-        }
-
-        // Find the last node
-        while (lastNode.next != null) {
-            lastNode = lastNode.next;
-        }
-
-        // Create the loop
-        lastNode.next = loopStartNode;
-    }
-}
-
-// Example usage
-public class Main {
-    public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.head = new Node(1);
-        ll.head.next = new Node(2);
-        ll.head.next.next = new Node(3);
-        ll.head.next.next.next = new Node(4);
-        ll.head.createLoop(1); // Creating a loop back to node with value 2
-
-        Node loopStart = ll.detectLoop();
-        if (loopStart != null) {
-            System.out.println("Loop detected at node with value: " + loopStart.value);
-        } else {
-            System.out.println("No loop detected.");
-        }
-    }
-}
-```
-
-## C++
 ```cpp
 #include <iostream>
 
@@ -222,7 +140,97 @@ int main() {
 }
 ```
 
-## Python
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+class Node {
+    int value;
+    Node next;
+
+    Node(int value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head;
+
+    // Detect loop using Floyd's Cycle-Finding Algorithm
+    public Node detectLoop() {
+        Node slow = head;
+        Node fast = head;
+
+        // Phase 1: Detect loop
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) { // Loop detected
+                break;
+            }
+        }
+
+        // No loop
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+
+        // Phase 2: Find the start of the loop
+        slow = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return slow; // Start of the loop
+    }
+
+    // Method to create a loop for testing
+    public void createLoop(int loopStartIndex) {
+        Node loopStartNode = head;
+        Node lastNode = head;
+        int index = 0;
+
+        // Find the loop start node
+        while (index < loopStartIndex) {
+            loopStartNode = loopStartNode.next;
+            index++;
+        }
+
+        // Find the last node
+        while (lastNode.next != null) {
+            lastNode = lastNode.next;
+        }
+
+        // Create the loop
+        lastNode.next = loopStartNode;
+    }
+}
+
+// Example usage
+public class Main {
+    public static void main(String[] args) {
+        LinkedList ll = new LinkedList();
+        ll.head = new Node(1);
+        ll.head.next = new Node(2);
+        ll.head.next.next = new Node(3);
+        ll.head.next.next.next = new Node(4);
+        ll.head.createLoop(1); // Creating a loop back to node with value 2
+
+        Node loopStart = ll.detectLoop();
+        if (loopStart != null) {
+            System.out.println("Loop detected at node with value: " + loopStart.value);
+        } else {
+            System.out.println("No loop detected.");
+        }
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
 ```python
 class Node:
     def __init__(self, value):
@@ -269,7 +277,23 @@ if __name__ == "__main__":
         print("No loop detected.")
 ```
 
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
 
+```javascript
+var hasCycle = function(head) {
+    let slow = head;
+    let fast = head;
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) {
+            return true;
+        }
+    }
+    return false;
+};
+```
 
-
-
+  </TabItem>
+</Tabs>
