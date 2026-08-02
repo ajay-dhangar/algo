@@ -196,7 +196,7 @@ export default function TreeSandbox() {
   // --- INTERACTION: SEARCH ---
   const triggerSearch = (key: number) => {
     setIsPlaying(false);
-    if (isNaN(key) || key < 1 || key > 99) {
+    if (Number.isNaN(key) || key < 1 || key > 99) {
       alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }
@@ -295,7 +295,7 @@ export default function TreeSandbox() {
   // --- INTERACTION: INSERT ---
   const triggerInsert = (key: number) => {
     setIsPlaying(false);
-    if (isNaN(key) || key < 1 || key > 99) {
+    if (Number.isNaN(key) || key < 1 || key > 99) {
       alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }
@@ -685,7 +685,7 @@ export default function TreeSandbox() {
   // --- INTERACTION: DELETE ---
   const triggerDelete = (key: number) => {
     setIsPlaying(false);
-    if (isNaN(key) || key < 1 || key > 99) {
+    if (Number.isNaN(key) || key < 1 || key > 99) {
       alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }

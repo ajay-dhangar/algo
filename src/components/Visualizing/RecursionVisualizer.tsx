@@ -76,7 +76,7 @@ function RecursionVisualizer() {
         .map((x) => x.trim())
         .filter((x) => x !== "")
         .map(Number)
-        .filter((x) => !isNaN(x));
+        .filter((x) => !Number.isNaN(x));
 
       if (arr.length === 0) {
         setSteps([
@@ -100,7 +100,7 @@ function RecursionVisualizer() {
         .map((x) => x.trim())
         .filter((x) => x !== "")
         .map(Number)
-        .filter((x) => !isNaN(x));
+        .filter((x) => !Number.isNaN(x));
 
       if (arr.length === 0) {
         setSteps([

@@ -22,7 +22,7 @@ function DocsInfo({ docsPluginId, ...props }) {
     const dateObj = new Date(dateVal);
     
     // Check if the date object is invalid
-    if (isNaN(dateObj.getTime())) return null;
+    if (Number.isNaN(dateObj.getTime())) return null;
     
     // Format to a clean, readable string (e.g., "Oct 24, 2026" or your local format)
     return dateObj.toLocaleDateString(undefined, {
