@@ -25,7 +25,14 @@ import {
 import QuestionNavigator from "../components/Quiz/QuestionNavigator";
 import QuestionProgress from "../components/Quiz/QuestionProgress";
 import MockExamTimer, { formatTime } from "../components/Quiz/MockExamTimer";
-import { saveQuizAttemptLocal, getUserId } from "../utils/safeStorage";
+import {
+  saveQuizAttemptLocal,
+  getUserId,
+  saveMockExamReview,
+  getLastMockExamReview,
+  clearMockExamReview,
+  type MockExamReviewRecord,
+} from "../utils/safeStorage";
 import {
   buildMockExamQuestions,
   getRandom30Preset,
@@ -60,6 +67,19 @@ function MockExamContent() {
   const [showConfirmSubmit, setShowConfirmSubmit] = useState<boolean>(false);
   const [showConfirmExit, setShowConfirmExit] = useState<boolean>(false);
 
+  // Restore the last completed exam review from localStorage on first mount.
+  // This lets the user navigate away and come back to their results.
+  useEffect(() => {
+    const saved = getLastMockExamReview();
+    if (saved) {
+      setQuestions(saved.questions as MockExamQuestion[]);
+      setUserAnswers(saved.userAnswers);
+      setTimeSpentSeconds(saved.timeSpentSeconds);
+      setWasAutoSubmitted(saved.wasAutoSubmitted);
+      setMode("result");
+    }
+  }, []);
+
   // Handle Preset Selections
   const handleLaunchPreset = (preset: "random30" | "quick10" | "marathon50") => {
     let qList: MockExamQuestion[] = [];
@@ -88,6 +108,7 @@ function MockExamContent() {
     setTimeLimitMinutes(timerMins);
     setTimeSpentSeconds(0);
     setWasAutoSubmitted(false);
+    clearMockExamReview();
     setMode("active");
   };
 
@@ -101,6 +122,7 @@ function MockExamContent() {
     setCurrentQuestionIndex(0);
     setTimeSpentSeconds(0);
     setWasAutoSubmitted(false);
+    clearMockExamReview();
     setMode("active");
   };
 
@@ -179,8 +201,31 @@ function MockExamContent() {
           completedAt: now,
         });
       });
+
+      // Persist the full review so it survives navigation away from this page
+      const reviewRecord: MockExamReviewRecord = {
+        completedAt: now,
+        totalScore,
+        totalQuestions: questions.length,
+        timeSpentSeconds,
+        wasAutoSubmitted: autoSubmitted,
+        questions: questions.map((q) => ({
+          uniqueId: q.uniqueId,
+          topicId: q.topicId,
+          topicTitle: q.topicTitle,
+          question: q.question,
+          options: q.options,
+          answer: q.answer,
+          explanation: q.explanation,
+          difficulty: q.difficulty,
+          codeSnippet: q.codeSnippet,
+        })),
+        userAnswers,
+        topicPerformance: topicPerformanceList,
+      };
+      saveMockExamReview(reviewRecord);
     },
-    [totalScore, questions.length, timeSpentSeconds, topicPerformanceList]
+    [totalScore, questions, timeSpentSeconds, topicPerformanceList, userAnswers]
   );
 
   const currentQuestion = questions[currentQuestionIndex];

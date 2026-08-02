@@ -421,6 +421,73 @@ function computeQuizStats(): { passed: number; mastered: number; attempted: numb
   return { passed, mastered, attempted };
 }
 
+// ---------------------------------------------------------------------------
+// Mock Exam Review Persistence
+// ---------------------------------------------------------------------------
+
+export interface MockExamReviewQuestion {
+  uniqueId: string;
+  topicId: string;
+  topicTitle: string;
+  question: string;
+  options: string[];
+  answer: string;
+  explanation: string;
+  difficulty?: string;
+  codeSnippet?: string;
+}
+
+export interface MockExamTopicPerformance {
+  topicId: string;
+  topicTitle: string;
+  correct: number;
+  total: number;
+  percentage: number;
+}
+
+export interface MockExamReviewRecord {
+  completedAt: string;
+  totalScore: number;
+  totalQuestions: number;
+  timeSpentSeconds: number;
+  wasAutoSubmitted: boolean;
+  questions: MockExamReviewQuestion[];
+  userAnswers: string[];
+  topicPerformance: MockExamTopicPerformance[];
+}
+
+const MOCK_EXAM_REVIEW_KEY = 'mock_exam_last_review';
+
+/**
+ * Persists the completed mock exam state so the review page can be restored
+ * after navigation away from /mock-exam.
+ */
+export function saveMockExamReview(record: MockExamReviewRecord): void {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+  try {
+    localStorage.setItem(MOCK_EXAM_REVIEW_KEY, JSON.stringify(record));
+  } catch (err) {
+    console.warn('[Algo] Could not save mock exam review to localStorage:', err);
+  }
+}
+
+/**
+ * Returns the last saved mock exam review, or null if none exists.
+ */
+export function getLastMockExamReview(): MockExamReviewRecord | null {
+  return safeJsonParse<MockExamReviewRecord | null>(MOCK_EXAM_REVIEW_KEY, null);
+}
+
+/**
+ * Clears the stored mock exam review (e.g. when the user starts a new exam).
+ */
+export function clearMockExamReview(): void {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+  try {
+    localStorage.removeItem(MOCK_EXAM_REVIEW_KEY);
+  } catch {}
+}
+
 export function getAchievementSnapshot(progress: AlgoProgressData = readAlgoProgress()): AchievementSnapshot {
   const completedTopics = Object.entries(progress)
     .filter(([key, value]) => typeof value === 'boolean' && value === true && !key.endsWith('_title') && !key.endsWith('_updatedAt'))
