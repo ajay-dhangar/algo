@@ -7,6 +7,9 @@ import {
   FiShield, FiActivity, FiCpu, FiAward, FiClock, FiCheckSquare 
 } from "react-icons/fi";
 import { useAuth } from "../contexts/AuthContext";
+import PracticeActivityHeatmapWidget from "../components/PracticeActivityHeatmapWidget";
+import PracticeActivitySummaryCard from "../components/PracticeActivitySummaryCard";
+import QuizStreakWidget from "../components/QuizStreakWidget";
 
 type DashboardTab = "overview" | "metrics" | "security";
 
@@ -257,6 +260,60 @@ export default function ProfilePage() {
                       </Link>
                     </div>
 
+                    <div className="rounded-2xl border p-6 shadow-sm bg-[var(--ifm-card-background-color)]" style={{ borderColor: "var(--ifm-color-emphasis-200)" }}>
+                      <div className="flex items-center justify-between gap-4 mb-4">
+                        <div>
+                          <p className="text-[10px] font-bold uppercase tracking-wider opacity-50 m-0">Practice summary</p>
+                          <h3 className="mt-2 text-lg font-extrabold" style={{ color: "var(--ifm-heading-color)" }}>
+                            Streak & activity
+                          </h3>
+                        </div>
+                        <div className="rounded-full bg-slate-100 dark:bg-slate-800 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-slate-600 dark:text-slate-300 font-semibold">
+                          28-day view
+                        </div>
+                      </div>
+
+                      <div className="grid gap-4 sm:grid-cols-[1fr_1.4fr]">
+                        <div className="space-y-3">
+                          <div className="rounded-2xl bg-slate-50 dark:bg-slate-950/70 p-4 border border-slate-200 dark:border-slate-800">
+                            <p className="text-[10px] font-bold uppercase tracking-wider opacity-50 m-0">Current streak</p>
+                            <p className="mt-2 text-4xl font-black" style={{ color: "var(--ifm-color-primary)" }}>--</p>
+                            <p className="text-xs opacity-70 mt-1 m-0">Keep quizzing every day to grow your streak.</p>
+                          </div>
+
+                          <div className="flex gap-3">
+                            <div className="rounded-2xl bg-slate-50 dark:bg-slate-950/70 p-4 border border-slate-200 dark:border-slate-800 flex-1">
+                              <p className="text-[10px] font-bold uppercase tracking-wider opacity-50 m-0">Active days</p>
+                              <p className="mt-2 text-2xl font-black">--</p>
+                            </div>
+                            <div className="rounded-2xl bg-slate-50 dark:bg-slate-950/70 p-4 border border-slate-200 dark:border-slate-800 flex-1">
+                              <p className="text-[10px] font-bold uppercase tracking-wider opacity-50 m-0">Attempts</p>
+                              <p className="mt-2 text-2xl font-black">--</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 p-3 bg-white dark:bg-slate-900">
+                          <div className="grid grid-cols-7 gap-2 text-[10px] uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500 mb-2">
+                            <span className="text-center">Sun</span>
+                            <span className="text-center">Mon</span>
+                            <span className="text-center">Tue</span>
+                            <span className="text-center">Wed</span>
+                            <span className="text-center">Thu</span>
+                            <span className="text-center">Fri</span>
+                            <span className="text-center">Sat</span>
+                          </div>
+                          <div className="grid grid-cols-7 gap-2">
+                            {Array.from({ length: 28 }).map((_, idx) => (
+                              <div key={idx} className="h-8 rounded-xl bg-slate-100 dark:bg-slate-800" />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <PracticeActivitySummaryCard />
+                    <PracticeActivityHeatmapWidget />
                     {/* Industrial Activity Log: Displays real user progress dynamically mapping from local memory arrays */}
                     {isAuthenticated && telemetry.recentTopics.length > 0 && (
                       <div 

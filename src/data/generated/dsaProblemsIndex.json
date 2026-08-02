@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-02T07:23:40.850Z",
-  "count": 86,
+  "generatedAt": "2026-08-02T11:06:22.429Z",
+  "count": 87,
   "difficulties": [
     "Easy",
     "Medium",
@@ -885,6 +885,20 @@
         "Meta"
       ],
       "url": "/docs/dsa-problems/medium/number-of-islands"
+    },
+    {
+      "id": "number-of-operations-to-make-network-connected",
+      "title": "Number of Operations to Make Network Connected",
+      "description": "Solution for LeetCode 1319: Number of Operations to Make Network Connected, utilizing Graph Traversal (DFS) to count connected components.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dfs",
+        "bfs",
+        "union-find"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/number-of-operations-to-make-network-connected"
     },
     {
       "id": "number-of-provinces",
