@@ -70,11 +70,11 @@ function DPVisualizer() {
     const weights = knapsackWeights
       .split(",")
       .map((x) => Number(x.trim()))
-      .filter((x) => !isNaN(x) && x > 0);
+      .filter((x) => !Number.isNaN(x) && x > 0);
     const values = knapsackValues
       .split(",")
       .map((x) => Number(x.trim()))
-      .filter((x) => !isNaN(x) && x >= 0);
+      .filter((x) => !Number.isNaN(x) && x >= 0);
     return { weights, values };
   }, [knapsackWeights, knapsackValues]);
 

@@ -346,7 +346,7 @@ export default function BitwiseVisualizer() {
       return;
     }
     const parsed = parseInt(input, 10);
-    if (isNaN(parsed)) return;
+    if (Number.isNaN(parsed)) return;
     
     const { min, max } = getBounds();
     const clamped = Math.min(Math.max(parsed, min), max);
@@ -373,7 +373,7 @@ export default function BitwiseVisualizer() {
     }
     
     let parsed = parseInt(cleaned, 16);
-    if (isNaN(parsed)) return;
+    if (Number.isNaN(parsed)) return;
 
     // Handle signed hex parsing
     if (isSigned) {
