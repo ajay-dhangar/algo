@@ -9,8 +9,12 @@
  *
  * Algorithm
  * ---------
- * 1. Scan every localStorage key that starts with "quiz_attempts_".
- * 2. Collect all `completedAt` ISO strings across every quiz / user combo.
+ * 1. Resolve the current user ID via getUserId().
+ *    - If a UID is found, only scan keys that start with
+ *      "quiz_attempts_<uid>_" to avoid mixing in other users' attempts.
+ *    - If no UID is available (unauthenticated / anonymous), fall back to
+ *      scanning all "quiz_attempts_*" keys so the widget still works.
+ * 2. Collect all `completedAt` ISO strings across every matching quiz key.
  * 3. Normalise each timestamp to a UTC calendar date (YYYY-MM-DD string).
  * 4. De-duplicate: only one activity "tick" per calendar day.
  * 5. Sort descending and walk consecutive days to count the current streak.
@@ -21,7 +25,7 @@
  */
 
 import { useState, useEffect, useCallback } from "react";
-import { safeJsonParse } from "../utils/safeStorage";
+import { safeJsonParse, getUserId } from "../utils/safeStorage";
 
 // --- Types -------------------------------------------------------------------
 
@@ -135,12 +139,23 @@ export function useQuizStreak(): QuizStreakData {
   const compute = useCallback(() => {
     if (typeof window === "undefined" || !window.localStorage) return;
 
-    // 1. Gather every completedAt timestamp from all quiz_attempts_* keys
+    // Resolve the current user's ID so we only read their own quiz keys.
+    // getQuizAttemptStorageKey writes: quiz_attempts_<uid>_<quizId>
+    // If no user is logged in, fall back to scanning all quiz_attempts_* keys.
+    const userId = getUserId();
+    const userPrefix = userId
+      ? `quiz_attempts_${userId.toLowerCase()}_`
+      : null;
+
+    // 1. Gather every completedAt timestamp from the current user's keys only
     const activeDateSet = new Set<string>();
 
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (!key || !key.startsWith("quiz_attempts_")) continue;
+
+      // Skip keys that belong to a different user
+      if (userPrefix && !key.startsWith(userPrefix)) continue;
 
       const attempts = safeJsonParse<Array<{ completedAt?: string }>>(key, []);
       if (!Array.isArray(attempts)) continue;
