@@ -64,7 +64,11 @@ There are three scenarios based on the bill received:
 
 #### Greedy Solutions:
 
-**C++**
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -94,7 +98,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public boolean lemonadeChange(int[] bills) {
@@ -123,8 +129,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def lemonadeChange(self, bills: List[int]) -> bool:
         five = ten = 0
@@ -148,8 +156,10 @@ class Solution:
         return True
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} bills
  * @return {boolean}
@@ -178,3 +188,6 @@ var lemonadeChange = function(bills) {
     return true;
 };
 ```
+
+  </TabItem>
+</Tabs>

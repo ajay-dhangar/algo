@@ -57,57 +57,12 @@ The goal is to flatten this structure into a single linked list:
 3. ### Connecting Nodes: Ensure that the next pointers are set correctly so that the flattened structure maintains the correct order.
 
 ## Implementation
-## Java
-```java
-class Node {
-    int data;
-    Node next;
-    Node child;
 
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-        this.child = null;
-    }
-}
+## Solutions
 
-public class LinkedListFlattener {
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
-    public Node flatten(Node root) {
-        if (root == null) {
-            return null;
-        }
-
-        Node dummy = new Node(0);
-        Node tail = dummy;
-
-        flattenHelper(root, tail);
-
-        return dummy.next;
-    }
-
-    private void flattenHelper(Node node, Node tail) {
-        while (node != null) {
-            tail.next = node;
-            tail = tail.next;
-
-            if (node.child != null) {
-                flattenHelper(node.child, tail);
-            }
-
-            node = node.next;
-        }
-    }
-
-    // Example Usage
-    public static void main(String[] args) {
-        // Create nodes and link them as per the multi-level structure
-    }
-}
-
-```
-
-## C++
 ```cpp
 class Node {
 public:
@@ -155,9 +110,62 @@ private:
 int main() {
     // Create nodes and link them as per the multi-level structure
 }
-
 ```
-## Python
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+class Node {
+    int data;
+    Node next;
+    Node child;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.child = null;
+    }
+}
+
+public class LinkedListFlattener {
+
+    public Node flatten(Node root) {
+        if (root == null) {
+            return null;
+        }
+
+        Node dummy = new Node(0);
+        Node tail = dummy;
+
+        flattenHelper(root, tail);
+
+        return dummy.next;
+    }
+
+    private void flattenHelper(Node node, Node tail) {
+        while (node != null) {
+            tail.next = node;
+            tail = tail.next;
+
+            if (node.child != null) {
+                flattenHelper(node.child, tail);
+            }
+
+            node = node.next;
+        }
+    }
+
+    // Example Usage
+    public static void main(String[] args) {
+        // Create nodes and link them as per the multi-level structure
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
 ```python
 class Node:
     def __init__(self, data):
@@ -197,3 +205,33 @@ def flatten(root):
 # Example Usage
 # Create nodes and link them as per the multi-level structure
 ```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+function merge(a, b) {
+    if (!a) return b;
+    if (!b) return a;
+    let result;
+    if (a.data < b.data) {
+        result = a;
+        result.bottom = merge(a.bottom, b);
+    } else {
+        result = b;
+        result.bottom = merge(a, b.bottom);
+    }
+    result.next = null;
+    return result;
+}
+
+var flatten = function(root) {
+    if (!root || !root.next) return root;
+    root.next = flatten(root.next);
+    root = merge(root, root.next);
+    return root;
+};
+```
+
+  </TabItem>
+</Tabs>

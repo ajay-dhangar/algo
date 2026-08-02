@@ -49,9 +49,11 @@ Since we are looking for the **shortest** transformation sequence from a startin
 * **Time Complexity:** $O(N \times M \times 26)$ where $N$ is the number of words in `wordList` and $M$ is the length of each word. For each word we process, we loop $M$ times, and within that loop, we substitute 26 characters. String manipulation and hashing take $O(M)$ time. Thus, strictly speaking, it's $O(N \times M^2)$.
 * **Space Complexity:** $O(N \times M)$ to store all the words in the Hash Set and the BFS Queue.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -93,7 +95,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -136,8 +140,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 from collections import deque
 
 class Solution:
@@ -166,8 +172,10 @@ class Solution:
         return 0
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {string} beginWord
  * @param {string} endWord
@@ -202,3 +210,6 @@ var ladderLength = function(beginWord, endWord, wordList) {
     return 0;
 };
 ```
+
+  </TabItem>
+</Tabs>

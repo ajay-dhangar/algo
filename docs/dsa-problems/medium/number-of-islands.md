@@ -49,11 +49,13 @@ We can solve this by iterating through every cell in the grid. Whenever we encou
 
 #### Complexity
 * **Time Complexity:** $O(M \times N)$ where $M$ is the number of rows and $N$ is the number of columns. We visit every cell in the grid a constant number of times.
-* **Space Complexity:** $O(M \times N)$ in the worst case for the recursion call stack. This happens if the entire grid is filled with `'1'`s, meaning the DFS goes $M \times N$ levels deep. 
+* **Space Complexity:** $O(M \times N)$ in the worst case for the recursion call stack. This happens if the entire grid is filled with `'1'`s, meaning the DFS goes $M \times N$ levels deep.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 private:
@@ -92,7 +94,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int numIslands(char[][] grid) {
@@ -129,8 +133,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def numIslands(self, grid: list[list[str]]) -> int:
         if not grid:
@@ -162,8 +168,10 @@ class Solution:
         return count
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {character[][]} grid
  * @return {number}
@@ -203,3 +211,6 @@ const numIslands = function(grid) {
     return count;
 };
 ```
+
+  </TabItem>
+</Tabs>

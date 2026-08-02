@@ -62,9 +62,11 @@ We can optimize the space complexity by recognizing that we only ever need the r
 * **Time Complexity:** $O(N^2)$ where $N$ is the total number of rows in the triangle. We visit every single element in the matrix exactly once.
 * **Space Complexity:** $O(N)$. We use a 1D array of size $N$ to keep track of the minimum path sums for the current row.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -83,7 +85,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
@@ -106,8 +110,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def minimumTotal(self, triangle: list[list[int]]) -> int:
         # Initialize dp array with the last row
@@ -121,8 +127,10 @@ class Solution:
         return dp[0]
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[][]} triangle
  * @return {number}
@@ -141,3 +149,6 @@ var minimumTotal = function(triangle) {
     return dp[0];
 };
 ```
+
+  </TabItem>
+</Tabs>

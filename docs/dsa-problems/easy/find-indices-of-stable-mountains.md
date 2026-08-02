@@ -59,6 +59,29 @@ Mountain 4 is stable because height[3] == 4 is greater than threshold == 2.
 
 # Code in Java
 
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    vector<int> stableMountains(vector<int>& height, int threshold) {
+        vector<int> result;
+        for (int i = 1; i < height.size(); i++) {
+            if (height[i - 1] > threshold) {
+                result.push_back(i);
+            }
+        }
+        return result;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public List<Integer> stableMountains(int[] height, int threshold) {
@@ -73,4 +96,29 @@ class Solution {
 }
 ```
 
- 
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+class Solution:
+    def stableMountains(self, height: List[int], threshold: int) -> List[int]:
+        return [i for i in range(1, len(height)) if height[i - 1] > threshold]
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var stableMountains = function(height, threshold) {
+    const result = [];
+    for (let i = 1; i < height.length; i++) {
+        if (height[i - 1] > threshold) {
+            result.push(i);
+        }
+    }
+    return result;
+};
+```
+
+  </TabItem>
+</Tabs>

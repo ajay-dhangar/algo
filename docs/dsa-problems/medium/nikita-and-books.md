@@ -58,9 +58,11 @@ If this condition holds for all prefixes, we can always greedily push any excess
 * **Time Complexity:** $O(n)$ per testcase. We simply iterate through the array once, accumulating the prefix sum and checking the mathematical condition in $O(1)$ time at each step.
 * **Space Complexity:** $O(1)$ or $O(n)$ depending on language implementation, but logically $O(1)$ auxiliary space since we just need a running sum counter.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -106,7 +108,9 @@ int main() {
 }
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Scanner;
 
@@ -143,8 +147,10 @@ public class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import sys
 
 def solve():
@@ -179,8 +185,10 @@ if __name__ == "__main__":
     solve()
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 const fs = require('fs');
 
 function main() {
@@ -213,3 +221,6 @@ function main() {
 
 main();
 ```
+
+  </TabItem>
+</Tabs>

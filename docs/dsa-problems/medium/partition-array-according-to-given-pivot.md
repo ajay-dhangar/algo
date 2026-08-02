@@ -53,9 +53,11 @@ After categorizing them, we combine these three groups in order. Depending on th
 * **Time Complexity:** $O(n)$ where $n$ is the length of the array `nums`. We iterate through the array a constant number of times.
 * **Space Complexity:** $O(n)$ because we require additional space to store the resulting partitioned array and any intermediate lists.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -81,7 +83,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int[] pivotArray(int[] nums, int pivot) {
@@ -115,8 +119,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 from typing import List
 
 class Solution:
@@ -136,8 +142,10 @@ class Solution:
         return less + equal + greater
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} nums
  * @param {number} pivot
@@ -161,3 +169,6 @@ const pivotArray = function(nums, pivot) {
     return less.concat(equal, greater);
 };
 ```
+
+  </TabItem>
+</Tabs>

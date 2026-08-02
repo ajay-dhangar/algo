@@ -71,9 +71,11 @@ We can map every node in the binary tree to a 2D coordinate `(col, row)` using e
 * **Time Complexity:** $O(N \log N)$ where $N$ is the number of nodes in the tree. We visit each node once, and then sort the items (or insert them into a self-balancing binary search tree/min-heap) which takes $O(N \log N)$ time.
 * **Space Complexity:** $O(N)$ for storing all node coordinates in our data structure and for the recursion stack (or BFS queue) space.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -121,7 +123,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -185,8 +189,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -221,8 +227,10 @@ class Solution:
         return ans
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -268,3 +276,6 @@ var verticalTraversal = function(root) {
     return ans;
 };
 ```
+
+  </TabItem>
+</Tabs>
