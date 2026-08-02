@@ -80,7 +80,7 @@ const DependencyGraphPage: React.FC = () => {
       .then((result) => {
         if (!isMounted || !containerRef.current) return;
         const svg = typeof result === "string" ? result : result.svg ?? "";
-        containerRef.current.innerHTML = svg;
+        containerRef.current.textContent = svg;
       })
       .catch((error) => {
         console.error("Failed to render dependency graph", error);
