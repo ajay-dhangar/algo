@@ -55,9 +55,11 @@ We can solve this using a 1D Dynamic Programming array to optimize space:
 * **Time Complexity:** $O(N \times \text{target})$ where $N$ is the length of the `nums` array and $\text{target}$ is half of the total sum. 
 * **Space Complexity:** $O(\text{target})$ because we are using a 1D boolean array of size `target + 1` instead of a 2D matrix.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <vector>
 
@@ -91,7 +93,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public boolean canPartition(int[] nums) {
@@ -120,8 +124,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def canPartition(self, nums: list[int]) -> bool:
         total_sum = sum(nums)
@@ -144,8 +150,10 @@ class Solution:
         return dp[target]
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} nums
  * @return {boolean}
@@ -174,3 +182,6 @@ var canPartition = function(nums) {
     return dp[target];
 };
 ```
+
+  </TabItem>
+</Tabs>

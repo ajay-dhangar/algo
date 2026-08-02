@@ -58,7 +58,70 @@ DLL: 10 <-> 30 <-> 40
 4. *Continue Traversal*: Keep traversing until the end of the list.
 
 ## Implementation
-## Java Code Implementation
+
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+#include <iostream>
+
+class Node {
+public:
+    int data;
+    Node* next;
+    Node* prev;
+
+    Node(int data) {
+        this->data = data;
+        this->next = nullptr;
+        this->prev = nullptr;
+    }
+};
+
+class DoublyLinkedList {
+public:
+    Node* head;
+
+    DoublyLinkedList() {
+        head = nullptr;
+    }
+
+    // Method to append a node at the end of the list
+    void append(int data) {
+        Node* newNode = new Node(data);
+        if (head == nullptr) {
+            head = newNode;
+            return;
+        }
+        Node* last = head;
+        while (last->next != nullptr) {
+            last = last->next;
+        }
+        last->next = newNode;
+        newNode->prev = last;
+    }
+
+    // Method to delete all occurrences of a key
+    void deleteAllOccurrences(int key) {
+        Node* current = head;
+
+        while (current != nullptr) {
+            if (current->data == key) {
+                // Node to be deleted
+                if (current->prev != nullptr) {
+                    current->prev->next = current->next;
+                }
+                if (current->next != nullptr) {
+                    current->next->prev = current->prev;
+                }
+                if (current == head) { // Move hea
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Node {
     int data;
@@ -148,66 +211,9 @@ public class Main {
 }
 ```
 
+  </TabItem>
+  <TabItem value="python" label="Python">
 
-## C++ Code Implementation
-
-```cpp
-#include <iostream>
-
-class Node {
-public:
-    int data;
-    Node* next;
-    Node* prev;
-
-    Node(int data) {
-        this->data = data;
-        this->next = nullptr;
-        this->prev = nullptr;
-    }
-};
-
-class DoublyLinkedList {
-public:
-    Node* head;
-
-    DoublyLinkedList() {
-        head = nullptr;
-    }
-
-    // Method to append a node at the end of the list
-    void append(int data) {
-        Node* newNode = new Node(data);
-        if (head == nullptr) {
-            head = newNode;
-            return;
-        }
-        Node* last = head;
-        while (last->next != nullptr) {
-            last = last->next;
-        }
-        last->next = newNode;
-        newNode->prev = last;
-    }
-
-    // Method to delete all occurrences of a key
-    void deleteAllOccurrences(int key) {
-        Node* current = head;
-
-        while (current != nullptr) {
-            if (current->data == key) {
-                // Node to be deleted
-                if (current->prev != nullptr) {
-                    current->prev->next = current->next;
-                }
-                if (current->next != nullptr) {
-                    current->next->prev = current->prev;
-                }
-                if (current == head) { // Move hea
-```
-
-
-## Python Code Implementation
 ```python
 class Node:
     def __init__(self, data):
@@ -271,3 +277,28 @@ dll.delete_all_occurrences(20)
 print("DLL after deleting 20:")
 dll.display()
 ```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var deleteAllOccurrences = function(head, x) {
+    let curr = head;
+    while (curr !== null) {
+        if (curr.val === x) {
+            if (curr === head) {
+                head = head.next;
+                if (head !== null) head.prev = null;
+            } else {
+                if (curr.next !== null) curr.next.prev = curr.prev;
+                if (curr.prev !== null) curr.prev.next = curr.next;
+            }
+        }
+        curr = curr.next;
+    }
+    return head;
+};
+```
+
+  </TabItem>
+</Tabs>

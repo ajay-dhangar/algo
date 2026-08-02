@@ -59,9 +59,11 @@ We can perform a binary search on the columns (from $0$ to $N-1$). At each step,
 * **Time Complexity:** $O(M \log N)$ where $M$ is the number of rows and $N$ is the number of columns. We perform a binary search on the columns ($\log N$) and at each step, we scan through $M$ rows to find the maximum element.
 * **Space Complexity:** $O(1)$ as we only use a few pointers and integer variables.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -102,7 +104,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int findMaxRow(int[][] mat, int col) {
@@ -142,8 +146,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def findPeakGrid(self, mat: list[list[int]]) -> list[int]:
         n, m = len(mat), len(mat[0])
@@ -169,8 +175,10 @@ class Solution:
         return [-1, -1]
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[][]} mat
  * @return {number[]}
@@ -205,3 +213,6 @@ var findPeakGrid = function(mat) {
     return [-1, -1];
 };
 ```
+
+  </TabItem>
+</Tabs>

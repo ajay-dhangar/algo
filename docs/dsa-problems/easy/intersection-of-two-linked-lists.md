@@ -51,9 +51,11 @@ The core idea is to compensate for the difference in lengths between the two lin
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -83,7 +85,9 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -115,8 +119,10 @@ public class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -141,8 +147,10 @@ class Solution:
         return ptrA
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -172,3 +180,6 @@ var getIntersectionNode = function(headA, headB) {
     return ptrA;
 };
 ```
+
+  </TabItem>
+</Tabs>

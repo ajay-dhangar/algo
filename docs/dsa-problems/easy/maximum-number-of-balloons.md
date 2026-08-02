@@ -65,9 +65,11 @@ The word **"balloon"** requires:
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -91,7 +93,9 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int maxNumberOfBalloons(String text) {
@@ -111,8 +115,10 @@ class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 from collections import Counter
 
 class Solution:
@@ -130,8 +136,10 @@ class Solution:
         )
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {string} text
  * @return {number}
@@ -156,3 +164,6 @@ var maxNumberOfBalloons = function(text) {
     );
 };
 ```
+
+  </TabItem>
+</Tabs>

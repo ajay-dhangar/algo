@@ -59,9 +59,11 @@ Since every previous element successfully divided $S$, they will definitely divi
 * **Time Complexity:** $O(N)$ per testcase, where $N$ is the desired length of the array. We construct the array in a single linear pass.
 * **Space Complexity:** $O(N)$ to store the array elements before printing the result.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -109,7 +111,9 @@ int main() {
 }
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -157,8 +161,10 @@ public class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import sys
 
 def solve():
@@ -191,8 +197,10 @@ if __name__ == "__main__":
     solve()
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 const fs = require('fs');
 
 function main() {
@@ -228,3 +236,6 @@ function main() {
 
 main();
 ```
+
+  </TabItem>
+</Tabs>

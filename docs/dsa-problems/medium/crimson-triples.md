@@ -50,9 +50,11 @@ To solve this problem efficiently, we need to simplify the condition $\gcd(\oper
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 
@@ -86,7 +88,9 @@ int main() {
 }
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Scanner;
 
@@ -117,8 +121,10 @@ public class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import sys
 
 def solve():
@@ -143,8 +149,10 @@ if __name__ == "__main__":
     solve()
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 const fs = require('fs');
 
 function main() {
@@ -170,3 +178,6 @@ function main() {
 
 main();
 ```
+
+  </TabItem>
+</Tabs>

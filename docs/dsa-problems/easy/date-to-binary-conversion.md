@@ -50,7 +50,35 @@ Output: "11101101100-1-1"
 
 **3. Output:** Provide the combined binary representation.
 
-# Solution in Java
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    string convertDateToBinary(string date) {
+        int year = stoi(date.substr(0, 4));
+        int month = stoi(date.substr(5, 2));
+        int day = stoi(date.substr(8, 2));
+        
+        auto toBin = [](int val) {
+            string s = "";
+            while (val > 0) {
+                s = to_string(val % 2) + s;
+                val /= 2;
+            }
+            return s;
+        };
+        
+        return toBin(year) + "-" + toBin(month) + "-" + toBin(day);
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
 
 ```java
 class Solution {
@@ -67,3 +95,25 @@ class Solution {
     }
 }
 ```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+class Solution:
+    def convertDateToBinary(self, date: str) -> str:
+        parts = date.split('-')
+        return '-'.join(bin(int(p))[2:] for p in parts)
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var convertDateToBinary = function(date) {
+    return date.split('-').map(part => Number(part).toString(2)).join('-');
+};
+```
+
+  </TabItem>
+</Tabs>

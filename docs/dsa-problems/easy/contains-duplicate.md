@@ -47,7 +47,11 @@ You are given an array of integers, `nums`, which may contain both positive and 
 **Explanation:**  
 - All elements are unique and appear only once.
 
-## C++ Code:
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 #include <unordered_set>
@@ -79,34 +83,50 @@ int main() {
     
     return 0;
 }
-
 ```
-## Approach and code explanation
-**Using a Set for Uniqueness:**
-- A set data structure inherently stores unique values. In C++, we used an unordered_set for this purpose, which allows us to:
-Insert elements in O(1) average time.
-Check if an element exists (lookup) in O(1) average time.
 
-**Iterating Through the Array:**
-- The algorithm iterates through each element of the array.
-For each element:
-It checks if the element already exists in the set (using the find() method). If it does, this means the element is a duplicate, so we return true.
-If the element is not found in the set, it is added to the set to track that we’ve seen it before.
+  </TabItem>
+  <TabItem value="java" label="Java">
 
-**Returning the Result:**
-- If the loop completes without finding any duplicates, the function returns false, meaning all elements in the array are distinct.
-Code Flow:
-Initialization: We declare an `unordered_set<int>` uniques to store the unique numbers encountered during the iteration.
+```java
+import java.util.HashSet;
+import java.util.Set;
 
-**Loop through the array:**
-- For each number in the array:
-Check for duplication: If the number is already in the set, return true (duplicate found).
-Insert into the set: If not found, add the number to the set.
-Final Result: If the loop completes without finding any duplicates, return false.
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (!set.add(num)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+```
 
-## complexcity
-## Time Complexity:
-Time complexity- O(n), where n is the size of the input array.
+  </TabItem>
+  <TabItem value="python" label="Python">
 
-## Space complexity:
--O(n), as we are using an unordered_set to store up to n unique elements.
+```python
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        return len(nums) != len(set(nums))
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var containsDuplicate = function(nums) {
+    const set = new Set();
+    for (const num of nums) {
+        if (set.has(num)) return true;
+        set.add(num);
+    }
+    return false;
+};
+```
+
+  </TabItem>
+</Tabs>
