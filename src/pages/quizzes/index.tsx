@@ -420,6 +420,14 @@ const Quizzes: React.FC = () => {
                           className="w-full py-2.5 pl-10 pr-4 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[var(--ifm-color-primary)] text-sm font-semibold rounded-xl transition-all"
                         />
                       </div>
+                      <div className="flex items-center gap-3">
+                        <Link
+                          to="/quizzes/dependency-graph"
+                          className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em] hover:bg-slate-200 dark:hover:bg-slate-800 transition"
+                        >
+                          Dependency Graph
+                        </Link>
+                      </div>
                       <div className="overflow-x-auto -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-none">
                         <div className="flex gap-1.5" role="group">
                           {FILTER_CATEGORIES.map(cat => (
