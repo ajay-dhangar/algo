@@ -53,7 +53,9 @@ The problem asks us to simulate a specific mapping process for each word. The pr
 
 ## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -72,7 +74,9 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public String mapWordWeights(String[] words, int[] weights) {
@@ -90,8 +94,10 @@ class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def mapWordWeights(self, words: list[str], weights: list[int]) -> str:
         result = []
@@ -103,8 +109,10 @@ class Solution:
         return "".join(result)
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {string[]} words
  * @param {number[]} weights
@@ -123,3 +131,6 @@ var mapWordWeights = function(words, weights) {
     return result;
 };
 ```
+
+  </TabItem>
+</Tabs>

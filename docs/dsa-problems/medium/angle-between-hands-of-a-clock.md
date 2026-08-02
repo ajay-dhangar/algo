@@ -51,9 +51,11 @@ To find the angle between the hands, we calculate the exact position (in degrees
 * **Time Complexity:** $O(1)$ because the calculation relies on a few basic arithmetic operations, regardless of the input size.
 * **Space Complexity:** $O(1)$ because we only use a few variables to store the angles, requiring constant extra space.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -68,7 +70,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public double angleClock(int hour, int minutes) {
@@ -82,8 +86,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def angleClock(self, hour: int, minutes: int) -> float:
         minute_angle = minutes * 6
@@ -94,8 +100,10 @@ class Solution:
         return min(diff, 360 - diff)
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number} hour
  * @param {number} minutes
@@ -110,3 +118,6 @@ const angleClock = function(hour, minutes) {
     return Math.min(diff, 360 - diff);
 };
 ```
+
+  </TabItem>
+</Tabs>

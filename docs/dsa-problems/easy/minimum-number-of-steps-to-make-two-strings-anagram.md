@@ -52,9 +52,11 @@ Therefore, we only need to count how many characters in `s` are missing in `t`. 
 * **Time Complexity:** $O(n)$ where $n$ is the length of the string `s` (or `t`). We iterate through the strings once.
 * **Space Complexity:** $O(1)$ because we only use a fixed-size frequency array of 26 integers, taking constant extra space regardless of the input size.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -77,7 +79,10 @@ public:
     }
 };
 ```
-**Java**
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int minSteps(String s, String t) {
@@ -100,8 +105,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def minSteps(self, s: str, t: str) -> int:
         count = [0] * 26
@@ -118,8 +125,10 @@ class Solution:
         return steps
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {string} s
  * @param {string} t
@@ -144,3 +153,6 @@ const minSteps = function(s, t) {
     return steps;
 };
 ```
+
+  </TabItem>
+</Tabs>

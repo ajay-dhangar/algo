@@ -51,60 +51,190 @@ Time Complexity
 Time Complexity: O(n * m), where n is the number of rows and m is the number of columns, as each cell is processed at most once.
 Space Complexity: O(n * m) for the BFS queue.
 C++ Implementation
-```
-cpp
-Copy code
+
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
 #include <vector>
 #include <queue>
 using namespace std;
 
-int orangesRotting(vector<vector<int>>& grid) {
-    int rows = grid.size();
-    int cols = grid[0].size();
-    queue<pair<int, int>> rottenQueue;
-    int freshOranges = 0;
-    int minutes = 0;
+class Solution {
+public:
+    int orangesRotting(vector<vector<int>>& grid) {
+        int rows = grid.size();
+        int cols = grid[0].size();
+        queue<pair<int, int>> rottenQueue;
+        int freshOranges = 0;
+        int minutes = 0;
 
-    // Initialize queue with all initially rotten oranges and count fresh oranges
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            if (grid[i][j] == 2) {
-                rottenQueue.push({i, j});
-            } else if (grid[i][j] == 1) {
-                freshOranges++;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == 2) {
+                    rottenQueue.push({i, j});
+                } else if (grid[i][j] == 1) {
+                    freshOranges++;
+                }
+            }
+        }
+
+        vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+        while (!rottenQueue.empty() && freshOranges > 0) {
+            int size = rottenQueue.size();
+            minutes++;
+            for (int i = 0; i < size; i++) {
+                auto [x, y] = rottenQueue.front();
+                rottenQueue.pop();
+                for (auto [dx, dy] : directions) {
+                    int newX = x + dx;
+                    int newY = y + dy;
+                    if (newX >= 0 && newX < rows && newY >= 0 && newY < cols && grid[newX][newY] == 1) {
+                        grid[newX][newY] = 2;
+                        freshOranges--;
+                        rottenQueue.push({newX, newY});
+                    }
+                }
+            }
+        }
+        return freshOranges == 0 ? minutes : -1;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Solution {
+    public int orangesRotting(int[][] grid) {
+        int rows = grid.length;
+        int cols = grid[0].length;
+        Queue<int[]> queue = new LinkedList<>();
+        int fresh = 0;
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == 2) {
+                    queue.offer(new int[]{r, c});
+                } else if (grid[r][c] == 1) {
+                    fresh++;
+                }
+            }
+        }
+        if (fresh == 0) return 0;
+        int minutes = 0;
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        while (!queue.isEmpty() && fresh > 0) {
+            int size = queue.size();
+            minutes++;
+            for (int i = 0; i < size; i++) {
+                int[] curr = queue.poll();
+                for (int[] d : dirs) {
+                    int nr = curr[0] + d[0];
+                    int nc = curr[1] + d[1];
+                    if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && grid[nr][nc] == 1) {
+                        grid[nr][nc] = 2;
+                        fresh--;
+                        queue.offer(new int[]{nr, nc});
+                    }
+                }
+            }
+        }
+        return fresh == 0 ? minutes : -1;
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+from collections import deque
+
+class Solution:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        rows, cols = len(grid), len(grid[0])
+        queue = deque()
+        fresh = 0
+        
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == 2:
+                    queue.append((r, c))
+                elif grid[r][c] == 1:
+                    fresh += 1
+                    
+        if fresh == 0:
+            return 0
+            
+        minutes = 0
+        dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        
+        while queue and fresh > 0:
+            minutes += 1
+            for _ in range(len(queue)):
+                r, c = queue.popleft()
+                for dr, dc in dirs:
+                    nr, nc = r + dr, c + dc
+                    if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == 1:
+                        grid[nr][nc] = 2;
+                        fresh -= 1;
+                        queue.append((nr, nc))
+                        
+        return minutes if fresh == 0 else -1
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var orangesRotting = function(grid) {
+    const rows = grid.length;
+    const cols = grid[0].length;
+    const queue = [];
+    let fresh = 0;
+    
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            if (grid[r][c] === 2) {
+                queue.push([r, c]);
+            } else if (grid[r][c] === 1) {
+                fresh++;
             }
         }
     }
-
-    // Directions for adjacent cells (up, down, left, right)
-    vector<pair<int, int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-
-    // Perform BFS to rot adjacent oranges
-    while (!rottenQueue.empty() && freshOranges > 0) {
-        int size = rottenQueue.size();
+    
+    if (fresh === 0) return 0;
+    
+    let minutes = 0;
+    const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+    
+    while (queue.length > 0 && fresh > 0) {
+        const size = queue.length;
         minutes++;
-
-        for (int i = 0; i < size; i++) {
-            auto [x, y] = rottenQueue.front();
-            rottenQueue.pop();
-
-            for (auto [dx, dy] : directions) {
-                int newX = x + dx;
-                int newY = y + dy;
-
-                // Check if the adjacent cell is within bounds and has a fresh orange
-                if (newX >= 0 && newX < rows && newY >= 0 && newY < cols && grid[newX][newY] == 1) {
-                    // Rot the fresh orange
-                    grid[newX][newY] = 2;
-                    freshOranges--;
-                    rottenQueue.push({newX, newY});
+        for (let i = 0; i < size; i++) {
+            const [r, c] = queue.shift();
+            for (const [dr, dc] of dirs) {
+                const nr = r + dr;
+                const nc = c + dc;
+                if (nr >= 0 && nr < rows && nc >= 0 && nc < cols && grid[nr][nc] === 1) {
+                    grid[nr][nc] = 2;
+                    fresh--;
+                    queue.push([nr, nc]);
                 }
             }
         }
     }
-
-    // If there are fresh oranges left, return -1, otherwise return minutes taken
-    return freshOranges == 0 ? minutes : -1;
-}
+    
+    return fresh === 0 ? minutes : -1;
+};
 ```
-This algorithm efficiently uses BFS to simulate the spread of rot across the grid, ensuring that all reachable fresh oranges rot in the minimum time or determining that it's impossible.
+
+  </TabItem>
+</Tabs>

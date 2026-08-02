@@ -44,9 +44,11 @@ We can solve this using a reverse-thinking approach:
 * **Time Complexity:** $O(M \times N)$ where $M$ is the number of rows and $N$ is the number of columns. We visit each cell at most a constant number of times.
 * **Space Complexity:** $O(M \times N)$ in the worst-case scenario for the recursion call stack (e.g., if the entire board is filled with `'O'`s).
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 private:
@@ -99,7 +101,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public void solve(char[][] board) {
@@ -147,8 +151,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def solve(self, board: list[list[str]]) -> None:
         """
@@ -189,8 +195,10 @@ class Solution:
                     board[i][j] = 'O' # Safe
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {character[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
@@ -238,3 +246,6 @@ var solve = function(board) {
     }
 };
 ```
+
+  </TabItem>
+</Tabs>

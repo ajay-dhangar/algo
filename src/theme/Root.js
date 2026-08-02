@@ -3,6 +3,7 @@ import { useLocation } from "@docusaurus/router";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Head from "@docusaurus/Head";
 import KeyboardShortcutsModal from "../components/KeyboardShortcutsModal";
+import KeyboardShortcutsButton from "../components/KeyboardShortcutsButton";
 import ChallengeSearchModal from "../components/ChallengeSearchModal";
 import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
 import PageProgressIndicator from "../components/PageProgressIndicator";
@@ -14,7 +15,7 @@ export default function Root({ children }) {
   const { siteConfig } = useDocusaurusContext();
   const isHomepage = location.pathname === siteConfig.baseUrl;
   const isDocsPage = location.pathname.includes("/docs/");
-
+ 
   // Client-side anti-clickjacking frame-busting protection
   useEffect(() => {
     if (typeof window !== "undefined" && window.top !== window.self) {
@@ -52,6 +53,7 @@ export default function Root({ children }) {
         <SidebarUpdater />
         {isDocsPage && <PageProgressIndicator />}
         {children}
+        <KeyboardShortcutsButton onClick={onOpenHelp} />
         <KeyboardShortcutsModal
           isOpen={showKeyboardModal}
           onClose={onCloseHelp}

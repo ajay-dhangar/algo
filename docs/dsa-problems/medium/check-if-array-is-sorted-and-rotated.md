@@ -54,9 +54,11 @@ If the array is not sorted and rotated, there will be more than one drop. To che
 * **Time Complexity:** $O(n)$ where $n$ is the number of elements in the array. We iterate through the array exactly once.
 * **Space Complexity:** $O(1)$ because we only use a counter variable and length variable, taking constant extra space.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -75,7 +77,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public boolean check(int[] nums) {
@@ -93,8 +97,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def check(self, nums: list[int]) -> bool:
         count = 0
@@ -107,8 +113,10 @@ class Solution:
         return count <= 1
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} nums
  * @return {boolean}
@@ -126,3 +134,6 @@ const check = function(nums) {
     return count <= 1;
 };
 ```
+
+  </TabItem>
+</Tabs>

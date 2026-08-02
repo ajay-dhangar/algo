@@ -38,6 +38,15 @@ function scoreBg(pct: number): string {
   return "bg-red-500";
 }
 
+function formatPrerequisiteList(prereqIds: string[]) {
+  if (prereqIds.length === 0) return "";
+  const titles = prereqIds
+    .map((id) => QUIZZES_CONFIG.find((quiz) => quiz.id === id)?.title.replace("Quiz on ", "") ?? id);
+  if (titles.length === 1) return titles[0];
+  if (titles.length === 2) return `${titles[0]} and ${titles[1]}`;
+  return `${titles.slice(0, -1).join(", ")}, and ${titles[titles.length - 1]}`;
+}
+
 function statusIcon(status: string) {
   if (status === "mastered")    return <FaStar    className="text-amber-400 text-xs" />;
   if (status === "passed")      return <FaCheckCircle className="text-emerald-500 text-xs" />;
@@ -197,9 +206,24 @@ function ProgressDashboard({ globalStats, userId, loaded }: ProgressDashboardPro
 
 // ─── Quiz card with score badge ───────────────────────────────────────────────
 
-function QuizCard({ quiz, stat, index }) {
+function QuizCard({ quiz, stat, allStats, index }: { quiz: QuizCardConfig; stat?: QuizStat; allStats: Record<string, QuizStat>; index: number }) {
   const hasAttempt = stat && stat.totalAttempts > 0;
   const pct = stat?.bestPercent ?? 0;
+
+  const missedPrereqs = quiz.prerequisites?.filter((prereq) => {
+    const prereqStatus = allStats[prereq]?.status ?? "not-started";
+    return prereqStatus === "not-started";
+  }) ?? [];
+
+  const showPrerequisiteHint = Boolean(
+    hasAttempt &&
+      pct < 60 &&
+      missedPrereqs.length > 0
+  );
+
+  const prerequisiteHint = showPrerequisiteHint
+    ? `This builds on ${formatPrerequisiteList(missedPrereqs)} — you haven't tried ${missedPrereqs.length === 1 ? "that one" : "those yet"}.`
+    : null;
 
   return (
     <motion.div
@@ -284,6 +308,12 @@ function QuizCard({ quiz, stat, index }) {
                   : "In Progress"}
               </span>
             </div>
+
+            {prerequisiteHint && (
+              <div className="mt-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3 text-[10px] leading-snug text-slate-700 dark:text-slate-300">
+                {prerequisiteHint}
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -419,6 +449,7 @@ const Quizzes: React.FC = () => {
                             key={quiz.id}
                             quiz={quiz}
                             stat={stats[quiz.id]}
+                            allStats={stats}
                             index={index}
                           />
                         ))}

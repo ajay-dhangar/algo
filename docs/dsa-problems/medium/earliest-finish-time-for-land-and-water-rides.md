@@ -63,9 +63,11 @@ For each sequence, we first calculate the absolute earliest finish time of the f
 * **Time Complexity:** $O(N + M)$ where $N$ is the number of land rides and $M$ is the number of water rides. The algorithm iterates through the arrays in linear, independent loops rather than nested arrays.
 * **Space Complexity:** $O(1)$ as we strictly use only a few scalar variables to keep track of the earliest finish times, meaning space does not scale with the input.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
     int calc(const vector<int>& start1, const vector<int>& dur1, const vector<int>& start2, const vector<int>& dur2) {
@@ -91,7 +93,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     private int calc(int[] start1, int[] dur1, int[] start2, int[] dur2) {
@@ -116,8 +120,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def earliestFinishTime(self, landStartTime: List[int], landDuration: List[int], waterStartTime: List[int], waterDuration: List[int]) -> int:
         def calc(start1, dur1, start2, dur2):
@@ -130,8 +136,10 @@ class Solution:
         )
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} landStartTime
  * @param {number[]} landDuration
@@ -159,3 +167,6 @@ const earliestFinishTime = function(landStartTime, landDuration, waterStartTime,
     );
 };
 ```
+
+  </TabItem>
+</Tabs>

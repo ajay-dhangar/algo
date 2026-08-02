@@ -61,9 +61,11 @@ The graph is given as an Adjacency Matrix. We can find the connected components 
 * **Time Complexity:** $O(N^2)$ where $N$ is the number of cities. Even though it looks like nested loops, we traverse the $N \times N$ matrix exactly once throughout all the combined DFS calls.
 * **Space Complexity:** $O(N)$ for the `visit` array of size $N$ and the recursion call stack, which can go up to $N$ deep in the worst case if all cities are connected in a single line.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 private:
@@ -95,7 +97,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int findCircleNum(int[][] isConnected) {
@@ -123,8 +127,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def findCircleNum(self, isConnected: list[list[int]]) -> int:
         n = len(isConnected)
@@ -145,8 +151,10 @@ class Solution:
         return provinces
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[][]} isConnected
  * @return {number}
@@ -175,3 +183,6 @@ const findCircleNum = function(isConnected) {
     return provinces;
 };
 ```
+
+  </TabItem>
+</Tabs>

@@ -51,7 +51,10 @@ Objective:
 - **Time Complexity**: O(N) as we have to traverse throughout the tree consisting of N nodes.
 - **Space Complexity**: O(N) for auxiliary stack space storing all the recursive calls.
 
-### C++ Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
 ```cpp
 #include <bits/stdc++.h>
@@ -110,5 +113,120 @@ int largestBST(Node *root) {
 }
 
 };
-
 ```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+class Solution {
+    static class NodeInfo {
+        boolean isBST;
+        int size;
+        int min;
+        int max;
+        NodeInfo(boolean isBST, int size, int min, int max) {
+            this.isBST = isBST;
+            this.size = size;
+            this.min = min;
+            this.max = max;
+        }
+    }
+    
+    private int maxSize = 0;
+    
+    public int largestBst(TreeNode root) {
+        maxSize = 0;
+        traverse(root);
+        return maxSize;
+    }
+    
+    private NodeInfo traverse(TreeNode root) {
+        if (root == null) {
+            return new NodeInfo(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+        }
+        NodeInfo left = traverse(root.left);
+        NodeInfo right = traverse(root.right);
+        
+        if (left.isBST && right.isBST && root.val > left.max && root.val < right.min) {
+            int currentSize = left.size + right.size + 1;
+            maxSize = Math.max(maxSize, currentSize);
+            return new NodeInfo(true, currentSize, 
+                                Math.min(root.val, left.min), 
+                                Math.max(root.val, right.max));
+        }
+        return new NodeInfo(false, 0, 0, 0);
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+class NodeInfo:
+    def __init__(self, is_bst, size, min_val, max_val):
+        self.is_bst = is_bst
+        self.size = size
+        self.min_val = min_val
+        self.max_val = max_val
+
+class Solution:
+    def largestBst(self, root: Optional[TreeNode]) -> int:
+        self.max_size = 0
+        
+        def traverse(node):
+            if not node:
+                return NodeInfo(True, 0, float('inf'), float('-inf'))
+            
+            left = traverse(node.left)
+            right = traverse(node.right)
+            
+            if left.is_bst and right.is_bst and node.val > left.max_val and node.val < right.min_val:
+                curr_size = left.size + right.size + 1
+                self.max_size = max(self.max_size, curr_size)
+                return NodeInfo(True, curr_size, 
+                                min(node.val, left.min_val), 
+                                max(node.val, right.max_val))
+            return NodeInfo(False, 0, 0, 0)
+            
+        traverse(root)
+        return self.max_size
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var largestBst = function(root) {
+    let maxSize = 0;
+    
+    function traverse(node) {
+        if (!node) {
+            return { isBST: true, size: 0, min: Infinity, max: -Infinity };
+        }
+        
+        const left = traverse(node.left);
+        const right = traverse(node.right);
+        
+        if (left.isBST && right.isBST && node.val > left.max && node.val < right.min) {
+            const currSize = left.size + right.size + 1;
+            maxSize = Math.max(maxSize, currSize);
+            return {
+                isBST: true,
+                size: currSize,
+                min: Math.min(node.val, left.min),
+                max: Math.max(node.val, right.max)
+            };
+        }
+        
+        return { isBST: false, size: 0, min: 0, max: 0 };
+    }
+    
+    traverse(root);
+    return maxSize;
+};
+```
+
+  </TabItem>
+</Tabs>

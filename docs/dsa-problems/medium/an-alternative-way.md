@@ -54,9 +54,11 @@ Whenever an array operation involves alternating additions and subtractions (lik
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -106,7 +108,9 @@ int main() {
 }
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Scanner;
 
@@ -151,8 +155,10 @@ public class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import sys
 
 def solve():
@@ -194,8 +200,10 @@ if __name__ == "__main__":
     solve()
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 const fs = require('fs');
 
 function main() {
@@ -242,3 +250,6 @@ function main() {
 
 main();
 ```
+
+  </TabItem>
+</Tabs>

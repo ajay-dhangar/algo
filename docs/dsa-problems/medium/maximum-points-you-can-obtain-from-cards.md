@@ -57,7 +57,11 @@ Instead of trying to figure out which side to pick from step-by-step (which can 
 
 #### Sliding Window Solutions:
 
-**C++**
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -85,7 +89,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int maxScore(int[] cardPoints, int k) {
@@ -112,8 +118,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def maxScore(self, cardPoints: list[int], k: int) -> int:
         n = len(cardPoints)
@@ -133,8 +141,10 @@ class Solution:
         return max_sum
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} cardPoints
  * @param {number} k
@@ -162,3 +172,6 @@ var maxScore = function(cardPoints, k) {
     return maxSum;
 };
 ```
+
+  </TabItem>
+</Tabs>

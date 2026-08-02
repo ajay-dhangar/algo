@@ -40,7 +40,60 @@ To merge the intervals, we can first sort them based on the start time. Then, we
 3. **Return**:  
    - Return the merged intervals.
 
-## Python Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        if (intervals.empty()) return {};
+        sort(intervals.begin(), intervals.end());
+        vector<vector<int>> merged;
+        for (const auto& interval : intervals) {
+            if (merged.empty() || merged.back()[1] < interval[0]) {
+                merged.push_back(interval);
+            } else {
+                merged.back()[1] = max(merged.back()[1], interval[1]);
+            }
+        }
+        return merged;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        if (intervals.length <= 1) return intervals;
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        List<int[]> result = new ArrayList<>();
+        int[] current = intervals[0];
+        result.add(current);
+        for (int[] interval : intervals) {
+            if (interval[0] <= current[1]) {
+                current[1] = Math.max(current[1], interval[1]);
+            } else {
+                current = interval;
+                result.add(current);
+            }
+        }
+        return result.toArray(new int[result.size()][]);
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
 
 ```python
 class Solution:
@@ -61,7 +114,28 @@ class Solution:
                 merged.append(current)
 
         return merged
-
 ```
-Time Complexity: O(n log n) <br /> 
-Space Complexity: O(n)    
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var merge = function(intervals) {
+    if (!intervals.length) return [];
+    intervals.sort((a, b) => a[0] - b[0]);
+    const res = [intervals[0]];
+    for (let i = 1; i < intervals.length; i++) {
+        const curr = intervals[i];
+        const last = res[res.length - 1];
+        if (curr[0] <= last[1]) {
+            last[1] = Math.max(last[1], curr[1]);
+        } else {
+            res.push(curr);
+        }
+    }
+    return res;
+};
+```
+
+  </TabItem>
+</Tabs>

@@ -57,11 +57,13 @@ By making $p = [2, 1, 4, 3, 6, 5, \dots, n, n-1]$, we guarantee:
 
 #### Complexity
 * **Time Complexity:** $O(N)$ per testcase, where $N$ is the length of the permutation. We simply loop from $1$ to $N$ and print the pairs.
-* **Space Complexity:** $O(1)$ auxiliary space. 
+* **Space Complexity:** $O(1)$ auxiliary space.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 
@@ -92,7 +94,9 @@ int main() {
 }
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Scanner;
 
@@ -120,8 +124,10 @@ public class Main {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import sys
 
 def solve():
@@ -148,8 +154,10 @@ if __name__ == "__main__":
     solve()
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 const fs = require('fs');
 
 function main() {
@@ -175,3 +183,6 @@ function main() {
 
 main();
 ```
+
+  </TabItem>
+</Tabs>
