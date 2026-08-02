@@ -24,11 +24,9 @@ jobs:
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const issue_number = context.payload.issue.number;
-            
+            const issue_number = context.payload.issue.number;            
             const labelName = 'gssoc-26';
             const color = 'F9D0C4'; // Clean hex color for GSSoC label
-            
             const description = 'Official label for all GSSoC 2026 related issues and pull requests.';
 
             try {
@@ -41,7 +39,6 @@ jobs:
               });
               
               console.log(`Label "${labelName}" exists.`);
-              
             } catch (err) {
             
               // If label is missing (404), create it automatically
@@ -78,8 +75,3 @@ jobs:
             });
 
             console.log(`Successfully labeled Issue #${issue_number} with "${labelName}"`);
-
-
-
-
-            
