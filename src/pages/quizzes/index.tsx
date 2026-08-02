@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FaPlayCircle, FaTerminal, FaLayerGroup, FaSearch,
   FaTrophy, FaFire, FaChartBar, FaRedo, FaCheckCircle,
-  FaClock, FaExclamationTriangle, FaStar,
+  FaClock, FaExclamationTriangle, FaStar, FaCircle,
 } from "react-icons/fa";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
@@ -335,8 +335,6 @@ function QuizCard({ quiz, stat, allStats, index }: { quiz: QuizCardConfig; stat?
 const Quizzes: React.FC = () => {
   const [search, setSearch]           = useState("");
   const [activeFilter, setActiveFilter] = useState<typeof FILTER_CATEGORIES[number]>("All");
-  const [showOnlyWeak, setShowOnlyWeak] = useState(false);
-  const [showOnlyIncomplete, setShowOnlyIncomplete] = useState(false);
 
   const filteredQuizzes = useMemo(() => {
     return QUIZZES_CONFIG.filter(quiz => {
@@ -396,6 +394,24 @@ const Quizzes: React.FC = () => {
           {() => {
             const Inner = () => {
               const { stats, globalStats, userId, loaded } = useQuizProgress(QUIZ_IDS, QUESTION_COUNTS);
+              const [showOnlyWeak, setShowOnlyWeak] = useState(false);
+              const [showOnlyIncomplete, setShowOnlyIncomplete] = useState(false);
+
+              const displayedQuizzes = useMemo(() => {
+                return filteredQuizzes.filter(quiz => {
+                  if (showOnlyWeak) {
+                    const isWeak = globalStats.weakTopics.includes(quiz.id);
+                    if (!isWeak) return false;
+                  }
+                  if (showOnlyIncomplete) {
+                    const stat = stats[quiz.id];
+                    const isIncomplete = !stat || stat.totalAttempts === 0 || stat.status === "in-progress";
+                    if (!isIncomplete) return false;
+                  }
+                  return true;
+                });
+              }, [filteredQuizzes, showOnlyWeak, showOnlyIncomplete, stats, globalStats.weakTopics]);
+
               return (
                 <>
                   <div className="max-w-7xl mx-auto px-4 mt-10 mb-2 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
@@ -421,7 +437,7 @@ const Quizzes: React.FC = () => {
                         />
                       </div>
                       <div className="overflow-x-auto -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-none">
-                        <div className="flex gap-1.5" role="group">
+                        <div className="flex gap-1.5 flex-wrap" role="group">
                           {FILTER_CATEGORIES.map(cat => (
                             <button
                               key={cat}
@@ -435,6 +451,37 @@ const Quizzes: React.FC = () => {
                               {cat === "All" ? "All Quizzes" : cat}
                             </button>
                           ))}
+
+                          {/* Divider */}
+                          <div className="w-px self-stretch bg-slate-200 dark:bg-slate-800 mx-1" />
+
+                          {/* Show only weak topics */}
+                          <button
+                            onClick={() => setShowOnlyWeak(v => !v)}
+                            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold tracking-wide border transition-all whitespace-nowrap min-h-[36px] cursor-pointer ${
+                              showOnlyWeak
+                                ? "bg-amber-500 border-amber-500 text-white shadow-sm"
+                                : "border-slate-200 bg-white dark:bg-slate-950 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:border-amber-400 hover:text-amber-600 dark:hover:text-amber-400"
+                            }`}
+                            title="Show only topics where your score is below 70%"
+                          >
+                            <FaExclamationTriangle className="text-[10px]" />
+                            Needs Review
+                          </button>
+
+                          {/* Show only incomplete */}
+                          <button
+                            onClick={() => setShowOnlyIncomplete(v => !v)}
+                            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold tracking-wide border transition-all whitespace-nowrap min-h-[36px] cursor-pointer ${
+                              showOnlyIncomplete
+                                ? "bg-blue-600 border-blue-600 text-white shadow-sm"
+                                : "border-slate-200 bg-white dark:bg-slate-950 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400"
+                            }`}
+                            title="Show only quizzes you haven't passed yet"
+                          >
+                            <FaCircle className="text-[10px]" />
+                            Not Completed
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -444,7 +491,7 @@ const Quizzes: React.FC = () => {
                   <section className="max-w-7xl mx-auto px-4 mt-6">
                     <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       <AnimatePresence mode="popLayout">
-                        {filteredQuizzes.map((quiz, index) => (
+                        {displayedQuizzes.map((quiz, index) => (
                           <QuizCard
                             key={quiz.id}
                             quiz={quiz}
@@ -456,7 +503,7 @@ const Quizzes: React.FC = () => {
                       </AnimatePresence>
                     </motion.div>
 
-                    {filteredQuizzes.length === 0 && (
+                    {displayedQuizzes.length === 0 && (
                       <div className="text-center py-16 px-4 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/40">
                         <FaLayerGroup className="text-slate-400 mx-auto text-3xl mb-3" />
                         <h4 className="text-base font-bold text-slate-800 dark:text-slate-200 m-0">No Search Parameters Matched</h4>
