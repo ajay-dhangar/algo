@@ -1023,3 +1023,20 @@ html.dark .theme-doc-toc-desktop::before {
 [data-theme='dark'] .difficulty-badge.hard {
   background-color: #ef4444;
 }
+
+.bookmark-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--ifm-color-primary);
+  transition: 0.2s;
+}
+
+.bookmark-btn:hover {
+  transform: scale(1.15);
+}
+
+.bookmark-active {
+  color: #f59e0b;
+}
