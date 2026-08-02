@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "./HeroSection";
 import FeaturesSection from "./FeaturesSection";
 import AlgorithmOfTheDaySection from "./AlgorithmOfTheDaySection";
+import TrendingSearchesWidget from "./TrendingSearchesWidget";
 import PopularAlgorithmsSection from "./PopularAlgorithmsSection";
 import HowItWorksSection from "./HowItWorksSection";
 import TechnologiesSection from "./TechnologiesSection";
@@ -27,6 +28,7 @@ const Homepage: React.FC = () => {
           <div className="mx-auto max-w-3xl" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <ContinueLearningWidget />
             <DailyChallengeWidget />
+            <TrendingSearchesWidget />
           </div>
         </section>
         <PopularAlgorithmsSection />
