@@ -7,6 +7,9 @@ import {
   FiShield, FiActivity, FiCpu, FiAward, FiClock, FiCheckSquare 
 } from "react-icons/fi";
 import { useAuth } from "../contexts/AuthContext";
+import PracticeActivityHeatmapWidget from "../components/PracticeActivityHeatmapWidget";
+import PracticeActivitySummaryCard from "../components/PracticeActivitySummaryCard";
+import QuizStreakWidget from "../components/QuizStreakWidget";
 
 type DashboardTab = "overview" | "metrics" | "security";
 
@@ -257,6 +260,8 @@ export default function ProfilePage() {
                       </Link>
                     </div>
 
+                    <PracticeActivitySummaryCard />
+                    <PracticeActivityHeatmapWidget />
                     {/* Industrial Activity Log: Displays real user progress dynamically mapping from local memory arrays */}
                     {isAuthenticated && telemetry.recentTopics.length > 0 && (
                       <div 
