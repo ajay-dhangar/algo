@@ -349,6 +349,7 @@ export interface QuizAttemptRecord {
   totalQuestions?: number;
   timeSpent?: number;
   completedAt?: string;
+  missedQuestionIds?: number[];
 }
 
 export function extractQuizIdFromStorageKey(key: string): string | null {
