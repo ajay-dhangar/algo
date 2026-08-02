@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "./HeroSection";
 import FeaturesSection from "./FeaturesSection";
 import AlgorithmOfTheDaySection from "./AlgorithmOfTheDaySection";
+import TrendingSearchesWidget from "./TrendingSearchesWidget";
 import PopularAlgorithmsSection from "./PopularAlgorithmsSection";
 import HowItWorksSection from "./HowItWorksSection";
 import TechnologiesSection from "./TechnologiesSection";
@@ -33,6 +34,10 @@ const Homepage: React.FC = () => {
           </section>
 
           <PopularAlgorithmsSection />
+            <TrendingSearchesWidget />
+          </div>
+        </section>
+        <PopularAlgorithmsSection />
 
         {/* PHASE 3: INTERACTION FLOW */}
         <HowItWorksSection />

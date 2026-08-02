@@ -151,6 +151,11 @@ const config = {
         indexName: process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
         contextualSearch: true,
       },
+      customFields: {
+        algoliaAnalyticsAppId: process.env.ALGOLIA_APP_ID || "T0I3F584D5",
+        algoliaAnalyticsApiKey: process.env.ALGOLIA_ANALYTICS_API_KEY || process.env.ALGOLIA_API_KEY || "865d7bd9906f532b1d8cb5cc0f02b383",
+        algoliaAnalyticsIndexName: process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
+      },
  
       navbar: {
         title: "Algo",
