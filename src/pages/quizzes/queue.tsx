@@ -32,6 +32,7 @@ interface AttemptHistory {
   score: number;
   timeSpent: number;
   completedAt: string;
+  missedQuestionIds?: number[];
 }
 
 export const QUESTIONS: QueueQuestion[] = [
@@ -278,7 +279,17 @@ const QueueQuiz: React.FC = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResult(true);
-      const newAttempt = { score, timeSpent, completedAt: new Date().toISOString() };
+      const missedQuestionIds = QUESTIONS.reduce<number[]>((acc, question, idx) => {
+        if (userAnswers[idx] !== question.answer) acc.push(question.id);
+        return acc;
+      }, []);
+
+      const newAttempt = {
+        score,
+        timeSpent,
+        completedAt: new Date().toISOString(),
+        missedQuestionIds,
+      };
       const updatedHistory = [newAttempt, ...history].slice(0, 5);
       setHistory(updatedHistory);
       if (username) {

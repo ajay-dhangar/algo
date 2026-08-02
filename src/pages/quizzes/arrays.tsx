@@ -31,6 +31,7 @@ interface LocalAttempt {
   score: number;
   timeSpent: number;
   completedAt: string;
+  missedQuestionIds?: number[];
 }
 
 export const QUESTIONS: ArrayQuestion[] = [
@@ -199,10 +200,16 @@ const ArrayQuiz: React.FC = () => {
     } else {
       setShowResult(true);
       if (username) {
+        const missedQuestionIds = QUESTIONS.reduce<number[]>((acc, question, idx) => {
+          if (userAnswers[idx] !== question.answer) acc.push(question.id);
+          return acc;
+        }, []);
+
         const newAttempt: LocalAttempt = {
           score: score,
           timeSpent: timeSpent,
-          completedAt: new Date().toISOString()
+          completedAt: new Date().toISOString(),
+          missedQuestionIds,
         };
         const updatedHistory = [newAttempt, ...localHistory].slice(0, 5);
         setLocalHistory(updatedHistory);
