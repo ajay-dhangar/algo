@@ -4,13 +4,27 @@ import Heading from '@theme/Heading';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
+import BookmarkButton from '../../../components/BookmarkButton';
+import ReadingProgressBar from '../../../components/ReadingProgressBar';
 
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
   const [readingTimeInWords, setReadingTimeInWords] = useState<string>('');
   
   const { metadata } = useDoc();
-  const { title, editUrl, lastUpdatedAt, lastUpdatedBy, frontMatter } = metadata;
+
+  const {
+    title,
+    editUrl,
+    lastUpdatedAt,
+    lastUpdatedBy,
+    frontMatter,
+  } = metadata;
+
+  const difficulty =
+    typeof (frontMatter as any).difficulty === "string"
+      ? (frontMatter as any).difficulty
+      : undefined;
 
   // We hide the default title if specified by front matter
   const hideTitle = frontMatter.hide_title;
@@ -33,6 +47,21 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
       {!hideTitle && (
         <header className="doc-header-banner">
           <Heading as="h1">{title}</Heading>
+
+          <BookmarkButton
+            title={title}
+            path={metadata.permalink}
+          />
+
+          {difficulty && (
+            <div style={{ marginTop: "10px" }}>
+              <span
+                className={`difficulty-badge ${difficulty?.toLowerCase()}`}
+              >
+                {difficulty}
+              </span>
+            </div>
+          )}
         </header>
       )}
 
