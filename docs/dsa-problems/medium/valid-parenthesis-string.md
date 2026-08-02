@@ -1,9 +1,16 @@
 ---
 id: valid-parenthesis-string
-title: "Valid Parenthesis String"
+title: Valid Parenthesis String
 sidebar_label: Valid Parenthesis String
-description: "Solving the Valid Parenthesis String problem using an optimal Greedy approach."
-tags: [DSA, leetcode, string, greedy, dynamic-programming]
+description: Solving the Valid Parenthesis String problem using an optimal Greedy approach.
+tags:
+  - DSA
+  - leetcode
+  - string
+  - greedy
+  - dynamic-programming
+companies:
+  - Microsoft
 ---
 
 ## Description:

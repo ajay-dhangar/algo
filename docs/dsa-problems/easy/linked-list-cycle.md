@@ -1,9 +1,16 @@
 ---
 id: linked-list-cycle
-title: "Linked List Cycle"
+title: Linked List Cycle
 sidebar_label: Linked List Cycle
-description: "Solving the Linked List Cycle problem using Floyd's Cycle-Finding Algorithm."
-tags: [DSA, leetcode, linked-list, two-pointers]
+description: Solving the Linked List Cycle problem using Floyd's Cycle-Finding Algorithm.
+tags:
+  - DSA
+  - leetcode
+  - linked-list
+  - two-pointers
+companies:
+  - LinkedIn
+  - Meta
 ---
 
 ## Description:

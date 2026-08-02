@@ -1,9 +1,20 @@
 ---
 id: maximum-depth-of-binary-tree
-title: "Maximum Depth of Binary Tree"
+title: Maximum Depth of Binary Tree
 sidebar_label: Maximum Depth of Binary Tree
-description: "Solving the Maximum Depth of Binary Tree problem using a Recursive Depth-First Search (DFS) approach."
-tags: [DSA, leetcode, binary-tree, dfs, recursion]
+description: >-
+  Solving the Maximum Depth of Binary Tree problem using a Recursive Depth-First
+  Search (DFS) approach.
+tags:
+  - DSA
+  - leetcode
+  - binary-tree
+  - dfs
+  - recursion
+companies:
+  - Apple
+  - Google
+  - Microsoft
 ---
 
 ## Description:

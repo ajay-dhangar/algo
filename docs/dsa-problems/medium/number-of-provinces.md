@@ -1,9 +1,21 @@
 ---
 id: number-of-provinces
-title: "Number of Provinces"
+title: Number of Provinces
 sidebar_label: Number of Provinces
-description: "Solution for LeetCode 547: Number of Provinces, utilizing Graph Traversal (DFS) to find connected components."
-tags: [DSA, leetcode, graph, dfs, bfs, union-find]
+description: >-
+  Solution for LeetCode 547: Number of Provinces, utilizing Graph Traversal
+  (DFS) to find connected components.
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - dfs
+  - bfs
+  - union-find
+companies:
+  - Google
+  - LinkedIn
+  - Microsoft
 ---
 
 ## Description:

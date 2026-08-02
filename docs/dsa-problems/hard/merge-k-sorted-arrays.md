@@ -1,9 +1,18 @@
 ---
 id: merge-k-sorted-arrays
-title: "Merge K Sorted Arrays"
+title: Merge K Sorted Arrays
 sidebar_label: Merge K Sorted Arrays
-tags: [GFG, Arrays, Sorting, Heap, DSA]
-description: "Given k sorted arrays with each of size k arranged in the form of a matrix of size k * k. The task is to merge them into one sorted array."
+tags:
+  - GFG
+  - Arrays
+  - Sorting
+  - Heap
+  - DSA
+description: >-
+  Given k sorted arrays with each of size k arranged in the form of a matrix of
+  size k * k. The task is to merge them into one sorted array.
+companies:
+  - Amazon
 ---
 
 # Partition Equal Subset Sum Algorithm (GFG)

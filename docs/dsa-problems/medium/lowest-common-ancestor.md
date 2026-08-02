@@ -1,9 +1,17 @@
 ---
 id: lowest-common-ancestor
-title: "Lowest Common Ancestor"
+title: Lowest Common Ancestor
 sidebar_label: Lowest Common Ancestor
-description: "A detailed solution to the lowest common ancestor dsa problem from leetcode"
-tags: [lowest common ancestor, lca, dsa, prolem solving]
+description: A detailed solution to the lowest common ancestor dsa problem from leetcode
+tags:
+  - lowest common ancestor
+  - lca
+  - dsa
+  - prolem solving
+companies:
+  - Google
+  - Meta
+  - Microsoft
 ---
 
 # Lowest Common Ancestor (LCA) in a Binary Tree

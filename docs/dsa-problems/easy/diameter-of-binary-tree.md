@@ -1,9 +1,19 @@
 ---
 id: diameter-of-binary-tree
-title: "Diameter of Binary Tree"
+title: Diameter of Binary Tree
 sidebar_label: Diameter of Binary Tree
-description: "Solving the Diameter of Binary Tree problem using a Recursive Depth-First Search (DFS) approach."
-tags: [DSA, leetcode, binary-tree, dfs, recursion]
+description: >-
+  Solving the Diameter of Binary Tree problem using a Recursive Depth-First
+  Search (DFS) approach.
+tags:
+  - DSA
+  - leetcode
+  - binary-tree
+  - dfs
+  - recursion
+companies:
+  - Apple
+  - Google
 ---
 
 ## Description:

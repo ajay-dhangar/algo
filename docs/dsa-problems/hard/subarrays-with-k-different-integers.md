@@ -1,9 +1,18 @@
 ---
 id: subarrays-with-k-different-integers
-title: "Subarrays with K Different Integers"
+title: Subarrays with K Different Integers
 sidebar_label: Subarrays with K Different Integers
-description: "Finding the number of subarrays with exactly K different integers using the sliding window approach."
-tags: [DSA, leetcode, array, sliding-window, hash-table]
+description: >-
+  Finding the number of subarrays with exactly K different integers using the
+  sliding window approach.
+tags:
+  - DSA
+  - leetcode
+  - array
+  - sliding-window
+  - hash-table
+companies:
+  - Microsoft
 ---
 
 ## Description:

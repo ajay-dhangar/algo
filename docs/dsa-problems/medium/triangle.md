@@ -1,9 +1,18 @@
 ---
 id: triangle
-title: "Triangle"
+title: Triangle
 sidebar_label: Triangle
-description: "Solving the Triangle problem using Dynamic Programming (Bottom-Up space optimization)."
-tags: [DSA, leetcode, dynamic-programming, array, matrix]
+description: >-
+  Solving the Triangle problem using Dynamic Programming (Bottom-Up space
+  optimization).
+tags:
+  - DSA
+  - leetcode
+  - dynamic-programming
+  - array
+  - matrix
+companies:
+  - Apple
 ---
 
 ## Description:

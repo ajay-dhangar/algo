@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import { ListChecks } from 'lucide-react';
+import { ListChecks, BookOpen } from 'lucide-react';
+import Link from '@docusaurus/Link';
 import ProblemFilterGrid from '../../components/ProblemFilterGrid';
 import dsaProblemsIndex from '../../data/generated/dsaProblemsIndex.json';
 import type { DsaProblemsIndex } from '../../data/dsaProblemsTypes';
@@ -36,6 +37,19 @@ export default function DsaProblemsBrowser() {
             Search by title, filter by difficulty, and narrow down by topic to find the problem you want to
             practice next.
           </p>
+
+          {/* CTA to Company Tracks */}
+          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[var(--ifm-color-primary-lighter)] text-[var(--ifm-color-primary-darker)] dark:bg-[var(--ifm-color-primary-darker)] dark:text-white border border-[var(--ifm-color-primary-light)] font-semibold text-sm">
+            <BookOpen className="h-4 w-4" />
+            <span>Looking for a structured path?</span>
+            <Link
+              href="/dsa-problems/tracks"
+              className="font-bold hover:underline ml-1"
+              style={{ color: 'currentColor' }}
+            >
+              Explore Company Tracks →
+            </Link>
+          </div>
         </div>
       </header>
 

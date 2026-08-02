@@ -1,9 +1,17 @@
 ---
 id: flood-fill
-title: "Flood Fill"
+title: Flood Fill
 sidebar_label: Flood Fill
-description: "Solution for LeetCode 733: Flood Fill, utilizing Graph Traversal (DFS)."
-tags: [DSA, leetcode, graph, dfs, bfs, matrix]
+description: 'Solution for LeetCode 733: Flood Fill, utilizing Graph Traversal (DFS).'
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - dfs
+  - bfs
+  - matrix
+companies:
+  - Google
 ---
 
 ## Description:

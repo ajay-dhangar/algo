@@ -1,9 +1,18 @@
 ---
-id: Reverse Bits 
-title: "Reverse Bits Solution"
+id: Reverse Bits
+title: Reverse Bits Solution
 sidebar_label: Reverse Bits
-description: "The Reverse Bits problem asks you to reverse the bits of a given 32-bit unsigned integer. Essentially, you need to flip the binary representation of the number so that the least significant bit (LSB) becomes the most significant bit (MSB) and vice versa."
-tags: [DSA, leetcode, problem-solving]
+description: >-
+  The Reverse Bits problem asks you to reverse the bits of a given 32-bit
+  unsigned integer. Essentially, you need to flip the binary representation of
+  the number so that the least significant bit (LSB) becomes the most
+  significant bit (MSB) and vice versa.
+tags:
+  - DSA
+  - leetcode
+  - problem-solving
+companies:
+  - Microsoft
 ---
 
 # Leetcode Problem-190 [Type -> easy]: 

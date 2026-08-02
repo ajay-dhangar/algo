@@ -1,9 +1,20 @@
 ---
 id: path-with-minimum-effort
-title: "Path With Minimum Effort"
+title: Path With Minimum Effort
 sidebar_label: Path With Minimum Effort
-description: "Solution for LeetCode 1631: Path With Minimum Effort, utilizing Dijkstra's Algorithm with a Min-Priority Queue on a 2D grid."
-tags: [DSA, leetcode, graph, dijkstras, shortest-path, matrix, binary-search]
+description: >-
+  Solution for LeetCode 1631: Path With Minimum Effort, utilizing Dijkstra's
+  Algorithm with a Min-Priority Queue on a 2D grid.
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - dijkstras
+  - shortest-path
+  - matrix
+  - binary-search
+companies:
+  - Amazon
 ---
 
 ## Description:

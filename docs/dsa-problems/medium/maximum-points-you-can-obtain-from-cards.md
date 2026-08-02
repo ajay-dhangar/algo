@@ -1,9 +1,18 @@
 ---
 id: maximum-points-you-can-obtain-from-cards
-title: "Maximum Points You Can Obtain from Cards"
+title: Maximum Points You Can Obtain from Cards
 sidebar_label: Maximum Points You Can Obtain from Cards
-description: "The Maximum Points You Can Obtain from Cards problem on LeetCode involves finding the maximum score by taking exactly k cards from either the beginning or the end of an array."
-tags: [DSA, leetcode, sliding-window, array]
+description: >-
+  The Maximum Points You Can Obtain from Cards problem on LeetCode involves
+  finding the maximum score by taking exactly k cards from either the beginning
+  or the end of an array.
+tags:
+  - DSA
+  - leetcode
+  - sliding-window
+  - array
+companies:
+  - Netflix
 ---
 
 ## Description:

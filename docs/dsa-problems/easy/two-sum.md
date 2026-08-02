@@ -2,9 +2,19 @@
 id: two-sum-problem
 title: Two Sum
 sidebar_label: Two Sum
-description: "This document explains the Two Sum problem, including its description, approach, and implementation."
-tags: [dsa, algorithms, problem-solving]
-companies: [Google, Amazon, Meta]
+description: >-
+  This document explains the Two Sum problem, including its description,
+  approach, and implementation.
+tags:
+  - dsa
+  - algorithms
+  - problem-solving
+companies:
+  - Amazon
+  - Google
+  - Meta
+  - Microsoft
+  - Netflix
 ---
 
 # Two Sum

@@ -1,9 +1,19 @@
 ---
 id: cheapest-flights-within-k-stops
-title: "Cheapest Flights Within K Stops"
+title: Cheapest Flights Within K Stops
 sidebar_label: Cheapest Flights Within K Stops
-description: "Solution for LeetCode 787: Cheapest Flights Within K Stops, utilizing BFS (Modified Dijkstra) to find the cheapest flight path within K stops."
-tags: [DSA, leetcode, graph, bfs, shortest-path, dynamic-programming]
+description: >-
+  Solution for LeetCode 787: Cheapest Flights Within K Stops, utilizing BFS
+  (Modified Dijkstra) to find the cheapest flight path within K stops.
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - bfs
+  - shortest-path
+  - dynamic-programming
+companies:
+  - Amazon
 ---
 
 ## Description:

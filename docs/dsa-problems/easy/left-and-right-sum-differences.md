@@ -1,9 +1,18 @@
 ---
 id: left-and-right-sum-differences
-title: "Left and Right Sum Differences"
+title: Left and Right Sum Differences
 sidebar_label: Left and Right Sum Differences
-description: "The Left and Right Sum Differences problem on LeetCode involves finding the absolute difference between the sum of elements to the left and right of each index in an array."
-tags: [DSA, leetcode, array, prefix-sum]
+description: >-
+  The Left and Right Sum Differences problem on LeetCode involves finding the
+  absolute difference between the sum of elements to the left and right of each
+  index in an array.
+tags:
+  - DSA
+  - leetcode
+  - array
+  - prefix-sum
+companies:
+  - Netflix
 ---
 
 ## Description:

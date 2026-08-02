@@ -1,9 +1,16 @@
 ---
 id: date-to-binary-conversion
-title: "Date to Binary"
-sidebar_label: Date to Binary 
-description: "The Date to Binary Conversion problem on LeetCode typically involves converting a given date into its binary representation."
-tags: [DSA, leetcode, problem-solving]
+title: Date to Binary
+sidebar_label: Date to Binary
+description: >-
+  The Date to Binary Conversion problem on LeetCode typically involves
+  converting a given date into its binary representation.
+tags:
+  - DSA
+  - leetcode
+  - problem-solving
+companies:
+  - Apple
 ---
 
 # Leetcode: Problem-3280

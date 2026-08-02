@@ -1,9 +1,19 @@
 ---
 id: word-search
-title: "Word Search"
+title: Word Search
 sidebar_label: Word Search
-description: "Solving the Word Search problem using recursive backtracking and Depth-First Search (DFS)."
-tags: [DSA, leetcode, array, backtracking, matrix]
+description: >-
+  Solving the Word Search problem using recursive backtracking and Depth-First
+  Search (DFS).
+tags:
+  - DSA
+  - leetcode
+  - array
+  - backtracking
+  - matrix
+companies:
+  - Apple
+  - Google
 ---
 
 ## Description:
