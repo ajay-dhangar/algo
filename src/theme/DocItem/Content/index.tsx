@@ -25,18 +25,6 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
     typeof (frontMatter as any).difficulty === "string"
       ? (frontMatter as any).difficulty
       : undefined;
-const {
-  title,
-  editUrl,
-  lastUpdatedAt,
-  lastUpdatedBy,
-  frontMatter,
-} = metadata;
-
-const difficulty =
-  typeof (frontMatter as any).difficulty === "string"
-    ? (frontMatter as any).difficulty
-    : undefined;
 
   // We hide the default title if specified by front matter
   const hideTitle = frontMatter.hide_title;
@@ -56,56 +44,39 @@ const difficulty =
 
   return (
     <>
-    <ReadingProgressBar />
-    <div ref={contentRef} className="markdown">
-      {!hideTitle && (
-        <header className="doc-header-banner">
-          <Heading as="h1">{title}</Heading>
-          <BookmarkButton
-            title={title}
-            path={metadata.permalink}
-          />
+      <ReadingProgressBar />
+      <div ref={contentRef} className="markdown">
+        {!hideTitle && (
+          <header className="doc-header-banner">
+            <Heading as="h1">{title}</Heading>
+            <BookmarkButton
+              title={title}
+              path={metadata.permalink}
+            />
 
-          <BookmarkButton
-            title={title}
-            path={metadata.permalink}
-          />
+            {difficulty && (
+              <div style={{ marginTop: "10px" }}>
+                <span
+                  className={`difficulty-badge ${difficulty?.toLowerCase()}`}
+                >
+                  {difficulty}
+                </span>
+              </div>
+            )}
+          </header>
+        )}
 
-          {difficulty && (
-            <div style={{ marginTop: "10px" }}>
-              <span
-                className={`difficulty-badge ${difficulty?.toLowerCase()}`}
-              >
-                {difficulty}
-              </span>
-            </div>
-          )}
-{difficulty && (
-  <div style={{ marginTop: "10px" }}>
-    <span
-      className={`difficulty-badge ${difficulty?.toLowerCase()}`}
-    >
-      {difficulty}
-    </span>
-  </div>
-)}
-        </header>
-      )}
+        <DocsInfo
+          lastUpdatedAt={lastUpdatedAt}
+          lastUpdatedBy={lastUpdatedBy}
+          readingTimeInWords={readingTimeInWords}
+          editUrl={editUrl}
+          title={title}
+          docsPluginId="default"
+        />
 
-      <DocsInfo
-        lastUpdatedAt={lastUpdatedAt}
-        lastUpdatedBy={lastUpdatedBy}
-        readingTimeInWords={readingTimeInWords}
-        editUrl={editUrl}
-        title={title}
-        docsPluginId="default"
-      />
-
-      <MDXContent>{children}</MDXContent>
-    </div>
+        <MDXContent>{children}</MDXContent>
+      </div>
+    </>
   );
-}
-        </div>
-  </>
-);
 }
