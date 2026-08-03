@@ -1,4 +1,5 @@
 ---
+description: Solutions for the Binary Search Tree Quiz
 title: Binary Search Trees (BST) Quiz Solutions
 hide_table_of_contents: true
 ---
