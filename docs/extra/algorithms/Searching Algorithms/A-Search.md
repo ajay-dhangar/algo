@@ -3,6 +3,8 @@ id: a-star-search
 sidebar_position: 1
 title: A* Search
 sidebar_label: A*
+description: "The A* Search algorithm is a best-first graph traversal algorithm that finds the shortest path from a starting node to a goal node by combining the actual cost from the start and a heuristic estimate to the goal."
+tags: [searching algorithms, pathfinding, graph traversal, heuristic search, A* search, AI]
 ---
 
 ### Definition:
