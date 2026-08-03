@@ -4,6 +4,8 @@ title: "Exploring Graph Algorithms: BFS vs DFS"
 authors: [Harshitha-Grandhi]
 tags: [Harshitha-Grandhi, algo, dsa, algorithms, graph-theory]
 ---
+description: "A detailed comparison of Breadth-First Search (BFS) and Depth-First Search (DFS) graph traversal algorithms, covering their implementations, use cases, and real-world applications."
+
 
 Graph algorithms are fundamental in computer science, enabling us to navigate and analyze networks effectively. Two of the most prominent graph traversal algorithms are Breadth-First Search (BFS) and Depth-First Search (DFS). This blog post will delve into the key differences between these algorithms, their implementations, and their applications in real-world scenarios.
 
