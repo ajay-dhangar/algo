@@ -5,6 +5,8 @@ authors: [Rishi-Verma]
 tags: [coding, interview, dsa, C++,Rishi-Verma, java, python, programming,sliding window, two pointers, fast and slow pointers, merge intervals, cyclic sort]
 date: 2024-10-23
 ---
+description: "A comprehensive guide to 20 essential coding patterns crucial for acing coding interviews, covering techniques like sliding window, two pointers, fast and slow pointers, and merge intervals with real-world problem examples."
+
 
 
 Navigating through coding interviews requires more than just a good grasp of algorithms and data structures; it demands a strategic approach and a keen eye for patterns. In today's competitive world of tech job interviews, understanding and mastering coding patterns can significantly enhance your problem-solving skills and boost your performance.
