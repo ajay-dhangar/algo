@@ -12,6 +12,8 @@ import BrowserOnly from "@docusaurus/BrowserOnly";
 import { useQuizProgress, QuizStat, GlobalQuizStats } from "../../hooks/useQuizProgress";
 import QuizStreakWidget from "../../components/QuizStreakWidget";
 import { QUIZZES_CONFIG, QUESTION_COUNTS, QUIZ_IDS, type QuizCardConfig } from "../../data/quizzesConfig";
+import { downloadQuizData } from "../../utils/exportQuizData";
+import { FiDownload } from "react-icons/fi";
 
 const FILTER_CATEGORIES = ["All", "Linear", "Non-Linear", "Balanced Tree", "Disk Storage"] as const;
 
@@ -60,9 +62,10 @@ interface ProgressDashboardProps {
   globalStats: GlobalQuizStats;
   userId: string | null;
   loaded: boolean;
+  stats?: Record<string, QuizStat>;
 }
 
-function ProgressDashboard({ globalStats, userId, loaded }: ProgressDashboardProps) {
+function ProgressDashboard({ globalStats, userId, loaded, stats }: ProgressDashboardProps) {
   if (!loaded) return null;
 
   const progressPct = globalStats.totalQuizzes > 0
@@ -91,11 +94,24 @@ function ProgressDashboard({ globalStats, userId, loaded }: ProgressDashboardPro
               </span>
             )}
           </div>
-          {!userId && (
-            <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 italic">
-              Take a quiz to see your scores here
-            </span>
-          )}
+          <div className="flex items-center gap-3">
+            {stats && Object.keys(stats).length > 0 && (
+              <button
+                type="button"
+                onClick={() => downloadQuizData(stats, "csv")}
+                aria-label="Download my data"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-sm transition-all"
+              >
+                <FiDownload size={13} />
+                Download my data
+              </button>
+            )}
+            {!userId && (
+              <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 italic hidden sm:inline">
+                Take a quiz to see your scores here
+              </span>
+            )}
+          </div>
         </div>
 
         <div className="p-5 sm:p-6">
@@ -416,7 +432,7 @@ const Quizzes: React.FC = () => {
                 <>
                   <div className="max-w-7xl mx-auto px-4 mt-10 mb-2 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
                     <div className="lg:col-span-2">
-                      <ProgressDashboard globalStats={globalStats} userId={userId} loaded={loaded} />
+                      <ProgressDashboard globalStats={globalStats} userId={userId} loaded={loaded} stats={stats} />
                     </div>
                     <div className="lg:col-span-1">
                       <QuizStreakWidget />

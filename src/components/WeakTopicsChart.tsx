@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "@docusaurus/Link";
 import { FiArrowRight, FiRepeat } from "react-icons/fi";
 import type { WeakTopicEntry } from "../utils/weakTopics";
+import type { QuizStat } from "../hooks/useQuizProgress";
+import { downloadQuizData } from "../utils/exportQuizData";
 
-interface WeakTopicsChartProps {
+export interface WeakTopicsChartProps {
   entries: WeakTopicEntry[];
   onStartReview?: () => void;
   dueCount?: number;
