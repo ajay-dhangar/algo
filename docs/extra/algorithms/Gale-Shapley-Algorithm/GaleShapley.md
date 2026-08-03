@@ -3,6 +3,8 @@ id: gale-shapley-algorithm
 sidebar_position: 15  
 title: Gale-Shapley Algorithm  
 sidebar_label: Gale-Shapley Algorithm  
+description: "The Gale-Shapley Algorithm, also known as the Deferred Acceptance Algorithm, finds stable matchings between two sets of participants and guarantees that no participant can improve their outcome by deviating from the algorithm's matching."
+tags: [algorithms, stable marriage problem, deferred acceptance, game theory, graph algorithms]
 ---
 
 ## Overview:
