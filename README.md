@@ -92,8 +92,10 @@ This documentation website is powered by [Docusaurus](https://docusaurus.io/), a
 
 ## Installation
 
+> **Note:** Make sure Node.js and npm are installed and available in your system PATH before installing the project dependencies.
+
 ```bash
- npm install
+npm install
 ```
 
 ## Local Development
