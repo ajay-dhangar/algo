@@ -1,4 +1,5 @@
 ---
+description: Solutions for the AVL Tree Quiz
 title: AVL Tree Quiz Solutions
 hide_table_of_contents: true
 ---
