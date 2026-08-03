@@ -2,7 +2,10 @@
 id: odd-even-sort-algo  
 sidebar_position: 19  
 title: Odd-Even Sort  
-sidebar_label: Odd-Even Sort  
+sidebar_label: Odd-Even Sort
+description: "Complete guide to Odd-Even Sort, a parallel sorting algorithm that alternates between odd and even phases to gradually sort the array."
+tags: [sorting algorithms, odd even sort, parallel sorting, dsa]
+
 ---
 
 ### Definition:

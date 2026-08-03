@@ -2,7 +2,10 @@
 id: cocktail-shaker-sort-algo  
 sidebar_position: 18  
 title: Cocktail Shaker Sort  
-sidebar_label: Cocktail Shaker Sort  
+sidebar_label: Cocktail Shaker Sort
+description: "Complete guide to Cocktail Shaker Sort, a bidirectional bubble sort variant that traverses the array in both directions."
+tags: [sorting algorithms, cocktail shaker sort, bubble sort, dsa]
+
 ---
 
 ### Definition:
