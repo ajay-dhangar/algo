@@ -1,4 +1,5 @@
 ---
+description: Solutions for the B-Tree Quiz
 title: B-Tree Quiz Solutions
 hide_table_of_contents: true
 ---
