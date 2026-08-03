@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { FiDownload, FiImage, FiCheck, FiAlertCircle, FiLoader, FiX } from 'react-icons/fi';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -45,6 +45,16 @@ export default function ShareResultModal({
   const [copyStatus, setCopyStatus] = useState<ActionStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const downloadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (downloadTimeoutRef.current) clearTimeout(downloadTimeoutRef.current);
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+    };
+  }, []);
+
   const shareText = `I scored ${score}/${total} on the ${topic} quiz on ${siteName}! 🎯`;
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -65,7 +75,7 @@ export default function ShareResultModal({
       setErrorMessage(err instanceof Error ? err.message : 'Download failed.');
       setDownloadStatus('error');
     } finally {
-      setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
+      downloadTimeoutRef.current = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
     }
   }, [topic, score, total, siteName]);
 
@@ -94,7 +104,7 @@ export default function ShareResultModal({
       setErrorMessage(err instanceof Error ? err.message : 'Copy failed.');
       setCopyStatus('error');
     } finally {
-      setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
+      copyTimeoutRef.current = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
     }
   }, [topic, score, total, siteName]);
 
