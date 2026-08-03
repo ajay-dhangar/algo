@@ -1,9 +1,10 @@
 ---
-
 id: pigeonhole-sort-algo  
 sidebar_position: 14  
 title: Pigeonhole Sort  
-sidebar_label: Pigeonhole Sort  
+sidebar_label: Pigeonhole Sort
+description: "Complete guide to Pigeonhole Sort, a linear time sorting algorithm that works by placing elements into pigeonholes based on their key values."
+tags: [sorting algorithms, pigeonhole sort, linear sorting, dsa]
 
 ---
 

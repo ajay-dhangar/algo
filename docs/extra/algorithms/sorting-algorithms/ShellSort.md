@@ -1,9 +1,10 @@
 ---
-
 id: shell-sort-algo  
 sidebar_position: 11  
 title: Shell Sort  
-sidebar_label: Shell Sort  
+sidebar_label: Shell Sort
+description: "Complete guide to Shell Sort, a generalization of insertion sort that compares elements separated by a gap sequence to enable faster sorting."
+tags: [sorting algorithms, shell sort, insertion sort, dsa]
 
 ---
 

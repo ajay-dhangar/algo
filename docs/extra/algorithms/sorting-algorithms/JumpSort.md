@@ -2,7 +2,10 @@
 id: jump-sort-algo  
 sidebar_position: 2  
 title: Jump Sort  
-sidebar_label: Jump Sort  
+sidebar_label: Jump Sort
+description: "Complete guide to Jump Sort, a comparison-based sorting algorithm that divides the list into blocks and performs linear search within blocks to find sorted position."
+tags: [sorting algorithms, jump sort, dsa, algorithms]
+
 ---
 
 ### Definition:
