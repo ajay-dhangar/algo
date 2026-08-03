@@ -3,6 +3,8 @@ id: Bentley-Ottmann-Algorithm
 sidebar_position: 17
 title: "Bentley-Ottmann Algorithm"
 sidebar_label: Bentley-Ottmann Algorithm
+description: "The Bentley-Ottmann Algorithm is a sweep line algorithm for detecting all intersections within a set of line segments in O((n + k) log n) time, where n is the number of segments and k is the number of intersections."
+tags: [algorithms, computational geometry, sweep line, line segment intersection, graph algorithms]
 ---
 ### Definition
 
