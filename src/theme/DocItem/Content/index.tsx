@@ -4,6 +4,7 @@ import Heading from '@theme/Heading';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
+import AlgorithmTags from "../../../components/AlgorithmTags";
 
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -11,6 +12,10 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
   
   const { metadata } = useDoc();
   const { title, editUrl, lastUpdatedAt, lastUpdatedBy, frontMatter } = metadata;
+  const tags =
+  Array.isArray(frontMatter.tags)
+    ? frontMatter.tags
+    : [];
 
   // We hide the default title if specified by front matter
   const hideTitle = frontMatter.hide_title;
@@ -33,6 +38,7 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
       {!hideTitle && (
         <header className="doc-header-banner">
           <Heading as="h1">{title}</Heading>
+          <AlgorithmTags tags={tags} />
         </header>
       )}
 
