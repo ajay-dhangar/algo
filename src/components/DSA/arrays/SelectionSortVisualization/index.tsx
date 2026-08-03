@@ -22,10 +22,7 @@ const SelectionSortVisualization: React.FC = () => {
     generateArray();
   }, []);
 
-  // Effect to update the CSS transition duration when the delay changes
-  useEffect(() => {
-    updateMoveDuration();
-  }, [delay]);
+
 
   /**
    * Generates a new array of random numbers and updates the state.
@@ -35,27 +32,7 @@ const SelectionSortVisualization: React.FC = () => {
     setArray(newArray);
   };
 
-  /**
-   * Updates the CSS transition duration for the sorting visualization.
-   */
-  const updateMoveDuration = () => {
-    const stylesheets = document.styleSheets;
-    for (let i = 0; i < stylesheets.length; i++) {
-      try {
-        const rules = (stylesheets[i] as any).cssRules || (stylesheets[i] as any).rules;
-        if (!rules) continue;
-        for (let j = 0; j < rules.length; j++) {
-          const rule = rules[j] as CSSStyleRule;
-          if (rule && rule.selectorText === '.v-move') {
-            rule.style.transitionDuration = `${delay}ms`;
-            return;
-          }
-        }
-      } catch (e) {
-        continue;
-      }
-    }
-  };
+
 
   /**
    * Performs the Selection Sort algorithm on the array with visualization.
@@ -97,7 +74,7 @@ const SelectionSortVisualization: React.FC = () => {
           <div
             key={index}
             className={`array-bar ${comparingIndices.includes(index) ? 'comparing' : ''}`}
-            style={{ height: `${value * 3}px` }}
+            style={{ height: `${value * 3}px`, transitionDuration: `${delay}ms` }}
           />
         ))}
       </div>

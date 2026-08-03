@@ -14,10 +14,7 @@ const InsertionSortVisualization: React.FC = () => {
     generateArray();    
   }, []);
 
-  // Updates the transition duration whenever the delay changes
-  useEffect(() => {
-    updateMoveDuration();
-  }, [delay]);
+
 
   // Function to generate a new array with random values
   const generateArray = () => {
@@ -25,25 +22,7 @@ const InsertionSortVisualization: React.FC = () => {
     setArray(newArray);
   };
 
-  // Function to update the transition duration for CSS animations
-  const updateMoveDuration = () => {
-    const stylesheets = document.styleSheets;
-    for (let i = 0; i < stylesheets.length; i++) {
-      try {
-        const rules = (stylesheets[i] as any).cssRules || (stylesheets[i] as any).rules;
-        if (!rules) continue;
-        for (let j = 0; j < rules.length; j++) {
-          const rule = rules[j] as CSSStyleRule;
-          if (rule && rule.selectorText === '.v-move') {
-            rule.style.transitionDuration = `${delay}ms`;
-            return;
-          }
-        }
-      } catch (e) {
-        continue;
-      }
-    }
-  };
+
 
   // Function to perform insertion sort on the array
   const insertionSort = async () => {
@@ -89,7 +68,7 @@ const InsertionSortVisualization: React.FC = () => {
           <div
             key={index}
             className={`array-bar ${index === currentIndex ? 'current-index' : index === minIndex ? 'min-index' : ''}`}
-            style={{ height: `${value * 3}px`, transitionDelay: `${delay / 2}ms` }}
+            style={{ height: `${value * 3}px`, transitionDelay: `${delay / 2}ms`, transitionDuration: `${delay}ms` }}
            />
         ))}
       </div>      

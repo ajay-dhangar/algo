@@ -17,33 +17,14 @@ const ShellSortVisualization: React.FC = () => {
     generateArray();
   }, []);
 
-  useEffect(() => {
-    updateMoveDuration();
-  }, [delay]);
+
 
   const generateArray = () => {
     const newArray = Array.from({ length: 30 }, () => Math.ceil(Math.random() * 100));
     setArray(newArray);
   };
 
-  const updateMoveDuration = () => {
-    const stylesheets = document.styleSheets;
-    for (let i = 0; i < stylesheets.length; i++) {
-      try {
-        const rules = (stylesheets[i] as any).cssRules || (stylesheets[i] as any).rules;
-        if (!rules) continue;
-        for (let j = 0; j < rules.length; j++) {
-          const rule = rules[j] as CSSStyleRule;
-          if (rule && rule.selectorText === '.v-move') {
-            rule.style.transitionDuration = `${delay}ms`;
-            return;
-          }
-        }
-      } catch (e) {
-        continue;
-      }
-    }
-  };
+
 
 
   const shellSort = async () => {
@@ -88,7 +69,7 @@ const ShellSortVisualization: React.FC = () => {
           <div
             key={index}
             className={`array-bar ${comparingIndices.includes(index) ? 'comparing' : ''}`}
-            style={{ height: `${value * 3}px` }}
+            style={{ height: `${value * 3}px`, transitionDuration: `${delay}ms` }}
           />
         ))}
       </div>
