@@ -1,70 +1,83 @@
-import React, { useEffect, useState } from "react";
-import { FaRegBookmark, FaBookmark } from "react-icons/fa";
+import React, { useEffect, useState } from 'react';
+import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
 
-interface BookmarkButtonProps {
-  title: string;
-  path: string;
-}
+type Props = {
+  title?: string;
+  path?: string;
+};
 
-const STORAGE_KEY = "favorite-algorithms";
+const STORAGE_KEY = 'algo_bookmarks_v1';
 
 interface BookmarkItem {
-  title: string;
+  title?: string;
   path: string;
 }
 
-export default function BookmarkButton({
-  title,
-  path,
-}: BookmarkButtonProps): JSX.Element {
+export default function BookmarkButton({ title, path }: Props): JSX.Element {
   const [bookmarked, setBookmarked] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (!path || typeof window === 'undefined') return;
+    try {
+      const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      let items: BookmarkItem[] = [];
 
-    const stored: BookmarkItem[] = JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || "[]"
-    );
-
-    setBookmarked(stored.some((item) => item.path === path));
-  }, [path]);
-
-  const toggleBookmark = () => {
-    if (typeof window === "undefined") return;
-
-    const stored: BookmarkItem[] = JSON.parse(
-      localStorage.getItem(STORAGE_KEY) || "[]"
-    );
-
-    if (bookmarked) {
-      const updated = stored.filter((item) => item.path !== path);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-      setBookmarked(false);
-    } else {
-      if (!stored.some((item) => item.path === path)) {
-        stored.push({
-          title,
-          path,
-        });
+      if (Array.isArray(raw)) {
+        if (raw.length === 0) items = [];
+        else if (typeof raw[0] === 'string') {
+          // legacy format: string[] of paths
+          items = (raw as string[]).map((p) => ({ path: p }));
+        } else {
+          items = raw as BookmarkItem[];
+        }
       }
 
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
-      setBookmarked(true);
+      setBookmarked(items.some((item) => item.path === path));
+    } catch {
+      setBookmarked(false);
+    }
+  }, [path]);
+
+  const toggleBookmark = (e?: React.MouseEvent) => {
+    e?.preventDefault();
+    if (!path || typeof window === 'undefined') return;
+    try {
+      const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      let items: BookmarkItem[] = [];
+
+      if (Array.isArray(raw)) {
+        if (raw.length && typeof raw[0] === 'string') {
+          items = (raw as string[]).map((p) => ({ path: p }));
+        } else {
+          items = raw as BookmarkItem[];
+        }
+      }
+
+      const exists = items.some((item) => item.path === path);
+
+      if (exists) {
+        items = items.filter((item) => item.path !== path);
+      } else {
+        items.push({ title, path });
+      }
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+      setBookmarked(!exists);
+    } catch {
+      // best-effort toggle
+      setBookmarked((v) => !v);
     }
   };
 
   return (
     <button
+      type="button"
       onClick={toggleBookmark}
-      aria-label={
-        bookmarked ? "Remove Bookmark" : "Add Bookmark"
-      }
-      title={
-        bookmarked ? "Remove Bookmark" : "Add Bookmark"
-      }
-      className={`bookmark-btn ${
-        bookmarked ? "bookmark-active" : ""
-      }`}
+      aria-pressed={bookmarked}
+      aria-label={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
+      title={bookmarked ? 'Remove bookmark' : 'Add bookmark'}
+      className={`bookmark-btn ${bookmarked ? 'bookmark-active' : ''}`}
+      style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '1.25rem', marginLeft: 8 }}
     >
       {bookmarked ? <FaBookmark /> : <FaRegBookmark />}
     </button>

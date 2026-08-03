@@ -10,6 +10,7 @@ import RelatedProblems from '@site/src/components/RelatedProblems';
 
 export default function DocItemFooter(props: Props): JSX.Element | null {
   const { metadata } = useDoc();
+  console.log(metadata);
   const { tags } = metadata;
 
   const topicId = metadata.id.replace(/\//g, '-');
