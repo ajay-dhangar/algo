@@ -2,8 +2,14 @@
 id: check-palindrome
 title: DSA Problem Solution
 sidebar_label: Check Palindrome
-description: A palindrome reads the same forwards and backwards, like "121" or "racecar."
-tags: [DSA, leetcode, problem-solving]
+description: 'A palindrome reads the same forwards and backwards, like "121" or "racecar."'
+tags:
+  - DSA
+  - leetcode
+  - problem-solving
+companies:
+  - Apple
+  - Google
 ---
 
 ## Leetcode: Problem-9
@@ -38,7 +44,28 @@ Input: x = 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 
-## Solution in Java:
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0) return false;
+        long long reversed = 0, original = x;
+        while (x != 0) {
+            reversed = reversed * 10 + x % 10;
+            x /= 10;
+        }
+        return original == reversed;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
 
 ```java
 public class Solution {
@@ -69,11 +96,28 @@ public class Solution {
     }
 }
 ```
-## Output:
 
-![Screenshot 2024-10-15 162332](https://github.com/user-attachments/assets/18ec353a-3920-4151-bfcb-1805f45b08d4)
+  </TabItem>
+  <TabItem value="python" label="Python">
 
-## Analyze Complexity:
+```python
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False
+        return str(x) == str(x)[::-1]
+```
 
-![Screenshot 2024-10-15 162602](https://github.com/user-attachments/assets/7dd17351-82b9-4863-b072-58dfcf6d806b)
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
 
+```javascript
+var isPalindrome = function(x) {
+    if (x < 0) return false;
+    const str = x.toString();
+    return str === str.split('').reverse().join('');
+};
+```
+
+  </TabItem>
+</Tabs>

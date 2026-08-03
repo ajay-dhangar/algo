@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: PriorityQueueQuestion[] = [
+export const QUESTIONS: PriorityQueueQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

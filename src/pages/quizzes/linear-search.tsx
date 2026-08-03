@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: LinearSearchQuestion[] = [
+export const QUESTIONS: LinearSearchQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

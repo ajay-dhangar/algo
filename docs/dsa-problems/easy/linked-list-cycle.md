@@ -1,9 +1,16 @@
 ---
 id: linked-list-cycle
-title: "Linked List Cycle"
+title: Linked List Cycle
 sidebar_label: Linked List Cycle
-description: "Solving the Linked List Cycle problem using Floyd's Cycle-Finding Algorithm."
-tags: [DSA, leetcode, linked-list, two-pointers]
+description: Solving the Linked List Cycle problem using Floyd's Cycle-Finding Algorithm.
+tags:
+  - DSA
+  - leetcode
+  - linked-list
+  - two-pointers
+companies:
+  - LinkedIn
+  - Meta
 ---
 
 ## Description:
@@ -55,9 +62,11 @@ We use two pointers moving at different speeds:
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 /**
  * Definition for singly-linked list.
@@ -87,7 +96,9 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 /**
  * Definition for singly-linked list.
@@ -119,8 +130,10 @@ public class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -144,8 +157,10 @@ class Solution:
         return False
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -174,3 +189,6 @@ var hasCycle = function(head) {
     return false;
 };
 ```
+
+  </TabItem>
+</Tabs>

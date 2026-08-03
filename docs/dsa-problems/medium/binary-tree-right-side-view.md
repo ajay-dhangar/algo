@@ -1,9 +1,19 @@
 ---
 id: binary-tree-right-side-view
-title: "Binary Tree Right Side View"
+title: Binary Tree Right Side View
 sidebar_label: Binary Tree Right Side View
-description: "Solving the Binary Tree Right Side View problem using a Depth-First Search (DFS) approach."
-tags: [DSA, leetcode, binary-tree, dfs, recursion]
+description: >-
+  Solving the Binary Tree Right Side View problem using a Depth-First Search
+  (DFS) approach.
+tags:
+  - DSA
+  - leetcode
+  - binary-tree
+  - dfs
+  - recursion
+companies:
+  - Google
+  - Microsoft
 ---
 
 ## Description:
@@ -57,9 +67,11 @@ By keeping track of our current `depth` during the traversal, we can guarantee t
 * **Time Complexity:** $O(N)$ where $N$ is the total number of nodes in the binary tree. We visit every single node exactly once.
 * **Space Complexity:** $O(H)$ where $H$ is the height of the tree. This accounts for the memory used by the recursion call stack. In the worst-case scenario (a completely skewed tree), the space complexity would be $O(N)$. In the best-case scenario (a perfectly balanced tree), the space complexity would be $O(\log N)$.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 /**
  * Definition for a binary tree node.
@@ -96,7 +108,9 @@ private:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 /**
  * Definition for a binary tree node.
@@ -135,8 +149,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -163,8 +179,10 @@ class Solution:
         return res
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -197,3 +215,6 @@ var rightSideView = function(root) {
     return res;
 };
 ```
+
+  </TabItem>
+</Tabs>

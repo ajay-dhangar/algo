@@ -125,12 +125,17 @@ describe('safeStorage', () => {
     test('saves quiz attempt to localStorage and dispatches quizCompleted event', () => {
       const dispatchSpy = jest.spyOn(window, 'dispatchEvent');
 
-      saveQuizAttemptLocal('user1', 'arrays', { score: 9, totalQuestions: 10 });
+      saveQuizAttemptLocal('user1', 'arrays', {
+        score: 9,
+        totalQuestions: 10,
+        missedQuestionIds: [1, 3],
+      });
 
       const key = getQuizAttemptStorageKey('user1', 'arrays');
       const attempts = safeJsonParse(key, []);
       expect(attempts).toHaveLength(1);
       expect(attempts[0].score).toBe(9);
+      expect(attempts[0].missedQuestionIds).toEqual([1, 3]);
 
       expect(dispatchSpy).toHaveBeenCalled();
 

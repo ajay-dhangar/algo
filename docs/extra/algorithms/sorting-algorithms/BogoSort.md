@@ -3,7 +3,9 @@
 id: bogo-sort-algo  
 sidebar_position: 13
 title: Bogo Sort  
-sidebar_label: Bogo Sort  
+sidebar_label: Bogo Sort
+description: "Complete guide to Bogo Sort, a highly inefficient sorting algorithm that generates random permutations until the array is sorted."
+tags: [sorting algorithms, bogo sort, dsa, algorithms]
 
 ---
 

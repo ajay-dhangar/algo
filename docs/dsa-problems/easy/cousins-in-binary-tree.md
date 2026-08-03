@@ -1,9 +1,15 @@
 ---
 id: cousins-in-binary-tree
-title: "Cousins in Binary Tree"
-sidebar_label: "Cousins in Binary Tree"
-description: "This document includes the solution to the problem of determining if two nodes in a binary tree are cousins, along with the approach and implementation."
-tags: [binary tree, cousins]
+title: Cousins in Binary Tree
+sidebar_label: Cousins in Binary Tree
+description: >-
+  This document includes the solution to the problem of determining if two nodes
+  in a binary tree are cousins, along with the approach and implementation.
+tags:
+  - binary tree
+  - cousins
+companies:
+  - Apple
 ---
 
 # Cousins in Binary Tree
@@ -44,7 +50,34 @@ To determine if two nodes are cousins, we can use a **Breadth-First Search (BFS)
    - If both nodes are found to be cousins during the traversal, return `true`.
    - If the traversal ends without finding them, return `false`.
 
-## Java Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    bool isCousins(TreeNode* root, int x, int y) {
+        int xDepth = -1, yDepth = -1;
+        TreeNode *xParent = nullptr, *yParent = nullptr;
+        
+        function<void(TreeNode*, TreeNode*, int)> dfs = [&](TreeNode* node, TreeNode* parent, int depth) {
+            if (!node) return;
+            if (node->val == x) { xParent = parent; xDepth = depth; }
+            if (node->val == y) { yParent = parent; yDepth = depth; }
+            dfs(node->left, node, depth + 1);
+            dfs(node->right, node, depth + 1);
+        };
+        
+        dfs(root, nullptr, 0);
+        return xDepth == yDepth && xParent != yParent;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
 
 ```java
 import java.util.LinkedList;
@@ -194,10 +227,47 @@ class Solution:
                 return True
         
         return False  # Not cousins if the loop completes
-        ```
+```
 
+  </TabItem>
+  <TabItem value="python" label="Python">
 
+```python
+class Solution:
+    def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        res = []
+        def dfs(node, parent, depth):
+            if not node:
+                return
+            if node.val == x or node.val == y:
+                res.append((parent, depth))
+            dfs(node.left, node, depth + 1)
+            dfs(node.right, node, depth + 1)
+        
+        dfs(root, None, 0)
+        return len(res) == 2 and res[0][1] == res[1][1] and res[0][0] != res[1][0]
+```
 
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
 
-### Time Complexity: O(n) 
-### Space Complexity: O(n)
+```javascript
+var isCousins = function(root, x, y) {
+    let xDepth = -1, yDepth = -1;
+    let xParent = null, yParent = null;
+    
+    function dfs(node, parent, depth) {
+        if (!node) return;
+        if (node.val === x) { xParent = parent; xDepth = depth; }
+        if (node.val === y) { yParent = parent; yDepth = depth; }
+        dfs(node.left, node, depth + 1);
+        dfs(node.right, node, depth + 1);
+    }
+    
+    dfs(root, null, 0);
+    return xDepth === yDepth && xParent !== yParent;
+};
+```
+
+  </TabItem>
+</Tabs>

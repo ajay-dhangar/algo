@@ -1,9 +1,17 @@
 ---
 id: flood-fill
-title: "Flood Fill"
+title: Flood Fill
 sidebar_label: Flood Fill
-description: "Solution for LeetCode 733: Flood Fill, utilizing Graph Traversal (DFS)."
-tags: [DSA, leetcode, graph, dfs, bfs, matrix]
+description: 'Solution for LeetCode 733: Flood Fill, utilizing Graph Traversal (DFS).'
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - dfs
+  - bfs
+  - matrix
+companies:
+  - Google
 ---
 
 ## Description:
@@ -51,9 +59,11 @@ This is a classic graph traversal problem on a 2D matrix. We want to start at th
 * **Time Complexity:** $O(M \times N)$ where $M$ is the number of rows and $N$ is the number of columns. In the worst-case scenario, we might have to process and recolor every single pixel in the image.
 * **Space Complexity:** $O(M \times N)$ for the recursion call stack in the worst case (e.g., if the entire image is the same color and the recursion goes deep).
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 private:
@@ -87,7 +97,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
@@ -115,8 +127,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def floodFill(self, image: list[list[int]], sr: int, sc: int, color: int) -> list[list[int]]:
         initialColor = image[sr][sc]
@@ -139,8 +153,10 @@ class Solution:
         return image
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[][]} image
  * @param {number} sr
@@ -170,3 +186,6 @@ var floodFill = function(image, sr, sc, color) {
     return image;
 };
 ```
+
+  </TabItem>
+</Tabs>

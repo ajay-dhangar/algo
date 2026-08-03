@@ -3,7 +3,9 @@
 id: comb-sort-algo  
 sidebar_position: 10  
 title: Comb Sort  
-sidebar_label: Comb Sort  
+sidebar_label: Comb Sort
+description: "Complete guide to Comb Sort, an improvement over bubble sort that compares elements separated by a shrinking gap to eliminate turtles."
+tags: [sorting algorithms, comb sort, bubble sort, dsa]
 
 ---
 

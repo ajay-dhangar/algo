@@ -224,8 +224,10 @@
     "Amazon",
     "Apple",
     "Google",
+    "LinkedIn",
     "Meta",
-    "Microsoft"
+    "Microsoft",
+    "Netflix"
   ],
   "problems": [
     {
@@ -236,7 +238,9 @@
       "tags": [
         "linked-list"
       ],
-      "companies": [],
+      "companies": [
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/medium/add-two-numbers-as-linked-lists"
     },
     {
@@ -288,7 +292,10 @@
         "dfs",
         "recursion"
       ],
-      "companies": [],
+      "companies": [
+        "Google",
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/medium/binary-tree-right-side-view"
     },
     {
@@ -302,7 +309,9 @@
         "shortest-path",
         "dynamic-programming"
       ],
-      "companies": [],
+      "companies": [
+        "Amazon"
+      ],
       "url": "/docs/dsa-problems/medium/cheapest-flights-within-k-stops"
     },
     {
@@ -325,7 +334,10 @@
         "linked-list",
         "clone"
       ],
-      "companies": [],
+      "companies": [
+        "LinkedIn",
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/medium/clone-linked-list-with-random-and-next-pointer"
     },
     {
@@ -338,7 +350,9 @@
         "backtracking",
         "recursion"
       ],
-      "companies": [],
+      "companies": [
+        "Amazon"
+      ],
       "url": "/docs/dsa-problems/medium/combination-sum"
     },
     {
@@ -353,7 +367,8 @@
       "companies": [
         "Amazon",
         "Apple",
-        "Google"
+        "Google",
+        "Netflix"
       ],
       "url": "/docs/dsa-problems/easy/contains-duplicate-leetcode-217"
     },
@@ -366,7 +381,9 @@
         "binary-tree",
         "cousins"
       ],
-      "companies": [],
+      "companies": [
+        "Apple"
+      ],
       "url": "/docs/dsa-problems/easy/cousins-in-binary-tree"
     },
     {
@@ -390,7 +407,9 @@
       "description": "The Date to Binary Conversion problem on LeetCode typically involves converting a given date into its binary representation.",
       "difficulty": "Easy",
       "tags": [],
-      "companies": [],
+      "companies": [
+        "Apple"
+      ],
       "url": "/docs/dsa-problems/easy/date-to-binary-conversion"
     },
     {
@@ -413,7 +432,9 @@
       "tags": [
         "linked-list"
       ],
-      "companies": [],
+      "companies": [
+        "LinkedIn"
+      ],
       "url": "/docs/dsa-problems/medium/delete-middle-node-of-a-linked-list"
     },
     {
@@ -439,7 +460,10 @@
         "dfs",
         "recursion"
       ],
-      "companies": [],
+      "companies": [
+        "Apple",
+        "Google"
+      ],
       "url": "/docs/dsa-problems/easy/diameter-of-binary-tree"
     },
     {
@@ -462,7 +486,10 @@
       "description": "A palindrome reads the same forwards and backwards, like \"121\" or \"racecar.\"",
       "difficulty": "Easy",
       "tags": [],
-      "companies": [],
+      "companies": [
+        "Apple",
+        "Google"
+      ],
       "url": "/docs/dsa-problems/easy/check-palindrome"
     },
     {
@@ -513,7 +540,9 @@
         "binary-search",
         "divide-and-conquer"
       ],
-      "companies": [],
+      "companies": [
+        "Apple"
+      ],
       "url": "/docs/dsa-problems/medium/find-a-peak-element-ii"
     },
     {
@@ -527,7 +556,9 @@
         "bfs",
         "topological-sort"
       ],
-      "companies": [],
+      "companies": [
+        "Netflix"
+      ],
       "url": "/docs/dsa-problems/medium/find-eventual-safe-states"
     },
     {
@@ -548,7 +579,9 @@
         "linked-list",
         "loop"
       ],
-      "companies": [],
+      "companies": [
+        "LinkedIn"
+      ],
       "url": "/docs/dsa-problems/easy/loop-in-a-linked-list"
     },
     {
@@ -560,7 +593,9 @@
         "linked-list",
         "flattening"
       ],
-      "companies": [],
+      "companies": [
+        "LinkedIn"
+      ],
       "url": "/docs/dsa-problems/medium/flattening-a-linked-list"
     },
     {
@@ -574,7 +609,9 @@
         "bfs",
         "matrix"
       ],
-      "companies": [],
+      "companies": [
+        "Google"
+      ],
       "url": "/docs/dsa-problems/medium/flood-fill"
     },
     {
@@ -587,8 +624,11 @@
         "house-robber"
       ],
       "companies": [
+        "Amazon",
         "Google",
-        "Amazon"
+        "LinkedIn",
+        "Microsoft",
+        "Netflix"
       ],
       "url": "/docs/dsa-problems/medium/house-robber-algorithm"
     },
@@ -601,7 +641,9 @@
         "dynamic-programming",
         "array"
       ],
-      "companies": [],
+      "companies": [
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/medium/house-robber-ii"
     },
     {
@@ -613,7 +655,9 @@
         "linked-list",
         "two-pointers"
       ],
-      "companies": [],
+      "companies": [
+        "Amazon"
+      ],
       "url": "/docs/dsa-problems/easy/intersection-of-two-linked-lists"
     },
     {
@@ -640,7 +684,10 @@
         "stack",
         "monotonic-stack"
       ],
-      "companies": [],
+      "companies": [
+        "Amazon",
+        "Google"
+      ],
       "url": "/docs/dsa-problems/hard/largest-rectangle-in-histogram"
     },
     {
@@ -652,7 +699,9 @@
         "array",
         "prefix-sum"
       ],
-      "companies": [],
+      "companies": [
+        "Netflix"
+      ],
       "url": "/docs/dsa-problems/easy/left-and-right-sum-differences"
     },
     {
@@ -675,7 +724,10 @@
         "linked-list",
         "two-pointers"
       ],
-      "companies": [],
+      "companies": [
+        "LinkedIn",
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/easy/linked-list-cycle"
     },
     {
@@ -687,7 +739,10 @@
       "companies": [
         "Amazon",
         "Google",
-        "Meta"
+        "LinkedIn",
+        "Meta",
+        "Microsoft",
+        "Netflix"
       ],
       "url": "/docs/dsa-problems/medium/longest-substring-without-repeated-characters-problem"
     },
@@ -699,7 +754,11 @@
       "tags": [
         "lca"
       ],
-      "companies": [],
+      "companies": [
+        "Google",
+        "Meta",
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/medium/lowest-common-ancestor"
     },
     {
@@ -713,7 +772,9 @@
         "stack",
         "monotonic-stack"
       ],
-      "companies": [],
+      "companies": [
+        "Google"
+      ],
       "url": "/docs/dsa-problems/hard/maximal-rectangle"
     },
     {
@@ -739,7 +800,11 @@
         "dfs",
         "recursion"
       ],
-      "companies": [],
+      "companies": [
+        "Apple",
+        "Google",
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/easy/maximum-depth-of-binary-tree"
     },
     {
@@ -777,7 +842,9 @@
         "sliding-window",
         "array"
       ],
-      "companies": [],
+      "companies": [
+        "Netflix"
+      ],
       "url": "/docs/dsa-problems/medium/maximum-points-you-can-obtain-from-cards"
     },
     {
@@ -799,8 +866,8 @@
       "difficulty": "Medium",
       "tags": [],
       "companies": [
-        "Google",
         "Amazon",
+        "Google",
         "Meta"
       ],
       "url": "/docs/dsa-problems/medium/merge-intervals-problem"
@@ -816,7 +883,9 @@
         "sorting",
         "heap"
       ],
-      "companies": [],
+      "companies": [
+        "Amazon"
+      ],
       "url": "/docs/dsa-problems/hard/merge-k-sorted-arrays"
     },
     {
@@ -850,7 +919,9 @@
         "array",
         "backtracking"
       ],
-      "companies": [],
+      "companies": [
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/hard/n-queens"
     },
     {
@@ -882,9 +953,27 @@
       "companies": [
         "Amazon",
         "Google",
-        "Meta"
+        "LinkedIn",
+        "Meta",
+        "Netflix"
       ],
       "url": "/docs/dsa-problems/medium/number-of-islands"
+    },
+    {
+      "id": "number-of-operations-to-make-network-connected",
+      "title": "Number of Operations to Make Network Connected",
+      "description": "Solution for LeetCode 1319: Number of Operations to Make Network Connected, utilizing Graph Traversal (DFS) to count connected components.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dfs",
+        "bfs",
+        "union-find"
+      ],
+      "companies": [
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/medium/number-of-operations-to-make-network-connected"
     },
     {
       "id": "number-of-provinces",
@@ -897,7 +986,11 @@
         "bfs",
         "union-find"
       ],
-      "companies": [],
+      "companies": [
+        "Google",
+        "LinkedIn",
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/medium/number-of-provinces"
     },
     {
@@ -906,7 +999,9 @@
       "description": "This document explains the Odd Even Linked List problem, including its description, approach, and implementation.",
       "difficulty": "Medium",
       "tags": [],
-      "companies": [],
+      "companies": [
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/medium/odd-even-linked-list"
     },
     {
@@ -915,7 +1010,9 @@
       "description": "This document explains the Palindrome Linked List problem, including its description, approach, and implementation.",
       "difficulty": "Easy",
       "tags": [],
-      "companies": [],
+      "companies": [
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/easy/palindrome-linked-list-problem"
     },
     {
@@ -941,7 +1038,9 @@
         "array",
         "knapsack"
       ],
-      "companies": [],
+      "companies": [
+        "Google"
+      ],
       "url": "/docs/dsa-problems/medium/partition-equal-subset-sum"
     },
     {
@@ -956,7 +1055,9 @@
         "matrix",
         "binary-search"
       ],
-      "companies": [],
+      "companies": [
+        "Amazon"
+      ],
       "url": "/docs/dsa-problems/medium/path-with-minimum-effort"
     },
     {
@@ -965,7 +1066,9 @@
       "description": "The \"Plus One\" dsa problem is a classic algorithm challenge that involves manipulating an array of digits. The goal is to add one to a number represented by an array of its digits.",
       "difficulty": "Easy",
       "tags": [],
-      "companies": [],
+      "companies": [
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/easy/plus-one"
     },
     {
@@ -1028,7 +1131,9 @@
       "description": "This document explains the Removing Stars From a String problem, including its description, approach, and implementation.",
       "difficulty": "Medium",
       "tags": [],
-      "companies": [],
+      "companies": [
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/medium/removing-stars-from-string"
     },
     {
@@ -1037,7 +1142,9 @@
       "description": "The Reverse Bits problem asks you to reverse the bits of a given 32-bit unsigned integer. Essentially, you need to flip the binary representation of the number so that the least significant bit (LSB) becomes the most significant bit (MSB) and vice versa.",
       "difficulty": "Easy",
       "tags": [],
-      "companies": [],
+      "companies": [
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/easy/Reverse Bits"
     },
     {
@@ -1048,7 +1155,9 @@
       "tags": [
         "math"
       ],
-      "companies": [],
+      "companies": [
+        "Apple"
+      ],
       "url": "/docs/dsa-problems/medium/reverse-integer"
     },
     {
@@ -1059,8 +1168,9 @@
       "tags": [],
       "companies": [
         "Amazon",
-        "Microsoft",
-        "Meta"
+        "LinkedIn",
+        "Meta",
+        "Microsoft"
       ],
       "url": "/docs/dsa-problems/easy/reverse-linked-list"
     },
@@ -1074,7 +1184,10 @@
         "graph",
         "rotten-oranges"
       ],
-      "companies": [],
+      "companies": [
+        "Meta",
+        "Netflix"
+      ],
       "url": "/docs/dsa-problems/medium/rotten-oranges"
     },
     {
@@ -1098,7 +1211,9 @@
         "binary-tree",
         "bst"
       ],
-      "companies": [],
+      "companies": [
+        "Amazon"
+      ],
       "url": "/docs/dsa-problems/medium/size-of-largest-bst-in-binary-tree"
     },
     {
@@ -1114,9 +1229,10 @@
         "monotonic-queue"
       ],
       "companies": [
-        "Google",
         "Amazon",
-        "Meta"
+        "Google",
+        "Meta",
+        "Netflix"
       ],
       "url": "/docs/dsa-problems/hard/sliding-window-maximum"
     },
@@ -1130,7 +1246,9 @@
         "sliding-window",
         "hash-table"
       ],
-      "companies": [],
+      "companies": [
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/hard/subarrays-with-k-different-integers"
     },
     {
@@ -1142,7 +1260,9 @@
         "array",
         "monotonic-stack"
       ],
-      "companies": [],
+      "companies": [
+        "Apple"
+      ],
       "url": "/docs/dsa-problems/medium/sum-of-subarray-ranges"
     },
     {
@@ -1156,7 +1276,10 @@
         "bfs",
         "matrix"
       ],
-      "companies": [],
+      "companies": [
+        "LinkedIn",
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/medium/surrounded-regions"
     },
     {
@@ -1168,7 +1291,11 @@
         "binary-tree",
         "symmetric"
       ],
-      "companies": [],
+      "companies": [
+        "Apple",
+        "Meta",
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/easy/symmetric-tree"
     },
     {
@@ -1194,7 +1321,9 @@
         "bit-manipulation",
         "matrix"
       ],
-      "companies": [],
+      "companies": [
+        "Apple"
+      ],
       "url": "/docs/dsa-problems/hard/transform-to-chessboard"
     },
     {
@@ -1207,7 +1336,9 @@
         "array",
         "matrix"
       ],
-      "companies": [],
+      "companies": [
+        "Apple"
+      ],
       "url": "/docs/dsa-problems/medium/triangle"
     },
     {
@@ -1217,9 +1348,11 @@
       "difficulty": "Easy",
       "tags": [],
       "companies": [
-        "Google",
         "Amazon",
-        "Meta"
+        "Google",
+        "Meta",
+        "Microsoft",
+        "Netflix"
       ],
       "url": "/docs/dsa-problems/easy/two-sum-problem"
     },
@@ -1233,7 +1366,11 @@
         "combinatorics",
         "math"
       ],
-      "companies": [],
+      "companies": [
+        "Google",
+        "Microsoft",
+        "Netflix"
+      ],
       "url": "/docs/dsa-problems/medium/unique-paths"
     },
     {
@@ -1246,7 +1383,9 @@
         "greedy",
         "dynamic-programming"
       ],
-      "companies": [],
+      "companies": [
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/medium/valid-parenthesis-string"
     },
     {
@@ -1261,7 +1400,9 @@
         "sorting",
         "hash-table"
       ],
-      "companies": [],
+      "companies": [
+        "Meta"
+      ],
       "url": "/docs/dsa-problems/hard/vertical-order-traversal-of-a-binary-tree"
     },
     {
@@ -1301,7 +1442,10 @@
         "backtracking",
         "matrix"
       ],
-      "companies": [],
+      "companies": [
+        "Apple",
+        "Google"
+      ],
       "url": "/docs/dsa-problems/medium/word-search"
     },
     {
@@ -1319,5 +1463,1244 @@
       "companies": [],
       "url": "/docs/dsa-problems/medium/yaroslav-and-productivity-2244d"
     }
-  ]
+  ],
+  "problemsById": {
+    "add-two-numbers-as-linked-lists": {
+      "id": "add-two-numbers-as-linked-lists",
+      "title": "Add two numbers represented as linked lists",
+      "description": "This document provides a detailed explanation and implementation for adding two numbers represented as linked lists, including step-by-step instructions and example code.",
+      "difficulty": "Medium",
+      "tags": [
+        "linked-list"
+      ],
+      "companies": [
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/medium/add-two-numbers-as-linked-lists"
+    },
+    "an-alternative-way-2241d": {
+      "id": "an-alternative-way-2241d",
+      "title": "An Alternative Way",
+      "description": "Solution for Codeforces 2241D: An Alternative Way, utilizing a prefix sum invariant approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "math",
+        "array",
+        "prefix-sum"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/an-alternative-way-2241d"
+    },
+    "angle-between-hands-of-a-clock": {
+      "id": "angle-between-hands-of-a-clock",
+      "title": "Angle Between Hands of a Clock",
+      "description": "Finding the smaller angle formed between the hour and minute hands of a clock.",
+      "difficulty": "Medium",
+      "tags": [
+        "math"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/angle-between-hands-of-a-clock"
+    },
+    "bigrams-2242a": {
+      "id": "bigrams-2242a",
+      "title": "Bigrams",
+      "description": "Solution for Codeforces 2242A: Bigrams, utilizing a greedy frequency counting approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "string",
+        "math",
+        "greedy"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/bigrams-2242a"
+    },
+    "binary-tree-right-side-view": {
+      "id": "binary-tree-right-side-view",
+      "title": "Binary Tree Right Side View",
+      "description": "Solving the Binary Tree Right Side View problem using a Depth-First Search (DFS) approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "binary-tree",
+        "dfs",
+        "recursion"
+      ],
+      "companies": [
+        "Google",
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/medium/binary-tree-right-side-view"
+    },
+    "cheapest-flights-within-k-stops": {
+      "id": "cheapest-flights-within-k-stops",
+      "title": "Cheapest Flights Within K Stops",
+      "description": "Solution for LeetCode 787: Cheapest Flights Within K Stops, utilizing BFS (Modified Dijkstra) to find the cheapest flight path within K stops.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "bfs",
+        "shortest-path",
+        "dynamic-programming"
+      ],
+      "companies": [
+        "Amazon"
+      ],
+      "url": "/docs/dsa-problems/medium/cheapest-flights-within-k-stops"
+    },
+    "check-if-array-is-sorted-and-rotated": {
+      "id": "check-if-array-is-sorted-and-rotated",
+      "title": "Check if array is sorted and rotated",
+      "description": "Determining if an array was originally sorted in non-decreasing order and then rotated using a simple traversal approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "array"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/check-if-array-is-sorted-and-rotated"
+    },
+    "clone-linked-list-with-random-and-next-pointer": {
+      "id": "clone-linked-list-with-random-and-next-pointer",
+      "title": "Cloning a Linked List with Random and Next Pointers",
+      "description": "Cloning a linked list that contains both next and random pointers involves creating a new linked list that is an exact copy of the original, preserving the structure and relationships of the nodes.",
+      "difficulty": "Medium",
+      "tags": [
+        "linked-list",
+        "clone"
+      ],
+      "companies": [
+        "LinkedIn",
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/medium/clone-linked-list-with-random-and-next-pointer"
+    },
+    "combination-sum": {
+      "id": "combination-sum",
+      "title": "Combination Sum",
+      "description": "Solving the Combination Sum problem using a recursive backtracking approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "array",
+        "backtracking",
+        "recursion"
+      ],
+      "companies": [
+        "Amazon"
+      ],
+      "url": "/docs/dsa-problems/medium/combination-sum"
+    },
+    "contains-duplicate-leetcode-217": {
+      "id": "contains-duplicate-leetcode-217",
+      "title": "Contains Duplicate",
+      "description": "Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.",
+      "difficulty": "Easy",
+      "tags": [
+        "array",
+        "contains-duplicate"
+      ],
+      "companies": [
+        "Amazon",
+        "Apple",
+        "Google",
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/easy/contains-duplicate-leetcode-217"
+    },
+    "cousins-in-binary-tree": {
+      "id": "cousins-in-binary-tree",
+      "title": "Cousins in Binary Tree",
+      "description": "This document includes the solution to the problem of determining if two nodes in a binary tree are cousins, along with the approach and implementation.",
+      "difficulty": "Easy",
+      "tags": [
+        "binary-tree",
+        "cousins"
+      ],
+      "companies": [
+        "Apple"
+      ],
+      "url": "/docs/dsa-problems/easy/cousins-in-binary-tree"
+    },
+    "crimson-triples": {
+      "id": "crimson-triples",
+      "title": "Crimson Triples",
+      "description": "Solution for Codeforces 2238B: Crimson Triples, utilizing mathematical observations and a greedy approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "math",
+        "greedy",
+        "competitive-programming",
+        "array"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/crimson-triples"
+    },
+    "date-to-binary-conversion": {
+      "id": "date-to-binary-conversion",
+      "title": "Date to Binary",
+      "description": "The Date to Binary Conversion problem on LeetCode typically involves converting a given date into its binary representation.",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [
+        "Apple"
+      ],
+      "url": "/docs/dsa-problems/easy/date-to-binary-conversion"
+    },
+    "delete-all-occurences-of-key": {
+      "id": "delete-all-occurences-of-key",
+      "title": "Deleting All Occurrences of a Key in a Doubly Linked List",
+      "description": "This document provides a detailed explanation and implementation for deleting all occurrences of a key in a doubly linked list , including step-by-step instructions and example code.",
+      "difficulty": "Easy",
+      "tags": [
+        "linked-list",
+        "deletion"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/easy/delete-all-occurences-of-key"
+    },
+    "delete-middle-node-of-a-linked-list": {
+      "id": "delete-middle-node-of-a-linked-list",
+      "title": "Deleting middle node of linked list.",
+      "description": " This document explains the 'Deleting the middle element of a linked list' problem, including its description, approach, and implementation.",
+      "difficulty": "Medium",
+      "tags": [
+        "linked-list"
+      ],
+      "companies": [
+        "LinkedIn"
+      ],
+      "url": "/docs/dsa-problems/medium/delete-middle-node-of-a-linked-list"
+    },
+    "destroying-asteroids": {
+      "id": "destroying-asteroids",
+      "title": "Destroying Asteroids",
+      "description": "Finding if a planet can destroy all asteroids using a greedy approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "array",
+        "greedy",
+        "sorting"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/destroying-asteroids"
+    },
+    "diameter-of-binary-tree": {
+      "id": "diameter-of-binary-tree",
+      "title": "Diameter of Binary Tree",
+      "description": "Solving the Diameter of Binary Tree problem using a Recursive Depth-First Search (DFS) approach.",
+      "difficulty": "Easy",
+      "tags": [
+        "binary-tree",
+        "dfs",
+        "recursion"
+      ],
+      "companies": [
+        "Apple",
+        "Google"
+      ],
+      "url": "/docs/dsa-problems/easy/diameter-of-binary-tree"
+    },
+    "divide-and-conquer-2241a": {
+      "id": "divide-and-conquer-2241a",
+      "title": "Divide and Conquer",
+      "description": "Solution for Codeforces 2241A: Divide and Conquer, utilizing a highly optimal math approach.",
+      "difficulty": "Easy",
+      "tags": [
+        "codeforces",
+        "math",
+        "implementation",
+        "greedy"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/easy/divide-and-conquer-2241a"
+    },
+    "check-palindrome": {
+      "id": "check-palindrome",
+      "title": "DSA Problem Solution",
+      "description": "A palindrome reads the same forwards and backwards, like \"121\" or \"racecar.\"",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [
+        "Apple",
+        "Google"
+      ],
+      "url": "/docs/dsa-problems/easy/check-palindrome"
+    },
+    "earliest-finish-time-for-land-and-water-rides": {
+      "id": "earliest-finish-time-for-land-and-water-rides",
+      "title": "Earliest Finish Time for Land and Water Rides I/II",
+      "description": "Finding the earliest possible completion time for taking exactly one land ride and one water ride using a greedy approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "array",
+        "greedy"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/earliest-finish-time-for-land-and-water-rides"
+    },
+    "ezraft-and-array-2246b": {
+      "id": "ezraft-and-array-2246b",
+      "title": "Ezraft and Array",
+      "description": "Solution for Codeforces 2246B: Ezraft and Array, utilizing a greedy constructive approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "constructive-algorithms",
+        "math"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/ezraft-and-array-2246b"
+    },
+    "farmpiggie-and-subset-sum-2246a": {
+      "id": "farmpiggie-and-subset-sum-2246a",
+      "title": "farmpiggie and Subset Sum",
+      "description": "Solution for Codeforces 2246A: farmpiggie and Subset Sum, utilizing a parity observation approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "math",
+        "constructive-algorithms"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/farmpiggie-and-subset-sum-2246a"
+    },
+    "find-a-peak-element-ii": {
+      "id": "find-a-peak-element-ii",
+      "title": "Find a Peak Element II",
+      "description": "Solving the Find a Peak Element II problem using Binary Search on a 2D Matrix.",
+      "difficulty": "Medium",
+      "tags": [
+        "matrix",
+        "binary-search",
+        "divide-and-conquer"
+      ],
+      "companies": [
+        "Apple"
+      ],
+      "url": "/docs/dsa-problems/medium/find-a-peak-element-ii"
+    },
+    "find-eventual-safe-states": {
+      "id": "find-eventual-safe-states",
+      "title": "Find Eventual Safe States",
+      "description": "Solution for LeetCode 802: Find Eventual Safe States, utilizing Graph Traversal (DFS Cycle Detection) and BFS (Kahn's Algorithm).",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dfs",
+        "bfs",
+        "topological-sort"
+      ],
+      "companies": [
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/medium/find-eventual-safe-states"
+    },
+    "find-indices-of-stable-mountains": {
+      "id": "find-indices-of-stable-mountains",
+      "title": "Find Indices of stable mountains",
+      "description": "The \"Find Indices of Stable Mountains\" problem on involves identifying mountains that meet a specific stability criterion 1.",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [],
+      "url": "/docs/dsa-problems/easy/find-indices-of-stable-mountains"
+    },
+    "loop-in-a-linked-list": {
+      "id": "loop-in-a-linked-list",
+      "title": "Finding loop in a linked list.",
+      "description": "This document includes solution to problem finding loop in a linked list along with approach and implementation.",
+      "difficulty": "Easy",
+      "tags": [
+        "linked-list",
+        "loop"
+      ],
+      "companies": [
+        "LinkedIn"
+      ],
+      "url": "/docs/dsa-problems/easy/loop-in-a-linked-list"
+    },
+    "flattening-a-linked-list": {
+      "id": "flattening-a-linked-list",
+      "title": "Flattening a linked list involves converting a multi-level linked list into a single-level linked list.",
+      "description": "Flattening a linked list involves converting a multi-level linked list into a single-level linked list.",
+      "difficulty": "Medium",
+      "tags": [
+        "linked-list",
+        "flattening"
+      ],
+      "companies": [
+        "LinkedIn"
+      ],
+      "url": "/docs/dsa-problems/medium/flattening-a-linked-list"
+    },
+    "flood-fill": {
+      "id": "flood-fill",
+      "title": "Flood Fill",
+      "description": "Solution for LeetCode 733: Flood Fill, utilizing Graph Traversal (DFS).",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dfs",
+        "bfs",
+        "matrix"
+      ],
+      "companies": [
+        "Google"
+      ],
+      "url": "/docs/dsa-problems/medium/flood-fill"
+    },
+    "house-robber-algorithm": {
+      "id": "house-robber-algorithm",
+      "title": "House Robber Algorithm",
+      "description": "Solve the House Robber problem using dynamic programming to maximize the amount of money that can be robbed from houses without robbing two adjacent houses.",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic-programming",
+        "house-robber"
+      ],
+      "companies": [
+        "Amazon",
+        "Google",
+        "LinkedIn",
+        "Microsoft",
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/medium/house-robber-algorithm"
+    },
+    "house-robber-ii": {
+      "id": "house-robber-ii",
+      "title": "House Robber II",
+      "description": "Solving the House Robber II problem using Dynamic Programming with space optimization.",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic-programming",
+        "array"
+      ],
+      "companies": [
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/medium/house-robber-ii"
+    },
+    "intersection-of-two-linked-lists": {
+      "id": "intersection-of-two-linked-lists",
+      "title": "Intersection of Two Linked Lists",
+      "description": "Solving the Intersection of Two Linked Lists problem using an optimal two-pointer approach.",
+      "difficulty": "Easy",
+      "tags": [
+        "linked-list",
+        "two-pointers"
+      ],
+      "companies": [
+        "Amazon"
+      ],
+      "url": "/docs/dsa-problems/easy/intersection-of-two-linked-lists"
+    },
+    "iskander-and-drawings-2244a": {
+      "id": "iskander-and-drawings-2244a",
+      "title": "Iskander and Drawings",
+      "description": "Solution for Codeforces 2244A: Iskander and Drawings, calculating the maximum time to erase a line.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "string",
+        "math",
+        "implementation"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/iskander-and-drawings-2244a"
+    },
+    "largest-rectangle-in-histogram": {
+      "id": "largest-rectangle-in-histogram",
+      "title": "Largest Rectangle in Histogram",
+      "description": "Finding the area of the largest rectangle in a histogram using a monotonic stack approach.",
+      "difficulty": "Hard",
+      "tags": [
+        "array",
+        "stack",
+        "monotonic-stack"
+      ],
+      "companies": [
+        "Amazon",
+        "Google"
+      ],
+      "url": "/docs/dsa-problems/hard/largest-rectangle-in-histogram"
+    },
+    "left-and-right-sum-differences": {
+      "id": "left-and-right-sum-differences",
+      "title": "Left and Right Sum Differences",
+      "description": "The Left and Right Sum Differences problem on LeetCode involves finding the absolute difference between the sum of elements to the left and right of each index in an array.",
+      "difficulty": "Easy",
+      "tags": [
+        "array",
+        "prefix-sum"
+      ],
+      "companies": [
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/easy/left-and-right-sum-differences"
+    },
+    "lemonade-change": {
+      "id": "lemonade-change",
+      "title": "Lemonade Change",
+      "description": "The Lemonade Change problem on LeetCode involves determining if a vendor can provide the correct change to every customer using a greedy approach.",
+      "difficulty": "Easy",
+      "tags": [
+        "greedy"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/easy/lemonade-change"
+    },
+    "linked-list-cycle": {
+      "id": "linked-list-cycle",
+      "title": "Linked List Cycle",
+      "description": "Solving the Linked List Cycle problem using Floyd's Cycle-Finding Algorithm.",
+      "difficulty": "Easy",
+      "tags": [
+        "linked-list",
+        "two-pointers"
+      ],
+      "companies": [
+        "LinkedIn",
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/easy/linked-list-cycle"
+    },
+    "longest-substring-without-repeated-characters-problem": {
+      "id": "longest-substring-without-repeated-characters-problem",
+      "title": "Longest Substring Without Repeating Characters",
+      "description": "This document explains the 'Longest Substring Without Repeating Characters' problem, including its description, approach, and implementation.",
+      "difficulty": "Medium",
+      "tags": [],
+      "companies": [
+        "Amazon",
+        "Google",
+        "LinkedIn",
+        "Meta",
+        "Microsoft",
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/medium/longest-substring-without-repeated-characters-problem"
+    },
+    "lowest-common-ancestor": {
+      "id": "lowest-common-ancestor",
+      "title": "Lowest Common Ancestor",
+      "description": "A detailed solution to the lowest common ancestor dsa problem from leetcode",
+      "difficulty": "Medium",
+      "tags": [
+        "lca"
+      ],
+      "companies": [
+        "Google",
+        "Meta",
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/medium/lowest-common-ancestor"
+    },
+    "maximal-rectangle": {
+      "id": "maximal-rectangle",
+      "title": "Maximal Rectangle",
+      "description": "Finding the largest rectangle containing only 1's in a binary matrix using a monotonic stack approach.",
+      "difficulty": "Hard",
+      "tags": [
+        "array",
+        "dynamic-programming",
+        "stack",
+        "monotonic-stack"
+      ],
+      "companies": [
+        "Google"
+      ],
+      "url": "/docs/dsa-problems/hard/maximal-rectangle"
+    },
+    "maximum-building-height": {
+      "id": "maximum-building-height",
+      "title": "Maximum Building Height",
+      "description": "Finding the maximum possible height of a building given a set of restrictions using a two-pass constraint propagation approach.",
+      "difficulty": "Hard",
+      "tags": [
+        "array",
+        "math",
+        "sorting"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/hard/maximum-building-height"
+    },
+    "maximum-depth-of-binary-tree": {
+      "id": "maximum-depth-of-binary-tree",
+      "title": "Maximum Depth of Binary Tree",
+      "description": "Solving the Maximum Depth of Binary Tree problem using a Recursive Depth-First Search (DFS) approach.",
+      "difficulty": "Easy",
+      "tags": [
+        "binary-tree",
+        "dfs",
+        "recursion"
+      ],
+      "companies": [
+        "Apple",
+        "Google",
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/easy/maximum-depth-of-binary-tree"
+    },
+    "maximum-ice-cream-bars": {
+      "id": "maximum-ice-cream-bars",
+      "title": "Maximum Ice Cream Bars",
+      "description": "Finding the maximum number of ice cream bars that can be bought with a given amount of coins using a greedy approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "array",
+        "greedy",
+        "sorting"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/maximum-ice-cream-bars"
+    },
+    "maximum-number-of-balloons": {
+      "id": "maximum-number-of-balloons",
+      "title": "Maximum Number of Balloons",
+      "description": "Finding the maximum number of instances of the word 'balloon' that can be formed from a given string.",
+      "difficulty": "Easy",
+      "tags": [
+        "hash-table",
+        "string",
+        "counting"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/easy/maximum-number-of-balloons"
+    },
+    "maximum-points-you-can-obtain-from-cards": {
+      "id": "maximum-points-you-can-obtain-from-cards",
+      "title": "Maximum Points You Can Obtain from Cards",
+      "description": "The Maximum Points You Can Obtain from Cards problem on LeetCode involves finding the maximum score by taking exactly k cards from either the beginning or the end of an array.",
+      "difficulty": "Medium",
+      "tags": [
+        "sliding-window",
+        "array"
+      ],
+      "companies": [
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/medium/maximum-points-you-can-obtain-from-cards"
+    },
+    "maximum-total-subarray-value-i": {
+      "id": "maximum-total-subarray-value-i",
+      "title": "Maximum Total Subarray Value I",
+      "description": "The Maximum Total Subarray Value I problem involves finding the maximum possible value by choosing a subarray k times using a greedy approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "greedy",
+        "array"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/maximum-total-subarray-value-i"
+    },
+    "merge-intervals-problem": {
+      "id": "merge-intervals-problem",
+      "title": "Merge Intervals",
+      "description": "This document explains the Merge Intervals problem, including its description, approach, and implementation.",
+      "difficulty": "Medium",
+      "tags": [],
+      "companies": [
+        "Amazon",
+        "Google",
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/medium/merge-intervals-problem"
+    },
+    "merge-k-sorted-arrays": {
+      "id": "merge-k-sorted-arrays",
+      "title": "Merge K Sorted Arrays",
+      "description": "Given k sorted arrays with each of size k arranged in the form of a matrix of size k * k. The task is to merge them into one sorted array.",
+      "difficulty": "Hard",
+      "tags": [
+        "gfg",
+        "array",
+        "sorting",
+        "heap"
+      ],
+      "companies": [
+        "Amazon"
+      ],
+      "url": "/docs/dsa-problems/hard/merge-k-sorted-arrays"
+    },
+    "merge-two-sorted-arrays": {
+      "id": "merge-two-sorted-arrays",
+      "title": "Merge Two Sorted Arrays.",
+      "description": "This problem is a common exercise in understanding array manipulation and is often used to illustrate the two-pointer technique",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [],
+      "url": "/docs/dsa-problems/easy/merge-two-sorted-arrays"
+    },
+    "minimum-number-of-steps-to-make-two-strings-anagram": {
+      "id": "minimum-number-of-steps-to-make-two-strings-anagram",
+      "title": "Minimum Number of Steps to Make Two Strings Anagram",
+      "description": "Finding the minimum number of character replacements to make two strings anagrams using frequency counting.",
+      "difficulty": "Easy",
+      "tags": [
+        "string",
+        "hash-table",
+        "counting"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/easy/minimum-number-of-steps-to-make-two-strings-anagram"
+    },
+    "n-queens": {
+      "id": "n-queens",
+      "title": "N-Queens",
+      "description": "Solving the classic N-Queens puzzle using a backtracking approach.",
+      "difficulty": "Hard",
+      "tags": [
+        "array",
+        "backtracking"
+      ],
+      "companies": [
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/hard/n-queens"
+    },
+    "nikita-and-books-2244b": {
+      "id": "nikita-and-books-2244b",
+      "title": "Nikita and Books",
+      "description": "Solution for Codeforces 2244B: Nikita and Books, utilizing a greedy prefix sum approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "greedy",
+        "math",
+        "array",
+        "prefix-sum"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/nikita-and-books-2244b"
+    },
+    "number-of-islands": {
+      "id": "number-of-islands",
+      "title": "Number of Islands",
+      "description": "Solution for LeetCode 200: Number of Islands, utilizing Graph Traversal (DFS) to count connected components in a matrix.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dfs",
+        "bfs",
+        "matrix"
+      ],
+      "companies": [
+        "Amazon",
+        "Google",
+        "LinkedIn",
+        "Meta",
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/medium/number-of-islands"
+    },
+    "number-of-operations-to-make-network-connected": {
+      "id": "number-of-operations-to-make-network-connected",
+      "title": "Number of Operations to Make Network Connected",
+      "description": "Solution for LeetCode 1319: Number of Operations to Make Network Connected, utilizing Graph Traversal (DFS) to count connected components.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dfs",
+        "bfs",
+        "union-find"
+      ],
+      "companies": [
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/medium/number-of-operations-to-make-network-connected"
+    },
+    "number-of-provinces": {
+      "id": "number-of-provinces",
+      "title": "Number of Provinces",
+      "description": "Solution for LeetCode 547: Number of Provinces, utilizing Graph Traversal (DFS) to find connected components.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dfs",
+        "bfs",
+        "union-find"
+      ],
+      "companies": [
+        "Google",
+        "LinkedIn",
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/medium/number-of-provinces"
+    },
+    "odd-even-linked-list": {
+      "id": "odd-even-linked-list",
+      "title": "Odd Even Linked List",
+      "description": "This document explains the Odd Even Linked List problem, including its description, approach, and implementation.",
+      "difficulty": "Medium",
+      "tags": [],
+      "companies": [
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/medium/odd-even-linked-list"
+    },
+    "palindrome-linked-list-problem": {
+      "id": "palindrome-linked-list-problem",
+      "title": "Palindrome Linked List",
+      "description": "This document explains the Palindrome Linked List problem, including its description, approach, and implementation.",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/easy/palindrome-linked-list-problem"
+    },
+    "partition-array-according-to-given-pivot": {
+      "id": "partition-array-according-to-given-pivot",
+      "title": "Partition Array According to Given Pivot",
+      "description": "Rearranging an array based on a pivot value while maintaining the stable relative order of elements.",
+      "difficulty": "Medium",
+      "tags": [
+        "array",
+        "two-pointers",
+        "simulation"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/partition-array-according-to-given-pivot"
+    },
+    "partition-equal-subset-sum": {
+      "id": "partition-equal-subset-sum",
+      "title": "Partition Equal Subset Sum",
+      "description": "Solving the Partition Equal Subset Sum problem using Space-Optimized Dynamic Programming.",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic-programming",
+        "array",
+        "knapsack"
+      ],
+      "companies": [
+        "Google"
+      ],
+      "url": "/docs/dsa-problems/medium/partition-equal-subset-sum"
+    },
+    "path-with-minimum-effort": {
+      "id": "path-with-minimum-effort",
+      "title": "Path With Minimum Effort",
+      "description": "Solution for LeetCode 1631: Path With Minimum Effort, utilizing Dijkstra's Algorithm with a Min-Priority Queue on a 2D grid.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dijkstras",
+        "shortest-path",
+        "matrix",
+        "binary-search"
+      ],
+      "companies": [
+        "Amazon"
+      ],
+      "url": "/docs/dsa-problems/medium/path-with-minimum-effort"
+    },
+    "plus-one": {
+      "id": "plus-one",
+      "title": "Plus One",
+      "description": "The \"Plus One\" dsa problem is a classic algorithm challenge that involves manipulating an array of digits. The goal is to add one to a number represented by an array of its digits.",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/easy/plus-one"
+    },
+    "predominant-frequency-division-2242b": {
+      "id": "predominant-frequency-division-2242b",
+      "title": "Predominant Frequency Division",
+      "description": "Solution for Codeforces 2242B: Predominant Frequency Division, utilizing a linear prefix sum and greedy approach.",
+      "difficulty": "Hard",
+      "tags": [
+        "codeforces",
+        "prefix-sum",
+        "greedy",
+        "array",
+        "math"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/hard/predominant-frequency-division-2242b"
+    },
+    "process-string-with-special-operations-i": {
+      "id": "process-string-with-special-operations-i",
+      "title": "Process String with Special Operations I",
+      "description": "Simulating string processing with backspace, duplicate, and reverse operations.",
+      "difficulty": "Medium",
+      "tags": [
+        "string",
+        "simulation"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/process-string-with-special-operations-i"
+    },
+    "rabbits-in-forest": {
+      "id": "rabbits-in-forest",
+      "title": "Rabbits in Forest",
+      "description": "Solving the Rabbits in Forest problem using a Hash Map and Greedy Math approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "math",
+        "hash-table",
+        "greedy"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/rabbits-in-forest"
+    },
+    "removevomer-2241c": {
+      "id": "removevomer-2241c",
+      "title": "RemovevomeR",
+      "description": "Solution for Codeforces 2241C: RemovevomeR, utilizing a greedy string observation approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "string",
+        "greedy",
+        "observation"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/removevomer-2241c"
+    },
+    "removing-stars-from-string": {
+      "id": "removing-stars-from-string",
+      "title": "Removing Stars From a String",
+      "description": "This document explains the Removing Stars From a String problem, including its description, approach, and implementation.",
+      "difficulty": "Medium",
+      "tags": [],
+      "companies": [
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/medium/removing-stars-from-string"
+    },
+    "Reverse Bits": {
+      "id": "Reverse Bits",
+      "title": "Reverse Bits Solution",
+      "description": "The Reverse Bits problem asks you to reverse the bits of a given 32-bit unsigned integer. Essentially, you need to flip the binary representation of the number so that the least significant bit (LSB) becomes the most significant bit (MSB) and vice versa.",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/easy/Reverse Bits"
+    },
+    "reverse-integer": {
+      "id": "reverse-integer",
+      "title": "Reverse Integer",
+      "description": "This document explains the Reverse Integer problem, including its description, approach, and implementation.",
+      "difficulty": "Medium",
+      "tags": [
+        "math"
+      ],
+      "companies": [
+        "Apple"
+      ],
+      "url": "/docs/dsa-problems/medium/reverse-integer"
+    },
+    "reverse-linked-list": {
+      "id": "reverse-linked-list",
+      "title": "Reverse Linked List",
+      "description": "This document explains the Reverse Linked List problem, including its description, approach, and implementation.",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [
+        "Amazon",
+        "LinkedIn",
+        "Meta",
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/easy/reverse-linked-list"
+    },
+    "rotten-oranges": {
+      "id": "rotten-oranges",
+      "title": "Rotten Oranges Algorithm",
+      "description": "Solve the Rotten Oranges problem using Breadth-First Search (BFS) to determine the minimum time required for all fresh oranges to rot.",
+      "difficulty": "Medium",
+      "tags": [
+        "bfs",
+        "graph",
+        "rotten-oranges"
+      ],
+      "companies": [
+        "Meta",
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/medium/rotten-oranges"
+    },
+    "segregate-even-odd-nodes": {
+      "id": "segregate-even-odd-nodes",
+      "title": "Segregate even and odd nodes in a linked list",
+      "description": "In a linked list, the goal is to rearrange the nodes such that all even-valued nodes appear before all odd-valued nodes.  ",
+      "difficulty": "Medium",
+      "tags": [
+        "linked-list"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/segregate-even-odd-nodes"
+    },
+    "size-of-largest-bst-in-binary-tree": {
+      "id": "size-of-largest-bst-in-binary-tree",
+      "title": "Size of Largest BST in Binary Tree",
+      "description": "Determine whether the subtree rooted at each node is a Binary Search Tree (BST). Find the size of the largest BST.",
+      "difficulty": "Medium",
+      "tags": [
+        "gfg",
+        "binary-tree",
+        "bst"
+      ],
+      "companies": [
+        "Amazon"
+      ],
+      "url": "/docs/dsa-problems/medium/size-of-largest-bst-in-binary-tree"
+    },
+    "sliding-window-maximum": {
+      "id": "sliding-window-maximum",
+      "title": "Sliding Window Maximum",
+      "description": "Given array of integers nums , with sliding window of size k which is moving from the very left of the array to the very right.Return the max for each sliding window.",
+      "difficulty": "Hard",
+      "tags": [
+        "array",
+        "queue",
+        "sliding-window",
+        "heap-priority-queue",
+        "monotonic-queue"
+      ],
+      "companies": [
+        "Amazon",
+        "Google",
+        "Meta",
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/hard/sliding-window-maximum"
+    },
+    "subarrays-with-k-different-integers": {
+      "id": "subarrays-with-k-different-integers",
+      "title": "Subarrays with K Different Integers",
+      "description": "Finding the number of subarrays with exactly K different integers using the sliding window approach.",
+      "difficulty": "Hard",
+      "tags": [
+        "array",
+        "sliding-window",
+        "hash-table"
+      ],
+      "companies": [
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/hard/subarrays-with-k-different-integers"
+    },
+    "sum-of-subarray-ranges": {
+      "id": "sum-of-subarray-ranges",
+      "title": "Sum of Subarray Ranges",
+      "description": "The Sum of Subarray Ranges problem involves finding the sum of the difference between the maximum and minimum elements of all subarrays using a Monotonic Stack.",
+      "difficulty": "Medium",
+      "tags": [
+        "array",
+        "monotonic-stack"
+      ],
+      "companies": [
+        "Apple"
+      ],
+      "url": "/docs/dsa-problems/medium/sum-of-subarray-ranges"
+    },
+    "surrounded-regions": {
+      "id": "surrounded-regions",
+      "title": "Surrounded Regions",
+      "description": "Solution for LeetCode 130: Surrounded Regions, utilizing Graph Traversal (DFS) on the boundaries to capture enclosed components.",
+      "difficulty": "Medium",
+      "tags": [
+        "graph",
+        "dfs",
+        "bfs",
+        "matrix"
+      ],
+      "companies": [
+        "LinkedIn",
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/medium/surrounded-regions"
+    },
+    "symmetric-tree": {
+      "id": "symmetric-tree",
+      "title": "Symmetric Tree",
+      "description": "This document includes the solution to the problem of checking whether a binary tree is symmetric around its center, along with the approach and implementation.",
+      "difficulty": "Easy",
+      "tags": [
+        "binary-tree",
+        "symmetric"
+      ],
+      "companies": [
+        "Apple",
+        "Meta",
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/easy/symmetric-tree"
+    },
+    "total-waviness-of-numbers-in-range": {
+      "id": "total-waviness-of-numbers-in-range",
+      "title": "Total Waviness of Numbers in Range I",
+      "description": "Determining the total sum of waviness for all numbers in a given range by checking for peaks and valleys among their digits.",
+      "difficulty": "Medium",
+      "tags": [
+        "math",
+        "simulation"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/total-waviness-of-numbers-in-range"
+    },
+    "transform-to-chessboard": {
+      "id": "transform-to-chessboard",
+      "title": "Transform to Chessboard",
+      "description": "Solving the Transform to Chessboard problem using Math and Matrix properties.",
+      "difficulty": "Hard",
+      "tags": [
+        "math",
+        "array",
+        "bit-manipulation",
+        "matrix"
+      ],
+      "companies": [
+        "Apple"
+      ],
+      "url": "/docs/dsa-problems/hard/transform-to-chessboard"
+    },
+    "triangle": {
+      "id": "triangle",
+      "title": "Triangle",
+      "description": "Solving the Triangle problem using Dynamic Programming (Bottom-Up space optimization).",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic-programming",
+        "array",
+        "matrix"
+      ],
+      "companies": [
+        "Apple"
+      ],
+      "url": "/docs/dsa-problems/medium/triangle"
+    },
+    "two-sum-problem": {
+      "id": "two-sum-problem",
+      "title": "Two Sum",
+      "description": "This document explains the Two Sum problem, including its description, approach, and implementation.",
+      "difficulty": "Easy",
+      "tags": [],
+      "companies": [
+        "Amazon",
+        "Google",
+        "Meta",
+        "Microsoft",
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/easy/two-sum-problem"
+    },
+    "unique-paths": {
+      "id": "unique-paths",
+      "title": "Unique Paths",
+      "description": "The Unique Paths problem on LeetCode involves finding the number of possible unique paths for a robot to reach the bottom-right corner of a grid.",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic-programming",
+        "combinatorics",
+        "math"
+      ],
+      "companies": [
+        "Google",
+        "Microsoft",
+        "Netflix"
+      ],
+      "url": "/docs/dsa-problems/medium/unique-paths"
+    },
+    "valid-parenthesis-string": {
+      "id": "valid-parenthesis-string",
+      "title": "Valid Parenthesis String",
+      "description": "Solving the Valid Parenthesis String problem using an optimal Greedy approach.",
+      "difficulty": "Medium",
+      "tags": [
+        "string",
+        "greedy",
+        "dynamic-programming"
+      ],
+      "companies": [
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/medium/valid-parenthesis-string"
+    },
+    "vertical-order-traversal-of-a-binary-tree": {
+      "id": "vertical-order-traversal-of-a-binary-tree",
+      "title": "Vertical Order Traversal of a Binary Tree",
+      "description": "Solving the Vertical Order Traversal of a Binary Tree problem using Coordinate Mapping and Sorting.",
+      "difficulty": "Hard",
+      "tags": [
+        "binary-tree",
+        "bfs",
+        "dfs",
+        "sorting",
+        "hash-table"
+      ],
+      "companies": [
+        "Meta"
+      ],
+      "url": "/docs/dsa-problems/hard/vertical-order-traversal-of-a-binary-tree"
+    },
+    "weighted-word-mapping": {
+      "id": "weighted-word-mapping",
+      "title": "Weighted Word Mapping",
+      "description": "Solution to the Weighted Word Mapping problem across C++, JavaScript, Java, and Python with complexity analysis.",
+      "difficulty": "Easy",
+      "tags": [
+        "string",
+        "array",
+        "simulation",
+        "potd"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/easy/weighted-word-mapping"
+    },
+    "word-ladder": {
+      "id": "word-ladder",
+      "title": "Word Ladder",
+      "description": "Solution for LeetCode 127: Word Ladder, utilizing Breadth-First Search (BFS) to find the shortest transformation sequence.",
+      "difficulty": "Hard",
+      "tags": [
+        "graph",
+        "bfs",
+        "hash-table"
+      ],
+      "companies": [
+        "Amazon",
+        "LinkedIn",
+        "Microsoft"
+      ],
+      "url": "/docs/dsa-problems/hard/word-ladder"
+    },
+    "word-search": {
+      "id": "word-search",
+      "title": "Word Search",
+      "description": "Solving the Word Search problem using recursive backtracking and Depth-First Search (DFS).",
+      "difficulty": "Medium",
+      "tags": [
+        "array",
+        "backtracking",
+        "matrix"
+      ],
+      "companies": [
+        "Apple",
+        "Google"
+      ],
+      "url": "/docs/dsa-problems/medium/word-search"
+    },
+    "yaroslav-and-productivity-2244d": {
+      "id": "yaroslav-and-productivity-2244d",
+      "title": "Yaroslav and Productivity",
+      "description": "Solution for Codeforces 2244D: Yaroslav and Productivity, utilizing block independence and greedy logic.",
+      "difficulty": "Medium",
+      "tags": [
+        "codeforces",
+        "greedy",
+        "math",
+        "array",
+        "constructive-algorithms"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/medium/yaroslav-and-productivity-2244d"
+    }
+  }
 }

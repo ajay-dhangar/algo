@@ -1,8 +1,11 @@
 ---
 id: gnome-sort-algo  
-sidebar_position: 16  
+sidebar_position: 16
 title: Gnome Sort  
-sidebar_label: Gnome Sort  
+sidebar_label: Gnome Sort
+description: "Complete guide to Gnome Sort, a simple comparison-based sorting algorithm that sorts by swapping adjacent out-of-order elements and moving backward on a swap."
+tags: [sorting algorithms, gnome sort, dsa, algorithms]
+
 ---
 
 ### Definition:

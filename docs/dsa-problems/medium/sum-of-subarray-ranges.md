@@ -1,9 +1,18 @@
 ---
 id: sum-of-subarray-ranges
-title: "Sum of Subarray Ranges"
+title: Sum of Subarray Ranges
 sidebar_label: Sum of Subarray Ranges
-description: "The Sum of Subarray Ranges problem involves finding the sum of the difference between the maximum and minimum elements of all subarrays using a Monotonic Stack."
-tags: [DSA, leetcode, array, monotonic-stack]
+description: >-
+  The Sum of Subarray Ranges problem involves finding the sum of the difference
+  between the maximum and minimum elements of all subarrays using a Monotonic
+  Stack.
+tags:
+  - DSA
+  - leetcode
+  - array
+  - monotonic-stack
+companies:
+  - Apple
 ---
 
 ## Description:
@@ -65,7 +74,11 @@ To find these sums efficiently, we need to determine how many subarrays a specif
 
 #### Monotonic Stack Solutions:
 
-**C++**
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <vector>
 
@@ -109,7 +122,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -149,8 +164,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def subArrayRanges(self, nums: list[int]) -> int:
         n = len(nums)
@@ -179,8 +196,10 @@ class Solution:
         return res
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} nums
  * @return {number}
@@ -217,3 +236,6 @@ var subArrayRanges = function(nums) {
     return res; 
 };
 ```
+
+  </TabItem>
+</Tabs>

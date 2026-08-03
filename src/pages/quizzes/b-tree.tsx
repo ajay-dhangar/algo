@@ -37,7 +37,7 @@ interface DBAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: BTreeQuestion[] = [
+export const QUESTIONS: BTreeQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",
