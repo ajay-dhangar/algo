@@ -4,6 +4,8 @@ title: A Very Useful Data Structure - Linked Lists
 authors: [Aryan-Jain]
 tags: [linked-list, data-structures, algorithms, C++, java, python]
 ---
+description: "An introduction to linked lists as a linear data structure, covering node structure, dynamic size, insertion and deletion operations, and practical use cases in algorithm design."
+
 
 A linked list is a linear data structure where elements are not stored in contiguous memory locations. Instead, each element, or node, contains data and a pointer to the next node in the sequence. This structure offers flexibility and dynamic memory allocation, making it a powerful tool for various programming tasks.
 
