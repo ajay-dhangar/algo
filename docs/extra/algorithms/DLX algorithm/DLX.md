@@ -4,7 +4,8 @@ id: dancing-links
 sidebar_position: 20  
 title: "Dancing Links (DLX)"  
 sidebar_label: Dancing Links  
-
+description: "Dancing Links (DLX) is a technique for implementing the Algorithm X using doubly linked lists, widely used for solving exact cover problems such as Sudoku and N-Queens efficiently."
+tags: [algorithms, exact cover, backtracking, Algorithm X, data structures]
 ---
 
 ### Definition
