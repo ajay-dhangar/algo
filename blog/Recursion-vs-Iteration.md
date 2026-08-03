@@ -4,6 +4,8 @@ title: "Recursion vs. Iteration: A Comparative Analysis"
 authors: [AKSHITHA-CHILUKA]
 tags: [AKSHITHA-CHILUKA, algo, dsa, algorithms, recursion, iteration]
 ---
+description: "A comparative analysis of recursion and iteration approaches in algorithm design, examining performance differences, readability trade-offs, and guidance on choosing the right approach."
+
 
 When designing algorithms, a common question arises: should you use recursion or iteration? Each approach has its strengths and weaknesses, and understanding these can help you choose the right one for your problem.
 
