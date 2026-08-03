@@ -1,5 +1,5 @@
 ---
-id: sort-012-dutch-flag  
+id: dutch-national-flag-algorithm-v2
 sidebar_position: 14  
 title: Sorting 0s, 1s, and 2s with the Dutch National Flag Algorithm  
 sidebar_label: Dutch National Flag Sorting  
