@@ -1,5 +1,8 @@
 import {
   safeJsonParse,
+  safeGetItem,
+  safeSetItem,
+  safeRemoveItem,
   readAlgoProgress,
   writeAlgoProgress,
   normalizeQuizId,
@@ -73,6 +76,28 @@ describe('safeStorage', () => {
       expect(consoleWarnSpy).toHaveBeenCalled();
       expect(localStorage.getItem('corrupt_key')).toBeNull();
 
+      consoleWarnSpy.mockRestore();
+    });
+  });
+
+  describe('safe string storage helpers', () => {
+    test('reads, writes, and removes string values', () => {
+      expect(safeSetItem('challenge_key', 'solved')).toBe(true);
+      expect(safeGetItem('challenge_key')).toBe('solved');
+      expect(safeRemoveItem('challenge_key')).toBe(true);
+      expect(safeGetItem('challenge_key')).toBeNull();
+    });
+
+    test('returns a failure result when storage throws', () => {
+      const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+      const setItemSpy = jest.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+        throw new Error('quota exceeded');
+      });
+
+      expect(safeSetItem('challenge_key', 'solved')).toBe(false);
+      expect(consoleWarnSpy).toHaveBeenCalled();
+
+      setItemSpy.mockRestore();
       consoleWarnSpy.mockRestore();
     });
   });

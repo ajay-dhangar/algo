@@ -18,6 +18,7 @@ import {
   FaChevronRight, FaCalendarWeek, FaBolt,
 } from "react-icons/fa";
 import challengeData from "../data/challengeData";
+import { safeGetItem, safeRemoveItem, safeSetItem } from "../utils/safeStorage";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -149,10 +150,7 @@ const WeeklyChallengeSpotlight: React.FC = () => {
     setChallenge(weekly);
     setWeekLabel(`Week ${getISOWeek(now)} · ${now.getUTCFullYear()}`);
 
-    try {
-      const saved = localStorage.getItem(storageKey);
-      setIsSolved(saved === "solved");
-    } catch { /* ignore */ }
+    setIsSolved(safeGetItem(storageKey) === "solved");
 
     // Kick off the countdown ticker
     const tick = () => {
@@ -169,15 +167,13 @@ const WeeklyChallengeSpotlight: React.FC = () => {
     const storageKey = weeklyStorageKey(new Date());
     const next = !isSolved;
     setIsSolved(next);
-    try {
-      if (next) {
-        localStorage.setItem(storageKey, "solved");
-        setJustMarked(true);
-        setTimeout(() => setJustMarked(false), 2200);
-      } else {
-        localStorage.removeItem(storageKey);
-      }
-    } catch { /* ignore */ }
+    if (next) {
+      safeSetItem(storageKey, "solved");
+      setJustMarked(true);
+      setTimeout(() => setJustMarked(false), 2200);
+    } else {
+      safeRemoveItem(storageKey);
+    }
   }, [isSolved, challenge]);
 
   if (!mounted || !challenge) return null;

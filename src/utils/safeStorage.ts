@@ -76,6 +76,41 @@ export function safeJsonParse<T>(key: string, fallback: T): T {
   }
 }
 
+export function safeGetItem(key: string): string | null {
+  if (typeof window === 'undefined' || !window.localStorage) return null;
+
+  try {
+    return window.localStorage.getItem(key);
+  } catch (error) {
+    console.warn(`[Algo] Failed to read localStorage key ${key}:`, error);
+    return null;
+  }
+}
+
+export function safeSetItem(key: string, value: string): boolean {
+  if (typeof window === 'undefined' || !window.localStorage) return false;
+
+  try {
+    window.localStorage.setItem(key, value);
+    return true;
+  } catch (error) {
+    console.warn(`[Algo] Failed to write localStorage key ${key}:`, error);
+    return false;
+  }
+}
+
+export function safeRemoveItem(key: string): boolean {
+  if (typeof window === 'undefined' || !window.localStorage) return false;
+
+  try {
+    window.localStorage.removeItem(key);
+    return true;
+  } catch (error) {
+    console.warn(`[Algo] Failed to remove localStorage key ${key}:`, error);
+    return false;
+  }
+}
+
 export function readAlgoProgress(): AlgoProgressData {
   return safeJsonParse<AlgoProgressData>('algo_progress', {});
 }
@@ -514,4 +549,3 @@ export function getAchievementSnapshot(progress: AlgoProgressData = readAlgoProg
     totalQuizzesAttempted: quizStats.attempted,
   };
 }
-
