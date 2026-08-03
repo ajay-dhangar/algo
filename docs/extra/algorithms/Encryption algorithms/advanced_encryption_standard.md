@@ -4,7 +4,8 @@ id: advanced-encryption-standard
 sidebar_position: 4  
 title: Advanced Encryption Standard (AES)  
 sidebar_label: Advanced Encryption Standard  
-
+description: "The Advanced Encryption Standard (AES) is a symmetric block cipher that encrypts electronic data using key sizes of 128, 192, and 256 bits, and is widely adopted as the standard for secure data encryption."
+tags: [encryption algorithms, symmetric encryption, block cipher, cryptography, AES]
 ---
 
 ### Definition:
