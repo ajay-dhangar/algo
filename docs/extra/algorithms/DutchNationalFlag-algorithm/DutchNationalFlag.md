@@ -3,6 +3,8 @@ id: sort-012-dutch-flag
 sidebar_position: 14  
 title: Sorting 0s, 1s, and 2s with the Dutch National Flag Algorithm  
 sidebar_label: Dutch National Flag Sorting  
+description: "The Dutch National Flag Algorithm is an efficient three-way partitioning technique to sort an array containing only 0s, 1s, and 2s in linear time using a three-pointer strategy."
+tags: [sorting algorithms, three-way partitioning, Dutch National Flag, linear time, array algorithms]
 ---
 
 ### Overview:
