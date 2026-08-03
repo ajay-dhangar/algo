@@ -983,3 +983,28 @@ html.dark .theme-doc-toc-desktop::before {
 :root[data-accent-theme="neon"] code {
   color: #f0abfc;
 }
+/* ==========================================================================
+   Search Keyword Highlighting
+   ========================================================================== */
+
+.search-highlight {
+  background-color: #fde047;
+  color: #111827;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+[data-theme="dark"] .search-highlight {
+  background-color: #facc15;
+  color: #111827;
+}
+
+.search-highlight:hover {
+  background-color: #fbbf24;
+}
+
+[data-theme="dark"] .search-highlight:hover {
+  background-color: #eab308;
+}
