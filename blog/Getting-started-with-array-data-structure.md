@@ -4,6 +4,8 @@ title: Getting Started With Array Data Structure
 authors: [Rishi-Verma]
 tags: [Rishi-Verma, algo, dsa, algorithms, array,c++,java,python]
 ---
+description: "A beginner-friendly introduction to array data structures, covering declaration, initialization, operations, time and space complexity, and practical examples in multiple programming languages."
+
 
 Array is a collection of items of the same variable type that are stored at contiguous memory locations. It is one of the most popular and simple data structures used in programming. In this article, we have decided to provide a complete guide for Arrays, which will help you to tackle any problem based on Arrays.
 
