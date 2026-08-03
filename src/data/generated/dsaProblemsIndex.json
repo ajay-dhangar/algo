@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-02T11:06:22.429Z",
-  "count": 87,
+  "generatedAt": "2026-08-03T15:13:17.188Z",
+  "count": 86,
   "difficulties": [
     "Easy",
     "Medium",
@@ -1429,11 +1429,7 @@
         "bfs",
         "hash-table"
       ],
-      "companies": [
-        "Amazon",
-        "LinkedIn",
-        "Microsoft"
-      ],
+      "companies": [],
       "url": "/docs/dsa-problems/hard/word-ladder"
     },
     {
