@@ -123,7 +123,7 @@ function collectProblems() {
     tags: [...tagLabels.entries()]
       .map(([value, label]) => ({ value, label }))
       .sort((a, b) => a.label.localeCompare(b.label)),
-    companies: [...companySet].sort(),
+    companies: [...companySet].sort((a, b) => a - b),
   };
 }
  

@@ -201,7 +201,7 @@ const GraphVisualizer: React.FC = () => {
 
     const res = prompt(`Enter new weight for Edge ${u}-${v} (1-99):`, edge.weight.toString());
     if (res !== null) {
-      const parsed = parseInt(res);
+      const parsed = parseInt(res, 10);
       if (!isNaN(parsed) && parsed > 0 && parsed <= 99) {
         setEdges((prev) =>
           prev.map((edgeItem) =>
