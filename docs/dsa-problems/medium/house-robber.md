@@ -2,9 +2,21 @@
 id: house-robber-algorithm
 title: House Robber Algorithm
 sidebar_label: House Robber
-tags: [Leetcode, Dynamic Programming, DSA, House Robber]
-companies: [Google, Amazon]
-description: Solve the House Robber problem using dynamic programming to maximize the amount of money that can be robbed from houses without robbing two adjacent houses.
+tags:
+  - Leetcode
+  - Dynamic Programming
+  - DSA
+  - House Robber
+companies:
+  - Amazon
+  - Google
+  - LinkedIn
+  - Microsoft
+  - Netflix
+description: >-
+  Solve the House Robber problem using dynamic programming to maximize the
+  amount of money that can be robbed from houses without robbing two adjacent
+  houses.
 ---
 
 # House Robber Algorithm
@@ -51,7 +63,10 @@ Objective:
 - **Time Complexity**: O(n), where n is the number of houses.
 - **Space Complexity**: O(n) for the DP array.
 
-### C++ Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
 ```cpp
 #include <vector>
@@ -72,4 +87,53 @@ int rob(vector<int>& nums) {
 
     return dp[n];
 }
-````
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+class Solution {
+    public int rob(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        if (nums.length == 1) return nums[0];
+        int prev2 = 0, prev1 = 0;
+        for (int num : nums) {
+            int tmp = Math.max(prev1, prev2 + num);
+            prev2 = prev1;
+            prev1 = tmp;
+        }
+        return prev1;
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        prev2, prev1 = 0, 0
+        for num in nums:
+            prev2, prev1 = prev1, max(prev1, prev2 + num)
+        return prev1
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var rob = function(nums) {
+    let prev2 = 0, prev1 = 0;
+    for (const num of nums) {
+        const tmp = Math.max(prev1, prev2 + num);
+        prev2 = prev1;
+        prev1 = tmp;
+    }
+    return prev1;
+};
+```
+
+  </TabItem>
+</Tabs>

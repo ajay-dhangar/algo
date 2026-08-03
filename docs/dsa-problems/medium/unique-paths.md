@@ -1,9 +1,20 @@
 ---
 id: unique-paths
-title: "Unique Paths"
+title: Unique Paths
 sidebar_label: Unique Paths
-description: "The Unique Paths problem on LeetCode involves finding the number of possible unique paths for a robot to reach the bottom-right corner of a grid."
-tags: [DSA, leetcode, dynamic-programming, combinatorics, math]
+description: >-
+  The Unique Paths problem on LeetCode involves finding the number of possible
+  unique paths for a robot to reach the bottom-right corner of a grid.
+tags:
+  - DSA
+  - leetcode
+  - dynamic-programming
+  - combinatorics
+  - math
+companies:
+  - Google
+  - Microsoft
+  - Netflix
 ---
 
 ## Description:
@@ -50,7 +61,11 @@ We can create a 2D table `dp` of size `m x n`. We initialize the first row and t
 
 #### DP Solutions:
 
-**C++**
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -68,7 +83,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int uniquePaths(int m, int n) {
@@ -88,8 +105,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         dp = [[1] * n for _ in range(m)]
@@ -99,10 +118,12 @@ class Solution:
                 dp[i][j] = dp[i-1][j] + dp[i][j-1]
                 
         return dp[m-1][n-1]
- ```       
+```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number} m
  * @param {number} n
@@ -120,81 +141,6 @@ var uniquePaths = function(m, n) {
     return dp[m-1][n-1];
 };
 ```
-### 2. Combinatorics (Mathematical Optimization)
-This is the most highly optimized approach. To reach the bottom-right corner from the top-left corner, the robot must make exactly `(m - 1)` steps down and `(n - 1)` steps right. 
 
-Regardless of the path taken, the total number of steps is always `(m - 1) + (n - 1) = m + n - 2`. The problem boils down to finding the number of ways to choose exactly `m - 1` down steps (or `n - 1` right steps) out of the total `m + n - 2` steps. This is a classic combinations problem: $\binom{m+n-2}{m-1}$.
-
-* **Time Complexity:** $O(\min(m, n))$ because we only need to loop $m-1$ or $n-1$ times to calculate the combination.
-* **Space Complexity:** $O(1)$ because we only use a few variables for the calculation, taking constant extra space.
-
-#### Combinatorics Solutions:
-
-**C++**
-```cpp
-class Solution {
-public:
-    int uniquePaths(int m, int n) {
-        long long res = 1;
-        // We want to calculate C(m+n-2, m-1). 
-        // Swap m and n if n is smaller to minimize the loop iterations.
-        if (m > n) std::swap(m, n);
-        
-        for (int i = 1; i <= m - 1; ++i) {
-            res = res * (n - 1 + i) / i;
-        }
-        
-        return (int)res;
-    }
-};
-```
-**Java**
-```java
-class Solution {
-    public int uniquePaths(int m, int n) {
-        long res = 1;
-        if (m > n) {
-            int temp = m;
-            m = n;
-            n = temp;
-        }
-        
-        for (int i = 1; i <= m - 1; i++) {
-            res = res * (n - 1 + i) / i;
-        }
-        
-        return (int)res;
-    }
-}
-```
-
-**Python**
-```py
-import math
-
-class Solution:
-    def uniquePaths(self, m: int, n: int) -> int:
-        # Calculate combinations using math.comb directly for ultimate efficiency
-        return math.comb(m + n - 2, m - 1)
- ```       
-
-**JavaScript**
-```js
-/**
- * @param {number} m
- * @param {number} n
- * @return {number}
- */
-var uniquePaths = function(m, n) {
-    let res = 1;
-    if (m > n) {
-        [m, n] = [n, m]; // Swap to optimize iterations
-    }
-    
-    for (let i = 1; i <= m - 1; i++) {
-        res = Math.round(res * (n - 1 + i) / i);
-    }
-    
-    return res;
-};
-``` 
+  </TabItem>
+</Tabs>

@@ -1,9 +1,19 @@
 ---
 id: find-eventual-safe-states
-title: "Find Eventual Safe States"
+title: Find Eventual Safe States
 sidebar_label: Find Eventual Safe States
-description: "Solution for LeetCode 802: Find Eventual Safe States, utilizing Graph Traversal (DFS Cycle Detection) and BFS (Kahn's Algorithm)."
-tags: [DSA, leetcode, graph, dfs, bfs, topological-sort]
+description: >-
+  Solution for LeetCode 802: Find Eventual Safe States, utilizing Graph
+  Traversal (DFS Cycle Detection) and BFS (Kahn's Algorithm).
+tags:
+  - DSA
+  - leetcode
+  - graph
+  - dfs
+  - bfs
+  - topological-sort
+companies:
+  - Netflix
 ---
 
 ## Description:
@@ -52,9 +62,11 @@ To determine if a node is safe, we can use DFS to detect if it is part of a cycl
 * **Time Complexity:** $O(V + E)$ where $V$ is the number of vertices (`n`) and $E$ is the total number of edges in the graph. We visit each vertex and traverse each edge at most once across all DFS calls.
 * **Space Complexity:** $O(V)$ to store the `state` array and to accommodate the recursion call stack, which can grow up to depth $V$ in the worst case.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 private:
@@ -94,7 +106,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public List<Integer> eventualSafeNodes(int[][] graph) {
@@ -132,8 +146,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def eventualSafeNodes(self, graph: list[list[int]]) -> list[int]:
         n = len(graph)
@@ -155,8 +171,10 @@ class Solution:
         return [i for i in range(n) if dfs(i)]
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[][]} graph
  * @return {number[]}
@@ -192,3 +210,6 @@ var eventualSafeNodes = function(graph) {
     return safeNodes;
 };
 ```
+
+  </TabItem>
+</Tabs>

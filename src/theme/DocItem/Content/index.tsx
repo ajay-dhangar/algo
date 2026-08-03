@@ -6,6 +6,7 @@ import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
 import AlgorithmTags from "../../../components/AlgorithmTags";
 
+import ReadingProgressBar from "../../../components/ReadingProgressBar";
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
   const [readingTimeInWords, setReadingTimeInWords] = useState<string>('');
@@ -32,6 +33,14 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
       setReadingTimeInWords(`${minutes} min read`);
     }
   }, [children]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      addRecentAlgorithm({
+        title,
+        path: window.location.pathname,
+      });
+    }
+  }, [title]);
 
   return (
     <div ref={contentRef} className="markdown">

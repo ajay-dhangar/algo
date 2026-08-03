@@ -36,7 +36,7 @@ interface HistoryAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: DequeQuestion[] = [
+export const QUESTIONS: DequeQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

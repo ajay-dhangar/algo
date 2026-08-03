@@ -1,9 +1,16 @@
 ---
 id: odd-even-linked-list
-title: "Odd Even Linked List"
+title: Odd Even Linked List
 sidebar_label: Odd Even Linked List
-description: "This document explains the Odd Even Linked List problem, including its description, approach, and implementation."
-tags: [dsa, algorithms, problem-solving]
+description: >-
+  This document explains the Odd Even Linked List problem, including its
+  description, approach, and implementation.
+tags:
+  - dsa
+  - algorithms
+  - problem-solving
+companies:
+  - Meta
 ---
 
 # Odd Even Linked List
@@ -34,7 +41,51 @@ To solve this problem, we can use two pointers to separate the odd and even inde
 3. Iterating through the list and rearranging the `next` pointers for odd and even nodes.
 4. At the end of the iteration, connecting the last odd node to the head of the even indexed list.
 
-## Python Implementation
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
+```cpp
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if (!head) return nullptr;
+        ListNode *odd = head, *even = head->next, *evenHead = even;
+        while (even && even->next) {
+            odd->next = even->next;
+            odd = odd->next;
+            even->next = odd->next;
+            even = even->next;
+        }
+        odd->next = evenHead;
+        return head;
+    }
+};
+```
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
+        if (head == null) return null;
+        ListNode odd = head, even = head.next, evenHead = even;
+        while (even != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
+        }
+        odd.next = evenHead;
+        return head;
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
 
 ```python
 # Definition for singly-linked list.
@@ -68,6 +119,25 @@ class Solution:
         odd.next = evenHead
         
         return head
-```        
-Time Complexity: O(n) <br />
-Space Complexity: O(1)
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var oddEvenList = function(head) {
+    if (!head) return null;
+    let odd = head, even = head.next, evenHead = even;
+    while (even && even.next) {
+        odd.next = even.next;
+        odd = odd.next;
+        even.next = odd.next;
+        even = even.next;
+    }
+    odd.next = evenHead;
+    return head;
+};
+```
+
+  </TabItem>
+</Tabs>

@@ -1,9 +1,19 @@
 ---
 id: word-search
-title: "Word Search"
+title: Word Search
 sidebar_label: Word Search
-description: "Solving the Word Search problem using recursive backtracking and Depth-First Search (DFS)."
-tags: [DSA, leetcode, array, backtracking, matrix]
+description: >-
+  Solving the Word Search problem using recursive backtracking and Depth-First
+  Search (DFS).
+tags:
+  - DSA
+  - leetcode
+  - array
+  - backtracking
+  - matrix
+companies:
+  - Apple
+  - Google
 ---
 
 ## Description:
@@ -60,9 +70,11 @@ To find if a specific word exists in a grid, we can treat the grid as a graph an
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -106,7 +118,9 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public boolean exist(char[][] board, String word) {
@@ -151,8 +165,10 @@ class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def exist(self, board: list[list[str]], word: str) -> bool:
         if not board or not board[0] or not word:
@@ -192,8 +208,10 @@ class Solution:
         return False
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {character[][]} board
  * @param {string} word
@@ -241,3 +259,6 @@ var exist = function(board, word) {
     return false;
 };
 ```
+
+  </TabItem>
+</Tabs>

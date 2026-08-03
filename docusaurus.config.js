@@ -59,6 +59,18 @@ const config = {
         } catch (e) {}
       })();`,
     },
+    {
+      tagName: "script",
+      attributes: { id: "algo-code-theme-init" },
+      innerHTML: `(function() {
+        try {
+          var theme = window.localStorage.getItem('algo-code-theme');
+          if (theme === 'midnight' || theme === 'solarized') {
+            document.documentElement.setAttribute('data-code-theme', theme);
+          }
+        } catch (e) {}
+      })();`,
+    },
   ],
  
   i18n: {
@@ -138,6 +150,11 @@ const config = {
           process.env.ALGOLIA_API_KEY || "865d7bd9906f532b1d8cb5cc0f02b383",
         indexName: process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
         contextualSearch: true,
+      },
+      customFields: {
+        algoliaAnalyticsAppId: process.env.ALGOLIA_APP_ID || "T0I3F584D5",
+        algoliaAnalyticsApiKey: process.env.ALGOLIA_ANALYTICS_API_KEY || process.env.ALGOLIA_API_KEY || "865d7bd9906f532b1d8cb5cc0f02b383",
+        algoliaAnalyticsIndexName: process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
       },
  
       navbar: {
@@ -311,6 +328,11 @@ const config = {
             position: "left",
           },
           {
+            to: "favorites",
+            label: "Favorites",
+            position: "left",
+          },
+          {
             to: "blog",
             label: "Blogs",
             position: "right",
@@ -321,6 +343,10 @@ const config = {
           },
           {
             type: "custom-themePicker",
+            position: "right",
+          },
+          {
+            type: "custom-codeThemePicker",
             position: "right",
           },
           {

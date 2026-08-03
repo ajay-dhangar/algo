@@ -32,7 +32,7 @@ interface AttemptRecord {
   completedAt: string;
 }
 
-const QUESTIONS: RBTQuestion[] = [
+export const QUESTIONS: RBTQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

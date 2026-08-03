@@ -1,0 +1,98 @@
+name: "🛡️ Compliance: Anti-Spam Gate"
+
+on:
+  pull_request_target:
+    types: [opened, edited]
+
+# Explicitly scope least-privilege security configurations
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  validate-gate:
+    name: Enforcement Guard
+    runs-on: ubuntu-latest
+    
+    # Do not execute automated checks on project core maintainers or trusted bots
+    if: |
+      github.event.pull_request.user.login != 'ajay-dhangar' && 
+      github.event.pull_request.user.login != 'dependabot[bot]'
+
+    steps:
+      - name: Inspect PR Payload Analytics
+        id: pr_analyzer
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "=== STARTING ANTI-SPAM PAYLOAD AUDIT ==="
+          
+          # 1. Clean and evaluate character metrics
+          CLEAN_BODY=$(echo "$PR_BODY" | tr -d '[:space:]' | tr -d '\r\n')
+          BODY_LENGTH=${#CLEAN_BODY}
+          echo "Filtered Content Length: $BODY_LENGTH chars"
+          
+          # 2. Strict Regular Expression Check for Issue Referencing
+          # Matches standard industry patterns: #123, gh-123, closes #123, resolves #123
+          ISSUE_REGEX="([Cc]lose[sd]?|[Ff]ix(e[sd])?|[Rr]esolve[sd]?|[Ii]ssue|[Ww]orking [Oo]n)?[[:space:]]*(#[0-9]+|gh-[0-9]+)"
+          
+          HAS_ISSUE_LINK=false
+          if [[ "$PR_BODY" =~ $ISSUE_REGEX ]] || [[ "$PR_TITLE" =~ $ISSUE_REGEX ]]; then
+            HAS_ISSUE_LINK=true
+          fi
+          echo "Issue Reference Validated: $HAS_ISSUE_LINK"
+          
+          # 3. Decision Matrix Evaluation
+          IS_SPAM=false
+          REASON=""
+          
+          if [ -z "$CLEAN_BODY" ] || [ "$BODY_LENGTH" -lt 30 ]; then
+            IS_SPAM=true
+            REASON="Description text field missing, completely empty, or falls below the minimum required length structural density threshold (30 chars)."
+          elif [ "$HAS_ISSUE_LINK" = "false" ]; then
+            IS_SPAM=true
+            REASON="No valid tracking issue binding pattern resolved (#<issue_id>) inside either the PR title or markdown body payload."
+          fi
+          
+          echo "Spam Decision Evaluation: $IS_SPAM"
+          echo "Flag Reason: $REASON"
+          
+          # Export workflow runtime variable primitives safely
+          echo "is_spam=$IS_SPAM" >> $GITHUB_OUTPUT
+          echo "reason=$REASON" >> $GITHUB_OUTPUT
+
+      - name: Execute Automated Containment Action
+        if: steps.pr_analyzer.outputs.is_spam == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          FLAG_REASON: ${{ steps.pr_analyzer.outputs.reason }}
+          USER: ${{ github.event.pull_request.user.login }}
+        run: |
+          echo "Executing pipeline policy protocol actions on spam payload..."
+          
+          # Construct an elegant, developer-friendly automated warning
+          COMMENT_BODY=$(cat <<EOF
+          ## 🛑 Contribution Guard Policy Enforcement
+          
+          Hello @$USER, your Pull Request was automatically **closed** by our guard systems.
+          
+          ### 🔍 Reason for Rejection:
+          > *$FLAG_REASON*
+          
+          ### 🛠️ Required Next Steps:
+          To ensure contributors work fairly on **Algo**, every submission must match our quality standards:
+          1. **Link a Valid Tracking Issue**: You must claim an open issue using commands like \`.take\` first.
+          2. **Provide Description Density**: Clearly explain your code variations using our repository guidelines.
+          
+          *If this was a mistake, please edit your PR to properly reference your issue number and add a description before reopening.*
+          EOF
+          )
+          
+          # Execute REST Actions via GitHub native CLI wrapper binary
+          gh pr comment "$PR_URL" --body "$COMMENT_BODY"
+          gh pr edit "$PR_URL" --add-label "invalid,spam"
+          gh pr close "$PR_URL"
+          
+          echo "Containment execution finalized successfully."

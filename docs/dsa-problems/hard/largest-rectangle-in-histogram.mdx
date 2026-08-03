@@ -1,9 +1,19 @@
 ---
 id: largest-rectangle-in-histogram
-title: "Largest Rectangle in Histogram"
+title: Largest Rectangle in Histogram
 sidebar_label: Largest Rectangle in Histogram
-description: "Finding the area of the largest rectangle in a histogram using a monotonic stack approach."
-tags: [DSA, leetcode, array, stack, monotonic-stack]
+description: >-
+  Finding the area of the largest rectangle in a histogram using a monotonic
+  stack approach.
+tags:
+  - DSA
+  - leetcode
+  - array
+  - stack
+  - monotonic-stack
+companies:
+  - Amazon
+  - Google
 ---
 
 import LargestRectangleInHistogramVisualizer from '@site/src/components/Visualizing/largest-rectangle-in-histogram-visualizer';
@@ -53,9 +63,10 @@ To optimize the brute-force approach to $O(N)$, we can use a **Monotonic Stack**
 * **Time Complexity:** $O(N)$ where $N$ is the number of elements in `heights`. Every index is pushed to the stack exactly once and popped from the stack at most once.
 * **Space Complexity:** $O(N)$ because in the worst-case scenario (an array sorted in ascending order), the stack will store all $N$ indices.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
 ```cpp
 class Solution {
@@ -81,7 +92,8 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
 
 ```java
 class Solution {
@@ -105,9 +117,10 @@ class Solution {
 }
 ```
 
-**Python**
+  </TabItem>
+  <TabItem value="python" label="Python">
 
-```py
+```python
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         stack = []
@@ -125,9 +138,10 @@ class Solution:
         return max_area
 ```
 
-**JavaScript**
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
 
-```js
+```javascript
 /**
  * @param {number[]} heights
  * @return {number}
@@ -150,3 +164,6 @@ const largestRectangleArea = function(heights) {
     return maxArea;
 };
 ```
+
+  </TabItem>
+</Tabs>

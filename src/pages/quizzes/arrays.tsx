@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -23,15 +24,17 @@ interface ArrayQuestion {
   options: string[];
   answer: string;
   explanation: string;
+  relatedDoc?: string;
 }
 
 interface LocalAttempt {
   score: number;
   timeSpent: number;
   completedAt: string;
+  missedQuestionIds?: number[];
 }
 
-const QUESTIONS: ArrayQuestion[] = [
+export const QUESTIONS: ArrayQuestion[] = [
   {
     id: 1,
     difficulty: "Medium",
@@ -39,7 +42,8 @@ const QUESTIONS: ArrayQuestion[] = [
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[2] = { 1, 2 };\n    cout << 0[arr] << ", " << 1[arr] << endl;\n    return 0;\n}`,
     options: ["A) 1, 2", "B) Syntax error", "C) Run time error", "D) None of the above"],
     answer: "A) 1, 2",
-    explanation: "In C++, internal array element accesses are compiled directly using pointer arithmetic: arr[i] evaluates to *(arr + i). Because mathematical addition is commutative, *(arr + i) is identical to *(i + arr), meaning i[arr] is syntactic sugar for arr[i]."
+    explanation: "In C++, internal array element accesses are compiled directly using pointer arithmetic: arr[i] evaluates to *(arr + i). Because mathematical addition is commutative, *(arr + i) is identical to *(i + arr), meaning i[arr] is syntactic sugar for arr[i].",
+    relatedDoc: "/docs/languages/cpp/cp-7"
   },
   {
     id: 2,
@@ -48,7 +52,8 @@ const QUESTIONS: ArrayQuestion[] = [
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = { 1, 2, 3, 4, 5 };\n    cout << arr[5] << endl;\n    return 0;\n}`,
     options: ["A) 5", "B) 0", "C) Garbage value", "D) Out of bounds compilation error"],
     answer: "C) Garbage value",
-    explanation: "An array initialized with 5 elements maps indexes from 0 to 4. Accessing arr[5] goes past the allocated boundary, triggering undefined behavior by referencing unmanaged stack memory, resulting in a garbage value at runtime."
+    explanation: "An array initialized with 5 elements maps indexes from 0 to 4. Accessing arr[5] goes past the allocated boundary, triggering undefined behavior by referencing unmanaged stack memory, resulting in a garbage value at runtime.",
+    relatedDoc: "/docs/languages/cpp/cp-7"
   },
   {
     id: 3,
@@ -57,7 +62,8 @@ const QUESTIONS: ArrayQuestion[] = [
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = { 1, 2, 3, 4, 5 };\n    cout << arr[4] << endl;\n    return 0;\n}`,
     options: ["A) 5", "B) 0", "C) 4", "D) None of the above"],
     answer: "A) 5",
-    explanation: "Arrays are zero-indexed. For an array of size 5, the terminal index position is size - 1, which is index 4. This references the fifth element, returning 5."
+    explanation: "Arrays are zero-indexed. For an array of size 5, the terminal index position is size - 1, which is index 4. This references the fifth element, returning 5.",
+    relatedDoc: "/docs/programming-fundamentals/language-syntax/arrays"
   },
   {
     id: 4,
@@ -66,7 +72,8 @@ const QUESTIONS: ArrayQuestion[] = [
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = { 1, 2, 3, 4, 5 };\n    cout << arr[0] << endl;\n    return 0;\n}`,
     options: ["A) 1", "B) 0", "C) 5", "D) Undefined behavior"],
     answer: "A) 1",
-    explanation: "Index 0 targets the initial base block memory offset of our array, returning the first stored integer element: 1."
+    explanation: "Index 0 targets the initial base block memory offset of our array, returning the first stored integer element: 1.",
+    relatedDoc: "/docs/programming-fundamentals/language-syntax/arrays"
   },
   {
     id: 5,
@@ -74,7 +81,8 @@ const QUESTIONS: ArrayQuestion[] = [
     question: "What is the true asymptotic worst-case time complexity of accessing an individual element inside an array given its valid index?",
     options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
     answer: "A) O(1)",
-    explanation: "Array memory blocks are contiguous. Calculating an item address requires only one multiplication and one addition operation: Base_Address + (Index * Element_Size). This constant-time calculation runs in O(1) complexity."
+    explanation: "Array memory blocks are contiguous. Calculating an item address requires only one multiplication and one addition operation: Base_Address + (Index * Element_Size). This constant-time calculation runs in O(1) complexity.",
+    relatedDoc: "/docs/basic-data-structures/array/arrays-in-dsa"
   },
   {
     id: 6,
@@ -87,7 +95,8 @@ const QUESTIONS: ArrayQuestion[] = [
       "D) Elements scale dynamically across virtual page boundaries automatically"
     ],
     answer: "A) The elements of an array are stored in contiguous memory locations",
-    explanation: "By definition, native primitives group elements in unbroken, back-to-back sequential memory slots. This uniform, predictable arrangement enables fast O(1) random access operations."
+    explanation: "By definition, native primitives group elements in unbroken, back-to-back sequential memory slots. This uniform, predictable arrangement enables fast O(1) random access operations.",
+    relatedDoc: "/docs/basic-data-structures/array/arrays-in-dsa"
   },
   {
     id: 7,
@@ -95,7 +104,8 @@ const QUESTIONS: ArrayQuestion[] = [
     question: "In C++, if a primitive local array is declared as 'int arr[5];' within a local stack frame block, what will be the default values inside its elements?",
     options: ["A) 0", "B) 1", "C) Random value (Garbage)", "D) Compile-time allocation error"],
     answer: "C) Random value (Garbage)",
-    explanation: "Locally scoped automatic variables declared inside block functions are not zero-initialized by C++ runtime frameworks. They inherit whatever residual binary configurations existed previously in those stack memory registers, returning garbage values until explicitly written to."
+    explanation: "Locally scoped automatic variables declared inside block functions are not zero-initialized by C++ runtime frameworks. They inherit whatever residual binary configurations existed previously in those stack memory registers, returning garbage values until explicitly written to.",
+    relatedDoc: "/docs/languages/cpp/cp-7"
   },
   {
     id: 8,
@@ -104,7 +114,8 @@ const QUESTIONS: ArrayQuestion[] = [
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5];\n    cout << arr[0] << endl;\n    return 0;\n}`,
     options: ["A) Always 0", "B) Always 1", "C) Random garbage value", "D) Segmentation faults"],
     answer: "C) Random garbage value",
-    explanation: "Because local stack-allocated arrays do not undergo default value cleaning loops, reading arr[0] fetches whatever unmanaged random garbage remains at that raw memory offset."
+    explanation: "Because local stack-allocated arrays do not undergo default value cleaning loops, reading arr[0] fetches whatever unmanaged random garbage remains at that raw memory offset.",
+    relatedDoc: "/docs/languages/cpp/cp-7"
   },
   {
     id: 9,
@@ -113,7 +124,8 @@ const QUESTIONS: ArrayQuestion[] = [
     codeSnippet: `#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[5] = { 1, 2, 3, 4, 5 };\n    cout << arr << endl;\n    return 0;\n}`,
     options: ["A) Address of the first element", "B) 1", "C) 2", "D) Hexadecimal hash of total element counts"],
     answer: "A) Address of the first element",
-    explanation: "In C++, the identifier label of an array decays into a pointer reference targeting its zero-index base offset address (&arr[0]) when compiled inside streaming operators."
+    explanation: "In C++, the identifier label of an array decays into a pointer reference targeting its zero-index base offset address (&arr[0]) when compiled inside streaming operators.",
+    relatedDoc: "/docs/languages/cpp/cp-7"
   }
 ];
 
@@ -188,10 +200,16 @@ const ArrayQuiz: React.FC = () => {
     } else {
       setShowResult(true);
       if (username) {
+        const missedQuestionIds = QUESTIONS.reduce<number[]>((acc, question, idx) => {
+          if (userAnswers[idx] !== question.answer) acc.push(question.id);
+          return acc;
+        }, []);
+
         const newAttempt: LocalAttempt = {
           score: score,
           timeSpent: timeSpent,
-          completedAt: new Date().toISOString()
+          completedAt: new Date().toISOString(),
+          missedQuestionIds,
         };
         const updatedHistory = [newAttempt, ...localHistory].slice(0, 5);
         setLocalHistory(updatedHistory);
@@ -463,6 +481,14 @@ const ArrayQuiz: React.FC = () => {
                             <strong className="text-slate-700 dark:text-slate-300 font-sans block text-[10px] font-bold uppercase tracking-wider mb-1">Compiler Explanatory Log:</strong>
                             {q.explanation}
                           </p>
+                          {!isCorrect && q.relatedDoc && (
+                            <p className="text-xs text-slate-500 dark:text-slate-400 m-0 leading-relaxed">
+                              <strong className="text-slate-700 dark:text-slate-300 font-sans block text-[10px] font-bold uppercase tracking-wider mb-1">Review in Docs:</strong>
+                              <Link to={q.relatedDoc} className="font-semibold text-[var(--ifm-color-primary)] hover:underline">
+                                Read the related documentation for this topic
+                              </Link>
+                            </p>
+                          )}
                         </div>
                       );
                     })}
