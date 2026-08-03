@@ -1,4 +1,5 @@
 ---
+description: Solutions for the Array Quiz
 title: Array Quiz Solutions
 hide_table_of_contents: true
 ---
