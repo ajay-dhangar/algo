@@ -4,6 +4,8 @@ title: "Balancing Speed and Memory: A Guide to Time and Space Complexity"
 authors: [ADITYA-JANI]
 tags: [ADITYA-JANI, algorithms, time-complexity,dsa, space-complexity, big-o-notation, efficiency, optimization, coding, programming, computer-science, learning]
 ---
+description: "A practical guide to understanding time and space complexity in algorithms, covering Big-O notation, time-space trade-offs, and techniques for optimizing algorithm performance."
+
 At its core, an algorithm is a step-by-step procedure or formula for solving a problem. From following a recipe to searching for a word in a dictionary or navigating the fastest route on Google Maps, algorithms are at work. In the realm of computer science, algorithms are the driving force behind how programs process data, make decisions, and deliver results efficiently.
 <!-- truncate -->
 In this blog, we’ll cover:
