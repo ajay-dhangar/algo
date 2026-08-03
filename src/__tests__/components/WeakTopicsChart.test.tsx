@@ -1,8 +1,14 @@
 import React from "react";
-import { render, screen } from "../testUtils";
+import { render, screen, fireEvent } from "../testUtils";
 import WeakTopicsChart from "../../components/WeakTopicsChart";
 import type { WeakTopicEntry } from "../../utils/weakTopics";
 import type { QuizStat } from "../../hooks/useQuizProgress";
+import * as exportUtils from "../../utils/exportQuizData";
+
+jest.mock("../../utils/exportQuizData", () => ({
+  ...jest.requireActual("../../utils/exportQuizData"),
+  downloadQuizData: jest.fn(),
+}));
 
 function makeStat(quizId: string, overrides: Partial<QuizStat> = {}): QuizStat {
   return {
@@ -33,6 +39,10 @@ const entries: WeakTopicEntry[] = [
 ];
 
 describe("WeakTopicsChart", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("renders an empty state when there are no entries", () => {
     render(<WeakTopicsChart entries={[]} />);
     expect(screen.getByText(/no quiz history yet/i)).toBeInTheDocument();
@@ -56,5 +66,40 @@ describe("WeakTopicsChart", () => {
     expect(links).toHaveLength(2);
     expect(links[0]).toHaveAttribute("href", "/quizzes/graph");
     expect(links[1]).toHaveAttribute("href", "/quizzes/binary-search-tree");
+  });
+
+  test('renders "Download my data" button and calls downloadQuizData on click', () => {
+    render(<WeakTopicsChart entries={entries} />);
+
+    const downloadBtn = screen.getByRole("button", { name: /download my data/i });
+    expect(downloadBtn).toBeInTheDocument();
+
+    fireEvent.click(downloadBtn);
+
+    expect(exportUtils.downloadQuizData).toHaveBeenCalledWith(
+      {
+        graphs: entries[0].stat,
+        bst: entries[1].stat,
+      },
+      "csv"
+    );
+  });
+
+  test("allows selecting JSON format and downloading JSON quiz data", () => {
+    render(<WeakTopicsChart entries={entries} />);
+
+    const formatSelect = screen.getByRole("combobox", { name: /export format/i });
+    fireEvent.change(formatSelect, { target: { value: "json" } });
+
+    const downloadBtn = screen.getByRole("button", { name: /download my data/i });
+    fireEvent.click(downloadBtn);
+
+    expect(exportUtils.downloadQuizData).toHaveBeenCalledWith(
+      {
+        graphs: entries[0].stat,
+        bst: entries[1].stat,
+      },
+      "json"
+    );
   });
 });
