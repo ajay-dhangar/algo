@@ -4,6 +4,8 @@ title: Common Recursion Patterns in Algorithms
 authors: [AKSHITHA-CHILUKA]
 tags: [akshitha-chiluka, algo, dsa, algorithms, recursion]
 ---
+description: "An exploration of common recursion patterns used in algorithms, including tree traversal, backtracking, divide and conquer, and memoization with practical examples and implementation guides."
+
 
 Recursion is a powerful technique in programming that allows functions to call themselves. It is widely used in various algorithms, especially when dealing with problems that can be broken down into smaller subproblems.
 
