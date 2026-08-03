@@ -5,10 +5,11 @@ import { useHistory } from "@docusaurus/router";
 interface UseKeyboardShortcutsProps {
   onOpenHelp: () => void;
   onCloseHelp: () => void;
-  onOpenChallengeSearch?: () => void; // ← NEW: opens the challenge search modal
+  onOpenChallengeSearch?: () => void; // ← opens the challenge search modal
   onToggleTheme?: () => void;
   onResetLayout?: () => void;
   onCollapseAll?: () => void;
+  onOpenThemePicker?: () => void;     // ← opens the theme picker modal (T / Ctrl+Shift+T)
 }
 
 type SequentialShortcuts = Record<string, string>;
@@ -34,6 +35,7 @@ export default function useKeyboardShortcuts({
   onToggleTheme,
   onResetLayout,
   onCollapseAll,
+  onOpenThemePicker,
 }: UseKeyboardShortcutsProps): void {
   const history = useHistory();
   const keyBuffer = useRef<string[]>([]);
@@ -66,10 +68,17 @@ export default function useKeyboardShortcuts({
       // All remaining shortcuts are suppressed while the user is typing
       if (isTyping) return;
 
-      // ── 2. Ctrl/Cmd + Shift + D  →  Toggle theme ────────────────────────────
+      // ── 2. Ctrl/Cmd + Shift + D  →  Toggle dark/light mode ────────────────────
       if ((metaKey || ctrlKey) && shiftKey && lowerKey === "d" && onToggleTheme) {
         event.preventDefault();
         onToggleTheme();
+        return;
+      }
+
+      // ── 2b. Ctrl/Cmd + Shift + T  →  Open theme picker ───────────────────────
+      if ((metaKey || ctrlKey) && shiftKey && lowerKey === "t" && onOpenThemePicker) {
+        event.preventDefault();
+        onOpenThemePicker();
         return;
       }
 
@@ -117,6 +126,13 @@ export default function useKeyboardShortcuts({
         if (onOpenChallengeSearch) {
           onOpenChallengeSearch();
         }
+        return;
+      }
+
+      // ── 5b. T  →  Open theme picker ─────────────────────────────────────────
+      if (lowerKey === "t" && !shiftKey && !metaKey && !ctrlKey && !altKey && onOpenThemePicker) {
+        event.preventDefault();
+        onOpenThemePicker();
         return;
       }
 
@@ -175,5 +191,6 @@ export default function useKeyboardShortcuts({
     onToggleTheme,
     onResetLayout,
     onCollapseAll,
+    onOpenThemePicker,
   ]);
 }
