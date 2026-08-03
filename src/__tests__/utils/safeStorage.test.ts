@@ -9,6 +9,9 @@ import {
   getUserId,
   extractQuizIdFromStorageKey,
   getAchievementSnapshot,
+  safeGetItem,
+  safeSetItem,
+  safeRemoveItem,
 } from '../../utils/safeStorage';
 
 describe('safeStorage', () => {
@@ -73,6 +76,77 @@ describe('safeStorage', () => {
       expect(consoleWarnSpy).toHaveBeenCalled();
       expect(localStorage.getItem('corrupt_key')).toBeNull();
 
+      consoleWarnSpy.mockRestore();
+    });
+  });
+
+  describe('safeGetItem, safeSetItem, safeRemoveItem', () => {
+    test('safeSetItem stores value and safeGetItem retrieves it', () => {
+      safeSetItem('test_raw_key', 'test_value');
+      expect(safeGetItem('test_raw_key')).toBe('test_value');
+    });
+
+    test('safeGetItem returns fallback when key does not exist', () => {
+      expect(safeGetItem('missing_key', 'default')).toBe('default');
+      expect(safeGetItem('missing_key')).toBeNull();
+    });
+
+    test('safeRemoveItem removes value from localStorage', () => {
+      safeSetItem('to_remove', 'value');
+      expect(safeGetItem('to_remove')).toBe('value');
+      safeRemoveItem('to_remove');
+      expect(safeGetItem('to_remove')).toBeNull();
+    });
+
+    test('safeGetItem logs warning and returns fallback when localStorage throws', () => {
+      const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+      const getItemSpy = jest.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+        throw new Error('Storage access error');
+      });
+
+      const result = safeGetItem('error_key', 'fallback_val');
+
+      expect(result).toBe('fallback_val');
+      expect(consoleWarnSpy).toHaveBeenCalledWith(
+        '[Algo] Error reading localStorage key "error_key":',
+        expect.any(Error)
+      );
+
+      getItemSpy.mockRestore();
+      consoleWarnSpy.mockRestore();
+    });
+
+    test('safeSetItem logs error when localStorage throws (e.g. QuotaExceededError)', () => {
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const setItemSpy = jest.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+        throw new Error('QuotaExceededError');
+      });
+
+      safeSetItem('quota_key', 'large_value');
+
+      expect(consoleErrorSpy).toHaveBeenCalledWith(
+        '[Algo] Error setting localStorage key "quota_key":',
+        expect.any(Error)
+      );
+
+      setItemSpy.mockRestore();
+      consoleErrorSpy.mockRestore();
+    });
+
+    test('safeRemoveItem logs warning when localStorage throws', () => {
+      const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+      const removeItemSpy = jest.spyOn(Storage.prototype, 'removeItem').mockImplementation(() => {
+        throw new Error('Remove error');
+      });
+
+      safeRemoveItem('remove_err_key');
+
+      expect(consoleWarnSpy).toHaveBeenCalledWith(
+        '[Algo] Error removing localStorage key "remove_err_key":',
+        expect.any(Error)
+      );
+
+      removeItemSpy.mockRestore();
       consoleWarnSpy.mockRestore();
     });
   });

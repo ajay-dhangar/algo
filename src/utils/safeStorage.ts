@@ -515,3 +515,48 @@ export function getAchievementSnapshot(progress: AlgoProgressData = readAlgoProg
   };
 }
 
+/**
+ * Safely reads a raw string item from localStorage (SSG/SSR-safe).
+ */
+export function safeGetItem(key: string, fallback: string | null = null): string | null {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return fallback;
+  }
+  try {
+    const value = window.localStorage.getItem(key);
+    return value !== null ? value : fallback;
+  } catch (err) {
+    console.warn(`[Algo] Error reading localStorage key "${key}":`, err);
+    return fallback;
+  }
+}
+
+/**
+ * Safely writes a raw string item to localStorage (SSG/SSR-safe, handles quota errors).
+ */
+export function safeSetItem(key: string, value: string): void {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return;
+  }
+  try {
+    window.localStorage.setItem(key, value);
+  } catch (err) {
+    console.error(`[Algo] Error setting localStorage key "${key}":`, err);
+  }
+}
+
+/**
+ * Safely removes an item from localStorage (SSG/SSR-safe).
+ */
+export function safeRemoveItem(key: string): void {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return;
+  }
+  try {
+    window.localStorage.removeItem(key);
+  } catch (err) {
+    console.warn(`[Algo] Error removing localStorage key "${key}":`, err);
+  }
+}
+
+
