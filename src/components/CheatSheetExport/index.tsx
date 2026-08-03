@@ -95,7 +95,7 @@ export default function CheatSheetExport({
         : "#ffffff";
 
     return html2canvas(target, {
-      backgroundColor,
+      backgroundColor: backgroundColor as any,
       useCORS: true,
       scrollX: 0,
       scrollY: 0,
@@ -115,7 +115,7 @@ export default function CheatSheetExport({
     try {
       const canvas = await captureCanvas();
       const jsPDFModule = await import("jspdf");
-      const jsPDF = jsPDFModule.jsPDF || jsPDFModule.default;
+      const jsPDF = (jsPDFModule as any).jsPDF || jsPDFModule.default;
 
       const pdf = new jsPDF({
         orientation: "portrait",
