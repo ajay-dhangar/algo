@@ -4,6 +4,7 @@ import Heading from '@theme/Heading';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
+import { addRecentAlgorithm } from '../../../utils/recentAlgorithms';
 import BookmarkButton from '../../../components/BookmarkButton';
 
 import ReadingProgressBar from "../../../components/ReadingProgressBar";
@@ -41,6 +42,14 @@ const difficulty =
       setReadingTimeInWords(`${minutes} min read`);
     }
   }, [children]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      addRecentAlgorithm({
+        title,
+        path: window.location.pathname,
+      });
+    }
+  }, [title]);
 
   return (
     <>
