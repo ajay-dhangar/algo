@@ -328,6 +328,11 @@ const config = {
             position: "left",
           },
           {
+            to: "favorites",
+            label: "Favorites",
+            position: "left",
+          },
+          {
             to: "blog",
             label: "Blogs",
             position: "right",

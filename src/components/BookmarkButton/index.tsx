@@ -6,65 +6,61 @@ type Props = {
   path?: string;
 };
 
-const STORAGE_KEY = 'algo_bookmarks_v1';
+const PRIMARY_STORAGE_KEY = 'favorite-algorithms';
+const LEGACY_STORAGE_KEY = 'algo_bookmarks_v1';
 
 interface BookmarkItem {
   title?: string;
   path: string;
+  addedAt?: string;
 }
 
 export default function BookmarkButton({ title, path }: Props): JSX.Element {
   const [bookmarked, setBookmarked] = useState(false);
 
+  const getItemsFromStorage = (): BookmarkItem[] => {
+    if (typeof window === 'undefined') return [];
+    try {
+      const rawPrimary = localStorage.getItem(PRIMARY_STORAGE_KEY);
+      const raw = rawPrimary || localStorage.getItem(LEGACY_STORAGE_KEY) || '[]';
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [];
+      if (parsed.length > 0 && typeof parsed[0] === 'string') {
+        return (parsed as string[]).map((p) => ({ title: p, path: p, addedAt: new Date().toISOString() }));
+      }
+      return parsed as BookmarkItem[];
+    } catch {
+      return [];
+    }
+  };
+
   useEffect(() => {
     if (!path || typeof window === 'undefined') return;
-    try {
-      const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      let items: BookmarkItem[] = [];
-
-      if (Array.isArray(raw)) {
-        if (raw.length === 0) items = [];
-        else if (typeof raw[0] === 'string') {
-          // legacy format: string[] of paths
-          items = (raw as string[]).map((p) => ({ path: p }));
-        } else {
-          items = raw as BookmarkItem[];
-        }
-      }
-
-      setBookmarked(items.some((item) => item.path === path));
-    } catch {
-      setBookmarked(false);
-    }
+    const items = getItemsFromStorage();
+    setBookmarked(items.some((item) => item.path === path));
   }, [path]);
 
   const toggleBookmark = (e?: React.MouseEvent) => {
     e?.preventDefault();
     if (!path || typeof window === 'undefined') return;
     try {
-      const raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      let items: BookmarkItem[] = [];
-
-      if (Array.isArray(raw)) {
-        if (raw.length && typeof raw[0] === 'string') {
-          items = (raw as string[]).map((p) => ({ path: p }));
-        } else {
-          items = raw as BookmarkItem[];
-        }
-      }
-
+      let items = getItemsFromStorage();
       const exists = items.some((item) => item.path === path);
 
       if (exists) {
         items = items.filter((item) => item.path !== path);
       } else {
-        items.push({ title, path });
+        items.push({
+          title: title || path,
+          path,
+          addedAt: new Date().toISOString(),
+        });
       }
 
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+      localStorage.setItem(PRIMARY_STORAGE_KEY, JSON.stringify(items));
+      localStorage.setItem(LEGACY_STORAGE_KEY, JSON.stringify(items));
       setBookmarked(!exists);
     } catch {
-      // best-effort toggle
       setBookmarked((v) => !v);
     }
   };
