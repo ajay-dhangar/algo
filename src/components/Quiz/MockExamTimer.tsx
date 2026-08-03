@@ -31,6 +31,15 @@ export default function MockExamTimer({
   const [timeLeft, setTimeLeft] = useState<number>(timeLimitSeconds);
   const expiredRef = useRef<boolean>(false);
 
+  // Keep refs to the latest callbacks so the interval closure never goes stale.
+  // This means a new referentially-different onTick/onTimeExpired from the parent
+  // will NOT restart the interval — it simply updates what gets called on the
+  // next tick.
+  const onTickRef = useRef(onTick);
+  const onTimeExpiredRef = useRef(onTimeExpired);
+  useEffect(() => { onTickRef.current = onTick; }, [onTick]);
+  useEffect(() => { onTimeExpiredRef.current = onTimeExpired; }, [onTimeExpired]);
+
   useEffect(() => {
     setTimeLeft(timeLimitSeconds);
     expiredRef.current = false;
@@ -42,15 +51,15 @@ export default function MockExamTimer({
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         const next = prev - 1;
-        if (onTick) {
-          onTick(next);
+        if (onTickRef.current) {
+          onTickRef.current(next);
         }
 
         if (next <= 0 && !expiredRef.current) {
           expiredRef.current = true;
           clearInterval(timer);
           setTimeout(() => {
-            onTimeExpired();
+            onTimeExpiredRef.current();
           }, 0);
           return 0;
         }
@@ -59,7 +68,9 @@ export default function MockExamTimer({
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isSubmitted, onTimeExpired, onTick]);
+  // onTimeExpired and onTick intentionally excluded — refs keep them current
+  // without restarting the interval on every parent re-render.
+  }, [isSubmitted]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const isWarning = timeLeft > 0 && timeLeft <= 300; // < 5 mins
   const isCritical = timeLeft > 0 && timeLeft <= 60;  // < 1 min
