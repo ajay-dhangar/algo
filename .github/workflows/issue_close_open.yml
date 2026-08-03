@@ -31,19 +31,21 @@ jobs:
                             `* 💻 **Code snippets** or error steps (especially for algorithmic edge cases).\n` +
                             `* 🖼️ **Screenshots** or visual context if applicable.\n\n` +
                             `Please ensure you adhere to our project's **Guidelines** and **Code of Conduct**. A maintainer will review it shortly. Happy coding! ✨`;
-                            
+              
             } else if (action === "closed") {
               const wasClosedViaPR = issue.pull_request !== undefined;
 
               if (wasClosedViaPR) {
                 commentBody = `### ✅ Issue Resolved & Closed\n\n` +
                               `Thank you, @${creator}, for your contributions to our Algo project! 🌟\n\n` +
-                              `Your pull request has successfully resolved this issue. Your involvement keeps this educational platform growing. Happy coding! 🚀`;
+                              `Your pull request has successfully resolved this issue. Your involvement keeps this educational platform growing.`;
               } else {
                 commentBody = `### 🔒 Issue Closed\n\n` +
                               `Thank you, @${creator}, for taking the time to report or engage with this issue! 🛡️\n\n` +
                               `Even if this was closed without a direct code merge, your input helps us manage and track our algorithm roadmap effectively.`;
               }
+
+              commentBody += `\n\nIf you have more algorithmic insights, find new bugs, or want to add fresh content, don't hesitate to open a brand-new issue. Happy coding! 🚀`;
             }
             
             if (commentBody) {
