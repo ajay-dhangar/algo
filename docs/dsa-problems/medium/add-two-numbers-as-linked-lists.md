@@ -1,9 +1,15 @@
 ---
 id: add-two-numbers-as-linked-lists
-title: "Add two numbers represented as linked lists"
-sidebar_label:  "Add two numbers as Linked List"
-description: "This document provides a detailed explanation and implementation for adding two numbers represented as linked lists, including step-by-step instructions and example code."
-tags: [Linked list]
+title: Add two numbers represented as linked lists
+sidebar_label: Add two numbers as Linked List
+description: >-
+  This document provides a detailed explanation and implementation for adding
+  two numbers represented as linked lists, including step-by-step instructions
+  and example code.
+tags:
+  - Linked list
+companies:
+  - Meta
 ---
 
 # Adding Two Numbers Represented as Linked Lists
@@ -78,73 +84,10 @@ Given two linked lists, where each node contains a single digit, add the two num
 - Result: `7 -> 0 -> 8` (represents the number 807)
 ```
 
-## Java Code Implementation
+## Solutions
 
-```java
-// Definition for singly-linked list.
-class ListNode {
-    int val; // Value of the node
-    ListNode next; // Pointer to the next node
-
-    ListNode(int val) {
-        this.val = val;
-        this.next = null; // Initialize next to null
-    }
-}
-
-public class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummyHead = new ListNode(0); // Dummy head for the result list
-        ListNode current = dummyHead; // Pointer for the current node in the result
-        int carry = 0; // Variable to store carry value
-
-        // Loop until both lists are processed and no carry remains
-        while (l1 != null || l2 != null || carry != 0) {
-            int val1 = (l1 != null) ? l1.val : 0; // Get value from l1 or 0
-            int val2 = (l2 != null) ? l2.val : 0; // Get value from l2 or 0
-
-            int sum = val1 + val2 + carry; // Calculate sum
-            carry = sum / 10; // Update carry for next iteration
-            current.next = new ListNode(sum % 10); // Create new node for the result
-            current = current.next; // Move to the next node in the result
-
-            // Move to the next nodes in l1 and l2
-            if (l1 != null) l1 = l1.next;
-            if (l2 != null) l2 = l2.next;
-        }
-
-        return dummyHead.next; // Return the head of the resulting linked list
-    }
-
-    // Example usage
-    public static void main(String[] args) {
-        // Create first linked list: 2 -> 4 -> 3 (represents 342)
-        ListNode l1 = new ListNode(2);
-        l1.next = new ListNode(4);
-        l1.next.next = new ListNode(3);
-
-        // Create second linked list: 5 -> 6 -> 4 (represents 465)
-        ListNode l2 = new ListNode(5);
-        l2.next = new ListNode(6);
-        l2.next.next = new ListNode(4);
-
-        // Create a solution object and add the two numbers
-        Solution solution = new Solution();
-        ListNode result = solution.addTwoNumbers(l1, l2);
-
-        // Output the result
-        System.out.print("Result: ");
-        while (result != null) {
-            System.out.print(result.val + " ");
-            result = result.next;
-        }
-        // Output: Result: 7 0 8 (represents 807)
-    }
-}
-
-```
-
-## C++ Code Implementation
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
 ```cpp
 #include <iostream>
@@ -217,12 +160,76 @@ int main() {
 
     return 0;
 }
-
-
 ```
 
+  </TabItem>
+  <TabItem value="java" label="Java">
 
-## Python Code Implementation
+```java
+// Definition for singly-linked list.
+class ListNode {
+    int val; // Value of the node
+    ListNode next; // Pointer to the next node
+
+    ListNode(int val) {
+        this.val = val;
+        this.next = null; // Initialize next to null
+    }
+}
+
+public class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(0); // Dummy head for the result list
+        ListNode current = dummyHead; // Pointer for the current node in the result
+        int carry = 0; // Variable to store carry value
+
+        // Loop until both lists are processed and no carry remains
+        while (l1 != null || l2 != null || carry != 0) {
+            int val1 = (l1 != null) ? l1.val : 0; // Get value from l1 or 0
+            int val2 = (l2 != null) ? l2.val : 0; // Get value from l2 or 0
+
+            int sum = val1 + val2 + carry; // Calculate sum
+            carry = sum / 10; // Update carry for next iteration
+            current.next = new ListNode(sum % 10); // Create new node for the result
+            current = current.next; // Move to the next node in the result
+
+            // Move to the next nodes in l1 and l2
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
+        }
+
+        return dummyHead.next; // Return the head of the resulting linked list
+    }
+
+    // Example usage
+    public static void main(String[] args) {
+        // Create first linked list: 2 -> 4 -> 3 (represents 342)
+        ListNode l1 = new ListNode(2);
+        l1.next = new ListNode(4);
+        l1.next.next = new ListNode(3);
+
+        // Create second linked list: 5 -> 6 -> 4 (represents 465)
+        ListNode l2 = new ListNode(5);
+        l2.next = new ListNode(6);
+        l2.next.next = new ListNode(4);
+
+        // Create a solution object and add the two numbers
+        Solution solution = new Solution();
+        ListNode result = solution.addTwoNumbers(l1, l2);
+
+        // Output the result
+        System.out.print("Result: ");
+        while (result != null) {
+            System.out.print(result.val + " ");
+            result = result.next;
+        }
+        // Output: Result: 7 0 8 (represents 807)
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
 
 ```python
 class ListNode:
@@ -249,3 +256,28 @@ def addTwoNumbers(l1: ListNode, l2: ListNode) -> ListNode:
 
     return dummy_head.next
 ```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var addTwoNumbers = function(l1, l2) {
+    let dummy = new ListNode(0);
+    let curr = dummy;
+    let carry = 0;
+    while (l1 !== null || l2 !== null || carry !== 0) {
+        let x = (l1 !== null) ? l1.val : 0;
+        let y = (l2 !== null) ? l2.val : 0;
+        let sum = carry + x + y;
+        carry = Math.floor(sum / 10);
+        curr.next = new ListNode(sum % 10);
+        curr = curr.next;
+        if (l1 !== null) l1 = l1.next;
+        if (l2 !== null) l2 = l2.next;
+    }
+    return dummy.next;
+};
+```
+
+  </TabItem>
+</Tabs>

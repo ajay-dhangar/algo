@@ -33,7 +33,7 @@ interface LocalQuizAttempt {
   completedAt: string;
 }
 
-const QUESTIONS: AVLQuestion[] = [
+export const QUESTIONS: AVLQuestion[] = [
   {
     id: 1,
     difficulty: "Easy",

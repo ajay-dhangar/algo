@@ -4,12 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FaPlayCircle, FaTerminal, FaLayerGroup, FaSearch,
   FaTrophy, FaFire, FaChartBar, FaRedo, FaCheckCircle,
-  FaClock, FaExclamationTriangle, FaStar,
+  FaClock, FaExclamationTriangle, FaStar, FaCircle,
 } from "react-icons/fa";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import { useQuizProgress, QuizStat, GlobalQuizStats } from "../../hooks/useQuizProgress";
+import QuizStreakWidget from "../../components/QuizStreakWidget";
 import { QUIZZES_CONFIG, QUESTION_COUNTS, QUIZ_IDS, type QuizCardConfig } from "../../data/quizzesConfig";
 
 const FILTER_CATEGORIES = ["All", "Linear", "Non-Linear", "Balanced Tree", "Disk Storage"] as const;
@@ -35,6 +36,15 @@ function scoreBg(pct: number): string {
   if (pct >= 70) return "bg-blue-500";
   if (pct >= 50) return "bg-amber-500";
   return "bg-red-500";
+}
+
+function formatPrerequisiteList(prereqIds: string[]) {
+  if (prereqIds.length === 0) return "";
+  const titles = prereqIds
+    .map((id) => QUIZZES_CONFIG.find((quiz) => quiz.id === id)?.title.replace("Quiz on ", "") ?? id);
+  if (titles.length === 1) return titles[0];
+  if (titles.length === 2) return `${titles[0]} and ${titles[1]}`;
+  return `${titles.slice(0, -1).join(", ")}, and ${titles[titles.length - 1]}`;
 }
 
 function statusIcon(status: string) {
@@ -64,7 +74,7 @@ function ProgressDashboard({ globalStats, userId, loaded }: ProgressDashboardPro
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35 }}
-      className="max-w-7xl mx-auto px-4 mt-10 mb-2"
+      className="w-full"
     >
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
 
@@ -196,9 +206,24 @@ function ProgressDashboard({ globalStats, userId, loaded }: ProgressDashboardPro
 
 // ─── Quiz card with score badge ───────────────────────────────────────────────
 
-function QuizCard({ quiz, stat, index }) {
+function QuizCard({ quiz, stat, allStats, index }: { quiz: QuizCardConfig; stat?: QuizStat; allStats: Record<string, QuizStat>; index: number }) {
   const hasAttempt = stat && stat.totalAttempts > 0;
   const pct = stat?.bestPercent ?? 0;
+
+  const missedPrereqs = quiz.prerequisites?.filter((prereq) => {
+    const prereqStatus = allStats[prereq]?.status ?? "not-started";
+    return prereqStatus === "not-started";
+  }) ?? [];
+
+  const showPrerequisiteHint = Boolean(
+    hasAttempt &&
+      pct < 60 &&
+      missedPrereqs.length > 0
+  );
+
+  const prerequisiteHint = showPrerequisiteHint
+    ? `This builds on ${formatPrerequisiteList(missedPrereqs)} — you haven't tried ${missedPrereqs.length === 1 ? "that one" : "those yet"}.`
+    : null;
 
   return (
     <motion.div
@@ -283,6 +308,12 @@ function QuizCard({ quiz, stat, index }) {
                   : "In Progress"}
               </span>
             </div>
+
+            {prerequisiteHint && (
+              <div className="mt-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3 text-[10px] leading-snug text-slate-700 dark:text-slate-300">
+                {prerequisiteHint}
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -304,8 +335,6 @@ function QuizCard({ quiz, stat, index }) {
 const Quizzes: React.FC = () => {
   const [search, setSearch]           = useState("");
   const [activeFilter, setActiveFilter] = useState<typeof FILTER_CATEGORIES[number]>("All");
-  const [showOnlyWeak, setShowOnlyWeak] = useState(false);
-  const [showOnlyIncomplete, setShowOnlyIncomplete] = useState(false);
 
   const filteredQuizzes = useMemo(() => {
     return QUIZZES_CONFIG.filter(quiz => {
@@ -345,6 +374,18 @@ const Quizzes: React.FC = () => {
             >
               Benchmark your parsing parameters. Evaluate your deep knowledge of linear arrays, memory allocation trees, node link operations, and space/time execution metrics.
             </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+              className="pt-2"
+            >
+              <Link
+                to="/mock-exam"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all no-underline"
+              >
+                <FaPlayCircle size={16} />
+                Try Timed Mock Exam Mode
+              </Link>
+            </motion.div>
           </div>
         </section>
 
@@ -353,9 +394,34 @@ const Quizzes: React.FC = () => {
           {() => {
             const Inner = () => {
               const { stats, globalStats, userId, loaded } = useQuizProgress(QUIZ_IDS, QUESTION_COUNTS);
+              const [showOnlyWeak, setShowOnlyWeak] = useState(false);
+              const [showOnlyIncomplete, setShowOnlyIncomplete] = useState(false);
+
+              const displayedQuizzes = useMemo(() => {
+                return filteredQuizzes.filter(quiz => {
+                  if (showOnlyWeak) {
+                    const isWeak = globalStats.weakTopics.includes(quiz.id);
+                    if (!isWeak) return false;
+                  }
+                  if (showOnlyIncomplete) {
+                    const stat = stats[quiz.id];
+                    const isIncomplete = !stat || stat.totalAttempts === 0 || stat.status === "in-progress";
+                    if (!isIncomplete) return false;
+                  }
+                  return true;
+                });
+              }, [filteredQuizzes, showOnlyWeak, showOnlyIncomplete, stats, globalStats.weakTopics]);
+
               return (
                 <>
-                  <ProgressDashboard globalStats={globalStats} userId={userId} loaded={loaded} />
+                  <div className="max-w-7xl mx-auto px-4 mt-10 mb-2 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                    <div className="lg:col-span-2">
+                      <ProgressDashboard globalStats={globalStats} userId={userId} loaded={loaded} />
+                    </div>
+                    <div className="lg:col-span-1">
+                      <QuizStreakWidget />
+                    </div>
+                  </div>
 
                   {/* Search + filters */}
                   <div className="max-w-7xl mx-auto px-4 mt-8 space-y-6">
@@ -370,8 +436,16 @@ const Quizzes: React.FC = () => {
                           className="w-full py-2.5 pl-10 pr-4 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-[var(--ifm-color-primary)] text-sm font-semibold rounded-xl transition-all"
                         />
                       </div>
+                      <div className="flex items-center gap-3">
+                        <Link
+                          to="/quizzes/dependency-graph"
+                          className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em] hover:bg-slate-200 dark:hover:bg-slate-800 transition"
+                        >
+                          Dependency Graph
+                        </Link>
+                      </div>
                       <div className="overflow-x-auto -mx-4 px-4 lg:mx-0 lg:px-0 scrollbar-none">
-                        <div className="flex gap-1.5" role="group">
+                        <div className="flex gap-1.5 flex-wrap" role="group">
                           {FILTER_CATEGORIES.map(cat => (
                             <button
                               key={cat}
@@ -385,6 +459,37 @@ const Quizzes: React.FC = () => {
                               {cat === "All" ? "All Quizzes" : cat}
                             </button>
                           ))}
+
+                          {/* Divider */}
+                          <div className="w-px self-stretch bg-slate-200 dark:bg-slate-800 mx-1" />
+
+                          {/* Show only weak topics */}
+                          <button
+                            onClick={() => setShowOnlyWeak(v => !v)}
+                            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold tracking-wide border transition-all whitespace-nowrap min-h-[36px] cursor-pointer ${
+                              showOnlyWeak
+                                ? "bg-amber-500 border-amber-500 text-white shadow-sm"
+                                : "border-slate-200 bg-white dark:bg-slate-950 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:border-amber-400 hover:text-amber-600 dark:hover:text-amber-400"
+                            }`}
+                            title="Show only topics where your score is below 70%"
+                          >
+                            <FaExclamationTriangle className="text-[10px]" />
+                            Needs Review
+                          </button>
+
+                          {/* Show only incomplete */}
+                          <button
+                            onClick={() => setShowOnlyIncomplete(v => !v)}
+                            className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold tracking-wide border transition-all whitespace-nowrap min-h-[36px] cursor-pointer ${
+                              showOnlyIncomplete
+                                ? "bg-blue-600 border-blue-600 text-white shadow-sm"
+                                : "border-slate-200 bg-white dark:bg-slate-950 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400"
+                            }`}
+                            title="Show only quizzes you haven't passed yet"
+                          >
+                            <FaCircle className="text-[10px]" />
+                            Not Completed
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -394,18 +499,19 @@ const Quizzes: React.FC = () => {
                   <section className="max-w-7xl mx-auto px-4 mt-6">
                     <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       <AnimatePresence mode="popLayout">
-                        {filteredQuizzes.map((quiz, index) => (
+                        {displayedQuizzes.map((quiz, index) => (
                           <QuizCard
                             key={quiz.id}
                             quiz={quiz}
                             stat={stats[quiz.id]}
+                            allStats={stats}
                             index={index}
                           />
                         ))}
                       </AnimatePresence>
                     </motion.div>
 
-                    {filteredQuizzes.length === 0 && (
+                    {displayedQuizzes.length === 0 && (
                       <div className="text-center py-16 px-4 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/40">
                         <FaLayerGroup className="text-slate-400 mx-auto text-3xl mb-3" />
                         <h4 className="text-base font-bold text-slate-800 dark:text-slate-200 m-0">No Search Parameters Matched</h4>

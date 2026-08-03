@@ -1,9 +1,18 @@
 ---
 id: left-and-right-sum-differences
-title: "Left and Right Sum Differences"
+title: Left and Right Sum Differences
 sidebar_label: Left and Right Sum Differences
-description: "The Left and Right Sum Differences problem on LeetCode involves finding the absolute difference between the sum of elements to the left and right of each index in an array."
-tags: [DSA, leetcode, array, prefix-sum]
+description: >-
+  The Left and Right Sum Differences problem on LeetCode involves finding the
+  absolute difference between the sum of elements to the left and right of each
+  index in an array.
+tags:
+  - DSA
+  - leetcode
+  - array
+  - prefix-sum
+companies:
+  - Netflix
 ---
 
 ## Description:
@@ -58,7 +67,11 @@ To avoid calculating the left and right sums from scratch for every element (whi
 
 #### Optimal Solutions:
 
-**C++**
+## Solutions
+
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 class Solution {
 public:
@@ -82,7 +95,9 @@ public:
 };
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 class Solution {
     public int[] leftRightDifference(int[] nums) {
@@ -105,8 +120,10 @@ class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def leftRightDifference(self, nums: list[int]) -> list[int]:
         total_sum = sum(nums)
@@ -121,8 +138,10 @@ class Solution:
         return ans
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} nums
  * @return {number[]}
@@ -141,3 +160,6 @@ const leftRightDifference = function(nums) {
     return ans;
 };
 ```
+
+  </TabItem>
+</Tabs>

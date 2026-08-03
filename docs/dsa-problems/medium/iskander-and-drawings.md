@@ -56,9 +56,11 @@ Because both of them erase 1 centimeter per second simultaneously (one from the 
 * **Time Complexity:** $O(n)$ per testcase, where `n` is the length of the string. We perform a single linear scan of the string.
 * **Space Complexity:** $O(1)$ auxiliary space, as we only need two integer variables to keep track of the counts regardless of the string's length.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -102,7 +104,9 @@ int main() {
 }
 ```
 
-**Java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Scanner;
 
@@ -140,8 +144,10 @@ public class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import sys
 
 def solve():
@@ -174,8 +180,10 @@ if __name__ == "__main__":
     solve()
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 const fs = require('fs');
 
 function main() {
@@ -208,3 +216,6 @@ function main() {
 
 main();
 ```
+
+  </TabItem>
+</Tabs>

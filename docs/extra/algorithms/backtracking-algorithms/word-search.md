@@ -1,5 +1,5 @@
 ---
-id: word-search
+id: word-search-backtracking
 title: "Word Search"
 sidebar_label: "Word Search"
 sidebar_position: 14

@@ -62,9 +62,11 @@ To maximize the total *number* of items we can buy with a limited budget, we sho
 
 ---
 
-## Solutions:
+## Solutions
 
-### C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <vector>
 #include <algorithm>
@@ -92,7 +94,9 @@ public:
 };
 ```
 
-### Java
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Arrays;
 
@@ -118,8 +122,10 @@ class Solution {
 }
 ```
 
-### Python
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 class Solution:
     def maxIceCream(self, costs: list[int], coins: int) -> int:
         # Sort the costs to pick the cheapest ones first
@@ -138,8 +144,10 @@ class Solution:
         return count
 ```
 
-### JavaScript
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 /**
  * @param {number[]} costs
  * @param {number} coins
@@ -164,3 +172,6 @@ const maxIceCream = function(costs, coins) {
     return count;
 };
 ```
+
+  </TabItem>
+</Tabs>

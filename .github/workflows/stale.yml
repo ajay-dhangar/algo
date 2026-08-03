@@ -1,38 +1,72 @@
-name: "Mark Stale Issues and PRs"
+name: "Mark and Close Stale Issues and PRs"
 
 on:
   schedule:
-    # Runs daily at midnight
+    # Runs daily at midnight UTC
     - cron: "0 0 * * *"
-  workflow_dispatch: # Allows you to run it manually for testing
+    
+  workflow_dispatch: # Allows manual trigger from the Actions tab
 
 jobs:
   stale:
+    name: Mark and Close Stale Issues & PRs
     runs-on: ubuntu-latest
+    
     permissions:
       issues: write
       pull-requests: write
+
     steps:
-      - name: "Close Stale Issues and PRs"
+      - name: Run Stale Action
         uses: actions/stale@v9
         with:
-          # Increased duration for thoughtful algorithmic work
-          days-before-stale: 60
-          days-before-close: 14
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+          # Time thresholds
+          days-before-stale: 14
+          days-before-close: 7
+
+          # Labels applied when items are marked stale
+          stale-issue-label: "stale"
+          stale-pr-label: "stale"
+
+          # Reset stale timer if new activity occurs
+          remove-stale-when-updated: true
+
+          # Warning messages when items become stale
           
-          # Docusaurus/Docs specific labels to exempt
+          stale-issue-message: >
+            This issue has had no activity for **14 days** and has been
+            marked as `stale`. If this is still relevant, please leave a
+            comment or push an update within the next **7 days**, otherwise
+            it will be closed automatically to keep the tracker clean.
+
+          stale-pr-message: >
+            This pull request has had no activity for **14 days** and
+            has been marked as `stale`. If this is still being worked on,
+            please push a commit or leave a comment within the next **7 days**,
+            otherwise it will be closed automatically.
+
+          # Messages posted upon automatic closure
+          
+          close-issue-message: >
+            This issue has been automatically closed after 21 days of
+            inactivity. If still relevant, please open a new issue with
+            updated context. Thank you for contributing!
+
+          close-pr-message: >
+            This pull request has been automatically closed after 21 days
+            of inactivity. Please reopen or raise a fresh PR rebased on the
+            latest main branch if you would like to continue. Thank you!
+
+          # Labels to exempt from auto-stale logic
+          
           exempt-issue-labels: "pinned,documentation,help wanted,good first issue"
           exempt-pr-labels: "pinned,status: waiting for upstream,docs"
+
+          # Rate-limiting and ordering controls
           
-          # Custom messaging for your Algo project
-          stale-issue-message: "This issue has been marked as stale because it has not had recent activity. If this is still relevant to the algorithm or documentation, please leave a comment!"
-          close-issue-message: "This issue has been closed due to inactivity. If you believe this is still a valid issue for the project, please feel free to reopen it."
+          operations-per-run: 100
+          ascending: true
+
           
-          stale-pr-message: "This PR has been marked as stale due to inactivity. Please update the branch or comment if you intend to continue work."
-          close-pr-message: "This PR has been closed due to inactivity."
-          
-          # Ensures updates to docs or code reset the timer
-          remove-stale-when-updated: true
-          
-          # Logging
-          debug-only: false

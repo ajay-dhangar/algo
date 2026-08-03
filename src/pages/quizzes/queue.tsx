@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FaUserCircle, 
@@ -24,15 +25,17 @@ interface QueueQuestion {
   options: string[];
   answer: string;
   explanation: string;
+  relatedDoc?: string;
 }
 
 interface AttemptHistory {
   score: number;
   timeSpent: number;
   completedAt: string;
+  missedQuestionIds?: number[];
 }
 
-const QUESTIONS: QueueQuestion[] = [
+export const QUESTIONS: QueueQuestion[] = [
   {
     id: 1,
     difficulty: "Medium",
@@ -45,7 +48,8 @@ const QUESTIONS: QueueQuestion[] = [
       "D) Reverses the sequence of elements in Q"
     ],
     answer: "D) Reverses the sequence of elements in Q",
-    explanation: "Because a Stack is LIFO (Last-In-First-Out) and a Queue is FIFO (First-In-First-Out), dequeuing all items into a stack and then popping them back into the queue effectively inverts the sequence."
+    explanation: "Because a Stack is LIFO (Last-In-First-Out) and a Queue is FIFO (First-In-First-Out), dequeuing all items into a stack and then popping them back into the queue effectively inverts the sequence.",
+    relatedDoc: "/docs/extra/Queue/Two-Stack-Queue"
   },
   {
     id: 2,
@@ -53,7 +57,8 @@ const QUESTIONS: QueueQuestion[] = [
     question: "If only Stack data structures are available, what is the minimum number of Stacks required to fully implement a functional Queue logic?",
     options: ["A) 1 Stack", "B) 2 Stacks", "C) 3 Stacks", "D) 4 Stacks"],
     answer: "B) 2 Stacks",
-    explanation: "Two stacks are required: one to handle 'enqueue' (pushing) and another to handle 'dequeue' (reversing the order so the oldest element is accessible)."
+    explanation: "Two stacks are required: one to handle 'enqueue' (pushing) and another to handle 'dequeue' (reversing the order so the oldest element is accessible).",
+    relatedDoc: "/docs/extra/Queue/Two-Stack-Queue"
   },
   {
     id: 3,
@@ -61,7 +66,8 @@ const QUESTIONS: QueueQuestion[] = [
     question: "In an ideal Queue implementation (Circular Array or Linked List with Head/Tail pointers), which operations achieve O(1) constant time complexity?",
     options: ["A) Only Enqueue", "B) Only Dequeue", "C) Both Enqueue and Dequeue", "D) Only Peek"],
     answer: "C) Both Enqueue and Dequeue",
-    explanation: "By maintaining pointers to both the front and the rear of the structure, we can add or remove elements without iterating through the collection, resulting in O(1) time."
+    explanation: "By maintaining pointers to both the front and the rear of the structure, we can add or remove elements without iterating through the collection, resulting in O(1) time.",
+    relatedDoc: "/docs/extra/Queue/circular-queue"
   },
   {
     id: 4,
@@ -69,7 +75,8 @@ const QUESTIONS: QueueQuestion[] = [
     question: "Which data structure provides the most efficient underlying implementation for a Priority Queue to ensure logarithmic time for both insertion and extraction?",
     options: ["A) Unordered Array", "B) Doubly Linked List", "C) Binary Heap / Fibonacci Heap", "D) Simple Stack"],
     answer: "C) Binary Heap / Fibonacci Heap",
-    explanation: "Heaps maintain a semi-ordered state that allows for O(log n) insertions and O(log n) extractions of the highest/lowest priority element, outperforming linear arrays or lists."
+    explanation: "Heaps maintain a semi-ordered state that allows for O(log n) insertions and O(log n) extractions of the highest/lowest priority element, outperforming linear arrays or lists.",
+    relatedDoc: "/docs/extra/Queue/priority-queue"
   },
   {
     id: 5,
@@ -82,7 +89,8 @@ const QUESTIONS: QueueQuestion[] = [
       "D) 10, 8, 7, 1, 2, 3, 5"
     ],
     answer: "B) 10, 8, 7, 3, 2, 1, 5",
-    explanation: "After inserting 1, the heap remains unchanged. Inserting 7 places it at the next available leaf (right child of 5). Since 7 > 5, they swap. The level order becomes 10, 8, 7, 3, 2, 1, 5."
+    explanation: "After inserting 1, the heap remains unchanged. Inserting 7 places it at the next available leaf (right child of 5). Since 7 > 5, they swap. The level order becomes 10, 8, 7, 3, 2, 1, 5.",
+    relatedDoc: "/docs/extra/Queue/priority-queue"
   },
   {
     id: 6,
@@ -91,7 +99,8 @@ const QUESTIONS: QueueQuestion[] = [
     codeSnippet: `MultiDequeue(Q, k) {\n    m = k;\n    while (!isEmpty(Q) && m > 0) {\n        deQueue(Q);\n        m--;\n    }\n}`,
     options: ["A) Θ(n)", "B) Θ(n + k)", "C) Θ(nk)", "D) Θ(n²)"],
     answer: "B) Θ(n + k)",
-    explanation: "While a single operation might take O(k), an element can only be dequeued if it was first enqueued. In a sequence of n operations, the total number of dequeues cannot exceed the total number of enqueues, leading to amortized linear time."
+    explanation: "While a single operation might take O(k), an element can only be dequeued if it was first enqueued. In a sequence of n operations, the total number of dequeues cannot exceed the total number of enqueues, leading to amortized linear time.",
+    relatedDoc: "/docs/extra/Queue/circular-queue"
   },
   {
     id: 7,
@@ -105,7 +114,8 @@ const QUESTIONS: QueueQuestion[] = [
       "D) Prints prime numbers up to n"
     ],
     answer: "C) Prints the first n Fibonacci numbers",
-    explanation: "The function maintains the last two calculated values in the queue. Each iteration dequeues both, sums them for the next term, and re-enqueues the state, mimicking the Fibonacci recurrence: F(n) = F(n-1) + F(n-2)."
+    explanation: "The function maintains the last two calculated values in the queue. Each iteration dequeues both, sums them for the next term, and re-enqueues the state, mimicking the Fibonacci recurrence: F(n) = F(n-1) + F(n-2).",
+    relatedDoc: "/docs/extra/Queue/priority-queue"
   },
   {
     id: 8,
@@ -113,7 +123,8 @@ const QUESTIONS: QueueQuestion[] = [
     question: "Which of the following is NOT a standard variation or operation of a Queue data structure?",
     options: ["A) Deque (Double-ended Queue)", "B) Circular Queue", "C) Priority Queue", "D) Shuffle-Queue"],
     answer: "D) Shuffle-Queue",
-    explanation: "Standard queues focus on order preservation (FIFO or Priority). Shuffling (randomizing order) is an operation typically associated with Lists or Collections, not the Queue interface."
+    explanation: "Standard queues focus on order preservation (FIFO or Priority). Shuffling (randomizing order) is an operation typically associated with Lists or Collections, not the Queue interface.",
+    relatedDoc: "/docs/extra/Queue/priority-queue"
   },
   {
     id: 9,
@@ -126,7 +137,8 @@ const QUESTIONS: QueueQuestion[] = [
       "D) No operation is performed and state remains same"
     ],
     answer: "B) It typically triggers a Queue Underflow error/exception",
-    explanation: "Attempting to remove an element from an empty data structure is a boundary case known as underflow. In most robust implementations, this throws an exception to prevent logic errors."
+    explanation: "Attempting to remove an element from an empty data structure is a boundary case known as underflow. In most robust implementations, this throws an exception to prevent logic errors.",
+    relatedDoc: "/docs/extra/Queue/blocked-queue"
   },
   {
     id: 10,
@@ -139,7 +151,8 @@ const QUESTIONS: QueueQuestion[] = [
       "D) It is significantly simpler to implement with pointers"
     ],
     answer: "C) It allows for efficient reuse of empty spaces (space efficiency)",
-    explanation: "Linear queues can suffer from 'false overflow' where space at the front is wasted after dequeues. Circular queues wrap the rear pointer back to the start, utilizing every available slot."
+    explanation: "Linear queues can suffer from 'false overflow' where space at the front is wasted after dequeues. Circular queues wrap the rear pointer back to the start, utilizing every available slot.",
+    relatedDoc: "/docs/extra/Queue/circular-queue"
   },
   {
     id: 11,
@@ -148,7 +161,8 @@ const QUESTIONS: QueueQuestion[] = [
     codeSnippet: `enqueue(1);\nenqueue(2);\nenqueue(3);\ndequeue();\nenqueue(4);\ndequeue();`,
     options: ["A) 1, 2", "B) 1, 3", "C) 2, 4", "D) 3, 4"],
     answer: "A) 1, 2",
-    explanation: "Queues follow First-In-First-Out (FIFO). The first dequeue removes the first item added (1). The second dequeue removes the next item that was in line (2), regardless of the fact that 4 was added later."
+    explanation: "Queues follow First-In-First-Out (FIFO). The first dequeue removes the first item added (1). The second dequeue removes the next item that was in line (2), regardless of the fact that 4 was added later.",
+    relatedDoc: "/docs/extra/Queue/circular-queue"
   },
   {
     id: 12,
@@ -156,7 +170,8 @@ const QUESTIONS: QueueQuestion[] = [
     question: "Which of the following data structures can be used as the underlying foundation to implement a Queue?",
     options: ["A) Static Arrays", "B) Singly or Doubly Linked Lists", "C) Stacks (using two of them)", "D) All of the above"],
     answer: "D) All of the above",
-    explanation: "Queues are abstract data types. While Arrays and Linked Lists are common, you can even simulate FIFO behavior using two LIFO Stacks."
+    explanation: "Queues are abstract data types. While Arrays and Linked Lists are common, you can even simulate FIFO behavior using two LIFO Stacks.",
+    relatedDoc: "/docs/extra/Queue/Two-Stack-Queue"
   },
   {
     id: 13,
@@ -164,7 +179,8 @@ const QUESTIONS: QueueQuestion[] = [
     question: "What is the time complexity of the enqueue and dequeue operations in an optimized Linked List-based queue?",
     options: ["A) O(1)", "B) O(n)", "C) O(log n)", "D) O(n^2)"],
     answer: "A) O(1)",
-    explanation: "By maintaining both a 'Head' and a 'Tail' pointer, we can add to the back and remove from the front in constant time without traversing the list."
+    explanation: "By maintaining both a 'Head' and a 'Tail' pointer, we can add to the back and remove from the front in constant time without traversing the list.",
+    relatedDoc: "/docs/extra/Queue/circular-queue"
   },
   {
     id: 14,
@@ -178,7 +194,8 @@ const QUESTIONS: QueueQuestion[] = [
       "D) IsEmpty Check"
     ],
     answer: "C) Enqueue Operation",
-    explanation: "This code handles the insertion logic: initializing the front pointer if the queue was empty, incrementing the rear index, and placing the new value at that position."
+    explanation: "This code handles the insertion logic: initializing the front pointer if the queue was empty, incrementing the rear index, and placing the new value at that position.",
+    relatedDoc: "/docs/extra/Queue/circular-queue"
   },
   {
     id: 15,
@@ -191,7 +208,8 @@ const QUESTIONS: QueueQuestion[] = [
       "D) By the physical memory address of the node"
     ],
     answer: "B) Based on the priority level associated with each element",
-    explanation: "A Priority Queue breaks the standard FIFO rule. Elements with higher priority are dequeued before elements with lower priority, regardless of when they entered the queue."
+    explanation: "A Priority Queue breaks the standard FIFO rule. Elements with higher priority are dequeued before elements with lower priority, regardless of when they entered the queue.",
+    relatedDoc: "/docs/extra/Queue/priority-queue"
   },
   {
     id: 16,
@@ -200,7 +218,8 @@ const QUESTIONS: QueueQuestion[] = [
     codeSnippet: `enqueue(10);\nenqueue(20);\ndequeue();\nenqueue(30);`,
     options: ["A) 10", "B) 20", "C) 30", "D) The queue is empty"],
     answer: "B) 20",
-    explanation: "1. Enqueue 10 (Front: 10). 2. Enqueue 20 (Front: 10, Rear: 20). 3. Dequeue removes 10. 4. Front moves to 20. 5. Enqueue 30 (Front remains 20, Rear becomes 30)."
+    explanation: "1. Enqueue 10 (Front: 10). 2. Enqueue 20 (Front: 10, Rear: 20). 3. Dequeue removes 10. 4. Front moves to 20. 5. Enqueue 30 (Front remains 20, Rear becomes 30).",
+    relatedDoc: "/docs/extra/Queue/circular-queue"
   }
 ];
 
@@ -260,7 +279,17 @@ const QueueQuiz: React.FC = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResult(true);
-      const newAttempt = { score, timeSpent, completedAt: new Date().toISOString() };
+      const missedQuestionIds = QUESTIONS.reduce<number[]>((acc, question, idx) => {
+        if (userAnswers[idx] !== question.answer) acc.push(question.id);
+        return acc;
+      }, []);
+
+      const newAttempt = {
+        score,
+        timeSpent,
+        completedAt: new Date().toISOString(),
+        missedQuestionIds,
+      };
       const updatedHistory = [newAttempt, ...history].slice(0, 5);
       setHistory(updatedHistory);
       if (username) {
@@ -400,6 +429,14 @@ const QueueQuiz: React.FC = () => {
                         <p className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/50 p-4 rounded-xl italic border border-dashed border-slate-200 dark:border-slate-800">
                           <strong className="text-indigo-500 not-italic block mb-1">Compiler Insight:</strong> {q.explanation}
                         </p>
+                        {userAnswers[idx] !== q.answer && q.relatedDoc && (
+                          <p className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900/50 px-4 py-3 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
+                            <strong className="text-indigo-500 not-italic block mb-1">Review This Topic:</strong>
+                            <Link to={q.relatedDoc} className="font-semibold text-indigo-600 hover:underline dark:text-indigo-400">
+                              Open the related documentation page
+                            </Link>
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>

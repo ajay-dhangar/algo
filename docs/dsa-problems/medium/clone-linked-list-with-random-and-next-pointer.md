@@ -1,9 +1,17 @@
 ---
 id: clone-linked-list-with-random-and-next-pointer
-title: "Cloning a Linked List with Random and Next Pointers"
-sidebar_label: "clone linked list"
-description: "Cloning a linked list that contains both next and random pointers involves creating a new linked list that is an exact copy of the original, preserving the structure and relationships of the nodes."
-tags: [linked list,clone]
+title: Cloning a Linked List with Random and Next Pointers
+sidebar_label: clone linked list
+description: >-
+  Cloning a linked list that contains both next and random pointers involves
+  creating a new linked list that is an exact copy of the original, preserving
+  the structure and relationships of the nodes.
+tags:
+  - linked list
+  - clone
+companies:
+  - LinkedIn
+  - Meta
 ---
 
 # Cloning a Linked List with Random and Next Pointers
@@ -45,108 +53,10 @@ Restore the Original List and Extract the Cloned List: Iterate through the modif
 
 ## Implementation
 
-## Java
+## Solutions
 
-```java
-class Node {
-    int value;
-    Node next;
-    Node random;
-
-    public Node(int value) {
-        this.value = value;
-        this.next = null;
-        this.random = null;
-    }
-}
-
-public class CloneLinkedList {
-    
-    // Step 1: Clone Nodes and Insert Them
-    public void cloneWithNextPointer(Node head) {
-        Node current = head;
-        while (current != null) {
-            Node cloneNode = new Node(current.value);
-            cloneNode.next = current.next;
-            current.next = cloneNode;
-            current = cloneNode.next;
-        }
-    }
-
-    // Step 2: Set Random Pointers
-    public void setRandomPointers(Node head) {
-        Node current = head;
-        while (current != null) {
-            if (current.random != null) {
-                current.next.random = current.random.next;
-            }
-            current = current.next.next;
-        }
-    }
-
-    // Step 3: Separate the Lists
-    public Node separateLists(Node head) {
-        if (head == null) return null;
-
-        Node original = head;
-        Node cloneHead = head.next;
-        Node cloneCurrent = cloneHead;
-
-        while (original != null && cloneCurrent != null) {
-            original.next = cloneCurrent.next;
-            original = original.next;
-            cloneCurrent.next = (original != null) ? original.next : null;
-            cloneCurrent = cloneCurrent.next;
-        }
-
-        return cloneHead;
-    }
-
-    // Main function to clone the linked list
-    public Node cloneLinkedList(Node head) {
-        if (head == null) return null;
-
-        cloneWithNextPointer(head);
-        setRandomPointers(head);
-        return separateLists(head);
-    }
-
-    // Function to print the linked list for verification
-    public void printList(Node head) {
-        Node current = head;
-        while (current != null) {
-            int randomValue = (current.random != null) ? current.random.value : -1;
-            System.out.println("Node value: " + current.value + ", Random points to: " + randomValue);
-            current = current.next;
-        }
-    }
-
-    // Example usage
-    public static void main(String[] args) {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-
-        node1.next = node2;
-        node2.next = node3;
-        node1.random = node3;  // node1's random points to node3
-        node2.random = node1;  // node2's random points to node1
-        node3.random = node2;  // node3's random points to node2
-
-        CloneLinkedList cloner = new CloneLinkedList();
-        Node clonedHead = cloner.cloneLinkedList(node1);
-
-        System.out.println("Original List:");
-        cloner.printList(node1);
-        System.out.println("\nCloned List:");
-        cloner.printList(clonedHead);
-    }
-}
-
-
-```
-
-## C++
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
 ```cpp
 #include <iostream>
@@ -248,9 +158,110 @@ int main() {
 
     return 0;
 }
-
 ```
-## Python
+
+  </TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+class Node {
+    int value;
+    Node next;
+    Node random;
+
+    public Node(int value) {
+        this.value = value;
+        this.next = null;
+        this.random = null;
+    }
+}
+
+public class CloneLinkedList {
+    
+    // Step 1: Clone Nodes and Insert Them
+    public void cloneWithNextPointer(Node head) {
+        Node current = head;
+        while (current != null) {
+            Node cloneNode = new Node(current.value);
+            cloneNode.next = current.next;
+            current.next = cloneNode;
+            current = cloneNode.next;
+        }
+    }
+
+    // Step 2: Set Random Pointers
+    public void setRandomPointers(Node head) {
+        Node current = head;
+        while (current != null) {
+            if (current.random != null) {
+                current.next.random = current.random.next;
+            }
+            current = current.next.next;
+        }
+    }
+
+    // Step 3: Separate the Lists
+    public Node separateLists(Node head) {
+        if (head == null) return null;
+
+        Node original = head;
+        Node cloneHead = head.next;
+        Node cloneCurrent = cloneHead;
+
+        while (original != null && cloneCurrent != null) {
+            original.next = cloneCurrent.next;
+            original = original.next;
+            cloneCurrent.next = (original != null) ? original.next : null;
+            cloneCurrent = cloneCurrent.next;
+        }
+
+        return cloneHead;
+    }
+
+    // Main function to clone the linked list
+    public Node cloneLinkedList(Node head) {
+        if (head == null) return null;
+
+        cloneWithNextPointer(head);
+        setRandomPointers(head);
+        return separateLists(head);
+    }
+
+    // Function to print the linked list for verification
+    public void printList(Node head) {
+        Node current = head;
+        while (current != null) {
+            int randomValue = (current.random != null) ? current.random.value : -1;
+            System.out.println("Node value: " + current.value + ", Random points to: " + randomValue);
+            current = current.next;
+        }
+    }
+
+    // Example usage
+    public static void main(String[] args) {
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+
+        node1.next = node2;
+        node2.next = node3;
+        node1.random = node3;  // node1's random points to node3
+        node2.random = node1;  // node2's random points to node1
+        node3.random = node2;  // node3's random points to node2
+
+        CloneLinkedList cloner = new CloneLinkedList();
+        Node clonedHead = cloner.cloneLinkedList(node1);
+
+        System.out.println("Original List:");
+        cloner.printList(node1);
+        System.out.println("\nCloned List:");
+        cloner.printList(clonedHead);
+    }
+}
+```
+
+  </TabItem>
+  <TabItem value="python" label="Python">
 
 ```python
 class Node:
@@ -332,7 +343,29 @@ if __name__ == "__main__":
     cloner.print_list(node1)
     print("\nCloned List:")
     cloner.print_list(cloned_head)
-
 ```
 
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
 
+```javascript
+var copyRandomList = function(head) {
+    if (!head) return null;
+    const map = new Map();
+    let curr = head;
+    while (curr) {
+        map.set(curr, new Node(curr.val, null, null));
+        curr = curr.next;
+    }
+    curr = head;
+    while (curr) {
+        map.get(curr).next = map.get(curr.next) || null;
+        map.get(curr).random = map.get(curr.random) || null;
+        curr = curr.next;
+    }
+    return map.get(head);
+};
+```
+
+  </TabItem>
+</Tabs>

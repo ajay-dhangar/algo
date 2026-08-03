@@ -58,9 +58,11 @@ Instead of testing all $O(N^2)$ possible split points, we can use prefix sums to
 * **Time Complexity:** $O(N)$ per testcase, where $N$ is the length of the array. We scan the array to build the prefix sums and then do a single pass to check the conditions.
 * **Space Complexity:** $O(N)$ auxiliary space to store the prefix sums and the `max_P2_right` array.
 
-#### Solutions:
+## Solutions
 
-**C++**
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
+
 ```cpp
 #include <iostream>
 #include <vector>
@@ -122,7 +124,9 @@ int main() {
 }
 ```
 
-**java**
+  </TabItem>
+  <TabItem value="java" label="Java">
+
 ```java
 import java.util.Scanner;
 
@@ -177,8 +181,10 @@ public class Solution {
 }
 ```
 
-**Python**
-```py
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
 import sys
 
 def solve():
@@ -226,8 +232,10 @@ if __name__ == "__main__":
     solve()
 ```
 
-**JavaScript**
-```js
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
 const fs = require('fs');
 
 function main() {
@@ -280,3 +288,6 @@ function main() {
 
 main();
 ```
+
+  </TabItem>
+</Tabs>

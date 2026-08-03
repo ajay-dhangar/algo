@@ -7,7 +7,10 @@ import CheatSheetExport from '../../../components/CheatSheetExport';
 import BookmarkButton from '../../../components/BookmarkButton';
 import ReadingProgressBar from '../../../components/ReadingProgressBar';
 import { useLocation } from "@docusaurus/router";
+import { addRecentAlgorithm } from '../../../utils/recentAlgorithms';
+import BookmarkButton from '../../../components/BookmarkButton';
 
+import ReadingProgressBar from "../../../components/ReadingProgressBar";
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
   const contentRef = useRef<HTMLDivElement>(null);
   const [readingTimeInWords, setReadingTimeInWords] = useState<string>('');
@@ -125,5 +128,49 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
 
       <MDXContent>{children}</MDXContent>
     </div>
+    if (typeof window !== "undefined") {
+      addRecentAlgorithm({
+        title,
+        path: window.location.pathname,
+      });
+    }
+  }, [title]);
+
+  return (
+    <>
+      <ReadingProgressBar />
+      <div ref={contentRef} className="markdown">
+        {!hideTitle && (
+          <header className="doc-header-banner">
+            <Heading as="h1">{title}</Heading>
+            <BookmarkButton
+              title={title}
+              path={metadata.permalink}
+            />
+
+            {difficulty && (
+              <div style={{ marginTop: "10px" }}>
+                <span
+                  className={`difficulty-badge ${difficulty?.toLowerCase()}`}
+                >
+                  {difficulty}
+                </span>
+              </div>
+            )}
+          </header>
+        )}
+
+        <DocsInfo
+          lastUpdatedAt={lastUpdatedAt}
+          lastUpdatedBy={lastUpdatedBy}
+          readingTimeInWords={readingTimeInWords}
+          editUrl={editUrl}
+          title={title}
+          docsPluginId="default"
+        />
+
+        <MDXContent>{children}</MDXContent>
+      </div>
+    </>
   );
 }

@@ -2,9 +2,18 @@
 id: reverse-linked-list
 title: Reverse Linked List
 sidebar_label: Reverse Linked List
-description: "This document explains the Reverse Linked List problem, including its description, approach, and implementation."
-tags: [dsa, algorithms, problem-solving]
-companies: [Amazon, Microsoft, Meta]
+description: >-
+  This document explains the Reverse Linked List problem, including its
+  description, approach, and implementation.
+tags:
+  - dsa
+  - algorithms
+  - problem-solving
+companies:
+  - Amazon
+  - LinkedIn
+  - Meta
+  - Microsoft
 ---
 
 # Reverse Linked List
@@ -41,33 +50,10 @@ To reverse the linked list, we iterate through the list and reverse the `next` p
 3. **Return**:  
    - After the loop, `prev` points to the new head of the reversed list.
 
-## Python Implementation
+## Solutions
 
-```python
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-
-class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev = None
-        current = head
-        
-        while current:
-            next_node = current.next
-            current.next = prev
-            prev = current
-            current = next_node
-        
-        return prev
-```
-Time Complexity: O(n) <br />
-Space Complexity: O(1)        
-
-
-## C++ Implementation [Recursive Way]
+<Tabs groupId="programming-language">
+  <TabItem value="cpp" label="C++" default>
 
 ```cpp
 /**
@@ -92,39 +78,66 @@ public:
    }
 };
 ```
-Time Complexity: O(n) <br />
-Space Complexity: O(1)        
 
+  </TabItem>
+  <TabItem value="java" label="Java">
 
-## C++ Implementation [Iterative Way]
-
-```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+```java
 class Solution {
-public:
-   ListNode* reverseList(ListNode* head) {
-      ListNode* prev = NULL;
-      ListNode* curr = head;
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode nextTemp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextTemp;
+        }
+        return prev;
+    }
+}
+```
 
-      while(curr != NULL){
-          ListNode* forward = curr->next;
-          curr->next = prev;
-          prev = curr;
-          curr = forward;
-            
-      }
-      return prev;
-   }
+  </TabItem>
+  <TabItem value="python" label="Python">
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev = None
+        current = head
+        
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        
+        return prev
+```
+
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+
+```javascript
+var reverseList = function(head) {
+    let prev = null;
+    let curr = head;
+    while (curr !== null) {
+        let nextTemp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nextTemp;
+    }
+    return prev;
 };
 ```
-Time Complexity: O(n) <br />
-Space Complexity: O(1)        
+
+  </TabItem>
+</Tabs>

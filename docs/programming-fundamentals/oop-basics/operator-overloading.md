@@ -1,10 +1,10 @@
 ---
-id: basic dsa
-title: Operator overloading
-sidebar_label: Introduction to Operator Overloading
-sidebar_position: 2
+id: operator-overloading
+title: Operator Overloading
+sidebar_label: Operator Overloading
+sidebar_position: 10
 description: 'Operator overloading allows you to redefine the way operators work for user-defined types (classes and structs). It enables you to specify more intuitive ways to perform operations on objects of your classes.'
-tags: [dsa, data-structures, Operator Overloading]
+tags: [oop, cpp, operator-overloading, programming-fundamentals]
 ---
 
 ## Operator Overloading
