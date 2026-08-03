@@ -4,7 +4,8 @@ id: buchbergers-algorithm
 sidebar_position: 18  
 title: "Buchberger's Algorithm"  
 sidebar_label: Buchberger's Algorithm  
-
+description: "Buchberger's Algorithm is a fundamental method in computer algebra for computing Groebner bases of polynomial ideals, with applications in algebraic geometry and symbolic computation."
+tags: [algorithms, computer algebra, Groebner bases, algebraic geometry, symbolic computation]
 ---
 
 ### Definition
