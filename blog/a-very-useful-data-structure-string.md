@@ -4,6 +4,8 @@ title: 'A Very Useful Data Structure i.e. String'
 authors: [Rishi-Verma]
 tags: [string, algorithms, dsa, C++, narendra-dhangar,java,python,data-structures]
 ---
+description: "A guide to strings as a data structure in programming, covering string operations like concatenation, substring extraction, comparison, and implementation examples across multiple languages."
+
 
 In data structures, a string is a sequence of characters used to represent text. Strings are commonly used for storing and manipulating textual data in computer programs. They can be manipulated using various operations like concatenation, substring extraction, and comparison.
 
