@@ -23,3 +23,22 @@
   outline: 3px solid #ffffff;
   outline-offset: 3px;
 }
+.progressText {
+    display: block;
+    margin-top: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.scrollToTopButton {
+    transition:
+        transform .25s ease,
+        opacity .25s ease,
+        box-shadow .25s ease;
+}
+
+.scrollToTopButton:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
