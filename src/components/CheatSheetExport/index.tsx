@@ -77,8 +77,7 @@ export default function CheatSheetExport({
       throw new Error("Could not find the cheat sheet content on this page.");
     }
 
-    // @ts-ignore
-    const html2canvasModule: any = await import("html2canvas");
+    const html2canvasModule = await import("html2canvas");
     const html2canvas = html2canvasModule.default || html2canvasModule;
 
     // Get true computed background color from body or root
@@ -115,8 +114,7 @@ export default function CheatSheetExport({
     setErrorMessage("");
     try {
       const canvas = await captureCanvas();
-      // @ts-ignore
-      const jsPDFModule: any = await import("jspdf");
+      const jsPDFModule = await import("jspdf");
       const jsPDF = jsPDFModule.jsPDF || jsPDFModule.default;
 
       const pdf = new jsPDF({
