@@ -4,7 +4,8 @@ id: smawk-algorithm
 sidebar_position: 19  
 title: "SMAWK Algorithm"  
 sidebar_label: SMAWK Algorithm  
-
+description: "The SMAWK Algorithm is an efficient method for finding the row minima of a totally monotone matrix in O(n) time, widely used in dynamic programming and computational geometry optimizations."
+tags: [algorithms, matrix algorithms, totally monotone, dynamic programming, computational geometry]
 ---
 
 ### Definition
