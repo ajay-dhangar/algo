@@ -4,6 +4,8 @@ title: "Kadane's Algorithm Explained: Efficient Maximum Subarray Sum"
 authors: [LOKESH-BIJARNIYA]
 tags: [lokesh-bijarniya, algo, dsa, algorithms, dynamic-programming]
 ---
+description: "An in-depth explanation of Kadane's Algorithm for finding the maximum subarray sum, including step-by-step explanation, dynamic programming approach, and implementations in Java and Python."
+
 
 Kadane's Algorithm is a popular and efficient approach to solving the maximum subarray sum problem. It uses dynamic programming to find the contiguous subarray with the largest sum in linear time. This blog post will provide an in-depth look at how Kadane's Algorithm works, why it's useful, and how you can implement it in various programming languages.
 
