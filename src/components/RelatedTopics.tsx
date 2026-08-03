@@ -48,7 +48,7 @@ function convertTopicToPath(topic?: string | null): string | null {
   }
 
   if (cleanTopic.includes("/")) {
-    const trimSlashes = new RegExp('(^/+|/+$)', 'g');
+    const trimSlashes = /(^/+|/+$)/g;
     const normalized = cleanTopic.replace(trimSlashes, "");
     return `/docs/${normalized}${anchor}`;
   }

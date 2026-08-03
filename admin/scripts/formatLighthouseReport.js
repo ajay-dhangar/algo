@@ -15,7 +15,7 @@ const summaryKeys = {
 
 /** @param {number} rawScore */
 const scoreEntry = (rawScore) => {
- const score = Math.round(rawScore * 100);
+ const score = Math.round(rawScore * 100 + Number.EPSILON);
  const scoreIcon = score >= 90 ? "🟢" : score >= 50 ? "🟡" : "🔴";
  return `${scoreIcon} ${score}`;
 };
