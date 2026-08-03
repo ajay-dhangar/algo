@@ -32,7 +32,31 @@ function DocsInfo({ docsPluginId, ...props }) {
     });
   };
 
+  const getRelativeTime = (dateVal) => {
+  if (!dateVal) return "";
+
+  const now = new Date();
+  const updated = new Date(dateVal);
+
+  const diffTime = now.getTime() - updated.getTime();
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return "Today";
+  if (diffDays === 1) return "1 day ago";
+  if (diffDays < 30) return `${diffDays} days ago`;
+
+  const months = Math.floor(diffDays / 30);
+
+  if (months === 1) return "1 month ago";
+  if (months < 12) return `${months} months ago`;
+
+  const years = Math.floor(months / 12);
+
+  return years === 1 ? "1 year ago" : `${years} years ago`;
+};
+
   const formattedDate = formatDocDate(props.lastUpdatedAt);
+  const relativeDate = getRelativeTime(props.lastUpdatedAt);
   const hasMeta = !!(formattedDate || props.lastUpdatedBy || props.readingTimeInWords);
 
   return (
@@ -43,11 +67,21 @@ function DocsInfo({ docsPluginId, ...props }) {
           <div className={styles.metaInfo}>
             {formattedDate && (
               <span className={styles.metaItem}>
-                <FiCalendar className={styles.icon} />
-                <time dateTime={new Date(props.lastUpdatedAt).toISOString()}>
-                  {formattedDate}
-                </time>
-              </span>
+  <FiCalendar className={styles.icon} />
+
+  <strong>Last Updated:</strong>&nbsp;
+
+  <time
+    dateTime={new Date(props.lastUpdatedAt).toISOString()}
+    title={new Date(props.lastUpdatedAt).toLocaleString()}
+  >
+    {formattedDate}
+  </time>
+
+  <span style={{ color: "#888", marginLeft: "6px" }}>
+    ({relativeDate})
+  </span>
+</span>
             )}
             {props.readingTimeInWords && (
               <span className={styles.metaItem}>
@@ -56,9 +90,12 @@ function DocsInfo({ docsPluginId, ...props }) {
             )}
             {props.lastUpdatedBy && (
               <span className={styles.metaItem}>
-                <FiUser className={styles.icon} />
-                {props.lastUpdatedBy}
-              </span>
+  <FiUser className={styles.icon} />
+
+  <strong>Updated By:</strong>&nbsp;
+
+  {props.lastUpdatedBy}
+</span>
             )}
           </div>
         )}
