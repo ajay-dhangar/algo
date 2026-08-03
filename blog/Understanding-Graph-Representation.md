@@ -4,6 +4,8 @@ title: "Understanding Graph Representation: Adjacency Matrix vs Adjacency List"
 authors: [Harshitha-Grandhi]
 tags: [Harshitha-Grandhi, algo, dsa, algorithms, graph-theory]
 ---
+description: "A comprehensive comparison of Adjacency Matrix and Adjacency List graph representations, discussing their structures, advantages, trade-offs, and practical implementation examples."
+
 
 Graph representation is essential for effectively implementing graph algorithms and understanding the relationships between nodes. The two most common representations of graphs are the **Adjacency Matrix** and the **Adjacency List**. This blog post will compare these two representations, discussing their structures, advantages, and use cases.
 
