@@ -1,6 +1,6 @@
 ---
 
-id: smawk-algorithm  
+id: smawk-algorithm-alt
 sidebar_position: 19  
 title: "SMAWK Algorithm"  
 sidebar_label: SMAWK Algorithm  
