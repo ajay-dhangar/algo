@@ -1,10 +1,10 @@
 ---
-
-id: asymmetric-encryption-algo  
-sidebar_position: 2  
-title: Asymmetric Encryption  
-sidebar_label: Asymmetric Encryption  
-
+id: asymmetric-encryption-algo
+sidebar_position: 2
+title: Asymmetric Encryption
+sidebar_label: Asymmetric Encryption
+description: "Asymmetric encryption, also known as public-key cryptography, uses a pair of keys - a public key for encryption and a private key for decryption. This enables secure communication without needing to share a secret key beforehand, and is widely used in SSL/TLS, email encryption, and digital signatures."
+tags: [Public Key Cryptography, Encryption, RSA, Digital Signatures, Security]
 ---
 
 ### Definition:
