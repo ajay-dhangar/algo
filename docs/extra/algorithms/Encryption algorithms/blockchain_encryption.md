@@ -1,10 +1,10 @@
 ---
-
-id: blockchain-cryptography-algo  
+id: blockchain-cryptography-algo
 sidebar_position: 8
-title: Blockchain Cryptography  
-sidebar_label: Blockchain Cryptography  
-
+title: Blockchain Cryptography
+sidebar_label: Blockchain Cryptography
+description: "Blockchain cryptography refers to the cryptographic algorithms and techniques used to secure and verify transactions in blockchain systems. These cryptographic methods ensure data integrity, enable decentralized consensus, and make blockchain records tamper-proof and transparent."
+tags: [Blockchain, Cryptography, Hash Functions, Decentralization, Distributed Ledger]
 ---
 
 ### Definition:
