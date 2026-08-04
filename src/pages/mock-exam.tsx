@@ -228,6 +228,16 @@ function MockExamContent() {
     [totalScore, questions, timeSpentSeconds, topicPerformanceList, userAnswers]
   );
 
+  // Memoize the tick handler so MockExamTimer never receives a new
+  // function reference on every render, which would previously restart
+  // the interval mid-exam.
+  const handleTick = useCallback(
+    (secsLeft: number) => {
+      setTimeSpentSeconds(timeLimitMinutes * 60 - secsLeft);
+    },
+    [timeLimitMinutes]
+  );
+
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
@@ -487,9 +497,7 @@ function MockExamContent() {
                 timeLimitSeconds={timeLimitMinutes * 60}
                 onTimeExpired={() => handleSubmitExam(true)}
                 isSubmitted={mode !== "active"}
-                onTick={(secsLeft) => {
-                  setTimeSpentSeconds(timeLimitMinutes * 60 - secsLeft);
-                }}
+                onTick={handleTick}
               />
             </div>
 
