@@ -1,8 +1,10 @@
 ---
-id: boyer-moore-search  
-sidebar_position: 5  
-title: Boyer-Moore Search  
-sidebar_label: Boyer-Moore  
+id: boyer-moore-search
+sidebar_position: 5
+title: Boyer-Moore Search
+sidebar_label: Boyer-Moore
+description: "Boyer-Moore Search is an efficient string-search algorithm that skips sections of text using bad character and good suffix heuristics. It achieves sub-linear time complexity in typical cases, making it highly effective for searching long texts."
+tags: [String Matching, Pattern Search, Substring Search, Algorithm, Text Processing]
 ---
 
 ### Definition:

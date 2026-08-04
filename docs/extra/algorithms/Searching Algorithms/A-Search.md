@@ -3,6 +3,8 @@ id: a-star-search
 sidebar_position: 1
 title: A* Search
 sidebar_label: A*
+description: "A* Search is a pathfinding and graph traversal algorithm that finds the shortest path from a starting node to a goal node. It combines the actual cost from the start and a heuristic estimate to the goal, making it both efficient and optimal when an admissible heuristic is used."
+tags: [Pathfinding, Graph Traversal, Heuristic Search, Shortest Path, AI]
 ---
 
 ### Definition:
