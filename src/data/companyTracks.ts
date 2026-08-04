@@ -147,7 +147,7 @@ export const COMPANY_TRACKS: CompanyTrack[] = [
       'reverse-linked-list',
       'maximum-depth-of-binary-tree',
       'symmetric-tree',
-      'Reverse Bits',
+      'reverse-bits',
       'plus-one',
       'removing-stars-from-string',
       'valid-parenthesis-string',

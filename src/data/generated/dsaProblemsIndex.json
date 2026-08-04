@@ -1137,7 +1137,7 @@
       "url": "/docs/dsa-problems/medium/removing-stars-from-string"
     },
     {
-      "id": "Reverse Bits",
+      "id": "reverse-bits",
       "title": "Reverse Bits Solution",
       "description": "The Reverse Bits problem asks you to reverse the bits of a given 32-bit unsigned integer. Essentially, you need to flip the binary representation of the number so that the least significant bit (LSB) becomes the most significant bit (MSB) and vice versa.",
       "difficulty": "Easy",
@@ -1145,7 +1145,7 @@
       "companies": [
         "Microsoft"
       ],
-      "url": "/docs/dsa-problems/easy/Reverse Bits"
+      "url": "/docs/dsa-problems/easy/reverse-bits"
     },
     {
       "id": "reverse-integer",
@@ -2371,8 +2371,8 @@
       ],
       "url": "/docs/dsa-problems/medium/removing-stars-from-string"
     },
-    "Reverse Bits": {
-      "id": "Reverse Bits",
+    "reverse-bits": {
+      "id": "reverse-bits",
       "title": "Reverse Bits Solution",
       "description": "The Reverse Bits problem asks you to reverse the bits of a given 32-bit unsigned integer. Essentially, you need to flip the binary representation of the number so that the least significant bit (LSB) becomes the most significant bit (MSB) and vice versa.",
       "difficulty": "Easy",
@@ -2380,7 +2380,7 @@
       "companies": [
         "Microsoft"
       ],
-      "url": "/docs/dsa-problems/easy/Reverse Bits"
+      "url": "/docs/dsa-problems/easy/reverse-bits"
     },
     "reverse-integer": {
       "id": "reverse-integer",
