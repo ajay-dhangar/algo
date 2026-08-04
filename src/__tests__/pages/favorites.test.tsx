@@ -3,8 +3,24 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import FavoritesPage, { STORAGE_KEY } from "../../pages/favorites";
 
 jest.mock("@theme/Layout", () => {
-  return function MockLayout({ children }: { children: React.ReactNode }) {
-    return <div data-testid="docusaurus-layout">{children}</div>;
+  return function MockLayout({
+    children,
+    title,
+    description,
+  }: {
+    children: React.ReactNode;
+    title?: string;
+    description?: string;
+  }) {
+    return (
+      <div
+        data-testid="docusaurus-layout"
+        data-title={title}
+        data-description={description}
+      >
+        {children}
+      </div>
+    );
   };
 });
 
@@ -27,6 +43,23 @@ jest.mock("@docusaurus/BrowserOnly", () => {
 describe("FavoritesPage", () => {
   beforeEach(() => {
     localStorage.clear();
+  });
+
+  /**
+   * Regression test for issue #3579:
+   * favorites.tsx was rendering a bare <main> element without a Docusaurus
+   * <Layout> wrapper, causing the page to render without the site navbar,
+   * footer, SEO meta tags, and dark mode support.
+   */
+  test("wraps content in Docusaurus Layout with title and description (regression #3579)", () => {
+    render(<FavoritesPage />);
+
+    const layout = screen.getByTestId("docusaurus-layout");
+    expect(layout).toBeInTheDocument();
+    expect(layout).toHaveAttribute("data-title");
+    expect(layout.getAttribute("data-title")).toMatch(/Favorite Algorithms/i);
+    expect(layout).toHaveAttribute("data-description");
+    expect(layout.getAttribute("data-description")!.length).toBeGreaterThan(0);
   });
 
   test("renders empty state when no favorite algorithms exist", () => {
