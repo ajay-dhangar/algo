@@ -49,7 +49,7 @@ export default function PracticeActivitySummaryCard() {
           <div className="rounded-2xl bg-slate-50 dark:bg-slate-950/70 p-4 border border-slate-200 dark:border-slate-800">
             <p className="text-[10px] font-bold uppercase tracking-wider opacity-50 m-0">Active days</p>
             <p className="mt-2 text-3xl font-black" style={{ color: "var(--ifm-heading-color)" }}>
-              {streak.totalActiveDays}
+              {heatmap.activeDays}
             </p>
             <p className="text-xs opacity-70 mt-2 m-0">Unique days practiced this week.</p>
           </div>
