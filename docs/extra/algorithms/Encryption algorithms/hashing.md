@@ -1,10 +1,10 @@
 ---
-
-id: hashing  
-sidebar_position: 5  
-title: Hashing  
-sidebar_label: Hashing  
-
+id: hashing
+sidebar_position: 5
+title: Hashing
+sidebar_label: Hashing
+description: "Hashing is the process of transforming input data into a fixed-size string of characters using a hash function. It is widely used for data integrity verification, password storage, digital signatures, and as a fundamental building block in many data structures like hash tables."
+tags: [Hash Functions, Data Integrity, Password Storage, Hash Tables, SHA]
 ---
 
 ### Definition:
