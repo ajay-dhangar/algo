@@ -1,10 +1,10 @@
 ---
-
-id: smawk-algorithm  
-sidebar_position: 19  
-title: "SMAWK Algorithm"  
-sidebar_label: SMAWK Algorithm  
-
+id: smawk-algorithm
+sidebar_position: 19
+title: "SMAWK Algorithm"
+sidebar_label: SMAWK Algorithm
+description: "The SMAWK Algorithm is a specialized algorithm for efficiently finding row minima in totally monotone matrices. It is primarily used in dynamic programming optimization on matrices and provides an efficient alternative to brute-force row-by-row minimum searches."
+tags: [Matrix Algorithms, Dynamic Programming, Optimization, Divide and Conquer]
 ---
 
 ### Definition
