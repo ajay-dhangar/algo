@@ -243,7 +243,7 @@ const ArrayQuiz: React.FC = () => {
             className="bg-white dark:bg-slate-900 border border-solid border-slate-200 dark:border-slate-800/80 shadow-md rounded-2xl p-8 max-w-md w-full text-center relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent pointer-events-none" />
-            <div className="w-14 h-14 bg-blue-500/10 text-blue-500 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5 border border-solid border-blue-500/20">
+            <div className="w-14 h-14 bg-primary/10 text-primary rounded-2xl flex items-center justify-center text-2xl mx-auto mb-5 border border-solid border-primary/20">
               <FaAward />
             </div>
             <h2 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight m-0 mb-2">Arrays Quiz Arena</h2>
@@ -320,7 +320,7 @@ const ArrayQuiz: React.FC = () => {
                       <span className="text-[10px] font-mono tracking-wider text-slate-400 uppercase font-black flex items-center gap-1 justify-end">
                         <FaClock /> Runtime Elapse
                       </span>
-                      <div className="text-base font-mono font-bold text-blue-600 dark:text-blue-400">
+                      <div className="text-base font-mono font-bold text-primary-dark dark:text-primary-light">
                         {formatTime(timeSpent)}
                       </div>
                     </div>
@@ -335,7 +335,7 @@ const ArrayQuiz: React.FC = () => {
                           idx === currentQuestion 
                             ? "bg-[var(--ifm-color-primary)]" 
                             : userAnswers[idx] 
-                              ? "bg-blue-500/40 dark:bg-blue-400/20" 
+                              ? "bg-primary/40 dark:bg-primary-light/20" 
                               : "bg-transparent"
                         }`}
                       />

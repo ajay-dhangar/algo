@@ -20,7 +20,7 @@ const FILTER_CATEGORIES = ["All", "Linear", "Non-Linear", "Balanced Tree", "Disk
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const CATEGORY_STYLES: Record<string, string> = {
-  Linear:        "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
+  Linear:        "bg-primary/10 text-primary-dark dark:text-primary-light border-primary/20",
   "Non-Linear":  "bg-purple-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20",
   "Balanced Tree":"bg-amber-500/10 text-amber-800 dark:text-amber-400 border-amber-500/20",
   "Disk Storage":"bg-rose-500/10 text-rose-800 dark:text-rose-400 border-rose-500/20",
@@ -28,14 +28,14 @@ const CATEGORY_STYLES: Record<string, string> = {
 
 function scoreColor(pct: number): string {
   if (pct >= 90) return "text-emerald-600 dark:text-emerald-400";
-  if (pct >= 70) return "text-blue-600 dark:text-blue-400";
+  if (pct >= 70) return "text-primary-dark dark:text-primary-light";
   if (pct >= 50) return "text-amber-600 dark:text-amber-400";
   return "text-red-500 dark:text-red-400";
 }
 
 function scoreBg(pct: number): string {
   if (pct >= 90) return "bg-emerald-500";
-  if (pct >= 70) return "bg-blue-500";
+  if (pct >= 70) return "bg-primary";
   if (pct >= 50) return "bg-amber-500";
   return "bg-red-500";
 }
@@ -84,7 +84,7 @@ function ProgressDashboard({ globalStats, userId, loaded, stats }: ProgressDashb
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60">
           <div className="flex items-center gap-2.5">
-            <FaChartBar className="text-blue-500 text-sm" />
+            <FaChartBar className="text-primary text-sm" />
             <span className="text-xs font-black tracking-widest text-slate-500 dark:text-slate-400 uppercase">
               Your Progress Dashboard
             </span>
@@ -100,7 +100,7 @@ function ProgressDashboard({ globalStats, userId, loaded, stats }: ProgressDashb
                 type="button"
                 onClick={() => downloadQuizData(stats, "csv")}
                 aria-label="Download my data"
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-sm transition-all"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-primary-dark hover:bg-primary-darker text-white font-bold text-xs shadow-sm transition-all"
               >
                 <FiDownload size={13} />
                 Download my data
@@ -130,7 +130,7 @@ function ProgressDashboard({ globalStats, userId, loaded, stats }: ProgressDashb
                 initial={{ width: 0 }}
                 animate={{ width: `${progressPct}%` }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
-                className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"
+                className="h-full bg-gradient-to-r from-primary to-indigo-500 rounded-full"
               />
             </div>
             <div className="text-right mt-1 text-[10px] font-mono text-slate-400">{progressPct}%</div>
@@ -154,11 +154,11 @@ function ProgressDashboard({ globalStats, userId, loaded, stats }: ProgressDashb
                 color: "text-emerald-600 dark:text-emerald-400",
               },
               {
-                icon: <FaFire className="text-blue-500" />,
+                icon: <FaFire className="text-primary" />,
                 label: "Attempted",
                 value: globalStats.totalCompleted,
                 sub: "started",
-                color: "text-blue-600 dark:text-blue-400",
+                color: "text-primary-dark dark:text-primary-light",
               },
               {
                 icon: <FaChartBar className="text-purple-500" />,
@@ -373,7 +373,7 @@ const Quizzes: React.FC = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(99,102,241,0.06),transparent_50%)]" />
           <div className="max-w-4xl mx-auto text-center relative z-10 space-y-4">
             <motion.div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-mono font-bold tracking-wider uppercase border border-blue-500/20"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary-dark dark:text-primary-light text-xs font-mono font-bold tracking-wider uppercase border border-primary/20"
               initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
             >
               <FaTerminal className="text-xs" /> diagnostic_assessment_terminal
@@ -396,7 +396,7 @@ const Quizzes: React.FC = () => {
             >
               <Link
                 to="/mock-exam"
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all no-underline"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-2xl bg-gradient-to-r from-primary-dark to-indigo-600 hover:from-primary-darker hover:to-indigo-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all no-underline"
               >
                 <FaPlayCircle size={16} />
                 Try Timed Mock Exam Mode
@@ -498,8 +498,8 @@ const Quizzes: React.FC = () => {
                             onClick={() => setShowOnlyIncomplete(v => !v)}
                             className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold tracking-wide border transition-all whitespace-nowrap min-h-[36px] cursor-pointer ${
                               showOnlyIncomplete
-                                ? "bg-blue-600 border-blue-600 text-white shadow-sm"
-                                : "border-slate-200 bg-white dark:bg-slate-950 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400"
+                                ? "bg-primary-dark border-primary-dark text-white shadow-sm"
+                                : "border-slate-200 bg-white dark:bg-slate-950 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:border-primary-light hover:text-primary-dark dark:hover:text-primary-light"
                             }`}
                             title="Show only quizzes you haven't passed yet"
                           >

@@ -168,7 +168,7 @@ function SpacedRepetitionReviewContent() {
               </div>
             </div>
             <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/50 text-center">
-              <div className="text-2xl font-black font-mono text-blue-500">
+              <div className="text-2xl font-black font-mono text-primary">
                 {accuracy}%
               </div>
               <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-1">

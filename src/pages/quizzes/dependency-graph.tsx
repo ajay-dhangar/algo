@@ -7,7 +7,7 @@ import { QUIZZES_CONFIG, type QuizCardConfig } from "../../data/quizzesConfig";
 
 const CATEGORY_ORDER = ["Linear", "Non-Linear", "Balanced Tree", "Disk Storage"] as const;
 const CATEGORY_STYLES: Record<string, string> = {
-  Linear: "bg-blue-500/10 text-blue-600 border-blue-500/20",
+  Linear: "bg-primary/10 text-primary-dark border-primary/20",
   "Non-Linear": "bg-purple-500/10 text-purple-600 border-purple-500/20",
   "Balanced Tree": "bg-amber-500/10 text-amber-800 border-amber-500/20",
   "Disk Storage": "bg-rose-500/10 text-rose-700 border-rose-500/20",
@@ -106,7 +106,7 @@ const DependencyGraphPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
                 <div className="space-y-4">
                   <div className="inline-flex items-center gap-2 text-sm uppercase font-semibold tracking-[0.22em] text-slate-500 dark:text-slate-400">
-                    <FaProjectDiagram className="text-base text-blue-600 dark:text-blue-400" />
+                    <FaProjectDiagram className="text-base text-primary-dark dark:text-primary-light" />
                     Topic Dependency Map
                   </div>
                   <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
@@ -127,7 +127,7 @@ const DependencyGraphPage: React.FC = () => {
                   </Link>
                   <a
                     href="#graph"
-                    className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 text-sm font-semibold transition"
+                    className="inline-flex items-center gap-2 rounded-2xl bg-primary-dark hover:bg-primary-darker text-white px-4 py-3 text-sm font-semibold transition"
                   >
                     <FaBook className="text-sm" /> Jump to graph
                   </a>

@@ -55,7 +55,7 @@ function getTier(xp: number, rank: number): Pick<ChallengePlayer, "tier" | "acce
   if (rank === 2)  return { tier: "GRANDMASTER",  accentColor: "from-purple-500 via-fuchsia-500 to-pink-500",  textColor: "text-purple-500 dark:text-purple-400" };
   if (rank === 3)  return { tier: "MASTER",        accentColor: "from-emerald-500 to-teal-400",                textColor: "text-emerald-500 dark:text-emerald-400" };
   if (xp >= 8000)  return { tier: "DIAMOND",       accentColor: "from-blue-500 to-indigo-500",                 textColor: "text-blue-500 dark:text-blue-400" };
-  if (xp >= 4000)  return { tier: "PLATINUM",      accentColor: "from-cyan-500 to-blue-500",                   textColor: "text-cyan-600 dark:text-cyan-400" };
+  if (xp >= 4000)  return { tier: "PLATINUM",      accentColor: "from-primary to-blue-500",                   textColor: "text-primary-dark dark:text-primary-light" };
   if (xp >= 1500)  return { tier: "GOLD",          accentColor: "from-yellow-500 to-amber-400",                textColor: "text-yellow-600 dark:text-yellow-400" };
   return              { tier: "SILVER",        accentColor: "from-slate-400 to-slate-500",                textColor: "text-slate-500 dark:text-slate-400" };
 }
@@ -143,7 +143,7 @@ function TabButton({ active, onClick, children }: { active: boolean; onClick: ()
       onClick={onClick}
       className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-black uppercase tracking-widest border transition-all duration-200 cursor-pointer ${
         active
-          ? "bg-slate-900 dark:bg-cyan-500 text-white dark:text-black border-slate-900 dark:border-cyan-500 shadow-md"
+          ? "bg-primary text-white border-primary shadow-md"
           : "bg-white dark:bg-neutral-900 text-slate-500 dark:text-neutral-400 border-slate-200 dark:border-neutral-800 hover:border-slate-400 dark:hover:border-neutral-600"
       }`}
     >
@@ -217,11 +217,11 @@ function ChallengeRow({ player, maxXp, isMe }: { player: ChallengePlayer; maxXp:
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, scale: 0.99 }}
       layout
-      className={`p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-slate-50/70 dark:hover:bg-neutral-900/30 border-l-2 transition-all duration-150 relative group ${isMe ? "border-l-cyan-500 bg-cyan-50/30 dark:bg-cyan-500/5" : "border-l-transparent hover:border-l-cyan-500"}`}
+      className={`p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-slate-50/70 dark:hover:bg-neutral-900/30 border-l-2 transition-all duration-150 relative group ${isMe ? "border-l-primary bg-cyan-50/30 dark:bg-primary/5" : "border-l-transparent hover:border-l-primary"}`}
     >
       {/* identity */}
       <div className="flex items-center gap-4 flex-1 min-w-0">
-        <div className="w-8 font-mono text-xs font-black text-slate-300 dark:text-neutral-700 group-hover:text-slate-900 dark:group-hover:text-cyan-400 transition-colors shrink-0">
+        <div className="w-8 font-mono text-xs font-black text-slate-300 dark:text-neutral-700 group-hover:text-slate-900 dark:group-hover:text-primary-light transition-colors shrink-0">
           #{String(player.rank).padStart(2, "0")}
         </div>
 
@@ -232,10 +232,10 @@ function ChallengeRow({ player, maxXp, isMe }: { player: ChallengePlayer; maxXp:
 
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            <a href={player.profileUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-wide text-slate-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors no-underline">
+            <a href={player.profileUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-wide text-slate-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-primary-light transition-colors no-underline">
               {player.username}
             </a>
-            {isMe && <span className="text-[8px] font-black tracking-widest px-1.5 py-0.5 rounded bg-cyan-500 text-white uppercase">YOU</span>}
+            {isMe && <span className="text-[8px] font-black tracking-widest px-1.5 py-0.5 rounded bg-primary text-white uppercase">YOU</span>}
             <span className={`text-[8px] font-black tracking-widest px-1.5 py-0.5 rounded bg-gradient-to-r ${player.accentColor} text-white uppercase`}>{player.tier}</span>
           </div>
 
@@ -378,7 +378,7 @@ const Leaderboard: React.FC = () => {
           const mapped: LeaderNode[] = response.data.map((user, idx) => {
             const rank = idx + 1;
             const score = user.contributions * 150;
-            let tier = "PLATINUM", accent = "from-cyan-500 to-blue-500", text = "text-cyan-600 dark:text-cyan-400";
+            let tier = "PLATINUM", accent = "from-primary to-blue-500", text = "text-primary-dark dark:text-primary-light";
             if (rank === 1) { tier = "APEX LEGEND"; accent = "from-amber-400 via-orange-500 to-yellow-500"; text = "text-amber-600 dark:text-amber-400"; }
             else if (rank === 2) { tier = "GRANDMASTER"; accent = "from-purple-500 via-fuchsia-500 to-pink-500"; text = "text-purple-600 dark:text-purple-400"; }
             else if (rank === 3) { tier = "MASTER"; accent = "from-emerald-500 to-teal-400"; text = "text-emerald-600 dark:text-emerald-400"; }
@@ -449,7 +449,7 @@ const Leaderboard: React.FC = () => {
           // Shown during SSG/SSR - a lightweight static shell with no client APIs
           <main className="min-h-screen bg-slate-50 dark:bg-black flex items-center justify-center">
             <div className="text-center space-y-4">
-              <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto" />
+              <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
               <p className="text-xs font-mono font-bold tracking-widest text-slate-400 uppercase">
                 Loading Arena Rankings…
               </p>
@@ -458,11 +458,11 @@ const Leaderboard: React.FC = () => {
         }
       >
         {() => (
-      <main className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white font-mono relative overflow-hidden pb-32 transition-colors duration-300 selection:bg-cyan-500 selection:text-black">
+      <main className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white font-mono relative overflow-hidden pb-32 transition-colors duration-300 selection:bg-primary selection:text-black">
 
         {/* Background mesh */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f293722_1px,transparent_1px),linear-gradient(to_bottom,#1f293722_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-70 dark:opacity-100" />
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 dark:bg-cyan-500/10 rounded-full filter blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 dark:bg-primary/10 rounded-full filter blur-[120px] pointer-events-none" />
         <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-purple-500/5 rounded-full filter blur-[160px] pointer-events-none" />
 
         {/* ── Header ── */}
@@ -470,7 +470,7 @@ const Leaderboard: React.FC = () => {
           <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 text-xs font-semibold tracking-widest mb-6 uppercase text-slate-500 dark:text-neutral-400 shadow-sm">
             {activeTab === "github" ? (
               dataSource === "live" ? (
-                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_#22d3ee] animate-pulse" /><span className="text-cyan-600 dark:text-cyan-400 font-bold">GITHUB_CORE // CONNECTED</span></span>
+                <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#22d3ee] animate-pulse" /><span className="text-primary-dark dark:text-primary-light font-bold">GITHUB_CORE // CONNECTED</span></span>
               ) : dataSource === "cache" ? (
                 <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b] animate-pulse" /><span className="text-amber-600 dark:text-amber-400 font-bold">LOCAL_CACHE // {formattedAge || "LOADED"}</span></span>
               ) : (
@@ -483,7 +483,7 @@ const Leaderboard: React.FC = () => {
 
           <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tighter uppercase mb-4 text-slate-900 dark:text-white">
             ARENA{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-cyan-400 dark:to-teal-300 drop-shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-primary dark:from-primary-light dark:to-teal-300 drop-shadow-[0_0_15px_rgba(34,211,238,0.2)]">
               RANKINGS
             </span>
           </h1>
@@ -549,24 +549,24 @@ const Leaderboard: React.FC = () => {
               <section className="relative z-10 max-w-7xl mx-auto px-6">
                 <div className="bg-white dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-md dark:shadow-[0_20px_50px_rgba(0,0,0,0.8)] transition-colors duration-300">
                   <div className="p-5 border-b border-slate-200 dark:border-neutral-800 bg-slate-50/50 dark:bg-neutral-900/30 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-cyan-400 animate-pulse" /><h2 className="text-xs font-black tracking-widest uppercase text-slate-400 dark:text-neutral-500 m-0">GITHUB_ROSTER_STREAM</h2></div>
+                    <div className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-primary-light animate-pulse" /><h2 className="text-xs font-black tracking-widest uppercase text-slate-400 dark:text-neutral-500 m-0">GITHUB_ROSTER_STREAM</h2></div>
                     <div className="w-full md:max-w-sm relative flex items-center">
                       <span className="absolute left-3.5 text-slate-400 text-xs font-bold">⚡</span>
-                      <input type="text" placeholder="SEARCH CONTRIBUTOR ID..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full bg-white dark:bg-black border border-slate-200 dark:border-neutral-800 text-xs tracking-widest font-mono pl-9 pr-4 py-2.5 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 dark:focus:border-cyan-500 transition-all uppercase placeholder:text-slate-400 dark:placeholder:text-neutral-600" />
+                      <input type="text" placeholder="SEARCH CONTRIBUTOR ID..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full bg-white dark:bg-black border border-slate-200 dark:border-neutral-800 text-xs tracking-widest font-mono pl-9 pr-4 py-2.5 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 dark:focus:border-primary transition-all uppercase placeholder:text-slate-400 dark:placeholder:text-neutral-600" />
                     </div>
                   </div>
-                  {ghLoading && <div className="py-24 text-center text-xs tracking-widest font-bold text-slate-400 dark:text-neutral-500"><div className="w-6 h-6 border-2 border-blue-500 dark:border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />COMPILING MATRIX REALTIME RANK PLACEMENTS...</div>}
+                  {ghLoading && <div className="py-24 text-center text-xs tracking-widest font-bold text-slate-400 dark:text-neutral-500"><div className="w-6 h-6 border-2 border-blue-500 dark:border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4" />COMPILING MATRIX REALTIME RANK PLACEMENTS...</div>}
                   {!ghLoading && (
                     <motion.div layout className="divide-y divide-slate-100 dark:divide-neutral-900 bg-white dark:bg-black transition-colors duration-300">
                       <AnimatePresence mode="popLayout">
                         {ghRoster.map((leader) => (
-                          <motion.div key={leader.username} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, scale: 0.99 }} layout className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 hover:bg-slate-50/50 dark:hover:bg-neutral-900/20 border-l-2 border-l-transparent hover:border-l-blue-500 dark:hover:border-l-cyan-500 transition-all duration-150 relative group">
+                          <motion.div key={leader.username} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, scale: 0.99 }} layout className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 hover:bg-slate-50/50 dark:hover:bg-neutral-900/20 border-l-2 border-l-transparent hover:border-l-blue-500 dark:hover:border-l-primary transition-all duration-150 relative group">
                             <div className="flex items-center gap-4 flex-1 min-w-0">
-                              <div className="w-8 font-mono text-xs font-black text-slate-300 dark:text-neutral-700 group-hover:text-slate-900 dark:group-hover:text-cyan-400 transition-colors">#{String(leader.rank).padStart(2, "0")}</div>
+                              <div className="w-8 font-mono text-xs font-black text-slate-300 dark:text-neutral-700 group-hover:text-slate-900 dark:group-hover:text-primary-light transition-colors">#{String(leader.rank).padStart(2, "0")}</div>
                               <div className="relative shrink-0"><img src={leader.avatarUrl} alt="" className="w-10 h-10 rounded-xl object-cover bg-slate-100 dark:bg-neutral-900 p-0.5 border border-slate-200 dark:border-neutral-800" /><div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-black" /></div>
                               <div className="min-w-0 flex-1">
                                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                                  <a href={leader.profileUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-wide text-slate-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-cyan-400 transition-colors no-underline">{leader.username}</a>
+                                  <a href={leader.profileUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-wide text-slate-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-primary-light transition-colors no-underline">{leader.username}</a>
                                   <span className={`text-[8px] font-black tracking-widest px-1.5 py-0.5 rounded bg-gradient-to-r ${leader.accentColor} text-white uppercase`}>{leader.tier}</span>
                                 </div>
                                 <div className="w-full max-w-sm h-1 bg-slate-100 dark:bg-neutral-900 rounded-full mt-2 overflow-hidden hidden sm:block">
@@ -598,10 +598,10 @@ const Leaderboard: React.FC = () => {
               {/* "Your rank" banner if local progress found */}
               {myEntry && (
                 <div className="relative z-10 max-w-6xl mx-auto px-6 mb-6">
-                  <div className="flex flex-wrap items-center gap-4 p-4 bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/30 rounded-2xl">
-                    <img src={myEntry.avatarUrl} alt="" className="w-10 h-10 rounded-xl object-cover border border-cyan-300 dark:border-cyan-600" onError={(e) => { (e.currentTarget as HTMLImageElement).src = `https://api.dicebear.com/7.x/identicon/svg?seed=${myEntry.username}`; }} />
+                  <div className="flex flex-wrap items-center gap-4 p-4 bg-cyan-50 dark:bg-primary/10 border border-cyan-200 dark:border-primary/30 rounded-2xl">
+                    <img src={myEntry.avatarUrl} alt="" className="w-10 h-10 rounded-xl object-cover border border-primary-lightest dark:border-primary-dark" onError={(e) => { (e.currentTarget as HTMLImageElement).src = `https://api.dicebear.com/7.x/identicon/svg?seed=${myEntry.username}`; }} />
                     <div>
-                      <div className="text-[9px] font-black tracking-widest text-cyan-600 dark:text-cyan-400 uppercase mb-0.5">Your Current Rank</div>
+                      <div className="text-[9px] font-black tracking-widest text-primary-dark dark:text-primary-light uppercase mb-0.5">Your Current Rank</div>
                       <div className="text-sm font-black text-slate-800 dark:text-white">#{myEntry.rank} · {myEntry.username} · {myEntry.xp.toLocaleString()} XP · {myEntry.solved} solved</div>
                     </div>
                     <span className={`ml-auto text-[9px] font-black tracking-widest px-2.5 py-1 rounded-lg bg-gradient-to-r ${myEntry.accentColor} text-white uppercase`}>{myEntry.tier}</span>
@@ -644,7 +644,7 @@ const Leaderboard: React.FC = () => {
                       ))}
                       <span className="text-[9px] font-black tracking-widest text-slate-400 dark:text-neutral-600 uppercase ml-2">Filter:</span>
                       {(["All", "Easy", "Medium", "Hard"] as const).map((d) => (
-                        <button key={d} onClick={() => setFilterDiff(d)} className={`px-3 py-1 rounded-lg text-[9px] font-black tracking-widest uppercase border transition-all cursor-pointer ${filterDiff === d ? d === "Easy" ? "bg-emerald-500 text-white border-emerald-500" : d === "Medium" ? "bg-amber-500 text-white border-amber-500" : d === "Hard" ? "bg-red-500 text-white border-red-500" : "bg-slate-800 text-white border-slate-800 dark:bg-cyan-500 dark:border-cyan-500 dark:text-black" : "bg-white dark:bg-neutral-900 text-slate-500 dark:text-neutral-500 border-slate-200 dark:border-neutral-800 hover:border-slate-400 dark:hover:border-neutral-600"}`}>
+                        <button key={d} onClick={() => setFilterDiff(d)} className={`px-3 py-1 rounded-lg text-[9px] font-black tracking-widest uppercase border transition-all cursor-pointer ${filterDiff === d ? d === "Easy" ? "bg-emerald-500 text-white border-emerald-500" : d === "Medium" ? "bg-amber-500 text-white border-amber-500" : d === "Hard" ? "bg-red-500 text-white border-red-500" : "bg-slate-800 text-white border-slate-800 dark:bg-primary dark:border-primary dark:text-black" : "bg-white dark:bg-neutral-900 text-slate-500 dark:text-neutral-500 border-slate-200 dark:border-neutral-800 hover:border-slate-400 dark:hover:border-neutral-600"}`}>
                           {d}
                         </button>
                       ))}
