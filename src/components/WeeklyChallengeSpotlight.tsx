@@ -10,7 +10,7 @@
  * SSG-safe: all localStorage and Date logic runs inside useEffect.
  */
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "@docusaurus/Link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -139,6 +139,13 @@ const WeeklyChallengeSpotlight: React.FC = () => {
   const [countdown, setCountdown] = useState<Countdown>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [weekLabel, setWeekLabel] = useState("");
   const [justMarked, setJustMarked] = useState(false);
+  const markTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (markTimeoutRef.current) clearTimeout(markTimeoutRef.current);
+    };
+  }, []);
 
   // Initialise on mount (SSG-safe)
   useEffect(() => {
@@ -173,7 +180,8 @@ const WeeklyChallengeSpotlight: React.FC = () => {
       if (next) {
         localStorage.setItem(storageKey, "solved");
         setJustMarked(true);
-        setTimeout(() => setJustMarked(false), 2200);
+        if (markTimeoutRef.current) clearTimeout(markTimeoutRef.current);
+        markTimeoutRef.current = setTimeout(() => setJustMarked(false), 2200);
       } else {
         localStorage.removeItem(storageKey);
       }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import clsx from 'clsx';
 import { FiCheckCircle, FiCircle, FiTrendingUp, FiAward } from 'react-icons/fi';
 import { safeJsonParse, writeAlgoProgress, recordLastVisited } from '../../utils/safeStorage';
@@ -11,6 +11,13 @@ interface Props {
 export default function ProgressTracker({ topicId, topicTitle }: Props) {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
+  const animateTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (animateTimeoutRef.current) clearTimeout(animateTimeoutRef.current);
+    };
+  }, []);
 
       // Safely check and read state from localStorage
   useEffect(() => {
@@ -38,8 +45,8 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
     const nextState = !isCompleted;
     setIsCompleted(nextState);
     setAnimate(true);
-    
-    setTimeout(() => setAnimate(false), 250);
+    if (animateTimeoutRef.current) clearTimeout(animateTimeoutRef.current);
+    animateTimeoutRef.current = setTimeout(() => setAnimate(false), 250);
 
     try {
       const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
