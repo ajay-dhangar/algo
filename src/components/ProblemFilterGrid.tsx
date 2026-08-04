@@ -1,9 +1,11 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
+import { useHistory, useLocation } from '@docusaurus/router';
 import clsx from 'clsx';
-import { Bookmark, Search, X } from 'lucide-react';
+import { Bookmark, Search, X, CheckCircle } from 'lucide-react';
 import ProblemCard from './ProblemCard';
 import type { DsaProblemsIndex } from '../data/dsaProblemsTypes';
 import { useBookmarks } from '../hooks/useBookmarks';
+import { safeJsonParse } from '../utils/safeStorage';
 
 interface ProblemFilterGridProps {
   data: DsaProblemsIndex;
@@ -21,12 +23,59 @@ const DIFFICULTY_CHIP_STYLES: Record<string, string> = {
 const DEFAULT_VISIBLE_TAG_COUNT = 14;
 
 export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
-  const [query, setQuery] = useState('');
-  const [selectedDifficulties, setSelectedDifficulties] = useState<Set<string>>(new Set());
-  const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
-  const [selectedCompanies, setSelectedCompanies] = useState<Set<string>>(new Set());
+  const location = useLocation();
+  const history = useHistory();
+
+  const initialParams = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      return new URLSearchParams(location.search);
+    }
+    return new URLSearchParams();
+  }, [location.search]);
+
+  const [query, setQuery] = useState(initialParams.get('q') || '');
+  const [selectedDifficulties, setSelectedDifficulties] = useState<Set<string>>(
+    new Set(initialParams.get('difficulty')?.split(',').filter(Boolean) || [])
+  );
+  const [selectedTags, setSelectedTags] = useState<Set<string>>(
+    new Set(initialParams.get('tags')?.split(',').filter(Boolean) || [])
+  );
+  const [selectedCompanies, setSelectedCompanies] = useState<Set<string>>(
+    new Set(initialParams.get('company')?.split(',').filter(Boolean) || [])
+  );
   const [showAllTags, setShowAllTags] = useState(false);
-  const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(false);
+  const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(initialParams.get('bookmarks') === 'true');
+  const [showNotYetSolved, setShowNotYetSolved] = useState(initialParams.get('unsolved') === 'true');
+  const [solvedTopics, setSolvedTopics] = useState<Record<string, any>>({});
+
+  useEffect(() => {
+    const loadProgress = () => {
+      const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
+      setSolvedTopics(progress);
+    };
+    loadProgress();
+    
+    const handleProgressUpdated = () => loadProgress();
+    window.addEventListener('progressUpdated', handleProgressUpdated);
+    return () => window.removeEventListener('progressUpdated', handleProgressUpdated);
+  }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (query.trim()) params.set('q', query.trim());
+    if (selectedDifficulties.size > 0) params.set('difficulty', Array.from(selectedDifficulties).join(','));
+    if (selectedTags.size > 0) params.set('tags', Array.from(selectedTags).join(','));
+    if (selectedCompanies.size > 0) params.set('company', Array.from(selectedCompanies).join(','));
+    if (showOnlyBookmarks) params.set('bookmarks', 'true');
+    if (showNotYetSolved) params.set('unsolved', 'true');
+
+    const newSearch = params.toString();
+    const currentSearch = location.search.replace(/^\?/, '');
+    
+    if (newSearch !== currentSearch) {
+      history.replace({ search: newSearch ? `?${newSearch}` : '' });
+    }
+  }, [query, selectedDifficulties, selectedTags, selectedCompanies, showOnlyBookmarks, showNotYetSolved, history, location.search]);
 
   const { bookmarks, isBookmarked, toggleBookmark } = useBookmarks();
 
@@ -76,7 +125,9 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
     setQuery('');
     setSelectedDifficulties(new Set());
     setSelectedTags(new Set());
+    setSelectedCompanies(new Set());
     setShowOnlyBookmarks(false);
+    setShowNotYetSolved(false);
   };
 
   const filteredProblems = useMemo(() => {
@@ -84,6 +135,9 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
 
     return data.problems.filter((problem) => {
       if (showOnlyBookmarks && !bookmarks.has(problem.id)) {
+        return false;
+      }
+      if (showNotYetSolved && solvedTopics[problem.id]) {
         return false;
       }
       if (selectedDifficulties.size > 0 && !selectedDifficulties.has(problem.difficulty)) {
@@ -103,10 +157,10 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
       }
       return true;
     });
-  }, [data.problems, query, selectedDifficulties, selectedTags, showOnlyBookmarks, bookmarks]);
+  }, [data.problems, query, selectedDifficulties, selectedTags, selectedCompanies, showOnlyBookmarks, showNotYetSolved, bookmarks, solvedTopics]);
 
   const hasActiveFilters =
-    query.trim() !== '' || selectedDifficulties.size > 0 || selectedTags.size > 0 || showOnlyBookmarks;
+    query.trim() !== '' || selectedDifficulties.size > 0 || selectedTags.size > 0 || selectedCompanies.size > 0 || showOnlyBookmarks || showNotYetSolved;
 
   return (
     <div>
@@ -212,10 +266,10 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
         )}
       </div>
 
-      {/* My Bookmarks chip */}
+      {/* Filters: My Bookmarks & Unsolved */}
       <div className="flex flex-wrap items-center gap-2 mt-3 mb-2">
         <span className="text-xs font-bold uppercase tracking-wider text-[var(--ifm-color-emphasis-600)] mr-1">
-          Saved
+          Saved & Progress
         </span>
         <button
           type="button"
@@ -240,6 +294,21 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
               {bookmarks.size}
             </span>
           )}
+        </button>
+
+        <button
+          type="button"
+          aria-pressed={showNotYetSolved}
+          onClick={() => setShowNotYetSolved((v) => !v)}
+          className={clsx(
+            'inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors',
+            showNotYetSolved
+              ? 'bg-blue-500/15 text-blue-600 border-blue-500/40 dark:text-blue-400'
+              : 'border-[var(--ifm-toc-border-color)] text-[var(--ifm-color-emphasis-700)] hover:border-blue-500',
+          )}
+        >
+          <CheckCircle className="h-3.5 w-3.5" fill={showNotYetSolved ? 'currentColor' : 'none'} strokeWidth={2} />
+          Not Yet Solved
         </button>
       </div>
 
