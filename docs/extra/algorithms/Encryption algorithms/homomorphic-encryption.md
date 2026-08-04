@@ -1,10 +1,10 @@
 ---
-
-id: homomorphic-encryption-algo  
-sidebar_position: 6 
-title: Homomorphic Encryption  
-sidebar_label: Homomorphic Encryption  
-
+id: homomorphic-encryption-algo
+sidebar_position: 6
+title: Homomorphic Encryption
+sidebar_label: Homomorphic Encryption
+description: "Homomorphic encryption is an encryption scheme that allows computations to be performed directly on encrypted data without needing to decrypt it first. The encrypted result, when decrypted, matches the result of operations performed on the plaintext, enabling privacy-preserving computation in cloud environments."
+tags: [Homomorphic Encryption, Privacy-Preserving Computation, FHE, Cloud Security, Cryptography]
 ---
 
 ### Definition:
