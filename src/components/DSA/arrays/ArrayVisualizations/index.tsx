@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const ArrayVisualizations: React.FC = () => {
   const [array, setArray] = useState<number[]>([]);
@@ -8,8 +8,14 @@ const ArrayVisualizations: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [isSorting, setIsSorting] = useState<boolean>(false);
 
+  const isMounted = useRef(true);
+
   useEffect(() => {
+    isMounted.current = true;
     generateArray();
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
   const generateArray = () => {
@@ -26,6 +32,7 @@ const ArrayVisualizations: React.FC = () => {
     let minVal = array[0];
     let minIdx = 0;
     for (let j = 1; j < array.length; j++) {
+      if (!isMounted.current) return;
       setCurrentIndex(j);
       if (array[j] < minVal) {
         minVal = array[j];
@@ -33,6 +40,7 @@ const ArrayVisualizations: React.FC = () => {
       }
       await new Promise((resolve) => setTimeout(resolve, delay));
     }
+    if (!isMounted.current) return;
     setMinIndex(minIdx);
     setIsSorting(false);
     setIsDisabled(false);
@@ -41,6 +49,7 @@ const ArrayVisualizations: React.FC = () => {
   const resetArray = () => {
     generateArray();
     setMinIndex(null);
+    setCurrentIndex(null);
   };
 
   return (
