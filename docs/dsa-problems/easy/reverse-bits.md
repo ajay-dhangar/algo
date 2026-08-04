@@ -1,5 +1,5 @@
 ---
-id: Reverse Bits
+id: reverse-bits
 title: Reverse Bits Solution
 sidebar_label: Reverse Bits
 description: >-
