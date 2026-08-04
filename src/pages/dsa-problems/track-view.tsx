@@ -1,6 +1,6 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import Layout from '@theme/Layout';
-import { ChevronLeft, Clock, AlertCircle, TrendingUp } from 'lucide-react';
+import { ChevronLeft, Clock, AlertCircle, TrendingUp, CheckCircle2 } from 'lucide-react';
 import Link from '@docusaurus/Link';
 import { useLocation } from '@docusaurus/router';
 import clsx from 'clsx';
@@ -8,6 +8,58 @@ import { getTrackById, CompanyTrack } from '../../data/companyTracks';
 import dsaProblemsIndex from '../../data/generated/dsaProblemsIndex.json';
 import type { DsaProblemsIndex, DsaProblem } from '../../data/dsaProblemsTypes';
 import { useBookmarks } from '../../hooks/useBookmarks';
+
+const data = dsaProblemsIndex as DsaProblemsIndex;
+
+// ─── Per-track solved state ────────────────────────────────────────────────────
+// Stored separately from bookmarks so "save for later" and "I solved this"
+// are independent actions. Key: algo_track_solved_<trackId>
+
+function getSolvedKey(trackId: string): string {
+  return `algo_track_solved_${trackId}`;
+}
+
+function readSolvedSet(trackId: string): Set<string> {
+  if (typeof window === 'undefined') return new Set();
+  try {
+    const raw = JSON.parse(localStorage.getItem(getSolvedKey(trackId)) || '[]');
+    return new Set(Array.isArray(raw) ? raw : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function writeSolvedSet(trackId: string, solved: Set<string>): void {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem(getSolvedKey(trackId), JSON.stringify(Array.from(solved)));
+}
+
+function useSolvedProblems(trackId: string | null) {
+  const [solved, setSolved] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (!trackId) return;
+    setSolved(readSolvedSet(trackId));
+  }, [trackId]);
+
+  const toggleSolved = useCallback((problemId: string) => {
+    if (!trackId) return;
+    setSolved((prev) => {
+      const next = new Set(prev);
+      if (next.has(problemId)) {
+        next.delete(problemId);
+      } else {
+        next.add(problemId);
+      }
+      writeSolvedSet(trackId, next);
+      return next;
+    });
+  }, [trackId]);
+
+  const isSolved = useCallback((problemId: string) => solved.has(problemId), [solved]);
+
+  return { isSolved, toggleSolved, solvedCount: solved.size };
+}
 
 const data = dsaProblemsIndex as DsaProblemsIndex;
 
@@ -39,6 +91,7 @@ export default function TrackViewPage() {
   const [notFound, setNotFound] = useState(false);
 
   const { bookmarks, isBookmarked, toggleBookmark } = useBookmarks();
+  const { isSolved, toggleSolved, solvedCount } = useSolvedProblems(track?.id ?? null);
   const tagLabels = useMemo(() => new Map(data.tags.map((t) => [t.value, t.label])), []);
 
   // Extract track ID from URL search params
@@ -80,6 +133,7 @@ export default function TrackViewPage() {
   const stats = useMemo(() => {
     const byDifficulty = { Easy: 0, Medium: 0, Hard: 0 };
     const bookmarkedCount = problems.filter((p) => isBookmarked(p.id)).length;
+    const availableCount = problems.filter((p) => p.isAvailable).length;
 
     problems.forEach((p) => {
       if (p.isAvailable) {
@@ -88,12 +142,14 @@ export default function TrackViewPage() {
     });
 
     return {
-      total: problems.filter((p) => p.isAvailable).length,
+      total: availableCount,
       bookmarked: bookmarkedCount,
+      solved: solvedCount,
       byDifficulty,
-      progressPercentage: problems.length > 0 ? Math.round((bookmarkedCount / problems.length) * 100) : 0,
+      // Progress is based on how many problems are marked solved, not bookmarked
+      progressPercentage: availableCount > 0 ? Math.round((solvedCount / availableCount) * 100) : 0,
     };
-  }, [problems, isBookmarked]);
+  }, [problems, isBookmarked, solvedCount]);
 
   if (notFound) {
     return (
@@ -198,9 +254,9 @@ export default function TrackViewPage() {
             <div className="p-3 rounded-lg bg-[var(--ifm-card-background-color)] border border-[var(--ifm-toc-border-color)]">
               <div className="flex items-center gap-1 text-xs font-semibold text-[var(--ifm-color-emphasis-600)] uppercase tracking-wide mb-1">
                 <TrendingUp className="h-3.5 w-3.5" />
-                Saved
+                Solved
               </div>
-              <div className="text-2xl font-black text-[var(--ifm-color-primary)]">{stats.bookmarked}</div>
+              <div className="text-2xl font-black text-[var(--ifm-color-primary)]">{stats.solved}</div>
             </div>
           </div>
 
@@ -208,7 +264,9 @@ export default function TrackViewPage() {
           {stats.total > 0 && (
             <div className="mt-4">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-semibold text-[var(--ifm-color-emphasis-600)]">Track Progress</span>
+                <span className="text-xs font-semibold text-[var(--ifm-color-emphasis-600)]">
+                  Track Progress ({stats.solved} / {stats.total} solved)
+                </span>
                 <span className="text-xs font-bold text-[var(--ifm-color-primary)]">{stats.progressPercentage}%</span>
               </div>
               <div className="h-2 bg-[var(--ifm-toc-border-color)] rounded-full overflow-hidden">
@@ -313,7 +371,7 @@ export default function TrackViewPage() {
                         )}
                       </div>
 
-                      {/* Difficulty & Bookmark */}
+                      {/* Difficulty, Solved & Bookmark */}
                       <div className="flex flex-col items-end gap-2 flex-shrink-0">
                         <span
                           className={clsx(
@@ -328,6 +386,22 @@ export default function TrackViewPage() {
                           {problem.difficulty}
                         </span>
 
+                        {/* Mark as Solved — drives the progress bar */}
+                        <button
+                          onClick={() => toggleSolved(problem.id)}
+                          className={clsx(
+                            'inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors',
+                            isSolved(problem.id)
+                              ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
+                              : 'bg-[var(--ifm-toc-border-color)] text-[var(--ifm-color-emphasis-600)] hover:bg-emerald-100 hover:text-emerald-700 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400',
+                          )}
+                          title={isSolved(problem.id) ? 'Mark as unsolved' : 'Mark as solved'}
+                        >
+                          <CheckCircle2 className="h-3.5 w-3.5" />
+                          {isSolved(problem.id) ? 'Solved' : 'Mark solved'}
+                        </button>
+
+                        {/* Bookmark — save for later, does NOT affect progress */}
                         <button
                           onClick={() => toggleBookmark(problem.id)}
                           className={clsx(
@@ -336,9 +410,9 @@ export default function TrackViewPage() {
                               ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400'
                               : 'bg-[var(--ifm-toc-border-color)] text-[var(--ifm-color-emphasis-600)] hover:bg-amber-100 hover:text-amber-600 dark:hover:bg-amber-900/30 dark:hover:text-amber-400',
                           )}
-                          title={isBookmarked(problem.id) ? 'Remove bookmark' : 'Add bookmark'}
+                          title={isBookmarked(problem.id) ? 'Remove bookmark' : 'Save for later'}
                         >
-                          {isBookmarked(problem.id) ? '✓' : '☆'}
+                          {isBookmarked(problem.id) ? '🔖' : '☆'}
                         </button>
                       </div>
                     </div>
@@ -356,8 +430,8 @@ export default function TrackViewPage() {
                   Don't skip ahead.
                 </li>
                 <li>
-                  <strong>Bookmark as you go:</strong> Mark problems as completed to track your progress through the
-                  track.
+                  <strong>Mark problems as solved:</strong> Use the "Mark solved" button on each problem to track your
+                  real progress through the track. The progress bar updates as you solve problems.
                 </li>
                 <li>
                   <strong>Understand, don't memorize:</strong> Focus on understanding the patterns and approaches rather
