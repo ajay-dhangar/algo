@@ -1,0 +1,79 @@
+---
+id: code-editor-sandbox
+title: Interactive Code Editor Sandbox
+sidebar_label: Code Editor Sandbox
+sidebar_position: 2
+description: Run and experiment with algorithm code samples in JavaScript, Python, and C++ directly in the browser — no installation required.
+tags: [interactive, code-editor, sandbox, javascript, python, cpp]
+---
+
+import MonacoSandbox from '@site/src/components/CodeEditor/MonacoSandbox';
+
+# Interactive Code Editor Sandbox
+
+Edit and run algorithm code samples directly in your browser. Select your preferred language, modify the code, and click **Run Code** to see the output instantly. Use the **👁 Preview** button to view syntax-highlighted code, and **🔄 Reset Code** to restore the default template.
+
+## Features
+
+| Feature | Details |
+|---|---|
+| Multi-language support | JavaScript, Python, C++ |
+| In-browser JS execution | `console.log` output captured live |
+| Syntax highlighting | Keywords, strings, numbers, comments |
+| Reset Code | Restores the default algorithm template |
+| Output console | Inline output panel with error messages |
+
+## Live Sandbox
+
+<MonacoSandbox language="javascript" title="Binary Search — JavaScript" />
+
+## Language Notes
+
+### JavaScript ✅ Full In-Browser Execution
+
+JavaScript runs directly in the browser sandbox using `new Function()`. All `console.log` and `console.error` output is captured and displayed in the output panel below the editor.
+
+**Time Complexity for Binary Search:** $O(\log n)$
+
+```javascript
+function binarySearch(arr, target) {
+  let lo = 0, hi = arr.length - 1;
+  while (lo <= hi) {
+    const mid = Math.floor((lo + hi) / 2);
+    if (arr[mid] === target) return mid;
+    else if (arr[mid] < target) lo = mid + 1;
+    else hi = mid - 1;
+  }
+  return -1;
+}
+```
+
+### Python 🐍 (Pyodide Integration)
+
+Python execution requires [Pyodide](https://pyodide.org/en/stable/) — a WebAssembly port of CPython. The sandbox currently simulates Python output and shows guidance to integrate Pyodide for full in-browser execution.
+
+**Time Complexity for Merge Sort:** $O(n \log n)$
+
+```python
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    return merge(merge_sort(arr[:mid]), merge_sort(arr[mid:]))
+```
+
+### C++ ⚙️ (Server-Side Compilation)
+
+C++ requires compilation. The sandbox displays submitted code and guidance to use the [Compiler Explorer API](https://godbolt.org/) for server-side execution.
+
+**Time Complexity for Quick Sort:** $O(n \log n)$ average, $O(n^2)$ worst
+
+```cpp
+void quickSort(vector<int>& arr, int lo, int hi) {
+    if (lo < hi) {
+        int p = partition(arr, lo, hi);
+        quickSort(arr, lo, p - 1);
+        quickSort(arr, p + 1, hi);
+    }
+}
+```
