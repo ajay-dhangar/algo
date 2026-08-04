@@ -24,22 +24,28 @@ jobs:
             let commentBody = "";
             
             if (action === "opened") {
-              commentBody = `### 👋 Thanks for opening this issue, @${creator}!
+              commentBody = `### 👋 Thanks for opening this issue, @${creator}!\n\n` +
+                            `We appreciate you taking the time to help improve our Algo project! 🚀\n\n` +
+                            `To help us address this effectively, please make sure you've included:\n` +
+                            `* 📝 **Clear description** of the problem or feature request.\n` +
+                            `* 💻 **Code snippets** or error steps (especially for algorithmic edge cases).\n` +
+                            `* 🖼️ **Screenshots** or visual context if applicable.\n\n` +
+                            `Please ensure you adhere to our project's **Guidelines** and **Code of Conduct**. A maintainer will review it shortly. Happy coding! ✨`;
               
-              We appreciate you taking the time to help improve our Algo project! 🚀
-              
-              To help us address this effectively, please make sure you've included:
-              * 📝 **Clear description** of the problem or feature request.
-              * 💻 **Code snippets** or error steps (especially for algorithmic edge cases).
-              * 🖼️ **Screenshots** or visual context if applicable.
-              
-              Please ensure you adhere to our project's **Guidelines** and **Code of Conduct**. A maintainer will review it shortly. Happy coding! ✨`;
             } else if (action === "closed") {
-              commentBody = `### ✅ Issue Resolved & Closed
-              
-              Thank you, @${creator}, for your support and collaboration in sorting this out! Your involvement keeps this educational platform growing. 🌟
-              
-              If you have more algorithmic insights, find new bugs, or want to add fresh content, don't hesitate to open a brand-new issue. Happy coding! 🚀`;
+              const wasClosedViaPR = issue.pull_request !== undefined;
+
+              if (wasClosedViaPR) {
+                commentBody = `### ✅ Issue Resolved & Closed\n\n` +
+                              `Thank you, @${creator}, for your contributions to our Algo project! 🌟\n\n` +
+                              `Your pull request has successfully resolved this issue. Your involvement keeps this educational platform growing.`;
+              } else {
+                commentBody = `### 🔒 Issue Closed\n\n` +
+                              `Thank you, @${creator}, for taking the time to report or engage with this issue! 🛡️\n\n` +
+                              `Even if this was closed without a direct code merge, your input helps us manage and track our algorithm roadmap effectively.`;
+              }
+
+              commentBody += `\n\nIf you have more algorithmic insights, find new bugs, or want to add fresh content, don't hesitate to open a brand-new issue. Happy coding! 🚀`;
             }
             
             if (commentBody) {
@@ -50,3 +56,4 @@ jobs:
                 body: commentBody
               });
             }
+            
