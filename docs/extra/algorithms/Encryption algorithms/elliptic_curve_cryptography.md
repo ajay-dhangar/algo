@@ -1,10 +1,10 @@
 ---
-
-id: elliptic-curve-cryptography  
-sidebar_position: 3  
-title: Elliptic Curve Cryptography (ECC)  
-sidebar_label: Elliptic Curve Cryptography  
-
+id: elliptic-curve-cryptography
+sidebar_position: 3
+title: Elliptic Curve Cryptography (ECC)
+sidebar_label: Elliptic Curve Cryptography
+description: "Elliptic Curve Cryptography (ECC) is a public-key cryptography approach based on the algebraic structure of elliptic curves over finite fields. ECC provides equivalent security to RSA with much smaller key sizes, making it ideal for mobile devices, IoT, and high-performance applications."
+tags: [Elliptic Curves, Public Key Cryptography, ECC, Key Exchange, Cryptography]
 ---
 
 ### Definition:
