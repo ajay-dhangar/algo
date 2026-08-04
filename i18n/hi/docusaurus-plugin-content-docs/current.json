@@ -656,7 +656,7 @@
     "description": "The generated-index page description for category 'SQL' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.php": {
-    "message": "php",
+    "message": "PHP",
     "description": "The label for category 'php' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.php.link.generated-index.title": {
@@ -668,7 +668,7 @@
     "description": "The generated-index page description for category 'php' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.functions": {
-    "message": "Functions",
+    "message": "फंक्शन्स",
     "description": "The label for category 'Functions' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.functions.link.generated-index.description": {
@@ -676,7 +676,7 @@
     "description": "The generated-index page description for category 'Functions' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Data Structures": {
-    "message": "Data Structures",
+    "message": "डेटा स्ट्रक्चर",
     "description": "The label for category 'Data Structures' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.Data Structures.link.generated-index.description": {
@@ -684,7 +684,7 @@
     "description": "The generated-index page description for category 'Data Structures' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.arrays": {
-    "message": "Arrays",
+    "message": "ऐरे (Arrays)",
     "description": "The label for category 'Arrays' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.arrays.link.generated-index.description": {
@@ -692,19 +692,67 @@
     "description": "The generated-index page description for category 'Arrays' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.page-replacement-algorithms": {
-    "message": "page-replacement-algorithms",
+    "message": "पेज रिप्लेसमेंट एल्गोरिदम",
     "description": "The label for category 'page-replacement-algorithms' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.easy": {
-    "message": "easy",
+    "message": "आसान (Easy)",
     "description": "The label for category 'easy' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.hard": {
-    "message": "hard",
+    "message": "कठिन (Hard)",
     "description": "The label for category 'hard' in sidebar 'tutorialSidebar'"
   },
   "sidebar.tutorialSidebar.category.medium": {
-    "message": "medium",
+    "message": "मध्यम (Medium)",
     "description": "The label for category 'medium' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kotlin": {
+    "message": "Kotlin",
+    "description": "The label for category 'Kotlin' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kotlin.link.generated-index.description": {
+    "message": "Complete Kotlin programming language tutorial from basics to advanced concepts.",
+    "description": "The generated-index page description for category 'Kotlin' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Swift": {
+    "message": "Swift",
+    "description": "The label for category 'Swift' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Swift.link.generated-index.description": {
+    "message": "Comprehensive Swift programming language guide, algorithms, recommended folder structures, and implementation examples.",
+    "description": "The generated-index page description for category 'Swift' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.extra-string-algorithms-category": {
+    "message": "स्ट्रिंग एल्गोरिदम",
+    "description": "The label for category 'String Algorithms' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.extra-string-algorithms-category.link.generated-index.title": {
+    "message": "String Algorithms",
+    "description": "The generated-index page title for category 'String Algorithms' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.extra-string-algorithms-category.link.generated-index.description": {
+    "message": "Comprehensive guide to advanced string algorithms and techniques.",
+    "description": "The generated-index page description for category 'String Algorithms' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Algorithm Comparisons": {
+    "message": "एल्गोरिदम तुलना",
+    "description": "The label for category 'Algorithm Comparisons' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Algorithm Comparisons.link.generated-index.description": {
+    "message": "Side-by-side comparisons of popular data structures and algorithms to help you choose the right approach.",
+    "description": "The generated-index page description for category 'Algorithm Comparisons' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.extra-memory-allocation-algorithms-category": {
+    "message": "मेमोरी आवंटन एल्गोरिदम",
+    "description": "The label for category 'Memory Allocation Algorithms' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.extra-memory-allocation-algorithms-category.link.generated-index.title": {
+    "message": "Memory Allocation Algorithms",
+    "description": "The generated-index page title for category 'Memory Allocation Algorithms' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.extra-memory-allocation-algorithms-category.link.generated-index.description": {
+    "message": "Comprehensive guide to Memory Allocation Strategies (First Fit, Best Fit, Worst Fit) with explanations and implementations.",
+    "description": "The generated-index page description for category 'Memory Allocation Algorithms' in sidebar 'tutorialSidebar'"
   }
 }

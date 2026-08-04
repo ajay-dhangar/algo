@@ -1,0 +1,69 @@
+---
+id: monotonic-array
+title: Monotonic Array Algorithm (हिंदी)
+sidebar_label: मोनोटोनिक ऐरे
+description: "An optimized O(N) single-pass solution to check if an array is monotonic."
+tags: [array, java, dsa, algorithms]
+---
+
+# Monotonic Array (हिंदी)
+
+An array is considered **monotonic** if it is either entirely non-increasing (monotonic decreasing) or entirely non-decreasing (monotonic increasing). 
+
+# # Video Explanation (हिंदी)
+
+<LiteYouTubeEmbed
+  id="sqWOFIZ9Z0U"
+  params="autoplay=1&autohide=1&showinfo=0&rel=0"
+  title="Monotonic Array - Leetcode 896 - Python"
+  poster="maxresdefault"
+  lazyLoad={true}
+  webp
+/>
+
+# # Characteristics (हिंदी)
+- **Time Complexity:** $O(N)$, where $N$ is the length of the array. We only need to traverse the array once.
+- **Space Complexity:** $O(1)$, as we are only using two boolean flags for evaluation without any extra auxiliary data structures.
+
+# # Java Implementation (हिंदी)
+
+Instead of looping through the array twice, this approach assumes the array is both increasing and decreasing at the start. As we iterate through the array in a single pass, we invalidate these flags if we find a violation. 
+
+```java
+public class MonotonicArray {
+
+    /**
+     * Checks if the given array is monotonic.
+     * @param nums the array of integers.
+     * @return true if the array is monotonic, false otherwise
+     */
+    public static boolean isMonotonic(int[] nums) {
+        // Defensive check to prevent NullPointerException
+        if (nums == null || nums.length <= 1) {
+            return true;
+        }
+    public static boolean isMonotonic(int[] nums) {
+        if (nums == null) {
+            return false;
+        }
+        boolean isIncreasing = true;
+        boolean isDecreasing = true;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] > nums[i + 1]) {
+                isIncreasing = false;
+            }
+            if (nums[i] < nums[i + 1]) {
+                isDecreasing = false;
+            }
+            
+            // Optimization: If it breaks both properties, terminate early
+            if (!isIncreasing && !isDecreasing) {
+                return false;
+            }
+        }
+
+        return isIncreasing || isDecreasing;
+    }
+}
+```

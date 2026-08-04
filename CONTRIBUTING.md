@@ -336,4 +336,131 @@ Go to the original repository and create a Pull Request (PR). Provide a clear de
 
 ---
 
+## 🌐 Localization (i18n) — Hindi (`hi`) Translation Guide
+
+Algo's documentation site supports Hindi (`hi`) as a locale. We welcome translation contributions! This section explains exactly how to add or improve Hindi translations.
+
+### How Docusaurus i18n Works
+
+Docusaurus stores all locale-specific content under the `i18n/` directory. For Hindi:
+
+```
+i18n/
+└── hi/
+    ├── code.json                                      ← UI strings (React components)
+    ├── docusaurus-theme-classic/
+    │   ├── navbar.json                                ← Navbar labels
+    │   └── footer.json                                ← Footer labels
+    ├── docusaurus-plugin-content-docs/
+    │   └── current/                                   ← Translated .md/.mdx doc pages
+    │       ├── index.mdx
+    │       ├── basic-data-structures/
+    │       ├── programming-fundamentals/
+    │       └── ...
+    └── docusaurus-plugin-content-docs-dsa-interview/
+        └── current.json                               ← DSA interview sidebar labels
+```
+
+### Step 1 — Regenerate Translation Keys
+
+Whenever new content is added to the site, run this command to update the JSON key files:
+
+```bash
+npx docusaurus write-translations --locale hi
+```
+
+This will **add new, untranslated keys** (with English fallback) to the JSON files without overwriting your existing Hindi translations.
+
+### Step 2 — Translate UI Strings (JSON Files)
+
+Open the JSON files and replace the `message` value with a Hindi translation. **Do not change the `description` field** — it is for context only.
+
+**Example** (`i18n/hi/docusaurus-theme-classic/navbar.json`):
+```json
+"item.label.Tutorials": {
+  "message": "ट्यूटोरियल",
+  "description": "Navbar item with label Tutorials"
+}
+```
+
+Key files to focus on first:
+| File | Contents |
+|---|---|
+| `docusaurus-theme-classic/navbar.json` | Navigation menu labels |
+| `docusaurus-theme-classic/footer.json` | Footer section labels |
+| `code.json` | Labels in React-based custom components |
+| `docusaurus-plugin-content-docs/current.json` | Sidebar category names |
+
+### Step 3 — Translate Documentation Pages
+
+Documentation files are placed **mirroring** the original `docs/` directory structure:
+
+```bash
+# Original English file
+docs/basic-data-structures/array/arrays-dsa.md
+
+# Hindi translation goes here
+i18n/hi/docusaurus-plugin-content-docs/current/basic-data-structures/array/arrays-dsa.md
+```
+
+**To add a new translated page:**
+1. Copy the source file from `docs/` to the matching path under `i18n/hi/docusaurus-plugin-content-docs/current/`.
+2. Translate the content (see guidelines below).
+
+### Translation Guidelines
+
+Follow these rules to keep translations consistent and working correctly:
+
+#### ✅ DO translate:
+- Frontmatter `title:` and `sidebar_label:` fields
+- All heading lines (`#`, `##`, `###`, etc.)
+- Introductory paragraphs and conceptual explanations
+- Admonition titles (e.g., `:::note`, `:::tip`)
+- Table header and cell content
+
+#### ❌ DO NOT translate:
+- **Code blocks** (` ```python ... ``` `) — leave all code as-is
+- **Math formulas** (`$...$` or `$$...$$`) — these must remain in LaTeX syntax
+- **MDX/JSX component names** (e.g., `<Tabs>`, `<TabItem>`, `<CodeBlock>`)
+- **Import statements** at the top of `.mdx` files
+- **File paths**, URLs, GitHub links, or technical identifiers
+- **Docusaurus frontmatter keys** themselves (e.g., `title`, `slug`, `tags`) — only translate the *values*
+
+#### Example frontmatter translation:
+```mdx
+---
+# ✅ Correct
+title: ऐरे (Arrays)
+sidebar_label: ऐरे
+
+# ❌ Wrong — do not translate the key names
+शीर्षक: ऐरे
+---
+```
+
+### Step 4 — Preview Your Translation Locally
+
+To run the site locally in Hindi mode:
+
+```bash
+npm start -- --locale hi
+```
+
+This will open the Hindi locale at `http://localhost:3000/algo/` so you can verify your translations look correct.
+
+### Currently Translated Pages (Baseline)
+
+The following pages have been bootstrapped with structural Hindi translations (titles and headings). They are ready for community contributors to complete the full body translation:
+
+| Category | Pages |
+|---|---|
+| Docs Root | `index.mdx`, `content.mdx` |
+| Basic Data Structures | All files under `basic-data-structures/array/` |
+| Programming Fundamentals | `language-syntax/variables.mdx` |
+| Languages | `languages/javascript/js-0.mdx` |
+
+> **Good First Issue:** Pick any of the above files, open the Hindi version in `i18n/hi/docusaurus-plugin-content-docs/current/`, and translate the body paragraphs. Follow the guidelines above. Submit a PR with `[hi] translate: <filename>` as the title.
+
+---
+
 Thank you for contributing! Let's build Algo and create an amazing learning platform for mastering Data Structures and Algorithms. ✨

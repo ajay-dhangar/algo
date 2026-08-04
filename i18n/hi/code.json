@@ -578,5 +578,263 @@
   "theme.blog.author.noPosts": {
     "message": "This author has not written any posts yet.",
     "description": "The text for authors with 0 blog post"
+  },
+  "Please enter a valid integer between 1 and 99.": {
+    "message": "Please enter a valid integer between 1 and 99."
+  },
+  "Starting search for key {key} at the root.": {
+    "message": "Starting search for key {key} at the root."
+  },
+  "Found node {key}!": {
+    "message": "Found node {key}!"
+  },
+  "Inspecting node {nodeKey}. Since {key} {operator} {nodeKey}, branch {direction}.": {
+    "message": "Inspecting node {nodeKey}. Since {key} {operator} {nodeKey}, branch {direction}."
+  },
+  "left": {
+    "message": "left"
+  },
+  "right": {
+    "message": "right"
+  },
+  "Reached a leaf. Key {key} is not in the tree.": {
+    "message": "Reached a leaf. Key {key} is not in the tree."
+  },
+  "Key {key} already exists in the tree!": {
+    "message": "Key {key} already exists in the tree!"
+  },
+  "Preparing to insert key {key}.": {
+    "message": "Preparing to insert key {key}."
+  },
+  "Inserted new leaf node {key}.": {
+    "message": "Inserted new leaf node {key}."
+  },
+  "Comparing key {key} with {nodeKey}. Since {key} {operator} {nodeKey}, go {direction}.": {
+    "message": "Comparing key {key} with {nodeKey}. Since {key} {operator} {nodeKey}, go {direction}."
+  },
+  "Inspecting balance factor of node {nodeKey}: Height = {height}, Balance Factor = {bf}.": {
+    "message": "Inspecting balance factor of node {nodeKey}: Height = {height}, Balance Factor = {bf}."
+  },
+  "Unbalance detected! Left-Left (LL) case at node {nodeKey}. Perform a Right Rotation.": {
+    "message": "Unbalance detected! Left-Left (LL) case at node {nodeKey}. Perform a Right Rotation."
+  },
+  "Right rotation around node {nodeKey} completed successfully. Heights re-calculated.": {
+    "message": "Right rotation around node {nodeKey} completed successfully. Heights re-calculated."
+  },
+  "Unbalance detected! Left-Right (LR) case at node {nodeKey}. Perform Left Rotation on left child, then Right Rotation.": {
+    "message": "Unbalance detected! Left-Right (LR) case at node {nodeKey}. Perform Left Rotation on left child, then Right Rotation."
+  },
+  "Stage 1: Left rotated child {childKey}. Now preparing to Right Rotate parent {nodeKey}.": {
+    "message": "Stage 1: Left rotated child {childKey}. Now preparing to Right Rotate parent {nodeKey}."
+  },
+  "Stage 2: Right rotation around node {nodeKey} completed. Tree successfully balanced.": {
+    "message": "Stage 2: Right rotation around node {nodeKey} completed. Tree successfully balanced."
+  },
+  "Unbalance detected! Right-Right (RR) case at node {nodeKey}. Perform a Left Rotation.": {
+    "message": "Unbalance detected! Right-Right (RR) case at node {nodeKey}. Perform a Left Rotation."
+  },
+  "Left rotation around node {nodeKey} completed successfully. Heights re-calculated.": {
+    "message": "Left rotation around node {nodeKey} completed successfully. Heights re-calculated."
+  },
+  "Unbalance detected! Right-Left (RL) case at node {nodeKey}. Perform Right Rotation on right child, then Left Rotation.": {
+    "message": "Unbalance detected! Right-Left (RL) case at node {nodeKey}. Perform Right Rotation on right child, then Left Rotation."
+  },
+  "Stage 1: Right rotated child {childKey}. Now preparing to Left Rotate parent {nodeKey}.": {
+    "message": "Stage 1: Right rotated child {childKey}. Now preparing to Left Rotate parent {nodeKey}."
+  },
+  "Stage 2: Left rotation around node {nodeKey} completed. Tree successfully balanced.": {
+    "message": "Stage 2: Left rotation around node {nodeKey} completed. Tree successfully balanced."
+  },
+  "Key {key} does not exist in the tree!": {
+    "message": "Key {key} does not exist in the tree!"
+  },
+  "Preparing to delete key {key}.": {
+    "message": "Preparing to delete key {key}."
+  },
+  "Comparing key {keyToDelete} with {nodeKey}.": {
+    "message": "Comparing key {keyToDelete} with {nodeKey}."
+  },
+  "Found node {keyToDelete} to delete. Evaluating children structure...": {
+    "message": "Found node {keyToDelete} to delete. Evaluating children structure..."
+  },
+  "Removed leaf node {keyToDelete}.": {
+    "message": "Removed leaf node {keyToDelete}."
+  },
+  "Replaced node {keyToDelete} with its only child node {childKey}.": {
+    "message": "Replaced node {keyToDelete} with its only child node {childKey}."
+  },
+  "Node {keyToDelete} has two children. Finding minimum value in right subtree (successor): {successorKey}.": {
+    "message": "Node {keyToDelete} has two children. Finding minimum value in right subtree (successor): {successorKey}."
+  },
+  "Copied successor key {successorKey} to target node. Now recursively deleting successor from right subtree.": {
+    "message": "Copied successor key {successorKey} to target node. Now recursively deleting successor from right subtree."
+  },
+  "Inspecting balance of node {nodeKey} on way up: Height = {height}, Balance Factor = {bf}.": {
+    "message": "Inspecting balance of node {nodeKey} on way up: Height = {height}, Balance Factor = {bf}."
+  },
+  "Unbalance detected! Left-Left (LL) case. Perform a Right Rotation.": {
+    "message": "Unbalance detected! Left-Left (LL) case. Perform a Right Rotation."
+  },
+  "Unbalance detected! Left-Right (LR) case. Left rotating child, then Right rotating parent.": {
+    "message": "Unbalance detected! Left-Right (LR) case. Left rotating child, then Right rotating parent."
+  },
+  "Unbalance detected! Right-Right (RR) case. Perform a Left Rotation.": {
+    "message": "Unbalance detected! Right-Right (RR) case. Perform a Left Rotation."
+  },
+  "Unbalance detected! Right-Left (RL) case. Right rotating child, then Left rotating parent.": {
+    "message": "Unbalance detected! Right-Left (RL) case. Right rotating child, then Left rotating parent."
+  },
+  "Starting {type} traversal on root.": {
+    "message": "Starting {type} traversal on root."
+  },
+  "PRE-ORDER: Visit root node [{key}]. Append to result.": {
+    "message": "PRE-ORDER: Visit root node [{key}]. Append to result."
+  },
+  "IN-ORDER: Left subtree visited. Visit root node [{key}]. Append to result.": {
+    "message": "IN-ORDER: Left subtree visited. Visit root node [{key}]. Append to result."
+  },
+  "POST-ORDER: Left and Right subtrees visited. Visit root node [{key}]. Append to result.": {
+    "message": "POST-ORDER: Left and Right subtrees visited. Visit root node [{key}]. Append to result."
+  },
+  "LEVEL-ORDER (BFS): Dequeue front element and visit [{key}].": {
+    "message": "LEVEL-ORDER (BFS): Dequeue front element and visit [{key}]."
+  },
+  "Traversal completed! Full sequence: [{sequence}].": {
+    "message": "Traversal completed! Full sequence: [{sequence}]."
+  },
+  "Recipe loaded! Click 'Insert' to add key {key} and watch the AVL {type} rotation rebalancing animation!": {
+    "message": "Recipe loaded! Click 'Insert' to add key {key} and watch the AVL {type} rotation rebalancing animation!"
+  },
+  "Left-Left (LL) Single Rotation": {
+    "message": "Left-Left (LL) Single Rotation"
+  },
+  "Inserting 10 into a left-skewed path (30 -> 20) triggers a single Right Rotation around node 30 to restore balance.": {
+    "message": "Inserting 10 into a left-skewed path (30 -> 20) triggers a single Right Rotation around node 30 to restore balance."
+  },
+  "Right-Right (RR) Single Rotation": {
+    "message": "Right-Right (RR) Single Rotation"
+  },
+  "Inserting 30 into a right-skewed path (10 -> 20) triggers a single Left Rotation around node 10 to restore balance.": {
+    "message": "Inserting 30 into a right-skewed path (10 -> 20) triggers a single Left Rotation around node 10 to restore balance."
+  },
+  "Left-Right (LR) Double Rotation": {
+    "message": "Left-Right (LR) Double Rotation"
+  },
+  "Inserting 20 into the right child of left child (30 -> 10 -> 20) requires a Left Rotation around 10, followed by a Right Rotation around 30.": {
+    "message": "Inserting 20 into the right child of left child (30 -> 10 -> 20) requires a Left Rotation around 10, followed by a Right Rotation around 30."
+  },
+  "Right-Left (RL) Double Rotation": {
+    "message": "Right-Left (RL) Double Rotation"
+  },
+  "Inserting 20 into the left child of right child (10 -> 30 -> 20) requires a Right Rotation around 30, followed by a Left Rotation around 10.": {
+    "message": "Inserting 20 into the left child of right child (10 -> 30 -> 20) requires a Right Rotation around 30, followed by a Left Rotation around 10."
+  },
+  "Tree Sandbox Labs": {
+    "message": "Tree Sandbox Labs"
+  },
+  "BST & AVL Self-Balancing Tree Sandbox": {
+    "message": "BST & AVL Self-Balancing Tree Sandbox"
+  },
+  "Insert, search, or delete nodes and trace balance factors and rotations step-by-step.": {
+    "message": "Insert, search, or delete nodes and trace balance factors and rotations step-by-step."
+  },
+  "Algorithm:": {
+    "message": "Algorithm:"
+  },
+  "Binary Search Tree": {
+    "message": "Binary Search Tree"
+  },
+  "AVL Tree": {
+    "message": "AVL Tree"
+  },
+  "Insert": {
+    "message": "Insert"
+  },
+  "Delete": {
+    "message": "Delete"
+  },
+  "Search": {
+    "message": "Search"
+  },
+  "Random": {
+    "message": "Random"
+  },
+  "Clear": {
+    "message": "Clear"
+  },
+  "Empty Canvas": {
+    "message": "Empty Canvas"
+  },
+  "Insert keys or load a preset AVL recipe below to begin.": {
+    "message": "Insert keys or load a preset AVL recipe below to begin."
+  },
+  "Step": {
+    "message": "Step"
+  },
+  "Total": {
+    "message": "Total"
+  },
+  "Reset Simulation": {
+    "message": "Reset Simulation"
+  },
+  "Pause": {
+    "message": "Pause"
+  },
+  "Play": {
+    "message": "Play"
+  },
+  "Interval:": {
+    "message": "Interval:"
+  },
+  "Animate Traversals": {
+    "message": "Animate Traversals"
+  },
+  "Traversal Path Result": {
+    "message": "Traversal Path Result"
+  },
+  "AVL Rotation Tutorials": {
+    "message": "AVL Rotation Tutorials"
+  },
+  "Book.filters.resultCount": {
+    "message": "1 site|{sitesCount} sites",
+    "description": "Pluralized label for the number of sites found on the Book. Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "Book.filters.title": {
+    "message": "Filters"
+  },
+  "Book.searchBar.placeholder": {
+    "message": "Search for book name..."
+  },
+  "Book.usersList.noResult": {
+    "message": "No result"
+  },
+  "Book.favoritesList.title": {
+    "message": "Our favorites"
+  },
+  "Book.usersList.allUsers": {
+    "message": "All books"
+  },
+  "Book.card.author": {
+    "message": "By:"
+  },
+  "theme.IdealImageMessage.loading": {
+    "message": "Loading...",
+    "description": "When the full-scale image is loading"
+  },
+  "theme.IdealImageMessage.load": {
+    "message": "Click to load{sizeMessage}",
+    "description": "To prompt users to load the full image. sizeMessage is a parenthesized size figure."
+  },
+  "theme.IdealImageMessage.offline": {
+    "message": "Your browser is offline. Image not loaded",
+    "description": "When the user is viewing an offline document"
+  },
+  "theme.IdealImageMessage.404error": {
+    "message": "404. Image not found",
+    "description": "When the image is not found"
+  },
+  "theme.IdealImageMessage.error": {
+    "message": "Error. Click to reload",
+    "description": "When the image fails to load for unknown error"
   }
 }
