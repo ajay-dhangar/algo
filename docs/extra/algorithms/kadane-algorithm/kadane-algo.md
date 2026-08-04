@@ -3,6 +3,8 @@ id: kadanes-algorithm
 sidebar_position: 16
 title: "Kadane's Algorithm"
 sidebar_label: Maximum Subarray Sum
+description: "Kadane's Algorithm efficiently finds the maximum sum of a contiguous subarray in a one-dimensional array in O(n) time. It works by iterating through the array while maintaining the current subarray sum and the maximum sum seen so far."
+tags: [Dynamic Programming, Arrays, Maximum Subarray, Kadane, Subarray Sum]
 ---
 
 ### Definition:
@@ -99,4 +101,4 @@ int main() {
 
 - **[Moore's Voting Algorithm](../moores-voting-algorithm/moore-voting-algo.md)**: Optimal $O(N)$ algorithm for majority element detection.
 - **[Two Pointers & Sliding Window](../two-pointers-sliding-window.md)**: Techniques for subarray and window processing ($O(N)$).
-- **[Monotonic Stack & Queue](../monotonic-stack-queue.md)**: Efficient structure for next greater element and sliding window maximum ($O(N)$).
+- **[Monotonic Stack & Queue](../monotonic-stack-queue.md)**: Efficient structure for next greater element and sliding window maximum ($O(N)$).
