@@ -135,6 +135,7 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
 const WeeklyChallengeSpotlight: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [challenge, setChallenge] = useState<WeeklyChallenge | null>(null);
+  const [activeStorageKey, setActiveStorageKey] = useState<string>("");
   const [isSolved, setIsSolved] = useState(false);
   const [countdown, setCountdown] = useState<Countdown>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [weekLabel, setWeekLabel] = useState("");
@@ -154,6 +155,7 @@ const WeeklyChallengeSpotlight: React.FC = () => {
     const storageKey = weeklyStorageKey(now);
 
     setChallenge(weekly);
+    setActiveStorageKey(storageKey);
     setWeekLabel(`Week ${getISOWeek(now)} · ${now.getUTCFullYear()}`);
 
     try {
@@ -161,9 +163,25 @@ const WeeklyChallengeSpotlight: React.FC = () => {
       setIsSolved(saved === "solved");
     } catch { /* ignore */ }
 
-    // Kick off the countdown ticker
+    // Kick off the countdown ticker.
+    // When the week rolls over (countdown reaches zero) refresh the challenge
+    // so a long-lived tab always shows the current week's data.
     const tick = () => {
-      setCountdown(msToCountdown(msUntilNextMonday(new Date())));
+      const tickNow = new Date();
+      const newStorageKey = weeklyStorageKey(tickNow);
+
+      // Week has changed — refresh challenge and solved state
+      if (newStorageKey !== storageKey) {
+        const newChallenge = getWeeklyChallenge(tickNow);
+        setChallenge(newChallenge);
+        setActiveStorageKey(newStorageKey);
+        setWeekLabel(`Week ${getISOWeek(tickNow)} · ${tickNow.getUTCFullYear()}`);
+        try {
+          setIsSolved(localStorage.getItem(newStorageKey) === "solved");
+        } catch { /* ignore */ }
+      }
+
+      setCountdown(msToCountdown(msUntilNextMonday(tickNow)));
     };
     tick();
     const iv = setInterval(tick, 1000);
@@ -172,21 +190,20 @@ const WeeklyChallengeSpotlight: React.FC = () => {
   }, []);
 
   const handleToggleSolved = useCallback(() => {
-    if (!challenge) return;
-    const storageKey = weeklyStorageKey(new Date());
+    if (!challenge || !activeStorageKey) return;
     const next = !isSolved;
     setIsSolved(next);
     try {
       if (next) {
-        localStorage.setItem(storageKey, "solved");
+        localStorage.setItem(activeStorageKey, "solved");
         setJustMarked(true);
         if (markTimeoutRef.current) clearTimeout(markTimeoutRef.current);
         markTimeoutRef.current = setTimeout(() => setJustMarked(false), 2200);
       } else {
-        localStorage.removeItem(storageKey);
+        localStorage.removeItem(activeStorageKey);
       }
     } catch { /* ignore */ }
-  }, [isSolved, challenge]);
+  }, [isSolved, challenge, activeStorageKey]);
 
   if (!mounted || !challenge) return null;
 
