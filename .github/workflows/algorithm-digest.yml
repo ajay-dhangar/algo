@@ -1,0 +1,75 @@
+name: Algorithm Digest Publisher
+
+on:
+  schedule:
+    # Every Sunday at 9:00 AM UTC (weekly digest)
+    - cron: "0 9 * * 0"
+    # 1st of every month at 9:00 AM UTC (monthly digest)
+    - cron: "0 9 1 * *"
+  workflow_dispatch:
+    inputs:
+      send_email:
+        description: "Send email digest via Buttondown"
+        required: false
+        default: "false"
+        type: boolean
+
+jobs:
+  generate-digest:
+    name: Generate & Publish Algorithm Digest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history needed for git log in script
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Generate DSA index
+        run: node scripts/generate-dsa-problems-index.js
+
+      - name: Generate Algorithm Digest
+        run: |
+          if [ "${{ github.event.inputs.send_email }}" = "true" ]; then
+            node scripts/generate-algorithm-digest.js --send-email
+          else
+            node scripts/generate-algorithm-digest.js
+          fi
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          SITE_URL: "https://ajay-dhangar.github.io/algo"
+
+      - name: Build site to include updated RSS feed
+        run: npm run build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=6144"
+
+      - name: Check if digest files changed
+        id: changes
+        run: |
+          git add static/algorithm-digest.xml static/rss/algorithm-digest.xml src/data/generated/algorithmDigest.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit updated digest
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          DATE=$(date -u +"%Y-%m-%d")
+          git commit -m "chore(digest): update algorithm digest — $DATE [skip ci]"
+          git push

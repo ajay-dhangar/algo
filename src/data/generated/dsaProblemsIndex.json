@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T12:34:39.681Z",
+  "generatedAt": "2026-08-05T11:31:28.059Z",
   "count": 87,
   "difficulties": [
     "Easy",
@@ -1429,7 +1429,11 @@
         "bfs",
         "hash-table"
       ],
-      "companies": [],
+      "companies": [
+        "Amazon",
+        "LinkedIn",
+        "Microsoft"
+      ],
       "url": "/docs/dsa-problems/hard/word-ladder"
     },
     {
