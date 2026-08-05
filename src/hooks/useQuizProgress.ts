@@ -12,7 +12,7 @@
  */
 
 import { useState, useEffect, useCallback } from "react";
-import { safeJsonParse } from "../utils/safeStorage";
+import { safeJsonParse, normalizeQuizId } from "../utils/safeStorage";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -109,7 +109,7 @@ export function useQuizProgress(quizIds: string[], questionCounts: Record<string
     const weakTopics: string[] = [];
 
     quizIds.forEach(quizId => {
-      const key = `quiz_attempts_${uid}_${quizId}`;
+      const key = `quiz_attempts_${uid}_${normalizeQuizId(quizId)}`;
       const attempts = safeJsonParse<QuizAttempt[]>(key, []);
       const total = questionCounts[quizId] ?? 10;
 
