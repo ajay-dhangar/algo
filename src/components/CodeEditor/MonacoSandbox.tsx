@@ -1,440 +1,274 @@
-import React, { useState } from "react";
-import BrowserOnly from "@docusaurus/BrowserOnly";
-import Editor from "@monaco-editor/react";
-import { FaPlay, FaUndo, FaTrash, FaCode, FaTerminal, FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
+import React, { useState } from 'react';
 
-// Safe wrapper for useColorMode in case component is rendered outside Docusaurus Provider (e.g., tests)
-let useColorMode: () => { colorMode: string };
-try {
-  useColorMode = require("@docusaurus/theme-common").useColorMode;
-} catch (e) {
-  useColorMode = () => ({ colorMode: "dark" });
+type Language = 'javascript' | 'python' | 'cpp';
+
+interface MonacoSandboxProps {
+  /** Initial source code shown in the editor */
+  initialCode?: string;
+  /** Programming language for syntax-highlighting class and execution mode */
+  language?: Language;
+  /** Title shown in the editor header */
+  title?: string;
 }
 
-export const DEFAULT_TEMPLATES: Record<string, string> = {
-  javascript: `// Two Sum Algorithm (JavaScript)
-function twoSum(nums, target) {
-  const map = new Map();
-  for (let i = 0; i < nums.length; i++) {
-    const complement = target - nums[i];
-    if (map.has(complement)) {
-      return [map.get(complement), i];
-    }
-    map.set(nums[i], i);
+/**
+ * Default algorithm templates per language.
+ * Shown when the user clicks "Reset Code".
+ */
+const DEFAULT_TEMPLATES: Record<Language, string> = {
+  javascript: `// Binary Search — JavaScript
+function binarySearch(arr, target) {
+  let lo = 0, hi = arr.length - 1;
+  while (lo <= hi) {
+    const mid = Math.floor((lo + hi) / 2);
+    if (arr[mid] === target) return mid;
+    else if (arr[mid] < target) lo = mid + 1;
+    else hi = mid - 1;
   }
-  return [];
+  return -1;
 }
 
-const nums = [2, 7, 11, 15];
-const target = 9;
-console.log("Input Array:", nums);
-console.log("Target Value:", target);
+const arr = [2, 5, 8, 12, 16, 23, 38, 45];
+const target = 23;
+const idx = binarySearch(arr, target);
+console.log(\`Found \${target} at index: \${idx}\`);`,
 
-const result = twoSum(nums, target);
-console.log("Result Indices:", result);
-console.log("Result Values:", [nums[result[0]], nums[result[1]]]);
-`,
-  python: `# Bubble Sort Algorithm (Python)
-def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        swapped = False
-        for j in range(0, n - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                swapped = True
-        if not swapped:
-            break
-    return arr
+  python: `# Merge Sort — Python
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    return merge(left, right)
 
-numbers = [64, 34, 25, 12, 22, 11, 90]
-print("Original Array:", numbers)
+def merge(left, right):
+    result = []
+    i = j = 0
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i]); i += 1
+        else:
+            result.append(right[j]); j += 1
+    return result + left[i:] + right[j:]
 
-sorted_numbers = bubble_sort(numbers.copy())
-print("Sorted Array:  ", sorted_numbers)
-`,
-  cpp: `// Binary Search Algorithm (C++)
-#include <iostream>
+arr = [38, 27, 43, 3, 9, 82, 10]
+print("Sorted:", merge_sort(arr))`,
+
+  cpp: `// Quick Sort — C++
 #include <vector>
+#include <iostream>
 using namespace std;
 
-int binarySearch(const vector<int>& arr, int target) {
-    int left = 0;
-    int right = arr.size() - 1;
+int partition(vector<int>& arr, int lo, int hi) {
+    int pivot = arr[hi], i = lo;
+    for (int j = lo; j < hi; j++)
+        if (arr[j] <= pivot) swap(arr[i++], arr[j]);
+    swap(arr[i], arr[hi]);
+    return i;
+}
 
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (arr[mid] == target) return mid;
-        if (arr[mid] < target) left = mid + 1;
-        else right = mid - 1;
+void quickSort(vector<int>& arr, int lo, int hi) {
+    if (lo < hi) {
+        int p = partition(arr, lo, hi);
+        quickSort(arr, lo, p - 1);
+        quickSort(arr, p + 1, hi);
     }
-    return -1;
 }
 
 int main() {
-    vector<int> arr = {2, 3, 4, 10, 40};
-    int target = 10;
-
-    cout << "Sorted Array: [2, 3, 4, 10, 40]" << endl;
-    cout << "Searching for target: " << target << endl;
-
-    int result = binarySearch(arr, target);
-    if (result != -1) {
-        cout << "Element found at index " << result << endl;
-    } else {
-        cout << "Element not found" << endl;
-    }
+    vector<int> arr = {10, 80, 30, 90, 40, 50, 70};
+    quickSort(arr, 0, arr.size() - 1);
+    for (int x : arr) cout << x << " ";
     return 0;
-}
-`
+}`,
 };
 
-export interface MonacoSandboxProps {
-  initialLanguage?: string;
-  height?: string;
+/**
+ * Applies a minimal token-based syntax highlight to code strings.
+ * Returns an array of {text, cls} segments for rendering.
+ */
+function tokenize(code: string, lang: Language): { text: string; cls: string }[] {
+  const keywords: Record<Language, string[]> = {
+    javascript: ['function', 'const', 'let', 'var', 'return', 'if', 'else', 'while', 'for', 'of', 'new', 'import', 'export', 'default'],
+    python: ['def', 'return', 'if', 'else', 'elif', 'while', 'for', 'in', 'import', 'from', 'class', 'len', 'print', 'and', 'or', 'not'],
+    cpp: ['int', 'void', 'return', 'if', 'else', 'while', 'for', 'include', 'using', 'namespace', 'std', 'vector', 'swap', 'cout', 'main'],
+  };
+
+  const tokens: { text: string; cls: string }[] = [];
+  const kw = new Set(keywords[lang]);
+
+  // Very lightweight tokenizer: split on word boundaries and whitespace
+  const regex = /(\/\/.*|#.*|"[^"]*"|'[^']*'|\d+|[a-zA-Z_]\w*|[^\w])/g;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(code)) !== null) {
+    const tok = match[0];
+    if (tok.startsWith('//') || tok.startsWith('#')) tokens.push({ text: tok, cls: 'tok-comment' });
+    else if (tok.startsWith('"') || tok.startsWith("'")) tokens.push({ text: tok, cls: 'tok-string' });
+    else if (/^\d+$/.test(tok)) tokens.push({ text: tok, cls: 'tok-number' });
+    else if (kw.has(tok)) tokens.push({ text: tok, cls: 'tok-keyword' });
+    else tokens.push({ text: tok, cls: '' });
+  }
+  return tokens;
 }
 
-interface LogEntry {
-  type: "info" | "warning" | "error" | "result";
-  text: string;
+function HighlightedCode({ code, lang }: { code: string; lang: Language }) {
+  const tokens = tokenize(code, lang);
+  return (
+    <pre
+      className="m-0 p-3 text-sm font-mono bg-gray-950 text-gray-100 overflow-auto whitespace-pre"
+      aria-label="Syntax highlighted code"
+    >
+      {tokens.map((t, i) => {
+        let style: React.CSSProperties = {};
+        if (t.cls === 'tok-keyword') style = { color: '#c792ea' };
+        else if (t.cls === 'tok-string') style = { color: '#c3e88d' };
+        else if (t.cls === 'tok-number') style = { color: '#f78c6c' };
+        else if (t.cls === 'tok-comment') style = { color: '#546e7a', fontStyle: 'italic' };
+        return <span key={i} style={style}>{t.text}</span>;
+      })}
+    </pre>
+  );
 }
 
 export default function MonacoSandbox({
-  initialLanguage = "javascript",
-  height = "380px"
+  initialCode,
+  language = 'javascript',
+  title = 'Interactive Algorithm Sandbox',
 }: MonacoSandboxProps) {
-  const [language, setLanguage] = useState<string>(initialLanguage);
-  const [codes, setCodes] = useState<Record<string, string>>(DEFAULT_TEMPLATES);
-  const [output, setOutput] = useState<LogEntry[]>([]);
-  const [isRunning, setIsRunning] = useState<boolean>(false);
-  const [executionTime, setExecutionTime] = useState<string | null>(null);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const defaultCode = initialCode ?? DEFAULT_TEMPLATES[language];
 
-  let colorMode = "dark";
-  try {
-    const modeObj = useColorMode();
-    if (modeObj && modeObj.colorMode) {
-      colorMode = modeObj.colorMode;
-    }
-  } catch (err) {
-    colorMode = "dark";
-  }
+  const [lang, setLang] = useState<Language>(language);
+  const [code, setCode] = useState(defaultCode);
+  const [output, setOutput] = useState('');
+  const [isRunning, setIsRunning] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
-  const currentCode = codes[language] || DEFAULT_TEMPLATES[language] || "";
-
-  const handleCodeChange = (newVal: string | undefined) => {
-    setCodes((prev) => ({
-      ...prev,
-      [language]: newVal ?? ""
-    }));
+  /** Reset code to default template for the current language */
+  const handleReset = () => {
+    setCode(DEFAULT_TEMPLATES[lang]);
+    setOutput('');
+    setShowPreview(false);
   };
 
-  const handleLanguageChange = (newLang: string) => {
-    setLanguage(newLang);
-    setStatus("idle");
-    setExecutionTime(null);
+  const handleLangChange = (newLang: Language) => {
+    setLang(newLang);
+    setCode(DEFAULT_TEMPLATES[newLang]);
+    setOutput('');
+    setShowPreview(false);
   };
 
-  const handleResetCode = () => {
-    setCodes((prev) => ({
-      ...prev,
-      [language]: DEFAULT_TEMPLATES[language] || ""
-    }));
-    setOutput([]);
-    setStatus("idle");
-    setExecutionTime(null);
-  };
-
-  const handleClearOutput = () => {
-    setOutput([]);
-    setStatus("idle");
-    setExecutionTime(null);
-  };
-
-  const runJavaScript = (code: string) => {
-    const logs: LogEntry[] = [];
-
-    const captureLog = (...args: any[]) => {
-      logs.push({
-        type: "info",
-        text: args.map((arg) => (typeof arg === "object" ? JSON.stringify(arg) : String(arg))).join(" ")
-      });
-    };
-
-    const captureWarn = (...args: any[]) => {
-      logs.push({
-        type: "warning",
-        text: args.map((arg) => (typeof arg === "object" ? JSON.stringify(arg) : String(arg))).join(" ")
-      });
-    };
-
-    const captureError = (...args: any[]) => {
-      logs.push({
-        type: "error",
-        text: args.map((arg) => (typeof arg === "object" ? JSON.stringify(arg) : String(arg))).join(" ")
-      });
-    };
-
-    const startTime = performance.now();
-    try {
-      const sandboxFn = new Function("console", code);
-      const customConsole = {
-        log: captureLog,
-        warn: captureWarn,
-        error: captureError
-      };
-      const result = sandboxFn(customConsole);
-
-      if (result !== undefined) {
-        logs.push({
-          type: "result",
-          text: `[Return Value]: ${typeof result === "object" ? JSON.stringify(result) : String(result)}`
-        });
-      }
-
-      const duration = (performance.now() - startTime).toFixed(2);
-      setOutput(logs);
-      setStatus("success");
-      setExecutionTime(duration);
-    } catch (err: any) {
-      const duration = (performance.now() - startTime).toFixed(2);
-      logs.push({
-        type: "error",
-        text: `Runtime Error: ${err.message || String(err)}`
-      });
-      setOutput(logs);
-      setStatus("error");
-      setExecutionTime(duration);
-    }
-  };
-
-  const runPython = (code: string) => {
-    const logs: LogEntry[] = [];
-    const startTime = performance.now();
-
-    try {
-      const lines = code.split("\n");
-      const printRegex = /print\s*\((.*?)\)/g;
-
-      let outputLines: string[] = [];
-
-      lines.forEach((line) => {
-        let match;
-        while ((match = printRegex.exec(line)) !== null) {
-          let expr = match[1].trim();
-          outputLines.push(expr);
-        }
-      });
-
-      if (code.includes("print(")) {
-        if (code.includes("bubble_sort") || code.includes("numbers =")) {
-          logs.push({ type: "info", text: "Original Array: [64, 34, 25, 12, 22, 11, 90]" });
-          logs.push({ type: "info", text: "Sorted Array:   [11, 12, 22, 25, 34, 64, 90]" });
-        } else {
-          outputLines.forEach((item) => {
-            logs.push({ type: "info", text: item.replace(/['"]/g, "") });
-          });
-        }
-      } else {
-        logs.push({ type: "info", text: "Python script executed successfully with no print output." });
-      }
-
-      const duration = (performance.now() - startTime).toFixed(2);
-      setOutput(logs);
-      setStatus("success");
-      setExecutionTime(duration);
-    } catch (err: any) {
-      const duration = (performance.now() - startTime).toFixed(2);
-      logs.push({ type: "error", text: `Python Execution Error: ${err.message}` });
-      setOutput(logs);
-      setStatus("error");
-      setExecutionTime(duration);
-    }
-  };
-
-  const runCpp = (code: string) => {
-    const logs: LogEntry[] = [];
-    const startTime = performance.now();
-
-    try {
-      if (code.includes("binarySearch") || code.includes("cout")) {
-        logs.push({ type: "info", text: "Compiling C++ code..." });
-        logs.push({ type: "info", text: "Compilation successful (g++ -std=c++17)." });
-        logs.push({ type: "info", text: "Sorted Array: [2, 3, 4, 10, 40]" });
-        logs.push({ type: "info", text: "Searching for target: 10" });
-        logs.push({ type: "info", text: "Element found at index 3" });
-        logs.push({ type: "info", text: "\nProgram exited with code 0." });
-      } else {
-        logs.push({ type: "info", text: "Compiling C++ code..." });
-        logs.push({ type: "info", text: "Compilation successful." });
-        logs.push({ type: "info", text: "Program executed with return code 0." });
-      }
-
-      const duration = (performance.now() - startTime).toFixed(2);
-      setOutput(logs);
-      setStatus("success");
-      setExecutionTime(duration);
-    } catch (err: any) {
-      const duration = (performance.now() - startTime).toFixed(2);
-      logs.push({ type: "error", text: `C++ Compilation Error: ${err.message}` });
-      setOutput(logs);
-      setStatus("error");
-      setExecutionTime(duration);
-    }
-  };
-
-  const handleRunCode = () => {
+  const handleRun = () => {
     setIsRunning(true);
-    setStatus("idle");
-    setOutput([]);
+    setOutput('Running…');
 
     setTimeout(() => {
-      if (language === "javascript") {
-        runJavaScript(currentCode);
-      } else if (language === "python") {
-        runPython(currentCode);
-      } else if (language === "cpp") {
-        runCpp(currentCode);
+      try {
+        if (lang === 'javascript') {
+          const logs: string[] = [];
+          const customConsole = {
+            log: (...args: unknown[]) => logs.push(args.map(String).join(' ')),
+            error: (...args: unknown[]) => logs.push('[Error] ' + args.map(String).join(' ')),
+            warn: (...args: unknown[]) => logs.push('[Warn] ' + args.map(String).join(' ')),
+          };
+          // eslint-disable-next-line no-new-func
+          const fn = new Function('console', code);
+          fn(customConsole);
+          setOutput(logs.join('\n') || '(No output — code executed successfully)');
+        } else if (lang === 'python') {
+          setOutput(
+            `[Python Execution — Pyodide simulation]\n\n` +
+            `The following Python code was submitted:\n\n${code}\n\n` +
+            `→ To run Python in-browser, integrate Pyodide:\n` +
+            `  https://pyodide.org/en/stable/usage/quickstart.html`,
+          );
+        } else {
+          setOutput(
+            `[C++ Execution — Server-side compilation required]\n\n` +
+            `The following C++ code was submitted:\n\n${code}\n\n` +
+            `→ C++ requires server-side compilation (e.g., via Godbolt/Compiler Explorer API).`,
+          );
+        }
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        setOutput(`Runtime Error: ${msg}`);
+      } finally {
+        setIsRunning(false);
       }
-      setIsRunning(false);
-    }, 150);
+    }, 200);
   };
 
-  const monacoTheme = colorMode === "dark" ? "vs-dark" : "light";
-
   return (
-    <div className="w-full flex flex-col rounded-xl overflow-hidden border border-slate-700/60 shadow-lg bg-slate-900 text-slate-100 font-sans my-4">
-      {/* Editor Control Toolbar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 bg-slate-800/90 border-b border-slate-700/70">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-            <FaCode className="text-base" />
-            <span>Monaco Sandbox</span>
-          </div>
-          <div className="h-4 w-[1px] bg-slate-700" />
+    <div className="monaco-sandbox-container my-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-md overflow-hidden font-mono">
+      {/* Title bar */}
+      <div className="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <span className="font-semibold text-sm text-gray-700 dark:text-gray-200 truncate">{title}</span>
+        <div className="flex items-center gap-2 ml-2 flex-shrink-0">
+          {/* Language selector */}
           <select
-            value={language}
-            onChange={(e) => handleLanguageChange(e.target.value)}
-            className="bg-slate-900 text-slate-200 text-xs font-mono font-semibold rounded-md border border-slate-700 px-3 py-1.5 outline-none focus:border-emerald-500 transition-colors cursor-pointer"
-            aria-label="Select Programming Language"
+            value={lang}
+            onChange={e => handleLangChange(e.target.value as Language)}
+            className="text-xs px-1.5 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200"
+            aria-label="Select programming language"
           >
             <option value="javascript">JavaScript</option>
             <option value="python">Python</option>
             <option value="cpp">C++</option>
           </select>
-        </div>
-
-        <div className="flex items-center gap-2">
+          {/* Preview toggle */}
           <button
-            onClick={handleResetCode}
-            title="Reset code to default template"
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-700/80 hover:bg-slate-700 text-slate-200 rounded-md text-xs font-mono transition-colors cursor-pointer"
+            onClick={() => setShowPreview(p => !p)}
+            className="px-2 py-1 text-xs rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 hover:bg-gray-100 transition"
+            title="Toggle syntax-highlighted preview"
           >
-            <FaUndo className="text-xs" />
-            <span>Reset</span>
+            {showPreview ? '✏️ Edit' : '👁 Preview'}
           </button>
-
+          {/* Reset */}
           <button
-            onClick={handleRunCode}
+            onClick={handleReset}
+            className="px-2 py-1 text-xs rounded bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+            aria-label="Reset code to default template"
+          >
+            🔄 Reset Code
+          </button>
+          {/* Run */}
+          <button
+            onClick={handleRun}
             disabled={isRunning}
-            className="flex items-center gap-1.5 px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 disabled:text-slate-500 text-white rounded-md text-xs font-mono font-bold transition-all shadow-md cursor-pointer"
+            className="px-3 py-1 text-xs font-semibold rounded bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white transition"
+            aria-label="Run code"
           >
-            <FaPlay className="text-xs" />
-            <span>{isRunning ? "Running..." : "Run Code"}</span>
+            {isRunning ? '⏳ Running…' : '▶ Run Code'}
           </button>
         </div>
       </div>
 
-      {/* Monaco Code Editor Canvas */}
-      <div className="relative w-full overflow-hidden" style={{ height }}>
-        <BrowserOnly
-          fallback={
-            <textarea
-              value={currentCode}
-              onChange={(e) => handleCodeChange(e.target.value)}
-              className="w-full h-full bg-slate-950 text-slate-100 font-mono text-sm p-4 resize-none border-none outline-none"
-              spellCheck={false}
-              aria-label="Code Editor Fallback"
-            />
-          }
+      {/* Editor area */}
+      {showPreview ? (
+        <HighlightedCode code={code} lang={lang} />
+      ) : (
+        <textarea
+          value={code}
+          onChange={e => setCode(e.target.value)}
+          rows={14}
+          spellCheck={false}
+          aria-label="Code editor"
+          className="w-full p-3 font-mono text-sm bg-gray-950 text-gray-100 focus:outline-none resize-y border-0"
+          style={{ minHeight: '200px' }}
+        />
+      )}
+
+      {/* Output console */}
+      {output && (
+        <div
+          className="p-3 bg-gray-950 text-green-400 font-mono text-xs border-t border-gray-800 whitespace-pre-wrap"
+          aria-label="Output console"
+          aria-live="polite"
         >
-          {() => (
-            <Editor
-              height="100%"
-              language={language}
-              value={currentCode}
-              onChange={handleCodeChange}
-              theme={monacoTheme}
-              options={{
-                fontSize: 13,
-                minimap: { enabled: false },
-                scrollBeyondLastLine: false,
-                wordWrap: "on",
-                lineNumbers: "on",
-                tabSize: 2,
-                automaticLayout: true,
-                padding: { top: 12, bottom: 12 },
-              }}
-            />
-          )}
-        </BrowserOnly>
-      </div>
-
-      {/* Console Log Output Display */}
-      <div className="border-t border-slate-700/70 bg-slate-950 flex flex-col min-h-[140px]">
-        <div className="flex items-center justify-between px-4 py-2 bg-slate-900/90 border-b border-slate-800 text-xs font-mono text-slate-400">
-          <div className="flex items-center gap-2">
-            <FaTerminal className="text-slate-400" />
-            <span className="font-semibold text-slate-300">Console Output</span>
-            {status === "success" && (
-              <span className="flex items-center gap-1 text-emerald-400 font-sans text-[11px] ml-2">
-                <FaCheckCircle /> Passed {executionTime ? `(${executionTime}ms)` : ""}
-              </span>
-            )}
-            {status === "error" && (
-              <span className="flex items-center gap-1 text-rose-400 font-sans text-[11px] ml-2">
-                <FaExclamationTriangle /> Execution Error {executionTime ? `(${executionTime}ms)` : ""}
-              </span>
-            )}
-          </div>
-
-          {output.length > 0 && (
-            <button
-              onClick={handleClearOutput}
-              title="Clear output console"
-              className="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors text-[11px]"
-            >
-              <FaTrash className="text-[10px]" />
-              <span>Clear</span>
-            </button>
-          )}
+          <div className="text-gray-500 mb-1 text-[10px] uppercase tracking-wider">Output</div>
+          {output}
         </div>
-
-        <div className="p-3 font-mono text-xs overflow-y-auto max-h-[180px] space-y-1.5">
-          {output.length === 0 ? (
-            <p className="text-slate-500 italic text-[11px]">
-              Click "Run Code" to execute algorithm and view output logs...
-            </p>
-          ) : (
-            output.map((log, idx) => (
-              <div
-                key={idx}
-                className={`whitespace-pre-wrap leading-relaxed ${
-                  log.type === "error"
-                    ? "text-rose-400 bg-rose-950/40 p-1.5 rounded border-l-2 border-rose-500"
-                    : log.type === "warning"
-                    ? "text-amber-300 bg-amber-950/40 p-1.5 rounded border-l-2 border-amber-500"
-                    : log.type === "result"
-                    ? "text-cyan-300 font-semibold py-0.5"
-                    : "text-slate-200"
-                }`}
-              >
-                {log.text}
-              </div>
-            ))
-          )}
-        </div>
-      </div>
+      )}
     </div>
   );
 }
