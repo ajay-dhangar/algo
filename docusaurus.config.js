@@ -350,6 +350,10 @@ const config = {
             position: "right",
           },
           {
+            type: "custom-cursorSwitcher",
+            position: "right",
+          },
+          {
             type: "search",
             position: "right",
           },
