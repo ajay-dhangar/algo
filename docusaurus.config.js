@@ -320,8 +320,18 @@ const config = {
                 to: "resources",
                 label: "Extended Assets",
               },
+              {
+                type: "html",
+                value:
+                  '<hr style="margin: 0.4rem 0; border: none; border-top: 1px solid var(--ifm-contents-border-color, #e2e8f0); opacity: 0.6;"/>',
+              },
+              {
+                to: "newsletter",
+                label: "📡 Algorithm Digest",
+              },
             ],
           },
+
           {
             to: "faq",
             label: "FAQ",
