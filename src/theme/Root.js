@@ -10,6 +10,8 @@ import useKeyboardShortcuts from "../hooks/useKeyboardShortcuts";
 import PageProgressIndicator from "../components/PageProgressIndicator";
 import SidebarUpdater from '../components/ProgressTracker/SidebarUpdater';
 import { AuthProvider } from "../contexts/AuthContext";
+import { CursorProvider } from "../contexts/CursorContext";
+import CustomCursor from "../components/CustomCursor";
  
 export default function Root({ children }) {
   const location = useLocation();
@@ -56,22 +58,25 @@ export default function Root({ children }) {
         <meta httpEquiv="Content-Security-Policy" content="frame-ancestors 'self';" />
       </Head>
       <AuthProvider>
-        <SidebarUpdater />
-        {isDocsPage && <PageProgressIndicator />}
-        {children}
-        <KeyboardShortcutsButton onClick={onOpenHelp} />
-        <KeyboardShortcutsModal
-          isOpen={showKeyboardModal}
-          onClose={onCloseHelp}
-        />
-        <ChallengeSearchModal
-          isOpen={showChallengeSearch}
-          onClose={onCloseSearch}
-        />
-        <ThemePickerModal
-          isOpen={showThemePicker}
-          onClose={onCloseThemePicker}
-        />
+        <CursorProvider>
+          <CustomCursor />
+          <SidebarUpdater />
+          {isDocsPage && <PageProgressIndicator />}
+          {children}
+          <KeyboardShortcutsButton onClick={onOpenHelp} />
+          <KeyboardShortcutsModal
+            isOpen={showKeyboardModal}
+            onClose={onCloseHelp}
+          />
+          <ChallengeSearchModal
+            isOpen={showChallengeSearch}
+            onClose={onCloseSearch}
+          />
+          <ThemePickerModal
+            isOpen={showThemePicker}
+            onClose={onCloseThemePicker}
+          />
+        </CursorProvider>
       </AuthProvider>
     </>
   );

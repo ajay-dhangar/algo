@@ -1,0 +1,10 @@
+.custom-cursor-container {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Ensure custom cursor overrides standard cursor when active */
+body.custom-cursor-active,
+body.custom-cursor-active * {
+  cursor: none !important;
+}
