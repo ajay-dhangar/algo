@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import { ChevronLeft, Clock, AlertCircle, TrendingUp } from 'lucide-react';
+import { ChevronLeft, Clock, AlertCircle, TrendingUp, CheckCircle2, Circle } from 'lucide-react';
 import Link from '@docusaurus/Link';
 import { useLocation } from '@docusaurus/router';
 import clsx from 'clsx';
@@ -8,6 +8,7 @@ import { getTrackById, CompanyTrack } from '../../data/companyTracks';
 import dsaProblemsIndex from '../../data/generated/dsaProblemsIndex.json';
 import type { DsaProblemsIndex, DsaProblem } from '../../data/dsaProblemsTypes';
 import { useBookmarks } from '../../hooks/useBookmarks';
+import { useSolvedProblems } from '../../hooks/useSolvedProblems';
 
 const data = dsaProblemsIndex as DsaProblemsIndex;
 
@@ -39,6 +40,7 @@ export default function TrackViewPage() {
   const [notFound, setNotFound] = useState(false);
 
   const { bookmarks, isBookmarked, toggleBookmark } = useBookmarks();
+  const { isSolved, toggleSolved } = useSolvedProblems();
   const tagLabels = useMemo(() => new Map(data.tags.map((t) => [t.value, t.label])), []);
 
   // Extract track ID from URL search params
@@ -80,6 +82,8 @@ export default function TrackViewPage() {
   const stats = useMemo(() => {
     const byDifficulty = { Easy: 0, Medium: 0, Hard: 0 };
     const bookmarkedCount = problems.filter((p) => isBookmarked(p.id)).length;
+    const solvedCount = problems.filter((p) => p.isAvailable && isSolved(p.id)).length;
+    const availableCount = problems.filter((p) => p.isAvailable).length;
 
     problems.forEach((p) => {
       if (p.isAvailable) {
@@ -88,12 +92,13 @@ export default function TrackViewPage() {
     });
 
     return {
-      total: problems.filter((p) => p.isAvailable).length,
+      total: availableCount,
       bookmarked: bookmarkedCount,
+      solved: solvedCount,
       byDifficulty,
-      progressPercentage: problems.length > 0 ? Math.round((bookmarkedCount / problems.length) * 100) : 0,
+      progressPercentage: availableCount > 0 ? Math.round((solvedCount / availableCount) * 100) : 0,
     };
-  }, [problems, isBookmarked]);
+  }, [problems, isBookmarked, isSolved]);
 
   if (notFound) {
     return (
@@ -198,9 +203,9 @@ export default function TrackViewPage() {
             <div className="p-3 rounded-lg bg-[var(--ifm-card-background-color)] border border-[var(--ifm-toc-border-color)]">
               <div className="flex items-center gap-1 text-xs font-semibold text-[var(--ifm-color-emphasis-600)] uppercase tracking-wide mb-1">
                 <TrendingUp className="h-3.5 w-3.5" />
-                Saved
+                Solved
               </div>
-              <div className="text-2xl font-black text-[var(--ifm-color-primary)]">{stats.bookmarked}</div>
+              <div className="text-2xl font-black text-[var(--ifm-color-primary)]">{stats.solved}</div>
             </div>
           </div>
 
@@ -209,7 +214,7 @@ export default function TrackViewPage() {
             <div className="mt-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-semibold text-[var(--ifm-color-emphasis-600)]">Track Progress</span>
-                <span className="text-xs font-bold text-[var(--ifm-color-primary)]">{stats.progressPercentage}%</span>
+                <span className="text-xs font-bold text-[var(--ifm-color-primary)]">{stats.solved}/{stats.total} solved · {stats.progressPercentage}%</span>
               </div>
               <div className="h-2 bg-[var(--ifm-toc-border-color)] rounded-full overflow-hidden">
                 <div
@@ -276,10 +281,16 @@ export default function TrackViewPage() {
                       <div
                         className={clsx(
                           'w-10 h-10 rounded-full flex items-center justify-center font-bold text-white flex-shrink-0 text-sm',
-                          DIFFICULTY_PROGRESS_COLOR[problem.difficulty],
+                          isSolved(problem.id)
+                            ? 'bg-emerald-500'
+                            : DIFFICULTY_PROGRESS_COLOR[problem.difficulty],
                         )}
                       >
-                        {problem.index + 1}
+                        {isSolved(problem.id) ? (
+                          <CheckCircle2 className="h-5 w-5" />
+                        ) : (
+                          problem.index + 1
+                        )}
                       </div>
 
                       {/* Problem Info */}
@@ -313,7 +324,7 @@ export default function TrackViewPage() {
                         )}
                       </div>
 
-                      {/* Difficulty & Bookmark */}
+                      {/* Difficulty, Solved & Bookmark */}
                       <div className="flex flex-col items-end gap-2 flex-shrink-0">
                         <span
                           className={clsx(
@@ -328,17 +339,39 @@ export default function TrackViewPage() {
                           {problem.difficulty}
                         </span>
 
+                        {/* Mark Solved toggle */}
+                        <button
+                          onClick={() => toggleSolved(problem.id)}
+                          aria-pressed={isSolved(problem.id)}
+                          className={clsx(
+                            'flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-semibold transition-colors',
+                            isSolved(problem.id)
+                              ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
+                              : 'bg-[var(--ifm-toc-border-color)] text-[var(--ifm-color-emphasis-600)] hover:bg-emerald-100 hover:text-emerald-700 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400',
+                          )}
+                          title={isSolved(problem.id) ? 'Mark as unsolved' : 'Mark as solved'}
+                        >
+                          {isSolved(problem.id) ? (
+                            <CheckCircle2 className="h-3.5 w-3.5" />
+                          ) : (
+                            <Circle className="h-3.5 w-3.5" />
+                          )}
+                          {isSolved(problem.id) ? 'Solved' : 'Solve'}
+                        </button>
+
+                        {/* Bookmark (save for later) */}
                         <button
                           onClick={() => toggleBookmark(problem.id)}
+                          aria-pressed={isBookmarked(problem.id)}
                           className={clsx(
                             'p-1.5 rounded-lg transition-colors',
                             isBookmarked(problem.id)
                               ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400'
                               : 'bg-[var(--ifm-toc-border-color)] text-[var(--ifm-color-emphasis-600)] hover:bg-amber-100 hover:text-amber-600 dark:hover:bg-amber-900/30 dark:hover:text-amber-400',
                           )}
-                          title={isBookmarked(problem.id) ? 'Remove bookmark' : 'Add bookmark'}
+                          title={isBookmarked(problem.id) ? 'Remove from saved' : 'Save for later'}
                         >
-                          {isBookmarked(problem.id) ? '✓' : '☆'}
+                          {isBookmarked(problem.id) ? '🔖' : '☆'}
                         </button>
                       </div>
                     </div>
@@ -356,8 +389,8 @@ export default function TrackViewPage() {
                   Don't skip ahead.
                 </li>
                 <li>
-                  <strong>Bookmark as you go:</strong> Mark problems as completed to track your progress through the
-                  track.
+                  <strong>Mark problems solved:</strong> Click the "Solve" button on each problem once you've completed
+                  it — this drives your Track Progress bar. Use the bookmark icon to save problems for later review.
                 </li>
                 <li>
                   <strong>Understand, don't memorize:</strong> Focus on understanding the patterns and approaches rather
