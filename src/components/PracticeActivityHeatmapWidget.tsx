@@ -9,6 +9,10 @@ const LEVEL_CLASSES = [
   "bg-emerald-600 dark:bg-emerald-400 text-white",
 ];
 
+/** Fixed day-of-week column headers — always Sun → Sat regardless of which
+ *  day of the week the 28-day window happens to start on. */
+const WEEK_HEADER = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 function getHeatmapClass(count: number, maxCount: number) {
   if (count === 0) {
     return LEVEL_CLASSES[0];
@@ -57,15 +61,15 @@ export default function PracticeActivityHeatmapWidget() {
 
         <div className="space-y-3">
           <div className="grid grid-cols-7 gap-2 text-[10px] uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">
-            {days.slice(0, 7).map((day) => (
-              <span key={day.date} className="text-center">
-                {day.dayLabel}
+            {WEEK_HEADER.map((label) => (
+              <span key={label} className="text-center">
+                {label}
               </span>
             ))}
           </div>
 
           <div className="grid grid-cols-7 gap-2">
-            {weeks.flatMap((week, rowIndex) =>
+            {weeks.flatMap((week) =>
               week.map((day) => (
                 <div
                   key={day.date}
