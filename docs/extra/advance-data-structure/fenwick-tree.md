@@ -1,5 +1,5 @@
 ---
-id: fenwick-tree
+id: fenwick-tree-introduction
 sidebar_position: 3
 title: "Fenwick Tree (Binary Indexed Tree)"
 sidebar_label: Fenwick Tree

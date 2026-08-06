@@ -1,5 +1,5 @@
 ---
-id: disjoint-set-union
+id: disjoint-set-union-int
 sidebar_position: 1
 title: Disjoint Set Union (Union-Find)
 sidebar_label: Disjoint Set Union
