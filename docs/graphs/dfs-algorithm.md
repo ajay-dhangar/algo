@@ -5,6 +5,7 @@ sidebar_label: "Depth-First Search"
 sidebar_position: 3
 description: "A complete guide to Depth-First Search (DFS) algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript."
 tags: [graph, search, dfs, backtracking, recursion, dsa]
+difficulty: Easy
 ---
 
 **Depth-First Search (DFS)** is a graph traversal algorithm that explores as far as possible along each branch before backtracking. 

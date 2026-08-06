@@ -5,18 +5,19 @@ sidebar_label: "Dijkstra's Algorithm"
 sidebar_position: 4
 description: "A complete guide to Dijkstra's Algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript."
 tags: [graph, shortest-path, greedy, dijkstra, dsa]
+difficulty: Medium
 ---
-
+ 
 import DijkstraVisualizations from '@site/src/components/DSA/graphs/DijkstraVisualizations';
-
+ 
 **Dijkstra's Algorithm** finds the **shortest path from a single source vertex to all other vertices** in a weighted graph.
-
+ 
 :::warning Important Limitation
 Dijkstra's algorithm is **greedy** and assumes all edge weights are non-negative. If a graph has negative edge weights, Dijkstra's algorithm might fail. Use the **Bellman-Ford Algorithm** instead in such cases.
 :::
-
+ 
 ## Video Explanation
-
+ 
 <LiteYouTubeEmbed
   id="XB4MIexjvY0"
   params="autoplay=1&autohide=1&showinfo=0&rel=0"
@@ -24,23 +25,22 @@ Dijkstra's algorithm is **greedy** and assumes all edge weights are non-negative
   lazyLoad={true}
   webp
 />
-
+ 
 ---
-
+ 
 ## Interactive Visualization
-
+ 
 Below is an interactive visualizer for Dijkstra's algorithm. You can click **Start Dijkstra** to watch the algorithm explore nodes and update distances using a min-priority queue, or click **Next Step** to step through the execution manually!
-
+ 
 <DijkstraVisualizations />
-
 ---
-
+ 
 ## How It Works
-
+ 
 The algorithm uses a **Min-Priority Queue** to continually select the unvisited vertex with the smallest known distance from the source.
-
+ 
 ### Steps
-
+ 
 1. Initialize the distance to the source node as `0`, and all other nodes to `∞`.
 2. Insert all nodes into a priority queue based on their current distances.
 3. While the priority queue is not empty:
@@ -48,27 +48,26 @@ The algorithm uses a **Min-Priority Queue** to continually select the unvisited 
    - For each neighbor `v` of `u`:
      - Calculate the new distance `dist[u] + weight(u, v)`.
      - If this new distance is less than the current `dist[v]`, update `dist[v]` and update the priority queue.
-
 ---
-
+ 
 ## Complexity Analysis
-
+ 
 | Metric           | Value        |
 |------------------|--------------|
 | Time Complexity  | O((V + E) log V) |
 | Space Complexity | O(V)         |
-
+ 
 Where `V` = number of vertices, `E` = number of edges. The time complexity assumes the use of a Priority Queue / Min-Heap.
-
+ 
 ---
-
+ 
 ## Implementations
-
+ 
 ### Python
-
+ 
 ```python
 import heapq
-
+ 
 def dijkstra(graph, start):
     # Initialize distances
     distances = {node: float('inf') for node in graph}
@@ -93,37 +92,37 @@ def dijkstra(graph, start):
                 
     return distances
 ```
-
+ 
 ### Java
-
+ 
 ```java
 import java.util.*;
-
+ 
 public class Dijkstra {
     static class Node implements Comparable<Node> {
         int vertex, weight;
         Node(int v, int w) { vertex = v; weight = w; }
         public int compareTo(Node other) { return Integer.compare(this.weight, other.weight); }
     }
-
+ 
     public static int[] dijkstra(int V, List<List<Node>> graph, int source) {
         int[] dist = new int[V];
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[source] = 0;
-
+ 
         PriorityQueue<Node> pq = new PriorityQueue<>();
         pq.add(new Node(source, 0));
-
+ 
         while (!pq.isEmpty()) {
             Node current = pq.poll();
             int u = current.vertex;
-
+ 
             if (current.weight > dist[u]) continue;
-
+ 
             for (Node neighbor : graph.get(u)) {
                 int v = neighbor.vertex;
                 int weight = neighbor.weight;
-
+ 
                 if (dist[u] + weight < dist[v]) {
                     dist[v] = dist[u] + weight;
                     pq.add(new Node(v, dist[v]));
@@ -134,18 +133,18 @@ public class Dijkstra {
     }
 }
 ```
-
+ 
 ### C++
-
+ 
 ```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
-
+ 
 using namespace std;
-
+ 
 typedef pair<int, int> pii;
-
+ 
 vector<int> dijkstra(int V, vector<vector<pii>>& graph, int source) {
     vector<int> dist(V, 1e9); // 1e9 represents infinity
     dist[source] = 0;
@@ -173,9 +172,9 @@ vector<int> dijkstra(int V, vector<vector<pii>>& graph, int source) {
     return dist;
 }
 ```
-
+ 
 ### JavaScript
-
+ 
 ```javascript
 class PriorityQueue {
     constructor() { this.values = []; }
@@ -193,7 +192,7 @@ class PriorityQueue {
     }
     isEmpty() { return this.values.length === 0; }
 }
-
+ 
 function dijkstra(graph, start) {
     const distances = {};
     const pq = new PriorityQueue();
@@ -221,11 +220,11 @@ function dijkstra(graph, start) {
     return distances;
 }
 ```
-
+ 
 ---
-
+ 
 ## Real-World Use Cases
-
+ 
 - **Google Maps** — Routing and finding the fastest path between cities or locations.
 - **Network Routing Protocols** — OSPF (Open Shortest Path First) uses Dijkstra's algorithm to compute the shortest path for data packets.
 - **Video Games** — Pathfinding algorithms for NPCs to navigate maps while avoiding obstacles.

@@ -5,24 +5,25 @@ sidebar_label: "Bidirectional Search"
 sidebar_position: 12
 description: "A complete guide to Bidirectional Search algorithm for finding shortest paths in unweighted graphs with explanations and implementations."
 tags: [graph, search, shortest-path, bidirectional, bfs, dsa]
+difficulty: Medium
 ---
-
+ 
 **Bidirectional Search** is a graph traversal technique that simultaneously searches forward from the start node and backward from the goal node, meeting in the middle. This approach dramatically reduces the search space compared to standard BFS.
-
+ 
 For unweighted graphs, bidirectional BFS finds the shortest path in roughly half the time of standard BFS.
-
+ 
 :::info Key Feature
 Bidirectional search works by running two simultaneous breadth-first searches -- one from the start vertex and one from the goal vertex -- and stopping when they meet. This reduces the effective branching factor from b to b^(b/2).
 :::
-
+ 
 ---
-
+ 
 ## How It Works
-
+ 
 Bidirectional search maintains two frontiers (queues) and two visited sets: one for the forward search and one for the backward search.
-
+ 
 ### Steps
-
+ 
 1. Initialize two queues: one for the forward search (starting from start node) and one for the backward search (starting from goal node).
 2. Initialize two visited sets to track visited nodes in each direction.
 3. While both queues are non-empty:
@@ -30,34 +31,33 @@ Bidirectional search maintains two frontiers (queues) and two visited sets: one 
    - For each node dequeued, check if it has been visited in the opposite direction.
    - If an intersection is found, reconstruct the path by combining the forward and backward paths.
 4. If both queues are exhausted without meeting, no path exists.
-
 ---
-
+ 
 ## Dry Run Example
-
+ 
 Graph: A -- B -- C -- D -- E (a simple chain)
-
+ 
 Start: A, Goal: E
-
+ 
 ```
 Forward frontier: {A}    Backward frontier: {E}
 Visited FWD: {A}         Visited BWD: {E}
-
+ 
 Step 1 (expand smaller -- both equal, pick forward):
   Dequeue A: neighbors = {B}
   Forward frontier: {B}
   Visited FWD: {A, B}
-
+ 
 Step 2 (expand smaller -- backward):
   Dequeue E: neighbors = {D}
   Backward frontier: {D}
   Visited BWD: {E, D}
-
+ 
 Step 3 (expand forward):
   Dequeue B: neighbors = {C}
   Forward frontier: {C}
   Visited FWD: {A, B, C}
-
+ 
 Step 4 (expand backward):
   Dequeue D: neighbors = {C}
   C found in forward visited!
@@ -65,44 +65,43 @@ Step 4 (expand backward):
   Path: A -> B -> C <- D <- E
   Full path: A -> B -> C -> D -> E (length 4)
 ```
-
+ 
 ---
-
+ 
 ## Complexity Analysis
-
+ 
 | Metric                  | Standard BFS     | Bidirectional BFS    |
 |-------------------------|------------------|----------------------|
 | Time Complexity         | O(b^d)           | O(b^(d/2))           |
 | Space Complexity        | O(b^d)           | O(b^(d/2))           |
 | Nodes explored          | b^d              | ~2 * b^(d/2)         |
-
+ 
 Where b = branching factor, d = distance from start to goal.
-
+ 
 For a graph where b=2 and d=10:
 - Standard BFS: ~2048 nodes
 - Bidirectional BFS: ~2 * 2^5 = 64 nodes (32x fewer!)
-
 ---
-
+ 
 ## Implementation
-
+ 
 ### Python
-
+ 
 ```python
 from collections import deque
-
+ 
 def bidirectional_bfs(graph, start, goal):
     if start == goal:
         return [start]
-
+ 
     # frontiers
     forward_q = deque([start])
     backward_q = deque([goal])
-
+ 
     # visited with parent tracking
     forward_visited = {start: None}
     backward_visited = {goal: None}
-
+ 
     while forward_q and backward_q:
         # Expand the smaller frontier
         if len(forward_q) <= len(backward_q):
@@ -129,9 +128,9 @@ def bidirectional_bfs(graph, start, goal):
                             forward_visited, backward_visited, neighbor
                         )
                     backward_q.append(neighbor)
-
+ 
     return None  # No path exists
-
+ 
 def reconstruct_path(forward_visited, backward_visited, intersection):
     # Reconstruct forward part: start -> intersection
     path_forward = []
@@ -140,16 +139,16 @@ def reconstruct_path(forward_visited, backward_visited, intersection):
         path_forward.append(node)
         node = forward_visited[node]
     path_forward.reverse()
-
+ 
     # Reconstruct backward part: intersection -> goal
     path_backward = []
     node = backward_visited[intersection]
     while node is not None:
         path_backward.append(node)
         node = backward_visited[node]
-
+ 
     return path_forward + path_backward
-
+ 
 # Example usage
 graph = {
     'A': ['B', 'C'],
@@ -161,27 +160,27 @@ graph = {
 path = bidirectional_bfs(graph, 'A', 'E')
 print("Shortest path:", path)  # ['A', 'D', 'E']
 ```
-
+ 
 ### Java
-
+ 
 ```java
 import java.util.*;
-
+ 
 public class BidirectionalBFS {
     public static List<String> bfs(Map<String, List<String>> graph,
                                    String start, String goal) {
         if (start.equals(goal)) return List.of(start);
-
+ 
         Map<String, String> forwardParent = new HashMap<>();
         Map<String, String> backwardParent = new HashMap<>();
         Queue<String> forwardQ = new LinkedList<>();
         Queue<String> backwardQ = new LinkedList<>();
-
+ 
         forwardQ.offer(start);
         backwardQ.offer(goal);
         forwardParent.put(start, null);
         backwardParent.put(goal, null);
-
+ 
         while (!forwardQ.isEmpty() && !backwardQ.isEmpty()) {
             // Expand forward
             if (forwardQ.size() <= backwardQ.size()) {
@@ -209,7 +208,7 @@ public class BidirectionalBFS {
         }
         return null;
     }
-
+ 
     private static List<String> reconstruct(Map<String, String> fwd,
                                               Map<String, String> bwd,
                                               String meet) {
@@ -227,27 +226,27 @@ public class BidirectionalBFS {
     }
 }
 ```
-
+ 
 ### C++
-
+ 
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 vector<string> bidirectionalBFS(
     const unordered_map<string, vector<string>>& graph,
     const string& start, const string& goal
 ) {
     if (start == goal) return {start};
-
+ 
     queue<string> fwdQ, bwdQ;
     unordered_map<string, string> fwdParent, bwdParent;
-
+ 
     fwdQ.push(start);
     bwdQ.push(goal);
     fwdParent[start] = "";
     bwdParent[goal] = "";
-
+ 
     auto reconstruct = [&](const string& meet) {
         vector<string> path;
         for (string cur = meet; !cur.empty(); cur = fwdParent[cur])
@@ -260,7 +259,7 @@ vector<string> bidirectionalBFS(
         }
         return path;
     };
-
+ 
     while (!fwdQ.empty() && !bwdQ.empty()) {
         if (fwdQ.size() <= bwdQ.size()) {
             string curr = fwdQ.front(); fwdQ.pop();
@@ -287,18 +286,18 @@ vector<string> bidirectionalBFS(
     return {};
 }
 ```
-
+ 
 ### JavaScript
-
+ 
 ```javascript
 function bidirectionalBFS(graph, start, goal) {
     if (start === goal) return [start];
-
+ 
     const fwdVisited = new Map([[start, null]]);
     const bwdVisited = new Map([[goal, null]]);
     let fwdQueue = [start];
     let bwdQueue = [goal];
-
+ 
     const expand = (queue, visited, otherVisited, isForward) => {
         const current = queue.shift();
         for (const neighbor of (graph[current] || [])) {
@@ -312,7 +311,7 @@ function bidirectionalBFS(graph, start, goal) {
         }
         return null;
     };
-
+ 
     const reconstruct = (fwd, bwd, meet) => {
         const path = [];
         for (let n = meet; n !== undefined; n = fwd.get(n))
@@ -324,7 +323,7 @@ function bidirectionalBFS(graph, start, goal) {
         }
         return path;
     };
-
+ 
     while (fwdQueue.length > 0 && bwdQueue.length > 0) {
         if (fwdQueue.length <= bwdQueue.length) {
             const result = expand(fwdQueue, fwdVisited, bwdVisited, true);
@@ -337,30 +336,28 @@ function bidirectionalBFS(graph, start, goal) {
     return null;
 }
 ```
-
+ 
 ---
-
+ 
 ## Limitations
-
+ 
 - **Bidirectional BFS** requires knowing the goal node, making it suitable for point-to-point shortest path.
 - **Graph must be reversible**: Works only if every edge can be traversed in both directions.
 - **Overhead**: Two search frontiers and parent tracking add implementation complexity.
 - **Sparse graphs near goal**: The speedup may be less significant in graphs where the goal is near the start.
-
 ---
-
+ 
 ## Applications
-
+ 
 - **GPS Navigation**: Finding the shortest route between two locations.
 - **Network Routing**: Shortest path in network topology.
 - **Puzzle Solving**: 8-puzzle, 15-puzzle, Rubik's cube (already using bidirectional search in IDA*).
 - **Web Crawlers**: Bidirectional crawling from both seed URLs and target domain.
 - **AI Game Playing**: Real-time strategy games where two opposing sides are searching for a meeting point.
-
 ---
-
+ 
 ## Key Takeaways
-
+ 
 - Bidirectional search reduces exponential search to approximately square-root of the original cost.
 - It requires simultaneous searches from both the start and goal nodes.
 - The algorithm guarantees the shortest path in unweighted graphs.

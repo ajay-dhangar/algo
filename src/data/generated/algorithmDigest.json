@@ -1,5 +1,368 @@
 [
   {
+    "id": "skip-list-ds",
+    "title": "Skip List",
+    "description": "A comprehensive guide to Skip List - a probabilistic data structure providing O(log n) search, insert, and delete operations.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/skip-list",
+    "category": "extra",
+    "tags": [
+      "data-structures",
+      "skip-list",
+      "probabilistic",
+      "balanced-bst"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T12:07:43.485Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 12:07:43 GMT"
+  },
+  {
+    "id": "skip-list",
+    "title": "Skip List Data Structure",
+    "description": "A comprehensive guide to Skip List, a probabilistic data structure that provides O(log n) search, insertion, and deletion.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/Skip-List",
+    "category": "extra",
+    "tags": [
+      "dsa",
+      "data-structures",
+      "skip-list",
+      "balanced-trees",
+      "probabilistic"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T12:07:09.026Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 12:07:09 GMT"
+  },
+  {
+    "id": "treap",
+    "title": "Treap",
+    "description": "A comprehensive guide to Treap - a randomized BST that combines properties of Binary Search Trees and heaps for self-balancing.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/treap",
+    "category": "extra",
+    "tags": [
+      "data-structures",
+      "treap",
+      "randomized",
+      "bst",
+      "heap"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T12:00:28.307Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 12:00:28 GMT"
+  },
+  {
+    "id": "fibonacci-heap-ds",
+    "title": "Fibonacci Heap",
+    "description": "A comprehensive guide to Fibonacci Heap - a heap data structure with amortized O(1) insert and merge operations, used in advanced graph algorithms.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/fibonacci-heap",
+    "category": "extra",
+    "tags": [
+      "data-structures",
+      "heap",
+      "fibonacci-heap",
+      "advanced-dsa",
+      "priority-queue"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T12:00:00.529Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 12:00:00 GMT"
+  },
+  {
+    "id": "fenwick-tree",
+    "title": "Fenwick Tree (Binary Indexed Tree)",
+    "description": "Fenwick Tree (Binary Indexed Tree) is a more space-efficient data structure for cumulative frequency tables.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/fenwick-tree",
+    "category": "extra",
+    "tags": [
+      "fenwick tree",
+      "binary indexed tree",
+      "advance data structures"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:58:25.114Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:58:25 GMT"
+  },
+  {
+    "id": "segment-trees",
+    "title": "Segment Trees",
+    "description": "Segment Trees are used for efficient range queries.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/segment-tree",
+    "category": "extra",
+    "tags": [
+      "segment trees",
+      "advance data structures",
+      "trees",
+      "range queries"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:57:47.978Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:57:47 GMT"
+  },
+  {
+    "id": "disjoint-set-union",
+    "title": "Disjoint Set Union (Union-Find)",
+    "description": "Disjoint Set Union (Union-Find) is an efficient data structure to track the union of disjoint sets.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/disjoint-set",
+    "category": "extra",
+    "tags": [
+      "union-find",
+      "advance data structures",
+      "disjoint set"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:57:13.956Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:57:13 GMT"
+  },
+  {
+    "id": "tarjans-algorithm",
+    "title": "Tarjan's Algorithm",
+    "description": "A complete guide to Tarjan's Algorithm for Strongly Connected Components (SCCs) with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/tarjans-algorithm",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "scc",
+      "dfs",
+      "tarjan",
+      "strongly-connected-components"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:56:34.502Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:56:34 GMT"
+  },
+  {
+    "id": "kosaraju-algorithm",
+    "title": "Kosaraju's Algorithm",
+    "description": "A complete guide to Kosaraju's Algorithm for finding Strongly Connected Components (SCCs) in a directed graph with explanations and implementations.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/kosaraju-algorithm",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "scc",
+      "dfs",
+      "kosaraju",
+      "strongly-connected-components"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:55:57.252Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:55:57 GMT"
+  },
+  {
+    "id": "graph-astar-search-algorithm",
+    "title": "A* Search Algorithm",
+    "description": "A complete guide to the A* Search Algorithm with interactive grid visualization, explanations, heuristic functions, implementations in Python, Java, C++, and JavaScript, and related LeetCode problems.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/astar-search-algorithm",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "shortest-path",
+      "pathfinding",
+      "heuristic",
+      "astar"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:55:24.267Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:55:24 GMT"
+  },
+  {
+    "id": "floyd-warshall-algorithm",
+    "title": "Floyd-Warshall Algorithm",
+    "description": "A complete guide to Floyd-Warshall Algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/floyd-warshall-algorithm",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "shortest-path",
+      "dynamic-programming",
+      "floyd-warshall",
+      "all-pairs"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:54:46.031Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:54:46 GMT"
+  },
+  {
+    "id": "graph-bellman-ford-algorithm",
+    "title": "Bellman-Ford Algorithm",
+    "description": "A complete guide to the Bellman-Ford Algorithm with explanations, dry run, negative cycle detection, implementations in Python, Java, C++, and JavaScript, and related LeetCode problems.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/bellman-ford-algorithm",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "shortest-path",
+      "dynamic-programming",
+      "negative-weights",
+      "bellman-ford"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:54:09.151Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:54:09 GMT"
+  },
+  {
+    "id": "bidirectional-search",
+    "title": "Bidirectional Search",
+    "description": "A complete guide to Bidirectional Search algorithm for finding shortest paths in unweighted graphs with explanations and implementations.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/bidirectional-search",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "search",
+      "shortest-path",
+      "bidirectional",
+      "bfs"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:53:28.364Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:53:28 GMT"
+  },
+  {
+    "id": "dijkstra-algorithm",
+    "title": "Dijkstra's Algorithm",
+    "description": "A complete guide to Dijkstra's Algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/dijkstra-algorithm",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "shortest-path",
+      "greedy",
+      "dijkstra",
+      "dsa"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:52:45.941Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:52:45 GMT"
+  },
+  {
+    "id": "topological-sort",
+    "title": "Topological Sort",
+    "description": "A complete guide to Topological Sort with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/topological-sort",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "dag",
+      "topological-sort",
+      "ordering",
+      "dsa"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:52:14.012Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:52:14 GMT"
+  },
+  {
+    "id": "kahns-algorithm",
+    "title": "Kahn's Algorithm",
+    "description": "A BFS-based algorithm for topological sorting of directed acyclic graphs using indegree counting, with O(V+E) time complexity.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/kahns-algorithm",
+    "category": "graphs",
+    "tags": [
+      "dsa",
+      "algorithms",
+      "graphs",
+      "topological-sort"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:51:40.810Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:51:40 GMT"
+  },
+  {
+    "id": "cycle-detection-undirected",
+    "title": "Cycle Detection in Undirected Graphs",
+    "description": "Detecting cycles in undirected graphs using Depth-First Search and Union-Find approaches, with O(V+E) time complexity.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/cycle-detection-undirected",
+    "category": "graphs",
+    "tags": [
+      "dsa",
+      "algorithms",
+      "graphs",
+      "cycle-detection"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:50:50.530Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:50:50 GMT"
+  },
+  {
+    "id": "dfs-algorithm",
+    "title": "Depth-First Search (DFS)",
+    "description": "A complete guide to Depth-First Search (DFS) algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/dfs-algorithm",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "search",
+      "dfs",
+      "backtracking",
+      "recursion"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:49:12.674Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:49:12 GMT"
+  },
+  {
+    "id": "bfs-algorithm",
+    "title": "Breadth-First Search (BFS)",
+    "description": "A complete guide to Breadth-First Search (BFS) algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/bfs-algorithm",
+    "category": "graphs",
+    "tags": [
+      "graph",
+      "search",
+      "bfs",
+      "shortest-path",
+      "level-order"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T11:48:23.409Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 11:48:23 GMT"
+  },
+  {
+    "id": "sqrt-decomposition",
+    "title": "Sqrt Decomposition",
+    "description": "Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition",
+    "category": "extra",
+    "tags": [
+      "sqrt decomposition",
+      "block decomposition",
+      "advance data structures",
+      "range queries"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T03:53:51.576Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:53:51 GMT"
+  },
+  {
+    "id": "persistent-segment-tree",
+    "title": "Persistent Segment Tree",
+    "description": "A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree",
+    "category": "extra",
+    "tags": [
+      "persistent segment tree",
+      "segment trees",
+      "advance data structures",
+      "range queries"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T03:53:51.574Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:53:51 GMT"
+  },
+  {
+    "id": "heavy-light-decomposition",
+    "title": "Heavy-Light Decomposition",
+    "description": "Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition",
+    "category": "extra",
+    "tags": [
+      "heavy-light decomposition",
+      "trees",
+      "segment trees",
+      "advance data structures"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T03:53:51.571Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:53:51 GMT"
+  },
+  {
     "id": "roadmap-to-learning-dsa",
     "title": "Roadmap to Learning DSA",
     "description": "A structured roadmap to guide you through mastering Data Structures and Algorithms.",
@@ -12,8 +375,25 @@
       "data-structures"
     ],
     "author": "Algo Community",
-    "pubDate": "2026-08-05T11:23:27.457Z",
-    "pubDateFormatted": "Wed, 05 Aug 2026 11:23:27 GMT"
+    "pubDate": "2026-08-06T03:13:35.060Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:13:35 GMT"
+  },
+  {
+    "id": "accounts-merge",
+    "title": "Accounts Merge",
+    "description": "Solution for LeetCode 721: Accounts Merge, utilizing Graph Traversal and Disjoint Set Union (DSU) to group connected components.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/accounts-merge",
+    "category": "dsa-problems",
+    "tags": [
+      "DSA",
+      "leetcode",
+      "graph",
+      "dsu",
+      "union-find"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T03:13:35.060Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:13:35 GMT"
   },
   {
     "id": "algorithm-visualizer",
@@ -31,54 +411,6 @@
     "author": "Algo Community",
     "pubDate": "2026-08-05T11:23:27.446Z",
     "pubDateFormatted": "Wed, 05 Aug 2026 11:23:27 GMT"
-  },
-  {
-    "id": "sqrt-decomposition",
-    "title": "Sqrt Decomposition",
-    "description": "Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition",
-    "category": "extra",
-    "tags": [
-      "sqrt decomposition",
-      "block decomposition",
-      "advance data structures",
-      "range queries"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-08-05T03:21:54.212Z",
-    "pubDateFormatted": "Wed, 05 Aug 2026 03:21:54 GMT"
-  },
-  {
-    "id": "heavy-light-decomposition",
-    "title": "Heavy-Light Decomposition",
-    "description": "Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition",
-    "category": "extra",
-    "tags": [
-      "heavy-light decomposition",
-      "trees",
-      "segment trees",
-      "advance data structures"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-08-05T03:21:54.211Z",
-    "pubDateFormatted": "Wed, 05 Aug 2026 03:21:54 GMT"
-  },
-  {
-    "id": "persistent-segment-tree",
-    "title": "Persistent Segment Tree",
-    "description": "A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree",
-    "category": "extra",
-    "tags": [
-      "persistent segment tree",
-      "segment trees",
-      "advance data structures",
-      "range queries"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-08-05T03:21:54.211Z",
-    "pubDateFormatted": "Wed, 05 Aug 2026 03:21:54 GMT"
   },
   {
     "id": "code-editor-sandbox",
@@ -1878,73 +2210,6 @@
     "pubDateFormatted": "Fri, 31 Jul 2026 04:21:09 GMT"
   },
   {
-    "id": "fibonacci-heap-ds",
-    "title": "Fibonacci Heap",
-    "description": "A comprehensive guide to Fibonacci Heap - a heap data structure with amortized O(1) insert and merge operations, used in advanced graph algorithms.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/fibonacci-heap",
-    "category": "extra",
-    "tags": [
-      "data-structures",
-      "heap",
-      "fibonacci-heap",
-      "advanced-dsa",
-      "priority-queue"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-31T04:21:09.121Z",
-    "pubDateFormatted": "Fri, 31 Jul 2026 04:21:09 GMT"
-  },
-  {
-    "id": "skip-list-ds",
-    "title": "Skip List",
-    "description": "A comprehensive guide to Skip List - a probabilistic data structure providing O(log n) search, insert, and delete operations.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/skip-list",
-    "category": "extra",
-    "tags": [
-      "data-structures",
-      "skip-list",
-      "probabilistic",
-      "balanced-bst"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-31T04:21:09.121Z",
-    "pubDateFormatted": "Fri, 31 Jul 2026 04:21:09 GMT"
-  },
-  {
-    "id": "treap",
-    "title": "Treap",
-    "description": "A comprehensive guide to Treap - a randomized BST that combines properties of Binary Search Trees and heaps for self-balancing.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/treap",
-    "category": "extra",
-    "tags": [
-      "data-structures",
-      "treap",
-      "randomized",
-      "bst",
-      "heap"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-31T04:21:09.121Z",
-    "pubDateFormatted": "Fri, 31 Jul 2026 04:21:09 GMT"
-  },
-  {
-    "id": "kosaraju-algorithm",
-    "title": "Kosaraju's Algorithm",
-    "description": "A complete guide to Kosaraju's Algorithm for finding Strongly Connected Components (SCCs) in a directed graph with explanations and implementations.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/kosaraju-algorithm",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "scc",
-      "dfs",
-      "kosaraju",
-      "strongly-connected-components"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-29T13:49:29.958Z",
-    "pubDateFormatted": "Wed, 29 Jul 2026 13:49:29 GMT"
-  },
-  {
     "id": "manachers-algorithm",
     "title": "Manacher's Algorithm",
     "description": "A guide to Manacher's Algorithm - finding the longest palindromic substring in O(n) time using palindromic symmetry.",
@@ -1972,23 +2237,6 @@
       "prefix-tree",
       "string",
       "dictionary"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-29T13:49:29.955Z",
-    "pubDateFormatted": "Wed, 29 Jul 2026 13:49:29 GMT"
-  },
-  {
-    "id": "bidirectional-search",
-    "title": "Bidirectional Search",
-    "description": "A complete guide to Bidirectional Search algorithm for finding shortest paths in unweighted graphs with explanations and implementations.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/bidirectional-search",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "search",
-      "shortest-path",
-      "bidirectional",
-      "bfs"
     ],
     "author": "Algo Community",
     "pubDate": "2026-07-29T13:49:29.955Z",
@@ -2105,38 +2353,6 @@
       "lru",
       "doubly-linked-list",
       "hashmap"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-28T12:17:06.973Z",
-    "pubDateFormatted": "Tue, 28 Jul 2026 12:17:06 GMT"
-  },
-  {
-    "id": "cycle-detection-undirected",
-    "title": "Cycle Detection in Undirected Graphs",
-    "description": "Detecting cycles in undirected graphs using Depth-First Search and Union-Find approaches, with O(V+E) time complexity.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/cycle-detection-undirected",
-    "category": "graphs",
-    "tags": [
-      "dsa",
-      "algorithms",
-      "graphs",
-      "cycle-detection"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-28T12:17:06.973Z",
-    "pubDateFormatted": "Tue, 28 Jul 2026 12:17:06 GMT"
-  },
-  {
-    "id": "kahns-algorithm",
-    "title": "Kahn's Algorithm",
-    "description": "A BFS-based algorithm for topological sorting of directed acyclic graphs using indegree counting, with O(V+E) time complexity.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/kahns-algorithm",
-    "category": "graphs",
-    "tags": [
-      "dsa",
-      "algorithms",
-      "graphs",
-      "topological-sort"
     ],
     "author": "Algo Community",
     "pubDate": "2026-07-28T12:17:06.973Z",
@@ -2289,23 +2505,6 @@
     ],
     "author": "Algo Community",
     "pubDate": "2026-07-28T12:17:06.967Z",
-    "pubDateFormatted": "Tue, 28 Jul 2026 12:17:06 GMT"
-  },
-  {
-    "id": "skip-list",
-    "title": "Skip List Data Structure",
-    "description": "A comprehensive guide to Skip List, a probabilistic data structure that provides O(log n) search, insertion, and deletion.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/Skip-List",
-    "category": "extra",
-    "tags": [
-      "dsa",
-      "data-structures",
-      "skip-list",
-      "balanced-trees",
-      "probabilistic"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-28T12:17:06.956Z",
     "pubDateFormatted": "Tue, 28 Jul 2026 12:17:06 GMT"
   },
   {
@@ -3051,52 +3250,6 @@
     "pubDateFormatted": "Fri, 24 Jul 2026 03:16:01 GMT"
   },
   {
-    "id": "disjoint-set-union",
-    "title": "Disjoint Set Union (Union-Find)",
-    "description": "Disjoint Set Union (Union-Find) is an efficient data structure to track the union of disjoint sets.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/disjoint-set",
-    "category": "extra",
-    "tags": [
-      "union-find",
-      "advance data structures",
-      "disjoint set"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-24T03:16:01.462Z",
-    "pubDateFormatted": "Fri, 24 Jul 2026 03:16:01 GMT"
-  },
-  {
-    "id": "fenwick-tree",
-    "title": "Fenwick Tree (Binary Indexed Tree)",
-    "description": "Fenwick Tree (Binary Indexed Tree) is a more space-efficient data structure for cumulative frequency tables.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/fenwick-tree",
-    "category": "extra",
-    "tags": [
-      "fenwick tree",
-      "binary indexed tree",
-      "advance data structures"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-24T03:16:01.462Z",
-    "pubDateFormatted": "Fri, 24 Jul 2026 03:16:01 GMT"
-  },
-  {
-    "id": "segment-trees",
-    "title": "Segment Trees",
-    "description": "Segment Trees are used for efficient range queries.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/segment-tree",
-    "category": "extra",
-    "tags": [
-      "segment trees",
-      "advance data structures",
-      "trees",
-      "range queries"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-24T03:16:01.462Z",
-    "pubDateFormatted": "Fri, 24 Jul 2026 03:16:01 GMT"
-  },
-  {
     "id": "bellman-ford-algorithm",
     "title": "Bellman-Ford Algorithm",
     "description": "An overview of the Bellman-Ford algorithm, including its implementation in C++, Java, and Python, time complexity analysis, and comparison with Dijkstra's algorithm.",
@@ -3152,23 +3305,6 @@
       "dsa",
       "data-structures",
       "LinkedList"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-22T06:36:01.753Z",
-    "pubDateFormatted": "Wed, 22 Jul 2026 06:36:01 GMT"
-  },
-  {
-    "id": "tarjans-algorithm",
-    "title": "Tarjan's Algorithm",
-    "description": "A complete guide to Tarjan's Algorithm for Strongly Connected Components (SCCs) with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/tarjans-algorithm",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "scc",
-      "dfs",
-      "tarjan",
-      "strongly-connected-components"
     ],
     "author": "Algo Community",
     "pubDate": "2026-07-22T06:36:01.753Z",
@@ -7189,23 +7325,6 @@
     "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
   },
   {
-    "id": "topological-sort",
-    "title": "Topological Sort",
-    "description": "A complete guide to Topological Sort with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/topological-sort",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "dag",
-      "topological-sort",
-      "ordering",
-      "dsa"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-08T11:11:53.167Z",
-    "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
-  },
-  {
     "id": "introduction-to-c",
     "title": "Introduction to C",
     "description": "Welcome to the world of C! In this guide, we'll dive into the essentials of C, a foundational programming language that has influenced modern computing for decades. Whether you're interested in system programming, embedded systems, or softw…",
@@ -7214,74 +7333,6 @@
     "tags": [],
     "author": "Algo Community",
     "pubDate": "2026-07-08T11:11:53.167Z",
-    "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
-  },
-  {
-    "id": "bfs-algorithm",
-    "title": "Breadth-First Search (BFS)",
-    "description": "A complete guide to Breadth-First Search (BFS) algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/bfs-algorithm",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "search",
-      "bfs",
-      "shortest-path",
-      "level-order"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-08T11:11:53.161Z",
-    "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
-  },
-  {
-    "id": "dfs-algorithm",
-    "title": "Depth-First Search (DFS)",
-    "description": "A complete guide to Depth-First Search (DFS) algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/dfs-algorithm",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "search",
-      "dfs",
-      "backtracking",
-      "recursion"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-08T11:11:53.161Z",
-    "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
-  },
-  {
-    "id": "dijkstra-algorithm",
-    "title": "Dijkstra's Algorithm",
-    "description": "A complete guide to Dijkstra's Algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/dijkstra-algorithm",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "shortest-path",
-      "greedy",
-      "dijkstra",
-      "dsa"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-08T11:11:53.161Z",
-    "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
-  },
-  {
-    "id": "floyd-warshall-algorithm",
-    "title": "Floyd-Warshall Algorithm",
-    "description": "A complete guide to Floyd-Warshall Algorithm with explanations, use cases, and implementations in Python, Java, C++, and JavaScript.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/floyd-warshall-algorithm",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "shortest-path",
-      "dynamic-programming",
-      "floyd-warshall",
-      "all-pairs"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-08T11:11:53.161Z",
     "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
   },
   {
@@ -7294,40 +7345,6 @@
       "Threads",
       "Creation",
       "C"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-08T11:11:53.158Z",
-    "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
-  },
-  {
-    "id": "graph-astar-search-algorithm",
-    "title": "A* Search Algorithm",
-    "description": "A complete guide to the A* Search Algorithm with interactive grid visualization, explanations, heuristic functions, implementations in Python, Java, C++, and JavaScript, and related LeetCode problems.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/astar-search-algorithm",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "shortest-path",
-      "pathfinding",
-      "heuristic",
-      "astar"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-07-08T11:11:53.158Z",
-    "pubDateFormatted": "Wed, 08 Jul 2026 11:11:53 GMT"
-  },
-  {
-    "id": "graph-bellman-ford-algorithm",
-    "title": "Bellman-Ford Algorithm",
-    "description": "A complete guide to the Bellman-Ford Algorithm with explanations, dry run, negative cycle detection, implementations in Python, Java, C++, and JavaScript, and related LeetCode problems.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/graphs/bellman-ford-algorithm",
-    "category": "graphs",
-    "tags": [
-      "graph",
-      "shortest-path",
-      "dynamic-programming",
-      "negative-weights",
-      "bellman-ford"
     ],
     "author": "Algo Community",
     "pubDate": "2026-07-08T11:11:53.158Z",

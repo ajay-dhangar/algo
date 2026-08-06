@@ -5,6 +5,7 @@ sidebar_label: Skip List
 sidebar_position: 3
 description: A comprehensive guide to Skip List, a probabilistic data structure that provides O(log n) search, insertion, and deletion.
 tags: [dsa, data-structures, skip-list, balanced-trees, probabilistic]
+difficulty: Medium
 ---
 
 ## Introduction
@@ -271,3 +272,4 @@ The O(log n) average complexity comes from the geometric distribution of levels,
 2. Add a range query method that returns all elements in a given range.
 3. Implement level-order traversal of a Skip List.
 4. Compare the actual performance of Skip List vs sorted array on random access operations.
+

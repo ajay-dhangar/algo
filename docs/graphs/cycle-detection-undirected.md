@@ -5,6 +5,7 @@ sidebar_label: "Cycle Detection"
 sidebar_position: 10
 description: "Detecting cycles in undirected graphs using Depth-First Search and Union-Find approaches, with O(V+E) time complexity."
 tags: ["dsa", "algorithms", "graphs", "cycle-detection"]
+difficulty: Easy
 ---
 
 # Cycle Detection in Undirected Graphs

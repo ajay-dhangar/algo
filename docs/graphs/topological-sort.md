@@ -5,6 +5,7 @@ sidebar_label: "Topological Sort"
 sidebar_position: 6
 description: "A complete guide to Topological Sort with explanations, use cases, and implementations in Python, Java, C++, and JavaScript."
 tags: [graph, dag, topological-sort, ordering, dsa]
+difficulty: Medium
 ---
 
 The **Topological Sort** is a linear ordering of vertices in a **Directed Acyclic Graph (DAG)** such that for every directed edge `u → v`, vertex `u` appears before vertex `v` in the ordering.

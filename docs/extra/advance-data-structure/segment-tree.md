@@ -5,6 +5,7 @@ title: Segment Trees
 sidebar_label: Segment Trees
 description: "Segment Trees are used for efficient range queries."
 tags: [segment trees, advance data structures, trees, range queries]
+difficulty: Medium
 ---
 
 **Segment Trees** are a versatile and efficient data structure used for solving range query problems. They allow for quick querying of information over a range of elements in an array, making them particularly useful in scenarios where the data may change frequently.

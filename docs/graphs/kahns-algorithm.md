@@ -5,6 +5,7 @@ sidebar_label: "Kahn's Algorithm"
 sidebar_position: 9
 description: "A BFS-based algorithm for topological sorting of directed acyclic graphs using indegree counting, with O(V+E) time complexity."
 tags: ["dsa", "algorithms", "graphs", "topological-sort"]
+difficulty: Medium
 ---
 
 # Kahn's Algorithm for Topological Sort
