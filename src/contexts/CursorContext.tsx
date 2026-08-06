@@ -36,11 +36,14 @@ export function CursorProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    if (cursor === "default") {
-      document.body.style.cursor = "auto";
-    } else {
-      document.body.style.cursor = "none";
-    }
+    const isActive = cursor !== "default";
+    // Toggle the CSS class that applies `cursor: none !important` to body and
+    // all its descendants. This is more robust than an inline style, which can
+    // be silently overridden by any component-level CSS that sets `cursor`.
+    document.body.classList.toggle("custom-cursor-active", isActive);
+    // Also clear any residual inline cursor style so the CSS class is the
+    // sole source of truth.
+    document.body.style.cursor = "";
   }, [cursor]);
 
   const value = useMemo(() => ({ cursor, setCursor }), [cursor]);

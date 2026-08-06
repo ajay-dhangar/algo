@@ -246,6 +246,10 @@ function query(node, start, end, l, r):
     return query(node.left, start, mid, l, r) + query(node.right, mid + 1, end, l, r)
 ```
 
+## Compare Languages Side-by-Side
+
+<LanguageComparator algorithm="persistent-segment-tree" />
+
 ## Complexity Cheat Sheet
 
 | Operation | Time Complexity | Extra Space per Call |

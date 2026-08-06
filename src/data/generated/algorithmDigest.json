@@ -347,16 +347,16 @@
     "pubDateFormatted": "Thu, 06 Aug 2026 03:53:51 GMT"
   },
   {
-    "id": "heavy-light-decomposition",
-    "title": "Heavy-Light Decomposition",
-    "description": "Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition",
-    "category": "extra",
+    "id": "roadmap-to-learning-dsa",
+    "title": "Roadmap to Learning DSA",
+    "description": "A structured roadmap to guide you through mastering Data Structures and Algorithms.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/data-structures/roadmap-to-dsa",
+    "category": "data-structures",
     "tags": [
-      "heavy-light decomposition",
-      "trees",
-      "segment trees",
-      "advance data structures"
+      "dsa",
+      "learning roadmap",
+      "algorithms",
+      "data-structures"
     ],
     "author": "Algo Community",
     "pubDate": "2026-08-06T03:53:51.571Z",
