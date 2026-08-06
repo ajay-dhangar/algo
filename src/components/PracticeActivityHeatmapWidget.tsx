@@ -30,7 +30,7 @@ export default function PracticeActivityHeatmapWidget() {
   const heatmap = usePracticeActivityHeatmap(28);
   if (!heatmap.loaded) return null;
 
-  const { days, activeDays, totalAttempts } = heatmap;
+  const { days, activeDays, totalAttempts, totalSolved } = heatmap;
   const maxCount = Math.max(...days.map((day) => day.count), 1);
   const weeks = Array.from({ length: Math.ceil(days.length / 7) }, (_, rowIndex) =>
     days.slice(rowIndex * 7, rowIndex * 7 + 7)
@@ -50,12 +50,17 @@ export default function PracticeActivityHeatmapWidget() {
               Practice Activity
             </p>
             <h3 className="text-xl font-extrabold" style={{ color: "var(--ifm-heading-color)" }}>
-              Recent quiz calendar
+              Recent activity calendar
             </h3>
           </div>
           <div className="rounded-2xl bg-slate-50 dark:bg-slate-950/60 p-3 text-[11px] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
             <div className="font-semibold">{activeDays} active days</div>
-            <div className="mt-1 text-slate-500 dark:text-slate-400">{totalAttempts} quiz attempts</div>
+            {totalAttempts > 0 && (
+              <div className="mt-1 text-slate-500 dark:text-slate-400">{totalAttempts} quiz attempt{totalAttempts === 1 ? "" : "s"}</div>
+            )}
+            {totalSolved > 0 && (
+              <div className="mt-1 text-slate-500 dark:text-slate-400">{totalSolved} problem{totalSolved === 1 ? "" : "s"} solved</div>
+            )}
           </div>
         </div>
 
@@ -70,23 +75,29 @@ export default function PracticeActivityHeatmapWidget() {
 
           <div className="grid grid-cols-7 gap-2">
             {weeks.flatMap((week) =>
-              week.map((day) => (
-                <div
-                  key={day.date}
-                  className={`h-12 rounded-2xl transition-colors duration-200 ${getHeatmapClass(day.count, maxCount)}`}
-                  title={`${day.date}: ${day.count} attempt${day.count === 1 ? "" : "s"}`}
-                >
-                  <div className="flex h-full items-center justify-center text-[11px] font-semibold">
-                    {day.count > 0 ? day.count : ""}
+              week.map((day) => {
+                const parts: string[] = [];
+                if (day.quizCount > 0) parts.push(`${day.quizCount} quiz attempt${day.quizCount === 1 ? "" : "s"}`);
+                if (day.solvedCount > 0) parts.push(`${day.solvedCount} problem${day.solvedCount === 1 ? "" : "s"} solved`);
+                const tooltip = parts.length > 0 ? `${day.date}: ${parts.join(", ")}` : day.date;
+                return (
+                  <div
+                    key={day.date}
+                    className={`h-12 rounded-2xl transition-colors duration-200 ${getHeatmapClass(day.count, maxCount)}`}
+                    title={tooltip}
+                  >
+                    <div className="flex h-full items-center justify-center text-[11px] font-semibold">
+                      {day.count > 0 ? day.count : ""}
+                    </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         </div>
 
         <div className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-          This heatmap is generated from quiz attempts already stored in your browser. No new tracking is added.
+          Counts quiz attempts and DSA problems you marked solved. All data stays in your browser.
         </div>
       </div>
     </motion.div>
