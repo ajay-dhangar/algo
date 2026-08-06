@@ -1,0 +1,105 @@
+.container {
+  margin: 1.75rem 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ifm-heading-color);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.select {
+  font-size: 0.85rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+}
+
+.swapButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.swapButton:hover {
+  background: var(--ifm-color-primary-lightest);
+}
+
+.panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pane {
+  min-width: 0;
+}
+
+.pane:first-child {
+  border-right: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.paneLabel {
+  font-size: 0.7rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ifm-font-color-secondary);
+  padding: 8px 14px 0;
+  opacity: 0.75;
+}
+
+.pane :global(div[class*="codeBlockContainer"]) {
+  border-radius: 0;
+  border: none;
+  margin: 0;
+}
+
+/* Stack panes on narrow viewports instead of squeezing two columns */
+@media (max-width: 760px) {
+  .panes {
+    grid-template-columns: 1fr;
+  }
+
+  .pane:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  }
+}
