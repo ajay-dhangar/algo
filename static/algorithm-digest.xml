@@ -5,16 +5,52 @@
     <link>https://ajay-dhangar.github.io/algo/newsletter</link>
     <description>Periodic digest summarizing newly merged algorithm docs and problem walkthroughs in Algo.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Aug 2026 11:31:29 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 03:35:48 GMT</lastBuildDate>
     <atom:link href="https://ajay-dhangar.github.io/algo/algorithm-digest.xml" rel="self" type="application/rss+xml"/>
     
+    <item>
+      <title>Heavy-Light Decomposition</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</guid>
+      <description>Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.</description>
+      <pubDate>Thu, 06 Aug 2026 03:34:47 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Persistent Segment Tree</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</guid>
+      <description>A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.</description>
+      <pubDate>Thu, 06 Aug 2026 03:33:55 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Sqrt Decomposition</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</guid>
+      <description>Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.</description>
+      <pubDate>Thu, 06 Aug 2026 03:33:03 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
     <item>
       <title>Roadmap to Learning DSA</title>
       <link>https://ajay-dhangar.github.io/algo/docs/data-structures/roadmap-to-dsa</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/data-structures/roadmap-to-dsa</guid>
       <description>A structured roadmap to guide you through mastering Data Structures and Algorithms.</description>
-      <pubDate>Wed, 05 Aug 2026 11:23:27 GMT</pubDate>
+      <pubDate>Thu, 06 Aug 2026 03:13:35 GMT</pubDate>
       <category>data-structures</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Accounts Merge</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/accounts-merge</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/accounts-merge</guid>
+      <description>Solution for LeetCode 721: Accounts Merge, utilizing Graph Traversal and Disjoint Set Union (DSU) to group connected components.</description>
+      <pubDate>Thu, 06 Aug 2026 03:13:35 GMT</pubDate>
+      <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
@@ -24,33 +60,6 @@
       <description>An interactive step-by-step visualization sandbox for Bubble Sort, Quick Sort, Merge Sort, and Binary Search algorithms.</description>
       <pubDate>Wed, 05 Aug 2026 11:23:27 GMT</pubDate>
       <category>algorithms</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Sqrt Decomposition</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</guid>
-      <description>Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.</description>
-      <pubDate>Wed, 05 Aug 2026 03:21:54 GMT</pubDate>
-      <category>extra</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Heavy-Light Decomposition</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</guid>
-      <description>Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.</description>
-      <pubDate>Wed, 05 Aug 2026 03:21:54 GMT</pubDate>
-      <category>extra</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Persistent Segment Tree</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</guid>
-      <description>A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.</description>
-      <pubDate>Wed, 05 Aug 2026 03:21:54 GMT</pubDate>
-      <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
@@ -445,15 +454,6 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/cheapest-flights-within-k-stops</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/cheapest-flights-within-k-stops</guid>
       <description>Solution for LeetCode 787: Cheapest Flights Within K Stops, utilizing BFS (Modified Dijkstra) to find the cheapest flight path within K stops.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Binary Tree Right Side View</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/binary-tree-right-side-view</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/binary-tree-right-side-view</guid>
-      <description>Solving the Binary Tree Right Side View problem using a Depth-First Search (DFS) approach.</description>
       <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>

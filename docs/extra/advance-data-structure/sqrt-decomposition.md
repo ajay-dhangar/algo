@@ -188,6 +188,12 @@ function update(idx, val):
     arr[idx] = val
 ```
 
+## Compare Languages Side-by-Side
+
+Pick any two languages below to see the same logic next to each other — useful if you know one of these languages and are mapping the syntax onto the other.
+
+<LanguageComparator algorithm="sqrt-decomposition" />
+
 ## Complexity Cheat Sheet
 
 | Operation | Time Complexity | Space Complexity |

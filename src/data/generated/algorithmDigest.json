@@ -1,5 +1,53 @@
 [
   {
+    "id": "heavy-light-decomposition",
+    "title": "Heavy-Light Decomposition",
+    "description": "Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition",
+    "category": "extra",
+    "tags": [
+      "heavy-light decomposition",
+      "trees",
+      "segment trees",
+      "advance data structures"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T03:34:47.389Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:34:47 GMT"
+  },
+  {
+    "id": "persistent-segment-tree",
+    "title": "Persistent Segment Tree",
+    "description": "A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree",
+    "category": "extra",
+    "tags": [
+      "persistent segment tree",
+      "segment trees",
+      "advance data structures",
+      "range queries"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T03:33:55.443Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:33:55 GMT"
+  },
+  {
+    "id": "sqrt-decomposition",
+    "title": "Sqrt Decomposition",
+    "description": "Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition",
+    "category": "extra",
+    "tags": [
+      "sqrt decomposition",
+      "block decomposition",
+      "advance data structures",
+      "range queries"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T03:33:03.982Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:33:03 GMT"
+  },
+  {
     "id": "roadmap-to-learning-dsa",
     "title": "Roadmap to Learning DSA",
     "description": "A structured roadmap to guide you through mastering Data Structures and Algorithms.",
@@ -12,8 +60,25 @@
       "data-structures"
     ],
     "author": "Algo Community",
-    "pubDate": "2026-08-05T11:23:27.457Z",
-    "pubDateFormatted": "Wed, 05 Aug 2026 11:23:27 GMT"
+    "pubDate": "2026-08-06T03:13:35.060Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:13:35 GMT"
+  },
+  {
+    "id": "accounts-merge",
+    "title": "Accounts Merge",
+    "description": "Solution for LeetCode 721: Accounts Merge, utilizing Graph Traversal and Disjoint Set Union (DSU) to group connected components.",
+    "permalink": "https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/accounts-merge",
+    "category": "dsa-problems",
+    "tags": [
+      "DSA",
+      "leetcode",
+      "graph",
+      "dsu",
+      "union-find"
+    ],
+    "author": "Algo Community",
+    "pubDate": "2026-08-06T03:13:35.060Z",
+    "pubDateFormatted": "Thu, 06 Aug 2026 03:13:35 GMT"
   },
   {
     "id": "algorithm-visualizer",
@@ -31,54 +96,6 @@
     "author": "Algo Community",
     "pubDate": "2026-08-05T11:23:27.446Z",
     "pubDateFormatted": "Wed, 05 Aug 2026 11:23:27 GMT"
-  },
-  {
-    "id": "sqrt-decomposition",
-    "title": "Sqrt Decomposition",
-    "description": "Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition",
-    "category": "extra",
-    "tags": [
-      "sqrt decomposition",
-      "block decomposition",
-      "advance data structures",
-      "range queries"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-08-05T03:21:54.212Z",
-    "pubDateFormatted": "Wed, 05 Aug 2026 03:21:54 GMT"
-  },
-  {
-    "id": "heavy-light-decomposition",
-    "title": "Heavy-Light Decomposition",
-    "description": "Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition",
-    "category": "extra",
-    "tags": [
-      "heavy-light decomposition",
-      "trees",
-      "segment trees",
-      "advance data structures"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-08-05T03:21:54.211Z",
-    "pubDateFormatted": "Wed, 05 Aug 2026 03:21:54 GMT"
-  },
-  {
-    "id": "persistent-segment-tree",
-    "title": "Persistent Segment Tree",
-    "description": "A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.",
-    "permalink": "https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree",
-    "category": "extra",
-    "tags": [
-      "persistent segment tree",
-      "segment trees",
-      "advance data structures",
-      "range queries"
-    ],
-    "author": "Algo Community",
-    "pubDate": "2026-08-05T03:21:54.211Z",
-    "pubDateFormatted": "Wed, 05 Aug 2026 03:21:54 GMT"
   },
   {
     "id": "code-editor-sandbox",
