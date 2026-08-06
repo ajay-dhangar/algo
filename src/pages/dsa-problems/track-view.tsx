@@ -39,7 +39,7 @@ export default function TrackViewPage() {
   const [track, setTrack] = useState<CompanyTrack | null>(null);
   const [notFound, setNotFound] = useState(false);
 
-  const { bookmarks, isBookmarked, toggleBookmark } = useBookmarks();
+  const { isBookmarked, toggleBookmark } = useBookmarks();
   const { isSolved, toggleSolved } = useSolvedProblems();
   const tagLabels = useMemo(() => new Map(data.tags.map((t) => [t.value, t.label])), []);
 
@@ -81,7 +81,6 @@ export default function TrackViewPage() {
 
   const stats = useMemo(() => {
     const byDifficulty = { Easy: 0, Medium: 0, Hard: 0 };
-    const bookmarkedCount = problems.filter((p) => isBookmarked(p.id)).length;
     const solvedCount = problems.filter((p) => p.isAvailable && isSolved(p.id)).length;
     const availableCount = problems.filter((p) => p.isAvailable).length;
 
@@ -93,7 +92,6 @@ export default function TrackViewPage() {
 
     return {
       total: availableCount,
-      bookmarked: bookmarkedCount,
       solved: solvedCount,
       byDifficulty,
       progressPercentage: availableCount > 0 ? Math.round((solvedCount / availableCount) * 100) : 0,
