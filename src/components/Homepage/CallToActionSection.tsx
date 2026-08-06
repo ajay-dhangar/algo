@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaArrowRight, FaCompass } from "react-icons/fa";
 import Link from "@docusaurus/Link";
 import LoginModal from "./LoginModal";

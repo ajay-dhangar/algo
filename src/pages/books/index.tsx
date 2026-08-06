@@ -24,7 +24,7 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import Translate, { translate } from '@docusaurus/Translate';
 import { useHistory, useLocation } from '@docusaurus/router';
 import { usePluralForm } from '@docusaurus/theme-common';
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import styles from './styles.module.css';
 
 type UserState = {

@@ -1,14 +1,14 @@
-ï»¿/**
+/**
  * docQuizData.ts
  *
  * Maps Docusaurus doc page IDs to exactly 3 inline quiz questions.
  * The doc ID mirrors the file path under /docs with slashes replaced by hyphens.
  *
  * Each question shape:
- *   question      â€“ question text
- *   options       â€“ answer choices
- *   correctAnswer â€“ 0-based index into options[]
- *   explanation   â€“ shown after the user answers
+ *   question      – question text
+ *   options       – answer choices
+ *   correctAnswer – 0-based index into options[]
+ *   explanation   – shown after the user answers
  */
 
 export interface DocQuizQuestion {
@@ -55,7 +55,7 @@ const docQuizData: DocQuizMap = {
       question: "What is the worst-case time complexity of Bubble Sort?",
       options: ["A) O(n)", "B) O(n log n)", "C) O(n2)", "D) O(log n)"],
       correctAnswer: 2,
-      explanation: "In the worst case (reverse-sorted input), Bubble Sort performs n(n-1)/2 comparisons and swaps â€” O(n2).",
+      explanation: "In the worst case (reverse-sorted input), Bubble Sort performs n(n-1)/2 comparisons and swaps — O(n2).",
     },
     {
       question: "Which optimisation gives Bubble Sort an O(n) best-case?",
@@ -130,7 +130,7 @@ const docQuizData: DocQuizMap = {
         "D) Randomly shuffled arrays of any size",
       ],
       correctAnswer: 1,
-      explanation: "Insertion Sort has low overhead and adapts well to partially sorted input â€” it is used as a finishing step in hybrid algorithms like Timsort.",
+      explanation: "Insertion Sort has low overhead and adapts well to partially sorted input — it is used as a finishing step in hybrid algorithms like Timsort.",
     },
     {
       question: "Is Insertion Sort an in-place algorithm?",
@@ -178,7 +178,7 @@ const docQuizData: DocQuizMap = {
       question: "What is the time complexity of Binary Search on n sorted elements?",
       options: ["A) O(n)", "B) O(log n)", "C) O(n log n)", "D) O(1)"],
       correctAnswer: 1,
-      explanation: "Binary Search halves the interval each step, taking at most ceil(log2 n)+1 comparisons â€” O(log n).",
+      explanation: "Binary Search halves the interval each step, taking at most ceil(log2 n)+1 comparisons — O(log n).",
     },
     {
       question: "What is a prerequisite for Binary Search to work correctly?",
@@ -195,7 +195,7 @@ const docQuizData: DocQuizMap = {
       question: "What is the space complexity of iterative Binary Search?",
       options: ["A) O(n)", "B) O(log n)", "C) O(1)", "D) O(n log n)"],
       correctAnswer: 2,
-      explanation: "The iterative version maintains only a few pointers (low, high, mid) â€” O(1) extra space.",
+      explanation: "The iterative version maintains only a few pointers (low, high, mid) — O(1) extra space.",
     },
   ],
 
@@ -205,7 +205,7 @@ const docQuizData: DocQuizMap = {
       question: "What is the worst-case time complexity of Linear Search?",
       options: ["A) O(1)", "B) O(log n)", "C) O(n)", "D) O(n2)"],
       correctAnswer: 2,
-      explanation: "If the target is last or absent, Linear Search scans every element â€” O(n).",
+      explanation: "If the target is last or absent, Linear Search scans every element — O(n).",
     },
     {
       question: "Linear Search can be applied to:",
@@ -222,7 +222,7 @@ const docQuizData: DocQuizMap = {
       question: "What is the best-case time complexity of Linear Search?",
       options: ["A) O(n)", "B) O(log n)", "C) O(n2)", "D) O(1)"],
       correctAnswer: 3,
-      explanation: "If the target is at the first position, Linear Search finds it in one comparison â€” O(1).",
+      explanation: "If the target is at the first position, Linear Search finds it in one comparison — O(1).",
     },
   ],
 
@@ -232,7 +232,7 @@ const docQuizData: DocQuizMap = {
       question: "What data structure does BFS use internally?",
       options: ["A) Stack", "B) Queue", "C) Priority Queue", "D) Hash Map"],
       correctAnswer: 1,
-      explanation: "BFS visits vertices in FIFO order â€” naturally modelled by a queue.",
+      explanation: "BFS visits vertices in FIFO order — naturally modelled by a queue.",
     },
     {
       question: "What is the time complexity of BFS with V vertices and E edges?",
@@ -259,13 +259,13 @@ const docQuizData: DocQuizMap = {
       question: "What data structure underpins recursive DFS?",
       options: ["A) Queue", "B) Min-Heap", "C) Call Stack", "D) Hash Table"],
       correctAnswer: 2,
-      explanation: "Recursive DFS implicitly uses the call stack â€” each recursive call processes a deeper node and backtracks on return.",
+      explanation: "Recursive DFS implicitly uses the call stack — each recursive call processes a deeper node and backtracks on return.",
     },
     {
       question: "What is the time complexity of DFS with V vertices and E edges?",
       options: ["A) O(V x E)", "B) O(V + E)", "C) O(V2)", "D) O(E log V)"],
       correctAnswer: 1,
-      explanation: "DFS visits every vertex once and traverses every edge once â€” O(V + E) with adjacency lists.",
+      explanation: "DFS visits every vertex once and traverses every edge once — O(V + E) with adjacency lists.",
     },
     {
       question: "DFS is commonly used for:",
@@ -361,7 +361,7 @@ const docQuizData: DocQuizMap = {
         "D) It runs once and exits",
       ],
       correctAnswer: 1,
-      explanation: "Without a base case, each call pushes a new frame until memory is exhausted â€” a stack overflow.",
+      explanation: "Without a base case, each call pushes a new frame until memory is exhausted — a stack overflow.",
     },
     {
       question: "Which of the following is an advantage of tail recursion?",
@@ -387,10 +387,10 @@ const docQuizData: DocQuizMap = {
     {
       question: "Which algorithm achieves the best average-case for comparison sorts?",
       options: [
-        "A) Bubble Sort â€” O(n2)",
-        "B) Selection Sort â€” O(n2)",
-        "C) Merge Sort / Quick Sort â€” O(n log n)",
-        "D) Insertion Sort â€” O(n2)",
+        "A) Bubble Sort — O(n2)",
+        "B) Selection Sort — O(n2)",
+        "C) Merge Sort / Quick Sort — O(n log n)",
+        "D) Insertion Sort — O(n2)",
       ],
       correctAnswer: 2,
       explanation: "The lower bound for comparison sorting is Omega(n log n). Merge Sort meets it always; Quick Sort on average.",
@@ -398,10 +398,10 @@ const docQuizData: DocQuizMap = {
     {
       question: "Which sort minimises memory writes, making it suitable when writes are expensive?",
       options: [
-        "A) Bubble Sort â€” O(n2) writes",
-        "B) Merge Sort â€” O(n) writes",
-        "C) Selection Sort â€” O(n) writes",
-        "D) Insertion Sort â€” O(n2) writes",
+        "A) Bubble Sort — O(n2) writes",
+        "B) Merge Sort — O(n) writes",
+        "C) Selection Sort — O(n) writes",
+        "D) Insertion Sort — O(n2) writes",
       ],
       correctAnswer: 2,
       explanation: "Selection Sort performs at most n-1 swaps (one per pass), minimising write operations.",
@@ -414,7 +414,7 @@ const docQuizData: DocQuizMap = {
       question: "What is the time complexity of the standard DP solution to LCS?",
       options: ["A) O(m + n)", "B) O(m x n)", "C) O(m log n)", "D) O(2^(m+n))"],
       correctAnswer: 1,
-      explanation: "The DP table has m x n cells, each filled in O(1) â€” giving O(m x n) overall.",
+      explanation: "The DP table has m x n cells, each filled in O(1) — giving O(m x n) overall.",
     },
     {
       question: "What does 'subsequence' mean, compared to 'substring'?",

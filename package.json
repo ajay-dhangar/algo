@@ -47,7 +47,7 @@
     "@supabase/supabase-js": "^2.110.2",
     "axios": "^1.7.7",
     "clsx": "^2.0.0",
-    "framer-motion": "^11.9.0",
+    "motion": "^11.9.0",
     "html2canvas": "^1.4.1",
     "joi": "^17.13.3",
     "jspdf": "^2.5.2",

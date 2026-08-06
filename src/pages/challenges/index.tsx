@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useLocation } from "@docusaurus/router";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import Layout from "@theme/Layout";
 import {
   FaCode, FaTerminal, FaFire, FaTrophy, FaLayerGroup,

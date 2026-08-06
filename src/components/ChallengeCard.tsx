@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaClock, FaPlayCircle, FaTag } from "react-icons/fa";
 import Link from "@docusaurus/Link";
 

@@ -5,7 +5,7 @@ import Translate from '@docusaurus/Translate';
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 import { autoComplexities, ComplexityItem } from '../data/complexityData';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { COMPLEXITIES } from './complexity-visualizer';
 export default function ComplexityDashboard() {
   const [searchTerm, setSearchTerm] = useState('');

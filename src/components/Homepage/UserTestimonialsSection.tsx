@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, FreeMode } from "swiper/modules";
 import { FaQuoteLeft, FaChevronLeft, FaChevronRight, FaArrowRight, FaStar, FaStarHalfAlt } from "react-icons/fa";

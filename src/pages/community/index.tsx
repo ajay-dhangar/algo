@@ -1,7 +1,7 @@
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaGithub } from "react-icons/fa";
 import { 
   MessageSquare, 

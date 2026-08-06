@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import Layout from "@theme/Layout";
 import { TOPICS } from "../../data/practiceProblems";
 import type { Difficulty, Problem, TopicData } from "../../data/practiceProblems";

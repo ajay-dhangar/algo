@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FiArrowRight, FiActivity, FiCheckSquare } from "react-icons/fi";
 import { usePracticeActivityHeatmap } from "../hooks/usePracticeActivityHeatmap";
 import { useQuizStreak } from "../hooks/useQuizStreak";

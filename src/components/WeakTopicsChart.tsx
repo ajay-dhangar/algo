@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "@docusaurus/Link";
 import { FiArrowRight, FiRepeat } from "react-icons/fi";
 import type { WeakTopicEntry } from "../utils/weakTopics";

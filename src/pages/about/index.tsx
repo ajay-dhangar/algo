@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaGithub, FaLinkedin, FaTerminal, FaCode, FaServer, FaShieldAlt } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo, useRef } from "react";
 import {
   motion,
   AnimatePresence
-} from "framer-motion";
+} from "motion/react";
 import Layout from "@theme/Layout";
 import axios from "axios";
 import {

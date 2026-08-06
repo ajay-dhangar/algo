@@ -3,7 +3,7 @@ import Translate, { translate } from "@docusaurus/Translate";
 import { PageMetadata } from "@docusaurus/theme-common";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FiHome, FiTerminal, FiAlertTriangle } from "react-icons/fi";
 
 export default function NotFound() {

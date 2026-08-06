@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import Layout from "@theme/Layout";
 import Translate from "@docusaurus/Translate";
 import { useColorMode } from "@docusaurus/theme-common";

@@ -199,4 +199,4 @@ export const categories: VisCategory[] = [
       badge: 'bg-blue-500/10 text-blue-600 dark:text-blue-300 border-blue-500/20'
     },
   },
-];
+];

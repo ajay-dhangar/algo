@@ -12,7 +12,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "@docusaurus/Link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import {
   FaTrophy, FaClock, FaFire, FaTag, FaCheckCircle,
   FaChevronRight, FaCalendarWeek, FaBolt,

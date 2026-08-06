@@ -2,7 +2,7 @@
 import Layout from "@theme/Layout";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import axios from "axios";
 
 // ─── Types ────────────────────────────────────────────────────────────────────

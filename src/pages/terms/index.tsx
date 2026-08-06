@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaShieldAlt, FaBalanceScale, FaUserCheck, FaGavel, FaExclamationTriangle, FaBan, FaCalendarAlt, FaChevronRight } from "react-icons/fa";
 
 const TermsAndConditions: React.FC = () => {

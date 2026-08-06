@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Layout from "@theme/Layout";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { supabase } from "../../utils/supabaseClient";

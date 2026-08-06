@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Link from "@docusaurus/Link";
 import { FaArrowRight, FaTerminal, FaCompass, FaPlay } from "react-icons/fa";
 

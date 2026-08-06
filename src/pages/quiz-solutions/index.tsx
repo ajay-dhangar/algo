@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Layout from "@theme/Layout";
 import { FaGraduationCap, FaNetworkWired, FaSlidersH, FaSearch } from "react-icons/fa";
 import QuizCard from "../../components/QuizCard";

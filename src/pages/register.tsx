@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FiArrowRight, FiUser, FiZap, FiTarget, FiActivity } from "react-icons/fi";
 import AuthPanel from "../components/Auth/AuthPanel";
 

@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import Layout from "@theme/Layout";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import Link from "@docusaurus/Link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   FaChartBar,
   FaCheckCircle,

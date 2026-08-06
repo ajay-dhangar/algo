@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import Layout from '@theme/Layout';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 
