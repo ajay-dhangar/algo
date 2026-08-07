@@ -171,6 +171,11 @@ const config = {
             label: "Tutorials",
           },
           {
+            to: "docs-catalog",
+            label: "Docs Catalog",
+            position: "left",
+          },
+          {
             type: "dropdown",
             label: "Interview Engine",
             position: "left",

@@ -187,6 +187,27 @@ function validateFrontmatter(filePath, fileName) {
       }
     }
 
+    if (attributes.difficulty !== undefined) {
+      const difficultyValue = String(attributes.difficulty).toLowerCase();
+      if (!['easy', 'medium', 'hard'].includes(difficultyValue)) {
+        if (isFileModified) {
+          errors.push(
+            `❌ ${fileName}: Field "difficulty" must be one of [Easy, Medium, Hard], got ${attributes.difficulty}`
+          );
+          hasErrors = true;
+        }
+      }
+    }
+
+    if (attributes.topics !== undefined && !Array.isArray(attributes.topics)) {
+      if (isFileModified) {
+        errors.push(
+          `❌ ${fileName}: Field "topics" should be an array, got ${typeof attributes.topics}`
+        );
+        hasErrors = true;
+      }
+    }
+
     // Validate title length
     if (typeof attributes.title === 'string' && attributes.title.length > 100) {
       if (isFileModified) {
