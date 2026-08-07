@@ -26,6 +26,7 @@ import ComingSoon from '@site/src/components/ComingSoon';
 import CheatSheetExport from '@site/src/components/CheatSheetExport';
 import LanguageComparator from '@site/src/components/LanguageComparator';
 import RazorpayButton from '@site/src/components/RazorpayButton';
+import BruteForceOptimizedDiff from '@site/src/components/BruteForceOptimizedDiff';
  
 export default {
   // Re-use the default mapping
@@ -34,6 +35,7 @@ export default {
   Tabs,
   TabItem,
   LanguageComparator,
+  BruteForceOptimizedDiff,
   Highlight,
   ArrayVisualizations,
   BubbleSortVisualization,
