@@ -398,8 +398,8 @@ function BookCards() {
 export default function Book(): JSX.Element {
   return (
     <Layout
-      title={"Advanced Reference Stack"}
-      description="Interactive index of algorithms resources configured with sorting and live category search filtering capabilities."
+      title={"Recommended Books"}
+      description="In this page, I will share some of the books that I have read and found useful for learning algorithms and data structures. These books are not only great for beginners but also for experienced programmers who want to deepen their understanding of algorithms."
     >
       <Head>
         <script
