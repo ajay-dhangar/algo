@@ -4,6 +4,8 @@ id: buchbergers-algorithm
 sidebar_position: 18  
 title: "Buchberger's Algorithm"  
 sidebar_label: Buchberger's Algorithm  
+description: "Buchberger's Algorithm is used to compute the Gröbner Basis for an ideal in a polynomial ring, which is essential in solving systems of polynomial equations and performing symbolic algebraic computations."
+tags: [buchbergers-algorithm, grobner-basis, symbolic-computation, algorithms]
 
 ---
 
