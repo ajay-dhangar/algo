@@ -1,146 +1,166 @@
-import React, { useEffect, useState } from 'react';
-import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { CheckCircle } from 'lucide-react';
+import React, { useEffect, useState, useCallback } from "react";
+import Layout from "@theme/Layout";
+import Link from "@docusaurus/Link";
+import { useLocation } from "@docusaurus/router";
+import { Check, CheckCircle2, Copy, ArrowRight, Award, ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 export default function ThankYou(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext();
+  const location = useLocation();
   const [paymentId, setPaymentId] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      const razorpayPaymentId = urlParams.get('razorpay_payment_id');
-      if (razorpayPaymentId) {
-        setPaymentId(razorpayPaymentId);
-      }
+    const searchParams = new URLSearchParams(location.search);
+    const razorpayPaymentId = searchParams.get("razorpay_payment_id");
+    if (razorpayPaymentId) {
+      setPaymentId(razorpayPaymentId);
     }
-  }, []);
+  }, [location.search]);
 
-  const handleCopy = async () => {
-    if (paymentId) {
+  const handleCopy = useCallback(async () => {
+    if (!paymentId) return;
+    try {
       await navigator.clipboard.writeText(paymentId);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      const timer = setTimeout(() => setCopied(false), 2000);
+      return () => clearTimeout(timer);
+    } catch (err) {
+      console.error("Failed to copy transaction ID:", err);
     }
-  };
+  }, [paymentId]);
 
   return (
     <Layout
       title="Thank You for Your Support"
-      description="Thank you for supporting the Algo platform and open-source software development."
+      description="Thank you for supporting the platform and open-source software development."
     >
-      <main className="relative flex items-center justify-center overflow-hidden bg-neutral-50 dark:bg-[#0d1117] p-4 sm:px-6 lg:px-8">
-        
-        {/* Dynamic Industrial Ambient Background Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-tr from-emerald-500/10 via-teal-500/5 to-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
-        
-        {/* Main Glassmorphic Wrapper Container */}
-        <div className="relative max-w-2xl w-full text-center space-y-10 bg-white dark:bg-neutral-900/40 p-8 sm:p-14 rounded-3xl border border-neutral-200/80 dark:border-neutral-800/80 backdrop-blur-xl shadow-[0_24px_70px_rgba(0,0,0,0.07)] dark:shadow-[0_24px_70px_rgba(0,0,0,0.4)] transition-all duration-300">
+      <main className="relative flex min-h-[calc(100vh-var(--ifm-navbar-height))] items-center justify-center overflow-hidden bg-neutral-50 dark:bg-[#0b0f17] p-4">
+        {/* Dynamic Background Glows */}
+        <div 
+          aria-hidden="true" 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-gradient-to-tr from-emerald-500/15 via-teal-500/10 to-indigo-500/15 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" 
+        />
+
+        {/* Main Card Container */}
+        <div className="relative w-full max-w-2xl text-center space-y-6 sm:space-y-8 bg-white/80 dark:bg-neutral-900/60 p-6 sm:p-10 md:p-12 rounded-2xl sm:rounded-3xl border border-neutral-200/80 dark:border-neutral-800/80 backdrop-blur-xl shadow-xl dark:shadow-2xl transition-all duration-300">
           
-          {/* Animated Premium Success Checkmark */}
+          {/* Hero Icon */}
           <div className="relative flex justify-center">
-            <div className="absolute inset-0 m-auto w-24 h-24 bg-emerald-500/20 rounded-full blur-xl animate-pulse" />
-            <div className="relative bg-emerald-100 dark:bg-emerald-950/50 p-4 rounded-full border border-emerald-200 dark:border-emerald-800">
-              <CheckCircle className="w-12 h-12 text-emerald-500 dark:text-emerald-400" />
+            <div aria-hidden="true" className="absolute inset-0 m-auto w-16 h-16 sm:w-20 sm:h-20 bg-emerald-500/20 rounded-full blur-xl animate-pulse" />
+            <div className="relative bg-emerald-100/80 dark:bg-emerald-950/60 p-3.5 sm:p-4 rounded-2xl border border-emerald-300/50 dark:border-emerald-800/50 shadow-inner">
+              <CheckCircle2 className="w-10 h-10 sm:w-12 sm:h-12 text-emerald-600 dark:text-emerald-400" />
             </div>
           </div>
 
-
-          {/* Clean Editorial Heading Block */}
+          {/* Heading Section */}
           <div className="space-y-3">
-            <span className="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase bg-emerald-50 dark:bg-emerald-950/50 px-3 py-1.5 rounded-full border border-emerald-200/30 dark:border-emerald-800/30">
-              Payment Completed Successfully
-            </span>
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-900 dark:text-neutral-50 pt-2">
-              Thank You,{' '}
+            <div>
+              <span className="inline-flex items-center text-[11px] sm:text-xs font-semibold tracking-wider text-emerald-700 dark:text-emerald-300 uppercase bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-200/60 dark:border-emerald-800/60">
+                Payment Successful
+              </span>
+            </div>
+
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 leading-tight">
+              Thank You,{" "}
               <span className="bg-gradient-to-r from-emerald-500 via-teal-500 to-indigo-500 bg-clip-text text-transparent">
                 Developer!
               </span>
             </h1>
-            <p className="text-base sm:text-lg font-medium text-neutral-500 dark:text-neutral-400 max-w-md mx-auto">
-              Your contribution pushes open-source software and algorithm mapping forward.
+
+            <p className="text-sm sm:text-base font-normal text-neutral-600 dark:text-neutral-400 max-w-md mx-auto leading-relaxed">
+              Your contribution directly drives open-source software and interactive algorithm mapping forward.
             </p>
           </div>
 
-          {/* High-Contrast Interactive Receipt Component */}
+          {/* Receipt / Payment Reference Box */}
           {paymentId && (
-            <div className="max-w-md mx-auto p-0.5 rounded-2xl bg-gradient-to-r from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:to-neutral-700 shadow-sm">
-              <div className="flex items-center justify-between gap-4 px-4 py-3 bg-neutral-50 dark:bg-[#161b22] rounded-[14px]">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-                  <div className="text-left min-w-0">
-                    <p className="text-[10px] font-bold text-neutral-400 dark:text-neutral-500 uppercase tracking-widest m-0 leading-none">Transaction Token</p>
-                    <p className="font-mono text-xs text-neutral-700 dark:text-neutral-300 truncate m-0 pt-1 select-all">{paymentId}</p>
+            <div className="max-w-md mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r from-neutral-200/80 via-neutral-100 to-neutral-200/80 dark:from-neutral-800/80 dark:via-neutral-800/40 dark:to-neutral-800/80 p-0.5 shadow-sm">
+              <div className="flex items-center justify-between gap-3 px-3.5 py-2.5 sm:px-4 sm:py-3 bg-white/90 dark:bg-[#121721]/90 rounded-[10px] sm:rounded-[14px]">
+                <div className="flex items-center gap-2.5 min-w-0 text-left">
+                  <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider m-0 leading-none">
+                      Transaction Ref
+                    </p>
+                    <p className="font-mono text-xs sm:text-sm text-neutral-800 dark:text-neutral-200 truncate m-0 pt-1 select-all font-medium">
+                      {paymentId}
+                    </p>
                   </div>
                 </div>
-                <button 
+
+                <button
                   onClick={handleCopy}
-                  className="flex-shrink-0 inline-flex items-center justify-center p-2 rounded-lg bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-700/50 transition-all cursor-pointer"
-                  title="Copy Receipt Reference ID"
+                  type="button"
+                  className="flex-shrink-0 inline-flex items-center justify-center p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700/60 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200/60 dark:hover:bg-neutral-700 transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
+                  aria-label="Copy payment reference to clipboard"
+                  title="Copy payment reference"
                 >
                   {copied ? (
-                    <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
+                    <Check className="w-4 h-4 text-emerald-500" />
                   ) : (
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-                    </svg>
+                    <Copy className="w-4 h-4" />
                   )}
                 </button>
               </div>
             </div>
           )}
 
-          {/* Minimalist Tech Infrastructure Pitch Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto text-left">
-            <a 
+          {/* Feature Grid / Flexible Badges */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 sm:gap-4 max-w-xl mx-auto text-left">
+            <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-5 rounded-2xl border border-neutral-200/70 dark:border-neutral-800/80 hover:border-neutral-400 dark:hover:border-neutral-700 hover:bg-neutral-50/50 dark:hover:bg-neutral-800/20 transition-all duration-200 no-underline text-inherit"
+              className="group p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-800/20 hover:border-emerald-500/40 dark:hover:border-emerald-500/40 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/40 transition-all duration-200 no-underline text-inherit focus:outline-none focus:ring-2 focus:ring-emerald-500/40"
             >
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 group-hover:bg-neutral-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-neutral-900 transition-colors duration-200">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.27.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
-                  </svg>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3.5">
+                  <div className="p-2.5 rounded-xl bg-neutral-900 dark:bg-neutral-800 text-white dark:text-neutral-200 group-hover:scale-105 transition-transform duration-200">
+                    <FaGithub className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h2 className="font-bold text-sm m-0 text-neutral-900 dark:text-neutral-100">
+                      Claim Badge
+                    </h2>
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400 m-0 pt-0.5">
+                      Link your GitHub username via issue.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-sm m-0 text-neutral-800 dark:text-neutral-200">Claim Profile Badge</h4>
-                  <p className="text-xs text-neutral-400 dark:text-neutral-500 m-0 pt-0.5">Open an issue to map your GitHub tag.</p>
-                </div>
+                <ExternalLink className="w-4 h-4 text-neutral-400 group-hover:text-neutral-600 dark:group-hover:text-neutral-200 transition-colors" />
               </div>
             </a>
 
-            <div className="p-5 rounded-2xl border border-neutral-200/70 dark:border-neutral-800/80 bg-neutral-50/30 dark:bg-neutral-800/10 flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-500 dark:text-indigo-400">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
+            <div className="p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-800/20 flex items-center gap-3.5">
+              <div className="p-2.5 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                <Award className="w-5 h-5" />
               </div>
               <div>
-                <h4 className="font-bold text-sm m-0 text-neutral-800 dark:text-neutral-200">Production Wall</h4>
-                <p className="text-xs text-neutral-400 dark:text-neutral-500 m-0 pt-0.5">Your profile will append to our README.</p>
+                <h2 className="font-bold text-sm m-0 text-neutral-900 dark:text-neutral-100">
+                  Sponsor Wall
+                </h2>
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 m-0 pt-0.5">
+                  Your profile appends to our README.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Premium Call to Action Footer Row */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+          {/* Flexible Action Buttons */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
             <Link
               to="/"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200 text-white dark:text-neutral-900 font-bold text-sm shadow-sm transition-all duration-200 no-underline cursor-pointer group"
+              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200 text-white dark:text-neutral-900 font-semibold text-sm shadow-md hover:shadow-lg transition-all duration-200 no-underline cursor-pointer group focus:outline-none focus:ring-2 focus:ring-neutral-500/40"
             >
-                <span>Back to Home</span>
-                <svg className="w-4 h-4 text-white dark:text-neutral-900 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+              <span>Back to Home</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </div>
+
         </div>
       </main>
     </Layout>

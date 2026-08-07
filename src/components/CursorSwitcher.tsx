@@ -1,64 +1,185 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback, useId } from "react";
 import { useCursor, CursorType } from "@site/src/contexts/CursorContext";
+import { FiMousePointer, FiStar, FiCheck, FiChevronDown, FiZap } from "react-icons/fi";
+import { BiMeteor } from "react-icons/bi";
 
-const cursorOptions: { type: CursorType; label: string; icon: string }[] = [
-  { type: "default", label: "Default", icon: "↖" },
-  { type: "glow", label: "Glow", icon: "✨" },
-  { type: "trail", label: "Trail", icon: "☄️" },
-  { type: "sparkle", label: "Sparkle", icon: "⭐" },
+
+
+interface CursorOption {
+  type: CursorType;
+  label: string;
+  icon: React.ReactNode;
+}
+
+const cursorOptions: CursorOption[] = [
+  { 
+    type: "default", 
+    label: "Default Cursor", 
+    icon: <FiMousePointer /> 
+  },
+  { 
+    type: "glow", 
+    label: "Glow Cursor", 
+    icon: <FiZap className="text-amber-500 fill-current" /> 
+  },
+  { 
+    type: "trail", 
+    label: "Trail Cursor", 
+    icon: <BiMeteor className="text-sky-500 text-base" /> 
+  },
+  { 
+    type: "sparkle", 
+    label: "Sparkle Cursor", 
+    icon: <FiStar className="text-yellow-500 fill-current" /> 
+  },
 ];
 
-export default function CursorSwitcher() {
+interface CursorSwitcherProps {
+  /** 'embedded' mode strips popover positioning for placement inside parent menus */
+  variant?: "popover" | "embedded";
+  className?: string;
+}
+
+export default function CursorSwitcher({
+  variant = "popover",
+  className = "",
+}: CursorSwitcherProps): React.JSX.Element {
   const { cursor, setCursor } = useCursor();
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const menuId = useId();
 
+  // Handle outside click & Escape key listeners
   useEffect(() => {
+    if (!isOpen || variant === "embedded") return;
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, variant]);
 
-  const currentOption = cursorOptions.find((o) => o.type === cursor) || cursorOptions[0];
+  const selectCursor = useCallback(
+    (type: CursorType) => {
+      setCursor(type);
+      setIsOpen(false);
+    },
+    [setCursor]
+  );
 
+  const currentOption =
+    cursorOptions.find((o) => o.type === cursor) || cursorOptions[0];
+
+  // Render horizontal icon bar when embedded inside parent dropdown
+  if (variant === "embedded") {
+    return (
+      <div className={`w-full px-2 py-1.5 ${className}`}>
+        <div className="mb-2 px-1 text-[10px] font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+          Cursor Effects
+        </div>
+        <div
+          className="flex items-center gap-1.5"
+          role="radiogroup"
+          aria-label="Cursor Style Options"
+        >
+          {cursorOptions.map((option) => {
+            const isSelected = cursor === option.type;
+            return (
+              <button
+                key={option.type}
+                type="button"
+                role="radio"
+                aria-checked={isSelected}
+                aria-label={option.label}
+                title={option.label}
+                onClick={() => selectCursor(option.type)}
+                className={`flex h-9 w-9 items-center justify-center rounded-lg border text-base transition-all outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50 ${
+                  isSelected
+                    ? "border-emerald-500/50 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-200"
+                    : "border-neutral-200 bg-neutral-50 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-800/40 dark:text-neutral-300 dark:hover:bg-neutral-800"
+                }`}
+              >
+                <span>{option.icon}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  // Standalone compact icon button for navbar
   return (
-    <div className="relative inline-block text-left" ref={dropdownRef}>
+    <div
+      ref={containerRef}
+      className={`relative inline-block text-left ${className}`}
+    >
       <button
-        onClick={() => setIsOpen(!isOpen)}
         type="button"
-        className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
+        className="inline-flex items-center justify-center gap-1 rounded-lg border border-neutral-200 bg-white/80 p-2 text-xs font-medium text-neutral-700 shadow-sm backdrop-blur-md transition-all hover:bg-neutral-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50 dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-200 dark:hover:bg-neutral-800"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-haspopup="menu"
+        aria-controls={menuId}
         aria-expanded={isOpen}
+        aria-label={`Cursor style: ${currentOption.label}`}
+        title={`Cursor style: ${currentOption.label}`}
       >
-        <span>{currentOption.icon}</span>
-        <span className="hidden sm:inline">Cursor: {currentOption.label}</span>
-        <svg className="w-4 h-4 ml-1 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-        </svg>
+        <span className="text-sm leading-none">{currentOption.icon}</span>
+        {/* <FiChevronDown
+          className={`h-3 w-3 opacity-60 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        /> */}
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-40 origin-top-right rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl py-1 z-50">
-          {cursorOptions.map((option) => (
-            <button
-              key={option.type}
-              onClick={() => {
-                setCursor(option.type);
-                setIsOpen(false);
-              }}
-              className={`w-full text-left px-4 py-2 text-sm flex items-center gap-2 transition-colors ${
-                cursor === option.type
-                  ? "bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 font-semibold"
-                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-              }`}
-            >
-              <span>{option.icon}</span>
-              <span>{option.label}</span>
-            </button>
-          ))}
+        <div
+          id={menuId}
+          role="menu"
+          aria-label="Cursor options"
+          className="absolute right-0 z-50 mt-2 flex min-w-[140px] flex-col gap-1 rounded-xl border border-neutral-200/80 bg-white/95 p-1.5 shadow-xl backdrop-blur-xl transition-all dark:border-neutral-800/80 dark:bg-neutral-900/95"
+        >
+          {cursorOptions.map((option) => {
+            const isSelected = cursor === option.type;
+            return (
+              <button
+                key={option.type}
+                type="button"
+                role="menuitemradio"
+                aria-checked={isSelected}
+                aria-label={option.label}
+                title={option.label}
+                onClick={() => selectCursor(option.type)}
+                className={`flex items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-xs transition-all outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50 ${
+                  isSelected
+                    ? "bg-emerald-50 font-semibold text-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-200"
+                    : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800/60"
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-sm">{option.icon}</span>
+                  <span className="text-xs">{option.label}</span>
+                </div>
+              </button>
+            );
+          })}
         </div>
       )}
     </div>
