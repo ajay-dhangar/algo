@@ -48,8 +48,16 @@ export function categorizePRTitle(title: string): PRCategory {
     );
   const isFeatureWord = /\bfeat(ure)?\b|\badd(ed|s)?\b|\bnew\b|\bimplement/.test(t);
 
-  if (isFix && isDocsWord) return "docs";
+  // Check isFix+isBugWord before isFix+isDocsWord: an explicit bug keyword
+  // ("bug", "error", "crash", "issue", "broken") is more specific than a docs
+  // keyword that happened to appear in the same title.
+  // Example that was broken before this fix:
+  //   "fix bug in algorithm documentation" → matched isFix+isDocsWord first → "docs"
+  //   Correct category: "bugfix" (explicit bug keyword wins)
+  // Pure docs fixes like "fix: resolve issue in README" are handled by the
+  // isFix+isDocsWord branch below once isBugWord is confirmed absent.
   if (isFix && isBugWord) return "bugfix";
+  if (isFix && isDocsWord) return "docs";
   if (isAlgoWord) return "algorithm";
   if (isDocsWord) return "docs";
   if (isFeatureWord) return "feature";
