@@ -5,457 +5,457 @@
     <link>https://ajay-dhangar.github.io/algo/newsletter</link>
     <description>Periodic digest summarizing newly merged algorithm docs and problem walkthroughs in Algo.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Aug 2026 03:12:28 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 14:55:20 GMT</lastBuildDate>
     <atom:link href="https://ajay-dhangar.github.io/algo/algorithm-digest.xml" rel="self" type="application/rss+xml"/>
     
     <item>
-      <title>Flood Fill Algorithm</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/graphs/flood-fill</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/graphs/flood-fill</guid>
-      <description>In this blog post, we&apos;ll explore the Flood Fill Algorithm, a popular technique used in computer graphics for determining connected regions, such as filling areas in images and solving puzzles like the paint bucket tool in graphics editing software.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <title>Naive Search Algorithm</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/string-algorithms/Naive-search</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/string-algorithms/Naive-search</guid>
+      <description>A basic string-search algorithm that checks every position in the text for a match with the pattern.</description>
+      <pubDate>Fri, 07 Aug 2026 14:46:51 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Shell Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/ShellSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/ShellSort</guid>
-      <description>Complete guide to Shell Sort, a generalization of insertion sort that compares elements separated by a gap sequence to enable faster sorting.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>arrays</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/arrays</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/arrays</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Pigeonhole Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Pigeonhole</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Pigeonhole</guid>
-      <description>Complete guide to Pigeonhole Sort, a linear time sorting algorithm that works by placing elements into pigeonholes based on their key values.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>strings</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/strings</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/strings</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Odd-Even Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Odd-Even-Sort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Odd-Even-Sort</guid>
-      <description>Complete guide to Odd-Even Sort, a parallel sorting algorithm that alternates between odd and even phases to gradually sort the array.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Inheritance</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/inheritance</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/inheritance</guid>
+      <description>A quick introduction to inheritance and its types in C++.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Gnome Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/GnomeSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/GnomeSort</guid>
-      <description>Complete guide to Gnome Sort, a simple comparison-based sorting algorithm that sorts by swapping adjacent out-of-order elements and moving backward on a swap.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Method Overriding</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/method-overriding</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/method-overriding</guid>
+      <description>Method overriding allows a derived class to provide a specific implementation of a method that is already defined in its base class. This feature enables runtime polymorphism in object-oriented programming.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Jump Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/JumpSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/JumpSort</guid>
-      <description>Complete guide to Jump Sort, a comparison-based sorting algorithm that divides the list into blocks and performs linear search within blocks to find sorted position.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Methods</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/methods</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/methods</guid>
+      <description>Comprehensive guide to methods in C++: declaration, invocation, parameters, return types, instance vs static, and best practices.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Sort 0s, 1s, and 2s using Dutch National Flag Algorithm</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Dutch-flag-algo</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Dutch-flag-algo</guid>
-      <description>Complete guide to the Dutch National Flag Algorithm for sorting an array of 0s, 1s, and 2s in a single traversal using a three-pointer approach.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Access Modifiers</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/modifiers</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/modifiers</guid>
+      <description>Complete guide to public, private, and protected access modifiers in C++, encapsulation, friend functions, and best practices.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Comb Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CombSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CombSort</guid>
-      <description>Complete guide to Comb Sort, an improvement over bubble sort that compares elements separated by a shrinking gap to eliminate turtles.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Operator Overloading</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/operator-overloading</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/operator-overloading</guid>
+      <description>Operator overloading allows you to redefine the way operators work for user-defined types (classes and structs). It enables you to specify more intuitive ways to perform operations on objects of your classes.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Cycle Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CycleSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CycleSort</guid>
-      <description>Complete guide to Cycle Sort, a comparison-based sorting algorithm that minimizes memory writes by placing elements in their correct position as part of a cycle.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Constructors</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/constructors</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/constructors</guid>
+      <description>Comprehensive guide to constructors in C++ - purpose, types, overloading, chaining, initialization lists, and best practices.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Cocktail Shaker Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CocktailShakerSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CocktailShakerSort</guid>
-      <description>Complete guide to Cocktail Shaker Sort, a bidirectional bubble sort variant that traverses the array in both directions.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Attributes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/attributes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/attributes</guid>
+      <description>Deep dive into attributes (data members) in C++ classes: object state, fields vs properties, getters/setters, and encapsulation techniques.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Bogo Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/BogoSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/BogoSort</guid>
-      <description>Complete guide to Bogo Sort, a highly inefficient sorting algorithm that generates random permutations until the array is sorted.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>classes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/classes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/classes</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>N-Queens Algorithm using Backtracking</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/backtracking-algorithms/n-queens_algorithm</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/backtracking-algorithms/n-queens_algorithm</guid>
-      <description>Overview and implementation of the N-Queens problem using a backtracking algorithm.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>composition</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/composition</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/composition</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Word Search</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/backtracking-algorithms/word-search</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/backtracking-algorithms/word-search</guid>
-      <description>Solve the Word Search problem using DFS with backtracking on a 2D character grid. Covers both Word Search I (single word) and Word Search II (multiple words with Trie).</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Demystifying Variables: The Ultimate Multi-Language Guide</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/variables</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/variables</guid>
+      <description>Master variables across JavaScript, Python, Java, and C++. Learn initialization patterns, memory behaviors, scope lifecycles, and industry-standard production best practices.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Finding Power of Factorial Divisor</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/Legendre&apos;s Algorithm/legendre-algo</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/Legendre&apos;s Algorithm/legendre-algo</guid>
-      <description>Legendre&apos;s Formula calculates the largest exponent x such that k^x divides n!, the factorial of a number, by summing the quotients of n divided by successive powers of k.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>abstract-classes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstract-classes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstract-classes</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Dancing Links (DLX)</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/DLX algorithm/DLX</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/DLX algorithm/DLX</guid>
-      <description>The Dancing Links (DLX) algorithm is a highly efficient implementation of the Exact Cover Problem based on dancing links technique.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>abstraction</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstraction</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstraction</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Sqrt Decomposition</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</guid>
-      <description>Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Operators</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/operators</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/operators</guid>
+      <description>Explore different types of operators in programming languages like JavaScript, Java, Python, and C++. Understand their usage, precedence, and practical examples.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Heavy-Light Decomposition</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</guid>
-      <description>Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Strings</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/strings</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/strings</guid>
+      <description>Learn about strings in JavaScript, Java, Python, and C++. Understand how to create, manipulate, and use strings effectively in programming.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Persistent Segment Tree</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</guid>
-      <description>A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>Objects</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/objects</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/objects</guid>
+      <description>Learn about objects in JavaScript, Java, Python, and C++. Understand how to define, create, and use objects effectively in these popular programming languages.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Collision Handling in Hashing</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/Hashing/CollisionHandling</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/Hashing/CollisionHandling</guid>
-      <description>Collision handling in hashing refers to the techniques used to resolve key collisions when two or more keys map to the same hash table index, such as chaining and open addressing.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>extra</category>
+      <title>interfaces</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/interfaces</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/interfaces</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Yaroslav and Productivity</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/yaroslav-and-productivity</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/yaroslav-and-productivity</guid>
-      <description>Solution for Codeforces 2244D: Yaroslav and Productivity, utilizing block independence and greedy logic.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Loops</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/loops</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/loops</guid>
+      <description>Explore how to use loops in JavaScript, Java, Python, and C++. Learn about different types of loops and their usage, including for loops, while loops, and do-while loops.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Word Search</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/word-search</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/word-search</guid>
-      <description>Solving the Word Search problem using recursive backtracking and Depth-First Search (DFS).</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Arrays</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/arrays</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/arrays</guid>
+      <description>Learn about arrays in JavaScript, Java, Python, and C++. Understand how to declare, initialize, and manipulate arrays across different programming languages.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Valid Parenthesis String</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/valid-parenthesis-string</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/valid-parenthesis-string</guid>
-      <description>Solving the Valid Parenthesis String problem using an optimal Greedy approach.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Classes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/classes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/classes</guid>
+      <description>Learn about classes and object-oriented programming concepts in JavaScript, Java, Python, and C++. Understand how to create, instantiate, and work with classes effectively in these popular languages.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Triangle</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/triangle</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/triangle</guid>
-      <description>Solving the Triangle problem using Dynamic Programming (Bottom-Up space optimization).</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Conditionals</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/conditionals</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/conditionals</guid>
+      <description>Master conditional statements in JavaScript, Java, Python, and C++. Learn how to use if-else, switch statements, and ternary operators for decision-making in programming.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Unique Paths</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/unique-paths</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/unique-paths</guid>
-      <description>The Unique Paths problem on LeetCode involves finding the number of possible unique paths for a robot to reach the bottom-right corner of a grid.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/functions</guid>
+      <description>Learn about functions and how to create and use them in JavaScript, Java, Python, and C++. Understand function declarations, parameters, return values, and best practices.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Surrounded Regions</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/surrounded-regions</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/surrounded-regions</guid>
-      <description>Solution for LeetCode 130: Surrounded Regions, utilizing Graph Traversal (DFS) on the boundaries to capture enclosed components.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Inheritance</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/inheritance</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/inheritance</guid>
+      <description>Learn about inheritance in JavaScript, Java, Python, and C++.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Total Waviness of Numbers in Range I</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/total-waviness-of-numbers-in-range</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/total-waviness-of-numbers-in-range</guid>
-      <description>Determining the total sum of waviness for all numbers in a given range by checking for peaks and valleys among their digits.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Function Parameters</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-parameters</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-parameters</guid>
+      <description>A quick introduction to function parameters.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Sum of Subarray Ranges</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/sum-of-subarray-ranges</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/sum-of-subarray-ranges</guid>
-      <description>The Sum of Subarray Ranges problem involves finding the sum of the difference between the maximum and minimum elements of all subarrays using a Monotonic Stack.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>function-recursion</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-recursion</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-recursion</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Size of Largest BST in Binary Tree</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/size-of-largest-bst-in-binary-tree</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/size-of-largest-bst-in-binary-tree</guid>
-      <description>Determine whether the subtree rooted at each node is a Binary Search Tree (BST). Find the size of the largest BST.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Higher-Order Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/higher-order-functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/higher-order-functions</guid>
+      <description>Learn about Higher-Order Functions (HOFs), how they accept or return other functions, and explore standard examples like map, filter, and reduce.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Rotten Oranges Algorithm</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/rotten-oranges</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/rotten-oranges</guid>
-      <description>Solve the Rotten Oranges problem using Breadth-First Search (BFS) to determine the minimum time required for all fresh oranges to rot.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Pass by Value vs. Pass by Reference</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pass-by-value-vs-reference</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pass-by-value-vs-reference</guid>
+      <description>Understand the core differences between Pass by Value and Pass by Reference, with detailed behavior in Python, JavaScript, and C++.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Segregate even and odd nodes in a linked list</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/segregate-even-odd-nodes</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/segregate-even-odd-nodes</guid>
-      <description>In a linked list, the goal is to rearrange the nodes such that all even-valued nodes appear before all odd-valued nodes.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Pure vs. Impure Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pure-vs-impure-functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pure-vs-impure-functions</guid>
+      <description>Learn about the differences between Pure and Impure functions, the concept of side effects, and why purity is important in functional programming.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Reverse Integer</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/reverse-integer</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/reverse-integer</guid>
-      <description>This document explains the Reverse Integer problem, including its description, approach, and implementation.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>function-memoization</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-memoization</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-memoization</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Removing Stars From a String</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removing-stars-from-string</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removing-stars-from-string</guid>
-      <description>This document explains the Removing Stars From a String problem, including its description, approach, and implementation.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Function Expressions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-expressions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-expressions</guid>
+      <description>Learn about Function Expressions, their syntax, usage, and key differences from Function Declarations.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>RemovevomeR</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removevomer</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removevomer</guid>
-      <description>Solution for Codeforces 2241C: RemovevomeR, utilizing a greedy string observation approach.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>First-Class Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/first-class-functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/first-class-functions</guid>
+      <description>Learn about First-Class Functions, the criteria that make functions first-class citizens, and examples across major programming languages.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Rabbits in Forest</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/rabbits-in-forest</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/rabbits-in-forest</guid>
-      <description>Solving the Rabbits in Forest problem using a Hash Map and Greedy Math approach.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Default Parameters</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/default-parameters</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/default-parameters</guid>
+      <description>Learn about Default Parameters, their syntax, usage rules, and important gotchas across programming languages.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Process String with Special Operations I</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/process-string-with-special-operations-i</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/process-string-with-special-operations-i</guid>
-      <description>Simulating string processing with backspace, duplicate, and reverse operations.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Callback Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/callback-functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/callback-functions</guid>
+      <description>Learn about Callback Functions, the difference between synchronous and asynchronous callbacks, and how to handle asynchronous operations.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Path With Minimum Effort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/path-with-minimum-effort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/path-with-minimum-effort</guid>
-      <description>Solution for LeetCode 1631: Path With Minimum Effort, utilizing Dijkstra&apos;s Algorithm with a Min-Priority Queue on a 2D grid.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Arguments vs. Parameters</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/arguments-vs-parameters</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/arguments-vs-parameters</guid>
+      <description>Understand the clear conceptual difference between parameters and arguments with examples and comparison tables.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Partition Equal Subset Sum</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-equal-subset-sum</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-equal-subset-sum</guid>
-      <description>Solving the Partition Equal Subset Sum problem using Space-Optimized Dynamic Programming.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Anonymous Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/anonymous-functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/anonymous-functions</guid>
+      <description>Learn about Anonymous Functions, their syntax across different programming languages, and typical use cases.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Partition Array According to Given Pivot</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-array-according-to-given-pivot</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-array-according-to-given-pivot</guid>
-      <description>Rearranging an array based on a pivot value while maintaining the stable relative order of elements.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>return</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/return</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/return</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Odd Even Linked List</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/odd-even-linked-list</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/odd-even-linked-list</guid>
-      <description>This document explains the Odd Even Linked List problem, including its description, approach, and implementation.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Switch Statement</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/switch</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/switch</guid>
+      <description>Learn how to use the switch statement in programming to make decisions based on multiple conditions. Understand the syntax, examples, and best practices for using switch statements effectively.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Number of Provinces</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-provinces</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-provinces</guid>
-      <description>Solution for LeetCode 547: Number of Provinces, utilizing Graph Traversal (DFS) to find connected components.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>References and Pointers in C++</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/cpp-pointers-references</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/cpp-pointers-references</guid>
+      <description>Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Number of Islands</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-islands</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-islands</guid>
-      <description>Solution for LeetCode 200: Number of Islands, utilizing Graph Traversal (DFS) to count connected components in a matrix.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>If-Else Statement</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/if-else</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/if-else</guid>
+      <description>Learn how to use the if-else statement in programming to make decisions based on conditions. Understand the syntax, examples, and best practices for using if-else statements effectively.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Number of Operations to Make Network Connected</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-operations-to-make-network-connected</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-operations-to-make-network-connected</guid>
-      <description>Solution for LeetCode 1319: Number of Operations to Make Network Connected, utilizing Graph Traversal (DFS) to count connected components.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>For Loop</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/for-loop</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/for-loop</guid>
+      <description>Learn how to use the for loop in programming to iterate over a sequence of elements. Understand the syntax, examples, and best practices for using for loops effectively.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Nikita and Books</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/nikita-and-books</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/nikita-and-books</guid>
-      <description>Solution for Codeforces 2244B: Nikita and Books, utilizing a greedy prefix sum approach.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>finally</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/finally</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/finally</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Merge Intervals</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/merge-intervals</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/merge-intervals</guid>
-      <description>This document explains the Merge Intervals problem, including its description, approach, and implementation.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>continue</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/continue</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/continue</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Maximum Points You Can Obtain from Cards</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-points-you-can-obtain-from-cards</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-points-you-can-obtain-from-cards</guid>
-      <description>The Maximum Points You Can Obtain from Cards problem on LeetCode involves finding the maximum score by taking exactly k cards from either the beginning or the end of an array.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>do-while-loop</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/do-while-loop</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/do-while-loop</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Maximum Total Subarray Value I</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-total-subarray-value-i</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-total-subarray-value-i</guid>
-      <description>The Maximum Total Subarray Value I problem involves finding the maximum possible value by choosing a subarray k times using a greedy approach.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>break</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/break</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/break</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Maximum Ice Cream Bars</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-ice-cream-bars</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-ice-cream-bars</guid>
-      <description>Finding the maximum number of ice cream bars that can be bought with a given amount of coins using a greedy approach.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Selection Sort in Swift</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/languages/swift/selection-sort</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/languages/swift/selection-sort</guid>
+      <description>Learn how to implement Selection Sort in Swift, with complete code examples, explanation, and complexity analysis.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>languages</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Lowest Common Ancestor</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/lowest-common-ancestor</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/lowest-common-ancestor</guid>
-      <description>A detailed solution to the lowest common ancestor dsa problem from leetcode</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Quick Sort in Swift</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/languages/swift/quick-sort</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/languages/swift/quick-sort</guid>
+      <description>Learn how to implement Quick Sort in Swift, with complete code examples, explanation, and complexity analysis.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>languages</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Longest Substring Without Repeating Characters</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/longest-substring-without-repeated-characters-problem</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/longest-substring-without-repeated-characters-problem</guid>
-      <description>This document explains the &apos;Longest Substring Without Repeating Characters&apos; problem, including its description, approach, and implementation.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Merge Sort in Swift</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/languages/swift/merge-sort</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/languages/swift/merge-sort</guid>
+      <description>Learn how to implement Merge Sort in Swift, with complete code examples, explanation, and complexity analysis.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>languages</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Iskander and Drawings</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/iskander-and-drawings</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/iskander-and-drawings</guid>
-      <description>Solution for Codeforces 2244A: Iskander and Drawings, calculating the maximum time to erase a line.</description>
-      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
-      <category>dsa-problems</category>
+      <title>Introduction to Swift</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/languages/swift/introduction</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/languages/swift/introduction</guid>
+      <description>Introduction to the Swift programming language, contribution guidelines, and recommended project/folder structure for Swift algorithms.</description>
+      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <category>languages</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
   </channel>
