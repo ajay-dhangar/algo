@@ -2,19 +2,20 @@ import React, { useState, useMemo } from 'react';
 import { 
   FaHeart, FaShieldAlt, FaCreditCard, FaGithub, FaArrowUp, 
   FaTerminal, FaQrcode, FaSearch, FaFilter, FaSortAmountDown,
-  FaMedal, FaExternalLinkAlt, FaTimes
+  FaMedal, FaExternalLinkAlt, FaTimes, FaLock
 } from 'react-icons/fa';
 import RazorpayButton from '@site/src/components/RazorpayButton';
 import { INITIAL_SPONSORS, Sponsor } from '../../data/sponsorsData';
 
 export default function FintechExecutionConsole() {
-  // Controller state arrays
   const [searchQuery, setSearchQuery] = useState('');
   const [filterType, setFilterType] = useState<'all' | 'github' | 'razorpay' | 'upi'>('all');
   const [sortBy, setSortBy] = useState<'value' | 'name'>('value');
+  
+  // Modals for decoupled execution
   const [showUpiModal, setShowUpiModal] = useState(false);
+  const [showRazorpayModal, setShowRazorpayModal] = useState(false);
 
-  // Compute filtering sequence and map ranking based on payment value
   const processedSponsors = useMemo(() => {
     return INITIAL_SPONSORS.filter(sponsor => {
       const matchesSearch = sponsor.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -23,9 +24,9 @@ export default function FintechExecutionConsole() {
       return matchesSearch && matchesType;
     }).sort((a, b) => {
       if (sortBy === 'value') {
-        return b.amount - a.amount; // Highest contribution ranking first
+        return b.amount - a.amount;
       }
-      return a.name.localeCompare(b.name); // Alphabetical fallback
+      return a.name.localeCompare(b.name);
     });
   }, [searchQuery, filterType, sortBy]);
 
@@ -85,19 +86,17 @@ export default function FintechExecutionConsole() {
             {/* Micro-Console Channel Actuators */}
             <div className="space-y-3 relative z-10">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                {/* Razorpay Gateway Link */}
-                {/* <a
-                  href="https://razorpay.me/@ajay-dhangar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="py-3 px-2 rounded-xl font-mono text-[10px] font-black uppercase tracking-wider text-center text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-xs flex items-center justify-center gap-1.5 border border-transparent hover:no-underline hover:text-white"
-                >
-                  <FaCreditCard className="text-xs shrink-0" /> <span>RAZORPAY</span> <FaArrowUp className="rotate-45 text-[9px]" />
-                </a> */}
                 
-                <RazorpayButton />
+                {/* 1. Modal-Triggered Razorpay Channel */}
+                <button
+                  type="button"
+                  onClick={() => setShowRazorpayModal(true)}
+                  className="py-3 px-2 rounded-xl font-mono text-[10px] font-black uppercase tracking-wider text-center text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer border border-transparent"
+                >
+                  <FaCreditCard className="text-xs shrink-0" /> <span>RAZORPAY</span>
+                </button>
 
-                {/* GitHub Shell Link */}
+                {/* 2. GitHub External Redirect */}
                 <a
                   href="https://github.com/sponsors/ajay-dhangar"
                   target="_blank"
@@ -107,7 +106,7 @@ export default function FintechExecutionConsole() {
                   <FaGithub className="text-xs shrink-0" /> <span>GITHUB</span> <FaArrowUp className="rotate-45 text-[9px]" />
                 </a>
 
-                {/* Instant Modal Trigger for UPI */}
+                {/* 3. Instant Modal Trigger for UPI */}
                 <button
                   type="button"
                   onClick={() => setShowUpiModal(true)}
@@ -125,6 +124,43 @@ export default function FintechExecutionConsole() {
 
         </div>
       </div>
+
+      {/* RAZORPAY DEDICATED MODAL */}
+      {showRazorpayModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs transition-opacity">
+          <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-2xl max-w-sm w-full relative p-6 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200">
+            <button 
+              type="button"
+              onClick={() => setShowRazorpayModal(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-zinc-200 p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 cursor-pointer"
+            >
+              <FaTimes className="text-sm" />
+            </button>
+            <div className="text-center space-y-2 mb-6">
+              <div className="w-10 h-10 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-500 flex items-center justify-center mx-auto text-lg">
+                <FaCreditCard />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-zinc-100 m-0">
+                Razorpay Checkout
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-zinc-400 m-0">
+                Fast & secure node contribution via Card, NetBanking, or Wallet.
+              </p>
+            </div>
+            
+            <div className="w-full">
+              <RazorpayButton />
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-slate-100 dark:border-zinc-800/80 w-full flex items-center justify-center gap-2 text-[10px] font-mono text-slate-400 dark:text-zinc-500">
+              <FaLock className="text-emerald-500" />
+              <span>256-BIT SSL ENCRYPTED GATEWAY</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* UPI SCANNER MODAL */}
       {showUpiModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs transition-opacity">
           <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-2xl max-w-sm w-full relative p-6 flex flex-col items-center animate-in fade-in zoom-in-95 duration-200">
@@ -149,9 +185,8 @@ export default function FintechExecutionConsole() {
         </div>
       )}
 
+      {/* Sponsors Section */}
       <div className="mt-20 border-t border-slate-200 dark:border-zinc-800/60 pt-16 mx-auto">
-        
-        {/* Terminal Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div>
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full text-xs font-semibold bg-[var(--ifm-color-primary)]/10 text-[var(--ifm-color-primary)] border border-[var(--ifm-color-primary)]/10 mb-3">
@@ -165,7 +200,7 @@ export default function FintechExecutionConsole() {
             </p>
           </div>
 
-          {/* Filtering Control Matrix Container */}
+          {/* Filtering Controls */}
           <div className="flex flex-wrap items-center gap-2 bg-slate-50 dark:bg-zinc-900/40 border border-slate-200 dark:border-zinc-800/80 p-1.5 rounded-xl w-full md:w-auto">
             <div className="relative flex-1 sm:flex-initial min-w-[160px]">
               <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-zinc-500 text-xs" />
@@ -178,7 +213,6 @@ export default function FintechExecutionConsole() {
               />
             </div>
 
-            {/* Field B: Route Dropdown Registry */}
             <div className="flex items-center gap-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-lg px-2 py-1">
               <FaFilter className="text-slate-400 text-[10px]" />
               <select 
@@ -193,12 +227,10 @@ export default function FintechExecutionConsole() {
               </select>
             </div>
 
-            {/* Field C: Sort Vector Toggle */}
             <button 
               type="button"
               onClick={() => setSortBy(prev => prev === 'value' ? 'name' : 'value')}
               className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900 rounded-lg p-2 text-slate-600 dark:text-zinc-400 flex items-center gap-1.5 text-xs font-mono transition-all cursor-pointer"
-              title={sortBy === 'value' ? 'Sorting by Tier/Contribution' : 'Sorting Alphabetically'}
             >
               <FaSortAmountDown className="text-[11px]" />
               <span className="hidden sm:inline">{sortBy === 'value' ? 'RANKING' : 'A-Z'}</span>
@@ -206,7 +238,7 @@ export default function FintechExecutionConsole() {
           </div>
         </div>
 
-        {/* Dynamic Display Grid */}
+        {/* Sponsor Grid */}
         {processedSponsors.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {processedSponsors.map((sponsor) => (
@@ -214,7 +246,6 @@ export default function FintechExecutionConsole() {
                 key={sponsor.id} 
                 className="group bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800/80 rounded-xl p-4 flex flex-col justify-between space-y-4 hover:shadow-xs transition-all relative overflow-hidden"
               >
-                {/* Horizontal Top Highlight Strip Accentuated by Tier Status */}
                 <div className={`absolute top-0 left-0 w-full h-[2px] ${
                   sponsor.tier === 'Platinum' ? 'bg-amber-400' : sponsor.tier === 'Gold' ? 'bg-slate-400' : 'bg-amber-700'
                 }`} />
@@ -236,7 +267,6 @@ export default function FintechExecutionConsole() {
                     </div>
                   </div>
 
-                  {/* Channel Micro-Marker Identifier */}
                   <div className="text-xs text-slate-400 dark:text-zinc-500">
                     {sponsor.type === 'github' && <FaGithub className="text-zinc-700 dark:text-zinc-400" />}
                     {sponsor.type === 'razorpay' && <FaCreditCard className="text-blue-500" />}
@@ -244,7 +274,6 @@ export default function FintechExecutionConsole() {
                   </div>
                 </div>
 
-                {/* Card Sub-Tier Status Layout */}
                 <div className="flex items-center justify-between border-t border-slate-100 dark:border-zinc-900/60 pt-3">
                   <div className="flex items-center gap-1">
                     <FaMedal className={`text-xs ${
@@ -274,11 +303,29 @@ export default function FintechExecutionConsole() {
             ))}
           </div>
         ) : (
-          /* Empty Output Interface Template */
           <div className="border border-dashed border-slate-200 dark:border-zinc-800 rounded-2xl py-12 px-4 text-center font-mono text-xs text-slate-400 dark:text-zinc-500">
             No pipeline parameters match the active sequence search criteria.
           </div>
         )}
+      </div>
+
+      {/* INLINE Micro-Checkout Direct Embedded Section */}
+      <div className="mt-16 border border-slate-800 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto shadow">
+        <div className="space-y-1 text-center md:text-left">
+          <span className="font-mono text-[10px] text-[var(--ifm-color-primary)] uppercase tracking-widest block font-bold">
+            DIRECT GATEWAY ACCESS
+          </span>
+          <h4 className="text-lg font-bold m-0 tracking-tight">
+            Instant One-Click Sponsor Injection
+          </h4>
+          <p className="text-xs text-zinc-400 m-0 max-w-md">
+            Execute a fast contribution directly in-line via Razorpay's encrypted interface.
+          </p>
+        </div>
+        
+        <div className="w-full md:w-auto shrink-0 min-w-[220px]">
+          <RazorpayButton />
+        </div>
       </div>
 
     </div>

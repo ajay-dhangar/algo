@@ -3,17 +3,17 @@ import { themes as prismThemes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
- 
+
 const fs = require("fs");
 const { execSync } = require("child_process");
- 
+
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
 const showGitHistory =
   gitHistoryOverride === "true"
     ? true
     : gitHistoryOverride === "false"
-    ? false
-    : (() => {
+      ? false
+      : (() => {
         try {
           if (!fs.existsSync(path.join(__dirname, ".git"))) {
             return false;
@@ -25,20 +25,20 @@ const showGitHistory =
           return false;
         }
       })();
- 
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Algo",
   tagline: "Algo Mastery for Every Learner",
   favicon: "logo/logo.png",
- 
+
   url: "https://ajay-dhangar.github.io",
   baseUrl: "/algo/",
   organizationName: "ajay-dhangar",
   projectName: "algo",
- 
+
   onBrokenLinks: "throw",
- 
+
   headTags: [
     {
       tagName: "meta",
@@ -72,7 +72,7 @@ const config = {
       })();`,
     },
   ],
- 
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "hi"], // Add 'hi' here
@@ -81,7 +81,7 @@ const config = {
       hi: { label: "हिन्दी" }, // Label for the dropdown
     },
   },
- 
+
   presets: [
     [
       "classic",
@@ -112,7 +112,7 @@ const config = {
       }),
     ],
   ],
- 
+
   stylesheets: [
     {
       href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
@@ -122,7 +122,7 @@ const config = {
       crossorigin: "anonymous",
     },
   ],
- 
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -132,11 +132,11 @@ const config = {
         respectPrefersColorScheme: true,
       },
       image: "/",
- 
+
       liveCodeBlock: {
         playgroundPosition: "bottom",
       },
- 
+
       announcementBar: {
         id: "star_us_announcement",
         content:
@@ -153,10 +153,14 @@ const config = {
       },
       customFields: {
         algoliaAnalyticsAppId: process.env.ALGOLIA_APP_ID || "T0I3F584D5",
-        algoliaAnalyticsApiKey: process.env.ALGOLIA_ANALYTICS_API_KEY || process.env.ALGOLIA_API_KEY || "865d7bd9906f532b1d8cb5cc0f02b383",
-        algoliaAnalyticsIndexName: process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
+        algoliaAnalyticsApiKey:
+          process.env.ALGOLIA_ANALYTICS_API_KEY ||
+          process.env.ALGOLIA_API_KEY ||
+          "865d7bd9906f532b1d8cb5cc0f02b383",
+        algoliaAnalyticsIndexName:
+          process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
       },
- 
+
       navbar: {
         title: "Algo",
         logo: {
@@ -164,6 +168,7 @@ const config = {
           src: "logo/logo.png",
         },
         items: [
+          // ---------------- LEFT SIDE: Core Content & Learning ----------------
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
@@ -179,24 +184,12 @@ const config = {
               {
                 type: "html",
                 value:
-                  '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">System Preparation</div>',
+                  '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">System Preparation</div>',
               },
-              {
-                to: "roadmap",
-                label: "Verification Roadmap",
-              },
-              {
-                to: "dsa-interview",
-                label: "Core Matrix Questions",
-              },
-              {
-                to: "applications",
-                label: "Real-World Implementation",
-              },
-              {
-                to: "dsa-roadmap",
-                label: "Contribution Tracker",
-              },
+              { to: "roadmap", label: "Verification Roadmap" },
+              { to: "dsa-interview", label: "Core Matrix Questions" },
+              { to: "applications", label: "Real-World Implementation" },
+              { to: "dsa-roadmap", label: "Contribution Tracker" },
               {
                 type: "html",
                 value:
@@ -205,57 +198,34 @@ const config = {
               {
                 type: "html",
                 value:
-                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Evaluation Pools</div>',
+                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Evaluation Pools</div>',
               },
-              {
-                to: "challenges",
-                label: "Code Challenges",
-              },
-              {
-                to: "practice",
-                label: "Practice Arena",
-              },
-              {
-                to: "quizzes",
-                label: "Concept Quizzes",
-              },
-              {
-                to: "quiz-solutions",
-                label: "Compiled Solutions",
-              },
-              {
-                type: "html",
-                value:
-                  '<hr style="margin: 0.4rem 0; border: none; border-top: 1px solid var(--ifm-contents-border-color, #e2e8f0); opacity: 0.6;"/>',
-              },
-              {
-                type: "html",
-                value:
-                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Visualizers</div>',
-              },
-              {
-                to: "visualization",
-                label: "Algorithm Visualizer",
-              },
+              { to: "challenges", label: "Code Challenges" },
+              { to: "practice", label: "Practice Arena" },
+              { to: "quizzes", label: "Concept Quizzes" },
+              { to: "quiz-solutions", label: "Compiled Solutions" },
+            ],
+          },
+          {
+            type: "dropdown",
+            label: "Visualizers",
+            position: "left",
+            className: "navbar-visualizers-dropdown",
+            items: [
+              { to: "visualization", label: "Algorithm Visualizer" },
               {
                 to: "backtracking-visualizer",
                 label: "Backtracking & Grid Solver",
               },
-              {
-                to: "bitwise-visualizer",
-                label: "Bitwise Operations",
-              },
-              {
-                to: "n-queens-visualizer",
-                label: "N-Queens Visualizer",
-              },
+              { to: "bitwise-visualizer", label: "Bitwise Operations" },
+              { to: "n-queens-visualizer", label: "N-Queens Visualizer" },
               {
                 to: "largest-rectangle-visualizer",
-                label: "Largest Rectangle (Histogram)",
+                label: "Largest Rectangle",
               },
               {
                 to: "maximal-rectangle-visualizer",
-                label: "Maximal Rectangle (Matrix)",
+                label: "Maximal Rectangle",
               },
               {
                 to: "maximum-building-height-visualizer",
@@ -265,31 +235,19 @@ const config = {
           },
           {
             type: "dropdown",
-            label: "Community Hub",
+            label: "Community & Ecosystem",
             position: "left",
             className: "navbar-community-dropdown",
             items: [
               {
                 type: "html",
                 value:
-                  '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Telemetry & Systems</div>',
+                  '<div style="padding: 0.45rem 0.75rem 0.25rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Telemetry & Systems</div>',
               },
-              {
-                to: "contributors",
-                label: "Contributors Wall",
-              },
-              {
-                to: "leaderboard",
-                label: "Global Leaderboard",
-              },
-              {
-                to: "achievements",
-                label: "Milestones & Badges",
-              },
-              {
-                to: "sponsors",
-                label: "Infrastructure Patrons",
-              },
+              { to: "contributors", label: "Contributors Wall" },
+              { to: "leaderboard", label: "Global Leaderboard" },
+              { to: "achievements", label: "Milestones & Badges" },
+              { to: "sponsors", label: "Infrastructure Patrons" },
               {
                 type: "html",
                 value:
@@ -298,55 +256,29 @@ const config = {
               {
                 type: "html",
                 value:
-                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; tracking-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Ecosystem Labs</div>',
+                  '<div style="padding: 0.25rem 0.75rem; font-family: var(--ifm-font-family-monospace); font-size: 10px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ifm-color-primary);">Ecosystem Labs</div>',
               },
-              {
-                to: "playground",
-                label: "Code Playground",
-              },
-              {
-                to: "visualization",
-                label: "Algorithm Visualizer",
-              },
-              {
-                to: "stories",
-                label: "Success Stories",
-              },
-              {
-                to: "community",
-                label: "Public Discussions",
-              },
-              {
-                to: "resources",
-                label: "Extended Assets",
-              },
+              { to: "playground", label: "Code Playground" },
+              { to: "stories", label: "Success Stories" },
+              { to: "community", label: "Public Discussions" },
+              { to: "resources", label: "Extended Assets" },
+              { to: "favorites", label: "Favorites" },
+              { to: "faq", label: "FAQ" },
               {
                 type: "html",
                 value:
                   '<hr style="margin: 0.4rem 0; border: none; border-top: 1px solid var(--ifm-contents-border-color, #e2e8f0); opacity: 0.6;"/>',
               },
               {
-                to: "newsletter",
-                label: "📡 Algorithm Digest",
+                to: "blog",
+                label: "Blog",
               },
+              { to: "newsletter", label: "Algorithm Digest" },
             ],
           },
 
-          {
-            to: "faq",
-            label: "FAQ",
-            position: "left",
-          },
-          {
-            to: "favorites",
-            label: "Favorites",
-            position: "left",
-          },
-          {
-            to: "blog",
-            label: "Blogs",
-            position: "right",
-          },
+          // ---------------- RIGHT SIDE: Secondary Content & Custom Pickers ----------------
+
           {
             type: "localeDropdown",
             position: "right",
@@ -368,11 +300,9 @@ const config = {
             position: "right",
           },
           {
-            label: "Sign Up",
-            href: "/register",
-            position: "right",
-            className: "algo-signup algo-link",
-          },
+          type: 'custom-authButton',
+          position: 'right',
+        },
         ],
       },
       footer: {
@@ -417,7 +347,7 @@ const config = {
         },
       },
     }),
- 
+
   markdown: {
     mermaid: true,
     format: "mdx",
@@ -425,9 +355,9 @@ const config = {
       onBrokenMarkdownLinks: "warn",
     },
   },
- 
+
   themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
- 
+
   plugins: [
     [
       "@docusaurus/plugin-content-docs",
@@ -491,7 +421,7 @@ const config = {
         },
       },
     ],
- 
+
     [
       "@docusaurus/plugin-google-gtag",
       {
@@ -499,14 +429,14 @@ const config = {
         anonymizeIP: true,
       },
     ],
- 
+
     [
       "@docusaurus/plugin-google-tag-manager",
       {
         containerId: "GTM-NWMCVM3L",
       },
     ],
- 
+
     [
       "@docusaurus/plugin-pwa",
       {
@@ -569,7 +499,7 @@ const config = {
         ],
       },
     ],
- 
+
     [
       "@docusaurus/plugin-ideal-image",
       {
@@ -580,7 +510,7 @@ const config = {
         disableInDev: false,
       },
     ],
- 
+
     [
       path.join(__dirname, "/plugins/my-plugin"),
       {
@@ -591,5 +521,5 @@ const config = {
     ],
   ],
 };
- 
+
 export default config;
