@@ -607,7 +607,12 @@ const Contributors: React.FC = () => {
   const stats = useMemo(() => {
     const totalContributors = contributors.length;
     const totalCommits = contributors.reduce((s, c) => s + c.contributions, 0);
-    const estPRs = Math.round(totalCommits * 0.38);
+    // Real merged-PR count from GitHub Search API aggregation, not fabricated.
+    // Falls back to 0 if the hook hasn't loaded yet or the API failed.
+    const totalPRs = Object.values(prStatsByLogin).reduce(
+      (sum, s) => sum + s.mergedPRCount,
+      0
+    );
     const activeCount = contributors.filter((c) => c.contributions >= 5).length;
     const activityScore =
       totalContributors > 0
@@ -621,11 +626,11 @@ const Contributors: React.FC = () => {
     return {
       totalContributors,
       totalCommits,
-      estPRs,
+      totalPRs,
       activeCount,
       activityScore,
     };
-  }, [contributors]);
+  }, [contributors, prStatsByLogin]);
 
   const maxContributions = useMemo(
     () =>
@@ -730,8 +735,8 @@ const Contributors: React.FC = () => {
               />
               <StatCard
                 icon={<FiGitPullRequest className="w-4 h-4" />}
-                label="Est. Pull Requests"
-                value={stats.estPRs}
+                label="Merged Pull Requests"
+                value={stats.totalPRs}
                 color="var(--ifm-color-success, #10b981)"
                 delay={0.26}
               />
