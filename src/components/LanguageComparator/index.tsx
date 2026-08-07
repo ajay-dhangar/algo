@@ -71,8 +71,35 @@ const LanguageComparator: React.FC<LanguageComparatorProps> = ({
     setRightLang(leftLang);
   };
 
+  /**
+   * When the user picks a language that is already shown on the other side,
+   * automatically move the other side to the next available language so the
+   * two panes never show identical code. Iterates forward from the current
+   * other-side index to find the first key that is not the newly selected one.
+   */
+  const handleLeftChange = (newLeft: string) => {
+    setLeftLang(newLeft);
+    if (newLeft === rightLang) {
+      const fallback = languageKeys.find((k) => k !== newLeft) ?? newLeft;
+      setRightLang(fallback);
+    }
+  };
+
+  const handleRightChange = (newRight: string) => {
+    setRightLang(newRight);
+    if (newRight === leftLang) {
+      const fallback = languageKeys.find((k) => k !== newRight) ?? newRight;
+      setLeftLang(fallback);
+    }
+  };
+
   const left = entry.languages[leftLang];
   const right = entry.languages[rightLang];
+
+  // Only disable the cross-selection option when there are 3+ languages;
+  // with exactly 2 languages the auto-swap above already handles it and
+  // disabling would leave the user unable to reach the other language at all.
+  const canDisable = languageKeys.length > 2;
 
   return (
     <div className={styles.container}>
@@ -82,11 +109,11 @@ const LanguageComparator: React.FC<LanguageComparatorProps> = ({
           <select
             className={styles.select}
             value={leftLang}
-            onChange={(e) => setLeftLang(e.target.value)}
+            onChange={(e) => handleLeftChange(e.target.value)}
             aria-label="Left language"
           >
             {languageKeys.map((key) => (
-              <option key={key} value={key}>
+              <option key={key} value={key} disabled={canDisable && key === rightLang}>
                 {entry.languages[key].label}
               </option>
             ))}
@@ -105,11 +132,11 @@ const LanguageComparator: React.FC<LanguageComparatorProps> = ({
           <select
             className={styles.select}
             value={rightLang}
-            onChange={(e) => setRightLang(e.target.value)}
+            onChange={(e) => handleRightChange(e.target.value)}
             aria-label="Right language"
           >
             {languageKeys.map((key) => (
-              <option key={key} value={key}>
+              <option key={key} value={key} disabled={canDisable && key === leftLang}>
                 {entry.languages[key].label}
               </option>
             ))}
