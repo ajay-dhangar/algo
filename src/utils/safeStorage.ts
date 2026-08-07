@@ -76,6 +76,41 @@ export function safeJsonParse<T>(key: string, fallback: T): T {
   }
 }
 
+export function safeGetItem(key: string): string | null {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return null;
+  }
+  try {
+    return localStorage.getItem(key);
+  } catch (err) {
+    console.error(`[Algo] Failed to get localStorage key "${key}":`, err);
+    return null;
+  }
+}
+
+export function safeSetItem(key: string, value: string): void {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return;
+  }
+  try {
+    localStorage.setItem(key, value);
+  } catch (err) {
+    console.error(`[Algo] Failed to set localStorage key "${key}":`, err);
+  }
+}
+
+export function safeRemoveItem(key: string): void {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return;
+  }
+  try {
+    localStorage.removeItem(key);
+  } catch (err) {
+    console.error(`[Algo] Failed to remove localStorage key "${key}":`, err);
+  }
+}
+
+
 export function readAlgoProgress(): AlgoProgressData {
   return safeJsonParse<AlgoProgressData>('algo_progress', {});
 }

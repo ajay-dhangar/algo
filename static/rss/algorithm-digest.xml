@@ -5,70 +5,16 @@
     <link>https://ajay-dhangar.github.io/algo/newsletter</link>
     <description>Periodic digest summarizing newly merged algorithm docs and problem walkthroughs in Algo.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Aug 2026 11:31:29 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 03:12:28 GMT</lastBuildDate>
     <atom:link href="https://ajay-dhangar.github.io/algo/algorithm-digest.xml" rel="self" type="application/rss+xml"/>
     
     <item>
-      <title>Roadmap to Learning DSA</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/data-structures/roadmap-to-dsa</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/data-structures/roadmap-to-dsa</guid>
-      <description>A structured roadmap to guide you through mastering Data Structures and Algorithms.</description>
-      <pubDate>Wed, 05 Aug 2026 11:23:27 GMT</pubDate>
-      <category>data-structures</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Interactive Algorithm Visualizer</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/algorithms/algorithm-visualizer</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/algorithms/algorithm-visualizer</guid>
-      <description>An interactive step-by-step visualization sandbox for Bubble Sort, Quick Sort, Merge Sort, and Binary Search algorithms.</description>
-      <pubDate>Wed, 05 Aug 2026 11:23:27 GMT</pubDate>
-      <category>algorithms</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Sqrt Decomposition</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</guid>
-      <description>Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.</description>
-      <pubDate>Wed, 05 Aug 2026 03:21:54 GMT</pubDate>
+      <title>Flood Fill Algorithm</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/graphs/flood-fill</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/graphs/flood-fill</guid>
+      <description>In this blog post, we&apos;ll explore the Flood Fill Algorithm, a popular technique used in computer graphics for determining connected regions, such as filling areas in images and solving puzzles like the paint bucket tool in graphics editing software.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Heavy-Light Decomposition</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</guid>
-      <description>Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.</description>
-      <pubDate>Wed, 05 Aug 2026 03:21:54 GMT</pubDate>
-      <category>extra</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Persistent Segment Tree</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</guid>
-      <description>A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.</description>
-      <pubDate>Wed, 05 Aug 2026 03:21:54 GMT</pubDate>
-      <category>extra</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Interactive Code Editor Sandbox</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/algorithms/code-editor-sandbox</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/algorithms/code-editor-sandbox</guid>
-      <description>Run and experiment with algorithm code samples in JavaScript, Python, and C++ directly in the browser — no installation required.</description>
-      <pubDate>Wed, 05 Aug 2026 03:21:54 GMT</pubDate>
-      <category>algorithms</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Reverse Bits Solution</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/easy/reverse-bits</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/easy/reverse-bits</guid>
-      <description>The Reverse Bits problem asks you to reverse the bits of a given 32-bit unsigned integer. Essentially, you need to flip the binary representation of the number so that the least significant bit (LSB) becomes the most significant bit (MSB) and vice versa.</description>
-      <pubDate>Wed, 05 Aug 2026 02:46:36 GMT</pubDate>
-      <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
@@ -76,7 +22,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/ShellSort</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/ShellSort</guid>
       <description>Complete guide to Shell Sort, a generalization of insertion sort that compares elements separated by a gap sequence to enable faster sorting.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -85,7 +31,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Pigeonhole</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Pigeonhole</guid>
       <description>Complete guide to Pigeonhole Sort, a linear time sorting algorithm that works by placing elements into pigeonholes based on their key values.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -94,25 +40,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Odd-Even-Sort</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Odd-Even-Sort</guid>
       <description>Complete guide to Odd-Even Sort, a parallel sorting algorithm that alternates between odd and even phases to gradually sort the array.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>extra</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Jump Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/JumpSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/JumpSort</guid>
-      <description>Complete guide to Jump Sort, a comparison-based sorting algorithm that divides the list into blocks and performs linear search within blocks to find sorted position.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>extra</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Sort 0s, 1s, and 2s using Dutch National Flag Algorithm</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Dutch-flag-algo</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Dutch-flag-algo</guid>
-      <description>Complete guide to the Dutch National Flag Algorithm for sorting an array of 0s, 1s, and 2s in a single traversal using a three-pointer approach.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -121,16 +49,25 @@
       <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/GnomeSort</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/GnomeSort</guid>
       <description>Complete guide to Gnome Sort, a simple comparison-based sorting algorithm that sorts by swapping adjacent out-of-order elements and moving backward on a swap.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Cycle Sort</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CycleSort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CycleSort</guid>
-      <description>Complete guide to Cycle Sort, a comparison-based sorting algorithm that minimizes memory writes by placing elements in their correct position as part of a cycle.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <title>Jump Sort</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/JumpSort</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/JumpSort</guid>
+      <description>Complete guide to Jump Sort, a comparison-based sorting algorithm that divides the list into blocks and performs linear search within blocks to find sorted position.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Sort 0s, 1s, and 2s using Dutch National Flag Algorithm</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Dutch-flag-algo</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/Dutch-flag-algo</guid>
+      <description>Complete guide to the Dutch National Flag Algorithm for sorting an array of 0s, 1s, and 2s in a single traversal using a three-pointer approach.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -139,7 +76,16 @@
       <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CombSort</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CombSort</guid>
       <description>Complete guide to Comb Sort, an improvement over bubble sort that compares elements separated by a shrinking gap to eliminate turtles.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Cycle Sort</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CycleSort</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CycleSort</guid>
+      <description>Complete guide to Cycle Sort, a comparison-based sorting algorithm that minimizes memory writes by placing elements in their correct position as part of a cycle.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -148,16 +94,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CocktailShakerSort</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/CocktailShakerSort</guid>
       <description>Complete guide to Cocktail Shaker Sort, a bidirectional bubble sort variant that traverses the array in both directions.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>extra</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Finding Power of Factorial Divisor</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/Legendre&apos;s Algorithm/legendre-algo</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/Legendre&apos;s Algorithm/legendre-algo</guid>
-      <description>Legendre&apos;s Formula calculates the largest exponent x such that k^x divides n!, the factorial of a number, by summing the quotients of n divided by successive powers of k.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -166,7 +103,70 @@
       <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/BogoSort</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/sorting-algorithms/BogoSort</guid>
       <description>Complete guide to Bogo Sort, a highly inefficient sorting algorithm that generates random permutations until the array is sorted.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>N-Queens Algorithm using Backtracking</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/backtracking-algorithms/n-queens_algorithm</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/backtracking-algorithms/n-queens_algorithm</guid>
+      <description>Overview and implementation of the N-Queens problem using a backtracking algorithm.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Word Search</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/backtracking-algorithms/word-search</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/backtracking-algorithms/word-search</guid>
+      <description>Solve the Word Search problem using DFS with backtracking on a 2D character grid. Covers both Word Search I (single word) and Word Search II (multiple words with Trie).</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Finding Power of Factorial Divisor</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/Legendre&apos;s Algorithm/legendre-algo</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/Legendre&apos;s Algorithm/legendre-algo</guid>
+      <description>Legendre&apos;s Formula calculates the largest exponent x such that k^x divides n!, the factorial of a number, by summing the quotients of n divided by successive powers of k.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Dancing Links (DLX)</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/DLX algorithm/DLX</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/DLX algorithm/DLX</guid>
+      <description>The Dancing Links (DLX) algorithm is a highly efficient implementation of the Exact Cover Problem based on dancing links technique.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Sqrt Decomposition</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/sqrt-decomposition</guid>
+      <description>Sqrt Decomposition is a technique that splits an array into blocks of size sqrt(n) to answer range queries and updates faster than brute force.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Heavy-Light Decomposition</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/heavy-light-decomposition</guid>
+      <description>Heavy-Light Decomposition breaks a tree into chains so that path queries and updates can be answered in O(log^2 n) using a Segment Tree.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Persistent Segment Tree</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/advance-data-structure/persistent-segment-tree</guid>
+      <description>A Persistent Segment Tree keeps every previous version of itself accessible after an update, enabling efficient queries on historical states of an array.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -175,8 +175,17 @@
       <link>https://ajay-dhangar.github.io/algo/docs/extra/Hashing/CollisionHandling</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/Hashing/CollisionHandling</guid>
       <description>Collision handling in hashing refers to the techniques used to resolve key collisions when two or more keys map to the same hash table index, such as chaining and open addressing.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>extra</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Yaroslav and Productivity</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/yaroslav-and-productivity</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/yaroslav-and-productivity</guid>
+      <description>Solution for Codeforces 2244D: Yaroslav and Productivity, utilizing block independence and greedy logic.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
@@ -184,7 +193,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/word-search</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/word-search</guid>
       <description>Solving the Word Search problem using recursive backtracking and Depth-First Search (DFS).</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -193,16 +202,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/valid-parenthesis-string</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/valid-parenthesis-string</guid>
       <description>Solving the Valid Parenthesis String problem using an optimal Greedy approach.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Unique Paths</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/unique-paths</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/unique-paths</guid>
-      <description>The Unique Paths problem on LeetCode involves finding the number of possible unique paths for a robot to reach the bottom-right corner of a grid.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -211,7 +211,16 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/triangle</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/triangle</guid>
       <description>Solving the Triangle problem using Dynamic Programming (Bottom-Up space optimization).</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Unique Paths</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/unique-paths</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/unique-paths</guid>
+      <description>The Unique Paths problem on LeetCode involves finding the number of possible unique paths for a robot to reach the bottom-right corner of a grid.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -220,7 +229,16 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/surrounded-regions</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/surrounded-regions</guid>
       <description>Solution for LeetCode 130: Surrounded Regions, utilizing Graph Traversal (DFS) on the boundaries to capture enclosed components.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Total Waviness of Numbers in Range I</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/total-waviness-of-numbers-in-range</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/total-waviness-of-numbers-in-range</guid>
+      <description>Determining the total sum of waviness for all numbers in a given range by checking for peaks and valleys among their digits.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -229,7 +247,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/sum-of-subarray-ranges</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/sum-of-subarray-ranges</guid>
       <description>The Sum of Subarray Ranges problem involves finding the sum of the difference between the maximum and minimum elements of all subarrays using a Monotonic Stack.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -238,7 +256,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/size-of-largest-bst-in-binary-tree</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/size-of-largest-bst-in-binary-tree</guid>
       <description>Determine whether the subtree rooted at each node is a Binary Search Tree (BST). Find the size of the largest BST.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -247,16 +265,16 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/rotten-oranges</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/rotten-oranges</guid>
       <description>Solve the Rotten Oranges problem using Breadth-First Search (BFS) to determine the minimum time required for all fresh oranges to rot.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Removing Stars From a String</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removing-stars-from-string</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removing-stars-from-string</guid>
-      <description>This document explains the Removing Stars From a String problem, including its description, approach, and implementation.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <title>Segregate even and odd nodes in a linked list</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/segregate-even-odd-nodes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/segregate-even-odd-nodes</guid>
+      <description>In a linked list, the goal is to rearrange the nodes such that all even-valued nodes appear before all odd-valued nodes.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -265,16 +283,43 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/reverse-integer</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/reverse-integer</guid>
       <description>This document explains the Reverse Integer problem, including its description, approach, and implementation.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Partition Equal Subset Sum</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-equal-subset-sum</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-equal-subset-sum</guid>
-      <description>Solving the Partition Equal Subset Sum problem using Space-Optimized Dynamic Programming.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <title>Removing Stars From a String</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removing-stars-from-string</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removing-stars-from-string</guid>
+      <description>This document explains the Removing Stars From a String problem, including its description, approach, and implementation.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>RemovevomeR</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removevomer</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/removevomer</guid>
+      <description>Solution for Codeforces 2241C: RemovevomeR, utilizing a greedy string observation approach.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Rabbits in Forest</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/rabbits-in-forest</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/rabbits-in-forest</guid>
+      <description>Solving the Rabbits in Forest problem using a Hash Map and Greedy Math approach.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Process String with Special Operations I</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/process-string-with-special-operations-i</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/process-string-with-special-operations-i</guid>
+      <description>Simulating string processing with backspace, duplicate, and reverse operations.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -283,7 +328,25 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/path-with-minimum-effort</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/path-with-minimum-effort</guid>
       <description>Solution for LeetCode 1631: Path With Minimum Effort, utilizing Dijkstra&apos;s Algorithm with a Min-Priority Queue on a 2D grid.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Partition Equal Subset Sum</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-equal-subset-sum</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-equal-subset-sum</guid>
+      <description>Solving the Partition Equal Subset Sum problem using Space-Optimized Dynamic Programming.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Partition Array According to Given Pivot</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-array-according-to-given-pivot</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/partition-array-according-to-given-pivot</guid>
+      <description>Rearranging an array based on a pivot value while maintaining the stable relative order of elements.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -292,7 +355,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/odd-even-linked-list</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/odd-even-linked-list</guid>
       <description>This document explains the Odd Even Linked List problem, including its description, approach, and implementation.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -301,16 +364,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-provinces</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-provinces</guid>
       <description>Solution for LeetCode 547: Number of Provinces, utilizing Graph Traversal (DFS) to find connected components.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Number of Operations to Make Network Connected</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-operations-to-make-network-connected</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-operations-to-make-network-connected</guid>
-      <description>Solution for LeetCode 1319: Number of Operations to Make Network Connected, utilizing Graph Traversal (DFS) to count connected components.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -319,7 +373,25 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-islands</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-islands</guid>
       <description>Solution for LeetCode 200: Number of Islands, utilizing Graph Traversal (DFS) to count connected components in a matrix.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Number of Operations to Make Network Connected</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-operations-to-make-network-connected</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/number-of-operations-to-make-network-connected</guid>
+      <description>Solution for LeetCode 1319: Number of Operations to Make Network Connected, utilizing Graph Traversal (DFS) to count connected components.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Nikita and Books</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/nikita-and-books</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/nikita-and-books</guid>
+      <description>Solution for Codeforces 2244B: Nikita and Books, utilizing a greedy prefix sum approach.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -328,7 +400,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/merge-intervals</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/merge-intervals</guid>
       <description>This document explains the Merge Intervals problem, including its description, approach, and implementation.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -337,7 +409,25 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-points-you-can-obtain-from-cards</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-points-you-can-obtain-from-cards</guid>
       <description>The Maximum Points You Can Obtain from Cards problem on LeetCode involves finding the maximum score by taking exactly k cards from either the beginning or the end of an array.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Maximum Total Subarray Value I</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-total-subarray-value-i</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-total-subarray-value-i</guid>
+      <description>The Maximum Total Subarray Value I problem involves finding the maximum possible value by choosing a subarray k times using a greedy approach.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
+      <category>dsa-problems</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Maximum Ice Cream Bars</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-ice-cream-bars</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/maximum-ice-cream-bars</guid>
+      <description>Finding the maximum number of ice cream bars that can be bought with a given amount of coins using a greedy approach.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -346,7 +436,7 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/lowest-common-ancestor</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/lowest-common-ancestor</guid>
       <description>A detailed solution to the lowest common ancestor dsa problem from leetcode</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -355,106 +445,16 @@
       <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/longest-substring-without-repeated-characters-problem</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/longest-substring-without-repeated-characters-problem</guid>
       <description>This document explains the &apos;Longest Substring Without Repeating Characters&apos; problem, including its description, approach, and implementation.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>House Robber Algorithm</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/house-robber</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/house-robber</guid>
-      <description>Solve the House Robber problem using dynamic programming to maximize the amount of money that can be robbed from houses without robbing two adjacent houses.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Flood Fill</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/flood-fill</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/flood-fill</guid>
-      <description>Solution for LeetCode 733: Flood Fill, utilizing Graph Traversal (DFS).</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>House Robber II</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/house-robber-ii</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/house-robber-ii</guid>
-      <description>Solving the House Robber II problem using Dynamic Programming with space optimization.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Flattening a linked list involves converting a multi-level linked list into a single-level linked list.</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/flattening-a-linked-list</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/flattening-a-linked-list</guid>
-      <description>Flattening a linked list involves converting a multi-level linked list into a single-level linked list.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Find a Peak Element II</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/find-a-peak-element-ii</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/find-a-peak-element-ii</guid>
-      <description>Solving the Find a Peak Element II problem using Binary Search on a 2D Matrix.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Find Eventual Safe States</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/find-eventual-safe-states</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/find-eventual-safe-states</guid>
-      <description>Solution for LeetCode 802: Find Eventual Safe States, utilizing Graph Traversal (DFS Cycle Detection) and BFS (Kahn&apos;s Algorithm).</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Combination Sum</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/combination-sum</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/combination-sum</guid>
-      <description>Solving the Combination Sum problem using a recursive backtracking approach.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Deleting middle node of linked list.</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/delete-middle-node-of-a-linked-list</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/delete-middle-node-of-a-linked-list</guid>
-      <description>This document explains the &apos;Deleting the middle element of a linked list&apos; problem, including its description, approach, and implementation.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Cloning a Linked List with Random and Next Pointers</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/clone-linked-list-with-random-and-next-pointer</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/clone-linked-list-with-random-and-next-pointer</guid>
-      <description>Cloning a linked list that contains both next and random pointers involves creating a new linked list that is an exact copy of the original, preserving the structure and relationships of the nodes.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Cheapest Flights Within K Stops</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/cheapest-flights-within-k-stops</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/cheapest-flights-within-k-stops</guid>
-      <description>Solution for LeetCode 787: Cheapest Flights Within K Stops, utilizing BFS (Modified Dijkstra) to find the cheapest flight path within K stops.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
-      <category>dsa-problems</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Binary Tree Right Side View</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/binary-tree-right-side-view</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/binary-tree-right-side-view</guid>
-      <description>Solving the Binary Tree Right Side View problem using a Depth-First Search (DFS) approach.</description>
-      <pubDate>Mon, 03 Aug 2026 12:58:55 GMT</pubDate>
+      <title>Iskander and Drawings</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/iskander-and-drawings</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/dsa-problems/medium/iskander-and-drawings</guid>
+      <description>Solution for Codeforces 2244A: Iskander and Drawings, calculating the maximum time to erase a line.</description>
+      <pubDate>Fri, 07 Aug 2026 02:39:20 GMT</pubDate>
       <category>dsa-problems</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>

@@ -24,6 +24,8 @@ import RelatedTopics from '@site/src/components/RelatedTopics';
 import DocCardList from '@theme/DocCardList';
 import ComingSoon from '@site/src/components/ComingSoon';
 import CheatSheetExport from '@site/src/components/CheatSheetExport';
+import LanguageComparator from '@site/src/components/LanguageComparator';
+import RazorpayButton from '@site/src/components/RazorpayButton';
  
 export default {
   // Re-use the default mapping
@@ -31,6 +33,7 @@ export default {
   // custom
   Tabs,
   TabItem,
+  LanguageComparator,
   Highlight,
   ArrayVisualizations,
   BubbleSortVisualization,
@@ -52,5 +55,6 @@ export default {
   Link,
   RelatedTopics,
   ComingSoon,
-  CheatSheetExport
+  CheatSheetExport,
+  RazorpayButton
 };

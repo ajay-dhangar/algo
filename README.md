@@ -4,7 +4,7 @@
 
 ---
 
-## 🌟 Support the Project
+## Support the Project
 
 If you find this repository helpful for your learning or development, please consider giving it a **Star**! It helps increase the project's visibility and invites more amazing developers to collaborate.
 
@@ -138,7 +138,7 @@ You don't need to wait for a maintainer to assign you! Once you find an issue yo
 * *Note: Please only claim one issue at a time to keep it fair for everyone.*
 
 ### Strict Inactivity Rule (7-Day Limit)
-> ⚠️ **Important Policy:** Once you are assigned an issue or open a Pull Request, you must provide active updates or submit changes within **max 7 days**. If an issue or PR is left with **no response or zero activity for over 7 days**, it will be automatically **closed** by the project repository owners or maintainers to open up opportunities for other waiting contributors.
+> **Important Policy:** Once you are assigned an issue or open a Pull Request, you must provide active updates or submit changes within **max 7 days**. If an issue or PR is left with **no response or zero activity for over 7 days**, it will be automatically **closed** by the project repository owners or maintainers to open up opportunities for other waiting contributors.
 
 ### Maintainer Commitments
 
@@ -146,7 +146,7 @@ You don't need to wait for a maintainer to assign you! Once you find an issue yo
 * **Continuous Integration:** Automated checks and formatting test suites must pass 100% cleanly before merging.
 * **Prerequisites:** Please read our detailed [CONTRIBUTING.md](./CONTRIBUTING.md) guide thoroughly before requesting an assignment.
 
-## Contributors ✨
+## Contributors
 
 Heartfelt thanks to these absolute legends who have contributed code and documentation to the **Algo** project ❤️:
 
@@ -168,7 +168,7 @@ To manually invoke Gemini Code Assist, you can use the following commands in the
 |`/gemini help` | Overview of the available commands |
 
 <!--
-## 📈 Repository Analytics
+## Repository Analytics
 
 <table width="100%">
   <tr>

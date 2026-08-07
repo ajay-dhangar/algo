@@ -4,6 +4,7 @@ import {
   FaTerminal, FaQrcode, FaSearch, FaFilter, FaSortAmountDown,
   FaMedal, FaExternalLinkAlt, FaTimes
 } from 'react-icons/fa';
+import RazorpayButton from '@site/src/components/RazorpayButton';
 import { INITIAL_SPONSORS, Sponsor } from '../../data/sponsorsData';
 
 export default function FintechExecutionConsole() {
@@ -85,15 +86,17 @@ export default function FintechExecutionConsole() {
             <div className="space-y-3 relative z-10">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 {/* Razorpay Gateway Link */}
-                <a
+                {/* <a
                   href="https://razorpay.me/@ajay-dhangar"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="py-3 px-2 rounded-xl font-mono text-[10px] font-black uppercase tracking-wider text-center text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-xs flex items-center justify-center gap-1.5 border border-transparent hover:no-underline hover:text-white"
                 >
                   <FaCreditCard className="text-xs shrink-0" /> <span>RAZORPAY</span> <FaArrowUp className="rotate-45 text-[9px]" />
-                </a>
+                </a> */}
                 
+                <RazorpayButton />
+
                 {/* GitHub Shell Link */}
                 <a
                   href="https://github.com/sponsors/ajay-dhangar"

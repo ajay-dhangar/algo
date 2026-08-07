@@ -1,0 +1,122 @@
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.badgeChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: var(--ifm-color-emphasis-100, #f1f5f9);
+  border: 1px solid var(--ifm-color-emphasis-300, #cbd5e1);
+  color: var(--ifm-color-emphasis-700, #334155);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.readmeBadgeWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.readmeBadgeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-300, #cbd5e1);
+  background: var(--ifm-color-emphasis-100, #f1f5f9);
+  color: var(--ifm-color-emphasis-600, #475569);
+  cursor: pointer;
+}
+
+.readmeBadgeButton:hover {
+  border-color: var(--ifm-color-primary, #6366f1);
+  color: var(--ifm-color-primary, #6366f1);
+}
+
+.popover {
+  position: absolute;
+  z-index: 50;
+  bottom: calc(100% + 8px);
+  right: 0;
+  width: 280px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--ifm-card-background-color, #ffffff);
+  border: 1px solid var(--ifm-color-emphasis-300, #cbd5e1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.popoverTitle {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ifm-color-emphasis-500, #64748b);
+  margin: 0 0 10px;
+}
+
+.popoverPreview {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--ifm-color-emphasis-100, #f8fafc);
+  margin-bottom: 10px;
+}
+
+.popoverPreview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.popoverCodeBox {
+  position: relative;
+}
+
+.popoverCode {
+  display: block;
+  font-size: 9px;
+  font-family: var(--ifm-font-family-monospace);
+  background: var(--ifm-color-emphasis-100, #0f172a);
+  color: var(--ifm-color-emphasis-800, #e2e8f0);
+  padding: 8px 10px;
+  border-radius: 6px;
+  word-break: break-all;
+  white-space: pre-wrap;
+  margin: 0 0 8px;
+  max-height: 90px;
+  overflow-y: auto;
+}
+
+.copyButton {
+  width: 100%;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: none;
+  background: var(--ifm-color-primary, #6366f1);
+  color: #fff;
+  cursor: pointer;
+}
+
+.copyButton:hover {
+  opacity: 0.9;
+}

@@ -52,6 +52,31 @@ function computeLevel(answers: QuizAnswers): SkillLevel {
 }
 
 /**
+ * Formats the list of mastered stage IDs into a human-readable string.
+ *
+ * Uses a compact range (e.g. "Stages 1–4") only when every stage in the
+ * span is contiguous. Falls back to an explicit list (e.g. "Stages 1, 3, 7")
+ * when there are gaps, so the summary never falsely implies stages in between
+ * are mastered.
+ */
+function formatMasteredStageList(stages: Stage[]): string {
+  const ids = stages.map((s) => s.id);
+
+  // Check whether the sorted IDs form a gapless sequence.
+  const sorted = [...ids].sort((a, b) => a - b);
+  const isContiguous = sorted.every(
+    (id, i) => i === 0 || id === sorted[i - 1] + 1
+  );
+
+  if (isContiguous) {
+    return `Stages ${sorted[0]}–${sorted[sorted.length - 1]}`;
+  }
+
+  // Non-contiguous: list each ID explicitly.
+  return `Stages ${sorted.join(", ")}`;
+}
+
+/**
  * Builds the personalized learning path from raw quiz answers.
  *
  * Design choice: we do NOT reorder stages relative to each other — the
@@ -92,7 +117,7 @@ export function buildPersonalizedPath(answers: QuizAnswers): PersonalizedPath {
       const skippedStageNumbers =
         skippedCount === 1
           ? `Stage ${masteredStages[0].id}`
-          : `Stages ${masteredStages[0].id}–${masteredStages[masteredStages.length - 1].id}`;
+          : formatMasteredStageList(masteredStages);
       summary = `You already know ${skippedStageNumbers} well — jump straight to Stage ${firstStage.id}: ${firstStage.title}.`;
     }
   }

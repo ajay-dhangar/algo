@@ -251,6 +251,10 @@ function pathQuery(u, v):
     return result
 ```
 
+## Compare Languages Side-by-Side
+
+<LanguageComparator algorithm="heavy-light-decomposition" />
+
 ## Complexity Cheat Sheet
 
 | Operation | Time Complexity | Space Complexity |

@@ -74,17 +74,19 @@ function NewsletterPageInner() {
   const { copied, copy } = useCopyText();
 
   useEffect(() => {
-    fetch(`${BASE_URL}/algorithm-digest.xml`)
-      .then(() => {
-        // XML loaded OK, now load JSON feed for UI
-        return import("@site/src/data/generated/algorithmDigest.json");
-      })
+    // Load the JSON digest directly — no dependency on the XML RSS file.
+    // The XML is a static asset for external feed readers; it adds no value
+    // to the in-page data load and silently breaks it in local dev where the
+    // static file may not be served.
+    import("@site/src/data/generated/algorithmDigest.json")
       .then((mod) => {
         const data = (mod.default || mod) as DigestEntry[];
         setItems(Array.isArray(data) ? data : []);
-        setLoading(false);
       })
       .catch(() => {
+        // JSON unavailable — page renders empty state, not a blank screen.
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, []);

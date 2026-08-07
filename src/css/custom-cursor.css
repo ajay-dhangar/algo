@@ -3,7 +3,9 @@
   user-select: none;
 }
 
-/* Ensure custom cursor overrides standard cursor when active */
+/* Applied by CursorContext when any non-default cursor is active.
+   Using !important on both body and all descendants ensures no component-level
+   cursor style can leak through and show the system pointer over the custom one. */
 body.custom-cursor-active,
 body.custom-cursor-active * {
   cursor: none !important;

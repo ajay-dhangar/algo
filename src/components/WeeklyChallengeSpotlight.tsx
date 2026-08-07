@@ -18,6 +18,8 @@ import {
   FaChevronRight, FaCalendarWeek, FaBolt,
 } from "react-icons/fa";
 import challengeData from "../data/challengeData";
+import { safeGetItem, safeSetItem, safeRemoveItem } from "../utils/safeStorage";
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -158,10 +160,9 @@ const WeeklyChallengeSpotlight: React.FC = () => {
     setActiveStorageKey(storageKey);
     setWeekLabel(`Week ${getISOWeek(now)} · ${now.getUTCFullYear()}`);
 
-    try {
-      const saved = localStorage.getItem(storageKey);
-      setIsSolved(saved === "solved");
-    } catch { /* ignore */ }
+    const saved = safeGetItem(storageKey);
+    setIsSolved(saved === "solved");
+
 
     // Kick off the countdown ticker.
     // When the week rolls over (countdown reaches zero) refresh the challenge
@@ -193,16 +194,14 @@ const WeeklyChallengeSpotlight: React.FC = () => {
     if (!challenge || !activeStorageKey) return;
     const next = !isSolved;
     setIsSolved(next);
-    try {
-      if (next) {
-        localStorage.setItem(activeStorageKey, "solved");
-        setJustMarked(true);
-        if (markTimeoutRef.current) clearTimeout(markTimeoutRef.current);
-        markTimeoutRef.current = setTimeout(() => setJustMarked(false), 2200);
-      } else {
-        localStorage.removeItem(activeStorageKey);
-      }
-    } catch { /* ignore */ }
+    if (next) {
+      safeSetItem(activeStorageKey, "solved");
+      setJustMarked(true);
+      if (markTimeoutRef.current) clearTimeout(markTimeoutRef.current);
+      markTimeoutRef.current = setTimeout(() => setJustMarked(false), 2200);
+    } else {
+      safeRemoveItem(activeStorageKey);
+    }
   }, [isSolved, challenge, activeStorageKey]);
 
   if (!mounted || !challenge) return null;

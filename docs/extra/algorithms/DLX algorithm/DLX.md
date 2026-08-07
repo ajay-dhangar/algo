@@ -4,6 +4,8 @@ id: dancing-links
 sidebar_position: 20  
 title: "Dancing Links (DLX)"  
 sidebar_label: Dancing Links  
+description: "The Dancing Links (DLX) algorithm is a highly efficient implementation of the Exact Cover Problem based on dancing links technique."
+tags: [algorithm, exact cover, backtracking, dlx, dancing links]
 
 ---
 
