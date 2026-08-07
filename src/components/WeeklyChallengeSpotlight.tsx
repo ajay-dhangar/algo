@@ -177,9 +177,7 @@ const WeeklyChallengeSpotlight: React.FC = () => {
         setChallenge(newChallenge);
         setActiveStorageKey(newStorageKey);
         setWeekLabel(`Week ${getISOWeek(tickNow)} · ${tickNow.getUTCFullYear()}`);
-        try {
-          setIsSolved(localStorage.getItem(newStorageKey) === "solved");
-        } catch { /* ignore */ }
+        setIsSolved(safeGetItem(newStorageKey) === "solved");
       }
 
       setCountdown(msToCountdown(msUntilNextMonday(tickNow)));
