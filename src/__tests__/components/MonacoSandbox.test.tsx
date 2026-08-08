@@ -1,6 +1,12 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import MonacoSandbox, { DEFAULT_TEMPLATES } from "../../components/CodeEditor/MonacoSandbox";
+import MonacoSandbox, {
+  DEFAULT_TEMPLATES,
+  executePythonFallback,
+  executeCppFallback,
+  runPythonCode,
+  runCppCode,
+} from "../../components/CodeEditor/MonacoSandbox";
 
 // MonacoSandbox uses a plain <textarea> — no monaco-editor mock needed.
 
@@ -71,5 +77,17 @@ describe("MonacoSandbox Component", () => {
       // Output section renders with an "Output" header label
       expect(screen.getByLabelText(/output console/i)).toBeInTheDocument();
     }, { timeout: 3000 });
+  });
+});
+
+describe("MonacoSandbox Execution Helpers", () => {
+  test("executePythonFallback runs Python print statements", () => {
+    const output = executePythonFallback('print("Hello", "Python")');
+    expect(output).toContain("Hello Python");
+  });
+
+  test("executeCppFallback runs C++ cout statements", () => {
+    const output = executeCppFallback('cout << "Hello C++" << endl;');
+    expect(output).toContain("Hello C++");
   });
 });

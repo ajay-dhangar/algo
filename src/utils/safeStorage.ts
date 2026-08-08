@@ -3,6 +3,7 @@ export interface AlgoProgressData {
 }
 
 import { supabase } from './supabaseClient';
+import { QUESTION_COUNTS } from '../data/quizzesConfig';
 
 export function getUserId(): string | null {
   if (typeof window === 'undefined' || !window.localStorage) return null;
@@ -371,13 +372,7 @@ const ALL_QUIZ_IDS = [
   'hash-indexing', 'external-hashing',
 ];
 
-const QUIZ_QUESTION_COUNTS: Record<string, number> = {
-  arrays: 10, stacks: 8, queues: 16, 'linked-lists': 12, deques: 12,
-  'priority-queues': 12, 'linear-search': 12, sorting: 12, recursion: 12,
-  'binary-trees': 12, bst: 10, graphs: 12, 'avl-trees': 8,
-  'red-black-trees': 8, 'b-trees': 10, 'bplus-trees': 12, isam: 12,
-  'hash-indexing': 12, 'external-hashing': 12,
-};
+const QUIZ_QUESTION_COUNTS: Record<string, number> = QUESTION_COUNTS;
 
 export interface QuizAttemptRecord {
   score: number;
@@ -437,14 +432,21 @@ function computeQuizStats(): { passed: number; mastered: number; attempted: numb
     const quizId = extractQuizIdFromStorageKey(key);
     if (!quizId) continue;
 
-    const total = QUIZ_QUESTION_COUNTS[quizId] ?? 10;
+    let bestPercentForQuiz = 0;
+    attempts.forEach((a) => {
+      if (typeof a.score !== 'number') return;
+      const total = typeof a.totalQuestions === 'number' && a.totalQuestions > 0
+        ? a.totalQuestions
+        : (QUIZ_QUESTION_COUNTS[quizId] ?? 10);
+      const pct = Math.min(100, Math.max(0, Math.round((a.score / total) * 100)));
+      if (pct > bestPercentForQuiz) {
+        bestPercentForQuiz = pct;
+      }
+    });
 
-    const bestScore = Math.max(...attempts.map((a) => (typeof a.score === 'number' ? a.score : 0)));
-    const bestPercent = Math.round((bestScore / total) * 100);
     const previousBest = bestByQuiz.get(quizId) ?? 0;
-
-    if (bestPercent > previousBest) {
-      bestByQuiz.set(quizId, bestPercent);
+    if (bestPercentForQuiz > previousBest) {
+      bestByQuiz.set(quizId, bestPercentForQuiz);
     }
   }
 

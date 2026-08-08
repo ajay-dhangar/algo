@@ -1,7 +1,10 @@
-import { describe, it, expect } from 'vitest';
-
-// === Pure unit tests for tokenizer and execution logic ===
-// Tests extracted from MonacoSandbox.tsx so they run without DOM
+import {
+  DEFAULT_TEMPLATES,
+  executePythonFallback,
+  executeCppFallback,
+  runPythonCode,
+  runCppCode,
+} from './MonacoSandbox';
 
 type Language = 'javascript' | 'python' | 'cpp';
 
@@ -115,5 +118,34 @@ describe('MonacoSandbox — JavaScript execution', () => {
     `;
     const result = runJavaScript(code);
     expect(result.trim()).toBe('5');
+  });
+});
+
+describe('MonacoSandbox — Python execution', () => {
+  it('executes Python print statements', () => {
+    const result = executePythonFallback('print("Hello", "Python")');
+    expect(result).toContain('Hello Python');
+  });
+
+  it('executes Python merge sort template', () => {
+    const result = executePythonFallback(DEFAULT_TEMPLATES.python);
+    expect(result).toContain('Sorted:');
+  });
+
+  it('runs Python code via runPythonCode helper', async () => {
+    const result = await runPythonCode('print(42)');
+    expect(result).toContain('42');
+  });
+});
+
+describe('MonacoSandbox — C++ execution', () => {
+  it('executes C++ quick sort template fallback', () => {
+    const result = executeCppFallback(DEFAULT_TEMPLATES.cpp);
+    expect(result).toContain('10');
+  });
+
+  it('runs C++ code via runCppCode helper', async () => {
+    const result = await runCppCode('#include <iostream>\nusing namespace std;\nint main() { cout << "Hello C++" << endl; return 0; }');
+    expect(result).toContain('Hello C++');
   });
 });
