@@ -304,6 +304,10 @@ const config = {
             position: "right",
           },
           {
+            type: "custom-reviewBadge",
+            position: "right",
+          },
+          {
             type: "search",
             position: "right",
           },

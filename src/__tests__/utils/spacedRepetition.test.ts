@@ -4,6 +4,7 @@ import {
   saveSpacedRepetitionQueue,
   recordQuestionReview,
   getDueItems,
+  getDueReviewCount,
   getQuestionsForReviewSession,
   STORAGE_PREFIX,
 } from "../../utils/spacedRepetition";
@@ -111,6 +112,35 @@ describe("spacedRepetition", () => {
       const due = getDueItems(queue, new Date("2026-08-01T00:00:00Z"));
       expect(due.length).toBe(1);
       expect(due[0].uniqueId).toBe("arrays_1");
+    });
+
+    test("counts due review items from the active queue", () => {
+      const past = new Date("2026-01-01T00:00:00Z").toISOString();
+      const future = new Date("2026-12-31T00:00:00Z").toISOString();
+      const queue = {
+        arrays_1: {
+          uniqueId: "arrays_1",
+          topicId: "arrays",
+          questionId: 1,
+          nextReviewDate: past,
+          intervalDays: 1,
+          easeFactor: 2.5,
+          repetitions: 0,
+          missedCount: 1,
+        },
+        arrays_2: {
+          uniqueId: "arrays_2",
+          topicId: "arrays",
+          questionId: 2,
+          nextReviewDate: future,
+          intervalDays: 5,
+          easeFactor: 2.5,
+          repetitions: 2,
+          missedCount: 1,
+        },
+      };
+
+      expect(getDueReviewCount(queue, new Date("2026-08-01T00:00:00Z"))).toBe(1);
     });
   });
 
