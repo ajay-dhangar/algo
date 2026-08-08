@@ -8,7 +8,7 @@ export interface MonacoSandboxProps {
   initialCode?: string;
   /** Programming language for syntax-highlighting class and execution mode */
   language?: Language;
-  /** Alias for language used in test suites */
+  /** Alias for language used in test suites and PracticeRoom */
   initialLanguage?: Language;
   /** Title shown in the editor header */
   title?: string;
@@ -300,7 +300,7 @@ export default function MonacoSandbox({
   initialCode,
   language,
   initialLanguage,
-  title = 'Monaco Sandbox',
+  title = 'Interactive Algorithm Sandbox',
 }: MonacoSandboxProps) {
   const activeLanguage: Language = language || initialLanguage || 'javascript';
   const defaultCode = initialCode ?? DEFAULT_TEMPLATES[activeLanguage];

@@ -4,6 +4,7 @@ declare module '@theme/Layout' {
     children?: React.ReactNode;
     title?: string;
     description?: string;
+    noFooter?: boolean;
   }
   export default function Layout(props: Props): JSX.Element;
 }
