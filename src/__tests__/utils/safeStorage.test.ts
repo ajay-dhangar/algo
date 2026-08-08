@@ -9,6 +9,7 @@ import {
   getUserId,
   extractQuizIdFromStorageKey,
   getAchievementSnapshot,
+  QuizAttemptRecord,
 } from '../../utils/safeStorage';
 
 describe('safeStorage', () => {
@@ -132,7 +133,7 @@ describe('safeStorage', () => {
       });
 
       const key = getQuizAttemptStorageKey('user1', 'arrays');
-      const attempts = safeJsonParse(key, []);
+      const attempts = safeJsonParse<QuizAttemptRecord[]>(key, []);
       expect(attempts).toHaveLength(1);
       expect(attempts[0].score).toBe(9);
       expect(attempts[0].missedQuestionIds).toEqual([1, 3]);
@@ -177,13 +178,23 @@ describe('safeStorage', () => {
     });
 
     test('correctly calculates quiz stats for user IDs containing underscores and hyphenated quiz IDs', () => {
-      saveQuizAttemptLocal('john_doe', 'arrays', { score: 10 });
-      saveQuizAttemptLocal('guest_user_1', 'binary-tree', { score: 12 }); // 12/12 = 100% (mastered)
+      saveQuizAttemptLocal('john_doe', 'arrays', { score: 9 }); // 9/9 = 100% (mastered)
+      saveQuizAttemptLocal('guest_user_1', 'binary-tree', { score: 10 }); // 10/10 = 100% (mastered)
 
       const snapshot = getAchievementSnapshot();
       expect(snapshot.totalQuizzesAttempted).toBe(2);
       expect(snapshot.quizzesPassed).toBe(2);
       expect(snapshot.quizzesMastered).toBe(2);
+    });
+
+    test('clamps scores that exceed question count to a maximum of 100%', () => {
+      // Legacy or corrupted attempt where score is higher than total questions
+      saveQuizAttemptLocal('john_doe', 'avl-trees', { score: 12, totalQuestions: 10 });
+      saveQuizAttemptLocal('john_doe', 'red-black-trees', { score: 15 }); // quiz count is 10
+
+      const snapshot = getAchievementSnapshot();
+      expect(snapshot.quizzesMastered).toBe(2);
+      expect(snapshot.totalQuizzesAttempted).toBe(2);
     });
 
     test('handles empty storage and malformed keys gracefully', () => {
