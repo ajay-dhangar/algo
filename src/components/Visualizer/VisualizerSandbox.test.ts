@@ -1,5 +1,3 @@
-import { describe, it, expect } from 'vitest';
-
 // Unit test the pure step-generation logic (no DOM/React needed)
 
 function generateBubbleSortSteps(arr: number[]) {
