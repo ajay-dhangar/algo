@@ -2,35 +2,31 @@ import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import MonacoSandbox, { DEFAULT_TEMPLATES } from "../../components/CodeEditor/MonacoSandbox";
 
-// Mock @monaco-editor/react to prevent canvas/DOM errors in jsdom
-jest.mock("@monaco-editor/react", () => {
-  return function MockEditor({ value, onChange, language }: any) {
-    return (
-      <textarea
-        data-testid="mock-monaco-editor"
-        data-language={language}
-        value={value}
-        onChange={(e) => onChange && onChange(e.target.value)}
-      />
-    );
-  };
-});
+// MonacoSandbox uses a plain <textarea> — no monaco-editor mock needed.
 
 describe("MonacoSandbox Component", () => {
-  test("renders Monaco Sandbox controls and initial elements", () => {
+  test("renders title, language selector, run and reset buttons", () => {
     render(<MonacoSandbox />);
 
-    expect(screen.getByText("Monaco Sandbox")).toBeInTheDocument();
-    expect(screen.getByText("Console Output")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /run code/i })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /reset/i })).toBeInTheDocument();
+    // Default title
+    expect(screen.getByText("Interactive Algorithm Sandbox")).toBeInTheDocument();
+    // Language selector
     expect(screen.getByRole("combobox")).toBeInTheDocument();
+    // Run button
+    expect(screen.getByRole("button", { name: /run code/i })).toBeInTheDocument();
+    // Reset button
+    expect(screen.getByRole("button", { name: /reset code/i })).toBeInTheDocument();
   });
 
-  test("switches programming languages correctly", () => {
-    render(<MonacoSandbox initialLanguage="javascript" />);
+  test("accepts a custom title", () => {
+    render(<MonacoSandbox title="My Custom Sandbox" />);
+    expect(screen.getByText("My Custom Sandbox")).toBeInTheDocument();
+  });
 
+  test("switches programming languages via the selector", () => {
+    render(<MonacoSandbox initialLanguage="javascript" />);
     const select = screen.getByRole("combobox") as HTMLSelectElement;
+
     expect(select.value).toBe("javascript");
 
     fireEvent.change(select, { target: { value: "python" } });
@@ -40,54 +36,40 @@ describe("MonacoSandbox Component", () => {
     expect(select.value).toBe("cpp");
   });
 
-  test("executes JavaScript code and displays output console logs", async () => {
+  test("executes JavaScript code and shows output", async () => {
     render(<MonacoSandbox initialLanguage="javascript" />);
+    fireEvent.click(screen.getByRole("button", { name: /run code/i }));
 
-    const runBtn = screen.getByRole("button", { name: /run code/i });
-    fireEvent.click(runBtn);
-
+    // The binary search template should log "Found 23 at index: 5"
     await waitFor(
       () => {
-        expect(screen.getByText((content, element) => element?.tagName.toLowerCase() === 'span' && content.includes('Passed'))).toBeInTheDocument();
-        expect(screen.getByText((content, element) => element?.tagName.toLowerCase() === 'div' && content.includes('Input Array'))).toBeInTheDocument();
-        expect(screen.getByText((content, element) => element?.tagName.toLowerCase() === 'div' && content.includes('Target Value'))).toBeInTheDocument();
+        expect(screen.getByText(/Found 23 at index/i)).toBeInTheDocument();
       },
-      { timeout: 3000 }
+      { timeout: 3000 },
     );
   });
 
-  test("resets code to default template on reset button click", async () => {
+  test("resets code to default template when Reset Code is clicked", async () => {
     render(<MonacoSandbox initialLanguage="javascript" />);
 
-    const editor = screen.getByTestId("mock-monaco-editor");
-    fireEvent.change(editor, { target: { value: "console.log('Modified');" } });
-    expect(editor).toHaveValue("console.log('Modified');");
+    const editor = screen.getByRole("textbox", { name: /code editor/i });
+    fireEvent.change(editor, { target: { value: "console.log('modified');" } });
+    expect(editor).toHaveValue("console.log('modified');");
 
-    const resetBtn = screen.getByRole("button", { name: /reset/i });
-    fireEvent.click(resetBtn);
+    fireEvent.click(screen.getByRole("button", { name: /reset code/i }));
 
     await waitFor(() => {
       expect(editor).toHaveValue(DEFAULT_TEMPLATES.javascript);
     });
   });
 
-  test("clears console output when Clear button is clicked", async () => {
+  test("shows the output section after running code", async () => {
     render(<MonacoSandbox initialLanguage="javascript" />);
+    fireEvent.click(screen.getByRole("button", { name: /run code/i }));
 
-    const runBtn = screen.getByRole("button", { name: /run code/i });
-    fireEvent.click(runBtn);
-
-    await waitFor(
-      () => {
-        expect(screen.getByText(/Console Output/i)).toBeInTheDocument();
-        expect(screen.getByRole("button", { name: /clear/i })).toBeInTheDocument();
-      },
-      { timeout: 3000 }
-    );
-
-    const clearBtn = screen.getByRole("button", { name: /clear/i });
-    fireEvent.click(clearBtn);
-
-    expect(screen.getByText(/Click "Run Code" to execute algorithm/i)).toBeInTheDocument();
+    await waitFor(() => {
+      // Output section renders with an "Output" header label
+      expect(screen.getByLabelText(/output console/i)).toBeInTheDocument();
+    }, { timeout: 3000 });
   });
 });

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
-type Language = 'javascript' | 'python' | 'cpp';
+export type Language = 'javascript' | 'python' | 'cpp';
 
-interface MonacoSandboxProps {
+export interface MonacoSandboxProps {
   /** Initial source code shown in the editor */
   initialCode?: string;
   /** Programming language for syntax-highlighting class and execution mode */
   language?: Language;
+  /** Alias for language used in test suites and PracticeRoom */
+  initialLanguage?: Language;
   /** Title shown in the editor header */
   title?: string;
 }
@@ -15,7 +17,7 @@ interface MonacoSandboxProps {
  * Default algorithm templates per language.
  * Shown when the user clicks "Reset Code".
  */
-const DEFAULT_TEMPLATES: Record<Language, string> = {
+export const DEFAULT_TEMPLATES: Record<Language, string> = {
   javascript: `// Binary Search — JavaScript
 function binarySearch(arr, target) {
   let lo = 0, hi = arr.length - 1;
@@ -133,12 +135,14 @@ function HighlightedCode({ code, lang }: { code: string; lang: Language }) {
 
 export default function MonacoSandbox({
   initialCode,
-  language = 'javascript',
+  language,
+  initialLanguage,
   title = 'Interactive Algorithm Sandbox',
 }: MonacoSandboxProps) {
-  const defaultCode = initialCode ?? DEFAULT_TEMPLATES[language];
+  const activeLanguage: Language = language || initialLanguage || 'javascript';
+  const defaultCode = initialCode ?? DEFAULT_TEMPLATES[activeLanguage];
 
-  const [lang, setLang] = useState<Language>(language);
+  const [lang, setLang] = useState<Language>(activeLanguage);
   const [code, setCode] = useState(defaultCode);
   const [output, setOutput] = useState('');
   const [isRunning, setIsRunning] = useState(false);
