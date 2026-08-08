@@ -12,6 +12,8 @@ import {
 } from "react-icons/fa";
 import type { GraphChallenge } from "../data/graphChallengesData";
 import useConsoleCapture from "../hooks/useConsoleCapture";
+import useChallengeJudge from "../hooks/useChallengeJudge";
+import type { JudgeResult } from "../utils/challengeJudge";
 import ComplexityDeepDive from "./ComplexityDeepDive";
 import PseudocodeTab from "./PseudocodeTab";
 import RealWorldUsesTab from "./RealWorldUsesTab";
