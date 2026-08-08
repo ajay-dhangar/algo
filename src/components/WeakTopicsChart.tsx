@@ -20,6 +20,16 @@ function barColor(bestPercent: number, hasAttempts: boolean): string {
 }
 
 export default function WeakTopicsChart({ entries, onStartReview, dueCount }: WeakTopicsChartProps) {
+  const [exportFormat, setExportFormat] = useState<"csv" | "json">("csv");
+
+  const handleDownload = () => {
+    const stats: Record<string, QuizStat> = {};
+    entries.forEach((entry) => {
+      stats[entry.quiz.id] = entry.stat;
+    });
+    downloadQuizData(stats, exportFormat);
+  };
+
   if (entries.length === 0) {
     return (
       <div className="text-center py-12 border border-dashed border-slate-200 dark:border-slate-800 rounded-2xl">
@@ -49,14 +59,36 @@ export default function WeakTopicsChart({ entries, onStartReview, dueCount }: We
             </span>
           </div>
         </div>
-        <Link
-          to="/quizzes/review"
-          onClick={onStartReview}
-          className="inline-flex items-center justify-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white no-underline transition-colors shadow-sm shrink-0"
-        >
-          Review weak topics
-          <FiArrowRight size={14} />
-        </Link>
+        <div className="flex items-center gap-2 shrink-0">
+          <label htmlFor="weak-topics-export-format" className="sr-only">
+            Export format
+          </label>
+          <select
+            id="weak-topics-export-format"
+            aria-label="Export format"
+            value={exportFormat}
+            onChange={(e) => setExportFormat(e.target.value as "csv" | "json")}
+            className="text-xs font-bold px-2.5 py-2 rounded-lg border border-indigo-200 dark:border-indigo-800/40 bg-white dark:bg-indigo-950/40 text-indigo-900 dark:text-indigo-200"
+          >
+            <option value="csv">CSV</option>
+            <option value="json">JSON</option>
+          </select>
+          <button
+            type="button"
+            onClick={handleDownload}
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-lg bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/40 transition-colors shadow-sm"
+          >
+            Download my data
+          </button>
+          <Link
+            to="/quizzes/review"
+            onClick={onStartReview}
+            className="inline-flex items-center justify-center gap-1.5 text-xs font-bold px-3.5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white no-underline transition-colors shadow-sm shrink-0"
+          >
+            Review weak topics
+            <FiArrowRight size={14} />
+          </Link>
+        </div>
       </div>
       {entries.map((entry, index) => {
         const hasAttempts = entry.stat.totalAttempts > 0;
