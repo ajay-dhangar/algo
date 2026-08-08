@@ -1,6 +1,12 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import MonacoSandbox, { DEFAULT_TEMPLATES } from "../../components/CodeEditor/MonacoSandbox";
+import MonacoSandbox, {
+  DEFAULT_TEMPLATES,
+  executePythonFallback,
+  executeCppFallback,
+  runPythonCode,
+  runCppCode,
+} from "../../components/CodeEditor/MonacoSandbox";
 
 // Mock @monaco-editor/react to prevent canvas/DOM errors in jsdom
 jest.mock("@monaco-editor/react", () => {
@@ -56,6 +62,34 @@ describe("MonacoSandbox Component", () => {
     );
   });
 
+  test("executes Python code and displays output console logs", async () => {
+    render(<MonacoSandbox initialLanguage="python" />);
+
+    const runBtn = screen.getByRole("button", { name: /run code/i });
+    fireEvent.click(runBtn);
+
+    await waitFor(
+      () => {
+        expect(screen.getByText(/Sorted:/i)).toBeInTheDocument();
+      },
+      { timeout: 3000 }
+    );
+  });
+
+  test("executes C++ code and displays output console logs", async () => {
+    render(<MonacoSandbox initialLanguage="cpp" />);
+
+    const runBtn = screen.getByRole("button", { name: /run code/i });
+    fireEvent.click(runBtn);
+
+    await waitFor(
+      () => {
+        expect(screen.getByText(/Sorted:/i)).toBeInTheDocument();
+      },
+      { timeout: 3000 }
+    );
+  });
+
   test("resets code to default template on reset button click", async () => {
     render(<MonacoSandbox initialLanguage="javascript" />);
 
@@ -89,5 +123,17 @@ describe("MonacoSandbox Component", () => {
     fireEvent.click(clearBtn);
 
     expect(screen.getByText(/Click "Run Code" to execute algorithm/i)).toBeInTheDocument();
+  });
+});
+
+describe("MonacoSandbox Execution Helpers", () => {
+  test("executePythonFallback runs Python print statements", () => {
+    const output = executePythonFallback('print("Hello", "Python")');
+    expect(output).toContain("Hello Python");
+  });
+
+  test("executeCppFallback runs C++ cout statements", () => {
+    const output = executeCppFallback('cout << "Hello C++" << endl;');
+    expect(output).toContain("Hello C++");
   });
 });
