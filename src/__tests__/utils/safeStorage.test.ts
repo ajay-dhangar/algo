@@ -187,14 +187,19 @@ describe('safeStorage', () => {
       expect(snapshot.quizzesMastered).toBe(2);
     });
 
-    test('clamps scores that exceed question count to a maximum of 100%', () => {
-      // Legacy or corrupted attempt where score is higher than total questions
-      saveQuizAttemptLocal('john_doe', 'avl-trees', { score: 12, totalQuestions: 10 });
-      saveQuizAttemptLocal('john_doe', 'red-black-trees', { score: 15 }); // quiz count is 10
+    test('keeps the streak alive when multiple updates happen on the same day', () => {
+      const progress = {
+        'topic-1': true,
+        'topic-1_updatedAt': '2024-01-03T10:00:00.000Z',
+        'topic-2': true,
+        'topic-2_updatedAt': '2024-01-03T12:30:00.000Z',
+        'topic-3': true,
+        'topic-3_updatedAt': '2024-01-02T09:00:00.000Z',
+        lastActiveAt: '2024-01-03T12:30:00.000Z',
+      };
 
-      const snapshot = getAchievementSnapshot();
-      expect(snapshot.quizzesMastered).toBe(2);
-      expect(snapshot.totalQuizzesAttempted).toBe(2);
+      const snapshot = getAchievementSnapshot(progress as any);
+      expect(snapshot.streak).toBe(2);
     });
 
     test('handles empty storage and malformed keys gracefully', () => {

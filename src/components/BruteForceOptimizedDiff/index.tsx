@@ -16,6 +16,13 @@ interface BruteForceOptimizedDiffProps {
   bruteForceCode: string;
   optimizedCode: string;
   annotations: DiffAnnotation[];
+  /**
+   * Explicit height for the Monaco DiffEditor.
+   * Monaco editors render into an absolutely-positioned internal container
+   * and cannot infer height from CSS — this prop must be set explicitly.
+   * Defaults to "360px", matching the .editorWrapper min-height in CSS.
+   */
+  editorHeight?: string;
 }
 
 export default function BruteForceOptimizedDiff({
@@ -26,6 +33,7 @@ export default function BruteForceOptimizedDiff({
   bruteForceCode,
   optimizedCode,
   annotations,
+  editorHeight = "360px",
 }: BruteForceOptimizedDiffProps) {
   return (
     <div className={styles.container}>
@@ -54,6 +62,7 @@ export default function BruteForceOptimizedDiff({
                     modified={optimizedCode}
                     language={language}
                     theme="vs-dark"
+                    height={editorHeight}
                     options={{
                       readOnly: true,
                       renderSideBySide: true,

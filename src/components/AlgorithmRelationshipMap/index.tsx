@@ -17,33 +17,28 @@ import {
   CATEGORY_META,
   NodeCategory,
 } from "../../data/algorithmRelationshipGraph";
-import { computeForceLayout } from "./layout";
+import layoutPositions from "./generated/layoutPositions.json";
 import MapNode, { MapNodeData } from "./MapNode";
 import styles from "./styles.module.css";
 
 const nodeTypes = { algoNode: MapNode };
 
-const LAYOUT_WIDTH = 1400;
-const LAYOUT_HEIGHT = 900;
+const positions = layoutPositions as Record<string, { x: number; y: number }>;
 
 const ALL_CATEGORIES = Object.keys(CATEGORY_META) as NodeCategory[];
 
 function AlgorithmRelationshipMapInner() {
   const [query, setQuery] = useState("");
   const [activeCategories, setActiveCategories] = useState<Set<NodeCategory>>(
-    new Set(ALL_CATEGORIES)
+    new Set(ALL_CATEGORIES),
   );
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const { fitView } = useReactFlow();
 
-  // Layout is computed once — the graph shape never changes at runtime,
-  // so there's no need to re-run the force simulation on every render.
-  const positions = useMemo(
-    () => computeForceLayout(CATALOG_NODES, CATALOG_EDGES, LAYOUT_WIDTH, LAYOUT_HEIGHT),
-    []
+  const nodeById = useMemo(
+    () => new Map(CATALOG_NODES.map((n) => [n.id, n])),
+    [],
   );
-
-  const nodeById = useMemo(() => new Map(CATALOG_NODES.map((n) => [n.id, n])), []);
 
   // Which nodes are directly connected to the current selection, used to
   // highlight a neighborhood and dim everything else.
@@ -58,13 +53,15 @@ function AlgorithmRelationshipMapInner() {
   }, [selectedId]);
 
   const matchesSearch = useCallback(
-    (label: string) => query.trim() === "" || label.toLowerCase().includes(query.trim().toLowerCase()),
-    [query]
+    (label: string) =>
+      query.trim() === "" ||
+      label.toLowerCase().includes(query.trim().toLowerCase()),
+    [query],
   );
 
   const nodes: Node<MapNodeData>[] = useMemo(() => {
     return CATALOG_NODES.map((n) => {
-      const pos = positions.get(n.id) ?? { x: 0, y: 0 };
+      const pos = positions[n.id] ?? { x: 0, y: 0 };
       const categoryActive = activeCategories.has(n.category);
       const searchActive = matchesSearch(n.label);
       const inNeighborhood = !neighborIds || neighborIds.has(n.id);
@@ -87,7 +84,8 @@ function AlgorithmRelationshipMapInner() {
 
   const edges: Edge[] = useMemo(() => {
     return CATALOG_EDGES.map((e, i) => {
-      const inNeighborhood = !selectedId || (e.source === selectedId || e.target === selectedId);
+      const inNeighborhood =
+        !selectedId || e.source === selectedId || e.target === selectedId;
       return {
         id: `${e.source}-${e.target}-${i}`,
         source: e.source,
@@ -99,7 +97,10 @@ function AlgorithmRelationshipMapInner() {
           opacity: selectedId ? (inNeighborhood ? 0.9 : 0.06) : 0.35,
         },
         labelStyle: { fontSize: 10, fontWeight: 700 },
-        labelBgStyle: { fill: "var(--ifm-background-color, #fff)", fillOpacity: 0.9 },
+        labelBgStyle: {
+          fill: "var(--ifm-background-color, #fff)",
+          fillOpacity: 0.9,
+        },
         markerEnd: { type: MarkerType.ArrowClosed, width: 14, height: 14 },
       };
     });
@@ -116,7 +117,9 @@ function AlgorithmRelationshipMapInner() {
 
   const selectedNode = selectedId ? nodeById.get(selectedId) : null;
   const relatedEdgesForPanel = selectedId
-    ? CATALOG_EDGES.filter((e) => e.source === selectedId || e.target === selectedId)
+    ? CATALOG_EDGES.filter(
+        (e) => e.source === selectedId || e.target === selectedId,
+      )
     : [];
 
   return (
@@ -125,19 +128,27 @@ function AlgorithmRelationshipMapInner() {
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
-        onNodeClick={(_, node) => setSelectedId((cur) => (cur === node.id ? null : node.id))}
+        onNodeClick={(_, node) =>
+          setSelectedId((cur) => (cur === node.id ? null : node.id))
+        }
         onPaneClick={() => setSelectedId(null)}
         fitView
         minZoom={0.2}
         maxZoom={2}
         proOptions={{ hideAttribution: true }}
       >
-        <Background gap={20} size={1} color="var(--ifm-color-emphasis-300, #cbd5e1)" />
+        <Background
+          gap={20}
+          size={1}
+          color="var(--ifm-color-emphasis-300, #cbd5e1)"
+        />
         <Controls showInteractive={false} />
         <MiniMap
           pannable
           zoomable
-          nodeColor={(n) => CATEGORY_META[(n.data as MapNodeData).category].color}
+          nodeColor={(n) =>
+            CATEGORY_META[(n.data as MapNodeData).category].color
+          }
           maskColor="rgba(0,0,0,0.06)"
         />
       </ReactFlow>
@@ -180,7 +191,10 @@ function AlgorithmRelationshipMapInner() {
               onClick={() => toggleCategory(cat)}
               style={{ borderColor: active ? meta.color : "transparent" }}
             >
-              <span className={styles.legendDot} style={{ background: meta.color }} />
+              <span
+                className={styles.legendDot}
+                style={{ background: meta.color }}
+              />
               {meta.label}
             </button>
           );
