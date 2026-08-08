@@ -186,6 +186,21 @@ describe('safeStorage', () => {
       expect(snapshot.quizzesMastered).toBe(2);
     });
 
+    test('keeps the streak alive when multiple updates happen on the same day', () => {
+      const progress = {
+        'topic-1': true,
+        'topic-1_updatedAt': '2024-01-03T10:00:00.000Z',
+        'topic-2': true,
+        'topic-2_updatedAt': '2024-01-03T12:30:00.000Z',
+        'topic-3': true,
+        'topic-3_updatedAt': '2024-01-02T09:00:00.000Z',
+        lastActiveAt: '2024-01-03T12:30:00.000Z',
+      };
+
+      const snapshot = getAchievementSnapshot(progress as any);
+      expect(snapshot.streak).toBe(2);
+    });
+
     test('handles empty storage and malformed keys gracefully', () => {
       localStorage.clear();
       localStorage.setItem('quiz_attempts_', JSON.stringify([{ score: 10 }]));
