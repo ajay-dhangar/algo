@@ -8,7 +8,8 @@ import {
 } from "react-icons/fa";
 import type { SortingChallenge } from "../data/sortingChallengesData";
 import Editor from "@monaco-editor/react";
-import useConsoleCapture from "../hooks/useConsoleCapture";
+import useChallengeJudge from "../hooks/useChallengeJudge";
+import type { JudgeResult } from "../utils/challengeJudge";
 import ComplexityDeepDive from "./ComplexityDeepDive";
 import PseudocodeTab from "./PseudocodeTab";
 import RealWorldUsesTab from "./RealWorldUsesTab";
@@ -31,21 +32,28 @@ export default function SortingChallengeLayout({ challenge }: Props) {
     setCodeMap((prev) => ({ ...prev, [activeLanguage]: val ?? "" }));
   };
   const [output, setOutput] = useState<string[]>([]);
-  const [testResults, setTestResults] = useState<{ pass: boolean; msg: string }[]>([]);
+  const [judgeResults, setJudgeResults] = useState<JudgeResult[]>([]);
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [running, setRunning] = useState(false);
   const [activeTab, setActiveTab] = useState<"problem" | "solution" | "pseudocode" | "real-world">("problem");
-  const { runWithCapture } = useConsoleCapture();
+  const { runJudge } = useChallengeJudge(challenge);
 
   const runCode = useCallback(async () => {
     setRunning(true);
     setOutput([]);
-    setTestResults([]);
-    const logs = await runWithCapture(code);
-    setOutput(logs);
-    setRunning(false);
-  }, [code, runWithCapture]);
+    setJudgeResults([]);
+    try {
+      const results = await runJudge(code, activeLanguage);
+      setJudgeResults(results);
+      const passed = results.filter((result) => result.pass).length;
+      setOutput([`${passed}/${results.length} hidden cases passed`, ...results.map((result) => `${result.pass ? "✅" : "❌"} ${result.description} (${result.runtimeMs}ms)`)]);
+    } catch (error) {
+      setOutput([`❌ ${error instanceof Error ? error.message : String(error)}`]);
+    } finally {
+      setRunning(false);
+    }
+  }, [activeLanguage, code, runJudge]);
 
   return (
     <Layout title={challenge.title} description={challenge.description}>
@@ -323,7 +331,24 @@ export default function SortingChallengeLayout({ challenge }: Props) {
                 )}
               </div>
               <div className="flex-1 overflow-y-auto p-4 font-mono text-sm">
-                {output.length === 0 ? (
+                {judgeResults.length > 0 ? (
+                  <div className="space-y-2">
+                    {judgeResults.map((result, i) => (
+                      <div
+                        key={i}
+                        className={`rounded-lg border p-2 text-xs ${result.pass ? "border-emerald-700/40 bg-emerald-500/10 text-emerald-300" : "border-red-700/40 bg-red-500/10 text-red-300"}`}
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span>#{i + 1} {result.description}</span>
+                          <span>{result.pass ? "PASS" : "FAIL"}</span>
+                        </div>
+                        <div className="mt-1 opacity-80">Output: {result.output || "—"}</div>
+                        <div className="opacity-80">Expected: {result.expected}</div>
+                        <div className="opacity-70">Runtime: {result.runtimeMs}ms</div>
+                      </div>
+                    ))}
+                  </div>
+                ) : output.length === 0 ? (
                   <span className="text-slate-600 text-xs">Click "Run Code" to see output here...</span>
                 ) : (
                   output.map((line, i) => (
