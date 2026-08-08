@@ -9,6 +9,7 @@ import {
 import { useAuth } from "../contexts/AuthContext";
 import PracticeActivityHeatmapWidget from "../components/PracticeActivityHeatmapWidget";
 import PracticeActivitySummaryCard from "../components/PracticeActivitySummaryCard";
+import PublicProfileSettingsCard from "../components/PublicProfileSettingsCard";
 import QuizStreakWidget from "../components/QuizStreakWidget";
 
 type DashboardTab = "overview" | "metrics" | "security";
@@ -238,6 +239,8 @@ export default function ProfilePage() {
                           : "Verify credentials or construct a workspace node to map algorithmic execution telemetry."}
                       </p>
                     </div>
+
+                    <PublicProfileSettingsCard />
 
                     <div 
                       className="rounded-2xl border p-6 shadow-sm flex flex-col justify-between"
