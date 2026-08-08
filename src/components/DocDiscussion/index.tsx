@@ -25,7 +25,7 @@ interface DocDiscussionProps {
  */
 export default function DocDiscussion({ title }: DocDiscussionProps): JSX.Element {
   return (
-    <section className="docusaurus-mt-lg mt-10 border-t border-solid border-[var(--ifm-toc-border-color)] pt-8">
+    <section className="docusaurus-mt-lg mt-10 border-t border-solid border-[var(--ifm-toc-border-color)] pt-8 text-center">
       <h2 className="mb-1 text-xl font-semibold">💬 Discuss this page</h2>
       <p className="mb-4 text-sm opacity-80">
         Have a question or spot something confusing{title ? ` in "${title}"` : ""}? Ask below —
