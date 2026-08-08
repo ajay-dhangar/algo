@@ -354,6 +354,10 @@ function computeStreak(progress: AlgoProgressData): number {
     const previous = activityDates[index - 1];
     const dayDiff = Math.round((previous.getTime() - current.getTime()) / (1000 * 60 * 60 * 24));
 
+    if (dayDiff === 0) {
+      continue;
+    }
+
     if (dayDiff === 1) {
       streak += 1;
     } else {
