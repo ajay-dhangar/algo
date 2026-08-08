@@ -200,7 +200,7 @@ function AlgorithmRelationshipMapInner() {
                 const otherLabel = nodeById.get(otherId)?.label ?? otherId;
                 return (
                   <li key={i}>
-                    {isSource ? `${e.relation} → ${otherLabel}` : `${otherLabel} ${e.relation} →`}
+                    {isSource ? `${e.relation} → ${otherLabel}` : `← ${e.relation} ${otherLabel}`}
                   </li>
                 );
               })}
