@@ -3,6 +3,7 @@ import ThemePicker from '@site/src/components/ThemePicker';
 import CodeThemePicker from '@site/src/components/CodeThemePicker';
 import CursorSwitcher from '@site/src/components/CursorSwitcher';
 import NavbarAuthButton from '@site/src/components/NavbarAuthButton';
+import ReviewBadgeNavItem from '@site/src/components/ReviewBadgeNavItem';
 
 export default {
   ...ComponentTypes,
@@ -10,4 +11,5 @@ export default {
   'custom-codeThemePicker': CodeThemePicker,
   'custom-cursorSwitcher': CursorSwitcher,
   'custom-authButton': NavbarAuthButton,
+  'custom-reviewBadge': ReviewBadgeNavItem,
 };

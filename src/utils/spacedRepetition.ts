@@ -177,6 +177,13 @@ export function getDueItems(
     .sort((a, b) => new Date(a.nextReviewDate).getTime() - new Date(b.nextReviewDate).getTime());
 }
 
+export function getDueReviewCount(
+  queue: Record<string, SpacedRepetitionItem>,
+  now: Date = new Date()
+): number {
+  return getDueItems(queue, now).length;
+}
+
 /**
  * Prepares a set of questions for a review session.
  * 1. Checks due items in queue.
