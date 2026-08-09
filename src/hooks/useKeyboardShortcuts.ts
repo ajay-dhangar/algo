@@ -25,7 +25,6 @@ const SEQUENTIAL_SHORTCUTS: SequentialShortcuts = {
   gb: "/blog",
   gq: "/quizzes",
   gc: "/challenges", // g then c -> go to challenges
-  gs: "/settings",
 };
 
 export default function useKeyboardShortcuts({
