@@ -141,7 +141,7 @@ const GraphVisualizer: React.FC = () => {
   };
 
   // Node selection and edge drawing logic
-  const handleNodeClick = (e: React.MouseEvent, id: number) => {
+  const handleNodeClick = (e: React.MouseEvent<Element> | React.KeyboardEvent<Element>, id: number) => {
     e.stopPropagation();
     if (isRunning) return;
 
@@ -193,7 +193,7 @@ const GraphVisualizer: React.FC = () => {
     setDraggingNode(null);
   };
 
-  const handleWeightClick = (e: React.MouseEvent, u: number, v: number) => {
+  const handleWeightClick = (e: React.MouseEvent<Element> | React.KeyboardEvent<Element>, u: number, v: number) => {
     e.stopPropagation();
     if (mode !== "edit" || isRunning) return;
     const edge = edges.find((edge) => edge.u === u && edge.v === v);
