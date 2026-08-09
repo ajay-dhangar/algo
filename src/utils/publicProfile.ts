@@ -92,7 +92,12 @@ export function buildPublicProfileSnapshot(input: {
     allowBadgeEmbed: false,
   };
 
-  const resolved = { ...fallbackSettings, ...(settings || {}), ...input.overrideSettings };
+  const settingsToUse =
+    settings?.username?.trim()?.toLowerCase() === input.username?.trim()?.toLowerCase()
+      ? settings
+      : null;
+
+  const resolved = { ...fallbackSettings, ...(settingsToUse || {}), ...input.overrideSettings };
   const progress = readAlgoProgress();
   const achievement = getAchievementSnapshot(progress);
   const visibleSections = [
