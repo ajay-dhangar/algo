@@ -427,7 +427,11 @@ export default function MonacoSandbox({
       )}
 
       {/* Output console */}
-      <div className="p-3 bg-gray-950 text-green-400 font-mono text-xs border-t border-gray-800 whitespace-pre-wrap">
+      <div
+        role="region"
+        aria-label="output console"
+        className="p-3 bg-gray-950 text-green-400 font-mono text-xs border-t border-gray-800 whitespace-pre-wrap"
+      >
         <div className="flex items-center justify-between text-gray-400 mb-2">
           <span className="text-gray-400 text-xs font-semibold uppercase tracking-wider">Console Output</span>
           {output ? (
