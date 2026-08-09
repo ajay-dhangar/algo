@@ -8,6 +8,7 @@ import ProgressTracker from '@site/src/components/ProgressTracker';
 import DocInlineQuiz from '@site/src/components/DocInlineQuiz';
 import RelatedProblems from '@site/src/components/RelatedProblems';
 import DocDiscussion from '@site/src/components/DocDiscussion';
+import DsaProblemHintLadder from '@site/src/components/DsaProblemHintLadder';
 
 export default function DocItemFooter(props: Props): JSX.Element | null {
   const { metadata, frontMatter } = useDoc();
@@ -26,6 +27,7 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
     return (
       <>
         <DocInlineQuiz />
+        <DsaProblemHintLadder />
         <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
         <RelatedProblems />
         {!hideDiscussion && <DocDiscussion title={topicTitle} />}
@@ -36,6 +38,7 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
   return (
     <>
       <DocInlineQuiz />
+      <DsaProblemHintLadder />
 
       <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
 

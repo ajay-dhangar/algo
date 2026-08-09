@@ -1,3 +1,10 @@
+export interface HintStages {
+  nudge?: string;
+  approach?: string;
+  pseudocode?: string;
+  fullSolution?: string;
+}
+
 export interface DsaProblem {
   id: string;
   title: string;
@@ -6,6 +13,7 @@ export interface DsaProblem {
   tags: string[];
   companies: string[];
   url: string;
+  hintStages?: HintStages;
 }
 
 export interface DsaTag {
