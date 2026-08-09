@@ -518,6 +518,22 @@ const config = {
         disableInDev: false,
       },
     ],
+
+    function dynamicProfileRoutesPlugin() {
+      return {
+        name: 'docusaurus-dynamic-profile-routes',
+        async contentLoaded({ actions }) {
+          const { addRoute } = actions;
+          
+          // Register dynamic wildcard client route for user profiles
+          addRoute({
+            path: '/algo/u/:username',
+            component: '@site/src/pages/u/[username].tsx',
+            exact: true,
+          });
+        },
+      };
+    },
  
     [
       path.join(__dirname, "/plugins/my-plugin"),

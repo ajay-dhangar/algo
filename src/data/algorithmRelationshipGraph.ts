@@ -1,21 +1,3 @@
-/**
- * Algorithm & Data Structure Relationship Map — dataset
- * ------------------------------------------------------
- * A curated graph of how ~40 core DSA concepts relate to each other
- * (prerequisite, specialization, "uses", or "compares with"), consumed by
- * <AlgorithmRelationshipMap /> (src/components/AlgorithmRelationshipMap).
- *
- * Every `url` below was verified to point at a real doc in this repo at
- * the time this file was written. A concept without a single good
- * canonical doc (e.g. "Arrays", "Recursion") is left unlinked — it still
- * appears as a node so the map reads as a connected curriculum, it's just
- * not clickable.
- *
- * To extend the map: add a node to CATALOG_NODES and one or more edges to
- * CATALOG_EDGES. Nothing else needs to change — the layout is computed
- * automatically by a force simulation at render time.
- */
-
 export type NodeCategory =
   | "foundation"
   | "technique"

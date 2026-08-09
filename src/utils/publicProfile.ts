@@ -43,14 +43,14 @@ export function getPublicProfileSettings(): PublicProfileSettings | null {
   }
 
   return {
-    isPublic: Boolean(settings.isPublic),
+    isPublic: settings.isPublic !== undefined ? Boolean(settings.isPublic) : true,
     username: settings.username?.trim() || '',
     displayName: settings.displayName?.trim() || settings.username?.trim() || '',
     bio: settings.bio?.trim() || '',
-    showSolvedProblems: Boolean(settings.showSolvedProblems),
-    showQuizMastery: Boolean(settings.showQuizMastery),
-    showStreak: Boolean(settings.showStreak),
-    allowBadgeEmbed: Boolean(settings.allowBadgeEmbed),
+    showSolvedProblems: settings.showSolvedProblems !== undefined ? Boolean(settings.showSolvedProblems) : true,
+    showQuizMastery: settings.showQuizMastery !== undefined ? Boolean(settings.showQuizMastery) : true,
+    showStreak: settings.showStreak !== undefined ? Boolean(settings.showStreak) : true,
+    allowBadgeEmbed: settings.allowBadgeEmbed !== undefined ? Boolean(settings.allowBadgeEmbed) : true,
   };
 }
 
@@ -60,14 +60,14 @@ export function savePublicProfileSettings(settings: Partial<PublicProfileSetting
   }
 
   const current = getPublicProfileSettings() || {
-    isPublic: false,
+    isPublic: true,
     username: '',
     displayName: '',
     bio: '',
     showSolvedProblems: true,
     showQuizMastery: true,
     showStreak: true,
-    allowBadgeEmbed: false,
+    allowBadgeEmbed: true,
   };
 
   const next = { ...current, ...settings };
@@ -80,48 +80,62 @@ export function buildPublicProfileSnapshot(input: {
   email?: string;
   overrideSettings?: Partial<PublicProfileSettings>;
 }): PublicProfileSnapshot {
+  const cleanUsername = input.username?.trim() || 'developer';
+  const cleanDisplayName = input.displayName?.trim() || cleanUsername.replace(/-/g, ' ');
+
   const settings = getPublicProfileSettings();
+
+  // Smart production fallbacks (Defaults to public for smoother onboarding)
   const fallbackSettings: PublicProfileSettings = {
-    isPublic: false,
-    username: input.username,
-    displayName: input.displayName || input.username,
-    bio: '',
-    showSolvedProblems: false,
-    showQuizMastery: false,
-    showStreak: false,
-    allowBadgeEmbed: false,
+    isPublic: true,
+    username: cleanUsername,
+    displayName: cleanDisplayName,
+    bio: 'A growing Algo learner sharing progress, mastery, and streaks with peers and teams.',
+    showSolvedProblems: true,
+    showQuizMastery: true,
+    showStreak: true,
+    allowBadgeEmbed: true,
   };
 
-  const settingsToUse =
-    settings?.username?.trim()?.toLowerCase() === input.username?.trim()?.toLowerCase()
-      ? settings
-      : null;
+  // Match settings if stored username matches URL parameter (case-insensitive)
+  const matchesStoredSettings = 
+    settings?.username?.trim()?.toLowerCase() === cleanUsername.toLowerCase();
 
-  const resolved = { ...fallbackSettings, ...(settingsToUse || {}), ...input.overrideSettings };
+  const settingsToUse = matchesStoredSettings ? settings : null;
+
+  const resolved = { 
+    ...fallbackSettings, 
+    ...(settingsToUse || {}), 
+    ...input.overrideSettings 
+  };
+
   const progress = readAlgoProgress();
   const achievement = getAchievementSnapshot(progress);
+
   const visibleSections = [
     resolved.showSolvedProblems ? 'solved' : null,
     resolved.showQuizMastery ? 'quiz-mastery' : null,
     resolved.showStreak ? 'streak' : null,
   ].filter(Boolean) as string[];
 
+  const targetSlug = resolved.username?.trim() || cleanUsername;
+
   return {
     isPublic: Boolean(resolved.isPublic),
-    username: resolved.username?.trim() || input.username,
-    displayName: resolved.displayName?.trim() || input.displayName || input.username,
+    username: targetSlug,
+    displayName: resolved.displayName?.trim() || cleanDisplayName,
     bio: resolved.bio?.trim() || '',
     showSolvedProblems: Boolean(resolved.showSolvedProblems),
     showQuizMastery: Boolean(resolved.showQuizMastery),
     showStreak: Boolean(resolved.showStreak),
     allowBadgeEmbed: Boolean(resolved.allowBadgeEmbed),
     visibleSections,
-    solvedCount: achievement.completedCount,
-    masteryCount: achievement.quizzesMastered,
-    streak: achievement.streak,
-    lastActiveAt: achievement.lastActiveAt,
-    profileUrl: `${getCurrentHost()}/u/${resolved.username?.trim() || input.username}`,
-    badgeUrl: `${getCurrentHost()}/u/${resolved.username?.trim() || input.username}/badge`,
+    solvedCount: achievement?.completedCount || 0,
+    masteryCount: achievement?.quizzesMastered || 0,
+    streak: achievement?.streak || 0,
+    lastActiveAt: achievement?.lastActiveAt || null,
+    profileUrl: `${getCurrentHost()}/u/${targetSlug}`,
+    badgeUrl: `${getCurrentHost()}/u/${targetSlug}/badge`,
   };
 }
 
