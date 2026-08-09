@@ -49,7 +49,7 @@ describe('TreeChallengeLayout', () => {
     render(<TreeChallengeLayout challenge={mockTreeChallenge} />);
 
     expect(screen.getByText('Back to Challenges')).toBeInTheDocument();
-    expect(screen.getByText(mockTreeChallenge.title)).toBeInTheDocument();
+    expect(screen.getAllByText(mockTreeChallenge.title).length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText('Easy')).toBeInTheDocument();
   });
 

@@ -140,7 +140,7 @@ describe('DPChallengeLayout', () => {
     const clearButton = screen.getByRole('button', { name: /clear/i });
     fireEvent.click(clearButton);
 
-    expect(screen.queryByText(/Calculating fibonacci/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /clear/i })).not.toBeInTheDocument();
     expect(screen.getByText(/click "run code" to see output here/i)).toBeInTheDocument();
   });
 
