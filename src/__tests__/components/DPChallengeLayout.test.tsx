@@ -2,10 +2,26 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '../testUtils';
 import DPChallengeLayout from '../../components/DPChallengeLayout';
 import { mockDPChallenge } from '../testUtils';
+import useChallengeJudge from '../../hooks/useChallengeJudge';
+import * as safeStorage from '../../utils/safeStorage';
+
+const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {});
+
+jest.mock('../../hooks/useChallengeJudge', () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 describe('DPChallengeLayout', () => {
+  const mockRunJudge = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
+    mockRunJudge.mockReset();
+    (useChallengeJudge as jest.Mock).mockReturnValue({
+      runJudge: mockRunJudge,
+      judgeCases: [],
+    });
   });
 
   test('renders initial DP challenge details, difficulty badge, and complexity analysis', () => {
@@ -72,32 +88,65 @@ describe('DPChallengeLayout', () => {
   });
 
   test('executes code and displays console output', async () => {
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: 'Calculating fibonacci', expected: 'Calculating fibonacci', runtimeMs: 5, description: 'DP Case 1' },
+    ]);
+
     render(<DPChallengeLayout challenge={mockDPChallenge} />);
 
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
     await waitFor(() => {
-      expect(screen.getByText('Calculating fibonacci')).toBeInTheDocument();
+      expect(screen.getByText(/Calculating fibonacci/i)).toBeInTheDocument();
     });
   });
 
+  test('only marks a challenge solved after a successful judge run', async () => {
+    const markSpy = jest.spyOn(safeStorage, 'markChallengeSolved');
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: 'Calculating fibonacci', expected: 'Calculating fibonacci', runtimeMs: 5, description: 'DP Case 1' },
+    ]);
+
+    render(<DPChallengeLayout challenge={mockDPChallenge} />);
+
+    const solveButton = screen.getByRole('button', { name: /mark as solved/i });
+    expect(solveButton).toBeDisabled();
+
+    fireEvent.click(screen.getByRole('button', { name: /run code/i }));
+
+    await waitFor(() => {
+      expect(solveButton).toBeEnabled();
+    });
+
+    fireEvent.click(solveButton);
+
+    expect(markSpy).toHaveBeenCalledWith(mockDPChallenge.id, mockDPChallenge.title);
+    expect(alertSpy).toHaveBeenCalledWith('Marked as solved!');
+  });
+
   test('clears output console on Clear button click', async () => {
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: 'Calculating fibonacci', expected: 'Calculating fibonacci', runtimeMs: 5, description: 'DP Case 1' },
+    ]);
+
     render(<DPChallengeLayout challenge={mockDPChallenge} />);
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
     await waitFor(() => {
-      expect(screen.getByText('Calculating fibonacci')).toBeInTheDocument();
+      expect(screen.getByText(/Calculating fibonacci/i)).toBeInTheDocument();
     });
 
     const clearButton = screen.getByRole('button', { name: /clear/i });
     fireEvent.click(clearButton);
 
-    expect(screen.queryByText('Calculating fibonacci')).not.toBeInTheDocument();
+    expect(screen.queryByText(/Calculating fibonacci/i)).not.toBeInTheDocument();
     expect(screen.getByText(/click "run code" to see output here/i)).toBeInTheDocument();
   });
 
   test('handles DP runtime code errors gracefully', async () => {
+    mockRunJudge.mockRejectedValueOnce(new Error("DP stack overflow"));
+
     const errorDPChallenge = {
       ...mockDPChallenge,
       starterCode: 'throw new Error("DP stack overflow");',
@@ -107,7 +156,7 @@ describe('DPChallengeLayout', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
     await waitFor(() => {
-      expect(screen.getByText(/❌ Error: DP stack overflow/i)).toBeInTheDocument();
+      expect(screen.getByText(/❌ DP stack overflow/i)).toBeInTheDocument();
     });
   });
 

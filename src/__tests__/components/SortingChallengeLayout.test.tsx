@@ -2,10 +2,26 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '../testUtils';
 import SortingChallengeLayout from '../../components/SortingChallengeLayout';
 import { mockSortingChallenge } from '../testUtils';
+import useChallengeJudge from '../../hooks/useChallengeJudge';
+import * as safeStorage from '../../utils/safeStorage';
+
+const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {});
+
+jest.mock('../../hooks/useChallengeJudge', () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 describe('SortingChallengeLayout', () => {
+  const mockRunJudge = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
+    mockRunJudge.mockReset();
+    (useChallengeJudge as jest.Mock).mockReturnValue({
+      runJudge: mockRunJudge,
+      judgeCases: [],
+    });
   });
 
   test('renders initial problem details, title, difficulty badge, and constraints', () => {
@@ -68,37 +84,71 @@ describe('SortingChallengeLayout', () => {
   });
 
   test('executes code and updates output console', async () => {
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: '[1,2,5,8]', expected: '[1,2,5,8]', runtimeMs: 5, description: 'Unsorted array' },
+    ]);
+
     render(<SortingChallengeLayout challenge={mockSortingChallenge} />);
 
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
     await waitFor(() => {
-      expect(screen.getByText('Sorting array')).toBeInTheDocument();
+      expect(screen.getByText('PASS')).toBeInTheDocument();
     });
   });
 
+  test('only marks a challenge solved after a successful judge run', async () => {
+    const markSpy = jest.spyOn(safeStorage, 'markChallengeSolved');
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: '[1,2,5,8]', expected: '[1,2,5,8]', runtimeMs: 5, description: 'Unsorted array' },
+    ]);
+
+    render(<SortingChallengeLayout challenge={mockSortingChallenge} />);
+
+    const solveButton = screen.getByRole('button', { name: /mark as solved/i });
+    expect(solveButton).toBeDisabled();
+
+    fireEvent.click(screen.getByRole('button', { name: /run code/i }));
+
+    await waitFor(() => {
+      expect(solveButton).toBeEnabled();
+    });
+
+    fireEvent.click(solveButton);
+
+    expect(markSpy).toHaveBeenCalledWith(mockSortingChallenge.id, mockSortingChallenge.title);
+    expect(alertSpy).toHaveBeenCalledWith('Marked as solved!');
+    expect(safeStorage.readAlgoProgress()[mockSortingChallenge.id]).toBe(true);
+  });
+
   test('clears output console on Clear button click', async () => {
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: '[1,2,5,8]', expected: '[1,2,5,8]', runtimeMs: 5, description: 'Unsorted array' },
+    ]);
+
     render(<SortingChallengeLayout challenge={mockSortingChallenge} />);
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
     await waitFor(() => {
-      expect(screen.getByText('Sorting array')).toBeInTheDocument();
+      expect(screen.getByText('PASS')).toBeInTheDocument();
     });
 
     const clearButton = screen.getByRole('button', { name: /clear/i });
     fireEvent.click(clearButton);
 
-    expect(screen.queryByText('Sorting array')).not.toBeInTheDocument();
+    expect(screen.queryByText('PASS')).not.toBeInTheDocument();
     expect(screen.getByText(/click "run code" to see output here/i)).toBeInTheDocument();
   });
 
   test('handles arrays with negative numbers, duplicates, and errors', async () => {
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: '[-5,-5,0,2,10]', expected: '[-5,-5,0,2,10]', runtimeMs: 5, description: 'Unsorted array with negative numbers' },
+    ]);
     const complexSortingChallenge = {
       ...mockSortingChallenge,
       starterCode: `
         function sortArray(arr) {
-          console.log("Input:", JSON.stringify(arr));
           return arr.sort((a, b) => a - b);
         }
         sortArray([-5, 10, -5, 0, 2]);
@@ -109,11 +159,12 @@ describe('SortingChallengeLayout', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
     await waitFor(() => {
-      expect(screen.getByText('Input: [-5,10,-5,0,2]')).toBeInTheDocument();
+      expect(screen.getByText(/Unsorted array with negative numbers/i)).toBeInTheDocument();
     });
   });
 
   test('handles code execution runtime errors gracefully', async () => {
+    mockRunJudge.mockRejectedValueOnce(new Error("Sorting runtime error"));
     const errorChallenge = {
       ...mockSortingChallenge,
       starterCode: 'throw new Error("Sorting runtime error");',
@@ -123,7 +174,7 @@ describe('SortingChallengeLayout', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /run code/i }));
     await waitFor(() => {
-      expect(screen.getByText(/❌ Error: Sorting runtime error/i)).toBeInTheDocument();
+      expect(screen.getByText(/❌ Sorting runtime error/i)).toBeInTheDocument();
     });
   });
 

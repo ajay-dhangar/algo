@@ -2,10 +2,26 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '../testUtils';
 import GraphChallengeLayout from '../../components/GraphChallengeLayout';
 import { mockGraphChallenge } from '../testUtils';
+import useChallengeJudge from '../../hooks/useChallengeJudge';
+import * as safeStorage from '../../utils/safeStorage';
+
+const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {});
+
+jest.mock('../../hooks/useChallengeJudge', () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 describe('GraphChallengeLayout', () => {
+  const mockRunJudge = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
+    mockRunJudge.mockReset();
+    (useChallengeJudge as jest.Mock).mockReturnValue({
+      runJudge: mockRunJudge,
+      judgeCases: [],
+    });
   });
 
   test('renders initial problem details, title, difficulty badge, and time limit', () => {
@@ -94,34 +110,67 @@ describe('GraphChallengeLayout', () => {
   });
 
   test('executes starter code and displays console output', async () => {
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: 'Graph initialized', expected: 'Graph initialized', runtimeMs: 5, description: 'Test Case 1' },
+    ]);
+
     render(<GraphChallengeLayout challenge={mockGraphChallenge} />);
 
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
     await waitFor(() => {
-      expect(screen.getByText('Graph initialized')).toBeInTheDocument();
+      expect(screen.getByText(/Graph initialized/i)).toBeInTheDocument();
     });
   });
 
+  test('only marks a challenge solved after a successful judge run', async () => {
+    const markSpy = jest.spyOn(safeStorage, 'markChallengeSolved');
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: 'Graph initialized', expected: 'Graph initialized', runtimeMs: 5, description: 'Test Case 1' },
+    ]);
+
+    render(<GraphChallengeLayout challenge={mockGraphChallenge} />);
+
+    const solveButton = screen.getByRole('button', { name: /mark as solved/i });
+    expect(solveButton).toBeDisabled();
+
+    fireEvent.click(screen.getByRole('button', { name: /run code/i }));
+
+    await waitFor(() => {
+      expect(solveButton).toBeEnabled();
+    });
+
+    fireEvent.click(solveButton);
+
+    expect(markSpy).toHaveBeenCalledWith(mockGraphChallenge.id, mockGraphChallenge.title);
+    expect(alertSpy).toHaveBeenCalledWith('Marked as solved!');
+  });
+
   test('clears output console when Clear button is clicked', async () => {
+    mockRunJudge.mockResolvedValueOnce([
+      { pass: true, output: 'Graph initialized', expected: 'Graph initialized', runtimeMs: 5, description: 'Test Case 1' },
+    ]);
+
     render(<GraphChallengeLayout challenge={mockGraphChallenge} />);
 
     const runButton = screen.getByRole('button', { name: /run code/i });
     fireEvent.click(runButton);
 
     await waitFor(() => {
-      expect(screen.getByText('Graph initialized')).toBeInTheDocument();
+      expect(screen.getByText(/Graph initialized/i)).toBeInTheDocument();
     });
 
     const clearButton = screen.getByRole('button', { name: /clear/i });
     fireEvent.click(clearButton);
 
-    expect(screen.queryByText('Graph initialized')).not.toBeInTheDocument();
+    expect(screen.queryByText(/Graph initialized/i)).not.toBeInTheDocument();
     expect(screen.getByText(/click "run code" to see output here/i)).toBeInTheDocument();
   });
 
   test('handles invalid code execution gracefully and displays error log', async () => {
+    mockRunJudge.mockRejectedValueOnce(new Error("Syntax runtime failure"));
+
     const invalidChallenge = {
       ...mockGraphChallenge,
       starterCode: 'throw new Error("Syntax runtime failure");',
@@ -133,7 +182,7 @@ describe('GraphChallengeLayout', () => {
     fireEvent.click(runButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/❌ Error: Syntax runtime failure/i)).toBeInTheDocument();
+      expect(screen.getByText(/❌ Syntax runtime failure/i)).toBeInTheDocument();
     });
   });
 
