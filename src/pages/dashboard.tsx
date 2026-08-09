@@ -16,9 +16,11 @@ import {
 import { FiRepeat, FiArrowRight } from "react-icons/fi";
 
 import WeakTopicsChart from "../components/WeakTopicsChart";
+import RecommendedNextCard from "../components/RecommendedNextCard";
 import { useQuizProgress } from "../hooks/useQuizProgress";
 import { QUIZZES_CONFIG, QUESTION_COUNTS, QUIZ_IDS } from "../data/quizzesConfig";
 import { rankWeakTopics } from "../utils/weakTopics";
+import { getRecommendedNextQuiz } from "../utils/recommendations";
 import {
   getSpacedRepetitionQueue,
   getDueItems,
@@ -36,6 +38,10 @@ function DashboardContent() {
     const synced = syncMissedQuestionsFromHistory(stats, userId);
     return synced;
   }, [stats, userId]);
+
+  const recommendation = useMemo(() => {
+    return getRecommendedNextQuiz(stats, QUIZZES_CONFIG);
+  }, [stats]);
 
   const dueItems = useMemo(() => {
     return getDueItems(queue);
@@ -155,8 +161,9 @@ function DashboardContent() {
           </div>
         </div>
 
-        {/* Right Column: Spaced Repetition Widget & Quick Actions */}
+        {/* Right Column: Recommended Next + Spaced Repetition Widget & Quick Actions */}
         <div className="space-y-6">
+          <RecommendedNextCard recommendation={recommendation} />
           <div className="p-6 rounded-3xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/40 shadow-sm space-y-4">
             <div className="flex items-center gap-2">
               <div className="p-2 rounded-xl bg-indigo-600 text-white">
