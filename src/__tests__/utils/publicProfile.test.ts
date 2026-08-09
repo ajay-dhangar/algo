@@ -35,6 +35,29 @@ describe('public profile utilities', () => {
     expect(settings?.showSolvedProblems).toBe(true);
   });
 
+  it('does not apply viewer-local public profile settings for a different username route', () => {
+    savePublicProfileSettings({
+      isPublic: true,
+      username: 'alice',
+      displayName: 'Alice Example',
+      bio: 'Learning algorithms.',
+      showSolvedProblems: true,
+      showQuizMastery: true,
+      showStreak: true,
+      allowBadgeEmbed: true,
+    });
+
+    const snapshot = buildPublicProfileSnapshot({
+      username: 'bob',
+      displayName: 'Bob Builder',
+    });
+
+    expect(snapshot.username).toBe('bob');
+    expect(snapshot.displayName).toBe('Bob Builder');
+    expect(snapshot.isPublic).toBe(false);
+    expect(snapshot.visibleSections).toEqual([]);
+  });
+
   it('creates markdown for a GitHub README badge', () => {
     const markdown = getPublicProfileBadgeMarkdown('ada');
     expect(markdown).toContain('/u/ada/badge');
