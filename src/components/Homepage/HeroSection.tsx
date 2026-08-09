@@ -7,21 +7,34 @@ const HeroSection = () => {
   const [stats, setStats] = useState({ stars: 100, forks: 300 });
 
   useEffect(() => {
-    // Corrected target path pointing directly to the official GitHub Developer REST API endpoint
-    fetch("https://api.github.com/repos/ajay-dhangar/algo")
+    const controller = new AbortController();
+    fetch("https://api.github.com/repos/ajay-dhangar/algo", {
+      headers: {
+        Accept: "application/vnd.github.v3+json",
+      },
+      signal: controller.signal,
+    })
       .then((res) => {
-        if (!res.ok) throw new Error("Network response was not OK");
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         return res.json();
       })
       .then((data) => {
-        if (data.stargazers_count !== undefined && data.forks_count !== undefined) {
+        if (typeof data.stargazers_count === "number" && typeof data.forks_count === "number") {
           setStats({
             stars: data.stargazers_count,
             forks: data.forks_count,
           });
         }
       })
-      .catch((err) => console.error("Error fetching live repository metrics:", err));
+      .catch((err) => {
+        if (err.name !== "AbortError") {
+          console.error("Error fetching live repository metrics:", err);
+        }
+      });
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (
