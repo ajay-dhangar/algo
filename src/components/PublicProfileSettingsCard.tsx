@@ -43,7 +43,7 @@ export default function PublicProfileSettingsCard() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   const profileUrl = typeof window !== 'undefined' && settings.username.trim()
-    ? `${window.location.origin}/u/${settings.username.trim()}`
+    ? `${window.location.origin}/algo/u/${settings.username.trim()}`
     : '';
 
   const badgeMarkdown = settings.username.trim()
