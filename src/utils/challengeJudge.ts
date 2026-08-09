@@ -42,6 +42,11 @@ export function parseJudgeInput(input: string): unknown[] {
   return values;
 }
 
+export function canMarkChallengeSolved(results?: JudgeResult[] | null): boolean {
+  const resolvedResults = results ?? [];
+  return resolvedResults.length > 0 && resolvedResults.every((result) => result.pass);
+}
+
 export function buildJudgeCases(challenge: { testCases?: JudgeCase[] }): JudgeCase[] {
   const baseCases = challenge.testCases ?? [];
   const hiddenCases = [

@@ -12,6 +12,9 @@ import CodeEditorPanel from "./CodeEditorPanel";
 import OutputPanel from "./OutputPanel";
 import PseudocodeTab from "../PseudocodeTab";
 
+import useChallengeJudge from "../../hooks/useChallengeJudge";
+import type { JudgeResult } from "../../utils/challengeJudge";
+
 interface Props {
   challenge: TreeChallenge;
 }
@@ -25,20 +28,30 @@ export default function TreeChallengeLayout({ challenge }: Props) {
     setCodeMap((prev) => ({ ...prev, [activeLanguage]: val }));
   };
   const [output, setOutput] = useState<string[]>([]);
+  const [judgeResults, setJudgeResults] = useState<JudgeResult[]>([]);
   const [running, setRunning] = useState(false);
   const [activeTab, setActiveTab] = useState<"problem" | "visualize" | "solution" | "pseudocode">("problem");
-  const { runWithCapture } = useConsoleCapture();
+  const { runJudge } = useChallengeJudge(challenge);
 
   const handleRunCode = useCallback(async () => {
     setRunning(true);
     setOutput([]);
-    const logs = await runWithCapture(code);
-    setOutput(logs);
-    setRunning(false);
-  }, [code, runWithCapture]);
+    setJudgeResults([]);
+    try {
+      const results = await runJudge(code, activeLanguage);
+      setJudgeResults(results);
+      const passed = results.filter((result) => result.pass).length;
+      setOutput([`${passed}/${results.length} hidden cases passed`, ...results.map((result) => `${result.pass ? "✅" : "❌"} ${result.description} (${result.runtimeMs}ms)`)]);
+    } catch (error) {
+      setOutput([`❌ ${error instanceof Error ? error.message : String(error)}`]);
+    } finally {
+      setRunning(false);
+    }
+  }, [activeLanguage, code, runJudge]);
 
   const handleClearOutput = useCallback(() => {
     setOutput([]);
+    setJudgeResults([]);
   }, []);
 
   return (
@@ -49,6 +62,7 @@ export default function TreeChallengeLayout({ challenge }: Props) {
           title={challenge.title} 
           difficulty={challenge.difficulty} 
           timeLimit={challenge.timeLimit} 
+          judgeResults={judgeResults}
         />
 
         {/* Main Split Layout Workspace */}
@@ -124,6 +138,7 @@ export default function TreeChallengeLayout({ challenge }: Props) {
             />
             <OutputPanel 
               logs={output} 
+              judgeResults={judgeResults}
               onClear={handleClearOutput} 
             />
           </div>
