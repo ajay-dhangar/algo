@@ -253,7 +253,7 @@ export default function SortingChallengeLayout({ challenge }: Props) {
               ) : activeTab === "pseudocode" ? (
                 <PseudocodeTab solution={challenge.solution} customPseudocode={challenge.pseudocode} />
               ) : (
-                <RealWorldUsesTab challengeTitle={challenge.title} category="sorting" />
+                <RealWorldUsesTab challengeId={challenge.id} challengeSlug={challenge.slug} challengeTitle={challenge.title} category="sorting" />
               )}
             </div>
           </div>

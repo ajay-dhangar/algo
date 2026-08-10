@@ -8,6 +8,7 @@
  */
 import React, { useState } from "react";
 import Link from "@docusaurus/Link";
+import { getCanonicalAlgoKey, toCanonicalSlug, type AlgoKey } from "../utils/slugUtils";
 import {
   FiCompass,
   FiExternalLink,
@@ -23,26 +24,7 @@ import {
   FiLayers,
 } from "react-icons/fi";
 
-/* ── All keys that exist in AlgorithmUseCases ───────────────────── */
-type AlgoKey =
-  | "Binary Search"
-  | "Merge Sort"
-  | "Bubble Sort"
-  | "Quick Sort"
-  | "DFS"
-  | "BFS"
-  | "Dijkstra Algorithm"
-  | "Stack"
-  | "Queue"
-  | "Linked List"
-  | "Recursion"
-  | "Dynamic Programming"
-  | "Trees"
-  | "Graphs"
-  | "Backtracking"
-  | "Greedy Algorithms"
-  | "Heaps"
-  | "Tries";
+/* ── AlgoKey type is imported from ../utils/slugUtils ──────────── */
 
 /* ── Map challenge title keywords → AlgoKey ────────────────────── */
 const TITLE_MAP: { pattern: RegExp; key: AlgoKey }[] = [
@@ -318,13 +300,25 @@ const DATA: Record<AlgoKey, AlgoDetails> = {
   },
 };
 
-/* ── Resolve challenge title + category to an AlgoKey ──────────── */
-function resolveKey(title: string, category?: string): AlgoKey | null {
+/* ── Resolve challenge ID, slug, title + category to an AlgoKey ──────────── */
+function resolveKey(
+  challengeTitle: string,
+  category?: string,
+  challengeId?: string,
+  challengeSlug?: string
+): AlgoKey | null {
+  const canonical =
+    getCanonicalAlgoKey(challengeId, category) ||
+    getCanonicalAlgoKey(challengeSlug, category) ||
+    getCanonicalAlgoKey(challengeTitle, category);
+
+  if (canonical) return canonical;
+
   for (const { pattern, key } of TITLE_MAP) {
-    if (pattern.test(title)) return key;
+    if (pattern.test(challengeTitle)) return key;
   }
   if (category) {
-    const normalized = category.toLowerCase().replace(/\s+/g, "-");
+    const normalized = toCanonicalSlug(category);
     if (CATEGORY_MAP[normalized]) return CATEGORY_MAP[normalized];
   }
   return null;
@@ -332,6 +326,10 @@ function resolveKey(title: string, category?: string): AlgoKey | null {
 
 /* ── Props ──────────────────────────────────────────────────────── */
 interface RealWorldUsesTabProps {
+  /** Optional challenge ID */
+  challengeId?: string;
+  /** Optional challenge slug */
+  challengeSlug?: string;
   /** Challenge title, used for keyword matching */
   challengeTitle: string;
   /** Optional category hint ("sorting", "graph", "dp", "greedy", etc.) */
@@ -339,8 +337,13 @@ interface RealWorldUsesTabProps {
 }
 
 /* ── Component ──────────────────────────────────────────────────── */
-export default function RealWorldUsesTab({ challengeTitle, category }: RealWorldUsesTabProps) {
-  const algoKey = resolveKey(challengeTitle, category);
+export default function RealWorldUsesTab({
+  challengeId,
+  challengeSlug,
+  challengeTitle,
+  category,
+}: RealWorldUsesTabProps) {
+  const algoKey = resolveKey(challengeTitle, category, challengeId, challengeSlug);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
   if (!algoKey) {

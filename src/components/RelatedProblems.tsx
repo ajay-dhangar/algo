@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import dsaProblemsIndex from '../data/generated/dsaProblemsIndex.json';
+import { toCanonicalSlug } from '../utils/slugUtils';
 
 export interface DsaProblemIndexItem {
   id: string;
@@ -106,11 +107,7 @@ export function getRelatedDsaProblems(
     targetTags = currentDoc.tags
       .map((t) => {
         const raw = typeof t === 'string' ? t : t.label || '';
-        return raw
-          .toLowerCase()
-          .trim()
-          .replace(/[^a-z0-9\s-]/g, '')
-          .replace(/\s+/g, '-');
+        return toCanonicalSlug(raw);
       })
       .filter(Boolean);
   }

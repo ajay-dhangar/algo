@@ -6,6 +6,7 @@ import {
   FiAlertCircle,
   FiLoader,
 } from "react-icons/fi";
+import { slugify } from "../../utils/slugUtils";
 import styles from "./styles.module.css";
 
 interface CheatSheetExportProps {
@@ -54,12 +55,7 @@ export default function CheatSheetExport({
     }, RESET_DELAY_MS);
   }, []);
 
-  const slugify = (value: string): string =>
-    (value || "cheatsheet")
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "") || "cheatsheet";
+  const slugifyFilename = (value: string): string => slugify(value, "cheatsheet");
 
   const captureCanvas = useCallback(async () => {
     if (typeof document === "undefined") {
@@ -143,7 +139,7 @@ export default function CheatSheetExport({
         heightLeft -= PDF_PAGE_HEIGHT_PX;
       }
 
-      pdf.save(`${slugify(title)}.pdf`);
+      pdf.save(`${slugifyFilename(title)}.pdf`);
       setPdfStatus("done");
     } catch (err) {
       console.error("[CheatSheetExport] PDF export failed:", err);
@@ -191,7 +187,7 @@ export default function CheatSheetExport({
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = `${slugify(title)}.png`;
+        link.download = `${slugifyFilename(title)}.png`;
         link.click();
         URL.revokeObjectURL(url);
       }

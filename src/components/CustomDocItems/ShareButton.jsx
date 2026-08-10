@@ -13,6 +13,7 @@ import {
   FiAlertCircle,
   FiLoader,
 } from "react-icons/fi";
+import { slugify } from "../../utils/slugUtils";
 import styles from "./shareButton.module.css";
 
 // A4 at 96 DPI – matches CheatSheetExport dimensions.
@@ -66,12 +67,7 @@ function ShareButton({ title }) {
     resetTimerRef.current = setTimeout(() => setStatus("idle"), RESET_DELAY_MS);
   }, []);
 
-  const slugify = (value) =>
-    (value || "cheatsheet")
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "") || "cheatsheet";
+  const slugifyFilename = (value) => slugify(value, "cheatsheet");
 
   /** Capture the main article content via html2canvas (same logic as CheatSheetExport) */
   const captureCanvas = useCallback(async () => {
@@ -148,7 +144,7 @@ function ShareButton({ title }) {
         heightLeft -= PDF_PAGE_HEIGHT_PX;
       }
 
-      pdf.save(`${slugify(title)}.pdf`);
+      pdf.save(`${slugifyFilename(title)}.pdf`);
       setPdfStatus("done");
     } catch (err) {
       console.error("[ShareButton] PDF export failed:", err);
@@ -191,7 +187,7 @@ function ShareButton({ title }) {
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.download = `${slugify(title)}.png`;
+        link.download = `${slugifyFilename(title)}.png`;
         link.click();
         URL.revokeObjectURL(url);
       }
