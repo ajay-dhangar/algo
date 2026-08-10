@@ -132,8 +132,23 @@ export function getRecommendedNextQuiz(
 
   const candidates: Recommendation[] = quizzes
     .map((quiz) => {
-      const stat = stats[quiz.id];
-      if (!stat || stat.status === "mastered") return null;
+      // Fall back to a default not-started stat so quizzes that have never
+      // been started (no entry in stats yet) are still eligible candidates.
+      const stat: QuizStat = stats[quiz.id] ?? {
+        quizId: quiz.id,
+        attempts: [],
+        bestScore: 0,
+        bestPercent: 0,
+        latestScore: 0,
+        latestPercent: 0,
+        latestAttemptAt: null,
+        totalAttempts: 0,
+        totalQuestions: 0,
+        averagePercent: 0,
+        status: "not-started",
+      };
+
+      if (stat.status === "mastered") return null;
 
       const weakness = computeWeaknessScore(stat);
       const recency = computeRecencyScore(stat.latestAttemptAt);
