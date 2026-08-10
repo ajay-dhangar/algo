@@ -65,11 +65,28 @@ function isDsaProblemDoc(metadata: any): boolean {
 }
 
 function renderHintContent(content: string) {
-  return content.split('\n').map((line, index) => (
-    <p key={index} className="m-0 leading-relaxed">
-      {line}
-    </p>
-  ));
+  // Split on one or more blank lines to form paragraph blocks, preserving the
+  // author's intended structure. Empty lines are paragraph separators, not
+  // invisible <p> nodes. Lines within a block are joined with a <br /> to
+  // keep inline line breaks (e.g. pseudocode steps) intact.
+  const blocks = content
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter((block) => block.length > 0);
+
+  return blocks.map((block, blockIndex) => {
+    const lines = block.split('\n');
+    return (
+      <p key={blockIndex} className="m-0 leading-relaxed">
+        {lines.map((line, lineIndex) => (
+          <React.Fragment key={lineIndex}>
+            {line}
+            {lineIndex < lines.length - 1 && <br />}
+          </React.Fragment>
+        ))}
+      </p>
+    );
+  });
 }
 
 // Inner component — all hooks are called unconditionally at the top level.
