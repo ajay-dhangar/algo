@@ -1,5 +1,18 @@
-import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, SimulationNodeDatum } from "d3-force";
-import { CatalogEdge, CatalogNode } from "../../data/algorithmRelationshipGraph";
+import {
+  forceSimulation,
+  forceLink,
+  forceManyBody,
+  forceCenter,
+  forceCollide,
+  SimulationNodeDatum,
+} from "d3-force";
+import {
+  CatalogEdge,
+  CatalogNode,
+} from "../../data/algorithmRelationshipGraph";
+
+export const LAYOUT_WIDTH = 1400;
+export const LAYOUT_HEIGHT = 900;
 
 export interface PositionedNode extends SimulationNodeDatum {
   id: string;
@@ -17,19 +30,23 @@ export function computeForceLayout(
   nodes: CatalogNode[],
   edges: CatalogEdge[],
   width: number,
-  height: number
+  height: number,
 ): Map<string, { x: number; y: number }> {
-  const simNodes: PositionedNode[] = nodes.map((n) => ({ id: n.id, x: 0, y: 0 }));
+  const simNodes: PositionedNode[] = nodes.map((n) => ({
+    id: n.id,
+    x: 0,
+    y: 0,
+  }));
 
   const simulation = forceSimulation(simNodes)
     .force(
       "link",
       forceLink<PositionedNode, { source: string; target: string }>(
-        edges.map((e) => ({ source: e.source, target: e.target }))
+        edges.map((e) => ({ source: e.source, target: e.target })),
       )
         .id((d) => d.id)
         .distance(110)
-        .strength(0.35)
+        .strength(0.35),
     )
     .force("charge", forceManyBody().strength(-320))
     .force("center", forceCenter(width / 2, height / 2))

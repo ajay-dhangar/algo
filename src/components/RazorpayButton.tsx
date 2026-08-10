@@ -16,19 +16,30 @@ export default function RazorpayButton({
     const container = containerRef.current;
     if (!container) return;
 
-    if (container.children.length === 0) {
-      const form = document.createElement('form');
-      const script = document.createElement('script');
+    // Clear any previously injected form+script so that a changed buttonId
+    // (or a remount) always injects a fresh script with the correct ID.
+    // Without this, the children.length guard would silently skip the
+    // re-injection and leave the old payment button ID loaded.
+    container.innerHTML = '';
+    setIsLoaded(false);
 
-      script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
-      script.setAttribute('data-payment_button_id', buttonId);
-      script.async = true;
+    const form = document.createElement('form');
+    const script = document.createElement('script');
 
-      script.onload = () => setIsLoaded(true);
+    script.src = 'https://checkout.razorpay.com/v1/payment-button.js';
+    script.setAttribute('data-payment_button_id', buttonId);
+    script.async = true;
 
-      form.appendChild(script);
-      container.appendChild(form);
-    }
+    script.onload = () => setIsLoaded(true);
+
+    form.appendChild(script);
+    container.appendChild(form);
+
+    // Cleanup: clear the container if the component unmounts or buttonId
+    // changes before the script finishes loading.
+    return () => {
+      container.innerHTML = '';
+    };
   }, [buttonId]);
 
   return (

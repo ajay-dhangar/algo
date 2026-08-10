@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-07T16:59:41.203Z",
-  "count": 88,
+  "generatedAt": "2026-08-09T12:20:18.989Z",
+  "count": 89,
   "difficulties": [
     "Easy",
     "Medium",
@@ -30,6 +30,10 @@
     {
       "value": "bit-manipulation",
       "label": "Bit Manipulation"
+    },
+    {
+      "value": "bridges",
+      "label": "Bridges"
     },
     {
       "value": "bst",
@@ -210,6 +214,10 @@
     {
       "value": "symmetric",
       "label": "Symmetric"
+    },
+    {
+      "value": "tarjans-algorithm",
+      "label": "Tarjans Algorithm"
     },
     {
       "value": "topological-sort",
@@ -419,6 +427,20 @@
       ],
       "companies": [],
       "url": "/docs/dsa-problems/medium/crimson-triples"
+    },
+    {
+      "id": "critical-connections-in-a-network",
+      "title": "Critical Connections in a Network",
+      "description": "Solution for LeetCode 1192: Critical Connections in a Network, utilizing Tarjan's Algorithm to find bridges in an undirected graph.",
+      "difficulty": "Hard",
+      "tags": [
+        "graph",
+        "dfs",
+        "tarjans-algorithm",
+        "bridges"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/hard/critical-connections-in-a-network"
     },
     {
       "id": "date-to-binary-conversion",
@@ -1673,6 +1695,20 @@
       ],
       "companies": [],
       "url": "/docs/dsa-problems/medium/crimson-triples"
+    },
+    "critical-connections-in-a-network": {
+      "id": "critical-connections-in-a-network",
+      "title": "Critical Connections in a Network",
+      "description": "Solution for LeetCode 1192: Critical Connections in a Network, utilizing Tarjan's Algorithm to find bridges in an undirected graph.",
+      "difficulty": "Hard",
+      "tags": [
+        "graph",
+        "dfs",
+        "tarjans-algorithm",
+        "bridges"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/hard/critical-connections-in-a-network"
     },
     "date-to-binary-conversion": {
       "id": "date-to-binary-conversion",

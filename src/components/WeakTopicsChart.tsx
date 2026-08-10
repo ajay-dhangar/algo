@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "@docusaurus/Link";
-import { FiArrowRight, FiRepeat } from "react-icons/fi";
+import { FiArrowRight, FiRepeat, FiDownload } from "react-icons/fi";
 import type { WeakTopicEntry } from "../utils/weakTopics";
 import type { QuizStat } from "../hooks/useQuizProgress";
 import { downloadQuizData } from "../utils/exportQuizData";
@@ -89,6 +89,31 @@ export default function WeakTopicsChart({ entries, onStartReview, dueCount }: We
             <FiArrowRight size={14} />
           </Link>
         </div>
+      </div>
+
+      <div className="flex flex-col sm:flex-row sm:items-center justify-end gap-2">
+        <label htmlFor="weak-topics-export-format" className="sr-only">
+          Export format
+        </label>
+        <select
+          id="weak-topics-export-format"
+          aria-label="Export format"
+          value={exportFormat}
+          onChange={(e) => setExportFormat(e.target.value as "csv" | "json")}
+          className="text-xs font-bold px-2.5 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"
+        >
+          <option value="csv">CSV</option>
+          <option value="json">JSON</option>
+        </select>
+        <button
+          type="button"
+          onClick={() => downloadQuizData(statsById, exportFormat)}
+          aria-label="Download my data"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-dark hover:bg-primary-darker text-white font-bold text-xs shadow-sm transition-all"
+        >
+          <FiDownload size={13} />
+          Download my data
+        </button>
       </div>
       {entries.map((entry, index) => {
         const hasAttempts = entry.stat.totalAttempts > 0;
