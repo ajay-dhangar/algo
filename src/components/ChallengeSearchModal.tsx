@@ -82,12 +82,20 @@ const QUICK_FILTERS = [
 
 function highlight(text: string, query: string): React.ReactNode {
   if (!query.trim()) return text;
-  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const regex = new RegExp(`(${escaped})`, "gi");
   const parts = text.split(regex);
+  // `text.split(regex)` with a single capturing group always returns
+  // alternating [nonMatch, match, nonMatch, match, ...] segments, so the
+  // parity of the index tells us whether a part matched — no need to
+  // re-run the (stateful, `g`-flagged) regex against each part. Reusing a
+  // global regex's `.test()` across a loop is a classic pitfall: `.test()`
+  // advances `regex.lastIndex` as a side effect, so repeated calls on the
+  // same regex object silently alternate/skip matches.
   return (
     <>
       {parts.map((part, i) =>
-        regex.test(part) ? (
+        i % 2 === 1 ? (
           <mark key={i} className="bg-yellow-200 dark:bg-yellow-500/30 text-inherit rounded-sm px-0.5">
             {part}
           </mark>
