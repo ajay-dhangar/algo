@@ -2,19 +2,7 @@ version = 1
 
 [[analyzers]]
 name = "javascript"
-enabled = true
 
-[[analyzers]]
-name = "typescript"
-enabled = true
-
-[analyzers.meta]
-# Adjust environment or node version if needed
-environment = ["nodejs"]
-
-# [issues]
-# exclude_patterns = [
-#     ".docusaurus/**",
-#     "build/**",
-#     "node_modules/**"
-# ]
+  [analyzers.meta]
+  plugins = ["react"]
+  environment = ["nodejs"]
