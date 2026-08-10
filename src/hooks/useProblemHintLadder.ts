@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export type HintStageKey = 'nudge' | 'approach' | 'pseudocode' | 'fullSolution';
 
@@ -60,6 +60,14 @@ export function useProblemHintLadder(problemId: string, totalStages: number): Us
     updatedAt: '',
   });
 
+  // Keep a ref in sync with the latest record so callbacks always read the
+  // current value without needing it as a dependency (avoids stale closures
+  // on rapid successive calls such as double-clicks).
+  const recordRef = useRef(record);
+  useEffect(() => {
+    recordRef.current = record;
+  }, [record]);
+
   useEffect(() => {
     if (!problemId) return;
     const state = readHintLadderState();
@@ -94,15 +102,19 @@ export function useProblemHintLadder(problemId: string, totalStages: number): Us
 
   const revealNextStage = useCallback(() => {
     if (!problemId || totalStages <= 0) return;
-    const nextIndex = Math.min(currentStageIndex + 1, totalStages - 1);
-    if (nextIndex === currentStageIndex) return;
+    // Read from the ref so rapid successive calls always see the latest
+    // stageIndex and revealedAt, not a stale closure snapshot.
+    const latest = recordRef.current;
+    const currentIndex = Math.max(-1, Math.min(latest.stageIndex, totalStages - 1));
+    const nextIndex = Math.min(currentIndex + 1, totalStages - 1);
+    if (nextIndex === currentIndex) return;
     const now = new Date().toISOString();
     saveRecord({
       stageIndex: nextIndex,
-      revealedAt: [...record.revealedAt, now],
+      revealedAt: [...latest.revealedAt, now],
       updatedAt: now,
     });
-  }, [currentStageIndex, problemId, record.revealedAt, saveRecord, totalStages]);
+  }, [problemId, saveRecord, totalStages]);
 
   const resetHintLadder = useCallback(() => {
     if (!problemId) return;
