@@ -72,11 +72,11 @@ function renderHintContent(content: string) {
   ));
 }
 
-export default function DsaProblemHintLadder() {
-  const { metadata } = useDoc();
-  if (!isDsaProblemDoc(metadata)) return null;
-
+// Inner component — all hooks are called unconditionally at the top level.
+// The outer DsaProblemHintLadder guard ensures this only mounts for DSA problem docs.
+function DsaProblemHintLadderInner({ metadata }: { metadata: any }) {
   const hintStages = normalizeHintStages(metadata.frontMatter);
+
   const availableStages: StageInfo[] = useMemo(
     () =>
       STAGE_ORDER.reduce<StageInfo[]>((acc, key) => {
@@ -89,8 +89,6 @@ export default function DsaProblemHintLadder() {
     [hintStages]
   );
 
-  if (availableStages.length === 0) return null;
-
   const problemId = getProblemId(metadata);
   const {
     currentStageIndex,
@@ -100,6 +98,8 @@ export default function DsaProblemHintLadder() {
     revealNextStage,
     resetHintLadder,
   } = useProblemHintLadder(problemId, availableStages.length);
+
+  if (availableStages.length === 0) return null;
 
   const currentStage = currentStageIndex >= 0 ? availableStages[currentStageIndex] : null;
   const nextStage = availableStages[currentStageIndex + 1];
@@ -193,4 +193,12 @@ export default function DsaProblemHintLadder() {
       </div>
     </section>
   );
+}
+
+// Outer guard — calls useDoc (the only hook here) unconditionally, then
+// delegates to the inner component only when the current doc is a DSA problem.
+export default function DsaProblemHintLadder() {
+  const { metadata } = useDoc();
+  if (!isDsaProblemDoc(metadata)) return null;
+  return <DsaProblemHintLadderInner metadata={metadata} />;
 }
