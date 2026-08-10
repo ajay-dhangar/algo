@@ -5,11 +5,16 @@ import type { QuizStat } from "../hooks/useQuizProgress";
  */
 function escapeCsvField(val: string | number | null | undefined): string {
   if (val === null || val === undefined) return "";
+  if (typeof val === "number") return String(val);
+
   const str = String(val);
-  if (str.includes(",") || str.includes('"') || str.includes("\n") || str.includes("\r")) {
-    return `"${str.replace(/"/g, '""')}"`;
+  const needsFormulaEscape = /^[=+\-@]/.test(str);
+  const safeValue = needsFormulaEscape ? `'${str}` : str;
+
+  if (safeValue.includes(",") || safeValue.includes('"') || safeValue.includes("\n") || safeValue.includes("\r")) {
+    return `"${safeValue.replace(/"/g, '""')}"`;
   }
-  return str;
+  return safeValue;
 }
 
 /**

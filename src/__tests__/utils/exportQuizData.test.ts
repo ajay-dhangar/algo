@@ -57,6 +57,29 @@ describe("exportQuizData utility", () => {
       // Check graphs row
       expect(lines[2]).toContain("graphs,3,25,25,1,12,in-progress,2026-08-02T12:00:00.000Z");
     });
+
+    test("prefixes dangerous leading characters to prevent CSV formula injection", () => {
+      const dangerousStats: Record<string, QuizStat> = {
+        dangerous: {
+          quizId: "=HACK",
+          bestScore: 0,
+          bestPercent: 0,
+          latestScore: 0,
+          latestPercent: 0,
+          latestAttemptAt: "",
+          totalAttempts: 0,
+          totalQuestions: 1,
+          averagePercent: 0,
+          status: "in-progress",
+          attempts: [],
+        },
+      };
+
+      const csv = serializeQuizStatsToCsv(dangerousStats);
+      const lines = csv.split("\n");
+
+      expect(lines[1]).toContain("'=HACK,0,0,0,0,1,in-progress,,");
+    });
   });
 
   describe("serializeQuizStatsToJson", () => {
