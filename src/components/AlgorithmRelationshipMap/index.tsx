@@ -23,7 +23,7 @@ import styles from "./styles.module.css";
 
 const nodeTypes = { algoNode: MapNode };
 
-const positions = layoutPositions as Record<string, { x: number; y: number }>;
+const positions = layoutPositions as Record<string, { x: number; y: number; isolated?: boolean }>;
 
 const ALL_CATEGORIES = Object.keys(CATEGORY_META) as NodeCategory[];
 
@@ -61,7 +61,7 @@ function AlgorithmRelationshipMapInner() {
 
   const nodes: Node<MapNodeData>[] = useMemo(() => {
     return CATALOG_NODES.map((n) => {
-      const pos = positions[n.id] ?? { x: 0, y: 0 };
+      const pos = positions[n.id] ?? { x: 0, y: 0, isolated: false };
       const categoryActive = activeCategories.has(n.category);
       const searchActive = matchesSearch(n.label);
       const inNeighborhood = !neighborIds || neighborIds.has(n.id);
@@ -70,13 +70,14 @@ function AlgorithmRelationshipMapInner() {
       return {
         id: n.id,
         type: "algoNode",
-        position: pos,
+        position: { x: pos.x, y: pos.y },
         data: {
           label: n.label,
           category: n.category,
           hasUrl: Boolean(n.url),
           dimmed,
           selected: selectedId === n.id,
+          isolated: pos.isolated ?? false,
         },
       };
     });
