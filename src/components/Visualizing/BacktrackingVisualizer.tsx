@@ -522,7 +522,7 @@ function BacktrackingVisualizer() {
         fontFamily: "var(--ifm-font-family-base, system-ui, -apple-system, sans-serif)",
       }}
     >
-      <style dangerouslySetInnerHTML={{ __html: styles }} />
+      <style>{styles}</style>
 
       {/* HEADER SECTION */}
       <div

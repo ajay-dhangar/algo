@@ -254,9 +254,7 @@ const UserTestimonialsSection: React.FC = () => {
       </div>
 
       {/* Swiper styles */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
+      <style>{`
         .testimonial-swiper .swiper-wrapper {
           transition-timing-function: linear !important;
         }
@@ -281,9 +279,7 @@ const UserTestimonialsSection: React.FC = () => {
           .swiper-pagination-bullet-active {
           background: #fff !important;
         }
-      `,
-        }}
-      />
+      `}</style>
     </section>
   );
 };
