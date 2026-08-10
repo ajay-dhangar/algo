@@ -64,8 +64,8 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: 'Easy' }));
+    await act(() => {
+      return user.click(screen.getByRole('button', { name: 'Easy' }));
     });
 
     expect(screen.getByText('Two Sum')).toBeInTheDocument();
@@ -77,8 +77,8 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: 'Meta' }));
+    await act(() => {
+      return user.click(screen.getByRole('button', { name: 'Meta' }));
     });
 
     expect(screen.getByText('Two Sum')).toBeInTheDocument();
@@ -90,8 +90,8 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: 'Graph' }));
+    await act(() => {
+      return user.click(screen.getByRole('button', { name: 'Graph' }));
     });
 
     expect(screen.getByText('Course Schedule')).toBeInTheDocument();
@@ -103,10 +103,12 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: 'Hard' }));
-      await user.click(screen.getByRole('button', { name: 'DP' }));
-      await user.type(screen.getByPlaceholderText(/search problems/i), 'Edit');
+    await act(() => {
+      return Promise.all([
+        user.click(screen.getByRole('button', { name: 'Hard' })),
+        user.click(screen.getByRole('button', { name: 'DP' })),
+        user.type(screen.getByPlaceholderText(/search problems/i), 'Edit'),
+      ]);
     });
 
     expect(screen.getByText('Edit Distance')).toBeInTheDocument();
@@ -118,14 +120,14 @@ describe('ProblemFilterGrid', () => {
     const user = userEvent.setup();
     render(<ProblemFilterGrid data={mockData} />);
 
-    await act(async () => {
-      await user.type(screen.getByPlaceholderText(/search problems/i), 'nonexistent problem');
+    await act(() => {
+      return user.type(screen.getByPlaceholderText(/search problems/i), 'nonexistent problem');
     });
 
     expect(screen.getByText(/no problems match these filters/i)).toBeInTheDocument();
 
-    await act(async () => {
-      await user.click(screen.getAllByRole('button', { name: /clear filters/i })[0]);
+    await act(() => {
+      return user.click(screen.getAllByRole('button', { name: /clear filters/i })[0]);
     });
 
     expect(screen.getByText('Two Sum')).toBeInTheDocument();
@@ -143,13 +145,13 @@ describe('ProblemFilterGrid', () => {
     render(<ProblemFilterGrid data={mockData} />);
 
     // Bookmark "Two Sum" via its star button
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: /bookmark two sum/i }));
+    await act(() => {
+      return user.click(screen.getByRole('button', { name: /bookmark two sum/i }));
     });
 
     // Activate the My Bookmarks chip
-    await act(async () => {
-      await user.click(screen.getByRole('button', { name: /my bookmarks/i }));
+    await act(() => {
+      return user.click(screen.getByRole('button', { name: /my bookmarks/i }));
     });
 
     expect(screen.getByText('Two Sum')).toBeInTheDocument();

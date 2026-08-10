@@ -189,7 +189,7 @@ describe('ContinueLearningWidget', () => {
       visitedAt: new Date().toISOString(),
     });
 
-    await act(async () => {
+    await act(() => {
       render(<ContinueLearningWidget />);
     });
 
@@ -210,7 +210,7 @@ describe('ContinueLearningWidget', () => {
       visitedAt: new Date().toISOString(),
     });
 
-    await act(async () => {
+    await act(() => {
       render(<ContinueLearningWidget />);
     });
 
@@ -229,7 +229,7 @@ describe('ContinueLearningWidget', () => {
       visitedAt: new Date().toISOString(),
     });
 
-    await act(async () => {
+    await act(() => {
       render(<ContinueLearningWidget />);
     });
 

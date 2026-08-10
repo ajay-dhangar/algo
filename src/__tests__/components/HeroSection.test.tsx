@@ -34,7 +34,7 @@ describe('HeroSection', () => {
 
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => mockRepoData,
+      json: () => mockRepoData,
     });
 
     render(<HeroSection />);

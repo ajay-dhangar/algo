@@ -419,7 +419,7 @@ const config = {
             "Inspiring journeys of triumph and growth in the world of algorithms. Discover how learners overcame challenges, achieved milestones, and transformed their skills through dedication and perseverance.",
           copyright: "Copyright (c) 2024 Algo, Inc.",
           language: undefined,
-          createFeedItems: async (params) => {
+          createFeedItems: (params) => {
             const { blogPosts, defaultCreateFeedItems, ...rest } = params;
             return defaultCreateFeedItems({
               blogPosts: blogPosts.filter((item, index) => index < 10),
@@ -522,7 +522,7 @@ const config = {
     function dynamicProfileRoutesPlugin() {
       return {
         name: 'docusaurus-dynamic-profile-routes',
-        async contentLoaded({ actions }) {
+        contentLoaded({ actions }) {
           const { addRoute } = actions;
           
           // Register dynamic wildcard client route for user profiles

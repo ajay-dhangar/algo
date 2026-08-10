@@ -186,7 +186,7 @@ function generateRssXml(items) {
 }
 
 /** Sends an optional email digest via Buttondown API if configured */
-async function sendButtondownDigest(recentItems) {
+function sendButtondownDigest(recentItems) {
   const apiKey = process.env.BUTTONDOWN_API_KEY;
   if (!apiKey) {
     console.log('ℹ️ BUTTONDOWN_API_KEY not found. Skipping email dispatch.');

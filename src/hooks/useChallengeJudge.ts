@@ -46,7 +46,7 @@ export default function useChallengeJudge(challenge: ChallengeLike) {
   return { judgeCases, runJudge };
 }
 
-async function executeSource(source: string, language: string, args: unknown[]): Promise<string> {
+function executeSource(source: string, language: string, args: unknown[]): Promise<string> {
   if (language === "javascript") {
     return executeJavaScript(source, args);
   }
@@ -62,7 +62,7 @@ async function executeSource(source: string, language: string, args: unknown[]):
   return "[ERROR] Unsupported language";
 }
 
-async function executeJavaScript(source: string, args: unknown[]): Promise<string> {
+function executeJavaScript(source: string, args: unknown[]): Promise<string> {
   const entry = inferEntryPoint(source, "javascript");
   const wrapped = `
 ${source}
