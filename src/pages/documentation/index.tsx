@@ -72,8 +72,7 @@ const DocumentationPage: React.FC = () => {
               WebkitMaskImage:
                 "radial-gradient(ellipse at center, black, transparent 80%)",
             }}
-          />
-        </div>
+          / />
 
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div className="row">

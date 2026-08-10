@@ -232,8 +232,7 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
       {/* Modern Separator */}
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
-          <div className="w-full border-t" style={{ borderColor: "var(--ifm-color-emphasis-200)" }} />
-        </div>
+          <div className="w-full border-t" style={{ borderColor: "var(--ifm-color-emphasis-200)" }} / />
         <div className="relative flex justify-center text-[10px] font-bold uppercase tracking-wider">
           <span className="px-3 opacity-50" style={{ backgroundColor: "var(--ifm-card-background-color)" }}>
             Enterprise Single Sign-On

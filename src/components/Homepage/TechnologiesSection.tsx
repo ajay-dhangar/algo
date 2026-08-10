@@ -80,8 +80,7 @@ const TechnologiesSection: React.FC = () => {
               </h3>
 
               {/* Sleek bottom micro indicator dot */}
-              <div className="w-1 h-1 rounded-full bg-[var(--ifm-color-primary)] opacity-0 scale-50 transition-all duration-300 mt-1.5 group-hover:opacity-100 group-hover:scale-100" />
-            </div>
+              <div className="w-1 h-1 rounded-full bg-[var(--ifm-color-primary)] opacity-0 scale-50 transition-all duration-300 mt-1.5 group-hover:opacity-100 group-hover:scale-100" / />
           ))}
         </div>
       </div>

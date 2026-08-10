@@ -227,8 +227,7 @@ function ChallengeRow({ player, maxXp, isMe }: { player: ChallengePlayer; maxXp:
 
         <div className="relative shrink-0">
           <img src={player.avatarUrl} alt="" className="w-10 h-10 rounded-xl object-cover bg-slate-100 dark:bg-neutral-900 p-0.5 border border-slate-200 dark:border-neutral-800" onError={(e) => { (e.currentTarget as HTMLImageElement).src = `https://api.dicebear.com/7.x/identicon/svg?seed=${player.username}`; }} />
-          <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-black" />
-        </div>
+          <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-black" / />
 
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -526,7 +525,7 @@ const Leaderboard: React.FC = () => {
                     {ghPodium[0] && (
                       <motion.div initial={{ opacity: 0, scale: 0.98, y: 20 }} animate={{ opacity: 1, scale: 1.05, y: -10 }} whileHover={{ scale: 1.07, y: -14 }} className="bg-white dark:bg-gradient-to-b dark:from-neutral-900 dark:to-black border-2 border-amber-400 dark:border-amber-500/40 rounded-2xl p-8 text-center shadow-xl order-1 md:order-2 relative z-20 transition-colors duration-300">
                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-9 h-9 bg-amber-500 text-white rounded-xl flex items-center justify-center shadow-md font-black text-base rotate-45"><span className="-rotate-45">👑</span></div>
-                        <div className="relative w-20 h-20 mx-auto mt-2 mb-4"><img src={ghPodium[0].avatarUrl} alt="" className="w-full h-full rounded-full object-cover p-1 ring-4 ring-amber-500 bg-slate-50 dark:bg-neutral-950" /><div className="absolute inset-0 rounded-full bg-amber-500/10 dark:bg-amber-500/20 blur-md animate-pulse pointer-events-none" /></div>
+                        <div className="relative w-20 h-20 mx-auto mt-2 mb-4"><img src={ghPodium[0].avatarUrl} alt="" className="w-full h-full rounded-full object-cover p-1 ring-4 ring-amber-500 bg-slate-50 dark:bg-neutral-950" /><div className="absolute inset-0 rounded-full bg-amber-500/10 dark:bg-amber-500/20 blur-md animate-pulse pointer-events-none" / />
                         <h3 className="text-lg font-black tracking-tight truncate text-slate-900 dark:text-white mb-1 m-0">{ghPodium[0].username}</h3>
                         <div className="text-base text-amber-600 dark:text-amber-400 font-black tracking-widest mb-4">{ghPodium[0].totalScore.toLocaleString()} XP</div>
                         <div className="text-[10px] font-black tracking-widest px-3 py-1 bg-amber-500 text-white rounded-lg shadow-sm uppercase inline-block">{ghPodium[0].tier}</div>
@@ -563,7 +562,7 @@ const Leaderboard: React.FC = () => {
                           <motion.div key={leader.username} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, scale: 0.99 }} layout className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 hover:bg-slate-50/50 dark:hover:bg-neutral-900/20 border-l-2 border-l-transparent hover:border-l-blue-500 dark:hover:border-l-primary transition-all duration-150 relative group">
                             <div className="flex items-center gap-4 flex-1 min-w-0">
                               <div className="w-8 font-mono text-xs font-black text-slate-300 dark:text-neutral-700 group-hover:text-slate-900 dark:group-hover:text-primary-light transition-colors">#{String(leader.rank).padStart(2, "0")}</div>
-                              <div className="relative shrink-0"><img src={leader.avatarUrl} alt="" className="w-10 h-10 rounded-xl object-cover bg-slate-100 dark:bg-neutral-900 p-0.5 border border-slate-200 dark:border-neutral-800" /><div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-black" /></div>
+                              <div className="relative shrink-0"><img src={leader.avatarUrl} alt="" className="w-10 h-10 rounded-xl object-cover bg-slate-100 dark:bg-neutral-900 p-0.5 border border-slate-200 dark:border-neutral-800" /><div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-black" / />
                               <div className="min-w-0 flex-1">
                                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                                   <a href={leader.profileUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-bold tracking-wide text-slate-800 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-primary-light transition-colors no-underline">{leader.username}</a>

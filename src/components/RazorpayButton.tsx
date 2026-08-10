@@ -54,7 +54,6 @@ export default function RazorpayButton({
         className={`w-full flex justify-center transition-opacity duration-300 ${
           isLoaded ? 'opacity-100' : 'opacity-0'
         }`}
-      />
-    </div>
+      / />
   );
 }

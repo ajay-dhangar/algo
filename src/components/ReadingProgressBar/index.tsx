@@ -42,7 +42,6 @@ export default function ReadingProgressBar() {
           background: "#2563eb",
           transition: "width 0.1s linear",
         }}
-      />
-    </div>
+      / />
   );
 }

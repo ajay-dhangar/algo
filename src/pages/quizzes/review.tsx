@@ -246,8 +246,7 @@ function SpacedRepetitionReviewContent() {
         <div
           className="h-full bg-indigo-600 transition-all duration-300"
           style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
-        />
-      </div>
+        / />
 
       {/* Question Card */}
       <AnimatePresence mode="wait">

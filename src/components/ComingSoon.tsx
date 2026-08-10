@@ -127,8 +127,7 @@ export default function ComingSoon(): JSX.Element {
                 backgroundColor: 'var(--ifm-color-primary)',
                 boxShadow: '0 0 12px var(--ifm-color-primary)'
               }}
-            />
-          </div>
+            / />
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link

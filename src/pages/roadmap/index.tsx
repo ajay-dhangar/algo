@@ -216,8 +216,7 @@ const Roadmap: React.FC = () => {
                   <div className="absolute left-5 md:left-1/2 top-6 md:top-8 w-6 h-6 rounded-full border-4 border-solid border-slate-50 dark:border-[#0b0f19] bg-white dark:bg-slate-900 shadow-md flex items-center justify-center transform -translate-x-1/2 z-20 transition-all duration-300 group-hover:scale-110">
                     <div className={`w-2 h-2 rounded-full ${
                       milestone.status === "completed" ? "bg-emerald-500" : milestone.status === "in-progress" ? "bg-amber-500 animate-ping" : "bg-indigo-500"
-                    }`} />
-                  </div>
+                    }`} / />
 
                 </div>
               );

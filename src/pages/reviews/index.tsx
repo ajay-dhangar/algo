@@ -154,8 +154,7 @@ const ReviewsPage: React.FC = () => {
                       alt={t.name}
                       className="w-14 h-14 rounded-xl object-cover ring-4 ring-slate-100 dark:ring-gray-900/60 group-hover:ring-cyan-500/30 group-hover:rotate-3 transition-all duration-500"
                     />
-                    <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-[#111625] rounded-full shadow-sm animate-pulse" />
-                  </div>
+                    <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white dark:border-[#111625] rounded-full shadow-sm animate-pulse" / />
                   <div>
                     <h4 className="font-semibold text-slate-900 dark:text-white transition-colors duration-300 group-hover:text-[var(--ifm-color-primary)] mb-2">
                       {t.name}
@@ -171,7 +170,7 @@ const ReviewsPage: React.FC = () => {
 
           {/* Section Break Divider */}
           <div className="relative my-24 flex justify-center items-center">
-            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-dashed border-slate-200 dark:border-gray-800" /></div>
+            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-dashed border-slate-200 dark:border-gray-800" / />
             <span className="relative bg-slate-50 dark:bg-[#0b0f19] px-6 text-[10px] font-black text-slate-400 dark:text-gray-600 uppercase tracking-[0.3em]">System Forum Link</span>
           </div>
 

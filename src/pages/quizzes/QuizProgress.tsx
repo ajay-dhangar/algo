@@ -39,8 +39,7 @@ const QuestionProgress: React.FC<QuestionProgressProps> = ({
         <div
           className="bg-gradient-to-r from-red-500 to-red-700 dark:from-red-600 dark:to-red-800 h-full rounded-lg transition-all duration-500 ease-out shadow-[0_0_8px_rgba(239,68,68,0.2)]"
           style={{ width: `${percentage}%` }}
-        />
-      </div>
+        / />
 
       {/* Segment Indicator Dots */}
       <div className="flex justify-between px-1 mt-1.5 pointer-events-none">

@@ -442,19 +442,19 @@ export default function AlgorithmVisualizer() {
         {/* Legend */}
         <div className="margin-bottom--md" style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-primary)', borderRadius: '4px' }}></div>
+            <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-primary)', borderRadius: '4px' }} />
             <span className="small font-code text--muted">Unsorted</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-warning)', borderRadius: '4px' }}></div>
+            <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-warning)', borderRadius: '4px' }} />
             <span className="small font-code text--muted">Comparing</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-danger)', borderRadius: '4px' }}></div>
+            <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-danger)', borderRadius: '4px' }} />
             <span className="small font-code text--muted">Swapping</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-success)', borderRadius: '4px' }}></div>
+            <div style={{ width: '16px', height: '16px', backgroundColor: 'var(--ifm-color-success)', borderRadius: '4px' }} />
             <span className="small font-code text--muted">Sorted</span>
           </div>
         </div>

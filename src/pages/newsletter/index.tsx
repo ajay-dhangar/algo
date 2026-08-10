@@ -148,8 +148,7 @@ function NewsletterPageInner() {
                 borderRadius: "50%",
                 background: "radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%)",
               }}
-            />
-          </div>
+            / />
 
           <div style={{ position: "relative", maxWidth: 680, margin: "0 auto" }}>
             <div

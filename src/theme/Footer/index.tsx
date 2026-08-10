@@ -77,8 +77,8 @@ const Footer = () => {
             {/* Architecture Systems Health Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/10 text-[11px] font-mono font-medium text-emerald-400 shadow-sm">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span>Systems Live // Operational</span>
             </div>
@@ -93,8 +93,7 @@ const Footer = () => {
                 <span className="text-[11px] font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2">
                   <HiOutlineCode className="text-indigo-400 text-sm" /> Platform.Core
                 </span>
-                <div className="w-8 h-[1px] bg-indigo-500/40" />
-              </div>
+                <div className="w-8 h-[1px] bg-indigo-500/40" / />
               <ul className="space-y-3 p-0 list-none text-sm m-0">
                 {["Documentation", "Developer Blog", "Practice Modules"].map((item) => (
                   <li key={item}>
@@ -113,8 +112,7 @@ const Footer = () => {
                 <span className="text-[11px] font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2">
                   <FaTerminal className="text-cyan-400 text-[10px]" /> Ecosystem
                 </span>
-                <div className="w-8 h-[1px] bg-cyan-500/40" />
-              </div>
+                <div className="w-8 h-[1px] bg-cyan-500/40" / />
               <ul className="space-y-3 p-0 list-none text-sm m-0">
                 {[
                   { name: "Discord Lounge", to: "https://discord.gg/f8dHD5Hv8Q" },
@@ -137,8 +135,7 @@ const Footer = () => {
                 <span className="text-[11px] font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2">
                   <HiOutlineServer className="text-blue-400 text-sm" /> Specifications
                 </span>
-                <div className="w-8 h-[1px] bg-blue-500/40" />
-              </div>
+                <div className="w-8 h-[1px] bg-blue-500/40" / />
               <ul className="space-y-3 p-0 list-none text-sm m-0">
                 {[
                   { name: "System Features", to: "/docs/category/algorithms" },

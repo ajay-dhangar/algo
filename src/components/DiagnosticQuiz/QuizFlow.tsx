@@ -49,8 +49,7 @@ const QuizFlow: React.FC<QuizFlowProps> = ({ currentIndex, answers, onAnswer, on
               background: "var(--ifm-color-primary)",
               transition: "width 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
-          />
-        </div>
+          / />
       </div>
 
       {/* Question card */}

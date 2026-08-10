@@ -94,8 +94,7 @@ const FeaturesSection: React.FC = () => {
                 </div>
 
                 {/* Animated Structural Gradient Edge Fill Underlay */}
-                <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 transition-all duration-300 ease-out group-hover:w-full" />
-              </div>
+                <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[var(--ifm-color-primary)] to-indigo-500 transition-all duration-300 ease-out group-hover:w-full" / />
             );
           })}
         </div>

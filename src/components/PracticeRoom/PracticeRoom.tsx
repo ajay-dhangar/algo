@@ -643,8 +643,7 @@ function Room({ roomId, myUserId, displayName, onLeave }: RoomProps) {
                   </div>
                 ),
               )}
-              <div ref={chatBottom} />
-            </div>
+              <div ref={chatBottom} / />
 
             <div className={styles.chatInputRow}>
               <input

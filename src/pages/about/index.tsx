@@ -114,8 +114,7 @@ const About: React.FC = () => {
                     className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-102 transition-all duration-500"
                     onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent pointer-events-none" />
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent pointer-events-none" / />
               </div>
             </div>
 

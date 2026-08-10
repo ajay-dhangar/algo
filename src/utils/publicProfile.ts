@@ -85,16 +85,16 @@ export function buildPublicProfileSnapshot(input: {
 
   const settings = getPublicProfileSettings();
 
-  // Smart production fallbacks (Defaults to public for smoother onboarding)
+  // Smart production fallbacks (Defaults to private when no visitor-local profile settings exist)
   const fallbackSettings: PublicProfileSettings = {
-    isPublic: true,
+    isPublic: false,
     username: cleanUsername,
     displayName: cleanDisplayName,
     bio: 'A growing Algo learner sharing progress, mastery, and streaks with peers and teams.',
-    showSolvedProblems: true,
-    showQuizMastery: true,
-    showStreak: true,
-    allowBadgeEmbed: true,
+    showSolvedProblems: false,
+    showQuizMastery: false,
+    showStreak: false,
+    allowBadgeEmbed: false,
   };
 
   // Match settings if stored username matches URL parameter (case-insensitive)

@@ -1117,8 +1117,7 @@ function DPVisualizer() {
               style={{
                 width: `${((currentStepIdx + 1) / (steps.length || 1)) * 100}%`
               }}
-            />
-          </div>
+            / />
 
           {/* Buttons row */}
           <div className="flex justify-center items-center gap-3">

@@ -218,8 +218,7 @@ export default function TrackViewPage() {
                 <div
                   className="h-full bg-[var(--ifm-color-primary)] transition-all duration-300"
                   style={{ width: `${stats.progressPercentage}%` }}
-                />
-              </div>
+                / />
             </div>
           )}
         </div>

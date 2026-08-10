@@ -210,8 +210,7 @@ const UserTestimonialsSection: React.FC = () => {
           </button>
 
           {/* Pagination */}
-          <div className="custom-swiper-pagination absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2" />
-        </div>
+          <div className="custom-swiper-pagination absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2" / />
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

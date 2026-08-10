@@ -239,8 +239,7 @@ export default function ComplexityDashboard() {
                               width: animateProgress ? `${item.performance_score}%` : '0%',
                               height: '100%', borderRadius: '3px',
                               transition: 'width 1s cubic-bezier(0.4, 0, 0.2, 1)'
-                            }} />
-                          </div>
+                            }} / />
                         </td>
                       </tr>
                     ))

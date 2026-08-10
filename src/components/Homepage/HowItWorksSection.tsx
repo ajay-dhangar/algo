@@ -103,8 +103,7 @@ const HowItWorksSection: React.FC = () => {
                   {/* Corner Accent Graphic Lines */}
                   <div className="absolute top-0 right-0 h-16 w-16 pointer-events-none overflow-hidden rounded-tr-2xl">
                     <div className="absolute top-0 right-0 h-[2px] w-0 bg-[var(--ifm-color-primary)] transition-all duration-300 ease-out group-hover:w-full" />
-                    <div className="absolute top-0 right-0 h-0 w-[2px] bg-[var(--ifm-color-primary)] transition-all duration-300 ease-out group-hover:h-full" />
-                  </div>
+                    <div className="absolute top-0 right-0 h-0 w-[2px] bg-[var(--ifm-color-primary)] transition-all duration-300 ease-out group-hover:h-full" / />
                 </div>
               );
             })}

@@ -61,9 +61,7 @@ const QuestionProgress: React.FC<Props> = ({
           style={{
             width: `${progress}%`
           }}
-        />
-
-      </div>
+        / />
 
     </div>
 

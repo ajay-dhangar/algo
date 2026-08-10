@@ -344,8 +344,7 @@ const TopicCard: React.FC<{
                   width: `${topicPct}%`,
                   background: allDone ? "#10b981" : "var(--ifm-color-primary)",
                 }}
-              />
-            </div>
+              / />
           </div>
           <span className={`text-xs px-2 py-1 rounded-md font-semibold ${allDone ? "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" : "bg-[var(--ifm-color-emphasis-100)] text-[var(--ifm-color-emphasis-500)]"}`}>
             {solvedCount}/{allEntries.length}

@@ -49,8 +49,7 @@ export default function NavbarAuthButton(): JSX.Element | null {
   if (isLoading) {
     return (
       <div className="flex items-center gap-2 margin-left--sm">
-        <div className="h-8 w-20 animate-pulse rounded-md bg-neutral-200 dark:bg-neutral-800" />
-      </div>
+        <div className="h-8 w-20 animate-pulse rounded-md bg-neutral-200 dark:bg-neutral-800" / />
     );
   }
 

@@ -939,8 +939,7 @@ const Contributors: React.FC = () => {
                     background: "linear-gradient(90deg, var(--ifm-color-info, #22d3ee), var(--ifm-color-primary, #6366f1))",
                     animation: "loading-slide 1.5s infinite ease-in-out",
                   }}
-                />
-              </div>
+                / />
               <p
                 className="text-[11px] tracking-widest uppercase font-black animate-pulse m-0"
                 style={{ color: "var(--ifm-color-info-dark, #0891b2)" }}
