@@ -32,11 +32,18 @@ export function computeForceLayout(
   width: number,
   height: number,
 ): Map<string, { x: number; y: number }> {
-  const simNodes: PositionedNode[] = nodes.map((n) => ({
-    id: n.id,
-    x: 0,
-    y: 0,
-  }));
+  const centerX = width / 2;
+  const centerY = height / 2;
+  const radius = Math.min(width, height) * 0.3;
+
+  const simNodes: PositionedNode[] = nodes.map((n, index) => {
+    const angle = (index / Math.max(nodes.length, 1)) * Math.PI * 2;
+    return {
+      id: n.id,
+      x: centerX + Math.cos(angle) * radius,
+      y: centerY + Math.sin(angle) * radius,
+    };
+  });
 
   const simulation = forceSimulation(simNodes)
     .force(
