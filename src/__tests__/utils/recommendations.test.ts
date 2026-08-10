@@ -5,7 +5,6 @@ import { QUIZZES_CONFIG } from "../../data/quizzesConfig";
 
 function makeStat(overrides: Partial<QuizStat> & { quizId: string }): QuizStat {
   return {
-    quizId: overrides.quizId,
     attempts: [],
     bestScore: 0,
     bestPercent: 0,
