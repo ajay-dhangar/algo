@@ -103,6 +103,27 @@
   opacity: 0.7;
 }
 
+/* Isolated nodes sit in their own strip; render with slightly reduced opacity
+   and a dashed border (set inline in MapNode) to signal "no relationships". */
+.node[data-isolated="true"] {
+  opacity: 0.72;
+}
+
+.node[data-isolated="true"][data-dimmed="true"] {
+  opacity: 0.1;
+}
+
+.isolatedBadge {
+  display: block;
+  margin-top: 4px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  white-space: nowrap;
+}
+
 .infoPanel {
   position: absolute;
   top: 12px;

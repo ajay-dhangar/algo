@@ -29,7 +29,7 @@ function main() {
   const output = {};
 
   positions.forEach((pos, id) => {
-    output[id] = { x: pos.x, y: pos.y };
+    output[id] = { x: pos.x, y: pos.y, isolated: pos.isolated ?? false };
   });
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
