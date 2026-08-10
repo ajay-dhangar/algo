@@ -103,7 +103,16 @@ function collectProblems() {
         ? frontMatter.companies.map((c) => String(c).trim()).filter(Boolean)
         : [];
       companies.forEach((c) => companySet.add(c));
- 
+
+      const hintStages = frontMatter.hintStages && typeof frontMatter.hintStages === 'object' && !Array.isArray(frontMatter.hintStages)
+        ? {
+            nudge: typeof frontMatter.hintStages.nudge === 'string' ? frontMatter.hintStages.nudge.trim() : undefined,
+            approach: typeof frontMatter.hintStages.approach === 'string' ? frontMatter.hintStages.approach.trim() : undefined,
+            pseudocode: typeof frontMatter.hintStages.pseudocode === 'string' ? frontMatter.hintStages.pseudocode.trim() : undefined,
+            fullSolution: typeof frontMatter.hintStages.fullSolution === 'string' ? frontMatter.hintStages.fullSolution.trim() : undefined,
+          }
+        : undefined;
+
       problems.push({
         id,
         title,
@@ -112,6 +121,7 @@ function collectProblems() {
         tags,
         companies,
         url: `/docs/dsa-problems/${dir}/${id}`,
+        ...(hintStages ? { hintStages } : {}),
       });
     }
   }

@@ -46,10 +46,15 @@ describe("MonacoSandbox Component", () => {
     render(<MonacoSandbox initialLanguage="javascript" />);
     fireEvent.click(screen.getByRole("button", { name: /run code/i }));
 
-    // The binary search template should log "Found 23 at index: 5"
+    // The binary search template logs "Found at index: 5".
+    // The component splits each line on ':' and renders the label ("Found at index:")
+    // and value (" 5") in separate sibling DOM nodes inside the output console region.
+    // We scope the query to the output console to avoid matching the textarea source code.
     await waitFor(
       () => {
-        expect(screen.getByText(/Found 23 at index/i)).toBeInTheDocument();
+        const outputRegion = screen.getByRole("region", { name: /output console/i });
+        expect(outputRegion).toHaveTextContent(/found at index:/i);
+        expect(outputRegion).toHaveTextContent(/\b5\b/);
       },
       { timeout: 3000 },
     );
