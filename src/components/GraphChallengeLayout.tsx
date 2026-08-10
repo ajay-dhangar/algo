@@ -684,7 +684,7 @@ export default function GraphChallengeLayout({ challenge }: Props) {
             {/* ── Real-World tab ── */}
             {activeTab === "real-world" && (
               <div className="flex-1 overflow-y-auto">
-                <RealWorldUsesTab challengeTitle={challenge.title} category="graph" />
+                <RealWorldUsesTab challengeId={challenge.id} challengeSlug={challenge.slug} challengeTitle={challenge.title} category="graph" />
               </div>
             )}
           </div>
