@@ -40,7 +40,7 @@ export interface QuizStat {
 
 export interface GlobalQuizStats {
   totalCompleted: number;      // quizzes attempted at least once
-  totalMastered: number;       // quizzes with best score 100%
+  totalMastered: number;       // quizzes with best score >= 90%
   totalPassed: number;         // quizzes with best score >= 70%
   totalQuizzes: number;        // all quizzes available
   overallAvgPercent: number;   // average best-percent across all attempted
