@@ -57,52 +57,17 @@ export function computeForceLayout(
   edges: CatalogEdge[],
   width: number,
   height: number,
-): Map<string, { x: number; y: number; isolated: boolean }> {
-  // ── 1. Classify nodes by degree ──────────────────────────────────────────
-  const degree = new Map<string, number>(nodes.map((n) => [n.id, 0]));
-  for (const e of edges) {
-    degree.set(e.source, (degree.get(e.source) ?? 0) + 1);
-    degree.set(e.target, (degree.get(e.target) ?? 0) + 1);
-  }
-  const isolatedIds = new Set(
-    Array.from(degree.entries())
-      .filter(([, d]) => d === 0)
-      .map(([id]) => id),
-  );
+): Map<string, { x: number; y: number }> {
+  const centerX = width / 2;
+  const centerY = height / 2;
+  const radius = Math.min(width, height) * 0.3;
 
-  const isolatedList = nodes.filter((n) => isolatedIds.has(n.id));
-
-  // ── 2. Pre-position isolated nodes on a ring so collision has direction ───
-  //
-  // Place them evenly around a circle that sits in the bottom strip.
-  // Even if only one isolated node exists we give it a non-zero offset so it
-  // never coincides with the cluster centre.
-  const isolatedCx = width / 2;
-  const isolatedCy = height * ISOLATED_STRIP_Y_FRACTION;
-  const isolatedRingR = Math.max(
-    COLLISION_RADIUS * 1.5,
-    (isolatedList.length * COLLISION_RADIUS * 2.2) / (2 * Math.PI),
-  );
-
-  const simNodes: PositionedNode[] = nodes.map((n, globalIdx) => {
-    if (isolatedIds.has(n.id)) {
-      const isolatedIdx = isolatedList.findIndex((il) => il.id === n.id);
-      const angle = (2 * Math.PI * isolatedIdx) / Math.max(isolatedList.length, 1);
-      return {
-        id: n.id,
-        x: isolatedCx + isolatedRingR * Math.cos(angle),
-        y: isolatedCy + isolatedRingR * Math.sin(angle),
-        isolated: true,
-      };
-    }
-    // Spread connected nodes in a jittered grid so forceManyBody has direction
-    const col = globalIdx % 8;
-    const row = Math.floor(globalIdx / 8);
+  const simNodes: PositionedNode[] = nodes.map((n, index) => {
+    const angle = (index / Math.max(nodes.length, 1)) * Math.PI * 2;
     return {
       id: n.id,
-      x: (width / 9) * (col + 1) + (Math.random() - 0.5) * 40,
-      y: (height * 0.65 / 8) * (row + 1) + (Math.random() - 0.5) * 40,
-      isolated: false,
+      x: centerX + Math.cos(angle) * radius,
+      y: centerY + Math.sin(angle) * radius,
     };
   });
 
