@@ -4,5 +4,13 @@ version = 1
 name = "javascript"
 
   [analyzers.meta]
+  module_system = "commonjs"
+  environment = [
+    "nodejs",
+    "browser",
+    "jest",
+  ]
+
   plugins = ["react"]
-  environment = ["nodejs"]
+  style_guide = "airbnb"
+  dialect = "flow"
