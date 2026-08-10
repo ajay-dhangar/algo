@@ -22,7 +22,6 @@ import { QUIZZES_CONFIG, QUESTION_COUNTS, QUIZ_IDS } from "../data/quizzesConfig
 import { rankWeakTopics } from "../utils/weakTopics";
 import { getRecommendedNextQuiz } from "../utils/recommendations";
 import {
-  getSpacedRepetitionQueue,
   getDueItems,
   syncMissedQuestionsFromHistory,
 } from "../utils/spacedRepetition";
