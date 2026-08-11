@@ -161,7 +161,7 @@ const MaximumBuildingHeightVisualizer = () => {
               <div
                 className={`w-10 rounded-t transition-all duration-300 ${barColor}`}
                 style={{ height: `${h * scale}px` }}
-              ></div>
+              />
               <span className="text-sm font-semibold mt-1">{h}</span>
               <span className="text-xs text-gray-500">ID: {buildingId}</span>
             </div>

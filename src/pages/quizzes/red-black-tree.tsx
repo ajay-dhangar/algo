@@ -267,7 +267,7 @@ const RedBlackTreeQuiz: React.FC = () => {
           </div>
 
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl overflow-hidden relative">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-bl-full -mr-10 -mt-10 pointer-events-none"></div>
+             <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-bl-full -mr-10 -mt-10 pointer-events-none" />
 
             <AnimatePresence mode="wait">
               {!showResult ? (
@@ -295,7 +295,7 @@ const RedBlackTreeQuiz: React.FC = () => {
                           className={`w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center justify-between group cursor-pointer ${userAnswers[currentQuestion] === opt ? 'bg-red-600/5 border-red-600 dark:bg-red-600/10' : 'bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 hover:border-red-600/50'}`}>
                           <span className={`text-sm md:text-base font-semibold ${userAnswers[currentQuestion] === opt ? 'text-red-800 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'}`}>{opt}</span>
                           <div className={`w-5 h-5 rounded-full border-2 ${userAnswers[currentQuestion] === opt ? 'border-red-600 bg-red-600' : 'border-slate-300 dark:border-slate-600 group-hover:border-red-600/50'}`}>
-                            {userAnswers[currentQuestion] === opt && <div className="w-2 h-2 bg-white rounded-full m-auto mt-1"></div>}
+                            {userAnswers[currentQuestion] === opt && <div className="w-2 h-2 bg-white rounded-full m-auto mt-1" />}
                           </div>
                         </button>
                       ))}
