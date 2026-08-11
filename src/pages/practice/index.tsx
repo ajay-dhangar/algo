@@ -17,46 +17,19 @@ const DIFFICULTY_CONFIG: Record<Difficulty, { color: string; bg: string; border:
 const DIFFICULTIES: Difficulty[] = ["Easy", "Medium", "Hard"];
 const COMPLEXITY_OPTIONS = ["All", "O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n^2)", "O(2^n)", "Other"] as const;
 
+const COMPLEXITY_VALUES = COMPLEXITY_OPTIONS.filter((o) => o !== "All") as readonly string[];
+
 function normalizeComplexity(value?: string) {
   if (!value) return "Other";
   const match = value.match(/O\([^)]*\)/);
-  return match ? match[0] : "Other";
-}
-
-function inferComplexity(problem: Problem, topicName: string) {
-  const haystack = `${problem.title} ${problem.slug} ${topicName}`.toLowerCase();
-
-  if (haystack.includes("binary search") || haystack.includes("search insert") || haystack.includes("first bad version")) {
-    return "O(log n)";
-  }
-
-  if (haystack.includes("subset") || haystack.includes("permutation") || haystack.includes("combination") || haystack.includes("sudoku") || haystack.includes("word ladder") || haystack.includes("wildcard")) {
-    return "O(2^n)";
-  }
-
-  if (haystack.includes("merge") || haystack.includes("sort") || haystack.includes("heap") || haystack.includes("interval") || haystack.includes("kth") || haystack.includes("top") || haystack.includes("median")) {
-    return "O(n log n)";
-  }
-
-  if (haystack.includes("matrix") || haystack.includes("grid") || haystack.includes("graph") || haystack.includes("tree") || haystack.includes("linked") || haystack.includes("stack") || haystack.includes("queue") || haystack.includes("parentheses") || haystack.includes("window") || haystack.includes("substring") || haystack.includes("anagram") || haystack.includes("palindrome") || haystack.includes("two sum") || haystack.includes("contains duplicate") || haystack.includes("trapping") || haystack.includes("maximum subarray")) {
-    return "O(n)";
-  }
-
-  if (haystack.includes("square") || haystack.includes("triangle") || haystack.includes("dp") || haystack.includes("longest") || haystack.includes("edit distance") || haystack.includes("lcs")) {
-    return "O(n^2)";
-  }
-
-  return "Other";
+  if (!match) return "Other";
+  const normalized = match[0];
+  return COMPLEXITY_VALUES.includes(normalized) ? normalized : "Other";
 }
 
 function getProblemMeta(problem: Problem, topicName: string) {
-  const normalizedTime = normalizeComplexity(problem.timeComplexity);
-  const timeComplexity = normalizedTime === "Other"
-    ? inferComplexity(problem, topicName)
-    : normalizedTime;
-
   return {
-    timeComplexity,
+    timeComplexity: normalizeComplexity(problem.timeComplexity),
     spaceComplexity: normalizeComplexity(problem.spaceComplexity),
     category: problem.category || topicName,
   };
