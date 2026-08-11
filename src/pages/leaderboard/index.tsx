@@ -1,10 +1,8 @@
-// @ts-nocheck
 import Layout from "@theme/Layout";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
-import { safeJsonParse, extractQuizIdFromStorageKey } from "../../utils/safeStorage";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -39,10 +37,6 @@ interface ChallengePlayer {
   xp: number;
   accuracy: number;
   streak: number;
-  quizPassed: number;
-  quizMastered: number;
-  verified: boolean;
-  verificationLabel: string;
   rank: number;
   tier: string;
   accentColor: string;
@@ -50,6 +44,9 @@ interface ChallengePlayer {
   categories: string[];
   lastActive: string;
 }
+
+// ─── XP weights ───────────────────────────────────────────────────────────────
+const XP = { Easy: 100, Medium: 250, Hard: 500 };
 
 // ─── Tiers ────────────────────────────────────────────────────────────────────
 function getTier(xp: number, rank: number): Pick<ChallengePlayer, "tier" | "accentColor" | "textColor"> {
@@ -62,139 +59,115 @@ function getTier(xp: number, rank: number): Pick<ChallengePlayer, "tier" | "acce
   return              { tier: "SILVER",        accentColor: "from-slate-400 to-slate-500",                textColor: "text-slate-500 dark:text-slate-400" };
 }
 
-// ─── XP weights ───────────────────────────────────────────────────────────────
-const XP = { Easy: 100, Medium: 250, Hard: 500, QuizPassed: 80, QuizMastered: 150 };
+// ─── Mock challenge players (realistic demo data) ─────────────────────────────
+const MOCK_CHALLENGE_PLAYERS: Omit<ChallengePlayer, "rank" | "tier" | "accentColor" | "textColor">[] = [
+  { username: "ajay-dhangar",  avatarUrl: "https://github.com/ajay-dhangar.png",    profileUrl: "https://github.com/ajay-dhangar",   solved: 68, easy: 25, medium: 28, hard: 15, xp: 68*250,  accuracy: 94, streak: 21, categories: ["Trees","Graphs","DP"],     lastActive: "2 hours ago" },
+  { username: "codeNinja_47",  avatarUrl: "https://github.com/gaearon.png",         profileUrl: "https://github.com/gaearon",         solved: 55, easy: 22, medium: 23, hard: 10, xp: 55*210,  accuracy: 91, streak: 14, categories: ["Greedy","Sorting"],        lastActive: "5 hours ago" },
+  { username: "leetmaster_x",  avatarUrl: "https://github.com/sindresorhus.png",    profileUrl: "https://github.com/sindresorhus",    solved: 49, easy: 20, medium: 20, hard: 9,  xp: 49*195,  accuracy: 88, streak: 9,  categories: ["DP","Trees"],             lastActive: "1 day ago" },
+  { username: "algo_wizard",   avatarUrl: "https://github.com/tj.png",              profileUrl: "https://github.com/tj",              solved: 41, easy: 18, medium: 17, hard: 6,  xp: 41*170,  accuracy: 85, streak: 6,  categories: ["Graphs","DP"],            lastActive: "1 day ago" },
+  { username: "graph_lord",    avatarUrl: "https://github.com/addyosmani.png",      profileUrl: "https://github.com/addyosmani",      solved: 36, easy: 15, medium: 16, hard: 5,  xp: 36*155,  accuracy: 83, streak: 5,  categories: ["Graphs"],                 lastActive: "2 days ago" },
+  { username: "dp_queen",      avatarUrl: "https://github.com/kentcdodds.png",      profileUrl: "https://github.com/kentcdodds",      solved: 30, easy: 14, medium: 12, hard: 4,  xp: 30*140,  accuracy: 80, streak: 3,  categories: ["DP","Sorting"],           lastActive: "2 days ago" },
+  { username: "sortingHat99",  avatarUrl: "https://github.com/yyx990803.png",       profileUrl: "https://github.com/yyx990803",       solved: 25, easy: 12, medium: 10, hard: 3,  xp: 25*125,  accuracy: 79, streak: 2,  categories: ["Sorting","Greedy"],       lastActive: "3 days ago" },
+  { username: "tree_traverser",avatarUrl: "https://github.com/rauchg.png",          profileUrl: "https://github.com/rauchg",          solved: 19, easy: 10, medium: 7,  hard: 2,  xp: 19*110,  accuracy: 76, streak: 1,  categories: ["Trees"],                  lastActive: "4 days ago" },
+];
+
+// ─── Difficulty/category heuristics for local progress ───────────────────────
+const EASY_TITLE_KEYWORDS = [
+  "fibonacci", "climbing", "coin change (min", "house robber", "min cost",
+  "dfs", "bfs", "connected", "find path", "traversal", "max depth", "leaf",
+  "sum of", "symmetric", "assign", "lemonade", "flowers", "absolute",
+];
+const HARD_TITLE_KEYWORDS = [
+  "hard", "serialize", "vertical", "construct", "max path", "recover",
+  "dijkstra", "bellman", "floyd", "spanning", "strongly", "coin change ii",
+  "matrix chain", "palindromic", "rod cutting", "egg", "bitmask",
+  "job sequencing", "huffman", "platforms", "ropes", "reorganize",
+  "k digits", "course schedule iii",
+];
+const CATEGORY_KEYWORDS: Record<string, string[]> = {
+  Trees: ["tree", "traversal", "bst", "leaf", "depth"],
+  Graphs: ["graph", "dfs", "bfs", "dijkstra", "bellman", "floyd", "spanning", "bipartite", "topological"],
+  DP: ["fibonacci", "knapsack", "lcs", "lis", "edit", "coin", "climbing", "robber", "decode", "unique path"],
+  Sorting: ["sort", "bubble", "merge", "quick", "heap"],
+  Greedy: ["greedy", "activity", "knapsack frac", "lemonade", "jump", "gas"],
+};
+
+/**
+ * Classifies a challenge title into a difficulty bucket using keyword
+ * heuristics (easy and hard keyword lists, everything else is medium).
+ */
+const classifyDifficulty = (title: string): "easy" | "medium" | "hard" => {
+  if (EASY_TITLE_KEYWORDS.some((k) => title.includes(k))) return "easy";
+  if (HARD_TITLE_KEYWORDS.some((k) => title.includes(k))) return "hard";
+  return "medium";
+};
+
+/**
+ * Maps a challenge title to a topic category (Trees, Graphs, DP, Sorting,
+ * Greedy) using keyword heuristics, or null when no category matches.
+ */
+const classifyCategory = (title: string): string | null => {
+  for (const [category, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
+    if (keywords.some((k) => title.includes(k))) return category;
+  }
+  return null;
+};
 
 // ─── Parse localStorage → ChallengePlayer for the current user ────────────────
-function parseLocalProgress(): Omit<ChallengePlayer, "rank" | "tier" | "accentColor" | "textColor"> | null {
+const parseLocalProgress = (): Omit<
+  ChallengePlayer,
+  "rank" | "tier" | "accentColor" | "textColor"
+> | null => {
   try {
     if (typeof window === "undefined") return null;
     const raw = localStorage.getItem("algo_progress");
     if (!raw) return null;
     const progress = JSON.parse(raw);
 
+    // Get all solved challenge IDs (keys that are true and don't end in _title/_updatedAt)
     const solvedKeys = Object.keys(progress).filter(
       (k) => !k.endsWith("_title") && !k.endsWith("_updatedAt") && progress[k] === true
     );
+    if (solvedKeys.length === 0) return null;
 
-    const quizSummaries = new Map<string, { bestPercent: number; attempts: number; latestAt: string | null }>();
-    for (let i = 0; i < localStorage.length; i += 1) {
-      const key = localStorage.key(i);
-      if (!key || !key.startsWith("quiz_attempts_")) continue;
-      const quizId = extractQuizIdFromStorageKey(key);
-      if (!quizId) continue;
-
-      const attempts = safeJsonParse<Array<{ score?: number; totalQuestions?: number; completedAt?: string }>>(key, []);
-      if (!Array.isArray(attempts) || attempts.length === 0) continue;
-
-      let bestPercent = 0;
-      let latestAt: string | null = null;
-      let attemptCount = 0;
-
-      for (const attempt of attempts) {
-        if (typeof attempt.score !== "number") continue;
-        const total = typeof attempt.totalQuestions === "number" && attempt.totalQuestions > 0 ? attempt.totalQuestions : 10;
-        const pct = Math.min(100, Math.max(0, Math.round((attempt.score / total) * 100)));
-        bestPercent = Math.max(bestPercent, pct);
-        if (attempt.completedAt) {
-          const attemptTime = new Date(attempt.completedAt).toISOString();
-          if (!latestAt || attemptTime > latestAt) latestAt = attemptTime;
-        }
-        attemptCount += 1;
-      }
-
-      if (attemptCount === 0) continue;
-      quizSummaries.set(quizId, { bestPercent, attempts: attemptCount, latestAt });
-    }
-
-    const quizPassed = Array.from(quizSummaries.values()).filter((summary) => summary.bestPercent >= 70).length;
-    const quizMastered = Array.from(quizSummaries.values()).filter((summary) => summary.bestPercent >= 90).length;
-
-    if (solvedKeys.length === 0 && quizPassed === 0 && quizMastered === 0) {
-      return null;
-    }
-
-    let easy = 0; let medium = 0; let hard = 0;
+    // Figure out difficulty per solved challenge by matching against known challenge data
+    // We use simple heuristics: key prefixes identify the track, we score flat for now
+    let easy = 0, medium = 0, hard = 0;
     solvedKeys.forEach((key) => {
-      const title = String(progress[`${key}_title`] || "").toLowerCase();
-      if (title.includes("fibonacci") || title.includes("climbing") || title.includes("coin change (min") || title.includes("house robber") || title.includes("min cost") || title.includes("bfs") || title.includes("dfs") || title.includes("connected") || title.includes("find path") || title.includes("traversal") || title.includes("max depth") || title.includes("leaf") || title.includes("sum of") || title.includes("symmetric") || title.includes("assign") || title.includes("lemonade") || title.includes("flowers") || title.includes("absolute")) {
-        easy += 1;
-      } else if (title.includes("hard") || title.includes("serialize") || title.includes("vertical") || title.includes("construct") || title.includes("max path") || title.includes("recover") || title.includes("dijkstra") || title.includes("bellman") || title.includes("floyd") || title.includes("spanning") || title.includes("strongly") || title.includes("coin change ii") || title.includes("matrix chain") || title.includes("palindromic") || title.includes("rod cutting") || title.includes("egg") || title.includes("bitmask") || title.includes("job sequencing") || title.includes("huffman") || title.includes("platforms") || title.includes("ropes") || title.includes("reorganize") || title.includes("k digits") || title.includes("course schedule iii")) {
-        hard += 1;
-      } else {
-        medium += 1;
-      }
+      const title = (progress[`${key}_title`] || "").toLowerCase();
+      const difficulty = classifyDifficulty(title);
+      if (difficulty === "easy") easy++;
+      else if (difficulty === "hard") hard++;
+      else medium++;
     });
 
-    const quizScore = quizPassed * XP.QuizPassed + quizMastered * XP.QuizMastered;
-    const xp = easy * XP.Easy + medium * XP.Medium + hard * XP.Hard + quizScore;
+    const xp = easy * XP.Easy + medium * XP.Medium + hard * XP.Hard;
+    const accuracy = Math.min(99, 70 + Math.floor(solvedKeys.length * 0.4));
 
-    const progressAccuracy = solvedKeys.length > 0 ? Math.min(99, 70 + Math.floor(solvedKeys.length * 0.4)) : 60;
-    const quizAccuracy = quizSummaries.size > 0 ? Math.round(Array.from(quizSummaries.values()).reduce((sum, summary) => sum + summary.bestPercent, 0) / quizSummaries.size) : 0;
-    const accuracy = quizSummaries.size > 0 ? Math.round((progressAccuracy + quizAccuracy) / 2) : progressAccuracy;
-
+    // Get user identity from GitHub auth if available, else use a generic name
     const storedUser = (() => { try { return JSON.parse(localStorage.getItem("algo_user") || "{}"); } catch { return {}; } })();
     const username = storedUser?.login || storedUser?.username || "You";
-    const avatarUrl = storedUser?.avatar_url || `https://api.dicebear.com/7.x/identicon/svg?seed=${encodeURIComponent(username)}`;
-    const profileUrl = storedUser?.html_url || "#";
+    const avatarUrl = storedUser?.avatar_url || `https://api.dicebear.com/7.x/identicon/svg?seed=${username}`;
 
-    const categories = [...new Set(solvedKeys.map((k) => {
-      const t = String(progress[`${k}_title`] || "").toLowerCase();
-      if (t.includes("tree") || t.includes("traversal") || t.includes("bst") || t.includes("leaf") || t.includes("depth")) return "Trees";
-      if (t.includes("graph") || t.includes("dfs") || t.includes("bfs") || t.includes("dijkstra") || t.includes("bellman") || t.includes("floyd") || t.includes("spanning") || t.includes("bipartite") || t.includes("topological")) return "Graphs";
-      if (t.includes("fibonacci") || t.includes("knapsack") || t.includes("lcs") || t.includes("lis") || t.includes("edit") || t.includes("coin") || t.includes("climbing") || t.includes("robber") || t.includes("decode") || t.includes("unique path")) return "DP";
-      if (t.includes("sort") || t.includes("bubble") || t.includes("merge") || t.includes("quick") || t.includes("heap")) return "Sorting";
-      if (t.includes("greedy") || t.includes("activity") || t.includes("knapsack frac") || t.includes("lemonade") || t.includes("jump") || t.includes("gas")) return "Greedy";
-      return null;
-    }).filter(Boolean))];
-
-    const lastActivityCandidates: string[] = [];
-    for (const key of Object.keys(progress)) {
-      if (key.endsWith("_updatedAt") && typeof progress[key] === "string") {
-        lastActivityCandidates.push(String(progress[key]));
-      }
-    }
-    quizSummaries.forEach((summary) => {
-      if (summary.latestAt) lastActivityCandidates.push(summary.latestAt);
-    });
-    const lastActiveTime = lastActivityCandidates.length > 0 ? new Date(lastActivityCandidates.sort().reverse()[0]).getTime() : Date.now();
-    const diffMs = Math.max(0, Date.now() - lastActiveTime);
-    const diffHr = Math.floor(diffMs / (1000 * 60 * 60));
-    const lastActive = diffHr < 1 ? "Just now" : diffHr < 24 ? `${diffHr}h ago` : `${Math.floor(diffHr / 24)}d ago`;
-
-    const streakValue = (() => {
-      const stored = Number(localStorage.getItem("algo_streak") || 0);
-      return Number.isFinite(stored) && stored > 0 ? stored : 0;
-    })();
-
-    const verified = quizPassed > 0 || solvedKeys.length > 0;
-    const verificationLabel = quizMastered >= 3
-      ? "Verified Master"
-      : quizPassed >= 3
-        ? "Verified Solver"
-        : quizPassed > 0
-          ? "Quiz Verified"
-          : solvedKeys.length > 0
-            ? "Active Learner"
-            : "Activity Pending";
+    const categories = Array.from(
+      new Set(
+        solvedKeys
+          .map((k) => classifyCategory((progress[`${k}_title`] || "").toLowerCase()))
+          .filter((c): c is string => c !== null)
+      )
+    );
 
     return {
       username,
       avatarUrl,
-      profileUrl,
+      profileUrl: storedUser?.html_url || "#",
       solved: solvedKeys.length,
-      easy,
-      medium,
-      hard,
+      easy, medium, hard,
       xp,
       accuracy,
-      streak: streakValue,
-      quizPassed,
-      quizMastered,
-      verified,
-      verificationLabel,
+      streak: (() => { try { return Number(localStorage.getItem("algo_streak") || 0); } catch { return 0; } })(),
       categories: categories.length > 0 ? categories : ["—"],
-      lastActive,
+      lastActive: "Just now",
     };
   } catch {
     return null;
@@ -228,7 +201,13 @@ function StatPill({ label, value, color }: { label: string; value: string | numb
 }
 
 // ─── Challenge podium card ─────────────────────────────────────────────────────
-function ChallengePodiumCard({ player, position }: { player: ChallengePlayer; position: 1 | 2 | 3 }) {
+const ChallengePodiumCard = ({
+  player,
+  position,
+}: {
+  player: ChallengePlayer;
+  position: 1 | 2 | 3;
+}) => {
   const isFirst = position === 1;
   const borderColor = isFirst ? "border-amber-400 dark:border-amber-500/40" : position === 2 ? "border-purple-300 dark:border-purple-500/20" : "border-emerald-300 dark:border-emerald-500/20";
   const ringColor   = isFirst ? "ring-4 ring-amber-500" : position === 2 ? "ring-2 ring-purple-400 dark:ring-purple-500/50" : "ring-2 ring-emerald-400 dark:ring-emerald-500/50";
@@ -260,12 +239,7 @@ function ChallengePodiumCard({ player, position }: { player: ChallengePlayer; po
 
       <h3 className={`font-black tracking-tight truncate text-slate-900 dark:text-white mb-1 m-0 ${isFirst ? "text-lg" : "text-base"}`}>{player.username}</h3>
       <div className={`font-black tracking-widest mb-3 ${player.textColor} ${isFirst ? "text-base" : "text-sm"}`}>{player.xp.toLocaleString()} XP</div>
-      <div className={`text-[9px] font-black tracking-widest px-2.5 py-1 bg-gradient-to-r ${player.accentColor} text-white rounded-lg uppercase inline-block mb-2`}>{player.tier}</div>
-      {player.verified && (
-        <div className="text-[8px] font-black tracking-widest px-2.5 py-1 rounded-lg bg-emerald-600 text-white uppercase inline-block mb-4">
-          {player.verificationLabel}
-        </div>
-      )}
+      <div className={`text-[9px] font-black tracking-widest px-2.5 py-1 bg-gradient-to-r ${player.accentColor} text-white rounded-lg uppercase inline-block mb-4`}>{player.tier}</div>
 
       <div className="flex justify-center gap-4 border-t border-slate-100 dark:border-neutral-800 pt-3 mt-1">
         <StatPill label="Solved" value={player.solved} color="text-slate-700 dark:text-white" />
@@ -277,7 +251,15 @@ function ChallengePodiumCard({ player, position }: { player: ChallengePlayer; po
 }
 
 // ─── Challenge roster row ──────────────────────────────────────────────────────
-function ChallengeRow({ player, maxXp, isMe }: { player: ChallengePlayer; maxXp: number; isMe: boolean }) {
+const ChallengeRow = ({
+  player,
+  maxXp,
+  isMe,
+}: {
+  player: ChallengePlayer;
+  maxXp: number;
+  isMe: boolean;
+}) => {
   const progress = (player.xp / maxXp) * 100;
 
   return (
@@ -307,11 +289,6 @@ function ChallengeRow({ player, maxXp, isMe }: { player: ChallengePlayer; maxXp:
             </a>
             {isMe && <span className="text-[8px] font-black tracking-widest px-1.5 py-0.5 rounded bg-primary text-white uppercase">YOU</span>}
             <span className={`text-[8px] font-black tracking-widest px-1.5 py-0.5 rounded bg-gradient-to-r ${player.accentColor} text-white uppercase`}>{player.tier}</span>
-            {player.verified && (
-              <span className="text-[8px] font-black tracking-widest px-1.5 py-0.5 rounded bg-emerald-600 text-white uppercase">
-                {player.verificationLabel}
-              </span>
-            )}
           </div>
 
           <div className="flex items-center gap-2 mt-1.5">
@@ -344,10 +321,6 @@ function ChallengeRow({ player, maxXp, isMe }: { player: ChallengePlayer; maxXp:
         <div className="text-center hidden sm:block">
           <div className="text-[8px] font-black tracking-widest text-slate-400 dark:text-neutral-600 uppercase">Acc.</div>
           <div className="text-xs font-bold text-slate-600 dark:text-neutral-300">{player.accuracy}%</div>
-        </div>
-        <div className="text-center hidden sm:block">
-          <div className="text-[8px] font-black tracking-widest text-slate-400 dark:text-neutral-600 uppercase">Verified</div>
-          <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400">{player.verificationLabel}</div>
         </div>
         <div className="text-right">
           <div className="text-[8px] font-black tracking-widest text-slate-400 dark:text-neutral-600 uppercase">XP Score</div>
@@ -382,15 +355,29 @@ const Leaderboard: React.FC = () => {
   // ─── Build challenge leaderboard on mount ──────────────────────────────────
   useEffect(() => {
     const me = parseLocalProgress();
-    if (!me) {
-      setChallengePlayers([]);
-      setMyEntry(null);
-      return;
+
+    // Merge real user into mock list if they have progress
+    let pool = [...MOCK_CHALLENGE_PLAYERS];
+    if (me) {
+      // Remove any existing "You" placeholder
+      pool = pool.filter((p) => p.username !== "You");
+      pool.push(me);
     }
 
-    const ranked: ChallengePlayer[] = [{ ...me, rank: 1, ...getTier(me.xp, 1) }];
+    // Sort by chosen metric (default XP)
+    pool.sort((a, b) => b.xp - a.xp);
+
+    // Assign rank and tier
+    const ranked: ChallengePlayer[] = pool.map((p, i) => {
+      const tierInfo = getTier(p.xp, i + 1);
+      return { ...p, rank: i + 1, ...tierInfo };
+    });
+
     setChallengePlayers(ranked);
-    setMyEntry(ranked[0]);
+    if (me) {
+      const meRanked = ranked.find((p) => p.username === me.username);
+      if (meRanked) setMyEntry(meRanked);
+    }
   }, []);
 
   // ─── Re-sort challenge leaderboard when sortBy changes ─────────────────────

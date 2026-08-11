@@ -12,7 +12,6 @@
  *  - "Practice today" badge when the user has already attempted a quiz today
  */
 
-// @ts-nocheck
 import React from "react";
 import { motion } from "framer-motion";
 import { useQuizStreak } from "../hooks/useQuizStreak";
@@ -82,7 +81,7 @@ export default function QuizStreakWidget() {
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60">
         <div className="flex items-center gap-2">
-          {/* Flame SVG — avoids any icon-library bundle concerns */}
+          {/* Flame SVG ï¿½ avoids any icon-library bundle concerns */}
           <svg
             viewBox="0 0 24 24"
             fill="currentColor"

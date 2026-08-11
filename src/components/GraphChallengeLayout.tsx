@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-// @ts-nocheck
 
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import Layout from "@theme/Layout";
@@ -12,8 +11,6 @@ import {
 } from "react-icons/fa";
 import type { GraphChallenge } from "../data/graphChallengesData";
 import useConsoleCapture from "../hooks/useConsoleCapture";
-import useChallengeJudge from "../hooks/useChallengeJudge";
-import { canMarkChallengeSolved, type JudgeResult } from "../utils/challengeJudge";
 import ComplexityDeepDive from "./ComplexityDeepDive";
 import PseudocodeTab from "./PseudocodeTab";
 import RealWorldUsesTab from "./RealWorldUsesTab";
@@ -30,7 +27,7 @@ const DIFF_COLORS = {
 };
 
 // ─── Which challenges get a dedicated visualizer ──────────────────────────────
-const DEDICATED_VISUALIZER: Record<string, React.FC> = {
+const DEDICATED_VISUALIZER: Partial<Record<string, React.FC>> = {
   "graph-11": DijkstraVisualizations,
   "graph-13": FloydWarshallVisualizations,
 };
@@ -406,7 +403,11 @@ function VisualizeTab({ challenge }: { challenge: GraphChallenge }) {
 interface Props { challenge: GraphChallenge; }
 
 // ─── Main layout ──────────────────────────────────────────────────────────────
-export default function GraphChallengeLayout({ challenge }: Props) {
+/**
+ * Renders the main layout for a graph challenge: problem description,
+ * visualizer, code editor, solution diff, pseudocode and real-world tabs.
+ */
+const GraphChallengeLayout = ({ challenge }: Props): JSX.Element => {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
   const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
@@ -415,31 +416,21 @@ export default function GraphChallengeLayout({ challenge }: Props) {
     setCodeMap((prev) => ({ ...prev, [activeLanguage]: val ?? "" }));
   };
   const [output, setOutput]         = useState<string[]>([]);
-  const [judgeResults, setJudgeResults] = useState<JudgeResult[]>([]);
   const [showHint, setShowHint]     = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [running, setRunning]       = useState(false);
   const [activeTab, setActiveTab]   = useState<"problem" | "visualize" | "solution" | "pseudocode" | "real-world">("problem");
-  const { runJudge }                = useChallengeJudge(challenge);
-  const canMarkSolved = canMarkChallengeSolved(judgeResults);
+  const { runWithCapture }          = useConsoleCapture();
 
   const hasDedicated = Boolean(DEDICATED_VISUALIZER[challenge.id]);
 
   const runCode = useCallback(async () => {
     setRunning(true);
     setOutput([]);
-    setJudgeResults([]);
-    try {
-      const results = await runJudge(code, activeLanguage);
-      setJudgeResults(results);
-      const passed = results.filter((result) => result.pass).length;
-      setOutput([`${passed}/${results.length} hidden cases passed`, ...results.map((result) => `${result.pass ? "✅" : "❌"} ${result.description} (${result.runtimeMs}ms)`)]);
-    } catch (error) {
-      setOutput([`❌ ${error instanceof Error ? error.message : String(error)}`]);
-    } finally {
-      setRunning(false);
-    }
-  }, [activeLanguage, code, runJudge]);
+    const logs = await runWithCapture(code);
+    setOutput(logs);
+    setRunning(false);
+  }, [code, runWithCapture]);
 
   const TABS: { key: "problem" | "visualize" | "solution" | "pseudocode" | "real-world"; label: string }[] = [
     { key: "problem",    label: "Problem" },
@@ -467,12 +458,10 @@ export default function GraphChallengeLayout({ challenge }: Props) {
           </span>
 <button
   onClick={() => {
-    if (!canMarkSolved) return;
     markChallengeSolved(challenge.id, challenge.title);
     alert("Marked as solved!");
   }}
-  disabled={!canMarkSolved}
-  className={`ml-auto flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-mono font-bold transition-colors ${canMarkSolved ? "hover:bg-emerald-500/20 cursor-pointer" : "opacity-60 cursor-not-allowed"}`}
+  className="ml-auto flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-mono font-bold transition-colors cursor-pointer"
 >
   <FaCheck /> Mark as Solved ✅
 </button>
@@ -684,7 +673,7 @@ export default function GraphChallengeLayout({ challenge }: Props) {
             {/* ── Real-World tab ── */}
             {activeTab === "real-world" && (
               <div className="flex-1 overflow-y-auto">
-                <RealWorldUsesTab challengeId={challenge.id} challengeSlug={challenge.slug} challengeTitle={challenge.title} category="graph" />
+                <RealWorldUsesTab challengeTitle={challenge.title} category="graph" />
               </div>
             )}
           </div>
@@ -757,37 +746,14 @@ export default function GraphChallengeLayout({ challenge }: Props) {
             <div className="h-48 bg-slate-950 border-t border-slate-800 flex flex-col">
               <div className="flex items-center gap-3 px-4 py-2 border-b border-slate-800">
                 <span className="text-xs font-mono font-bold text-slate-400 uppercase">Output</span>
-                {(output.length > 0 || (judgeResults ?? []).length > 0) && (
-                  <button
-                    onClick={() => {
-                      setOutput([]);
-                      setJudgeResults([]);
-                    }}
-                    className="text-xs text-slate-600 hover:text-slate-400 ml-auto cursor-pointer"
-                  >
+                {output.length > 0 && (
+                  <button onClick={() => setOutput([])} className="text-xs text-slate-600 hover:text-slate-400 ml-auto cursor-pointer">
                     Clear
                   </button>
                 )}
               </div>
               <div className="flex-1 overflow-y-auto p-4 font-mono text-sm">
-                {(judgeResults ?? []).length > 0 ? (
-                  <div className="space-y-2">
-                    {judgeResults.map((result, i) => (
-                      <div
-                        key={i}
-                        className={`rounded-lg border p-2 text-xs ${result.pass ? "border-emerald-700/40 bg-emerald-500/10 text-emerald-300" : "border-red-700/40 bg-red-500/10 text-red-300"}`}
-                      >
-                        <div className="flex items-center justify-between gap-2">
-                          <span>#{i + 1} {result.description}</span>
-                          <span>{result.pass ? "PASS" : "FAIL"}</span>
-                        </div>
-                        <div className="mt-1 opacity-80">Output: {result.output || "—"}</div>
-                        <div className="opacity-80">Expected: {result.expected}</div>
-                        <div className="opacity-70">Runtime: {result.runtimeMs}ms</div>
-                      </div>
-                    ))}
-                  </div>
-                ) : output.length === 0 ? (
+                {output.length === 0 ? (
                   <span className="text-slate-600 text-xs">Click "Run Code" to see output here...</span>
                 ) : (
                   output.map((line, i) => (
@@ -803,4 +769,6 @@ export default function GraphChallengeLayout({ challenge }: Props) {
       </div>
     </Layout>
   );
-}
+};
+
+export default GraphChallengeLayout;
