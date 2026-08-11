@@ -86,7 +86,7 @@ function CardCategory({ item }: { item: PropSidebarItemCategory }): ReactNode {
 function CardLink({ item }: { item: PropSidebarItemLink }): ReactNode {
   const doc = useDocById(item.docId ?? undefined);
   return (
-    <div className={styles.responsiveCardWrapper, item.className}>
+    <div className={clsx(styles.responsiveCardWrapper, item.className)}>
       <Layout
         item={item}
         href={item.href}
