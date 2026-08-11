@@ -6,6 +6,7 @@ interface ProgressData {
   [key: string]: boolean | string;
 }
 
+/** Normalizes sidebar link text / stored titles for exact comparison. */
 const normalizeLabel = (text: string): string => text.toLowerCase().replace(/\s+/g, ' ').trim();
 
 /**
@@ -59,6 +60,7 @@ const SidebarUpdater: React.FC = () => {
       }
 
       const matchedKeys = new Set<string>();
+      /** Appends a completion badge to a sidebar link (idempotent). */
       const addBadge = (link: HTMLElement) => {
         if (link.querySelector('.completion-badge')) return;
         const badge = document.createElement('span');
