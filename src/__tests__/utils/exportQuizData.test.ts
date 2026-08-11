@@ -78,7 +78,7 @@ describe("exportQuizData utility", () => {
       const csv = serializeQuizStatsToCsv(dangerousStats);
       const lines = csv.split("\n");
 
-      expect(lines[1]).toContain("'=HACK,0,0,0,0,1,in-progress,,");
+      expect(lines[1]).toContain("\t=HACK,0,0,0,0,1,in-progress,,");
     });
   });
 
