@@ -43,7 +43,7 @@ function convertTopicToPath(topic?: string | null): string | null {
     const categoryName = cleanTopic.replace("category/", "").toLowerCase();
     const mappedPath = CATEGORY_PATH_MAP[categoryName];
     if (mappedPath) return `/docs/${mappedPath}${anchor}`;
-    console.warn(`[RelatedTopics] Unknown category mapping for: ${categoryName}`);
+    // Unknown category — no mapping available, return null to skip the link.
     return null;
   }
 
@@ -57,7 +57,7 @@ function convertTopicToPath(topic?: string | null): string | null {
   const mapped = CATEGORY_PATH_MAP[token];
   if (mapped) return `/docs/${mapped}${anchor}`;
 
-  console.warn(`[RelatedTopics] Unknown topic token, skipping link: ${topic}`);
+  // Unknown topic token — return null to skip the link silently.
   return null;
 }
 
