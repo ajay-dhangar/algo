@@ -2,10 +2,27 @@ import React, { useEffect, useMemo, useState } from "react";
 import Link from "@docusaurus/Link";
 import { FiCheckCircle, FiClock, FiTag, FiTarget } from "react-icons/fi";
 import { getDailyChallenge } from "../data/dailyChallenge";
+import { safeGetItem, safeSetItem } from "../utils/safeStorage";
 
 const STORAGE_KEY = "daily_challenge_status";
 
 type ChallengeStatus = "solved" | "unsolved";
+
+interface StoredStatus {
+  date: string;
+  status: ChallengeStatus;
+}
+
+/**
+ * Returns a local "YYYY-MM-DD" key matching the calendar day used by
+ * getDailyChallenge() so the solved flag rotates with the daily challenge.
+ */
+const dateKeyFor = (date: Date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
 
 const DailyChallengeWidget: React.FC = () => {
   const [status, setStatus] = useState<ChallengeStatus>("unsolved");
@@ -19,24 +36,32 @@ const DailyChallengeWidget: React.FC = () => {
       return;
     }
 
-    try {
-      const saved = window.localStorage.getItem(STORAGE_KEY);
-      if (saved === "solved") {
-        setStatus("solved");
+    const raw = safeGetItem(STORAGE_KEY);
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw) as StoredStatus;
+        if (parsed.date === dateKeyFor(new Date()) && parsed.status === "solved") {
+          setStatus("solved");
+        }
+      } catch {
+        // Legacy plain "solved" value predates date-scoped storage and is stale.
       }
-    } catch {
-      // Ignore storage access issues.
     }
   }, []);
 
+  /**
+   * Flips the solved state for today's challenge and persists it keyed by
+   * the current date so it never leaks into future daily challenges.
+   */
   const toggleStatus = () => {
     if (typeof window === "undefined") {
       return;
     }
 
     const nextStatus = status === "solved" ? "unsolved" : "solved";
+    const stored: StoredStatus = { date: dateKeyFor(new Date()), status: nextStatus };
     setStatus(nextStatus);
-    window.localStorage.setItem(STORAGE_KEY, nextStatus);
+    safeSetItem(STORAGE_KEY, JSON.stringify(stored));
   };
 
   if (!mounted) {
