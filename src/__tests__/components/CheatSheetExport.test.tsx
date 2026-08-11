@@ -10,7 +10,7 @@ const mockCanvas = {
   toBlob: jest.fn((cb: (blob: Blob | null) => void) => cb(new Blob(['mock'], { type: 'image/png' }))),
 };
 
-const html2canvasMock = jest.fn(async (_options?: unknown) => mockCanvas);
+const html2canvasMock = jest.fn((_options?: unknown) => mockCanvas);
 const addImageMock = jest.fn();
 const addPageMock = jest.fn();
 const saveMock = jest.fn();

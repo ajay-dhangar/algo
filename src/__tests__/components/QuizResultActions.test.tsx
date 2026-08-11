@@ -5,7 +5,7 @@ import QuizResultActions from '../../components/Quiz/QuizResultActions';
 
 jest.mock('../../utils/shareResultImage', () => ({
   __esModule: true,
-  renderShareCardToPngBlob: jest.fn(async () => new Blob(['mock-png'], { type: 'image/png' })),
+  renderShareCardToPngBlob: jest.fn(() => new Blob(['mock-png'], { type: 'image/png' })),
 }));
 
 describe('QuizResultActions', () => {
