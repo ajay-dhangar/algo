@@ -87,7 +87,7 @@ export function getRelatedDsaProblems(
   const isDsaProblemDoc =
     permalink.includes('/docs/dsa-problems/') ||
     docId.startsWith('dsa-problems/') ||
-    data.problems.some((p) => p.url === permalink || (permalink && permalink.endsWith(p.url)));
+    data.problems.some((p) => p.url === permalink || (permalink && permalink.endsWith('/' + p.url.replace(/^\//, ''))));
 
   if (!isDsaProblemDoc) return [];
 
@@ -95,9 +95,9 @@ export function getRelatedDsaProblems(
   const currentProblem = data.problems.find(
     (p) =>
       p.url === permalink ||
-      (permalink && permalink.endsWith(p.url)) ||
+      (permalink && permalink.endsWith('/' + p.url.replace(/^\//, ''))) ||
       p.id === docId ||
-      (docId && docId.endsWith(p.id))
+      (docId && docId.endsWith('/' + p.id.replace(/^\//, '')))
   );
 
   let targetTags: string[] = [];
