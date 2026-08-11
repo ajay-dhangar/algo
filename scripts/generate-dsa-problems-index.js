@@ -111,7 +111,7 @@ function collectProblems() {
         difficulty: DIFFICULTY_LABELS[dir],
         tags,
         companies,
-        url: `/docs/dsa-problems/${dir}/${id}`,
+        url: `/docs/dsa-problems/${dir}/${baseId}`,
       });
     }
   }
