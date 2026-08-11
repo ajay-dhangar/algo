@@ -7,11 +7,11 @@ import {
   forceX,
   forceY,
   SimulationNodeDatum,
-} from "d3-force";
+} from 'd3-force';
 import {
   CatalogEdge,
   CatalogNode,
-} from "../../data/algorithmRelationshipGraph";
+} from '../../data/algorithmRelationshipGraph';
 
 export const LAYOUT_WIDTH = 1400;
 export const LAYOUT_HEIGHT = 900;
@@ -52,12 +52,12 @@ export interface PositionedNode extends SimulationNodeDatum {
  * 4. Use a per-node charge-strength function that gives isolated nodes a
  *    stronger mutual repulsion so they spread apart rather than converging.
  */
-export function computeForceLayout(
+export const computeForceLayout = (
   nodes: CatalogNode[],
   edges: CatalogEdge[],
   width: number,
   height: number,
-): Map<string, { x: number; y: number }> {
+): Map<string, { x: number; y: number }> => {
   const centerX = width / 2;
   const centerY = height / 2;
   const radius = Math.min(width, height) * 0.3;
@@ -71,10 +71,13 @@ export function computeForceLayout(
     };
   });
 
+  const isolatedCx = centerX;
+  const isolatedCy = height * ISOLATED_STRIP_Y_FRACTION;
+
   // ── 3. Build simulation ───────────────────────────────────────────────────
   const simulation = forceSimulation(simNodes)
     .force(
-      "link",
+      'link',
       forceLink<PositionedNode, { source: string; target: string }>(
         edges.map((e) => ({ source: e.source, target: e.target })),
       )
@@ -84,43 +87,37 @@ export function computeForceLayout(
     )
     // Per-node charge: isolated nodes repel each other harder so they spread
     .force(
-      "charge",
-      forceManyBody<PositionedNode>().strength((d) =>
-        d.isolated ? -600 : -320,
-      ),
+      'charge',
+      forceManyBody<PositionedNode>().strength((d) => (d.isolated ? -600 : -320)),
     )
     // Main cluster anchored toward the upper-centre; isolated strip is below
-    .force("center", forceCenter(width / 2, height * 0.42))
-    .force("collide", forceCollide(COLLISION_RADIUS))
+    .force('center', forceCenter(centerX, height * 0.42))
+    .force('collide', forceCollide(COLLISION_RADIUS))
     // Gently push isolated nodes toward their dedicated Y strip
     .force(
-      "isolatedY",
-      forceY<PositionedNode>(isolatedCy).strength((d) =>
-        d.isolated ? 0.25 : 0,
-      ),
+      'isolatedY',
+      forceY<PositionedNode>(isolatedCy).strength((d) => (d.isolated ? 0.25 : 0)),
     )
     // Keep isolated nodes horizontally centred (prevents drifting far left/right)
     .force(
-      "isolatedX",
-      forceX<PositionedNode>(isolatedCx).strength((d) =>
-        d.isolated ? 0.04 : 0,
-      ),
+      'isolatedX',
+      forceX<PositionedNode>(isolatedCx).strength((d) => (d.isolated ? 0.04 : 0)),
     )
     .stop();
 
   const TICKS = 400; // extra ticks to let the isolated strip settle cleanly
-  for (let i = 0; i < TICKS; i++) {
+  for (let i = 0; i < TICKS; i += 1) {
     simulation.tick();
   }
 
   // ── 4. Collect results ────────────────────────────────────────────────────
   const positions = new Map<string, { x: number; y: number; isolated: boolean }>();
-  for (const n of simNodes) {
+  simNodes.forEach((n) => {
     positions.set(n.id, {
       x: n.x ?? 0,
       y: n.y ?? 0,
       isolated: n.isolated ?? false,
     });
-  }
+  });
   return positions;
 }
