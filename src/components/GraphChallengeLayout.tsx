@@ -407,6 +407,9 @@ interface Props { challenge: GraphChallenge; }
 
 // ─── Main layout ──────────────────────────────────────────────────────────────
 // skipcq: JS-R1005
+/**
+ * Main layout component for GraphChallengeLayout.
+ */
 const GraphChallengeLayout = ({ challenge }: Props) => {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });

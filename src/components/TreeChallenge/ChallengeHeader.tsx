@@ -20,6 +20,9 @@ interface ChallengeHeaderProps {
   judgeResults?: JudgeResult[];
 }
 
+/**
+ * Main layout component for ChallengeHeader.
+ */
 const ChallengeHeader = ({ id, title, difficulty, timeLimit, judgeResults = [] }: ChallengeHeaderProps) => {
   const canMarkSolved = canMarkChallengeSolved(judgeResults);
   const [solvedFlash, setSolvedFlash] = useState(false);

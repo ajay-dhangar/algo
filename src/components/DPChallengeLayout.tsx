@@ -23,6 +23,9 @@ const DIFF_COLORS = {
 
 interface Props { challenge: DPChallenge; }
 
+/**
+ * Main layout component for DPChallengeLayout.
+ */
 const DPChallengeLayout = ({ challenge }: Props) => {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });

@@ -23,6 +23,9 @@ const DIFF_COLORS = {
 
 interface Props { challenge: SortingChallenge; }
 
+/**
+ * Main layout component for SortingChallengeLayout.
+ */
 const SortingChallengeLayout = ({ challenge }: Props) => {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
