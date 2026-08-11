@@ -62,12 +62,42 @@ export function computeForceLayout(
   const centerY = height / 2;
   const radius = Math.min(width, height) * 0.3;
 
+  // ── 1. Compute degree for every node ─────────────────────────────────────
+  const degree = new Map<string, number>();
+  nodes.forEach((n) => degree.set(n.id, 0));
+  edges.forEach((e) => {
+    degree.set(e.source, (degree.get(e.source) ?? 0) + 1);
+    degree.set(e.target, (degree.get(e.target) ?? 0) + 1);
+  });
+
+  // ── 2. Pre-position nodes; isolated ones go on a small bottom ring ────────
+  // Isolated nodes start spread on a ring so forceCollide has a non-zero
+  // direction vector to work with (nodes at the exact same position produce a
+  // zero-length vector and never separate).
+  const isolatedCy = height * ISOLATED_STRIP_Y_FRACTION;
+  const isolatedCx = width / 2;
+
+  const isolatedNodes = nodes.filter((n) => (degree.get(n.id) ?? 0) === 0);
+  const isolatedRingRadius = Math.min(width, height) * 0.15;
+
   const simNodes: PositionedNode[] = nodes.map((n, index) => {
+    const isIsolated = (degree.get(n.id) ?? 0) === 0;
+    if (isIsolated) {
+      const isoIndex = isolatedNodes.findIndex((iso) => iso.id === n.id);
+      const angle = (isoIndex / Math.max(isolatedNodes.length, 1)) * Math.PI * 2;
+      return {
+        id: n.id,
+        x: isolatedCx + Math.cos(angle) * isolatedRingRadius,
+        y: isolatedCy + Math.sin(angle) * isolatedRingRadius,
+        isolated: true,
+      };
+    }
     const angle = (index / Math.max(nodes.length, 1)) * Math.PI * 2;
     return {
       id: n.id,
       x: centerX + Math.cos(angle) * radius,
       y: centerY + Math.sin(angle) * radius,
+      isolated: false,
     };
   });
 
