@@ -32,17 +32,24 @@ type UserState = {
   focusedElementId: string | undefined;
 };
 
-function restoreUserState(userState: UserState | null) {
+/**
+ * Restores the user state
+ */
+const restoreUserState = (userState: UserState | null) => {
   const { scrollTopPosition, focusedElementId } = userState ?? {
     scrollTopPosition: 0,
     focusedElementId: undefined,
   };
-  
-  document.getElementById(focusedElementId)?.focus();
+  if (focusedElementId) {
+    document.getElementById(focusedElementId)?.focus();
+  }
   window.scrollTo({ top: scrollTopPosition });
 }
 
-export function prepareUserState(): UserState | undefined {
+/**
+ * Prepares the user state
+ */
+export const prepareUserState = (): UserState | undefined => {
   if (ExecutionEnvironment.canUseDOM) {
     return {
       scrollTopPosition: window.scrollY,
@@ -55,16 +62,22 @@ export function prepareUserState(): UserState | undefined {
 
 const SearchNameQueryKey = 'name';
 
-function readSearchName(search: string) {
+/**
+ * Reads the search name
+ */
+const readSearchName = (search: string) => {
   return new URLSearchParams(search).get(SearchNameQueryKey);
 }
 
-function filterUsers(
+/**
+ * Filters the users
+ */
+const filterUsers = (
   users: BookItem[],
   selectedTags: TagType[],
   operator: Operator,
   searchName: string | null,
-) {
+) => {
   if (searchName) {
     // eslint-disable-next-line no-param-reassign
     users = users.filter((user) =>
@@ -85,7 +98,10 @@ function filterUsers(
   });
 }
 
-function useFilteredUsers() {
+/**
+ * Hook to get filtered users
+ */
+const useFilteredUsers = () => {
   const location = useLocation<UserState>();
   const [operator, setOperator] = useState<Operator>('OR');
   const [selectedTags, setSelectedTags] = useState<TagType[]>([]);
@@ -103,7 +119,10 @@ function useFilteredUsers() {
   );
 }
 
-function BookHeader() {
+/**
+ * Book Header component
+ */
+const BookHeader = () => {
   return (
     <section className="margin-top--lg margin-bottom--lg">
       <div className="mx-auto px-4 text-center">
@@ -118,7 +137,10 @@ function BookHeader() {
   );
 }
 
-function useSiteCountPlural() {
+/**
+ * Hook for pluralizing site count
+ */
+const useSiteCountPlural = () => {
   const { selectMessage } = usePluralForm();
   return (sitesCount: number) =>
     selectMessage(
@@ -135,7 +157,10 @@ function useSiteCountPlural() {
     );
 }
 
-function BookFilters() {
+/**
+ * Book Filters component
+ */
+const BookFilters = () => {
   const filteredUsers = useFilteredUsers();
   const siteCountPlural = useSiteCountPlural();
   return (
@@ -230,7 +255,10 @@ const otherUsers = sortedBooks.filter(
   (user) => !user.tags.includes('favorite'),
 );
 
-function SearchBar() {
+/**
+ * Search Bar component
+ */
+const SearchBar = () => {
   const history = useHistory();
   const location = useLocation();
   const [value, setValue] = useState<string | null>(null);
@@ -267,7 +295,10 @@ function SearchBar() {
   );
 }
 
-function BookCards() {
+/**
+ * Book Cards component
+ */
+const BookCards = () => {
   const filteredUsers = useFilteredUsers();
 
   if (filteredUsers.length === 0) {
@@ -395,7 +426,10 @@ function BookCards() {
   );
 }
 
-export default function Book(): JSX.Element {
+/**
+ * Main Book page component
+ */
+const Book = (): JSX.Element => {
   return (
     <Layout
       title={"Recommended Books"}
@@ -417,3 +451,5 @@ export default function Book(): JSX.Element {
     </Layout>
   );
 }
+
+export default Book;
