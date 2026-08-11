@@ -941,7 +941,7 @@ const PlaygroundContent: React.FC = () => {
         if (urlCode) {
           try {
             const binString = atob(urlCode);
-            const bytes = Uint8Array.from(binString, (m) => m.codePointAt(0)!);
+            const bytes = Uint8Array.from(binString, (m) => m.codePointAt(0) ?? 0);
             const decoded = new TextDecoder().decode(bytes);
             setCode(decoded);
             setTemplate("custom");

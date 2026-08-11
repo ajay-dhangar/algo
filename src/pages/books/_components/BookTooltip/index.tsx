@@ -81,7 +81,7 @@ export default function Tooltip({
     };
 
     const handleClose = () => {
-      clearInterval(timeout.current!);
+      if (timeout.current !== null) clearInterval(timeout.current);
       setOpen(false);
     };
 

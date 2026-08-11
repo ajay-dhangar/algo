@@ -64,7 +64,9 @@ function generateQuickSortSteps(arr: number[]): Step[] {
 
   const stack: [number, number][] = [[0, a.length - 1]];
   while (stack.length) {
-    const [lo, hi] = stack.pop()!;
+    const segment = stack.pop();
+    if (segment === undefined) break;
+    const [lo, hi] = segment;
     if (lo < hi) {
       const p = partitionSteps(lo, hi);
       stack.push([lo, p - 1], [p + 1, hi]);

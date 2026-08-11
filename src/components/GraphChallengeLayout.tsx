@@ -69,7 +69,9 @@ function GenericGraphVisualizer({ challenge }: { challenge: GraphChallenge }) {
   // Add node on canvas click
   const handleSvgClick = useCallback((e: React.MouseEvent<SVGSVGElement>) => {
     if (animating) return;
-    const rect = svgRef.current!.getBoundingClientRect();
+    const svg = svgRef.current;
+    if (!svg) return;
+    const rect = svg.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     // Don't add node if click was on a node circle
@@ -133,7 +135,8 @@ function GenericGraphVisualizer({ challenge }: { challenge: GraphChallenge }) {
     const visitedAcc: number[] = [];
 
     while (queue.length) {
-      const curr = queue.shift()!;
+      const curr = queue.shift();
+      if (curr === undefined) break;
       visitedAcc.push(curr);
       steps.push({ frontier: [...queue], visited: [...visitedAcc] });
       (adjList[curr] || []).forEach(nb => {

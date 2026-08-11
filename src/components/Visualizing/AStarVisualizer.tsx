@@ -62,7 +62,8 @@ function reconstructPath(cameFrom: Map<string, [number, number]>, current: [numb
   const path: [number, number][] = [];
   let key = `${current[0]},${current[1]}`;
   while (cameFrom.has(key)) {
-    const node = cameFrom.get(key)!;
+    const node = cameFrom.get(key);
+    if (node === undefined) break;
     path.unshift(node);
     key = `${node[0]},${node[1]}`;
   }
@@ -338,7 +339,8 @@ function AStarVisualizer() {
         }
       }
 
-      const current = openSet.get(currentKey)!;
+      const current = openSet.get(currentKey);
+      if (current === undefined) break;
       openSet.delete(currentKey);
       closedSet.add(currentKey);
 

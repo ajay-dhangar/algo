@@ -271,7 +271,8 @@ const GraphVisualizer: React.FC = () => {
 
     while (queue.length > 0) {
       if (!isMounted.current) return;
-      const curr = queue.shift()!;
+      const curr = queue.shift();
+      if (curr === undefined) break;
       setDataStructure(queue.map((q) => `Node ${q}`));
       setCurrentNode(curr);
       await waitforme(speedRef.current);
@@ -302,7 +303,8 @@ const GraphVisualizer: React.FC = () => {
 
     while (stack.length > 0) {
       if (!isMounted.current) return;
-      const curr = stack.pop()!;
+      const curr = stack.pop();
+      if (curr === undefined) break;
       setDataStructure(stack.map((s) => `Node ${s}`));
 
       if (!visited.has(curr)) {
@@ -367,7 +369,8 @@ const GraphVisualizer: React.FC = () => {
 
       unvisited.delete(curr);
       setCurrentNode(curr);
-      setVisitedNodes((prevSet) => new Set([...prevSet, curr!]));
+      const visitedNode = curr;
+      setVisitedNodes((prevSet) => new Set([...prevSet, visitedNode]));
       updateDSConsole();
       await waitforme(speedRef.current);
 
@@ -393,7 +396,8 @@ const GraphVisualizer: React.FC = () => {
     const pathEdges = new Set<string>();
     let temp = targetNode;
     while (prev[temp] !== null) {
-      const p = prev[temp]!;
+      const p = prev[temp];
+      if (p === null) break;
       pathEdges.add(getEdgeKey(temp, p));
       temp = p;
     }
@@ -478,7 +482,8 @@ const GraphVisualizer: React.FC = () => {
     const pathEdges = new Set<string>();
     let temp = targetNode;
     while (prev[temp] !== null) {
-      const p = prev[temp]!;
+      const p = prev[temp];
+      if (p === null) break;
       pathEdges.add(getEdgeKey(temp, p));
       temp = p;
     }
@@ -520,7 +525,8 @@ const GraphVisualizer: React.FC = () => {
     while (inMST.size < nodes.length && activeEdges.length > 0) {
       if (!isMounted.current) return;
 
-      const edge = activeEdges.pop()!;
+      const edge = activeEdges.pop();
+      if (edge === undefined) break;
       updateDSConsole();
 
       if (inMST.has(edge.v) && inMST.has(edge.u)) continue;

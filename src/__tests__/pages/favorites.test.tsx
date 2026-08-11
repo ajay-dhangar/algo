@@ -59,7 +59,9 @@ describe("FavoritesPage", () => {
     expect(layout).toHaveAttribute("data-title");
     expect(layout.getAttribute("data-title")).toMatch(/Favorite Algorithms/i);
     expect(layout).toHaveAttribute("data-description");
-    expect(layout.getAttribute("data-description")!.length).toBeGreaterThan(0);
+    const description = layout.getAttribute("data-description");
+    if (description === null) throw new Error("data-description attribute missing");
+    expect(description.length).toBeGreaterThan(0);
   });
 
   test("renders empty state when no favorite algorithms exist", () => {

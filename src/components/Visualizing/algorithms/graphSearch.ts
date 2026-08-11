@@ -24,7 +24,8 @@ export function generateBfsSteps(): Step[] {
   });
 
   while (queue.length > 0) {
-    const curr = queue.shift()!;
+    const curr = queue.shift();
+    if (curr === undefined) break;
     newSteps.push({
       description: `Dequeue node ${curr} and process it.`,
       variables: { queue: JSON.stringify(queue), visited: JSON.stringify(visited) },
@@ -64,7 +65,8 @@ export function generateDfsSteps(): Step[] {
   });
 
   while (stack.length > 0) {
-    const curr = stack.pop()!;
+    const curr = stack.pop();
+    if (curr === undefined) break;
     if (!visited.includes(curr)) {
       visited.push(curr);
       newSteps.push({

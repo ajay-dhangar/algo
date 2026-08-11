@@ -65,7 +65,8 @@ const AhoCorasickVisualizerComponent: React.FC = () => {
     }
 
     while (queue.length > 0) {
-      const currId = queue.shift()!;
+      const currId = queue.shift();
+      if (currId === undefined) break;
       const currNode = tempNodes[currId];
 
       for (const char in currNode.children) {
@@ -96,7 +97,7 @@ const AhoCorasickVisualizerComponent: React.FC = () => {
   const searchPatterns = () => {
     if (nodes.length === 0) return;
 
-    let currId = 0;
+    let currId: number | null = 0;
     const found: { pattern: string; index: number }[] = [];
     let stepLog = "";
 
@@ -104,7 +105,7 @@ const AhoCorasickVisualizerComponent: React.FC = () => {
       const char = searchText[i];
       
       while (currId !== null && nodes[currId].children[char] === undefined) {
-        currId = nodes[currId].fail!;
+        currId = nodes[currId].fail;
       }
 
       if (currId === null) {

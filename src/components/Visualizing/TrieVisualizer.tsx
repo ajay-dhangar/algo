@@ -35,10 +35,12 @@ function insertWord(root: TrieNode, word: string): TrieNode {
   const newRoot = cloneTrie(root);
   let current = newRoot;
   for (const ch of word.toLowerCase()) {
-    if (!current.children.has(ch)) {
-      current.children.set(ch, createTrieNode());
+    let child = current.children.get(ch);
+    if (!child) {
+      child = createTrieNode();
+      current.children.set(ch, child);
     }
-    current = current.children.get(ch)!;
+    current = child;
   }
   current.isEnd = true;
   return newRoot;
@@ -84,7 +86,8 @@ function collectWords(node: TrieNode, prefix: string): string[] {
   if (node.isEnd) words.push(prefix);
   const sortedKeys = Array.from(node.children.keys()).sort((a, b) => a.localeCompare(b));
   for (const ch of sortedKeys) {
-    words.push(...collectWords(node.children.get(ch)!, prefix + ch));
+    const child = node.children.get(ch);
+    if (child) words.push(...collectWords(child, prefix + ch));
   }
   return words;
 }
@@ -107,9 +110,11 @@ const LEVEL_HEIGHT = 70;
 
 function computeLayout(node: TrieNode, char: string): LayoutNode {
   const sortedKeys = Array.from(node.children.keys()).sort((a, b) => a.localeCompare(b));
-  const childLayouts = sortedKeys.map((ch) =>
-    computeLayout(node.children.get(ch)!, ch)
-  );
+  const childLayouts: LayoutNode[] = [];
+  for (const ch of sortedKeys) {
+    const child = node.children.get(ch);
+    if (child) childLayouts.push(computeLayout(child, ch));
+  }
 
   // Assign positions bottom-up using leaf counting
   let leafCounter = { value: 0 };

@@ -43,6 +43,7 @@ const DijkstraVisualizations: React.FC = () => {
   };
 
   const nextStep = async () => {
+    if (!startNode || !endNode) return;
     if (priorityQueue.length === 0) {
       setIsRunning(false);
       return;
@@ -50,7 +51,9 @@ const DijkstraVisualizations: React.FC = () => {
 
     // Sort queue based on distance (Min-Heap behavior)
     priorityQueue.sort((a, b) => a[0] - b[0]);
-    const [currentDist, x, y] = priorityQueue.shift()!;
+    const next = priorityQueue.shift();
+    if (next === undefined) return;
+    const [currentDist, x, y] = next;
 
     if (visited[x][y]) return;
 
@@ -91,8 +94,8 @@ const DijkstraVisualizations: React.FC = () => {
     setPriorityQueue(priorityQueue);
 
     // Check if we reached the end node
-    if (x === endNode![0] && y === endNode![1]) {
-      const path = reconstructPath(previous, startNode!, endNode!);
+    if (x === endNode[0] && y === endNode[1]) {
+      const path = reconstructPath(previous, startNode, endNode);
       setShortestPath(path);
       setIsRunning(false);
       return;

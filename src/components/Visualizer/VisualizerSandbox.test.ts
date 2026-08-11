@@ -68,7 +68,9 @@ describe('VisualizerSandbox — Binary Search step generation', () => {
     const steps = generateBinarySearchSteps([11, 23, 34, 45, 67, 89], 34);
     const foundStep = steps.find(s => s.found !== undefined);
     expect(foundStep).toBeDefined();
-    expect(foundStep!.array[foundStep!.found!]).toBe(34);
+    if (foundStep && foundStep.found !== undefined) {
+      expect(foundStep.array[foundStep.found]).toBe(34);
+    }
   });
 
   it('returns steps even for a target not in the array (no found step)', () => {

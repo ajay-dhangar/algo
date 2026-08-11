@@ -65,11 +65,12 @@ describe('recordLastVisited / getLastVisited', () => {
 
     const result = getLastVisited();
     expect(result).not.toBeNull();
-    expect(result!.id).toBe('arrays');
-    expect(result!.title).toBe('Arrays');
-    expect(result!.type).toBe('doc');
-    expect(result!.readingTime).toBe('3 min read');
-    expect(result!.isCompleted).toBe(false);
+    if (result === null) throw new Error('expected a last-visited item');
+    expect(result.id).toBe('arrays');
+    expect(result.title).toBe('Arrays');
+    expect(result.type).toBe('doc');
+    expect(result.readingTime).toBe('3 min read');
+    expect(result.isCompleted).toBe(false);
   });
 
   it('round-trips a quiz item correctly', () => {
@@ -86,8 +87,9 @@ describe('recordLastVisited / getLastVisited', () => {
 
     const result = getLastVisited();
     expect(result).not.toBeNull();
-    expect(result!.type).toBe('quiz');
-    expect(result!.isCompleted).toBe(true);
+    if (result === null) throw new Error('expected a last-visited item');
+    expect(result.type).toBe('quiz');
+    expect(result.isCompleted).toBe(true);
   });
 
   it('defaults visitedAt to current time when not provided', () => {
@@ -117,9 +119,10 @@ describe('recordLastVisited / getLastVisited', () => {
 
     const result = getLastVisited();
     expect(result).not.toBeNull();
-    expect(result!.title).toBe('Arrays Deep Dive');
-    expect(result!.type).toBe('doc');
-    expect(result!.isCompleted).toBe(true);
+    if (result === null) throw new Error('expected a last-visited item');
+    expect(result.title).toBe('Arrays Deep Dive');
+    expect(result.type).toBe('doc');
+    expect(result.isCompleted).toBe(true);
   });
 
   it('falls back to quiz_attempts_* scan when algo_last_visited is absent', () => {
@@ -129,7 +132,8 @@ describe('recordLastVisited / getLastVisited', () => {
 
     const result = getLastVisited();
     expect(result).not.toBeNull();
-    expect(result!.type).toBe('quiz');
+    if (result === null) throw new Error('expected a last-visited item');
+    expect(result.type).toBe('quiz');
   });
 
   it('picks the most recent item among multiple candidates', () => {
@@ -156,7 +160,8 @@ describe('recordLastVisited / getLastVisited', () => {
     });
 
     const result = getLastVisited();
-    expect(result!.id).toBe('queues'); // newer one should win
+    if (result === null) throw new Error('expected a last-visited item');
+    expect(result.id).toBe('queues'); // newer one should win
   });
 });
 

@@ -39,7 +39,7 @@ export default function BenchmarkPlayground() {
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const runIdRef = useRef(0);
 
-  const algo = getAlgoMeta(algoId)!;
+  const algo = getAlgoMeta(algoId) ?? ALGORITHMS[0];
   const size = SIZE_STEPS[sizeIndex];
 
   const execute = async () => {
