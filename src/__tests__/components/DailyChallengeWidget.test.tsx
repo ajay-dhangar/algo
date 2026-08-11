@@ -39,7 +39,9 @@ describe("DailyChallengeWidget", () => {
 
     expect(screen.getByRole("button", { name: "Solved" })).toBeInTheDocument();
 
-    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
+    const raw = localStorage.getItem(STORAGE_KEY);
+    expect(raw).not.toBeNull();
+    const stored = JSON.parse(String(raw));
     expect(stored.date).toBe(dateKeyFor(new Date()));
     expect(stored.status).toBe("solved");
   });
