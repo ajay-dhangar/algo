@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T16:59:41.203Z",
+  "generatedAt": "2026-08-11T03:34:34.645Z",
   "count": 88,
   "difficulties": [
     "Easy",
@@ -274,7 +274,7 @@
         "prefix-sum"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/an-alternative-way-2241d"
+      "url": "/docs/dsa-problems/medium/an-alternative-way"
     },
     {
       "id": "angle-between-hands-of-a-clock",
@@ -299,7 +299,7 @@
         "greedy"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/bigrams-2242a"
+      "url": "/docs/dsa-problems/medium/bigrams"
     },
     {
       "id": "binary-tree-right-side-view",
@@ -389,7 +389,7 @@
         "Google",
         "Netflix"
       ],
-      "url": "/docs/dsa-problems/easy/contains-duplicate-leetcode-217"
+      "url": "/docs/dsa-problems/easy/contains-duplicate"
     },
     {
       "id": "cousins-in-binary-tree",
@@ -497,7 +497,7 @@
         "greedy"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/easy/divide-and-conquer-2241a"
+      "url": "/docs/dsa-problems/easy/divide-and-conquer"
     },
     {
       "id": "check-palindrome",
@@ -534,7 +534,7 @@
         "math"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/ezraft-and-array-2246b"
+      "url": "/docs/dsa-problems/medium/ezraft-and-array"
     },
     {
       "id": "farmpiggie-and-subset-sum-2246a",
@@ -547,7 +547,7 @@
         "constructive-algorithms"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/farmpiggie-and-subset-sum-2246a"
+      "url": "/docs/dsa-problems/medium/farmpiggie-and-subset-sum"
     },
     {
       "id": "find-a-peak-element-ii",
@@ -649,7 +649,7 @@
         "Microsoft",
         "Netflix"
       ],
-      "url": "/docs/dsa-problems/medium/house-robber-algorithm"
+      "url": "/docs/dsa-problems/medium/house-robber"
     },
     {
       "id": "house-robber-ii",
@@ -691,7 +691,7 @@
         "implementation"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/iskander-and-drawings-2244a"
+      "url": "/docs/dsa-problems/medium/iskander-and-drawings"
     },
     {
       "id": "largest-rectangle-in-histogram",
@@ -732,7 +732,7 @@
         "greedy"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/easy/lemonade-change"
+      "url": "/docs/dsa-problems/easy/Lemonade-Change"
     },
     {
       "id": "linked-list-cycle",
@@ -889,7 +889,7 @@
         "Google",
         "Meta"
       ],
-      "url": "/docs/dsa-problems/medium/merge-intervals-problem"
+      "url": "/docs/dsa-problems/medium/merge-intervals"
     },
     {
       "id": "merge-k-sorted-arrays",
@@ -956,7 +956,7 @@
         "prefix-sum"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/nikita-and-books-2244b"
+      "url": "/docs/dsa-problems/medium/nikita-and-books"
     },
     {
       "id": "number-of-islands",
@@ -1088,7 +1088,7 @@
       "companies": [
         "Microsoft"
       ],
-      "url": "/docs/dsa-problems/easy/plus-one"
+      "url": "/docs/dsa-problems/easy/Plus-one"
     },
     {
       "id": "predominant-frequency-division-2242b",
@@ -1103,7 +1103,7 @@
         "math"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/hard/predominant-frequency-division-2242b"
+      "url": "/docs/dsa-problems/hard/predominant-frequency-division"
     },
     {
       "id": "process-string-with-special-operations-i",
@@ -1142,7 +1142,7 @@
         "observation"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/removevomer-2241c"
+      "url": "/docs/dsa-problems/medium/removevomer"
     },
     {
       "id": "removing-stars-from-string",
@@ -1373,7 +1373,7 @@
         "Microsoft",
         "Netflix"
       ],
-      "url": "/docs/dsa-problems/easy/two-sum-problem"
+      "url": "/docs/dsa-problems/easy/two-sum"
     },
     {
       "id": "unique-paths",
@@ -1484,7 +1484,7 @@
         "constructive-algorithms"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/yaroslav-and-productivity-2244d"
+      "url": "/docs/dsa-problems/medium/yaroslav-and-productivity"
     }
   ],
   "problemsById": {
@@ -1528,7 +1528,7 @@
         "prefix-sum"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/an-alternative-way-2241d"
+      "url": "/docs/dsa-problems/medium/an-alternative-way"
     },
     "angle-between-hands-of-a-clock": {
       "id": "angle-between-hands-of-a-clock",
@@ -1553,7 +1553,7 @@
         "greedy"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/bigrams-2242a"
+      "url": "/docs/dsa-problems/medium/bigrams"
     },
     "binary-tree-right-side-view": {
       "id": "binary-tree-right-side-view",
@@ -1643,7 +1643,7 @@
         "Google",
         "Netflix"
       ],
-      "url": "/docs/dsa-problems/easy/contains-duplicate-leetcode-217"
+      "url": "/docs/dsa-problems/easy/contains-duplicate"
     },
     "cousins-in-binary-tree": {
       "id": "cousins-in-binary-tree",
@@ -1751,7 +1751,7 @@
         "greedy"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/easy/divide-and-conquer-2241a"
+      "url": "/docs/dsa-problems/easy/divide-and-conquer"
     },
     "check-palindrome": {
       "id": "check-palindrome",
@@ -1788,7 +1788,7 @@
         "math"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/ezraft-and-array-2246b"
+      "url": "/docs/dsa-problems/medium/ezraft-and-array"
     },
     "farmpiggie-and-subset-sum-2246a": {
       "id": "farmpiggie-and-subset-sum-2246a",
@@ -1801,7 +1801,7 @@
         "constructive-algorithms"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/farmpiggie-and-subset-sum-2246a"
+      "url": "/docs/dsa-problems/medium/farmpiggie-and-subset-sum"
     },
     "find-a-peak-element-ii": {
       "id": "find-a-peak-element-ii",
@@ -1903,7 +1903,7 @@
         "Microsoft",
         "Netflix"
       ],
-      "url": "/docs/dsa-problems/medium/house-robber-algorithm"
+      "url": "/docs/dsa-problems/medium/house-robber"
     },
     "house-robber-ii": {
       "id": "house-robber-ii",
@@ -1945,7 +1945,7 @@
         "implementation"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/iskander-and-drawings-2244a"
+      "url": "/docs/dsa-problems/medium/iskander-and-drawings"
     },
     "largest-rectangle-in-histogram": {
       "id": "largest-rectangle-in-histogram",
@@ -1986,7 +1986,7 @@
         "greedy"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/easy/lemonade-change"
+      "url": "/docs/dsa-problems/easy/Lemonade-Change"
     },
     "linked-list-cycle": {
       "id": "linked-list-cycle",
@@ -2143,7 +2143,7 @@
         "Google",
         "Meta"
       ],
-      "url": "/docs/dsa-problems/medium/merge-intervals-problem"
+      "url": "/docs/dsa-problems/medium/merge-intervals"
     },
     "merge-k-sorted-arrays": {
       "id": "merge-k-sorted-arrays",
@@ -2210,7 +2210,7 @@
         "prefix-sum"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/nikita-and-books-2244b"
+      "url": "/docs/dsa-problems/medium/nikita-and-books"
     },
     "number-of-islands": {
       "id": "number-of-islands",
@@ -2342,7 +2342,7 @@
       "companies": [
         "Microsoft"
       ],
-      "url": "/docs/dsa-problems/easy/plus-one"
+      "url": "/docs/dsa-problems/easy/Plus-one"
     },
     "predominant-frequency-division-2242b": {
       "id": "predominant-frequency-division-2242b",
@@ -2357,7 +2357,7 @@
         "math"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/hard/predominant-frequency-division-2242b"
+      "url": "/docs/dsa-problems/hard/predominant-frequency-division"
     },
     "process-string-with-special-operations-i": {
       "id": "process-string-with-special-operations-i",
@@ -2396,7 +2396,7 @@
         "observation"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/removevomer-2241c"
+      "url": "/docs/dsa-problems/medium/removevomer"
     },
     "removing-stars-from-string": {
       "id": "removing-stars-from-string",
@@ -2627,7 +2627,7 @@
         "Microsoft",
         "Netflix"
       ],
-      "url": "/docs/dsa-problems/easy/two-sum-problem"
+      "url": "/docs/dsa-problems/easy/two-sum"
     },
     "unique-paths": {
       "id": "unique-paths",
@@ -2738,7 +2738,7 @@
         "constructive-algorithms"
       ],
       "companies": [],
-      "url": "/docs/dsa-problems/medium/yaroslav-and-productivity-2244d"
+      "url": "/docs/dsa-problems/medium/yaroslav-and-productivity"
     }
   }
 }
