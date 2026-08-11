@@ -18,12 +18,7 @@ describe("QuizErrorBoundary", () => {
 
   test("renders the fallback UI when a child throws", () => {
     // Error boundaries still log to console.error during tests; suppress noise.
-    const spy = jest
-    .spyOn(console, "error")
-    .mockImplementation((...args) => {
-      // Error boundaries log to console.error during tests; suppress the noise.
-      void args;
-    });
+    const spy = jest.spyOn(console, "error").mockReturnValue(undefined);
     render(
       <QuizErrorBoundary>
         <Bomb />
