@@ -30,8 +30,14 @@ export interface ShareResultModalProps {
 type ActionStatus = 'idle' | 'working' | 'done' | 'error';
 const RESET_DELAY_MS = 2500;
 
+/**
+ * Generates a slug for the share image
+ */
 const getShareSlug = (value: string): string => slugify(value, 'quiz-result');
 
+/**
+ * Header component for the modal
+ */
 const ModalHeader = ({ onClose }: { onClose: () => void }) => (
   <div className={styles.header}>
     <h2 id="share-result-modal-title" className={styles.title}>
@@ -45,6 +51,25 @@ const ModalHeader = ({ onClose }: { onClose: () => void }) => (
     >
       <FiX size={18} />
     </button>
+  </div>
+);
+
+/**
+ * Wrapper component for the modal to reduce JSX nesting depth
+ */
+const ModalWrapper = ({ onClose, modalRef, children }: { onClose: () => void; modalRef: React.RefObject<HTMLDivElement>; children: React.ReactNode }) => (
+  <div onClick={onClose} onKeyDown={(e) => { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') onClose(); }} role="presentation" className={styles.overlay}>
+    <div
+      ref={modalRef}
+      onClick={e => e.stopPropagation()}
+      onKeyDown={(e) => e.stopPropagation()}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="share-result-modal-title"
+      className={styles.modal}
+    >
+      {children}
+    </div>
   </div>
 );
 
@@ -132,10 +157,9 @@ const ShareResultModal = ({
         total,
         siteName,
       );
-      // skipcq: JS-0323
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const ClipboardItemCtor = typeof window !== 'undefined'
-        ? (window as any).ClipboardItem
+        ? (window as any).ClipboardItem // skipcq: JS-0323
         : undefined;
 
       if (navigator.clipboard && ClipboardItemCtor) {
@@ -213,17 +237,8 @@ const ShareResultModal = ({
   };
 
   return (
-    <div onClick={onClose} onKeyDown={(e) => { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') onClose(); }} role="presentation" className={styles.overlay}>
-      <div
-        ref={modalRef}
-        onClick={(e) => e.stopPropagation()}
-        onKeyDown={(e) => e.stopPropagation()}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="share-result-modal-title"
-        className={styles.modal}
-      >
-        <ModalHeader onClose={onClose} />
+    <ModalWrapper onClose={onClose} modalRef={modalRef}>
+      <ModalHeader onClose={onClose} />
 
         <div className={styles.preview}>
           <ShareResultCard
@@ -277,8 +292,7 @@ const ShareResultModal = ({
               {errorMessage}
             </p>
         )}
-      </div>
-    </div>
+    </ModalWrapper>
   );
 };
 
