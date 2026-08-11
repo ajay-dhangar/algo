@@ -35,7 +35,7 @@ export const isInteractiveInput = (element: Element | null): boolean => {
   );
 };
 
-export default function AccessibleVisualizerWrapper({
+const AccessibleVisualizerWrapper = ({
   title,
   currentStep,
   totalSteps,
@@ -51,7 +51,7 @@ export default function AccessibleVisualizerWrapper({
   onSpeedChange,
   children,
   className = '',
-}: AccessibleVisualizerWrapperProps) {
+}: AccessibleVisualizerWrapperProps): React.ReactElement => {
   const { announce } = useAriaAnnouncer();
 
   // Announce step descriptions on step changes
@@ -248,4 +248,6 @@ export default function AccessibleVisualizerWrapper({
       </div>
     </div>
   );
-}
+};
+
+export default AccessibleVisualizerWrapper;
