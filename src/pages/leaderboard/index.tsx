@@ -92,12 +92,20 @@ const CATEGORY_KEYWORDS: Record<string, string[]> = {
   Greedy: ["greedy", "activity", "knapsack frac", "lemonade", "jump", "gas"],
 };
 
+/**
+ * Classifies a challenge title into a difficulty bucket using keyword
+ * heuristics (easy and hard keyword lists, everything else is medium).
+ */
 const classifyDifficulty = (title: string): "easy" | "medium" | "hard" => {
   if (EASY_TITLE_KEYWORDS.some((k) => title.includes(k))) return "easy";
   if (HARD_TITLE_KEYWORDS.some((k) => title.includes(k))) return "hard";
   return "medium";
 };
 
+/**
+ * Maps a challenge title to a topic category (Trees, Graphs, DP, Sorting,
+ * Greedy) using keyword heuristics, or null when no category matches.
+ */
 const classifyCategory = (title: string): string | null => {
   for (const [category, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
     if (keywords.some((k) => title.includes(k))) return category;
