@@ -43,6 +43,18 @@ export default function ShareResultModal({
   const downloadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Reset all action state when the modal opens so stale errors from a
+  // previous session are never visible before the user takes any action.
+  useEffect(() => {
+    if (isOpen) {
+      setDownloadStatus('idle');
+      setCopyStatus('idle');
+      setErrorMessage('');
+      if (downloadTimeoutRef.current) clearTimeout(downloadTimeoutRef.current);
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     return () => {
       if (downloadTimeoutRef.current) clearTimeout(downloadTimeoutRef.current);
@@ -66,7 +78,6 @@ export default function ShareResultModal({
       URL.revokeObjectURL(url);
       setDownloadStatus('done');
     } catch (err) {
-      console.error('[ShareResultModal] Download failed:', err);
       setErrorMessage(err instanceof Error ? err.message : 'Download failed.');
       setDownloadStatus('error');
     } finally {
@@ -95,7 +106,6 @@ export default function ShareResultModal({
       }
       setCopyStatus('done');
     } catch (err) {
-      console.error('[ShareResultModal] Copy failed:', err);
       setErrorMessage(err instanceof Error ? err.message : 'Copy failed.');
       setCopyStatus('error');
     } finally {
