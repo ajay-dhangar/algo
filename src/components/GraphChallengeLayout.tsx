@@ -410,6 +410,8 @@ export default function GraphChallengeLayout({ challenge }: Props) {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
   const [solvedFlash, setSolvedFlash] = useState(false);
+  const solvedFlashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (solvedFlashTimer.current) clearTimeout(solvedFlashTimer.current); }, []);
   const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
   
   const handleCodeChange = (val: string | undefined) => {
@@ -471,7 +473,8 @@ export default function GraphChallengeLayout({ challenge }: Props) {
     if (!canMarkSolved) return;
     markChallengeSolved(challenge.id, challenge.title);
     setSolvedFlash(true);
-    setTimeout(() => setSolvedFlash(false), 2500);
+    if (solvedFlashTimer.current) clearTimeout(solvedFlashTimer.current);
+    solvedFlashTimer.current = setTimeout(() => setSolvedFlash(false), 2500);
   }}
   disabled={!canMarkSolved}
   className={`ml-auto flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-mono font-bold transition-colors ${canMarkSolved ? "hover:bg-emerald-500/20 cursor-pointer" : "opacity-60 cursor-not-allowed"}`}
