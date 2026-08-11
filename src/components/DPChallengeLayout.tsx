@@ -7,7 +7,7 @@ import {
   FaEye, FaEyeSlash, FaClock, FaChevronRight,
 } from "react-icons/fa";
 import type { DPChallenge } from "../data/dpChallengesData";
-import Editor from "@monaco-editor/react";
+import Editor, { DiffEditor } from "@monaco-editor/react";
 import useChallengeJudge from "../hooks/useChallengeJudge";
 import { canMarkChallengeSolved, type JudgeResult } from "../utils/challengeJudge";
 import ComplexityDeepDive from "./ComplexityDeepDive";
@@ -227,7 +227,6 @@ export default function DPChallengeLayout({ challenge }: Props) {
                         <div className="flex-1 relative">
                           <BrowserOnly fallback={<div className="p-4 text-slate-400 text-xs font-mono">Loading diff editor...</div>}>
                             {() => {
-                              const { DiffEditor } = require("@monaco-editor/react");
                               return (
                                 <DiffEditor
                                   original={code || ""}
