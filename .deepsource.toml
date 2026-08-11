@@ -10,7 +10,6 @@ name = "javascript"
     "browser",
     "jest",
   ]
-  skip_doc_coverage = ["arrow-function", "function-declaration"]
 
   plugins = ["react"]
   style_guide = "airbnb"
