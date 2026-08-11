@@ -19,6 +19,10 @@ const COMPLEXITY_OPTIONS = ["All", "O(1)", "O(log n)", "O(n)", "O(n log n)", "O(
 
 const COMPLEXITY_VALUES = COMPLEXITY_OPTIONS.filter((o) => o !== "All") as readonly string[];
 
+/**
+ * Normalizes a raw complexity string into one of the filter buckets.
+ * Unknown or unparseable values are mapped to "Other".
+ */
 const normalizeComplexity = (value?: string) => {
   if (!value) return "Other";
   const match = value.match(/O\([^)]*\)/);
@@ -27,6 +31,9 @@ const normalizeComplexity = (value?: string) => {
   return COMPLEXITY_VALUES.includes(normalized) ? normalized : "Other";
 };
 
+/**
+ * Resolves the filterable metadata (time/space complexity, category) for a problem.
+ */
 const getProblemMeta = (problem: Problem, topicName: string) => ({
   timeComplexity: normalizeComplexity(problem.timeComplexity),
   spaceComplexity: normalizeComplexity(problem.spaceComplexity),
