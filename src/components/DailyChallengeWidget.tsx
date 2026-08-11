@@ -82,6 +82,7 @@ const DailyChallengeWidget: React.FC = () => {
         <button
           type="button"
           onClick={toggleStatus}
+          aria-label={status === "solved" ? "Mark as unsolved" : "Mark as solved"}
           className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
             status === "solved"
               ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
