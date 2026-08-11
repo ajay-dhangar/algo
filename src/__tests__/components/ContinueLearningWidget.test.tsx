@@ -178,7 +178,7 @@ describe('ContinueLearningWidget', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it('renders the widget when a last-visited item is present', async () => {
+  it('renders the widget when a last-visited item is present', () => {
     store['algo_last_visited'] = JSON.stringify({
       id: 'binary-trees',
       title: 'Binary Trees',
@@ -189,7 +189,7 @@ describe('ContinueLearningWidget', () => {
       visitedAt: new Date().toISOString(),
     });
 
-    await act(async () => {
+    act(() => {
       render(<ContinueLearningWidget />);
     });
 
@@ -199,7 +199,7 @@ describe('ContinueLearningWidget', () => {
     expect(screen.getByText(/Continue where you left off/i)).toBeInTheDocument();
   });
 
-  it('shows "Mastered" pill when isCompleted is true', async () => {
+  it('shows "Mastered" pill when isCompleted is true', () => {
     store['algo_last_visited'] = JSON.stringify({
       id: 'graphs',
       title: 'Graph Algorithms',
@@ -210,7 +210,7 @@ describe('ContinueLearningWidget', () => {
       visitedAt: new Date().toISOString(),
     });
 
-    await act(async () => {
+    act(() => {
       render(<ContinueLearningWidget />);
     });
 
@@ -218,7 +218,7 @@ describe('ContinueLearningWidget', () => {
     expect(screen.getAllByText(/Quiz/i).length).toBeGreaterThanOrEqual(1);
   });
 
-  it('links to the correct URL', async () => {
+  it('links to the correct URL', () => {
     store['algo_last_visited'] = JSON.stringify({
       id: 'stacks',
       title: 'Stacks',
@@ -229,7 +229,7 @@ describe('ContinueLearningWidget', () => {
       visitedAt: new Date().toISOString(),
     });
 
-    await act(async () => {
+    act(() => {
       render(<ContinueLearningWidget />);
     });
 

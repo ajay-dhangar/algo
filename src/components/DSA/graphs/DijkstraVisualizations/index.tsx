@@ -42,7 +42,7 @@ const DijkstraVisualizations: React.FC = () => {
     setCurrentStep(null); // Reset the current step
   };
 
-  const nextStep = async () => {
+  const nextStep = () => {
     if (priorityQueue.length === 0) {
       setIsRunning(false);
       return;

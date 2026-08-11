@@ -20,7 +20,7 @@ const mockResponse = {
 beforeEach(() => {
   (global as any).fetch = jest.fn().mockResolvedValue({
     ok: true,
-    json: async () => mockResponse,
+    json: () => mockResponse,
   });
 });
 
