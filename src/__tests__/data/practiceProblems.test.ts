@@ -10,7 +10,7 @@ interface FlatProblem {
   spaceComplexity?: string;
 }
 
-function allProblems(): FlatProblem[] {
+const allProblems = (): FlatProblem[] => {
   const problems: FlatProblem[] = [];
   for (const [topic, data] of Object.entries(TOPICS)) {
     for (const [difficulty, list] of Object.entries(data.problems)) {
@@ -26,15 +26,15 @@ function allProblems(): FlatProblem[] {
     }
   }
   return problems;
-}
+};
 
-function findProblem(title: string): FlatProblem {
+const findProblem = (title: string): FlatProblem => {
   const found = allProblems().find((p) => p.title === title);
   if (!found) {
     throw new Error(`Problem not found in practiceProblems data: ${title}`);
   }
   return found;
-}
+};
 
 describe("practiceProblems complexity data", () => {
   test("every problem declares explicit time and space complexity", () => {

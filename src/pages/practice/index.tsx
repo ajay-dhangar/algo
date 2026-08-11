@@ -19,21 +19,19 @@ const COMPLEXITY_OPTIONS = ["All", "O(1)", "O(log n)", "O(n)", "O(n log n)", "O(
 
 const COMPLEXITY_VALUES = COMPLEXITY_OPTIONS.filter((o) => o !== "All") as readonly string[];
 
-function normalizeComplexity(value?: string) {
+const normalizeComplexity = (value?: string) => {
   if (!value) return "Other";
   const match = value.match(/O\([^)]*\)/);
   if (!match) return "Other";
   const normalized = match[0];
   return COMPLEXITY_VALUES.includes(normalized) ? normalized : "Other";
-}
+};
 
-function getProblemMeta(problem: Problem, topicName: string) {
-  return {
-    timeComplexity: normalizeComplexity(problem.timeComplexity),
-    spaceComplexity: normalizeComplexity(problem.spaceComplexity),
-    category: problem.category || topicName,
-  };
-}
+const getProblemMeta = (problem: Problem, topicName: string) => ({
+  timeComplexity: normalizeComplexity(problem.timeComplexity),
+  spaceComplexity: normalizeComplexity(problem.spaceComplexity),
+  category: problem.category || topicName,
+});
 
 function problemKey(topic: string, problem: Problem) {
   return `${topic}|${problem.id}|${problem.slug}`;
