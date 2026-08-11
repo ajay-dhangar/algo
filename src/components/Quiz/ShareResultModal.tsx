@@ -51,17 +51,23 @@ export default function ShareResultModal({
   }, [isOpen, setDownloadStatus, setCopyStatus, setErrorMessage]);
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     if (downloadStatus === 'done' || downloadStatus === 'error') {
-      const timer = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
-      return () => clearTimeout(timer);
+      timer = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
     }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [downloadStatus, setDownloadStatus]);
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     if (copyStatus === 'done' || copyStatus === 'error') {
-      const timer = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
-      return () => clearTimeout(timer);
+      timer = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
     }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [copyStatus, setCopyStatus]);
 
 
