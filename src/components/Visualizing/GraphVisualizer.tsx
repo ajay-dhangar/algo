@@ -396,10 +396,10 @@ const GraphVisualizer: React.FC = () => {
     const pathEdges = new Set<string>();
     let temp = targetNode;
     while (prev[temp] !== null) {
-      const p = prev[temp];
-      if (p === null) break;
-      pathEdges.add(getEdgeKey(temp, p));
-      temp = p;
+      const parent = prev[temp];
+      if (parent === null) break;
+      pathEdges.add(getEdgeKey(temp, parent));
+      temp = parent;
     }
     setShortestPathEdges(pathEdges);
     setCurrentNode(null);
@@ -482,10 +482,10 @@ const GraphVisualizer: React.FC = () => {
     const pathEdges = new Set<string>();
     let temp = targetNode;
     while (prev[temp] !== null) {
-      const p = prev[temp];
-      if (p === null) break;
-      pathEdges.add(getEdgeKey(temp, p));
-      temp = p;
+      const parent = prev[temp];
+      if (parent === null) break;
+      pathEdges.add(getEdgeKey(temp, parent));
+      temp = parent;
     }
     setShortestPathEdges(pathEdges);
     setCurrentNode(null);
