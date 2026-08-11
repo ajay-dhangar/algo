@@ -40,9 +40,6 @@ export default function ShareResultModal({
   const [copyStatus, setCopyStatus] = useState<ActionStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const downloadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
   // Reset all action state when the modal opens so stale errors from a
   // previous session are never visible before the user takes any action.
   useEffect(() => {
@@ -50,28 +47,24 @@ export default function ShareResultModal({
       setDownloadStatus('idle');
       setCopyStatus('idle');
       setErrorMessage('');
-      if (downloadTimeoutRef.current) {
-        clearTimeout(downloadTimeoutRef.current);
-      }
-      if (copyTimeoutRef.current) {
-        clearTimeout(copyTimeoutRef.current);
-      }
     }
   }, [isOpen, setDownloadStatus, setCopyStatus, setErrorMessage]);
 
   useEffect(() => {
-    const downloadTimeout = downloadTimeoutRef.current;
-    const copyTimeout = copyTimeoutRef.current;
-    
-    return () => {
-      if (downloadTimeout) {
-        clearTimeout(downloadTimeout);
-      }
-      if (copyTimeout) {
-        clearTimeout(copyTimeout);
-      }
-    };
-  }, []);
+    if (downloadStatus === 'done' || downloadStatus === 'error') {
+      const timer = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
+      return () => clearTimeout(timer);
+    }
+  }, [downloadStatus, setDownloadStatus]);
+
+  useEffect(() => {
+    if (copyStatus === 'done' || copyStatus === 'error') {
+      const timer = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
+      return () => clearTimeout(timer);
+    }
+  }, [copyStatus, setCopyStatus]);
+
+
 
   const shareText = `I scored ${score}/${total} on the ${topic} quiz on ${siteName}! 🎯`;
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -91,8 +84,6 @@ export default function ShareResultModal({
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : 'Download failed.');
       setDownloadStatus('error');
-    } finally {
-      downloadTimeoutRef.current = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
     }
   }, [topic, score, total, siteName, setDownloadStatus, setErrorMessage]);
 
@@ -119,8 +110,6 @@ export default function ShareResultModal({
     } catch (err) {
       setErrorMessage(err instanceof Error ? err.message : 'Copy failed.');
       setCopyStatus('error');
-    } finally {
-      copyTimeoutRef.current = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
     }
   }, [topic, score, total, siteName, setCopyStatus, setErrorMessage]);
 
