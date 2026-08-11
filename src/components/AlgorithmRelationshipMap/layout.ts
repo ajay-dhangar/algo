@@ -80,10 +80,15 @@ export function computeForceLayout(
   const isolatedNodes = nodes.filter((n) => (degree.get(n.id) ?? 0) === 0);
   const isolatedRingRadius = Math.min(width, height) * 0.15;
 
+  // Pre-compute isolated index for O(1) lookup inside the map below,
+  // avoiding an O(n²) findIndex call per node.
+  const isolatedIndexMap = new Map<string, number>();
+  isolatedNodes.forEach((n, i) => isolatedIndexMap.set(n.id, i));
+
   const simNodes: PositionedNode[] = nodes.map((n, index) => {
     const isIsolated = (degree.get(n.id) ?? 0) === 0;
     if (isIsolated) {
-      const isoIndex = isolatedNodes.findIndex((iso) => iso.id === n.id);
+      const isoIndex = isolatedIndexMap.get(n.id) ?? 0;
       const angle = (isoIndex / Math.max(isolatedNodes.length, 1)) * Math.PI * 2;
       return {
         id: n.id,
