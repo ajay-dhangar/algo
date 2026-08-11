@@ -167,7 +167,7 @@ const DijkstraVisualizations: React.FC = () => {
       <div className="grid">
         {/* Render Column Header */}
         <div className="grid grid-cols-11 gap-1">
-          <div className="w-10 h-10"></div> {/* Empty corner cell */}
+          <div className="w-10 h-10" /> {/* Empty corner cell */}
           {Array.from({ length: gridSize }, (_, colIndex) => (
             <div key={`col-${colIndex}`} className="w-10 h-10 flex items-center justify-center bg-gray-200 font-bold">
               {colIndex}
