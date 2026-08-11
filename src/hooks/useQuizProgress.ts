@@ -40,7 +40,7 @@ export interface QuizStat {
 
 export interface GlobalQuizStats {
   totalCompleted: number;      // quizzes attempted at least once
-  totalMastered: number;       // quizzes with best score 100%
+  totalMastered: number;       // quizzes with best score >= 90%
   totalPassed: number;         // quizzes with best score >= 70%
   totalQuizzes: number;        // all quizzes available
   overallAvgPercent: number;   // average best-percent across all attempted
@@ -128,12 +128,23 @@ export function useQuizProgress(quizIds: string[], questionCounts: Record<string
         (a, b) => new Date(b.completedAt).getTime() - new Date(a.completedAt).getTime()
       );
 
-      const bestScore   = Math.max(...attempts.map(a => a.score));
-      const bestPercent = Math.round((bestScore / total) * 100);
-      const latest      = sorted[0];
-      const latestPercent = Math.round((latest.score / total) * 100);
-      const avgPercent  = Math.round(
-        attempts.reduce((sum, a) => sum + (a.score / total) * 100, 0) / attempts.length
+      const getAttemptTotal = (a: QuizAttempt) =>
+        typeof a.totalQuestions === "number" && a.totalQuestions > 0 ? a.totalQuestions : total;
+      const calcPercent = (score: number, t: number) =>
+        Math.min(100, Math.max(0, Math.round((score / t) * 100)));
+
+      let maxPercent = 0;
+      attempts.forEach(a => {
+        const pct = calcPercent(a.score, getAttemptTotal(a));
+        if (pct > maxPercent) maxPercent = pct;
+      });
+
+      const bestScore = Math.max(...attempts.map(a => a.score));
+      const bestPercent = maxPercent;
+      const latest = sorted[0];
+      const latestPercent = calcPercent(latest.score, getAttemptTotal(latest));
+      const avgPercent = Math.round(
+        attempts.reduce((sum, a) => sum + calcPercent(a.score, getAttemptTotal(a)), 0) / attempts.length
       );
 
       const status: QuizStat["status"] =

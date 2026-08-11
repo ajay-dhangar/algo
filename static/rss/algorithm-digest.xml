@@ -5,16 +5,34 @@
     <link>https://ajay-dhangar.github.io/algo/newsletter</link>
     <description>Periodic digest summarizing newly merged algorithm docs and problem walkthroughs in Algo.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Aug 2026 14:55:20 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 09:36:56 GMT</lastBuildDate>
     <atom:link href="https://ajay-dhangar.github.io/algo/algorithm-digest.xml" rel="self" type="application/rss+xml"/>
     
     <item>
-      <title>Naive Search Algorithm</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/extra/algorithms/string-algorithms/Naive-search</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/extra/algorithms/string-algorithms/Naive-search</guid>
-      <description>A basic string-search algorithm that checks every position in the text for a match with the pattern.</description>
-      <pubDate>Fri, 07 Aug 2026 14:46:51 GMT</pubDate>
-      <category>extra</category>
+      <title>Operator Overloading</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/operator-overloading</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/operator-overloading</guid>
+      <description>Operator overloading allows you to redefine the way operators work for user-defined types (classes and structs). It enables you to specify more intuitive ways to perform operations on objects of your classes.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>polymorphism</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/polymorphism</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/polymorphism</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Introduction</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/Introduction</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/Introduction</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
@@ -22,7 +40,79 @@
       <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/arrays</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/arrays</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>classes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/classes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/classes</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>conditionals</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/conditionals</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/conditionals</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/functions</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>inheritance</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/inheritance</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/inheritance</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>loops</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/loops</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/loops</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>objects</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/objects</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/objects</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>operators</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/operators</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/operators</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>polymorphism</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/polymorphism</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/polymorphism</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -31,115 +121,16 @@
       <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/strings</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/strings</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Inheritance</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/inheritance</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/inheritance</guid>
-      <description>A quick introduction to inheritance and its types in C++.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Method Overriding</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/method-overriding</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/method-overriding</guid>
-      <description>Method overriding allows a derived class to provide a specific implementation of a method that is already defined in its base class. This feature enables runtime polymorphism in object-oriented programming.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Methods</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/methods</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/methods</guid>
-      <description>Comprehensive guide to methods in C++: declaration, invocation, parameters, return types, instance vs static, and best practices.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Access Modifiers</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/modifiers</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/modifiers</guid>
-      <description>Complete guide to public, private, and protected access modifiers in C++, encapsulation, friend functions, and best practices.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Operator Overloading</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/operator-overloading</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/operator-overloading</guid>
-      <description>Operator overloading allows you to redefine the way operators work for user-defined types (classes and structs). It enables you to specify more intuitive ways to perform operations on objects of your classes.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Constructors</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/constructors</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/constructors</guid>
-      <description>Comprehensive guide to constructors in C++ - purpose, types, overloading, chaining, initialization lists, and best practices.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Attributes</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/attributes</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/attributes</guid>
-      <description>Deep dive into attributes (data members) in C++ classes: object state, fields vs properties, getters/setters, and encapsulation techniques.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>classes</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/classes</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/classes</guid>
+      <title>variables</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/variables</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/pseudo-code/variables</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>composition</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/composition</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/composition</guid>
-      <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Demystifying Variables: The Ultimate Multi-Language Guide</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/variables</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/variables</guid>
-      <description>Master variables across JavaScript, Python, Java, and C++. Learn initialization patterns, memory behaviors, scope lifecycles, and industry-standard production best practices.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>abstract-classes</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstract-classes</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstract-classes</guid>
-      <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>abstraction</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstraction</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstraction</guid>
-      <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -148,7 +139,16 @@
       <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/operators</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/operators</guid>
       <description>Explore different types of operators in programming languages like JavaScript, Java, Python, and C++. Understand their usage, precedence, and practical examples.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>polymorphism</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/polymorphism</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/polymorphism</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -157,133 +157,151 @@
       <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/strings</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/strings</guid>
       <description>Learn about strings in JavaScript, Java, Python, and C++. Understand how to create, manipulate, and use strings effectively in programming.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Objects</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/objects</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/objects</guid>
-      <description>Learn about objects in JavaScript, Java, Python, and C++. Understand how to define, create, and use objects effectively in these popular programming languages.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <title>Demystifying Variables: The Ultimate Multi-Language Guide</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/variables</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/variables</guid>
+      <description>Master variables across JavaScript, Python, Java, and C++. Learn initialization patterns, memory behaviors, scope lifecycles, and industry-standard production best practices.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>interfaces</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/interfaces</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/interfaces</guid>
+      <title>abstract-classes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstract-classes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstract-classes</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Loops</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/loops</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/loops</guid>
-      <description>Explore how to use loops in JavaScript, Java, Python, and C++. Learn about different types of loops and their usage, including for loops, while loops, and do-while loops.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <title>abstraction</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstraction</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/abstraction</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Arrays</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/arrays</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/arrays</guid>
-      <description>Learn about arrays in JavaScript, Java, Python, and C++. Understand how to declare, initialize, and manipulate arrays across different programming languages.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <title>Attributes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/attributes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/attributes</guid>
+      <description>Deep dive into attributes (data members) in C++ classes: object state, fields vs properties, getters/setters, and encapsulation techniques.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Classes</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/classes</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/classes</guid>
-      <description>Learn about classes and object-oriented programming concepts in JavaScript, Java, Python, and C++. Understand how to create, instantiate, and work with classes effectively in these popular languages.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <title>classes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/classes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/classes</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Conditionals</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/conditionals</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/conditionals</guid>
-      <description>Master conditional statements in JavaScript, Java, Python, and C++. Learn how to use if-else, switch statements, and ternary operators for decision-making in programming.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <title>composition</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/composition</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/composition</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Functions</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/functions</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/functions</guid>
-      <description>Learn about functions and how to create and use them in JavaScript, Java, Python, and C++. Understand function declarations, parameters, return values, and best practices.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <title>Constructors</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/constructors</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/constructors</guid>
+      <description>Comprehensive guide to constructors in C++ - purpose, types, overloading, chaining, initialization lists, and best practices.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>delegation</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/delegation</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/delegation</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>encapsulation</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/encapsulation</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/encapsulation</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
       <title>Inheritance</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/inheritance</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/inheritance</guid>
-      <description>Learn about inheritance in JavaScript, Java, Python, and C++.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/inheritance</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/inheritance</guid>
+      <description>A quick introduction to inheritance and its types in C++.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Function Parameters</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-parameters</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-parameters</guid>
-      <description>A quick introduction to function parameters.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>function-recursion</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-recursion</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-recursion</guid>
+      <title>interfaces</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/interfaces</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/interfaces</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Higher-Order Functions</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/higher-order-functions</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/higher-order-functions</guid>
-      <description>Learn about Higher-Order Functions (HOFs), how they accept or return other functions, and explore standard examples like map, filter, and reduce.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <title>Method Overriding</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/method-overriding</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/method-overriding</guid>
+      <description>Method overriding allows a derived class to provide a specific implementation of a method that is already defined in its base class. This feature enables runtime polymorphism in object-oriented programming.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Pass by Value vs. Pass by Reference</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pass-by-value-vs-reference</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pass-by-value-vs-reference</guid>
-      <description>Understand the core differences between Pass by Value and Pass by Reference, with detailed behavior in Python, JavaScript, and C++.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <title>Methods</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/methods</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/methods</guid>
+      <description>Comprehensive guide to methods in C++: declaration, invocation, parameters, return types, instance vs static, and best practices.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Pure vs. Impure Functions</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pure-vs-impure-functions</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pure-vs-impure-functions</guid>
-      <description>Learn about the differences between Pure and Impure functions, the concept of side effects, and why purity is important in functional programming.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>function-memoization</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-memoization</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-memoization</guid>
+      <title>mixins</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/mixins</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/mixins</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Access Modifiers</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/modifiers</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/modifiers</guid>
+      <description>Complete guide to public, private, and protected access modifiers in C++, encapsulation, friend functions, and best practices.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>objects</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/objects</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/oop-basics/objects</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
@@ -292,170 +310,152 @@
       <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-expressions</link>
       <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-expressions</guid>
       <description>Learn about Function Expressions, their syntax, usage, and key differences from Function Declarations.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>First-Class Functions</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/first-class-functions</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/first-class-functions</guid>
-      <description>Learn about First-Class Functions, the criteria that make functions first-class citizens, and examples across major programming languages.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Default Parameters</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/default-parameters</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/default-parameters</guid>
-      <description>Learn about Default Parameters, their syntax, usage rules, and important gotchas across programming languages.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Callback Functions</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/callback-functions</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/callback-functions</guid>
-      <description>Learn about Callback Functions, the difference between synchronous and asynchronous callbacks, and how to handle asynchronous operations.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Arguments vs. Parameters</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/arguments-vs-parameters</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/arguments-vs-parameters</guid>
-      <description>Understand the clear conceptual difference between parameters and arguments with examples and comparison tables.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>Anonymous Functions</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/anonymous-functions</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/anonymous-functions</guid>
-      <description>Learn about Anonymous Functions, their syntax across different programming languages, and typical use cases.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>return</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/return</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/return</guid>
+      <title>function-memoization</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-memoization</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-memoization</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Switch Statement</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/switch</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/switch</guid>
-      <description>Learn how to use the switch statement in programming to make decisions based on multiple conditions. Understand the syntax, examples, and best practices for using switch statements effectively.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>References and Pointers in C++</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/cpp-pointers-references</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/cpp-pointers-references</guid>
-      <description>Both references and pointers are powerful features in C++ that allow you to manipulate memory and create more efficient programs. Understanding the differences between them and knowing when to use each is crucial for effective C++ programming.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>If-Else Statement</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/if-else</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/if-else</guid>
-      <description>Learn how to use the if-else statement in programming to make decisions based on conditions. Understand the syntax, examples, and best practices for using if-else statements effectively.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>For Loop</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/for-loop</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/for-loop</guid>
-      <description>Learn how to use the for loop in programming to iterate over a sequence of elements. Understand the syntax, examples, and best practices for using for loops effectively.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>programming-fundamentals</category>
-      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
-    </item>
-    <item>
-      <title>finally</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/finally</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/finally</guid>
+      <title>function-overloading</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-overloading</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-overloading</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>continue</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/continue</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/continue</guid>
+      <title>Function Parameters</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-parameters</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-parameters</guid>
+      <description>A quick introduction to function parameters.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>function-recursion</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-recursion</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-recursion</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>do-while-loop</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/do-while-loop</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/do-while-loop</guid>
+      <title>function-return</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-return</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-return</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>break</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/break</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/control-structures/break</guid>
+      <title>function-scope</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-scope</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/function-scope</guid>
       <description>Comprehensive guide and tutorial on Algo.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
       <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Selection Sort in Swift</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/languages/swift/selection-sort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/languages/swift/selection-sort</guid>
-      <description>Learn how to implement Selection Sort in Swift, with complete code examples, explanation, and complexity analysis.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>languages</category>
+      <title>Higher-Order Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/higher-order-functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/higher-order-functions</guid>
+      <description>Learn about Higher-Order Functions (HOFs), how they accept or return other functions, and explore standard examples like map, filter, and reduce.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Quick Sort in Swift</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/languages/swift/quick-sort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/languages/swift/quick-sort</guid>
-      <description>Learn how to implement Quick Sort in Swift, with complete code examples, explanation, and complexity analysis.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>languages</category>
+      <title>Pass by Value vs. Pass by Reference</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pass-by-value-vs-reference</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pass-by-value-vs-reference</guid>
+      <description>Understand the core differences between Pass by Value and Pass by Reference, with detailed behavior in Python, JavaScript, and C++.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Merge Sort in Swift</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/languages/swift/merge-sort</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/languages/swift/merge-sort</guid>
-      <description>Learn how to implement Merge Sort in Swift, with complete code examples, explanation, and complexity analysis.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>languages</category>
+      <title>Pure vs. Impure Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pure-vs-impure-functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/functions/pure-vs-impure-functions</guid>
+      <description>Learn about the differences between Pure and Impure functions, the concept of side effects, and why purity is important in functional programming.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
     <item>
-      <title>Introduction to Swift</title>
-      <link>https://ajay-dhangar.github.io/algo/docs/languages/swift/introduction</link>
-      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/languages/swift/introduction</guid>
-      <description>Introduction to the Swift programming language, contribution guidelines, and recommended project/folder structure for Swift algorithms.</description>
-      <pubDate>Fri, 07 Aug 2026 05:59:41 GMT</pubDate>
-      <category>languages</category>
+      <title>Arrays</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/arrays</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/arrays</guid>
+      <description>Learn about arrays in JavaScript, Java, Python, and C++. Understand how to declare, initialize, and manipulate arrays across different programming languages.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Classes</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/classes</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/classes</guid>
+      <description>Learn about classes and object-oriented programming concepts in JavaScript, Java, Python, and C++. Understand how to create, instantiate, and work with classes effectively in these popular languages.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Conditionals</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/conditionals</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/conditionals</guid>
+      <description>Master conditional statements in JavaScript, Java, Python, and C++. Learn how to use if-else, switch statements, and ternary operators for decision-making in programming.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Functions</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/functions</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/functions</guid>
+      <description>Learn about functions and how to create and use them in JavaScript, Java, Python, and C++. Understand function declarations, parameters, return values, and best practices.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Inheritance</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/inheritance</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/inheritance</guid>
+      <description>Learn about inheritance in JavaScript, Java, Python, and C++.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>interfaces</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/interfaces</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/interfaces</guid>
+      <description>Comprehensive guide and tutorial on Algo.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
+    </item>
+    <item>
+      <title>Loops</title>
+      <link>https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/loops</link>
+      <guid isPermaLink="true">https://ajay-dhangar.github.io/algo/docs/programming-fundamentals/language-syntax/loops</guid>
+      <description>Explore how to use loops in JavaScript, Java, Python, and C++. Learn about different types of loops and their usage, including for loops, while loops, and do-while loops.</description>
+      <pubDate>Sun, 09 Aug 2026 09:36:20 GMT</pubDate>
+      <category>programming-fundamentals</category>
       <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Algo Community</dc:creator>
     </item>
   </channel>

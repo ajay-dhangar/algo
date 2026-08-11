@@ -22,13 +22,12 @@ function barColor(bestPercent: number, hasAttempts: boolean): string {
 export default function WeakTopicsChart({ entries, onStartReview, dueCount }: WeakTopicsChartProps) {
   const [exportFormat, setExportFormat] = useState<"csv" | "json">("csv");
 
-  const handleDownload = () => {
-    const stats: Record<string, QuizStat> = {};
-    entries.forEach((entry) => {
-      stats[entry.quiz.id] = entry.stat;
-    });
-    downloadQuizData(stats, exportFormat);
-  };
+  const statsById = useMemo<Record<string, QuizStat>>(
+    () => Object.fromEntries(entries.map((entry) => [entry.quiz.id, entry.stat])),
+    [entries]
+  );
+
+  const handleDownload = () => downloadQuizData(statsById, exportFormat);
 
   if (entries.length === 0) {
     return (
@@ -90,6 +89,7 @@ export default function WeakTopicsChart({ entries, onStartReview, dueCount }: We
           </Link>
         </div>
       </div>
+
       {entries.map((entry, index) => {
         const hasAttempts = entry.stat.totalAttempts > 0;
         const pct = hasAttempts ? entry.stat.bestPercent : 0;

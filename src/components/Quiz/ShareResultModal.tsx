@@ -6,6 +6,7 @@ import { FaLinkedin } from 'react-icons/fa';
 import { useFocusTrap } from '../../hooks/useFocusTrap';
 import ShareResultCard from './ShareResultCard';
 import { renderShareCardToPngBlob } from '../../utils/shareResultImage';
+import { slugify } from '../../utils/slugUtils';
 import styles from './ShareResultModal.module.css';
 
 export interface ShareResultModalProps {
@@ -20,14 +21,8 @@ export interface ShareResultModalProps {
 type ActionStatus = 'idle' | 'working' | 'done' | 'error';
 const RESET_DELAY_MS = 2500;
 
-function slugify(value: string): string {
-  return (
-    value
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '') || 'quiz-result'
-  );
+function getShareSlug(value: string): string {
+  return slugify(value, 'quiz-result');
 }
 
 export default function ShareResultModal({
@@ -66,7 +61,7 @@ export default function ShareResultModal({
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = `${slugify(topic)}-quiz-result.png`;
+      link.download = `${getShareSlug(topic)}-quiz-result.png`;
       link.click();
       URL.revokeObjectURL(url);
       setDownloadStatus('done');
@@ -94,7 +89,7 @@ export default function ShareResultModal({
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `${slugify(topic)}-quiz-result.png`;
+        link.download = `${getShareSlug(topic)}-quiz-result.png`;
         link.click();
         URL.revokeObjectURL(url);
       }

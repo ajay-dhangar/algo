@@ -1,0 +1,16 @@
+version = 1
+
+[[analyzers]]
+name = "javascript"
+
+  [analyzers.meta]
+  module_system = "commonjs"
+  environment = [
+    "nodejs",
+    "browser",
+    "jest",
+  ]
+
+  plugins = ["react"]
+  style_guide = "airbnb"
+  dialect = "flow"

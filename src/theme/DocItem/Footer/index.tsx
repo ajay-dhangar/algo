@@ -7,10 +7,11 @@ type Props = Record<string, never>;
 import ProgressTracker from '@site/src/components/ProgressTracker';
 import DocInlineQuiz from '@site/src/components/DocInlineQuiz';
 import RelatedProblems from '@site/src/components/RelatedProblems';
+import DocDiscussion from '@site/src/components/DocDiscussion';
+import DsaProblemHintLadder from '@site/src/components/DsaProblemHintLadder';
 
 export default function DocItemFooter(props: Props): JSX.Element | null {
-  const { metadata } = useDoc();
-  console.log(metadata);
+  const { metadata, frontMatter } = useDoc();
   const { tags } = metadata;
 
   const topicId = metadata.id.replace(/\//g, '-');
@@ -18,12 +19,18 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
 
   const canRenderTags = tags && tags.length > 0;
 
+  // Allow individual pages to opt out (e.g. category landing / index pages)
+  // by setting `hide_discussion: true` in their frontmatter.
+  const hideDiscussion = Boolean((frontMatter as any)?.hide_discussion);
+
   if (!canRenderTags) {
     return (
       <>
         <DocInlineQuiz />
+        <DsaProblemHintLadder />
         <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
         <RelatedProblems />
+        {!hideDiscussion && <DocDiscussion title={topicTitle} />}
       </>
     );
   }
@@ -31,6 +38,7 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
   return (
     <>
       <DocInlineQuiz />
+      <DsaProblemHintLadder />
 
       <ProgressTracker topicId={topicId} topicTitle={topicTitle} />
 
@@ -47,6 +55,8 @@ export default function DocItemFooter(props: Props): JSX.Element | null {
           </div>
         )}
       </footer>
+
+      {!hideDiscussion && <DocDiscussion title={topicTitle} />}
     </>
   );
 }

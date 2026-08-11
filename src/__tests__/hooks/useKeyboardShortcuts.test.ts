@@ -68,4 +68,20 @@ describe("useKeyboardShortcuts hook", () => {
 
     document.body.removeChild(input);
   });
+
+  test("does not navigate to a missing /settings route on gs sequential shortcut", async () => {
+    const user = userEvent.setup();
+
+    renderHook(() =>
+      useKeyboardShortcuts({
+        onOpenHelp: jest.fn(),
+        onCloseHelp: jest.fn(),
+      })
+    );
+
+    await user.keyboard("g");
+    await user.keyboard("s");
+
+    expect(mockPush).not.toHaveBeenCalledWith("/settings");
+  });
 });

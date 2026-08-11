@@ -118,7 +118,7 @@ async function main() {
     code = target;
   }
 
-  const hash = crypto.createHash('md5').update(code).digest('hex');
+  const hash = crypto.createHash('sha256').update(code).digest('hex');
   const cacheKey = `complexity-cache:${hash}`;
   let analysis = null;
   let cacheHit = false;
