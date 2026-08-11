@@ -662,7 +662,7 @@ export default function TreeSandbox() {
   };
 
   // AVL ROTATIONS CORE MATH
-  const rotateRight = (zId: string, map: TreeMap): string => {
+  function rotateRight(zId: string, map: TreeMap): string {
     const z = map[zId];
     const yId = z.leftId;
     if (yId === null) return zId;
@@ -678,9 +678,9 @@ export default function TreeSandbox() {
     updateHeight(yId, map);
 
     return yId;
-  };
+  }
 
-  const rotateLeft = (zId: string, map: TreeMap): string => {
+  function rotateLeft(zId: string, map: TreeMap): string {
     const z = map[zId];
     const yId = z.rightId;
     if (yId === null) return zId;
@@ -696,7 +696,7 @@ export default function TreeSandbox() {
     updateHeight(yId, map);
 
     return yId;
-  };
+  }
 
   // --- INTERACTION: DELETE ---
   const triggerDelete = (key: number) => {
@@ -1217,13 +1217,21 @@ export default function TreeSandbox() {
             const leftChildId = n.leftId;
             if (leftChildId === null) return nodeId;
             const leftBf = getBalanceFactor(leftChildId, tempMap);
-            return leftBf >= 0 ? rotateRight(nodeId, tempMap) : (n.leftId = rotateLeft(leftChildId, tempMap), rotateRight(nodeId, tempMap));
+            if (leftBf >= 0) {
+              return rotateRight(nodeId, tempMap);
+            }
+            n.leftId = rotateLeft(leftChildId, tempMap);
+            return rotateRight(nodeId, tempMap);
           }
           if (bf < -1) {
             const rightChildId = n.rightId;
             if (rightChildId === null) return nodeId;
             const rightBf = getBalanceFactor(rightChildId, tempMap);
-            return rightBf <= 0 ? rotateLeft(nodeId, tempMap) : (n.rightId = rotateRight(rightChildId, tempMap), rotateLeft(nodeId, tempMap));
+            if (rightBf <= 0) {
+              return rotateLeft(nodeId, tempMap);
+            }
+            n.rightId = rotateRight(rightChildId, tempMap);
+            return rotateLeft(nodeId, tempMap);
           }
         }
         return nodeId;

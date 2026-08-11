@@ -2,7 +2,7 @@ import React from "react";
 import DPChallengeLayout from "../../../components/DPChallengeLayout";
 import DP_CHALLENGES from "../../../data/dpChallengesData";
 
-export default function Challenge() {
+const Challenge = () => {
   const challenge = DP_CHALLENGES.find((c) => c.id === "dp-04");
 
   if (!challenge) {
@@ -10,4 +10,6 @@ export default function Challenge() {
   }
 
   return <DPChallengeLayout challenge={challenge} />;
-}
+};
+
+export default Challenge;
