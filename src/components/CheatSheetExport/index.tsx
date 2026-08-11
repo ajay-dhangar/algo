@@ -53,9 +53,7 @@ export default function CheatSheetExport({
       setStatus("idle");
     }, RESET_DELAY_MS);
   }, []);
-/**
- * Creates a normalized slug for cheat sheet export filenames.
- */
+
   const slugify = (value: string): string =>
     (value || "cheatsheet")
       .toLowerCase()

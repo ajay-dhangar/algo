@@ -72,7 +72,10 @@ const MOCK_CHALLENGE_PLAYERS: Omit<ChallengePlayer, "rank" | "tier" | "accentCol
 ];
 
 // ─── Parse localStorage → ChallengePlayer for the current user ────────────────
-function parseLocalProgress(): Omit<ChallengePlayer, "rank" | "tier" | "accentColor" | "textColor"> | null {
+const parseLocalProgress = (): Omit<
+  ChallengePlayer,
+  "rank" | "tier" | "accentColor" | "textColor"
+> | null => {
   try {
     if (typeof window === "undefined") return null;
     const raw = localStorage.getItem("algo_progress");
@@ -162,7 +165,13 @@ function StatPill({ label, value, color }: { label: string; value: string | numb
 }
 
 // ─── Challenge podium card ─────────────────────────────────────────────────────
-function ChallengePodiumCard({ player, position }: { player: ChallengePlayer; position: 1 | 2 | 3 }) {
+const ChallengePodiumCard = ({
+  player,
+  position,
+}: {
+  player: ChallengePlayer;
+  position: 1 | 2 | 3;
+}) => {
   const isFirst = position === 1;
   const borderColor = isFirst ? "border-amber-400 dark:border-amber-500/40" : position === 2 ? "border-purple-300 dark:border-purple-500/20" : "border-emerald-300 dark:border-emerald-500/20";
   const ringColor   = isFirst ? "ring-4 ring-amber-500" : position === 2 ? "ring-2 ring-purple-400 dark:ring-purple-500/50" : "ring-2 ring-emerald-400 dark:ring-emerald-500/50";
@@ -206,7 +215,15 @@ function ChallengePodiumCard({ player, position }: { player: ChallengePlayer; po
 }
 
 // ─── Challenge roster row ──────────────────────────────────────────────────────
-function ChallengeRow({ player, maxXp, isMe }: { player: ChallengePlayer; maxXp: number; isMe: boolean }) {
+const ChallengeRow = ({
+  player,
+  maxXp,
+  isMe,
+}: {
+  player: ChallengePlayer;
+  maxXp: number;
+  isMe: boolean;
+}) => {
   const progress = (player.xp / maxXp) * 100;
 
   return (
