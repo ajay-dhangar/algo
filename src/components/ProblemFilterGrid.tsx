@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { useHistory, useLocation } from '@docusaurus/router';
 import clsx from 'clsx';
 import { Bookmark, Search, X, CheckCircle } from 'lucide-react';
@@ -29,6 +29,15 @@ const DEFAULT_VISIBLE_TAG_COUNT = 14;
 const ProblemFilterGrid = ({ data }: ProblemFilterGridProps) => {
   const location = useLocation();
   const history = useHistory();
+
+  // Keep a ref to the current location.search so the URL-sync effect can read
+  // it without listing it as a dependency — preventing a write-on-read loop
+  // where history.replace triggers location.search to change, re-firing the
+  // effect on every navigation including browser back/forward.
+  const locationSearchRef = useRef(location.search);
+  useEffect(() => {
+    locationSearchRef.current = location.search;
+  }, [location.search]);
 
   const initialParams = useMemo(() => {
     if (typeof window !== 'undefined') {
@@ -74,12 +83,12 @@ const ProblemFilterGrid = ({ data }: ProblemFilterGridProps) => {
     if (showNotYetSolved) params.set('unsolved', 'true');
 
     const newSearch = params.toString();
-    const currentSearch = location.search.replace(/^\?/, '');
+    const currentSearch = locationSearchRef.current.replace(/^\?/, '');
     
     if (newSearch !== currentSearch) {
       history.replace({ search: newSearch ? `?${newSearch}` : '' });
     }
-  }, [query, selectedDifficulties, selectedTags, selectedCompanies, showOnlyBookmarks, showNotYetSolved, history, location.search]);
+  }, [query, selectedDifficulties, selectedTags, selectedCompanies, showOnlyBookmarks, showNotYetSolved, history]);
 
   const { bookmarks, isBookmarked, toggleBookmark } = useBookmarks();
 
