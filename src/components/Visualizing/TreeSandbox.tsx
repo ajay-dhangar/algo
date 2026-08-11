@@ -102,12 +102,12 @@ export default function TreeSandbox() {
 
   const getBalanceFactor = (nodeId: string | null, map: TreeMap): number => {
     if (!nodeId || !map[nodeId]) return 0;
-    const node = map[nodeId];
+    const node: NodeData = map[nodeId];
     return getHeight(node.leftId, map) - getHeight(node.rightId, map);
   };
 
   const updateHeight = (nodeId: string, map: TreeMap) => {
-    const node = map[nodeId];
+    const node: NodeData = map[nodeId];
     node.height = Math.max(getHeight(node.leftId, map), getHeight(node.rightId, map)) + 1;
   };
 
@@ -127,7 +127,7 @@ export default function TreeSandbox() {
       xMin: number,
       xMax: number
     ) => {
-      const node = map[nodeId];
+      const node: NodeData = map[nodeId];
       if (!node) return;
 
       const x = (xMin + xMax) / 2;
@@ -223,7 +223,7 @@ export default function TreeSandbox() {
     );
 
     while (currId) {
-      const node = treeMap[currId];
+      const node: NodeData = treeMap[currId];
       path.push(currId);
 
       if (node.key === key) {
@@ -360,7 +360,7 @@ export default function TreeSandbox() {
         return newNode.id;
       }
 
-      const node = tempMap[nodeId];
+      const node: NodeData = tempMap[nodeId];
       pushStep(
         insertSteps,
         tempMap,
@@ -733,7 +733,7 @@ export default function TreeSandbox() {
     ): string | null => {
       if (!nodeId) return null;
 
-      const node = tempMap[nodeId];
+      const node: NodeData = tempMap[nodeId];
       pushStep(
         deleteSteps,
         tempMap,
@@ -1011,7 +1011,7 @@ export default function TreeSandbox() {
     if (type === "pre") {
       const traverse = (nodeId: string | null) => {
         if (!nodeId) return;
-        const node = treeMap[nodeId];
+        const node: NodeData = treeMap[nodeId];
         visitedKeys.push(node.key);
         pushStep(
           traversalSteps,
@@ -1034,7 +1034,7 @@ export default function TreeSandbox() {
     } else if (type === "in") {
       const traverse = (nodeId: string | null) => {
         if (!nodeId) return;
-        const node = treeMap[nodeId];
+        const node: NodeData = treeMap[nodeId];
         traverse(node.leftId);
         visitedKeys.push(node.key);
         pushStep(
@@ -1057,7 +1057,7 @@ export default function TreeSandbox() {
     } else if (type === "post") {
       const traverse = (nodeId: string | null) => {
         if (!nodeId) return;
-        const node = treeMap[nodeId];
+        const node: NodeData = treeMap[nodeId];
         traverse(node.leftId);
         traverse(node.rightId);
         visitedKeys.push(node.key);
@@ -1081,7 +1081,7 @@ export default function TreeSandbox() {
       const queue: string[] = [rootId];
       while (queue.length > 0) {
         const currId = queue.shift()!;
-        const node = treeMap[currId];
+        const node: NodeData = treeMap[currId];
         visitedKeys.push(node.key);
 
         pushStep(
