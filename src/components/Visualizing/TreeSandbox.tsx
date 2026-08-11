@@ -662,6 +662,7 @@ export default function TreeSandbox() {
   };
 
   // AVL ROTATIONS CORE MATH
+  // Performs a right rotation around node z, returning the new subtree root.
   function rotateRight(zId: string, map: TreeMap): string {
     const z = map[zId];
     const yId = z.leftId;
@@ -680,6 +681,7 @@ export default function TreeSandbox() {
     return yId;
   }
 
+  // Performs a left rotation around node z, returning the new subtree root.
   function rotateLeft(zId: string, map: TreeMap): string {
     const z = map[zId];
     const yId = z.rightId;
