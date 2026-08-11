@@ -152,10 +152,7 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
       ) {
         return false;
       }
-      if (normalizedQuery && !problem.title.toLowerCase().includes(normalizedQuery)) {
-        return false;
-      }
-      return true;
+      return !normalizedQuery || problem.title.toLowerCase().includes(normalizedQuery);
     });
   }, [data.problems, query, selectedDifficulties, selectedTags, selectedCompanies, showOnlyBookmarks, showNotYetSolved, bookmarks, solvedTopics]);
 
