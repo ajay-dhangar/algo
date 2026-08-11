@@ -418,7 +418,7 @@ function RecursionVisualizer() {
         nodes[parentId].children.push(id);
       }
       
-      if (hasMid && midVal !== target) {
+      if (hasMid && midVal !== undefined && midVal !== target) {
         if (midVal < target) {
           buildTree(mid + 1, high, id);
         } else {
