@@ -9,7 +9,7 @@ function escapeCsvField(val: string | number | null | undefined): string {
 
   const str = String(val);
   const needsFormulaEscape = /^[=+\-@]/.test(str);
-  const safeValue = needsFormulaEscape ? `'${str}` : str;
+  const safeValue = needsFormulaEscape ? `\t${str}` : str;
 
   if (safeValue.includes(",") || safeValue.includes('"') || safeValue.includes("\n") || safeValue.includes("\r")) {
     return `"${safeValue.replace(/"/g, '""')}"`;
