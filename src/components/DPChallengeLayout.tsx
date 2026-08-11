@@ -221,24 +221,22 @@ export default function DPChallengeLayout({ challenge }: Props) {
                         </div>
                         <div className="flex-1 relative">
                           <BrowserOnly fallback={<div className="p-4 text-slate-400 text-xs font-mono">Loading diff editor...</div>}>
-                            {() => {
-                              return (
-                                <DiffEditor
-                                  original={code || ""}
-                                  modified={challenge.solution}
-                                  language="javascript"
-                                  theme="vs-dark"
-                                  options={{
-                                    readOnly: true,
-                                    minimap: { enabled: false },
-                                    fontSize: 13,
-                                    renderSideBySide: true,
-                                    scrollBeyondLastLine: false,
-                                    automaticLayout: true,
-                                  }}
-                                />
-                              );
-                            }}
+                            {() => (
+                              <DiffEditor
+                                original={code || ""}
+                                modified={challenge.solution}
+                                language="javascript"
+                                theme="vs-dark"
+                                options={{
+                                  readOnly: true,
+                                  minimap: { enabled: false },
+                                  fontSize: 13,
+                                  renderSideBySide: true,
+                                  scrollBeyondLastLine: false,
+                                  automaticLayout: true,
+                                }}
+                              />
+                            )}
                           </BrowserOnly>
                         </div>
                       </div>

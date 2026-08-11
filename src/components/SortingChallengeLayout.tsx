@@ -221,24 +221,22 @@ export default function SortingChallengeLayout({ challenge }: Props) {
                         </div>
                         <div className="flex-1 relative">
                           <BrowserOnly fallback={<div className="p-4 text-slate-400 text-xs font-mono">Loading diff editor...</div>}>
-                            {() => {
-                              return (
-                                <DiffEditor
-                                  original={code || ""}
-                                  modified={challenge.solution}
-                                  language="javascript"
-                                  theme="vs-dark"
-                                  options={{
-                                    readOnly: true,
-                                    minimap: { enabled: false },
-                                    fontSize: 13,
-                                    renderSideBySide: true,
-                                    scrollBeyondLastLine: false,
-                                    automaticLayout: true,
-                                  }}
-                                />
-                              );
-                            }}
+                            {() => (
+                              <DiffEditor
+                                original={code || ""}
+                                modified={challenge.solution}
+                                language="javascript"
+                                theme="vs-dark"
+                                options={{
+                                  readOnly: true,
+                                  minimap: { enabled: false },
+                                  fontSize: 13,
+                                  renderSideBySide: true,
+                                  scrollBeyondLastLine: false,
+                                  automaticLayout: true,
+                                }}
+                              />
+                            )}
                           </BrowserOnly>
                         </div>
                       </div>
@@ -297,25 +295,24 @@ export default function SortingChallengeLayout({ challenge }: Props) {
                   />
                 }
               >
-                {() => { return (
-                    <Editor
-                      height="100%"
-                      language={activeLanguage}
-                      value={code}
-                      onChange={handleCodeChange}
-                      theme="vs-dark"
-                      options={{
-                        fontSize: 13,
-                        minimap: { enabled: false },
-                        scrollBeyondLastLine: false,
-                        wordWrap: "on",
-                        lineNumbers: "on",
-                        tabSize: 2,
-                        automaticLayout: true,
-                      }}
-                    />
-                  );
-                }}
+                {() => (
+                  <Editor
+                    height="100%"
+                    language={activeLanguage}
+                    value={code}
+                    onChange={handleCodeChange}
+                    theme="vs-dark"
+                    options={{
+                      fontSize: 13,
+                      minimap: { enabled: false },
+                      scrollBeyondLastLine: false,
+                      wordWrap: "on",
+                      lineNumbers: "on",
+                      tabSize: 2,
+                      automaticLayout: true,
+                    }}
+                  />
+                )}
               </BrowserOnly>
             </div>
 
