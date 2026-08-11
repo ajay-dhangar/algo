@@ -62,12 +62,23 @@ export function computeForceLayout(
   const centerY = height / 2;
   const radius = Math.min(width, height) * 0.3;
 
+  const isolatedCy = height * ISOLATED_STRIP_Y_FRACTION;
+  const isolatedCx = width / 2;
+
+  const degree = new Map<string, number>();
+  for (const n of nodes) degree.set(n.id, 0);
+  for (const e of edges) {
+    degree.set(e.source, (degree.get(e.source) || 0) + 1);
+    degree.set(e.target, (degree.get(e.target) || 0) + 1);
+  }
+
   const simNodes: PositionedNode[] = nodes.map((n, index) => {
     const angle = (index / Math.max(nodes.length, 1)) * Math.PI * 2;
     return {
       id: n.id,
       x: centerX + Math.cos(angle) * radius,
       y: centerY + Math.sin(angle) * radius,
+      isolated: degree.get(n.id) === 0,
     };
   });
 
