@@ -109,12 +109,12 @@ function parseLocalProgress(): Omit<ChallengePlayer, "rank" | "tier" | "accentCo
     const avatarUrl = storedUser?.avatar_url || `https://api.dicebear.com/7.x/identicon/svg?seed=${username}`;
 
     const categories = Array.from(new Set(solvedKeys.map(k => {
-      const t = (progress[`${k}_title`] || "").toLowerCase();
-      if (t.includes("tree") || t.includes("traversal") || t.includes("bst") || t.includes("leaf") || t.includes("depth")) return "Trees";
-      if (t.includes("graph") || t.includes("dfs") || t.includes("bfs") || t.includes("dijkstra") || t.includes("bellman") || t.includes("floyd") || t.includes("spanning") || t.includes("bipartite") || t.includes("topological")) return "Graphs";
-      if (t.includes("fibonacci") || t.includes("knapsack") || t.includes("lcs") || t.includes("lis") || t.includes("edit") || t.includes("coin") || t.includes("climbing") || t.includes("robber") || t.includes("decode") || t.includes("unique path")) return "DP";
-      if (t.includes("sort") || t.includes("bubble") || t.includes("merge") || t.includes("quick") || t.includes("heap")) return "Sorting";
-      if (t.includes("greedy") || t.includes("activity") || t.includes("knapsack frac") || t.includes("lemonade") || t.includes("jump") || t.includes("gas")) return "Greedy";
+      const title = (progress[`${k}_title`] || "").toLowerCase();
+      if (title.includes("tree") || title.includes("traversal") || title.includes("bst") || title.includes("leaf") || title.includes("depth")) return "Trees";
+      if (title.includes("graph") || title.includes("dfs") || title.includes("bfs") || title.includes("dijkstra") || title.includes("bellman") || title.includes("floyd") || title.includes("spanning") || title.includes("bipartite") || title.includes("topological")) return "Graphs";
+      if (title.includes("fibonacci") || title.includes("knapsack") || title.includes("lcs") || title.includes("lis") || title.includes("edit") || title.includes("coin") || title.includes("climbing") || title.includes("robber") || title.includes("decode") || title.includes("unique path")) return "DP";
+      if (title.includes("sort") || title.includes("bubble") || title.includes("merge") || title.includes("quick") || title.includes("heap")) return "Sorting";
+      if (title.includes("greedy") || title.includes("activity") || title.includes("knapsack frac") || title.includes("lemonade") || title.includes("jump") || title.includes("gas")) return "Greedy";
       return null;
     }).filter((c): c is "Trees" | "Graphs" | "DP" | "Sorting" | "Greedy" => c !== null)));
 
