@@ -23,7 +23,7 @@ const DIFF_COLORS = {
 
 interface Props { challenge: SortingChallenge; }
 
-export default function SortingChallengeLayout({ challenge }: Props) {
+const SortingChallengeLayout = ({ challenge }: Props) => {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
   const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
@@ -387,3 +387,5 @@ export default function SortingChallengeLayout({ challenge }: Props) {
     </Layout>
   );
 }
+
+export default SortingChallengeLayout;

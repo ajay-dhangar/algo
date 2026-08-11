@@ -20,7 +20,7 @@ interface ChallengeHeaderProps {
   judgeResults?: JudgeResult[];
 }
 
-export default function ChallengeHeader({ id, title, difficulty, timeLimit, judgeResults = [] }: ChallengeHeaderProps) {
+const ChallengeHeader = ({ id, title, difficulty, timeLimit, judgeResults = [] }: ChallengeHeaderProps) => {
   const canMarkSolved = canMarkChallengeSolved(judgeResults);
   const [solvedFlash, setSolvedFlash] = useState(false);
 
@@ -66,3 +66,4 @@ export default function ChallengeHeader({ id, title, difficulty, timeLimit, judg
     </div>
   );
 }
+export default ChallengeHeader;

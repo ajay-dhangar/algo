@@ -23,7 +23,7 @@ const DIFF_COLORS = {
 
 interface Props { challenge: GreedyChallenge; }
 
-export default function GreedyChallengeLayout({ challenge }: Props) {
+const GreedyChallengeLayout = ({ challenge }: Props) => {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
   const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
@@ -387,3 +387,5 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
     </Layout>
   );
 }
+
+export default GreedyChallengeLayout;

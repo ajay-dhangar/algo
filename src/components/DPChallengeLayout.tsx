@@ -23,7 +23,7 @@ const DIFF_COLORS = {
 
 interface Props { challenge: DPChallenge; }
 
-export default function DPChallengeLayout({ challenge }: Props) {
+const DPChallengeLayout = ({ challenge }: Props) => {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
   const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
@@ -386,3 +386,5 @@ export default function DPChallengeLayout({ challenge }: Props) {
     </Layout>
   );
 }
+
+export default DPChallengeLayout;
