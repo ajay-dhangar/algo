@@ -76,11 +76,11 @@ function getTopicLabel(topic?: string | null) {
 
 function TopicLink({ topic }: { topic?: string | null }) {
   const docPath = convertTopicToPath(topic);
+  const to = useBaseUrl(docPath ?? "/");
 
   if (!docPath) return null;
 
   const label = getTopicLabel(topic);
-  const to = useBaseUrl(docPath);
 
   return (
     <Link
