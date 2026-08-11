@@ -28,7 +28,14 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
   const [solvedFlash, setSolvedFlash] = useState(false);
   const solvedFlashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(() => () => { if (solvedFlashTimer.current) clearTimeout(solvedFlashTimer.current); }, []);
+  useEffect(() => {
+    const timer = solvedFlashTimer.current;
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, []);
   const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
   
   const handleCodeChange = (val: string | undefined) => {
@@ -79,7 +86,9 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
     if (!canMarkSolved) return;
     markChallengeSolved(challenge.id, challenge.title);
     setSolvedFlash(true);
-    if (solvedFlashTimer.current) clearTimeout(solvedFlashTimer.current);
+    if (solvedFlashTimer.current) {
+      clearTimeout(solvedFlashTimer.current);
+    }
     solvedFlashTimer.current = setTimeout(() => setSolvedFlash(false), 2500);
   }}
   disabled={!canMarkSolved}
