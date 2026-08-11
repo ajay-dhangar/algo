@@ -57,15 +57,18 @@ export default function ShareResultModal({
         clearTimeout(copyTimeoutRef.current);
       }
     }
-  }, [isOpen]);
+  }, [isOpen, setDownloadStatus, setCopyStatus, setErrorMessage]);
 
   useEffect(() => {
+    const downloadTimeout = downloadTimeoutRef.current;
+    const copyTimeout = copyTimeoutRef.current;
+    
     return () => {
-      if (downloadTimeoutRef.current) {
-        clearTimeout(downloadTimeoutRef.current);
+      if (downloadTimeout) {
+        clearTimeout(downloadTimeout);
       }
-      if (copyTimeoutRef.current) {
-        clearTimeout(copyTimeoutRef.current);
+      if (copyTimeout) {
+        clearTimeout(copyTimeout);
       }
     };
   }, []);
@@ -91,7 +94,7 @@ export default function ShareResultModal({
     } finally {
       downloadTimeoutRef.current = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
     }
-  }, [topic, score, total, siteName]);
+  }, [topic, score, total, siteName, setDownloadStatus, setErrorMessage]);
 
   const handleCopyImage = useCallback(async () => {
     setCopyStatus('working');
@@ -119,7 +122,7 @@ export default function ShareResultModal({
     } finally {
       copyTimeoutRef.current = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
     }
-  }, [topic, score, total, siteName]);
+  }, [topic, score, total, siteName, setCopyStatus, setErrorMessage]);
 
   const openShareWindow = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer,width=600,height=500');
