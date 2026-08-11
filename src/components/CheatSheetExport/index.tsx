@@ -27,10 +27,10 @@ const PDF_PAGE_HEIGHT_PX = 1123;
  * Captures rendered doc content client-side via html2canvas and packages it
  * into a PDF via jsPDF or copies/downloads a PNG image.
  */
-export default function CheatSheetExport({
+export const CheatSheetExport = ({
   title = "Cheat Sheet",
   targetSelector = ".markdown",
-}: CheatSheetExportProps): JSX.Element {
+}: CheatSheetExportProps): JSX.Element => {
   const [pdfStatus, setPdfStatus] = useState<ExportStatus>("idle");
   const [imageStatus, setImageStatus] = useState<ExportStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -54,6 +54,9 @@ export default function CheatSheetExport({
     }, RESET_DELAY_MS);
   }, []);
 
+  /**
+   * Converts a title into a safe lowercase filename slug.
+   */
   const slugify = (value: string): string =>
     (value || "cheatsheet")
       .toLowerCase()
@@ -262,5 +265,7 @@ export default function CheatSheetExport({
       )}
     </div>
   );
-}
+};
+
+export default CheatSheetExport;
 

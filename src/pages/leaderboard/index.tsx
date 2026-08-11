@@ -71,6 +71,40 @@ const MOCK_CHALLENGE_PLAYERS: Omit<ChallengePlayer, "rank" | "tier" | "accentCol
   { username: "tree_traverser",avatarUrl: "https://github.com/rauchg.png",          profileUrl: "https://github.com/rauchg",          solved: 19, easy: 10, medium: 7,  hard: 2,  xp: 19*110,  accuracy: 76, streak: 1,  categories: ["Trees"],                  lastActive: "4 days ago" },
 ];
 
+// ─── Difficulty/category heuristics for local progress ───────────────────────
+const EASY_TITLE_KEYWORDS = [
+  "fibonacci", "climbing", "coin change (min", "house robber", "min cost",
+  "dfs", "bfs", "connected", "find path", "traversal", "max depth", "leaf",
+  "sum of", "symmetric", "assign", "lemonade", "flowers", "absolute",
+];
+const HARD_TITLE_KEYWORDS = [
+  "hard", "serialize", "vertical", "construct", "max path", "recover",
+  "dijkstra", "bellman", "floyd", "spanning", "strongly", "coin change ii",
+  "matrix chain", "palindromic", "rod cutting", "egg", "bitmask",
+  "job sequencing", "huffman", "platforms", "ropes", "reorganize",
+  "k digits", "course schedule iii",
+];
+const CATEGORY_KEYWORDS: Record<string, string[]> = {
+  Trees: ["tree", "traversal", "bst", "leaf", "depth"],
+  Graphs: ["graph", "dfs", "bfs", "dijkstra", "bellman", "floyd", "spanning", "bipartite", "topological"],
+  DP: ["fibonacci", "knapsack", "lcs", "lis", "edit", "coin", "climbing", "robber", "decode", "unique path"],
+  Sorting: ["sort", "bubble", "merge", "quick", "heap"],
+  Greedy: ["greedy", "activity", "knapsack frac", "lemonade", "jump", "gas"],
+};
+
+const classifyDifficulty = (title: string): "easy" | "medium" | "hard" => {
+  if (EASY_TITLE_KEYWORDS.some((k) => title.includes(k))) return "easy";
+  if (HARD_TITLE_KEYWORDS.some((k) => title.includes(k))) return "hard";
+  return "medium";
+};
+
+const classifyCategory = (title: string): string | null => {
+  for (const [category, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
+    if (keywords.some((k) => title.includes(k))) return category;
+  }
+  return null;
+};
+
 // ─── Parse localStorage → ChallengePlayer for the current user ────────────────
 const parseLocalProgress = (): Omit<
   ChallengePlayer,
@@ -92,15 +126,11 @@ const parseLocalProgress = (): Omit<
     // We use simple heuristics: key prefixes identify the track, we score flat for now
     let easy = 0, medium = 0, hard = 0;
     solvedKeys.forEach((key) => {
-      // challenge keys written by ProgressTracker have slugs; we check the title key for hints
       const title = (progress[`${key}_title`] || "").toLowerCase();
-      if (title.includes("fibonacci") || title.includes("climbing") || title.includes("coin change (min") || title.includes("house robber") || title.includes("min cost") || title.includes("dfs") || title.includes("bfs") || title.includes("connected") || title.includes("find path") || title.includes("traversal") || title.includes("max depth") || title.includes("leaf") || title.includes("sum of") || title.includes("symmetric") || title.includes("assign") || title.includes("lemonade") || title.includes("flowers") || title.includes("absolute")) {
-        easy++;
-      } else if (title.includes("hard") || title.includes("serialize") || title.includes("vertical") || title.includes("construct") || title.includes("max path") || title.includes("recover") || title.includes("dijkstra") || title.includes("bellman") || title.includes("floyd") || title.includes("spanning") || title.includes("strongly") || title.includes("coin change ii") || title.includes("matrix chain") || title.includes("palindromic") || title.includes("rod cutting") || title.includes("egg") || title.includes("bitmask") || title.includes("job sequencing") || title.includes("huffman") || title.includes("platforms") || title.includes("ropes") || title.includes("reorganize") || title.includes("k digits") || title.includes("course schedule iii")) {
-        hard++;
-      } else {
-        medium++;
-      }
+      const difficulty = classifyDifficulty(title);
+      if (difficulty === "easy") easy++;
+      else if (difficulty === "hard") hard++;
+      else medium++;
     });
 
     const xp = easy * XP.Easy + medium * XP.Medium + hard * XP.Hard;
@@ -111,15 +141,13 @@ const parseLocalProgress = (): Omit<
     const username = storedUser?.login || storedUser?.username || "You";
     const avatarUrl = storedUser?.avatar_url || `https://api.dicebear.com/7.x/identicon/svg?seed=${username}`;
 
-    const categories = Array.from(new Set(solvedKeys.map(k => {
-      const title = (progress[`${k}_title`] || "").toLowerCase();
-      if (title.includes("tree") || title.includes("traversal") || title.includes("bst") || title.includes("leaf") || title.includes("depth")) return "Trees";
-      if (title.includes("graph") || title.includes("dfs") || title.includes("bfs") || title.includes("dijkstra") || title.includes("bellman") || title.includes("floyd") || title.includes("spanning") || title.includes("bipartite") || title.includes("topological")) return "Graphs";
-      if (title.includes("fibonacci") || title.includes("knapsack") || title.includes("lcs") || title.includes("lis") || title.includes("edit") || title.includes("coin") || title.includes("climbing") || title.includes("robber") || title.includes("decode") || title.includes("unique path")) return "DP";
-      if (title.includes("sort") || title.includes("bubble") || title.includes("merge") || title.includes("quick") || title.includes("heap")) return "Sorting";
-      if (title.includes("greedy") || title.includes("activity") || title.includes("knapsack frac") || title.includes("lemonade") || title.includes("jump") || title.includes("gas")) return "Greedy";
-      return null;
-    }).filter((c): c is "Trees" | "Graphs" | "DP" | "Sorting" | "Greedy" => c !== null)));
+    const categories = Array.from(
+      new Set(
+        solvedKeys
+          .map((k) => classifyCategory((progress[`${k}_title`] || "").toLowerCase()))
+          .filter((c): c is string => c !== null)
+      )
+    );
 
     return {
       username,

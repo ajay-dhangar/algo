@@ -403,7 +403,11 @@ function VisualizeTab({ challenge }: { challenge: GraphChallenge }) {
 interface Props { challenge: GraphChallenge; }
 
 // ─── Main layout ──────────────────────────────────────────────────────────────
-export default function GraphChallengeLayout({ challenge }: Props) {
+/**
+ * Renders the main layout for a graph challenge: problem description,
+ * visualizer, code editor, solution diff, pseudocode and real-world tabs.
+ */
+const GraphChallengeLayout = ({ challenge }: Props): JSX.Element => {
   const [activeLanguage, setActiveLanguage] = useState<string>("javascript");
   const [codeMap, setCodeMap] = useState<Record<string, string>>({ javascript: challenge.starterCode });
   const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
@@ -765,4 +769,6 @@ export default function GraphChallengeLayout({ challenge }: Props) {
       </div>
     </Layout>
   );
-}
+};
+
+export default GraphChallengeLayout;
