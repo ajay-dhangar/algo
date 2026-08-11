@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "@docusaurus/Link";
 import { FaArrowLeft, FaChevronRight, FaClock, FaCheck } from "react-icons/fa";
 import { canMarkChallengeSolved } from "../../utils/challengeJudge";
@@ -22,6 +22,17 @@ interface ChallengeHeaderProps {
 
 export default function ChallengeHeader({ id, title, difficulty, timeLimit, judgeResults = [] }: ChallengeHeaderProps) {
   const canMarkSolved = canMarkChallengeSolved(judgeResults);
+  const [solvedFlash, setSolvedFlash] = useState(false);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    if (solvedFlash) {
+      timer = setTimeout(() => setSolvedFlash(false), 3000);
+    }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [solvedFlash, setSolvedFlash]);
 
   return (
     <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-3 flex items-center gap-4">
@@ -39,12 +50,12 @@ export default function ChallengeHeader({ id, title, difficulty, timeLimit, judg
   onClick={() => {
     if (!canMarkSolved) return;
     markChallengeSolved(id, title);
-    alert("Marked as solved!");
+    setSolvedFlash(true);
   }}
   disabled={!canMarkSolved}
   className={`ml-auto flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-lg text-xs font-mono font-bold transition-colors ${canMarkSolved ? "hover:bg-emerald-500/20 cursor-pointer" : "opacity-60 cursor-not-allowed"}`}
 >
-  <FaCheck /> Mark as Solved ✅
+  <FaCheck /> {solvedFlash ? "Solved!" : "Mark as Solved ✅"}
 </button>
       <span className={`px-3 py-1 rounded-full text-xs font-bold border ${DIFF_COLORS[difficulty]}`}>
         {difficulty}
