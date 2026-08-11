@@ -22,7 +22,11 @@ const DIFFICULTY_CHIP_STYLES: Record<string, string> = {
 // most common ones are visible by default; "Show all tags" reveals the rest.
 const DEFAULT_VISIBLE_TAG_COUNT = 14;
 
-export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
+/**
+ * Renders the problem filter grid with search, difficulty/company/topic
+ * chips, and bookmark/progress filters.
+ */
+const ProblemFilterGrid = ({ data }: ProblemFilterGridProps) => {
   const location = useLocation();
   const history = useHistory();
 
@@ -352,4 +356,6 @@ export default function ProblemFilterGrid({ data }: ProblemFilterGridProps) {
       )}
     </div>
   );
-}
+};
+
+export default ProblemFilterGrid;
