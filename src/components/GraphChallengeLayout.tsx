@@ -11,6 +11,7 @@ import {
   FaProjectDiagram,
 } from "react-icons/fa";
 import type { GraphChallenge } from "../data/graphChallengesData";
+import Editor, { DiffEditor } from "@monaco-editor/react";
 import useConsoleCapture from "../hooks/useConsoleCapture";
 import useChallengeJudge from "../hooks/useChallengeJudge";
 import { canMarkChallengeSolved, type JudgeResult } from "../utils/challengeJudge";
@@ -644,7 +645,6 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                       <div className="flex-1 relative">
                         <BrowserOnly fallback={<div className="p-4 text-slate-400 text-xs font-mono">Loading diff editor...</div>}>
                           {() => {
-                            const { DiffEditor } = require("@monaco-editor/react");
                             return (
                               <DiffEditor
                                 original={code || ""}
@@ -731,7 +731,6 @@ export default function GraphChallengeLayout({ challenge }: Props) {
                 }
               >
                 {() => {
-                  const Editor = require("@monaco-editor/react").default;
                   return (
                     <Editor
                       height="100%"
