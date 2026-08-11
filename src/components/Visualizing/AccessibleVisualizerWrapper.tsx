@@ -35,6 +35,14 @@ export const isInteractiveInput = (element: Element | null): boolean => {
   );
 };
 
+/**
+ * Wraps a visualizer with an accessible control bar (play/pause, step
+ * navigation, speed slider) and global keyboard shortcuts (Arrow keys,
+ * Space, Home, End). Announces step changes via an ARIA live region.
+ *
+ * Pass an optional `onSeekToStep` handler for O(1) slider seeks; without it
+ * the slider falls back to stepped navigation clamped to 10 steps.
+ */
 const AccessibleVisualizerWrapper = ({
   title,
   currentStep,
