@@ -29,10 +29,13 @@ export default function GreedyChallengeLayout({ challenge }: Props) {
   const [solvedFlash, setSolvedFlash] = useState(false);
   
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
     if (solvedFlash) {
-      const timer = setTimeout(() => setSolvedFlash(false), 2500);
-      return () => clearTimeout(timer);
+      timer = setTimeout(() => setSolvedFlash(false), 2500);
     }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [solvedFlash]);
 
   const code = codeMap[activeLanguage] ?? challenge.starterCodes?.[activeLanguage] ?? "";
