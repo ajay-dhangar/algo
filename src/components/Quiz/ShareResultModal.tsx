@@ -40,15 +40,35 @@ export default function ShareResultModal({
   const [copyStatus, setCopyStatus] = useState<ActionStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const downloadTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Reset all action state when the modal opens so stale errors from a
+  // previous session are never visible before the user takes any action.
+  useEffect(() => {
+    if (isOpen) {
+      setDownloadStatus('idle');
+      setCopyStatus('idle');
+      setErrorMessage('');
+    }
+  }, [isOpen, setDownloadStatus, setCopyStatus, setErrorMessage]);
 
   useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    if (downloadStatus === 'done' || downloadStatus === 'error') {
+      timer = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
+    }
     return () => {
-      if (downloadTimeoutRef.current) clearTimeout(downloadTimeoutRef.current);
-      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+      if (timer) clearTimeout(timer);
     };
-  }, []);
+  }, [downloadStatus, setDownloadStatus]);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    if (copyStatus === 'done' || copyStatus === 'error') {
+      timer = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
+    }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [copyStatus, setCopyStatus]);
 
   const shareText = `I scored ${score}/${total} on the ${topic} quiz on ${siteName}! 🎯`;
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -66,13 +86,10 @@ export default function ShareResultModal({
       URL.revokeObjectURL(url);
       setDownloadStatus('done');
     } catch (err) {
-      console.error('[ShareResultModal] Download failed:', err);
       setErrorMessage(err instanceof Error ? err.message : 'Download failed.');
       setDownloadStatus('error');
-    } finally {
-      downloadTimeoutRef.current = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
     }
-  }, [topic, score, total, siteName]);
+  }, [topic, score, total, siteName, setDownloadStatus, setErrorMessage]);
 
   const handleCopyImage = useCallback(async () => {
     setCopyStatus('working');
@@ -95,13 +112,10 @@ export default function ShareResultModal({
       }
       setCopyStatus('done');
     } catch (err) {
-      console.error('[ShareResultModal] Copy failed:', err);
       setErrorMessage(err instanceof Error ? err.message : 'Copy failed.');
       setCopyStatus('error');
-    } finally {
-      copyTimeoutRef.current = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
     }
-  }, [topic, score, total, siteName]);
+  }, [topic, score, total, siteName, setCopyStatus, setErrorMessage]);
 
   const openShareWindow = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer,width=600,height=500');
@@ -121,7 +135,9 @@ export default function ShareResultModal({
     openShareWindow(url);
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) {
+    return null;
+  }
 
   const downloadLabel = { idle: 'Download PNG', working: 'Preparing…', done: 'Downloaded!', error: 'Try again' }[
     downloadStatus
@@ -129,9 +145,15 @@ export default function ShareResultModal({
   const copyLabel = { idle: 'Copy image', working: 'Copying…', done: 'Copied!', error: 'Try again' }[copyStatus];
 
   const renderStatusIcon = (status: ActionStatus, IdleIcon: React.ComponentType<{ size?: number }>) => {
-    if (status === 'working') return <FiLoader size={16} className={styles.spin} />;
-    if (status === 'done') return <FiCheck size={16} />;
-    if (status === 'error') return <FiAlertCircle size={16} />;
+    if (status === 'working') {
+      return <FiLoader size={16} className={styles.spin} />;
+    }
+    if (status === 'done') {
+      return <FiCheck size={16} />;
+    }
+    if (status === 'error') {
+      return <FiAlertCircle size={16} />;
+    }
     return <IdleIcon size={16} />;
   };
 
