@@ -1,20 +1,22 @@
-import React, { useCallback, useRef, useState, useEffect } from "react";
-import clsx from "clsx";
+import React, {
+  useCallback, useRef, useState, useEffect,
+} from 'react';
+import clsx from 'clsx';
 import {
   FiDownload,
   FiImage,
   FiCheck,
   FiAlertCircle,
   FiLoader,
-  FiX
-} from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa";
-import { useFocusTrap } from "../../hooks/useFocusTrap";
-import ShareResultCard from "./ShareResultCard";
-import { renderShareCardToPngBlob } from "../../utils/shareResultImage";
-import { slugify } from "../../utils/slugUtils";
-import styles from "./ShareResultModal.module.css";
+  FiX,
+} from 'react-icons/fi';
+import { FaXTwitter } from 'react-icons/fa6';
+import { FaLinkedin } from 'react-icons/fa';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
+import ShareResultCard from './ShareResultCard';
+import { renderShareCardToPngBlob } from '../../utils/shareResultImage';
+import { slugify } from '../../utils/slugUtils';
+import styles from './ShareResultModal.module.css';
 
 export interface ShareResultModalProps {
   isOpen: boolean;
@@ -25,42 +27,59 @@ export interface ShareResultModalProps {
   siteName?: string;
 }
 
-type ActionStatus = "idle" | "working" | "done" | "error";
+type ActionStatus = 'idle' | 'working' | 'done' | 'error';
 const RESET_DELAY_MS = 2500;
 
-function getShareSlug(value: string): string {
-  return slugify(value, "quiz-result");
-}
+const getShareSlug = (value: string): string => slugify(value, 'quiz-result');
 
-export default function ShareResultModal({
+const ModalHeader = ({ onClose }: { onClose: () => void }) => (
+  <div className={styles.header}>
+    <h2 id="share-result-modal-title" className={styles.title}>
+      Share your result
+    </h2>
+    <button
+      type="button"
+      onClick={onClose}
+      aria-label="Close share dialog"
+      className={styles.closeButton}
+    >
+      <FiX size={18} />
+    </button>
+  </div>
+);
+
+/**
+ * Modal to share quiz results
+ */
+const ShareResultModal = ({
   isOpen,
   onClose,
   topic,
   score,
   total,
-  siteName = "Algo"
-}: ShareResultModalProps) {
+  siteName = 'Algo',
+}: ShareResultModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
   useFocusTrap(modalRef, { isOpen, onClose });
 
-  const [downloadStatus, setDownloadStatus] = useState<ActionStatus>("idle");
-  const [copyStatus, setCopyStatus] = useState<ActionStatus>("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [downloadStatus, setDownloadStatus] = useState<ActionStatus>('idle');
+  const [copyStatus, setCopyStatus] = useState<ActionStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Reset all action state when the modal opens so stale errors from a
   // previous session are never visible before the user takes any action.
   useEffect(() => {
     if (isOpen) {
-      setDownloadStatus("idle");
-      setCopyStatus("idle");
-      setErrorMessage("");
+      setDownloadStatus('idle');
+      setCopyStatus('idle');
+      setErrorMessage('');
     }
   }, [isOpen, setDownloadStatus, setCopyStatus, setErrorMessage]);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
-    if (downloadStatus === "done" || downloadStatus === "error") {
-      timer = setTimeout(() => setDownloadStatus("idle"), RESET_DELAY_MS);
+    if (downloadStatus === 'done' || downloadStatus === 'error') {
+      timer = setTimeout(() => setDownloadStatus('idle'), RESET_DELAY_MS);
     }
     return () => {
       if (timer) clearTimeout(timer);
@@ -69,8 +88,8 @@ export default function ShareResultModal({
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
-    if (copyStatus === "done" || copyStatus === "error") {
-      timer = setTimeout(() => setCopyStatus("idle"), RESET_DELAY_MS);
+    if (copyStatus === 'done' || copyStatus === 'error') {
+      timer = setTimeout(() => setCopyStatus('idle'), RESET_DELAY_MS);
     }
     return () => {
       if (timer) clearTimeout(timer);
@@ -78,75 +97,75 @@ export default function ShareResultModal({
   }, [copyStatus, setCopyStatus]);
 
   const shareText = `I scored ${score}/${total} on the ${topic} quiz on ${siteName}! 🎯`;
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
 
   const handleDownload = useCallback(async () => {
-    setDownloadStatus("working");
-    setErrorMessage("");
+    setDownloadStatus('working');
+    setErrorMessage('');
     try {
       const blob = await renderShareCardToPngBlob(
         topic,
         score,
         total,
-        siteName
+        siteName,
       );
       const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
+      const link = document.createElement('a');
       link.href = url;
       link.download = `${getShareSlug(topic)}-quiz-result.png`;
       link.click();
       URL.revokeObjectURL(url);
-      setDownloadStatus("done");
+      setDownloadStatus('done');
     } catch (err) {
-      setErrorMessage(err instanceof Error ? err.message : "Download failed.");
-      setDownloadStatus("error");
+      setErrorMessage(err instanceof Error ? err.message : 'Download failed.');
+      setDownloadStatus('error');
     }
   }, [topic, score, total, siteName, setDownloadStatus, setErrorMessage]);
 
   const handleCopyImage = useCallback(async () => {
-    setCopyStatus("working");
-    setErrorMessage("");
+    setCopyStatus('working');
+    setErrorMessage('');
     try {
       const blob = await renderShareCardToPngBlob(
         topic,
         score,
         total,
-        siteName
+        siteName,
       );
+      // skipcq: JS-0323
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const ClipboardItemCtor =
-        typeof window !== "undefined"
-          ? (window as any).ClipboardItem
-          : undefined;
+      const ClipboardItemCtor = typeof window !== 'undefined'
+        ? (window as any).ClipboardItem
+        : undefined;
 
       if (navigator.clipboard && ClipboardItemCtor) {
         await navigator.clipboard.write([
-          new ClipboardItemCtor({ "image/png": blob })
+          new ClipboardItemCtor({ 'image/png': blob }),
         ]);
       } else {
         // Clipboard image writes aren't supported everywhere (e.g. Firefox) —
         // fall back to a direct PNG download so the action still succeeds.
         const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
+        const link = document.createElement('a');
         link.href = url;
         link.download = `${getShareSlug(topic)}-quiz-result.png`;
         link.click();
         URL.revokeObjectURL(url);
       }
-      setCopyStatus("done");
+      setCopyStatus('done');
     } catch (err) {
-      setErrorMessage(err instanceof Error ? err.message : "Copy failed.");
-      setCopyStatus("error");
+      setErrorMessage(err instanceof Error ? err.message : 'Copy failed.');
+      setCopyStatus('error');
     }
   }, [topic, score, total, siteName, setCopyStatus, setErrorMessage]);
 
   const openShareWindow = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer,width=600,height=500");
+    window.open(url, '_blank', 'noopener,noreferrer,width=600,height=500');
   };
 
   const handleShareTwitter = () => {
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      shareText
+      shareText,
     )}&url=${encodeURIComponent(shareUrl)}`;
     openShareWindow(url);
   };
@@ -155,7 +174,7 @@ export default function ShareResultModal({
     // LinkedIn's share endpoint only accepts a URL — it doesn't support
     // prefilled post text, so the caption is left for the user to add.
     const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-      shareUrl
+      shareUrl,
     )}`;
     openShareWindow(url);
   };
@@ -165,29 +184,29 @@ export default function ShareResultModal({
   }
 
   const downloadLabel = {
-    idle: "Download PNG",
-    working: "Preparing…",
-    done: "Downloaded!",
-    error: "Try again"
+    idle: 'Download PNG',
+    working: 'Preparing…',
+    done: 'Downloaded!',
+    error: 'Try again',
   }[downloadStatus];
   const copyLabel = {
-    idle: "Copy image",
-    working: "Copying…",
-    done: "Copied!",
-    error: "Try again"
+    idle: 'Copy image',
+    working: 'Copying…',
+    done: 'Copied!',
+    error: 'Try again',
   }[copyStatus];
 
   const renderStatusIcon = (
     status: ActionStatus,
-    IdleIcon: React.ComponentType<{ size?: number }>
+    IdleIcon: React.ComponentType<{ size?: number }>,
   ) => {
-    if (status === "working") {
+    if (status === 'working') {
       return <FiLoader size={16} className={styles.spin} />;
     }
-    if (status === "done") {
+    if (status === 'done') {
       return <FiCheck size={16} />;
     }
-    if (status === "error") {
+    if (status === 'error') {
       return <FiAlertCircle size={16} />;
     }
     return <IdleIcon size={16} />;
@@ -197,26 +216,14 @@ export default function ShareResultModal({
     <div onClick={onClose} onKeyDown={(e) => { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') onClose(); }} role="presentation" className={styles.overlay}>
       <div
         ref={modalRef}
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
         onKeyDown={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby="share-result-modal-title"
         className={styles.modal}
       >
-        <div className={styles.header}>
-          <h2 id="share-result-modal-title" className={styles.title}>
-            Share your result
-          </h2>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close share dialog"
-            className={styles.closeButton}
-          >
-            <FiX size={18} />
-          </button>
-        </div>
+        <ModalHeader onClose={onClose} />
 
         <div className={styles.preview}>
           <ShareResultCard
@@ -231,7 +238,7 @@ export default function ShareResultModal({
           <button
             type="button"
             onClick={handleDownload}
-            disabled={downloadStatus === "working"}
+            disabled={downloadStatus === 'working'}
             className={styles.button}
           >
             {renderStatusIcon(downloadStatus, FiDownload)}
@@ -240,7 +247,7 @@ export default function ShareResultModal({
           <button
             type="button"
             onClick={handleCopyImage}
-            disabled={copyStatus === "working"}
+            disabled={copyStatus === 'working'}
             className={styles.button}
           >
             {renderStatusIcon(copyStatus, FiImage)}
@@ -264,13 +271,15 @@ export default function ShareResultModal({
           </button>
         </div>
 
-        {errorMessage &&
-          (downloadStatus === "error" || copyStatus === "error") && (
+        {errorMessage
+          && (downloadStatus === 'error' || copyStatus === 'error') && (
             <p className={styles.errorText} role="status">
               {errorMessage}
             </p>
-          )}
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default ShareResultModal;
