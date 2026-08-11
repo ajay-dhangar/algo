@@ -50,15 +50,23 @@ export default function ShareResultModal({
       setDownloadStatus('idle');
       setCopyStatus('idle');
       setErrorMessage('');
-      if (downloadTimeoutRef.current) clearTimeout(downloadTimeoutRef.current);
-      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+      if (downloadTimeoutRef.current) {
+        clearTimeout(downloadTimeoutRef.current);
+      }
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current);
+      }
     }
   }, [isOpen]);
 
   useEffect(() => {
     return () => {
-      if (downloadTimeoutRef.current) clearTimeout(downloadTimeoutRef.current);
-      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+      if (downloadTimeoutRef.current) {
+        clearTimeout(downloadTimeoutRef.current);
+      }
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -131,7 +139,9 @@ export default function ShareResultModal({
     openShareWindow(url);
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) {
+    return null;
+  }
 
   const downloadLabel = { idle: 'Download PNG', working: 'Preparing…', done: 'Downloaded!', error: 'Try again' }[
     downloadStatus
@@ -139,9 +149,15 @@ export default function ShareResultModal({
   const copyLabel = { idle: 'Copy image', working: 'Copying…', done: 'Copied!', error: 'Try again' }[copyStatus];
 
   const renderStatusIcon = (status: ActionStatus, IdleIcon: React.ComponentType<{ size?: number }>) => {
-    if (status === 'working') return <FiLoader size={16} className={styles.spin} />;
-    if (status === 'done') return <FiCheck size={16} />;
-    if (status === 'error') return <FiAlertCircle size={16} />;
+    if (status === 'working') {
+      return <FiLoader size={16} className={styles.spin} />;
+    }
+    if (status === 'done') {
+      return <FiCheck size={16} />;
+    }
+    if (status === 'error') {
+      return <FiAlertCircle size={16} />;
+    }
     return <IdleIcon size={16} />;
   };
 
