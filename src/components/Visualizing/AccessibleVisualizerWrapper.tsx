@@ -18,7 +18,11 @@ export interface AccessibleVisualizerWrapperProps {
   className?: string;
 }
 
-export function isInteractiveInput(element: Element | null): boolean {
+/**
+ * Returns true when the given element (or one of its Monaco editor
+ * ancestors) is an interactive input, so focus should be preserved.
+ */
+export const isInteractiveInput = (element: Element | null): boolean => {
   if (!element) return false;
   const tagName = element.tagName.toLowerCase();
   return (
@@ -26,7 +30,7 @@ export function isInteractiveInput(element: Element | null): boolean {
     element.getAttribute('contenteditable') === 'true' ||
     Boolean(element.closest('.monaco-editor, [role="code"], [role="textbox"]'))
   );
-}
+};
 
 export default function AccessibleVisualizerWrapper({
   title,
