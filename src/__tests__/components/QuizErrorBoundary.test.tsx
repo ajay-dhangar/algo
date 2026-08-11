@@ -2,9 +2,9 @@ import React from "react";
 import { render, screen } from "../testUtils";
 import QuizErrorBoundary from "../../components/Quiz/QuizErrorBoundary";
 
-function Bomb(): JSX.Element {
+const Bomb = (): JSX.Element => {
   throw new Error("boom");
-}
+};
 
 describe("QuizErrorBoundary", () => {
   test("renders children normally when there is no error", () => {
@@ -18,7 +18,12 @@ describe("QuizErrorBoundary", () => {
 
   test("renders the fallback UI when a child throws", () => {
     // Error boundaries still log to console.error during tests; suppress noise.
-    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+    const spy = jest
+    .spyOn(console, "error")
+    .mockImplementation((...args) => {
+      // Error boundaries log to console.error during tests; suppress the noise.
+      void args;
+    });
     render(
       <QuizErrorBoundary>
         <Bomb />
