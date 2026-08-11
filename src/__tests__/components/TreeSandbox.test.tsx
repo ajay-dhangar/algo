@@ -56,7 +56,7 @@ describe('TreeSandbox Component & Translation Interpolation', () => {
     expect(alertSpy.mock.calls[alertSpy.mock.calls.length - 1][0]).not.toContain('{key}');
   });
 
-  test('handles node deletion alerts with interpolated values', async () => {
+  test('handles node deletion alerts with interpolated values', () => {
     render(<TreeSandbox />);
 
     const input = screen.getByRole('spinbutton');

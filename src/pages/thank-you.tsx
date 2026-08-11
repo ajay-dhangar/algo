@@ -79,8 +79,8 @@ export default function ThankYou(): JSX.Element {
               <div className="flex items-center justify-between gap-3 px-3.5 py-2.5 sm:px-4 sm:py-3 bg-white/90 dark:bg-[#121721]/90 rounded-[10px] sm:rounded-[14px]">
                 <div className="flex items-center gap-2.5 min-w-0 text-left">
                   <span className="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                   </span>
                   <div className="min-w-0">
                     <p className="text-[10px] font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider m-0 leading-none">

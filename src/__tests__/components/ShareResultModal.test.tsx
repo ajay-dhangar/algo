@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import ShareResultModal from '../../components/Quiz/ShareResultModal';
 
 const mockBlob = new Blob(['mock-png'], { type: 'image/png' });
-const renderShareCardToPngBlobMock = jest.fn(async (_topic?: string, _score?: number, _total?: number, _siteName?: string) => mockBlob);
+const renderShareCardToPngBlobMock = jest.fn((_topic?: string, _score?: number, _total?: number, _siteName?: string) => mockBlob);
 
 jest.mock('../../utils/shareResultImage', () => ({
   __esModule: true,
