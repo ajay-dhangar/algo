@@ -1,5 +1,6 @@
 import React, { Component, ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 import "react-toastify/dist/ReactToastify.css";
 
 interface Props {
@@ -9,26 +10,20 @@ interface Props {
 interface State {
   hasError: boolean;
   errorMessage: string;
-  isMounted: boolean;
 }
 
 class QuizErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
     errorMessage: "",
-    isMounted: false,
   };
 
   public static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, errorMessage: error.message, isMounted: true };
+    return { hasError: true, errorMessage: error.message };
   }
 
   public componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error("Quiz Error:", error, errorInfo);
-  }
-
-  public componentDidMount() {
-    this.setState({ isMounted: true });
   }
 
   public render() {
@@ -55,7 +50,9 @@ class QuizErrorBoundary extends Component<Props, State> {
     return (
       <>
         {content}
-        {this.state.isMounted && <ToastContainer theme="dark" position="top-right" toastClassName="font-mono text-sm" />}
+        <BrowserOnly>
+          {() => <ToastContainer theme="dark" position="top-right" toastClassName="font-mono text-sm" />}
+        </BrowserOnly>
       </>
     );
   }
