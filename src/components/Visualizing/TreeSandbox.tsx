@@ -56,7 +56,12 @@ interface RotationRecipe {
   description: string;
 }
 
-export default function TreeSandbox() {
+/**
+ * Interactive BST and AVL self-balancing tree sandbox. Supports insert,
+ * search, delete, and traversal operations with step-by-step animation,
+ * balance-factor overlays, and preset AVL rotation tutorials.
+ */
+const TreeSandbox = (): React.ReactElement => {
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
 
@@ -74,6 +79,15 @@ export default function TreeSandbox() {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [playSpeed, setPlaySpeed] = useState<number>(1000); // ms delay
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Inline status message replaces alert() — auto-clears after 3 s
+  const [statusMessage, setStatusMessage] = useState<{ text: string; type: "error" | "info" } | null>(null);
+  const statusTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const showStatus = (text: string, type: "error" | "info" = "error") => {
+    if (statusTimerRef.current) clearTimeout(statusTimerRef.current);
+    setStatusMessage({ text, type });
+    statusTimerRef.current = setTimeout(() => setStatusMessage(null), 3000);
+  };
 
   // Node helper functions
   const createNode = (key: number): NodeData => {
@@ -197,7 +211,7 @@ export default function TreeSandbox() {
   const triggerSearch = (key: number) => {
     setIsPlaying(false);
     if (isNaN(key) || key < 1 || key > 99) {
-      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      showStatus(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }
     if (!rootId) return;
@@ -296,14 +310,14 @@ export default function TreeSandbox() {
   const triggerInsert = (key: number) => {
     setIsPlaying(false);
     if (isNaN(key) || key < 1 || key > 99) {
-      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      showStatus(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }
 
     // Prevent duplicate entries
     const exists = Object.values(treeMap).some((n) => n.key === key);
     if (exists) {
-      alert(translate({ message: "Key {key} already exists in the tree!" }, { key }));
+      showStatus(translate({ message: "Key {key} already exists in the tree!" }, { key }));
       return;
     }
 
@@ -686,13 +700,13 @@ export default function TreeSandbox() {
   const triggerDelete = (key: number) => {
     setIsPlaying(false);
     if (isNaN(key) || key < 1 || key > 99) {
-      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      showStatus(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }
 
     const exists = Object.values(treeMap).some((n) => n.key === key);
     if (!exists) {
-      alert(translate({ message: "Key {key} does not exist in the tree!" }, { key }));
+      showStatus(translate({ message: "Key {key} does not exist in the tree!" }, { key }));
       return;
     }
 
@@ -1161,10 +1175,10 @@ export default function TreeSandbox() {
 
     // Prompt user to trigger insertion of 3rd key
     setInputKey(recipe.keys[2].toString());
-    alert(translate(
+    showStatus(translate(
       { message: "Recipe loaded! Click 'Insert' to add key {key} and watch the AVL {type} rotation rebalancing animation!" },
       { key: recipe.keys[2], type: recipe.type }
-    ));
+    ), "info");
   };
 
   const loadRandomTree = () => {
@@ -1263,7 +1277,23 @@ export default function TreeSandbox() {
 
   return (
     <div style={{ padding: "8px", fontFamily: "var(--ifm-font-family-base)", color: "var(--ifm-font-color-base)" }}>
-      
+
+      {/* Inline status message — replaces alert() */}
+      {statusMessage && (
+        <div style={{
+          marginBottom: "12px",
+          padding: "10px 16px",
+          borderRadius: "10px",
+          fontWeight: 600,
+          fontSize: "0.875rem",
+          background: statusMessage.type === "error" ? "#fee2e2" : "#eff6ff",
+          color: statusMessage.type === "error" ? "#b91c1c" : "#1d4ed8",
+          border: `1px solid ${statusMessage.type === "error" ? "#fca5a5" : "#93c5fd"}`,
+        }}>
+          {statusMessage.text}
+        </div>
+      )}
+
       {/* HEADER */}
       <div style={{ textAlign: "center", marginBottom: "24px" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: "rgba(99, 102, 241, 0.1)", borderRadius: "30px", marginBottom: "8px" }}>
@@ -1928,4 +1958,6 @@ export default function TreeSandbox() {
       </div>
     </div>
   );
-}
+};
+
+export default TreeSandbox;
