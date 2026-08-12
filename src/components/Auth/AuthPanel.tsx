@@ -94,6 +94,7 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
     }
   };
 
+  /** Handles the two-step forgot-password flow: email lookup then security-answer + reset. */
   const handleResetSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError("");
@@ -215,7 +216,7 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
           <p className="text-sm font-semibold" style={{ color: "var(--ifm-heading-color)" }}>
             {resetStep === "email"
               ? "Enter your email to look up your security question."
-              : `Answer your security question to reset your password.`}
+              : "Answer your security question to reset your password."}
           </p>
 
           {resetStep === "answer" && (
