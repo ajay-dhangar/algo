@@ -22,12 +22,13 @@ export function formatTime(seconds: number): string {
   return `${pad(mins)}:${pad(secs)}`;
 }
 
-export default function MockExamTimer({
+/** Countdown timer backed by a wall-clock deadline so backgrounded tabs still lose real time. */
+const MockExamTimer: React.FC<MockExamTimerProps> = ({
   timeLimitSeconds,
   onTimeExpired,
   isSubmitted,
   onTick,
-}: MockExamTimerProps) {
+}) => {
   const deadlineRef = useRef<number>(Date.now() + timeLimitSeconds * 1000);
   const [timeLeft, setTimeLeft] = useState<number>(timeLimitSeconds);
   const expiredRef = useRef<boolean>(false);
@@ -89,6 +90,7 @@ export default function MockExamTimer({
   useEffect(() => {
     if (isSubmitted) return;
 
+    /** Snaps the displayed time to the wall-clock value when the tab regains focus. */
     const handleVisibility = () => {
       if (document.visibilityState === "visible") {
         recalc();
@@ -96,7 +98,9 @@ export default function MockExamTimer({
     };
 
     document.addEventListener("visibilitychange", handleVisibility);
-    return () => document.removeEventListener("visibilitychange", handleVisibility);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
   }, [isSubmitted, recalc]);
 
   const isWarning = timeLeft > 0 && timeLeft <= 300; // < 5 mins
@@ -130,4 +134,6 @@ export default function MockExamTimer({
       </span>
     </div>
   );
-}
+};
+
+export default MockExamTimer;

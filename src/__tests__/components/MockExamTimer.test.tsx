@@ -102,7 +102,7 @@ describe("MockExamTimer", () => {
       <MockExamTimer
         timeLimitSeconds={10}
         onTimeExpired={onTimeExpired}
-        isSubmitted={true}
+        isSubmitted
       />
     );
 
