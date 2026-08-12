@@ -410,19 +410,22 @@ export default function TreeSandbox() {
 
         // Left heavy
         if (bf > 1) {
-          const leftNode = tempMap[node.leftId!];
-          const leftBf = getBalanceFactor(node.leftId, tempMap);
+          const leftId = node.leftId;
+          if (!leftId) { return nodeId; }
+          const leftNode = tempMap[leftId];
+          const leftBf = getBalanceFactor(leftId, tempMap);
 
           // Left Left (LL Case)
           if (leftBf >= 0) {
+            const leftLeftId = leftNode.leftId;
             pushStep(
               insertSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.leftId!],
+              [nodeId, leftId],
               [],
               [nodeId],
-              [nodeId, node.leftId!, leftNode.leftId!],
+              leftLeftId ? [nodeId, leftId, leftLeftId] : [nodeId, leftId],
               translate(
                 { message: "Unbalance detected! Left-Left (LL) case at node {nodeKey}. Perform a Right Rotation." },
                 { nodeKey: node.key }
@@ -457,14 +460,15 @@ export default function TreeSandbox() {
           }
           // Left Right (LR Case)
           else {
+            const leftRightId = leftNode.rightId;
             pushStep(
               insertSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.leftId!],
+              [nodeId, leftId],
               [],
               [nodeId],
-              [nodeId, node.leftId!, leftNode.rightId!],
+              leftRightId ? [nodeId, leftId, leftRightId] : [nodeId, leftId],
               translate(
                 { message: "Unbalance detected! Left-Right (LR) case at node {nodeKey}. Perform Left Rotation on left child, then Right Rotation." },
                 { nodeKey: node.key }
@@ -474,12 +478,13 @@ export default function TreeSandbox() {
             );
             
             // Step 1: Left rotate left child
-            node.leftId = rotateLeft(node.leftId!, tempMap);
+            node.leftId = rotateLeft(leftId, tempMap);
+            const newLeftId = node.leftId;
             pushStep(
               insertSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.leftId!],
+              newLeftId ? [nodeId, newLeftId] : [nodeId],
               [],
               [nodeId],
               [],
@@ -521,19 +526,22 @@ export default function TreeSandbox() {
 
         // Right heavy
         if (bf < -1) {
-          const rightNode = tempMap[node.rightId!];
-          const rightBf = getBalanceFactor(node.rightId, tempMap);
+          const rightId = node.rightId;
+          if (!rightId) { return nodeId; }
+          const rightNode = tempMap[rightId];
+          const rightBf = getBalanceFactor(rightId, tempMap);
 
           // Right Right (RR Case)
           if (rightBf <= 0) {
+            const rightRightId = rightNode.rightId;
             pushStep(
               insertSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.rightId!],
+              [nodeId, rightId],
               [],
               [nodeId],
-              [nodeId, node.rightId!, rightNode.rightId!],
+              rightRightId ? [nodeId, rightId, rightRightId] : [nodeId, rightId],
               translate(
                 { message: "Unbalance detected! Right-Right (RR) case at node {nodeKey}. Perform a Left Rotation." },
                 { nodeKey: node.key }
@@ -568,14 +576,15 @@ export default function TreeSandbox() {
           }
           // Right Left (RL Case)
           else {
+            const rightLeftId = rightNode.leftId;
             pushStep(
               insertSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.rightId!],
+              [nodeId, rightId],
               [],
               [nodeId],
-              [nodeId, node.rightId!, rightNode.leftId!],
+              rightLeftId ? [nodeId, rightId, rightLeftId] : [nodeId, rightId],
               translate(
                 { message: "Unbalance detected! Right-Left (RL) case at node {nodeKey}. Perform Right Rotation on right child, then Left Rotation." },
                 { nodeKey: node.key }
@@ -585,12 +594,13 @@ export default function TreeSandbox() {
             );
 
             // Step 1: Right rotate right child
-            node.rightId = rotateRight(node.rightId!, tempMap);
+            node.rightId = rotateRight(rightId, tempMap);
+            const newRightId = node.rightId;
             pushStep(
               insertSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.rightId!],
+              newRightId ? [nodeId, newRightId] : [nodeId],
               [],
               [nodeId],
               [],
@@ -650,7 +660,8 @@ export default function TreeSandbox() {
   // AVL ROTATIONS CORE MATH
   const rotateRight = (zId: string, map: TreeMap): string => {
     const z = map[zId];
-    const yId = z.leftId!;
+    const yId = z.leftId;
+    if (!yId) return zId;
     const y = map[yId];
     const T3Id = y.rightId;
 
@@ -667,7 +678,8 @@ export default function TreeSandbox() {
 
   const rotateLeft = (zId: string, map: TreeMap): string => {
     const z = map[zId];
-    const yId = z.rightId!;
+    const yId = z.rightId;
+    if (!yId) return zId;
     const y = map[yId];
     const T2Id = y.leftId;
 
@@ -893,16 +905,18 @@ export default function TreeSandbox() {
         );
 
         if (bf > 1) {
-          const leftBf = getBalanceFactor(node.leftId, tempMap);
+          const leftId = node.leftId;
+          if (!leftId) return nodeId;
+          const leftBf = getBalanceFactor(leftId, tempMap);
           if (leftBf >= 0) {
             pushStep(
               deleteSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.leftId!],
+              [nodeId, leftId],
               [],
               [nodeId],
-              [nodeId, node.leftId!],
+              [nodeId, leftId],
               translate({
                 message: "Unbalance detected! Left-Left (LL) case. Perform a Right Rotation."
               }),
@@ -916,32 +930,34 @@ export default function TreeSandbox() {
               deleteSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.leftId!],
+              [nodeId, leftId],
               [],
               [nodeId],
-              [nodeId, node.leftId!],
+              [nodeId, leftId],
               translate({
                 message: "Unbalance detected! Left-Right (LR) case. Left rotating child, then Right rotating parent."
               }),
               [],
               keyToDelete
             );
-            node.leftId = rotateLeft(node.leftId!, tempMap);
+            node.leftId = rotateLeft(leftId, tempMap);
             return rotateRight(nodeId, tempMap);
           }
         }
 
         if (bf < -1) {
-          const rightBf = getBalanceFactor(node.rightId, tempMap);
+          const rightId = node.rightId;
+          if (!rightId) return nodeId;
+          const rightBf = getBalanceFactor(rightId, tempMap);
           if (rightBf <= 0) {
             pushStep(
               deleteSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.rightId!],
+              [nodeId, rightId],
               [],
               [nodeId],
-              [nodeId, node.rightId!],
+              [nodeId, rightId],
               translate({
                 message: "Unbalance detected! Right-Right (RR) case. Perform a Left Rotation."
               }),
@@ -955,17 +971,17 @@ export default function TreeSandbox() {
               deleteSteps,
               tempMap,
               tempRoot,
-              [nodeId, node.rightId!],
+              [nodeId, rightId],
               [],
               [nodeId],
-              [nodeId, node.rightId!],
+              [nodeId, rightId],
               translate({
                 message: "Unbalance detected! Right-Left (RL) case. Right rotating child, then Left rotating parent."
               }),
               [],
               keyToDelete
             );
-            node.rightId = rotateRight(node.rightId!, tempMap);
+            node.rightId = rotateRight(rightId, tempMap);
             return rotateLeft(nodeId, tempMap);
           }
         }
@@ -1194,11 +1210,23 @@ export default function TreeSandbox() {
           const bf = getBalanceFactor(nodeId, tempMap);
           if (bf > 1) {
             const leftBf = getBalanceFactor(n.leftId, tempMap);
-            return leftBf >= 0 ? rotateRight(nodeId, tempMap) : (n.leftId = rotateLeft(n.leftId!, tempMap), rotateRight(nodeId, tempMap));
+            if (leftBf >= 0) {
+              return rotateRight(nodeId, tempMap);
+            } else {
+              const newLeftId = n.leftId;
+              if (newLeftId) n.leftId = rotateLeft(newLeftId, tempMap);
+              return rotateRight(nodeId, tempMap);
+            }
           }
           if (bf < -1) {
             const rightBf = getBalanceFactor(n.rightId, tempMap);
-            return rightBf <= 0 ? rotateLeft(nodeId, tempMap) : (n.rightId = rotateRight(n.rightId!, tempMap), rotateLeft(nodeId, tempMap));
+            if (rightBf <= 0) {
+              return rotateLeft(nodeId, tempMap);
+            } else {
+              const newRightId = n.rightId;
+              if (newRightId) n.rightId = rotateRight(newRightId, tempMap);
+              return rotateLeft(nodeId, tempMap);
+            }
           }
         }
         return nodeId;

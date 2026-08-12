@@ -104,7 +104,7 @@ const AhoCorasickVisualizerComponent: React.FC = () => {
       const char = searchText[i];
       
       while (currId !== null && nodes[currId].children[char] === undefined) {
-        currId = nodes[currId].fail!;
+        currId = nodes[currId].fail ?? 0;
       }
 
       if (currId === null) {

@@ -270,7 +270,7 @@ export default function AlgorithmVisualizer({ algorithm }: AlgorithmVisualizerPr
                   bgColor = 'var(--ifm-color-warning)';
                 } else if (idx === highlights.high) {
                   bgColor = 'var(--ifm-color-info)';
-                } else if (hasRange && (idx < highlights.low! || idx > highlights.high!)) {
+                } else if (hasRange && highlights.low !== undefined && highlights.high !== undefined && (idx < highlights.low || idx > highlights.high)) {
                   bgColor = 'var(--ifm-color-emphasis-400)';
                 }
               }

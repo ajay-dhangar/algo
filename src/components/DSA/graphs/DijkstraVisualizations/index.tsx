@@ -91,8 +91,8 @@ const DijkstraVisualizations: React.FC = () => {
     setPriorityQueue(priorityQueue);
 
     // Check if we reached the end node
-    if (x === endNode![0] && y === endNode![1]) {
-      const path = reconstructPath(previous, startNode!, endNode!);
+    if (endNode && startNode && x === endNode[0] && y === endNode[1]) {
+      const path = reconstructPath(previous, startNode, endNode);
       setShortestPath(path);
       setIsRunning(false);
       return;
