@@ -176,6 +176,65 @@ export function markChallengeSolved(challengeId: string, title: string): void {
   );
 }
 
+/** Namespace key inside algo_progress that stores the DSA roadmap's completed stage ids. */
+export const ROADMAP_COMPLETED_KEY = 'roadmapStagesCompleted';
+
+/** Legacy isolated localStorage key the roadmap used before being reconciled into algo_progress. */
+export const LEGACY_ROADMAP_STORAGE_KEY = 'dsa_learning_roadmap_completed';
+
+/**
+ * Reads the legacy isolated roadmap key, tolerating missing or corrupt values.
+ */
+const readLegacyRoadmapStages = (): number[] => {
+  const raw = safeGetItem(LEGACY_ROADMAP_STORAGE_KEY);
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((id): id is number => typeof id === 'number');
+  } catch {
+    return [];
+  }
+};
+
+/**
+ * Returns the DSA roadmap's completed stage ids from the canonical
+ * algo_progress store, migrating any data still in the legacy isolated key
+ * so roadmap progress lives with all other app progress.
+ */
+export const getRoadmapCompletedStages = (): number[] => {
+  const progress = readAlgoProgress();
+  const stored = Array.isArray(progress[ROADMAP_COMPLETED_KEY])
+    ? (progress[ROADMAP_COMPLETED_KEY] as unknown[]).filter(
+        (id): id is number => typeof id === 'number'
+      )
+    : [];
+
+  const legacy = readLegacyRoadmapStages();
+  if (legacy.length === 0) {
+    return Array.from(new Set(stored)).sort((a, b) => a - b);
+  }
+
+  const merged = Array.from(new Set([...stored, ...legacy])).sort((a, b) => a - b);
+  const next: AlgoProgressData = { ...progress, [ROADMAP_COMPLETED_KEY]: merged };
+  next.lastActiveAt = new Date().toISOString();
+  writeAlgoProgress(next);
+  safeRemoveItem(LEGACY_ROADMAP_STORAGE_KEY);
+  return merged;
+};
+
+/**
+ * Persists the DSA roadmap's completed stage ids inside the canonical
+ * algo_progress store instead of a disconnected silo.
+ */
+export const setRoadmapCompletedStages = (stageIds: number[]): void => {
+  const progress = readAlgoProgress();
+  progress[ROADMAP_COMPLETED_KEY] = Array.from(new Set(stageIds)).sort((a, b) => a - b);
+  progress.lastActiveAt = new Date().toISOString();
+  writeAlgoProgress(progress);
+  safeRemoveItem(LEGACY_ROADMAP_STORAGE_KEY);
+};
+
 export function saveQuizAttemptLocal(
   userId: string,
   quizId: string,
