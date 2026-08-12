@@ -8,7 +8,7 @@
 
 If you find this repository helpful for your learning or development, please consider giving it a **Star**! It helps increase the project's visibility and invites more amazing developers to collaborate.
 
-[![Click here to leave a star!](https://img.shields.io/github/stars/ajay-dhangar/algo?style=flat&logo=github)](https://github.com/ajay-dhangar/algo) [![Donate via Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)](https://rzp.io/rzp/algo-sponsors) [![DeepSource](https://app.deepsource.com/gh/ajay-dhangar/algo.svg/?label=active+issues&show_trend=true&token=EM-qW16KCzmfUTl67qxSKb5k)](https://app.deepsource.com/gh/ajay-dhangar/algo/) [![DeepSource](https://app.deepsource.com/gh/ajay-dhangar/algo.svg/?label=resolved+issues&show_trend=true&token=EM-qW16KCzmfUTl67qxSKb5k)](https://app.deepsource.com/gh/ajay-dhangar/algo/)
+[![Click here to leave a star!](https://img.shields.io/github/stars/ajay-dhangar/algo?style=flat&logo=github)](https://github.com/ajay-dhangar/algo) [![DeepSource](https://app.deepsource.com/gh/ajay-dhangar/algo.svg/?label=active+issues&show_trend=true&token=EM-qW16KCzmfUTl67qxSKb5k)](https://app.deepsource.com/gh/ajay-dhangar/algo/) [![DeepSource](https://app.deepsource.com/gh/ajay-dhangar/algo.svg/?label=resolved+issues&show_trend=true&token=EM-qW16KCzmfUTl67qxSKb5k)](https://app.deepsource.com/gh/ajay-dhangar/algo/)
 
 ---
 
@@ -190,6 +190,12 @@ To manually invoke Gemini Code Assist, you can use the following commands in the
 </table>
 
 -->
+
+## 💖 Sponsor & Support
+
+Building and maintaining Algo as a free, open-source platform takes time and effort. If Algo has helped you learn Data Structures & Algorithms, land a job, or contribute to open source, consider supporting us to help keep the project growing!
+
+[![Donate via Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=3395FF)](https://rzp.io/rzp/algo-sponsors)
 
 ## Resources for Guidance
 
