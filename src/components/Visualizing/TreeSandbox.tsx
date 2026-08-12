@@ -292,6 +292,43 @@ export default function TreeSandbox() {
     setIsPlaying(true);
   };
 
+  // AVL ROTATIONS CORE MATH
+  const rotateRight = (nodeId: string, map: TreeMap): string => {
+    const node = map[nodeId];
+    const leftChildId = node.leftId;
+    if (!leftChildId) return nodeId;
+    const leftChild = map[leftChildId];
+    const rightGrandchildId = leftChild.rightId;
+
+    // Perform rotation
+    leftChild.rightId = nodeId;
+    node.leftId = rightGrandchildId;
+
+    // Update heights
+    updateHeight(nodeId, map);
+    updateHeight(leftChildId, map);
+
+    return leftChildId;
+  };
+
+  const rotateLeft = (nodeId: string, map: TreeMap): string => {
+    const node = map[nodeId];
+    const rightChildId = node.rightId;
+    if (!rightChildId) return nodeId;
+    const rightChild = map[rightChildId];
+    const leftGrandchildId = rightChild.leftId;
+
+    // Perform rotation
+    rightChild.leftId = nodeId;
+    node.rightId = leftGrandchildId;
+
+    // Update heights
+    updateHeight(nodeId, map);
+    updateHeight(rightChildId, map);
+
+    return rightChildId;
+  };
+
   // --- INTERACTION: INSERT ---
   const triggerInsert = (key: number) => {
     setIsPlaying(false);
@@ -330,9 +367,9 @@ export default function TreeSandbox() {
     // Helper: update parent link after rotation
     const updateParentLink = (rotated: string, parId: string | null, isLeftChild: boolean) => {
       if (parId) {
-        const p = tempMap[parId];
-        if (isLeftChild) p.leftId = rotated;
-        else p.rightId = rotated;
+        const parentNode = tempMap[parId];
+        if (isLeftChild) parentNode.leftId = rotated;
+        else parentNode.rightId = rotated;
       } else {
         tempRoot = rotated;
       }
@@ -552,43 +589,6 @@ export default function TreeSandbox() {
     setRootId(finalStep.rootId);
   };
 
-  // AVL ROTATIONS CORE MATH
-  const rotateRight = (zId: string, map: TreeMap): string => {
-    const z = map[zId];
-    const yId = z.leftId;
-    if (!yId) return zId;
-    const y = map[yId];
-    const T3Id = y.rightId;
-
-    // Perform rotation
-    y.rightId = zId;
-    z.leftId = T3Id;
-
-    // Update heights
-    updateHeight(zId, map);
-    updateHeight(yId, map);
-
-    return yId;
-  };
-
-  const rotateLeft = (zId: string, map: TreeMap): string => {
-    const z = map[zId];
-    const yId = z.rightId;
-    if (!yId) return zId;
-    const y = map[yId];
-    const T2Id = y.leftId;
-
-    // Perform rotation
-    y.leftId = zId;
-    z.rightId = T2Id;
-
-    // Update heights
-    updateHeight(zId, map);
-    updateHeight(yId, map);
-
-    return yId;
-  };
-
   // --- INTERACTION: DELETE ---
   const triggerDelete = (key: number) => {
     setIsPlaying(false);
@@ -687,9 +687,9 @@ export default function TreeSandbox() {
             // No child case
             delete tempMap[nodeId];
             if (parentId) {
-              const p = tempMap[parentId];
-              if (isLeft) p.leftId = null;
-              else p.rightId = null;
+              const parentNode = tempMap[parentId];
+              if (isLeft) parentNode.leftId = null;
+              else parentNode.rightId = null;
             } else {
               tempRoot = null;
             }
@@ -713,9 +713,9 @@ export default function TreeSandbox() {
             // One child case
             delete tempMap[nodeId];
             if (parentId) {
-              const p = tempMap[parentId];
-              if (isLeft) p.leftId = tempChild;
-              else p.rightId = tempChild;
+              const parentNode = tempMap[parentId];
+              if (isLeft) parentNode.leftId = tempChild;
+              else parentNode.rightId = tempChild;
             } else {
               tempRoot = tempChild;
             }
