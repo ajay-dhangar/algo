@@ -67,13 +67,13 @@ const MockExamTimer: React.FC<MockExamTimerProps> = ({
 
   // Main countdown: wall-clock based so backgrounded tabs still lose real time.
   useEffect(() => {
-    if (isSubmitted) return;
-
-    recalc();
-
-    intervalRef.current = setInterval(() => {
+    if (!isSubmitted) {
       recalc();
-    }, 1000);
+
+      intervalRef.current = setInterval(() => {
+        recalc();
+      }, 1000);
+    }
 
     return () => {
       if (intervalRef.current) {
@@ -88,16 +88,16 @@ const MockExamTimer: React.FC<MockExamTimerProps> = ({
   // When the user switches back to the tab, immediately snap to the correct time
   // instead of waiting for the next 1-second tick.
   useEffect(() => {
-    if (isSubmitted) return;
-
-    /** Snaps the displayed time to the wall-clock value when the tab regains focus. */
     const handleVisibility = () => {
       if (document.visibilityState === "visible") {
         recalc();
       }
     };
 
-    document.addEventListener("visibilitychange", handleVisibility);
+    if (!isSubmitted) {
+      document.addEventListener("visibilitychange", handleVisibility);
+    }
+
     return () => {
       document.removeEventListener("visibilitychange", handleVisibility);
     };
