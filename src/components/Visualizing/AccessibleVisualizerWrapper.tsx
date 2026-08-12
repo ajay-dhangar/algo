@@ -11,6 +11,9 @@ export interface AccessibleVisualizerWrapperProps {
   onNextStep: () => void;
   onFirstStep?: () => void;
   onLastStep?: () => void;
+  /** Optional direct seek handler. When provided the slider calls it with the
+   *  target step index instead of looping onPrevStep/onNextStep. */
+  onSeekToStep?: (step: number) => void;
   stepDescription?: string;
   speed?: number;
   onSpeedChange?: (speed: number) => void;
@@ -32,7 +35,15 @@ export const isInteractiveInput = (element: Element | null): boolean => {
   );
 };
 
-export default function AccessibleVisualizerWrapper({
+/**
+ * Wraps a visualizer with an accessible control bar (play/pause, step
+ * navigation, speed slider) and global keyboard shortcuts (Arrow keys,
+ * Space, Home, End). Announces step changes via an ARIA live region.
+ *
+ * Pass an optional `onSeekToStep` handler for O(1) slider seeks; without it
+ * the slider falls back to stepped navigation clamped to 10 steps.
+ */
+const AccessibleVisualizerWrapper = ({
   title,
   currentStep,
   totalSteps,
@@ -42,12 +53,13 @@ export default function AccessibleVisualizerWrapper({
   onNextStep,
   onFirstStep,
   onLastStep,
+  onSeekToStep,
   stepDescription,
   speed,
   onSpeedChange,
   children,
   className = '',
-}: AccessibleVisualizerWrapperProps) {
+}: AccessibleVisualizerWrapperProps): React.ReactElement => {
   const { announce } = useAriaAnnouncer();
 
   // Announce step descriptions on step changes
@@ -192,10 +204,20 @@ export default function AccessibleVisualizerWrapper({
             value={currentStep}
             onChange={(e) => {
               const val = Number(e.target.value);
+              if (val === currentStep) return;
+              // Prefer a direct seek when the parent supports it.
+              if (onSeekToStep) {
+                onSeekToStep(val);
+                return;
+              }
+              // Fallback: step one at a time, clamped to 10 steps max to
+              // prevent runaway state updates on large visualizations.
+              const MAX_STEP_DELTA = 10;
+              const delta = Math.min(Math.abs(val - currentStep), MAX_STEP_DELTA);
               if (val < currentStep) {
-                for (let i = currentStep; i > val; i--) onPrevStep();
-              } else if (val > currentStep) {
-                for (let i = currentStep; i < val; i++) onNextStep();
+                for (let i = 0; i < delta; i++) onPrevStep();
+              } else {
+                for (let i = 0; i < delta; i++) onNextStep();
               }
             }}
             role="slider"
@@ -234,4 +256,6 @@ export default function AccessibleVisualizerWrapper({
       </div>
     </div>
   );
-}
+};
+
+export default AccessibleVisualizerWrapper;
