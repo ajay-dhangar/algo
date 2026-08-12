@@ -31,7 +31,7 @@ export default function PublicProfileBadgePage() {
   const [badgeColor, setBadgeColor] = useState('2563eb'); // Default Hex Code
   
   // SSR-safe Origin lookup
-  const [origin, setOrigin] = useState('https://codeharborhub.github.io');
+  const [origin, setOrigin] = useState('https://ajay-dhangar.github.io');
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setOrigin(window.location.origin);
@@ -79,7 +79,7 @@ export default function PublicProfileBadgePage() {
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight m-0" style={{ color: 'var(--ifm-heading-color)' }}>
               Developer Embed Widget
             </h1>
-            <p className="max-w-xl mx-auto text-xs sm:text-sm opacity-75 font-medium leading-relaxed">
+            <p className="max-w-xl mx-auto opacity-75 font-medium leading-relaxed">
               Showcase verified learning streaks and problem metrics for <span className="font-mono text-[var(--ifm-color-primary)] font-bold">@{username}</span> on GitHub READMEs or portfolio sites.
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function PublicProfileBadgePage() {
                 <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-                <span className="ml-2 text-xs font-mono opacity-50 hidden sm:inline-block">algo://badge/{username}</span>
+                <span className="ml-2 text-xs font-mono opacity-50 hidden sm:inline-block">algo://{username}/badge</span>
               </div>
 
               <div className="flex items-center gap-1 bg-[var(--ifm-color-emphasis-200)] p-1 rounded-xl">
