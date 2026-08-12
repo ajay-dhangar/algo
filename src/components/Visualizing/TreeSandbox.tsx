@@ -59,6 +59,7 @@ interface RotationRecipe {
 /**
  * Main Sandbox component for visualizing AVL and Binary Search Trees.
  */
+// skipcq: JS-R1005
 const TreeSandbox = (): React.ReactElement => {
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
