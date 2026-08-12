@@ -1145,3 +1145,31 @@ html.dark .theme-doc-toc-desktop::before {
 .bookmark-active {
   color: #f59e0b;
 }
+
+/* Dynamic Table of Contents Scroll Highlight Styles */
+.table-of-contents__link {
+  transition: color 0.2s ease-in-out, font-weight 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  border-left: 2px solid transparent;
+  padding-left: 0.5rem;
+}
+
+.table-of-contents__link:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.table-of-contents__link--active,
+.table-of-contents__link.active {
+  color: var(--ifm-color-primary) !important;
+  font-weight: 600 !important;
+  border-left-color: var(--ifm-color-primary) !important;
+  background-color: var(--ifm-color-info-contrast-background);
+  border-radius: 0 4px 4px 0;
+}
+
+[data-theme="dark"] .table-of-contents__link--active,
+[data-theme="dark"] .table-of-contents__link.active {
+  color: var(--ifm-color-primary) !important;
+  border-left-color: var(--ifm-color-primary) !important;
+  background-color: rgba(234, 179, 8, 0.12) !important;
+}
