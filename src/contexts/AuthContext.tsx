@@ -169,6 +169,7 @@ function writeSession(session: AuthSession | null) {
   scope.localStorage.setItem(SESSION_KEY, JSON.stringify(session));
 }
 
+/** Provides authentication state and methods (register, login, logout, resetPassword) via React context. */
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -367,6 +368,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
+/** Hook that returns the current auth context; throws if used outside an AuthProvider. */
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

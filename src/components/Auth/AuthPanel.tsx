@@ -8,7 +8,6 @@ import { AuthMode, SECURITY_QUESTIONS, useAuth } from "../../contexts/AuthContex
 interface AuthPanelProps {
   initialMode?: AuthMode;
   showBrand?: boolean;
-  onSuccess?: () => void;
   compact?: boolean;
 }
 
@@ -20,6 +19,7 @@ interface ResetPasswordFormProps {
   onSwitchToLogin: () => void;
 }
 
+/** Two-step form: enter email to retrieve a security question, then answer it to set a new password. */
 const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ onSwitchToLogin }) => {
   const { getSecurityQuestion, resetPassword } = useAuth();
   const [step, setStep] = useState<"email" | "answer">("email");
@@ -31,6 +31,7 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ onSwitchToLogin }
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
+  /** Validates the current step and either advances to the answer step or resets the password. */
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError("");
@@ -38,11 +39,11 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ onSwitchToLogin }
 
     try {
       if (step === "email") {
-        const q = getSecurityQuestion(email);
-        if (!q) {
+        const foundQuestion = getSecurityQuestion(email);
+        if (!foundQuestion) {
           throw new Error("No account found for that email.");
         }
-        setQuestion(q);
+        setQuestion(foundQuestion);
         setStep("answer");
         return;
       }
@@ -189,6 +190,7 @@ interface LoginFormProps {
   onSwitchMode: (mode: AuthMode) => void;
 }
 
+/** Login / register form with SSO section and mode-switcher footer. */
 const LoginForm: React.FC<LoginFormProps> = ({ mode, onSwitchMode }) => {
   const history = useHistory();
   const { login, register } = useAuth();
@@ -426,10 +428,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ mode, onSwitchMode }) => {
 /*  AuthPanel — orchestrator                                          */
 /* ------------------------------------------------------------------ */
 
+/** Top-level auth panel: shows an active-session card when logged in, or delegates to ResetPasswordForm / LoginForm. */
 const AuthPanel: React.FC<AuthPanelProps> = ({
   initialMode = "login",
   showBrand = true,
-  onSuccess,
   compact = false,
 }) => {
   const { user, isAuthenticated, logout } = useAuth();
@@ -455,6 +457,7 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
     return "Access your dashboard to trace performance updates and current coding streaks.";
   }, [mode]);
 
+  /** Toggles between login, register, and resetPassword modes. */
   const switchMode = (next: AuthMode) => {
     setMode(next);
   };
