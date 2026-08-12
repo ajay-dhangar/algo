@@ -169,7 +169,7 @@ function writeSession(session: AuthSession | null) {
   scope.localStorage.setItem(SESSION_KEY, JSON.stringify(session));
 }
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -365,13 +365,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [user, isLoading]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
+};
 
-export function useAuth() {
+export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
 
   return context;
-}
+};
