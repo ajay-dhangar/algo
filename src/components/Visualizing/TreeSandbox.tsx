@@ -60,6 +60,24 @@ export default function TreeSandbox() {
   const { colorMode } = useColorMode();
   const isDark = colorMode === "dark";
 
+  // Alert message state to replace native alert()
+  const [alertMessage, setAlertMessage] = useState<{ text: string, type: 'error' | 'success' } | null>(null);
+  const alertTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const showAlert = useCallback((text: string, type: 'error' | 'success' = 'error') => {
+    setAlertMessage({ text, type });
+    if (alertTimeoutRef.current) clearTimeout(alertTimeoutRef.current);
+    alertTimeoutRef.current = setTimeout(() => {
+      setAlertMessage(null);
+    }, 4000);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (alertTimeoutRef.current) clearTimeout(alertTimeoutRef.current);
+    };
+  }, []);
+
   // Mode state: BST vs AVL
   const [treeMode, setTreeMode] = useState<"BST" | "AVL">("AVL");
   const [inputKey, setInputKey] = useState<string>("25");
@@ -197,7 +215,7 @@ export default function TreeSandbox() {
   const triggerSearch = (key: number) => {
     setIsPlaying(false);
     if (isNaN(key) || key < 1 || key > 99) {
-      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      showAlert(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }
     if (!rootId) return;
@@ -296,14 +314,14 @@ export default function TreeSandbox() {
   const triggerInsert = (key: number) => {
     setIsPlaying(false);
     if (isNaN(key) || key < 1 || key > 99) {
-      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      showAlert(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }
 
     // Prevent duplicate entries
     const exists = Object.values(treeMap).some((n) => n.key === key);
     if (exists) {
-      alert(translate({ message: "Key {key} already exists in the tree!" }, { key }));
+      showAlert(translate({ message: "Key {key} already exists in the tree!" }, { key }));
       return;
     }
 
@@ -686,13 +704,13 @@ export default function TreeSandbox() {
   const triggerDelete = (key: number) => {
     setIsPlaying(false);
     if (isNaN(key) || key < 1 || key > 99) {
-      alert(translate({ message: "Please enter a valid integer between 1 and 99." }));
+      showAlert(translate({ message: "Please enter a valid integer between 1 and 99." }));
       return;
     }
 
     const exists = Object.values(treeMap).some((n) => n.key === key);
     if (!exists) {
-      alert(translate({ message: "Key {key} does not exist in the tree!" }, { key }));
+      showAlert(translate({ message: "Key {key} does not exist in the tree!" }, { key }));
       return;
     }
 
@@ -1264,6 +1282,41 @@ export default function TreeSandbox() {
   return (
     <div style={{ padding: "8px", fontFamily: "var(--ifm-font-family-base)", color: "var(--ifm-font-color-base)" }}>
       
+      {/* ALERT MESSAGE */}
+      {alertMessage && (
+        <div style={{
+          padding: "12px 16px",
+          marginBottom: "16px",
+          borderRadius: "8px",
+          backgroundColor: alertMessage.type === 'error' ? 'var(--ifm-color-danger-contrast-background)' : 'var(--ifm-color-success-contrast-background)',
+          color: alertMessage.type === 'error' ? 'var(--ifm-color-danger-contrast-foreground)' : 'var(--ifm-color-success-contrast-foreground)',
+          border: `1px solid ${alertMessage.type === 'error' ? 'var(--ifm-color-danger)' : 'var(--ifm-color-success)'}`,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          fontWeight: 500
+        }}>
+          <span>{alertMessage.text}</span>
+          <button 
+            onClick={() => {
+              if (alertTimeoutRef.current) clearTimeout(alertTimeoutRef.current);
+              setAlertMessage(null);
+            }}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: "inherit",
+              cursor: "pointer",
+              fontSize: "20px",
+              lineHeight: 1,
+              padding: "0 4px"
+            }}
+          >
+            &times;
+          </button>
+        </div>
+      )}
+
       {/* HEADER */}
       <div style={{ textAlign: "center", marginBottom: "24px" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: "rgba(99, 102, 241, 0.1)", borderRadius: "30px", marginBottom: "8px" }}>
