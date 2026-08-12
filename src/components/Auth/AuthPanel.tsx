@@ -3,7 +3,7 @@ import { FiArrowRight, FiGithub, FiLock, FiMail, FiUser, FiInfo } from "react-ic
 import { FaGoogle } from "react-icons/fa";
 import Link from "@docusaurus/Link";
 import { useHistory } from "@docusaurus/router";
-import { AuthMode, useAuth } from "../../contexts/AuthContext";
+import { AuthMode, SECURITY_QUESTIONS, useAuth } from "../../contexts/AuthContext";
 
 interface AuthPanelProps {
   initialMode?: AuthMode;
@@ -19,14 +19,23 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
   compact = false,
 }) => {
   const history = useHistory();
-  const { user, isAuthenticated, login, register, logout } = useAuth();
+  const { user, isAuthenticated, login, register, logout, getSecurityQuestion, resetPassword } = useAuth();
   const [mode, setMode] = useState<AuthMode>(initialMode);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [securityQuestion, setSecurityQuestion] = useState("");
+  const [securityAnswer, setSecurityAnswer] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+
+  const [resetStep, setResetStep] = useState<"email" | "answer">("email");
+  const [resetEmail, setResetEmail] = useState("");
+  const [resetQuestion, setResetQuestion] = useState("");
+  const [resetAnswer, setResetAnswer] = useState("");
+  const [resetNewPassword, setResetNewPassword] = useState("");
+  const [resetConfirmPassword, setResetConfirmPassword] = useState("");
 
   useEffect(() => {
     setMode(initialMode);
@@ -34,16 +43,30 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
 
   useEffect(() => {
     setError("");
+    if (mode === "resetPassword") {
+      setResetStep("email");
+      setResetEmail("");
+      setResetQuestion("");
+      setResetAnswer("");
+      setResetNewPassword("");
+      setResetConfirmPassword("");
+    }
   }, [mode]);
 
   const heading = useMemo(() => {
-    return mode === "register" ? "Create your Profile" : "Welcome Back";
+    if (mode === "register") return "Create your Profile";
+    if (mode === "resetPassword") return "Reset Password";
+    return "Welcome Back";
   }, [mode]);
 
   const description = useMemo(() => {
-    return mode === "register"
-      ? "Set up your platform credentials to log achievements and claim your ranks on the arena."
-      : "Access your dashboard to trace performance updates and current coding streaks.";
+    if (mode === "register") {
+      return "Set up your platform credentials to log achievements and claim your ranks on the arena.";
+    }
+    if (mode === "resetPassword") {
+      return "Answer your security question to regain access to your account.";
+    }
+    return "Access your dashboard to trace performance updates and current coding streaks.";
   }, [mode]);
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -57,13 +80,49 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
           throw new Error("Passwords do not match.");
         }
 
-        await register({ name, email, password });
+        await register({ name, email, password, securityQuestion, securityAnswer });
       } else {
         await login({ email, password });
       }
 
       onSuccess?.();
       history.push("/algo/profile");
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Something went wrong.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleResetSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      if (resetStep === "email") {
+        const question = getSecurityQuestion(resetEmail);
+        if (!question) {
+          throw new Error("No account found for that email.");
+        }
+        setResetQuestion(question);
+        setResetStep("answer");
+        return;
+      }
+
+      if (resetNewPassword !== resetConfirmPassword) {
+        throw new Error("Passwords do not match.");
+      }
+
+      await resetPassword({
+        email: resetEmail,
+        securityAnswer: resetAnswer,
+        newPassword: resetNewPassword,
+      });
+
+      setMode("login");
+      setPassword("");
+      setError("");
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Something went wrong.");
     } finally {
@@ -151,6 +210,118 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
         </div>
       )}
 
+      {mode === "resetPassword" ? (
+        <form onSubmit={handleResetSubmit} className="space-y-4">
+          <p className="text-sm font-semibold" style={{ color: "var(--ifm-heading-color)" }}>
+            {resetStep === "email"
+              ? "Enter your email to look up your security question."
+              : `Answer your security question to reset your password.`}
+          </p>
+
+          {resetStep === "answer" && (
+            <div
+              className="rounded-xl border px-4 py-3 text-sm font-medium"
+              style={{
+                borderColor: "var(--ifm-color-emphasis-200)",
+                backgroundColor: "var(--ifm-color-emphasis-100)",
+                color: "var(--ifm-heading-color)",
+              }}
+            >
+              {resetQuestion}
+            </div>
+          )}
+
+          {resetStep === "email" && (
+            <div className="relative">
+              <FiMail className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+              <label className="sr-only" htmlFor="reset-email">Email address</label>
+              <input
+                id="reset-email"
+                type="email"
+                value={resetEmail}
+                onChange={(e) => setResetEmail(e.target.value)}
+                placeholder="name@example.com"
+                autoComplete="email"
+                required
+                className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+                style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+              />
+            </div>
+          )}
+
+          {resetStep === "answer" && (
+            <>
+              <div className="relative">
+                <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+                <label className="sr-only" htmlFor="reset-answer">Security answer</label>
+                <input
+                  id="reset-answer"
+                  value={resetAnswer}
+                  onChange={(e) => setResetAnswer(e.target.value)}
+                  placeholder="Your answer"
+                  autoComplete="off"
+                  required
+                  className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+                  style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+                />
+              </div>
+              <div className="relative">
+                <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+                <label className="sr-only" htmlFor="reset-new-password">New password</label>
+                <input
+                  id="reset-new-password"
+                  type="password"
+                  value={resetNewPassword}
+                  onChange={(e) => setResetNewPassword(e.target.value)}
+                  placeholder="New security key"
+                  autoComplete="new-password"
+                  required
+                  className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+                  style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+                />
+              </div>
+              <div className="relative">
+                <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+                <label className="sr-only" htmlFor="reset-confirm-password">Confirm new password</label>
+                <input
+                  id="reset-confirm-password"
+                  type="password"
+                  value={resetConfirmPassword}
+                  onChange={(e) => setResetConfirmPassword(e.target.value)}
+                  placeholder="Confirm new security key"
+                  autoComplete="new-password"
+                  required
+                  className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+                  style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+                />
+              </div>
+            </>
+          )}
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--ifm-color-primary)] px-4 py-3 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 border-0"
+          >
+            {isSubmitting
+              ? "Processing secure handshake..."
+              : resetStep === "email"
+                ? "Look Up Account"
+                : "Reset Password"}
+            <FiArrowRight className="h-4 w-4" />
+          </button>
+
+          <div className="text-center text-sm border-t pt-4" style={{ borderColor: "var(--ifm-color-emphasis-200)" }}>
+            <button
+              type="button"
+              onClick={() => { setMode("login"); setError(""); }}
+              className="font-bold bg-transparent border-0 p-0 cursor-pointer text-[var(--ifm-color-primary)] hover:opacity-80 transition-opacity"
+            >
+              Back to Sign In
+            </button>
+          </div>
+        </form>
+      ) : (
       <form onSubmit={handleSubmit} className="space-y-4">
         {mode === "register" && (
           <div className="relative">
@@ -201,6 +372,18 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
           />
         </div>
 
+        {mode === "login" && (
+          <div className="text-right">
+            <button
+              type="button"
+              onClick={() => setMode("resetPassword")}
+              className="text-xs font-semibold bg-transparent border-0 p-0 cursor-pointer text-[var(--ifm-color-primary)] hover:opacity-80 transition-opacity"
+            >
+              Forgot Password?
+            </button>
+          </div>
+        )}
+
         {mode === "register" && (
           <div className="relative">
             <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
@@ -219,6 +402,43 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
           </div>
         )}
 
+        {mode === "register" && (
+          <div className="relative">
+            <FiInfo className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+            <label className="sr-only" htmlFor="auth-security-question">Security question</label>
+            <select
+              id="auth-security-question"
+              value={securityQuestion}
+              onChange={(e) => setSecurityQuestion(e.target.value)}
+              required
+              className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+              style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+            >
+              <option value="" disabled>Choose a security question</option>
+              {SECURITY_QUESTIONS.map((q) => (
+                <option key={q} value={q}>{q}</option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {mode === "register" && securityQuestion && (
+          <div className="relative">
+            <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+            <label className="sr-only" htmlFor="auth-security-answer">Security answer</label>
+            <input
+              id="auth-security-answer"
+              value={securityAnswer}
+              onChange={(e) => setSecurityAnswer(e.target.value)}
+              placeholder="Your answer"
+              autoComplete="off"
+              required
+              className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+              style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+            />
+          </div>
+        )}
+
         <button
           type="submit"
           disabled={isSubmitting}
@@ -228,7 +448,10 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
           <FiArrowRight className="h-4 w-4" />
         </button>
       </form>
+      )}
 
+      {mode !== "resetPassword" && (
+      <>
       {/* Modern Separator */}
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
@@ -288,6 +511,8 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
           <strong>Sandbox Storage Policy:</strong> This build leverages your runtime secure space context storage for data evaluation. Network states sync automatically to local profile instances.
         </p>
       </div>
+      </>
+      )}
     </div>
   );
 };

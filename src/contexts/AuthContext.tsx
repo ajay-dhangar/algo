@@ -1,6 +1,17 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-export type AuthMode = "login" | "register";
+export const SECURITY_QUESTIONS = [
+  "What is your pet's name?",
+  "What city were you born in?",
+  "What is your mother's maiden name?",
+  "What was the name of your first school?",
+  "What is your favorite movie?",
+  "What is your favorite book?",
+  "What is the name of your first employer?",
+  "What is your favorite food?",
+] as const;
+
+export type AuthMode = "login" | "register" | "resetPassword";
 
 export interface AuthUser {
   id: string;
@@ -13,6 +24,8 @@ interface StoredAccount extends AuthUser {
   passwordHash: string;
   salt: string;
   updatedAt: string;
+  securityQuestion?: string;
+  securityAnswerHash?: string;
 }
 
 interface AuthSession {
@@ -24,11 +37,19 @@ interface RegisterInput {
   name: string;
   email: string;
   password: string;
+  securityQuestion: string;
+  securityAnswer: string;
 }
 
 interface LoginInput {
   email: string;
   password: string;
+}
+
+interface ResetPasswordInput {
+  email: string;
+  securityAnswer: string;
+  newPassword: string;
 }
 
 interface AuthContextValue {
@@ -38,6 +59,8 @@ interface AuthContextValue {
   register: (input: RegisterInput) => Promise<AuthUser>;
   login: (input: LoginInput) => Promise<AuthUser>;
   logout: () => void;
+  getSecurityQuestion: (email: string) => string | null;
+  resetPassword: (input: ResetPasswordInput) => Promise<void>;
 }
 
 const ACCOUNTS_KEY = "algo.auth.accounts.v1";
@@ -180,10 +203,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       user,
       isAuthenticated: Boolean(user),
       isLoading,
-      register: async ({ name, email, password }) => {
+      register: async ({ name, email, password, securityQuestion, securityAnswer }) => {
         const cleanName = name.trim();
         const cleanEmail = normalizeEmail(email);
         const cleanPassword = password.trim();
+        const cleanAnswer = securityAnswer.trim();
 
         if (!cleanName) {
           throw new Error("Please enter your name.");
@@ -197,6 +221,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           throw new Error("Password must be at least 8 characters long.");
         }
 
+        if (!securityQuestion) {
+          throw new Error("Please select a security question.");
+        }
+
+        if (!cleanAnswer) {
+          throw new Error("Please provide an answer to the security question.");
+        }
+
         const accounts = readAccounts();
         const existing = accounts.find((entry) => entry.email === cleanEmail);
         if (existing) {
@@ -205,6 +237,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
         const salt = randomSalt();
         const passwordHash = await hashPassword(cleanPassword, salt);
+        const securityAnswerHash = await hashPassword(cleanAnswer, salt);
         const now = new Date().toISOString();
         const account: StoredAccount = {
           id: generateId(),
@@ -214,6 +247,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           updatedAt: now,
           salt,
           passwordHash,
+          securityQuestion,
+          securityAnswerHash,
         };
 
         const nextAccounts = [...accounts, account];
@@ -268,6 +303,63 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       logout: () => {
         writeSession(null);
         setUser(null);
+      },
+      getSecurityQuestion: (email) => {
+        const cleanEmail = normalizeEmail(email);
+        const accounts = readAccounts();
+        const account = accounts.find((entry) => entry.email === cleanEmail);
+        if (!account?.securityQuestion) {
+          return null;
+        }
+        return account.securityQuestion;
+      },
+      resetPassword: async ({ email, securityAnswer, newPassword }) => {
+        const cleanEmail = normalizeEmail(email);
+        const cleanAnswer = securityAnswer.trim();
+        const cleanPassword = newPassword.trim();
+
+        if (!cleanEmail) {
+          throw new Error("Please enter your email address.");
+        }
+
+        if (!cleanAnswer) {
+          throw new Error("Please answer the security question.");
+        }
+
+        if (cleanPassword.length < 8) {
+          throw new Error("New password must be at least 8 characters long.");
+        }
+
+        const accounts = readAccounts();
+        const idx = accounts.findIndex((entry) => entry.email === cleanEmail);
+        if (idx === -1) {
+          throw new Error("No account found for that email.");
+        }
+
+        const account = accounts[idx];
+        if (!account.securityAnswerHash) {
+          throw new Error(
+            "No security question is set for this account. Please register a new account."
+          );
+        }
+
+        const answerHash = await hashPassword(cleanAnswer, account.salt);
+        if (answerHash !== account.securityAnswerHash) {
+          throw new Error("Incorrect answer to the security question.");
+        }
+
+        const newSalt = randomSalt();
+        const newPasswordHash = await hashPassword(cleanPassword, newSalt);
+        const now = new Date().toISOString();
+
+        accounts[idx] = {
+          ...account,
+          salt: newSalt,
+          passwordHash: newPasswordHash,
+          updatedAt: now,
+        };
+
+        writeAccounts(accounts);
       },
     };
   }, [user, isLoading]);
