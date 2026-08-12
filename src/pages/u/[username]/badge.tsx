@@ -1,16 +1,13 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { useLocation } from '@docusaurus/router';
 import { 
   FiCopy, FiCheck, FiExternalLink, FiCode, 
-  FiTerminal, FiActivity, FiLayers 
+  FiTerminal, FiActivity, FiLayers, FiSliders, FiShield, FiGlobe 
 } from 'react-icons/fi';
-import { ShieldCheck } from "lucide-react";
 
-
-
-// Safe slug extractor for paths like /algo/u/{username}/badge or /u/{username}/badge
+// Safe slug extractor for dynamic router paths
 function extractUsername(pathname: string): string {
   const segments = pathname.split('/').filter(Boolean);
   const badgeIndex = segments.lastIndexOf('badge');
@@ -20,21 +17,34 @@ function extractUsername(pathname: string): string {
   return segments[segments.length - 2] || 'developer';
 }
 
+type BadgeStyle = 'for-the-badge' | 'flat' | 'flat-square' | 'plastic';
+
 export default function PublicProfileBadgePage() {
   const location = useLocation();
   const username = useMemo(() => extractUsername(location.pathname), [location.pathname]);
   
   const [copiedFormat, setCopiedFormat] = useState<'markdown' | 'html' | 'url' | null>(null);
   const [activeTab, setActiveTab] = useState<'preview' | 'embed'>('preview');
+  
+  // Customization controls
+  const [badgeStyle, setBadgeStyle] = useState<BadgeStyle>('for-the-badge');
+  const [badgeColor, setBadgeColor] = useState('2563eb'); // Default Hex Code
+  
+  // SSR-safe Origin lookup
+  const [origin, setOrigin] = useState('https://codeharborhub.github.io');
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOrigin(window.location.origin);
+    }
+  }, []);
 
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://codeharborhub.github.io';
   const profileUrl = `${origin}/algo/u/${username}`;
-  const shieldBadgeUrl = `https://img.shields.io/badge/Algo%20Profile-${encodeURIComponent(username)}-2563eb?style=for-the-badge&logo=codeforces&logoColor=white`;
+  const shieldBadgeUrl = `https://img.shields.io/badge/Algo%20Profile-${encodeURIComponent(username)}-${badgeColor}?style=${badgeStyle}&logo=codeforces&logoColor=white`;
 
   const snippets = {
     markdown: `[![Algo Profile](${shieldBadgeUrl})](${profileUrl})`,
     html: `<a href="${profileUrl}" target="_blank" rel="noopener noreferrer">\n  <img src="${shieldBadgeUrl}" alt="${username}'s Algo Profile" />\n</a>`,
-    url: profileUrl,
+    url: shieldBadgeUrl,
   };
 
   const handleCopy = async (text: string, format: 'markdown' | 'html' | 'url') => {
@@ -56,21 +66,21 @@ export default function PublicProfileBadgePage() {
           color: 'var(--ifm-font-color-base)'
         }}
       >
-        {/* Subtle Engineering Grid Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--ifm-color-emphasis-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--ifm-color-emphasis-200)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-20 dark:opacity-10" />
+        {/* Subtle Grid Backdrop */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--ifm-color-emphasis-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--ifm-color-emphasis-200)_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none opacity-25 dark:opacity-10" />
 
         <div className="max-w-4xl mx-auto space-y-8 relative z-10">
           
-          {/* Header Description */}
+          {/* Header Section */}
           <div className="text-center space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-[var(--ifm-color-primary)] bg-[var(--ifm-color-primary)]/10 border border-[var(--ifm-color-primary)]/20">
-              <ShieldCheck className="w-3.5 h-3.5" /> Telemetry Badge Hub
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[var(--ifm-color-primary)] bg-[var(--ifm-color-primary)]/10 border border-[var(--ifm-color-primary)]/20 shadow-sm">
+              <FiShield className="w-3.5 h-3.5" /> Telemetry Badge Hub
             </div>
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight m-0" style={{ color: 'var(--ifm-heading-color)' }}>
               Developer Embed Widget
             </h1>
             <p className="max-w-xl mx-auto text-xs sm:text-sm opacity-75 font-medium leading-relaxed">
-              Showcase verified learning streaks, problem counts, and node status for <span className="font-mono text-[var(--ifm-color-primary)] font-bold">@{username}</span> on GitHub READMEs or personal portfolios.
+              Showcase verified learning streaks and problem metrics for <span className="font-mono text-[var(--ifm-color-primary)] font-bold">@{username}</span> on GitHub READMEs or portfolio sites.
             </p>
           </div>
 
@@ -82,8 +92,8 @@ export default function PublicProfileBadgePage() {
               borderColor: 'var(--ifm-color-emphasis-200)' 
             }}
           >
-            {/* Control Bar */}
-            <div className="flex items-center justify-between border-b px-6 py-4 border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-color-emphasis-100)]/50">
+            {/* Window Top Control Bar */}
+            <div className="flex flex-wrap items-center justify-between border-b px-6 py-4 border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-color-emphasis-100)]/60 gap-4">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
@@ -95,10 +105,10 @@ export default function PublicProfileBadgePage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab('preview')}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold border-0 cursor-pointer transition-all ${
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold border-0 cursor-pointer transition-all ${
                     activeTab === 'preview' 
                       ? 'bg-[var(--ifm-card-background-color)] shadow-sm text-[var(--ifm-color-primary)]' 
-                      : 'opacity-60 bg-transparent'
+                      : 'opacity-60 bg-transparent hover:opacity-100'
                   }`}
                 >
                   Live Badges
@@ -106,10 +116,10 @@ export default function PublicProfileBadgePage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab('embed')}
-                  className={`px-3 py-1 rounded-lg text-xs font-bold border-0 cursor-pointer transition-all ${
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold border-0 cursor-pointer transition-all ${
                     activeTab === 'embed' 
                       ? 'bg-[var(--ifm-card-background-color)] shadow-sm text-[var(--ifm-color-primary)]' 
-                      : 'opacity-60 bg-transparent'
+                      : 'opacity-60 bg-transparent hover:opacity-100'
                   }`}
                 >
                   Integration Snippets
@@ -118,18 +128,60 @@ export default function PublicProfileBadgePage() {
             </div>
 
             {/* Canvas Body */}
-            <div className="p-6 sm:p-10">
+            <div className="p-6 sm:p-10 space-y-8">
               {activeTab === 'preview' ? (
                 <div className="space-y-8">
+                  {/* Customization Toolbar */}
+                  <div className="p-4 rounded-2xl border border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-color-emphasis-100)]/40 space-y-3">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider opacity-70">
+                      <FiSliders className="w-3.5 h-3.5 text-[var(--ifm-color-primary)]" /> Customization Options
+                    </div>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Style Selector */}
+                      <div className="space-y-1">
+                        <label className="text-xs font-medium opacity-75">Badge Style</label>
+                        <select 
+                          value={badgeStyle} 
+                          onChange={(e) => setBadgeStyle(e.target.value as BadgeStyle)}
+                          className="w-full px-3 py-1.5 rounded-lg border border-[var(--ifm-color-emphasis-300)] bg-[var(--ifm-card-background-color)] text-xs font-bold text-[var(--ifm-font-color-base)] focus:outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]"
+                        >
+                          <option value="for-the-badge">For-The-Badge (Default)</option>
+                          <option value="flat">Flat</option>
+                          <option value="flat-square">Flat Square</option>
+                          <option value="plastic">Plastic</option>
+                        </select>
+                      </div>
+
+                      {/* Theme Color Selector */}
+                      <div className="space-y-1">
+                        <label className="text-xs font-medium opacity-75">Accent Hex Color</label>
+                        <div className="flex items-center gap-2">
+                          <input 
+                            type="text"
+                            value={badgeColor}
+                            onChange={(e) => setBadgeColor(e.target.value.replace('#', ''))}
+                            className="w-full px-3 py-1.5 rounded-lg border border-[var(--ifm-color-emphasis-300)] bg-[var(--ifm-card-background-color)] text-xs font-mono font-bold text-[var(--ifm-font-color-base)] focus:outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]"
+                            placeholder="2563eb"
+                          />
+                          <div 
+                            className="w-8 h-8 rounded-lg border border-black/10 shrink-0 shadow-inner" 
+                            style={{ backgroundColor: `#${badgeColor}` }} 
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Badge Preset 1: Shields.io Dynamic */}
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold uppercase tracking-wider opacity-60 flex items-center gap-1.5">
-                        <FiLayers className="w-3.5 h-3.5 text-[var(--ifm-color-primary)]" /> GitHub Readme Banner (Shields Spec)
+                        <FiLayers className="w-3.5 h-3.5 text-[var(--ifm-color-primary)]" /> GitHub Readme Banner
                       </span>
                       <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 font-bold">Auto-Sync</span>
                     </div>
-                    <div className="p-6 rounded-2xl border border-dashed border-[var(--ifm-color-emphasis-300)] bg-[var(--ifm-color-emphasis-100)]/40 flex items-center justify-center">
+                    <div className="p-8 rounded-2xl border border-dashed border-[var(--ifm-color-emphasis-300)] bg-[var(--ifm-color-emphasis-100)]/40 flex items-center justify-center transition-all hover:border-[var(--ifm-color-primary)]/50">
                       <Link to={profileUrl} target="_blank" rel="noreferrer" className="hover:scale-105 transition-transform">
                         <img src={shieldBadgeUrl} alt={`${username} Algo Profile Badge`} className="shadow-md rounded" />
                       </Link>
@@ -141,7 +193,7 @@ export default function PublicProfileBadgePage() {
                     <span className="text-xs font-bold uppercase tracking-wider opacity-60 flex items-center gap-1.5">
                       <FiActivity className="w-3.5 h-3.5 text-[var(--ifm-color-primary)]" /> Modern Interactive Capsule
                     </span>
-                    <div className="p-6 rounded-2xl border border-dashed border-[var(--ifm-color-emphasis-300)] bg-[var(--ifm-color-emphasis-100)]/40 flex items-center justify-center">
+                    <div className="p-8 rounded-2xl border border-dashed border-[var(--ifm-color-emphasis-300)] bg-[var(--ifm-color-emphasis-100)]/40 flex items-center justify-center">
                       <Link
                         to={profileUrl}
                         target="_blank"
@@ -176,13 +228,13 @@ export default function PublicProfileBadgePage() {
                       <button
                         type="button"
                         onClick={() => handleCopy(snippets.markdown, 'markdown')}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[var(--ifm-color-primary)] text-white border-0 cursor-pointer hover:opacity-90 transition-all"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[var(--ifm-color-primary)] text-white border-0 cursor-pointer hover:opacity-90 transition-all active:scale-95 shadow-sm"
                       >
                         {copiedFormat === 'markdown' ? <FiCheck className="w-3.5 h-3.5" /> : <FiCopy className="w-3.5 h-3.5" />}
                         {copiedFormat === 'markdown' ? 'Copied' : 'Copy'}
                       </button>
                     </div>
-                    <pre className="p-4 rounded-xl bg-slate-950 text-slate-100 font-mono text-xs overflow-x-auto border border-white/10 m-0 no-scrollbar">
+                    <pre className="p-4 rounded-xl bg-slate-950 text-slate-100 font-mono text-xs overflow-x-auto border border-white/10 m-0 shadow-inner">
                       <code>{snippets.markdown}</code>
                     </pre>
                   </div>
@@ -196,24 +248,44 @@ export default function PublicProfileBadgePage() {
                       <button
                         type="button"
                         onClick={() => handleCopy(snippets.html, 'html')}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[var(--ifm-color-primary)] text-white border-0 cursor-pointer hover:opacity-90 transition-all"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[var(--ifm-color-primary)] text-white border-0 cursor-pointer hover:opacity-90 transition-all active:scale-95 shadow-sm"
                       >
                         {copiedFormat === 'html' ? <FiCheck className="w-3.5 h-3.5" /> : <FiCopy className="w-3.5 h-3.5" />}
                         {copiedFormat === 'html' ? 'Copied' : 'Copy'}
                       </button>
                     </div>
-                    <pre className="p-4 rounded-xl bg-slate-950 text-slate-100 font-mono text-xs overflow-x-auto border border-white/10 m-0 no-scrollbar">
+                    <pre className="p-4 rounded-xl bg-slate-950 text-slate-100 font-mono text-xs overflow-x-auto border border-white/10 m-0 shadow-inner">
                       <code>{snippets.html}</code>
+                    </pre>
+                  </div>
+
+                  {/* Image Direct URL Snippet */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold uppercase tracking-wider opacity-70 flex items-center gap-1.5">
+                        <FiGlobe className="text-amber-500" /> Direct Image URL
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopy(snippets.url, 'url')}
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-[var(--ifm-color-primary)] text-white border-0 cursor-pointer hover:opacity-90 transition-all active:scale-95 shadow-sm"
+                      >
+                        {copiedFormat === 'url' ? <FiCheck className="w-3.5 h-3.5" /> : <FiCopy className="w-3.5 h-3.5" />}
+                        {copiedFormat === 'url' ? 'Copied' : 'Copy'}
+                      </button>
+                    </div>
+                    <pre className="p-4 rounded-xl bg-slate-950 text-slate-100 font-mono text-xs overflow-x-auto border border-white/10 m-0 shadow-inner">
+                      <code>{snippets.url}</code>
                     </pre>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Footer Action Bar */}
-            <div className="border-t px-6 py-4 border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-color-emphasis-100)]/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-xs opacity-70 m-0 font-medium">
-                Telemetry endpoints update in real-time as solutions are committed.
+            {/* Footer Bar */}
+            <div className="border-t px-6 py-4 border-[var(--ifm-color-emphasis-200)] bg-[var(--ifm-color-emphasis-100)]/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-xs opacity-75 m-0 font-medium">
+                Telemetry endpoints update live as user solutions are submitted.
               </p>
 
               <Link
