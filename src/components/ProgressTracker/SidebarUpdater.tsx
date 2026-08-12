@@ -32,8 +32,8 @@ const SidebarUpdater: React.FC = () => {
     const load = () => {
       try {
         setProgress(safeJsonParse<ProgressData>('algo_progress', {}));
-      } catch (e) {
-        console.error(e);
+      } catch {
+        // safeJsonParse returns the fallback value on failure — nothing to surface here.
       }
     };
     
