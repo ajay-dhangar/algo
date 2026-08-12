@@ -292,7 +292,7 @@ export default function TreeSandbox() {
     setIsPlaying(true);
   };
 
-  // AVL ROTATIONS CORE MATH
+  /** Performs a right rotation around the given node and returns the new root of the subtree. */
   const rotateRight = (nodeId: string, map: TreeMap): string => {
     const node = map[nodeId];
     const leftChildId = node.leftId;
@@ -311,6 +311,7 @@ export default function TreeSandbox() {
     return leftChildId;
   };
 
+  /** Performs a left rotation around the given node and returns the new root of the subtree. */
   const rotateLeft = (nodeId: string, map: TreeMap): string => {
     const node = map[nodeId];
     const rightChildId = node.rightId;
