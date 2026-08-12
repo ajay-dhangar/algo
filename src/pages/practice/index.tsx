@@ -394,12 +394,10 @@ const Practice: React.FC = () => {
   const [solved, setSolved] = useState<Set<string>>(new Set());
 
   // Mount logic to safely bootstrap standard LocalStorage states in dynamic SSR
+  // safeJsonParse handles malformed JSON internally and returns the fallback
+  // value, so no try/catch is needed here.
   useEffect(() => {
-    try {
-      setSolved(new Set(safeJsonParse<string[]>("leetcode_solved", [])));
-    } catch (e) {
-      console.error("Failed parsing problem registry context state data:", e);
-    }
+    setSolved(new Set(safeJsonParse<string[]>("leetcode_solved", [])));
   }, []);
 
   const toggleSolved = (key: string) => {
