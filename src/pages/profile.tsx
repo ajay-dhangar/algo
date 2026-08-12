@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FiArrowRight, FiLogOut, FiUser, FiMail, FiCalendar,
   FiShield, FiActivity, FiCpu, FiAward, FiClock, FiCheckCircle,
-  FiZap, FiKey, FiTerminal, FiLayers, FiShieldOff, FiTrendingUp
+  FiZap, FiKey, FiTerminal, FiLayers, FiTrendingUp
 } from "react-icons/fi";
 import { useAuth } from "../contexts/AuthContext";
 import PracticeActivityHeatmapWidget from "../components/PracticeActivityHeatmapWidget";
