@@ -173,7 +173,8 @@ export default function PublicProfilePage() {
 
               {snapshot.allowBadgeEmbed &&
                 username &&
-                username !== "[username]" && (
+                !username.startsWith(":") &&
+                !username.startsWith("[") && (
                   <div className="shrink-0 flex items-center gap-2">
                     <Link
                       to={`/algo/u/${encodeURIComponent(username)}/badge`}
