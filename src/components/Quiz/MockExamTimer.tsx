@@ -88,6 +88,7 @@ const MockExamTimer: React.FC<MockExamTimerProps> = ({
   // When the user switches back to the tab, immediately snap to the correct time
   // instead of waiting for the next 1-second tick.
   useEffect(() => {
+    /** Snaps the displayed time to the wall-clock value when the tab regains focus. */
     const handleVisibility = () => {
       if (document.visibilityState === "visible") {
         recalc();
