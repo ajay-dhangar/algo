@@ -29,7 +29,7 @@ describe("DailyChallengeWidget", () => {
     expect(
       await screen.findByRole("button", { name: "Mark as solved" })
     ).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Solved" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Mark as unsolved" })).not.toBeInTheDocument();
   });
 
   test("marking solved persists a date-scoped status", async () => {
@@ -37,7 +37,7 @@ describe("DailyChallengeWidget", () => {
     const button = await screen.findByRole("button", { name: "Mark as solved" });
     fireEvent.click(button);
 
-    expect(screen.getByRole("button", { name: "Solved" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Mark as unsolved" })).toBeInTheDocument();
 
     const raw = localStorage.getItem(STORAGE_KEY);
     expect(raw).not.toBeNull();
@@ -53,7 +53,7 @@ describe("DailyChallengeWidget", () => {
     );
 
     render(<DailyChallengeWidget />);
-    expect(await screen.findByRole("button", { name: "Solved" })).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "Mark as unsolved" })).toBeInTheDocument();
   });
 
   test("a solved status from a previous day does not leak into today", async () => {
