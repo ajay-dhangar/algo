@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { FaClock, FaExclamationTriangle } from "react-icons/fa";
 
 interface MockExamTimerProps {
@@ -22,55 +22,87 @@ export function formatTime(seconds: number): string {
   return `${pad(mins)}:${pad(secs)}`;
 }
 
-export default function MockExamTimer({
+/** Countdown timer backed by a wall-clock deadline so backgrounded tabs still lose real time. */
+const MockExamTimer: React.FC<MockExamTimerProps> = ({
   timeLimitSeconds,
   onTimeExpired,
   isSubmitted,
   onTick,
-}: MockExamTimerProps) {
+}) => {
+  const deadlineRef = useRef<number>(Date.now() + timeLimitSeconds * 1000);
   const [timeLeft, setTimeLeft] = useState<number>(timeLimitSeconds);
   const expiredRef = useRef<boolean>(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Keep refs to the latest callbacks so the interval closure never goes stale.
-  // This means a new referentially-different onTick/onTimeExpired from the parent
-  // will NOT restart the interval — it simply updates what gets called on the
-  // next tick.
   const onTickRef = useRef(onTick);
   const onTimeExpiredRef = useRef(onTimeExpired);
   useEffect(() => { onTickRef.current = onTick; }, [onTick]);
   useEffect(() => { onTimeExpiredRef.current = onTimeExpired; }, [onTimeExpired]);
 
-  useEffect(() => {
-    setTimeLeft(timeLimitSeconds);
-    expiredRef.current = false;
+  // Recalculate remaining time from the wall-clock deadline.
+  const recalc = useCallback(() => {
+    const remaining = Math.max(0, Math.ceil((deadlineRef.current - Date.now()) / 1000));
+    setTimeLeft(remaining);
+
+    if (onTickRef.current) {
+      onTickRef.current(timeLimitSeconds - remaining);
+    }
+
+    if (remaining <= 0 && !expiredRef.current) {
+      expiredRef.current = true;
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      onTimeExpiredRef.current();
+    }
   }, [timeLimitSeconds]);
 
+  // Reset deadline when timeLimitSeconds changes (e.g. parent re-mounts the timer).
   useEffect(() => {
-    if (isSubmitted || timeLeft <= 0) return;
+    deadlineRef.current = Date.now() + timeLimitSeconds * 1000;
+    expiredRef.current = false;
+    setTimeLeft(timeLimitSeconds);
+  }, [timeLimitSeconds]);
 
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        const next = prev - 1;
-        if (onTickRef.current) {
-          onTickRef.current(next);
-        }
+  // Main countdown: wall-clock based so backgrounded tabs still lose real time.
+  useEffect(() => {
+    if (!isSubmitted) {
+      recalc();
 
-        if (next <= 0 && !expiredRef.current) {
-          expiredRef.current = true;
-          clearInterval(timer);
-          setTimeout(() => {
-            onTimeExpiredRef.current();
-          }, 0);
-          return 0;
-        }
-        return next;
-      });
-    }, 1000);
+      intervalRef.current = setInterval(() => {
+        recalc();
+      }, 1000);
+    }
 
-    return () => clearInterval(timer);
-  // onTimeExpired and onTick intentionally excluded — refs keep them current
-  // without restarting the interval on every parent re-render.
-  }, [isSubmitted]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  // recalc is stable (timeLimitSeconds only changes on reset, handled above).
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSubmitted]);
+
+  // When the user switches back to the tab, immediately snap to the correct time
+  // instead of waiting for the next 1-second tick.
+  useEffect(() => {
+    /** Snaps the displayed time to the wall-clock value when the tab regains focus. */
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") {
+        recalc();
+      }
+    };
+
+    if (!isSubmitted) {
+      document.addEventListener("visibilitychange", handleVisibility);
+    }
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+    };
+  }, [isSubmitted, recalc]);
 
   const isWarning = timeLeft > 0 && timeLeft <= 300; // < 5 mins
   const isCritical = timeLeft > 0 && timeLeft <= 60;  // < 1 min
@@ -103,4 +135,6 @@ export default function MockExamTimer({
       </span>
     </div>
   );
-}
+};
+
+export default MockExamTimer;
