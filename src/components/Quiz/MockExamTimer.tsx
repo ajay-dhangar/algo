@@ -75,7 +75,7 @@ const MockExamTimer: React.FC<MockExamTimerProps> = ({
       recalc();
     }, 1000);
 
-    return () => {
+    return function cleanupInterval() {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
@@ -98,7 +98,7 @@ const MockExamTimer: React.FC<MockExamTimerProps> = ({
     };
 
     document.addEventListener("visibilitychange", handleVisibility);
-    return () => {
+    return function cleanupVisibility() {
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, [isSubmitted, recalc]);
