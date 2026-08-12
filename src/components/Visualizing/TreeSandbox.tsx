@@ -56,6 +56,91 @@ interface RotationRecipe {
   description: string;
 }
 
+// ── Pure tree utility functions (module-level, no React state) ──────────────
+
+/** Creates a new tree node with a random stable id. */
+const createNode = (key: number): NodeData => {
+  const id = Math.random().toString(36).substring(2, 9);
+  return { key, id, leftId: null, rightId: null, height: 1 };
+};
+
+/** Deep-clones a TreeMap so simulation steps don't share references. */
+const cloneTreeMap = (map: TreeMap): TreeMap => {
+  const newMap: TreeMap = {};
+  for (const key in map) {
+    newMap[key] = { ...map[key] };
+  }
+  return newMap;
+};
+
+const getHeight = (nodeId: string | null, map: TreeMap): number => {
+  if (!nodeId || !map[nodeId]) return 0;
+  return map[nodeId].height;
+};
+
+const getBalanceFactor = (nodeId: string | null, map: TreeMap): number => {
+  if (!nodeId || !map[nodeId]) return 0;
+  const node: NodeData = map[nodeId];
+  return getHeight(node.leftId, map) - getHeight(node.rightId, map);
+};
+
+const updateHeight = (nodeId: string, map: TreeMap): void => {
+  const node: NodeData = map[nodeId];
+  node.height = Math.max(getHeight(node.leftId, map), getHeight(node.rightId, map)) + 1;
+};
+
+/** Appends a snapshot of the current tree state to the simulation step list. */
+const pushStep = (
+  stepList: SimulationStep[],
+  currentMap: TreeMap,
+  currentRoot: string | null,
+  highlighted: string[],
+  success: string[],
+  warning: string[],
+  rotation: string[],
+  explanation: string,
+  visited: number[] = [],
+  actionKey?: number
+): void => {
+  stepList.push({
+    tree: cloneTreeMap(currentMap),
+    rootId: currentRoot,
+    highlightedIds: [...highlighted],
+    successIds: [...success],
+    warningIds: [...warning],
+    rotationIds: [...rotation],
+    explanation,
+    visitedKeys: [...visited],
+    actionNodeKey: actionKey,
+  });
+};
+
+/** AVL right rotation around zId; returns the new subtree root id. */
+const rotateRight = (zId: string, map: TreeMap): string => {
+  const z = map[zId];
+  const yId = z.leftId!;
+  const y = map[yId];
+  const T3Id = y.rightId;
+  y.rightId = zId;
+  z.leftId = T3Id;
+  updateHeight(zId, map);
+  updateHeight(yId, map);
+  return yId;
+};
+
+/** AVL left rotation around zId; returns the new subtree root id. */
+const rotateLeft = (zId: string, map: TreeMap): string => {
+  const z = map[zId];
+  const yId = z.rightId!;
+  const y = map[yId];
+  const T2Id = y.leftId;
+  y.leftId = zId;
+  z.rightId = T2Id;
+  updateHeight(zId, map);
+  updateHeight(yId, map);
+  return yId;
+};
+
 /**
  * Interactive BST and AVL self-balancing tree sandbox. Supports insert,
  * search, delete, and traversal operations with step-by-step animation,
@@ -83,46 +168,11 @@ const TreeSandbox = (): React.ReactElement => {
   // Inline status message replaces alert() — auto-clears after 3 s
   const [statusMessage, setStatusMessage] = useState<{ text: string; type: "error" | "info" } | null>(null);
   const statusTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** Displays an inline status banner that auto-dismisses after 3 seconds. */
   const showStatus = (text: string, type: "error" | "info" = "error") => {
     if (statusTimerRef.current) clearTimeout(statusTimerRef.current);
     setStatusMessage({ text, type });
     statusTimerRef.current = setTimeout(() => setStatusMessage(null), 3000);
-  };
-
-  // Node helper functions
-  const createNode = (key: number): NodeData => {
-    const id = Math.random().toString(36).substring(2, 9);
-    return {
-      key,
-      id,
-      leftId: null,
-      rightId: null,
-      height: 1
-    };
-  };
-
-  const cloneTreeMap = (map: TreeMap): TreeMap => {
-    const newMap: TreeMap = {};
-    for (const key in map) {
-      newMap[key] = { ...map[key] };
-    }
-    return newMap;
-  };
-
-  const getHeight = (nodeId: string | null, map: TreeMap): number => {
-    if (!nodeId || !map[nodeId]) return 0;
-    return map[nodeId].height;
-  };
-
-  const getBalanceFactor = (nodeId: string | null, map: TreeMap): number => {
-    if (!nodeId || !map[nodeId]) return 0;
-    const node: NodeData = map[nodeId];
-    return getHeight(node.leftId, map) - getHeight(node.rightId, map);
-  };
-
-  const updateHeight = (nodeId: string, map: TreeMap) => {
-    const node: NodeData = map[nodeId];
-    node.height = Math.max(getHeight(node.leftId, map), getHeight(node.rightId, map)) + 1;
   };
 
   // Generate layouts dynamically based on SVG size
@@ -180,32 +230,6 @@ const TreeSandbox = (): React.ReactElement => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [isPlaying, steps.length, playSpeed]);
-
-  // Apply a Simulation Step sequence
-  const pushStep = (
-    stepList: SimulationStep[],
-    currentMap: TreeMap,
-    currentRoot: string | null,
-    highlighted: string[],
-    success: string[],
-    warning: string[],
-    rotation: string[],
-    explanation: string,
-    visited: number[] = [],
-    actionKey?: number
-  ) => {
-    stepList.push({
-      tree: cloneTreeMap(currentMap),
-      rootId: currentRoot,
-      highlightedIds: [...highlighted],
-      successIds: [...success],
-      warningIds: [...warning],
-      rotationIds: [...rotation],
-      explanation,
-      visitedKeys: [...visited],
-      actionNodeKey: actionKey
-    });
-  };
 
   // --- INTERACTION: SEARCH ---
   const triggerSearch = (key: number) => {
@@ -659,41 +683,6 @@ const TreeSandbox = (): React.ReactElement => {
     const finalStep = insertSteps[insertSteps.length - 1];
     setTreeMap(finalStep.tree);
     setRootId(finalStep.rootId);
-  };
-
-  // AVL ROTATIONS CORE MATH
-  const rotateRight = (zId: string, map: TreeMap): string => {
-    const z = map[zId];
-    const yId = z.leftId!;
-    const y = map[yId];
-    const T3Id = y.rightId;
-
-    // Perform rotation
-    y.rightId = zId;
-    z.leftId = T3Id;
-
-    // Update heights
-    updateHeight(zId, map);
-    updateHeight(yId, map);
-
-    return yId;
-  };
-
-  const rotateLeft = (zId: string, map: TreeMap): string => {
-    const z = map[zId];
-    const yId = z.rightId!;
-    const y = map[yId];
-    const T2Id = y.leftId;
-
-    // Perform rotation
-    y.leftId = zId;
-    z.rightId = T2Id;
-
-    // Update heights
-    updateHeight(zId, map);
-    updateHeight(yId, map);
-
-    return yId;
   };
 
   // --- INTERACTION: DELETE ---
