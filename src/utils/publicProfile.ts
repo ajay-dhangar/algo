@@ -1,4 +1,8 @@
-import { getAchievementSnapshot, readAlgoProgress, safeJsonParse } from './safeStorage';
+import {
+  getAchievementSnapshot,
+  readAlgoProgress,
+  safeJsonParse,
+} from "./safeStorage";
 
 export interface PublicProfileSettings {
   isPublic: boolean;
@@ -21,49 +25,66 @@ export interface PublicProfileSnapshot extends PublicProfileSettings {
   badgeUrl: string;
 }
 
-const SETTINGS_KEY = 'algo.public_profile.settings.v1';
+const SETTINGS_KEY = "algo.public_profile.settings.v1";
 
 function getCurrentHost(): string {
-  if (typeof window === 'undefined') {
-    return 'https://example.com';
+  if (typeof window === "undefined") {
+    return "https://example.com";
   }
 
   const origin = window.location.origin;
-  return origin || 'https://example.com';
+  return origin || "https://example.com";
 }
 
 export function getPublicProfileSettings(): PublicProfileSettings | null {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return null;
   }
 
-  const settings = safeJsonParse<PublicProfileSettings | null>(SETTINGS_KEY, null);
+  const settings = safeJsonParse<PublicProfileSettings | null>(
+    SETTINGS_KEY,
+    null,
+  );
   if (!settings) {
     return null;
   }
 
   return {
-    isPublic: settings.isPublic !== undefined ? Boolean(settings.isPublic) : true,
-    username: settings.username?.trim() || '',
-    displayName: settings.displayName?.trim() || settings.username?.trim() || '',
-    bio: settings.bio?.trim() || '',
-    showSolvedProblems: settings.showSolvedProblems !== undefined ? Boolean(settings.showSolvedProblems) : true,
-    showQuizMastery: settings.showQuizMastery !== undefined ? Boolean(settings.showQuizMastery) : true,
-    showStreak: settings.showStreak !== undefined ? Boolean(settings.showStreak) : true,
-    allowBadgeEmbed: settings.allowBadgeEmbed !== undefined ? Boolean(settings.allowBadgeEmbed) : true,
+    isPublic:
+      settings.isPublic !== undefined ? Boolean(settings.isPublic) : true,
+    username: settings.username?.trim() || "",
+    displayName:
+      settings.displayName?.trim() || settings.username?.trim() || "",
+    bio: settings.bio?.trim() || "",
+    showSolvedProblems:
+      settings.showSolvedProblems !== undefined
+        ? Boolean(settings.showSolvedProblems)
+        : true,
+    showQuizMastery:
+      settings.showQuizMastery !== undefined
+        ? Boolean(settings.showQuizMastery)
+        : true,
+    showStreak:
+      settings.showStreak !== undefined ? Boolean(settings.showStreak) : true,
+    allowBadgeEmbed:
+      settings.allowBadgeEmbed !== undefined
+        ? Boolean(settings.allowBadgeEmbed)
+        : true,
   };
 }
 
-export function savePublicProfileSettings(settings: Partial<PublicProfileSettings>): void {
-  if (typeof window === 'undefined') {
+export function savePublicProfileSettings(
+  settings: Partial<PublicProfileSettings>,
+): void {
+  if (typeof window === "undefined") {
     return;
   }
 
   const current = getPublicProfileSettings() || {
     isPublic: true,
-    username: '',
-    displayName: '',
-    bio: '',
+    username: "",
+    displayName: "",
+    bio: "",
     showSolvedProblems: true,
     showQuizMastery: true,
     showStreak: true,
@@ -80,8 +101,9 @@ export function buildPublicProfileSnapshot(input: {
   email?: string;
   overrideSettings?: Partial<PublicProfileSettings>;
 }): PublicProfileSnapshot {
-  const cleanUsername = input.username?.trim() || 'developer';
-  const cleanDisplayName = input.displayName?.trim() || cleanUsername.replace(/-/g, ' ');
+  const cleanUsername = input.username?.trim() || "developer";
+  const cleanDisplayName =
+    input.displayName?.trim() || cleanUsername.replace(/-/g, " ");
 
   const settings = getPublicProfileSettings();
 
@@ -90,7 +112,8 @@ export function buildPublicProfileSnapshot(input: {
     isPublic: true,
     username: cleanUsername,
     displayName: cleanDisplayName,
-    bio: 'A growing Algo learner sharing progress, mastery, and streaks with peers and teams.',
+    bio:
+      "I'm a passionate developer and problem solver, sharing my journey on Algo! Join me as I tackle coding challenges, explore algorithms, and level up my skills. Let's code, learn, and grow together!",
     showSolvedProblems: true,
     showQuizMastery: true,
     showStreak: true,
@@ -98,24 +121,24 @@ export function buildPublicProfileSnapshot(input: {
   };
 
   // Match settings if stored username matches URL parameter (case-insensitive)
-  const matchesStoredSettings = 
+  const matchesStoredSettings =
     settings?.username?.trim()?.toLowerCase() === cleanUsername.toLowerCase();
 
   const settingsToUse = matchesStoredSettings ? settings : null;
 
-  const resolved = { 
-    ...fallbackSettings, 
-    ...(settingsToUse || {}), 
-    ...input.overrideSettings 
+  const resolved = {
+    ...fallbackSettings,
+    ...(settingsToUse || {}),
+    ...input.overrideSettings,
   };
 
   const progress = readAlgoProgress();
   const achievement = getAchievementSnapshot(progress);
 
   const visibleSections = [
-    resolved.showSolvedProblems ? 'solved' : null,
-    resolved.showQuizMastery ? 'quiz-mastery' : null,
-    resolved.showStreak ? 'streak' : null,
+    resolved.showSolvedProblems ? "solved" : null,
+    resolved.showQuizMastery ? "quiz-mastery" : null,
+    resolved.showStreak ? "streak" : null,
   ].filter(Boolean) as string[];
 
   const targetSlug = resolved.username?.trim() || cleanUsername;
@@ -124,7 +147,7 @@ export function buildPublicProfileSnapshot(input: {
     isPublic: Boolean(resolved.isPublic),
     username: targetSlug,
     displayName: resolved.displayName?.trim() || cleanDisplayName,
-    bio: resolved.bio?.trim() || '',
+    bio: resolved.bio?.trim() || "",
     showSolvedProblems: Boolean(resolved.showSolvedProblems),
     showQuizMastery: Boolean(resolved.showQuizMastery),
     showStreak: Boolean(resolved.showStreak),
@@ -140,7 +163,9 @@ export function buildPublicProfileSnapshot(input: {
 }
 
 export function getPublicProfileBadgeMarkdown(username: string): string {
-  const slug = username.trim() || 'algo';
+  const slug = username.trim() || "algo";
   const host = getCurrentHost();
-  return `[![Algo profile](https://img.shields.io/badge/Algo%20profile-${encodeURIComponent(slug)}-blue)](${host}/u/${slug}/badge)`;
+  return `[![Algo profile](https://img.shields.io/badge/Algo%20profile-${encodeURIComponent(
+    slug,
+  )}-blue)](${host}/u/${slug}/badge)`;
 }
