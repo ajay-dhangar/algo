@@ -20,7 +20,8 @@ interface TelemetryStats {
   recentTopics: string[];
 }
 
-export default function ProfilePage() {
+/** Profile page — developer identity dashboard with telemetry, streak, and public profile settings. */
+const ProfilePage = (): React.ReactElement => {
   const { user, isAuthenticated, logout } = useAuth();
   const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
 
@@ -46,8 +47,8 @@ export default function ProfilePage() {
 
         setTelemetry({ completedCount: totalMastered, recentTopics: topics });
       }
-    } catch (error) {
-      console.error("[Telemetry Engine] Error parsing local storage:", error);
+    } catch {
+      // localStorage parse failed — telemetry stays at default zero state.
     }
   };
 
@@ -437,4 +438,6 @@ export default function ProfilePage() {
       </main>
     </Layout>
   );
-}
+};
+
+export default ProfilePage;
