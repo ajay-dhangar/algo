@@ -1,4 +1,4 @@
-import React, { JSX, useState, useMemo, useEffect } from 'react';
+import React, { JSX, useState, useMemo, useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import Head from "@docusaurus/Head";
@@ -262,9 +262,18 @@ const SearchBar = () => {
   const history = useHistory();
   const location = useLocation();
   const [value, setValue] = useState<string | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   useEffect(() => {
     setValue(readSearchName(location.search));
   }, [location]);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
   return (
     <div className={styles.searchContainer}>
       <input
@@ -286,7 +295,8 @@ const SearchBar = () => {
             search: newSearch.toString(),
             state: prepareUserState(),
           });
-          setTimeout(() => {
+          if (timerRef.current) clearTimeout(timerRef.current);
+          timerRef.current = setTimeout(() => {
             document.getElementById('searchbar')?.focus();
           }, 0);
         }}
