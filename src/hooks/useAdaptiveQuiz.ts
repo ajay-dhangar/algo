@@ -47,10 +47,10 @@ export interface UseAdaptiveQuizResult<T extends AdaptiveQuestion> {
  * session early once confidence in the user's mastery level is reached,
  * rather than always working through a fixed-length question set.
  */
-export function useAdaptiveQuiz<T extends AdaptiveQuestion>({
+export const useAdaptiveQuiz = <T extends AdaptiveQuestion>({
   pool,
   config,
-}: UseAdaptiveQuizOptions<T>): UseAdaptiveQuizResult<T> {
+}: UseAdaptiveQuizOptions<T>): UseAdaptiveQuizResult<T> => {
   const resolvedConfig: AdaptiveConfig = useMemo(
     () => ({ ...DEFAULT_ADAPTIVE_CONFIG, ...config }),
     [config]
@@ -86,4 +86,4 @@ export function useAdaptiveQuiz<T extends AdaptiveQuestion>({
     reset,
     history: state.history,
   };
-}
+};

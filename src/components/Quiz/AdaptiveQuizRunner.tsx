@@ -45,7 +45,7 @@ const MASTERY_BADGE: Record<MasteryLevel, string> = {
  * questions across days/sessions); this operates entirely within one
  * sitting and never repeats a question.
  */
-export default function AdaptiveQuizRunner({ pool, onComplete }: Props) {
+const AdaptiveQuizRunner = ({ pool, onComplete }: Props) => {
   const { currentQuestion, questionsAnswered, confidencePercent, isComplete, masteryLevel, answer, history } =
     useAdaptiveQuiz<AdaptiveQuizItem>({ pool });
   const [selected, setSelected] = useState<string | null>(null);
@@ -66,6 +66,7 @@ export default function AdaptiveQuizRunner({ pool, onComplete }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isComplete, reported]);
 
+  /** Submit the currently selected answer and advance. */
   const handleSubmit = () => {
     if (!currentQuestion || !selected) return;
     answer(selected === currentQuestion.answer);
@@ -136,7 +137,7 @@ export default function AdaptiveQuizRunner({ pool, onComplete }: Props) {
           const isSelected = selected === option;
           return (
             <button
-              key={index}
+              key={option}
               onClick={() => setSelected(option)}
               role="radio"
               aria-checked={isSelected}
@@ -173,9 +174,10 @@ export default function AdaptiveQuizRunner({ pool, onComplete }: Props) {
       </button>
     </div>
   );
-}
+};
 
-export function AdaptiveQuizRestartButton({ onClick }: { onClick: () => void }) {
+/** Button that restarts the adaptive quiz session. */
+const AdaptiveQuizRestartButton = ({ onClick }: { onClick: () => void }) => {
   return (
     <button
       onClick={onClick}
@@ -184,4 +186,7 @@ export function AdaptiveQuizRestartButton({ onClick }: { onClick: () => void }) 
       <FaRedo size={11} /> Restart Smart Quiz
     </button>
   );
-}
+};
+
+export { AdaptiveQuizRestartButton };
+export default AdaptiveQuizRunner;
