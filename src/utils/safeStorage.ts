@@ -27,8 +27,6 @@ import {
   type AchievementSnapshot,
 } from './progressStore';
 
-import { QUESTION_COUNTS } from '../data/quizzesConfig';
-
 // ---------------------------------------------------------------------------
 // Re-export types so existing consumers don't break
 // ---------------------------------------------------------------------------
