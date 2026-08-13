@@ -15,7 +15,8 @@ import {
   FaHistory,
   FaLayerGroup
 } from "react-icons/fa";
-import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { getQuizAttempts } from "../../utils/progressStore";
 
 interface QueueQuestion {
   id: number;
@@ -238,7 +239,7 @@ const QueueQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
-      setHistory(safeJsonParse<AttemptHistory[]>("quiz_attempts_" + savedUser.toLowerCase() + "_queues", []));
+      setHistory(getQuizAttempts("queues") as AttemptHistory[]);
     }
   }, []);
 
@@ -258,7 +259,7 @@ const QueueQuiz: React.FC = () => {
     const cleanName = usernameInput.trim();
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
-    setHistory(safeJsonParse<AttemptHistory[]>("quiz_attempts_" + cleanName.toLowerCase() + "_queues", []));
+    setHistory(getQuizAttempts("queues") as AttemptHistory[]);
   };
   const handleLogout = () => {
     localStorage.removeItem("quiz_username");

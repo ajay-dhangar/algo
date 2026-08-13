@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@theme/Layout";
 import { TOPICS } from "../../data/practiceProblems";
 import type { Difficulty, Problem, TopicData } from "../../data/practiceProblems";
-import { safeJsonParse } from "../../utils/safeStorage";
+import { getSolvedProblems, setProblemSolved, onProgressUpdate } from "../../utils/progressStore";
 import DailyChallengeWidget from "../../components/DailyChallengeWidget";
 
 const LEETCODE_BASE = "https://leetcode.com/problems/";
@@ -393,18 +393,19 @@ const Practice: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [solved, setSolved] = useState<Set<string>>(new Set());
 
-  // Mount logic to safely bootstrap standard LocalStorage states in dynamic SSR
-  // safeJsonParse handles malformed JSON internally and returns the fallback
-  // value, so no try/catch is needed here.
+  // Mount logic: hydrate from unified progress store
   useEffect(() => {
-    setSolved(new Set(safeJsonParse<string[]>("leetcode_solved", [])));
+    setSolved(getSolvedProblems());
+    const unsub = onProgressUpdate(() => setSolved(getSolvedProblems()));
+    return unsub;
   }, []);
 
   const toggleSolved = (key: string) => {
+    const isNowSolved = !solved.has(key);
+    setProblemSolved(key, isNowSolved);
     setSolved((prev) => {
       const next = new Set(prev);
-      next.has(key) ? next.delete(key) : next.add(key);
-      localStorage.setItem("leetcode_solved", JSON.stringify(Array.from(next)));
+      isNowSolved ? next.add(key) : next.delete(key);
       return next;
     });
   };

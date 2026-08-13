@@ -12,6 +12,7 @@ import PracticeActivityHeatmapWidget from "../components/PracticeActivityHeatmap
 import PracticeActivitySummaryCard from "../components/PracticeActivitySummaryCard";
 import PublicProfileSettingsCard from "../components/PublicProfileSettingsCard";
 import QuizStreakWidget from "../components/QuizStreakWidget";
+import { getProgressSnapshot, onProgressUpdate } from "../utils/progressStore";
 
 type DashboardTab = "overview" | "metrics" | "security";
 
@@ -20,7 +21,8 @@ interface TelemetryStats {
   recentTopics: string[];
 }
 
-export default function ProfilePage() {
+/** User profile page with progress stats, settings, and telemetry. */
+const ProfilePage = () => {
   const { user, isAuthenticated, logout } = useAuth();
   const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
 
@@ -31,31 +33,29 @@ export default function ProfilePage() {
 
   const parseTelemetryData = () => {
     try {
-      const saved = localStorage.getItem("algo_progress");
-      if (saved) {
-        const progress = JSON.parse(saved);
-        const totalMastered = Object.keys(progress).filter(
-          (key) => !key.endsWith("_title") && !key.endsWith("_updatedAt") && progress[key] === true
-        ).length;
+      const progress = getProgressSnapshot();
+      const completedCount = Object.values(progress.topics).filter((t) => t.completed).length;
 
-        const topics = Object.keys(progress)
-          .filter((key) => key.endsWith("_title"))
-          .map((key) => progress[key])
-          .reverse()
-          .slice(0, 4);
+      const recentTopics = Object.values(progress.topics)
+        .filter((t) => t.completed && t.title)
+        .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
+        .slice(0, 4)
+        .map((t) => t.title);
 
-        setTelemetry({ completedCount: totalMastered, recentTopics: topics });
-      }
+      setTelemetry({ completedCount, recentTopics });
     } catch (error) {
-      console.error("[Telemetry Engine] Error parsing local storage:", error);
+      console.error("[Telemetry Engine] Error parsing progress store:", error);
     }
   };
 
   useEffect(() => {
     parseTelemetryData();
-    const handleProgressUpdate = () => parseTelemetryData();
-    window.addEventListener("progressUpdated", handleProgressUpdate);
-    return () => window.removeEventListener("progressUpdated", handleProgressUpdate);
+    const unsub = onProgressUpdate(parseTelemetryData);
+    window.addEventListener("progressUpdated", parseTelemetryData);
+    return () => {
+      unsub();
+      window.removeEventListener("progressUpdated", parseTelemetryData);
+    };
   }, []);
 
   const joinDate = useMemo(() => {
@@ -437,4 +437,6 @@ export default function ProfilePage() {
       </main>
     </Layout>
   );
-}
+};
+
+export default ProfilePage;

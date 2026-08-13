@@ -13,7 +13,8 @@ import {
   FaChevronRight, 
   FaHistory 
 } from "react-icons/fa";
-import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { getQuizAttempts } from "../../utils/progressStore";
 
 interface Question {
   id: number;
@@ -160,8 +161,7 @@ const StackQuiz: React.FC = () => {
     const storedUser = localStorage.getItem("quiz_username");
     if (storedUser) {
       setUsername(storedUser);
-      const historyKey = `quiz_attempts_${storedUser.toLowerCase()}_stacks`;
-      setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
+      setLocalHistory(getQuizAttempts("stacks") as LocalAttempt[]);
     }
   }, []);
 
@@ -190,8 +190,7 @@ const StackQuiz: React.FC = () => {
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
 
-    const historyKey = `quiz_attempts_${cleanName.toLowerCase()}_stacks`;
-    setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
+    setLocalHistory(getQuizAttempts("stacks") as LocalAttempt[]);
   };
 
   const handleLogout = () => {
