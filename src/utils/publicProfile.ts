@@ -107,9 +107,12 @@ export function buildPublicProfileSnapshot(input: {
 
   const settings = getPublicProfileSettings();
 
-  // Smart production fallbacks (Defaults to public for smoother onboarding)
+  // Smart production fallbacks — isPublic defaults to false so that any URL
+  // slug without matching stored settings shows the private/restricted view.
+  // A profile is only public when the stored username matches the URL slug
+  // AND the user has explicitly set isPublic: true in their settings.
   const fallbackSettings: PublicProfileSettings = {
-    isPublic: true,
+    isPublic: false,
     username: cleanUsername,
     displayName: cleanDisplayName,
     bio:
