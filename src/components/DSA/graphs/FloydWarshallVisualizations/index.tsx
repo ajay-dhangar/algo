@@ -30,7 +30,8 @@ const FloydWarshallVisualizations: React.FC = () => {
   };
 
   const nextStep = () => {
-    let [k, i, j] = currentStep!;
+    if (!currentStep) return;
+    const [k, i, j] = currentStep;
 
     const updatedDistances = [...distances];
 

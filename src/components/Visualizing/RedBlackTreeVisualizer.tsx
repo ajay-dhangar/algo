@@ -16,7 +16,8 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
 
   // Rotations & Balancing Logic
   const rotateLeft = (node: RBNode, currentRoot: RBNode | null): RBNode | null => {
-    const rightChild = node.right!;
+    const rightChild = node.right;
+    if (!rightChild) return currentRoot;
     node.right = rightChild.left;
     if (rightChild.left !== null) {
       rightChild.left.parent = node;
@@ -35,7 +36,8 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
   };
 
   const rotateRight = (node: RBNode, currentRoot: RBNode | null): RBNode | null => {
-    const leftChild = node.left!;
+    const leftChild = node.left;
+    if (!leftChild) return currentRoot;
     node.left = leftChild.right;
     if (leftChild.right !== null) {
       leftChild.right.parent = node;
@@ -56,7 +58,8 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
   const balanceTree = (newNode: RBNode, currentRoot: RBNode | null): RBNode | null => {
     let curr = newNode;
     while (curr !== currentRoot && curr.parent !== null && curr.parent.color === "RED") {
-      const grandParent = curr.parent.parent!;
+      const grandParent = curr.parent.parent;
+      if (!grandParent) break;
       if (curr.parent === grandParent.left) {
         const uncle = grandParent.right;
         if (uncle !== null && uncle.color === "RED") {
@@ -74,7 +77,7 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
             setLog((prev) => [...prev, `Rotated Left at node ${curr.value}.`]);
           }
           // Case 3
-          curr.parent!.color = "BLACK";
+          if (curr.parent) curr.parent.color = "BLACK";
           grandParent.color = "RED";
           currentRoot = rotateRight(grandParent, currentRoot);
           setLog((prev) => [...prev, `Rotated Right at grandparent ${grandParent.value}.`]);
@@ -93,7 +96,7 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
             currentRoot = rotateRight(curr, currentRoot);
             setLog((prev) => [...prev, `Rotated Right at node ${curr.value}.`]);
           }
-          curr.parent!.color = "BLACK";
+          if (curr.parent) curr.parent.color = "BLACK";
           grandParent.color = "RED";
           currentRoot = rotateLeft(grandParent, currentRoot);
           setLog((prev) => [...prev, `Rotated Left at grandparent ${grandParent.value}.`]);
@@ -144,11 +147,13 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
       }
     }
 
-    newNode.parent = parentNode!;
-    if (val < parentNode!.value) {
-      parentNode!.left = newNode;
-    } else {
-      parentNode!.right = newNode;
+    newNode.parent = parentNode;
+    if (parentNode) {
+      if (val < parentNode.value) {
+        parentNode.left = newNode;
+      } else {
+        parentNode.right = newNode;
+      }
     }
 
     const balancedRoot = balanceTree(newNode, root);

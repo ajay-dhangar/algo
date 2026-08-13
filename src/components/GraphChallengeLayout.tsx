@@ -66,7 +66,8 @@ function GenericGraphVisualizer({ challenge }: { challenge: GraphChallenge }) {
   // Add node on canvas click
   const handleSvgClick = useCallback((e: React.MouseEvent<SVGSVGElement>) => {
     if (animating) return;
-    const rect = svgRef.current!.getBoundingClientRect();
+    if (!svgRef.current) return;
+    const rect = svgRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     // Don't add node if click was on a node circle
