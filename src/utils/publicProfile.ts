@@ -124,11 +124,13 @@ const buildPublicProfileSnapshot = (input: {
   const progress = readAlgoProgress();
   const achievement = getAchievementSnapshot(progress);
 
-  const visibleSections = [
-    resolved.showSolvedProblems ? "solved" : null,
-    resolved.showQuizMastery ? "quiz-mastery" : null,
-    resolved.showStreak ? "streak" : null,
-  ].filter(Boolean) as string[];
+  const visibleSections = Boolean(resolved.isPublic)
+    ? ([
+        resolved.showSolvedProblems ? "solved" : null,
+        resolved.showQuizMastery ? "quiz-mastery" : null,
+        resolved.showStreak ? "streak" : null,
+      ].filter(Boolean) as string[])
+    : [];
 
   const targetSlug = resolved.username?.trim() || cleanUsername;
 
