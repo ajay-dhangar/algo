@@ -124,7 +124,7 @@ const buildPublicProfileSnapshot = (input: {
   const progress = readAlgoProgress();
   const achievement = getAchievementSnapshot(progress);
 
-  const visibleSections = Boolean(resolved.isPublic)
+  const visibleSections = resolved.isPublic
     ? ([
         resolved.showSolvedProblems ? "solved" : null,
         resolved.showQuizMastery ? "quiz-mastery" : null,
