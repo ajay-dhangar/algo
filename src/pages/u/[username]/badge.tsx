@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import { useLocation } from '@docusaurus/router';
@@ -19,11 +19,14 @@ function extractUsername(pathname: string): string {
 
 type BadgeStyle = 'for-the-badge' | 'flat' | 'flat-square' | 'plastic';
 
-export default function PublicProfileBadgePage() {
+/** Badge page — renders customizable embeddable Shields.io badges for a public Algo profile at /u/:username/badge. */
+const PublicProfileBadgePage = (): React.ReactElement => {
   const location = useLocation();
   const username = useMemo(() => extractUsername(location.pathname), [location.pathname]);
   
   const [copiedFormat, setCopiedFormat] = useState<'markdown' | 'html' | 'url' | null>(null);
+  const copiedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (copiedTimerRef.current) clearTimeout(copiedTimerRef.current); }, []);
   const [activeTab, setActiveTab] = useState<'preview' | 'embed'>('preview');
   
   // Customization controls
@@ -51,9 +54,10 @@ export default function PublicProfileBadgePage() {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedFormat(format);
-      setTimeout(() => setCopiedFormat(null), 2000);
-    } catch (err) {
-      console.error('Failed to copy code snippet:', err);
+      if (copiedTimerRef.current) clearTimeout(copiedTimerRef.current);
+      copiedTimerRef.current = setTimeout(() => setCopiedFormat(null), 2000);
+    } catch {
+      // Clipboard write failed silently — user can manually select and copy.
     }
   };
 
@@ -301,4 +305,6 @@ export default function PublicProfileBadgePage() {
       </main>
     </Layout>
   );
-}
+};
+
+export default PublicProfileBadgePage;
