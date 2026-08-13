@@ -50,16 +50,17 @@ const UNCERTAINTY_DECAY = 0.85;
 /** How far a single answer can move the ability estimate at maximum uncertainty (session start). */
 const BASE_STEP = 0.9;
 
-export function createInitialAdaptiveState(): AdaptiveState {
+/** Create a fresh adaptive state at the session start. */
+export const createInitialAdaptiveState = (): AdaptiveState => {
   return { abilityEstimate: 2, uncertainty: 1, history: [] };
-}
+};
 
 /** Pure update: given the previous state and one new answer, returns the next state. */
-export function recordAnswer(
+export const recordAnswer = (
   state: AdaptiveState,
   question: AdaptiveQuestion,
-  correct: boolean
-): AdaptiveState {
+  correct: boolean,
+): AdaptiveState => {
   const direction = correct ? 1 : -1;
   // Bigger corrections early (high uncertainty), smaller/finer corrections later —
   // this is what makes the estimate converge instead of oscillating forever.
@@ -75,7 +76,7 @@ export function recordAnswer(
       { id: question.id, difficulty: question.difficulty, correct, abilityAfter: nextAbility },
     ],
   };
-}
+};
 
 /**
  * Picks the next question whose difficulty best matches the current ability
@@ -84,10 +85,10 @@ export function recordAnswer(
  * seeded shuffle of the tied candidates, so two users with an identical
  * answer pattern don't always see the exact same question order.
  */
-export function selectNextQuestion<T extends AdaptiveQuestion>(
+export const selectNextQuestion = <T extends AdaptiveQuestion>(
   state: AdaptiveState,
-  pool: T[]
-): T | null {
+  pool: T[],
+): T | null => {
   const answeredIds = new Set(state.history.map((h) => h.id));
   const remaining = pool.filter((q) => !answeredIds.has(q.id));
   if (remaining.length === 0) return null;
@@ -105,7 +106,7 @@ export function selectNextQuestion<T extends AdaptiveQuestion>(
   // been answered so far, so repeated ties don't always resolve the same way.
   const pick = tied[state.history.length % tied.length];
   return pick;
-}
+};
 
 /**
  * Whether the session can end now. Ends when either:
@@ -119,11 +120,11 @@ export function selectNextQuestion<T extends AdaptiveQuestion>(
  *    (e.g. acing every difficulty except one) is deliberately kept in
  *    the session longer so that weak spot gets sampled properly.
  */
-export function shouldStop(
+export const shouldStop = (
   state: AdaptiveState,
   poolSize: number,
-  config: AdaptiveConfig = DEFAULT_ADAPTIVE_CONFIG
-): boolean {
+  config: AdaptiveConfig = DEFAULT_ADAPTIVE_CONFIG,
+): boolean => {
   const answered = state.history.length;
   if (answered >= Math.min(config.maxQuestions, poolSize)) return true;
   if (answered < config.minQuestions) return false;
@@ -134,22 +135,24 @@ export function shouldStop(
   const abilities = window.map((h) => h.abilityAfter);
   const swing = Math.max(...abilities) - Math.min(...abilities);
   return swing <= config.stabilityTolerance;
-}
+};
 
 export type MasteryLevel = "Developing" | "Proficient" | "Advanced";
 
-export function getMasteryLevel(state: AdaptiveState): MasteryLevel {
+/** Map the continuous ability estimate to a discrete mastery bucket. */
+export const getMasteryLevel = (state: AdaptiveState): MasteryLevel => {
   if (state.abilityEstimate < 1.67) return "Developing";
   if (state.abilityEstimate < 2.5) return "Proficient";
   return "Advanced";
-}
+};
 
 /** 0-100 display value: how statistically confident we are in the mastery estimate. */
-export function getConfidencePercent(state: AdaptiveState): number {
+export const getConfidencePercent = (state: AdaptiveState): number => {
   const raw = 1 - (state.uncertainty - MIN_UNCERTAINTY) / (1 - MIN_UNCERTAINTY);
   return Math.round(clamp(raw, 0, 1) * 100);
-}
+};
 
-function clamp(value: number, min: number, max: number): number {
+/** Clamp a number between min and max (inclusive). */
+const clamp = (value: number, min: number, max: number): number => {
   return Math.min(max, Math.max(min, value));
-}
+};

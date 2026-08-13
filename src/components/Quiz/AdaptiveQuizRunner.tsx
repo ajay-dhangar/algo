@@ -133,7 +133,7 @@ const AdaptiveQuizRunner = ({ pool, onComplete }: Props) => {
       </div>
 
       <div className="grid grid-cols-1 gap-3 pt-2" role="radiogroup" aria-label="Smart Quiz Options">
-        {currentQuestion.options.map((option, index) => {
+        {currentQuestion.options.map((option) => {
           const isSelected = selected === option;
           return (
             <button

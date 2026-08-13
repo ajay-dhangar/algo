@@ -219,6 +219,7 @@ const BinaryTreeQuiz: React.FC = () => {
     }
   };
 
+  /** Forward smart-quiz results to the attempt logger. */
   const handleSmartQuizComplete = (summary: AdaptiveQuizSummary) => {
     submitAttempt(userId, summary.correctCount, summary.questionsAsked, timeSpent);
   };

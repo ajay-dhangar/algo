@@ -16,10 +16,10 @@ jest.mock("../../utils/supabaseClient", () => ({
 
 import BinaryTreeQuiz from "../../pages/quizzes/binary-tree";
 
-function loginAsTestUser() {
+const loginAsTestUser = () => {
   window.localStorage.setItem("quiz_userId", "test-user-id");
   window.localStorage.setItem("quiz_username", "TestUser");
-}
+};
 
 describe("BinaryTreeQuiz page — smart quiz mode integration", () => {
   beforeEach(() => {

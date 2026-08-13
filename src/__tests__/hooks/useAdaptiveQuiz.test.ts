@@ -2,10 +2,10 @@ import { act, renderHook } from "@testing-library/react";
 import { useAdaptiveQuiz } from "../../hooks/useAdaptiveQuiz";
 import { AdaptiveQuestion, DEFAULT_ADAPTIVE_CONFIG } from "../../utils/adaptiveQuiz";
 
-function makePool(n = 30): AdaptiveQuestion[] {
+const makePool = (n = 30): AdaptiveQuestion[] => {
   const diffs = ["Easy", "Medium", "Hard"] as const;
   return Array.from({ length: n }, (_, i) => ({ id: i, difficulty: diffs[i % 3] }));
-}
+};
 
 describe("useAdaptiveQuiz", () => {
   test("starts with a question and not complete", () => {

@@ -1,9 +1,9 @@
 import React from "react";
-import { render, screen, within } from "../testUtils";
+import { render, screen } from "../testUtils";
 import userEvent from "@testing-library/user-event";
 import AdaptiveQuizRunner, { AdaptiveQuizItem, AdaptiveQuizSummary } from "../../components/Quiz/AdaptiveQuizRunner";
 
-function makePool(n = 30): AdaptiveQuizItem[] {
+const makePool = (n = 30): AdaptiveQuizItem[] => {
   const diffs = ["Easy", "Medium", "Hard"] as const;
   return Array.from({ length: n }, (_, i) => ({
     id: i,
@@ -13,7 +13,7 @@ function makePool(n = 30): AdaptiveQuizItem[] {
     answer: "Correct",
     explanation: "Because.",
   }));
-}
+};
 
 describe("AdaptiveQuizRunner", () => {
   test("renders the first question with difficulty badge and options", () => {
@@ -46,7 +46,7 @@ describe("AdaptiveQuizRunner", () => {
 
   test("a full session of correct answers completes, shows Advanced, and calls onComplete exactly once", async () => {
     const user = userEvent.setup();
-    const onComplete = jest.fn<void, [AdaptiveQuizSummary]>();
+    const onComplete = jest.fn();
     render(<AdaptiveQuizRunner pool={makePool()} onComplete={onComplete} />);
 
     let guard = 0;

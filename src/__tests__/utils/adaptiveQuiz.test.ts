@@ -11,16 +11,16 @@ import {
   AdaptiveConfig,
 } from "../../utils/adaptiveQuiz";
 
-function makePool(n = 30): AdaptiveQuestion[] {
+const makePool = (n = 30): AdaptiveQuestion[] => {
   const diffs = ["Easy", "Medium", "Hard"] as const;
   return Array.from({ length: n }, (_, i) => ({ id: i, difficulty: diffs[i % 3] }));
-}
+};
 
-function runSession(
+const runSession = (
   answerFn: (q: AdaptiveQuestion, state: AdaptiveState) => boolean,
   config: AdaptiveConfig = DEFAULT_ADAPTIVE_CONFIG,
   poolSize = 30
-) {
+) => {
   const pool = makePool(poolSize);
   let state = createInitialAdaptiveState();
   const askedDifficulties: string[] = [];
@@ -35,7 +35,7 @@ function runSession(
     state = recordAnswer(state, q, correct);
   }
   return { state, askedDifficulties };
-}
+};
 
 describe("adaptiveQuiz engine", () => {
   test("a learner who always answers correctly ends Advanced, within bounds", () => {
