@@ -21,9 +21,7 @@ import {
   getRoadmapStages,
   setRoadmapStages as setRoadmapStagesUnified,
   getAchievementSnapshot as getUnifiedAchievementSnapshot,
-  onProgressUpdate,
   syncFromSupabase,
-  type UnifiedProgress,
   type QuizAttemptRecord,
   type ActivityEvent,
   type AchievementSnapshot,
@@ -50,16 +48,18 @@ export const getUserId = (): string | null => {
     const sessionRaw = window.localStorage.getItem('algo.auth.session.v1');
     if (sessionRaw) {
       const session = JSON.parse(sessionRaw);
-      if (session && session.accountId) return session.accountId;
+      if (session?.accountId) return session.accountId;
     }
   } catch { /* ignore */ }
   return window.localStorage.getItem('quiz_userId') || null;
 };
 
+/** Pull latest progress from Supabase into local storage. */
 export const syncAlgoProgress = async (): Promise<void> => {
   await syncFromSupabase();
 };
 
+/** Parse a JSON value from localStorage, returning `fallback` on any error. */
 export const safeJsonParse = <T>(key: string, fallback: T): T => {
   if (typeof window === 'undefined' || !window.localStorage) {
     return fallback;
@@ -77,6 +77,7 @@ export const safeJsonParse = <T>(key: string, fallback: T): T => {
   }
 };
 
+/** Read a raw string from localStorage, returning null on error. */
 export const safeGetItem = (key: string): string | null => {
   if (typeof window === 'undefined' || !window.localStorage) {
     return null;
@@ -89,6 +90,7 @@ export const safeGetItem = (key: string): string | null => {
   }
 };
 
+/** Write a raw string to localStorage, silently ignoring errors. */
 export const safeSetItem = (key: string, value: string): void => {
   if (typeof window === 'undefined' || !window.localStorage) {
     return;
@@ -100,6 +102,7 @@ export const safeSetItem = (key: string, value: string): void => {
   }
 };
 
+/** Remove a key from localStorage, silently ignoring errors. */
 export const safeRemoveItem = (key: string): void => {
   if (typeof window === 'undefined' || !window.localStorage) {
     return;
@@ -187,6 +190,7 @@ const QUIZ_ID_ALIASES: Record<string, string> = {
   'b-tree': 'b-trees',
 };
 
+/** Map legacy quiz ID aliases to their canonical forms. */
 export const normalizeQuizId = (quizId: string): string =>
   QUIZ_ID_ALIASES[quizId] ?? quizId;
 
