@@ -21,8 +21,8 @@ interface TelemetryStats {
   recentTopics: string[];
 }
 
-/** User profile page with progress stats, settings, and telemetry. */
-const ProfilePage = () => {
+/** Profile page — developer identity dashboard with telemetry, streak, and public profile settings. */
+const ProfilePage = (): React.ReactElement => {
   const { user, isAuthenticated, logout } = useAuth();
   const [activeTab, setActiveTab] = useState<DashboardTab>("overview");
 
@@ -33,18 +33,23 @@ const ProfilePage = () => {
 
   const parseTelemetryData = () => {
     try {
-      const progress = getProgressSnapshot();
-      const completedCount = Object.values(progress.topics).filter((t) => t.completed).length;
+      const saved = localStorage.getItem("algo_progress");
+      if (saved) {
+        const progress = JSON.parse(saved);
+        const totalMastered = Object.keys(progress).filter(
+          (key) => !key.endsWith("_title") && !key.endsWith("_updatedAt") && progress[key] === true
+        ).length;
 
-      const recentTopics = Object.values(progress.topics)
-        .filter((t) => t.completed && t.title)
-        .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
-        .slice(0, 4)
-        .map((t) => t.title);
+        const topics = Object.keys(progress)
+          .filter((key) => key.endsWith("_title"))
+          .map((key) => progress[key])
+          .reverse()
+          .slice(0, 4);
 
-      setTelemetry({ completedCount, recentTopics });
-    } catch (error) {
-      console.error("[Telemetry Engine] Error parsing progress store:", error);
+        setTelemetry({ completedCount: totalMastered, recentTopics: topics });
+      }
+    } catch {
+      // localStorage parse failed — telemetry stays at default zero state.
     }
   };
 
