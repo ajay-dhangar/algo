@@ -1,66 +1,64 @@
+/**
+ * Safe Storage Utilities (backed by unified progress store)
+ * ---------------------------------------------------------
+ * This module re-exports the public API that the rest of the codebase
+ * depends on.  Internally every read/write delegates to the single
+ * `UnifiedProgress` object managed by `progressStore.ts`, so there is
+ * exactly one localStorage key and one source of truth.
+ *
+ * Legacy flat `algo_progress` accessors (`readAlgoProgress` /
+ * `writeAlgoProgress`) are preserved for backward compatibility: they
+ * convert between the flat schema and the structured topics map inside
+ * the unified store.
+ */
+
+import {
+  readProgress,
+  writeProgress,
+  getProgressSnapshot,
+  setTopicCompleted,
+  saveQuizAttempt as saveQuizAttemptUnified,
+  getRoadmapStages,
+  setRoadmapStages as setRoadmapStagesUnified,
+  getAchievementSnapshot as getUnifiedAchievementSnapshot,
+  syncFromSupabase,
+  type QuizAttemptRecord,
+  type ActivityEvent,
+  type AchievementSnapshot,
+} from './progressStore';
+
+// ---------------------------------------------------------------------------
+// Re-export types so existing consumers don't break
+// ---------------------------------------------------------------------------
+export type { QuizAttemptRecord, AchievementSnapshot, ActivityEvent };
+
 export interface AlgoProgressData {
   [key: string]: unknown;
 }
 
-import { supabase } from './supabaseClient';
-import { QUESTION_COUNTS } from '../data/quizzesConfig';
+// ---------------------------------------------------------------------------
+// Safe localStorage helpers (unchanged API, unchanged behaviour)
+// ---------------------------------------------------------------------------
 
-export function getUserId(): string | null {
+export const getUserId = (): string | null => {
   if (typeof window === 'undefined' || !window.localStorage) return null;
   try {
-    const sessionRaw = window.localStorage.getItem("algo.auth.session.v1");
+    const sessionRaw = window.localStorage.getItem('algo.auth.session.v1');
     if (sessionRaw) {
       const session = JSON.parse(sessionRaw);
-      if (session && session.accountId) return session.accountId;
+      if (session?.accountId) return session.accountId;
     }
-  } catch {}
-  return window.localStorage.getItem("quiz_userId") || null;
-}
+  } catch { /* ignore */ }
+  return window.localStorage.getItem('quiz_userId') || null;
+};
 
-export async function syncAlgoProgress(): Promise<void> {
-  const userId = getUserId();
-  if (!userId) return;
+/** Pull latest progress from Supabase into local storage. */
+export const syncAlgoProgress = async (): Promise<void> => {
+  await syncFromSupabase();
+};
 
-  try {
-    const { data, error } = await supabase
-      .from('user_progress')
-      .select('progress_data')
-      .eq('user_id', userId)
-      .single();
-
-    if (error) {
-      if (error.code !== 'PGRST116') {
-        console.error("[Algo] Failed to sync progress from Supabase:", error);
-      }
-      return;
-    }
-
-    if (data && data.progress_data) {
-      const current = readAlgoProgress();
-      const merged = { ...current, ...data.progress_data };
-      window.localStorage.setItem('algo_progress', JSON.stringify(merged));
-      window.dispatchEvent(new Event('progressUpdated'));
-    }
-  } catch (err) {
-    console.error("[Algo] Error syncing progress from Supabase:", err);
-  }
-}
-
-export interface AchievementSnapshot {
-  completedCount: number;
-  completedTopics: string[];
-  completedTitles: string[];
-  streak: number;
-  lastActiveAt: string | null;
-  /** Number of quizzes where best score >= 70% */
-  quizzesPassed: number;
-  /** Number of quizzes where best score >= 90% */
-  quizzesMastered: number;
-  /** Total quiz IDs found in localStorage */
-  totalQuizzesAttempted: number;
-}
-
-export function safeJsonParse<T>(key: string, fallback: T): T {
+/** Parse a JSON value from localStorage, returning `fallback` on any error. */
+export const safeJsonParse = <T>(key: string, fallback: T): T => {
   if (typeof window === 'undefined' || !window.localStorage) {
     return fallback;
   }
@@ -69,15 +67,16 @@ export function safeJsonParse<T>(key: string, fallback: T): T {
     if (raw === null) return fallback;
     return JSON.parse(raw) as T;
   } catch {
-    console.warn("[Algo] Corrupt localStorage key " + key + " — resetting to default.");
+    console.warn('[Algo] Corrupt localStorage key ' + key + ' — resetting to default.');
     try {
       localStorage.removeItem(key);
-    } catch {}
+    } catch { /* ignore */ }
     return fallback;
   }
-}
+};
 
-export function safeGetItem(key: string): string | null {
+/** Read a raw string from localStorage, returning null on error. */
+export const safeGetItem = (key: string): string | null => {
   if (typeof window === 'undefined' || !window.localStorage) {
     return null;
   }
@@ -87,9 +86,10 @@ export function safeGetItem(key: string): string | null {
     console.error(`[Algo] Failed to get localStorage key "${key}":`, err);
     return null;
   }
-}
+};
 
-export function safeSetItem(key: string, value: string): void {
+/** Write a raw string to localStorage, silently ignoring errors. */
+export const safeSetItem = (key: string, value: string): void => {
   if (typeof window === 'undefined' || !window.localStorage) {
     return;
   }
@@ -98,9 +98,10 @@ export function safeSetItem(key: string, value: string): void {
   } catch (err) {
     console.error(`[Algo] Failed to set localStorage key "${key}":`, err);
   }
-}
+};
 
-export function safeRemoveItem(key: string): void {
+/** Remove a key from localStorage, silently ignoring errors. */
+export const safeRemoveItem = (key: string): void => {
   if (typeof window === 'undefined' || !window.localStorage) {
     return;
   }
@@ -109,35 +110,73 @@ export function safeRemoveItem(key: string): void {
   } catch (err) {
     console.error(`[Algo] Failed to remove localStorage key "${key}":`, err);
   }
-}
+};
 
+// ---------------------------------------------------------------------------
+// Flat algo_progress accessors (backward-compatible shim)
+// ---------------------------------------------------------------------------
 
-export function readAlgoProgress(): AlgoProgressData {
-  return safeJsonParse<AlgoProgressData>('algo_progress', {});
-}
+/**
+ * Read the legacy flat `algo_progress` shape.
+ * Internally the data lives in the unified store's `topics` map; this
+ * function reconstructs the flat layout so callers don't need to change.
+ */
+export const readAlgoProgress = (): AlgoProgressData => {
+  const progress = getProgressSnapshot();
+  const flat: AlgoProgressData = {};
 
-export function writeAlgoProgress(progress: AlgoProgressData): void {
-  if (typeof window === 'undefined' || !window.localStorage) {
-    return;
+  for (const [topicId, entry] of Object.entries(progress.topics)) {
+    flat[topicId] = entry.completed;
+    if (entry.title) flat[`${topicId}_title`] = entry.title;
+    if (entry.updatedAt) flat[`${topicId}_updatedAt`] = entry.updatedAt;
   }
 
-  window.localStorage.setItem('algo_progress', JSON.stringify(progress));
-  window.dispatchEvent(new Event('progressUpdated'));
+  flat.lastActiveAt = progress.lastActiveAt;
+  flat.roadmapStagesCompleted = progress.roadmapStages;
 
-  const userId = getUserId();
-  if (userId) {
-    supabase.from('user_progress').upsert(
-      { user_id: userId, progress_data: progress, updated_at: new Date().toISOString() },
-      { onConflict: 'user_id' }
-    ).then(({ error }) => {
-      if (error) {
-        console.error("[Algo] Failed to save progress to Supabase:", error);
-      }
-    });
+  return flat;
+};
+
+/**
+ * Write a legacy flat `algo_progress` object.
+ * Converts the flat keys back to the structured topics map and persists
+ * via the unified store.
+ */
+export const writeAlgoProgress = (progress: AlgoProgressData): void => {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+
+  const unified = readProgress();
+
+  for (const [key, value] of Object.entries(progress)) {
+    if (key === 'lastActiveAt' && typeof value === 'string') {
+      unified.lastActiveAt = value;
+    } else if (key === 'roadmapStagesCompleted' && Array.isArray(value)) {
+      unified.roadmapStages = Array.from(new Set(value as number[]))
+        .sort((a, b) => a - b);
+    } else if (key.endsWith('_title') && typeof value === 'string') {
+      const topicId = key.slice(0, -'_title'.length);
+      const existing = unified.topics[topicId] ?? { completed: false, title: '', updatedAt: '' };
+      existing.title = value;
+      unified.topics[topicId] = existing;
+    } else if (key.endsWith('_updatedAt') && typeof value === 'string') {
+      const topicId = key.slice(0, -'_updatedAt'.length);
+      const existing = unified.topics[topicId] ?? { completed: false, title: '', updatedAt: '' };
+      existing.updatedAt = value;
+      unified.topics[topicId] = existing;
+    } else if (typeof value === 'boolean') {
+      const existing = unified.topics[key] ?? { completed: false, title: '', updatedAt: '' };
+      existing.completed = value;
+      unified.topics[key] = existing;
+    }
   }
-}
 
-/** Maps page-level quiz ids to canonical ids used by achievements + quiz index. */
+  writeProgress(unified);
+};
+
+// ---------------------------------------------------------------------------
+// Quiz ID aliasing & normalisation
+// ---------------------------------------------------------------------------
+
 const QUIZ_ID_ALIASES: Record<string, string> = {
   graph: 'graphs',
   'binary-tree': 'binary-trees',
@@ -149,136 +188,59 @@ const QUIZ_ID_ALIASES: Record<string, string> = {
   'b-tree': 'b-trees',
 };
 
-export function normalizeQuizId(quizId: string): string {
-  return QUIZ_ID_ALIASES[quizId] ?? quizId;
-}
+/** Map legacy quiz ID aliases to their canonical forms. */
+export const normalizeQuizId = (quizId: string): string =>
+  QUIZ_ID_ALIASES[quizId] ?? quizId;
 
-export function getQuizAttemptStorageKey(userId: string, quizId: string): string {
+/** Build the localStorage key used to store quiz attempts for a given user+quiz. */
+export const getQuizAttemptStorageKey = (userId: string, quizId: string): string => {
   const uid = userId.toLowerCase();
   return `quiz_attempts_${uid}_${normalizeQuizId(quizId)}`;
-}
+};
 
-export function markChallengeSolved(challengeId: string, title: string): void {
-  const progress = readAlgoProgress();
-  const now = new Date().toISOString();
+// ---------------------------------------------------------------------------
+// Challenge (doc topic) helpers
+// ---------------------------------------------------------------------------
 
-  progress[challengeId] = true;
-  progress[`${challengeId}_title`] = title;
-  progress[`${challengeId}_updatedAt`] = now;
-  progress.lastActiveAt = now;
+export const markChallengeSolved = (challengeId: string, title: string): void => {
+  setTopicCompleted(challengeId, title, true);
 
-  writeAlgoProgress(progress);
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(
+      new CustomEvent('progressUpdated', {
+        detail: { topicId: challengeId, completed: true, title },
+      }),
+    );
+  }
+};
 
-  window.dispatchEvent(
-    new CustomEvent('progressUpdated', {
-      detail: { topicId: challengeId, completed: true, title },
-    })
-  );
-}
+// ---------------------------------------------------------------------------
+// Roadmap stage accessors
+// ---------------------------------------------------------------------------
 
-/** Namespace key inside algo_progress that stores the DSA roadmap's completed stage ids. */
 export const ROADMAP_COMPLETED_KEY = 'roadmapStagesCompleted';
-
-/** Legacy isolated localStorage key the roadmap used before being reconciled into algo_progress. */
 export const LEGACY_ROADMAP_STORAGE_KEY = 'dsa_learning_roadmap_completed';
 
-/**
- * Reads the legacy isolated roadmap key, tolerating missing or corrupt values.
- */
-const readLegacyRoadmapStages = (): number[] => {
-  const raw = safeGetItem(LEGACY_ROADMAP_STORAGE_KEY);
-  if (!raw) return [];
-  try {
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter((id): id is number => typeof id === 'number');
-  } catch {
-    return [];
-  }
-};
+export const getRoadmapCompletedStages = getRoadmapStages;
 
-/**
- * Returns the DSA roadmap's completed stage ids from the canonical
- * algo_progress store, migrating any data still in the legacy isolated key
- * so roadmap progress lives with all other app progress.
- */
-export const getRoadmapCompletedStages = (): number[] => {
-  const progress = readAlgoProgress();
-  const stored = Array.isArray(progress[ROADMAP_COMPLETED_KEY])
-    ? (progress[ROADMAP_COMPLETED_KEY] as unknown[]).filter(
-        (id): id is number => typeof id === 'number'
-      )
-    : [];
+export const setRoadmapCompletedStages = setRoadmapStagesUnified;
 
-  const legacy = readLegacyRoadmapStages();
-  if (legacy.length === 0) {
-    return Array.from(new Set(stored)).sort((a, b) => a - b);
-  }
-
-  const merged = Array.from(new Set([...stored, ...legacy])).sort((a, b) => a - b);
-  const next: AlgoProgressData = { ...progress, [ROADMAP_COMPLETED_KEY]: merged };
-  next.lastActiveAt = new Date().toISOString();
-  writeAlgoProgress(next);
-  safeRemoveItem(LEGACY_ROADMAP_STORAGE_KEY);
-  return merged;
-};
-
-/**
- * Persists the DSA roadmap's completed stage ids inside the canonical
- * algo_progress store instead of a disconnected silo.
- */
-export const setRoadmapCompletedStages = (stageIds: number[]): void => {
-  const progress = readAlgoProgress();
-  progress[ROADMAP_COMPLETED_KEY] = Array.from(new Set(stageIds)).sort((a, b) => a - b);
-  progress.lastActiveAt = new Date().toISOString();
-  writeAlgoProgress(progress);
-  safeRemoveItem(LEGACY_ROADMAP_STORAGE_KEY);
-};
-
-export function saveQuizAttemptLocal(
-  userId: string,
-  quizId: string,
-  attempt: QuizAttemptRecord
-): void {
-  if (typeof window === 'undefined' || !window.localStorage) {
-    return;
-  }
-
-  const canonicalId = normalizeQuizId(quizId);
-  const key = getQuizAttemptStorageKey(userId, quizId);
-  const existing = safeJsonParse<QuizAttemptRecord[]>(key, []);
-  const updated = [attempt, ...existing].slice(0, 5);
-
-  localStorage.setItem(key, JSON.stringify(updated));
-
-  const quizTitle = canonicalId.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-  recordLastVisited({
-    id: canonicalId,
-    title: `Quiz on ${quizTitle}`,
-    url: `/quizzes/${canonicalId}`,
-    type: 'quiz',
-    readingTime: '5 min quiz',
-    isCompleted: true,
-  });
-
-  window.dispatchEvent(
-    new CustomEvent('quizCompleted', {
-      detail: { quizId: canonicalId, userId, score: attempt.score },
-    })
-  );
-}
+// ---------------------------------------------------------------------------
+// Last-visited tracking
+// ---------------------------------------------------------------------------
 
 export interface LastVisitedItem {
   id: string;
   title: string;
   url: string;
-  visitedAt: string; // ISO string
+  visitedAt: string;
   type: 'doc' | 'quiz';
   readingTime?: string;
   isCompleted?: boolean;
 }
 
-export function recordLastVisited(item: Omit<LastVisitedItem, 'visitedAt'> & { visitedAt?: string }): void {
+/** Record the most recently visited doc or quiz page. */
+export const recordLastVisited = (item: Omit<LastVisitedItem, 'visitedAt'> & { visitedAt?: string }): void => {
   if (typeof window === 'undefined' || !window.localStorage) return;
   const fullItem: LastVisitedItem = {
     ...item,
@@ -286,60 +248,38 @@ export function recordLastVisited(item: Omit<LastVisitedItem, 'visitedAt'> & { v
   };
   localStorage.setItem('algo_last_visited', JSON.stringify(fullItem));
   window.dispatchEvent(new CustomEvent('lastVisitedUpdated', { detail: fullItem }));
-}
+};
 
-export function getLastVisited(): LastVisitedItem | null {
+/** Return the most recently visited doc or quiz page, considering both explicit records and progress data. */
+export const getLastVisited = (): LastVisitedItem | null => {
   if (typeof window === 'undefined' || !window.localStorage) return null;
 
-  // 1. Check direct last_visited record
   const recorded = safeJsonParse<LastVisitedItem | null>('algo_last_visited', null);
+  const progress = readProgress();
 
-  // 2. Scan algo_progress for doc activity timestamps
-  const progress = readAlgoProgress();
   let latestDocTopic: { id: string; title: string; updatedAt: string; url: string; isCompleted: boolean } | null = null;
 
-  for (const [key, value] of Object.entries(progress)) {
-    if (key.endsWith('_updatedAt') && typeof value === 'string') {
-      const topicId = key.slice(0, -'_updatedAt'.length);
-      const title = typeof progress[`${topicId}_title`] === 'string' ? (progress[`${topicId}_title`] as string) : topicId;
-      const isCompleted = !!progress[topicId];
-      const updatedAt = value;
-
-      if (!latestDocTopic || new Date(updatedAt).getTime() > new Date(latestDocTopic.updatedAt).getTime()) {
-        let url = `/docs/${topicId.replace(/-/g, '/')}`;
-        if (topicId.includes('dsa-problems')) {
-          url = `/docs/${topicId.replace(/^dsa-problems-/, 'dsa-problems/')}`;
-        }
-        latestDocTopic = { id: topicId, title, updatedAt, url, isCompleted };
+  for (const [topicId, entry] of Object.entries(progress.topics)) {
+    if (!entry.updatedAt) continue;
+    if (!latestDocTopic || new Date(entry.updatedAt).getTime() > new Date(latestDocTopic.updatedAt).getTime()) {
+      let url = `/docs/${topicId.replace(/-/g, '/')}`;
+      if (topicId.includes('dsa-problems')) {
+        url = `/docs/${topicId.replace(/^dsa-problems-/, 'dsa-problems/')}`;
       }
+      latestDocTopic = { id: topicId, title: entry.title || topicId, updatedAt: entry.updatedAt, url, isCompleted: entry.completed };
     }
   }
 
-  // 3. Scan quiz_attempts_* keys for quiz activity timestamps
   let latestQuiz: { id: string; title: string; updatedAt: string; url: string } | null = null;
 
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (!key || !key.startsWith('quiz_attempts_')) continue;
-
-    const attempts = safeJsonParse<Array<{ completedAt?: string }>>(key, []);
-    if (!Array.isArray(attempts) || attempts.length === 0) continue;
-
-    const quizId = extractQuizIdFromStorageKey(key);
-    if (!quizId) continue;
-
+  for (const [quizId, attempts] of Object.entries(progress.quizzes)) {
     for (const attempt of attempts) {
       if (!attempt.completedAt) continue;
       const attemptTime = new Date(attempt.completedAt).getTime();
       if (!Number.isNaN(attemptTime)) {
         if (!latestQuiz || attemptTime > new Date(latestQuiz.updatedAt).getTime()) {
           const formattedTitle = `Quiz on ${quizId.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`;
-          latestQuiz = {
-            id: quizId,
-            title: formattedTitle,
-            updatedAt: attempt.completedAt,
-            url: `/quizzes/${quizId}`,
-          };
+          latestQuiz = { id: quizId, title: formattedTitle, updatedAt: attempt.completedAt, url: `/quizzes/${quizId}` };
         }
       }
     }
@@ -350,7 +290,6 @@ export function getLastVisited(): LastVisitedItem | null {
   if (recorded && recorded.title && recorded.url) {
     candidates.push(recorded);
   }
-
   if (latestDocTopic) {
     candidates.push({
       id: latestDocTopic.id,
@@ -362,7 +301,6 @@ export function getLastVisited(): LastVisitedItem | null {
       isCompleted: latestDocTopic.isCompleted,
     });
   }
-
   if (latestQuiz) {
     candidates.push({
       id: latestQuiz.id,
@@ -376,58 +314,49 @@ export function getLastVisited(): LastVisitedItem | null {
   }
 
   if (candidates.length === 0) return null;
-
   candidates.sort((a, b) => new Date(b.visitedAt).getTime() - new Date(a.visitedAt).getTime());
   return candidates[0];
-}
+};
 
-function computeStreak(progress: AlgoProgressData): number {
-  if (typeof progress.streak === 'number' && Number.isFinite(progress.streak)) {
-    return Math.max(0, progress.streak);
-  }
+// ---------------------------------------------------------------------------
+// Quiz attempt persistence
+// ---------------------------------------------------------------------------
 
-  const activityDates = Object.entries(progress)
-    .filter(([key, value]) => key.endsWith('_updatedAt') && typeof value === 'string')
-    .map(([, value]) => new Date(String(value)))
-    .filter((date) => !Number.isNaN(date.getTime()))
-    .sort((a, b) => b.getTime() - a.getTime())
-    .map((date) => {
-      const normalized = new Date(date);
-      normalized.setHours(0, 0, 0, 0);
-      return normalized;
-    });
+export const saveQuizAttemptLocal = (
+  userId: string,
+  quizId: string,
+  attempt: QuizAttemptRecord,
+): void => {
+  if (typeof window === 'undefined' || !window.localStorage) return;
 
-  if (activityDates.length === 0) {
-    const lastActiveAt = typeof progress.lastActiveAt === 'string' ? progress.lastActiveAt : null;
-    if (!lastActiveAt) {
-      return 0;
-    }
+  const canonicalId = normalizeQuizId(quizId);
+  saveQuizAttemptUnified(canonicalId, attempt);
 
-    const parsed = new Date(lastActiveAt);
-    return Number.isNaN(parsed.getTime()) ? 0 : 1;
-  }
+  const quizTitle = canonicalId
+    .split('-')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
 
-  let streak = 1;
-  for (let index = 1; index < activityDates.length; index += 1) {
-    const current = activityDates[index];
-    const previous = activityDates[index - 1];
-    const dayDiff = Math.round((previous.getTime() - current.getTime()) / (1000 * 60 * 60 * 24));
+  recordLastVisited({
+    id: canonicalId,
+    title: `Quiz on ${quizTitle}`,
+    url: `/quizzes/${canonicalId}`,
+    type: 'quiz',
+    readingTime: '5 min quiz',
+    isCompleted: true,
+  });
 
-    if (dayDiff === 0) {
-      continue;
-    }
+  window.dispatchEvent(
+    new CustomEvent('quizCompleted', {
+      detail: { quizId: canonicalId, userId, score: attempt.score },
+    }),
+  );
+};
 
-    if (dayDiff === 1) {
-      streak += 1;
-    } else {
-      break;
-    }
-  }
+// ---------------------------------------------------------------------------
+// Quiz attempt ID extraction
+// ---------------------------------------------------------------------------
 
-  return streak;
-}
-
-/** All known quiz IDs — must stay in sync with QUIZZES_CONFIG in quizzes/index.tsx */
 const ALL_QUIZ_IDS = [
   'arrays', 'stacks', 'queues', 'linked-lists', 'deques', 'priority-queues',
   'linear-search', 'sorting', 'recursion', 'binary-trees', 'bst', 'graphs',
@@ -435,17 +364,8 @@ const ALL_QUIZ_IDS = [
   'hash-indexing', 'external-hashing',
 ];
 
-const QUIZ_QUESTION_COUNTS: Record<string, number> = QUESTION_COUNTS;
-
-export interface QuizAttemptRecord {
-  score: number;
-  totalQuestions?: number;
-  timeSpent?: number;
-  completedAt?: string;
-  missedQuestionIds?: number[];
-}
-
-export function extractQuizIdFromStorageKey(key: string): string | null {
+/** Extract a canonical quiz ID from a localStorage attempts key. */
+export const extractQuizIdFromStorageKey = (key: string): string | null => {
   if (!key || !key.startsWith('quiz_attempts_')) return null;
   const raw = key.slice('quiz_attempts_'.length).replace(/_+$/, '');
   if (!raw) return null;
@@ -465,65 +385,15 @@ export function extractQuizIdFromStorageKey(key: string): string | null {
     }
   }
 
-  if (bestMatch) {
-    return normalizeQuizId(bestMatch);
-  }
+  if (bestMatch) return normalizeQuizId(bestMatch);
 
   const lastUnderscoreIndex = raw.lastIndexOf('_');
   const trailing = lastUnderscoreIndex !== -1 ? raw.slice(lastUnderscoreIndex + 1) : raw;
   return trailing ? normalizeQuizId(trailing) : null;
-}
-
-function computeQuizStats(): { passed: number; mastered: number; attempted: number } {
-  if (typeof window === 'undefined' || !window.localStorage) {
-    return { passed: 0, mastered: 0, attempted: 0 };
-  }
-
-  let passed = 0;
-  let mastered = 0;
-  let attempted = 0;
-
-  const bestByQuiz = new Map<string, number>();
-
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (!key || !key.startsWith('quiz_attempts_')) continue;
-
-    const attempts = safeJsonParse<QuizAttemptRecord[]>(key, []);
-    if (!Array.isArray(attempts) || attempts.length === 0) continue;
-
-    const quizId = extractQuizIdFromStorageKey(key);
-    if (!quizId) continue;
-
-    let bestPercentForQuiz = 0;
-    attempts.forEach((a) => {
-      if (typeof a.score !== 'number') return;
-      const total = typeof a.totalQuestions === 'number' && a.totalQuestions > 0
-        ? a.totalQuestions
-        : (QUIZ_QUESTION_COUNTS[quizId] ?? 10);
-      const pct = Math.min(100, Math.max(0, Math.round((a.score / total) * 100)));
-      if (pct > bestPercentForQuiz) {
-        bestPercentForQuiz = pct;
-      }
-    });
-
-    const previousBest = bestByQuiz.get(quizId) ?? 0;
-    if (bestPercentForQuiz > previousBest) {
-      bestByQuiz.set(quizId, bestPercentForQuiz);
-    }
-  }
-
-  Array.from(bestByQuiz.values()).forEach((bestPercent) => {
-    attempted++;
-    if (bestPercent >= 70) passed++;
-    if (bestPercent >= 90) mastered++;
-  });
-
-  return { passed, mastered, attempted };
-}
+};
 
 // ---------------------------------------------------------------------------
-// Mock Exam Review Persistence
+// Mock Exam Review Persistence (unchanged – unrelated to progress silos)
 // ---------------------------------------------------------------------------
 
 export interface MockExamReviewQuestion {
@@ -559,59 +429,31 @@ export interface MockExamReviewRecord {
 
 const MOCK_EXAM_REVIEW_KEY = 'mock_exam_last_review';
 
-/**
- * Persists the completed mock exam state so the review page can be restored
- * after navigation away from /mock-exam.
- */
-export function saveMockExamReview(record: MockExamReviewRecord): void {
+/** Persist a mock exam review record to localStorage. */
+export const saveMockExamReview = (record: MockExamReviewRecord): void => {
   if (typeof window === 'undefined' || !window.localStorage) return;
   try {
     localStorage.setItem(MOCK_EXAM_REVIEW_KEY, JSON.stringify(record));
   } catch (err) {
     console.warn('[Algo] Could not save mock exam review to localStorage:', err);
   }
-}
+};
 
-/**
- * Returns the last saved mock exam review, or null if none exists.
- */
-export function getLastMockExamReview(): MockExamReviewRecord | null {
-  return safeJsonParse<MockExamReviewRecord | null>(MOCK_EXAM_REVIEW_KEY, null);
-}
+/** Retrieve the most recent mock exam review record from localStorage. */
+export const getLastMockExamReview = (): MockExamReviewRecord | null =>
+  safeJsonParse<MockExamReviewRecord | null>(MOCK_EXAM_REVIEW_KEY, null);
 
-/**
- * Clears the stored mock exam review (e.g. when the user starts a new exam).
- */
-export function clearMockExamReview(): void {
+/** Remove the stored mock exam review record. */
+export const clearMockExamReview = (): void => {
   if (typeof window === 'undefined' || !window.localStorage) return;
   try {
     localStorage.removeItem(MOCK_EXAM_REVIEW_KEY);
-  } catch {}
-}
+  } catch { /* ignore */ }
+};
 
-export function getAchievementSnapshot(progress: AlgoProgressData = readAlgoProgress()): AchievementSnapshot {
-  const completedTopics = Object.entries(progress)
-    .filter(([key, value]) => typeof value === 'boolean' && value === true && !key.endsWith('_title') && !key.endsWith('_updatedAt'))
-    .map(([key]) => key);
+// ---------------------------------------------------------------------------
+// Achievement snapshot (delegates to unified store)
+// ---------------------------------------------------------------------------
 
-  const completedTitles = Object.entries(progress)
-    .filter(([key, value]) => key.endsWith('_title') && typeof value === 'string' && value.trim().length > 0)
-    .map(([, value]) => String(value).trim());
-
-  const streak = computeStreak(progress);
-  const lastActiveAt = typeof progress.lastActiveAt === 'string' ? progress.lastActiveAt : null;
-
-  const quizStats = computeQuizStats();
-
-  return {
-    completedCount: completedTopics.length,
-    completedTopics,
-    completedTitles,
-    streak,
-    lastActiveAt,
-    quizzesPassed: quizStats.passed,
-    quizzesMastered: quizStats.mastered,
-    totalQuizzesAttempted: quizStats.attempted,
-  };
-}
-
+export const getAchievementSnapshot = (_progress?: AlgoProgressData): AchievementSnapshot =>
+  getUnifiedAchievementSnapshot();

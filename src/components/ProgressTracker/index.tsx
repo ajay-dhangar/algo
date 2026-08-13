@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import clsx from 'clsx';
 import { FiCheckCircle, FiCircle, FiTrendingUp, FiAward } from 'react-icons/fi';
-import { safeJsonParse, writeAlgoProgress, recordLastVisited } from '../../utils/safeStorage';
+import { recordLastVisited } from '../../utils/safeStorage';
+import { setTopicCompleted, isTopicCompleted } from '../../utils/progressStore';
 
 interface Props {
   topicId: string;
   topicTitle: string;
 }
 
-export default function ProgressTracker({ topicId, topicTitle }: Props) {
+/** Renders a topic-level progress card with a toggle for marking a doc as completed. */
+const ProgressTracker = ({ topicId, topicTitle }: Props) => {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
   const animateTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -19,11 +21,10 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
     };
   }, []);
 
-      // Safely check and read state from localStorage
+      // Safely check and read state from unified progress store
   useEffect(() => {
     try {
-      const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
-      const completed = !!progress[topicId];
+      const completed = isTopicCompleted(topicId);
       setIsCompleted(completed);
 
       // Record this doc as last visited so the homepage widget can surface it
@@ -36,7 +37,7 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
         isCompleted: completed,
       });
     } catch (error) {
-      console.error('[Algo Progress] Failed to read progress from localStorage:', error);
+      console.error('[Algo Progress] Failed to read progress from store:', error);
     }
   }, [topicId, topicTitle]);
 
@@ -49,14 +50,7 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
     animateTimeoutRef.current = setTimeout(() => setAnimate(false), 250);
 
     try {
-      const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
-      
-      // Save progress to localStorage
-      progress[topicId] = nextState;
-      progress[`${topicId}_title`] = topicTitle;
-      progress[`${topicId}_updatedAt`] = new Date().toISOString();
-      
-      writeAlgoProgress(progress);
+      setTopicCompleted(topicId, topicTitle, nextState);
 
       // Update last visited whenever the user interacts with this doc
       recordLastVisited({
@@ -75,7 +69,7 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
         })
       );
     } catch (error) {
-      console.error('[Algo Progress] Failed to save progress to localStorage:', error);
+      console.error('[Algo Progress] Failed to save progress to store:', error);
     }
   }, [isCompleted, topicId, topicTitle]);
 
@@ -199,4 +193,6 @@ export default function ProgressTracker({ topicId, topicTitle }: Props) {
       </button>
     </div>
   );
-}
+};
+
+export default ProgressTracker;

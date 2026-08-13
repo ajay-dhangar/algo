@@ -15,7 +15,8 @@ import {
 } from "react-icons/fa";
 
 // Existing custom quiz sub-components (assumed available in your project)
-import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { getQuizAttempts } from "../../utils/progressStore";
 
 interface RBTQuestion {
   id: number;
@@ -161,7 +162,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const savedUser = localStorage.getItem("quiz_username");
     if (savedUser) {
       setUsername(savedUser);
-      setHistory(safeJsonParse<AttemptRecord[]>("quiz_attempts_" + savedUser.toLowerCase() + "_red-black-trees", []));
+      setHistory(getQuizAttempts("red-black-trees") as AttemptRecord[]);
     }
   }, []);
 
@@ -182,7 +183,7 @@ const RedBlackTreeQuiz: React.FC = () => {
     const cleanName = usernameInput.trim();
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
-    setHistory(safeJsonParse<AttemptRecord[]>("quiz_attempts_" + cleanName.toLowerCase() + "_red-black-trees", []));
+    setHistory(getQuizAttempts("red-black-trees") as AttemptRecord[]);
   };
   const handleLogout = () => {
     localStorage.removeItem("quiz_username");

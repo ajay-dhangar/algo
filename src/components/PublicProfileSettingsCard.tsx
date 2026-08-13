@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FiShare2, 
@@ -50,7 +50,8 @@ const sectionFields: SectionField[] = [
   },
 ];
 
-export default function PublicProfileSettingsCard() {
+/** Card component for editing and saving public profile visibility settings, with clipboard copy support. */
+const PublicProfileSettingsCard = (): React.ReactElement => {
   const [settings, setSettings] = useState(() => 
     getPublicProfileSettings() || {
       isPublic: false,
@@ -64,6 +65,8 @@ export default function PublicProfileSettingsCard() {
     }
   );
   const [copyMessage, setCopyMessage] = useState("");
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (copyTimerRef.current) clearTimeout(copyTimerRef.current); }, []);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   const profileUrl = typeof window !== "undefined" && settings.username.trim()
@@ -104,10 +107,12 @@ export default function PublicProfileSettingsCard() {
       }
 
       setCopyMessage(`${label} copied!`);
-      window.setTimeout(() => setCopyMessage(""), 2500);
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      copyTimerRef.current = setTimeout(() => setCopyMessage(""), 2500);
     } catch {
       setCopyMessage(`Unable to copy ${label}`);
-      window.setTimeout(() => setCopyMessage(""), 2500);
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      copyTimerRef.current = setTimeout(() => setCopyMessage(""), 2500);
     }
   };
 
@@ -350,4 +355,6 @@ export default function PublicProfileSettingsCard() {
       </div>
     </motion.div>
   );
-}
+};
+
+export default PublicProfileSettingsCard;

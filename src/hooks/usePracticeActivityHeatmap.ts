@@ -1,7 +1,18 @@
-import { useCallback, useEffect, useState } from "react";
-import { getUserId, safeJsonParse } from "../utils/safeStorage";
-import type { QuizAttemptRecord } from "../utils/safeStorage";
-import { readSolvedDates } from "./useSolvedProblems";
+/**
+ * usePracticeActivityHeatmap
+ * --------------------------
+ * Builds a 28-day activity heatmap from the unified progress store.
+ *
+ * Replaces the legacy approach that scanned raw `quiz_attempts_*`
+ * localStorage keys and `algo.dsa.solved.dates.v1`.  Now reads from
+ * `UnifiedProgress.quizzes` and `UnifiedProgress.solvedDates` so all
+ * activity sources are counted from a single source of truth.
+ *
+ * SSG-safe: the store is only accessed inside useEffect.
+ */
+
+import { useCallback, useEffect, useState } from 'react';
+import { readProgress, onProgressUpdate } from '../utils/progressStore';
 
 export interface PracticeActivityHeatmapDay {
   date: string;
@@ -19,7 +30,7 @@ export interface PracticeActivityHeatmapData {
   loaded: boolean;
 }
 
-const DAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 function toUtcDateString(date: Date): string {
   return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()))
@@ -43,33 +54,6 @@ function buildWindowDates(days: number): string[] {
   });
 }
 
-function getDailyQuizCounts(userPrefix: string | null): Map<string, number> {
-  const counts = new Map<string, number>();
-
-  if (typeof window === "undefined" || !window.localStorage) {
-    return counts;
-  }
-
-  for (let i = 0; i < localStorage.length; i += 1) {
-    const key = localStorage.key(i);
-    if (!key || !key.startsWith("quiz_attempts_")) continue;
-    if (userPrefix && !key.startsWith(userPrefix)) continue;
-
-    const attempts = safeJsonParse<QuizAttemptRecord[]>(key, []);
-    if (!Array.isArray(attempts)) continue;
-
-    for (const attempt of attempts) {
-      if (!attempt.completedAt) continue;
-      const date = new Date(attempt.completedAt);
-      if (Number.isNaN(date.getTime())) continue;
-      const day = toUtcDateString(date);
-      counts.set(day, (counts.get(day) ?? 0) + 1);
-    }
-  }
-
-  return counts;
-}
-
 const INITIAL_STATE: PracticeActivityHeatmapData = {
   days: [],
   totalAttempts: 0,
@@ -78,23 +62,30 @@ const INITIAL_STATE: PracticeActivityHeatmapData = {
   loaded: false,
 };
 
-export function usePracticeActivityHeatmap(windowDays = 28): PracticeActivityHeatmapData {
+/** Builds a 28-day activity heatmap from the unified progress store. */
+export const usePracticeActivityHeatmap = (windowDays = 28): PracticeActivityHeatmapData => {
   const [state, setState] = useState<PracticeActivityHeatmapData>(INITIAL_STATE);
 
   const compute = useCallback(() => {
-    if (typeof window === "undefined" || !window.localStorage) {
-      return;
+    if (typeof window === 'undefined' || !window.localStorage) return;
+
+    const progress = readProgress();
+
+    // Count quiz activity per day
+    const quizCounts = new Map<string, number>();
+    for (const attempts of Object.values(progress.quizzes)) {
+      for (const attempt of attempts) {
+        if (!attempt.completedAt) continue;
+        const date = new Date(attempt.completedAt);
+        if (Number.isNaN(date.getTime())) continue;
+        const day = toUtcDateString(date);
+        quizCounts.set(day, (quizCounts.get(day) ?? 0) + 1);
+      }
     }
 
-    const userId = getUserId();
-    const userPrefix = userId ? `quiz_attempts_${userId.toLowerCase()}_` : null;
-    const quizCounts = getDailyQuizCounts(userPrefix);
-
-    // Merge solved-problem timestamps as a second activity source.
-    // Each entry in readSolvedDates() is a Record<problemId, isoString[]>.
-    const solvedDates = readSolvedDates();
+    // Count solved-problem activity per day
     const solvedCounts = new Map<string, number>();
-    for (const timestamps of Object.values(solvedDates)) {
+    for (const timestamps of Object.values(progress.solvedDates)) {
       for (const ts of timestamps) {
         const date = new Date(ts);
         if (Number.isNaN(date.getTime())) continue;
@@ -126,15 +117,15 @@ export function usePracticeActivityHeatmap(windowDays = 28): PracticeActivityHea
 
   useEffect(() => {
     compute();
-    window.addEventListener("quizCompleted", compute);
-    window.addEventListener("problemSolved", compute);
-    window.addEventListener("storage", compute);
+    const unsub = onProgressUpdate(compute);
+    window.addEventListener('quizCompleted', compute);
+    window.addEventListener('problemSolved', compute);
     return () => {
-      window.removeEventListener("quizCompleted", compute);
-      window.removeEventListener("problemSolved", compute);
-      window.removeEventListener("storage", compute);
+      unsub();
+      window.removeEventListener('quizCompleted', compute);
+      window.removeEventListener('problemSolved', compute);
     };
   }, [compute]);
 
   return state;
-}
+};

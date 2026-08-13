@@ -5,7 +5,7 @@ import { Bookmark, Search, X, CheckCircle } from 'lucide-react';
 import ProblemCard from './ProblemCard';
 import type { DsaProblemsIndex } from '../data/dsaProblemsTypes';
 import { useBookmarks } from '../hooks/useBookmarks';
-import { safeJsonParse } from '../utils/safeStorage';
+import { getProgressSnapshot, onProgressUpdate } from '../utils/progressStore';
 
 interface ProblemFilterGridProps {
   data: DsaProblemsIndex;
@@ -59,18 +59,22 @@ const ProblemFilterGrid = ({ data }: ProblemFilterGridProps) => {
   const [showAllTags, setShowAllTags] = useState(false);
   const [showOnlyBookmarks, setShowOnlyBookmarks] = useState(initialParams.get('bookmarks') === 'true');
   const [showNotYetSolved, setShowNotYetSolved] = useState(initialParams.get('unsolved') === 'true');
-  const [solvedTopics, setSolvedTopics] = useState<Record<string, any>>({});
+  const [solvedTopics, setSolvedTopics] = useState<Record<string, string | boolean>>({});
 
   useEffect(() => {
     const loadProgress = () => {
-      const progress = safeJsonParse<{ [key: string]: any }>('algo_progress', {});
-      setSolvedTopics(progress);
+      const snapshot = getProgressSnapshot();
+      const flat: Record<string, string | boolean> = {};
+      for (const [topicId, entry] of Object.entries(snapshot.topics)) {
+        flat[topicId] = entry.completed;
+        if (entry.title) flat[`${topicId}_title`] = entry.title;
+      }
+      setSolvedTopics(flat);
     };
     loadProgress();
     
-    const handleProgressUpdated = () => loadProgress();
-    window.addEventListener('progressUpdated', handleProgressUpdated);
-    return () => window.removeEventListener('progressUpdated', handleProgressUpdated);
+    const unsub = onProgressUpdate(loadProgress);
+    return unsub;
   }, []);
 
   useEffect(() => {

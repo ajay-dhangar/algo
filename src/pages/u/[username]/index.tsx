@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
@@ -21,12 +21,15 @@ function getUsernameFromPathname(pathname: string): string {
   return segments[segments.length - 1] || "";
 }
 
-export default function PublicProfilePage() {
+/** Public profile page — renders a user's public telemetry snapshot at /u/:username. */
+const PublicProfilePage = (): React.ReactElement => {
   const location = useLocation();
   const username = useMemo(() => getUsernameFromPathname(location.pathname), [
     location.pathname,
   ]);
   const [copied, setCopied] = useState(false);
+  const copiedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (copiedTimerRef.current) clearTimeout(copiedTimerRef.current); }, []);
   const [origin, setOrigin] = useState("https://ajay-dhangar.github.io");
 
   useEffect(() => {
@@ -55,9 +58,10 @@ export default function PublicProfilePage() {
     try {
       await navigator.clipboard.writeText(badgeMarkdown);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy badge text:", err);
+      if (copiedTimerRef.current) clearTimeout(copiedTimerRef.current);
+      copiedTimerRef.current = setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard write failed — user can manually copy the badge markdown below.
     }
   };
 
@@ -354,4 +358,6 @@ export default function PublicProfilePage() {
       </main>
     </Layout>
   );
-}
+};
+
+export default PublicProfilePage;
