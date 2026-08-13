@@ -54,9 +54,11 @@ describe('SidebarUpdater', () => {
     await act(async () => {
       await Promise.resolve();
     });
-    // Then run the deferred badge-painting timeout.
-    await act(() => {
+    // Drain microtasks and advance timers together so the deferred
+    // badge-painting setTimeout fires reliably regardless of Node/Jest version.
+    await act(async () => {
       jest.advanceTimersByTime(200);
+      await Promise.resolve();
     });
   };
 

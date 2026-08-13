@@ -30,8 +30,8 @@ export const TOPICS: Record<string, TopicData> = {
       ],
       Hard: [
         { id: 41, title: "First Missing Positive", slug: "first-missing-positive", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
-        { id: 239, title: "Sliding Window Maximum", slug: "sliding-window-maximum", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
-        { id: 42, title: "Trapping Rain Water", slug: "trapping-rain-water", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
+        { id: 315, title: "Count of Smaller Numbers After Self", slug: "count-of-smaller-numbers-after-self", timeComplexity: "O(n log n)", spaceComplexity: "O(n)" },
+        { id: 57, title: "Insert Interval", slug: "insert-interval", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
       ],
     },
   },
@@ -44,12 +44,12 @@ export const TOPICS: Record<string, TopicData> = {
         { id: 344, title: "Reverse String", slug: "reverse-string", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
       ],
       Medium: [
-        { id: 3, title: "Longest Substring Without Repeating Characters", slug: "longest-substring-without-repeating-characters", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
+        { id: 5, title: "Longest Palindromic Substring", slug: "longest-palindromic-substring", timeComplexity: "O(n^2)", spaceComplexity: "O(1)" },
         { id: 49, title: "Group Anagrams", slug: "group-anagrams", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
         { id: 394, title: "Decode String", slug: "decode-string", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
       ],
       Hard: [
-        { id: 76, title: "Minimum Window Substring", slug: "minimum-window-substring", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
+        { id: 68, title: "Text Justification", slug: "text-justification", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
         { id: 32, title: "Longest Valid Parentheses", slug: "longest-valid-parentheses", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
         { id: 44, title: "Wildcard Matching", slug: "wildcard-matching", timeComplexity: "O(n^2)", spaceComplexity: "O(n)" },
       ],
@@ -99,7 +99,7 @@ export const TOPICS: Record<string, TopicData> = {
     icon: "⇌",
     problems: {
       Easy: [
-        { id: 125, title: "Valid Palindrome", slug: "valid-palindrome", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
+        { id: 26, title: "Remove Duplicates from Sorted Array", slug: "remove-duplicates-from-sorted-array", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
         { id: 167, title: "Two Sum II - Input Array Is Sorted", slug: "two-sum-ii-input-array-is-sorted", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
         { id: 283, title: "Move Zeroes", slug: "move-zeroes", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
       ],
@@ -110,7 +110,7 @@ export const TOPICS: Record<string, TopicData> = {
       ],
       Hard: [
         { id: 42, title: "Trapping Rain Water", slug: "trapping-rain-water", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
-        { id: 76, title: "Minimum Window Substring", slug: "minimum-window-substring", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
+        { id: 828, title: "Count Unique Characters of All Substrings", slug: "count-unique-characters-of-all-substrings-of-a-given-string", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
         { id: 295, title: "Find Median from Data Stream", slug: "find-median-from-data-stream", timeComplexity: "O(log n)", spaceComplexity: "O(n)" },
       ],
     },
@@ -219,13 +219,13 @@ export const TOPICS: Record<string, TopicData> = {
     icon: "↯",
     problems: {
       Easy: [
-        { id: 104, title: "Maximum Depth of Binary Tree", slug: "maximum-depth-of-binary-tree", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
+        { id: 112, title: "Path Sum", slug: "path-sum", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
         { id: 101, title: "Symmetric Tree", slug: "symmetric-tree", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
         { id: 872, title: "Leaf-Similar Trees", slug: "leaf-similar-trees", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
       ],
       Medium: [
-        { id: 200, title: "Number of Islands", slug: "number-of-islands", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
-        { id: 547, title: "Number of Provinces", slug: "number-of-provinces", timeComplexity: "O(n^2)", spaceComplexity: "O(n)" },
+        { id: 417, title: "Pacific Atlantic Water Flow", slug: "pacific-atlantic-water-flow", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
+        { id: 130, title: "Surrounded Regions", slug: "surrounded-regions", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
         { id: 695, title: "Max Area of Island", slug: "max-area-of-island", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
       ],
       Hard: [
@@ -246,7 +246,7 @@ export const TOPICS: Record<string, TopicData> = {
       Medium: [
         { id: 105, title: "Construct Binary Tree from Preorder and Inorder Traversal", slug: "construct-binary-tree-from-preorder-and-inorder-traversal", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
         { id: 236, title: "Lowest Common Ancestor of a Binary Tree", slug: "lowest-common-ancestor-of-a-binary-tree", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
-        { id: 230, title: "Kth Smallest Element in a BST", slug: "kth-smallest-element-in-a-bst", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
+        { id: 450, title: "Delete Node in a BST", slug: "delete-node-in-a-bst", timeComplexity: "O(log n)", spaceComplexity: "O(1)" },
       ],
       Hard: [
         { id: 129, title: "Sum Root to Leaf Numbers", slug: "sum-root-to-leaf-numbers", timeComplexity: "O(n)", spaceComplexity: "O(n)" },
@@ -280,7 +280,7 @@ export const TOPICS: Record<string, TopicData> = {
     problems: {
       Easy: [
         { id: 70, title: "Climbing Stairs", slug: "climbing-stairs", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
-        { id: 121, title: "Best Time to Buy and Sell Stock", slug: "best-time-to-buy-and-sell-stock", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
+        { id: 746, title: "Min Cost Climbing Stairs", slug: "min-cost-climbing-stairs", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
         { id: 198, title: "House Robber", slug: "house-robber", timeComplexity: "O(n)", spaceComplexity: "O(1)" },
       ],
       Medium: [

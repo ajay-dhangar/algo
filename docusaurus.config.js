@@ -3,10 +3,10 @@ import { themes as prismThemes } from "prism-react-renderer";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 const path = require("path");
- 
+
 const fs = require("fs");
 const { execSync } = require("child_process");
- 
+
 const gitHistoryOverride = process.env.DOCUSAURUS_ENABLE_GIT_HISTORY;
 const showGitHistory =
   gitHistoryOverride === "true"
@@ -25,20 +25,20 @@ const showGitHistory =
           return false;
         }
       })();
- 
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Algo",
   tagline: "Algo Mastery for Every Learner",
   favicon: "logo/logo.png",
- 
+
   url: "https://ajay-dhangar.github.io",
   baseUrl: "/algo/",
   organizationName: "ajay-dhangar",
   projectName: "algo",
- 
+
   onBrokenLinks: "throw",
- 
+
   headTags: [
     {
       tagName: "meta",
@@ -72,7 +72,7 @@ const config = {
       })();`,
     },
   ],
- 
+
   i18n: {
     defaultLocale: "en",
     locales: ["en", "hi"], // Add 'hi' here
@@ -81,7 +81,7 @@ const config = {
       hi: { label: "हिन्दी" }, // Label for the dropdown
     },
   },
- 
+
   presets: [
     [
       "classic",
@@ -112,7 +112,7 @@ const config = {
       }),
     ],
   ],
- 
+
   stylesheets: [
     {
       href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
@@ -122,7 +122,7 @@ const config = {
       crossorigin: "anonymous",
     },
   ],
- 
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -132,11 +132,11 @@ const config = {
         respectPrefersColorScheme: true,
       },
       image: "/",
- 
+
       liveCodeBlock: {
         playgroundPosition: "bottom",
       },
- 
+
       announcementBar: {
         id: "star_us_announcement",
         content:
@@ -160,7 +160,7 @@ const config = {
         algoliaAnalyticsIndexName:
           process.env.ALGOLIA_INDEX_NAME || "ajay-dhangario",
       },
- 
+
       navbar: {
         title: "Algo",
         logo: {
@@ -284,9 +284,9 @@ const config = {
               { to: "newsletter", label: "Algorithm Digest" },
             ],
           },
- 
+
           // ---------------- RIGHT SIDE: Secondary Content & Custom Pickers ----------------
- 
+
           {
             type: "localeDropdown",
             position: "right",
@@ -308,9 +308,9 @@ const config = {
             position: "right",
           },
           {
-          type: 'custom-authButton',
-          position: 'right',
-        },
+            type: "custom-authButton",
+            position: "right",
+          },
         ],
       },
       footer: {
@@ -355,7 +355,7 @@ const config = {
         },
       },
     }),
- 
+
   markdown: {
     mermaid: true,
     format: "mdx",
@@ -363,9 +363,9 @@ const config = {
       onBrokenMarkdownLinks: "warn",
     },
   },
- 
+
   themes: ["@docusaurus/theme-mermaid", "@docusaurus/theme-live-codeblock"],
- 
+
   plugins: [
     [
       "@docusaurus/plugin-content-docs",
@@ -429,7 +429,7 @@ const config = {
         },
       },
     ],
- 
+
     [
       "@docusaurus/plugin-google-gtag",
       {
@@ -437,14 +437,14 @@ const config = {
         anonymizeIP: true,
       },
     ],
- 
+
     [
       "@docusaurus/plugin-google-tag-manager",
       {
         containerId: "GTM-NWMCVM3L",
       },
     ],
- 
+
     [
       "@docusaurus/plugin-pwa",
       {
@@ -507,7 +507,7 @@ const config = {
         ],
       },
     ],
- 
+
     [
       "@docusaurus/plugin-ideal-image",
       {
@@ -518,7 +518,28 @@ const config = {
         disableInDev: false,
       },
     ],
- 
+
+    function dynamicProfileRoutesPlugin() {
+      return {
+        name: "docusaurus-dynamic-profile-routes",
+        async contentLoaded({ actions }) {
+          const { addRoute } = actions;
+          // Main User Profile Route
+          addRoute({
+            path: '/algo/u/:username',
+            component: '@site/src/pages/u/[username]/index.tsx',
+            exact: true,
+          });
+
+          // User Profile Badge Route
+          addRoute({
+            path: '/algo/u/:username/badge',
+            component: '@site/src/pages/u/[username]/badge.tsx',
+            exact: true,
+          });
+        },
+      };
+    },
     [
       path.join(__dirname, "/plugins/my-plugin"),
       {
@@ -529,5 +550,5 @@ const config = {
     ],
   ],
 };
- 
+
 export default config;

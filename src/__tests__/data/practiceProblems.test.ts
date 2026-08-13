@@ -87,4 +87,25 @@ describe("practiceProblems complexity data", () => {
     const verticalOrderTraversal = findProblem("Vertical Order Traversal of a Binary Tree");
     expect(verticalOrderTraversal.timeComplexity).toBe("O(n log n)");
   });
+
+  test("each problem id appears in exactly one topic (no cross-topic duplicates)", () => {
+    const idMap = new Map<number, string>();
+    const duplicates: string[] = [];
+
+    for (const [topic, data] of Object.entries(TOPICS)) {
+      for (const [difficulty, list] of Object.entries(data.problems)) {
+        for (const p of list) {
+          if (idMap.has(p.id)) {
+            duplicates.push(
+              `id=${p.id} "${p.title}" appears in both "${idMap.get(p.id)}" and "${topic}/${difficulty}"`
+            );
+          } else {
+            idMap.set(p.id, `${topic}/${difficulty}`);
+          }
+        }
+      }
+    }
+
+    expect(duplicates).toEqual([]);
+  });
 });

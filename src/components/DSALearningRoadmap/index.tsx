@@ -1,5 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { safeJsonParse } from "../../utils/safeStorage";
+import React, { useState, useEffect, useMemo, useRef } from "react";
+import {
+  getRoadmapCompletedStages,
+  setRoadmapCompletedStages,
+} from "../../utils/safeStorage";
 import { STAGES } from "../../data/roadmapData";
 import RoadmapStage from "./RoadmapStage";
 
@@ -8,20 +11,22 @@ const DSALearningRoadmap: React.FC = () => {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const [completedStages, setCompletedStages] = useState<Set<number>>(new Set());
 
-  // Persist completion state
+  const isFirstRender = useRef(true);
+
+  // Load completion state from the canonical algo_progress store (migrates
+  // any data still in the legacy isolated key into algo_progress).
   useEffect(() => {
-    try {
-      setCompletedStages(new Set(safeJsonParse<number[]>("dsa_learning_roadmap_completed", [])));
-    } catch {}
+    setCompletedStages(new Set(getRoadmapCompletedStages()));
   }, []);
 
+  // Persist completion state inside algo_progress so it stays reconciled
+  // with the rest of the app's progress tracking.
   useEffect(() => {
-    try {
-      localStorage.setItem(
-        "dsa_learning_roadmap_completed",
-        JSON.stringify([...completedStages])
-      );
-    } catch {}
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    setRoadmapCompletedStages([...completedStages]);
   }, [completedStages]);
 
   const toggleStage = (id: number) => {

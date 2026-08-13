@@ -3,47 +3,208 @@ import { FiArrowRight, FiGithub, FiLock, FiMail, FiUser, FiInfo } from "react-ic
 import { FaGoogle } from "react-icons/fa";
 import Link from "@docusaurus/Link";
 import { useHistory } from "@docusaurus/router";
-import { AuthMode, useAuth } from "../../contexts/AuthContext";
+import { AuthMode, SECURITY_QUESTIONS, useAuth } from "../../contexts/AuthContext";
 
 interface AuthPanelProps {
   initialMode?: AuthMode;
   showBrand?: boolean;
-  onSuccess?: () => void;
   compact?: boolean;
 }
 
-const AuthPanel: React.FC<AuthPanelProps> = ({
-  initialMode = "login",
-  showBrand = true,
-  onSuccess,
-  compact = false,
-}) => {
-  const history = useHistory();
-  const { user, isAuthenticated, login, register, logout } = useAuth();
-  const [mode, setMode] = useState<AuthMode>(initialMode);
-  const [name, setName] = useState("");
+/* ------------------------------------------------------------------ */
+/*  ResetPasswordForm — two-step forgot-password flow                 */
+/* ------------------------------------------------------------------ */
+
+interface ResetPasswordFormProps {
+  onSwitchToLogin: () => void;
+}
+
+/** Two-step form: enter email to retrieve a security question, then answer it to set a new password. */
+const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ onSwitchToLogin }) => {
+  const { getSecurityQuestion, resetPassword } = useAuth();
+  const [step, setStep] = useState<"email" | "answer">("email");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    setMode(initialMode);
-  }, [initialMode]);
+  /** Validates the current step and either advances to the answer step or resets the password. */
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    setError("");
+    setIsSubmitting(true);
+
+    try {
+      if (step === "email") {
+        const foundQuestion = getSecurityQuestion(email);
+        if (!foundQuestion) {
+          throw new Error("No account found for that email.");
+        }
+        setQuestion(foundQuestion);
+        setStep("answer");
+        return;
+      }
+
+      if (newPassword !== confirmPassword) {
+        throw new Error("Passwords do not match.");
+      }
+
+      await resetPassword({ email, securityAnswer: answer, newPassword });
+      onSwitchToLogin();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Something went wrong.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <p className="text-sm font-semibold" style={{ color: "var(--ifm-heading-color)" }}>
+        {step === "email"
+          ? "Enter your email to look up your security question."
+          : "Answer your security question to reset your password."}
+      </p>
+
+      {error && (
+        <div className="rounded-xl border border-rose-500/20 bg-rose-500/10 dark:bg-rose-500/5 px-4 py-3 text-sm text-rose-600 dark:text-rose-400 font-medium">
+          {error}
+        </div>
+      )}
+
+      {step === "answer" && (
+        <div
+          className="rounded-xl border px-4 py-3 text-sm font-medium"
+          style={{
+            borderColor: "var(--ifm-color-emphasis-200)",
+            backgroundColor: "var(--ifm-color-emphasis-100)",
+            color: "var(--ifm-heading-color)",
+          }}
+        >
+          {question}
+        </div>
+      )}
+
+      {step === "email" && (
+        <div className="relative">
+          <FiMail className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+          <label className="sr-only" htmlFor="reset-email">Email address</label>
+          <input
+            id="reset-email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="name@example.com"
+            autoComplete="email"
+            required
+            className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+            style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+          />
+        </div>
+      )}
+
+      {step === "answer" && (
+        <>
+          <div className="relative">
+            <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+            <label className="sr-only" htmlFor="reset-answer">Security answer</label>
+            <input
+              id="reset-answer"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+              placeholder="Your answer"
+              autoComplete="off"
+              required
+              className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+              style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+            />
+          </div>
+          <div className="relative">
+            <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+            <label className="sr-only" htmlFor="reset-new-password">New password</label>
+            <input
+              id="reset-new-password"
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="New security key"
+              autoComplete="new-password"
+              required
+              className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+              style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+            />
+          </div>
+          <div className="relative">
+            <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+            <label className="sr-only" htmlFor="reset-confirm-password">Confirm new password</label>
+            <input
+              id="reset-confirm-password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm new security key"
+              autoComplete="new-password"
+              required
+              className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+              style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+            />
+          </div>
+        </>
+      )}
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--ifm-color-primary)] px-4 py-3 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50 border-0"
+      >
+        {isSubmitting
+          ? "Processing secure handshake..."
+          : step === "email"
+            ? "Look Up Account"
+            : "Reset Password"}
+        <FiArrowRight className="h-4 w-4" />
+      </button>
+
+      <div className="text-center text-sm border-t pt-4" style={{ borderColor: "var(--ifm-color-emphasis-200)" }}>
+        <button
+          type="button"
+          onClick={onSwitchToLogin}
+          className="font-bold bg-transparent border-0 p-0 cursor-pointer text-[var(--ifm-color-primary)] hover:opacity-80 transition-opacity"
+        >
+          Back to Sign In
+        </button>
+      </div>
+    </form>
+  );
+};
+
+/* ------------------------------------------------------------------ */
+/*  LoginForm — login / register form with SSO + mode switcher        */
+/* ------------------------------------------------------------------ */
+
+interface LoginFormProps {
+  mode: AuthMode;
+  onSwitchMode: (mode: AuthMode) => void;
+}
+
+/** Login / register form with SSO section and mode-switcher footer. */
+const LoginForm: React.FC<LoginFormProps> = ({ mode, onSwitchMode }) => {
+  const history = useHistory();
+  const { login, register } = useAuth();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [securityQuestion, setSecurityQuestion] = useState("");
+  const [securityAnswer, setSecurityAnswer] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setError("");
-  }, [mode]);
-
-  const heading = useMemo(() => {
-    return mode === "register" ? "Create your Profile" : "Welcome Back";
-  }, [mode]);
-
-  const description = useMemo(() => {
-    return mode === "register"
-      ? "Set up your platform credentials to log achievements and claim your ranks on the arena."
-      : "Access your dashboard to trace performance updates and current coding streaks.";
   }, [mode]);
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -56,13 +217,10 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
         if (password !== confirmPassword) {
           throw new Error("Passwords do not match.");
         }
-
-        await register({ name, email, password });
+        await register({ name, email, password, securityQuestion, securityAnswer });
       } else {
         await login({ email, password });
       }
-
-      onSuccess?.();
       history.push("/algo/profile");
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Something went wrong.");
@@ -71,80 +229,8 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
     }
   };
 
-  if (isAuthenticated && user) {
-    return (
-      <div 
-        className="rounded-2xl border p-6 md:p-8 shadow-md transition-all duration-300"
-        style={{ 
-          backgroundColor: "var(--ifm-card-background-color)", 
-          borderColor: "var(--ifm-color-emphasis-200)" 
-        }}
-      >
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          Active Session
-        </div>
-        
-        <h2 className="text-2xl font-extrabold tracking-tight" style={{ color: "var(--ifm-heading-color)" }}>
-          Already Signed In
-        </h2>
-        
-        <p className="mt-2 text-sm opacity-80">
-          Logged in as <span className="font-bold">{user.name}</span> ({user.email})
-        </p>
-        
-        <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          <Link
-            to="/profile"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--ifm-color-primary)] px-5 py-2.5 text-sm font-bold text-white no-underline hover:no-underline hover:opacity-95 transition-all"
-          >
-            Go to Profile Dashboard
-            <FiArrowRight className="w-4 h-4" />
-          </Link>
-          <button
-            type="button"
-            onClick={logout}
-            className="inline-flex items-center justify-center rounded-xl border px-5 py-2.5 text-sm font-semibold bg-transparent transition-colors"
-            style={{ 
-              borderColor: "var(--ifm-color-emphasis-300)", 
-              color: "var(--ifm-heading-color)" 
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "var(--ifm-color-emphasis-100)"}
-            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-          >
-            Sign Out
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div
-      className={`rounded-2xl border transition-all duration-300 ${compact ? "p-5" : "p-6 sm:p-8"}`}
-      style={{ 
-        backgroundColor: "var(--ifm-card-background-color)", 
-        borderColor: "var(--ifm-color-emphasis-200)" 
-      }}
-    >
-      {showBrand && (
-        <div className="mb-5 flex items-center gap-4">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl text-white shrink-0 bg-[var(--ifm-color-primary)] shadow-sm shadow-[var(--ifm-color-primary-rgb)]/20">
-            <FiUser className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="m-0 text-[10px] font-bold uppercase tracking-wider opacity-60">
-              Identity Services
-            </p>
-            <h2 className="m-0 text-2xl font-extrabold tracking-tight" style={{ color: "var(--ifm-heading-color)" }}>
-              {heading}
-            </h2>
-          </div>
-        </div>
-      )}
-
-      <p className="mb-5 text-sm leading-relaxed opacity-75">{description}</p>
-
+    <>
       {error && (
         <div className="mb-5 rounded-xl border border-rose-500/20 bg-rose-500/10 dark:bg-rose-500/5 px-4 py-3 text-sm text-rose-600 dark:text-rose-400 font-medium">
           {error}
@@ -201,6 +287,18 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
           />
         </div>
 
+        {mode === "login" && (
+          <div className="text-right">
+            <button
+              type="button"
+              onClick={() => onSwitchMode("resetPassword")}
+              className="text-xs font-semibold bg-transparent border-0 p-0 cursor-pointer text-[var(--ifm-color-primary)] hover:opacity-80 transition-opacity"
+            >
+              Forgot Password?
+            </button>
+          </div>
+        )}
+
         {mode === "register" && (
           <div className="relative">
             <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
@@ -212,6 +310,43 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm security keys"
               autoComplete="new-password"
+              required
+              className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+              style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+            />
+          </div>
+        )}
+
+        {mode === "register" && (
+          <div className="relative">
+            <FiInfo className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+            <label className="sr-only" htmlFor="auth-security-question">Security question</label>
+            <select
+              id="auth-security-question"
+              value={securityQuestion}
+              onChange={(e) => setSecurityQuestion(e.target.value)}
+              required
+              className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
+              style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
+            >
+              <option value="" disabled>Choose a security question</option>
+              {SECURITY_QUESTIONS.map((q) => (
+                <option key={q} value={q}>{q}</option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {mode === "register" && securityQuestion && (
+          <div className="relative">
+            <FiLock className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 opacity-40" />
+            <label className="sr-only" htmlFor="auth-security-answer">Security answer</label>
+            <input
+              id="auth-security-answer"
+              value={securityAnswer}
+              onChange={(e) => setSecurityAnswer(e.target.value)}
+              placeholder="Your answer"
+              autoComplete="off"
               required
               className="w-full rounded-xl border px-4 py-2.5 pl-11 text-sm bg-[var(--ifm-color-emphasis-100)] focus:bg-[var(--ifm-card-background-color)] transition-all outline-none focus:ring-2 focus:ring-[var(--ifm-color-primary)]/20"
               style={{ borderColor: "var(--ifm-color-emphasis-300)", color: "var(--ifm-heading-color)" }}
@@ -241,7 +376,7 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
         </div>
       </div>
 
-      {/* Clean Grid Layout for SSO */}
+      {/* SSO Buttons */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <button
           type="button"
@@ -268,10 +403,7 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
         <span className="opacity-70">{mode === "register" ? "Possess an active profile?" : "New developer?"}</span>
         <button
           type="button"
-          onClick={() => {
-            setMode(mode === "register" ? "login" : "register");
-            setError("");
-          }}
+          onClick={() => onSwitchMode(mode === "register" ? "login" : "register")}
           className="font-bold bg-transparent border-0 p-0 cursor-pointer text-[var(--ifm-color-primary)] hover:opacity-80 transition-opacity"
         >
           {mode === "register" ? "Sign In" : "Initialize Profile"}
@@ -279,7 +411,7 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
       </div>
 
       {/* Operational Disclaimer Note Box */}
-      <div 
+      <div
         className="mt-5 p-3 rounded-xl border flex gap-2.5 items-start text-xs leading-normal opacity-70"
         style={{ backgroundColor: "var(--ifm-color-emphasis-100)", borderColor: "var(--ifm-color-emphasis-200)" }}
       >
@@ -288,6 +420,127 @@ const AuthPanel: React.FC<AuthPanelProps> = ({
           <strong>Sandbox Storage Policy:</strong> This build leverages your runtime secure space context storage for data evaluation. Network states sync automatically to local profile instances.
         </p>
       </div>
+    </>
+  );
+};
+
+/* ------------------------------------------------------------------ */
+/*  AuthPanel — orchestrator                                          */
+/* ------------------------------------------------------------------ */
+
+/** Top-level auth panel: shows an active-session card when logged in, or delegates to ResetPasswordForm / LoginForm. */
+const AuthPanel: React.FC<AuthPanelProps> = ({
+  initialMode = "login",
+  showBrand = true,
+  compact = false,
+}) => {
+  const { user, isAuthenticated, logout } = useAuth();
+  const [mode, setMode] = useState<AuthMode>(initialMode);
+
+  useEffect(() => {
+    setMode(initialMode);
+  }, [initialMode]);
+
+  const heading = useMemo(() => {
+    if (mode === "register") return "Create your Profile";
+    if (mode === "resetPassword") return "Reset Password";
+    return "Welcome Back";
+  }, [mode]);
+
+  const description = useMemo(() => {
+    if (mode === "register") {
+      return "Set up your platform credentials to log achievements and claim your ranks on the arena.";
+    }
+    if (mode === "resetPassword") {
+      return "Answer your security question to regain access to your account.";
+    }
+    return "Access your dashboard to trace performance updates and current coding streaks.";
+  }, [mode]);
+
+  /** Toggles between login, register, and resetPassword modes. */
+  const switchMode = (next: AuthMode) => {
+    setMode(next);
+  };
+
+  if (isAuthenticated && user) {
+    return (
+      <div
+        className="rounded-2xl border p-6 md:p-8 shadow-md transition-all duration-300"
+        style={{
+          backgroundColor: "var(--ifm-card-background-color)",
+          borderColor: "var(--ifm-color-emphasis-200)",
+        }}
+      >
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          Active Session
+        </div>
+
+        <h2 className="text-2xl font-extrabold tracking-tight" style={{ color: "var(--ifm-heading-color)" }}>
+          Already Signed In
+        </h2>
+
+        <p className="mt-2 text-sm opacity-80">
+          Logged in as <span className="font-bold">{user.name}</span> ({user.email})
+        </p>
+
+        <div className="mt-6 flex flex-col sm:flex-row gap-3">
+          <Link
+            to="/profile"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--ifm-color-primary)] px-5 py-2.5 text-sm font-bold text-white no-underline hover:no-underline hover:opacity-95 transition-all"
+          >
+            Go to Profile Dashboard
+            <FiArrowRight className="w-4 h-4" />
+          </Link>
+          <button
+            type="button"
+            onClick={logout}
+            className="inline-flex items-center justify-center rounded-xl border px-5 py-2.5 text-sm font-semibold bg-transparent transition-colors"
+            style={{
+              borderColor: "var(--ifm-color-emphasis-300)",
+              color: "var(--ifm-heading-color)",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--ifm-color-emphasis-100)")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+          >
+            Sign Out
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`rounded-2xl border transition-all duration-300 ${compact ? "p-5" : "p-6 sm:p-8"}`}
+      style={{
+        backgroundColor: "var(--ifm-card-background-color)",
+        borderColor: "var(--ifm-color-emphasis-200)",
+      }}
+    >
+      {showBrand && (
+        <div className="mb-5 flex items-center gap-4">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl text-white shrink-0 bg-[var(--ifm-color-primary)] shadow-sm shadow-[var(--ifm-color-primary-rgb)]/20">
+            <FiUser className="h-5 w-5" />
+          </div>
+          <div>
+            <p className="m-0 text-[10px] font-bold uppercase tracking-wider opacity-60">
+              Identity Services
+            </p>
+            <h2 className="m-0 text-2xl font-extrabold tracking-tight" style={{ color: "var(--ifm-heading-color)" }}>
+              {heading}
+            </h2>
+          </div>
+        </div>
+      )}
+
+      <p className="mb-5 text-sm leading-relaxed opacity-75">{description}</p>
+
+      {mode === "resetPassword" ? (
+        <ResetPasswordForm onSwitchToLogin={() => switchMode("login")} />
+      ) : (
+        <LoginForm mode={mode} onSwitchMode={switchMode} />
+      )}
     </div>
   );
 };

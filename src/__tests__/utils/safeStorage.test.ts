@@ -9,6 +9,10 @@ import {
   getUserId,
   extractQuizIdFromStorageKey,
   getAchievementSnapshot,
+  getRoadmapCompletedStages,
+  setRoadmapCompletedStages,
+  ROADMAP_COMPLETED_KEY,
+  LEGACY_ROADMAP_STORAGE_KEY,
   QuizAttemptRecord,
 } from '../../utils/safeStorage';
 
@@ -160,6 +164,63 @@ describe('safeStorage', () => {
     test('falls back to quiz_userId if session is absent', () => {
       localStorage.setItem('quiz_userId', 'usr_fallback');
       expect(getUserId()).toBe('usr_fallback');
+    });
+  });
+
+  describe('roadmap completion reconciliation', () => {
+    test('persists completed stages inside algo_progress and removes the legacy isolated key', () => {
+      localStorage.setItem(LEGACY_ROADMAP_STORAGE_KEY, JSON.stringify([1, 2]));
+
+      setRoadmapCompletedStages([1, 2, 3]);
+
+      const progress = readAlgoProgress();
+      expect(progress[ROADMAP_COMPLETED_KEY]).toEqual([1, 2, 3]);
+      expect(progress.lastActiveAt).toBeDefined();
+      expect(localStorage.getItem(LEGACY_ROADMAP_STORAGE_KEY)).toBeNull();
+    });
+
+    test('getRoadmapCompletedStages migrates legacy isolated data into algo_progress', () => {
+      localStorage.setItem(LEGACY_ROADMAP_STORAGE_KEY, JSON.stringify([1, 2]));
+
+      const stages = getRoadmapCompletedStages();
+
+      expect(stages).toEqual([1, 2]);
+      const progress = readAlgoProgress();
+      expect(progress[ROADMAP_COMPLETED_KEY]).toEqual([1, 2]);
+      expect(localStorage.getItem(LEGACY_ROADMAP_STORAGE_KEY)).toBeNull();
+    });
+
+    test('getRoadmapCompletedStages merges algo_progress and legacy data, dedupes and sorts', () => {
+      localStorage.setItem(LEGACY_ROADMAP_STORAGE_KEY, JSON.stringify([3, 1]));
+      writeAlgoProgress({ [ROADMAP_COMPLETED_KEY]: [2, 1] });
+
+      const stages = getRoadmapCompletedStages();
+
+      expect(stages).toEqual([1, 2, 3]);
+      expect(readAlgoProgress()[ROADMAP_COMPLETED_KEY]).toEqual([1, 2, 3]);
+      expect(localStorage.getItem(LEGACY_ROADMAP_STORAGE_KEY)).toBeNull();
+    });
+
+    test('getRoadmapCompletedStages reads from algo_progress when no legacy data exists', () => {
+      writeAlgoProgress({ [ROADMAP_COMPLETED_KEY]: [4, 2] });
+
+      const stages = getRoadmapCompletedStages();
+
+      expect(stages).toEqual([2, 4]);
+      expect(localStorage.getItem(LEGACY_ROADMAP_STORAGE_KEY)).toBeNull();
+    });
+
+    test('tolerates corrupt legacy data and filters non-number ids', () => {
+      localStorage.setItem(LEGACY_ROADMAP_STORAGE_KEY, '{ invalid json');
+      writeAlgoProgress({ [ROADMAP_COMPLETED_KEY]: [1, 'bad', 2] });
+
+      const stages = getRoadmapCompletedStages();
+
+      expect(stages).toEqual([1, 2]);
+    });
+
+    test('returns an empty array when nothing is stored', () => {
+      expect(getRoadmapCompletedStages()).toEqual([]);
     });
   });
 
