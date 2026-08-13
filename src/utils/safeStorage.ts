@@ -194,6 +194,7 @@ const QUIZ_ID_ALIASES: Record<string, string> = {
 export const normalizeQuizId = (quizId: string): string =>
   QUIZ_ID_ALIASES[quizId] ?? quizId;
 
+/** Build the localStorage key used to store quiz attempts for a given user+quiz. */
 export const getQuizAttemptStorageKey = (userId: string, quizId: string): string => {
   const uid = userId.toLowerCase();
   return `quiz_attempts_${uid}_${normalizeQuizId(quizId)}`;
@@ -227,41 +228,6 @@ export const getRoadmapCompletedStages = getRoadmapStages;
 export const setRoadmapCompletedStages = setRoadmapStagesUnified;
 
 // ---------------------------------------------------------------------------
-// Quiz attempt persistence
-// ---------------------------------------------------------------------------
-
-export const saveQuizAttemptLocal = (
-  userId: string,
-  quizId: string,
-  attempt: QuizAttemptRecord,
-): void => {
-  if (typeof window === 'undefined' || !window.localStorage) return;
-
-  const canonicalId = normalizeQuizId(quizId);
-  saveQuizAttemptUnified(canonicalId, attempt);
-
-  const quizTitle = canonicalId
-    .split('-')
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ');
-
-  recordLastVisited({
-    id: canonicalId,
-    title: `Quiz on ${quizTitle}`,
-    url: `/quizzes/${canonicalId}`,
-    type: 'quiz',
-    readingTime: '5 min quiz',
-    isCompleted: true,
-  });
-
-  window.dispatchEvent(
-    new CustomEvent('quizCompleted', {
-      detail: { quizId: canonicalId, userId, score: attempt.score },
-    }),
-  );
-};
-
-// ---------------------------------------------------------------------------
 // Last-visited tracking
 // ---------------------------------------------------------------------------
 
@@ -275,6 +241,7 @@ export interface LastVisitedItem {
   isCompleted?: boolean;
 }
 
+/** Record the most recently visited doc or quiz page. */
 export const recordLastVisited = (item: Omit<LastVisitedItem, 'visitedAt'> & { visitedAt?: string }): void => {
   if (typeof window === 'undefined' || !window.localStorage) return;
   const fullItem: LastVisitedItem = {
@@ -285,6 +252,7 @@ export const recordLastVisited = (item: Omit<LastVisitedItem, 'visitedAt'> & { v
   window.dispatchEvent(new CustomEvent('lastVisitedUpdated', { detail: fullItem }));
 };
 
+/** Return the most recently visited doc or quiz page, considering both explicit records and progress data. */
 export const getLastVisited = (): LastVisitedItem | null => {
   if (typeof window === 'undefined' || !window.localStorage) return null;
 
@@ -353,6 +321,41 @@ export const getLastVisited = (): LastVisitedItem | null => {
 };
 
 // ---------------------------------------------------------------------------
+// Quiz attempt persistence
+// ---------------------------------------------------------------------------
+
+export const saveQuizAttemptLocal = (
+  userId: string,
+  quizId: string,
+  attempt: QuizAttemptRecord,
+): void => {
+  if (typeof window === 'undefined' || !window.localStorage) return;
+
+  const canonicalId = normalizeQuizId(quizId);
+  saveQuizAttemptUnified(canonicalId, attempt);
+
+  const quizTitle = canonicalId
+    .split('-')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+
+  recordLastVisited({
+    id: canonicalId,
+    title: `Quiz on ${quizTitle}`,
+    url: `/quizzes/${canonicalId}`,
+    type: 'quiz',
+    readingTime: '5 min quiz',
+    isCompleted: true,
+  });
+
+  window.dispatchEvent(
+    new CustomEvent('quizCompleted', {
+      detail: { quizId: canonicalId, userId, score: attempt.score },
+    }),
+  );
+};
+
+// ---------------------------------------------------------------------------
 // Quiz attempt ID extraction
 // ---------------------------------------------------------------------------
 
@@ -363,8 +366,7 @@ const ALL_QUIZ_IDS = [
   'hash-indexing', 'external-hashing',
 ];
 
-const QUIZ_QUESTION_COUNTS: Record<string, number> = QUESTION_COUNTS;
-
+/** Extract a canonical quiz ID from a localStorage attempts key. */
 export const extractQuizIdFromStorageKey = (key: string): string | null => {
   if (!key || !key.startsWith('quiz_attempts_')) return null;
   const raw = key.slice('quiz_attempts_'.length).replace(/_+$/, '');
@@ -429,6 +431,7 @@ export interface MockExamReviewRecord {
 
 const MOCK_EXAM_REVIEW_KEY = 'mock_exam_last_review';
 
+/** Persist a mock exam review record to localStorage. */
 export const saveMockExamReview = (record: MockExamReviewRecord): void => {
   if (typeof window === 'undefined' || !window.localStorage) return;
   try {
@@ -438,9 +441,11 @@ export const saveMockExamReview = (record: MockExamReviewRecord): void => {
   }
 };
 
+/** Retrieve the most recent mock exam review record from localStorage. */
 export const getLastMockExamReview = (): MockExamReviewRecord | null =>
   safeJsonParse<MockExamReviewRecord | null>(MOCK_EXAM_REVIEW_KEY, null);
 
+/** Remove the stored mock exam review record. */
 export const clearMockExamReview = (): void => {
   if (typeof window === 'undefined' || !window.localStorage) return;
   try {
