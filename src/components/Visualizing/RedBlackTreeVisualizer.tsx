@@ -9,126 +9,144 @@ interface RBNode {
   parent: RBNode | null;
 }
 
+// ── Pure rotation helpers (module-level, no React state) ──────────────────────
+
+/** Performs a left rotation on `node` and returns the updated root. */
+const rotateLeft = (node: RBNode, currentRoot: RBNode | null): RBNode | null => {
+  const rightChild = node.right;
+  if (!rightChild) return currentRoot;
+  node.right = rightChild.left;
+  if (rightChild.left !== null) {
+    rightChild.left.parent = node;
+  }
+  rightChild.parent = node.parent;
+  if (node.parent === null) {
+    currentRoot = rightChild;
+  } else if (node === node.parent.left) {
+    node.parent.left = rightChild;
+  } else {
+    node.parent.right = rightChild;
+  }
+  rightChild.left = node;
+  node.parent = rightChild;
+  return currentRoot;
+};
+
+/** Performs a right rotation on `node` and returns the updated root. */
+const rotateRight = (node: RBNode, currentRoot: RBNode | null): RBNode | null => {
+  const leftChild = node.left;
+  if (!leftChild) return currentRoot;
+  node.left = leftChild.right;
+  if (leftChild.right !== null) {
+    leftChild.right.parent = node;
+  }
+  leftChild.parent = node.parent;
+  if (node.parent === null) {
+    currentRoot = leftChild;
+  } else if (node === node.parent.right) {
+    node.parent.right = leftChild;
+  } else {
+    node.parent.left = leftChild;
+  }
+  leftChild.right = node;
+  node.parent = leftChild;
+  return currentRoot;
+};
+
+/**
+ * Re-balances a Red-Black Tree after insertion.
+ * Accepts a `logCallback` so the pure balancing logic stays decoupled from
+ * React state — the component passes `(msg) => setLog(prev => [...prev, msg])`.
+ */
+const balanceTree = (
+  newNode: RBNode,
+  currentRoot: RBNode | null,
+  logCallback: (msg: string) => void
+): RBNode | null => {
+  let curr = newNode;
+  while (curr !== currentRoot && curr.parent !== null && curr.parent.color === "RED") {
+    const grandParent = curr.parent.parent;
+    if (!grandParent) break;
+    if (curr.parent === grandParent.left) {
+      const uncle = grandParent.right;
+      if (uncle !== null && uncle.color === "RED") {
+        curr.parent.color = "BLACK";
+        uncle.color = "BLACK";
+        grandParent.color = "RED";
+        curr = grandParent;
+        logCallback(`Recolored: Node ${curr.value}'s parent and uncle to BLACK, grandparent to RED.`);
+      } else {
+        if (curr === curr.parent.right) {
+          curr = curr.parent;
+          currentRoot = rotateLeft(curr, currentRoot);
+          logCallback(`Rotated Left at node ${curr.value}.`);
+        }
+        if (curr.parent) curr.parent.color = "BLACK";
+        grandParent.color = "RED";
+        currentRoot = rotateRight(grandParent, currentRoot);
+        logCallback(`Rotated Right at grandparent ${grandParent.value}.`);
+      }
+    } else {
+      const uncle = grandParent.left;
+      if (uncle !== null && uncle.color === "RED") {
+        curr.parent.color = "BLACK";
+        uncle.color = "BLACK";
+        grandParent.color = "RED";
+        curr = grandParent;
+        logCallback(`Recolored: Node ${curr.value}'s parent and uncle to BLACK, grandparent to RED.`);
+      } else {
+        if (curr === curr.parent.left) {
+          curr = curr.parent;
+          currentRoot = rotateRight(curr, currentRoot);
+          logCallback(`Rotated Right at node ${curr.value}.`);
+        }
+        if (curr.parent) curr.parent.color = "BLACK";
+        grandParent.color = "RED";
+        currentRoot = rotateLeft(grandParent, currentRoot);
+        logCallback(`Rotated Left at grandparent ${grandParent.value}.`);
+      }
+    }
+  }
+  if (currentRoot !== null) {
+    currentRoot.color = "BLACK";
+  }
+  return currentRoot;
+};
+
+// ── Component ─────────────────────────────────────────────────────────────────
+
+/**
+ * Interactive Red-Black Tree visualizer — supports insertion with
+ * automatic rebalancing, SVG rendering, and a rebalancing action log.
+ */
 const RedBlackTreeVisualizerComponent: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("");
   const [root, setRoot] = useState<RBNode | null>(null);
   const [log, setLog] = useState<string[]>([]);
 
-  // Rotations & Balancing Logic
-  const rotateLeft = (node: RBNode, currentRoot: RBNode | null): RBNode | null => {
-    const rightChild = node.right;
-    if (!rightChild) return currentRoot;
-    node.right = rightChild.left;
-    if (rightChild.left !== null) {
-      rightChild.left.parent = node;
-    }
-    rightChild.parent = node.parent;
-    if (node.parent === null) {
-      currentRoot = rightChild;
-    } else if (node === node.parent.left) {
-      node.parent.left = rightChild;
-    } else {
-      node.parent.right = rightChild;
-    }
-    rightChild.left = node;
-    node.parent = rightChild;
-    return currentRoot;
-  };
-
-  const rotateRight = (node: RBNode, currentRoot: RBNode | null): RBNode | null => {
-    const leftChild = node.left;
-    if (!leftChild) return currentRoot;
-    node.left = leftChild.right;
-    if (leftChild.right !== null) {
-      leftChild.right.parent = node;
-    }
-    leftChild.parent = node.parent;
-    if (node.parent === null) {
-      currentRoot = leftChild;
-    } else if (node === node.parent.right) {
-      node.parent.right = leftChild;
-    } else {
-      node.parent.left = leftChild;
-    }
-    leftChild.right = node;
-    node.parent = leftChild;
-    return currentRoot;
-  };
-
-  const balanceTree = (newNode: RBNode, currentRoot: RBNode | null): RBNode | null => {
-    let curr = newNode;
-    while (curr !== currentRoot && curr.parent !== null && curr.parent.color === "RED") {
-      const grandParent = curr.parent.parent;
-      if (!grandParent) break;
-      if (curr.parent === grandParent.left) {
-        const uncle = grandParent.right;
-        if (uncle !== null && uncle.color === "RED") {
-          // Case 1: Uncle is Red -> Recolor
-          curr.parent.color = "BLACK";
-          uncle.color = "BLACK";
-          grandParent.color = "RED";
-          curr = grandParent;
-          setLog((prev) => [...prev, `Recolored: Node ${curr.value}'s parent and uncle to BLACK, grandparent to RED.`]);
-        } else {
-          // Case 2: Uncle is Black (or null)
-          if (curr === curr.parent.right) {
-            curr = curr.parent;
-            currentRoot = rotateLeft(curr, currentRoot);
-            setLog((prev) => [...prev, `Rotated Left at node ${curr.value}.`]);
-          }
-          // Case 3
-          if (curr.parent) curr.parent.color = "BLACK";
-          grandParent.color = "RED";
-          currentRoot = rotateRight(grandParent, currentRoot);
-          setLog((prev) => [...prev, `Rotated Right at grandparent ${grandParent.value}.`]);
-        }
-      } else {
-        const uncle = grandParent.left;
-        if (uncle !== null && uncle.color === "RED") {
-          curr.parent.color = "BLACK";
-          uncle.color = "BLACK";
-          grandParent.color = "RED";
-          curr = grandParent;
-          setLog((prev) => [...prev, `Recolored: Node ${curr.value}'s parent and uncle to BLACK, grandparent to RED.`]);
-        } else {
-          if (curr === curr.parent.left) {
-            curr = curr.parent;
-            currentRoot = rotateRight(curr, currentRoot);
-            setLog((prev) => [...prev, `Rotated Right at node ${curr.value}.`]);
-          }
-          if (curr.parent) curr.parent.color = "BLACK";
-          grandParent.color = "RED";
-          currentRoot = rotateLeft(grandParent, currentRoot);
-          setLog((prev) => [...prev, `Rotated Left at grandparent ${grandParent.value}.`]);
-        }
-      }
-    }
-    if (currentRoot !== null) {
-      currentRoot.color = "BLACK";
-    }
-    return currentRoot;
-  };
+  /** Appends a single log entry; passed as the logCallback to balanceTree. */
+  const appendLog = (msg: string) => setLog((prev) => [...prev, msg]);
 
   const handleInsert = (e: React.FormEvent) => {
     e.preventDefault();
     const val = parseInt(inputValue);
     if (isNaN(val)) return;
 
-    setLog((prev) => [...prev, `Inserting node: ${val}`]);
+    appendLog(`Inserting node: ${val}`);
 
     const newNode: RBNode = {
       value: val,
       color: "RED",
       left: null,
       right: null,
-      parent: null
+      parent: null,
     };
 
     if (root === null) {
       newNode.color = "BLACK";
       setRoot(newNode);
       setInputValue("");
-      setLog((prev) => [...prev, `Root initialized with value ${val} (BLACK).`]);
+      appendLog(`Root initialized with value ${val} (BLACK).`);
       return;
     }
 
@@ -141,7 +159,7 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
       } else if (val > curr.value) {
         curr = curr.right;
       } else {
-        setLog((prev) => [...prev, `Node ${val} already exists. Skipping insertion.`]);
+        appendLog(`Node ${val} already exists. Skipping insertion.`);
         setInputValue("");
         return;
       }
@@ -156,7 +174,7 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
       }
     }
 
-    const balancedRoot = balanceTree(newNode, root);
+    const balancedRoot = balanceTree(newNode, root, appendLog);
     setRoot(balancedRoot);
     setInputValue("");
   };
@@ -166,7 +184,7 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
     setLog([]);
   };
 
-  // Render SVG nodes helper
+  /** Recursively renders SVG nodes and connecting lines for the tree. */
   const renderSVGNodes = (
     node: RBNode | null,
     x: number,
@@ -177,7 +195,6 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
 
     const elements: JSX.Element[] = [];
 
-    // Left child branch
     if (node.left !== null) {
       elements.push(
         <line
@@ -193,7 +210,6 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
       elements.push(...renderSVGNodes(node.left, x - offset, y + 60, offset / 1.7));
     }
 
-    // Right child branch
     if (node.right !== null) {
       elements.push(
         <line
@@ -209,7 +225,6 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
       elements.push(...renderSVGNodes(node.right, x + offset, y + 60, offset / 1.7));
     }
 
-    // Node Circle
     elements.push(
       <g key={`g-${node.value}`}>
         <circle
@@ -241,7 +256,7 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
       <h3 className="text-xl font-bold mb-4 text-red-600 dark:text-red-400">
         Red-Black Tree Interactive Visualizer
       </h3>
-      
+
       <form onSubmit={handleInsert} className="flex gap-2 mb-6">
         <input
           type="number"
@@ -284,7 +299,10 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
           </h4>
           <div className="p-4 bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800 rounded-xl space-y-1.5 max-h-40 overflow-y-auto font-mono text-xs text-gray-600 dark:text-gray-400">
             {log.map((entry, index) => (
-              <div key={index} className="leading-relaxed border-b border-zinc-100 dark:border-zinc-800 pb-1 last:border-0 last:pb-0">
+              <div
+                key={index}
+                className="leading-relaxed border-b border-zinc-100 dark:border-zinc-800 pb-1 last:border-0 last:pb-0"
+              >
                 {entry}
               </div>
             ))}
