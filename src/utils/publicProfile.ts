@@ -27,59 +27,44 @@ export interface PublicProfileSnapshot extends PublicProfileSettings {
 
 const SETTINGS_KEY = "algo.public_profile.settings.v1";
 
-function getCurrentHost(): string {
+/** Returns the current host origin for constructing profile URLs. */
+const getCurrentHost = (): string => {
   if (typeof window === "undefined") {
     return "https://example.com";
   }
-
   const origin = window.location.origin;
   return origin || "https://example.com";
-}
+};
 
-export function getPublicProfileSettings(): PublicProfileSettings | null {
+/** Returns the stored public profile settings from localStorage, or null if none exist. */
+const getPublicProfileSettings = (): PublicProfileSettings | null => {
   if (typeof window === "undefined") {
     return null;
   }
-
-  const settings = safeJsonParse<PublicProfileSettings | null>(
-    SETTINGS_KEY,
-    null,
-  );
+  const settings = safeJsonParse<PublicProfileSettings | null>(SETTINGS_KEY, null);
   if (!settings) {
     return null;
   }
-
   return {
-    isPublic:
-      settings.isPublic !== undefined ? Boolean(settings.isPublic) : true,
+    isPublic: settings.isPublic !== undefined ? Boolean(settings.isPublic) : true,
     username: settings.username?.trim() || "",
-    displayName:
-      settings.displayName?.trim() || settings.username?.trim() || "",
+    displayName: settings.displayName?.trim() || settings.username?.trim() || "",
     bio: settings.bio?.trim() || "",
     showSolvedProblems:
-      settings.showSolvedProblems !== undefined
-        ? Boolean(settings.showSolvedProblems)
-        : true,
+      settings.showSolvedProblems !== undefined ? Boolean(settings.showSolvedProblems) : true,
     showQuizMastery:
-      settings.showQuizMastery !== undefined
-        ? Boolean(settings.showQuizMastery)
-        : true,
-    showStreak:
-      settings.showStreak !== undefined ? Boolean(settings.showStreak) : true,
+      settings.showQuizMastery !== undefined ? Boolean(settings.showQuizMastery) : true,
+    showStreak: settings.showStreak !== undefined ? Boolean(settings.showStreak) : true,
     allowBadgeEmbed:
-      settings.allowBadgeEmbed !== undefined
-        ? Boolean(settings.allowBadgeEmbed)
-        : true,
+      settings.allowBadgeEmbed !== undefined ? Boolean(settings.allowBadgeEmbed) : true,
   };
-}
+};
 
-export function savePublicProfileSettings(
-  settings: Partial<PublicProfileSettings>,
-): void {
+/** Merges partial settings with the current stored settings and persists to localStorage. */
+const savePublicProfileSettings = (settings: Partial<PublicProfileSettings>): void => {
   if (typeof window === "undefined") {
     return;
   }
-
   const current = getPublicProfileSettings() || {
     isPublic: true,
     username: "",
@@ -90,27 +75,29 @@ export function savePublicProfileSettings(
     showStreak: true,
     allowBadgeEmbed: true,
   };
-
   const next = { ...current, ...settings };
   window.localStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
-}
+};
 
-export function buildPublicProfileSnapshot(input: {
+/**
+ * Builds a complete public profile snapshot from localStorage data.
+ * Returns isPublic: false when no stored settings match the URL slug,
+ * preventing unknown usernames from exposing a default-public profile.
+ */
+const buildPublicProfileSnapshot = (input: {
   username: string;
   displayName?: string;
   email?: string;
   overrideSettings?: Partial<PublicProfileSettings>;
-}): PublicProfileSnapshot {
+}): PublicProfileSnapshot => {
   const cleanUsername = input.username?.trim() || "developer";
   const cleanDisplayName =
     input.displayName?.trim() || cleanUsername.replace(/-/g, " ");
 
   const settings = getPublicProfileSettings();
 
-  // Smart production fallbacks — isPublic defaults to false so that any URL
-  // slug without matching stored settings shows the private/restricted view.
-  // A profile is only public when the stored username matches the URL slug
-  // AND the user has explicitly set isPublic: true in their settings.
+  // isPublic defaults to false — a profile is only public when the stored
+  // username matches the URL slug AND the user has explicitly set isPublic: true.
   const fallbackSettings: PublicProfileSettings = {
     isPublic: false,
     username: cleanUsername,
@@ -123,7 +110,6 @@ export function buildPublicProfileSnapshot(input: {
     allowBadgeEmbed: true,
   };
 
-  // Match settings if stored username matches URL parameter (case-insensitive)
   const matchesStoredSettings =
     settings?.username?.trim()?.toLowerCase() === cleanUsername.toLowerCase();
 
@@ -163,12 +149,20 @@ export function buildPublicProfileSnapshot(input: {
     profileUrl: `${getCurrentHost()}/u/${targetSlug}`,
     badgeUrl: `${getCurrentHost()}/u/${targetSlug}/badge`,
   };
-}
+};
 
-export function getPublicProfileBadgeMarkdown(username: string): string {
+/** Returns a Shields.io badge markdown string for the given Algo username. */
+const getPublicProfileBadgeMarkdown = (username: string): string => {
   const slug = username.trim() || "algo";
   const host = getCurrentHost();
   return `[![Algo profile](https://img.shields.io/badge/Algo%20profile-${encodeURIComponent(
     slug,
   )}-blue)](${host}/u/${slug}/badge)`;
-}
+};
+
+export {
+  getPublicProfileSettings,
+  savePublicProfileSettings,
+  buildPublicProfileSnapshot,
+  getPublicProfileBadgeMarkdown,
+};
