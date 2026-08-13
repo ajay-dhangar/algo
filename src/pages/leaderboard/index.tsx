@@ -3,6 +3,7 @@ import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
+import { getProgressSnapshot } from "../../utils/progressStore";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -113,28 +114,24 @@ const classifyCategory = (title: string): string | null => {
   return null;
 };
 
-// ─── Parse localStorage → ChallengePlayer for the current user ────────────────
+// ─── Parse unified progress store → ChallengePlayer for the current user ──────
 const parseLocalProgress = (): Omit<
   ChallengePlayer,
   "rank" | "tier" | "accentColor" | "textColor"
 > | null => {
   try {
     if (typeof window === "undefined") return null;
-    const raw = localStorage.getItem("algo_progress");
-    if (!raw) return null;
-    const progress = JSON.parse(raw);
+    const progress = getProgressSnapshot();
 
-    // Get all solved challenge IDs (keys that are true and don't end in _title/_updatedAt)
-    const solvedKeys = Object.keys(progress).filter(
-      (k) => !k.endsWith("_title") && !k.endsWith("_updatedAt") && progress[k] === true
-    );
+    // Get all completed topic IDs from the unified store
+    const solvedKeys = Object.entries(progress.topics)
+      .filter(([, entry]) => entry.completed)
+      .map(([id]) => id);
     if (solvedKeys.length === 0) return null;
 
-    // Figure out difficulty per solved challenge by matching against known challenge data
-    // We use simple heuristics: key prefixes identify the track, we score flat for now
     let easy = 0, medium = 0, hard = 0;
     solvedKeys.forEach((key) => {
-      const title = (progress[`${key}_title`] || "").toLowerCase();
+      const title = (progress.topics[key]?.title ?? "").toLowerCase();
       const difficulty = classifyDifficulty(title);
       if (difficulty === "easy") easy++;
       else if (difficulty === "hard") hard++;
@@ -144,7 +141,6 @@ const parseLocalProgress = (): Omit<
     const xp = easy * XP.Easy + medium * XP.Medium + hard * XP.Hard;
     const accuracy = Math.min(99, 70 + Math.floor(solvedKeys.length * 0.4));
 
-    // Get user identity from GitHub auth if available, else use a generic name
     const storedUser = (() => { try { return JSON.parse(localStorage.getItem("algo_user") || "{}"); } catch { return {}; } })();
     const username = storedUser?.login || storedUser?.username || "You";
     const avatarUrl = storedUser?.avatar_url || `https://api.dicebear.com/7.x/identicon/svg?seed=${username}`;
@@ -152,7 +148,7 @@ const parseLocalProgress = (): Omit<
     const categories = Array.from(
       new Set(
         solvedKeys
-          .map((k) => classifyCategory((progress[`${k}_title`] || "").toLowerCase()))
+          .map((k) => classifyCategory((progress.topics[k]?.title ?? "").toLowerCase()))
           .filter((c): c is string => c !== null)
       )
     );
@@ -165,7 +161,7 @@ const parseLocalProgress = (): Omit<
       easy, medium, hard,
       xp,
       accuracy,
-      streak: (() => { try { return Number(localStorage.getItem("algo_streak") || 0); } catch { return 0; } })(),
+      streak: progress.streak,
       categories: categories.length > 0 ? categories : ["—"],
       lastActive: "Just now",
     };

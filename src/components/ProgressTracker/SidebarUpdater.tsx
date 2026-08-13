@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { safeJsonParse, syncAlgoProgress } from '../../utils/safeStorage';
+import { syncAlgoProgress } from '../../utils/safeStorage';
+import { getProgressSnapshot, onProgressUpdate } from '../../utils/progressStore';
 
 
 interface ProgressData {
@@ -31,17 +32,23 @@ const SidebarUpdater: React.FC = () => {
   useEffect(() => {
     const load = () => {
       try {
-        setProgress(safeJsonParse<ProgressData>('algo_progress', {}));
+        const snapshot = getProgressSnapshot();
+        const flat: ProgressData = {};
+        for (const [topicId, entry] of Object.entries(snapshot.topics)) {
+          flat[topicId] = entry.completed;
+          if (entry.title) flat[`${topicId}_title`] = entry.title;
+        }
+        setProgress(flat);
       } catch {
-        // safeJsonParse returns the fallback value on failure — nothing to surface here.
+        // getProgressSnapshot returns empty fallback on failure.
       }
     };
     
     // Initial fetch from supabase if authenticated
     syncAlgoProgress().then(load).catch(load);
 
-    window.addEventListener('progressUpdated', load);
-    return () => window.removeEventListener('progressUpdated', load);
+    const unsub = onProgressUpdate(load);
+    return unsub;
   }, []);
 
   useEffect(() => {

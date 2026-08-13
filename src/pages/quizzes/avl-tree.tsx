@@ -16,7 +16,8 @@ import {
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
-import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { getQuizAttempts } from "../../utils/progressStore";
 
 interface AVLQuestion {
   id: number;
@@ -152,8 +153,7 @@ const AVLTreeQuiz: React.FC = () => {
     const storedUser = localStorage.getItem("quiz_username");
     if (storedUser) {
       setUsername(storedUser);
-      const historyKey = `quiz_attempts_${storedUser.toLowerCase()}_avl-trees`;
-      setLocalHistory(safeJsonParse<LocalQuizAttempt[]>(historyKey, []));
+      setLocalHistory(getQuizAttempts("avl-trees") as LocalQuizAttempt[]);
     }
   }, []);
 
@@ -180,8 +180,7 @@ const AVLTreeQuiz: React.FC = () => {
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
 
-    const historyKey = `quiz_attempts_${cleanName.toLowerCase()}_avl-trees`;
-    setLocalHistory(safeJsonParse<LocalQuizAttempt[]>(historyKey, []));
+    setLocalHistory(getQuizAttempts("avl-trees") as LocalQuizAttempt[]);
   };
 
   const handleLogout = () => {

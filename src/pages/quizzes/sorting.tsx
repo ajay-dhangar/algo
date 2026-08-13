@@ -16,6 +16,7 @@ import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
 import { saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { getQuizAttempts } from "../../utils/progressStore";
 
 interface SortingQuestion {
   id: number;
@@ -230,24 +231,13 @@ const SortingQuiz: React.FC = () => {
     );
   }, [userAnswers]);
 
-  const fetchAttempts = useCallback((uId: string) => {
-    const historyKey = `quiz_attempts_${uId}_sorting`;
-    const savedAttempts = localStorage.getItem(historyKey);
-    if (savedAttempts) {
-      try {
-        setAttempts(JSON.parse(savedAttempts));
-      } catch (e) {
-        console.error("Error parsing history attempts:", e);
-        setAttempts([]);
-      }
-    } else {
-      setAttempts([]);
-    }
+  const fetchAttempts = useCallback(() => {
+    setAttempts(getQuizAttempts("sorting") as HistoryAttempt[]);
   }, []);
 
   useEffect(() => {
     if (userId) {
-      fetchAttempts(userId);
+      fetchAttempts();
     }
   }, [userId, fetchAttempts]);
 

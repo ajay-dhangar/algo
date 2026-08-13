@@ -12,6 +12,7 @@ import PracticeActivityHeatmapWidget from "../components/PracticeActivityHeatmap
 import PracticeActivitySummaryCard from "../components/PracticeActivitySummaryCard";
 import PublicProfileSettingsCard from "../components/PublicProfileSettingsCard";
 import QuizStreakWidget from "../components/QuizStreakWidget";
+import { getProgressSnapshot, onProgressUpdate } from "../utils/progressStore";
 
 type DashboardTab = "overview" | "metrics" | "security";
 
@@ -54,9 +55,12 @@ const ProfilePage = (): React.ReactElement => {
 
   useEffect(() => {
     parseTelemetryData();
-    const handleProgressUpdate = () => parseTelemetryData();
-    window.addEventListener("progressUpdated", handleProgressUpdate);
-    return () => window.removeEventListener("progressUpdated", handleProgressUpdate);
+    const unsub = onProgressUpdate(parseTelemetryData);
+    window.addEventListener("progressUpdated", parseTelemetryData);
+    return () => {
+      unsub();
+      window.removeEventListener("progressUpdated", parseTelemetryData);
+    };
   }, []);
 
   const joinDate = useMemo(() => {

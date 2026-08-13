@@ -14,7 +14,8 @@ import {
   FaChevronRight, 
   FaHistory 
 } from "react-icons/fa";
-import { safeJsonParse, saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { saveQuizAttemptLocal } from "../../utils/safeStorage";
+import { getQuizAttempts } from "../../utils/progressStore";
 
 interface ArrayQuestion {
   id: number;
@@ -145,8 +146,7 @@ const ArrayQuiz: React.FC = () => {
     const storedUser = localStorage.getItem("quiz_username");
     if (storedUser) {
       setUsername(storedUser);
-      const historyKey = `quiz_attempts_${storedUser.toLowerCase()}_arrays`;
-      setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
+      setLocalHistory(getQuizAttempts("arrays") as LocalAttempt[]);
     }
   }, []);
 
@@ -173,8 +173,7 @@ const ArrayQuiz: React.FC = () => {
     localStorage.setItem("quiz_username", cleanName);
     setUsername(cleanName);
 
-    const historyKey = `quiz_attempts_${cleanName.toLowerCase()}_arrays`;
-    setLocalHistory(safeJsonParse<LocalAttempt[]>(historyKey, []));
+    setLocalHistory(getQuizAttempts("arrays") as LocalAttempt[]);
   };
 
   const handleLogout = () => {
