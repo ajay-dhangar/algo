@@ -42,6 +42,11 @@ export const DEFAULT_ADAPTIVE_CONFIG: AdaptiveConfig = {
   stabilityTolerance: 0.35,
 };
 
+/** Clamp a number between min and max (inclusive). */
+const clamp = (value: number, min: number, max: number): number => {
+  return Math.min(max, Math.max(min, value));
+};
+
 const DIFFICULTY_VALUE: Record<Difficulty, number> = { Easy: 1, Medium: 2, Hard: 3 };
 const MIN_ABILITY = 1;
 const MAX_ABILITY = 3;
@@ -150,9 +155,4 @@ export const getMasteryLevel = (state: AdaptiveState): MasteryLevel => {
 export const getConfidencePercent = (state: AdaptiveState): number => {
   const raw = 1 - (state.uncertainty - MIN_UNCERTAINTY) / (1 - MIN_UNCERTAINTY);
   return Math.round(clamp(raw, 0, 1) * 100);
-};
-
-/** Clamp a number between min and max (inclusive). */
-const clamp = (value: number, min: number, max: number): number => {
-  return Math.min(max, Math.max(min, value));
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "../testUtils";
 import userEvent from "@testing-library/user-event";
-import AdaptiveQuizRunner, { AdaptiveQuizItem, AdaptiveQuizSummary } from "../../components/Quiz/AdaptiveQuizRunner";
+import AdaptiveQuizRunner, { AdaptiveQuizItem } from "../../components/Quiz/AdaptiveQuizRunner";
 
 const makePool = (n = 30): AdaptiveQuizItem[] => {
   const diffs = ["Easy", "Medium", "Hard"] as const;
