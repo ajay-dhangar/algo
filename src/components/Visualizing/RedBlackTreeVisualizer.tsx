@@ -300,7 +300,7 @@ const RedBlackTreeVisualizerComponent: React.FC = () => {
           <div className="p-4 bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-800 rounded-xl space-y-1.5 max-h-40 overflow-y-auto font-mono text-xs text-gray-600 dark:text-gray-400">
             {log.map((entry, index) => (
               <div
-                key={index}
+                key={`log-${index}-${entry.slice(0, 20)}`}
                 className="leading-relaxed border-b border-zinc-100 dark:border-zinc-800 pb-1 last:border-0 last:pb-0"
               >
                 {entry}
