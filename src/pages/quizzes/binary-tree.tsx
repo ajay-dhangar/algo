@@ -12,12 +12,14 @@ import {
   FaCheckCircle, 
   FaTimesCircle, 
   FaChevronRight, 
-  FaHistory 
+  FaHistory,
+  FaBrain
 } from "react-icons/fa";
 
 import QuestionProgress from "../../components/Quiz/QuestionProgress";
 import QuestionNavigator from "../../components/Quiz/QuestionNavigator";
 import QuizResultActions from "../../components/Quiz/QuizResultActions";
+import AdaptiveQuizRunner, { AdaptiveQuizSummary } from "../../components/Quiz/AdaptiveQuizRunner";
 
 interface BTQuestion {
   id: number;
@@ -141,6 +143,7 @@ const BinaryTreeQuiz: React.FC = () => {
   const [timeSpent, setTimeSpent] = useState(0);
   const { attempts, isLoading, fetchAttempts, submitAttempt, setAttempts } = useQuizData({ quizId: "binary-tree" });
   const [isMounted, setIsMounted] = useState(false);
+  const [quizMode, setQuizMode] = useState<"standard" | "smart">("standard");
 
   
   useEffect(() => {
@@ -216,6 +219,11 @@ const BinaryTreeQuiz: React.FC = () => {
     }
   };
 
+  /** Forward smart-quiz results to the attempt logger. */
+  const handleSmartQuizComplete = (summary: AdaptiveQuizSummary) => {
+    submitAttempt(userId, summary.correctCount, summary.questionsAsked, timeSpent);
+  };
+
   const handleRetry = () => {
     setCurrentQuestion(0);
     setShowResult(false);
@@ -288,17 +296,46 @@ const BinaryTreeQuiz: React.FC = () => {
                 MONITORING POOL NODE: <strong className="text-slate-900 dark:text-white uppercase font-sans tracking-wide">{username}</strong>
               </span>
             </div>
-            <button 
-              onClick={handleLogout} 
-              className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-800 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
-            >
-              <FaSignOutAlt /> Flush Session Data
-            </button>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center rounded-xl border border-solid border-slate-200 dark:border-slate-800 p-0.5 bg-slate-50 dark:bg-slate-950">
+                <button
+                  onClick={() => setQuizMode("standard")}
+                  disabled={showResult}
+                  className={`px-3 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wide transition-all border-none cursor-pointer ${
+                    quizMode === "standard"
+                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                      : "bg-transparent text-slate-500 dark:text-slate-400"
+                  }`}
+                >
+                  Standard
+                </button>
+                <button
+                  onClick={() => setQuizMode("smart")}
+                  disabled={showResult}
+                  className={`px-3 py-1.5 rounded-lg text-[11px] font-bold uppercase tracking-wide transition-all border-none cursor-pointer inline-flex items-center gap-1.5 ${
+                    quizMode === "smart"
+                      ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                      : "bg-transparent text-slate-500 dark:text-slate-400"
+                  }`}
+                >
+                  <FaBrain size={11} /> Smart Quiz
+                </button>
+              </div>
+              <button 
+                onClick={handleLogout} 
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-solid border-rose-200 dark:border-rose-950/40 bg-rose-500/5 hover:bg-rose-500/10 text-rose-800 dark:text-rose-400 text-xs font-bold transition-all cursor-pointer"
+              >
+                <FaSignOutAlt /> Flush Session Data
+              </button>
+            </div>
           </div>
 
           {/* Interactive Shell Frame */}
           <div className="bg-white dark:bg-slate-900 border border-solid border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 md:p-8 shadow-xs">
             
+            {quizMode === "smart" ? (
+              <AdaptiveQuizRunner pool={QUESTIONS} onComplete={handleSmartQuizComplete} />
+            ) : (
             <AnimatePresence mode="wait">
               {!showResult ? (
                 <motion.div
@@ -463,6 +500,7 @@ const BinaryTreeQuiz: React.FC = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+            )}
 
             {/* Run-History Logs Table Component */}
             {attempts.length > 0 && (
