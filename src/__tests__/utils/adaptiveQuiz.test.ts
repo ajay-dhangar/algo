@@ -28,10 +28,10 @@ const runSession = (
   while (!shouldStop(state, pool.length, config)) {
     guard++;
     if (guard > 1000) throw new Error("Session did not terminate");
-    const q = selectNextQuestion(state, pool);
-    if (!q) break;
-    askedDifficulties.push(q.difficulty);
-    const correct = answerFn(q, state);
+    const question = selectNextQuestion(state, pool);
+    if (!question) break;
+    askedDifficulties.push(question.difficulty);
+    const correct = answerFn(question, state);
     state = recordAnswer(state, q, correct);
   }
   return { state, askedDifficulties };
