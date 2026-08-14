@@ -11,7 +11,7 @@ export interface TOCHighlightObserverConfig {
  * Custom hook to dynamically highlight current section in Table of Contents while scrolling.
  * Uses IntersectionObserver API to track visible document headings in real-time.
  */
-export function useTOCHighlightObserver(config: TOCHighlightObserverConfig | undefined): void {
+const useTOCHighlightObserver = (config: TOCHighlightObserverConfig | undefined): void => {
   useEffect(() => {
     if (typeof window === 'undefined' || typeof document === 'undefined') {
       return;
@@ -153,4 +153,6 @@ export function useTOCHighlightObserver(config: TOCHighlightObserverConfig | und
       window.removeEventListener('resize', handleScroll);
     };
   }, [config]);
-}
+};
+
+export { useTOCHighlightObserver };
