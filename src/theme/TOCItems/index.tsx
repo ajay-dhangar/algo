@@ -23,7 +23,11 @@ export interface Props {
   readonly maxHeadingLevel?: number;
 }
 
-export default function TOCItems({
+/**
+ * Themed Table of Contents items component. Renders a tree of heading links
+ * with active-section highlighting via IntersectionObserver.
+ */
+const TOCItems = ({
   toc,
   className = 'table-of-contents table-of-contents__left-border',
   linkClassName = 'table-of-contents__link',
@@ -31,7 +35,7 @@ export default function TOCItems({
   minHeadingLevel: minHeadingLevelOption,
   maxHeadingLevel: maxHeadingLevelOption,
   ...props
-}: Props): ReactNode {
+}: Props): ReactNode => {
   let themeConfig: { tableOfContents?: { minHeadingLevel?: number; maxHeadingLevel?: number } } = {};
   try {
     if (typeof useThemeConfig === 'function') {
@@ -46,11 +50,11 @@ export default function TOCItems({
   const maxHeadingLevel =
     maxHeadingLevelOption ?? themeConfig.tableOfContents?.maxHeadingLevel ?? 4;
 
-  let tocTree = (toc as any) || [];
+  let tocTree: readonly TOCItem[] = toc as unknown as readonly TOCItem[] || [];
   try {
     if (typeof useFilteredAndTreeifiedTOC === 'function') {
       tocTree = useFilteredAndTreeifiedTOC({
-        toc: toc as any,
+        toc: toc as unknown as Parameters<typeof useFilteredAndTreeifiedTOC>[0]['toc'],
         minHeadingLevel,
         maxHeadingLevel,
       });
@@ -73,7 +77,7 @@ export default function TOCItems({
 
   if (typeof useTOCHighlight === 'function') {
     try {
-      useTOCHighlight(tocHighlightConfig as any);
+      useTOCHighlight(tocHighlightConfig as unknown as Parameters<typeof useTOCHighlight>[0]);
     } catch {
       // Fallback
     }
@@ -89,4 +93,6 @@ export default function TOCItems({
       {...props}
     />
   );
-}
+};
+
+export default TOCItems;
