@@ -32,7 +32,7 @@ const runSession = (
     if (!question) break;
     askedDifficulties.push(question.difficulty);
     const correct = answerFn(question, state);
-    state = recordAnswer(state, q, correct);
+    state = recordAnswer(state, question, correct);
   }
   return { state, askedDifficulties };
 };
