@@ -1,5 +1,6 @@
 import {
   getAllMockExamQuestions,
+  getAvailableQuestionsCount,
   buildMockExamQuestions,
   getRandom30Preset,
   getTopicTitle,
@@ -18,6 +19,19 @@ describe("mockExamData Utility", () => {
     expect(topicIds.has("sorting")).toBe(true);
   });
 
+  test("getAvailableQuestionsCount returns correct count for selected topics", () => {
+    const avlCount = getAvailableQuestionsCount(["avl-trees"]);
+    expect(avlCount).toBeGreaterThan(0);
+
+    const emptyCount = getAvailableQuestionsCount([]);
+    expect(emptyCount).toBe(0);
+
+    const combinedCount = getAvailableQuestionsCount(["arrays", "graphs"]);
+    expect(combinedCount).toBe(
+      getAvailableQuestionsCount(["arrays"]) + getAvailableQuestionsCount(["graphs"])
+    );
+  });
+
   test("buildMockExamQuestions filters by selected topics and respects count limit", () => {
     const selectedTopics = ["arrays", "graphs"];
     const count = 10;
@@ -27,6 +41,16 @@ describe("mockExamData Utility", () => {
     questions.forEach((q) => {
       expect(selectedTopics.includes(q.topicId)).toBe(true);
     });
+  });
+
+  test("buildMockExamQuestions caps question count when target count exceeds available questions", () => {
+    const selectedTopics = ["avl-trees"];
+    const available = getAvailableQuestionsCount(selectedTopics);
+    const requestedCount = 30; // higher than available
+    const questions = buildMockExamQuestions(selectedTopics, requestedCount);
+
+    expect(questions.length).toBe(available);
+    expect(questions.length).toBeLessThan(requestedCount);
   });
 
   test("getRandom30Preset returns 30 questions across topics", () => {

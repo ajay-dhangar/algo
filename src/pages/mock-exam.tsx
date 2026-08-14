@@ -35,6 +35,7 @@ import {
 } from "../utils/safeStorage";
 import {
   buildMockExamQuestions,
+  getAvailableQuestionsCount,
   getRandom30Preset,
   MockExamQuestion,
   getTopicTitle,
@@ -66,6 +67,21 @@ function MockExamContent() {
   const [wasAutoSubmitted, setWasAutoSubmitted] = useState<boolean>(false);
   const [showConfirmSubmit, setShowConfirmSubmit] = useState<boolean>(false);
   const [showConfirmExit, setShowConfirmExit] = useState<boolean>(false);
+
+  const availableQuestionCount = useMemo(() => {
+    return getAvailableQuestionsCount(selectedTopics);
+  }, [selectedTopics]);
+
+  const effectiveTargetQuestionCount = useMemo(() => {
+    return Math.min(targetQuestionCount, availableQuestionCount);
+  }, [targetQuestionCount, availableQuestionCount]);
+
+  // Keep currentQuestionIndex bounded within valid questions array range
+  useEffect(() => {
+    if (questions.length > 0 && currentQuestionIndex >= questions.length) {
+      setCurrentQuestionIndex(questions.length - 1);
+    }
+  }, [questions, currentQuestionIndex]);
 
   // Restore the last completed exam review from localStorage on first mount.
   // This lets the user navigate away and come back to their results.
@@ -113,8 +129,8 @@ function MockExamContent() {
   };
 
   const handleStartCustomExam = () => {
-    if (selectedTopics.length === 0) return;
-    const qList = buildMockExamQuestions(selectedTopics, targetQuestionCount);
+    if (selectedTopics.length === 0 || availableQuestionCount === 0) return;
+    const qList = buildMockExamQuestions(selectedTopics, effectiveTargetQuestionCount);
     if (qList.length === 0) return;
 
     setQuestions(qList);
@@ -152,6 +168,11 @@ function MockExamContent() {
     }, 0);
   }, [questions, userAnswers]);
 
+  const percentageScore = useMemo(() => {
+    if (questions.length === 0) return 0;
+    return Math.round((totalScore / questions.length) * 100);
+  }, [totalScore, questions.length]);
+
   const topicPerformanceList = useMemo<TopicPerformance[]>(() => {
     if (questions.length === 0) return [];
     const map: Record<string, { topicTitle: string; correct: number; total: number }> = {};
@@ -171,7 +192,7 @@ function MockExamContent() {
       topicTitle: val.topicTitle,
       correct: val.correct,
       total: val.total,
-      percentage: Math.round((val.correct / val.total) * 100),
+      percentage: val.total > 0 ? Math.round((val.correct / val.total) * 100) : 0,
     }));
   }, [questions, userAnswers]);
 
@@ -197,7 +218,7 @@ function MockExamContent() {
         saveQuizAttemptLocal(userId, tp.topicId, {
           score: tp.correct,
           totalQuestions: tp.total,
-          timeSpent: Math.round(timeSpentSeconds / topicPerformanceList.length),
+          timeSpent: topicPerformanceList.length > 0 ? Math.round(timeSpentSeconds / topicPerformanceList.length) : 0,
           completedAt: now,
         });
       });
@@ -365,7 +386,7 @@ function MockExamContent() {
               {/* Topics Grid */}
               <div>
                 <label className="block text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-3">
-                  Select Topics ({selectedTopics.length} / {QUIZZES_CONFIG.length} selected)
+                  Select Topics ({selectedTopics.length} / {QUIZZES_CONFIG.length} selected, {availableQuestionCount} Qs available)
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 max-h-72 overflow-y-auto pr-1">
                   {QUIZZES_CONFIG.map((quiz) => {
@@ -398,6 +419,11 @@ function MockExamContent() {
                 <div>
                   <label className="block text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">
                     Total Questions
+                    {availableQuestionCount < targetQuestionCount && availableQuestionCount > 0 && (
+                      <span className="ml-2 text-amber-600 dark:text-amber-400 font-normal normal-case">
+                        (Capped at {availableQuestionCount} Qs)
+                      </span>
+                    )}
                   </label>
                   <div className="flex gap-2">
                     {[10, 15, 20, 30, 50].map((cnt) => (
@@ -444,12 +470,12 @@ function MockExamContent() {
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
                 <button
                   type="button"
-                  disabled={selectedTopics.length === 0}
+                  disabled={selectedTopics.length === 0 || availableQuestionCount === 0}
                   onClick={handleStartCustomExam}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold text-sm shadow-md transition-all"
                 >
                   <FaPlay size={12} />
-                  Start Custom Mock Exam ({targetQuestionCount} Qs, {timeLimitMinutes} mins)
+                  Start Custom Mock Exam ({effectiveTargetQuestionCount} Qs, {timeLimitMinutes} mins)
                 </button>
               </div>
             </div>
@@ -633,7 +659,7 @@ function MockExamContent() {
                 <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
                   <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Percentage</div>
                   <div className="text-3xl font-black text-slate-800 dark:text-slate-100 mt-1">
-                    {Math.round((totalScore / questions.length) * 100)}%
+                    {percentageScore}%
                   </div>
                 </div>
 
@@ -641,16 +667,16 @@ function MockExamContent() {
                   <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Rating</div>
                   <div
                     className={`text-lg font-extrabold mt-2 ${
-                      Math.round((totalScore / questions.length) * 100) >= 80
+                      percentageScore >= 80
                         ? "text-emerald-500"
-                        : Math.round((totalScore / questions.length) * 100) >= 70
+                        : percentageScore >= 70
                         ? "text-blue-500"
                         : "text-rose-500"
                     }`}
                   >
-                    {Math.round((totalScore / questions.length) * 100) >= 80
+                    {percentageScore >= 80
                       ? "Interview Ready"
-                      : Math.round((totalScore / questions.length) * 100) >= 70
+                      : percentageScore >= 70
                       ? "Passed"
                       : "Needs Practice"}
                   </div>
