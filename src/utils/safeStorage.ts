@@ -151,7 +151,8 @@ export const writeAlgoProgress = (progress: AlgoProgressData): void => {
     if (key === 'lastActiveAt' && typeof value === 'string') {
       unified.lastActiveAt = value;
     } else if (key === 'roadmapStagesCompleted' && Array.isArray(value)) {
-      unified.roadmapStages = Array.from(new Set(value as number[]))
+      unified.roadmapStages = Array.from(new Set([...unified.roadmapStages, ...(value as unknown[])]))
+        .filter((v): v is number => typeof v === 'number')
         .sort((a, b) => a - b);
     } else if (key.endsWith('_title') && typeof value === 'string') {
       const topicId = key.slice(0, -'_title'.length);

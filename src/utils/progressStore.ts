@@ -160,7 +160,8 @@ const migrateAlgoProgress = (result: UnifiedProgress): void => {
 
   for (const [key, value] of Object.entries(legacyProgress)) {
     if (key === 'roadmapStagesCompleted' && Array.isArray(value)) {
-      result.roadmapStages = Array.from(new Set([...result.roadmapStages, ...value as number[]]))
+      result.roadmapStages = Array.from(new Set([...result.roadmapStages, ...(value as number[])]))
+        .filter((v): v is number => typeof v === 'number')
         .sort((a, b) => a - b);
     } else if (key === 'lastActiveAt' && typeof value === 'string') {
       if (!result.lastActiveAt || value > result.lastActiveAt) result.lastActiveAt = value;
@@ -188,6 +189,7 @@ const migrateRoadmap = (result: UnifiedProgress): void => {
   const legacyRoadmap = safeParse<number[]>(LEGACY_ROADMAP_KEY, []);
   if (legacyRoadmap.length === 0) return;
   result.roadmapStages = Array.from(new Set([...result.roadmapStages, ...legacyRoadmap]))
+    .filter((v): v is number => typeof v === 'number')
     .sort((a, b) => a - b);
   safeRemove(LEGACY_ROADMAP_KEY);
 };
@@ -529,7 +531,7 @@ export const getSolvedDates = (): Record<string, string[]> =>
 
 /** Return completed roadmap stage IDs (sorted ascending). */
 export const getRoadmapStages = (): number[] =>
-  getProgressSnapshot().roadmapStages;
+  readProgress().roadmapStages;
 
 /** Set the full list of completed roadmap stage IDs. */
 export const setRoadmapStages = (stageIds: number[]): void => {
