@@ -100,7 +100,7 @@ export default function PublicProfilePage() {
             </p>
             <Link
               className="mt-6 inline-flex items-center gap-2 justify-center w-full rounded-xl bg-[var(--ifm-color-primary)] px-5 py-3 text-xs font-bold text-white no-underline hover:no-underline hover:opacity-90 transition-all shadow-md active:scale-95"
-              to="/profile"
+              to="/algo/profile"
             >
               Configure Node Settings
             </Link>
