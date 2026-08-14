@@ -52,11 +52,11 @@ describe('TreeSandbox Component & Translation Interpolation', () => {
     fireEvent.change(input, { target: { value: '10' } });
     fireEvent.click(insertBtn);
 
-    expect(alertSpy).toHaveBeenCalledWith('Key 10 already exists in the tree!');
-    expect(alertSpy.mock.calls[alertSpy.mock.calls.length - 1][0]).not.toContain('{key}');
+    const duplicateAlert = await screen.findByText('Key 10 already exists in the tree!');
+    expect(duplicateAlert).toBeInTheDocument();
   });
 
-  test('handles node deletion alerts with interpolated values', () => {
+  test('handles node deletion alerts with interpolated values', async () => {
     render(<TreeSandbox />);
 
     const input = screen.getByRole('spinbutton');
@@ -66,7 +66,7 @@ describe('TreeSandbox Component & Translation Interpolation', () => {
     fireEvent.change(input, { target: { value: '99' } });
     fireEvent.click(deleteBtn);
 
-    expect(alertSpy).toHaveBeenCalledWith('Key 99 does not exist in the tree!');
-    expect(alertSpy.mock.calls[alertSpy.mock.calls.length - 1][0]).not.toContain('{key}');
+    const deleteAlert = await screen.findByText('Key 99 does not exist in the tree!');
+    expect(deleteAlert).toBeInTheDocument();
   });
 });
