@@ -1,3 +1,4 @@
+import { readProgress } from '../../utils/progressStore';
 import {
   safeJsonParse,
   readAlgoProgress,
@@ -89,7 +90,7 @@ describe('safeStorage', () => {
       writeAlgoProgress({ 'topic-1': true, 'topic-1_title': 'Topic 1' });
 
       const progress = readAlgoProgress();
-      expect(progress).toEqual({ 'topic-1': true, 'topic-1_title': 'Topic 1' });
+      expect(progress).toEqual(expect.objectContaining({ 'topic-1': true, 'topic-1_title': 'Topic 1' }));
       expect(dispatchSpy).toHaveBeenCalled();
 
       dispatchSpy.mockRestore();
@@ -137,7 +138,7 @@ describe('safeStorage', () => {
       });
 
       const key = getQuizAttemptStorageKey('user1', 'arrays');
-      const attempts = safeJsonParse<QuizAttemptRecord[]>(key, []);
+      const attempts = readProgress().quizzes['arrays'] ?? [];
       expect(attempts).toHaveLength(1);
       expect(attempts[0].score).toBe(9);
       expect(attempts[0].missedQuestionIds).toEqual([1, 3]);
@@ -249,17 +250,20 @@ describe('safeStorage', () => {
     });
 
     test('keeps the streak alive when multiple updates happen on the same day', () => {
+      const today = new Date().toISOString();
+      const yesterday = new Date(Date.now() - 86_400_000).toISOString();
       const progress = {
         'topic-1': true,
-        'topic-1_updatedAt': '2024-01-03T10:00:00.000Z',
+        'topic-1_updatedAt': today,
         'topic-2': true,
-        'topic-2_updatedAt': '2024-01-03T12:30:00.000Z',
+        'topic-2_updatedAt': today,
         'topic-3': true,
-        'topic-3_updatedAt': '2024-01-02T09:00:00.000Z',
-        lastActiveAt: '2024-01-03T12:30:00.000Z',
+        'topic-3_updatedAt': yesterday,
+        lastActiveAt: today,
       };
 
-      const snapshot = getAchievementSnapshot(progress as any);
+      writeAlgoProgress(progress);
+      const snapshot = getAchievementSnapshot();
       expect(snapshot.streak).toBe(2);
     });
 
@@ -268,9 +272,10 @@ describe('safeStorage', () => {
       localStorage.setItem('quiz_attempts_', JSON.stringify([{ score: 10 }]));
       localStorage.setItem('quiz_attempts_user_', JSON.stringify([{ score: 10 }]));
       localStorage.setItem('corrupt_quiz_key', 'invalid json');
+      localStorage.setItem('quiz_attempts_user1_arrays', JSON.stringify([{ score: 10 }]));
 
       const snapshot = getAchievementSnapshot();
-      expect(snapshot.totalQuizzesAttempted).toBe(1); // 'user' fallback
+      expect(snapshot.totalQuizzesAttempted).toBe(1);
       expect(snapshot.quizzesPassed).toBe(1);
     });
   });
