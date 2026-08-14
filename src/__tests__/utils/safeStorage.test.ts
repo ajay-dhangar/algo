@@ -14,7 +14,6 @@ import {
   setRoadmapCompletedStages,
   ROADMAP_COMPLETED_KEY,
   LEGACY_ROADMAP_STORAGE_KEY,
-  QuizAttemptRecord,
 } from '../../utils/safeStorage';
 
 describe('safeStorage', () => {
@@ -137,7 +136,6 @@ describe('safeStorage', () => {
         missedQuestionIds: [1, 3],
       });
 
-      const key = getQuizAttemptStorageKey('user1', 'arrays');
       const attempts = readProgress().quizzes['arrays'] ?? [];
       expect(attempts).toHaveLength(1);
       expect(attempts[0].score).toBe(9);
