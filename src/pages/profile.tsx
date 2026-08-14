@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -31,7 +31,7 @@ const ProfilePage = (): React.ReactElement => {
     recentTopics: []
   });
 
-  const parseTelemetryData = () => {
+  const parseTelemetryData = useCallback(() => {
     try {
       const saved = localStorage.getItem("algo_progress");
       if (saved) {
@@ -51,17 +51,14 @@ const ProfilePage = (): React.ReactElement => {
     } catch {
       // localStorage parse failed — telemetry stays at default zero state.
     }
-  };
+  }, []);
 
   useEffect(() => {
     parseTelemetryData();
-    const unsub = onProgressUpdate(parseTelemetryData);
-    window.addEventListener("progressUpdated", parseTelemetryData);
-    return () => {
-      unsub();
-      window.removeEventListener("progressUpdated", parseTelemetryData);
-    };
-  }, []);
+    const handleProgressUpdate = () => parseTelemetryData();
+    window.addEventListener("progressUpdated", handleProgressUpdate);
+    return () => window.removeEventListener("progressUpdated", handleProgressUpdate);
+  }, [parseTelemetryData]);
 
   const joinDate = useMemo(() => {
     if (!user?.createdAt) {
