@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaBrain, FaChevronRight, FaRedo } from "react-icons/fa";
 import { useAdaptiveQuiz } from "../../hooks/useAdaptiveQuiz";
 import { AdaptiveQuestion, MasteryLevel } from "../../utils/adaptiveQuiz";
@@ -51,20 +51,24 @@ const AdaptiveQuizRunner = ({ pool, onComplete }: Props) => {
   const [selected, setSelected] = useState<string | null>(null);
   const [reported, setReported] = useState(false);
 
+  // Keep a ref to the latest onComplete callback so the completion effect
+  // always calls the current version without needing it as a reactive dep.
+  const onCompleteRef = useRef(onComplete);
+  useEffect(() => { onCompleteRef.current = onComplete; }, [onComplete]);
+
   const correctCount = history.filter((h) => h.correct).length;
 
   useEffect(() => {
-    if (!isComplete || reported || !onComplete) return;
+    if (!isComplete || reported || !onCompleteRef.current) return;
     setReported(true);
-    onComplete({
+    onCompleteRef.current({
       masteryLevel,
       confidencePercent,
       questionsAsked: questionsAnswered,
       correctCount,
       abilityEstimate: history.length ? history[history.length - 1].abilityAfter : 2,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isComplete, reported]);
+  }, [isComplete, reported, masteryLevel, confidencePercent, questionsAnswered, correctCount, history]);
 
   /** Submit the currently selected answer and advance. */
   const handleSubmit = () => {
