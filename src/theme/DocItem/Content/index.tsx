@@ -5,7 +5,6 @@ import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import DocsInfo from '../../../components/CustomDocItems/DocsInfo';
 import CheatSheetExport from '../../../components/CheatSheetExport';
 import { addRecentAlgorithm } from '../../../utils/recentAlgorithms';
-import BookmarkButton from '../../../components/BookmarkButton';
 
 import ReadingProgressBar from "../../../components/ReadingProgressBar";
 export default function DocItemContent({ children }: { children?: React.ReactNode }): JSX.Element {
@@ -32,7 +31,7 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
 
   // Cheat sheet pages get quick "Download PDF" / "Copy as image" actions so
   // readers can save an offline, print-friendly reference without leaving the site.
-  const isCheatSheet = metadata.id.startsWith('cheatsheets/');
+  // const isCheatSheet = metadata.id.startsWith('cheatsheets/');
 
   useEffect(() => {
     if (contentRef.current) {
@@ -58,10 +57,10 @@ export default function DocItemContent({ children }: { children?: React.ReactNod
         {!hideTitle && (
           <header className="doc-header-banner">
             <Heading as="h1">{title}</Heading>
-            <BookmarkButton
+            {/* <BookmarkButton
               title={title}
               path={metadata.permalink}
-            />
+            /> */}
 
             {difficulty && (
               <div style={{ marginTop: "10px" }}>

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-12T13:01:26.871Z",
-  "count": 89,
+  "generatedAt": "2026-08-15T04:57:40.304Z",
+  "count": 90,
   "difficulties": [
     "Easy",
     "Medium",
@@ -873,6 +873,19 @@
       ],
       "companies": [],
       "url": "/docs/dsa-problems/easy/maximum-number-of-balloons"
+    },
+    {
+      "id": "maximum-number-of-non-overlapping-substrings",
+      "title": "Maximum Number of Non-Overlapping Substrings",
+      "description": "Solution for LeetCode 1520: Maximum Number of Non-Overlapping Substrings, utilizing Greedy Algorithm and Interval Scheduling.",
+      "difficulty": "Hard",
+      "tags": [
+        "string",
+        "greedy",
+        "sliding-window"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/hard/maximum-number-of-non-overlapping-substrings"
     },
     {
       "id": "maximum-points-you-can-obtain-from-cards",
@@ -2141,6 +2154,19 @@
       ],
       "companies": [],
       "url": "/docs/dsa-problems/easy/maximum-number-of-balloons"
+    },
+    "maximum-number-of-non-overlapping-substrings": {
+      "id": "maximum-number-of-non-overlapping-substrings",
+      "title": "Maximum Number of Non-Overlapping Substrings",
+      "description": "Solution for LeetCode 1520: Maximum Number of Non-Overlapping Substrings, utilizing Greedy Algorithm and Interval Scheduling.",
+      "difficulty": "Hard",
+      "tags": [
+        "string",
+        "greedy",
+        "sliding-window"
+      ],
+      "companies": [],
+      "url": "/docs/dsa-problems/hard/maximum-number-of-non-overlapping-substrings"
     },
     "maximum-points-you-can-obtain-from-cards": {
       "id": "maximum-points-you-can-obtain-from-cards",
