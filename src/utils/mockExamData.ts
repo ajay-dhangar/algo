@@ -96,6 +96,17 @@ export function shuffleArray<T>(array: T[]): T[] {
 }
 
 /**
+ * Returns total count of available questions matching selected topic IDs.
+ */
+export function getAvailableQuestionsCount(selectedTopicIds: string[]): number {
+  const allQuestions = getAllMockExamQuestions();
+  if (!selectedTopicIds || selectedTopicIds.length === 0) {
+    return 0;
+  }
+  return allQuestions.filter((q) => selectedTopicIds.includes(q.topicId)).length;
+}
+
+/**
  * Selects questions for a mock exam based on target topics and question count limit.
  */
 export function buildMockExamQuestions(
