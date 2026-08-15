@@ -78,18 +78,34 @@ function BreadcrumbsItem({ children, active }: BreadcrumbsItemProps): ReactNode 
 }
 
 /**
+ * Safely extract doc metadata without throwing outside of <DocProvider>
+ */
+function useSafeDocMetadata() {
+  try {
+    const { metadata } = useDoc();
+    return metadata;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Enhanced DocBreadcrumbs Component
  */
-export default function DocBreadcrumbs(): ReactNode {  
-  // ✅ FIX: Moved inside component body so useContext executes inside React lifecycle
-  const { metadata } = useDoc();
+export default function DocBreadcrumbs(): ReactNode {
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();
+  const docMetadata = useSafeDocMetadata();
 
   // If there are no breadcrumbs to display, omit component
   if (!breadcrumbs || breadcrumbs.length === 0) {
     return null;
   }
+
+  // Fallbacks for category pages where useDoc context is unavailable
+  const lastBreadcrumb = breadcrumbs[breadcrumbs.length - 1];
+  const bookmarkTitle = docMetadata?.title ?? lastBreadcrumb?.label ?? '';
+  const bookmarkPath = docMetadata?.permalink ?? lastBreadcrumb?.href ?? '';
 
   const ariaLabel = translate({
     id: 'theme.docs.breadcrumbs.navAriaLabel',
@@ -143,8 +159,8 @@ export default function DocBreadcrumbs(): ReactNode {
         {/* Right Action: Bookmark Button */}
         <div className={clsx(styles.actionGroup, styles.rightAction)}>
           <BookmarkButton
-            title={metadata.title}
-            path={metadata.permalink}
+            title={bookmarkTitle}
+            path={bookmarkPath}
           />
         </div>
       </nav>
