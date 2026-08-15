@@ -39,6 +39,10 @@ const config = {
 
   onBrokenLinks: "throw",
 
+  // onBrokenLinksIgnorePatterns: [
+  //   /\/algo\/u\/.*/,
+  // ],
+
   headTags: [
     {
       tagName: "meta",

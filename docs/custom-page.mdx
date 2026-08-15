@@ -286,3 +286,37 @@ function RewardPanel() {
   );
 }
 ```
+
+import { GitHubButton } from '@site/src/components/GitHubBtns';
+
+```jsx live
+export function GitHubActionsGroup (){
+  const repo = 'ajay-dhangar/algo';
+  const user = '@ajay-dhangar';
+
+  return (
+    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+      {/* Star Repo */}
+      <GitHubButton action="star" href={`https://github.com/${repo}`} targetName={repo} />
+
+      {/* Sponsor User (counts typically not displayed on sponsor buttons) */}
+      <GitHubButton action="sponsor" href="https://github.com/sponsors/ajay-dhangar" targetName={user} showCount={false} />
+
+      {/* Watch Repo */}
+      <GitHubButton action="watch" href={`https://github.com/${repo}/subscription`} targetName={repo} />
+
+      {/* Fork Repo */}
+      <GitHubButton action="fork" href={`https://github.com/${repo}/fork`} targetName={repo} />
+
+      {/* Follow User */}
+      <GitHubButton action="follow" href="https://github.com/ajay-dhangar" targetName={user} />
+
+      {/* Open Issue */}
+      <GitHubButton action="issue" href={`https://github.com/${repo}/issues`} targetName={repo} />
+
+      {/* Discussion */}
+      <GitHubButton action="discussion" href={`https://github.com/${repo}/discussions`} targetName={repo} showCount={false} />
+    </div>
+  );
+};
+```

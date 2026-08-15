@@ -1,115 +1,87 @@
-/* Breadcrumb-Based "You Are Here" Navigation Trail Styling */
-
-.breadcrumbTrailContainer {
+/* Container bar holding everything */
+.breadcrumbContainer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
   margin-bottom: 1.25rem;
-  padding: 0.5rem 0.85rem;
-  background: var(--ifm-color-emphasis-100);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 10px;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  padding: 0.25rem 0;
+}
+
+/* Action button wrappers */
+.actionGroup {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Scrollable Breadcrumb Trail for Mobile & Desktop */
+.breadcrumbsWrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
   overflow-x: auto;
   white-space: nowrap;
-  scrollbar-width: thin;
+  /* Hide scrollbar for Chrome, Safari, and Opera */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
 }
 
-[data-theme='dark'] .breadcrumbTrailContainer {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+.breadcrumbsWrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
-.youAreHereBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
-  background: var(--ifm-color-primary-lightest);
-  color: var(--ifm-color-primary-darkest);
-  margin-right: 0.75rem;
-  flex-shrink: 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-[data-theme='dark'] .youAreHereBadge {
-  background: var(--ifm-color-primary-dark);
-  color: var(--ifm-color-emphasis-0);
-  border: 1px solid var(--ifm-color-primary);
-}
-
-.youAreHereIcon {
-  font-size: 0.85rem;
-  line-height: 1;
-}
-
+/* Breadcrumbs List (Ol) */
 .breadcrumbsList {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.88rem;
+  list-style: none;
 }
 
 .breadcrumbItem {
   display: inline-flex;
   align-items: center;
-  color: var(--ifm-color-emphasis-700);
-}
-
-.breadcrumbItem + .breadcrumbItem::before {
-  content: '/';
-  margin: 0 0.45rem;
-  color: var(--ifm-color-emphasis-400);
-  font-weight: 400;
 }
 
 .breadcrumbLink {
-  color: var(--ifm-color-emphasis-700);
+  transition: opacity 0.2s ease, color 0.2s ease;
   font-weight: 500;
-  text-decoration: none;
-  transition: color 0.15s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
 }
 
 .breadcrumbLink:hover {
-  color: var(--ifm-color-primary);
-  text-decoration: underline;
+  text-decoration: none;
+  opacity: 0.8;
 }
 
 .activeItem {
-  color: var(--ifm-color-primary-dark);
   font-weight: 600;
+  color: var(--ifm-color-primary);
+  cursor: default;
 }
 
-[data-theme='dark'] .activeItem {
-  color: var(--ifm-color-primary-light);
-}
-
-@media (max-width: 768px) {
-  .breadcrumbTrailContainer {
-    padding: 0.4rem 0.65rem;
-    margin-bottom: 1rem;
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .breadcrumbContainer {
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
-  .youAreHereBadge {
-    font-size: 0.72rem;
-    padding: 0.15rem 0.45rem;
-    margin-right: 0.5rem;
+  /* Make trail take priority on top row */
+  .breadcrumbsWrapper {
+    order: 1;
+    width: 100%;
   }
 
-  .breadcrumbsList {
-    font-size: 0.82rem;
+  /* Buttons align to bottom bar on small devices */
+  .leftAction {
+    order: 2;
+  }
+
+  .rightAction {
+    order: 3;
+    margin-left: auto;
   }
 }
