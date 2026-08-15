@@ -70,10 +70,19 @@ export default function KeyboardShortcutsModal({
 
   if (!isOpen) return null;
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      e.stopPropagation();
+      onClose();
+    }
+  };
+
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm p-4"
+      onKeyDown={handleKeyDown}
+      tabIndex={-1}
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm p-4 outline-none"
     >
       <div
         ref={modalRef}
@@ -82,7 +91,7 @@ export default function KeyboardShortcutsModal({
         aria-modal="true"
         aria-labelledby="shortcuts-modal-title"
         aria-describedby="shortcuts-modal-description"
-        className="w-full max-w-lg bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-2xl shadow-2xl border border-slate-200/50 dark:border-slate-800 flex flex-col max-h-[85vh]"
+        className="w-full max-w-lg bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-2xl shadow-2xl border border-slate-200/50 dark:border-slate-800 flex flex-col max-h-[85vh] outline-none"
       >
         <div className="flex justify-between items-start p-6 border-b border-slate-100 dark:border-slate-800">
           <div>
@@ -95,7 +104,7 @@ export default function KeyboardShortcutsModal({
           </div>
           <button
             onClick={onClose}
-            aria-label="Close modal"
+            aria-label="Close keyboard shortcuts modal"
             className="flex items-center justify-center w-8 h-8 rounded-lg cursor-pointer text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400"
           >
             ✕
