@@ -8,15 +8,24 @@ import CursorSwitcher from '@site/src/components/CursorSwitcher';
 import NavbarAuthButton from '@site/src/components/NavbarAuthButton';
 
 /**
+ * Standardized props injected into custom navbar child components
+ */
+export interface CustomNavbarComponentProps {
+  isMobile?: boolean;
+  isDrawerOpen?: boolean;
+  [key: string]: unknown;
+}
+
+/**
  * Interface for Responsive Wrapper Props
  */
 interface ResponsiveNavbarItemProps {
   /** The React component to render */
-  Component: ComponentType<any>;
+  Component: ComponentType<CustomNavbarComponentProps>;
   /** Optional override to hide component on touch/mobile screens entirely */
   hideOnMobile?: boolean;
   /** Pass-through props from Docusaurus config */
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -24,11 +33,11 @@ interface ResponsiveNavbarItemProps {
  * Handles layout adaptation based on viewport width (Desktop/Tablet/Mobile)
  * and whether the item is being rendered inside the Mobile Drawer Menu.
  */
-function ResponsiveNavbarItem({
+const ResponsiveNavbarItem: React.FC<ResponsiveNavbarItemProps> = ({
   Component,
   hideOnMobile = false,
   ...props
-}: ResponsiveNavbarItemProps) {
+}) => {
   const windowSize = useWindowSize(); // Returns 'mobile' | 'desktop'
   const mobileSidebar = useNavbarMobileSidebar(); // Detects mobile drawer state
 
@@ -58,32 +67,30 @@ function ResponsiveNavbarItem({
       <Component {...props} isMobile={isMobile} isDrawerOpen={isDrawerOpen} />
     </div>
   );
-}
+};
 
 /**
  * Exporting swizzled NavbarItem ComponentTypes
  */
-export default {
+const customComponentTypes = {
   ...ComponentTypes,
 
-  'custom-themePicker': (props: any) => (
+  'custom-themePicker': (props: Record<string, unknown>): JSX.Element => (
     <ResponsiveNavbarItem Component={ThemePicker} {...props} />
   ),
 
-  'custom-codeThemePicker': (props: any) => (
+  'custom-codeThemePicker': (props: Record<string, unknown>): JSX.Element => (
     <ResponsiveNavbarItem Component={CodeThemePicker} {...props} />
   ),
 
   // Cursor switchers aren't needed on touch-based mobile screens
-  'custom-cursorSwitcher': (props: any) => (
-    <ResponsiveNavbarItem
-      Component={CursorSwitcher}
-      hideOnMobile={true}
-      {...props}
-    />
+  'custom-cursorSwitcher': (props: Record<string, unknown>): JSX.Element => (
+    <ResponsiveNavbarItem Component={CursorSwitcher} hideOnMobile {...props} />
   ),
 
-  'custom-authButton': (props: any) => (
+  'custom-authButton': (props: Record<string, unknown>): JSX.Element => (
     <ResponsiveNavbarItem Component={NavbarAuthButton} {...props} />
   ),
 };
+
+export default customComponentTypes;

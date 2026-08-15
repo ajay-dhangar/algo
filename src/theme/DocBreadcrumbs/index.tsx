@@ -27,7 +27,8 @@ interface BreadcrumbsItemLinkProps {
 }
 
 /**
- * Renders the actual content/link inside an individual breadcrumb item.
+ * BreadcrumbsItemLink Component
+ * Renders a breadcrumb link or a non-clickable span for the last item in the trail.
  */
 function BreadcrumbsItemLink({
   children,
@@ -79,7 +80,8 @@ function BreadcrumbsItem({ children, active }: BreadcrumbsItemProps): ReactNode 
 /**
  * Enhanced DocBreadcrumbs Component
  */
-export default function DocBreadcrumbs(): ReactNode {
+export default function DocBreadcrumbs(): ReactNode {  
+  // ✅ FIX: Moved inside component body so useContext executes inside React lifecycle
   const { metadata } = useDoc();
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();

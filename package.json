@@ -96,7 +96,9 @@
   },
   "overrides": {
     "react-simple-chatbot": {
-      "styled-components": "$styled-components"
+      "styled-components": "$styled-components",
+      "react": "$react",
+      "react-dom": "$react-dom"
     }
   },
   "browserslist": {
