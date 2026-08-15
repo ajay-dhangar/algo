@@ -615,6 +615,11 @@ export const computeStreak = (): number => {
     return progress.lastActiveAt ? 1 : 0;
   }
 
+  const parseUtcDay = (dateStr: string): number => {
+    const parts = dateStr.slice(0, 10).split('-').map(Number);
+    return Date.UTC(parts[0], parts[1] - 1, parts[2]);
+  };
+
   const sorted = Array.from(dates).sort().reverse();
   const today = new Date().toISOString().slice(0, 10);
   const yesterday = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10);
@@ -623,9 +628,9 @@ export const computeStreak = (): number => {
 
   let streak = 1;
   for (let i = 1; i < sorted.length; i++) {
-    const prevMs = new Date(sorted[i - 1]).getTime();
-    const currMs = new Date(sorted[i]).getTime();
-    const diffDays = Math.round((prevMs - currMs) / 86_400_000);
+    const prevUtc = parseUtcDay(sorted[i - 1]);
+    const currUtc = parseUtcDay(sorted[i]);
+    const diffDays = Math.round((prevUtc - currUtc) / 86_400_000);
     if (diffDays === 1) {
       streak++;
     } else {
