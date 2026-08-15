@@ -330,35 +330,110 @@ export default function MonacoSandbox({
     setShowPreview(false);
   };
 
-  const handleRun = async () => {
+  const handleRun = () => {
     setIsRunning(true);
     setOutput('Running…');
 
-    try {
-      if (lang === 'javascript') {
-        const logs: string[] = [];
-        const customConsole = {
-          log: (...args: unknown[]) => logs.push(args.map(String).join(' ')),
-          error: (...args: unknown[]) => logs.push('[Error] ' + args.map(String).join(' ')),
-          warn: (...args: unknown[]) => logs.push('[Warn] ' + args.map(String).join(' ')),
-        };
-        // eslint-disable-next-line no-new-func
-        const fn = new Function('console', code);
-        fn(customConsole);
-        setOutput(logs.join('\n') || '(No output — code executed successfully)');
-      } else if (lang === 'python') {
-        const res = await runPythonCode(code);
-        setOutput(res);
-      } else if (lang === 'cpp') {
-        const res = await runCppCode(code);
-        setOutput(res);
+    setTimeout(() => {
+      try {
+        if (lang === 'javascript') {
+          if (typeof window === 'undefined' || typeof Worker === 'undefined') {
+            const logs: string[] = [];
+            const customConsole = {
+              log: (...args: unknown[]) => logs.push(args.map(String).join(' ')),
+              error: (...args: unknown[]) => logs.push('[Error] ' + args.map(String).join(' ')),
+              warn: (...args: unknown[]) => logs.push('[Warn] ' + args.map(String).join(' ')),
+            };
+            // eslint-disable-next-line no-new-func
+            const fn = new Function('console', code);
+            fn(customConsole);
+            setOutput(logs.join('\n') || '(No output — code executed successfully)');
+            setIsRunning(false);
+            return;
+          }
+
+          const workerScript = `
+            self.onmessage = function(e) {
+              const code = e.data;
+              const logs = [];
+              const customConsole = {
+                log: function(...args) { logs.push(args.map(String).join(' ')); },
+                error: function(...args) { logs.push('[Error] ' + args.map(String).join(' ')); },
+                warn: function(...args) { logs.push('[Warn] ' + args.map(String).join(' ')); }
+              };
+              try {
+                const fn = new Function('console', code);
+                fn(customConsole);
+                self.postMessage({ status: 'success', output: logs.join('\\n') || '(No output — code executed successfully)' });
+              } catch (err) {
+                self.postMessage({ status: 'error', error: err instanceof Error ? err.message : String(err) });
+              }
+            };
+          `;
+
+          const blob = new Blob([workerScript], { type: 'application/javascript' });
+          const blobUrl = URL.createObjectURL(blob);
+          const worker = new Worker(blobUrl);
+
+          const EXECUTION_TIMEOUT_MS = 2000;
+          let isFinished = false;
+
+          const timeoutId = setTimeout(() => {
+            if (!isFinished) {
+              isFinished = true;
+              worker.terminate();
+              URL.revokeObjectURL(blobUrl);
+              setOutput(`Runtime Error: Execution Timeout — Code took longer than ${EXECUTION_TIMEOUT_MS}ms to execute (possible infinite loop).`);
+              setIsRunning(false);
+            }
+          }, EXECUTION_TIMEOUT_MS);
+
+          worker.onmessage = (e: MessageEvent) => {
+            if (isFinished) return;
+            isFinished = true;
+            clearTimeout(timeoutId);
+            worker.terminate();
+            URL.revokeObjectURL(blobUrl);
+
+            if (e.data.status === 'success') {
+              setOutput(e.data.output);
+            } else {
+              setOutput(`Runtime Error: ${e.data.error}`);
+            }
+            setIsRunning(false);
+          };
+
+          worker.onerror = (err: ErrorEvent) => {
+            if (isFinished) return;
+            isFinished = true;
+            clearTimeout(timeoutId);
+            worker.terminate();
+            URL.revokeObjectURL(blobUrl);
+            setOutput(`Runtime Error: ${err.message || 'Worker execution failed'}`);
+            setIsRunning(false);
+          };
+
+          worker.postMessage(code);
+          return;
+        } else if (lang === 'python') {
+          runPythonCode(code).then(res => {
+            setOutput(res);
+            setIsRunning(false);
+          });
+          return;
+        } else if (lang === 'cpp') {
+          runCppCode(code).then(res => {
+            setOutput(res);
+            setIsRunning(false);
+          });
+          return;
+        }
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        setOutput(`Runtime Error: ${msg}`);
+        setIsRunning(false);
       }
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      setOutput(`Runtime Error: ${msg}`);
-    } finally {
-      setIsRunning(false);
-    }
+    }, 200);
   };
 
   const outputLines = output ? output.split('\n') : [];
