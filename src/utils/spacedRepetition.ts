@@ -1,8 +1,10 @@
-import { safeJsonParse } from "./safeStorage";
+import { safeJsonParse, readRevisionQueue, writeRevisionQueue } from "./safeStorage";
 import { getAllMockExamQuestions, type MockExamQuestion } from "./mockExamData";
 import { rankWeakTopics } from "./weakTopics";
 import type { QuizStat } from "../hooks/useQuizProgress";
 import { QUIZZES_CONFIG } from "../data/quizzesConfig";
+
+export type RecallDifficulty = "Again" | "Hard" | "Good" | "Easy";
 
 export interface SpacedRepetitionItem {
   uniqueId: string; // e.g. "arrays_1"
@@ -10,10 +12,13 @@ export interface SpacedRepetitionItem {
   questionId: number;
   nextReviewDate: string; // ISO date string
   intervalDays: number;
+  interval?: number; // Alias for intervalDays
   easeFactor: number;
   repetitions: number;
   lastReviewedAt?: string;
   missedCount: number;
+  lastQuality?: number;
+  difficultyRating?: RecallDifficulty;
 }
 
 export const STORAGE_PREFIX = "quiz_spaced_repetition";
@@ -26,76 +31,157 @@ export function getSpacedRepetitionStorageKey(userId?: string | null): string {
 }
 
 /**
- * Reads the spaced repetition queue for a given user from localStorage.
+ * Reads the spaced repetition queue for a given user from localStorage / unified store.
  */
 export function getSpacedRepetitionQueue(userId?: string | null): Record<string, SpacedRepetitionItem> {
   if (typeof window === "undefined") return {};
+  
+  // Try reading from unified progress store first
+  const storeQueue = readRevisionQueue<SpacedRepetitionItem>();
+  if (storeQueue && Object.keys(storeQueue).length > 0) {
+    return storeQueue;
+  }
+
+  // Fallback to legacy key
   const key = getSpacedRepetitionStorageKey(userId);
-  return safeJsonParse<Record<string, SpacedRepetitionItem>>(key, {});
+  const legacyQueue = safeJsonParse<Record<string, SpacedRepetitionItem>>(key, {});
+  if (Object.keys(legacyQueue).length > 0) {
+    writeRevisionQueue(legacyQueue);
+  }
+  return legacyQueue;
 }
 
 /**
- * Saves the spaced repetition queue to localStorage.
+ * Saves the spaced repetition queue to localStorage and unified store.
  */
 export function saveSpacedRepetitionQueue(
   queue: Record<string, SpacedRepetitionItem>,
   userId?: string | null
 ): void {
   if (typeof window === "undefined") return;
+  
+  // Ensure interval property is mirrored for consumers expecting either interval or intervalDays
+  Object.values(queue).forEach((item) => {
+    if (item.intervalDays !== undefined) {
+      item.interval = item.intervalDays;
+    } else if (item.interval !== undefined) {
+      item.intervalDays = item.interval;
+    }
+  });
+
+  writeRevisionQueue(queue);
   const key = getSpacedRepetitionStorageKey(userId);
   try {
     localStorage.setItem(key, JSON.stringify(queue));
   } catch (err) {
     console.warn("[SpacedRepetition] Failed to save queue to localStorage:", err);
   }
+
+  window.dispatchEvent(new CustomEvent("spacedRepetitionUpdated", { detail: queue }));
 }
 
 /**
- * Calculates the next review date and interval based on SM-2 algorithm derivative.
+ * Converts a boolean, number (0-5), or string rating ('Again', 'Hard', 'Good', 'Easy') to SM-2 quality score (0-5).
+ */
+export function convertRatingToQuality(rating: boolean | number | RecallDifficulty): number {
+  if (typeof rating === "boolean") {
+    return rating ? 4 : 1;
+  }
+  if (typeof rating === "number") {
+    return Math.min(5, Math.max(0, Math.round(rating)));
+  }
+  switch (rating) {
+    case "Again":
+      return 1;
+    case "Hard":
+      return 3;
+    case "Good":
+      return 4;
+    case "Easy":
+      return 5;
+    default:
+      return 4;
+  }
+}
+
+/**
+ * Maps SM-2 quality score to human-readable recall difficulty rating label.
+ */
+export function convertQualityToDifficulty(quality: number): RecallDifficulty {
+  if (quality < 3) return "Again";
+  if (quality === 3) return "Hard";
+  if (quality === 4) return "Good";
+  return "Easy";
+}
+
+/**
+ * Calculates the next review date, interval, and ease factor using SuperMemo SM-2 specification.
  */
 export function calculateNextReview(
   item: Partial<SpacedRepetitionItem>,
-  wasCorrect: boolean,
+  rating: boolean | number | RecallDifficulty,
   now: Date = new Date()
-): { intervalDays: number; easeFactor: number; repetitions: number; nextReviewDate: string } {
+): {
+  intervalDays: number;
+  interval: number;
+  easeFactor: number;
+  repetitions: number;
+  nextReviewDate: string;
+  lastQuality: number;
+  difficultyRating: RecallDifficulty;
+} {
+  const quality = convertRatingToQuality(rating);
   let easeFactor = item.easeFactor ?? 2.5;
   let repetitions = item.repetitions ?? 0;
-  let intervalDays = item.intervalDays ?? 1;
+  let intervalDays = item.intervalDays ?? item.interval ?? 1;
 
-  if (wasCorrect) {
+  // SuperMemo SM-2 Ease Factor calculation formula:
+  // EF' = EF + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02))
+  easeFactor = easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
+  if (easeFactor < 1.3) {
+    easeFactor = 1.3;
+  }
+  easeFactor = Math.round(easeFactor * 100) / 100;
+
+  if (quality < 3) {
+    // Incorrect or "Again" -> Reset repetitions and schedule for 1 day
+    repetitions = 0;
+    intervalDays = 1;
+  } else {
+    // Successful recall -> Increment repetitions and scale interval
     repetitions += 1;
     if (repetitions === 1) {
       intervalDays = 1;
     } else if (repetitions === 2) {
-      intervalDays = 3;
+      intervalDays = quality === 5 ? 4 : 3;
     } else {
-      intervalDays = Math.round(intervalDays * easeFactor);
+      intervalDays = Math.max(intervalDays + 1, Math.round(intervalDays * easeFactor));
     }
-  } else {
-    repetitions = 0;
-    intervalDays = 1;
-    easeFactor = Math.max(1.3, easeFactor - 0.2);
   }
 
   const nextReviewMs = now.getTime() + intervalDays * 24 * 60 * 60 * 1000;
   const nextReviewDate = new Date(nextReviewMs).toISOString();
+  const difficultyRating = convertQualityToDifficulty(quality);
 
   return {
     intervalDays,
+    interval: intervalDays,
     easeFactor,
     repetitions,
     nextReviewDate,
+    lastQuality: quality,
+    difficultyRating,
   };
 }
 
 /**
- * Records a question review result, updating or creating the item in the queue.
+ * Records a question review result (quiz or flashcard), updating or creating the item in the queue.
  */
 export function recordQuestionReview(
   uniqueId: string,
   topicId: string,
   questionId: number,
-  wasCorrect: boolean,
+  rating: boolean | number | RecallDifficulty,
   userId?: string | null
 ): SpacedRepetitionItem {
   const queue = getSpacedRepetitionQueue(userId);
@@ -105,24 +191,39 @@ export function recordQuestionReview(
     questionId,
     nextReviewDate: new Date().toISOString(),
     intervalDays: 1,
+    interval: 1,
     easeFactor: 2.5,
     repetitions: 0,
     missedCount: 0,
   };
 
   const now = new Date();
-  const next = calculateNextReview(existing, wasCorrect, now);
+  const next = calculateNextReview(existing, rating, now);
+  const quality = convertRatingToQuality(rating);
+  const isCorrect = quality >= 3;
 
   const updated: SpacedRepetitionItem = {
     ...existing,
     ...next,
     lastReviewedAt: now.toISOString(),
-    missedCount: wasCorrect ? existing.missedCount : existing.missedCount + 1,
+    missedCount: isCorrect ? existing.missedCount : existing.missedCount + 1,
   };
 
   queue[uniqueId] = updated;
   saveSpacedRepetitionQueue(queue, userId);
   return updated;
+}
+
+/**
+ * Records a topic-level revision result, updating or creating the topic item in the queue.
+ */
+export function recordTopicReview(
+  topicId: string,
+  rating: boolean | number | RecallDifficulty,
+  userId?: string | null
+): SpacedRepetitionItem {
+  const uniqueId = `topic_${topicId}`;
+  return recordQuestionReview(uniqueId, topicId, 0, rating, userId);
 }
 
 /**
@@ -147,6 +248,7 @@ export function syncMissedQuestionsFromHistory(
             questionId: qId,
             nextReviewDate: new Date().toISOString(),
             intervalDays: 1,
+            interval: 1,
             easeFactor: 2.5,
             repetitions: 0,
             missedCount: 1,
@@ -179,9 +281,6 @@ export function getDueItems(
 
 /**
  * Prepares a set of questions for a review session.
- * 1. Checks due items in queue.
- * 2. If due items exist, maps them to MockExamQuestion objects.
- * 3. If no items are due (or queue is empty), falls back to selecting questions from weak topics.
  */
 export function getQuestionsForReviewSession(
   stats: Record<string, QuizStat>,
@@ -220,7 +319,6 @@ export function getQuestionsForReviewSession(
   });
 
   if (fallbackQuestions.length > 0) {
-    // Shuffle slightly so review session varies
     const shuffled = [...fallbackQuestions].sort(() => Math.random() - 0.5);
     return {
       questions: shuffled.slice(0, limit),

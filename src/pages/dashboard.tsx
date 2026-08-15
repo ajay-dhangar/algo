@@ -17,6 +17,7 @@ import { FiRepeat, FiArrowRight } from "react-icons/fi";
 
 import WeakTopicsChart from "../components/WeakTopicsChart";
 import RecommendedNextCard from "../components/RecommendedNextCard";
+import SpacedRepetitionWidget from "../components/SpacedRepetitionWidget";
 import { useQuizProgress } from "../hooks/useQuizProgress";
 import { QUIZZES_CONFIG, QUESTION_COUNTS, QUIZ_IDS } from "../data/quizzesConfig";
 import { rankWeakTopics } from "../utils/weakTopics";
@@ -163,40 +164,7 @@ function DashboardContent() {
         {/* Right Column: Recommended Next + Spaced Repetition Widget & Quick Actions */}
         <div className="space-y-6">
           <RecommendedNextCard recommendation={recommendation} />
-          <div className="p-6 rounded-3xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/40 shadow-sm space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="p-2 rounded-xl bg-indigo-600 text-white">
-                <FiRepeat size={18} />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-indigo-950 dark:text-indigo-100 m-0">
-                  Spaced Repetition Review
-                </h3>
-                <p className="text-xs text-indigo-700 dark:text-indigo-300 m-0">
-                  Scientific memory scheduling
-                </p>
-              </div>
-            </div>
-
-            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed m-0">
-              Resurface missed questions at expanding intervals (1d, 3d, 7d, 14d) to convert short-term errors into long-term recall.
-            </p>
-
-            <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-indigo-100 dark:border-indigo-900/50 flex items-center justify-between text-xs font-bold">
-              <span className="text-slate-600 dark:text-slate-400">Questions Due Now:</span>
-              <span className="font-mono text-sm font-black text-indigo-600 dark:text-indigo-400">
-                {dueItems.length}
-              </span>
-            </div>
-
-            <Link
-              to="/quizzes/review"
-              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold no-underline transition-colors shadow-sm"
-            >
-              Start Review Session
-              <FiArrowRight size={14} />
-            </Link>
-          </div>
+          <SpacedRepetitionWidget queue={queue} userId={userId} />
 
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 m-0 flex items-center gap-2">

@@ -22,10 +22,15 @@ import {
   setRoadmapStages as setRoadmapStagesUnified,
   getAchievementSnapshot as getUnifiedAchievementSnapshot,
   syncFromSupabase,
+  getRevisionQueueFromStore,
+  saveRevisionQueueToStore,
   type QuizAttemptRecord,
   type ActivityEvent,
   type AchievementSnapshot,
 } from './progressStore';
+
+export const readRevisionQueue = getRevisionQueueFromStore;
+export const writeRevisionQueue = saveRevisionQueueToStore;
 
 // ---------------------------------------------------------------------------
 // Re-export types so existing consumers don't break
