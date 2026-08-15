@@ -10,7 +10,7 @@ export function sanitizeQuery(query: string): string {
     return '';
   }
 
-  // 1. Input length validation - cap input to 100 characters
+  // 1. Input length validation - cap raw input to 100 characters
   const trimmedQuery = query.slice(0, 100);
 
   // 2. HTML entity encoding to prevent XSS script injection
@@ -26,8 +26,8 @@ export function sanitizeQuery(query: string): string {
     return htmlEntities[char] || char;
   });
 
-  // 3. Ensure final sanitized output does not exceed 100 characters
-  return sanitized.slice(0, 100);
+  return sanitized;
 }
 
 export default sanitizeQuery;
+
