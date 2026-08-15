@@ -36,8 +36,18 @@ export default function BookmarkButton({ title, path }: Props): JSX.Element {
 
   useEffect(() => {
     if (!path || typeof window === 'undefined') return;
-    const items = getItemsFromStorage();
-    setBookmarked(items.some((item) => item.path === path));
+    const checkState = () => {
+      const items = getItemsFromStorage();
+      setBookmarked(items.some((item) => item.path === path));
+    };
+    checkState();
+
+    window.addEventListener('bookmarksUpdated', checkState);
+    window.addEventListener('storage', checkState);
+    return () => {
+      window.removeEventListener('bookmarksUpdated', checkState);
+      window.removeEventListener('storage', checkState);
+    };
   }, [path]);
 
   const toggleBookmark = (e?: React.MouseEvent) => {
@@ -59,6 +69,7 @@ export default function BookmarkButton({ title, path }: Props): JSX.Element {
 
       localStorage.setItem(PRIMARY_STORAGE_KEY, JSON.stringify(items));
       localStorage.setItem(LEGACY_STORAGE_KEY, JSON.stringify(items));
+      window.dispatchEvent(new CustomEvent('bookmarksUpdated'));
       setBookmarked(!exists);
     } catch {
       setBookmarked((v) => !v);

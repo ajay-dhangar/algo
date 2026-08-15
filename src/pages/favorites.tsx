@@ -68,14 +68,19 @@ function FavoritesContent() {
   useEffect(() => {
     loadFavorites();
 
+    const handleUpdate = () => loadFavorites();
     const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === STORAGE_KEY || e.key === LEGACY_STORAGE_KEY) {
+      if (e.key === STORAGE_KEY || e.key === LEGACY_STORAGE_KEY || !e.key) {
         loadFavorites();
       }
     };
 
     window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
+    window.addEventListener("bookmarksUpdated", handleUpdate);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("bookmarksUpdated", handleUpdate);
+    };
   }, []);
 
   const handleRemove = (path: string) => {
@@ -85,6 +90,7 @@ function FavoritesContent() {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
       localStorage.setItem(LEGACY_STORAGE_KEY, JSON.stringify(updated));
       window.dispatchEvent(new Event("storage"));
+      window.dispatchEvent(new CustomEvent("bookmarksUpdated"));
     } catch (err) {
       console.warn("[Favorites] Failed to save updated favorites:", err);
     }
@@ -97,6 +103,7 @@ function FavoritesContent() {
       localStorage.setItem(STORAGE_KEY, "[]");
       localStorage.setItem(LEGACY_STORAGE_KEY, "[]");
       window.dispatchEvent(new Event("storage"));
+      window.dispatchEvent(new CustomEvent("bookmarksUpdated"));
     } catch (err) {
       console.warn("[Favorites] Failed to clear favorites:", err);
     }
