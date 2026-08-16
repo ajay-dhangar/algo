@@ -2,6 +2,7 @@ export type CodeTheme = 'default' | 'midnight' | 'solarized';
 
 export const CODE_THEME_STORAGE_KEY = 'algo-code-theme';
 export const CODE_THEME_ATTRIBUTE = 'data-code-theme';
+export const CODE_THEME_EVENT = 'algo-code-theme-change';
 
 export interface CodeThemeOption {
   value: CodeTheme;
@@ -15,13 +16,19 @@ export const CODE_THEMES: CodeThemeOption[] = [
   { value: 'solarized', label: 'Solarized', description: 'Soft low-contrast syntax styling for long reading sessions' },
 ];
 
-function isCodeTheme(value: string | null): value is CodeTheme {
+export function isCodeTheme(value: string | null): value is CodeTheme {
   return value === 'default' || value === 'midnight' || value === 'solarized';
 }
 
 export function getStoredCodeTheme(): CodeTheme {
   if (typeof window === 'undefined') return 'default';
   try {
+    if (typeof document !== 'undefined') {
+      const attr = document.documentElement.getAttribute(CODE_THEME_ATTRIBUTE);
+      if (attr && isCodeTheme(attr)) {
+        return attr;
+      }
+    }
     const stored = window.localStorage.getItem(CODE_THEME_STORAGE_KEY);
     return isCodeTheme(stored) ? stored : 'default';
   } catch {
@@ -49,4 +56,13 @@ export function applyCodeTheme(theme: CodeTheme): void {
   } else {
     document.documentElement.setAttribute(CODE_THEME_ATTRIBUTE, theme);
   }
+
+  if (typeof window !== 'undefined') {
+    try {
+      window.dispatchEvent(new CustomEvent(CODE_THEME_EVENT, { detail: theme }));
+    } catch {
+      // Ignore in environments where CustomEvent might be restricted
+    }
+  }
 }
+

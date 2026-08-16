@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { AuthProvider } from '../contexts/AuthContext';
 import { AriaAnnouncerProvider } from '../contexts/AriaAnnouncerContext';
+import { AccentThemeProvider } from '../contexts/AccentThemeContext';
 import type { GraphChallenge } from '../data/graphChallengesData';
 import type { SortingChallenge } from '../data/sortingChallengesData';
 import type { DPChallenge } from '../data/dpChallengesData';
@@ -9,7 +10,9 @@ import type { DPChallenge } from '../data/dpChallengesData';
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <AuthProvider>
-      <AriaAnnouncerProvider>{children}</AriaAnnouncerProvider>
+      <AriaAnnouncerProvider>
+        <AccentThemeProvider>{children}</AccentThemeProvider>
+      </AriaAnnouncerProvider>
     </AuthProvider>
   );
 };

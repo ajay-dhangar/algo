@@ -3,11 +3,9 @@ import clsx from 'clsx';
 import { FiCheck, FiCode, FiChevronDown } from 'react-icons/fi';
 import {
   CODE_THEMES,
-  applyCodeTheme,
-  getStoredCodeTheme,
-  storeCodeTheme,
   type CodeTheme,
 } from '../../utils/codeTheme';
+import { useCodeTheme } from '../../contexts/AccentThemeContext';
 import styles from './styles.module.css';
 
 interface CodeThemePickerProps {
@@ -20,14 +18,9 @@ export default function CodeThemePicker({
   isMobile = false,
   className,
 }: CodeThemePickerProps): JSX.Element {
-  const [activeTheme, setActiveTheme] = useState<CodeTheme>('default');
+  const { codeTheme: activeTheme, setCodeTheme } = useCodeTheme();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Sync state with local storage / Docusaurus head script
-  useEffect(() => {
-    setActiveTheme(getStoredCodeTheme());
-  }, []);
 
   // Keyboard and outside click listeners
   useEffect(() => {
@@ -55,11 +48,9 @@ export default function CodeThemePicker({
   }, [isOpen, isMobile]);
 
   const selectTheme = useCallback((theme: CodeTheme) => {
-    setActiveTheme(theme);
-    applyCodeTheme(theme);
-    storeCodeTheme(theme);
+    setCodeTheme(theme);
     setIsOpen(false);
-  }, []);
+  }, [setCodeTheme]);
 
   const activeOption =
     CODE_THEMES.find((t) => t.value === activeTheme) || CODE_THEMES[0];

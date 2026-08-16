@@ -1,20 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { FiCheck, FiDroplet, FiCode, FiX } from "react-icons/fi";
 import { useFocusTrap } from "../../hooks/useFocusTrap";
 import {
   ACCENT_THEMES,
-  applyAccentTheme,
-  getStoredAccentTheme,
-  storeAccentTheme,
   type AccentTheme,
 } from "../../utils/accentTheme";
 import {
   CODE_THEMES,
-  applyCodeTheme,
-  getStoredCodeTheme,
-  storeCodeTheme,
   type CodeTheme,
 } from "../../utils/codeTheme";
+import { useAccentTheme, useCodeTheme } from "../../contexts/AccentThemeContext";
 import styles from "./ThemePickerModal.module.css";
 
 interface ThemePickerModalProps {
@@ -26,27 +21,15 @@ export default function ThemePickerModal({ isOpen, onClose }: ThemePickerModalPr
   const modalRef = useRef<HTMLDivElement>(null);
   useFocusTrap(modalRef, { isOpen, onClose });
 
-  const [activeAccent, setActiveAccent] = useState<AccentTheme>("default");
-  const [activeCode, setActiveCode] = useState<CodeTheme>("default");
-
-  // Sync with stored values each time the modal opens
-  useEffect(() => {
-    if (isOpen) {
-      setActiveAccent(getStoredAccentTheme());
-      setActiveCode(getStoredCodeTheme());
-    }
-  }, [isOpen]);
+  const { accentTheme: activeAccent, setAccentTheme } = useAccentTheme();
+  const { codeTheme: activeCode, setCodeTheme } = useCodeTheme();
 
   const selectAccent = (theme: AccentTheme) => {
-    setActiveAccent(theme);
-    applyAccentTheme(theme);
-    storeAccentTheme(theme);
+    setAccentTheme(theme);
   };
 
   const selectCode = (theme: CodeTheme) => {
-    setActiveCode(theme);
-    applyCodeTheme(theme);
-    storeCodeTheme(theme);
+    setCodeTheme(theme);
   };
 
   if (!isOpen) return null;

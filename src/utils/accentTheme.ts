@@ -2,6 +2,7 @@ export type AccentTheme = 'default' | 'high-contrast' | 'neon';
 
 export const ACCENT_THEME_STORAGE_KEY = 'algo-accent-theme';
 export const ACCENT_THEME_ATTRIBUTE = 'data-accent-theme';
+export const ACCENT_THEME_EVENT = 'algo-accent-theme-change';
 
 export interface AccentThemeOption {
   value: AccentTheme;
@@ -15,7 +16,7 @@ export const ACCENT_THEMES: AccentThemeOption[] = [
   { value: 'neon', label: 'Neon', description: 'Cyan & purple cyberpunk accent' },
 ];
 
-function isAccentTheme(value: string | null): value is AccentTheme {
+export function isAccentTheme(value: string | null): value is AccentTheme {
   return value === 'default' || value === 'high-contrast' || value === 'neon';
 }
 
@@ -23,6 +24,12 @@ function isAccentTheme(value: string | null): value is AccentTheme {
 export function getStoredAccentTheme(): AccentTheme {
   if (typeof window === 'undefined') return 'default';
   try {
+    if (typeof document !== 'undefined') {
+      const attr = document.documentElement.getAttribute(ACCENT_THEME_ATTRIBUTE);
+      if (attr && isAccentTheme(attr)) {
+        return attr;
+      }
+    }
     const stored = window.localStorage.getItem(ACCENT_THEME_STORAGE_KEY);
     return isAccentTheme(stored) ? stored : 'default';
   } catch {
@@ -52,4 +59,13 @@ export function applyAccentTheme(theme: AccentTheme): void {
   } else {
     document.documentElement.setAttribute(ACCENT_THEME_ATTRIBUTE, theme);
   }
+
+  if (typeof window !== 'undefined') {
+    try {
+      window.dispatchEvent(new CustomEvent(ACCENT_THEME_EVENT, { detail: theme }));
+    } catch {
+      // Ignore in environments where CustomEvent might be restricted
+    }
+  }
 }
+

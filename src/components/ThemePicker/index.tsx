@@ -3,11 +3,9 @@ import clsx from 'clsx';
 import { FiCheck, FiDroplet, FiChevronDown } from 'react-icons/fi';
 import {
   ACCENT_THEMES,
-  applyAccentTheme,
-  getStoredAccentTheme,
-  storeAccentTheme,
   type AccentTheme,
 } from '../../utils/accentTheme';
+import { useAccentTheme } from '../../contexts/AccentThemeContext';
 import styles from './styles.module.css';
 
 interface ThemePickerProps {
@@ -20,14 +18,9 @@ export default function ThemePicker({
   isMobile = false,
   className,
 }: ThemePickerProps): JSX.Element {
-  const [activeTheme, setActiveTheme] = useState<AccentTheme>('default');
+  const { accentTheme: activeTheme, setAccentTheme } = useAccentTheme();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Sync state with local storage on mount
-  useEffect(() => {
-    setActiveTheme(getStoredAccentTheme());
-  }, []);
 
   // Handle outside click & escape key
   useEffect(() => {
@@ -55,11 +48,9 @@ export default function ThemePicker({
   }, [isOpen, isMobile]);
 
   const selectTheme = useCallback((theme: AccentTheme) => {
-    setActiveTheme(theme);
-    applyAccentTheme(theme);
-    storeAccentTheme(theme);
+    setAccentTheme(theme);
     setIsOpen(false);
-  }, []);
+  }, [setAccentTheme]);
 
   const activeOption =
     ACCENT_THEMES.find((t) => t.value === activeTheme) || ACCENT_THEMES[0];

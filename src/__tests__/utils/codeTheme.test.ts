@@ -16,6 +16,11 @@ describe('codeTheme utils', () => {
       expect(getStoredCodeTheme()).toBe('solarized');
     });
 
+    test('returns DOM attribute value if already present before storage', () => {
+      document.documentElement.setAttribute('data-code-theme', 'midnight');
+      expect(getStoredCodeTheme()).toBe('midnight');
+    });
+
     test('falls back to "default" for an invalid/corrupted value', () => {
       localStorage.setItem(CODE_THEME_STORAGE_KEY, 'not-a-real-theme');
       expect(getStoredCodeTheme()).toBe('default');
@@ -36,9 +41,13 @@ describe('codeTheme utils', () => {
   });
 
   describe('applyCodeTheme', () => {
-    test('sets the data-code-theme attribute for a non-default theme', () => {
+    test('sets the data-code-theme attribute for a non-default theme and dispatches event', () => {
+      const listener = jest.fn();
+      window.addEventListener('algo-code-theme-change', listener);
       applyCodeTheme('midnight');
       expect(document.documentElement.getAttribute('data-code-theme')).toBe('midnight');
+      expect(listener).toHaveBeenCalled();
+      window.removeEventListener('algo-code-theme-change', listener);
     });
 
     test('removes the attribute for "default"', () => {

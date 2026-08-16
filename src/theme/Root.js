@@ -11,6 +11,7 @@ import PageProgressIndicator from "../components/PageProgressIndicator";
 import SidebarUpdater from '../components/ProgressTracker/SidebarUpdater';
 import { AuthProvider } from "../contexts/AuthContext";
 import { CursorProvider } from "../contexts/CursorContext";
+import { AccentThemeProvider } from "../contexts/AccentThemeContext";
 import CustomCursor from "../components/CustomCursor";
  
 export default function Root({ children }) {
@@ -59,23 +60,25 @@ export default function Root({ children }) {
       </Head>
       <AuthProvider>
         <CursorProvider>
-          <CustomCursor />
-          <SidebarUpdater />
-          {isDocsPage && <PageProgressIndicator />}
-          {children}
-          <KeyboardShortcutsButton onClick={onOpenHelp} />
-          <KeyboardShortcutsModal
-            isOpen={showKeyboardModal}
-            onClose={onCloseHelp}
-          />
-          <ChallengeSearchModal
-            isOpen={showChallengeSearch}
-            onClose={onCloseSearch}
-          />
-          <ThemePickerModal
-            isOpen={showThemePicker}
-            onClose={onCloseThemePicker}
-          />
+          <AccentThemeProvider>
+            <CustomCursor />
+            <SidebarUpdater />
+            {isDocsPage && <PageProgressIndicator />}
+            {children}
+            <KeyboardShortcutsButton onClick={onOpenHelp} />
+            <KeyboardShortcutsModal
+              isOpen={showKeyboardModal}
+              onClose={onCloseHelp}
+            />
+            <ChallengeSearchModal
+              isOpen={showChallengeSearch}
+              onClose={onCloseSearch}
+            />
+            <ThemePickerModal
+              isOpen={showThemePicker}
+              onClose={onCloseThemePicker}
+            />
+          </AccentThemeProvider>
         </CursorProvider>
       </AuthProvider>
     </>
