@@ -26,8 +26,9 @@ export function sanitizeQuery(query: string): string {
     return htmlEntities[char] || char;
   });
 
-  // 3. Ensure final sanitized output does not exceed 100 characters
-  return sanitized.slice(0, 100);
+  // 3. Return sanitized output — no second truncation to avoid cutting
+  //   HTML entities mid-entity (e.g. "&quo" from "&quot;")
+  return sanitized;
 }
 
 export default sanitizeQuery;
