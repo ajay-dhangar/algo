@@ -623,9 +623,11 @@ export const computeStreak = (): number => {
 
   let streak = 1;
   for (let i = 1; i < sorted.length; i++) {
-    const prevMs = new Date(sorted[i - 1]).getTime();
-    const currMs = new Date(sorted[i]).getTime();
-    const diffDays = Math.round((prevMs - currMs) / 86_400_000);
+    const prevDate = new Date(sorted[i - 1] + "T12:00:00Z");
+    const currDate = new Date(sorted[i] + "T12:00:00Z");
+    const diffDays = Math.round(
+      (prevDate.getTime() - currDate.getTime()) / 86_400_000
+    );
     if (diffDays === 1) {
       streak++;
     } else {
