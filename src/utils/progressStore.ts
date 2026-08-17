@@ -75,6 +75,8 @@ export interface UnifiedProgress {
   lastActiveAt: string;
   /** Cached streak count. */
   streak: number;
+  /** Spaced repetition revision queue records. */
+  revisionQueue?: Record<string, unknown>;
 }
 
 // ---------------------------------------------------------------------------
@@ -110,6 +112,7 @@ const emptyProgress = (): UnifiedProgress => ({
   activityLog: [],
   lastActiveAt: new Date().toISOString(),
   streak: 0,
+  revisionQueue: {},
 });
 
 /** Generate a short unique ID for activity events. */
@@ -365,6 +368,7 @@ export const readProgress = (): UnifiedProgress => {
   if (!progress.solvedDates) progress.solvedDates = {};
   if (!Array.isArray(progress.roadmapStages)) progress.roadmapStages = [];
   if (!Array.isArray(progress.activityLog)) progress.activityLog = [];
+  if (!progress.revisionQueue) progress.revisionQueue = {};
 
   // One-time migration from legacy silos
   const migrated = migrateLegacyData(progress);
@@ -813,3 +817,21 @@ export const syncFromSupabase = async (): Promise<void> => {
     console.error('[Algo] Error syncing progress from Supabase:', err);
   }
 };
+
+// ---------------------------------------------------------------------------
+// Revision Queue Storage Accessors
+// ---------------------------------------------------------------------------
+
+/** Get the revision queue map from the unified progress store. */
+export const getRevisionQueueFromStore = <T = Record<string, unknown>>(): Record<string, T> => {
+  const progress = getProgressSnapshot();
+  return (progress.revisionQueue as Record<string, T>) ?? {};
+};
+
+/** Save the revision queue map into the unified progress store. */
+export const saveRevisionQueueToStore = <T = Record<string, unknown>>(queue: Record<string, T>): void => {
+  const progress = readProgress();
+  progress.revisionQueue = queue as Record<string, unknown>;
+  writeProgress(progress);
+};
+

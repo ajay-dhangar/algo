@@ -23,6 +23,7 @@ import {
   getDueItems,
   getSpacedRepetitionQueue,
   type SpacedRepetitionItem,
+  type RecallDifficulty,
 } from "../../utils/spacedRepetition";
 import type { MockExamQuestion } from "../../utils/mockExamData";
 
@@ -69,6 +70,18 @@ function SpacedRepetitionReviewContent() {
     setLastReviewItem(updatedItem);
     setIsSubmitted(true);
     setResults((prev) => [...prev, { question: currentQuestion, isCorrect, selected: selectedOption }]);
+  };
+
+  const handleRateRecallDifficulty = (rating: RecallDifficulty) => {
+    if (!currentQuestion) return;
+    const updatedItem = recordQuestionReview(
+      currentQuestion.uniqueId,
+      currentQuestion.topicId,
+      currentQuestion.id,
+      rating,
+      userId
+    );
+    setLastReviewItem(updatedItem);
   };
 
   const handleNextQuestion = () => {
@@ -371,15 +384,59 @@ function SpacedRepetitionReviewContent() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/50 text-xs font-semibold">
-                <span className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/50 text-xs font-semibold">
+                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300">
                   <FaClock className="text-indigo-500" />
-                  Spaced Repetition Schedule:
-                </span>
-                <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400">
-                  Next review in {lastReviewItem.intervalDays}{" "}
-                  {lastReviewItem.intervalDays === 1 ? "day" : "days"}
-                </span>
+                  <span>Spaced Repetition Schedule:</span>
+                  <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                    Next review in {lastReviewItem.intervalDays}{" "}
+                    {lastReviewItem.intervalDays === 1 ? "day" : "days"} (EF: {lastReviewItem.easeFactor})
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <span className="text-[11px] text-slate-400 font-normal mr-1">Rate Recall:</span>
+                  <button
+                    onClick={() => handleRateRecallDifficulty("Again")}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border-0 cursor-pointer transition-colors ${
+                      lastReviewItem.difficultyRating === "Again"
+                        ? "bg-rose-600 text-white shadow-sm"
+                        : "bg-rose-100 hover:bg-rose-200 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300"
+                    }`}
+                  >
+                    Again
+                  </button>
+                  <button
+                    onClick={() => handleRateRecallDifficulty("Hard")}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border-0 cursor-pointer transition-colors ${
+                      lastReviewItem.difficultyRating === "Hard"
+                        ? "bg-amber-600 text-white shadow-sm"
+                        : "bg-amber-100 hover:bg-amber-200 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300"
+                    }`}
+                  >
+                    Hard
+                  </button>
+                  <button
+                    onClick={() => handleRateRecallDifficulty("Good")}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border-0 cursor-pointer transition-colors ${
+                      lastReviewItem.difficultyRating === "Good"
+                        ? "bg-indigo-600 text-white shadow-sm"
+                        : "bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300"
+                    }`}
+                  >
+                    Good
+                  </button>
+                  <button
+                    onClick={() => handleRateRecallDifficulty("Easy")}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border-0 cursor-pointer transition-colors ${
+                      lastReviewItem.difficultyRating === "Easy"
+                        ? "bg-emerald-600 text-white shadow-sm"
+                        : "bg-emerald-100 hover:bg-emerald-200 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300"
+                    }`}
+                  >
+                    Easy
+                  </button>
+                </div>
               </div>
             </motion.div>
           )}
