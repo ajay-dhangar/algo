@@ -1,0 +1,134 @@
+.discussionSection {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+  padding-top: 2rem;
+}
+
+/* ========================================================================= */
+/* Feedback Sentiment Widget Styles                                         */
+/* ========================================================================= */
+.feedbackWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1.25rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+
+.feedbackHeading {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.feedbackActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.feedbackBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-toc-border-color);
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feedbackBtn:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+}
+
+/* State management overlay toggles */
+.btnHelpful.btnActive {
+  background-color: rgba(22, 163, 74, 0.1);
+  border-color: #16a34a;
+  color: #16a34a;
+}
+
+.btnNotHelpful.btnActive {
+  background-color: rgba(220, 38, 38, 0.1);
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.contextNote {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.inlineIssueLink {
+  font-weight: 600;
+  text-decoration: underline !important;
+}
+
+.fadeText {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================================================= */
+/* Discussion Block Framework Card                                          */
+/* ========================================================================= */
+.discussionCard {
+  text-align: left;
+  background-color: var(--ifm-background-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.cardHeader {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.headerTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.25rem;
+}
+
+.iconBubble {
+  font-size: 1.2rem;
+}
+
+.mainHeading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ifm-heading-color);
+  border: none; /* Strip standard markdown bottom underline borders */
+  padding: 0;
+}
+
+.subtextHeading {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.4;
+}
+
+.giscusContainer {
+  padding: 1.5rem;
+}

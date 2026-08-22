@@ -141,13 +141,13 @@ const config = {
         playgroundPosition: "bottom",
       },
 
-      announcementBar: {
-        id: "star_us_announcement",
-        content:
-          '🌟 Loving the project? Support our open-source journey with a <b><a target="_blank" rel="noopener noreferrer" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b>!',
-        textColor: "var(--announcement-text)",
-        isCloseable: true,
-      },
+      // announcementBar: {
+      //   id: "star_us_announcement",
+      //   content:
+      //     '🌟 Loving the project? Support our open-source journey with a <b><a target="_blank" rel="noopener noreferrer" href="https://github.com/ajay-dhangar/algo">Star on GitHub</a></b>!',
+      //   textColor: "var(--announcement-text)",
+      //   isCloseable: true,
+      // },
       algolia: {
         appId: process.env.ALGOLIA_APP_ID || "T0I3F584D5",
         apiKey:
@@ -259,7 +259,7 @@ const config = {
               { to: "contributors", label: "Contributors Wall" },
               { to: "leaderboard", label: "Global Leaderboard" },
               { to: "achievements", label: "Milestones & Badges" },
-              { to: "sponsors", label: "Infrastructure Patrons" },
+              { to: "sponsors", label: "Become a Sponsor" },
               {
                 type: "html",
                 value:
@@ -295,18 +295,18 @@ const config = {
             type: "localeDropdown",
             position: "right",
           },
-          {
-            type: "custom-themePicker",
-            position: "right",
-          },
-          {
-            type: "custom-codeThemePicker",
-            position: "right",
-          },
-          {
-            type: "custom-cursorSwitcher",
-            position: "right",
-          },
+          // {
+          //   type: "custom-themePicker",
+          //   position: "right",
+          // },
+          // {
+          //   type: "custom-codeThemePicker",
+          //   position: "right",
+          // },
+          // {
+          //   type: "custom-cursorSwitcher",
+          //   position: "right",
+          // },
           {
             type: "search",
             position: "right",
