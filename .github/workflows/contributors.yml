@@ -1,0 +1,55 @@
+name: Monthly contributor reports
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "3 2 1 * *"
+
+permissions: {}
+
+jobs:
+  contributor_report:
+    name: contributor reports
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read       # Required to read ./contributors.md
+      discussions: write  # Required to create the monthly thank-you discussion
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      - name: Get dates for last month
+        shell: bash
+        run: |
+          # Calculate the first day of the previous month
+          start_date=$(date -d "last month" +%Y-%m-01)
+
+          # Calculate the last day of the previous month
+          end_date=$(date -d "$start_date +1 month -1 day" +%Y-%m-%d)
+
+          # Set environment variables with the date range
+          echo "START_DATE=$start_date" >> "$GITHUB_ENV"
+          echo "END_DATE=$end_date" >> "$GITHUB_ENV"
+
+      - name: Run contributor action
+        uses: github-community-projects/contributors@7e077779e5e7bf810cc722e15b38ee63f86b880e
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          START_DATE: ${{ env.START_DATE }}
+          END_DATE: ${{ env.END_DATE }}
+          REPOSITORY: "ajay-dhangar/algo"
+          SPONSOR_INFO: "true"
+          LINK_TO_PROFILE: "true"
+
+      - name: Create GitHub Discussion
+        uses: abirismyname/create-discussion@c2b7c825241769dda523865ae444a879f6bbd0e0
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          title: "Thank you Contributors!"
+          body-filepath: ./contributors.md
+          repository-id: "R_kgDOK224hg"
+          category-id: "DIC_kwDOK224hs4CjED"
