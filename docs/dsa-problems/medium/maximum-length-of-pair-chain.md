@@ -12,9 +12,7 @@ tags:
 companies:
   - Google
   - Amazon
-description: >-
-  Solve the Maximum Length of Pair Chain problem using Dynamic Programming
-  with memoization (LIS variant) and greedy interval scheduling.
+description: "Solve the Maximum Length of Pair Chain problem using Dynamic Programming with memoization (LIS variant) and greedy interval scheduling."
 ---
 
 ## Description:
