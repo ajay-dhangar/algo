@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-22T03:25:28.521Z",
-  "count": 90,
+  "generatedAt": "2026-09-08T06:33:08.619Z",
+  "count": 91,
   "difficulties": [
     "Easy",
     "Medium",
@@ -154,6 +154,10 @@
     {
       "value": "matrix",
       "label": "Matrix"
+    },
+    {
+      "value": "memoization",
+      "label": "Memoization"
     },
     {
       "value": "monotonic-queue",
@@ -860,6 +864,23 @@
       ],
       "companies": [],
       "url": "/docs/dsa-problems/medium/maximum-ice-cream-bars"
+    },
+    {
+      "id": "maximum-length-of-pair-chain",
+      "title": "Maximum Length of Pair Chain",
+      "description": "Solve the Maximum Length of Pair Chain problem using Dynamic Programming with memoization (LIS variant) and greedy interval scheduling.",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic-programming",
+        "array",
+        "greedy",
+        "memoization"
+      ],
+      "companies": [
+        "Google",
+        "Amazon"
+      ],
+      "url": "/docs/dsa-problems/medium/maximum-length-of-pair-chain"
     },
     {
       "id": "maximum-number-of-balloons",
@@ -2141,6 +2162,23 @@
       ],
       "companies": [],
       "url": "/docs/dsa-problems/medium/maximum-ice-cream-bars"
+    },
+    "maximum-length-of-pair-chain": {
+      "id": "maximum-length-of-pair-chain",
+      "title": "Maximum Length of Pair Chain",
+      "description": "Solve the Maximum Length of Pair Chain problem using Dynamic Programming with memoization (LIS variant) and greedy interval scheduling.",
+      "difficulty": "Medium",
+      "tags": [
+        "dynamic-programming",
+        "array",
+        "greedy",
+        "memoization"
+      ],
+      "companies": [
+        "Google",
+        "Amazon"
+      ],
+      "url": "/docs/dsa-problems/medium/maximum-length-of-pair-chain"
     },
     "maximum-number-of-balloons": {
       "id": "maximum-number-of-balloons",
