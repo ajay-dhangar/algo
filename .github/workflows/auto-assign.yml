@@ -27,7 +27,7 @@ jobs:
 
       - name: Assign the issue to the contributor
         if: steps.check_assignee.outputs.already_assigned == 'false'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.addAssignees({
@@ -39,7 +39,7 @@ jobs:
 
       - name: Add success confirmation comment
         if: steps.check_assignee.outputs.already_assigned == 'false'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.createComment({
