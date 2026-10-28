@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Scan open PRs for merge conflicts
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const owner = context.repo.owner;
